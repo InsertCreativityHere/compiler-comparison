@@ -34,57 +34,6 @@
 namespace
 {
 
-const ::std::string iceC_Test_Backend_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Backend"
-};
-const ::std::string iceC_Test_Backend_ops[] =
-{
-    "check",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "shutdown"
-};
-const ::std::string iceC_Test_Backend_check_name = "check";
-const ::std::string iceC_Test_Backend_shutdown_name = "shutdown";
-
-const ::std::string iceC_Test_TestController_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::TestController"
-};
-const ::std::string iceC_Test_TestController_ops[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "shutdown",
-    "step"
-};
-const ::std::string iceC_Test_TestController_step_name = "step";
-const ::std::string iceC_Test_TestController_shutdown_name = "shutdown";
-
-const ::std::string iceC_Test_TestSession_ids[3] =
-{
-    "::Glacier2::Session",
-    "::Ice::Object",
-    "::Test::TestSession"
-};
-const ::std::string iceC_Test_TestSession_ops[] =
-{
-    "destroy",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "shutdown"
-};
-const ::std::string iceC_Test_TestSession_shutdown_name = "shutdown";
-
 }
 
 void
@@ -112,7 +61,9 @@ Test::BackendPrx::checkAsync(::std::function<void ()> response,
 void
 Test::BackendPrx::_iceI_check(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Backend_check_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "check";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -143,7 +94,9 @@ Test::BackendPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::BackendPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Backend_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "shutdown";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -182,8 +135,10 @@ Test::TestControllerPrx::stepAsync(const ::std::optional<::Glacier2::SessionPrx>
 void
 Test::TestControllerPrx::_iceI_step(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestToken>>& outAsync, const ::std::optional<::Glacier2::SessionPrx>& iceP_currentSession, const TestToken& iceP_currentState, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestController_step_name);
-    outAsync->invoke(iceC_Test_TestController_step_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "step";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_currentSession, iceP_currentState);
@@ -217,7 +172,9 @@ Test::TestControllerPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::TestControllerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_TestController_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "shutdown";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -255,7 +212,9 @@ Test::TestSessionPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::TestSessionPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_TestSession_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "shutdown";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -268,16 +227,11 @@ Test::TestSessionPrx::ice_staticId()
     return typeId;
 }
 
-bool
-Test::Backend::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Backend_ids, iceC_Test_Backend_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::Backend::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_Backend_ids[0], &iceC_Test_Backend_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Backend" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -321,13 +275,15 @@ Test::Backend::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current
 bool
 Test::Backend::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Backend_ops, iceC_Test_Backend_ops + 6, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "check", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_Backend_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -362,16 +318,11 @@ Test::Backend::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
 }
 /// \endcond
 
-bool
-Test::TestController::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_TestController_ids, iceC_Test_TestController_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::TestController::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_TestController_ids[0], &iceC_Test_TestController_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::TestController" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -422,13 +373,15 @@ Test::TestController::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::
 bool
 Test::TestController::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_TestController_ops, iceC_Test_TestController_ops + 6, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown", "step" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_TestController_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -463,16 +416,11 @@ Test::TestController::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cur
 }
 /// \endcond
 
-bool
-Test::TestSession::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_TestSession_ids, iceC_Test_TestSession_ids + 3, s);
-}
-
 ::std::vector<::std::string>
 Test::TestSession::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_TestSession_ids[0], &iceC_Test_TestSession_ids[3]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Glacier2::Session", "::Ice::Object", "::Test::TestSession" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -504,13 +452,15 @@ Test::TestSession::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Cur
 bool
 Test::TestSession::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_TestSession_ops, iceC_Test_TestSession_ops + 6, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "destroy", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_TestSession_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

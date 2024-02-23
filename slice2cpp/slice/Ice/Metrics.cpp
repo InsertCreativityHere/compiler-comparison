@@ -41,31 +41,6 @@ const ::IceInternal::DefaultValueFactoryInit<::IceMX::Metrics> iceC_IceMX_Metric
 
 const ::IceInternal::DefaultUserExceptionFactoryInit<::IceMX::UnknownMetricsView> iceC_IceMX_UnknownMetricsView_init("::IceMX::UnknownMetricsView");
 
-const ::std::string iceC_IceMX_MetricsAdmin_ids[2] =
-{
-    "::Ice::Object",
-    "::IceMX::MetricsAdmin"
-};
-const ::std::string iceC_IceMX_MetricsAdmin_ops[] =
-{
-    "disableMetricsView",
-    "enableMetricsView",
-    "getMapMetricsFailures",
-    "getMetricsFailures",
-    "getMetricsView",
-    "getMetricsViewNames",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_IceMX_MetricsAdmin_getMetricsViewNames_name = "getMetricsViewNames";
-const ::std::string iceC_IceMX_MetricsAdmin_enableMetricsView_name = "enableMetricsView";
-const ::std::string iceC_IceMX_MetricsAdmin_disableMetricsView_name = "disableMetricsView";
-const ::std::string iceC_IceMX_MetricsAdmin_getMetricsView_name = "getMetricsView";
-const ::std::string iceC_IceMX_MetricsAdmin_getMapMetricsFailures_name = "getMapMetricsFailures";
-const ::std::string iceC_IceMX_MetricsAdmin_getMetricsFailures_name = "getMetricsFailures";
-
 const ::IceInternal::DefaultValueFactoryInit<::IceMX::ThreadMetrics> iceC_IceMX_ThreadMetrics_init("::IceMX::ThreadMetrics");
 
 const ::IceInternal::DefaultValueFactoryInit<::IceMX::DispatchMetrics> iceC_IceMX_DispatchMetrics_init("::IceMX::DispatchMetrics");
@@ -113,8 +88,10 @@ IceMX::MetricsAdminPrx::getMetricsViewNamesAsync(::std::function<void (::Ice::St
 void
 IceMX::MetricsAdminPrx::_iceI_getMetricsViewNames(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Ice::StringSeq, ::Ice::StringSeq>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_IceMX_MetricsAdmin_getMetricsViewNames_name);
-    outAsync->invoke(iceC_IceMX_MetricsAdmin_getMetricsViewNames_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "getMetricsViewNames";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         nullptr,
         nullptr,
         [](::Ice::InputStream* istr)
@@ -152,8 +129,10 @@ IceMX::MetricsAdminPrx::enableMetricsViewAsync(const ::std::string& iceP_name,
 void
 IceMX::MetricsAdminPrx::_iceI_enableMetricsView(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_name, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_IceMX_MetricsAdmin_enableMetricsView_name);
-    outAsync->invoke(iceC_IceMX_MetricsAdmin_enableMetricsView_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "enableMetricsView";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_name);
@@ -201,8 +180,10 @@ IceMX::MetricsAdminPrx::disableMetricsViewAsync(const ::std::string& iceP_name,
 void
 IceMX::MetricsAdminPrx::_iceI_disableMetricsView(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_name, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_IceMX_MetricsAdmin_disableMetricsView_name);
-    outAsync->invoke(iceC_IceMX_MetricsAdmin_disableMetricsView_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "disableMetricsView";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_name);
@@ -256,8 +237,10 @@ IceMX::MetricsAdminPrx::getMetricsViewAsync(const ::std::string& iceP_view,
 void
 IceMX::MetricsAdminPrx::_iceI_getMetricsView(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<MetricsView, ::std::int64_t>>>& outAsync, const ::std::string& iceP_view, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_IceMX_MetricsAdmin_getMetricsView_name);
-    outAsync->invoke(iceC_IceMX_MetricsAdmin_getMetricsView_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "getMetricsView";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_view);
@@ -312,8 +295,10 @@ IceMX::MetricsAdminPrx::getMapMetricsFailuresAsync(const ::std::string& iceP_vie
 void
 IceMX::MetricsAdminPrx::_iceI_getMapMetricsFailures(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MetricsFailuresSeq>>& outAsync, const ::std::string& iceP_view, const ::std::string& iceP_map, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_IceMX_MetricsAdmin_getMapMetricsFailures_name);
-    outAsync->invoke(iceC_IceMX_MetricsAdmin_getMapMetricsFailures_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "getMapMetricsFailures";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_view, iceP_map);
@@ -361,8 +346,10 @@ IceMX::MetricsAdminPrx::getMetricsFailuresAsync(const ::std::string& iceP_view, 
 void
 IceMX::MetricsAdminPrx::_iceI_getMetricsFailures(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MetricsFailures>>& outAsync, const ::std::string& iceP_view, const ::std::string& iceP_map, const ::std::string& iceP_id, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_IceMX_MetricsAdmin_getMetricsFailures_name);
-    outAsync->invoke(iceC_IceMX_MetricsAdmin_getMetricsFailures_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "getMetricsFailures";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_view, iceP_map, iceP_id);
@@ -490,16 +477,11 @@ IceMX::ConnectionMetrics::ice_staticId()
     return typeId;
 }
 
-bool
-IceMX::MetricsAdmin::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_IceMX_MetricsAdmin_ids, iceC_IceMX_MetricsAdmin_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 IceMX::MetricsAdmin::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_IceMX_MetricsAdmin_ids[0], &iceC_IceMX_MetricsAdmin_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::IceMX::MetricsAdmin" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -626,13 +608,15 @@ IceMX::MetricsAdmin::_iceD_getMetricsFailures(::IceInternal::Incoming& inS, cons
 bool
 IceMX::MetricsAdmin::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_IceMX_MetricsAdmin_ops, iceC_IceMX_MetricsAdmin_ops + 10, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "disableMetricsView", "enableMetricsView", "getMapMetricsFailures", "getMetricsFailures", "getMetricsView", "getMetricsViewNames", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 10, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_IceMX_MetricsAdmin_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

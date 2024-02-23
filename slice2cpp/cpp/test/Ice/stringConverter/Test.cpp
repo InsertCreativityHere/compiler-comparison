@@ -36,25 +36,6 @@ namespace
 
 const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::BadEncodingException> iceC_Test_BadEncodingException_init("::Test::BadEncodingException");
 
-const ::std::string iceC_Test_MyObject_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::MyObject"
-};
-const ::std::string iceC_Test_MyObject_ops[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "narrow",
-    "shutdown",
-    "widen"
-};
-const ::std::string iceC_Test_MyObject_widen_name = "widen";
-const ::std::string iceC_Test_MyObject_narrow_name = "narrow";
-const ::std::string iceC_Test_MyObject_shutdown_name = "shutdown";
-
 }
 
 ::std::wstring
@@ -83,8 +64,10 @@ Test::MyObjectPrx::widenAsync(const ::std::string& iceP_msg,
 void
 Test::MyObjectPrx::_iceI_widen(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::wstring>>& outAsync, const ::std::string& iceP_msg, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_MyObject_widen_name);
-    outAsync->invoke(iceC_Test_MyObject_widen_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "widen";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_msg);
@@ -132,8 +115,10 @@ Test::MyObjectPrx::narrowAsync(const ::std::wstring& iceP_wmsg,
 void
 Test::MyObjectPrx::_iceI_narrow(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::std::wstring& iceP_wmsg, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_MyObject_narrow_name);
-    outAsync->invoke(iceC_Test_MyObject_narrow_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "narrow";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_wmsg);
@@ -167,7 +152,9 @@ Test::MyObjectPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::MyObjectPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_MyObject_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "shutdown";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -191,16 +178,11 @@ Test::BadEncodingException::ice_staticId()
     return typeId;
 }
 
-bool
-Test::MyObject::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_MyObject_ids, iceC_Test_MyObject_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::MyObject::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_MyObject_ids[0], &iceC_Test_MyObject_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::MyObject" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -266,13 +248,15 @@ Test::MyObject::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Curren
 bool
 Test::MyObject::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_MyObject_ops, iceC_Test_MyObject_ops + 7, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "narrow", "shutdown", "widen" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_MyObject_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

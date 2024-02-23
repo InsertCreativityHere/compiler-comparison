@@ -34,21 +34,6 @@
 namespace
 {
 
-const ::std::string iceC_Test_Interface1_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Interface1"
-};
-const ::std::string iceC_Test_Interface1_ops[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "method"
-};
-const ::std::string iceC_Test_Interface1_method_name = "method";
-
 const ::IceInternal::DefaultValueFactoryInit<::Test2::Class1> iceC_Test2_Class1_init("::Test2::Class1");
 
 }
@@ -78,7 +63,9 @@ Test::Interface1Prx::methodAsync(::std::function<void ()> response,
 void
 Test::Interface1Prx::_iceI_method(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Interface1_method_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "method";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -102,16 +89,11 @@ Test2::Class1::ice_staticId()
     return typeId;
 }
 
-bool
-Test::Interface1::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Interface1_ids, iceC_Test_Interface1_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::Interface1::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_Interface1_ids[0], &iceC_Test_Interface1_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Interface1" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -143,13 +125,15 @@ Test::Interface1::_iceD_method(::IceInternal::Incoming& inS, const ::Ice::Curren
 bool
 Test::Interface1::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Interface1_ops, iceC_Test_Interface1_ops + 5, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "method" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_Interface1_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

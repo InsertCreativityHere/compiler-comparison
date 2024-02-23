@@ -34,54 +34,7 @@
 namespace
 {
 
-const ::std::string iceC_and_break_ids[2] =
-{
-    "::Ice::Object",
-    "::and::break"
-};
-const ::std::string iceC_and_break_ops[] =
-{
-    "case",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_and_break_case_name = "case";
-
-const ::std::string iceC_and_func_ids[2] =
-{
-    "::Ice::Object",
-    "::and::func"
-};
-const ::std::string iceC_and_func_ops[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "public"
-};
-const ::std::string iceC_and_func_public_name = "public";
-
 const ::IceInternal::DefaultValueFactoryInit<::_cpp_and::_cpp_switch> iceC_and_switch_init("::and::switch");
-
-const ::std::string iceC_and_do_ids[4] =
-{
-    "::Ice::Object",
-    "::and::break",
-    "::and::do",
-    "::and::func"
-};
-const ::std::string iceC_and_do_ops[] =
-{
-    "case",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "public"
-};
 
 const ::IceInternal::DefaultUserExceptionFactoryInit<::_cpp_and::_cpp_return> iceC_and_return_init("::and::return");
 
@@ -115,8 +68,10 @@ _cpp_and::breakPrx::caseAsync(::std::int32_t iceP_catch,
 void
 _cpp_and::breakPrx::_iceI_case(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_catch, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_and_break_case_name);
-    outAsync->invoke(iceC_and_break_case_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "case";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_catch);
@@ -157,7 +112,9 @@ _cpp_and::funcPrx::publicAsync(::std::function<void ()> response,
 void
 _cpp_and::funcPrx::_iceI_public(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_and_func_public_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "public";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -210,16 +167,11 @@ _cpp_and::as::ice_staticId()
     return typeId;
 }
 
-bool
-_cpp_and::_cpp_break::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_and_break_ids, iceC_and_break_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 _cpp_and::_cpp_break::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_and_break_ids[0], &iceC_and_break_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::and::break" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -261,13 +213,15 @@ _cpp_and::_cpp_break::_iceD_case(::IceInternal::Incoming& inS, const ::Ice::Curr
 bool
 _cpp_and::_cpp_break::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_and_break_ops, iceC_and_break_ops + 5, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "case", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_and_break_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -298,16 +252,11 @@ _cpp_and::_cpp_break::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cur
 }
 /// \endcond
 
-bool
-_cpp_and::func::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_and_func_ids, iceC_and_func_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 _cpp_and::func::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_and_func_ids[0], &iceC_and_func_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::and::func" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -339,13 +288,15 @@ _cpp_and::func::_iceD_public(::IceInternal::Incoming& inS, const ::Ice::Current&
 bool
 _cpp_and::func::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_and_func_ops, iceC_and_func_ops + 5, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "public" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_and_func_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -376,16 +327,11 @@ _cpp_and::func::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
 }
 /// \endcond
 
-bool
-_cpp_and::_cpp_do::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_and_do_ids, iceC_and_do_ids + 4, s);
-}
-
 ::std::vector<::std::string>
 _cpp_and::_cpp_do::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_and_do_ids[0], &iceC_and_do_ids[4]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::and::break", "::and::do", "::and::func" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -405,13 +351,15 @@ _cpp_and::_cpp_do::ice_staticId()
 bool
 _cpp_and::_cpp_do::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_and_do_ops, iceC_and_do_ops + 6, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "case", "ice_id", "ice_ids", "ice_isA", "ice_ping", "public" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_and_do_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

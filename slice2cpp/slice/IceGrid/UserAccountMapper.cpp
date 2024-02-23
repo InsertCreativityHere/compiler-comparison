@@ -39,21 +39,6 @@ namespace
 
 const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::UserAccountNotFoundException> iceC_IceGrid_UserAccountNotFoundException_init("::IceGrid::UserAccountNotFoundException");
 
-const ::std::string iceC_IceGrid_UserAccountMapper_ids[2] =
-{
-    "::Ice::Object",
-    "::IceGrid::UserAccountMapper"
-};
-const ::std::string iceC_IceGrid_UserAccountMapper_ops[] =
-{
-    "getUserAccount",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_IceGrid_UserAccountMapper_getUserAccount_name = "getUserAccount";
-
 }
 
 ::std::string
@@ -82,8 +67,10 @@ IceGrid::UserAccountMapperPrx::getUserAccountAsync(const ::std::string& iceP_use
 void
 IceGrid::UserAccountMapperPrx::_iceI_getUserAccount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::std::string& iceP_user, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_IceGrid_UserAccountMapper_getUserAccount_name);
-    outAsync->invoke(iceC_IceGrid_UserAccountMapper_getUserAccount_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getUserAccount";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_user);
@@ -123,16 +110,11 @@ IceGrid::UserAccountNotFoundException::ice_staticId()
     return typeId;
 }
 
-bool
-IceGrid::UserAccountMapper::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_IceGrid_UserAccountMapper_ids, iceC_IceGrid_UserAccountMapper_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 IceGrid::UserAccountMapper::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_IceGrid_UserAccountMapper_ids[0], &iceC_IceGrid_UserAccountMapper_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::IceGrid::UserAccountMapper" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -169,13 +151,15 @@ IceGrid::UserAccountMapper::_iceD_getUserAccount(::IceInternal::Incoming& inS, c
 bool
 IceGrid::UserAccountMapper::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_IceGrid_UserAccountMapper_ops, iceC_IceGrid_UserAccountMapper_ops + 5, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "getUserAccount", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_IceGrid_UserAccountMapper_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

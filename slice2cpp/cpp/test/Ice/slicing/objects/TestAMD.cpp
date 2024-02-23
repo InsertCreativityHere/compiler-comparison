@@ -60,93 +60,6 @@ const ::IceInternal::DefaultValueFactoryInit<::Test::PNode> iceC_Test_PNode_init
 
 const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::PreservedException> iceC_Test_PreservedException_init("::Test::PreservedException");
 
-const ::std::string iceC_Test_TestIntf_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::TestIntf"
-};
-const ::std::string iceC_Test_TestIntf_ops[] =
-{
-    "D1AsB",
-    "D1AsD1",
-    "D2AsB",
-    "PBSUnknown2AsPreservedWithGraph",
-    "PBSUnknownAsPreserved",
-    "PBSUnknownAsPreservedWithGraph",
-    "SBSKnownDerivedAsSBSKnownDerived",
-    "SBSKnownDerivedAsSBase",
-    "SBSUnknownDerivedAsSBase",
-    "SBSUnknownDerivedAsSBaseCompact",
-    "SBaseAsObject",
-    "SBaseAsSBase",
-    "SUnknownAsObject",
-    "checkPBSUnknown",
-    "checkPBSUnknown2WithGraph",
-    "checkPBSUnknownWithGraph",
-    "checkSUnknown",
-    "dictionaryTest",
-    "exchangePBase",
-    "exchangePNode",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "oneElementCycle",
-    "paramTest1",
-    "paramTest2",
-    "paramTest3",
-    "paramTest4",
-    "returnTest1",
-    "returnTest2",
-    "returnTest3",
-    "sequenceTest",
-    "shutdown",
-    "throwBaseAsBase",
-    "throwDerivedAsBase",
-    "throwDerivedAsDerived",
-    "throwPreservedException",
-    "throwUnknownDerivedAsBase",
-    "twoElementCycle",
-    "useForward"
-};
-const ::std::string iceC_Test_TestIntf_SBaseAsObject_name = "SBaseAsObject";
-const ::std::string iceC_Test_TestIntf_SBaseAsSBase_name = "SBaseAsSBase";
-const ::std::string iceC_Test_TestIntf_SBSKnownDerivedAsSBase_name = "SBSKnownDerivedAsSBase";
-const ::std::string iceC_Test_TestIntf_SBSKnownDerivedAsSBSKnownDerived_name = "SBSKnownDerivedAsSBSKnownDerived";
-const ::std::string iceC_Test_TestIntf_SBSUnknownDerivedAsSBase_name = "SBSUnknownDerivedAsSBase";
-const ::std::string iceC_Test_TestIntf_SBSUnknownDerivedAsSBaseCompact_name = "SBSUnknownDerivedAsSBaseCompact";
-const ::std::string iceC_Test_TestIntf_SUnknownAsObject_name = "SUnknownAsObject";
-const ::std::string iceC_Test_TestIntf_checkSUnknown_name = "checkSUnknown";
-const ::std::string iceC_Test_TestIntf_oneElementCycle_name = "oneElementCycle";
-const ::std::string iceC_Test_TestIntf_twoElementCycle_name = "twoElementCycle";
-const ::std::string iceC_Test_TestIntf_D1AsB_name = "D1AsB";
-const ::std::string iceC_Test_TestIntf_D1AsD1_name = "D1AsD1";
-const ::std::string iceC_Test_TestIntf_D2AsB_name = "D2AsB";
-const ::std::string iceC_Test_TestIntf_paramTest1_name = "paramTest1";
-const ::std::string iceC_Test_TestIntf_paramTest2_name = "paramTest2";
-const ::std::string iceC_Test_TestIntf_paramTest3_name = "paramTest3";
-const ::std::string iceC_Test_TestIntf_paramTest4_name = "paramTest4";
-const ::std::string iceC_Test_TestIntf_returnTest1_name = "returnTest1";
-const ::std::string iceC_Test_TestIntf_returnTest2_name = "returnTest2";
-const ::std::string iceC_Test_TestIntf_returnTest3_name = "returnTest3";
-const ::std::string iceC_Test_TestIntf_sequenceTest_name = "sequenceTest";
-const ::std::string iceC_Test_TestIntf_dictionaryTest_name = "dictionaryTest";
-const ::std::string iceC_Test_TestIntf_exchangePBase_name = "exchangePBase";
-const ::std::string iceC_Test_TestIntf_PBSUnknownAsPreserved_name = "PBSUnknownAsPreserved";
-const ::std::string iceC_Test_TestIntf_checkPBSUnknown_name = "checkPBSUnknown";
-const ::std::string iceC_Test_TestIntf_PBSUnknownAsPreservedWithGraph_name = "PBSUnknownAsPreservedWithGraph";
-const ::std::string iceC_Test_TestIntf_checkPBSUnknownWithGraph_name = "checkPBSUnknownWithGraph";
-const ::std::string iceC_Test_TestIntf_PBSUnknown2AsPreservedWithGraph_name = "PBSUnknown2AsPreservedWithGraph";
-const ::std::string iceC_Test_TestIntf_checkPBSUnknown2WithGraph_name = "checkPBSUnknown2WithGraph";
-const ::std::string iceC_Test_TestIntf_exchangePNode_name = "exchangePNode";
-const ::std::string iceC_Test_TestIntf_throwBaseAsBase_name = "throwBaseAsBase";
-const ::std::string iceC_Test_TestIntf_throwDerivedAsBase_name = "throwDerivedAsBase";
-const ::std::string iceC_Test_TestIntf_throwDerivedAsDerived_name = "throwDerivedAsDerived";
-const ::std::string iceC_Test_TestIntf_throwUnknownDerivedAsBase_name = "throwUnknownDerivedAsBase";
-const ::std::string iceC_Test_TestIntf_throwPreservedException_name = "throwPreservedException";
-const ::std::string iceC_Test_TestIntf_useForward_name = "useForward";
-const ::std::string iceC_Test_TestIntf_shutdown_name = "shutdown";
-
 const ::IceInternal::DefaultValueFactoryInit<::Test::Hidden> iceC_Test_Hidden_init("::Test::Hidden");
 
 const ::IceInternal::DefaultValueFactoryInit<::Test::Forward> iceC_Test_Forward_init("::Test::Forward");
@@ -178,8 +91,10 @@ Test::TestIntfPrx::SBaseAsObjectAsync(::std::function<void (::std::shared_ptr<::
 void
 Test::TestIntfPrx::_iceI_SBaseAsObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::Value>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_SBaseAsObject_name);
-    outAsync->invoke(iceC_Test_TestIntf_SBaseAsObject_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "SBaseAsObject";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         nullptr,
         nullptr,
         [](::Ice::InputStream* istr)
@@ -217,8 +132,10 @@ Test::TestIntfPrx::SBaseAsSBaseAsync(::std::function<void (::std::shared_ptr<::T
 void
 Test::TestIntfPrx::_iceI_SBaseAsSBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<SBase>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_SBaseAsSBase_name);
-    outAsync->invoke(iceC_Test_TestIntf_SBaseAsSBase_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "SBaseAsSBase";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         nullptr,
         nullptr,
         [](::Ice::InputStream* istr)
@@ -256,8 +173,10 @@ Test::TestIntfPrx::SBSKnownDerivedAsSBaseAsync(::std::function<void (::std::shar
 void
 Test::TestIntfPrx::_iceI_SBSKnownDerivedAsSBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<SBase>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_SBSKnownDerivedAsSBase_name);
-    outAsync->invoke(iceC_Test_TestIntf_SBSKnownDerivedAsSBase_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "SBSKnownDerivedAsSBase";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         nullptr,
         nullptr,
         [](::Ice::InputStream* istr)
@@ -295,8 +214,10 @@ Test::TestIntfPrx::SBSKnownDerivedAsSBSKnownDerivedAsync(::std::function<void (:
 void
 Test::TestIntfPrx::_iceI_SBSKnownDerivedAsSBSKnownDerived(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<SBSKnownDerived>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_SBSKnownDerivedAsSBSKnownDerived_name);
-    outAsync->invoke(iceC_Test_TestIntf_SBSKnownDerivedAsSBSKnownDerived_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "SBSKnownDerivedAsSBSKnownDerived";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         nullptr,
         nullptr,
         [](::Ice::InputStream* istr)
@@ -334,8 +255,10 @@ Test::TestIntfPrx::SBSUnknownDerivedAsSBaseAsync(::std::function<void (::std::sh
 void
 Test::TestIntfPrx::_iceI_SBSUnknownDerivedAsSBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<SBase>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_SBSUnknownDerivedAsSBase_name);
-    outAsync->invoke(iceC_Test_TestIntf_SBSUnknownDerivedAsSBase_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "SBSUnknownDerivedAsSBase";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         nullptr,
         nullptr,
         [](::Ice::InputStream* istr)
@@ -373,8 +296,10 @@ Test::TestIntfPrx::SBSUnknownDerivedAsSBaseCompactAsync(::std::function<void (::
 void
 Test::TestIntfPrx::_iceI_SBSUnknownDerivedAsSBaseCompact(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<SBase>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_SBSUnknownDerivedAsSBaseCompact_name);
-    outAsync->invoke(iceC_Test_TestIntf_SBSUnknownDerivedAsSBaseCompact_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::CompactFormat, context,
+    static const ::std::string operationName = "SBSUnknownDerivedAsSBaseCompact";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::CompactFormat, context,
         nullptr,
         nullptr,
         [](::Ice::InputStream* istr)
@@ -412,8 +337,10 @@ Test::TestIntfPrx::SUnknownAsObjectAsync(::std::function<void (::std::shared_ptr
 void
 Test::TestIntfPrx::_iceI_SUnknownAsObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::Value>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_SUnknownAsObject_name);
-    outAsync->invoke(iceC_Test_TestIntf_SUnknownAsObject_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "SUnknownAsObject";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         nullptr,
         nullptr,
         [](::Ice::InputStream* istr)
@@ -452,7 +379,9 @@ Test::TestIntfPrx::checkSUnknownAsync(const ::std::shared_ptr<::Ice::Value>& ice
 void
 Test::TestIntfPrx::_iceI_checkSUnknown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<::Ice::Value>& iceP_o, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_TestIntf_checkSUnknown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "checkSUnknown";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_o);
@@ -487,8 +416,10 @@ Test::TestIntfPrx::oneElementCycleAsync(::std::function<void (::std::shared_ptr<
 void
 Test::TestIntfPrx::_iceI_oneElementCycle(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<B>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_oneElementCycle_name);
-    outAsync->invoke(iceC_Test_TestIntf_oneElementCycle_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "oneElementCycle";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         nullptr,
         nullptr,
         [](::Ice::InputStream* istr)
@@ -526,8 +457,10 @@ Test::TestIntfPrx::twoElementCycleAsync(::std::function<void (::std::shared_ptr<
 void
 Test::TestIntfPrx::_iceI_twoElementCycle(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<B>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_twoElementCycle_name);
-    outAsync->invoke(iceC_Test_TestIntf_twoElementCycle_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "twoElementCycle";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         nullptr,
         nullptr,
         [](::Ice::InputStream* istr)
@@ -565,8 +498,10 @@ Test::TestIntfPrx::D1AsBAsync(::std::function<void (::std::shared_ptr<::Test::B>
 void
 Test::TestIntfPrx::_iceI_D1AsB(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<B>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_D1AsB_name);
-    outAsync->invoke(iceC_Test_TestIntf_D1AsB_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "D1AsB";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         nullptr,
         nullptr,
         [](::Ice::InputStream* istr)
@@ -604,8 +539,10 @@ Test::TestIntfPrx::D1AsD1Async(::std::function<void (::std::shared_ptr<::Test::D
 void
 Test::TestIntfPrx::_iceI_D1AsD1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<D1>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_D1AsD1_name);
-    outAsync->invoke(iceC_Test_TestIntf_D1AsD1_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "D1AsD1";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         nullptr,
         nullptr,
         [](::Ice::InputStream* istr)
@@ -643,8 +580,10 @@ Test::TestIntfPrx::D2AsBAsync(::std::function<void (::std::shared_ptr<::Test::B>
 void
 Test::TestIntfPrx::_iceI_D2AsB(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<B>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_D2AsB_name);
-    outAsync->invoke(iceC_Test_TestIntf_D2AsB_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "D2AsB";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         nullptr,
         nullptr,
         [](::Ice::InputStream* istr)
@@ -688,8 +627,10 @@ Test::TestIntfPrx::paramTest1Async(::std::function<void (::std::shared_ptr<::Tes
 void
 Test::TestIntfPrx::_iceI_paramTest1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_paramTest1_name);
-    outAsync->invoke(iceC_Test_TestIntf_paramTest1_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "paramTest1";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         nullptr,
         nullptr,
         [](::Ice::InputStream* istr)
@@ -733,8 +674,10 @@ Test::TestIntfPrx::paramTest2Async(::std::function<void (::std::shared_ptr<::Tes
 void
 Test::TestIntfPrx::_iceI_paramTest2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_paramTest2_name);
-    outAsync->invoke(iceC_Test_TestIntf_paramTest2_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "paramTest2";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         nullptr,
         nullptr,
         [](::Ice::InputStream* istr)
@@ -779,8 +722,10 @@ Test::TestIntfPrx::paramTest3Async(::std::function<void (::std::shared_ptr<::Tes
 void
 Test::TestIntfPrx::_iceI_paramTest3(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>, ::std::shared_ptr<B>>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_paramTest3_name);
-    outAsync->invoke(iceC_Test_TestIntf_paramTest3_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "paramTest3";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         nullptr,
         nullptr,
         [](::Ice::InputStream* istr)
@@ -824,8 +769,10 @@ Test::TestIntfPrx::paramTest4Async(::std::function<void (::std::shared_ptr<::Tes
 void
 Test::TestIntfPrx::_iceI_paramTest4(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_paramTest4_name);
-    outAsync->invoke(iceC_Test_TestIntf_paramTest4_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "paramTest4";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         nullptr,
         nullptr,
         [](::Ice::InputStream* istr)
@@ -870,8 +817,10 @@ Test::TestIntfPrx::returnTest1Async(::std::function<void (::std::shared_ptr<::Te
 void
 Test::TestIntfPrx::_iceI_returnTest1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>, ::std::shared_ptr<B>>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_returnTest1_name);
-    outAsync->invoke(iceC_Test_TestIntf_returnTest1_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "returnTest1";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         nullptr,
         nullptr,
         [](::Ice::InputStream* istr)
@@ -916,8 +865,10 @@ Test::TestIntfPrx::returnTest2Async(::std::function<void (::std::shared_ptr<::Te
 void
 Test::TestIntfPrx::_iceI_returnTest2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>, ::std::shared_ptr<B>>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_returnTest2_name);
-    outAsync->invoke(iceC_Test_TestIntf_returnTest2_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "returnTest2";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         nullptr,
         nullptr,
         [](::Ice::InputStream* istr)
@@ -956,8 +907,10 @@ Test::TestIntfPrx::returnTest3Async(const ::std::shared_ptr<B>& iceP_p1, const :
 void
 Test::TestIntfPrx::_iceI_returnTest3(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<B>>>& outAsync, const ::std::shared_ptr<B>& iceP_p1, const ::std::shared_ptr<B>& iceP_p2, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_returnTest3_name);
-    outAsync->invoke(iceC_Test_TestIntf_returnTest3_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "returnTest3";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_p1, iceP_p2);
@@ -1000,8 +953,10 @@ Test::TestIntfPrx::sequenceTestAsync(const ::std::shared_ptr<SS1>& iceP_p1, cons
 void
 Test::TestIntfPrx::_iceI_sequenceTest(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<SS3>>& outAsync, const ::std::shared_ptr<SS1>& iceP_p1, const ::std::shared_ptr<SS2>& iceP_p2, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_sequenceTest_name);
-    outAsync->invoke(iceC_Test_TestIntf_sequenceTest_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "sequenceTest";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_p1, iceP_p2);
@@ -1050,8 +1005,10 @@ Test::TestIntfPrx::dictionaryTestAsync(const BDict& iceP_bin,
 void
 Test::TestIntfPrx::_iceI_dictionaryTest(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<BDict, BDict>>>& outAsync, const BDict& iceP_bin, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_dictionaryTest_name);
-    outAsync->invoke(iceC_Test_TestIntf_dictionaryTest_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "dictionaryTest";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_bin);
@@ -1094,8 +1051,10 @@ Test::TestIntfPrx::exchangePBaseAsync(const ::std::shared_ptr<PBase>& iceP_pb,
 void
 Test::TestIntfPrx::_iceI_exchangePBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<PBase>>>& outAsync, const ::std::shared_ptr<PBase>& iceP_pb, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_exchangePBase_name);
-    outAsync->invoke(iceC_Test_TestIntf_exchangePBase_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "exchangePBase";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_pb);
@@ -1137,8 +1096,10 @@ Test::TestIntfPrx::PBSUnknownAsPreservedAsync(::std::function<void (::std::share
 void
 Test::TestIntfPrx::_iceI_PBSUnknownAsPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<Preserved>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_PBSUnknownAsPreserved_name);
-    outAsync->invoke(iceC_Test_TestIntf_PBSUnknownAsPreserved_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "PBSUnknownAsPreserved";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         nullptr,
         nullptr,
         [](::Ice::InputStream* istr)
@@ -1177,7 +1138,9 @@ Test::TestIntfPrx::checkPBSUnknownAsync(const ::std::shared_ptr<Preserved>& iceP
 void
 Test::TestIntfPrx::_iceI_checkPBSUnknown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<Preserved>& iceP_p, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_TestIntf_checkPBSUnknown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "checkPBSUnknown";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_p);
@@ -1212,8 +1175,10 @@ Test::TestIntfPrx::PBSUnknownAsPreservedWithGraphAsync(::std::function<void (::s
 void
 Test::TestIntfPrx::_iceI_PBSUnknownAsPreservedWithGraph(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<Preserved>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_PBSUnknownAsPreservedWithGraph_name);
-    outAsync->invoke(iceC_Test_TestIntf_PBSUnknownAsPreservedWithGraph_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "PBSUnknownAsPreservedWithGraph";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         nullptr,
         nullptr,
         [](::Ice::InputStream* istr)
@@ -1252,7 +1217,9 @@ Test::TestIntfPrx::checkPBSUnknownWithGraphAsync(const ::std::shared_ptr<Preserv
 void
 Test::TestIntfPrx::_iceI_checkPBSUnknownWithGraph(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<Preserved>& iceP_p, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_TestIntf_checkPBSUnknownWithGraph_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "checkPBSUnknownWithGraph";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_p);
@@ -1287,8 +1254,10 @@ Test::TestIntfPrx::PBSUnknown2AsPreservedWithGraphAsync(::std::function<void (::
 void
 Test::TestIntfPrx::_iceI_PBSUnknown2AsPreservedWithGraph(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<Preserved>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_PBSUnknown2AsPreservedWithGraph_name);
-    outAsync->invoke(iceC_Test_TestIntf_PBSUnknown2AsPreservedWithGraph_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "PBSUnknown2AsPreservedWithGraph";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         nullptr,
         nullptr,
         [](::Ice::InputStream* istr)
@@ -1327,7 +1296,9 @@ Test::TestIntfPrx::checkPBSUnknown2WithGraphAsync(const ::std::shared_ptr<Preser
 void
 Test::TestIntfPrx::_iceI_checkPBSUnknown2WithGraph(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<Preserved>& iceP_p, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_TestIntf_checkPBSUnknown2WithGraph_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "checkPBSUnknown2WithGraph";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_p);
@@ -1363,8 +1334,10 @@ Test::TestIntfPrx::exchangePNodeAsync(const ::std::shared_ptr<PNode>& iceP_pn,
 void
 Test::TestIntfPrx::_iceI_exchangePNode(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<PNode>>>& outAsync, const ::std::shared_ptr<PNode>& iceP_pn, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_exchangePNode_name);
-    outAsync->invoke(iceC_Test_TestIntf_exchangePNode_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "exchangePNode";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_pn);
@@ -1406,8 +1379,10 @@ Test::TestIntfPrx::throwBaseAsBaseAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_throwBaseAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_throwBaseAsBase_name);
-    outAsync->invoke(iceC_Test_TestIntf_throwBaseAsBase_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "throwBaseAsBase";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -1451,8 +1426,10 @@ Test::TestIntfPrx::throwDerivedAsBaseAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_throwDerivedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_throwDerivedAsBase_name);
-    outAsync->invoke(iceC_Test_TestIntf_throwDerivedAsBase_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "throwDerivedAsBase";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -1496,8 +1473,10 @@ Test::TestIntfPrx::throwDerivedAsDerivedAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_throwDerivedAsDerived(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_throwDerivedAsDerived_name);
-    outAsync->invoke(iceC_Test_TestIntf_throwDerivedAsDerived_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "throwDerivedAsDerived";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -1541,8 +1520,10 @@ Test::TestIntfPrx::throwUnknownDerivedAsBaseAsync(::std::function<void ()> respo
 void
 Test::TestIntfPrx::_iceI_throwUnknownDerivedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_throwUnknownDerivedAsBase_name);
-    outAsync->invoke(iceC_Test_TestIntf_throwUnknownDerivedAsBase_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "throwUnknownDerivedAsBase";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -1586,8 +1567,10 @@ Test::TestIntfPrx::throwPreservedExceptionAsync(::std::function<void ()> respons
 void
 Test::TestIntfPrx::_iceI_throwPreservedException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_throwPreservedException_name);
-    outAsync->invoke(iceC_Test_TestIntf_throwPreservedException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "throwPreservedException";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -1631,8 +1614,10 @@ Test::TestIntfPrx::useForwardAsync(::std::function<void (::std::shared_ptr<::Tes
 void
 Test::TestIntfPrx::_iceI_useForward(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<Forward>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_useForward_name);
-    outAsync->invoke(iceC_Test_TestIntf_useForward_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "useForward";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         nullptr,
         nullptr,
         [](::Ice::InputStream* istr)
@@ -1670,7 +1655,9 @@ Test::TestIntfPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_TestIntf_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "shutdown";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         nullptr,
         nullptr);
 }
@@ -1928,16 +1915,11 @@ Test::Forward::ice_staticId()
     return typeId;
 }
 
-bool
-Test::TestIntf::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_TestIntf_ids, iceC_Test_TestIntf_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::TestIntf::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_TestIntf_ids[0], &iceC_Test_TestIntf_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::TestIntf" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -2692,13 +2674,15 @@ Test::TestIntf::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Curren
 bool
 Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_TestIntf_ops, iceC_Test_TestIntf_ops + 41, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "D1AsB", "D1AsD1", "D2AsB", "PBSUnknown2AsPreservedWithGraph", "PBSUnknownAsPreserved", "PBSUnknownAsPreservedWithGraph", "SBSKnownDerivedAsSBSKnownDerived", "SBSKnownDerivedAsSBase", "SBSUnknownDerivedAsSBase", "SBSUnknownDerivedAsSBaseCompact", "SBaseAsObject", "SBaseAsSBase", "SUnknownAsObject", "checkPBSUnknown", "checkPBSUnknown2WithGraph", "checkPBSUnknownWithGraph", "checkSUnknown", "dictionaryTest", "exchangePBase", "exchangePNode", "ice_id", "ice_ids", "ice_isA", "ice_ping", "oneElementCycle", "paramTest1", "paramTest2", "paramTest3", "paramTest4", "returnTest1", "returnTest2", "returnTest3", "sequenceTest", "shutdown", "throwBaseAsBase", "throwDerivedAsBase", "throwDerivedAsDerived", "throwPreservedException", "throwUnknownDerivedAsBase", "twoElementCycle", "useForward" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 41, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_TestIntf_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

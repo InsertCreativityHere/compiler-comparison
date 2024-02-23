@@ -34,23 +34,6 @@
 namespace
 {
 
-const ::std::string iceC_Test_Priority_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Priority"
-};
-const ::std::string iceC_Test_Priority_ops[] =
-{
-    "getPriority",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "shutdown"
-};
-const ::std::string iceC_Test_Priority_shutdown_name = "shutdown";
-const ::std::string iceC_Test_Priority_getPriority_name = "getPriority";
-
 }
 
 void
@@ -78,7 +61,9 @@ Test::PriorityPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::PriorityPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Priority_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "shutdown";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -109,8 +94,10 @@ Test::PriorityPrx::getPriorityAsync(::std::function<void (::std::string)> respon
 void
 Test::PriorityPrx::_iceI_getPriority(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Priority_getPriority_name);
-    outAsync->invoke(iceC_Test_Priority_getPriority_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getPriority";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -123,16 +110,11 @@ Test::PriorityPrx::ice_staticId()
     return typeId;
 }
 
-bool
-Test::Priority::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Priority_ids, iceC_Test_Priority_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::Priority::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_Priority_ids[0], &iceC_Test_Priority_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Priority" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -178,13 +160,15 @@ Test::Priority::_iceD_getPriority(::IceInternal::Incoming& inS, const ::Ice::Cur
 bool
 Test::Priority::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Priority_ops, iceC_Test_Priority_ops + 6, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "getPriority", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_Priority_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

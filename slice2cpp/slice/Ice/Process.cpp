@@ -37,23 +37,6 @@
 namespace
 {
 
-const ::std::string iceC_Ice_Process_ids[2] =
-{
-    "::Ice::Object",
-    "::Ice::Process"
-};
-const ::std::string iceC_Ice_Process_ops[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "shutdown",
-    "writeMessage"
-};
-const ::std::string iceC_Ice_Process_shutdown_name = "shutdown";
-const ::std::string iceC_Ice_Process_writeMessage_name = "writeMessage";
-
 }
 
 void
@@ -81,7 +64,9 @@ Ice::ProcessPrx::shutdownAsync(::std::function<void ()> response,
 void
 Ice::ProcessPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const Context& context) const
 {
-    outAsync->invoke(iceC_Ice_Process_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "shutdown";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -113,7 +98,9 @@ Ice::ProcessPrx::writeMessageAsync(const ::std::string& iceP_message, ::std::int
 void
 Ice::ProcessPrx::_iceI_writeMessage(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_message, ::std::int32_t iceP_fd, const Context& context) const
 {
-    outAsync->invoke(iceC_Ice_Process_writeMessage_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "writeMessage";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](OutputStream* ostr)
         {
             ostr->writeAll(iceP_message, iceP_fd);
@@ -129,16 +116,11 @@ Ice::ProcessPrx::ice_staticId()
     return typeId;
 }
 
-bool
-Ice::Process::ice_isA(::std::string s, const Current&) const
-{
-    return ::std::binary_search(iceC_Ice_Process_ids, iceC_Ice_Process_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Ice::Process::ice_ids(const Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Ice_Process_ids[0], &iceC_Ice_Process_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Ice::Process" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -186,13 +168,15 @@ Ice::Process::_iceD_writeMessage(::IceInternal::Incoming& inS, const Current& cu
 bool
 Ice::Process::_iceDispatch(::IceInternal::Incoming& in, const Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Ice_Process_ops, iceC_Ice_Process_ops + 6, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown", "writeMessage" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
         throw OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Ice_Process_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

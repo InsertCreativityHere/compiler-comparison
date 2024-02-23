@@ -38,69 +38,6 @@ const ::IceInternal::DefaultValueFactoryInit<::Test::C> iceC_Test_C_init("::Test
 
 const ::IceInternal::DefaultValueFactoryInit<::Test::D> iceC_Test_D_init("::Test::D");
 
-const ::std::string iceC_Test_Custom_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Custom"
-};
-const ::std::string iceC_Test_Custom_ops[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "opBogusArrayNoCallableFactory",
-    "opBogusArrayNoneFactory",
-    "opBogusArrayNotExistsFactory",
-    "opBogusArraySignatureFactory",
-    "opBogusArrayThrowFactory",
-    "opBogusArrayType",
-    "opBoolSeq",
-    "opByteList1",
-    "opByteList2",
-    "opByteSeq",
-    "opByteString1",
-    "opByteString2",
-    "opD",
-    "opDoubleSeq",
-    "opFloatSeq",
-    "opIntSeq",
-    "opLongSeq",
-    "opShortSeq",
-    "opStringList1",
-    "opStringList2",
-    "opStringTuple1",
-    "opStringTuple2",
-    "sendC",
-    "sendS",
-    "shutdown"
-};
-const ::std::string iceC_Test_Custom_opByteString1_name = "opByteString1";
-const ::std::string iceC_Test_Custom_opByteString2_name = "opByteString2";
-const ::std::string iceC_Test_Custom_opByteList1_name = "opByteList1";
-const ::std::string iceC_Test_Custom_opByteList2_name = "opByteList2";
-const ::std::string iceC_Test_Custom_opStringList1_name = "opStringList1";
-const ::std::string iceC_Test_Custom_opStringList2_name = "opStringList2";
-const ::std::string iceC_Test_Custom_opStringTuple1_name = "opStringTuple1";
-const ::std::string iceC_Test_Custom_opStringTuple2_name = "opStringTuple2";
-const ::std::string iceC_Test_Custom_sendS_name = "sendS";
-const ::std::string iceC_Test_Custom_sendC_name = "sendC";
-const ::std::string iceC_Test_Custom_opBoolSeq_name = "opBoolSeq";
-const ::std::string iceC_Test_Custom_opByteSeq_name = "opByteSeq";
-const ::std::string iceC_Test_Custom_opShortSeq_name = "opShortSeq";
-const ::std::string iceC_Test_Custom_opIntSeq_name = "opIntSeq";
-const ::std::string iceC_Test_Custom_opLongSeq_name = "opLongSeq";
-const ::std::string iceC_Test_Custom_opFloatSeq_name = "opFloatSeq";
-const ::std::string iceC_Test_Custom_opDoubleSeq_name = "opDoubleSeq";
-const ::std::string iceC_Test_Custom_opBogusArrayNotExistsFactory_name = "opBogusArrayNotExistsFactory";
-const ::std::string iceC_Test_Custom_opBogusArrayThrowFactory_name = "opBogusArrayThrowFactory";
-const ::std::string iceC_Test_Custom_opBogusArrayType_name = "opBogusArrayType";
-const ::std::string iceC_Test_Custom_opBogusArrayNoneFactory_name = "opBogusArrayNoneFactory";
-const ::std::string iceC_Test_Custom_opBogusArraySignatureFactory_name = "opBogusArraySignatureFactory";
-const ::std::string iceC_Test_Custom_opBogusArrayNoCallableFactory_name = "opBogusArrayNoCallableFactory";
-const ::std::string iceC_Test_Custom_opD_name = "opD";
-const ::std::string iceC_Test_Custom_shutdown_name = "shutdown";
-
 }
 
 ::Test::ByteString
@@ -135,8 +72,10 @@ Test::CustomPrx::opByteString1Async(const ByteString& iceP_b1,
 void
 Test::CustomPrx::_iceI_opByteString1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ByteString, ByteString>>>& outAsync, const ByteString& iceP_b1, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Custom_opByteString1_name);
-    outAsync->invoke(iceC_Test_Custom_opByteString1_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opByteString1";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_b1);
@@ -183,8 +122,10 @@ Test::CustomPrx::opByteString2Async(const ByteString& iceP_b1,
 void
 Test::CustomPrx::_iceI_opByteString2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ByteString, ByteString>>>& outAsync, const ByteString& iceP_b1, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Custom_opByteString2_name);
-    outAsync->invoke(iceC_Test_Custom_opByteString2_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opByteString2";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_b1);
@@ -231,8 +172,10 @@ Test::CustomPrx::opByteList1Async(const ByteList& iceP_b1,
 void
 Test::CustomPrx::_iceI_opByteList1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ByteList, ByteList>>>& outAsync, const ByteList& iceP_b1, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Custom_opByteList1_name);
-    outAsync->invoke(iceC_Test_Custom_opByteList1_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opByteList1";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_b1);
@@ -279,8 +222,10 @@ Test::CustomPrx::opByteList2Async(const ByteList& iceP_b1,
 void
 Test::CustomPrx::_iceI_opByteList2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ByteList, ByteList>>>& outAsync, const ByteList& iceP_b1, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Custom_opByteList2_name);
-    outAsync->invoke(iceC_Test_Custom_opByteList2_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opByteList2";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_b1);
@@ -327,8 +272,10 @@ Test::CustomPrx::opStringList1Async(const StringList& iceP_s1,
 void
 Test::CustomPrx::_iceI_opStringList1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<StringList, StringList>>>& outAsync, const StringList& iceP_s1, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Custom_opStringList1_name);
-    outAsync->invoke(iceC_Test_Custom_opStringList1_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opStringList1";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s1);
@@ -375,8 +322,10 @@ Test::CustomPrx::opStringList2Async(const StringList& iceP_s1,
 void
 Test::CustomPrx::_iceI_opStringList2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<StringList, StringList>>>& outAsync, const StringList& iceP_s1, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Custom_opStringList2_name);
-    outAsync->invoke(iceC_Test_Custom_opStringList2_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opStringList2";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s1);
@@ -423,8 +372,10 @@ Test::CustomPrx::opStringTuple1Async(const StringTuple& iceP_s1,
 void
 Test::CustomPrx::_iceI_opStringTuple1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<StringTuple, StringTuple>>>& outAsync, const StringTuple& iceP_s1, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Custom_opStringTuple1_name);
-    outAsync->invoke(iceC_Test_Custom_opStringTuple1_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opStringTuple1";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s1);
@@ -471,8 +422,10 @@ Test::CustomPrx::opStringTuple2Async(const StringTuple& iceP_s1,
 void
 Test::CustomPrx::_iceI_opStringTuple2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<StringTuple, StringTuple>>>& outAsync, const StringTuple& iceP_s1, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Custom_opStringTuple2_name);
-    outAsync->invoke(iceC_Test_Custom_opStringTuple2_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opStringTuple2";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s1);
@@ -513,7 +466,9 @@ Test::CustomPrx::sendSAsync(const S& iceP_val,
 void
 Test::CustomPrx::_iceI_sendS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const S& iceP_val, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Custom_sendS_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "sendS";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_val);
@@ -548,7 +503,9 @@ Test::CustomPrx::sendCAsync(const ::std::shared_ptr<C>& iceP_val,
 void
 Test::CustomPrx::_iceI_sendC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<C>& iceP_val, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Custom_sendC_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "sendC";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_val);
@@ -590,8 +547,10 @@ Test::CustomPrx::opBoolSeqAsync(const BoolSeq1& iceP_v1,
 void
 Test::CustomPrx::_iceI_opBoolSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<BoolSeq1, BoolSeq2>>>& outAsync, const BoolSeq1& iceP_v1, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Custom_opBoolSeq_name);
-    outAsync->invoke(iceC_Test_Custom_opBoolSeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opBoolSeq";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_v1);
@@ -638,8 +597,10 @@ Test::CustomPrx::opByteSeqAsync(const ByteSeq1& iceP_v1,
 void
 Test::CustomPrx::_iceI_opByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ByteSeq1, ByteSeq2>>>& outAsync, const ByteSeq1& iceP_v1, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Custom_opByteSeq_name);
-    outAsync->invoke(iceC_Test_Custom_opByteSeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opByteSeq";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_v1);
@@ -686,8 +647,10 @@ Test::CustomPrx::opShortSeqAsync(const ShortSeq1& iceP_v1,
 void
 Test::CustomPrx::_iceI_opShortSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ShortSeq1, ShortSeq2>>>& outAsync, const ShortSeq1& iceP_v1, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Custom_opShortSeq_name);
-    outAsync->invoke(iceC_Test_Custom_opShortSeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opShortSeq";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_v1);
@@ -734,8 +697,10 @@ Test::CustomPrx::opIntSeqAsync(const IntSeq1& iceP_v1,
 void
 Test::CustomPrx::_iceI_opIntSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<IntSeq1, IntSeq2>>>& outAsync, const IntSeq1& iceP_v1, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Custom_opIntSeq_name);
-    outAsync->invoke(iceC_Test_Custom_opIntSeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opIntSeq";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_v1);
@@ -782,8 +747,10 @@ Test::CustomPrx::opLongSeqAsync(const LongSeq1& iceP_v1,
 void
 Test::CustomPrx::_iceI_opLongSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<LongSeq1, LongSeq2>>>& outAsync, const LongSeq1& iceP_v1, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Custom_opLongSeq_name);
-    outAsync->invoke(iceC_Test_Custom_opLongSeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opLongSeq";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_v1);
@@ -830,8 +797,10 @@ Test::CustomPrx::opFloatSeqAsync(const FloatSeq1& iceP_v1,
 void
 Test::CustomPrx::_iceI_opFloatSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<FloatSeq1, FloatSeq2>>>& outAsync, const FloatSeq1& iceP_v1, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Custom_opFloatSeq_name);
-    outAsync->invoke(iceC_Test_Custom_opFloatSeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opFloatSeq";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_v1);
@@ -878,8 +847,10 @@ Test::CustomPrx::opDoubleSeqAsync(const DoubleSeq1& iceP_v1,
 void
 Test::CustomPrx::_iceI_opDoubleSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<DoubleSeq1, DoubleSeq2>>>& outAsync, const DoubleSeq1& iceP_v1, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Custom_opDoubleSeq_name);
-    outAsync->invoke(iceC_Test_Custom_opDoubleSeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opDoubleSeq";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_v1);
@@ -919,8 +890,10 @@ Test::CustomPrx::opBogusArrayNotExistsFactoryAsync(::std::function<void (::Test:
 void
 Test::CustomPrx::_iceI_opBogusArrayNotExistsFactory(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<BoolSeq1>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Custom_opBogusArrayNotExistsFactory_name);
-    outAsync->invoke(iceC_Test_Custom_opBogusArrayNotExistsFactory_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opBogusArrayNotExistsFactory";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -951,8 +924,10 @@ Test::CustomPrx::opBogusArrayThrowFactoryAsync(::std::function<void (::Test::Boo
 void
 Test::CustomPrx::_iceI_opBogusArrayThrowFactory(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<BoolSeq1>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Custom_opBogusArrayThrowFactory_name);
-    outAsync->invoke(iceC_Test_Custom_opBogusArrayThrowFactory_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opBogusArrayThrowFactory";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -983,8 +958,10 @@ Test::CustomPrx::opBogusArrayTypeAsync(::std::function<void (::Test::BoolSeq1)> 
 void
 Test::CustomPrx::_iceI_opBogusArrayType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<BoolSeq1>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Custom_opBogusArrayType_name);
-    outAsync->invoke(iceC_Test_Custom_opBogusArrayType_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opBogusArrayType";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -1015,8 +992,10 @@ Test::CustomPrx::opBogusArrayNoneFactoryAsync(::std::function<void (::Test::Bool
 void
 Test::CustomPrx::_iceI_opBogusArrayNoneFactory(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<BoolSeq1>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Custom_opBogusArrayNoneFactory_name);
-    outAsync->invoke(iceC_Test_Custom_opBogusArrayNoneFactory_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opBogusArrayNoneFactory";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -1047,8 +1026,10 @@ Test::CustomPrx::opBogusArraySignatureFactoryAsync(::std::function<void (::Test:
 void
 Test::CustomPrx::_iceI_opBogusArraySignatureFactory(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<BoolSeq1>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Custom_opBogusArraySignatureFactory_name);
-    outAsync->invoke(iceC_Test_Custom_opBogusArraySignatureFactory_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opBogusArraySignatureFactory";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -1079,8 +1060,10 @@ Test::CustomPrx::opBogusArrayNoCallableFactoryAsync(::std::function<void (::Test
 void
 Test::CustomPrx::_iceI_opBogusArrayNoCallableFactory(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<BoolSeq1>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Custom_opBogusArrayNoCallableFactory_name);
-    outAsync->invoke(iceC_Test_Custom_opBogusArrayNoCallableFactory_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opBogusArrayNoCallableFactory";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -1112,8 +1095,10 @@ Test::CustomPrx::opDAsync(const ::std::shared_ptr<D>& iceP_d,
 void
 Test::CustomPrx::_iceI_opD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<D>>>& outAsync, const ::std::shared_ptr<D>& iceP_d, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Custom_opD_name);
-    outAsync->invoke(iceC_Test_Custom_opD_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opD";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_d);
@@ -1155,7 +1140,9 @@ Test::CustomPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::CustomPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Custom_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "shutdown";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -1190,16 +1177,11 @@ Test::D::ice_staticId()
     return typeId;
 }
 
-bool
-Test::Custom::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Custom_ids, iceC_Test_Custom_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::Custom::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_Custom_ids[0], &iceC_Test_Custom_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Custom" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -1635,13 +1617,15 @@ Test::Custom::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current&
 bool
 Test::Custom::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Custom_ops, iceC_Test_Custom_ops + 29, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "opBogusArrayNoCallableFactory", "opBogusArrayNoneFactory", "opBogusArrayNotExistsFactory", "opBogusArraySignatureFactory", "opBogusArrayThrowFactory", "opBogusArrayType", "opBoolSeq", "opByteList1", "opByteList2", "opByteSeq", "opByteString1", "opByteString2", "opD", "opDoubleSeq", "opFloatSeq", "opIntSeq", "opLongSeq", "opShortSeq", "opStringList1", "opStringList2", "opStringTuple1", "opStringTuple2", "sendC", "sendS", "shutdown" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 29, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_Custom_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

@@ -34,76 +34,6 @@
 namespace
 {
 
-const ::std::string iceC_Test_TestLocatorRegistry_ids[3] =
-{
-    "::Ice::LocatorRegistry",
-    "::Ice::Object",
-    "::Test::TestLocatorRegistry"
-};
-const ::std::string iceC_Test_TestLocatorRegistry_ops[] =
-{
-    "addObject",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "setAdapterDirectProxy",
-    "setReplicatedAdapterDirectProxy",
-    "setServerProcessProxy"
-};
-const ::std::string iceC_Test_TestLocatorRegistry_addObject_name = "addObject";
-
-const ::std::string iceC_Test_ServerManager_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::ServerManager"
-};
-const ::std::string iceC_Test_ServerManager_ops[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "shutdown",
-    "startServer"
-};
-const ::std::string iceC_Test_ServerManager_startServer_name = "startServer";
-const ::std::string iceC_Test_ServerManager_shutdown_name = "shutdown";
-
-const ::std::string iceC_Test_Hello_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Hello"
-};
-const ::std::string iceC_Test_Hello_ops[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "sayHello"
-};
-const ::std::string iceC_Test_Hello_sayHello_name = "sayHello";
-
-const ::std::string iceC_Test_TestIntf_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::TestIntf"
-};
-const ::std::string iceC_Test_TestIntf_ops[] =
-{
-    "getHello",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "migrateHello",
-    "shutdown"
-};
-const ::std::string iceC_Test_TestIntf_shutdown_name = "shutdown";
-const ::std::string iceC_Test_TestIntf_getHello_name = "getHello";
-const ::std::string iceC_Test_TestIntf_migrateHello_name = "migrateHello";
-
 }
 
 void
@@ -132,7 +62,9 @@ Test::TestLocatorRegistryPrx::addObjectAsync(const ::std::optional<::Ice::Object
 void
 Test::TestLocatorRegistryPrx::_iceI_addObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<::Ice::ObjectPrx>& iceP_obj, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_TestLocatorRegistry_addObject_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "addObject";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_obj);
@@ -173,7 +105,9 @@ Test::ServerManagerPrx::startServerAsync(::std::function<void ()> response,
 void
 Test::ServerManagerPrx::_iceI_startServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_ServerManager_startServer_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "startServer";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -204,7 +138,9 @@ Test::ServerManagerPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::ServerManagerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_ServerManager_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "shutdown";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -242,7 +178,9 @@ Test::HelloPrx::sayHelloAsync(::std::function<void ()> response,
 void
 Test::HelloPrx::_iceI_sayHello(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Hello_sayHello_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "sayHello";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -280,7 +218,9 @@ Test::TestIntfPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_TestIntf_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "shutdown";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -311,8 +251,10 @@ Test::TestIntfPrx::getHelloAsync(::std::function<void (::std::optional<::Test::H
 void
 Test::TestIntfPrx::_iceI_getHello(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<HelloPrx>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_getHello_name);
-    outAsync->invoke(iceC_Test_TestIntf_getHello_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getHello";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -343,7 +285,9 @@ Test::TestIntfPrx::migrateHelloAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_migrateHello(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_TestIntf_migrateHello_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "migrateHello";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -356,16 +300,11 @@ Test::TestIntfPrx::ice_staticId()
     return typeId;
 }
 
-bool
-Test::TestLocatorRegistry::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_TestLocatorRegistry_ids, iceC_Test_TestLocatorRegistry_ids + 3, s);
-}
-
 ::std::vector<::std::string>
 Test::TestLocatorRegistry::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_TestLocatorRegistry_ids[0], &iceC_Test_TestLocatorRegistry_ids[3]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::LocatorRegistry", "::Ice::Object", "::Test::TestLocatorRegistry" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -400,13 +339,15 @@ Test::TestLocatorRegistry::_iceD_addObject(::IceInternal::Incoming& inS, const :
 bool
 Test::TestLocatorRegistry::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_TestLocatorRegistry_ops, iceC_Test_TestLocatorRegistry_ops + 8, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "addObject", "ice_id", "ice_ids", "ice_isA", "ice_ping", "setAdapterDirectProxy", "setReplicatedAdapterDirectProxy", "setServerProcessProxy" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_TestLocatorRegistry_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -449,16 +390,11 @@ Test::TestLocatorRegistry::_iceDispatch(::IceInternal::Incoming& in, const ::Ice
 }
 /// \endcond
 
-bool
-Test::ServerManager::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_ServerManager_ids, iceC_Test_ServerManager_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::ServerManager::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_ServerManager_ids[0], &iceC_Test_ServerManager_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::ServerManager" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -502,13 +438,15 @@ Test::ServerManager::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::C
 bool
 Test::ServerManager::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_ServerManager_ops, iceC_Test_ServerManager_ops + 6, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown", "startServer" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_ServerManager_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -543,16 +481,11 @@ Test::ServerManager::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curr
 }
 /// \endcond
 
-bool
-Test::Hello::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Hello_ids, iceC_Test_Hello_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::Hello::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_Hello_ids[0], &iceC_Test_Hello_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Hello" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -584,13 +517,15 @@ Test::Hello::_iceD_sayHello(::IceInternal::Incoming& inS, const ::Ice::Current& 
 bool
 Test::Hello::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Hello_ops, iceC_Test_Hello_ops + 5, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "sayHello" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_Hello_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -621,16 +556,11 @@ Test::Hello::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& cur
 }
 /// \endcond
 
-bool
-Test::TestIntf::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_TestIntf_ids, iceC_Test_TestIntf_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::TestIntf::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_TestIntf_ids[0], &iceC_Test_TestIntf_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::TestIntf" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -688,13 +618,15 @@ Test::TestIntf::_iceD_migrateHello(::IceInternal::Incoming& inS, const ::Ice::Cu
 bool
 Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_TestIntf_ops, iceC_Test_TestIntf_ops + 7, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "getHello", "ice_id", "ice_ids", "ice_isA", "ice_ping", "migrateHello", "shutdown" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_TestIntf_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

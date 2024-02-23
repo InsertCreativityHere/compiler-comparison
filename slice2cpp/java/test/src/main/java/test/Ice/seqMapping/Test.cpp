@@ -34,27 +34,6 @@
 namespace
 {
 
-const ::std::string iceC_Test_MyClass_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::MyClass"
-};
-const ::std::string iceC_Test_MyClass_ops[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "opSerialLargeJava",
-    "opSerialSmallJava",
-    "opSerialStructJava",
-    "shutdown"
-};
-const ::std::string iceC_Test_MyClass_shutdown_name = "shutdown";
-const ::std::string iceC_Test_MyClass_opSerialSmallJava_name = "opSerialSmallJava";
-const ::std::string iceC_Test_MyClass_opSerialLargeJava_name = "opSerialLargeJava";
-const ::std::string iceC_Test_MyClass_opSerialStructJava_name = "opSerialStructJava";
-
 const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::Bar> iceC_Test_Bar_init("::Test::Bar");
 
 const ::IceInternal::DefaultValueFactoryInit<::Test::Baz> iceC_Test_Baz_init("::Test::Baz");
@@ -86,7 +65,9 @@ Test::MyClassPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::MyClassPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_MyClass_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "shutdown";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -124,8 +105,10 @@ Test::MyClassPrx::opSerialSmallJavaAsync(const SerialSmall& iceP_i,
 void
 Test::MyClassPrx::_iceI_opSerialSmallJava(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SerialSmall, SerialSmall>>>& outAsync, const SerialSmall& iceP_i, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_MyClass_opSerialSmallJava_name);
-    outAsync->invoke(iceC_Test_MyClass_opSerialSmallJava_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opSerialSmallJava";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_i);
@@ -172,8 +155,10 @@ Test::MyClassPrx::opSerialLargeJavaAsync(const SerialLarge& iceP_i,
 void
 Test::MyClassPrx::_iceI_opSerialLargeJava(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SerialLarge, SerialLarge>>>& outAsync, const SerialLarge& iceP_i, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_MyClass_opSerialLargeJava_name);
-    outAsync->invoke(iceC_Test_MyClass_opSerialLargeJava_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opSerialLargeJava";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_i);
@@ -220,8 +205,10 @@ Test::MyClassPrx::opSerialStructJavaAsync(const SerialStruct& iceP_i,
 void
 Test::MyClassPrx::_iceI_opSerialStructJava(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SerialStruct, SerialStruct>>>& outAsync, const SerialStruct& iceP_i, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_MyClass_opSerialStructJava_name);
-    outAsync->invoke(iceC_Test_MyClass_opSerialStructJava_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opSerialStructJava";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_i);
@@ -265,16 +252,11 @@ Test::Baz::ice_staticId()
     return typeId;
 }
 
-bool
-Test::MyClass::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_MyClass_ids, iceC_Test_MyClass_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::MyClass::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_MyClass_ids[0], &iceC_Test_MyClass_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::MyClass" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -360,13 +342,15 @@ Test::MyClass::_iceD_opSerialStructJava(::IceInternal::Incoming& inS, const ::Ic
 bool
 Test::MyClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_MyClass_ops, iceC_Test_MyClass_ops + 8, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "opSerialLargeJava", "opSerialSmallJava", "opSerialStructJava", "shutdown" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_MyClass_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

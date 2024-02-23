@@ -43,31 +43,6 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::IcePatch2::FileAccessExce
 
 const ::IceInternal::DefaultUserExceptionFactoryInit<::IcePatch2::FileSizeRangeException> iceC_IcePatch2_FileSizeRangeException_init("::IcePatch2::FileSizeRangeException");
 
-const ::std::string iceC_IcePatch2_FileServer_ids[2] =
-{
-    "::Ice::Object",
-    "::IcePatch2::FileServer"
-};
-const ::std::string iceC_IcePatch2_FileServer_ops[] =
-{
-    "getChecksum",
-    "getChecksumSeq",
-    "getFileCompressed",
-    "getFileInfoSeq",
-    "getLargeFileCompressed",
-    "getLargeFileInfoSeq",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_IcePatch2_FileServer_getFileInfoSeq_name = "getFileInfoSeq";
-const ::std::string iceC_IcePatch2_FileServer_getLargeFileInfoSeq_name = "getLargeFileInfoSeq";
-const ::std::string iceC_IcePatch2_FileServer_getChecksumSeq_name = "getChecksumSeq";
-const ::std::string iceC_IcePatch2_FileServer_getChecksum_name = "getChecksum";
-const ::std::string iceC_IcePatch2_FileServer_getFileCompressed_name = "getFileCompressed";
-const ::std::string iceC_IcePatch2_FileServer_getLargeFileCompressed_name = "getLargeFileCompressed";
-
 }
 
 ::IcePatch2::FileInfoSeq
@@ -96,8 +71,10 @@ IcePatch2::FileServerPrx::getFileInfoSeqAsync(::std::int32_t iceP_partition,
 void
 IcePatch2::FileServerPrx::_iceI_getFileInfoSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<FileInfoSeq>>& outAsync, ::std::int32_t iceP_partition, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_IcePatch2_FileServer_getFileInfoSeq_name);
-    outAsync->invoke(iceC_IcePatch2_FileServer_getFileInfoSeq_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getFileInfoSeq";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_partition);
@@ -149,8 +126,10 @@ IcePatch2::FileServerPrx::getLargeFileInfoSeqAsync(::std::int32_t iceP_partition
 void
 IcePatch2::FileServerPrx::_iceI_getLargeFileInfoSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<LargeFileInfoSeq>>& outAsync, ::std::int32_t iceP_partition, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_IcePatch2_FileServer_getLargeFileInfoSeq_name);
-    outAsync->invoke(iceC_IcePatch2_FileServer_getLargeFileInfoSeq_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getLargeFileInfoSeq";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_partition);
@@ -197,8 +176,10 @@ IcePatch2::FileServerPrx::getChecksumSeqAsync(::std::function<void (::IcePatch2:
 void
 IcePatch2::FileServerPrx::_iceI_getChecksumSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ByteSeqSeq>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_IcePatch2_FileServer_getChecksumSeq_name);
-    outAsync->invoke(iceC_IcePatch2_FileServer_getChecksumSeq_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getChecksumSeq";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -229,8 +210,10 @@ IcePatch2::FileServerPrx::getChecksumAsync(::std::function<void (::Ice::ByteSeq)
 void
 IcePatch2::FileServerPrx::_iceI_getChecksum(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::ByteSeq>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_IcePatch2_FileServer_getChecksum_name);
-    outAsync->invoke(iceC_IcePatch2_FileServer_getChecksum_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getChecksum";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -255,7 +238,9 @@ IcePatch2::FileServerPrx::getFileCompressedAsync(const ::std::string& iceP_path,
                                                  ::std::function<void(bool)> sent,
                                                  const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_IcePatch2_FileServer_getFileCompressed_name);
+    static const ::std::string operationName = "getFileCompressed";
+
+    _checkTwowayOnly(operationName);
     ::std::function<void(::Ice::InputStream*)> read;
     if(response)
     {
@@ -277,7 +262,7 @@ IcePatch2::FileServerPrx::getFileCompressedAsync(const ::std::string& iceP_path,
     }
     auto outAsync = ::std::make_shared<::IceInternal::CustomLambdaOutgoing>(*this, read, ex, sent);
 
-    outAsync->invoke(iceC_IcePatch2_FileServer_getFileCompressed_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_path, iceP_pos, iceP_num);
@@ -307,8 +292,10 @@ IcePatch2::FileServerPrx::getFileCompressedAsync(const ::std::string& iceP_path,
 void
 IcePatch2::FileServerPrx::_iceI_getFileCompressed(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::ByteSeq>>& outAsync, const ::std::string& iceP_path, ::std::int32_t iceP_pos, ::std::int32_t iceP_num, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_IcePatch2_FileServer_getFileCompressed_name);
-    outAsync->invoke(iceC_IcePatch2_FileServer_getFileCompressed_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getFileCompressed";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_path, iceP_pos, iceP_num);
@@ -353,7 +340,9 @@ IcePatch2::FileServerPrx::getLargeFileCompressedAsync(const ::std::string& iceP_
                                                       ::std::function<void(bool)> sent,
                                                       const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_IcePatch2_FileServer_getLargeFileCompressed_name);
+    static const ::std::string operationName = "getLargeFileCompressed";
+
+    _checkTwowayOnly(operationName);
     ::std::function<void(::Ice::InputStream*)> read;
     if(response)
     {
@@ -375,7 +364,7 @@ IcePatch2::FileServerPrx::getLargeFileCompressedAsync(const ::std::string& iceP_
     }
     auto outAsync = ::std::make_shared<::IceInternal::CustomLambdaOutgoing>(*this, read, ex, sent);
 
-    outAsync->invoke(iceC_IcePatch2_FileServer_getLargeFileCompressed_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_path, iceP_pos, iceP_num);
@@ -401,8 +390,10 @@ IcePatch2::FileServerPrx::getLargeFileCompressedAsync(const ::std::string& iceP_
 void
 IcePatch2::FileServerPrx::_iceI_getLargeFileCompressed(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::ByteSeq>>& outAsync, const ::std::string& iceP_path, ::std::int64_t iceP_pos, ::std::int32_t iceP_num, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_IcePatch2_FileServer_getLargeFileCompressed_name);
-    outAsync->invoke(iceC_IcePatch2_FileServer_getLargeFileCompressed_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getLargeFileCompressed";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_path, iceP_pos, iceP_num);
@@ -464,16 +455,11 @@ IcePatch2::FileSizeRangeException::ice_staticId()
     return typeId;
 }
 
-bool
-IcePatch2::FileServer::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_IcePatch2_FileServer_ids, iceC_IcePatch2_FileServer_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 IcePatch2::FileServer::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_IcePatch2_FileServer_ids[0], &iceC_IcePatch2_FileServer_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::IcePatch2::FileServer" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -603,13 +589,15 @@ IcePatch2::FileServer::_iceD_getLargeFileCompressed(::IceInternal::Incoming& inS
 bool
 IcePatch2::FileServer::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_IcePatch2_FileServer_ops, iceC_IcePatch2_FileServer_ops + 10, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "getChecksum", "getChecksumSeq", "getFileCompressed", "getFileInfoSeq", "getLargeFileCompressed", "getLargeFileInfoSeq", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 10, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_IcePatch2_FileServer_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

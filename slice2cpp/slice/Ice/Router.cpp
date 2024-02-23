@@ -37,40 +37,6 @@
 namespace
 {
 
-const ::std::string iceC_Ice_Router_ids[2] =
-{
-    "::Ice::Object",
-    "::Ice::Router"
-};
-const ::std::string iceC_Ice_Router_ops[] =
-{
-    "addProxies",
-    "getClientProxy",
-    "getServerProxy",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_Ice_Router_getClientProxy_name = "getClientProxy";
-const ::std::string iceC_Ice_Router_getServerProxy_name = "getServerProxy";
-const ::std::string iceC_Ice_Router_addProxies_name = "addProxies";
-
-const ::std::string iceC_Ice_RouterFinder_ids[2] =
-{
-    "::Ice::Object",
-    "::Ice::RouterFinder"
-};
-const ::std::string iceC_Ice_RouterFinder_ops[] =
-{
-    "getRouter",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_Ice_RouterFinder_getRouter_name = "getRouter";
-
 }
 
 ::std::optional<::Ice::ObjectPrx>
@@ -104,8 +70,10 @@ Ice::RouterPrx::getClientProxyAsync(::std::function<void (::std::optional<::Ice:
 void
 Ice::RouterPrx::_iceI_getClientProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::Ice::ObjectPrx>, std::optional<bool>>>>& outAsync, const Context& context) const
 {
-    _checkTwowayOnly(iceC_Ice_Router_getClientProxy_name);
-    outAsync->invoke(iceC_Ice_Router_getClientProxy_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getClientProxy";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr,
         [](InputStream* istr)
@@ -143,8 +111,10 @@ Ice::RouterPrx::getServerProxyAsync(::std::function<void (::std::optional<::Ice:
 void
 Ice::RouterPrx::_iceI_getServerProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>& outAsync, const Context& context) const
 {
-    _checkTwowayOnly(iceC_Ice_Router_getServerProxy_name);
-    outAsync->invoke(iceC_Ice_Router_getServerProxy_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getServerProxy";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -176,8 +146,10 @@ Ice::RouterPrx::addProxiesAsync(const ObjectProxySeq& iceP_proxies,
 void
 Ice::RouterPrx::_iceI_addProxies(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ObjectProxySeq>>& outAsync, const ObjectProxySeq& iceP_proxies, const Context& context) const
 {
-    _checkTwowayOnly(iceC_Ice_Router_addProxies_name);
-    outAsync->invoke(iceC_Ice_Router_addProxies_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "addProxies";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](OutputStream* ostr)
         {
             ostr->writeAll(iceP_proxies);
@@ -218,8 +190,10 @@ Ice::RouterFinderPrx::getRouterAsync(::std::function<void (::std::optional<::Ice
 void
 Ice::RouterFinderPrx::_iceI_getRouter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<RouterPrx>>>& outAsync, const Context& context) const
 {
-    _checkTwowayOnly(iceC_Ice_RouterFinder_getRouter_name);
-    outAsync->invoke(iceC_Ice_RouterFinder_getRouter_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getRouter";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -232,16 +206,11 @@ Ice::RouterFinderPrx::ice_staticId()
     return typeId;
 }
 
-bool
-Ice::Router::ice_isA(::std::string s, const Current&) const
-{
-    return ::std::binary_search(iceC_Ice_Router_ids, iceC_Ice_Router_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Ice::Router::ice_ids(const Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Ice_Router_ids[0], &iceC_Ice_Router_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Ice::Router" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -308,13 +277,15 @@ Ice::Router::_iceD_addProxies(::IceInternal::Incoming& inS, const Current& curre
 bool
 Ice::Router::_iceDispatch(::IceInternal::Incoming& in, const Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Ice_Router_ops, iceC_Ice_Router_ops + 7, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "addProxies", "getClientProxy", "getServerProxy", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
         throw OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Ice_Router_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -353,16 +324,11 @@ Ice::Router::_iceDispatch(::IceInternal::Incoming& in, const Current& current)
 }
 /// \endcond
 
-bool
-Ice::RouterFinder::ice_isA(::std::string s, const Current&) const
-{
-    return ::std::binary_search(iceC_Ice_RouterFinder_ids, iceC_Ice_RouterFinder_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Ice::RouterFinder::ice_ids(const Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Ice_RouterFinder_ids[0], &iceC_Ice_RouterFinder_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Ice::RouterFinder" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -396,13 +362,15 @@ Ice::RouterFinder::_iceD_getRouter(::IceInternal::Incoming& inS, const Current& 
 bool
 Ice::RouterFinder::_iceDispatch(::IceInternal::Incoming& in, const Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Ice_RouterFinder_ops, iceC_Ice_RouterFinder_ops + 5, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "getRouter", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
         throw OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Ice_RouterFinder_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

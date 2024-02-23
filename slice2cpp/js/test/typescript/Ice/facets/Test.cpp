@@ -34,177 +34,6 @@
 namespace
 {
 
-const ::std::string iceC_Test_Empty_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Empty"
-};
-const ::std::string iceC_Test_Empty_ops[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-
-const ::std::string iceC_Test_A_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::A"
-};
-const ::std::string iceC_Test_A_ops[] =
-{
-    "callA",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_Test_A_callA_name = "callA";
-
-const ::std::string iceC_Test_B_ids[3] =
-{
-    "::Ice::Object",
-    "::Test::A",
-    "::Test::B"
-};
-const ::std::string iceC_Test_B_ops[] =
-{
-    "callA",
-    "callB",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_Test_B_callB_name = "callB";
-
-const ::std::string iceC_Test_C_ids[3] =
-{
-    "::Ice::Object",
-    "::Test::A",
-    "::Test::C"
-};
-const ::std::string iceC_Test_C_ops[] =
-{
-    "callA",
-    "callC",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_Test_C_callC_name = "callC";
-
-const ::std::string iceC_Test_D_ids[5] =
-{
-    "::Ice::Object",
-    "::Test::A",
-    "::Test::B",
-    "::Test::C",
-    "::Test::D"
-};
-const ::std::string iceC_Test_D_ops[] =
-{
-    "callA",
-    "callB",
-    "callC",
-    "callD",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_Test_D_callD_name = "callD";
-
-const ::std::string iceC_Test_E_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::E"
-};
-const ::std::string iceC_Test_E_ops[] =
-{
-    "callE",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_Test_E_callE_name = "callE";
-
-const ::std::string iceC_Test_F_ids[3] =
-{
-    "::Ice::Object",
-    "::Test::E",
-    "::Test::F"
-};
-const ::std::string iceC_Test_F_ops[] =
-{
-    "callE",
-    "callF",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_Test_F_callF_name = "callF";
-
-const ::std::string iceC_Test_G_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::G"
-};
-const ::std::string iceC_Test_G_ops[] =
-{
-    "callG",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "shutdown"
-};
-const ::std::string iceC_Test_G_shutdown_name = "shutdown";
-const ::std::string iceC_Test_G_callG_name = "callG";
-
-const ::std::string iceC_Test_H_ids[3] =
-{
-    "::Ice::Object",
-    "::Test::G",
-    "::Test::H"
-};
-const ::std::string iceC_Test_H_ops[] =
-{
-    "callG",
-    "callH",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "shutdown"
-};
-const ::std::string iceC_Test_H_callH_name = "callH";
-
-const ::std::string iceC_Test_Echo_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Echo"
-};
-const ::std::string iceC_Test_Echo_ops[] =
-{
-    "flushBatch",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "setConnection",
-    "shutdown",
-    "startBatch"
-};
-const ::std::string iceC_Test_Echo_setConnection_name = "setConnection";
-const ::std::string iceC_Test_Echo_startBatch_name = "startBatch";
-const ::std::string iceC_Test_Echo_flushBatch_name = "flushBatch";
-const ::std::string iceC_Test_Echo_shutdown_name = "shutdown";
-
 }
 
 const ::std::string&
@@ -239,8 +68,10 @@ Test::APrx::callAAsync(::std::function<void (::std::string)> response,
 void
 Test::APrx::_iceI_callA(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_A_callA_name);
-    outAsync->invoke(iceC_Test_A_callA_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "callA";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -278,8 +109,10 @@ Test::BPrx::callBAsync(::std::function<void (::std::string)> response,
 void
 Test::BPrx::_iceI_callB(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_B_callB_name);
-    outAsync->invoke(iceC_Test_B_callB_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "callB";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -317,8 +150,10 @@ Test::CPrx::callCAsync(::std::function<void (::std::string)> response,
 void
 Test::CPrx::_iceI_callC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_C_callC_name);
-    outAsync->invoke(iceC_Test_C_callC_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "callC";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -356,8 +191,10 @@ Test::DPrx::callDAsync(::std::function<void (::std::string)> response,
 void
 Test::DPrx::_iceI_callD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_D_callD_name);
-    outAsync->invoke(iceC_Test_D_callD_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "callD";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -395,8 +232,10 @@ Test::EPrx::callEAsync(::std::function<void (::std::string)> response,
 void
 Test::EPrx::_iceI_callE(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_E_callE_name);
-    outAsync->invoke(iceC_Test_E_callE_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "callE";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -434,8 +273,10 @@ Test::FPrx::callFAsync(::std::function<void (::std::string)> response,
 void
 Test::FPrx::_iceI_callF(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_F_callF_name);
-    outAsync->invoke(iceC_Test_F_callF_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "callF";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -473,7 +314,9 @@ Test::GPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::GPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_G_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "shutdown";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -504,8 +347,10 @@ Test::GPrx::callGAsync(::std::function<void (::std::string)> response,
 void
 Test::GPrx::_iceI_callG(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_G_callG_name);
-    outAsync->invoke(iceC_Test_G_callG_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "callG";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -543,8 +388,10 @@ Test::HPrx::callHAsync(::std::function<void (::std::string)> response,
 void
 Test::HPrx::_iceI_callH(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_H_callH_name);
-    outAsync->invoke(iceC_Test_H_callH_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "callH";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -582,7 +429,9 @@ Test::EchoPrx::setConnectionAsync(::std::function<void ()> response,
 void
 Test::EchoPrx::_iceI_setConnection(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Echo_setConnection_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "setConnection";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -613,7 +462,9 @@ Test::EchoPrx::startBatchAsync(::std::function<void ()> response,
 void
 Test::EchoPrx::_iceI_startBatch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Echo_startBatch_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "startBatch";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -644,7 +495,9 @@ Test::EchoPrx::flushBatchAsync(::std::function<void ()> response,
 void
 Test::EchoPrx::_iceI_flushBatch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Echo_flushBatch_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "flushBatch";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -675,7 +528,9 @@ Test::EchoPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::EchoPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Echo_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "shutdown";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -688,16 +543,11 @@ Test::EchoPrx::ice_staticId()
     return typeId;
 }
 
-bool
-Test::Empty::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Empty_ids, iceC_Test_Empty_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::Empty::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_Empty_ids[0], &iceC_Test_Empty_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Empty" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -713,16 +563,11 @@ Test::Empty::ice_staticId()
     return typeId;
 }
 
-bool
-Test::A::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_A_ids, iceC_Test_A_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::A::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_A_ids[0], &iceC_Test_A_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::A" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -756,13 +601,15 @@ Test::A::_iceD_callA(::IceInternal::Incoming& inS, const ::Ice::Current& current
 bool
 Test::A::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_A_ops, iceC_Test_A_ops + 5, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "callA", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_A_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -793,16 +640,11 @@ Test::A::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current
 }
 /// \endcond
 
-bool
-Test::B::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_B_ids, iceC_Test_B_ids + 3, s);
-}
-
 ::std::vector<::std::string>
 Test::B::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_B_ids[0], &iceC_Test_B_ids[3]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::A", "::Test::B" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -836,13 +678,15 @@ Test::B::_iceD_callB(::IceInternal::Incoming& inS, const ::Ice::Current& current
 bool
 Test::B::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_B_ops, iceC_Test_B_ops + 6, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "callA", "callB", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_B_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -877,16 +721,11 @@ Test::B::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current
 }
 /// \endcond
 
-bool
-Test::C::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_C_ids, iceC_Test_C_ids + 3, s);
-}
-
 ::std::vector<::std::string>
 Test::C::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_C_ids[0], &iceC_Test_C_ids[3]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::A", "::Test::C" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -920,13 +759,15 @@ Test::C::_iceD_callC(::IceInternal::Incoming& inS, const ::Ice::Current& current
 bool
 Test::C::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_C_ops, iceC_Test_C_ops + 6, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "callA", "callC", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_C_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -961,16 +802,11 @@ Test::C::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current
 }
 /// \endcond
 
-bool
-Test::D::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_D_ids, iceC_Test_D_ids + 5, s);
-}
-
 ::std::vector<::std::string>
 Test::D::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_D_ids[0], &iceC_Test_D_ids[5]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::A", "::Test::B", "::Test::C", "::Test::D" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -1004,13 +840,15 @@ Test::D::_iceD_callD(::IceInternal::Incoming& inS, const ::Ice::Current& current
 bool
 Test::D::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_D_ops, iceC_Test_D_ops + 8, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "callA", "callB", "callC", "callD", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_D_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -1053,16 +891,11 @@ Test::D::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current
 }
 /// \endcond
 
-bool
-Test::E::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_E_ids, iceC_Test_E_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::E::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_E_ids[0], &iceC_Test_E_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::E" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -1096,13 +929,15 @@ Test::E::_iceD_callE(::IceInternal::Incoming& inS, const ::Ice::Current& current
 bool
 Test::E::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_E_ops, iceC_Test_E_ops + 5, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "callE", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_E_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -1133,16 +968,11 @@ Test::E::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current
 }
 /// \endcond
 
-bool
-Test::F::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_F_ids, iceC_Test_F_ids + 3, s);
-}
-
 ::std::vector<::std::string>
 Test::F::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_F_ids[0], &iceC_Test_F_ids[3]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::E", "::Test::F" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -1176,13 +1006,15 @@ Test::F::_iceD_callF(::IceInternal::Incoming& inS, const ::Ice::Current& current
 bool
 Test::F::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_F_ops, iceC_Test_F_ops + 6, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "callE", "callF", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_F_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -1217,16 +1049,11 @@ Test::F::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current
 }
 /// \endcond
 
-bool
-Test::G::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_G_ids, iceC_Test_G_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::G::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_G_ids[0], &iceC_Test_G_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::G" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -1272,13 +1099,15 @@ Test::G::_iceD_callG(::IceInternal::Incoming& inS, const ::Ice::Current& current
 bool
 Test::G::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_G_ops, iceC_Test_G_ops + 6, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "callG", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_G_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -1313,16 +1142,11 @@ Test::G::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current
 }
 /// \endcond
 
-bool
-Test::H::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_H_ids, iceC_Test_H_ids + 3, s);
-}
-
 ::std::vector<::std::string>
 Test::H::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_H_ids[0], &iceC_Test_H_ids[3]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::G", "::Test::H" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -1356,13 +1180,15 @@ Test::H::_iceD_callH(::IceInternal::Incoming& inS, const ::Ice::Current& current
 bool
 Test::H::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_H_ops, iceC_Test_H_ops + 7, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "callG", "callH", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_H_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -1401,16 +1227,11 @@ Test::H::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current
 }
 /// \endcond
 
-bool
-Test::Echo::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Echo_ids, iceC_Test_Echo_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::Echo::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_Echo_ids[0], &iceC_Test_Echo_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Echo" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -1478,13 +1299,15 @@ Test::Echo::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current& c
 bool
 Test::Echo::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Echo_ops, iceC_Test_Echo_ops + 8, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "flushBatch", "ice_id", "ice_ids", "ice_isA", "ice_ping", "setConnection", "shutdown", "startBatch" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_Echo_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

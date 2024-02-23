@@ -34,44 +34,6 @@
 namespace
 {
 
-const ::std::string iceC_Test_Timeout_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Timeout"
-};
-const ::std::string iceC_Test_Timeout_ops[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "op",
-    "sendData",
-    "sleep"
-};
-const ::std::string iceC_Test_Timeout_op_name = "op";
-const ::std::string iceC_Test_Timeout_sendData_name = "sendData";
-const ::std::string iceC_Test_Timeout_sleep_name = "sleep";
-
-const ::std::string iceC_Test_Controller_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Controller"
-};
-const ::std::string iceC_Test_Controller_ops[] =
-{
-    "holdAdapter",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "resumeAdapter",
-    "shutdown"
-};
-const ::std::string iceC_Test_Controller_holdAdapter_name = "holdAdapter";
-const ::std::string iceC_Test_Controller_resumeAdapter_name = "resumeAdapter";
-const ::std::string iceC_Test_Controller_shutdown_name = "shutdown";
-
 }
 
 void
@@ -99,7 +61,9 @@ Test::TimeoutPrx::opAsync(::std::function<void ()> response,
 void
 Test::TimeoutPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Timeout_op_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "op";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -131,7 +95,9 @@ Test::TimeoutPrx::sendDataAsync(const ByteSeq& iceP_seq,
 void
 Test::TimeoutPrx::_iceI_sendData(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ByteSeq& iceP_seq, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Timeout_sendData_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "sendData";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_seq);
@@ -166,7 +132,9 @@ Test::TimeoutPrx::sleepAsync(::std::int32_t iceP_to,
 void
 Test::TimeoutPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_to, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Timeout_sleep_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "sleep";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_to);
@@ -208,7 +176,9 @@ Test::ControllerPrx::holdAdapterAsync(::std::int32_t iceP_to,
 void
 Test::ControllerPrx::_iceI_holdAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_to, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Controller_holdAdapter_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "holdAdapter";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_to);
@@ -242,7 +212,9 @@ Test::ControllerPrx::resumeAdapterAsync(::std::function<void ()> response,
 void
 Test::ControllerPrx::_iceI_resumeAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Controller_resumeAdapter_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "resumeAdapter";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -273,7 +245,9 @@ Test::ControllerPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::ControllerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Controller_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "shutdown";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -286,16 +260,11 @@ Test::ControllerPrx::ice_staticId()
     return typeId;
 }
 
-bool
-Test::Timeout::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Timeout_ids, iceC_Test_Timeout_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::Timeout::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_Timeout_ids[0], &iceC_Test_Timeout_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Timeout" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -357,13 +326,15 @@ Test::Timeout::_iceD_sleep(::IceInternal::Incoming& inS, const ::Ice::Current& c
 bool
 Test::Timeout::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Timeout_ops, iceC_Test_Timeout_ops + 7, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "op", "sendData", "sleep" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_Timeout_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -402,16 +373,11 @@ Test::Timeout::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
 }
 /// \endcond
 
-bool
-Test::Controller::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Controller_ids, iceC_Test_Controller_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::Controller::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_Controller_ids[0], &iceC_Test_Controller_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Controller" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -470,13 +436,15 @@ Test::Controller::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Curr
 bool
 Test::Controller::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Controller_ops, iceC_Test_Controller_ops + 7, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "holdAdapter", "ice_id", "ice_ids", "ice_isA", "ice_ping", "resumeAdapter", "shutdown" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_Controller_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

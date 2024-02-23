@@ -34,44 +34,6 @@
 namespace
 {
 
-const ::std::string iceC_Test_TestIntf_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::TestIntf"
-};
-const ::std::string iceC_Test_TestIntf_ops[] =
-{
-    "getAdapterId",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_Test_TestIntf_getAdapterId_name = "getAdapterId";
-
-const ::std::string iceC_Test_Controller_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Controller"
-};
-const ::std::string iceC_Test_Controller_ops[] =
-{
-    "activateObjectAdapter",
-    "addObject",
-    "deactivateObjectAdapter",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "removeObject",
-    "shutdown"
-};
-const ::std::string iceC_Test_Controller_activateObjectAdapter_name = "activateObjectAdapter";
-const ::std::string iceC_Test_Controller_deactivateObjectAdapter_name = "deactivateObjectAdapter";
-const ::std::string iceC_Test_Controller_addObject_name = "addObject";
-const ::std::string iceC_Test_Controller_removeObject_name = "removeObject";
-const ::std::string iceC_Test_Controller_shutdown_name = "shutdown";
-
 }
 
 ::std::string
@@ -99,8 +61,10 @@ Test::TestIntfPrx::getAdapterIdAsync(::std::function<void (::std::string)> respo
 void
 Test::TestIntfPrx::_iceI_getAdapterId(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_getAdapterId_name);
-    outAsync->invoke(iceC_Test_TestIntf_getAdapterId_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getAdapterId";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -139,7 +103,9 @@ Test::ControllerPrx::activateObjectAdapterAsync(const ::std::string& iceP_name, 
 void
 Test::ControllerPrx::_iceI_activateObjectAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_name, const ::std::string& iceP_adapterId, const ::std::string& iceP_replicaGroupId, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Controller_activateObjectAdapter_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "activateObjectAdapter";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_name, iceP_adapterId, iceP_replicaGroupId);
@@ -174,7 +140,9 @@ Test::ControllerPrx::deactivateObjectAdapterAsync(const ::std::string& iceP_name
 void
 Test::ControllerPrx::_iceI_deactivateObjectAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_name, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Controller_deactivateObjectAdapter_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "deactivateObjectAdapter";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_name);
@@ -209,7 +177,9 @@ Test::ControllerPrx::addObjectAsync(const ::std::string& iceP_oaName, const ::st
 void
 Test::ControllerPrx::_iceI_addObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_oaName, const ::std::string& iceP_id, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Controller_addObject_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "addObject";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_oaName, iceP_id);
@@ -244,7 +214,9 @@ Test::ControllerPrx::removeObjectAsync(const ::std::string& iceP_oaName, const :
 void
 Test::ControllerPrx::_iceI_removeObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_oaName, const ::std::string& iceP_id, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Controller_removeObject_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "removeObject";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_oaName, iceP_id);
@@ -278,7 +250,9 @@ Test::ControllerPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::ControllerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Controller_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "shutdown";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -291,16 +265,11 @@ Test::ControllerPrx::ice_staticId()
     return typeId;
 }
 
-bool
-Test::TestIntf::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_TestIntf_ids, iceC_Test_TestIntf_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::TestIntf::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_TestIntf_ids[0], &iceC_Test_TestIntf_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::TestIntf" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -334,13 +303,15 @@ Test::TestIntf::_iceD_getAdapterId(::IceInternal::Incoming& inS, const ::Ice::Cu
 bool
 Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_TestIntf_ops, iceC_Test_TestIntf_ops + 5, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "getAdapterId", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_TestIntf_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -371,16 +342,11 @@ Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
 }
 /// \endcond
 
-bool
-Test::Controller::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Controller_ids, iceC_Test_Controller_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::Controller::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_Controller_ids[0], &iceC_Test_Controller_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Controller" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -476,13 +442,15 @@ Test::Controller::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Curr
 bool
 Test::Controller::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Controller_ops, iceC_Test_Controller_ops + 9, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "activateObjectAdapter", "addObject", "deactivateObjectAdapter", "ice_id", "ice_ids", "ice_isA", "ice_ping", "removeObject", "shutdown" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 9, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_Controller_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

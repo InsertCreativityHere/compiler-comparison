@@ -36,54 +36,6 @@ namespace
 
 const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::UserEx> iceC_Test_UserEx_init("::Test::UserEx");
 
-const ::std::string iceC_Test_Metrics_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Metrics"
-};
-const ::std::string iceC_Test_Metrics_ops[] =
-{
-    "fail",
-    "getAdmin",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "op",
-    "opByteS",
-    "opWithLocalException",
-    "opWithRequestFailedException",
-    "opWithUnknownException",
-    "opWithUserException",
-    "shutdown"
-};
-const ::std::string iceC_Test_Metrics_op_name = "op";
-const ::std::string iceC_Test_Metrics_fail_name = "fail";
-const ::std::string iceC_Test_Metrics_opWithUserException_name = "opWithUserException";
-const ::std::string iceC_Test_Metrics_opWithRequestFailedException_name = "opWithRequestFailedException";
-const ::std::string iceC_Test_Metrics_opWithLocalException_name = "opWithLocalException";
-const ::std::string iceC_Test_Metrics_opWithUnknownException_name = "opWithUnknownException";
-const ::std::string iceC_Test_Metrics_opByteS_name = "opByteS";
-const ::std::string iceC_Test_Metrics_getAdmin_name = "getAdmin";
-const ::std::string iceC_Test_Metrics_shutdown_name = "shutdown";
-
-const ::std::string iceC_Test_Controller_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Controller"
-};
-const ::std::string iceC_Test_Controller_ops[] =
-{
-    "hold",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "resume"
-};
-const ::std::string iceC_Test_Controller_hold_name = "hold";
-const ::std::string iceC_Test_Controller_resume_name = "resume";
-
 }
 
 void
@@ -111,7 +63,9 @@ Test::MetricsPrx::opAsync(::std::function<void ()> response,
 void
 Test::MetricsPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Metrics_op_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "op";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -142,7 +96,9 @@ Test::MetricsPrx::failAsync(::std::function<void ()> response,
 void
 Test::MetricsPrx::_iceI_fail(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Metrics_fail_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "fail";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -173,8 +129,10 @@ Test::MetricsPrx::opWithUserExceptionAsync(::std::function<void ()> response,
 void
 Test::MetricsPrx::_iceI_opWithUserException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Metrics_opWithUserException_name);
-    outAsync->invoke(iceC_Test_Metrics_opWithUserException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opWithUserException";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -218,7 +176,9 @@ Test::MetricsPrx::opWithRequestFailedExceptionAsync(::std::function<void ()> res
 void
 Test::MetricsPrx::_iceI_opWithRequestFailedException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Metrics_opWithRequestFailedException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opWithRequestFailedException";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -249,7 +209,9 @@ Test::MetricsPrx::opWithLocalExceptionAsync(::std::function<void ()> response,
 void
 Test::MetricsPrx::_iceI_opWithLocalException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Metrics_opWithLocalException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opWithLocalException";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -280,7 +242,9 @@ Test::MetricsPrx::opWithUnknownExceptionAsync(::std::function<void ()> response,
 void
 Test::MetricsPrx::_iceI_opWithUnknownException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Metrics_opWithUnknownException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opWithUnknownException";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -312,7 +276,9 @@ Test::MetricsPrx::opByteSAsync(const ByteSeq& iceP_bs,
 void
 Test::MetricsPrx::_iceI_opByteS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ByteSeq& iceP_bs, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Metrics_opByteS_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opByteS";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_bs);
@@ -346,8 +312,10 @@ Test::MetricsPrx::getAdminAsync(::std::function<void (::std::optional<::Ice::Obj
 void
 Test::MetricsPrx::_iceI_getAdmin(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Metrics_getAdmin_name);
-    outAsync->invoke(iceC_Test_Metrics_getAdmin_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getAdmin";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -378,7 +346,9 @@ Test::MetricsPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::MetricsPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Metrics_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "shutdown";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -416,7 +386,9 @@ Test::ControllerPrx::holdAsync(::std::function<void ()> response,
 void
 Test::ControllerPrx::_iceI_hold(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Controller_hold_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "hold";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -447,7 +419,9 @@ Test::ControllerPrx::resumeAsync(::std::function<void ()> response,
 void
 Test::ControllerPrx::_iceI_resume(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Controller_resume_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "resume";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -471,16 +445,11 @@ Test::UserEx::ice_staticId()
     return typeId;
 }
 
-bool
-Test::Metrics::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Metrics_ids, iceC_Test_Metrics_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::Metrics::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_Metrics_ids[0], &iceC_Test_Metrics_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Metrics" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -613,13 +582,15 @@ Test::Metrics::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current
 bool
 Test::Metrics::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Metrics_ops, iceC_Test_Metrics_ops + 13, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "fail", "getAdmin", "ice_id", "ice_ids", "ice_isA", "ice_ping", "op", "opByteS", "opWithLocalException", "opWithRequestFailedException", "opWithUnknownException", "opWithUserException", "shutdown" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 13, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_Metrics_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -682,16 +653,11 @@ Test::Metrics::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
 }
 /// \endcond
 
-bool
-Test::Controller::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Controller_ids, iceC_Test_Controller_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::Controller::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_Controller_ids[0], &iceC_Test_Controller_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Controller" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -735,13 +701,15 @@ Test::Controller::_iceD_resume(::IceInternal::Incoming& inS, const ::Ice::Curren
 bool
 Test::Controller::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Controller_ops, iceC_Test_Controller_ops + 6, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "hold", "ice_id", "ice_ids", "ice_isA", "ice_ping", "resume" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_Controller_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

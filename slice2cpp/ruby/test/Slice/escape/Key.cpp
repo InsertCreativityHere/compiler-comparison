@@ -34,65 +34,11 @@
 namespace
 {
 
-const ::std::string iceC_BEGIN_break_ids[2] =
-{
-    "::BEGIN::break",
-    "::Ice::Object"
-};
-const ::std::string iceC_BEGIN_break_ops[] =
-{
-    "case",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "instance_variable_set",
-    "instance_variables",
-    "to_a"
-};
-const ::std::string iceC_BEGIN_break_case_name = "case";
-const ::std::string iceC_BEGIN_break_to_a_name = "to_a";
-const ::std::string iceC_BEGIN_break_instance_variable_set_name = "instance_variable_set";
-const ::std::string iceC_BEGIN_break_instance_variables_name = "instance_variables";
-
 const ::IceInternal::DefaultValueFactoryInit<::BEGIN::display> iceC_BEGIN_display_init("::BEGIN::display");
-
-const ::std::string iceC_BEGIN_elsif_ids[3] =
-{
-    "::BEGIN::break",
-    "::BEGIN::elsif",
-    "::Ice::Object"
-};
-const ::std::string iceC_BEGIN_elsif_ops[] =
-{
-    "case",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "instance_variable_set",
-    "instance_variables",
-    "to_a"
-};
 
 const ::IceInternal::DefaultUserExceptionFactoryInit<::BEGIN::next> iceC_BEGIN_next_init("::BEGIN::next");
 
 const ::IceInternal::DefaultUserExceptionFactoryInit<::BEGIN::nil> iceC_BEGIN_nil_init("::BEGIN::nil");
-
-const ::std::string iceC_BEGIN_extend_ids[2] =
-{
-    "::BEGIN::extend",
-    "::Ice::Object"
-};
-const ::std::string iceC_BEGIN_extend_ops[] =
-{
-    "for",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_BEGIN_extend_for_name = "for";
 
 }
 
@@ -122,7 +68,9 @@ BEGIN::breakPrx::caseAsync(::std::int32_t iceP_clone, ::std::int32_t iceP_def,
 void
 BEGIN::breakPrx::_iceI_case(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_clone, ::std::int32_t iceP_def, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_BEGIN_break_case_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "case";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_clone, iceP_def);
@@ -156,7 +104,9 @@ BEGIN::breakPrx::to_aAsync(::std::function<void ()> response,
 void
 BEGIN::breakPrx::_iceI_to_a(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_BEGIN_break_to_a_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "to_a";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -187,7 +137,9 @@ BEGIN::breakPrx::instance_variable_setAsync(::std::function<void ()> response,
 void
 BEGIN::breakPrx::_iceI_instance_variable_set(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_BEGIN_break_instance_variable_set_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "instance_variable_set";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -218,7 +170,9 @@ BEGIN::breakPrx::instance_variablesAsync(::std::function<void ()> response,
 void
 BEGIN::breakPrx::_iceI_instance_variables(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_BEGIN_break_instance_variables_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "instance_variables";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -264,8 +218,10 @@ BEGIN::extendPrx::forAsync(const ::std::shared_ptr<display>& iceP_freeze, const 
 void
 BEGIN::extendPrx::_iceI_for(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<END>>& outAsync, const ::std::shared_ptr<display>& iceP_freeze, const ::std::optional<elsifPrx>& iceP_hash, const ::std::optional<breakPrx>& iceP_if, const ::std::shared_ptr<display>& iceP_inspect, const ::std::optional<elsifPrx>& iceP_method, ::std::int32_t iceP_methods, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_BEGIN_extend_for_name);
-    outAsync->invoke(iceC_BEGIN_extend_for_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "for";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_freeze, iceP_hash, iceP_if, iceP_inspect, iceP_method, iceP_methods);
@@ -328,16 +284,11 @@ BEGIN::nil::ice_staticId()
     return typeId;
 }
 
-bool
-BEGIN::_cpp_break::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_BEGIN_break_ids, iceC_BEGIN_break_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 BEGIN::_cpp_break::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_BEGIN_break_ids[0], &iceC_BEGIN_break_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::BEGIN::break", "::Ice::Object" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -409,13 +360,15 @@ BEGIN::_cpp_break::_iceD_instance_variables(::IceInternal::Incoming& inS, const 
 bool
 BEGIN::_cpp_break::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_BEGIN_break_ops, iceC_BEGIN_break_ops + 8, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "case", "ice_id", "ice_ids", "ice_isA", "ice_ping", "instance_variable_set", "instance_variables", "to_a" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_BEGIN_break_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -458,16 +411,11 @@ BEGIN::_cpp_break::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curren
 }
 /// \endcond
 
-bool
-BEGIN::elsif::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_BEGIN_elsif_ids, iceC_BEGIN_elsif_ids + 3, s);
-}
-
 ::std::vector<::std::string>
 BEGIN::elsif::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_BEGIN_elsif_ids[0], &iceC_BEGIN_elsif_ids[3]);
+    static const ::std::vector<::std::string> allTypeIds = { "::BEGIN::break", "::BEGIN::elsif", "::Ice::Object" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -487,13 +435,15 @@ BEGIN::elsif::ice_staticId()
 bool
 BEGIN::elsif::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_BEGIN_elsif_ops, iceC_BEGIN_elsif_ops + 8, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "case", "ice_id", "ice_ids", "ice_isA", "ice_ping", "instance_variable_set", "instance_variables", "to_a" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_BEGIN_elsif_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -536,16 +486,11 @@ BEGIN::elsif::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& cu
 }
 /// \endcond
 
-bool
-BEGIN::extend::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_BEGIN_extend_ids, iceC_BEGIN_extend_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 BEGIN::extend::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_BEGIN_extend_ids[0], &iceC_BEGIN_extend_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::BEGIN::extend", "::Ice::Object" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -588,13 +533,15 @@ BEGIN::extend::_iceD_for(::IceInternal::Incoming& inS, const ::Ice::Current& cur
 bool
 BEGIN::extend::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_BEGIN_extend_ops, iceC_BEGIN_extend_ops + 5, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "for", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_BEGIN_extend_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

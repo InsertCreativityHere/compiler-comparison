@@ -43,44 +43,6 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::IceBox::AlreadyStoppedExc
 
 const ::IceInternal::DefaultUserExceptionFactoryInit<::IceBox::NoSuchServiceException> iceC_IceBox_NoSuchServiceException_init("::IceBox::NoSuchServiceException");
 
-const ::std::string iceC_IceBox_ServiceObserver_ids[2] =
-{
-    "::Ice::Object",
-    "::IceBox::ServiceObserver"
-};
-const ::std::string iceC_IceBox_ServiceObserver_ops[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "servicesStarted",
-    "servicesStopped"
-};
-const ::std::string iceC_IceBox_ServiceObserver_servicesStarted_name = "servicesStarted";
-const ::std::string iceC_IceBox_ServiceObserver_servicesStopped_name = "servicesStopped";
-
-const ::std::string iceC_IceBox_ServiceManager_ids[2] =
-{
-    "::Ice::Object",
-    "::IceBox::ServiceManager"
-};
-const ::std::string iceC_IceBox_ServiceManager_ops[] =
-{
-    "addObserver",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "shutdown",
-    "startService",
-    "stopService"
-};
-const ::std::string iceC_IceBox_ServiceManager_startService_name = "startService";
-const ::std::string iceC_IceBox_ServiceManager_stopService_name = "stopService";
-const ::std::string iceC_IceBox_ServiceManager_addObserver_name = "addObserver";
-const ::std::string iceC_IceBox_ServiceManager_shutdown_name = "shutdown";
-
 }
 
 void
@@ -109,7 +71,9 @@ IceBox::ServiceObserverPrx::servicesStartedAsync(const ::Ice::StringSeq& iceP_se
 void
 IceBox::ServiceObserverPrx::_iceI_servicesStarted(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::StringSeq& iceP_services, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_IceBox_ServiceObserver_servicesStarted_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "servicesStarted";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_services);
@@ -144,7 +108,9 @@ IceBox::ServiceObserverPrx::servicesStoppedAsync(const ::Ice::StringSeq& iceP_se
 void
 IceBox::ServiceObserverPrx::_iceI_servicesStopped(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::StringSeq& iceP_services, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_IceBox_ServiceObserver_servicesStopped_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "servicesStopped";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_services);
@@ -186,8 +152,10 @@ IceBox::ServiceManagerPrx::startServiceAsync(const ::std::string& iceP_service,
 void
 IceBox::ServiceManagerPrx::_iceI_startService(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_service, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_IceBox_ServiceManager_startService_name);
-    outAsync->invoke(iceC_IceBox_ServiceManager_startService_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "startService";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_service);
@@ -239,8 +207,10 @@ IceBox::ServiceManagerPrx::stopServiceAsync(const ::std::string& iceP_service,
 void
 IceBox::ServiceManagerPrx::_iceI_stopService(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_service, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_IceBox_ServiceManager_stopService_name);
-    outAsync->invoke(iceC_IceBox_ServiceManager_stopService_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "stopService";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_service);
@@ -292,7 +262,9 @@ IceBox::ServiceManagerPrx::addObserverAsync(const ::std::optional<ServiceObserve
 void
 IceBox::ServiceManagerPrx::_iceI_addObserver(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<ServiceObserverPrx>& iceP_observer, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_IceBox_ServiceManager_addObserver_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "addObserver";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_observer);
@@ -326,7 +298,9 @@ IceBox::ServiceManagerPrx::shutdownAsync(::std::function<void ()> response,
 void
 IceBox::ServiceManagerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_IceBox_ServiceManager_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "shutdown";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -372,16 +346,11 @@ IceBox::NoSuchServiceException::ice_staticId()
     return typeId;
 }
 
-bool
-IceBox::ServiceObserver::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_IceBox_ServiceObserver_ids, iceC_IceBox_ServiceObserver_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 IceBox::ServiceObserver::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_IceBox_ServiceObserver_ids[0], &iceC_IceBox_ServiceObserver_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::IceBox::ServiceObserver" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -431,13 +400,15 @@ IceBox::ServiceObserver::_iceD_servicesStopped(::IceInternal::Incoming& inS, con
 bool
 IceBox::ServiceObserver::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_IceBox_ServiceObserver_ops, iceC_IceBox_ServiceObserver_ops + 6, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "servicesStarted", "servicesStopped" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_IceBox_ServiceObserver_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -472,16 +443,11 @@ IceBox::ServiceObserver::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::
 }
 /// \endcond
 
-bool
-IceBox::ServiceManager::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_IceBox_ServiceManager_ids, iceC_IceBox_ServiceManager_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 IceBox::ServiceManager::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_IceBox_ServiceManager_ids[0], &iceC_IceBox_ServiceManager_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::IceBox::ServiceManager" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -558,13 +524,15 @@ IceBox::ServiceManager::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice
 bool
 IceBox::ServiceManager::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_IceBox_ServiceManager_ops, iceC_IceBox_ServiceManager_ops + 8, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "addObserver", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown", "startService", "stopService" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_IceBox_ServiceManager_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

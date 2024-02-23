@@ -34,29 +34,6 @@
 namespace
 {
 
-const ::std::string iceC_Test_Hold_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Hold"
-};
-const ::std::string iceC_Test_Hold_ops[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "putOnHold",
-    "set",
-    "setOneway",
-    "shutdown",
-    "waitForHold"
-};
-const ::std::string iceC_Test_Hold_putOnHold_name = "putOnHold";
-const ::std::string iceC_Test_Hold_waitForHold_name = "waitForHold";
-const ::std::string iceC_Test_Hold_setOneway_name = "setOneway";
-const ::std::string iceC_Test_Hold_set_name = "set";
-const ::std::string iceC_Test_Hold_shutdown_name = "shutdown";
-
 }
 
 void
@@ -85,7 +62,9 @@ Test::HoldPrx::putOnHoldAsync(::std::int32_t iceP_seconds,
 void
 Test::HoldPrx::_iceI_putOnHold(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_seconds, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Hold_putOnHold_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "putOnHold";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_seconds);
@@ -119,7 +98,9 @@ Test::HoldPrx::waitForHoldAsync(::std::function<void ()> response,
 void
 Test::HoldPrx::_iceI_waitForHold(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Hold_waitForHold_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "waitForHold";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -151,7 +132,9 @@ Test::HoldPrx::setOnewayAsync(::std::int32_t iceP_value, ::std::int32_t iceP_exp
 void
 Test::HoldPrx::_iceI_setOneway(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_value, ::std::int32_t iceP_expected, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Hold_setOneway_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "setOneway";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_value, iceP_expected);
@@ -186,8 +169,10 @@ Test::HoldPrx::setAsync(::std::int32_t iceP_value, ::std::int32_t iceP_delay,
 void
 Test::HoldPrx::_iceI_set(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_value, ::std::int32_t iceP_delay, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Hold_set_name);
-    outAsync->invoke(iceC_Test_Hold_set_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "set";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_value, iceP_delay);
@@ -221,7 +206,9 @@ Test::HoldPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::HoldPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Hold_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "shutdown";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -234,16 +221,11 @@ Test::HoldPrx::ice_staticId()
     return typeId;
 }
 
-bool
-Test::Hold::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Hold_ids, iceC_Test_Hold_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::Hold::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_Hold_ids[0], &iceC_Test_Hold_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Hold" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -336,13 +318,15 @@ Test::Hold::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current& c
 bool
 Test::Hold::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Hold_ops, iceC_Test_Hold_ops + 9, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "putOnHold", "set", "setOneway", "shutdown", "waitForHold" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 9, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_Hold_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

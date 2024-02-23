@@ -34,41 +34,6 @@
 namespace
 {
 
-const ::std::string iceC_Test_MyClass_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::MyClass"
-};
-const ::std::string iceC_Test_MyClass_ops[] =
-{
-    "getContext",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "shutdown"
-};
-const ::std::string iceC_Test_MyClass_shutdown_name = "shutdown";
-const ::std::string iceC_Test_MyClass_getContext_name = "getContext";
-
-const ::std::string iceC_Test_MyDerivedClass_ids[3] =
-{
-    "::Ice::Object",
-    "::Test::MyClass",
-    "::Test::MyDerivedClass"
-};
-const ::std::string iceC_Test_MyDerivedClass_ops[] =
-{
-    "echo",
-    "getContext",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "shutdown"
-};
-const ::std::string iceC_Test_MyDerivedClass_echo_name = "echo";
-
 }
 
 void
@@ -96,7 +61,9 @@ Test::MyClassPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::MyClassPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_MyClass_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "shutdown";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -127,8 +94,10 @@ Test::MyClassPrx::getContextAsync(::std::function<void (::Test::Context)> respon
 void
 Test::MyClassPrx::_iceI_getContext(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Context>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_MyClass_getContext_name);
-    outAsync->invoke(iceC_Test_MyClass_getContext_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getContext";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -167,8 +136,10 @@ Test::MyDerivedClassPrx::echoAsync(const ::std::optional<::Ice::ObjectPrx>& iceP
 void
 Test::MyDerivedClassPrx::_iceI_echo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>& outAsync, const ::std::optional<::Ice::ObjectPrx>& iceP_obj, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_MyDerivedClass_echo_name);
-    outAsync->invoke(iceC_Test_MyDerivedClass_echo_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "echo";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_obj);
@@ -184,16 +155,11 @@ Test::MyDerivedClassPrx::ice_staticId()
     return typeId;
 }
 
-bool
-Test::MyClass::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_MyClass_ids, iceC_Test_MyClass_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::MyClass::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_MyClass_ids[0], &iceC_Test_MyClass_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::MyClass" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -239,13 +205,15 @@ Test::MyClass::_iceD_getContext(::IceInternal::Incoming& inS, const ::Ice::Curre
 bool
 Test::MyClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_MyClass_ops, iceC_Test_MyClass_ops + 6, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "getContext", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_MyClass_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -280,16 +248,11 @@ Test::MyClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
 }
 /// \endcond
 
-bool
-Test::MyDerivedClass::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_MyDerivedClass_ids, iceC_Test_MyDerivedClass_ids + 3, s);
-}
-
 ::std::vector<::std::string>
 Test::MyDerivedClass::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_MyDerivedClass_ids[0], &iceC_Test_MyDerivedClass_ids[3]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::MyClass", "::Test::MyDerivedClass" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -326,13 +289,15 @@ Test::MyDerivedClass::_iceD_echo(::IceInternal::Incoming& inS, const ::Ice::Curr
 bool
 Test::MyDerivedClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_MyDerivedClass_ops, iceC_Test_MyDerivedClass_ops + 7, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "echo", "getContext", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_MyDerivedClass_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

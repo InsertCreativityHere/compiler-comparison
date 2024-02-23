@@ -37,31 +37,6 @@
 namespace
 {
 
-const ::std::string iceC_IceGrid_Session_ids[3] =
-{
-    "::Glacier2::Session",
-    "::Ice::Object",
-    "::IceGrid::Session"
-};
-const ::std::string iceC_IceGrid_Session_ops[] =
-{
-    "allocateObjectById",
-    "allocateObjectByType",
-    "destroy",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "keepAlive",
-    "releaseObject",
-    "setAllocationTimeout"
-};
-const ::std::string iceC_IceGrid_Session_keepAlive_name = "keepAlive";
-const ::std::string iceC_IceGrid_Session_allocateObjectById_name = "allocateObjectById";
-const ::std::string iceC_IceGrid_Session_allocateObjectByType_name = "allocateObjectByType";
-const ::std::string iceC_IceGrid_Session_releaseObject_name = "releaseObject";
-const ::std::string iceC_IceGrid_Session_setAllocationTimeout_name = "setAllocationTimeout";
-
 }
 
 void
@@ -89,7 +64,9 @@ IceGrid::SessionPrx::keepAliveAsync(::std::function<void ()> response,
 void
 IceGrid::SessionPrx::_iceI_keepAlive(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_IceGrid_Session_keepAlive_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "keepAlive";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -121,8 +98,10 @@ IceGrid::SessionPrx::allocateObjectByIdAsync(const ::Ice::Identity& iceP_id,
 void
 IceGrid::SessionPrx::_iceI_allocateObjectById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>& outAsync, const ::Ice::Identity& iceP_id, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_IceGrid_Session_allocateObjectById_name);
-    outAsync->invoke(iceC_IceGrid_Session_allocateObjectById_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "allocateObjectById";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_id);
@@ -174,8 +153,10 @@ IceGrid::SessionPrx::allocateObjectByTypeAsync(const ::std::string& iceP_type,
 void
 IceGrid::SessionPrx::_iceI_allocateObjectByType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>& outAsync, const ::std::string& iceP_type, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_IceGrid_Session_allocateObjectByType_name);
-    outAsync->invoke(iceC_IceGrid_Session_allocateObjectByType_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "allocateObjectByType";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_type);
@@ -223,8 +204,10 @@ IceGrid::SessionPrx::releaseObjectAsync(const ::Ice::Identity& iceP_id,
 void
 IceGrid::SessionPrx::_iceI_releaseObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Identity& iceP_id, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_IceGrid_Session_releaseObject_name);
-    outAsync->invoke(iceC_IceGrid_Session_releaseObject_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "releaseObject";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_id);
@@ -276,7 +259,9 @@ IceGrid::SessionPrx::setAllocationTimeoutAsync(::std::int32_t iceP_timeout,
 void
 IceGrid::SessionPrx::_iceI_setAllocationTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_timeout, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_IceGrid_Session_setAllocationTimeout_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "setAllocationTimeout";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_timeout);
@@ -292,16 +277,11 @@ IceGrid::SessionPrx::ice_staticId()
     return typeId;
 }
 
-bool
-IceGrid::Session::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_IceGrid_Session_ids, iceC_IceGrid_Session_ids + 3, s);
-}
-
 ::std::vector<::std::string>
 IceGrid::Session::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_IceGrid_Session_ids[0], &iceC_IceGrid_Session_ids[3]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Glacier2::Session", "::Ice::Object", "::IceGrid::Session" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -407,13 +387,15 @@ IceGrid::Session::_iceD_setAllocationTimeout(::IceInternal::Incoming& inS, const
 bool
 IceGrid::Session::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_IceGrid_Session_ops, iceC_IceGrid_Session_ops + 10, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "allocateObjectById", "allocateObjectByType", "destroy", "ice_id", "ice_ids", "ice_isA", "ice_ping", "keepAlive", "releaseObject", "setAllocationTimeout" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 10, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_IceGrid_Session_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

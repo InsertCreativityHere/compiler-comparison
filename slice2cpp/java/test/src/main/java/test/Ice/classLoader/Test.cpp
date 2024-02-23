@@ -38,25 +38,6 @@ const ::IceInternal::DefaultValueFactoryInit<::Test::ConcreteClass> iceC_Test_Co
 
 const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::E> iceC_Test_E_init("::Test::E");
 
-const ::std::string iceC_Test_Initial_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Initial"
-};
-const ::std::string iceC_Test_Initial_ops[] =
-{
-    "getConcreteClass",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "shutdown",
-    "throwException"
-};
-const ::std::string iceC_Test_Initial_getConcreteClass_name = "getConcreteClass";
-const ::std::string iceC_Test_Initial_throwException_name = "throwException";
-const ::std::string iceC_Test_Initial_shutdown_name = "shutdown";
-
 }
 
 ::std::shared_ptr<::Test::ConcreteClass>
@@ -84,8 +65,10 @@ Test::InitialPrx::getConcreteClassAsync(::std::function<void (::std::shared_ptr<
 void
 Test::InitialPrx::_iceI_getConcreteClass(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<ConcreteClass>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Initial_getConcreteClass_name);
-    outAsync->invoke(iceC_Test_Initial_getConcreteClass_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getConcreteClass";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr,
         [](::Ice::InputStream* istr)
@@ -123,8 +106,10 @@ Test::InitialPrx::throwExceptionAsync(::std::function<void ()> response,
 void
 Test::InitialPrx::_iceI_throwException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Initial_throwException_name);
-    outAsync->invoke(iceC_Test_Initial_throwException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "throwException";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -168,7 +153,9 @@ Test::InitialPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::InitialPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Initial_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "shutdown";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -203,16 +190,11 @@ Test::E::ice_staticId()
     return typeId;
 }
 
-bool
-Test::Initial::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Initial_ids, iceC_Test_Initial_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::Initial::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_Initial_ids[0], &iceC_Test_Initial_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Initial" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -271,13 +253,15 @@ Test::Initial::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current
 bool
 Test::Initial::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Initial_ops, iceC_Test_Initial_ops + 7, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "getConcreteClass", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown", "throwException" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_Initial_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

@@ -46,27 +46,6 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::classdef::_cpp_break::per
 
 const ::IceInternal::DefaultUserExceptionFactoryInit<::classdef::_cpp_break::global> iceC_classdef_break_global_init("::classdef::break::global");
 
-const ::std::string iceC_classdef_break_elseif_ids[2] =
-{
-    "::Ice::Object",
-    "::classdef::break::elseif"
-};
-const ::std::string iceC_classdef_break_elseif_ops[] =
-{
-    "checkedCast",
-    "delete",
-    "events",
-    "function",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_classdef_break_elseif_events_name = "events";
-const ::std::string iceC_classdef_break_elseif_function_name = "function";
-const ::std::string iceC_classdef_break_elseif_delete_name = "delete";
-const ::std::string iceC_classdef_break_elseif_checkedCast_name = "checkedCast";
-
 }
 
 void
@@ -94,7 +73,9 @@ classdef::_cpp_break::elseifPrx::eventsAsync(::std::function<void ()> response,
 void
 classdef::_cpp_break::elseifPrx::_iceI_events(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_classdef_break_elseif_events_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "events";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -125,7 +106,9 @@ classdef::_cpp_break::elseifPrx::functionAsync(::std::function<void ()> response
 void
 classdef::_cpp_break::elseifPrx::_iceI_function(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_classdef_break_elseif_function_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "function";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -156,7 +139,9 @@ classdef::_cpp_break::elseifPrx::deleteAsync(::std::function<void ()> response,
 void
 classdef::_cpp_break::elseifPrx::_iceI_delete(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_classdef_break_elseif_delete_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "delete";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -187,7 +172,9 @@ classdef::_cpp_break::elseifPrx::checkedCastAsync(::std::function<void ()> respo
 void
 classdef::_cpp_break::elseifPrx::_iceI_checkedCast(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_classdef_break_elseif_checkedCast_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "checkedCast";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -274,16 +261,11 @@ classdef::_cpp_break::global::ice_staticId()
     return typeId;
 }
 
-bool
-classdef::_cpp_break::elseif::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_classdef_break_elseif_ids, iceC_classdef_break_elseif_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 classdef::_cpp_break::elseif::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_classdef_break_elseif_ids[0], &iceC_classdef_break_elseif_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::classdef::break::elseif" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -351,13 +333,15 @@ classdef::_cpp_break::elseif::_iceD_checkedCast(::IceInternal::Incoming& inS, co
 bool
 classdef::_cpp_break::elseif::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_classdef_break_elseif_ops, iceC_classdef_break_elseif_ops + 8, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "checkedCast", "delete", "events", "function", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_classdef_break_elseif_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

@@ -34,23 +34,6 @@
 namespace
 {
 
-const ::std::string iceC_Test_Initial2_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Initial2"
-};
-const ::std::string iceC_Test_Initial2_ops[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "opClassAndUnknownOptional",
-    "opVoid"
-};
-const ::std::string iceC_Test_Initial2_opClassAndUnknownOptional_name = "opClassAndUnknownOptional";
-const ::std::string iceC_Test_Initial2_opVoid_name = "opVoid";
-
 }
 
 void
@@ -79,7 +62,9 @@ Test::Initial2Prx::opClassAndUnknownOptionalAsync(const ::std::shared_ptr<A>& ic
 void
 Test::Initial2Prx::_iceI_opClassAndUnknownOptional(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<A>& iceP_p, const std::optional<::std::shared_ptr<::Ice::Value>>& iceP_o, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Initial2_opClassAndUnknownOptional_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opClassAndUnknownOptional";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_p);
@@ -116,7 +101,9 @@ Test::Initial2Prx::opVoidAsync(const std::optional<::std::int32_t>& iceP_a, cons
 void
 Test::Initial2Prx::_iceI_opVoid(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const std::optional<::std::int32_t>& iceP_a, const std::optional<::std::string>& iceP_v, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Initial2_opVoid_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opVoid";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({1, 2}, iceP_a, iceP_v);
@@ -132,16 +119,11 @@ Test::Initial2Prx::ice_staticId()
     return typeId;
 }
 
-bool
-Test::Initial2::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Initial2_ids, iceC_Test_Initial2_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::Initial2::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_Initial2_ids[0], &iceC_Test_Initial2_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Initial2" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -195,13 +177,15 @@ Test::Initial2::_iceD_opVoid(::IceInternal::Incoming& inS, const ::Ice::Current&
 bool
 Test::Initial2::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Initial2_ops, iceC_Test_Initial2_ops + 6, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "opClassAndUnknownOptional", "opVoid" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_Initial2_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

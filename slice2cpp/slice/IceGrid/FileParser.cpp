@@ -39,21 +39,6 @@ namespace
 
 const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::ParseException> iceC_IceGrid_ParseException_init("::IceGrid::ParseException");
 
-const ::std::string iceC_IceGrid_FileParser_ids[2] =
-{
-    "::Ice::Object",
-    "::IceGrid::FileParser"
-};
-const ::std::string iceC_IceGrid_FileParser_ops[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "parse"
-};
-const ::std::string iceC_IceGrid_FileParser_parse_name = "parse";
-
 }
 
 ::IceGrid::ApplicationDescriptor
@@ -82,8 +67,10 @@ IceGrid::FileParserPrx::parseAsync(const ::std::string& iceP_xmlFile, const ::st
 void
 IceGrid::FileParserPrx::_iceI_parse(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ApplicationDescriptor>>& outAsync, const ::std::string& iceP_xmlFile, const ::std::optional<AdminPrx>& iceP_adminProxy, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_IceGrid_FileParser_parse_name);
-    outAsync->invoke(iceC_IceGrid_FileParser_parse_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "parse";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_xmlFile, iceP_adminProxy);
@@ -130,16 +117,11 @@ IceGrid::ParseException::ice_staticId()
     return typeId;
 }
 
-bool
-IceGrid::FileParser::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_IceGrid_FileParser_ids, iceC_IceGrid_FileParser_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 IceGrid::FileParser::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_IceGrid_FileParser_ids[0], &iceC_IceGrid_FileParser_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::IceGrid::FileParser" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -178,13 +160,15 @@ IceGrid::FileParser::_iceD_parse(::IceInternal::Incoming& inS, const ::Ice::Curr
 bool
 IceGrid::FileParser::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_IceGrid_FileParser_ops, iceC_IceGrid_FileParser_ops + 5, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "parse" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_IceGrid_FileParser_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

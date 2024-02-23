@@ -34,21 +34,6 @@
 namespace
 {
 
-const ::std::string iceC_Test_TestFacet_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::TestFacet"
-};
-const ::std::string iceC_Test_TestFacet_ops[] =
-{
-    "getChanges",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_Test_TestFacet_getChanges_name = "getChanges";
-
 }
 
 ::Ice::PropertyDict
@@ -76,8 +61,10 @@ Test::TestFacetPrx::getChangesAsync(::std::function<void (::Ice::PropertyDict)> 
 void
 Test::TestFacetPrx::_iceI_getChanges(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::PropertyDict>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestFacet_getChanges_name);
-    outAsync->invoke(iceC_Test_TestFacet_getChanges_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getChanges";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -90,16 +77,11 @@ Test::TestFacetPrx::ice_staticId()
     return typeId;
 }
 
-bool
-Test::TestFacet::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_TestFacet_ids, iceC_Test_TestFacet_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::TestFacet::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_TestFacet_ids[0], &iceC_Test_TestFacet_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::TestFacet" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -133,13 +115,15 @@ Test::TestFacet::_iceD_getChanges(::IceInternal::Incoming& inS, const ::Ice::Cur
 bool
 Test::TestFacet::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_TestFacet_ops, iceC_Test_TestFacet_ops + 5, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "getChanges", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_TestFacet_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

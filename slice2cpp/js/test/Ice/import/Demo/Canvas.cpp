@@ -34,40 +34,6 @@
 namespace
 {
 
-const ::std::string iceC_Demo_gx_Canvas_ids[2] =
-{
-    "::Demo::gx::Canvas",
-    "::Ice::Object"
-};
-const ::std::string iceC_Demo_gx_Canvas_ops[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "paintCircle",
-    "paintSquare"
-};
-const ::std::string iceC_Demo_gx_Canvas_paintSquare_name = "paintSquare";
-const ::std::string iceC_Demo_gx_Canvas_paintCircle_name = "paintCircle";
-
-const ::std::string iceC_Demo_gx_Session_ids[3] =
-{
-    "::Demo::gx::Session",
-    "::Glacier2::Session",
-    "::Ice::Object"
-};
-const ::std::string iceC_Demo_gx_Session_ops[] =
-{
-    "destroy",
-    "destroySession",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_Demo_gx_Session_destroySession_name = "destroySession";
-
 }
 
 void
@@ -96,7 +62,9 @@ Demo::gx::CanvasPrx::paintSquareAsync(const Square& iceP_square,
 void
 Demo::gx::CanvasPrx::_iceI_paintSquare(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const Square& iceP_square, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Demo_gx_Canvas_paintSquare_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "paintSquare";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_square);
@@ -131,7 +99,9 @@ Demo::gx::CanvasPrx::paintCircleAsync(const Circle& iceP_circle,
 void
 Demo::gx::CanvasPrx::_iceI_paintCircle(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const Circle& iceP_circle, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Demo_gx_Canvas_paintCircle_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "paintCircle";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_circle);
@@ -172,7 +142,9 @@ Demo::gx::SessionPrx::destroySessionAsync(::std::function<void ()> response,
 void
 Demo::gx::SessionPrx::_iceI_destroySession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Demo_gx_Session_destroySession_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "destroySession";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -185,16 +157,11 @@ Demo::gx::SessionPrx::ice_staticId()
     return typeId;
 }
 
-bool
-Demo::gx::Canvas::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Demo_gx_Canvas_ids, iceC_Demo_gx_Canvas_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Demo::gx::Canvas::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Demo_gx_Canvas_ids[0], &iceC_Demo_gx_Canvas_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Demo::gx::Canvas", "::Ice::Object" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -244,13 +211,15 @@ Demo::gx::Canvas::_iceD_paintCircle(::IceInternal::Incoming& inS, const ::Ice::C
 bool
 Demo::gx::Canvas::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Demo_gx_Canvas_ops, iceC_Demo_gx_Canvas_ops + 6, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "paintCircle", "paintSquare" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Demo_gx_Canvas_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -285,16 +254,11 @@ Demo::gx::Canvas::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current
 }
 /// \endcond
 
-bool
-Demo::gx::Session::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Demo_gx_Session_ids, iceC_Demo_gx_Session_ids + 3, s);
-}
-
 ::std::vector<::std::string>
 Demo::gx::Session::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Demo_gx_Session_ids[0], &iceC_Demo_gx_Session_ids[3]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Demo::gx::Session", "::Glacier2::Session", "::Ice::Object" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -326,13 +290,15 @@ Demo::gx::Session::_iceD_destroySession(::IceInternal::Incoming& inS, const ::Ic
 bool
 Demo::gx::Session::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Demo_gx_Session_ops, iceC_Demo_gx_Session_ops + 6, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "destroy", "destroySession", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Demo_gx_Session_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

@@ -36,110 +36,6 @@ namespace
 
 const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::TestIntfException> iceC_Test_TestIntfException_init("::Test::TestIntfException");
 
-const ::std::string iceC_Test_PingReply_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::PingReply"
-};
-const ::std::string iceC_Test_PingReply_ops[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "reply"
-};
-const ::std::string iceC_Test_PingReply_reply_name = "reply";
-
-const ::std::string iceC_Test_TestIntf_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::TestIntf"
-};
-const ::std::string iceC_Test_TestIntf_ops[] =
-{
-    "close",
-    "finishDispatch",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "op",
-    "opBatch",
-    "opBatchCount",
-    "opBool",
-    "opByte",
-    "opDouble",
-    "opFloat",
-    "opInt",
-    "opLong",
-    "opShort",
-    "opWithPayload",
-    "opWithResult",
-    "opWithUE",
-    "pingBiDir",
-    "shutdown",
-    "sleep",
-    "startDispatch",
-    "supportsAMD",
-    "supportsFunctionalTests",
-    "waitForBatch"
-};
-const ::std::string iceC_Test_TestIntf_op_name = "op";
-const ::std::string iceC_Test_TestIntf_opWithPayload_name = "opWithPayload";
-const ::std::string iceC_Test_TestIntf_opWithResult_name = "opWithResult";
-const ::std::string iceC_Test_TestIntf_opWithUE_name = "opWithUE";
-const ::std::string iceC_Test_TestIntf_opBatch_name = "opBatch";
-const ::std::string iceC_Test_TestIntf_opBatchCount_name = "opBatchCount";
-const ::std::string iceC_Test_TestIntf_waitForBatch_name = "waitForBatch";
-const ::std::string iceC_Test_TestIntf_close_name = "close";
-const ::std::string iceC_Test_TestIntf_sleep_name = "sleep";
-const ::std::string iceC_Test_TestIntf_startDispatch_name = "startDispatch";
-const ::std::string iceC_Test_TestIntf_finishDispatch_name = "finishDispatch";
-const ::std::string iceC_Test_TestIntf_shutdown_name = "shutdown";
-const ::std::string iceC_Test_TestIntf_supportsAMD_name = "supportsAMD";
-const ::std::string iceC_Test_TestIntf_supportsFunctionalTests_name = "supportsFunctionalTests";
-const ::std::string iceC_Test_TestIntf_opBool_name = "opBool";
-const ::std::string iceC_Test_TestIntf_opByte_name = "opByte";
-const ::std::string iceC_Test_TestIntf_opShort_name = "opShort";
-const ::std::string iceC_Test_TestIntf_opInt_name = "opInt";
-const ::std::string iceC_Test_TestIntf_opLong_name = "opLong";
-const ::std::string iceC_Test_TestIntf_opFloat_name = "opFloat";
-const ::std::string iceC_Test_TestIntf_opDouble_name = "opDouble";
-const ::std::string iceC_Test_TestIntf_pingBiDir_name = "pingBiDir";
-
-const ::std::string iceC_Test_TestIntfController_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::TestIntfController"
-};
-const ::std::string iceC_Test_TestIntfController_ops[] =
-{
-    "holdAdapter",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "resumeAdapter"
-};
-const ::std::string iceC_Test_TestIntfController_holdAdapter_name = "holdAdapter";
-const ::std::string iceC_Test_TestIntfController_resumeAdapter_name = "resumeAdapter";
-
-const ::std::string iceC_Test_Outer_Inner_TestIntf_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Outer::Inner::TestIntf"
-};
-const ::std::string iceC_Test_Outer_Inner_TestIntf_ops[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "op"
-};
-const ::std::string iceC_Test_Outer_Inner_TestIntf_op_name = "op";
-
 }
 
 void
@@ -167,7 +63,9 @@ Test::PingReplyPrx::replyAsync(::std::function<void ()> response,
 void
 Test::PingReplyPrx::_iceI_reply(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_PingReply_reply_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "reply";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -205,7 +103,9 @@ Test::TestIntfPrx::opAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_TestIntf_op_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "op";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -237,7 +137,9 @@ Test::TestIntfPrx::opWithPayloadAsync(const ::Ice::ByteSeq& iceP_seq,
 void
 Test::TestIntfPrx::_iceI_opWithPayload(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::ByteSeq& iceP_seq, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_TestIntf_opWithPayload_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opWithPayload";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_seq);
@@ -271,8 +173,10 @@ Test::TestIntfPrx::opWithResultAsync(::std::function<void (::std::int32_t)> resp
 void
 Test::TestIntfPrx::_iceI_opWithResult(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_opWithResult_name);
-    outAsync->invoke(iceC_Test_TestIntf_opWithResult_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opWithResult";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -303,8 +207,10 @@ Test::TestIntfPrx::opWithUEAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_opWithUE(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_opWithUE_name);
-    outAsync->invoke(iceC_Test_TestIntf_opWithUE_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opWithUE";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -348,7 +254,9 @@ Test::TestIntfPrx::opBatchAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_opBatch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_TestIntf_opBatch_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opBatch";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -379,8 +287,10 @@ Test::TestIntfPrx::opBatchCountAsync(::std::function<void (::std::int32_t)> resp
 void
 Test::TestIntfPrx::_iceI_opBatchCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_opBatchCount_name);
-    outAsync->invoke(iceC_Test_TestIntf_opBatchCount_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opBatchCount";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -412,8 +322,10 @@ Test::TestIntfPrx::waitForBatchAsync(::std::int32_t iceP_count,
 void
 Test::TestIntfPrx::_iceI_waitForBatch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, ::std::int32_t iceP_count, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_waitForBatch_name);
-    outAsync->invoke(iceC_Test_TestIntf_waitForBatch_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "waitForBatch";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_count);
@@ -448,7 +360,9 @@ Test::TestIntfPrx::closeAsync(CloseMode iceP_mode,
 void
 Test::TestIntfPrx::_iceI_close(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, CloseMode iceP_mode, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_TestIntf_close_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "close";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_mode);
@@ -483,7 +397,9 @@ Test::TestIntfPrx::sleepAsync(::std::int32_t iceP_ms,
 void
 Test::TestIntfPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_ms, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_TestIntf_sleep_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "sleep";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_ms);
@@ -517,7 +433,9 @@ Test::TestIntfPrx::startDispatchAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_startDispatch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_TestIntf_startDispatch_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "startDispatch";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -548,7 +466,9 @@ Test::TestIntfPrx::finishDispatchAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_finishDispatch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_TestIntf_finishDispatch_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "finishDispatch";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -579,7 +499,9 @@ Test::TestIntfPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_TestIntf_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "shutdown";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -610,8 +532,10 @@ Test::TestIntfPrx::supportsAMDAsync(::std::function<void (bool)> response,
 void
 Test::TestIntfPrx::_iceI_supportsAMD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_supportsAMD_name);
-    outAsync->invoke(iceC_Test_TestIntf_supportsAMD_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "supportsAMD";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -642,8 +566,10 @@ Test::TestIntfPrx::supportsFunctionalTestsAsync(::std::function<void (bool)> res
 void
 Test::TestIntfPrx::_iceI_supportsFunctionalTests(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_supportsFunctionalTests_name);
-    outAsync->invoke(iceC_Test_TestIntf_supportsFunctionalTests_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "supportsFunctionalTests";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -675,8 +601,10 @@ Test::TestIntfPrx::opBoolAsync(bool iceP_b,
 void
 Test::TestIntfPrx::_iceI_opBool(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, bool iceP_b, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_opBool_name);
-    outAsync->invoke(iceC_Test_TestIntf_opBool_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opBool";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_b);
@@ -711,8 +639,10 @@ Test::TestIntfPrx::opByteAsync(::std::uint8_t iceP_b,
 void
 Test::TestIntfPrx::_iceI_opByte(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::uint8_t>>& outAsync, ::std::uint8_t iceP_b, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_opByte_name);
-    outAsync->invoke(iceC_Test_TestIntf_opByte_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opByte";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_b);
@@ -747,8 +677,10 @@ Test::TestIntfPrx::opShortAsync(::std::int16_t iceP_s,
 void
 Test::TestIntfPrx::_iceI_opShort(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int16_t>>& outAsync, ::std::int16_t iceP_s, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_opShort_name);
-    outAsync->invoke(iceC_Test_TestIntf_opShort_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opShort";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s);
@@ -783,8 +715,10 @@ Test::TestIntfPrx::opIntAsync(::std::int32_t iceP_i,
 void
 Test::TestIntfPrx::_iceI_opInt(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_i, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_opInt_name);
-    outAsync->invoke(iceC_Test_TestIntf_opInt_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opInt";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_i);
@@ -819,8 +753,10 @@ Test::TestIntfPrx::opLongAsync(::std::int64_t iceP_l,
 void
 Test::TestIntfPrx::_iceI_opLong(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int64_t>>& outAsync, ::std::int64_t iceP_l, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_opLong_name);
-    outAsync->invoke(iceC_Test_TestIntf_opLong_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opLong";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_l);
@@ -855,8 +791,10 @@ Test::TestIntfPrx::opFloatAsync(float iceP_f,
 void
 Test::TestIntfPrx::_iceI_opFloat(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<float>>& outAsync, float iceP_f, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_opFloat_name);
-    outAsync->invoke(iceC_Test_TestIntf_opFloat_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opFloat";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_f);
@@ -891,8 +829,10 @@ Test::TestIntfPrx::opDoubleAsync(double iceP_d,
 void
 Test::TestIntfPrx::_iceI_opDouble(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<double>>& outAsync, double iceP_d, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_opDouble_name);
-    outAsync->invoke(iceC_Test_TestIntf_opDouble_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opDouble";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_d);
@@ -927,7 +867,9 @@ Test::TestIntfPrx::pingBiDirAsync(const ::std::optional<PingReplyPrx>& iceP_repl
 void
 Test::TestIntfPrx::_iceI_pingBiDir(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<PingReplyPrx>& iceP_reply, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_TestIntf_pingBiDir_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "pingBiDir";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_reply);
@@ -968,7 +910,9 @@ Test::TestIntfControllerPrx::holdAdapterAsync(::std::function<void ()> response,
 void
 Test::TestIntfControllerPrx::_iceI_holdAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_TestIntfController_holdAdapter_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "holdAdapter";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -999,7 +943,9 @@ Test::TestIntfControllerPrx::resumeAdapterAsync(::std::function<void ()> respons
 void
 Test::TestIntfControllerPrx::_iceI_resumeAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_TestIntfController_resumeAdapter_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "resumeAdapter";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -1044,8 +990,10 @@ Test::Outer::Inner::TestIntfPrx::opAsync(::std::int32_t iceP_i,
 void
 Test::Outer::Inner::TestIntfPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::int32_t, ::std::int32_t>>>& outAsync, ::std::int32_t iceP_i, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Outer_Inner_TestIntf_op_name);
-    outAsync->invoke(iceC_Test_Outer_Inner_TestIntf_op_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "op";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_i);
@@ -1078,16 +1026,11 @@ Test::TestIntfException::ice_staticId()
     return typeId;
 }
 
-bool
-Test::PingReply::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_PingReply_ids, iceC_Test_PingReply_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::PingReply::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_PingReply_ids[0], &iceC_Test_PingReply_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::PingReply" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -1119,13 +1062,15 @@ Test::PingReply::_iceD_reply(::IceInternal::Incoming& inS, const ::Ice::Current&
 bool
 Test::PingReply::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_PingReply_ops, iceC_Test_PingReply_ops + 5, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "reply" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_PingReply_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -1156,16 +1101,11 @@ Test::PingReply::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current&
 }
 /// \endcond
 
-bool
-Test::TestIntf::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_TestIntf_ids, iceC_Test_TestIntf_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::TestIntf::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_TestIntf_ids[0], &iceC_Test_TestIntf_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::TestIntf" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -1509,13 +1449,15 @@ Test::TestIntf::_iceD_pingBiDir(::IceInternal::Incoming& inS, const ::Ice::Curre
 bool
 Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_TestIntf_ops, iceC_Test_TestIntf_ops + 26, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "close", "finishDispatch", "ice_id", "ice_ids", "ice_isA", "ice_ping", "op", "opBatch", "opBatchCount", "opBool", "opByte", "opDouble", "opFloat", "opInt", "opLong", "opShort", "opWithPayload", "opWithResult", "opWithUE", "pingBiDir", "shutdown", "sleep", "startDispatch", "supportsAMD", "supportsFunctionalTests", "waitForBatch" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 26, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_TestIntf_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -1630,16 +1572,11 @@ Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
 }
 /// \endcond
 
-bool
-Test::TestIntfController::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_TestIntfController_ids, iceC_Test_TestIntfController_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::TestIntfController::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_TestIntfController_ids[0], &iceC_Test_TestIntfController_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::TestIntfController" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -1683,13 +1620,15 @@ Test::TestIntfController::_iceD_resumeAdapter(::IceInternal::Incoming& inS, cons
 bool
 Test::TestIntfController::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_TestIntfController_ops, iceC_Test_TestIntfController_ops + 6, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "holdAdapter", "ice_id", "ice_ids", "ice_isA", "ice_ping", "resumeAdapter" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_TestIntfController_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -1724,16 +1663,11 @@ Test::TestIntfController::_iceDispatch(::IceInternal::Incoming& in, const ::Ice:
 }
 /// \endcond
 
-bool
-Test::Outer::Inner::TestIntf::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Outer_Inner_TestIntf_ids, iceC_Test_Outer_Inner_TestIntf_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::Outer::Inner::TestIntf::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_Outer_Inner_TestIntf_ids[0], &iceC_Test_Outer_Inner_TestIntf_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Outer::Inner::TestIntf" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -1771,13 +1705,15 @@ Test::Outer::Inner::TestIntf::_iceD_op(::IceInternal::Incoming& inS, const ::Ice
 bool
 Test::Outer::Inner::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Outer_Inner_TestIntf_ops, iceC_Test_Outer_Inner_TestIntf_ops + 5, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "op" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_Outer_Inner_TestIntf_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

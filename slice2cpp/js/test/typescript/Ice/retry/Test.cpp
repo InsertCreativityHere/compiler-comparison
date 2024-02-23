@@ -34,29 +34,6 @@
 namespace
 {
 
-const ::std::string iceC_Test_Retry_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Retry"
-};
-const ::std::string iceC_Test_Retry_ops[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "op",
-    "opIdempotent",
-    "opNotIdempotent",
-    "opSystemException",
-    "shutdown"
-};
-const ::std::string iceC_Test_Retry_op_name = "op";
-const ::std::string iceC_Test_Retry_opIdempotent_name = "opIdempotent";
-const ::std::string iceC_Test_Retry_opNotIdempotent_name = "opNotIdempotent";
-const ::std::string iceC_Test_Retry_opSystemException_name = "opSystemException";
-const ::std::string iceC_Test_Retry_shutdown_name = "shutdown";
-
 }
 
 void
@@ -85,7 +62,9 @@ Test::RetryPrx::opAsync(bool iceP_kill,
 void
 Test::RetryPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_kill, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Retry_op_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "op";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_kill);
@@ -120,8 +99,10 @@ Test::RetryPrx::opIdempotentAsync(::std::int32_t iceP_c,
 void
 Test::RetryPrx::_iceI_opIdempotent(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_c, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Retry_opIdempotent_name);
-    outAsync->invoke(iceC_Test_Retry_opIdempotent_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opIdempotent";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_c);
@@ -155,7 +136,9 @@ Test::RetryPrx::opNotIdempotentAsync(::std::function<void ()> response,
 void
 Test::RetryPrx::_iceI_opNotIdempotent(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Retry_opNotIdempotent_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opNotIdempotent";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -186,7 +169,9 @@ Test::RetryPrx::opSystemExceptionAsync(::std::function<void ()> response,
 void
 Test::RetryPrx::_iceI_opSystemException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Retry_opSystemException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opSystemException";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -217,7 +202,9 @@ Test::RetryPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::RetryPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Retry_shutdown_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "shutdown";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -230,16 +217,11 @@ Test::RetryPrx::ice_staticId()
     return typeId;
 }
 
-bool
-Test::Retry::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Retry_ids, iceC_Test_Retry_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::Retry::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_Retry_ids[0], &iceC_Test_Retry_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Retry" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -327,13 +309,15 @@ Test::Retry::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current& 
 bool
 Test::Retry::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Retry_ops, iceC_Test_Retry_ops + 9, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "op", "opIdempotent", "opNotIdempotent", "opSystemException", "shutdown" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 9, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_Retry_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

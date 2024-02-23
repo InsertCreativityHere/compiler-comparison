@@ -34,21 +34,6 @@
 namespace
 {
 
-const ::std::string iceC_Test_Backend_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Backend"
-};
-const ::std::string iceC_Test_Backend_ops[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "shutdown"
-};
-const ::std::string iceC_Test_Backend_shutdown_name = "shutdown";
-
 }
 
 void
@@ -76,7 +61,9 @@ Test::BackendPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::BackendPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Backend_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "shutdown";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -89,16 +76,11 @@ Test::BackendPrx::ice_staticId()
     return typeId;
 }
 
-bool
-Test::Backend::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Backend_ids, iceC_Test_Backend_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::Backend::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_Backend_ids[0], &iceC_Test_Backend_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Backend" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -130,13 +112,15 @@ Test::Backend::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current
 bool
 Test::Backend::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Backend_ops, iceC_Test_Backend_ops + 5, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_Backend_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

@@ -34,42 +34,6 @@
 namespace
 {
 
-const ::std::string iceC_Test_TestIntf_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::TestIntf"
-};
-const ::std::string iceC_Test_TestIntf_ops[] =
-{
-    "abort",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "idempotentAbort",
-    "pid",
-    "shutdown"
-};
-const ::std::string iceC_Test_TestIntf_shutdown_name = "shutdown";
-const ::std::string iceC_Test_TestIntf_abort_name = "abort";
-const ::std::string iceC_Test_TestIntf_idempotentAbort_name = "idempotentAbort";
-const ::std::string iceC_Test_TestIntf_pid_name = "pid";
-
-const ::std::string iceC_Test_Cleaner_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Cleaner"
-};
-const ::std::string iceC_Test_Cleaner_ops[] =
-{
-    "cleanup",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_Test_Cleaner_cleanup_name = "cleanup";
-
 }
 
 void
@@ -97,7 +61,9 @@ Test::TestIntfPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_TestIntf_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "shutdown";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -128,7 +94,9 @@ Test::TestIntfPrx::abortAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_abort(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_TestIntf_abort_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "abort";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -159,7 +127,9 @@ Test::TestIntfPrx::idempotentAbortAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_idempotentAbort(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_TestIntf_idempotentAbort_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "idempotentAbort";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -190,8 +160,10 @@ Test::TestIntfPrx::pidAsync(::std::function<void (::std::int32_t)> response,
 void
 Test::TestIntfPrx::_iceI_pid(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_pid_name);
-    outAsync->invoke(iceC_Test_TestIntf_pid_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "pid";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -229,7 +201,9 @@ Test::CleanerPrx::cleanupAsync(::std::function<void ()> response,
 void
 Test::CleanerPrx::_iceI_cleanup(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Cleaner_cleanup_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "cleanup";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -242,16 +216,11 @@ Test::CleanerPrx::ice_staticId()
     return typeId;
 }
 
-bool
-Test::TestIntf::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_TestIntf_ids, iceC_Test_TestIntf_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::TestIntf::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_TestIntf_ids[0], &iceC_Test_TestIntf_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::TestIntf" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -321,13 +290,15 @@ Test::TestIntf::_iceD_pid(::IceInternal::Incoming& inS, const ::Ice::Current& cu
 bool
 Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_TestIntf_ops, iceC_Test_TestIntf_ops + 8, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "abort", "ice_id", "ice_ids", "ice_isA", "ice_ping", "idempotentAbort", "pid", "shutdown" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_TestIntf_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -370,16 +341,11 @@ Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
 }
 /// \endcond
 
-bool
-Test::Cleaner::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Cleaner_ids, iceC_Test_Cleaner_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::Cleaner::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_Cleaner_ids[0], &iceC_Test_Cleaner_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Cleaner" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -411,13 +377,15 @@ Test::Cleaner::_iceD_cleanup(::IceInternal::Incoming& inS, const ::Ice::Current&
 bool
 Test::Cleaner::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Cleaner_ops, iceC_Test_Cleaner_ops + 5, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "cleanup", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_Cleaner_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

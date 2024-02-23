@@ -37,25 +37,6 @@
 namespace
 {
 
-const ::std::string iceC_Ice_PropertiesAdmin_ids[2] =
-{
-    "::Ice::Object",
-    "::Ice::PropertiesAdmin"
-};
-const ::std::string iceC_Ice_PropertiesAdmin_ops[] =
-{
-    "getPropertiesForPrefix",
-    "getProperty",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "setProperties"
-};
-const ::std::string iceC_Ice_PropertiesAdmin_getProperty_name = "getProperty";
-const ::std::string iceC_Ice_PropertiesAdmin_getPropertiesForPrefix_name = "getPropertiesForPrefix";
-const ::std::string iceC_Ice_PropertiesAdmin_setProperties_name = "setProperties";
-
 }
 
 ::std::string
@@ -84,8 +65,10 @@ Ice::PropertiesAdminPrx::getPropertyAsync(const ::std::string& iceP_key,
 void
 Ice::PropertiesAdminPrx::_iceI_getProperty(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::std::string& iceP_key, const Context& context) const
 {
-    _checkTwowayOnly(iceC_Ice_PropertiesAdmin_getProperty_name);
-    outAsync->invoke(iceC_Ice_PropertiesAdmin_getProperty_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getProperty";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](OutputStream* ostr)
         {
             ostr->writeAll(iceP_key);
@@ -120,8 +103,10 @@ Ice::PropertiesAdminPrx::getPropertiesForPrefixAsync(const ::std::string& iceP_p
 void
 Ice::PropertiesAdminPrx::_iceI_getPropertiesForPrefix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<PropertyDict>>& outAsync, const ::std::string& iceP_prefix, const Context& context) const
 {
-    _checkTwowayOnly(iceC_Ice_PropertiesAdmin_getPropertiesForPrefix_name);
-    outAsync->invoke(iceC_Ice_PropertiesAdmin_getPropertiesForPrefix_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getPropertiesForPrefix";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](OutputStream* ostr)
         {
             ostr->writeAll(iceP_prefix);
@@ -156,7 +141,9 @@ Ice::PropertiesAdminPrx::setPropertiesAsync(const PropertyDict& iceP_newProperti
 void
 Ice::PropertiesAdminPrx::_iceI_setProperties(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const PropertyDict& iceP_newProperties, const Context& context) const
 {
-    outAsync->invoke(iceC_Ice_PropertiesAdmin_setProperties_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "setProperties";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](OutputStream* ostr)
         {
             ostr->writeAll(iceP_newProperties);
@@ -172,16 +159,11 @@ Ice::PropertiesAdminPrx::ice_staticId()
     return typeId;
 }
 
-bool
-Ice::PropertiesAdmin::ice_isA(::std::string s, const Current&) const
-{
-    return ::std::binary_search(iceC_Ice_PropertiesAdmin_ids, iceC_Ice_PropertiesAdmin_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Ice::PropertiesAdmin::ice_ids(const Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Ice_PropertiesAdmin_ids[0], &iceC_Ice_PropertiesAdmin_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Ice::PropertiesAdmin" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -250,13 +232,15 @@ Ice::PropertiesAdmin::_iceD_setProperties(::IceInternal::Incoming& inS, const Cu
 bool
 Ice::PropertiesAdmin::_iceDispatch(::IceInternal::Incoming& in, const Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Ice_PropertiesAdmin_ops, iceC_Ice_PropertiesAdmin_ops + 7, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "getPropertiesForPrefix", "getProperty", "ice_id", "ice_ids", "ice_isA", "ice_ping", "setProperties" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
         throw OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Ice_PropertiesAdmin_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

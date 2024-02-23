@@ -34,23 +34,6 @@
 namespace
 {
 
-const ::std::string iceC_Test_TestIntf_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::TestIntf"
-};
-const ::std::string iceC_Test_TestIntf_ops[] =
-{
-    "getApplicationFile",
-    "getServerFile",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_Test_TestIntf_getServerFile_name = "getServerFile";
-const ::std::string iceC_Test_TestIntf_getApplicationFile_name = "getApplicationFile";
-
 }
 
 ::std::string
@@ -79,8 +62,10 @@ Test::TestIntfPrx::getServerFileAsync(const ::std::string& iceP_path,
 void
 Test::TestIntfPrx::_iceI_getServerFile(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::std::string& iceP_path, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_getServerFile_name);
-    outAsync->invoke(iceC_Test_TestIntf_getServerFile_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getServerFile";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_path);
@@ -115,8 +100,10 @@ Test::TestIntfPrx::getApplicationFileAsync(const ::std::string& iceP_path,
 void
 Test::TestIntfPrx::_iceI_getApplicationFile(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::std::string& iceP_path, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_getApplicationFile_name);
-    outAsync->invoke(iceC_Test_TestIntf_getApplicationFile_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getApplicationFile";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_path);
@@ -132,16 +119,11 @@ Test::TestIntfPrx::ice_staticId()
     return typeId;
 }
 
-bool
-Test::TestIntf::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_TestIntf_ids, iceC_Test_TestIntf_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::TestIntf::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_TestIntf_ids[0], &iceC_Test_TestIntf_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::TestIntf" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -195,13 +177,15 @@ Test::TestIntf::_iceD_getApplicationFile(::IceInternal::Incoming& inS, const ::I
 bool
 Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_TestIntf_ops, iceC_Test_TestIntf_ops + 6, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "getApplicationFile", "getServerFile", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_TestIntf_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

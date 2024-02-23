@@ -34,44 +34,6 @@
 namespace
 {
 
-const ::std::string iceC_Test_Server_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Server"
-};
-const ::std::string iceC_Test_Server_ops[] =
-{
-    "checkCert",
-    "checkCipher",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "noCert"
-};
-const ::std::string iceC_Test_Server_noCert_name = "noCert";
-const ::std::string iceC_Test_Server_checkCert_name = "checkCert";
-const ::std::string iceC_Test_Server_checkCipher_name = "checkCipher";
-
-const ::std::string iceC_Test_ServerFactory_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::ServerFactory"
-};
-const ::std::string iceC_Test_ServerFactory_ops[] =
-{
-    "createServer",
-    "destroyServer",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "shutdown"
-};
-const ::std::string iceC_Test_ServerFactory_createServer_name = "createServer";
-const ::std::string iceC_Test_ServerFactory_destroyServer_name = "destroyServer";
-const ::std::string iceC_Test_ServerFactory_shutdown_name = "shutdown";
-
 }
 
 void
@@ -99,7 +61,9 @@ Test::ServerPrx::noCertAsync(::std::function<void ()> response,
 void
 Test::ServerPrx::_iceI_noCert(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Server_noCert_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "noCert";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -131,7 +95,9 @@ Test::ServerPrx::checkCertAsync(const ::std::string& iceP_subjectDN, const ::std
 void
 Test::ServerPrx::_iceI_checkCert(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_subjectDN, const ::std::string& iceP_issuerDN, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Server_checkCert_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "checkCert";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_subjectDN, iceP_issuerDN);
@@ -166,7 +132,9 @@ Test::ServerPrx::checkCipherAsync(const ::std::string& iceP_cipher,
 void
 Test::ServerPrx::_iceI_checkCipher(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_cipher, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Server_checkCipher_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "checkCipher";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_cipher);
@@ -208,8 +176,10 @@ Test::ServerFactoryPrx::createServerAsync(const Properties& iceP_props,
 void
 Test::ServerFactoryPrx::_iceI_createServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<ServerPrx>>>& outAsync, const Properties& iceP_props, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_ServerFactory_createServer_name);
-    outAsync->invoke(iceC_Test_ServerFactory_createServer_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "createServer";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_props);
@@ -244,7 +214,9 @@ Test::ServerFactoryPrx::destroyServerAsync(const ::std::optional<ServerPrx>& ice
 void
 Test::ServerFactoryPrx::_iceI_destroyServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<ServerPrx>& iceP_srv, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_ServerFactory_destroyServer_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "destroyServer";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_srv);
@@ -278,7 +250,9 @@ Test::ServerFactoryPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::ServerFactoryPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_ServerFactory_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "shutdown";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -291,16 +265,11 @@ Test::ServerFactoryPrx::ice_staticId()
     return typeId;
 }
 
-bool
-Test::Server::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Server_ids, iceC_Test_Server_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::Server::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_Server_ids[0], &iceC_Test_Server_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Server" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -363,13 +332,15 @@ Test::Server::_iceD_checkCipher(::IceInternal::Incoming& inS, const ::Ice::Curre
 bool
 Test::Server::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Server_ops, iceC_Test_Server_ops + 7, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "checkCert", "checkCipher", "ice_id", "ice_ids", "ice_isA", "ice_ping", "noCert" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_Server_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -408,16 +379,11 @@ Test::Server::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& cu
 }
 /// \endcond
 
-bool
-Test::ServerFactory::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_ServerFactory_ids, iceC_Test_ServerFactory_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::ServerFactory::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_ServerFactory_ids[0], &iceC_Test_ServerFactory_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::ServerFactory" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -481,13 +447,15 @@ Test::ServerFactory::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::C
 bool
 Test::ServerFactory::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_ServerFactory_ops, iceC_Test_ServerFactory_ops + 7, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "createServer", "destroyServer", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_ServerFactory_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

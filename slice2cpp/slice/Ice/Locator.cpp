@@ -48,59 +48,6 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::Ice::ObjectNotFoundExcept
 
 const ::IceInternal::DefaultUserExceptionFactoryInit<::Ice::ServerNotFoundException> iceC_Ice_ServerNotFoundException_init("::Ice::ServerNotFoundException");
 
-const ::std::string iceC_Ice_Locator_ids[2] =
-{
-    "::Ice::Locator",
-    "::Ice::Object"
-};
-const ::std::string iceC_Ice_Locator_ops[] =
-{
-    "findAdapterById",
-    "findObjectById",
-    "getRegistry",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_Ice_Locator_findObjectById_name = "findObjectById";
-const ::std::string iceC_Ice_Locator_findAdapterById_name = "findAdapterById";
-const ::std::string iceC_Ice_Locator_getRegistry_name = "getRegistry";
-
-const ::std::string iceC_Ice_LocatorRegistry_ids[2] =
-{
-    "::Ice::LocatorRegistry",
-    "::Ice::Object"
-};
-const ::std::string iceC_Ice_LocatorRegistry_ops[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "setAdapterDirectProxy",
-    "setReplicatedAdapterDirectProxy",
-    "setServerProcessProxy"
-};
-const ::std::string iceC_Ice_LocatorRegistry_setAdapterDirectProxy_name = "setAdapterDirectProxy";
-const ::std::string iceC_Ice_LocatorRegistry_setReplicatedAdapterDirectProxy_name = "setReplicatedAdapterDirectProxy";
-const ::std::string iceC_Ice_LocatorRegistry_setServerProcessProxy_name = "setServerProcessProxy";
-
-const ::std::string iceC_Ice_LocatorFinder_ids[2] =
-{
-    "::Ice::LocatorFinder",
-    "::Ice::Object"
-};
-const ::std::string iceC_Ice_LocatorFinder_ops[] =
-{
-    "getLocator",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_Ice_LocatorFinder_getLocator_name = "getLocator";
-
 }
 
 ::std::optional<::Ice::ObjectPrx>
@@ -129,8 +76,10 @@ Ice::LocatorPrx::findObjectByIdAsync(const Identity& iceP_id,
 void
 Ice::LocatorPrx::_iceI_findObjectById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>& outAsync, const Identity& iceP_id, const Context& context) const
 {
-    _checkTwowayOnly(iceC_Ice_Locator_findObjectById_name);
-    outAsync->invoke(iceC_Ice_Locator_findObjectById_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "findObjectById";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
         [&](OutputStream* ostr)
         {
             ostr->writeAll(iceP_id);
@@ -178,8 +127,10 @@ Ice::LocatorPrx::findAdapterByIdAsync(const ::std::string& iceP_id,
 void
 Ice::LocatorPrx::_iceI_findAdapterById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>& outAsync, const ::std::string& iceP_id, const Context& context) const
 {
-    _checkTwowayOnly(iceC_Ice_Locator_findAdapterById_name);
-    outAsync->invoke(iceC_Ice_Locator_findAdapterById_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "findAdapterById";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
         [&](OutputStream* ostr)
         {
             ostr->writeAll(iceP_id);
@@ -226,8 +177,10 @@ Ice::LocatorPrx::getRegistryAsync(::std::function<void (::std::optional<::Ice::L
 void
 Ice::LocatorPrx::_iceI_getRegistry(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<LocatorRegistryPrx>>>& outAsync, const Context& context) const
 {
-    _checkTwowayOnly(iceC_Ice_Locator_getRegistry_name);
-    outAsync->invoke(iceC_Ice_Locator_getRegistry_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getRegistry";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -266,8 +219,10 @@ Ice::LocatorRegistryPrx::setAdapterDirectProxyAsync(const ::std::string& iceP_id
 void
 Ice::LocatorRegistryPrx::_iceI_setAdapterDirectProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_id, const ::std::optional<::Ice::ObjectPrx>& iceP_proxy, const Context& context) const
 {
-    _checkTwowayOnly(iceC_Ice_LocatorRegistry_setAdapterDirectProxy_name);
-    outAsync->invoke(iceC_Ice_LocatorRegistry_setAdapterDirectProxy_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "setAdapterDirectProxy";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](OutputStream* ostr)
         {
             ostr->writeAll(iceP_id, iceP_proxy);
@@ -319,8 +274,10 @@ Ice::LocatorRegistryPrx::setReplicatedAdapterDirectProxyAsync(const ::std::strin
 void
 Ice::LocatorRegistryPrx::_iceI_setReplicatedAdapterDirectProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_adapterId, const ::std::string& iceP_replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& iceP_p, const Context& context) const
 {
-    _checkTwowayOnly(iceC_Ice_LocatorRegistry_setReplicatedAdapterDirectProxy_name);
-    outAsync->invoke(iceC_Ice_LocatorRegistry_setReplicatedAdapterDirectProxy_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "setReplicatedAdapterDirectProxy";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](OutputStream* ostr)
         {
             ostr->writeAll(iceP_adapterId, iceP_replicaGroupId, iceP_p);
@@ -376,8 +333,10 @@ Ice::LocatorRegistryPrx::setServerProcessProxyAsync(const ::std::string& iceP_id
 void
 Ice::LocatorRegistryPrx::_iceI_setServerProcessProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_id, const ::std::optional<ProcessPrx>& iceP_proxy, const Context& context) const
 {
-    _checkTwowayOnly(iceC_Ice_LocatorRegistry_setServerProcessProxy_name);
-    outAsync->invoke(iceC_Ice_LocatorRegistry_setServerProcessProxy_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "setServerProcessProxy";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](OutputStream* ostr)
         {
             ostr->writeAll(iceP_id, iceP_proxy);
@@ -431,8 +390,10 @@ Ice::LocatorFinderPrx::getLocatorAsync(::std::function<void (::std::optional<::I
 void
 Ice::LocatorFinderPrx::_iceI_getLocator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<LocatorPrx>>>& outAsync, const Context& context) const
 {
-    _checkTwowayOnly(iceC_Ice_LocatorFinder_getLocator_name);
-    outAsync->invoke(iceC_Ice_LocatorFinder_getLocator_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getLocator";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -500,16 +461,11 @@ Ice::ServerNotFoundException::ice_staticId()
     return typeId;
 }
 
-bool
-Ice::Locator::ice_isA(::std::string s, const Current&) const
-{
-    return ::std::binary_search(iceC_Ice_Locator_ids, iceC_Ice_Locator_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Ice::Locator::ice_ids(const Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Ice_Locator_ids[0], &iceC_Ice_Locator_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Locator", "::Ice::Object" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -587,13 +543,15 @@ Ice::Locator::_iceD_getRegistry(::IceInternal::Incoming& inS, const Current& cur
 bool
 Ice::Locator::_iceDispatch(::IceInternal::Incoming& in, const Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Ice_Locator_ops, iceC_Ice_Locator_ops + 7, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "findAdapterById", "findObjectById", "getRegistry", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
         throw OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Ice_Locator_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -632,16 +590,11 @@ Ice::Locator::_iceDispatch(::IceInternal::Incoming& in, const Current& current)
 }
 /// \endcond
 
-bool
-Ice::LocatorRegistry::ice_isA(::std::string s, const Current&) const
-{
-    return ::std::binary_search(iceC_Ice_LocatorRegistry_ids, iceC_Ice_LocatorRegistry_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Ice::LocatorRegistry::ice_ids(const Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Ice_LocatorRegistry_ids[0], &iceC_Ice_LocatorRegistry_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::LocatorRegistry", "::Ice::Object" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -710,13 +663,15 @@ Ice::LocatorRegistry::_iceD_setServerProcessProxy(::IceInternal::Incoming& inS, 
 bool
 Ice::LocatorRegistry::_iceDispatch(::IceInternal::Incoming& in, const Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Ice_LocatorRegistry_ops, iceC_Ice_LocatorRegistry_ops + 7, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "setAdapterDirectProxy", "setReplicatedAdapterDirectProxy", "setServerProcessProxy" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
         throw OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Ice_LocatorRegistry_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -755,16 +710,11 @@ Ice::LocatorRegistry::_iceDispatch(::IceInternal::Incoming& in, const Current& c
 }
 /// \endcond
 
-bool
-Ice::LocatorFinder::ice_isA(::std::string s, const Current&) const
-{
-    return ::std::binary_search(iceC_Ice_LocatorFinder_ids, iceC_Ice_LocatorFinder_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Ice::LocatorFinder::ice_ids(const Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Ice_LocatorFinder_ids[0], &iceC_Ice_LocatorFinder_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::LocatorFinder", "::Ice::Object" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -798,13 +748,15 @@ Ice::LocatorFinder::_iceD_getLocator(::IceInternal::Incoming& inS, const Current
 bool
 Ice::LocatorFinder::_iceDispatch(::IceInternal::Incoming& in, const Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Ice_LocatorFinder_ops, iceC_Ice_LocatorFinder_ops + 5, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "getLocator", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
         throw OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Ice_LocatorFinder_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

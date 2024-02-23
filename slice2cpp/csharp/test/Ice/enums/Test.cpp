@@ -34,37 +34,6 @@
 namespace
 {
 
-const ::std::string iceC_Test_TestIntf_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::TestIntf"
-};
-const ::std::string iceC_Test_TestIntf_ops[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "opByte",
-    "opByteSeq",
-    "opInt",
-    "opIntSeq",
-    "opShort",
-    "opShortSeq",
-    "opSimple",
-    "opSimpleSeq",
-    "shutdown"
-};
-const ::std::string iceC_Test_TestIntf_opByte_name = "opByte";
-const ::std::string iceC_Test_TestIntf_opShort_name = "opShort";
-const ::std::string iceC_Test_TestIntf_opInt_name = "opInt";
-const ::std::string iceC_Test_TestIntf_opSimple_name = "opSimple";
-const ::std::string iceC_Test_TestIntf_opByteSeq_name = "opByteSeq";
-const ::std::string iceC_Test_TestIntf_opShortSeq_name = "opShortSeq";
-const ::std::string iceC_Test_TestIntf_opIntSeq_name = "opIntSeq";
-const ::std::string iceC_Test_TestIntf_opSimpleSeq_name = "opSimpleSeq";
-const ::std::string iceC_Test_TestIntf_shutdown_name = "shutdown";
-
 }
 
 ::Test::ByteEnum
@@ -99,8 +68,10 @@ Test::TestIntfPrx::opByteAsync(ByteEnum iceP_b1,
 void
 Test::TestIntfPrx::_iceI_opByte(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ByteEnum, ByteEnum>>>& outAsync, ByteEnum iceP_b1, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_opByte_name);
-    outAsync->invoke(iceC_Test_TestIntf_opByte_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opByte";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_b1);
@@ -147,8 +118,10 @@ Test::TestIntfPrx::opShortAsync(ShortEnum iceP_s1,
 void
 Test::TestIntfPrx::_iceI_opShort(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ShortEnum, ShortEnum>>>& outAsync, ShortEnum iceP_s1, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_opShort_name);
-    outAsync->invoke(iceC_Test_TestIntf_opShort_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opShort";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s1);
@@ -195,8 +168,10 @@ Test::TestIntfPrx::opIntAsync(IntEnum iceP_i1,
 void
 Test::TestIntfPrx::_iceI_opInt(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<IntEnum, IntEnum>>>& outAsync, IntEnum iceP_i1, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_opInt_name);
-    outAsync->invoke(iceC_Test_TestIntf_opInt_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opInt";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_i1);
@@ -243,8 +218,10 @@ Test::TestIntfPrx::opSimpleAsync(SimpleEnum iceP_s1,
 void
 Test::TestIntfPrx::_iceI_opSimple(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SimpleEnum, SimpleEnum>>>& outAsync, SimpleEnum iceP_s1, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_opSimple_name);
-    outAsync->invoke(iceC_Test_TestIntf_opSimple_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opSimple";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s1);
@@ -291,8 +268,10 @@ Test::TestIntfPrx::opByteSeqAsync(const ByteEnumSeq& iceP_b1,
 void
 Test::TestIntfPrx::_iceI_opByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ByteEnumSeq, ByteEnumSeq>>>& outAsync, const ByteEnumSeq& iceP_b1, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_opByteSeq_name);
-    outAsync->invoke(iceC_Test_TestIntf_opByteSeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opByteSeq";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_b1);
@@ -339,8 +318,10 @@ Test::TestIntfPrx::opShortSeqAsync(const ShortEnumSeq& iceP_s1,
 void
 Test::TestIntfPrx::_iceI_opShortSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ShortEnumSeq, ShortEnumSeq>>>& outAsync, const ShortEnumSeq& iceP_s1, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_opShortSeq_name);
-    outAsync->invoke(iceC_Test_TestIntf_opShortSeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opShortSeq";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s1);
@@ -387,8 +368,10 @@ Test::TestIntfPrx::opIntSeqAsync(const IntEnumSeq& iceP_i1,
 void
 Test::TestIntfPrx::_iceI_opIntSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<IntEnumSeq, IntEnumSeq>>>& outAsync, const IntEnumSeq& iceP_i1, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_opIntSeq_name);
-    outAsync->invoke(iceC_Test_TestIntf_opIntSeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opIntSeq";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_i1);
@@ -435,8 +418,10 @@ Test::TestIntfPrx::opSimpleSeqAsync(const SimpleEnumSeq& iceP_s1,
 void
 Test::TestIntfPrx::_iceI_opSimpleSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SimpleEnumSeq, SimpleEnumSeq>>>& outAsync, const SimpleEnumSeq& iceP_s1, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_opSimpleSeq_name);
-    outAsync->invoke(iceC_Test_TestIntf_opSimpleSeq_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opSimpleSeq";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s1);
@@ -476,7 +461,9 @@ Test::TestIntfPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_TestIntf_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "shutdown";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -489,16 +476,11 @@ Test::TestIntfPrx::ice_staticId()
     return typeId;
 }
 
-bool
-Test::TestIntf::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_TestIntf_ids, iceC_Test_TestIntf_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::TestIntf::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_TestIntf_ids[0], &iceC_Test_TestIntf_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::TestIntf" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -674,13 +656,15 @@ Test::TestIntf::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Curren
 bool
 Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_TestIntf_ops, iceC_Test_TestIntf_ops + 13, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "opByte", "opByteSeq", "opInt", "opIntSeq", "opShort", "opShortSeq", "opSimple", "opSimpleSeq", "shutdown" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 13, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_TestIntf_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

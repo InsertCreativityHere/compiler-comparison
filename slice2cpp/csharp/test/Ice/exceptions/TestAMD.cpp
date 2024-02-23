@@ -34,19 +34,6 @@
 namespace
 {
 
-const ::std::string iceC_Test_Empty_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Empty"
-};
-const ::std::string iceC_Test_Empty_ops[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-
 const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::A> iceC_Test_A_init("::Test::A");
 
 const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::B> iceC_Test_B_init("::Test::B");
@@ -54,74 +41,6 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::B> iceC_Test_B_init
 const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::C> iceC_Test_C_init("::Test::C");
 
 const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::D> iceC_Test_D_init("::Test::D");
-
-const ::std::string iceC_Test_Thrower_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Thrower"
-};
-const ::std::string iceC_Test_Thrower_ops[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "shutdown",
-    "supportsAssertException",
-    "supportsUndeclaredExceptions",
-    "throwAasA",
-    "throwAfterException",
-    "throwAfterResponse",
-    "throwAorDasAorD",
-    "throwAssertException",
-    "throwBasA",
-    "throwBasB",
-    "throwCasA",
-    "throwCasB",
-    "throwCasC",
-    "throwLocalException",
-    "throwLocalExceptionIdempotent",
-    "throwMemoryLimitException",
-    "throwNonIceException",
-    "throwUndeclaredA",
-    "throwUndeclaredB",
-    "throwUndeclaredC"
-};
-const ::std::string iceC_Test_Thrower_shutdown_name = "shutdown";
-const ::std::string iceC_Test_Thrower_supportsUndeclaredExceptions_name = "supportsUndeclaredExceptions";
-const ::std::string iceC_Test_Thrower_supportsAssertException_name = "supportsAssertException";
-const ::std::string iceC_Test_Thrower_throwAasA_name = "throwAasA";
-const ::std::string iceC_Test_Thrower_throwAorDasAorD_name = "throwAorDasAorD";
-const ::std::string iceC_Test_Thrower_throwBasA_name = "throwBasA";
-const ::std::string iceC_Test_Thrower_throwCasA_name = "throwCasA";
-const ::std::string iceC_Test_Thrower_throwBasB_name = "throwBasB";
-const ::std::string iceC_Test_Thrower_throwCasB_name = "throwCasB";
-const ::std::string iceC_Test_Thrower_throwCasC_name = "throwCasC";
-const ::std::string iceC_Test_Thrower_throwUndeclaredA_name = "throwUndeclaredA";
-const ::std::string iceC_Test_Thrower_throwUndeclaredB_name = "throwUndeclaredB";
-const ::std::string iceC_Test_Thrower_throwUndeclaredC_name = "throwUndeclaredC";
-const ::std::string iceC_Test_Thrower_throwLocalException_name = "throwLocalException";
-const ::std::string iceC_Test_Thrower_throwNonIceException_name = "throwNonIceException";
-const ::std::string iceC_Test_Thrower_throwAssertException_name = "throwAssertException";
-const ::std::string iceC_Test_Thrower_throwMemoryLimitException_name = "throwMemoryLimitException";
-const ::std::string iceC_Test_Thrower_throwLocalExceptionIdempotent_name = "throwLocalExceptionIdempotent";
-const ::std::string iceC_Test_Thrower_throwAfterResponse_name = "throwAfterResponse";
-const ::std::string iceC_Test_Thrower_throwAfterException_name = "throwAfterException";
-
-const ::std::string iceC_Test_WrongOperation_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::WrongOperation"
-};
-const ::std::string iceC_Test_WrongOperation_ops[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "noSuchOperation"
-};
-const ::std::string iceC_Test_WrongOperation_noSuchOperation_name = "noSuchOperation";
 
 }
 
@@ -157,7 +76,9 @@ Test::ThrowerPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::ThrowerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Thrower_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "shutdown";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -188,8 +109,10 @@ Test::ThrowerPrx::supportsUndeclaredExceptionsAsync(::std::function<void (bool)>
 void
 Test::ThrowerPrx::_iceI_supportsUndeclaredExceptions(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Thrower_supportsUndeclaredExceptions_name);
-    outAsync->invoke(iceC_Test_Thrower_supportsUndeclaredExceptions_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "supportsUndeclaredExceptions";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -220,8 +143,10 @@ Test::ThrowerPrx::supportsAssertExceptionAsync(::std::function<void (bool)> resp
 void
 Test::ThrowerPrx::_iceI_supportsAssertException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Thrower_supportsAssertException_name);
-    outAsync->invoke(iceC_Test_Thrower_supportsAssertException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "supportsAssertException";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -253,8 +178,10 @@ Test::ThrowerPrx::throwAasAAsync(::std::int32_t iceP_a,
 void
 Test::ThrowerPrx::_iceI_throwAasA(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_a, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Thrower_throwAasA_name);
-    outAsync->invoke(iceC_Test_Thrower_throwAasA_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "throwAasA";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_a);
@@ -302,8 +229,10 @@ Test::ThrowerPrx::throwAorDasAorDAsync(::std::int32_t iceP_a,
 void
 Test::ThrowerPrx::_iceI_throwAorDasAorD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_a, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Thrower_throwAorDasAorD_name);
-    outAsync->invoke(iceC_Test_Thrower_throwAorDasAorD_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "throwAorDasAorD";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_a);
@@ -355,8 +284,10 @@ Test::ThrowerPrx::throwBasAAsync(::std::int32_t iceP_a, ::std::int32_t iceP_b,
 void
 Test::ThrowerPrx::_iceI_throwBasA(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_a, ::std::int32_t iceP_b, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Thrower_throwBasA_name);
-    outAsync->invoke(iceC_Test_Thrower_throwBasA_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "throwBasA";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_a, iceP_b);
@@ -404,8 +335,10 @@ Test::ThrowerPrx::throwCasAAsync(::std::int32_t iceP_a, ::std::int32_t iceP_b, :
 void
 Test::ThrowerPrx::_iceI_throwCasA(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_a, ::std::int32_t iceP_b, ::std::int32_t iceP_c, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Thrower_throwCasA_name);
-    outAsync->invoke(iceC_Test_Thrower_throwCasA_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "throwCasA";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_a, iceP_b, iceP_c);
@@ -453,8 +386,10 @@ Test::ThrowerPrx::throwBasBAsync(::std::int32_t iceP_a, ::std::int32_t iceP_b,
 void
 Test::ThrowerPrx::_iceI_throwBasB(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_a, ::std::int32_t iceP_b, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Thrower_throwBasB_name);
-    outAsync->invoke(iceC_Test_Thrower_throwBasB_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "throwBasB";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_a, iceP_b);
@@ -502,8 +437,10 @@ Test::ThrowerPrx::throwCasBAsync(::std::int32_t iceP_a, ::std::int32_t iceP_b, :
 void
 Test::ThrowerPrx::_iceI_throwCasB(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_a, ::std::int32_t iceP_b, ::std::int32_t iceP_c, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Thrower_throwCasB_name);
-    outAsync->invoke(iceC_Test_Thrower_throwCasB_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "throwCasB";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_a, iceP_b, iceP_c);
@@ -551,8 +488,10 @@ Test::ThrowerPrx::throwCasCAsync(::std::int32_t iceP_a, ::std::int32_t iceP_b, :
 void
 Test::ThrowerPrx::_iceI_throwCasC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_a, ::std::int32_t iceP_b, ::std::int32_t iceP_c, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Thrower_throwCasC_name);
-    outAsync->invoke(iceC_Test_Thrower_throwCasC_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "throwCasC";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_a, iceP_b, iceP_c);
@@ -600,7 +539,9 @@ Test::ThrowerPrx::throwUndeclaredAAsync(::std::int32_t iceP_a,
 void
 Test::ThrowerPrx::_iceI_throwUndeclaredA(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_a, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Thrower_throwUndeclaredA_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "throwUndeclaredA";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_a);
@@ -635,7 +576,9 @@ Test::ThrowerPrx::throwUndeclaredBAsync(::std::int32_t iceP_a, ::std::int32_t ic
 void
 Test::ThrowerPrx::_iceI_throwUndeclaredB(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_a, ::std::int32_t iceP_b, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Thrower_throwUndeclaredB_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "throwUndeclaredB";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_a, iceP_b);
@@ -670,7 +613,9 @@ Test::ThrowerPrx::throwUndeclaredCAsync(::std::int32_t iceP_a, ::std::int32_t ic
 void
 Test::ThrowerPrx::_iceI_throwUndeclaredC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_a, ::std::int32_t iceP_b, ::std::int32_t iceP_c, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Thrower_throwUndeclaredC_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "throwUndeclaredC";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_a, iceP_b, iceP_c);
@@ -704,7 +649,9 @@ Test::ThrowerPrx::throwLocalExceptionAsync(::std::function<void ()> response,
 void
 Test::ThrowerPrx::_iceI_throwLocalException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Thrower_throwLocalException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "throwLocalException";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -735,7 +682,9 @@ Test::ThrowerPrx::throwNonIceExceptionAsync(::std::function<void ()> response,
 void
 Test::ThrowerPrx::_iceI_throwNonIceException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Thrower_throwNonIceException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "throwNonIceException";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -766,7 +715,9 @@ Test::ThrowerPrx::throwAssertExceptionAsync(::std::function<void ()> response,
 void
 Test::ThrowerPrx::_iceI_throwAssertException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Thrower_throwAssertException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "throwAssertException";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -798,8 +749,10 @@ Test::ThrowerPrx::throwMemoryLimitExceptionAsync(const ::Ice::ByteSeq& iceP_seq,
 void
 Test::ThrowerPrx::_iceI_throwMemoryLimitException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::ByteSeq>>& outAsync, const ::Ice::ByteSeq& iceP_seq, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Thrower_throwMemoryLimitException_name);
-    outAsync->invoke(iceC_Test_Thrower_throwMemoryLimitException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "throwMemoryLimitException";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_seq);
@@ -833,7 +786,9 @@ Test::ThrowerPrx::throwLocalExceptionIdempotentAsync(::std::function<void ()> re
 void
 Test::ThrowerPrx::_iceI_throwLocalExceptionIdempotent(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Thrower_throwLocalExceptionIdempotent_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "throwLocalExceptionIdempotent";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -864,7 +819,9 @@ Test::ThrowerPrx::throwAfterResponseAsync(::std::function<void ()> response,
 void
 Test::ThrowerPrx::_iceI_throwAfterResponse(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Thrower_throwAfterResponse_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "throwAfterResponse";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -895,8 +852,10 @@ Test::ThrowerPrx::throwAfterExceptionAsync(::std::function<void ()> response,
 void
 Test::ThrowerPrx::_iceI_throwAfterException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Thrower_throwAfterException_name);
-    outAsync->invoke(iceC_Test_Thrower_throwAfterException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "throwAfterException";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -947,7 +906,9 @@ Test::WrongOperationPrx::noSuchOperationAsync(::std::function<void ()> response,
 void
 Test::WrongOperationPrx::_iceI_noSuchOperation(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_WrongOperation_noSuchOperation_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "noSuchOperation";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -1004,16 +965,11 @@ Test::D::ice_staticId()
     return typeId;
 }
 
-bool
-Test::Empty::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Empty_ids, iceC_Test_Empty_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::Empty::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_Empty_ids[0], &iceC_Test_Empty_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Empty" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -1029,16 +985,11 @@ Test::Empty::ice_staticId()
     return typeId;
 }
 
-bool
-Test::Thrower::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Thrower_ids, iceC_Test_Thrower_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::Thrower::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_Thrower_ids[0], &iceC_Test_Thrower_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Thrower" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -1363,13 +1314,15 @@ Test::Thrower::_iceD_throwAfterException(::IceInternal::Incoming& inS, const ::I
 bool
 Test::Thrower::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Thrower_ops, iceC_Test_Thrower_ops + 24, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown", "supportsAssertException", "supportsUndeclaredExceptions", "throwAasA", "throwAfterException", "throwAfterResponse", "throwAorDasAorD", "throwAssertException", "throwBasA", "throwBasB", "throwCasA", "throwCasB", "throwCasC", "throwLocalException", "throwLocalExceptionIdempotent", "throwMemoryLimitException", "throwNonIceException", "throwUndeclaredA", "throwUndeclaredB", "throwUndeclaredC" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 24, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_Thrower_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -1476,16 +1429,11 @@ Test::Thrower::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
 }
 /// \endcond
 
-bool
-Test::WrongOperation::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_WrongOperation_ids, iceC_Test_WrongOperation_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::WrongOperation::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_WrongOperation_ids[0], &iceC_Test_WrongOperation_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::WrongOperation" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -1517,13 +1465,15 @@ Test::WrongOperation::_iceD_noSuchOperation(::IceInternal::Incoming& inS, const 
 bool
 Test::WrongOperation::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_WrongOperation_ops, iceC_Test_WrongOperation_ops + 5, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "noSuchOperation" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_WrongOperation_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

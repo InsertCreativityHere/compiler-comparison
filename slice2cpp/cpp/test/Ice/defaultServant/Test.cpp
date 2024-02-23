@@ -34,21 +34,6 @@
 namespace
 {
 
-const ::std::string iceC_Test_MyObject_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::MyObject"
-};
-const ::std::string iceC_Test_MyObject_ops[] =
-{
-    "getName",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_Test_MyObject_getName_name = "getName";
-
 }
 
 ::std::string
@@ -76,8 +61,10 @@ Test::MyObjectPrx::getNameAsync(::std::function<void (::std::string)> response,
 void
 Test::MyObjectPrx::_iceI_getName(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_MyObject_getName_name);
-    outAsync->invoke(iceC_Test_MyObject_getName_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getName";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -90,16 +77,11 @@ Test::MyObjectPrx::ice_staticId()
     return typeId;
 }
 
-bool
-Test::MyObject::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_MyObject_ids, iceC_Test_MyObject_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::MyObject::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_MyObject_ids[0], &iceC_Test_MyObject_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::MyObject" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -133,13 +115,15 @@ Test::MyObject::_iceD_getName(::IceInternal::Incoming& inS, const ::Ice::Current
 bool
 Test::MyObject::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_MyObject_ops, iceC_Test_MyObject_ops + 5, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "getName", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_MyObject_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

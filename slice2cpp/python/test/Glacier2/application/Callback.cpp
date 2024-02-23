@@ -34,38 +34,6 @@
 namespace
 {
 
-const ::std::string iceC_Test_CallbackReceiver_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::CallbackReceiver"
-};
-const ::std::string iceC_Test_CallbackReceiver_ops[] =
-{
-    "callback",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_Test_CallbackReceiver_callback_name = "callback";
-
-const ::std::string iceC_Test_Callback_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Callback"
-};
-const ::std::string iceC_Test_Callback_ops[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "initiateCallback",
-    "shutdown"
-};
-const ::std::string iceC_Test_Callback_initiateCallback_name = "initiateCallback";
-const ::std::string iceC_Test_Callback_shutdown_name = "shutdown";
-
 }
 
 void
@@ -93,7 +61,9 @@ Test::CallbackReceiverPrx::callbackAsync(::std::function<void ()> response,
 void
 Test::CallbackReceiverPrx::_iceI_callback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_CallbackReceiver_callback_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "callback";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -132,7 +102,9 @@ Test::CallbackPrx::initiateCallbackAsync(const ::std::optional<CallbackReceiverP
 void
 Test::CallbackPrx::_iceI_initiateCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<CallbackReceiverPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Callback_initiateCallback_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "initiateCallback";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_proxy);
@@ -166,7 +138,9 @@ Test::CallbackPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::CallbackPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Callback_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "shutdown";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -179,16 +153,11 @@ Test::CallbackPrx::ice_staticId()
     return typeId;
 }
 
-bool
-Test::CallbackReceiver::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_CallbackReceiver_ids, iceC_Test_CallbackReceiver_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::CallbackReceiver::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_CallbackReceiver_ids[0], &iceC_Test_CallbackReceiver_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::CallbackReceiver" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -220,13 +189,15 @@ Test::CallbackReceiver::_iceD_callback(::IceInternal::Incoming& inS, const ::Ice
 bool
 Test::CallbackReceiver::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_CallbackReceiver_ops, iceC_Test_CallbackReceiver_ops + 5, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "callback", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_CallbackReceiver_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -257,16 +228,11 @@ Test::CallbackReceiver::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::C
 }
 /// \endcond
 
-bool
-Test::Callback::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Callback_ids, iceC_Test_Callback_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::Callback::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_Callback_ids[0], &iceC_Test_Callback_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Callback" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -313,13 +279,15 @@ Test::Callback::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Curren
 bool
 Test::Callback::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Callback_ops, iceC_Test_Callback_ops + 6, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "initiateCallback", "shutdown" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_Callback_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

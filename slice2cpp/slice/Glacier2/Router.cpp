@@ -39,37 +39,6 @@ namespace
 
 const ::IceInternal::DefaultUserExceptionFactoryInit<::Glacier2::SessionNotExistException> iceC_Glacier2_SessionNotExistException_init("::Glacier2::SessionNotExistException");
 
-const ::std::string iceC_Glacier2_Router_ids[3] =
-{
-    "::Glacier2::Router",
-    "::Ice::Object",
-    "::Ice::Router"
-};
-const ::std::string iceC_Glacier2_Router_ops[] =
-{
-    "addProxies",
-    "createSession",
-    "createSessionFromSecureConnection",
-    "destroySession",
-    "getACMTimeout",
-    "getCategoryForClient",
-    "getClientProxy",
-    "getServerProxy",
-    "getSessionTimeout",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "refreshSession"
-};
-const ::std::string iceC_Glacier2_Router_getCategoryForClient_name = "getCategoryForClient";
-const ::std::string iceC_Glacier2_Router_createSession_name = "createSession";
-const ::std::string iceC_Glacier2_Router_createSessionFromSecureConnection_name = "createSessionFromSecureConnection";
-const ::std::string iceC_Glacier2_Router_refreshSession_name = "refreshSession";
-const ::std::string iceC_Glacier2_Router_destroySession_name = "destroySession";
-const ::std::string iceC_Glacier2_Router_getSessionTimeout_name = "getSessionTimeout";
-const ::std::string iceC_Glacier2_Router_getACMTimeout_name = "getACMTimeout";
-
 }
 
 ::std::string
@@ -97,8 +66,10 @@ Glacier2::RouterPrx::getCategoryForClientAsync(::std::function<void (::std::stri
 void
 Glacier2::RouterPrx::_iceI_getCategoryForClient(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Glacier2_Router_getCategoryForClient_name);
-    outAsync->invoke(iceC_Glacier2_Router_getCategoryForClient_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getCategoryForClient";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -130,8 +101,10 @@ Glacier2::RouterPrx::createSessionAsync(const ::std::string& iceP_userId, const 
 void
 Glacier2::RouterPrx::_iceI_createSession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<SessionPrx>>>& outAsync, const ::std::string& iceP_userId, const ::std::string& iceP_password, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Glacier2_Router_createSession_name);
-    outAsync->invoke(iceC_Glacier2_Router_createSession_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "createSession";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_userId, iceP_password);
@@ -182,8 +155,10 @@ Glacier2::RouterPrx::createSessionFromSecureConnectionAsync(::std::function<void
 void
 Glacier2::RouterPrx::_iceI_createSessionFromSecureConnection(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<SessionPrx>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Glacier2_Router_createSessionFromSecureConnection_name);
-    outAsync->invoke(iceC_Glacier2_Router_createSessionFromSecureConnection_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "createSessionFromSecureConnection";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -231,8 +206,10 @@ Glacier2::RouterPrx::refreshSessionAsync(::std::function<void ()> response,
 void
 Glacier2::RouterPrx::_iceI_refreshSession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Glacier2_Router_refreshSession_name);
-    outAsync->invoke(iceC_Glacier2_Router_refreshSession_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "refreshSession";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -276,8 +253,10 @@ Glacier2::RouterPrx::destroySessionAsync(::std::function<void ()> response,
 void
 Glacier2::RouterPrx::_iceI_destroySession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Glacier2_Router_destroySession_name);
-    outAsync->invoke(iceC_Glacier2_Router_destroySession_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "destroySession";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -321,8 +300,10 @@ Glacier2::RouterPrx::getSessionTimeoutAsync(::std::function<void (::std::int64_t
 void
 Glacier2::RouterPrx::_iceI_getSessionTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int64_t>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Glacier2_Router_getSessionTimeout_name);
-    outAsync->invoke(iceC_Glacier2_Router_getSessionTimeout_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getSessionTimeout";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -353,8 +334,10 @@ Glacier2::RouterPrx::getACMTimeoutAsync(::std::function<void (::std::int32_t)> r
 void
 Glacier2::RouterPrx::_iceI_getACMTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Glacier2_Router_getACMTimeout_name);
-    outAsync->invoke(iceC_Glacier2_Router_getACMTimeout_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getACMTimeout";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -378,16 +361,11 @@ Glacier2::SessionNotExistException::ice_staticId()
     return typeId;
 }
 
-bool
-Glacier2::Router::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Glacier2_Router_ids, iceC_Glacier2_Router_ids + 3, s);
-}
-
 ::std::vector<::std::string>
 Glacier2::Router::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Glacier2_Router_ids[0], &iceC_Glacier2_Router_ids[3]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Glacier2::Router", "::Ice::Object", "::Ice::Router" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -517,13 +495,15 @@ Glacier2::Router::_iceD_getACMTimeout(::IceInternal::Incoming& inS, const ::Ice:
 bool
 Glacier2::Router::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Glacier2_Router_ops, iceC_Glacier2_Router_ops + 14, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "addProxies", "createSession", "createSessionFromSecureConnection", "destroySession", "getACMTimeout", "getCategoryForClient", "getClientProxy", "getServerProxy", "getSessionTimeout", "ice_id", "ice_ids", "ice_isA", "ice_ping", "refreshSession" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 14, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Glacier2_Router_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

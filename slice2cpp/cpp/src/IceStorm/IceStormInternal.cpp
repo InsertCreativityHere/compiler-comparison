@@ -34,69 +34,7 @@
 namespace
 {
 
-const ::std::string iceC_IceStorm_TopicLink_ids[2] =
-{
-    "::Ice::Object",
-    "::IceStorm::TopicLink"
-};
-const ::std::string iceC_IceStorm_TopicLink_ops[] =
-{
-    "forward",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_IceStorm_TopicLink_forward_name = "forward";
-
 const ::IceInternal::DefaultUserExceptionFactoryInit<::IceStorm::ReapWouldBlock> iceC_IceStorm_ReapWouldBlock_init("::IceStorm::ReapWouldBlock");
-
-const ::std::string iceC_IceStorm_TopicInternal_ids[3] =
-{
-    "::Ice::Object",
-    "::IceStorm::Topic",
-    "::IceStorm::TopicInternal"
-};
-const ::std::string iceC_IceStorm_TopicInternal_ops[] =
-{
-    "destroy",
-    "getLinkInfoSeq",
-    "getLinkProxy",
-    "getName",
-    "getNonReplicatedPublisher",
-    "getPublisher",
-    "getSubscribers",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "link",
-    "reap",
-    "subscribeAndGetPublisher",
-    "unlink",
-    "unsubscribe"
-};
-const ::std::string iceC_IceStorm_TopicInternal_getLinkProxy_name = "getLinkProxy";
-const ::std::string iceC_IceStorm_TopicInternal_reap_name = "reap";
-
-const ::std::string iceC_IceStorm_TopicManagerInternal_ids[3] =
-{
-    "::Ice::Object",
-    "::IceStorm::TopicManager",
-    "::IceStorm::TopicManagerInternal"
-};
-const ::std::string iceC_IceStorm_TopicManagerInternal_ops[] =
-{
-    "create",
-    "getReplicaNode",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "retrieve",
-    "retrieveAll"
-};
-const ::std::string iceC_IceStorm_TopicManagerInternal_getReplicaNode_name = "getReplicaNode";
 
 }
 
@@ -126,7 +64,9 @@ IceStorm::TopicLinkPrx::forwardAsync(const EventDataSeq& iceP_events,
 void
 IceStorm::TopicLinkPrx::_iceI_forward(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const EventDataSeq& iceP_events, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_IceStorm_TopicLink_forward_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "forward";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_events);
@@ -167,8 +107,10 @@ IceStorm::TopicInternalPrx::getLinkProxyAsync(::std::function<void (::std::optio
 void
 IceStorm::TopicInternalPrx::_iceI_getLinkProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<TopicLinkPrx>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_IceStorm_TopicInternal_getLinkProxy_name);
-    outAsync->invoke(iceC_IceStorm_TopicInternal_getLinkProxy_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getLinkProxy";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -200,8 +142,10 @@ IceStorm::TopicInternalPrx::reapAsync(const ::Ice::IdentitySeq& iceP_id,
 void
 IceStorm::TopicInternalPrx::_iceI_reap(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::IdentitySeq& iceP_id, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_IceStorm_TopicInternal_reap_name);
-    outAsync->invoke(iceC_IceStorm_TopicInternal_reap_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "reap";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_id);
@@ -255,8 +199,10 @@ IceStorm::TopicManagerInternalPrx::getReplicaNodeAsync(::std::function<void (::s
 void
 IceStorm::TopicManagerInternalPrx::_iceI_getReplicaNode(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::IceStormElection::NodePrx>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_IceStorm_TopicManagerInternal_getReplicaNode_name);
-    outAsync->invoke(iceC_IceStorm_TopicManagerInternal_getReplicaNode_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getReplicaNode";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -280,16 +226,11 @@ IceStorm::ReapWouldBlock::ice_staticId()
     return typeId;
 }
 
-bool
-IceStorm::TopicLink::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_IceStorm_TopicLink_ids, iceC_IceStorm_TopicLink_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 IceStorm::TopicLink::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_IceStorm_TopicLink_ids[0], &iceC_IceStorm_TopicLink_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::IceStorm::TopicLink" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -324,13 +265,15 @@ IceStorm::TopicLink::_iceD_forward(::IceInternal::Incoming& inS, const ::Ice::Cu
 bool
 IceStorm::TopicLink::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_IceStorm_TopicLink_ops, iceC_IceStorm_TopicLink_ops + 5, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "forward", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_IceStorm_TopicLink_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -361,16 +304,11 @@ IceStorm::TopicLink::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curr
 }
 /// \endcond
 
-bool
-IceStorm::TopicInternal::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_IceStorm_TopicInternal_ids, iceC_IceStorm_TopicInternal_ids + 3, s);
-}
-
 ::std::vector<::std::string>
 IceStorm::TopicInternal::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_IceStorm_TopicInternal_ids[0], &iceC_IceStorm_TopicInternal_ids[3]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::IceStorm::Topic", "::IceStorm::TopicInternal" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -419,13 +357,15 @@ IceStorm::TopicInternal::_iceD_reap(::IceInternal::Incoming& inS, const ::Ice::C
 bool
 IceStorm::TopicInternal::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_IceStorm_TopicInternal_ops, iceC_IceStorm_TopicInternal_ops + 16, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "destroy", "getLinkInfoSeq", "getLinkProxy", "getName", "getNonReplicatedPublisher", "getPublisher", "getSubscribers", "ice_id", "ice_ids", "ice_isA", "ice_ping", "link", "reap", "subscribeAndGetPublisher", "unlink", "unsubscribe" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 16, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_IceStorm_TopicInternal_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -500,16 +440,11 @@ IceStorm::TopicInternal::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::
 }
 /// \endcond
 
-bool
-IceStorm::TopicManagerInternal::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_IceStorm_TopicManagerInternal_ids, iceC_IceStorm_TopicManagerInternal_ids + 3, s);
-}
-
 ::std::vector<::std::string>
 IceStorm::TopicManagerInternal::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_IceStorm_TopicManagerInternal_ids[0], &iceC_IceStorm_TopicManagerInternal_ids[3]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::IceStorm::TopicManager", "::IceStorm::TopicManagerInternal" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -543,13 +478,15 @@ IceStorm::TopicManagerInternal::_iceD_getReplicaNode(::IceInternal::Incoming& in
 bool
 IceStorm::TopicManagerInternal::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_IceStorm_TopicManagerInternal_ops, iceC_IceStorm_TopicManagerInternal_ops + 8, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "create", "getReplicaNode", "ice_id", "ice_ids", "ice_isA", "ice_ping", "retrieve", "retrieveAll" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_IceStorm_TopicManagerInternal_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

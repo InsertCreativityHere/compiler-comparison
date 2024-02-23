@@ -36,45 +36,7 @@ namespace
 
 const ::IceInternal::DefaultUserExceptionFactoryInit<::Test1::WstringException> iceC_Test1_WstringException_init("::Test1::WstringException");
 
-const ::std::string iceC_Test1_WstringClass_ids[2] =
-{
-    "::Ice::Object",
-    "::Test1::WstringClass"
-};
-const ::std::string iceC_Test1_WstringClass_ops[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "opString",
-    "opStruct",
-    "throwExcept"
-};
-const ::std::string iceC_Test1_WstringClass_opString_name = "opString";
-const ::std::string iceC_Test1_WstringClass_opStruct_name = "opStruct";
-const ::std::string iceC_Test1_WstringClass_throwExcept_name = "throwExcept";
-
 const ::IceInternal::DefaultUserExceptionFactoryInit<::Test2::WstringException> iceC_Test2_WstringException_init("::Test2::WstringException");
-
-const ::std::string iceC_Test2_WstringClass_ids[2] =
-{
-    "::Ice::Object",
-    "::Test2::WstringClass"
-};
-const ::std::string iceC_Test2_WstringClass_ops[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "opString",
-    "opStruct",
-    "throwExcept"
-};
-const ::std::string iceC_Test2_WstringClass_opString_name = "opString";
-const ::std::string iceC_Test2_WstringClass_opStruct_name = "opStruct";
-const ::std::string iceC_Test2_WstringClass_throwExcept_name = "throwExcept";
 
 }
 
@@ -110,8 +72,10 @@ Test1::WstringClassPrx::opStringAsync(const ::std::wstring& iceP_s1,
 void
 Test1::WstringClassPrx::_iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::wstring, ::std::wstring>>>& outAsync, const ::std::wstring& iceP_s1, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test1_WstringClass_opString_name);
-    outAsync->invoke(iceC_Test1_WstringClass_opString_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opString";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s1);
@@ -158,8 +122,10 @@ Test1::WstringClassPrx::opStructAsync(const WstringStruct& iceP_s1,
 void
 Test1::WstringClassPrx::_iceI_opStruct(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<WstringStruct, WstringStruct>>>& outAsync, const WstringStruct& iceP_s1, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test1_WstringClass_opStruct_name);
-    outAsync->invoke(iceC_Test1_WstringClass_opStruct_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opStruct";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s1);
@@ -200,8 +166,10 @@ Test1::WstringClassPrx::throwExceptAsync(const ::std::wstring& iceP_reason,
 void
 Test1::WstringClassPrx::_iceI_throwExcept(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::wstring& iceP_reason, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test1_WstringClass_throwExcept_name);
-    outAsync->invoke(iceC_Test1_WstringClass_throwExcept_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "throwExcept";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_reason);
@@ -262,8 +230,10 @@ Test2::WstringClassPrx::opStringAsync(const ::std::wstring& iceP_s1,
 void
 Test2::WstringClassPrx::_iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::wstring, ::std::wstring>>>& outAsync, const ::std::wstring& iceP_s1, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test2_WstringClass_opString_name);
-    outAsync->invoke(iceC_Test2_WstringClass_opString_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opString";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s1);
@@ -310,8 +280,10 @@ Test2::WstringClassPrx::opStructAsync(const WstringStruct& iceP_s1,
 void
 Test2::WstringClassPrx::_iceI_opStruct(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<WstringStruct, WstringStruct>>>& outAsync, const WstringStruct& iceP_s1, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test2_WstringClass_opStruct_name);
-    outAsync->invoke(iceC_Test2_WstringClass_opStruct_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opStruct";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s1);
@@ -352,8 +324,10 @@ Test2::WstringClassPrx::throwExceptAsync(const ::std::wstring& iceP_reason,
 void
 Test2::WstringClassPrx::_iceI_throwExcept(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::wstring& iceP_reason, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test2_WstringClass_throwExcept_name);
-    outAsync->invoke(iceC_Test2_WstringClass_throwExcept_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "throwExcept";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_reason);
@@ -404,16 +378,11 @@ Test2::WstringException::ice_staticId()
     return typeId;
 }
 
-bool
-Test1::WstringClass::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test1_WstringClass_ids, iceC_Test1_WstringClass_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test1::WstringClass::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test1_WstringClass_ids[0], &iceC_Test1_WstringClass_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test1::WstringClass" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -484,13 +453,15 @@ Test1::WstringClass::_iceD_throwExcept(::IceInternal::Incoming& inS, const ::Ice
 bool
 Test1::WstringClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test1_WstringClass_ops, iceC_Test1_WstringClass_ops + 7, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "opString", "opStruct", "throwExcept" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test1_WstringClass_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -529,16 +500,11 @@ Test1::WstringClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curr
 }
 /// \endcond
 
-bool
-Test2::WstringClass::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test2_WstringClass_ids, iceC_Test2_WstringClass_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test2::WstringClass::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test2_WstringClass_ids[0], &iceC_Test2_WstringClass_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test2::WstringClass" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -609,13 +575,15 @@ Test2::WstringClass::_iceD_throwExcept(::IceInternal::Incoming& inS, const ::Ice
 bool
 Test2::WstringClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test2_WstringClass_ops, iceC_Test2_WstringClass_ops + 7, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "opString", "opStruct", "throwExcept" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test2_WstringClass_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

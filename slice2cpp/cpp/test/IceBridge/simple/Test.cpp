@@ -34,68 +34,6 @@
 namespace
 {
 
-const ::std::string iceC_Test_Callback_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Callback"
-};
-const ::std::string iceC_Test_Callback_ops[] =
-{
-    "datagram",
-    "getCount",
-    "getDatagramCount",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "ping"
-};
-const ::std::string iceC_Test_Callback_ping_name = "ping";
-const ::std::string iceC_Test_Callback_getCount_name = "getCount";
-const ::std::string iceC_Test_Callback_datagram_name = "datagram";
-const ::std::string iceC_Test_Callback_getDatagramCount_name = "getDatagramCount";
-
-const ::std::string iceC_Test_MyClass_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::MyClass"
-};
-const ::std::string iceC_Test_MyClass_ops[] =
-{
-    "callCallback",
-    "callDatagramCallback",
-    "closeConnection",
-    "datagram",
-    "enableHeartbeats",
-    "getCallbackCount",
-    "getCallbackDatagramCount",
-    "getConnectionCount",
-    "getConnectionInfo",
-    "getDatagramCount",
-    "getHeartbeatCount",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "incCounter",
-    "shutdown",
-    "waitCounter"
-};
-const ::std::string iceC_Test_MyClass_callCallback_name = "callCallback";
-const ::std::string iceC_Test_MyClass_getCallbackCount_name = "getCallbackCount";
-const ::std::string iceC_Test_MyClass_incCounter_name = "incCounter";
-const ::std::string iceC_Test_MyClass_waitCounter_name = "waitCounter";
-const ::std::string iceC_Test_MyClass_getConnectionCount_name = "getConnectionCount";
-const ::std::string iceC_Test_MyClass_getConnectionInfo_name = "getConnectionInfo";
-const ::std::string iceC_Test_MyClass_closeConnection_name = "closeConnection";
-const ::std::string iceC_Test_MyClass_datagram_name = "datagram";
-const ::std::string iceC_Test_MyClass_getDatagramCount_name = "getDatagramCount";
-const ::std::string iceC_Test_MyClass_callDatagramCallback_name = "callDatagramCallback";
-const ::std::string iceC_Test_MyClass_getCallbackDatagramCount_name = "getCallbackDatagramCount";
-const ::std::string iceC_Test_MyClass_getHeartbeatCount_name = "getHeartbeatCount";
-const ::std::string iceC_Test_MyClass_enableHeartbeats_name = "enableHeartbeats";
-const ::std::string iceC_Test_MyClass_shutdown_name = "shutdown";
-
 }
 
 void
@@ -123,7 +61,9 @@ Test::CallbackPrx::pingAsync(::std::function<void ()> response,
 void
 Test::CallbackPrx::_iceI_ping(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Callback_ping_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "ping";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -154,8 +94,10 @@ Test::CallbackPrx::getCountAsync(::std::function<void (::std::int32_t)> response
 void
 Test::CallbackPrx::_iceI_getCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Callback_getCount_name);
-    outAsync->invoke(iceC_Test_Callback_getCount_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getCount";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -186,7 +128,9 @@ Test::CallbackPrx::datagramAsync(::std::function<void ()> response,
 void
 Test::CallbackPrx::_iceI_datagram(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Callback_datagram_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "datagram";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -217,8 +161,10 @@ Test::CallbackPrx::getDatagramCountAsync(::std::function<void (::std::int32_t)> 
 void
 Test::CallbackPrx::_iceI_getDatagramCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Callback_getDatagramCount_name);
-    outAsync->invoke(iceC_Test_Callback_getDatagramCount_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getDatagramCount";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -256,7 +202,9 @@ Test::MyClassPrx::callCallbackAsync(::std::function<void ()> response,
 void
 Test::MyClassPrx::_iceI_callCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_MyClass_callCallback_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "callCallback";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -287,8 +235,10 @@ Test::MyClassPrx::getCallbackCountAsync(::std::function<void (::std::int32_t)> r
 void
 Test::MyClassPrx::_iceI_getCallbackCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_MyClass_getCallbackCount_name);
-    outAsync->invoke(iceC_Test_MyClass_getCallbackCount_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getCallbackCount";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -320,7 +270,9 @@ Test::MyClassPrx::incCounterAsync(::std::int32_t iceP_expected,
 void
 Test::MyClassPrx::_iceI_incCounter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_expected, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_MyClass_incCounter_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "incCounter";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_expected);
@@ -355,7 +307,9 @@ Test::MyClassPrx::waitCounterAsync(::std::int32_t iceP_value,
 void
 Test::MyClassPrx::_iceI_waitCounter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_value, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_MyClass_waitCounter_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "waitCounter";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_value);
@@ -389,8 +343,10 @@ Test::MyClassPrx::getConnectionCountAsync(::std::function<void (::std::int32_t)>
 void
 Test::MyClassPrx::_iceI_getConnectionCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_MyClass_getConnectionCount_name);
-    outAsync->invoke(iceC_Test_MyClass_getConnectionCount_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getConnectionCount";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -421,8 +377,10 @@ Test::MyClassPrx::getConnectionInfoAsync(::std::function<void (::std::string)> r
 void
 Test::MyClassPrx::_iceI_getConnectionInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_MyClass_getConnectionInfo_name);
-    outAsync->invoke(iceC_Test_MyClass_getConnectionInfo_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getConnectionInfo";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -454,7 +412,9 @@ Test::MyClassPrx::closeConnectionAsync(bool iceP_force,
 void
 Test::MyClassPrx::_iceI_closeConnection(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_force, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_MyClass_closeConnection_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "closeConnection";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_force);
@@ -488,7 +448,9 @@ Test::MyClassPrx::datagramAsync(::std::function<void ()> response,
 void
 Test::MyClassPrx::_iceI_datagram(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_MyClass_datagram_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "datagram";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -519,8 +481,10 @@ Test::MyClassPrx::getDatagramCountAsync(::std::function<void (::std::int32_t)> r
 void
 Test::MyClassPrx::_iceI_getDatagramCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_MyClass_getDatagramCount_name);
-    outAsync->invoke(iceC_Test_MyClass_getDatagramCount_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getDatagramCount";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -551,7 +515,9 @@ Test::MyClassPrx::callDatagramCallbackAsync(::std::function<void ()> response,
 void
 Test::MyClassPrx::_iceI_callDatagramCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_MyClass_callDatagramCallback_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "callDatagramCallback";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -582,8 +548,10 @@ Test::MyClassPrx::getCallbackDatagramCountAsync(::std::function<void (::std::int
 void
 Test::MyClassPrx::_iceI_getCallbackDatagramCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_MyClass_getCallbackDatagramCount_name);
-    outAsync->invoke(iceC_Test_MyClass_getCallbackDatagramCount_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getCallbackDatagramCount";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -614,8 +582,10 @@ Test::MyClassPrx::getHeartbeatCountAsync(::std::function<void (::std::int32_t)> 
 void
 Test::MyClassPrx::_iceI_getHeartbeatCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_MyClass_getHeartbeatCount_name);
-    outAsync->invoke(iceC_Test_MyClass_getHeartbeatCount_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getHeartbeatCount";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -646,7 +616,9 @@ Test::MyClassPrx::enableHeartbeatsAsync(::std::function<void ()> response,
 void
 Test::MyClassPrx::_iceI_enableHeartbeats(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_MyClass_enableHeartbeats_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "enableHeartbeats";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -677,7 +649,9 @@ Test::MyClassPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::MyClassPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_MyClass_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "shutdown";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -690,16 +664,11 @@ Test::MyClassPrx::ice_staticId()
     return typeId;
 }
 
-bool
-Test::Callback::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Callback_ids, iceC_Test_Callback_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::Callback::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_Callback_ids[0], &iceC_Test_Callback_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Callback" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -771,13 +740,15 @@ Test::Callback::_iceD_getDatagramCount(::IceInternal::Incoming& inS, const ::Ice
 bool
 Test::Callback::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Callback_ops, iceC_Test_Callback_ops + 8, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "datagram", "getCount", "getDatagramCount", "ice_id", "ice_ids", "ice_isA", "ice_ping", "ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_Callback_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -820,16 +791,11 @@ Test::Callback::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
 }
 /// \endcond
 
-bool
-Test::MyClass::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_MyClass_ids, iceC_Test_MyClass_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::MyClass::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_MyClass_ids[0], &iceC_Test_MyClass_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::MyClass" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -1048,13 +1014,15 @@ Test::MyClass::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current
 bool
 Test::MyClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_MyClass_ops, iceC_Test_MyClass_ops + 18, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "callCallback", "callDatagramCallback", "closeConnection", "datagram", "enableHeartbeats", "getCallbackCount", "getCallbackDatagramCount", "getConnectionCount", "getConnectionInfo", "getDatagramCount", "getHeartbeatCount", "ice_id", "ice_ids", "ice_isA", "ice_ping", "incCounter", "shutdown", "waitCounter" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 18, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_MyClass_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

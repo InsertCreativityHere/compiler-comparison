@@ -34,57 +34,6 @@
 namespace
 {
 
-const ::std::string iceC_Test_TestIntf_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::TestIntf"
-};
-const ::std::string iceC_Test_TestIntf_ops[] =
-{
-    "getAdapterName",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_Test_TestIntf_getAdapterName_name = "getAdapterName";
-
-const ::std::string iceC_Test_RemoteObjectAdapter_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::RemoteObjectAdapter"
-};
-const ::std::string iceC_Test_RemoteObjectAdapter_ops[] =
-{
-    "deactivate",
-    "getTestIntf",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_Test_RemoteObjectAdapter_getTestIntf_name = "getTestIntf";
-const ::std::string iceC_Test_RemoteObjectAdapter_deactivate_name = "deactivate";
-
-const ::std::string iceC_Test_RemoteCommunicator_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::RemoteCommunicator"
-};
-const ::std::string iceC_Test_RemoteCommunicator_ops[] =
-{
-    "createObjectAdapter",
-    "deactivateObjectAdapter",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "shutdown"
-};
-const ::std::string iceC_Test_RemoteCommunicator_createObjectAdapter_name = "createObjectAdapter";
-const ::std::string iceC_Test_RemoteCommunicator_deactivateObjectAdapter_name = "deactivateObjectAdapter";
-const ::std::string iceC_Test_RemoteCommunicator_shutdown_name = "shutdown";
-
 }
 
 ::std::string
@@ -112,8 +61,10 @@ Test::TestIntfPrx::getAdapterNameAsync(::std::function<void (::std::string)> res
 void
 Test::TestIntfPrx::_iceI_getAdapterName(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_getAdapterName_name);
-    outAsync->invoke(iceC_Test_TestIntf_getAdapterName_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getAdapterName";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -151,8 +102,10 @@ Test::RemoteObjectAdapterPrx::getTestIntfAsync(::std::function<void (::std::opti
 void
 Test::RemoteObjectAdapterPrx::_iceI_getTestIntf(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<TestIntfPrx>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_RemoteObjectAdapter_getTestIntf_name);
-    outAsync->invoke(iceC_Test_RemoteObjectAdapter_getTestIntf_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getTestIntf";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -183,7 +136,9 @@ Test::RemoteObjectAdapterPrx::deactivateAsync(::std::function<void ()> response,
 void
 Test::RemoteObjectAdapterPrx::_iceI_deactivate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_RemoteObjectAdapter_deactivate_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "deactivate";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -222,8 +177,10 @@ Test::RemoteCommunicatorPrx::createObjectAdapterAsync(const ::std::string& iceP_
 void
 Test::RemoteCommunicatorPrx::_iceI_createObjectAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<RemoteObjectAdapterPrx>>>& outAsync, const ::std::string& iceP_name, const ::std::string& iceP_endpoints, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_RemoteCommunicator_createObjectAdapter_name);
-    outAsync->invoke(iceC_Test_RemoteCommunicator_createObjectAdapter_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "createObjectAdapter";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_name, iceP_endpoints);
@@ -258,7 +215,9 @@ Test::RemoteCommunicatorPrx::deactivateObjectAdapterAsync(const ::std::optional<
 void
 Test::RemoteCommunicatorPrx::_iceI_deactivateObjectAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<RemoteObjectAdapterPrx>& iceP_adapter, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_RemoteCommunicator_deactivateObjectAdapter_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "deactivateObjectAdapter";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_adapter);
@@ -292,7 +251,9 @@ Test::RemoteCommunicatorPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::RemoteCommunicatorPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_RemoteCommunicator_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "shutdown";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -305,16 +266,11 @@ Test::RemoteCommunicatorPrx::ice_staticId()
     return typeId;
 }
 
-bool
-Test::TestIntf::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_TestIntf_ids, iceC_Test_TestIntf_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::TestIntf::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_TestIntf_ids[0], &iceC_Test_TestIntf_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::TestIntf" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -348,13 +304,15 @@ Test::TestIntf::_iceD_getAdapterName(::IceInternal::Incoming& inS, const ::Ice::
 bool
 Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_TestIntf_ops, iceC_Test_TestIntf_ops + 5, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "getAdapterName", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_TestIntf_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -385,16 +343,11 @@ Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
 }
 /// \endcond
 
-bool
-Test::RemoteObjectAdapter::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_RemoteObjectAdapter_ids, iceC_Test_RemoteObjectAdapter_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::RemoteObjectAdapter::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_RemoteObjectAdapter_ids[0], &iceC_Test_RemoteObjectAdapter_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::RemoteObjectAdapter" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -440,13 +393,15 @@ Test::RemoteObjectAdapter::_iceD_deactivate(::IceInternal::Incoming& inS, const 
 bool
 Test::RemoteObjectAdapter::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_RemoteObjectAdapter_ops, iceC_Test_RemoteObjectAdapter_ops + 6, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "deactivate", "getTestIntf", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_RemoteObjectAdapter_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -481,16 +436,11 @@ Test::RemoteObjectAdapter::_iceDispatch(::IceInternal::Incoming& in, const ::Ice
 }
 /// \endcond
 
-bool
-Test::RemoteCommunicator::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_RemoteCommunicator_ids, iceC_Test_RemoteCommunicator_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::RemoteCommunicator::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_RemoteCommunicator_ids[0], &iceC_Test_RemoteCommunicator_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::RemoteCommunicator" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -555,13 +505,15 @@ Test::RemoteCommunicator::_iceD_shutdown(::IceInternal::Incoming& inS, const ::I
 bool
 Test::RemoteCommunicator::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_RemoteCommunicator_ops, iceC_Test_RemoteCommunicator_ops + 7, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "createObjectAdapter", "deactivateObjectAdapter", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_RemoteCommunicator_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

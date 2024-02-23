@@ -38,19 +38,6 @@ const ::IceInternal::DefaultValueFactoryInit<::Test::OptionalClass> iceC_Test_Op
 
 const ::IceInternal::DefaultValueFactoryInit<::Test::MyClass> iceC_Test_MyClass_init("::Test::MyClass");
 
-const ::std::string iceC_Test_MyInterface_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::MyInterface"
-};
-const ::std::string iceC_Test_MyInterface_ops[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-
 const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::MyException> iceC_Test_MyException_init("::Test::MyException");
 
 const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::Sub::NestedException> iceC_Test_Sub_NestedException_init("::Test::Sub::NestedException");
@@ -129,16 +116,11 @@ Test2::Sub2::NestedException2::ice_staticId()
     return typeId;
 }
 
-bool
-Test::MyInterface::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_MyInterface_ids, iceC_Test_MyInterface_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::MyInterface::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_MyInterface_ids[0], &iceC_Test_MyInterface_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::MyInterface" };
+    return allTypeIds;
 }
 
 ::std::string

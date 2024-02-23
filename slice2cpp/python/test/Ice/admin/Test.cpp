@@ -34,61 +34,6 @@
 namespace
 {
 
-const ::std::string iceC_Test_RemoteCommunicator_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::RemoteCommunicator"
-};
-const ::std::string iceC_Test_RemoteCommunicator_ops[] =
-{
-    "destroy",
-    "getAdmin",
-    "getChanges",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "shutdown",
-    "waitForShutdown"
-};
-const ::std::string iceC_Test_RemoteCommunicator_getAdmin_name = "getAdmin";
-const ::std::string iceC_Test_RemoteCommunicator_getChanges_name = "getChanges";
-const ::std::string iceC_Test_RemoteCommunicator_shutdown_name = "shutdown";
-const ::std::string iceC_Test_RemoteCommunicator_waitForShutdown_name = "waitForShutdown";
-const ::std::string iceC_Test_RemoteCommunicator_destroy_name = "destroy";
-
-const ::std::string iceC_Test_RemoteCommunicatorFactory_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::RemoteCommunicatorFactory"
-};
-const ::std::string iceC_Test_RemoteCommunicatorFactory_ops[] =
-{
-    "createCommunicator",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "shutdown"
-};
-const ::std::string iceC_Test_RemoteCommunicatorFactory_createCommunicator_name = "createCommunicator";
-const ::std::string iceC_Test_RemoteCommunicatorFactory_shutdown_name = "shutdown";
-
-const ::std::string iceC_Test_TestFacet_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::TestFacet"
-};
-const ::std::string iceC_Test_TestFacet_ops[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "op"
-};
-const ::std::string iceC_Test_TestFacet_op_name = "op";
-
 }
 
 ::std::optional<::Ice::ObjectPrx>
@@ -116,8 +61,10 @@ Test::RemoteCommunicatorPrx::getAdminAsync(::std::function<void (::std::optional
 void
 Test::RemoteCommunicatorPrx::_iceI_getAdmin(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_RemoteCommunicator_getAdmin_name);
-    outAsync->invoke(iceC_Test_RemoteCommunicator_getAdmin_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getAdmin";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -148,8 +95,10 @@ Test::RemoteCommunicatorPrx::getChangesAsync(::std::function<void (::Ice::Proper
 void
 Test::RemoteCommunicatorPrx::_iceI_getChanges(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::PropertyDict>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_RemoteCommunicator_getChanges_name);
-    outAsync->invoke(iceC_Test_RemoteCommunicator_getChanges_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getChanges";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -180,7 +129,9 @@ Test::RemoteCommunicatorPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::RemoteCommunicatorPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_RemoteCommunicator_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "shutdown";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -211,7 +162,9 @@ Test::RemoteCommunicatorPrx::waitForShutdownAsync(::std::function<void ()> respo
 void
 Test::RemoteCommunicatorPrx::_iceI_waitForShutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_RemoteCommunicator_waitForShutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "waitForShutdown";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -242,7 +195,9 @@ Test::RemoteCommunicatorPrx::destroyAsync(::std::function<void ()> response,
 void
 Test::RemoteCommunicatorPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_RemoteCommunicator_destroy_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "destroy";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -281,8 +236,10 @@ Test::RemoteCommunicatorFactoryPrx::createCommunicatorAsync(const ::Ice::Propert
 void
 Test::RemoteCommunicatorFactoryPrx::_iceI_createCommunicator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<RemoteCommunicatorPrx>>>& outAsync, const ::Ice::PropertyDict& iceP_props, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_RemoteCommunicatorFactory_createCommunicator_name);
-    outAsync->invoke(iceC_Test_RemoteCommunicatorFactory_createCommunicator_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "createCommunicator";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_props);
@@ -316,7 +273,9 @@ Test::RemoteCommunicatorFactoryPrx::shutdownAsync(::std::function<void ()> respo
 void
 Test::RemoteCommunicatorFactoryPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_RemoteCommunicatorFactory_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "shutdown";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -354,7 +313,9 @@ Test::TestFacetPrx::opAsync(::std::function<void ()> response,
 void
 Test::TestFacetPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_TestFacet_op_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "op";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -367,16 +328,11 @@ Test::TestFacetPrx::ice_staticId()
     return typeId;
 }
 
-bool
-Test::RemoteCommunicator::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_RemoteCommunicator_ids, iceC_Test_RemoteCommunicator_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::RemoteCommunicator::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_RemoteCommunicator_ids[0], &iceC_Test_RemoteCommunicator_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::RemoteCommunicator" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -460,13 +416,15 @@ Test::RemoteCommunicator::_iceD_destroy(::IceInternal::Incoming& inS, const ::Ic
 bool
 Test::RemoteCommunicator::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_RemoteCommunicator_ops, iceC_Test_RemoteCommunicator_ops + 9, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "destroy", "getAdmin", "getChanges", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown", "waitForShutdown" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 9, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_RemoteCommunicator_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -513,16 +471,11 @@ Test::RemoteCommunicator::_iceDispatch(::IceInternal::Incoming& in, const ::Ice:
 }
 /// \endcond
 
-bool
-Test::RemoteCommunicatorFactory::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_RemoteCommunicatorFactory_ids, iceC_Test_RemoteCommunicatorFactory_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::RemoteCommunicatorFactory::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_RemoteCommunicatorFactory_ids[0], &iceC_Test_RemoteCommunicatorFactory_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::RemoteCommunicatorFactory" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -571,13 +524,15 @@ Test::RemoteCommunicatorFactory::_iceD_shutdown(::IceInternal::Incoming& inS, co
 bool
 Test::RemoteCommunicatorFactory::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_RemoteCommunicatorFactory_ops, iceC_Test_RemoteCommunicatorFactory_ops + 6, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "createCommunicator", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_RemoteCommunicatorFactory_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -612,16 +567,11 @@ Test::RemoteCommunicatorFactory::_iceDispatch(::IceInternal::Incoming& in, const
 }
 /// \endcond
 
-bool
-Test::TestFacet::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_TestFacet_ids, iceC_Test_TestFacet_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::TestFacet::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_TestFacet_ids[0], &iceC_Test_TestFacet_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::TestFacet" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -653,13 +603,15 @@ Test::TestFacet::_iceD_op(::IceInternal::Incoming& inS, const ::Ice::Current& cu
 bool
 Test::TestFacet::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_TestFacet_ops, iceC_Test_TestFacet_ops + 5, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "op" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_TestFacet_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

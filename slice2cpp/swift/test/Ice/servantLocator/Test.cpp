@@ -38,58 +38,6 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::TestIntfUserExcepti
 
 const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::TestImpossibleException> iceC_Test_TestImpossibleException_init("::Test::TestImpossibleException");
 
-const ::std::string iceC_Test_TestIntf_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::TestIntf"
-};
-const ::std::string iceC_Test_TestIntf_ops[] =
-{
-    "asyncException",
-    "asyncResponse",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "impossibleException",
-    "intfUserException",
-    "localException",
-    "requestFailedException",
-    "shutdown",
-    "unknownException",
-    "unknownExceptionWithServantException",
-    "unknownLocalException",
-    "unknownUserException",
-    "userException"
-};
-const ::std::string iceC_Test_TestIntf_requestFailedException_name = "requestFailedException";
-const ::std::string iceC_Test_TestIntf_unknownUserException_name = "unknownUserException";
-const ::std::string iceC_Test_TestIntf_unknownLocalException_name = "unknownLocalException";
-const ::std::string iceC_Test_TestIntf_unknownException_name = "unknownException";
-const ::std::string iceC_Test_TestIntf_localException_name = "localException";
-const ::std::string iceC_Test_TestIntf_userException_name = "userException";
-const ::std::string iceC_Test_TestIntf_unknownExceptionWithServantException_name = "unknownExceptionWithServantException";
-const ::std::string iceC_Test_TestIntf_impossibleException_name = "impossibleException";
-const ::std::string iceC_Test_TestIntf_intfUserException_name = "intfUserException";
-const ::std::string iceC_Test_TestIntf_asyncResponse_name = "asyncResponse";
-const ::std::string iceC_Test_TestIntf_asyncException_name = "asyncException";
-const ::std::string iceC_Test_TestIntf_shutdown_name = "shutdown";
-
-const ::std::string iceC_Test_TestActivation_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::TestActivation"
-};
-const ::std::string iceC_Test_TestActivation_ops[] =
-{
-    "activateServantLocator",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_Test_TestActivation_activateServantLocator_name = "activateServantLocator";
-
 }
 
 void
@@ -117,7 +65,9 @@ Test::TestIntfPrx::requestFailedExceptionAsync(::std::function<void ()> response
 void
 Test::TestIntfPrx::_iceI_requestFailedException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_TestIntf_requestFailedException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "requestFailedException";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -148,7 +98,9 @@ Test::TestIntfPrx::unknownUserExceptionAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_unknownUserException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_TestIntf_unknownUserException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "unknownUserException";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -179,7 +131,9 @@ Test::TestIntfPrx::unknownLocalExceptionAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_unknownLocalException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_TestIntf_unknownLocalException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "unknownLocalException";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -210,7 +164,9 @@ Test::TestIntfPrx::unknownExceptionAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_unknownException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_TestIntf_unknownException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "unknownException";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -241,7 +197,9 @@ Test::TestIntfPrx::localExceptionAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_localException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_TestIntf_localException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "localException";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -272,7 +230,9 @@ Test::TestIntfPrx::userExceptionAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_userException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_TestIntf_userException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "userException";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -303,7 +263,9 @@ Test::TestIntfPrx::unknownExceptionWithServantExceptionAsync(::std::function<voi
 void
 Test::TestIntfPrx::_iceI_unknownExceptionWithServantException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_TestIntf_unknownExceptionWithServantException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "unknownExceptionWithServantException";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -335,8 +297,10 @@ Test::TestIntfPrx::impossibleExceptionAsync(bool iceP_throw,
 void
 Test::TestIntfPrx::_iceI_impossibleException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, bool iceP_throw, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_impossibleException_name);
-    outAsync->invoke(iceC_Test_TestIntf_impossibleException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "impossibleException";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_throw);
@@ -384,8 +348,10 @@ Test::TestIntfPrx::intfUserExceptionAsync(bool iceP_throw,
 void
 Test::TestIntfPrx::_iceI_intfUserException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, bool iceP_throw, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_intfUserException_name);
-    outAsync->invoke(iceC_Test_TestIntf_intfUserException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "intfUserException";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_throw);
@@ -436,8 +402,10 @@ Test::TestIntfPrx::asyncResponseAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_asyncResponse(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_asyncResponse_name);
-    outAsync->invoke(iceC_Test_TestIntf_asyncResponse_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "asyncResponse";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -485,8 +453,10 @@ Test::TestIntfPrx::asyncExceptionAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_asyncException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_TestIntf_asyncException_name);
-    outAsync->invoke(iceC_Test_TestIntf_asyncException_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "asyncException";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -534,7 +504,9 @@ Test::TestIntfPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_TestIntf_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "shutdown";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -573,7 +545,9 @@ Test::TestActivationPrx::activateServantLocatorAsync(bool iceP_activate,
 void
 Test::TestActivationPrx::_iceI_activateServantLocator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_activate, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_TestActivation_activateServantLocator_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "activateServantLocator";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_activate);
@@ -611,16 +585,11 @@ Test::TestImpossibleException::ice_staticId()
     return typeId;
 }
 
-bool
-Test::TestIntf::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_TestIntf_ids, iceC_Test_TestIntf_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::TestIntf::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_TestIntf_ids[0], &iceC_Test_TestIntf_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::TestIntf" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -794,13 +763,15 @@ Test::TestIntf::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Curren
 bool
 Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_TestIntf_ops, iceC_Test_TestIntf_ops + 16, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "asyncException", "asyncResponse", "ice_id", "ice_ids", "ice_isA", "ice_ping", "impossibleException", "intfUserException", "localException", "requestFailedException", "shutdown", "unknownException", "unknownExceptionWithServantException", "unknownLocalException", "unknownUserException", "userException" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 16, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_TestIntf_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -875,16 +846,11 @@ Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
 }
 /// \endcond
 
-bool
-Test::TestActivation::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_TestActivation_ids, iceC_Test_TestActivation_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::TestActivation::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_TestActivation_ids[0], &iceC_Test_TestActivation_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::TestActivation" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -919,13 +885,15 @@ Test::TestActivation::_iceD_activateServantLocator(::IceInternal::Incoming& inS,
 bool
 Test::TestActivation::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_TestActivation_ops, iceC_Test_TestActivation_ops + 5, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "activateServantLocator", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_TestActivation_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

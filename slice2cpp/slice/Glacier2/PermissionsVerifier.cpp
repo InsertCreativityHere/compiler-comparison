@@ -39,36 +39,6 @@ namespace
 
 const ::IceInternal::DefaultUserExceptionFactoryInit<::Glacier2::PermissionDeniedException> iceC_Glacier2_PermissionDeniedException_init("::Glacier2::PermissionDeniedException");
 
-const ::std::string iceC_Glacier2_PermissionsVerifier_ids[2] =
-{
-    "::Glacier2::PermissionsVerifier",
-    "::Ice::Object"
-};
-const ::std::string iceC_Glacier2_PermissionsVerifier_ops[] =
-{
-    "checkPermissions",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_Glacier2_PermissionsVerifier_checkPermissions_name = "checkPermissions";
-
-const ::std::string iceC_Glacier2_SSLPermissionsVerifier_ids[2] =
-{
-    "::Glacier2::SSLPermissionsVerifier",
-    "::Ice::Object"
-};
-const ::std::string iceC_Glacier2_SSLPermissionsVerifier_ops[] =
-{
-    "authorize",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_Glacier2_SSLPermissionsVerifier_authorize_name = "authorize";
-
 }
 
 bool
@@ -103,8 +73,10 @@ Glacier2::PermissionsVerifierPrx::checkPermissionsAsync(const ::std::string& ice
 void
 Glacier2::PermissionsVerifierPrx::_iceI_checkPermissions(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<bool, ::std::string>>>& outAsync, const ::std::string& iceP_userId, const ::std::string& iceP_password, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Glacier2_PermissionsVerifier_checkPermissions_name);
-    outAsync->invoke(iceC_Glacier2_PermissionsVerifier_checkPermissions_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "checkPermissions";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::SlicedFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_userId, iceP_password);
@@ -171,8 +143,10 @@ Glacier2::SSLPermissionsVerifierPrx::authorizeAsync(const SSLInfo& iceP_info,
 void
 Glacier2::SSLPermissionsVerifierPrx::_iceI_authorize(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<bool, ::std::string>>>& outAsync, const SSLInfo& iceP_info, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Glacier2_SSLPermissionsVerifier_authorize_name);
-    outAsync->invoke(iceC_Glacier2_SSLPermissionsVerifier_authorize_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "authorize";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::SlicedFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_info);
@@ -242,16 +216,11 @@ Glacier2::PermissionDeniedException::_read(::Ice::InputStream* istr)
 }
 /// \endcond
 
-bool
-Glacier2::PermissionsVerifier::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Glacier2_PermissionsVerifier_ids, iceC_Glacier2_PermissionsVerifier_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Glacier2::PermissionsVerifier::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Glacier2_PermissionsVerifier_ids[0], &iceC_Glacier2_PermissionsVerifier_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Glacier2::PermissionsVerifier", "::Ice::Object" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -291,13 +260,15 @@ Glacier2::PermissionsVerifier::_iceD_checkPermissions(::IceInternal::Incoming& i
 bool
 Glacier2::PermissionsVerifier::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Glacier2_PermissionsVerifier_ops, iceC_Glacier2_PermissionsVerifier_ops + 5, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "checkPermissions", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Glacier2_PermissionsVerifier_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -328,16 +299,11 @@ Glacier2::PermissionsVerifier::_iceDispatch(::IceInternal::Incoming& in, const :
 }
 /// \endcond
 
-bool
-Glacier2::SSLPermissionsVerifier::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Glacier2_SSLPermissionsVerifier_ids, iceC_Glacier2_SSLPermissionsVerifier_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Glacier2::SSLPermissionsVerifier::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Glacier2_SSLPermissionsVerifier_ids[0], &iceC_Glacier2_SSLPermissionsVerifier_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Glacier2::SSLPermissionsVerifier", "::Ice::Object" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -376,13 +342,15 @@ Glacier2::SSLPermissionsVerifier::_iceD_authorize(::IceInternal::Incoming& inS, 
 bool
 Glacier2::SSLPermissionsVerifier::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Glacier2_SSLPermissionsVerifier_ops, iceC_Glacier2_SSLPermissionsVerifier_ops + 5, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "authorize", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Glacier2_SSLPermissionsVerifier_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

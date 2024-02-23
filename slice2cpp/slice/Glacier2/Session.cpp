@@ -39,112 +39,6 @@ namespace
 
 const ::IceInternal::DefaultUserExceptionFactoryInit<::Glacier2::CannotCreateSessionException> iceC_Glacier2_CannotCreateSessionException_init("::Glacier2::CannotCreateSessionException");
 
-const ::std::string iceC_Glacier2_Session_ids[2] =
-{
-    "::Glacier2::Session",
-    "::Ice::Object"
-};
-const ::std::string iceC_Glacier2_Session_ops[] =
-{
-    "destroy",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_Glacier2_Session_destroy_name = "destroy";
-
-const ::std::string iceC_Glacier2_StringSet_ids[2] =
-{
-    "::Glacier2::StringSet",
-    "::Ice::Object"
-};
-const ::std::string iceC_Glacier2_StringSet_ops[] =
-{
-    "add",
-    "get",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "remove"
-};
-const ::std::string iceC_Glacier2_StringSet_add_name = "add";
-const ::std::string iceC_Glacier2_StringSet_remove_name = "remove";
-const ::std::string iceC_Glacier2_StringSet_get_name = "get";
-
-const ::std::string iceC_Glacier2_IdentitySet_ids[2] =
-{
-    "::Glacier2::IdentitySet",
-    "::Ice::Object"
-};
-const ::std::string iceC_Glacier2_IdentitySet_ops[] =
-{
-    "add",
-    "get",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "remove"
-};
-const ::std::string iceC_Glacier2_IdentitySet_add_name = "add";
-const ::std::string iceC_Glacier2_IdentitySet_remove_name = "remove";
-const ::std::string iceC_Glacier2_IdentitySet_get_name = "get";
-
-const ::std::string iceC_Glacier2_SessionControl_ids[2] =
-{
-    "::Glacier2::SessionControl",
-    "::Ice::Object"
-};
-const ::std::string iceC_Glacier2_SessionControl_ops[] =
-{
-    "adapterIds",
-    "categories",
-    "destroy",
-    "getSessionTimeout",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "identities"
-};
-const ::std::string iceC_Glacier2_SessionControl_categories_name = "categories";
-const ::std::string iceC_Glacier2_SessionControl_adapterIds_name = "adapterIds";
-const ::std::string iceC_Glacier2_SessionControl_identities_name = "identities";
-const ::std::string iceC_Glacier2_SessionControl_getSessionTimeout_name = "getSessionTimeout";
-const ::std::string iceC_Glacier2_SessionControl_destroy_name = "destroy";
-
-const ::std::string iceC_Glacier2_SessionManager_ids[2] =
-{
-    "::Glacier2::SessionManager",
-    "::Ice::Object"
-};
-const ::std::string iceC_Glacier2_SessionManager_ops[] =
-{
-    "create",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_Glacier2_SessionManager_create_name = "create";
-
-const ::std::string iceC_Glacier2_SSLSessionManager_ids[2] =
-{
-    "::Glacier2::SSLSessionManager",
-    "::Ice::Object"
-};
-const ::std::string iceC_Glacier2_SSLSessionManager_ops[] =
-{
-    "create",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_Glacier2_SSLSessionManager_create_name = "create";
-
 }
 
 void
@@ -172,7 +66,9 @@ Glacier2::SessionPrx::destroyAsync(::std::function<void ()> response,
 void
 Glacier2::SessionPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Glacier2_Session_destroy_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "destroy";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -211,7 +107,9 @@ Glacier2::StringSetPrx::addAsync(const ::Ice::StringSeq& iceP_additions,
 void
 Glacier2::StringSetPrx::_iceI_add(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::StringSeq& iceP_additions, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Glacier2_StringSet_add_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "add";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_additions);
@@ -246,7 +144,9 @@ Glacier2::StringSetPrx::removeAsync(const ::Ice::StringSeq& iceP_deletions,
 void
 Glacier2::StringSetPrx::_iceI_remove(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::StringSeq& iceP_deletions, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Glacier2_StringSet_remove_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "remove";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_deletions);
@@ -280,8 +180,10 @@ Glacier2::StringSetPrx::getAsync(::std::function<void (::Ice::StringSeq)> respon
 void
 Glacier2::StringSetPrx::_iceI_get(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::StringSeq>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Glacier2_StringSet_get_name);
-    outAsync->invoke(iceC_Glacier2_StringSet_get_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "get";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -320,7 +222,9 @@ Glacier2::IdentitySetPrx::addAsync(const ::Ice::IdentitySeq& iceP_additions,
 void
 Glacier2::IdentitySetPrx::_iceI_add(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::IdentitySeq& iceP_additions, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Glacier2_IdentitySet_add_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "add";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_additions);
@@ -355,7 +259,9 @@ Glacier2::IdentitySetPrx::removeAsync(const ::Ice::IdentitySeq& iceP_deletions,
 void
 Glacier2::IdentitySetPrx::_iceI_remove(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::IdentitySeq& iceP_deletions, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Glacier2_IdentitySet_remove_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "remove";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_deletions);
@@ -389,8 +295,10 @@ Glacier2::IdentitySetPrx::getAsync(::std::function<void (::Ice::IdentitySeq)> re
 void
 Glacier2::IdentitySetPrx::_iceI_get(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::IdentitySeq>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Glacier2_IdentitySet_get_name);
-    outAsync->invoke(iceC_Glacier2_IdentitySet_get_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "get";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -428,8 +336,10 @@ Glacier2::SessionControlPrx::categoriesAsync(::std::function<void (::std::option
 void
 Glacier2::SessionControlPrx::_iceI_categories(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<StringSetPrx>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Glacier2_SessionControl_categories_name);
-    outAsync->invoke(iceC_Glacier2_SessionControl_categories_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "categories";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -460,8 +370,10 @@ Glacier2::SessionControlPrx::adapterIdsAsync(::std::function<void (::std::option
 void
 Glacier2::SessionControlPrx::_iceI_adapterIds(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<StringSetPrx>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Glacier2_SessionControl_adapterIds_name);
-    outAsync->invoke(iceC_Glacier2_SessionControl_adapterIds_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "adapterIds";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -492,8 +404,10 @@ Glacier2::SessionControlPrx::identitiesAsync(::std::function<void (::std::option
 void
 Glacier2::SessionControlPrx::_iceI_identities(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<IdentitySetPrx>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Glacier2_SessionControl_identities_name);
-    outAsync->invoke(iceC_Glacier2_SessionControl_identities_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "identities";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -524,8 +438,10 @@ Glacier2::SessionControlPrx::getSessionTimeoutAsync(::std::function<void (::std:
 void
 Glacier2::SessionControlPrx::_iceI_getSessionTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Glacier2_SessionControl_getSessionTimeout_name);
-    outAsync->invoke(iceC_Glacier2_SessionControl_getSessionTimeout_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getSessionTimeout";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -556,7 +472,9 @@ Glacier2::SessionControlPrx::destroyAsync(::std::function<void ()> response,
 void
 Glacier2::SessionControlPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Glacier2_SessionControl_destroy_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "destroy";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -595,8 +513,10 @@ Glacier2::SessionManagerPrx::createAsync(const ::std::string& iceP_userId, const
 void
 Glacier2::SessionManagerPrx::_iceI_create(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<SessionPrx>>>& outAsync, const ::std::string& iceP_userId, const ::std::optional<SessionControlPrx>& iceP_control, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Glacier2_SessionManager_create_name);
-    outAsync->invoke(iceC_Glacier2_SessionManager_create_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "create";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_userId, iceP_control);
@@ -651,8 +571,10 @@ Glacier2::SSLSessionManagerPrx::createAsync(const SSLInfo& iceP_info, const ::st
 void
 Glacier2::SSLSessionManagerPrx::_iceI_create(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<SessionPrx>>>& outAsync, const SSLInfo& iceP_info, const ::std::optional<SessionControlPrx>& iceP_control, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Glacier2_SSLSessionManager_create_name);
-    outAsync->invoke(iceC_Glacier2_SSLSessionManager_create_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
+    static const ::std::string operationName = "create";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_info, iceP_control);
@@ -716,16 +638,11 @@ Glacier2::CannotCreateSessionException::_read(::Ice::InputStream* istr)
 }
 /// \endcond
 
-bool
-Glacier2::Session::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Glacier2_Session_ids, iceC_Glacier2_Session_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Glacier2::Session::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Glacier2_Session_ids[0], &iceC_Glacier2_Session_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Glacier2::Session", "::Ice::Object" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -757,13 +674,15 @@ Glacier2::Session::_iceD_destroy(::IceInternal::Incoming& inS, const ::Ice::Curr
 bool
 Glacier2::Session::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Glacier2_Session_ops, iceC_Glacier2_Session_ops + 5, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "destroy", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Glacier2_Session_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -794,16 +713,11 @@ Glacier2::Session::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curren
 }
 /// \endcond
 
-bool
-Glacier2::StringSet::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Glacier2_StringSet_ids, iceC_Glacier2_StringSet_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Glacier2::StringSet::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Glacier2_StringSet_ids[0], &iceC_Glacier2_StringSet_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Glacier2::StringSet", "::Ice::Object" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -867,13 +781,15 @@ Glacier2::StringSet::_iceD_get(::IceInternal::Incoming& inS, const ::Ice::Curren
 bool
 Glacier2::StringSet::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Glacier2_StringSet_ops, iceC_Glacier2_StringSet_ops + 7, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "add", "get", "ice_id", "ice_ids", "ice_isA", "ice_ping", "remove" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Glacier2_StringSet_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -912,16 +828,11 @@ Glacier2::StringSet::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curr
 }
 /// \endcond
 
-bool
-Glacier2::IdentitySet::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Glacier2_IdentitySet_ids, iceC_Glacier2_IdentitySet_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Glacier2::IdentitySet::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Glacier2_IdentitySet_ids[0], &iceC_Glacier2_IdentitySet_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Glacier2::IdentitySet", "::Ice::Object" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -985,13 +896,15 @@ Glacier2::IdentitySet::_iceD_get(::IceInternal::Incoming& inS, const ::Ice::Curr
 bool
 Glacier2::IdentitySet::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Glacier2_IdentitySet_ops, iceC_Glacier2_IdentitySet_ops + 7, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "add", "get", "ice_id", "ice_ids", "ice_isA", "ice_ping", "remove" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Glacier2_IdentitySet_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -1030,16 +943,11 @@ Glacier2::IdentitySet::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cu
 }
 /// \endcond
 
-bool
-Glacier2::SessionControl::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Glacier2_SessionControl_ids, iceC_Glacier2_SessionControl_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Glacier2::SessionControl::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Glacier2_SessionControl_ids[0], &iceC_Glacier2_SessionControl_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Glacier2::SessionControl", "::Ice::Object" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -1127,13 +1035,15 @@ Glacier2::SessionControl::_iceD_destroy(::IceInternal::Incoming& inS, const ::Ic
 bool
 Glacier2::SessionControl::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Glacier2_SessionControl_ops, iceC_Glacier2_SessionControl_ops + 9, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "adapterIds", "categories", "destroy", "getSessionTimeout", "ice_id", "ice_ids", "ice_isA", "ice_ping", "identities" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 9, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Glacier2_SessionControl_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -1180,16 +1090,11 @@ Glacier2::SessionControl::_iceDispatch(::IceInternal::Incoming& in, const ::Ice:
 }
 /// \endcond
 
-bool
-Glacier2::SessionManager::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Glacier2_SessionManager_ids, iceC_Glacier2_SessionManager_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Glacier2::SessionManager::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Glacier2_SessionManager_ids[0], &iceC_Glacier2_SessionManager_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Glacier2::SessionManager", "::Ice::Object" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -1228,13 +1133,15 @@ Glacier2::SessionManager::_iceD_create(::IceInternal::Incoming& inS, const ::Ice
 bool
 Glacier2::SessionManager::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Glacier2_SessionManager_ops, iceC_Glacier2_SessionManager_ops + 5, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "create", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Glacier2_SessionManager_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -1265,16 +1172,11 @@ Glacier2::SessionManager::_iceDispatch(::IceInternal::Incoming& in, const ::Ice:
 }
 /// \endcond
 
-bool
-Glacier2::SSLSessionManager::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Glacier2_SSLSessionManager_ids, iceC_Glacier2_SSLSessionManager_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Glacier2::SSLSessionManager::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Glacier2_SSLSessionManager_ids[0], &iceC_Glacier2_SSLSessionManager_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Glacier2::SSLSessionManager", "::Ice::Object" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -1313,13 +1215,15 @@ Glacier2::SSLSessionManager::_iceD_create(::IceInternal::Incoming& inS, const ::
 bool
 Glacier2::SSLSessionManager::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Glacier2_SSLSessionManager_ops, iceC_Glacier2_SSLSessionManager_ops + 5, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "create", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Glacier2_SSLSessionManager_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

@@ -36,27 +36,6 @@ namespace
 
 const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::UE> iceC_Test_UE_init("::Test::UE");
 
-const ::std::string iceC_Test_Hello_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Hello"
-};
-const ::std::string iceC_Test_Hello_ops[] =
-{
-    "add",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "raiseUE",
-    "sayHello",
-    "shutdown"
-};
-const ::std::string iceC_Test_Hello_sayHello_name = "sayHello";
-const ::std::string iceC_Test_Hello_add_name = "add";
-const ::std::string iceC_Test_Hello_raiseUE_name = "raiseUE";
-const ::std::string iceC_Test_Hello_shutdown_name = "shutdown";
-
 }
 
 void
@@ -85,7 +64,9 @@ Test::HelloPrx::sayHelloAsync(::std::int32_t iceP_delay,
 void
 Test::HelloPrx::_iceI_sayHello(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_delay, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Hello_sayHello_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "sayHello";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_delay);
@@ -120,8 +101,10 @@ Test::HelloPrx::addAsync(::std::int32_t iceP_s1, ::std::int32_t iceP_s2,
 void
 Test::HelloPrx::_iceI_add(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_s1, ::std::int32_t iceP_s2, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Hello_add_name);
-    outAsync->invoke(iceC_Test_Hello_add_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "add";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_s1, iceP_s2);
@@ -155,8 +138,10 @@ Test::HelloPrx::raiseUEAsync(::std::function<void ()> response,
 void
 Test::HelloPrx::_iceI_raiseUE(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Hello_raiseUE_name);
-    outAsync->invoke(iceC_Test_Hello_raiseUE_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "raiseUE";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -200,7 +185,9 @@ Test::HelloPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::HelloPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Hello_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "shutdown";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -224,16 +211,11 @@ Test::UE::ice_staticId()
     return typeId;
 }
 
-bool
-Test::Hello::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Hello_ids, iceC_Test_Hello_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::Hello::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_Hello_ids[0], &iceC_Test_Hello_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Hello" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -310,13 +292,15 @@ Test::Hello::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current& 
 bool
 Test::Hello::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Hello_ops, iceC_Test_Hello_ops + 8, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "add", "ice_id", "ice_ids", "ice_isA", "ice_ping", "raiseUE", "sayHello", "shutdown" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_Hello_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

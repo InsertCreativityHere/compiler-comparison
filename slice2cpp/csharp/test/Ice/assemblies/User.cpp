@@ -36,21 +36,6 @@ namespace
 
 const ::IceInternal::DefaultValueFactoryInit<::User::UserInfo> iceC_User_UserInfo_init("::User::UserInfo");
 
-const ::std::string iceC_User_Registry_ids[2] =
-{
-    "::Ice::Object",
-    "::User::Registry"
-};
-const ::std::string iceC_User_Registry_ops[] =
-{
-    "getUserInfo",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_User_Registry_getUserInfo_name = "getUserInfo";
-
 }
 
 ::std::shared_ptr<::User::UserInfo>
@@ -79,8 +64,10 @@ User::RegistryPrx::getUserInfoAsync(const ::std::string& iceP_id,
 void
 User::RegistryPrx::_iceI_getUserInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<UserInfo>>>& outAsync, const ::std::string& iceP_id, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_User_Registry_getUserInfo_name);
-    outAsync->invoke(iceC_User_Registry_getUserInfo_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getUserInfo";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_id);
@@ -127,16 +114,11 @@ User::UserInfo::ice_staticId()
     return typeId;
 }
 
-bool
-User::Registry::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_User_Registry_ids, iceC_User_Registry_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 User::Registry::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_User_Registry_ids[0], &iceC_User_Registry_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::User::Registry" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -174,13 +156,15 @@ User::Registry::_iceD_getUserInfo(::IceInternal::Incoming& inS, const ::Ice::Cur
 bool
 User::Registry::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_User_Registry_ops, iceC_User_Registry_ops + 5, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "getUserInfo", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_User_Registry_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

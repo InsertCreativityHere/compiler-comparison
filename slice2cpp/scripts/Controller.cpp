@@ -42,118 +42,7 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::Common::TestCaseNot
 
 const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::Common::TestCaseFailedException> iceC_Test_Common_TestCaseFailedException_init("::Test::Common::TestCaseFailedException");
 
-const ::std::string iceC_Test_Common_TestCase_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Common::TestCase"
-};
-const ::std::string iceC_Test_Common_TestCase_ops[] =
-{
-    "destroy",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "runClientSide",
-    "startServerSide",
-    "stopServerSide"
-};
-const ::std::string iceC_Test_Common_TestCase_startServerSide_name = "startServerSide";
-const ::std::string iceC_Test_Common_TestCase_stopServerSide_name = "stopServerSide";
-const ::std::string iceC_Test_Common_TestCase_runClientSide_name = "runClientSide";
-const ::std::string iceC_Test_Common_TestCase_destroy_name = "destroy";
-
-const ::std::string iceC_Test_Common_Controller_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Common::Controller"
-};
-const ::std::string iceC_Test_Common_Controller_ops[] =
-{
-    "getHost",
-    "getOptionOverrides",
-    "getTestSuites",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "runTestCase"
-};
-const ::std::string iceC_Test_Common_Controller_runTestCase_name = "runTestCase";
-const ::std::string iceC_Test_Common_Controller_getOptionOverrides_name = "getOptionOverrides";
-const ::std::string iceC_Test_Common_Controller_getTestSuites_name = "getTestSuites";
-const ::std::string iceC_Test_Common_Controller_getHost_name = "getHost";
-
 const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::Common::ProcessFailedException> iceC_Test_Common_ProcessFailedException_init("::Test::Common::ProcessFailedException");
-
-const ::std::string iceC_Test_Common_Process_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Common::Process"
-};
-const ::std::string iceC_Test_Common_Process_ops[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "terminate",
-    "waitReady",
-    "waitSuccess"
-};
-const ::std::string iceC_Test_Common_Process_waitReady_name = "waitReady";
-const ::std::string iceC_Test_Common_Process_waitSuccess_name = "waitSuccess";
-const ::std::string iceC_Test_Common_Process_terminate_name = "terminate";
-
-const ::std::string iceC_Test_Common_ProcessController_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Common::ProcessController"
-};
-const ::std::string iceC_Test_Common_ProcessController_ops[] =
-{
-    "getHost",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "start"
-};
-const ::std::string iceC_Test_Common_ProcessController_start_name = "start";
-const ::std::string iceC_Test_Common_ProcessController_getHost_name = "getHost";
-
-const ::std::string iceC_Test_Common_BrowserProcessController_ids[3] =
-{
-    "::Ice::Object",
-    "::Test::Common::BrowserProcessController",
-    "::Test::Common::ProcessController"
-};
-const ::std::string iceC_Test_Common_BrowserProcessController_ops[] =
-{
-    "getHost",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "redirect",
-    "start"
-};
-const ::std::string iceC_Test_Common_BrowserProcessController_redirect_name = "redirect";
-
-const ::std::string iceC_Test_Common_ProcessControllerRegistry_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Common::ProcessControllerRegistry"
-};
-const ::std::string iceC_Test_Common_ProcessControllerRegistry_ops[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "setProcessController"
-};
-const ::std::string iceC_Test_Common_ProcessControllerRegistry_setProcessController_name = "setProcessController";
 
 }
 
@@ -183,8 +72,10 @@ Test::Common::TestCasePrx::startServerSideAsync(const ::std::shared_ptr<Config>&
 void
 Test::Common::TestCasePrx::_iceI_startServerSide(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::std::shared_ptr<Config>& iceP_config, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Common_TestCase_startServerSide_name);
-    outAsync->invoke(iceC_Test_Common_TestCase_startServerSide_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "startServerSide";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_config);
@@ -233,8 +124,10 @@ Test::Common::TestCasePrx::stopServerSideAsync(bool iceP_success,
 void
 Test::Common::TestCasePrx::_iceI_stopServerSide(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, bool iceP_success, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Common_TestCase_stopServerSide_name);
-    outAsync->invoke(iceC_Test_Common_TestCase_stopServerSide_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "stopServerSide";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_success);
@@ -282,8 +175,10 @@ Test::Common::TestCasePrx::runClientSideAsync(const ::std::string& iceP_host, co
 void
 Test::Common::TestCasePrx::_iceI_runClientSide(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::std::string& iceP_host, const ::std::shared_ptr<Config>& iceP_config, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Common_TestCase_runClientSide_name);
-    outAsync->invoke(iceC_Test_Common_TestCase_runClientSide_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "runClientSide";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_host, iceP_config);
@@ -331,7 +226,9 @@ Test::Common::TestCasePrx::destroyAsync(::std::function<void ()> response,
 void
 Test::Common::TestCasePrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Common_TestCase_destroy_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "destroy";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -370,8 +267,10 @@ Test::Common::ControllerPrx::runTestCaseAsync(const ::std::string& iceP_mapping,
 void
 Test::Common::ControllerPrx::_iceI_runTestCase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<TestCasePrx>>>& outAsync, const ::std::string& iceP_mapping, const ::std::string& iceP_testsuite, const ::std::string& iceP_testcase, const ::std::string& iceP_cross, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Common_Controller_runTestCase_name);
-    outAsync->invoke(iceC_Test_Common_Controller_runTestCase_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "runTestCase";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_mapping, iceP_testsuite, iceP_testcase, iceP_cross);
@@ -418,8 +317,10 @@ Test::Common::ControllerPrx::getOptionOverridesAsync(::std::function<void (::std
 void
 Test::Common::ControllerPrx::_iceI_getOptionOverrides(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<OptionOverrides>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Common_Controller_getOptionOverrides_name);
-    outAsync->invoke(iceC_Test_Common_Controller_getOptionOverrides_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getOptionOverrides";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr,
         [](::Ice::InputStream* istr)
@@ -458,8 +359,10 @@ Test::Common::ControllerPrx::getTestSuitesAsync(const ::std::string& iceP_mappin
 void
 Test::Common::ControllerPrx::_iceI_getTestSuites(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<StringSeq>>& outAsync, const ::std::string& iceP_mapping, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Common_Controller_getTestSuites_name);
-    outAsync->invoke(iceC_Test_Common_Controller_getTestSuites_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getTestSuites";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_mapping);
@@ -494,8 +397,10 @@ Test::Common::ControllerPrx::getHostAsync(const ::std::string& iceP_protocol, bo
 void
 Test::Common::ControllerPrx::_iceI_getHost(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::std::string& iceP_protocol, bool iceP_ipv6, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Common_Controller_getHost_name);
-    outAsync->invoke(iceC_Test_Common_Controller_getHost_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getHost";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_protocol, iceP_ipv6);
@@ -537,8 +442,10 @@ Test::Common::ProcessPrx::waitReadyAsync(::std::int32_t iceP_timeout,
 void
 Test::Common::ProcessPrx::_iceI_waitReady(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_timeout, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Common_Process_waitReady_name);
-    outAsync->invoke(iceC_Test_Common_Process_waitReady_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "waitReady";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_timeout);
@@ -586,8 +493,10 @@ Test::Common::ProcessPrx::waitSuccessAsync(::std::int32_t iceP_timeout,
 void
 Test::Common::ProcessPrx::_iceI_waitSuccess(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_timeout, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Common_Process_waitSuccess_name);
-    outAsync->invoke(iceC_Test_Common_Process_waitSuccess_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "waitSuccess";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_timeout);
@@ -634,8 +543,10 @@ Test::Common::ProcessPrx::terminateAsync(::std::function<void (::std::string)> r
 void
 Test::Common::ProcessPrx::_iceI_terminate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Common_Process_terminate_name);
-    outAsync->invoke(iceC_Test_Common_Process_terminate_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "terminate";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -674,8 +585,10 @@ Test::Common::ProcessControllerPrx::startAsync(const ::std::string& iceP_testsui
 void
 Test::Common::ProcessControllerPrx::_iceI_start(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<ProcessPrx>>>& outAsync, const ::std::string& iceP_testsuite, const ::std::string& iceP_exe, const StringSeq& iceP_args, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Common_ProcessController_start_name);
-    outAsync->invoke(iceC_Test_Common_ProcessController_start_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "start";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_testsuite, iceP_exe, iceP_args);
@@ -723,8 +636,10 @@ Test::Common::ProcessControllerPrx::getHostAsync(const ::std::string& iceP_proto
 void
 Test::Common::ProcessControllerPrx::_iceI_getHost(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::std::string& iceP_protocol, bool iceP_ipv6, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Common_ProcessController_getHost_name);
-    outAsync->invoke(iceC_Test_Common_ProcessController_getHost_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getHost";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_protocol, iceP_ipv6);
@@ -766,7 +681,9 @@ Test::Common::BrowserProcessControllerPrx::redirectAsync(const ::std::string& ic
 void
 Test::Common::BrowserProcessControllerPrx::_iceI_redirect(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_url, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Common_BrowserProcessController_redirect_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "redirect";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_url);
@@ -808,7 +725,9 @@ Test::Common::ProcessControllerRegistryPrx::setProcessControllerAsync(const ::st
 void
 Test::Common::ProcessControllerRegistryPrx::_iceI_setProcessController(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<ProcessControllerPrx>& iceP_controller, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Common_ProcessControllerRegistry_setProcessController_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "setProcessController";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_controller);
@@ -879,16 +798,11 @@ Test::Common::ProcessFailedException::ice_staticId()
     return typeId;
 }
 
-bool
-Test::Common::TestCase::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Common_TestCase_ids, iceC_Test_Common_TestCase_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::Common::TestCase::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_Common_TestCase_ids[0], &iceC_Test_Common_TestCase_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Common::TestCase" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -974,13 +888,15 @@ Test::Common::TestCase::_iceD_destroy(::IceInternal::Incoming& inS, const ::Ice:
 bool
 Test::Common::TestCase::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Common_TestCase_ops, iceC_Test_Common_TestCase_ops + 8, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "destroy", "ice_id", "ice_ids", "ice_isA", "ice_ping", "runClientSide", "startServerSide", "stopServerSide" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_Common_TestCase_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -1023,16 +939,11 @@ Test::Common::TestCase::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::C
 }
 /// \endcond
 
-bool
-Test::Common::Controller::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Common_Controller_ids, iceC_Test_Common_Controller_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::Common::Controller::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_Common_Controller_ids[0], &iceC_Test_Common_Controller_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Common::Controller" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -1122,13 +1033,15 @@ Test::Common::Controller::_iceD_getHost(::IceInternal::Incoming& inS, const ::Ic
 bool
 Test::Common::Controller::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Common_Controller_ops, iceC_Test_Common_Controller_ops + 8, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "getHost", "getOptionOverrides", "getTestSuites", "ice_id", "ice_ids", "ice_isA", "ice_ping", "runTestCase" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_Common_Controller_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -1171,16 +1084,11 @@ Test::Common::Controller::_iceDispatch(::IceInternal::Incoming& in, const ::Ice:
 }
 /// \endcond
 
-bool
-Test::Common::Process::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Common_Process_ids, iceC_Test_Common_Process_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::Common::Process::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_Common_Process_ids[0], &iceC_Test_Common_Process_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Common::Process" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -1246,13 +1154,15 @@ Test::Common::Process::_iceD_terminate(::IceInternal::Incoming& inS, const ::Ice
 bool
 Test::Common::Process::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Common_Process_ops, iceC_Test_Common_Process_ops + 7, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "terminate", "waitReady", "waitSuccess" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_Common_Process_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -1291,16 +1201,11 @@ Test::Common::Process::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cu
 }
 /// \endcond
 
-bool
-Test::Common::ProcessController::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Common_ProcessController_ids, iceC_Test_Common_ProcessController_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::Common::ProcessController::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_Common_ProcessController_ids[0], &iceC_Test_Common_ProcessController_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Common::ProcessController" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -1357,13 +1262,15 @@ Test::Common::ProcessController::_iceD_getHost(::IceInternal::Incoming& inS, con
 bool
 Test::Common::ProcessController::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Common_ProcessController_ops, iceC_Test_Common_ProcessController_ops + 6, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "getHost", "ice_id", "ice_ids", "ice_isA", "ice_ping", "start" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_Common_ProcessController_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -1398,16 +1305,11 @@ Test::Common::ProcessController::_iceDispatch(::IceInternal::Incoming& in, const
 }
 /// \endcond
 
-bool
-Test::Common::BrowserProcessController::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Common_BrowserProcessController_ids, iceC_Test_Common_BrowserProcessController_ids + 3, s);
-}
-
 ::std::vector<::std::string>
 Test::Common::BrowserProcessController::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_Common_BrowserProcessController_ids[0], &iceC_Test_Common_BrowserProcessController_ids[3]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Common::BrowserProcessController", "::Test::Common::ProcessController" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -1442,13 +1344,15 @@ Test::Common::BrowserProcessController::_iceD_redirect(::IceInternal::Incoming& 
 bool
 Test::Common::BrowserProcessController::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Common_BrowserProcessController_ops, iceC_Test_Common_BrowserProcessController_ops + 7, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "getHost", "ice_id", "ice_ids", "ice_isA", "ice_ping", "redirect", "start" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_Common_BrowserProcessController_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -1487,16 +1391,11 @@ Test::Common::BrowserProcessController::_iceDispatch(::IceInternal::Incoming& in
 }
 /// \endcond
 
-bool
-Test::Common::ProcessControllerRegistry::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Common_ProcessControllerRegistry_ids, iceC_Test_Common_ProcessControllerRegistry_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::Common::ProcessControllerRegistry::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_Common_ProcessControllerRegistry_ids[0], &iceC_Test_Common_ProcessControllerRegistry_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Common::ProcessControllerRegistry" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -1531,13 +1430,15 @@ Test::Common::ProcessControllerRegistry::_iceD_setProcessController(::IceInterna
 bool
 Test::Common::ProcessControllerRegistry::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Common_ProcessControllerRegistry_ops, iceC_Test_Common_ProcessControllerRegistry_ops + 5, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "setProcessController" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_Common_ProcessControllerRegistry_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

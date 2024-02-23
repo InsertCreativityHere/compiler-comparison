@@ -37,75 +37,6 @@
 namespace
 {
 
-const ::std::string iceC_IceGrid_Query_ids[2] =
-{
-    "::Ice::Object",
-    "::IceGrid::Query"
-};
-const ::std::string iceC_IceGrid_Query_ops[] =
-{
-    "findAllObjectsByType",
-    "findAllReplicas",
-    "findObjectById",
-    "findObjectByType",
-    "findObjectByTypeOnLeastLoadedNode",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_IceGrid_Query_findObjectById_name = "findObjectById";
-const ::std::string iceC_IceGrid_Query_findObjectByType_name = "findObjectByType";
-const ::std::string iceC_IceGrid_Query_findObjectByTypeOnLeastLoadedNode_name = "findObjectByTypeOnLeastLoadedNode";
-const ::std::string iceC_IceGrid_Query_findAllObjectsByType_name = "findAllObjectsByType";
-const ::std::string iceC_IceGrid_Query_findAllReplicas_name = "findAllReplicas";
-
-const ::std::string iceC_IceGrid_Registry_ids[2] =
-{
-    "::Ice::Object",
-    "::IceGrid::Registry"
-};
-const ::std::string iceC_IceGrid_Registry_ops[] =
-{
-    "createAdminSession",
-    "createAdminSessionFromSecureConnection",
-    "createSession",
-    "createSessionFromSecureConnection",
-    "getACMTimeout",
-    "getSessionTimeout",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_IceGrid_Registry_createSession_name = "createSession";
-const ::std::string iceC_IceGrid_Registry_createAdminSession_name = "createAdminSession";
-const ::std::string iceC_IceGrid_Registry_createSessionFromSecureConnection_name = "createSessionFromSecureConnection";
-const ::std::string iceC_IceGrid_Registry_createAdminSessionFromSecureConnection_name = "createAdminSessionFromSecureConnection";
-const ::std::string iceC_IceGrid_Registry_getSessionTimeout_name = "getSessionTimeout";
-const ::std::string iceC_IceGrid_Registry_getACMTimeout_name = "getACMTimeout";
-
-const ::std::string iceC_IceGrid_Locator_ids[3] =
-{
-    "::Ice::Locator",
-    "::Ice::Object",
-    "::IceGrid::Locator"
-};
-const ::std::string iceC_IceGrid_Locator_ops[] =
-{
-    "findAdapterById",
-    "findObjectById",
-    "getLocalQuery",
-    "getLocalRegistry",
-    "getRegistry",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_IceGrid_Locator_getLocalRegistry_name = "getLocalRegistry";
-const ::std::string iceC_IceGrid_Locator_getLocalQuery_name = "getLocalQuery";
-
 }
 
 ::std::optional<::Ice::ObjectPrx>
@@ -134,8 +65,10 @@ IceGrid::QueryPrx::findObjectByIdAsync(const ::Ice::Identity& iceP_id,
 void
 IceGrid::QueryPrx::_iceI_findObjectById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>& outAsync, const ::Ice::Identity& iceP_id, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_IceGrid_Query_findObjectById_name);
-    outAsync->invoke(iceC_IceGrid_Query_findObjectById_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "findObjectById";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_id);
@@ -170,8 +103,10 @@ IceGrid::QueryPrx::findObjectByTypeAsync(const ::std::string& iceP_type,
 void
 IceGrid::QueryPrx::_iceI_findObjectByType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>& outAsync, const ::std::string& iceP_type, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_IceGrid_Query_findObjectByType_name);
-    outAsync->invoke(iceC_IceGrid_Query_findObjectByType_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "findObjectByType";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_type);
@@ -206,8 +141,10 @@ IceGrid::QueryPrx::findObjectByTypeOnLeastLoadedNodeAsync(const ::std::string& i
 void
 IceGrid::QueryPrx::_iceI_findObjectByTypeOnLeastLoadedNode(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>& outAsync, const ::std::string& iceP_type, LoadSample iceP_sample, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_IceGrid_Query_findObjectByTypeOnLeastLoadedNode_name);
-    outAsync->invoke(iceC_IceGrid_Query_findObjectByTypeOnLeastLoadedNode_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "findObjectByTypeOnLeastLoadedNode";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_type, iceP_sample);
@@ -242,8 +179,10 @@ IceGrid::QueryPrx::findAllObjectsByTypeAsync(const ::std::string& iceP_type,
 void
 IceGrid::QueryPrx::_iceI_findAllObjectsByType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::ObjectProxySeq>>& outAsync, const ::std::string& iceP_type, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_IceGrid_Query_findAllObjectsByType_name);
-    outAsync->invoke(iceC_IceGrid_Query_findAllObjectsByType_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "findAllObjectsByType";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_type);
@@ -278,8 +217,10 @@ IceGrid::QueryPrx::findAllReplicasAsync(const ::std::optional<::Ice::ObjectPrx>&
 void
 IceGrid::QueryPrx::_iceI_findAllReplicas(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::ObjectProxySeq>>& outAsync, const ::std::optional<::Ice::ObjectPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_IceGrid_Query_findAllReplicas_name);
-    outAsync->invoke(iceC_IceGrid_Query_findAllReplicas_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "findAllReplicas";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_proxy);
@@ -321,8 +262,10 @@ IceGrid::RegistryPrx::createSessionAsync(const ::std::string& iceP_userId, const
 void
 IceGrid::RegistryPrx::_iceI_createSession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<SessionPrx>>>& outAsync, const ::std::string& iceP_userId, const ::std::string& iceP_password, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_IceGrid_Registry_createSession_name);
-    outAsync->invoke(iceC_IceGrid_Registry_createSession_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "createSession";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_userId, iceP_password);
@@ -370,8 +313,10 @@ IceGrid::RegistryPrx::createAdminSessionAsync(const ::std::string& iceP_userId, 
 void
 IceGrid::RegistryPrx::_iceI_createAdminSession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<AdminSessionPrx>>>& outAsync, const ::std::string& iceP_userId, const ::std::string& iceP_password, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_IceGrid_Registry_createAdminSession_name);
-    outAsync->invoke(iceC_IceGrid_Registry_createAdminSession_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "createAdminSession";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_userId, iceP_password);
@@ -418,8 +363,10 @@ IceGrid::RegistryPrx::createSessionFromSecureConnectionAsync(::std::function<voi
 void
 IceGrid::RegistryPrx::_iceI_createSessionFromSecureConnection(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<SessionPrx>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_IceGrid_Registry_createSessionFromSecureConnection_name);
-    outAsync->invoke(iceC_IceGrid_Registry_createSessionFromSecureConnection_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "createSessionFromSecureConnection";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -463,8 +410,10 @@ IceGrid::RegistryPrx::createAdminSessionFromSecureConnectionAsync(::std::functio
 void
 IceGrid::RegistryPrx::_iceI_createAdminSessionFromSecureConnection(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<AdminSessionPrx>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_IceGrid_Registry_createAdminSessionFromSecureConnection_name);
-    outAsync->invoke(iceC_IceGrid_Registry_createAdminSessionFromSecureConnection_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "createAdminSessionFromSecureConnection";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         [](const ::Ice::UserException& ex)
         {
@@ -508,8 +457,10 @@ IceGrid::RegistryPrx::getSessionTimeoutAsync(::std::function<void (::std::int32_
 void
 IceGrid::RegistryPrx::_iceI_getSessionTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_IceGrid_Registry_getSessionTimeout_name);
-    outAsync->invoke(iceC_IceGrid_Registry_getSessionTimeout_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getSessionTimeout";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -540,8 +491,10 @@ IceGrid::RegistryPrx::getACMTimeoutAsync(::std::function<void (::std::int32_t)> 
 void
 IceGrid::RegistryPrx::_iceI_getACMTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_IceGrid_Registry_getACMTimeout_name);
-    outAsync->invoke(iceC_IceGrid_Registry_getACMTimeout_name, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getACMTimeout";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -579,8 +532,10 @@ IceGrid::LocatorPrx::getLocalRegistryAsync(::std::function<void (::std::optional
 void
 IceGrid::LocatorPrx::_iceI_getLocalRegistry(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<RegistryPrx>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_IceGrid_Locator_getLocalRegistry_name);
-    outAsync->invoke(iceC_IceGrid_Locator_getLocalRegistry_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getLocalRegistry";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -611,8 +566,10 @@ IceGrid::LocatorPrx::getLocalQueryAsync(::std::function<void (::std::optional<::
 void
 IceGrid::LocatorPrx::_iceI_getLocalQuery(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<QueryPrx>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_IceGrid_Locator_getLocalQuery_name);
-    outAsync->invoke(iceC_IceGrid_Locator_getLocalQuery_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getLocalQuery";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -625,16 +582,11 @@ IceGrid::LocatorPrx::ice_staticId()
     return typeId;
 }
 
-bool
-IceGrid::Query::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_IceGrid_Query_ids, iceC_IceGrid_Query_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 IceGrid::Query::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_IceGrid_Query_ids[0], &iceC_IceGrid_Query_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::IceGrid::Query" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -740,13 +692,15 @@ IceGrid::Query::_iceD_findAllReplicas(::IceInternal::Incoming& inS, const ::Ice:
 bool
 IceGrid::Query::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_IceGrid_Query_ops, iceC_IceGrid_Query_ops + 9, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "findAllObjectsByType", "findAllReplicas", "findObjectById", "findObjectByType", "findObjectByTypeOnLeastLoadedNode", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 9, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_IceGrid_Query_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -793,16 +747,11 @@ IceGrid::Query::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
 }
 /// \endcond
 
-bool
-IceGrid::Registry::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_IceGrid_Registry_ids, iceC_IceGrid_Registry_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 IceGrid::Registry::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_IceGrid_Registry_ids[0], &iceC_IceGrid_Registry_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::IceGrid::Registry" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -914,13 +863,15 @@ IceGrid::Registry::_iceD_getACMTimeout(::IceInternal::Incoming& inS, const ::Ice
 bool
 IceGrid::Registry::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_IceGrid_Registry_ops, iceC_IceGrid_Registry_ops + 10, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "createAdminSession", "createAdminSessionFromSecureConnection", "createSession", "createSessionFromSecureConnection", "getACMTimeout", "getSessionTimeout", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 10, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_IceGrid_Registry_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -971,16 +922,11 @@ IceGrid::Registry::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curren
 }
 /// \endcond
 
-bool
-IceGrid::Locator::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_IceGrid_Locator_ids, iceC_IceGrid_Locator_ids + 3, s);
-}
-
 ::std::vector<::std::string>
 IceGrid::Locator::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_IceGrid_Locator_ids[0], &iceC_IceGrid_Locator_ids[3]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Locator", "::Ice::Object", "::IceGrid::Locator" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -1028,13 +974,15 @@ IceGrid::Locator::_iceD_getLocalQuery(::IceInternal::Incoming& inS, const ::Ice:
 bool
 IceGrid::Locator::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_IceGrid_Locator_ops, iceC_IceGrid_Locator_ops + 9, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "findAdapterById", "findObjectById", "getLocalQuery", "getLocalRegistry", "getRegistry", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 9, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_IceGrid_Locator_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

@@ -34,36 +34,6 @@
 namespace
 {
 
-const ::std::string iceC_IceLocatorDiscovery_LookupReply_ids[2] =
-{
-    "::Ice::Object",
-    "::IceLocatorDiscovery::LookupReply"
-};
-const ::std::string iceC_IceLocatorDiscovery_LookupReply_ops[] =
-{
-    "foundLocator",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_IceLocatorDiscovery_LookupReply_foundLocator_name = "foundLocator";
-
-const ::std::string iceC_IceLocatorDiscovery_Lookup_ids[2] =
-{
-    "::Ice::Object",
-    "::IceLocatorDiscovery::Lookup"
-};
-const ::std::string iceC_IceLocatorDiscovery_Lookup_ops[] =
-{
-    "findLocator",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_IceLocatorDiscovery_Lookup_findLocator_name = "findLocator";
-
 }
 
 void
@@ -92,7 +62,9 @@ IceLocatorDiscovery::LookupReplyPrx::foundLocatorAsync(const ::std::optional<::I
 void
 IceLocatorDiscovery::LookupReplyPrx::_iceI_foundLocator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<::Ice::LocatorPrx>& iceP_prx, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_IceLocatorDiscovery_LookupReply_foundLocator_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "foundLocator";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_prx);
@@ -134,7 +106,9 @@ IceLocatorDiscovery::LookupPrx::findLocatorAsync(const ::std::string& iceP_insta
 void
 IceLocatorDiscovery::LookupPrx::_iceI_findLocator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_instanceName, const ::std::optional<LookupReplyPrx>& iceP_reply, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_IceLocatorDiscovery_Lookup_findLocator_name, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "findLocator";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_instanceName, iceP_reply);
@@ -150,16 +124,11 @@ IceLocatorDiscovery::LookupPrx::ice_staticId()
     return typeId;
 }
 
-bool
-IceLocatorDiscovery::LookupReply::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_IceLocatorDiscovery_LookupReply_ids, iceC_IceLocatorDiscovery_LookupReply_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 IceLocatorDiscovery::LookupReply::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_IceLocatorDiscovery_LookupReply_ids[0], &iceC_IceLocatorDiscovery_LookupReply_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::IceLocatorDiscovery::LookupReply" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -194,13 +163,15 @@ IceLocatorDiscovery::LookupReply::_iceD_foundLocator(::IceInternal::Incoming& in
 bool
 IceLocatorDiscovery::LookupReply::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_IceLocatorDiscovery_LookupReply_ops, iceC_IceLocatorDiscovery_LookupReply_ops + 5, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "foundLocator", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_IceLocatorDiscovery_LookupReply_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -231,16 +202,11 @@ IceLocatorDiscovery::LookupReply::_iceDispatch(::IceInternal::Incoming& in, cons
 }
 /// \endcond
 
-bool
-IceLocatorDiscovery::Lookup::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_IceLocatorDiscovery_Lookup_ids, iceC_IceLocatorDiscovery_Lookup_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 IceLocatorDiscovery::Lookup::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_IceLocatorDiscovery_Lookup_ids[0], &iceC_IceLocatorDiscovery_Lookup_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::IceLocatorDiscovery::Lookup" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -276,13 +242,15 @@ IceLocatorDiscovery::Lookup::_iceD_findLocator(::IceInternal::Incoming& inS, con
 bool
 IceLocatorDiscovery::Lookup::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_IceLocatorDiscovery_Lookup_ops, iceC_IceLocatorDiscovery_Lookup_ops + 5, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "findLocator", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_IceLocatorDiscovery_Lookup_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

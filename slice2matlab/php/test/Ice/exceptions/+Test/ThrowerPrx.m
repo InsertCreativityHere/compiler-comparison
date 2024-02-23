@@ -523,7 +523,7 @@ classdef ThrowerPrx < Ice.ObjectPrx
     end
     properties(Constant,Access=private)
         throwAasA_ex_ = { 'Test.A' }
-        throwAorDasAorD_ex_ = { 'Test.D', 'Test.A' }
+        throwAorDasAorD_ex_ = { 'Test.A', 'Test.D' }
         throwBasA_ex_ = { 'Test.A' }
         throwCasA_ex_ = { 'Test.A' }
         throwBasB_ex_ = { 'Test.B' }

@@ -36,39 +36,6 @@ namespace
 
 const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::InvalidInputException> iceC_Test_InvalidInputException_init("::Test::InvalidInputException");
 
-const ::std::string iceC_Test_MyObject_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::MyObject"
-};
-const ::std::string iceC_Test_MyObject_ops[] =
-{
-    "add",
-    "addWithRetry",
-    "amdAdd",
-    "amdAddWithRetry",
-    "amdBadAdd",
-    "amdBadSystemAdd",
-    "amdNotExistAdd",
-    "badAdd",
-    "badSystemAdd",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "notExistAdd"
-};
-const ::std::string iceC_Test_MyObject_add_name = "add";
-const ::std::string iceC_Test_MyObject_addWithRetry_name = "addWithRetry";
-const ::std::string iceC_Test_MyObject_badAdd_name = "badAdd";
-const ::std::string iceC_Test_MyObject_notExistAdd_name = "notExistAdd";
-const ::std::string iceC_Test_MyObject_badSystemAdd_name = "badSystemAdd";
-const ::std::string iceC_Test_MyObject_amdAdd_name = "amdAdd";
-const ::std::string iceC_Test_MyObject_amdAddWithRetry_name = "amdAddWithRetry";
-const ::std::string iceC_Test_MyObject_amdBadAdd_name = "amdBadAdd";
-const ::std::string iceC_Test_MyObject_amdNotExistAdd_name = "amdNotExistAdd";
-const ::std::string iceC_Test_MyObject_amdBadSystemAdd_name = "amdBadSystemAdd";
-
 }
 
 ::std::int32_t
@@ -97,8 +64,10 @@ Test::MyObjectPrx::addAsync(::std::int32_t iceP_x, ::std::int32_t iceP_y,
 void
 Test::MyObjectPrx::_iceI_add(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_x, ::std::int32_t iceP_y, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_MyObject_add_name);
-    outAsync->invoke(iceC_Test_MyObject_add_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "add";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_x, iceP_y);
@@ -133,8 +102,10 @@ Test::MyObjectPrx::addWithRetryAsync(::std::int32_t iceP_x, ::std::int32_t iceP_
 void
 Test::MyObjectPrx::_iceI_addWithRetry(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_x, ::std::int32_t iceP_y, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_MyObject_addWithRetry_name);
-    outAsync->invoke(iceC_Test_MyObject_addWithRetry_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "addWithRetry";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_x, iceP_y);
@@ -169,8 +140,10 @@ Test::MyObjectPrx::badAddAsync(::std::int32_t iceP_x, ::std::int32_t iceP_y,
 void
 Test::MyObjectPrx::_iceI_badAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_x, ::std::int32_t iceP_y, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_MyObject_badAdd_name);
-    outAsync->invoke(iceC_Test_MyObject_badAdd_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "badAdd";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_x, iceP_y);
@@ -218,8 +191,10 @@ Test::MyObjectPrx::notExistAddAsync(::std::int32_t iceP_x, ::std::int32_t iceP_y
 void
 Test::MyObjectPrx::_iceI_notExistAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_x, ::std::int32_t iceP_y, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_MyObject_notExistAdd_name);
-    outAsync->invoke(iceC_Test_MyObject_notExistAdd_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "notExistAdd";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_x, iceP_y);
@@ -254,8 +229,10 @@ Test::MyObjectPrx::badSystemAddAsync(::std::int32_t iceP_x, ::std::int32_t iceP_
 void
 Test::MyObjectPrx::_iceI_badSystemAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_x, ::std::int32_t iceP_y, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_MyObject_badSystemAdd_name);
-    outAsync->invoke(iceC_Test_MyObject_badSystemAdd_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "badSystemAdd";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_x, iceP_y);
@@ -290,8 +267,10 @@ Test::MyObjectPrx::amdAddAsync(::std::int32_t iceP_x, ::std::int32_t iceP_y,
 void
 Test::MyObjectPrx::_iceI_amdAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_x, ::std::int32_t iceP_y, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_MyObject_amdAdd_name);
-    outAsync->invoke(iceC_Test_MyObject_amdAdd_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "amdAdd";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_x, iceP_y);
@@ -326,8 +305,10 @@ Test::MyObjectPrx::amdAddWithRetryAsync(::std::int32_t iceP_x, ::std::int32_t ic
 void
 Test::MyObjectPrx::_iceI_amdAddWithRetry(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_x, ::std::int32_t iceP_y, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_MyObject_amdAddWithRetry_name);
-    outAsync->invoke(iceC_Test_MyObject_amdAddWithRetry_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "amdAddWithRetry";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_x, iceP_y);
@@ -362,8 +343,10 @@ Test::MyObjectPrx::amdBadAddAsync(::std::int32_t iceP_x, ::std::int32_t iceP_y,
 void
 Test::MyObjectPrx::_iceI_amdBadAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_x, ::std::int32_t iceP_y, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_MyObject_amdBadAdd_name);
-    outAsync->invoke(iceC_Test_MyObject_amdBadAdd_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "amdBadAdd";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_x, iceP_y);
@@ -411,8 +394,10 @@ Test::MyObjectPrx::amdNotExistAddAsync(::std::int32_t iceP_x, ::std::int32_t ice
 void
 Test::MyObjectPrx::_iceI_amdNotExistAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_x, ::std::int32_t iceP_y, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_MyObject_amdNotExistAdd_name);
-    outAsync->invoke(iceC_Test_MyObject_amdNotExistAdd_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "amdNotExistAdd";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_x, iceP_y);
@@ -447,8 +432,10 @@ Test::MyObjectPrx::amdBadSystemAddAsync(::std::int32_t iceP_x, ::std::int32_t ic
 void
 Test::MyObjectPrx::_iceI_amdBadSystemAdd(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_x, ::std::int32_t iceP_y, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_MyObject_amdBadSystemAdd_name);
-    outAsync->invoke(iceC_Test_MyObject_amdBadSystemAdd_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "amdBadSystemAdd";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_x, iceP_y);
@@ -475,16 +462,11 @@ Test::InvalidInputException::ice_staticId()
     return typeId;
 }
 
-bool
-Test::MyObject::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_MyObject_ids, iceC_Test_MyObject_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::MyObject::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_MyObject_ids[0], &iceC_Test_MyObject_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::MyObject" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -709,13 +691,15 @@ Test::MyObject::_iceD_amdBadSystemAdd(::IceInternal::Incoming& inS, const ::Ice:
 bool
 Test::MyObject::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_MyObject_ops, iceC_Test_MyObject_ops + 14, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "add", "addWithRetry", "amdAdd", "amdAddWithRetry", "amdBadAdd", "amdBadSystemAdd", "amdNotExistAdd", "badAdd", "badSystemAdd", "ice_id", "ice_ids", "ice_isA", "ice_ping", "notExistAdd" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 14, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_MyObject_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

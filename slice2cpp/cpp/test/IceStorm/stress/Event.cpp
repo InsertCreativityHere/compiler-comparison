@@ -34,21 +34,6 @@
 namespace
 {
 
-const ::std::string iceC_Test_Event_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Event"
-};
-const ::std::string iceC_Test_Event_ops[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "pub"
-};
-const ::std::string iceC_Test_Event_pub_name = "pub";
-
 }
 
 void
@@ -77,7 +62,9 @@ Test::EventPrx::pubAsync(::std::int32_t iceP_counter,
 void
 Test::EventPrx::_iceI_pub(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_counter, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Event_pub_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "pub";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_counter);
@@ -93,16 +80,11 @@ Test::EventPrx::ice_staticId()
     return typeId;
 }
 
-bool
-Test::Event::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Event_ids, iceC_Test_Event_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::Event::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_Event_ids[0], &iceC_Test_Event_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Event" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -137,13 +119,15 @@ Test::Event::_iceD_pub(::IceInternal::Incoming& inS, const ::Ice::Current& curre
 bool
 Test::Event::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Event_ops, iceC_Test_Event_ops + 5, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "pub" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_Event_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

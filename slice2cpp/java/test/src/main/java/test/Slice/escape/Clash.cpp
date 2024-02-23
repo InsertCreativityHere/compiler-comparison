@@ -34,43 +34,6 @@
 namespace
 {
 
-const ::std::string iceC_Clash_Intf_ids[2] =
-{
-    "::Clash::Intf",
-    "::Ice::Object"
-};
-const ::std::string iceC_Clash_Intf_ops[] =
-{
-    "context",
-    "cookie",
-    "current",
-    "del",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "inS",
-    "istr",
-    "obj",
-    "op",
-    "opOut",
-    "response",
-    "sync",
-    "typeId"
-};
-const ::std::string iceC_Clash_Intf_context_name = "context";
-const ::std::string iceC_Clash_Intf_current_name = "current";
-const ::std::string iceC_Clash_Intf_response_name = "response";
-const ::std::string iceC_Clash_Intf_typeId_name = "typeId";
-const ::std::string iceC_Clash_Intf_del_name = "del";
-const ::std::string iceC_Clash_Intf_cookie_name = "cookie";
-const ::std::string iceC_Clash_Intf_sync_name = "sync";
-const ::std::string iceC_Clash_Intf_inS_name = "inS";
-const ::std::string iceC_Clash_Intf_istr_name = "istr";
-const ::std::string iceC_Clash_Intf_obj_name = "obj";
-const ::std::string iceC_Clash_Intf_op_name = "op";
-const ::std::string iceC_Clash_Intf_opOut_name = "opOut";
-
 const ::IceInternal::DefaultValueFactoryInit<::Clash::Cls> iceC_Clash_Cls_init("::Clash::Cls");
 
 const ::IceInternal::DefaultUserExceptionFactoryInit<::Clash::Ex> iceC_Clash_Ex_init("::Clash::Ex");
@@ -102,7 +65,9 @@ Clash::IntfPrx::contextAsync(::std::function<void ()> response,
 void
 Clash::IntfPrx::_iceI_context(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Clash_Intf_context_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "context";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -133,7 +98,9 @@ Clash::IntfPrx::currentAsync(::std::function<void ()> response,
 void
 Clash::IntfPrx::_iceI_current(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Clash_Intf_current_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "current";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -164,7 +131,9 @@ Clash::IntfPrx::responseAsync(::std::function<void ()> response,
 void
 Clash::IntfPrx::_iceI_response(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Clash_Intf_response_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "response";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -195,7 +164,9 @@ Clash::IntfPrx::typeIdAsync(::std::function<void ()> response,
 void
 Clash::IntfPrx::_iceI_typeId(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Clash_Intf_typeId_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "typeId";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -226,7 +197,9 @@ Clash::IntfPrx::delAsync(::std::function<void ()> response,
 void
 Clash::IntfPrx::_iceI_del(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Clash_Intf_del_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "del";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -257,7 +230,9 @@ Clash::IntfPrx::cookieAsync(::std::function<void ()> response,
 void
 Clash::IntfPrx::_iceI_cookie(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Clash_Intf_cookie_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "cookie";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -288,7 +263,9 @@ Clash::IntfPrx::syncAsync(::std::function<void ()> response,
 void
 Clash::IntfPrx::_iceI_sync(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Clash_Intf_sync_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "sync";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -319,7 +296,9 @@ Clash::IntfPrx::inSAsync(::std::function<void ()> response,
 void
 Clash::IntfPrx::_iceI_inS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Clash_Intf_inS_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "inS";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -350,7 +329,9 @@ Clash::IntfPrx::istrAsync(::std::function<void ()> response,
 void
 Clash::IntfPrx::_iceI_istr(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Clash_Intf_istr_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "istr";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -381,7 +362,9 @@ Clash::IntfPrx::objAsync(::std::function<void ()> response,
 void
 Clash::IntfPrx::_iceI_obj(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Clash_Intf_obj_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "obj";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -413,7 +396,9 @@ Clash::IntfPrx::opAsync(const ::std::string& iceP_context, const ::std::string& 
 void
 Clash::IntfPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_context, const ::std::string& iceP_current, const ::std::string& iceP_response, const ::std::string& iceP_ex, const ::std::string& iceP_sent, const ::std::string& iceP_cookie, const ::std::string& iceP_sync, const ::std::string& iceP_result, const ::std::string& iceP_istr, const ::std::string& iceP_ostr, const std::optional<::std::string>& iceP_proxy, const std::optional<::std::int32_t>& iceP_obj, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Clash_Intf_op_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "op";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr);
@@ -464,8 +449,10 @@ Clash::IntfPrx::opOutAsync(::std::function<void (::std::string, ::std::string, :
 void
 Clash::IntfPrx::_iceI_opOut(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, std::optional<::std::string>, std::optional<::std::int32_t>>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Clash_Intf_opOut_name);
-    outAsync->invoke(iceC_Clash_Intf_opOut_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "opOut";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr,
         [](::Ice::InputStream* istr)
@@ -507,16 +494,11 @@ Clash::Ex::ice_staticId()
     return typeId;
 }
 
-bool
-Clash::Intf::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Clash_Intf_ids, iceC_Clash_Intf_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Clash::Intf::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Clash_Intf_ids[0], &iceC_Clash_Intf_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Clash::Intf", "::Ice::Object" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -710,13 +692,15 @@ Clash::Intf::_iceD_opOut(::IceInternal::Incoming& inS, const ::Ice::Current& cur
 bool
 Clash::Intf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Clash_Intf_ops, iceC_Clash_Intf_ops + 16, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "context", "cookie", "current", "del", "ice_id", "ice_ids", "ice_isA", "ice_ping", "inS", "istr", "obj", "op", "opOut", "response", "sync", "typeId" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 16, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Clash_Intf_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

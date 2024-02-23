@@ -389,44 +389,44 @@ Slice.defineOperations(IceGrid.Admin, IceGrid.AdminPrx, iceC_IceGrid_Admin_ids, 
     ], true, ],
     "syncApplication": [, , , , , [[IceGrid.ApplicationDescriptor]], ,
     [
+        IceGrid.ApplicationNotExistException,
         IceGrid.DeploymentException,
-        IceGrid.AccessDeniedException,
-        IceGrid.ApplicationNotExistException
+        IceGrid.AccessDeniedException
     ], true, ],
     "updateApplication": [, , , , , [[IceGrid.ApplicationUpdateDescriptor]], ,
     [
+        IceGrid.ApplicationNotExistException,
         IceGrid.DeploymentException,
-        IceGrid.AccessDeniedException,
-        IceGrid.ApplicationNotExistException
+        IceGrid.AccessDeniedException
     ], true, ],
     "syncApplicationWithoutRestart": [, , , , , [[IceGrid.ApplicationDescriptor]], ,
     [
+        IceGrid.ApplicationNotExistException,
         IceGrid.DeploymentException,
-        IceGrid.AccessDeniedException,
-        IceGrid.ApplicationNotExistException
+        IceGrid.AccessDeniedException
     ], true, ],
     "updateApplicationWithoutRestart": [, , , , , [[IceGrid.ApplicationUpdateDescriptor]], ,
     [
+        IceGrid.ApplicationNotExistException,
         IceGrid.DeploymentException,
-        IceGrid.AccessDeniedException,
-        IceGrid.ApplicationNotExistException
+        IceGrid.AccessDeniedException
     ], true, ],
     "removeApplication": [, , , , , [[7]], ,
     [
+        IceGrid.ApplicationNotExistException,
         IceGrid.DeploymentException,
-        IceGrid.AccessDeniedException,
-        IceGrid.ApplicationNotExistException
+        IceGrid.AccessDeniedException
     ], , ],
     "instantiateServer": [, , , , , [[7], [7], [IceGrid.ServerInstanceDescriptor]], ,
     [
+        IceGrid.ApplicationNotExistException,
         IceGrid.DeploymentException,
-        IceGrid.AccessDeniedException,
-        IceGrid.ApplicationNotExistException
+        IceGrid.AccessDeniedException
     ], , ],
     "patchApplication": [, , , , , [[7], [1]], ,
     [
-        IceGrid.PatchException,
-        IceGrid.ApplicationNotExistException
+        IceGrid.ApplicationNotExistException,
+        IceGrid.PatchException
     ], , ],
     "getApplicationInfo": [, 2, 1, , [IceGrid.ApplicationInfo], [[7]], ,
     [
@@ -443,62 +443,62 @@ Slice.defineOperations(IceGrid.Admin, IceGrid.AdminPrx, iceC_IceGrid_Admin_ids, 
     ], , true],
     "getServerState": [, 2, 1, , [IceGrid.ServerState._helper], [[7]], ,
     [
+        IceGrid.ServerNotExistException,
         IceGrid.DeploymentException,
-        IceGrid.NodeUnreachableException,
-        IceGrid.ServerNotExistException
+        IceGrid.NodeUnreachableException
     ], , ],
     "getServerPid": [, 2, 1, , [3], [[7]], ,
     [
+        IceGrid.ServerNotExistException,
         IceGrid.DeploymentException,
-        IceGrid.NodeUnreachableException,
-        IceGrid.ServerNotExistException
+        IceGrid.NodeUnreachableException
     ], , ],
     "getServerAdminCategory": [, 2, 2, , [7], , , , , ],
     "getServerAdmin": [, 2, 2, , [9], [[7]], ,
     [
+        IceGrid.ServerNotExistException,
         IceGrid.DeploymentException,
-        IceGrid.NodeUnreachableException,
-        IceGrid.ServerNotExistException
+        IceGrid.NodeUnreachableException
     ], , ],
     "enableServer": [, 2, 2, , , [[7], [1]], ,
     [
+        IceGrid.ServerNotExistException,
         IceGrid.DeploymentException,
-        IceGrid.NodeUnreachableException,
-        IceGrid.ServerNotExistException
+        IceGrid.NodeUnreachableException
     ], , ],
     "isServerEnabled": [, 2, 1, , [1], [[7]], ,
     [
+        IceGrid.ServerNotExistException,
         IceGrid.DeploymentException,
-        IceGrid.NodeUnreachableException,
-        IceGrid.ServerNotExistException
+        IceGrid.NodeUnreachableException
     ], , ],
     "startServer": [, , , , , [[7]], ,
     [
-        IceGrid.DeploymentException,
-        IceGrid.NodeUnreachableException,
         IceGrid.ServerNotExistException,
-        IceGrid.ServerStartException
+        IceGrid.ServerStartException,
+        IceGrid.DeploymentException,
+        IceGrid.NodeUnreachableException
     ], , ],
     "stopServer": [, , , , , [[7]], ,
     [
-        IceGrid.DeploymentException,
-        IceGrid.NodeUnreachableException,
         IceGrid.ServerNotExistException,
-        IceGrid.ServerStopException
+        IceGrid.ServerStopException,
+        IceGrid.DeploymentException,
+        IceGrid.NodeUnreachableException
     ], , ],
     "patchServer": [, , , , , [[7], [1]], ,
     [
+        IceGrid.ServerNotExistException,
         IceGrid.DeploymentException,
         IceGrid.NodeUnreachableException,
-        IceGrid.PatchException,
-        IceGrid.ServerNotExistException
+        IceGrid.PatchException
     ], , ],
     "sendSignal": [, , , , , [[7], [7]], ,
     [
+        IceGrid.ServerNotExistException,
         IceGrid.DeploymentException,
         IceGrid.NodeUnreachableException,
-        IceGrid.BadSignalException,
-        IceGrid.ServerNotExistException
+        IceGrid.BadSignalException
     ], , ],
     "getAllServerIds": [, 2, 1, , ["Ice.StringSeqHelper"], , , , , ],
     "getAdapterInfo": [, 2, 1, , ["IceGrid.AdapterInfoSeqHelper"], [[7]], ,
@@ -507,29 +507,29 @@ Slice.defineOperations(IceGrid.Admin, IceGrid.AdminPrx, iceC_IceGrid_Admin_ids, 
     ], , ],
     "removeAdapter": [, , , , , [[7]], ,
     [
-        IceGrid.DeploymentException,
-        IceGrid.AdapterNotExistException
+        IceGrid.AdapterNotExistException,
+        IceGrid.DeploymentException
     ], , ],
     "getAllAdapterIds": [, 2, 1, , ["Ice.StringSeqHelper"], , , , , ],
     "addObject": [, , , , , [[9]], ,
     [
-        IceGrid.DeploymentException,
-        IceGrid.ObjectExistsException
+        IceGrid.ObjectExistsException,
+        IceGrid.DeploymentException
     ], , ],
     "updateObject": [, , , , , [[9]], ,
     [
-        IceGrid.DeploymentException,
-        IceGrid.ObjectNotRegisteredException
+        IceGrid.ObjectNotRegisteredException,
+        IceGrid.DeploymentException
     ], , ],
     "addObjectWithType": [, , , , , [[9], [7]], ,
     [
-        IceGrid.DeploymentException,
-        IceGrid.ObjectExistsException
+        IceGrid.ObjectExistsException,
+        IceGrid.DeploymentException
     ], , ],
     "removeObject": [, , , , , [[Ice.Identity]], ,
     [
-        IceGrid.DeploymentException,
-        IceGrid.ObjectNotRegisteredException
+        IceGrid.ObjectNotRegisteredException,
+        IceGrid.DeploymentException
     ], , ],
     "getObjectInfo": [, 2, 1, , [IceGrid.ObjectInfo], [[Ice.Identity]], ,
     [
@@ -543,33 +543,33 @@ Slice.defineOperations(IceGrid.Admin, IceGrid.AdminPrx, iceC_IceGrid_Admin_ids, 
     ], , ],
     "getNodeLoad": [, 2, 1, , [IceGrid.LoadInfo], [[7]], ,
     [
-        IceGrid.NodeUnreachableException,
-        IceGrid.NodeNotExistException
+        IceGrid.NodeNotExistException,
+        IceGrid.NodeUnreachableException
     ], , ],
     "getNodeInfo": [, 2, 1, , [IceGrid.NodeInfo], [[7]], ,
     [
-        IceGrid.NodeUnreachableException,
-        IceGrid.NodeNotExistException
+        IceGrid.NodeNotExistException,
+        IceGrid.NodeUnreachableException
     ], , ],
     "getNodeAdmin": [, 2, 2, , [9], [[7]], ,
     [
-        IceGrid.NodeUnreachableException,
-        IceGrid.NodeNotExistException
+        IceGrid.NodeNotExistException,
+        IceGrid.NodeUnreachableException
     ], , ],
     "getNodeProcessorSocketCount": [, 2, 1, , [3], [[7]], ,
     [
-        IceGrid.NodeUnreachableException,
-        IceGrid.NodeNotExistException
+        IceGrid.NodeNotExistException,
+        IceGrid.NodeUnreachableException
     ], , ],
     "shutdownNode": [, , , , , [[7]], ,
     [
-        IceGrid.NodeUnreachableException,
-        IceGrid.NodeNotExistException
+        IceGrid.NodeNotExistException,
+        IceGrid.NodeUnreachableException
     ], , ],
     "getNodeHostname": [, 2, 1, , [7], [[7]], ,
     [
-        IceGrid.NodeUnreachableException,
-        IceGrid.NodeNotExistException
+        IceGrid.NodeNotExistException,
+        IceGrid.NodeUnreachableException
     ], , ],
     "getAllNodeNames": [, 2, 1, , ["Ice.StringSeqHelper"], , , , , ],
     "pingRegistry": [, 2, 2, , [1], [[7]], ,
@@ -904,36 +904,36 @@ Slice.defineOperations(IceGrid.AdminSession, IceGrid.AdminSessionPrx, iceC_IceGr
     "getReplicaName": [, 2, 2, , [7], , , , , ],
     "openServerLog": [, , , , ["IceGrid.FileIteratorPrx"], [[7], [7], [3]], ,
     [
+        IceGrid.ServerNotExistException,
         IceGrid.DeploymentException,
         IceGrid.NodeUnreachableException,
-        IceGrid.FileNotAvailableException,
-        IceGrid.ServerNotExistException
+        IceGrid.FileNotAvailableException
     ], , ],
     "openServerStdErr": [, , , , ["IceGrid.FileIteratorPrx"], [[7], [3]], ,
     [
+        IceGrid.ServerNotExistException,
         IceGrid.DeploymentException,
         IceGrid.NodeUnreachableException,
-        IceGrid.FileNotAvailableException,
-        IceGrid.ServerNotExistException
+        IceGrid.FileNotAvailableException
     ], , ],
     "openServerStdOut": [, , , , ["IceGrid.FileIteratorPrx"], [[7], [3]], ,
     [
+        IceGrid.ServerNotExistException,
         IceGrid.DeploymentException,
         IceGrid.NodeUnreachableException,
-        IceGrid.FileNotAvailableException,
-        IceGrid.ServerNotExistException
+        IceGrid.FileNotAvailableException
     ], , ],
     "openNodeStdErr": [, , , , ["IceGrid.FileIteratorPrx"], [[7], [3]], ,
     [
+        IceGrid.NodeNotExistException,
         IceGrid.NodeUnreachableException,
-        IceGrid.FileNotAvailableException,
-        IceGrid.NodeNotExistException
+        IceGrid.FileNotAvailableException
     ], , ],
     "openNodeStdOut": [, , , , ["IceGrid.FileIteratorPrx"], [[7], [3]], ,
     [
+        IceGrid.NodeNotExistException,
         IceGrid.NodeUnreachableException,
-        IceGrid.FileNotAvailableException,
-        IceGrid.NodeNotExistException
+        IceGrid.FileNotAvailableException
     ], , ],
     "openRegistryStdErr": [, , , , ["IceGrid.FileIteratorPrx"], [[7], [3]], ,
     [

@@ -34,99 +34,6 @@
 namespace
 {
 
-const ::std::string iceC_Test_MA_IA_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::MA::IA"
-};
-const ::std::string iceC_Test_MA_IA_ops[] =
-{
-    "iaop",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_Test_MA_IA_iaop_name = "iaop";
-
-const ::std::string iceC_Test_MB_IB1_ids[3] =
-{
-    "::Ice::Object",
-    "::Test::MA::IA",
-    "::Test::MB::IB1"
-};
-const ::std::string iceC_Test_MB_IB1_ops[] =
-{
-    "iaop",
-    "ib1op",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_Test_MB_IB1_ib1op_name = "ib1op";
-
-const ::std::string iceC_Test_MB_IB2_ids[3] =
-{
-    "::Ice::Object",
-    "::Test::MA::IA",
-    "::Test::MB::IB2"
-};
-const ::std::string iceC_Test_MB_IB2_ops[] =
-{
-    "iaop",
-    "ib2op",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_Test_MB_IB2_ib2op_name = "ib2op";
-
-const ::std::string iceC_Test_MA_IC_ids[5] =
-{
-    "::Ice::Object",
-    "::Test::MA::IA",
-    "::Test::MA::IC",
-    "::Test::MB::IB1",
-    "::Test::MB::IB2"
-};
-const ::std::string iceC_Test_MA_IC_ops[] =
-{
-    "iaop",
-    "ib1op",
-    "ib2op",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "icop"
-};
-const ::std::string iceC_Test_MA_IC_icop_name = "icop";
-
-const ::std::string iceC_Test_Initial_ids[2] =
-{
-    "::Ice::Object",
-    "::Test::Initial"
-};
-const ::std::string iceC_Test_Initial_ops[] =
-{
-    "iaop",
-    "ib1op",
-    "ib2op",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "icop",
-    "shutdown"
-};
-const ::std::string iceC_Test_Initial_shutdown_name = "shutdown";
-const ::std::string iceC_Test_Initial_iaop_name = "iaop";
-const ::std::string iceC_Test_Initial_ib1op_name = "ib1op";
-const ::std::string iceC_Test_Initial_ib2op_name = "ib2op";
-const ::std::string iceC_Test_Initial_icop_name = "icop";
-
 }
 
 ::std::optional<::Test::MA::IAPrx>
@@ -155,8 +62,10 @@ Test::MA::IAPrx::iaopAsync(const ::std::optional<IAPrx>& iceP_p,
 void
 Test::MA::IAPrx::_iceI_iaop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<IAPrx>>>& outAsync, const ::std::optional<IAPrx>& iceP_p, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_MA_IA_iaop_name);
-    outAsync->invoke(iceC_Test_MA_IA_iaop_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "iaop";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_p);
@@ -198,8 +107,10 @@ Test::MB::IB1Prx::ib1opAsync(const ::std::optional<IB1Prx>& iceP_p,
 void
 Test::MB::IB1Prx::_iceI_ib1op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<IB1Prx>>>& outAsync, const ::std::optional<IB1Prx>& iceP_p, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_MB_IB1_ib1op_name);
-    outAsync->invoke(iceC_Test_MB_IB1_ib1op_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "ib1op";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_p);
@@ -241,8 +152,10 @@ Test::MB::IB2Prx::ib2opAsync(const ::std::optional<IB2Prx>& iceP_p,
 void
 Test::MB::IB2Prx::_iceI_ib2op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<IB2Prx>>>& outAsync, const ::std::optional<IB2Prx>& iceP_p, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_MB_IB2_ib2op_name);
-    outAsync->invoke(iceC_Test_MB_IB2_ib2op_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "ib2op";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_p);
@@ -284,8 +197,10 @@ Test::MA::ICPrx::icopAsync(const ::std::optional<ICPrx>& iceP_p,
 void
 Test::MA::ICPrx::_iceI_icop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<ICPrx>>>& outAsync, const ::std::optional<ICPrx>& iceP_p, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_MA_IC_icop_name);
-    outAsync->invoke(iceC_Test_MA_IC_icop_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "icop";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_p);
@@ -326,7 +241,9 @@ Test::InitialPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::InitialPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Initial_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "shutdown";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -357,8 +274,10 @@ Test::InitialPrx::iaopAsync(::std::function<void (::std::optional<::Test::MA::IA
 void
 Test::InitialPrx::_iceI_iaop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Test::MA::IAPrx>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Initial_iaop_name);
-    outAsync->invoke(iceC_Test_Initial_iaop_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "iaop";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -389,8 +308,10 @@ Test::InitialPrx::ib1opAsync(::std::function<void (::std::optional<::Test::MB::I
 void
 Test::InitialPrx::_iceI_ib1op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Test::MB::IB1Prx>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Initial_ib1op_name);
-    outAsync->invoke(iceC_Test_Initial_ib1op_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "ib1op";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -421,8 +342,10 @@ Test::InitialPrx::ib2opAsync(::std::function<void (::std::optional<::Test::MB::I
 void
 Test::InitialPrx::_iceI_ib2op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Test::MB::IB2Prx>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Initial_ib2op_name);
-    outAsync->invoke(iceC_Test_Initial_ib2op_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "ib2op";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -453,8 +376,10 @@ Test::InitialPrx::icopAsync(::std::function<void (::std::optional<::Test::MA::IC
 void
 Test::InitialPrx::_iceI_icop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Test::MA::ICPrx>>>& outAsync, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_Test_Initial_icop_name);
-    outAsync->invoke(iceC_Test_Initial_icop_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "icop";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -467,16 +392,11 @@ Test::InitialPrx::ice_staticId()
     return typeId;
 }
 
-bool
-Test::MA::IA::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_MA_IA_ids, iceC_Test_MA_IA_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::MA::IA::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_MA_IA_ids[0], &iceC_Test_MA_IA_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::MA::IA" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -513,13 +433,15 @@ Test::MA::IA::_iceD_iaop(::IceInternal::Incoming& inS, const ::Ice::Current& cur
 bool
 Test::MA::IA::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_MA_IA_ops, iceC_Test_MA_IA_ops + 5, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "iaop", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_MA_IA_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -550,16 +472,11 @@ Test::MA::IA::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& cu
 }
 /// \endcond
 
-bool
-Test::MB::IB1::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_MB_IB1_ids, iceC_Test_MB_IB1_ids + 3, s);
-}
-
 ::std::vector<::std::string>
 Test::MB::IB1::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_MB_IB1_ids[0], &iceC_Test_MB_IB1_ids[3]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::MA::IA", "::Test::MB::IB1" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -596,13 +513,15 @@ Test::MB::IB1::_iceD_ib1op(::IceInternal::Incoming& inS, const ::Ice::Current& c
 bool
 Test::MB::IB1::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_MB_IB1_ops, iceC_Test_MB_IB1_ops + 6, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "iaop", "ib1op", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_MB_IB1_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -637,16 +556,11 @@ Test::MB::IB1::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
 }
 /// \endcond
 
-bool
-Test::MB::IB2::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_MB_IB2_ids, iceC_Test_MB_IB2_ids + 3, s);
-}
-
 ::std::vector<::std::string>
 Test::MB::IB2::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_MB_IB2_ids[0], &iceC_Test_MB_IB2_ids[3]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::MA::IA", "::Test::MB::IB2" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -683,13 +597,15 @@ Test::MB::IB2::_iceD_ib2op(::IceInternal::Incoming& inS, const ::Ice::Current& c
 bool
 Test::MB::IB2::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_MB_IB2_ops, iceC_Test_MB_IB2_ops + 6, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "iaop", "ib2op", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_MB_IB2_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -724,16 +640,11 @@ Test::MB::IB2::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
 }
 /// \endcond
 
-bool
-Test::MA::IC::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_MA_IC_ids, iceC_Test_MA_IC_ids + 5, s);
-}
-
 ::std::vector<::std::string>
 Test::MA::IC::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_MA_IC_ids[0], &iceC_Test_MA_IC_ids[5]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::MA::IA", "::Test::MA::IC", "::Test::MB::IB1", "::Test::MB::IB2" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -770,13 +681,15 @@ Test::MA::IC::_iceD_icop(::IceInternal::Incoming& inS, const ::Ice::Current& cur
 bool
 Test::MA::IC::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_MA_IC_ops, iceC_Test_MA_IC_ops + 8, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "iaop", "ib1op", "ib2op", "ice_id", "ice_ids", "ice_isA", "ice_ping", "icop" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_MA_IC_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -819,16 +732,11 @@ Test::MA::IC::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& cu
 }
 /// \endcond
 
-bool
-Test::Initial::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Initial_ids, iceC_Test_Initial_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Test::Initial::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_Initial_ids[0], &iceC_Test_Initial_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Initial" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -916,13 +824,15 @@ Test::Initial::_iceD_icop(::IceInternal::Incoming& inS, const ::Ice::Current& cu
 bool
 Test::Initial::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Initial_ops, iceC_Test_Initial_ops + 9, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "iaop", "ib1op", "ib2op", "ice_id", "ice_ids", "ice_isA", "ice_ping", "icop", "shutdown" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 9, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_Initial_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

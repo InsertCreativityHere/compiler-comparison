@@ -1157,14 +1157,6 @@ public:
     using ProxyType = IPrx;
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
-
-    /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
@@ -1179,7 +1171,7 @@ public:
     ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
-     * Obtains the Slice type ID corresponding to this class.
+     * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
@@ -1254,14 +1246,6 @@ public:
     using ProxyType = IPrx;
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
-
-    /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
@@ -1276,7 +1260,7 @@ public:
     ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
-     * Obtains the Slice type ID corresponding to this class.
+     * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
@@ -1332,14 +1316,6 @@ public:
     using ProxyType = IPrx;
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
-
-    /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
@@ -1354,7 +1330,7 @@ public:
     ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
-     * Obtains the Slice type ID corresponding to this class.
+     * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();
@@ -1421,14 +1397,6 @@ public:
     using ProxyType = IPrx;
 
     /**
-     * Determines whether this object supports an interface with the given Slice type ID.
-     * @param id The fully-scoped Slice type ID.
-     * @param current The Current object for the invocation.
-     * @return True if this object supports the interface, false, otherwise.
-     */
-    bool ice_isA(::std::string id, const ::Ice::Current& current) const override;
-
-    /**
      * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
      * @param current The Current object for the invocation.
      * @return A list of fully-scoped type IDs.
@@ -1443,7 +1411,7 @@ public:
     ::std::string ice_id(const ::Ice::Current& current) const override;
 
     /**
-     * Obtains the Slice type ID corresponding to this class.
+     * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
     static const ::std::string& ice_staticId();

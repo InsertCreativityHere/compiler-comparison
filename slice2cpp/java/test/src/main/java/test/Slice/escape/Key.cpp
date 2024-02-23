@@ -34,73 +34,11 @@
 namespace
 {
 
-const ::std::string iceC_abstract_catch_ids[2] =
-{
-    "::Ice::Object",
-    "::abstract::catch"
-};
-const ::std::string iceC_abstract_catch_ops[] =
-{
-    "checkedCast",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_abstract_catch_checkedCast_name = "checkedCast";
-
-const ::std::string iceC_abstract_default_ids[2] =
-{
-    "::Ice::Object",
-    "::abstract::default"
-};
-const ::std::string iceC_abstract_default_ops[] =
-{
-    "do",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_abstract_default_do_name = "do";
-
 const ::IceInternal::DefaultValueFactoryInit<::abstract::_cpp_else> iceC_abstract_else_init("::abstract::else");
-
-const ::std::string iceC_abstract_finalize_ids[4] =
-{
-    "::Ice::Object",
-    "::abstract::catch",
-    "::abstract::default",
-    "::abstract::finalize"
-};
-const ::std::string iceC_abstract_finalize_ops[] =
-{
-    "checkedCast",
-    "do",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
 
 const ::IceInternal::DefaultUserExceptionFactoryInit<::abstract::hashCode> iceC_abstract_hashCode_init("::abstract::hashCode");
 
 const ::IceInternal::DefaultUserExceptionFactoryInit<::abstract::import> iceC_abstract_import_init("::abstract::import");
-
-const ::std::string iceC_abstract_new_ids[2] =
-{
-    "::Ice::Object",
-    "::abstract::new"
-};
-const ::std::string iceC_abstract_new_ops[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "notify"
-};
-const ::std::string iceC_abstract_new_notify_name = "notify";
 
 }
 
@@ -130,8 +68,10 @@ abstract::catchPrx::checkedCastAsync(::std::int32_t iceP_clone,
 void
 abstract::catchPrx::_iceI_checkedCast(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_clone, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_abstract_catch_checkedCast_name);
-    outAsync->invoke(iceC_abstract_catch_checkedCast_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "checkedCast";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_clone);
@@ -172,7 +112,9 @@ abstract::defaultPrx::doAsync(::std::function<void ()> response,
 void
 abstract::defaultPrx::_iceI_do(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_abstract_default_do_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "do";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -218,8 +160,10 @@ abstract::newPrx::notifyAsync(const _cpp_break& iceP_notifyAll, const ::std::sha
 void
 abstract::newPrx::_iceI_notify(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<assert>>& outAsync, const _cpp_break& iceP_notifyAll, const ::std::shared_ptr<_cpp_else>& iceP_null, const ::std::optional<finalizePrx>& iceP_package, const ::std::optional<catchPrx>& iceP_public, const ::std::optional<defaultPrx>& iceP_return, ::std::int32_t iceP_static, ::std::int32_t iceP_strictfp, ::std::int32_t iceP_super, const ::Ice::Context& context) const
 {
-    _checkTwowayOnly(iceC_abstract_new_notify_name);
-    outAsync->invoke(iceC_abstract_new_notify_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "notify";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_notifyAll, iceP_null, iceP_package, iceP_public, iceP_return, iceP_static, iceP_strictfp, iceP_super);
@@ -286,16 +230,11 @@ abstract::import::ice_staticId()
     return typeId;
 }
 
-bool
-abstract::_cpp_catch::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_abstract_catch_ids, iceC_abstract_catch_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 abstract::_cpp_catch::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_abstract_catch_ids[0], &iceC_abstract_catch_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::abstract::catch" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -337,13 +276,15 @@ abstract::_cpp_catch::_iceD_checkedCast(::IceInternal::Incoming& inS, const ::Ic
 bool
 abstract::_cpp_catch::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_abstract_catch_ops, iceC_abstract_catch_ops + 5, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "checkedCast", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_abstract_catch_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -374,16 +315,11 @@ abstract::_cpp_catch::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cur
 }
 /// \endcond
 
-bool
-abstract::_cpp_default::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_abstract_default_ids, iceC_abstract_default_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 abstract::_cpp_default::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_abstract_default_ids[0], &iceC_abstract_default_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::abstract::default" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -415,13 +351,15 @@ abstract::_cpp_default::_iceD_do(::IceInternal::Incoming& inS, const ::Ice::Curr
 bool
 abstract::_cpp_default::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_abstract_default_ops, iceC_abstract_default_ops + 5, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "do", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_abstract_default_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -452,16 +390,11 @@ abstract::_cpp_default::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::C
 }
 /// \endcond
 
-bool
-abstract::finalize::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_abstract_finalize_ids, iceC_abstract_finalize_ids + 4, s);
-}
-
 ::std::vector<::std::string>
 abstract::finalize::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_abstract_finalize_ids[0], &iceC_abstract_finalize_ids[4]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::abstract::catch", "::abstract::default", "::abstract::finalize" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -481,13 +414,15 @@ abstract::finalize::ice_staticId()
 bool
 abstract::finalize::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_abstract_finalize_ops, iceC_abstract_finalize_ops + 6, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "checkedCast", "do", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_abstract_finalize_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -522,16 +457,11 @@ abstract::finalize::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curre
 }
 /// \endcond
 
-bool
-abstract::_cpp_new::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_abstract_new_ids, iceC_abstract_new_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 abstract::_cpp_new::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_abstract_new_ids[0], &iceC_abstract_new_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::abstract::new" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -576,13 +506,15 @@ abstract::_cpp_new::_iceD_notify(::IceInternal::Incoming& inS, const ::Ice::Curr
 bool
 abstract::_cpp_new::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_abstract_new_ops, iceC_abstract_new_ops + 5, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "notify" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_abstract_new_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

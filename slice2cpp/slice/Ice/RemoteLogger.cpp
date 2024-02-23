@@ -37,43 +37,7 @@
 namespace
 {
 
-const ::std::string iceC_Ice_RemoteLogger_ids[2] =
-{
-    "::Ice::Object",
-    "::Ice::RemoteLogger"
-};
-const ::std::string iceC_Ice_RemoteLogger_ops[] =
-{
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "init",
-    "log"
-};
-const ::std::string iceC_Ice_RemoteLogger_init_name = "init";
-const ::std::string iceC_Ice_RemoteLogger_log_name = "log";
-
 const ::IceInternal::DefaultUserExceptionFactoryInit<::Ice::RemoteLoggerAlreadyAttachedException> iceC_Ice_RemoteLoggerAlreadyAttachedException_init("::Ice::RemoteLoggerAlreadyAttachedException");
-
-const ::std::string iceC_Ice_LoggerAdmin_ids[2] =
-{
-    "::Ice::LoggerAdmin",
-    "::Ice::Object"
-};
-const ::std::string iceC_Ice_LoggerAdmin_ops[] =
-{
-    "attachRemoteLogger",
-    "detachRemoteLogger",
-    "getLog",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping"
-};
-const ::std::string iceC_Ice_LoggerAdmin_attachRemoteLogger_name = "attachRemoteLogger";
-const ::std::string iceC_Ice_LoggerAdmin_detachRemoteLogger_name = "detachRemoteLogger";
-const ::std::string iceC_Ice_LoggerAdmin_getLog_name = "getLog";
 
 }
 
@@ -103,7 +67,9 @@ Ice::RemoteLoggerPrx::initAsync(const ::std::string& iceP_prefix, const LogMessa
 void
 Ice::RemoteLoggerPrx::_iceI_init(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_prefix, const LogMessageSeq& iceP_logMessages, const Context& context) const
 {
-    outAsync->invoke(iceC_Ice_RemoteLogger_init_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "init";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](OutputStream* ostr)
         {
             ostr->writeAll(iceP_prefix, iceP_logMessages);
@@ -138,7 +104,9 @@ Ice::RemoteLoggerPrx::logAsync(const LogMessage& iceP_message,
 void
 Ice::RemoteLoggerPrx::_iceI_log(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const LogMessage& iceP_message, const Context& context) const
 {
-    outAsync->invoke(iceC_Ice_RemoteLogger_log_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "log";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](OutputStream* ostr)
         {
             ostr->writeAll(iceP_message);
@@ -180,8 +148,10 @@ Ice::LoggerAdminPrx::attachRemoteLoggerAsync(const ::std::optional<RemoteLoggerP
 void
 Ice::LoggerAdminPrx::_iceI_attachRemoteLogger(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<RemoteLoggerPrx>& iceP_prx, const LogMessageTypeSeq& iceP_messageTypes, const StringSeq& iceP_traceCategories, ::std::int32_t iceP_messageMax, const Context& context) const
 {
-    _checkTwowayOnly(iceC_Ice_LoggerAdmin_attachRemoteLogger_name);
-    outAsync->invoke(iceC_Ice_LoggerAdmin_attachRemoteLogger_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "attachRemoteLogger";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](OutputStream* ostr)
         {
             ostr->writeAll(iceP_prx, iceP_messageTypes, iceP_traceCategories, iceP_messageMax);
@@ -229,8 +199,10 @@ Ice::LoggerAdminPrx::detachRemoteLoggerAsync(const ::std::optional<RemoteLoggerP
 void
 Ice::LoggerAdminPrx::_iceI_detachRemoteLogger(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, const ::std::optional<RemoteLoggerPrx>& iceP_prx, const Context& context) const
 {
-    _checkTwowayOnly(iceC_Ice_LoggerAdmin_detachRemoteLogger_name);
-    outAsync->invoke(iceC_Ice_LoggerAdmin_detachRemoteLogger_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "detachRemoteLogger";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](OutputStream* ostr)
         {
             ostr->writeAll(iceP_prx);
@@ -271,8 +243,10 @@ Ice::LoggerAdminPrx::getLogAsync(const LogMessageTypeSeq& iceP_messageTypes, con
 void
 Ice::LoggerAdminPrx::_iceI_getLog(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<LogMessageSeq, ::std::string>>>& outAsync, const LogMessageTypeSeq& iceP_messageTypes, const StringSeq& iceP_traceCategories, ::std::int32_t iceP_messageMax, const Context& context) const
 {
-    _checkTwowayOnly(iceC_Ice_LoggerAdmin_getLog_name);
-    outAsync->invoke(iceC_Ice_LoggerAdmin_getLog_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "getLog";
+
+    _checkTwowayOnly(operationName);
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](OutputStream* ostr)
         {
             ostr->writeAll(iceP_messageTypes, iceP_traceCategories, iceP_messageMax);
@@ -305,16 +279,11 @@ Ice::RemoteLoggerAlreadyAttachedException::ice_staticId()
     return typeId;
 }
 
-bool
-Ice::RemoteLogger::ice_isA(::std::string s, const Current&) const
-{
-    return ::std::binary_search(iceC_Ice_RemoteLogger_ids, iceC_Ice_RemoteLogger_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Ice::RemoteLogger::ice_ids(const Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Ice_RemoteLogger_ids[0], &iceC_Ice_RemoteLogger_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Ice::RemoteLogger" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -365,13 +334,15 @@ Ice::RemoteLogger::_iceD_log(::IceInternal::Incoming& inS, const Current& curren
 bool
 Ice::RemoteLogger::_iceDispatch(::IceInternal::Incoming& in, const Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Ice_RemoteLogger_ops, iceC_Ice_RemoteLogger_ops + 6, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "init", "log" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
         throw OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Ice_RemoteLogger_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
@@ -406,16 +377,11 @@ Ice::RemoteLogger::_iceDispatch(::IceInternal::Incoming& in, const Current& curr
 }
 /// \endcond
 
-bool
-Ice::LoggerAdmin::ice_isA(::std::string s, const Current&) const
-{
-    return ::std::binary_search(iceC_Ice_LoggerAdmin_ids, iceC_Ice_LoggerAdmin_ids + 2, s);
-}
-
 ::std::vector<::std::string>
 Ice::LoggerAdmin::ice_ids(const Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Ice_LoggerAdmin_ids[0], &iceC_Ice_LoggerAdmin_ids[2]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Ice::LoggerAdmin", "::Ice::Object" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -490,13 +456,15 @@ Ice::LoggerAdmin::_iceD_getLog(::IceInternal::Incoming& inS, const Current& curr
 bool
 Ice::LoggerAdmin::_iceDispatch(::IceInternal::Incoming& in, const Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Ice_LoggerAdmin_ops, iceC_Ice_LoggerAdmin_ops + 7, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "attachRemoteLogger", "detachRemoteLogger", "getLog", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
         throw OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Ice_LoggerAdmin_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {

@@ -34,25 +34,6 @@
 namespace
 {
 
-const ::std::string iceC_Test_Session_ids[3] =
-{
-    "::Glacier2::Session",
-    "::Ice::Object",
-    "::Test::Session"
-};
-const ::std::string iceC_Test_Session_ops[] =
-{
-    "destroy",
-    "destroyFromClient",
-    "ice_id",
-    "ice_ids",
-    "ice_isA",
-    "ice_ping",
-    "shutdown"
-};
-const ::std::string iceC_Test_Session_destroyFromClient_name = "destroyFromClient";
-const ::std::string iceC_Test_Session_shutdown_name = "shutdown";
-
 }
 
 void
@@ -80,7 +61,9 @@ Test::SessionPrx::destroyFromClientAsync(::std::function<void ()> response,
 void
 Test::SessionPrx::_iceI_destroyFromClient(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Session_destroyFromClient_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "destroyFromClient";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -111,7 +94,9 @@ Test::SessionPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::SessionPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    outAsync->invoke(iceC_Test_Session_shutdown_name, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+    static const ::std::string operationName = "shutdown";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
         nullptr);
 }
@@ -124,16 +109,11 @@ Test::SessionPrx::ice_staticId()
     return typeId;
 }
 
-bool
-Test::Session::ice_isA(::std::string s, const ::Ice::Current&) const
-{
-    return ::std::binary_search(iceC_Test_Session_ids, iceC_Test_Session_ids + 3, s);
-}
-
 ::std::vector<::std::string>
 Test::Session::ice_ids(const ::Ice::Current&) const
 {
-    return ::std::vector<::std::string>(&iceC_Test_Session_ids[0], &iceC_Test_Session_ids[3]);
+    static const ::std::vector<::std::string> allTypeIds = { "::Glacier2::Session", "::Ice::Object", "::Test::Session" };
+    return allTypeIds;
 }
 
 ::std::string
@@ -177,13 +157,15 @@ Test::Session::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current
 bool
 Test::Session::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    ::std::pair<const ::std::string*, const ::std::string*> r = ::std::equal_range(iceC_Test_Session_ops, iceC_Test_Session_ops + 7, current.operation);
+    static constexpr ::std::string_view allOperations[] = { "destroy", "destroyFromClient", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown" };
+
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
     }
 
-    switch(r.first - iceC_Test_Session_ops)
+    switch(r.first - allOperations)
     {
         case 0:
         {
