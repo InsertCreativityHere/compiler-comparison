@@ -15,8 +15,7 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Canvas.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -74,13 +73,13 @@ const ::std::string iceC_Demo_gx_Session_destroySession_name = "destroySession";
 void
 Demo::gx::CanvasPrx::paintSquare(const Square& iceP_square, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &CanvasPrx::_iceI_paintSquare, iceP_square, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &CanvasPrx::_iceI_paintSquare, iceP_square, context).get();
 }
 
 ::std::future<void>
 Demo::gx::CanvasPrx::paintSquareAsync(const Square& iceP_square, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &CanvasPrx::_iceI_paintSquare, iceP_square, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &CanvasPrx::_iceI_paintSquare, iceP_square, context);
 }
 
 ::std::function<void()>
@@ -90,7 +89,7 @@ Demo::gx::CanvasPrx::paintSquareAsync(const Square& iceP_square,
                                       ::std::function<void(bool)> sent,
                                       const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Demo::gx::CanvasPrx::_iceI_paintSquare, iceP_square, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Demo::gx::CanvasPrx::_iceI_paintSquare, iceP_square, context);
 }
 
 /// \cond INTERNAL
@@ -109,13 +108,13 @@ Demo::gx::CanvasPrx::_iceI_paintSquare(const ::std::shared_ptr<::IceInternal::Ou
 void
 Demo::gx::CanvasPrx::paintCircle(const Circle& iceP_circle, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &CanvasPrx::_iceI_paintCircle, iceP_circle, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &CanvasPrx::_iceI_paintCircle, iceP_circle, context).get();
 }
 
 ::std::future<void>
 Demo::gx::CanvasPrx::paintCircleAsync(const Circle& iceP_circle, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &CanvasPrx::_iceI_paintCircle, iceP_circle, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &CanvasPrx::_iceI_paintCircle, iceP_circle, context);
 }
 
 ::std::function<void()>
@@ -125,7 +124,7 @@ Demo::gx::CanvasPrx::paintCircleAsync(const Circle& iceP_circle,
                                       ::std::function<void(bool)> sent,
                                       const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Demo::gx::CanvasPrx::_iceI_paintCircle, iceP_circle, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Demo::gx::CanvasPrx::_iceI_paintCircle, iceP_circle, context);
 }
 
 /// \cond INTERNAL
@@ -151,13 +150,13 @@ Demo::gx::CanvasPrx::ice_staticId()
 void
 Demo::gx::SessionPrx::destroySession(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &SessionPrx::_iceI_destroySession, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &SessionPrx::_iceI_destroySession, context).get();
 }
 
 ::std::future<void>
 Demo::gx::SessionPrx::destroySessionAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &SessionPrx::_iceI_destroySession, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &SessionPrx::_iceI_destroySession, context);
 }
 
 ::std::function<void()>
@@ -166,7 +165,7 @@ Demo::gx::SessionPrx::destroySessionAsync(::std::function<void ()> response,
                                           ::std::function<void(bool)> sent,
                                           const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Demo::gx::SessionPrx::_iceI_destroySession, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Demo::gx::SessionPrx::_iceI_destroySession, context);
 }
 
 /// \cond INTERNAL

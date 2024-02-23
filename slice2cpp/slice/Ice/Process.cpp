@@ -18,8 +18,7 @@
 #endif
 #define ICE_BUILDING_GENERATED_CODE
 #include <Process.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -60,13 +59,13 @@ const ::std::string iceC_Ice_Process_writeMessage_name = "writeMessage";
 void
 Ice::ProcessPrx::shutdown(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &ProcessPrx::_iceI_shutdown, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &ProcessPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
 Ice::ProcessPrx::shutdownAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &ProcessPrx::_iceI_shutdown, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &ProcessPrx::_iceI_shutdown, context);
 }
 
 ::std::function<void()>
@@ -75,7 +74,7 @@ Ice::ProcessPrx::shutdownAsync(::std::function<void ()> response,
                                ::std::function<void(bool)> sent,
                                const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::ProcessPrx::_iceI_shutdown, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::ProcessPrx::_iceI_shutdown, context);
 }
 
 /// \cond INTERNAL
@@ -91,13 +90,13 @@ Ice::ProcessPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingA
 void
 Ice::ProcessPrx::writeMessage(const ::std::string& iceP_message, ::std::int32_t iceP_fd, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &ProcessPrx::_iceI_writeMessage, iceP_message, iceP_fd, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &ProcessPrx::_iceI_writeMessage, iceP_message, iceP_fd, context).get();
 }
 
 ::std::future<void>
 Ice::ProcessPrx::writeMessageAsync(const ::std::string& iceP_message, ::std::int32_t iceP_fd, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &ProcessPrx::_iceI_writeMessage, iceP_message, iceP_fd, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &ProcessPrx::_iceI_writeMessage, iceP_message, iceP_fd, context);
 }
 
 ::std::function<void()>
@@ -107,7 +106,7 @@ Ice::ProcessPrx::writeMessageAsync(const ::std::string& iceP_message, ::std::int
                                    ::std::function<void(bool)> sent,
                                    const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::ProcessPrx::_iceI_writeMessage, iceP_message, iceP_fd, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::ProcessPrx::_iceI_writeMessage, iceP_message, iceP_fd, context);
 }
 
 /// \cond INTERNAL

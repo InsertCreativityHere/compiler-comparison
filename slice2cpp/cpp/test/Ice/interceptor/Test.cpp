@@ -18,8 +18,7 @@
 #endif
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -78,13 +77,13 @@ const ::std::string iceC_Test_MyObject_amdBadSystemAdd_name = "amdBadSystemAdd";
 ::std::int32_t
 Test::MyObjectPrx::add(::std::int32_t iceP_x, ::std::int32_t iceP_y, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t>(true, this, &MyObjectPrx::_iceI_add, iceP_x, iceP_y, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &MyObjectPrx::_iceI_add, iceP_x, iceP_y, context).get();
 }
 
 ::std::future<::std::int32_t>
 Test::MyObjectPrx::addAsync(::std::int32_t iceP_x, ::std::int32_t iceP_y, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &MyObjectPrx::_iceI_add, iceP_x, iceP_y, context);
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &MyObjectPrx::_iceI_add, iceP_x, iceP_y, context);
 }
 
 ::std::function<void()>
@@ -94,7 +93,7 @@ Test::MyObjectPrx::addAsync(::std::int32_t iceP_x, ::std::int32_t iceP_y,
                             ::std::function<void(bool)> sent,
                             const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_add, iceP_x, iceP_y, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_add, iceP_x, iceP_y, context);
 }
 
 /// \cond INTERNAL
@@ -114,13 +113,13 @@ Test::MyObjectPrx::_iceI_add(const ::std::shared_ptr<::IceInternal::OutgoingAsyn
 ::std::int32_t
 Test::MyObjectPrx::addWithRetry(::std::int32_t iceP_x, ::std::int32_t iceP_y, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t>(true, this, &MyObjectPrx::_iceI_addWithRetry, iceP_x, iceP_y, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &MyObjectPrx::_iceI_addWithRetry, iceP_x, iceP_y, context).get();
 }
 
 ::std::future<::std::int32_t>
 Test::MyObjectPrx::addWithRetryAsync(::std::int32_t iceP_x, ::std::int32_t iceP_y, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &MyObjectPrx::_iceI_addWithRetry, iceP_x, iceP_y, context);
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &MyObjectPrx::_iceI_addWithRetry, iceP_x, iceP_y, context);
 }
 
 ::std::function<void()>
@@ -130,7 +129,7 @@ Test::MyObjectPrx::addWithRetryAsync(::std::int32_t iceP_x, ::std::int32_t iceP_
                                      ::std::function<void(bool)> sent,
                                      const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_addWithRetry, iceP_x, iceP_y, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_addWithRetry, iceP_x, iceP_y, context);
 }
 
 /// \cond INTERNAL
@@ -150,13 +149,13 @@ Test::MyObjectPrx::_iceI_addWithRetry(const ::std::shared_ptr<::IceInternal::Out
 ::std::int32_t
 Test::MyObjectPrx::badAdd(::std::int32_t iceP_x, ::std::int32_t iceP_y, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t>(true, this, &MyObjectPrx::_iceI_badAdd, iceP_x, iceP_y, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &MyObjectPrx::_iceI_badAdd, iceP_x, iceP_y, context).get();
 }
 
 ::std::future<::std::int32_t>
 Test::MyObjectPrx::badAddAsync(::std::int32_t iceP_x, ::std::int32_t iceP_y, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &MyObjectPrx::_iceI_badAdd, iceP_x, iceP_y, context);
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &MyObjectPrx::_iceI_badAdd, iceP_x, iceP_y, context);
 }
 
 ::std::function<void()>
@@ -166,7 +165,7 @@ Test::MyObjectPrx::badAddAsync(::std::int32_t iceP_x, ::std::int32_t iceP_y,
                                ::std::function<void(bool)> sent,
                                const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_badAdd, iceP_x, iceP_y, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_badAdd, iceP_x, iceP_y, context);
 }
 
 /// \cond INTERNAL
@@ -199,13 +198,13 @@ Test::MyObjectPrx::_iceI_badAdd(const ::std::shared_ptr<::IceInternal::OutgoingA
 ::std::int32_t
 Test::MyObjectPrx::notExistAdd(::std::int32_t iceP_x, ::std::int32_t iceP_y, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t>(true, this, &MyObjectPrx::_iceI_notExistAdd, iceP_x, iceP_y, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &MyObjectPrx::_iceI_notExistAdd, iceP_x, iceP_y, context).get();
 }
 
 ::std::future<::std::int32_t>
 Test::MyObjectPrx::notExistAddAsync(::std::int32_t iceP_x, ::std::int32_t iceP_y, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &MyObjectPrx::_iceI_notExistAdd, iceP_x, iceP_y, context);
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &MyObjectPrx::_iceI_notExistAdd, iceP_x, iceP_y, context);
 }
 
 ::std::function<void()>
@@ -215,7 +214,7 @@ Test::MyObjectPrx::notExistAddAsync(::std::int32_t iceP_x, ::std::int32_t iceP_y
                                     ::std::function<void(bool)> sent,
                                     const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_notExistAdd, iceP_x, iceP_y, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_notExistAdd, iceP_x, iceP_y, context);
 }
 
 /// \cond INTERNAL
@@ -235,13 +234,13 @@ Test::MyObjectPrx::_iceI_notExistAdd(const ::std::shared_ptr<::IceInternal::Outg
 ::std::int32_t
 Test::MyObjectPrx::badSystemAdd(::std::int32_t iceP_x, ::std::int32_t iceP_y, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t>(true, this, &MyObjectPrx::_iceI_badSystemAdd, iceP_x, iceP_y, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &MyObjectPrx::_iceI_badSystemAdd, iceP_x, iceP_y, context).get();
 }
 
 ::std::future<::std::int32_t>
 Test::MyObjectPrx::badSystemAddAsync(::std::int32_t iceP_x, ::std::int32_t iceP_y, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &MyObjectPrx::_iceI_badSystemAdd, iceP_x, iceP_y, context);
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &MyObjectPrx::_iceI_badSystemAdd, iceP_x, iceP_y, context);
 }
 
 ::std::function<void()>
@@ -251,7 +250,7 @@ Test::MyObjectPrx::badSystemAddAsync(::std::int32_t iceP_x, ::std::int32_t iceP_
                                      ::std::function<void(bool)> sent,
                                      const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_badSystemAdd, iceP_x, iceP_y, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_badSystemAdd, iceP_x, iceP_y, context);
 }
 
 /// \cond INTERNAL
@@ -271,13 +270,13 @@ Test::MyObjectPrx::_iceI_badSystemAdd(const ::std::shared_ptr<::IceInternal::Out
 ::std::int32_t
 Test::MyObjectPrx::amdAdd(::std::int32_t iceP_x, ::std::int32_t iceP_y, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t>(true, this, &MyObjectPrx::_iceI_amdAdd, iceP_x, iceP_y, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &MyObjectPrx::_iceI_amdAdd, iceP_x, iceP_y, context).get();
 }
 
 ::std::future<::std::int32_t>
 Test::MyObjectPrx::amdAddAsync(::std::int32_t iceP_x, ::std::int32_t iceP_y, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &MyObjectPrx::_iceI_amdAdd, iceP_x, iceP_y, context);
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &MyObjectPrx::_iceI_amdAdd, iceP_x, iceP_y, context);
 }
 
 ::std::function<void()>
@@ -287,7 +286,7 @@ Test::MyObjectPrx::amdAddAsync(::std::int32_t iceP_x, ::std::int32_t iceP_y,
                                ::std::function<void(bool)> sent,
                                const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_amdAdd, iceP_x, iceP_y, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_amdAdd, iceP_x, iceP_y, context);
 }
 
 /// \cond INTERNAL
@@ -307,13 +306,13 @@ Test::MyObjectPrx::_iceI_amdAdd(const ::std::shared_ptr<::IceInternal::OutgoingA
 ::std::int32_t
 Test::MyObjectPrx::amdAddWithRetry(::std::int32_t iceP_x, ::std::int32_t iceP_y, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t>(true, this, &MyObjectPrx::_iceI_amdAddWithRetry, iceP_x, iceP_y, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &MyObjectPrx::_iceI_amdAddWithRetry, iceP_x, iceP_y, context).get();
 }
 
 ::std::future<::std::int32_t>
 Test::MyObjectPrx::amdAddWithRetryAsync(::std::int32_t iceP_x, ::std::int32_t iceP_y, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &MyObjectPrx::_iceI_amdAddWithRetry, iceP_x, iceP_y, context);
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &MyObjectPrx::_iceI_amdAddWithRetry, iceP_x, iceP_y, context);
 }
 
 ::std::function<void()>
@@ -323,7 +322,7 @@ Test::MyObjectPrx::amdAddWithRetryAsync(::std::int32_t iceP_x, ::std::int32_t ic
                                         ::std::function<void(bool)> sent,
                                         const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_amdAddWithRetry, iceP_x, iceP_y, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_amdAddWithRetry, iceP_x, iceP_y, context);
 }
 
 /// \cond INTERNAL
@@ -343,13 +342,13 @@ Test::MyObjectPrx::_iceI_amdAddWithRetry(const ::std::shared_ptr<::IceInternal::
 ::std::int32_t
 Test::MyObjectPrx::amdBadAdd(::std::int32_t iceP_x, ::std::int32_t iceP_y, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t>(true, this, &MyObjectPrx::_iceI_amdBadAdd, iceP_x, iceP_y, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &MyObjectPrx::_iceI_amdBadAdd, iceP_x, iceP_y, context).get();
 }
 
 ::std::future<::std::int32_t>
 Test::MyObjectPrx::amdBadAddAsync(::std::int32_t iceP_x, ::std::int32_t iceP_y, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &MyObjectPrx::_iceI_amdBadAdd, iceP_x, iceP_y, context);
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &MyObjectPrx::_iceI_amdBadAdd, iceP_x, iceP_y, context);
 }
 
 ::std::function<void()>
@@ -359,7 +358,7 @@ Test::MyObjectPrx::amdBadAddAsync(::std::int32_t iceP_x, ::std::int32_t iceP_y,
                                   ::std::function<void(bool)> sent,
                                   const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_amdBadAdd, iceP_x, iceP_y, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_amdBadAdd, iceP_x, iceP_y, context);
 }
 
 /// \cond INTERNAL
@@ -392,13 +391,13 @@ Test::MyObjectPrx::_iceI_amdBadAdd(const ::std::shared_ptr<::IceInternal::Outgoi
 ::std::int32_t
 Test::MyObjectPrx::amdNotExistAdd(::std::int32_t iceP_x, ::std::int32_t iceP_y, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t>(true, this, &MyObjectPrx::_iceI_amdNotExistAdd, iceP_x, iceP_y, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &MyObjectPrx::_iceI_amdNotExistAdd, iceP_x, iceP_y, context).get();
 }
 
 ::std::future<::std::int32_t>
 Test::MyObjectPrx::amdNotExistAddAsync(::std::int32_t iceP_x, ::std::int32_t iceP_y, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &MyObjectPrx::_iceI_amdNotExistAdd, iceP_x, iceP_y, context);
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &MyObjectPrx::_iceI_amdNotExistAdd, iceP_x, iceP_y, context);
 }
 
 ::std::function<void()>
@@ -408,7 +407,7 @@ Test::MyObjectPrx::amdNotExistAddAsync(::std::int32_t iceP_x, ::std::int32_t ice
                                        ::std::function<void(bool)> sent,
                                        const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_amdNotExistAdd, iceP_x, iceP_y, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_amdNotExistAdd, iceP_x, iceP_y, context);
 }
 
 /// \cond INTERNAL
@@ -428,13 +427,13 @@ Test::MyObjectPrx::_iceI_amdNotExistAdd(const ::std::shared_ptr<::IceInternal::O
 ::std::int32_t
 Test::MyObjectPrx::amdBadSystemAdd(::std::int32_t iceP_x, ::std::int32_t iceP_y, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t>(true, this, &MyObjectPrx::_iceI_amdBadSystemAdd, iceP_x, iceP_y, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &MyObjectPrx::_iceI_amdBadSystemAdd, iceP_x, iceP_y, context).get();
 }
 
 ::std::future<::std::int32_t>
 Test::MyObjectPrx::amdBadSystemAddAsync(::std::int32_t iceP_x, ::std::int32_t iceP_y, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &MyObjectPrx::_iceI_amdBadSystemAdd, iceP_x, iceP_y, context);
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &MyObjectPrx::_iceI_amdBadSystemAdd, iceP_x, iceP_y, context);
 }
 
 ::std::function<void()>
@@ -444,7 +443,7 @@ Test::MyObjectPrx::amdBadSystemAddAsync(::std::int32_t iceP_x, ::std::int32_t ic
                                         ::std::function<void(bool)> sent,
                                         const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_amdBadSystemAdd, iceP_x, iceP_y, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_amdBadSystemAdd, iceP_x, iceP_y, context);
 }
 
 /// \cond INTERNAL

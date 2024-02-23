@@ -15,8 +15,7 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -63,13 +62,13 @@ const ::std::string iceC_Test_Retry_shutdown_name = "shutdown";
 void
 Test::RetryPrx::op(bool iceP_kill, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &RetryPrx::_iceI_op, iceP_kill, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &RetryPrx::_iceI_op, iceP_kill, context).get();
 }
 
 ::std::future<void>
 Test::RetryPrx::opAsync(bool iceP_kill, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &RetryPrx::_iceI_op, iceP_kill, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &RetryPrx::_iceI_op, iceP_kill, context);
 }
 
 ::std::function<void()>
@@ -79,7 +78,7 @@ Test::RetryPrx::opAsync(bool iceP_kill,
                         ::std::function<void(bool)> sent,
                         const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RetryPrx::_iceI_op, iceP_kill, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RetryPrx::_iceI_op, iceP_kill, context);
 }
 
 /// \cond INTERNAL
@@ -98,13 +97,13 @@ Test::RetryPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<v
 ::std::int32_t
 Test::RetryPrx::opIdempotent(::std::int32_t iceP_c, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t>(true, this, &RetryPrx::_iceI_opIdempotent, iceP_c, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &RetryPrx::_iceI_opIdempotent, iceP_c, context).get();
 }
 
 ::std::future<::std::int32_t>
 Test::RetryPrx::opIdempotentAsync(::std::int32_t iceP_c, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &RetryPrx::_iceI_opIdempotent, iceP_c, context);
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &RetryPrx::_iceI_opIdempotent, iceP_c, context);
 }
 
 ::std::function<void()>
@@ -114,7 +113,7 @@ Test::RetryPrx::opIdempotentAsync(::std::int32_t iceP_c,
                                   ::std::function<void(bool)> sent,
                                   const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::RetryPrx::_iceI_opIdempotent, iceP_c, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::RetryPrx::_iceI_opIdempotent, iceP_c, context);
 }
 
 /// \cond INTERNAL
@@ -134,13 +133,13 @@ Test::RetryPrx::_iceI_opIdempotent(const ::std::shared_ptr<::IceInternal::Outgoi
 void
 Test::RetryPrx::opNotIdempotent(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &RetryPrx::_iceI_opNotIdempotent, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &RetryPrx::_iceI_opNotIdempotent, context).get();
 }
 
 ::std::future<void>
 Test::RetryPrx::opNotIdempotentAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &RetryPrx::_iceI_opNotIdempotent, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &RetryPrx::_iceI_opNotIdempotent, context);
 }
 
 ::std::function<void()>
@@ -149,7 +148,7 @@ Test::RetryPrx::opNotIdempotentAsync(::std::function<void ()> response,
                                      ::std::function<void(bool)> sent,
                                      const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RetryPrx::_iceI_opNotIdempotent, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RetryPrx::_iceI_opNotIdempotent, context);
 }
 
 /// \cond INTERNAL
@@ -165,13 +164,13 @@ Test::RetryPrx::_iceI_opNotIdempotent(const ::std::shared_ptr<::IceInternal::Out
 void
 Test::RetryPrx::opSystemException(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &RetryPrx::_iceI_opSystemException, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &RetryPrx::_iceI_opSystemException, context).get();
 }
 
 ::std::future<void>
 Test::RetryPrx::opSystemExceptionAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &RetryPrx::_iceI_opSystemException, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &RetryPrx::_iceI_opSystemException, context);
 }
 
 ::std::function<void()>
@@ -180,7 +179,7 @@ Test::RetryPrx::opSystemExceptionAsync(::std::function<void ()> response,
                                        ::std::function<void(bool)> sent,
                                        const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RetryPrx::_iceI_opSystemException, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RetryPrx::_iceI_opSystemException, context);
 }
 
 /// \cond INTERNAL
@@ -196,13 +195,13 @@ Test::RetryPrx::_iceI_opSystemException(const ::std::shared_ptr<::IceInternal::O
 void
 Test::RetryPrx::shutdown(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &RetryPrx::_iceI_shutdown, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &RetryPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
 Test::RetryPrx::shutdownAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &RetryPrx::_iceI_shutdown, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &RetryPrx::_iceI_shutdown, context);
 }
 
 ::std::function<void()>
@@ -211,7 +210,7 @@ Test::RetryPrx::shutdownAsync(::std::function<void ()> response,
                               ::std::function<void(bool)> sent,
                               const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RetryPrx::_iceI_shutdown, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RetryPrx::_iceI_shutdown, context);
 }
 
 /// \cond INTERNAL

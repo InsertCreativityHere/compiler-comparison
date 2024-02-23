@@ -15,8 +15,7 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Event.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -55,13 +54,13 @@ const ::std::string iceC_Test_Event_pub_name = "pub";
 void
 Test::EventPrx::pub(::std::int32_t iceP_counter, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &EventPrx::_iceI_pub, iceP_counter, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &EventPrx::_iceI_pub, iceP_counter, context).get();
 }
 
 ::std::future<void>
 Test::EventPrx::pubAsync(::std::int32_t iceP_counter, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &EventPrx::_iceI_pub, iceP_counter, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &EventPrx::_iceI_pub, iceP_counter, context);
 }
 
 ::std::function<void()>
@@ -71,7 +70,7 @@ Test::EventPrx::pubAsync(::std::int32_t iceP_counter,
                          ::std::function<void(bool)> sent,
                          const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::EventPrx::_iceI_pub, iceP_counter, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::EventPrx::_iceI_pub, iceP_counter, context);
 }
 
 /// \cond INTERNAL

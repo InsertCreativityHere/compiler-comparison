@@ -18,8 +18,7 @@
 #endif
 #define ICE_BUILDING_GENERATED_CODE
 #include <PermissionsVerifier.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -75,7 +74,7 @@ const ::std::string iceC_Glacier2_SSLPermissionsVerifier_authorize_name = "autho
 bool
 Glacier2::PermissionsVerifierPrx::checkPermissions(const ::std::string& iceP_userId, const ::std::string& iceP_password, ::std::string& iceP_reason, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<bool, ::std::string>>(true, this, &PermissionsVerifierPrx::_iceI_checkPermissions, iceP_userId, iceP_password, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<bool, ::std::string>>(true, this, &PermissionsVerifierPrx::_iceI_checkPermissions, iceP_userId, iceP_password, context).get();
     iceP_reason = ::std::move(::std::get<1>(_result));
     return ::std::get<0>(_result);
 }
@@ -83,7 +82,7 @@ Glacier2::PermissionsVerifierPrx::checkPermissions(const ::std::string& iceP_use
 ::std::future<::std::tuple<bool, ::std::string>>
 Glacier2::PermissionsVerifierPrx::checkPermissionsAsync(const ::std::string& iceP_userId, const ::std::string& iceP_password, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<bool, ::std::string>, ::std::promise>(false, this, &PermissionsVerifierPrx::_iceI_checkPermissions, iceP_userId, iceP_password, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<bool, ::std::string>>(false, this, &PermissionsVerifierPrx::_iceI_checkPermissions, iceP_userId, iceP_password, context);
 }
 
 ::std::function<void()>
@@ -97,7 +96,7 @@ Glacier2::PermissionsVerifierPrx::checkPermissionsAsync(const ::std::string& ice
     {
         response(::std::get<0>(_result), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<bool, ::std::string>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Glacier2::PermissionsVerifierPrx::_iceI_checkPermissions, iceP_userId, iceP_password, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<bool, ::std::string>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Glacier2::PermissionsVerifierPrx::_iceI_checkPermissions, iceP_userId, iceP_password, context);
 }
 
 /// \cond INTERNAL
@@ -143,7 +142,7 @@ Glacier2::PermissionsVerifierPrx::ice_staticId()
 bool
 Glacier2::SSLPermissionsVerifierPrx::authorize(const SSLInfo& iceP_info, ::std::string& iceP_reason, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<bool, ::std::string>>(true, this, &SSLPermissionsVerifierPrx::_iceI_authorize, iceP_info, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<bool, ::std::string>>(true, this, &SSLPermissionsVerifierPrx::_iceI_authorize, iceP_info, context).get();
     iceP_reason = ::std::move(::std::get<1>(_result));
     return ::std::get<0>(_result);
 }
@@ -151,7 +150,7 @@ Glacier2::SSLPermissionsVerifierPrx::authorize(const SSLInfo& iceP_info, ::std::
 ::std::future<::std::tuple<bool, ::std::string>>
 Glacier2::SSLPermissionsVerifierPrx::authorizeAsync(const SSLInfo& iceP_info, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<bool, ::std::string>, ::std::promise>(false, this, &SSLPermissionsVerifierPrx::_iceI_authorize, iceP_info, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<bool, ::std::string>>(false, this, &SSLPermissionsVerifierPrx::_iceI_authorize, iceP_info, context);
 }
 
 ::std::function<void()>
@@ -165,7 +164,7 @@ Glacier2::SSLPermissionsVerifierPrx::authorizeAsync(const SSLInfo& iceP_info,
     {
         response(::std::get<0>(_result), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<bool, ::std::string>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Glacier2::SSLPermissionsVerifierPrx::_iceI_authorize, iceP_info, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<bool, ::std::string>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Glacier2::SSLPermissionsVerifierPrx::_iceI_authorize, iceP_info, context);
 }
 
 /// \cond INTERNAL

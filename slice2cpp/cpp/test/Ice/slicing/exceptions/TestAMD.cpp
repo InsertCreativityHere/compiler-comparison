@@ -15,8 +15,7 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <TestAMD.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -134,13 +133,13 @@ const ::std::string iceC_Test_TestIntf_shutdown_name = "shutdown";
 void
 Test::RelayPrx::knownPreservedAsBase(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &RelayPrx::_iceI_knownPreservedAsBase, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &RelayPrx::_iceI_knownPreservedAsBase, context).get();
 }
 
 ::std::future<void>
 Test::RelayPrx::knownPreservedAsBaseAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &RelayPrx::_iceI_knownPreservedAsBase, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &RelayPrx::_iceI_knownPreservedAsBase, context);
 }
 
 ::std::function<void()>
@@ -149,7 +148,7 @@ Test::RelayPrx::knownPreservedAsBaseAsync(::std::function<void ()> response,
                                           ::std::function<void(bool)> sent,
                                           const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RelayPrx::_iceI_knownPreservedAsBase, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RelayPrx::_iceI_knownPreservedAsBase, context);
 }
 
 /// \cond INTERNAL
@@ -179,13 +178,13 @@ Test::RelayPrx::_iceI_knownPreservedAsBase(const ::std::shared_ptr<::IceInternal
 void
 Test::RelayPrx::knownPreservedAsKnownPreserved(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &RelayPrx::_iceI_knownPreservedAsKnownPreserved, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &RelayPrx::_iceI_knownPreservedAsKnownPreserved, context).get();
 }
 
 ::std::future<void>
 Test::RelayPrx::knownPreservedAsKnownPreservedAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &RelayPrx::_iceI_knownPreservedAsKnownPreserved, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &RelayPrx::_iceI_knownPreservedAsKnownPreserved, context);
 }
 
 ::std::function<void()>
@@ -194,7 +193,7 @@ Test::RelayPrx::knownPreservedAsKnownPreservedAsync(::std::function<void ()> res
                                                     ::std::function<void(bool)> sent,
                                                     const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RelayPrx::_iceI_knownPreservedAsKnownPreserved, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RelayPrx::_iceI_knownPreservedAsKnownPreserved, context);
 }
 
 /// \cond INTERNAL
@@ -224,13 +223,13 @@ Test::RelayPrx::_iceI_knownPreservedAsKnownPreserved(const ::std::shared_ptr<::I
 void
 Test::RelayPrx::unknownPreservedAsBase(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &RelayPrx::_iceI_unknownPreservedAsBase, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &RelayPrx::_iceI_unknownPreservedAsBase, context).get();
 }
 
 ::std::future<void>
 Test::RelayPrx::unknownPreservedAsBaseAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &RelayPrx::_iceI_unknownPreservedAsBase, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &RelayPrx::_iceI_unknownPreservedAsBase, context);
 }
 
 ::std::function<void()>
@@ -239,7 +238,7 @@ Test::RelayPrx::unknownPreservedAsBaseAsync(::std::function<void ()> response,
                                             ::std::function<void(bool)> sent,
                                             const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RelayPrx::_iceI_unknownPreservedAsBase, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RelayPrx::_iceI_unknownPreservedAsBase, context);
 }
 
 /// \cond INTERNAL
@@ -269,13 +268,13 @@ Test::RelayPrx::_iceI_unknownPreservedAsBase(const ::std::shared_ptr<::IceIntern
 void
 Test::RelayPrx::unknownPreservedAsKnownPreserved(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &RelayPrx::_iceI_unknownPreservedAsKnownPreserved, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &RelayPrx::_iceI_unknownPreservedAsKnownPreserved, context).get();
 }
 
 ::std::future<void>
 Test::RelayPrx::unknownPreservedAsKnownPreservedAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &RelayPrx::_iceI_unknownPreservedAsKnownPreserved, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &RelayPrx::_iceI_unknownPreservedAsKnownPreserved, context);
 }
 
 ::std::function<void()>
@@ -284,7 +283,7 @@ Test::RelayPrx::unknownPreservedAsKnownPreservedAsync(::std::function<void ()> r
                                                       ::std::function<void(bool)> sent,
                                                       const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RelayPrx::_iceI_unknownPreservedAsKnownPreserved, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RelayPrx::_iceI_unknownPreservedAsKnownPreserved, context);
 }
 
 /// \cond INTERNAL
@@ -321,13 +320,13 @@ Test::RelayPrx::ice_staticId()
 void
 Test::TestIntfPrx::baseAsBase(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_baseAsBase, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_baseAsBase, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::baseAsBaseAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_baseAsBase, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_baseAsBase, context);
 }
 
 ::std::function<void()>
@@ -336,7 +335,7 @@ Test::TestIntfPrx::baseAsBaseAsync(::std::function<void ()> response,
                                    ::std::function<void(bool)> sent,
                                    const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_baseAsBase, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_baseAsBase, context);
 }
 
 /// \cond INTERNAL
@@ -366,13 +365,13 @@ Test::TestIntfPrx::_iceI_baseAsBase(const ::std::shared_ptr<::IceInternal::Outgo
 void
 Test::TestIntfPrx::unknownDerivedAsBase(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_unknownDerivedAsBase, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_unknownDerivedAsBase, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::unknownDerivedAsBaseAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_unknownDerivedAsBase, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_unknownDerivedAsBase, context);
 }
 
 ::std::function<void()>
@@ -381,7 +380,7 @@ Test::TestIntfPrx::unknownDerivedAsBaseAsync(::std::function<void ()> response,
                                              ::std::function<void(bool)> sent,
                                              const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownDerivedAsBase, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownDerivedAsBase, context);
 }
 
 /// \cond INTERNAL
@@ -411,13 +410,13 @@ Test::TestIntfPrx::_iceI_unknownDerivedAsBase(const ::std::shared_ptr<::IceInter
 void
 Test::TestIntfPrx::knownDerivedAsBase(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownDerivedAsBase, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownDerivedAsBase, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::knownDerivedAsBaseAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_knownDerivedAsBase, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_knownDerivedAsBase, context);
 }
 
 ::std::function<void()>
@@ -426,7 +425,7 @@ Test::TestIntfPrx::knownDerivedAsBaseAsync(::std::function<void ()> response,
                                            ::std::function<void(bool)> sent,
                                            const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownDerivedAsBase, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownDerivedAsBase, context);
 }
 
 /// \cond INTERNAL
@@ -456,13 +455,13 @@ Test::TestIntfPrx::_iceI_knownDerivedAsBase(const ::std::shared_ptr<::IceInterna
 void
 Test::TestIntfPrx::knownDerivedAsKnownDerived(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownDerivedAsKnownDerived, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownDerivedAsKnownDerived, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::knownDerivedAsKnownDerivedAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_knownDerivedAsKnownDerived, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_knownDerivedAsKnownDerived, context);
 }
 
 ::std::function<void()>
@@ -471,7 +470,7 @@ Test::TestIntfPrx::knownDerivedAsKnownDerivedAsync(::std::function<void ()> resp
                                                    ::std::function<void(bool)> sent,
                                                    const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownDerivedAsKnownDerived, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownDerivedAsKnownDerived, context);
 }
 
 /// \cond INTERNAL
@@ -501,13 +500,13 @@ Test::TestIntfPrx::_iceI_knownDerivedAsKnownDerived(const ::std::shared_ptr<::Ic
 void
 Test::TestIntfPrx::unknownIntermediateAsBase(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_unknownIntermediateAsBase, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_unknownIntermediateAsBase, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::unknownIntermediateAsBaseAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_unknownIntermediateAsBase, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_unknownIntermediateAsBase, context);
 }
 
 ::std::function<void()>
@@ -516,7 +515,7 @@ Test::TestIntfPrx::unknownIntermediateAsBaseAsync(::std::function<void ()> respo
                                                   ::std::function<void(bool)> sent,
                                                   const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownIntermediateAsBase, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownIntermediateAsBase, context);
 }
 
 /// \cond INTERNAL
@@ -546,13 +545,13 @@ Test::TestIntfPrx::_iceI_unknownIntermediateAsBase(const ::std::shared_ptr<::Ice
 void
 Test::TestIntfPrx::knownIntermediateAsBase(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownIntermediateAsBase, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownIntermediateAsBase, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::knownIntermediateAsBaseAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_knownIntermediateAsBase, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_knownIntermediateAsBase, context);
 }
 
 ::std::function<void()>
@@ -561,7 +560,7 @@ Test::TestIntfPrx::knownIntermediateAsBaseAsync(::std::function<void ()> respons
                                                 ::std::function<void(bool)> sent,
                                                 const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownIntermediateAsBase, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownIntermediateAsBase, context);
 }
 
 /// \cond INTERNAL
@@ -591,13 +590,13 @@ Test::TestIntfPrx::_iceI_knownIntermediateAsBase(const ::std::shared_ptr<::IceIn
 void
 Test::TestIntfPrx::knownMostDerivedAsBase(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownMostDerivedAsBase, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownMostDerivedAsBase, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::knownMostDerivedAsBaseAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_knownMostDerivedAsBase, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_knownMostDerivedAsBase, context);
 }
 
 ::std::function<void()>
@@ -606,7 +605,7 @@ Test::TestIntfPrx::knownMostDerivedAsBaseAsync(::std::function<void ()> response
                                                ::std::function<void(bool)> sent,
                                                const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownMostDerivedAsBase, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownMostDerivedAsBase, context);
 }
 
 /// \cond INTERNAL
@@ -636,13 +635,13 @@ Test::TestIntfPrx::_iceI_knownMostDerivedAsBase(const ::std::shared_ptr<::IceInt
 void
 Test::TestIntfPrx::knownIntermediateAsKnownIntermediate(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownIntermediateAsKnownIntermediate, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownIntermediateAsKnownIntermediate, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::knownIntermediateAsKnownIntermediateAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_knownIntermediateAsKnownIntermediate, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_knownIntermediateAsKnownIntermediate, context);
 }
 
 ::std::function<void()>
@@ -651,7 +650,7 @@ Test::TestIntfPrx::knownIntermediateAsKnownIntermediateAsync(::std::function<voi
                                                              ::std::function<void(bool)> sent,
                                                              const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownIntermediateAsKnownIntermediate, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownIntermediateAsKnownIntermediate, context);
 }
 
 /// \cond INTERNAL
@@ -681,13 +680,13 @@ Test::TestIntfPrx::_iceI_knownIntermediateAsKnownIntermediate(const ::std::share
 void
 Test::TestIntfPrx::knownMostDerivedAsKnownIntermediate(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownMostDerivedAsKnownIntermediate, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownMostDerivedAsKnownIntermediate, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::knownMostDerivedAsKnownIntermediateAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_knownMostDerivedAsKnownIntermediate, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_knownMostDerivedAsKnownIntermediate, context);
 }
 
 ::std::function<void()>
@@ -696,7 +695,7 @@ Test::TestIntfPrx::knownMostDerivedAsKnownIntermediateAsync(::std::function<void
                                                             ::std::function<void(bool)> sent,
                                                             const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownMostDerivedAsKnownIntermediate, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownMostDerivedAsKnownIntermediate, context);
 }
 
 /// \cond INTERNAL
@@ -726,13 +725,13 @@ Test::TestIntfPrx::_iceI_knownMostDerivedAsKnownIntermediate(const ::std::shared
 void
 Test::TestIntfPrx::knownMostDerivedAsKnownMostDerived(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownMostDerivedAsKnownMostDerived, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownMostDerivedAsKnownMostDerived, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::knownMostDerivedAsKnownMostDerivedAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_knownMostDerivedAsKnownMostDerived, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_knownMostDerivedAsKnownMostDerived, context);
 }
 
 ::std::function<void()>
@@ -741,7 +740,7 @@ Test::TestIntfPrx::knownMostDerivedAsKnownMostDerivedAsync(::std::function<void 
                                                            ::std::function<void(bool)> sent,
                                                            const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownMostDerivedAsKnownMostDerived, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownMostDerivedAsKnownMostDerived, context);
 }
 
 /// \cond INTERNAL
@@ -771,13 +770,13 @@ Test::TestIntfPrx::_iceI_knownMostDerivedAsKnownMostDerived(const ::std::shared_
 void
 Test::TestIntfPrx::unknownMostDerived1AsBase(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_unknownMostDerived1AsBase, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_unknownMostDerived1AsBase, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::unknownMostDerived1AsBaseAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_unknownMostDerived1AsBase, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_unknownMostDerived1AsBase, context);
 }
 
 ::std::function<void()>
@@ -786,7 +785,7 @@ Test::TestIntfPrx::unknownMostDerived1AsBaseAsync(::std::function<void ()> respo
                                                   ::std::function<void(bool)> sent,
                                                   const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownMostDerived1AsBase, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownMostDerived1AsBase, context);
 }
 
 /// \cond INTERNAL
@@ -816,13 +815,13 @@ Test::TestIntfPrx::_iceI_unknownMostDerived1AsBase(const ::std::shared_ptr<::Ice
 void
 Test::TestIntfPrx::unknownMostDerived1AsKnownIntermediate(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_unknownMostDerived1AsKnownIntermediate, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_unknownMostDerived1AsKnownIntermediate, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::unknownMostDerived1AsKnownIntermediateAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_unknownMostDerived1AsKnownIntermediate, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_unknownMostDerived1AsKnownIntermediate, context);
 }
 
 ::std::function<void()>
@@ -831,7 +830,7 @@ Test::TestIntfPrx::unknownMostDerived1AsKnownIntermediateAsync(::std::function<v
                                                                ::std::function<void(bool)> sent,
                                                                const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownMostDerived1AsKnownIntermediate, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownMostDerived1AsKnownIntermediate, context);
 }
 
 /// \cond INTERNAL
@@ -861,13 +860,13 @@ Test::TestIntfPrx::_iceI_unknownMostDerived1AsKnownIntermediate(const ::std::sha
 void
 Test::TestIntfPrx::unknownMostDerived2AsBase(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_unknownMostDerived2AsBase, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_unknownMostDerived2AsBase, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::unknownMostDerived2AsBaseAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_unknownMostDerived2AsBase, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_unknownMostDerived2AsBase, context);
 }
 
 ::std::function<void()>
@@ -876,7 +875,7 @@ Test::TestIntfPrx::unknownMostDerived2AsBaseAsync(::std::function<void ()> respo
                                                   ::std::function<void(bool)> sent,
                                                   const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownMostDerived2AsBase, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownMostDerived2AsBase, context);
 }
 
 /// \cond INTERNAL
@@ -906,13 +905,13 @@ Test::TestIntfPrx::_iceI_unknownMostDerived2AsBase(const ::std::shared_ptr<::Ice
 void
 Test::TestIntfPrx::unknownMostDerived2AsBaseCompact(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_unknownMostDerived2AsBaseCompact, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_unknownMostDerived2AsBaseCompact, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::unknownMostDerived2AsBaseCompactAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_unknownMostDerived2AsBaseCompact, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_unknownMostDerived2AsBaseCompact, context);
 }
 
 ::std::function<void()>
@@ -921,7 +920,7 @@ Test::TestIntfPrx::unknownMostDerived2AsBaseCompactAsync(::std::function<void ()
                                                          ::std::function<void(bool)> sent,
                                                          const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownMostDerived2AsBaseCompact, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownMostDerived2AsBaseCompact, context);
 }
 
 /// \cond INTERNAL
@@ -951,13 +950,13 @@ Test::TestIntfPrx::_iceI_unknownMostDerived2AsBaseCompact(const ::std::shared_pt
 void
 Test::TestIntfPrx::knownPreservedAsBase(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownPreservedAsBase, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownPreservedAsBase, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::knownPreservedAsBaseAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_knownPreservedAsBase, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_knownPreservedAsBase, context);
 }
 
 ::std::function<void()>
@@ -966,7 +965,7 @@ Test::TestIntfPrx::knownPreservedAsBaseAsync(::std::function<void ()> response,
                                              ::std::function<void(bool)> sent,
                                              const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownPreservedAsBase, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownPreservedAsBase, context);
 }
 
 /// \cond INTERNAL
@@ -996,13 +995,13 @@ Test::TestIntfPrx::_iceI_knownPreservedAsBase(const ::std::shared_ptr<::IceInter
 void
 Test::TestIntfPrx::knownPreservedAsKnownPreserved(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownPreservedAsKnownPreserved, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_knownPreservedAsKnownPreserved, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::knownPreservedAsKnownPreservedAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_knownPreservedAsKnownPreserved, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_knownPreservedAsKnownPreserved, context);
 }
 
 ::std::function<void()>
@@ -1011,7 +1010,7 @@ Test::TestIntfPrx::knownPreservedAsKnownPreservedAsync(::std::function<void ()> 
                                                        ::std::function<void(bool)> sent,
                                                        const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownPreservedAsKnownPreserved, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownPreservedAsKnownPreserved, context);
 }
 
 /// \cond INTERNAL
@@ -1041,13 +1040,13 @@ Test::TestIntfPrx::_iceI_knownPreservedAsKnownPreserved(const ::std::shared_ptr<
 void
 Test::TestIntfPrx::relayKnownPreservedAsBase(const ::std::optional<RelayPrx>& iceP_r, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_relayKnownPreservedAsBase, iceP_r, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_relayKnownPreservedAsBase, iceP_r, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::relayKnownPreservedAsBaseAsync(const ::std::optional<RelayPrx>& iceP_r, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_relayKnownPreservedAsBase, iceP_r, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_relayKnownPreservedAsBase, iceP_r, context);
 }
 
 ::std::function<void()>
@@ -1057,7 +1056,7 @@ Test::TestIntfPrx::relayKnownPreservedAsBaseAsync(const ::std::optional<RelayPrx
                                                   ::std::function<void(bool)> sent,
                                                   const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_relayKnownPreservedAsBase, iceP_r, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_relayKnownPreservedAsBase, iceP_r, context);
 }
 
 /// \cond INTERNAL
@@ -1090,13 +1089,13 @@ Test::TestIntfPrx::_iceI_relayKnownPreservedAsBase(const ::std::shared_ptr<::Ice
 void
 Test::TestIntfPrx::relayKnownPreservedAsKnownPreserved(const ::std::optional<RelayPrx>& iceP_r, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_relayKnownPreservedAsKnownPreserved, iceP_r, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_relayKnownPreservedAsKnownPreserved, iceP_r, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::relayKnownPreservedAsKnownPreservedAsync(const ::std::optional<RelayPrx>& iceP_r, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_relayKnownPreservedAsKnownPreserved, iceP_r, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_relayKnownPreservedAsKnownPreserved, iceP_r, context);
 }
 
 ::std::function<void()>
@@ -1106,7 +1105,7 @@ Test::TestIntfPrx::relayKnownPreservedAsKnownPreservedAsync(const ::std::optiona
                                                             ::std::function<void(bool)> sent,
                                                             const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_relayKnownPreservedAsKnownPreserved, iceP_r, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_relayKnownPreservedAsKnownPreserved, iceP_r, context);
 }
 
 /// \cond INTERNAL
@@ -1139,13 +1138,13 @@ Test::TestIntfPrx::_iceI_relayKnownPreservedAsKnownPreserved(const ::std::shared
 void
 Test::TestIntfPrx::unknownPreservedAsBase(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_unknownPreservedAsBase, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_unknownPreservedAsBase, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::unknownPreservedAsBaseAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_unknownPreservedAsBase, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_unknownPreservedAsBase, context);
 }
 
 ::std::function<void()>
@@ -1154,7 +1153,7 @@ Test::TestIntfPrx::unknownPreservedAsBaseAsync(::std::function<void ()> response
                                                ::std::function<void(bool)> sent,
                                                const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownPreservedAsBase, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownPreservedAsBase, context);
 }
 
 /// \cond INTERNAL
@@ -1184,13 +1183,13 @@ Test::TestIntfPrx::_iceI_unknownPreservedAsBase(const ::std::shared_ptr<::IceInt
 void
 Test::TestIntfPrx::unknownPreservedAsKnownPreserved(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_unknownPreservedAsKnownPreserved, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_unknownPreservedAsKnownPreserved, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::unknownPreservedAsKnownPreservedAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_unknownPreservedAsKnownPreserved, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_unknownPreservedAsKnownPreserved, context);
 }
 
 ::std::function<void()>
@@ -1199,7 +1198,7 @@ Test::TestIntfPrx::unknownPreservedAsKnownPreservedAsync(::std::function<void ()
                                                          ::std::function<void(bool)> sent,
                                                          const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownPreservedAsKnownPreserved, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownPreservedAsKnownPreserved, context);
 }
 
 /// \cond INTERNAL
@@ -1229,13 +1228,13 @@ Test::TestIntfPrx::_iceI_unknownPreservedAsKnownPreserved(const ::std::shared_pt
 void
 Test::TestIntfPrx::relayUnknownPreservedAsBase(const ::std::optional<RelayPrx>& iceP_r, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_relayUnknownPreservedAsBase, iceP_r, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_relayUnknownPreservedAsBase, iceP_r, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::relayUnknownPreservedAsBaseAsync(const ::std::optional<RelayPrx>& iceP_r, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_relayUnknownPreservedAsBase, iceP_r, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_relayUnknownPreservedAsBase, iceP_r, context);
 }
 
 ::std::function<void()>
@@ -1245,7 +1244,7 @@ Test::TestIntfPrx::relayUnknownPreservedAsBaseAsync(const ::std::optional<RelayP
                                                     ::std::function<void(bool)> sent,
                                                     const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_relayUnknownPreservedAsBase, iceP_r, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_relayUnknownPreservedAsBase, iceP_r, context);
 }
 
 /// \cond INTERNAL
@@ -1278,13 +1277,13 @@ Test::TestIntfPrx::_iceI_relayUnknownPreservedAsBase(const ::std::shared_ptr<::I
 void
 Test::TestIntfPrx::relayUnknownPreservedAsKnownPreserved(const ::std::optional<RelayPrx>& iceP_r, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_relayUnknownPreservedAsKnownPreserved, iceP_r, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_relayUnknownPreservedAsKnownPreserved, iceP_r, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::relayUnknownPreservedAsKnownPreservedAsync(const ::std::optional<RelayPrx>& iceP_r, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_relayUnknownPreservedAsKnownPreserved, iceP_r, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_relayUnknownPreservedAsKnownPreserved, iceP_r, context);
 }
 
 ::std::function<void()>
@@ -1294,7 +1293,7 @@ Test::TestIntfPrx::relayUnknownPreservedAsKnownPreservedAsync(const ::std::optio
                                                               ::std::function<void(bool)> sent,
                                                               const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_relayUnknownPreservedAsKnownPreserved, iceP_r, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_relayUnknownPreservedAsKnownPreserved, iceP_r, context);
 }
 
 /// \cond INTERNAL
@@ -1327,13 +1326,13 @@ Test::TestIntfPrx::_iceI_relayUnknownPreservedAsKnownPreserved(const ::std::shar
 void
 Test::TestIntfPrx::shutdown(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_shutdown, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::shutdownAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_shutdown, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_shutdown, context);
 }
 
 ::std::function<void()>
@@ -1342,7 +1341,7 @@ Test::TestIntfPrx::shutdownAsync(::std::function<void ()> response,
                                  ::std::function<void(bool)> sent,
                                  const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
 }
 
 /// \cond INTERNAL

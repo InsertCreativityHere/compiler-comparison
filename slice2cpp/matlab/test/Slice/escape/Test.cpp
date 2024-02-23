@@ -15,8 +15,7 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -73,13 +72,13 @@ const ::std::string iceC_classdef_break_elseif_checkedCast_name = "checkedCast";
 void
 classdef::_cpp_break::elseifPrx::events(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &elseifPrx::_iceI_events, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &elseifPrx::_iceI_events, context).get();
 }
 
 ::std::future<void>
 classdef::_cpp_break::elseifPrx::eventsAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &elseifPrx::_iceI_events, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &elseifPrx::_iceI_events, context);
 }
 
 ::std::function<void()>
@@ -88,7 +87,7 @@ classdef::_cpp_break::elseifPrx::eventsAsync(::std::function<void ()> response,
                                              ::std::function<void(bool)> sent,
                                              const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &classdef::_cpp_break::elseifPrx::_iceI_events, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &classdef::_cpp_break::elseifPrx::_iceI_events, context);
 }
 
 /// \cond INTERNAL
@@ -104,13 +103,13 @@ classdef::_cpp_break::elseifPrx::_iceI_events(const ::std::shared_ptr<::IceInter
 void
 classdef::_cpp_break::elseifPrx::function(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &elseifPrx::_iceI_function, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &elseifPrx::_iceI_function, context).get();
 }
 
 ::std::future<void>
 classdef::_cpp_break::elseifPrx::functionAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &elseifPrx::_iceI_function, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &elseifPrx::_iceI_function, context);
 }
 
 ::std::function<void()>
@@ -119,7 +118,7 @@ classdef::_cpp_break::elseifPrx::functionAsync(::std::function<void ()> response
                                                ::std::function<void(bool)> sent,
                                                const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &classdef::_cpp_break::elseifPrx::_iceI_function, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &classdef::_cpp_break::elseifPrx::_iceI_function, context);
 }
 
 /// \cond INTERNAL
@@ -135,13 +134,13 @@ classdef::_cpp_break::elseifPrx::_iceI_function(const ::std::shared_ptr<::IceInt
 void
 classdef::_cpp_break::elseifPrx::_cpp_delete(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &elseifPrx::_iceI_delete, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &elseifPrx::_iceI_delete, context).get();
 }
 
 ::std::future<void>
 classdef::_cpp_break::elseifPrx::deleteAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &elseifPrx::_iceI_delete, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &elseifPrx::_iceI_delete, context);
 }
 
 ::std::function<void()>
@@ -150,7 +149,7 @@ classdef::_cpp_break::elseifPrx::deleteAsync(::std::function<void ()> response,
                                              ::std::function<void(bool)> sent,
                                              const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &classdef::_cpp_break::elseifPrx::_iceI_delete, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &classdef::_cpp_break::elseifPrx::_iceI_delete, context);
 }
 
 /// \cond INTERNAL
@@ -166,13 +165,13 @@ classdef::_cpp_break::elseifPrx::_iceI_delete(const ::std::shared_ptr<::IceInter
 void
 classdef::_cpp_break::elseifPrx::checkedCast(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &elseifPrx::_iceI_checkedCast, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &elseifPrx::_iceI_checkedCast, context).get();
 }
 
 ::std::future<void>
 classdef::_cpp_break::elseifPrx::checkedCastAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &elseifPrx::_iceI_checkedCast, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &elseifPrx::_iceI_checkedCast, context);
 }
 
 ::std::function<void()>
@@ -181,7 +180,7 @@ classdef::_cpp_break::elseifPrx::checkedCastAsync(::std::function<void ()> respo
                                                   ::std::function<void(bool)> sent,
                                                   const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &classdef::_cpp_break::elseifPrx::_iceI_checkedCast, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &classdef::_cpp_break::elseifPrx::_iceI_checkedCast, context);
 }
 
 /// \cond INTERNAL

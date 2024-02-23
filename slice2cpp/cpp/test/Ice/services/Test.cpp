@@ -15,8 +15,7 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -55,13 +54,13 @@ const ::std::string iceC_Test_Clock_tick_name = "tick";
 void
 Test::ClockPrx::tick(const ::std::string& iceP_time, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &ClockPrx::_iceI_tick, iceP_time, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &ClockPrx::_iceI_tick, iceP_time, context).get();
 }
 
 ::std::future<void>
 Test::ClockPrx::tickAsync(const ::std::string& iceP_time, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &ClockPrx::_iceI_tick, iceP_time, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &ClockPrx::_iceI_tick, iceP_time, context);
 }
 
 ::std::function<void()>
@@ -71,7 +70,7 @@ Test::ClockPrx::tickAsync(const ::std::string& iceP_time,
                           ::std::function<void(bool)> sent,
                           const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ClockPrx::_iceI_tick, iceP_time, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ClockPrx::_iceI_tick, iceP_time, context);
 }
 
 /// \cond INTERNAL

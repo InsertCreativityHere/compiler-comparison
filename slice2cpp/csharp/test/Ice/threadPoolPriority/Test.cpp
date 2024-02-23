@@ -15,8 +15,7 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -57,13 +56,13 @@ const ::std::string iceC_Test_Priority_getPriority_name = "getPriority";
 void
 Test::PriorityPrx::shutdown(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &PriorityPrx::_iceI_shutdown, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &PriorityPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
 Test::PriorityPrx::shutdownAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &PriorityPrx::_iceI_shutdown, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &PriorityPrx::_iceI_shutdown, context);
 }
 
 ::std::function<void()>
@@ -72,7 +71,7 @@ Test::PriorityPrx::shutdownAsync(::std::function<void ()> response,
                                  ::std::function<void(bool)> sent,
                                  const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::PriorityPrx::_iceI_shutdown, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::PriorityPrx::_iceI_shutdown, context);
 }
 
 /// \cond INTERNAL
@@ -88,13 +87,13 @@ Test::PriorityPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
 ::std::string
 Test::PriorityPrx::getPriority(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::string>(true, this, &PriorityPrx::_iceI_getPriority, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::string>(true, this, &PriorityPrx::_iceI_getPriority, context).get();
 }
 
 ::std::future<::std::string>
 Test::PriorityPrx::getPriorityAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::string, ::std::promise>(false, this, &PriorityPrx::_iceI_getPriority, context);
+    return ::IceInternal::makePromiseOutgoing<::std::string>(false, this, &PriorityPrx::_iceI_getPriority, context);
 }
 
 ::std::function<void()>
@@ -103,7 +102,7 @@ Test::PriorityPrx::getPriorityAsync(::std::function<void (::std::string)> respon
                                     ::std::function<void(bool)> sent,
                                     const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::PriorityPrx::_iceI_getPriority, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::PriorityPrx::_iceI_getPriority, context);
 }
 
 /// \cond INTERNAL

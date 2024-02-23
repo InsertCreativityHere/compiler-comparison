@@ -15,8 +15,7 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <ClientPrivate.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -59,13 +58,13 @@ const ::std::string iceC_Test_Initial2_opVoid_name = "opVoid";
 void
 Test::Initial2Prx::opClassAndUnknownOptional(const ::std::shared_ptr<A>& iceP_p, const std::optional<::std::shared_ptr<::Ice::Value>>& iceP_o, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &Initial2Prx::_iceI_opClassAndUnknownOptional, iceP_p, iceP_o, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &Initial2Prx::_iceI_opClassAndUnknownOptional, iceP_p, iceP_o, context).get();
 }
 
 ::std::future<void>
 Test::Initial2Prx::opClassAndUnknownOptionalAsync(const ::std::shared_ptr<A>& iceP_p, const std::optional<::std::shared_ptr<::Ice::Value>>& iceP_o, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &Initial2Prx::_iceI_opClassAndUnknownOptional, iceP_p, iceP_o, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &Initial2Prx::_iceI_opClassAndUnknownOptional, iceP_p, iceP_o, context);
 }
 
 ::std::function<void()>
@@ -75,7 +74,7 @@ Test::Initial2Prx::opClassAndUnknownOptionalAsync(const ::std::shared_ptr<A>& ic
                                                   ::std::function<void(bool)> sent,
                                                   const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::Initial2Prx::_iceI_opClassAndUnknownOptional, iceP_p, iceP_o, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::Initial2Prx::_iceI_opClassAndUnknownOptional, iceP_p, iceP_o, context);
 }
 
 /// \cond INTERNAL
@@ -96,13 +95,13 @@ Test::Initial2Prx::_iceI_opClassAndUnknownOptional(const ::std::shared_ptr<::Ice
 void
 Test::Initial2Prx::opVoid(const std::optional<::std::int32_t>& iceP_a, const std::optional<::std::string>& iceP_v, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &Initial2Prx::_iceI_opVoid, iceP_a, iceP_v, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &Initial2Prx::_iceI_opVoid, iceP_a, iceP_v, context).get();
 }
 
 ::std::future<void>
 Test::Initial2Prx::opVoidAsync(const std::optional<::std::int32_t>& iceP_a, const std::optional<::std::string>& iceP_v, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &Initial2Prx::_iceI_opVoid, iceP_a, iceP_v, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &Initial2Prx::_iceI_opVoid, iceP_a, iceP_v, context);
 }
 
 ::std::function<void()>
@@ -112,7 +111,7 @@ Test::Initial2Prx::opVoidAsync(const std::optional<::std::int32_t>& iceP_a, cons
                                ::std::function<void(bool)> sent,
                                const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::Initial2Prx::_iceI_opVoid, iceP_a, iceP_v, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::Initial2Prx::_iceI_opVoid, iceP_a, iceP_v, context);
 }
 
 /// \cond INTERNAL

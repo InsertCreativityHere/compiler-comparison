@@ -15,8 +15,7 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -73,13 +72,13 @@ const ::std::string iceC_Test_Initial_shutdown_name = "shutdown";
 ::std::shared_ptr<::NoNamespace::C1>
 Test::InitialPrx::getNoNamespaceC2AsC1(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<::NoNamespace::C1>>(true, this, &InitialPrx::_iceI_getNoNamespaceC2AsC1, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<::NoNamespace::C1>>(true, this, &InitialPrx::_iceI_getNoNamespaceC2AsC1, context).get();
 }
 
 ::std::future<::std::shared_ptr<::NoNamespace::C1>>
 Test::InitialPrx::getNoNamespaceC2AsC1Async(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<::NoNamespace::C1>, ::std::promise>(false, this, &InitialPrx::_iceI_getNoNamespaceC2AsC1, context);
+    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<::NoNamespace::C1>>(false, this, &InitialPrx::_iceI_getNoNamespaceC2AsC1, context);
 }
 
 ::std::function<void()>
@@ -88,7 +87,7 @@ Test::InitialPrx::getNoNamespaceC2AsC1Async(::std::function<void (::std::shared_
                                             ::std::function<void(bool)> sent,
                                             const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::shared_ptr<::NoNamespace::C1>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getNoNamespaceC2AsC1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<::NoNamespace::C1>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getNoNamespaceC2AsC1, context);
 }
 
 /// \cond INTERNAL
@@ -112,13 +111,13 @@ Test::InitialPrx::_iceI_getNoNamespaceC2AsC1(const ::std::shared_ptr<::IceIntern
 ::std::shared_ptr<::NoNamespace::C2>
 Test::InitialPrx::getNoNamespaceC2AsC2(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<::NoNamespace::C2>>(true, this, &InitialPrx::_iceI_getNoNamespaceC2AsC2, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<::NoNamespace::C2>>(true, this, &InitialPrx::_iceI_getNoNamespaceC2AsC2, context).get();
 }
 
 ::std::future<::std::shared_ptr<::NoNamespace::C2>>
 Test::InitialPrx::getNoNamespaceC2AsC2Async(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<::NoNamespace::C2>, ::std::promise>(false, this, &InitialPrx::_iceI_getNoNamespaceC2AsC2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<::NoNamespace::C2>>(false, this, &InitialPrx::_iceI_getNoNamespaceC2AsC2, context);
 }
 
 ::std::function<void()>
@@ -127,7 +126,7 @@ Test::InitialPrx::getNoNamespaceC2AsC2Async(::std::function<void (::std::shared_
                                             ::std::function<void(bool)> sent,
                                             const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::shared_ptr<::NoNamespace::C2>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getNoNamespaceC2AsC2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<::NoNamespace::C2>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getNoNamespaceC2AsC2, context);
 }
 
 /// \cond INTERNAL
@@ -151,13 +150,13 @@ Test::InitialPrx::_iceI_getNoNamespaceC2AsC2(const ::std::shared_ptr<::IceIntern
 void
 Test::InitialPrx::throwNoNamespaceE2AsE1(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_throwNoNamespaceE2AsE1, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_throwNoNamespaceE2AsE1, context).get();
 }
 
 ::std::future<void>
 Test::InitialPrx::throwNoNamespaceE2AsE1Async(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &InitialPrx::_iceI_throwNoNamespaceE2AsE1, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &InitialPrx::_iceI_throwNoNamespaceE2AsE1, context);
 }
 
 ::std::function<void()>
@@ -166,7 +165,7 @@ Test::InitialPrx::throwNoNamespaceE2AsE1Async(::std::function<void ()> response,
                                               ::std::function<void(bool)> sent,
                                               const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwNoNamespaceE2AsE1, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwNoNamespaceE2AsE1, context);
 }
 
 /// \cond INTERNAL
@@ -196,13 +195,13 @@ Test::InitialPrx::_iceI_throwNoNamespaceE2AsE1(const ::std::shared_ptr<::IceInte
 void
 Test::InitialPrx::throwNoNamespaceE2AsE2(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_throwNoNamespaceE2AsE2, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_throwNoNamespaceE2AsE2, context).get();
 }
 
 ::std::future<void>
 Test::InitialPrx::throwNoNamespaceE2AsE2Async(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &InitialPrx::_iceI_throwNoNamespaceE2AsE2, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &InitialPrx::_iceI_throwNoNamespaceE2AsE2, context);
 }
 
 ::std::function<void()>
@@ -211,7 +210,7 @@ Test::InitialPrx::throwNoNamespaceE2AsE2Async(::std::function<void ()> response,
                                               ::std::function<void(bool)> sent,
                                               const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwNoNamespaceE2AsE2, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwNoNamespaceE2AsE2, context);
 }
 
 /// \cond INTERNAL
@@ -241,13 +240,13 @@ Test::InitialPrx::_iceI_throwNoNamespaceE2AsE2(const ::std::shared_ptr<::IceInte
 void
 Test::InitialPrx::throwNoNamespaceNotify(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_throwNoNamespaceNotify, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_throwNoNamespaceNotify, context).get();
 }
 
 ::std::future<void>
 Test::InitialPrx::throwNoNamespaceNotifyAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &InitialPrx::_iceI_throwNoNamespaceNotify, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &InitialPrx::_iceI_throwNoNamespaceNotify, context);
 }
 
 ::std::function<void()>
@@ -256,7 +255,7 @@ Test::InitialPrx::throwNoNamespaceNotifyAsync(::std::function<void ()> response,
                                               ::std::function<void(bool)> sent,
                                               const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwNoNamespaceNotify, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwNoNamespaceNotify, context);
 }
 
 /// \cond INTERNAL
@@ -286,13 +285,13 @@ Test::InitialPrx::_iceI_throwNoNamespaceNotify(const ::std::shared_ptr<::IceInte
 ::std::shared_ptr<::WithNamespace::C1>
 Test::InitialPrx::getWithNamespaceC2AsC1(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<::WithNamespace::C1>>(true, this, &InitialPrx::_iceI_getWithNamespaceC2AsC1, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<::WithNamespace::C1>>(true, this, &InitialPrx::_iceI_getWithNamespaceC2AsC1, context).get();
 }
 
 ::std::future<::std::shared_ptr<::WithNamespace::C1>>
 Test::InitialPrx::getWithNamespaceC2AsC1Async(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<::WithNamespace::C1>, ::std::promise>(false, this, &InitialPrx::_iceI_getWithNamespaceC2AsC1, context);
+    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<::WithNamespace::C1>>(false, this, &InitialPrx::_iceI_getWithNamespaceC2AsC1, context);
 }
 
 ::std::function<void()>
@@ -301,7 +300,7 @@ Test::InitialPrx::getWithNamespaceC2AsC1Async(::std::function<void (::std::share
                                               ::std::function<void(bool)> sent,
                                               const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::shared_ptr<::WithNamespace::C1>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getWithNamespaceC2AsC1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<::WithNamespace::C1>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getWithNamespaceC2AsC1, context);
 }
 
 /// \cond INTERNAL
@@ -325,13 +324,13 @@ Test::InitialPrx::_iceI_getWithNamespaceC2AsC1(const ::std::shared_ptr<::IceInte
 ::std::shared_ptr<::WithNamespace::C2>
 Test::InitialPrx::getWithNamespaceC2AsC2(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<::WithNamespace::C2>>(true, this, &InitialPrx::_iceI_getWithNamespaceC2AsC2, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<::WithNamespace::C2>>(true, this, &InitialPrx::_iceI_getWithNamespaceC2AsC2, context).get();
 }
 
 ::std::future<::std::shared_ptr<::WithNamespace::C2>>
 Test::InitialPrx::getWithNamespaceC2AsC2Async(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<::WithNamespace::C2>, ::std::promise>(false, this, &InitialPrx::_iceI_getWithNamespaceC2AsC2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<::WithNamespace::C2>>(false, this, &InitialPrx::_iceI_getWithNamespaceC2AsC2, context);
 }
 
 ::std::function<void()>
@@ -340,7 +339,7 @@ Test::InitialPrx::getWithNamespaceC2AsC2Async(::std::function<void (::std::share
                                               ::std::function<void(bool)> sent,
                                               const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::shared_ptr<::WithNamespace::C2>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getWithNamespaceC2AsC2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<::WithNamespace::C2>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getWithNamespaceC2AsC2, context);
 }
 
 /// \cond INTERNAL
@@ -364,13 +363,13 @@ Test::InitialPrx::_iceI_getWithNamespaceC2AsC2(const ::std::shared_ptr<::IceInte
 void
 Test::InitialPrx::throwWithNamespaceE2AsE1(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_throwWithNamespaceE2AsE1, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_throwWithNamespaceE2AsE1, context).get();
 }
 
 ::std::future<void>
 Test::InitialPrx::throwWithNamespaceE2AsE1Async(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &InitialPrx::_iceI_throwWithNamespaceE2AsE1, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &InitialPrx::_iceI_throwWithNamespaceE2AsE1, context);
 }
 
 ::std::function<void()>
@@ -379,7 +378,7 @@ Test::InitialPrx::throwWithNamespaceE2AsE1Async(::std::function<void ()> respons
                                                 ::std::function<void(bool)> sent,
                                                 const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwWithNamespaceE2AsE1, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwWithNamespaceE2AsE1, context);
 }
 
 /// \cond INTERNAL
@@ -409,13 +408,13 @@ Test::InitialPrx::_iceI_throwWithNamespaceE2AsE1(const ::std::shared_ptr<::IceIn
 void
 Test::InitialPrx::throwWithNamespaceE2AsE2(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_throwWithNamespaceE2AsE2, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_throwWithNamespaceE2AsE2, context).get();
 }
 
 ::std::future<void>
 Test::InitialPrx::throwWithNamespaceE2AsE2Async(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &InitialPrx::_iceI_throwWithNamespaceE2AsE2, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &InitialPrx::_iceI_throwWithNamespaceE2AsE2, context);
 }
 
 ::std::function<void()>
@@ -424,7 +423,7 @@ Test::InitialPrx::throwWithNamespaceE2AsE2Async(::std::function<void ()> respons
                                                 ::std::function<void(bool)> sent,
                                                 const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwWithNamespaceE2AsE2, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwWithNamespaceE2AsE2, context);
 }
 
 /// \cond INTERNAL
@@ -454,13 +453,13 @@ Test::InitialPrx::_iceI_throwWithNamespaceE2AsE2(const ::std::shared_ptr<::IceIn
 void
 Test::InitialPrx::shutdown(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_shutdown, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
 Test::InitialPrx::shutdownAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &InitialPrx::_iceI_shutdown, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &InitialPrx::_iceI_shutdown, context);
 }
 
 ::std::function<void()>
@@ -469,7 +468,7 @@ Test::InitialPrx::shutdownAsync(::std::function<void ()> response,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_shutdown, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_shutdown, context);
 }
 
 /// \cond INTERNAL

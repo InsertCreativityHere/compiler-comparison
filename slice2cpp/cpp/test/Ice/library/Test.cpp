@@ -18,8 +18,7 @@
 #endif
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -60,13 +59,13 @@ const ::std::string iceC_Test_MyInterface_op_name = "op";
 void
 Test::MyInterfacePrx::op(bool iceP_throwIt, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &MyInterfacePrx::_iceI_op, iceP_throwIt, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &MyInterfacePrx::_iceI_op, iceP_throwIt, context).get();
 }
 
 ::std::future<void>
 Test::MyInterfacePrx::opAsync(bool iceP_throwIt, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &MyInterfacePrx::_iceI_op, iceP_throwIt, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &MyInterfacePrx::_iceI_op, iceP_throwIt, context);
 }
 
 ::std::function<void()>
@@ -76,7 +75,7 @@ Test::MyInterfacePrx::opAsync(bool iceP_throwIt,
                               ::std::function<void(bool)> sent,
                               const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyInterfacePrx::_iceI_op, iceP_throwIt, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyInterfacePrx::_iceI_op, iceP_throwIt, context);
 }
 
 /// \cond INTERNAL

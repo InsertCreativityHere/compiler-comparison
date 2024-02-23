@@ -15,8 +15,7 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -110,13 +109,13 @@ const ::std::string iceC_Test_TestIntf_migrateHello_name = "migrateHello";
 void
 Test::TestLocatorRegistryPrx::addObject(const ::std::optional<::Ice::ObjectPrx>& iceP_obj, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestLocatorRegistryPrx::_iceI_addObject, iceP_obj, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestLocatorRegistryPrx::_iceI_addObject, iceP_obj, context).get();
 }
 
 ::std::future<void>
 Test::TestLocatorRegistryPrx::addObjectAsync(const ::std::optional<::Ice::ObjectPrx>& iceP_obj, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestLocatorRegistryPrx::_iceI_addObject, iceP_obj, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestLocatorRegistryPrx::_iceI_addObject, iceP_obj, context);
 }
 
 ::std::function<void()>
@@ -126,7 +125,7 @@ Test::TestLocatorRegistryPrx::addObjectAsync(const ::std::optional<::Ice::Object
                                              ::std::function<void(bool)> sent,
                                              const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestLocatorRegistryPrx::_iceI_addObject, iceP_obj, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestLocatorRegistryPrx::_iceI_addObject, iceP_obj, context);
 }
 
 /// \cond INTERNAL
@@ -152,13 +151,13 @@ Test::TestLocatorRegistryPrx::ice_staticId()
 void
 Test::ServerManagerPrx::startServer(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &ServerManagerPrx::_iceI_startServer, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &ServerManagerPrx::_iceI_startServer, context).get();
 }
 
 ::std::future<void>
 Test::ServerManagerPrx::startServerAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &ServerManagerPrx::_iceI_startServer, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &ServerManagerPrx::_iceI_startServer, context);
 }
 
 ::std::function<void()>
@@ -167,7 +166,7 @@ Test::ServerManagerPrx::startServerAsync(::std::function<void ()> response,
                                          ::std::function<void(bool)> sent,
                                          const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ServerManagerPrx::_iceI_startServer, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ServerManagerPrx::_iceI_startServer, context);
 }
 
 /// \cond INTERNAL
@@ -183,13 +182,13 @@ Test::ServerManagerPrx::_iceI_startServer(const ::std::shared_ptr<::IceInternal:
 void
 Test::ServerManagerPrx::shutdown(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &ServerManagerPrx::_iceI_shutdown, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &ServerManagerPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
 Test::ServerManagerPrx::shutdownAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &ServerManagerPrx::_iceI_shutdown, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &ServerManagerPrx::_iceI_shutdown, context);
 }
 
 ::std::function<void()>
@@ -198,7 +197,7 @@ Test::ServerManagerPrx::shutdownAsync(::std::function<void ()> response,
                                       ::std::function<void(bool)> sent,
                                       const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ServerManagerPrx::_iceI_shutdown, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ServerManagerPrx::_iceI_shutdown, context);
 }
 
 /// \cond INTERNAL
@@ -221,13 +220,13 @@ Test::ServerManagerPrx::ice_staticId()
 void
 Test::HelloPrx::sayHello(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &HelloPrx::_iceI_sayHello, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &HelloPrx::_iceI_sayHello, context).get();
 }
 
 ::std::future<void>
 Test::HelloPrx::sayHelloAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &HelloPrx::_iceI_sayHello, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &HelloPrx::_iceI_sayHello, context);
 }
 
 ::std::function<void()>
@@ -236,7 +235,7 @@ Test::HelloPrx::sayHelloAsync(::std::function<void ()> response,
                               ::std::function<void(bool)> sent,
                               const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::HelloPrx::_iceI_sayHello, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::HelloPrx::_iceI_sayHello, context);
 }
 
 /// \cond INTERNAL
@@ -259,13 +258,13 @@ Test::HelloPrx::ice_staticId()
 void
 Test::TestIntfPrx::shutdown(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_shutdown, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::shutdownAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_shutdown, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_shutdown, context);
 }
 
 ::std::function<void()>
@@ -274,7 +273,7 @@ Test::TestIntfPrx::shutdownAsync(::std::function<void ()> response,
                                  ::std::function<void(bool)> sent,
                                  const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
 }
 
 /// \cond INTERNAL
@@ -290,13 +289,13 @@ Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
 ::std::optional<::Test::HelloPrx>
 Test::TestIntfPrx::getHello(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::optional<HelloPrx>>(true, this, &TestIntfPrx::_iceI_getHello, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::optional<HelloPrx>>(true, this, &TestIntfPrx::_iceI_getHello, context).get();
 }
 
 ::std::future<::std::optional<::Test::HelloPrx>>
 Test::TestIntfPrx::getHelloAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::optional<HelloPrx>, ::std::promise>(false, this, &TestIntfPrx::_iceI_getHello, context);
+    return ::IceInternal::makePromiseOutgoing<::std::optional<HelloPrx>>(false, this, &TestIntfPrx::_iceI_getHello, context);
 }
 
 ::std::function<void()>
@@ -305,7 +304,7 @@ Test::TestIntfPrx::getHelloAsync(::std::function<void (::std::optional<::Test::H
                                  ::std::function<void(bool)> sent,
                                  const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::optional<HelloPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getHello, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::optional<HelloPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getHello, context);
 }
 
 /// \cond INTERNAL
@@ -322,13 +321,13 @@ Test::TestIntfPrx::_iceI_getHello(const ::std::shared_ptr<::IceInternal::Outgoin
 void
 Test::TestIntfPrx::migrateHello(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_migrateHello, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_migrateHello, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::migrateHelloAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_migrateHello, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_migrateHello, context);
 }
 
 ::std::function<void()>
@@ -337,7 +336,7 @@ Test::TestIntfPrx::migrateHelloAsync(::std::function<void ()> response,
                                      ::std::function<void(bool)> sent,
                                      const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_migrateHello, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_migrateHello, context);
 }
 
 /// \cond INTERNAL

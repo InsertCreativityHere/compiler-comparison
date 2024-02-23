@@ -18,8 +18,7 @@
 #endif
 #define ICE_BUILDING_GENERATED_CODE
 #include <PropertiesAdmin.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -62,13 +61,13 @@ const ::std::string iceC_Ice_PropertiesAdmin_setProperties_name = "setProperties
 ::std::string
 Ice::PropertiesAdminPrx::getProperty(const ::std::string& iceP_key, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::string>(true, this, &PropertiesAdminPrx::_iceI_getProperty, iceP_key, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::string>(true, this, &PropertiesAdminPrx::_iceI_getProperty, iceP_key, context).get();
 }
 
 ::std::future<::std::string>
 Ice::PropertiesAdminPrx::getPropertyAsync(const ::std::string& iceP_key, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::string, ::std::promise>(false, this, &PropertiesAdminPrx::_iceI_getProperty, iceP_key, context);
+    return ::IceInternal::makePromiseOutgoing<::std::string>(false, this, &PropertiesAdminPrx::_iceI_getProperty, iceP_key, context);
 }
 
 ::std::function<void()>
@@ -78,7 +77,7 @@ Ice::PropertiesAdminPrx::getPropertyAsync(const ::std::string& iceP_key,
                                           ::std::function<void(bool)> sent,
                                           const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Ice::PropertiesAdminPrx::_iceI_getProperty, iceP_key, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Ice::PropertiesAdminPrx::_iceI_getProperty, iceP_key, context);
 }
 
 /// \cond INTERNAL
@@ -98,13 +97,13 @@ Ice::PropertiesAdminPrx::_iceI_getProperty(const ::std::shared_ptr<::IceInternal
 ::Ice::PropertyDict
 Ice::PropertiesAdminPrx::getPropertiesForPrefix(const ::std::string& iceP_prefix, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<PropertyDict>(true, this, &PropertiesAdminPrx::_iceI_getPropertiesForPrefix, iceP_prefix, context).get();
+    return ::IceInternal::makePromiseOutgoing<PropertyDict>(true, this, &PropertiesAdminPrx::_iceI_getPropertiesForPrefix, iceP_prefix, context).get();
 }
 
 ::std::future<::Ice::PropertyDict>
 Ice::PropertiesAdminPrx::getPropertiesForPrefixAsync(const ::std::string& iceP_prefix, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<PropertyDict, ::std::promise>(false, this, &PropertiesAdminPrx::_iceI_getPropertiesForPrefix, iceP_prefix, context);
+    return ::IceInternal::makePromiseOutgoing<PropertyDict>(false, this, &PropertiesAdminPrx::_iceI_getPropertiesForPrefix, iceP_prefix, context);
 }
 
 ::std::function<void()>
@@ -114,7 +113,7 @@ Ice::PropertiesAdminPrx::getPropertiesForPrefixAsync(const ::std::string& iceP_p
                                                      ::std::function<void(bool)> sent,
                                                      const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<PropertyDict>(std::move(response), std::move(ex), std::move(sent), this, &Ice::PropertiesAdminPrx::_iceI_getPropertiesForPrefix, iceP_prefix, context);
+    return ::IceInternal::makeLambdaOutgoing<PropertyDict>(std::move(response), std::move(ex), std::move(sent), this, &Ice::PropertiesAdminPrx::_iceI_getPropertiesForPrefix, iceP_prefix, context);
 }
 
 /// \cond INTERNAL
@@ -134,13 +133,13 @@ Ice::PropertiesAdminPrx::_iceI_getPropertiesForPrefix(const ::std::shared_ptr<::
 void
 Ice::PropertiesAdminPrx::setProperties(const PropertyDict& iceP_newProperties, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &PropertiesAdminPrx::_iceI_setProperties, iceP_newProperties, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &PropertiesAdminPrx::_iceI_setProperties, iceP_newProperties, context).get();
 }
 
 ::std::future<void>
 Ice::PropertiesAdminPrx::setPropertiesAsync(const PropertyDict& iceP_newProperties, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &PropertiesAdminPrx::_iceI_setProperties, iceP_newProperties, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &PropertiesAdminPrx::_iceI_setProperties, iceP_newProperties, context);
 }
 
 ::std::function<void()>
@@ -150,7 +149,7 @@ Ice::PropertiesAdminPrx::setPropertiesAsync(const PropertyDict& iceP_newProperti
                                             ::std::function<void(bool)> sent,
                                             const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::PropertiesAdminPrx::_iceI_setProperties, iceP_newProperties, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::PropertiesAdminPrx::_iceI_setProperties, iceP_newProperties, context);
 }
 
 /// \cond INTERNAL

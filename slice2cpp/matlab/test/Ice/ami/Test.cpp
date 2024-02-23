@@ -15,8 +15,7 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -146,13 +145,13 @@ const ::std::string iceC_Test_Outer_Inner_TestIntf_op_name = "op";
 void
 Test::PingReplyPrx::reply(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &PingReplyPrx::_iceI_reply, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &PingReplyPrx::_iceI_reply, context).get();
 }
 
 ::std::future<void>
 Test::PingReplyPrx::replyAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &PingReplyPrx::_iceI_reply, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &PingReplyPrx::_iceI_reply, context);
 }
 
 ::std::function<void()>
@@ -161,7 +160,7 @@ Test::PingReplyPrx::replyAsync(::std::function<void ()> response,
                                ::std::function<void(bool)> sent,
                                const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::PingReplyPrx::_iceI_reply, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::PingReplyPrx::_iceI_reply, context);
 }
 
 /// \cond INTERNAL
@@ -184,13 +183,13 @@ Test::PingReplyPrx::ice_staticId()
 void
 Test::TestIntfPrx::op(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_op, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_op, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::opAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_op, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_op, context);
 }
 
 ::std::function<void()>
@@ -199,7 +198,7 @@ Test::TestIntfPrx::opAsync(::std::function<void ()> response,
                            ::std::function<void(bool)> sent,
                            const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_op, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_op, context);
 }
 
 /// \cond INTERNAL
@@ -215,13 +214,13 @@ Test::TestIntfPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsync
 void
 Test::TestIntfPrx::opWithPayload(const ::Ice::ByteSeq& iceP_seq, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_opWithPayload, iceP_seq, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_opWithPayload, iceP_seq, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::opWithPayloadAsync(const ::Ice::ByteSeq& iceP_seq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_opWithPayload, iceP_seq, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_opWithPayload, iceP_seq, context);
 }
 
 ::std::function<void()>
@@ -231,7 +230,7 @@ Test::TestIntfPrx::opWithPayloadAsync(const ::Ice::ByteSeq& iceP_seq,
                                       ::std::function<void(bool)> sent,
                                       const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opWithPayload, iceP_seq, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opWithPayload, iceP_seq, context);
 }
 
 /// \cond INTERNAL
@@ -250,13 +249,13 @@ Test::TestIntfPrx::_iceI_opWithPayload(const ::std::shared_ptr<::IceInternal::Ou
 ::std::int32_t
 Test::TestIntfPrx::opWithResult(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t>(true, this, &TestIntfPrx::_iceI_opWithResult, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &TestIntfPrx::_iceI_opWithResult, context).get();
 }
 
 ::std::future<::std::int32_t>
 Test::TestIntfPrx::opWithResultAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &TestIntfPrx::_iceI_opWithResult, context);
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &TestIntfPrx::_iceI_opWithResult, context);
 }
 
 ::std::function<void()>
@@ -265,7 +264,7 @@ Test::TestIntfPrx::opWithResultAsync(::std::function<void (::std::int32_t)> resp
                                      ::std::function<void(bool)> sent,
                                      const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opWithResult, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opWithResult, context);
 }
 
 /// \cond INTERNAL
@@ -282,13 +281,13 @@ Test::TestIntfPrx::_iceI_opWithResult(const ::std::shared_ptr<::IceInternal::Out
 void
 Test::TestIntfPrx::opWithUE(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_opWithUE, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_opWithUE, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::opWithUEAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_opWithUE, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_opWithUE, context);
 }
 
 ::std::function<void()>
@@ -297,7 +296,7 @@ Test::TestIntfPrx::opWithUEAsync(::std::function<void ()> response,
                                  ::std::function<void(bool)> sent,
                                  const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opWithUE, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opWithUE, context);
 }
 
 /// \cond INTERNAL
@@ -327,13 +326,13 @@ Test::TestIntfPrx::_iceI_opWithUE(const ::std::shared_ptr<::IceInternal::Outgoin
 void
 Test::TestIntfPrx::opBatch(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_opBatch, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_opBatch, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::opBatchAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_opBatch, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_opBatch, context);
 }
 
 ::std::function<void()>
@@ -342,7 +341,7 @@ Test::TestIntfPrx::opBatchAsync(::std::function<void ()> response,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opBatch, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opBatch, context);
 }
 
 /// \cond INTERNAL
@@ -358,13 +357,13 @@ Test::TestIntfPrx::_iceI_opBatch(const ::std::shared_ptr<::IceInternal::Outgoing
 ::std::int32_t
 Test::TestIntfPrx::opBatchCount(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t>(true, this, &TestIntfPrx::_iceI_opBatchCount, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &TestIntfPrx::_iceI_opBatchCount, context).get();
 }
 
 ::std::future<::std::int32_t>
 Test::TestIntfPrx::opBatchCountAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &TestIntfPrx::_iceI_opBatchCount, context);
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &TestIntfPrx::_iceI_opBatchCount, context);
 }
 
 ::std::function<void()>
@@ -373,7 +372,7 @@ Test::TestIntfPrx::opBatchCountAsync(::std::function<void (::std::int32_t)> resp
                                      ::std::function<void(bool)> sent,
                                      const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opBatchCount, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opBatchCount, context);
 }
 
 /// \cond INTERNAL
@@ -390,13 +389,13 @@ Test::TestIntfPrx::_iceI_opBatchCount(const ::std::shared_ptr<::IceInternal::Out
 bool
 Test::TestIntfPrx::waitForBatch(::std::int32_t iceP_count, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<bool>(true, this, &TestIntfPrx::_iceI_waitForBatch, iceP_count, context).get();
+    return ::IceInternal::makePromiseOutgoing<bool>(true, this, &TestIntfPrx::_iceI_waitForBatch, iceP_count, context).get();
 }
 
 ::std::future<bool>
 Test::TestIntfPrx::waitForBatchAsync(::std::int32_t iceP_count, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<bool, ::std::promise>(false, this, &TestIntfPrx::_iceI_waitForBatch, iceP_count, context);
+    return ::IceInternal::makePromiseOutgoing<bool>(false, this, &TestIntfPrx::_iceI_waitForBatch, iceP_count, context);
 }
 
 ::std::function<void()>
@@ -406,7 +405,7 @@ Test::TestIntfPrx::waitForBatchAsync(::std::int32_t iceP_count,
                                      ::std::function<void(bool)> sent,
                                      const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_waitForBatch, iceP_count, context);
+    return ::IceInternal::makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_waitForBatch, iceP_count, context);
 }
 
 /// \cond INTERNAL
@@ -426,13 +425,13 @@ Test::TestIntfPrx::_iceI_waitForBatch(const ::std::shared_ptr<::IceInternal::Out
 void
 Test::TestIntfPrx::close(CloseMode iceP_mode, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_close, iceP_mode, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_close, iceP_mode, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::closeAsync(CloseMode iceP_mode, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_close, iceP_mode, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_close, iceP_mode, context);
 }
 
 ::std::function<void()>
@@ -442,7 +441,7 @@ Test::TestIntfPrx::closeAsync(CloseMode iceP_mode,
                               ::std::function<void(bool)> sent,
                               const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_close, iceP_mode, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_close, iceP_mode, context);
 }
 
 /// \cond INTERNAL
@@ -461,13 +460,13 @@ Test::TestIntfPrx::_iceI_close(const ::std::shared_ptr<::IceInternal::OutgoingAs
 void
 Test::TestIntfPrx::sleep(::std::int32_t iceP_ms, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_sleep, iceP_ms, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_sleep, iceP_ms, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::sleepAsync(::std::int32_t iceP_ms, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_sleep, iceP_ms, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_sleep, iceP_ms, context);
 }
 
 ::std::function<void()>
@@ -477,7 +476,7 @@ Test::TestIntfPrx::sleepAsync(::std::int32_t iceP_ms,
                               ::std::function<void(bool)> sent,
                               const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_sleep, iceP_ms, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_sleep, iceP_ms, context);
 }
 
 /// \cond INTERNAL
@@ -496,13 +495,13 @@ Test::TestIntfPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAs
 void
 Test::TestIntfPrx::startDispatch(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_startDispatch, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_startDispatch, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::startDispatchAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_startDispatch, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_startDispatch, context);
 }
 
 ::std::function<void()>
@@ -511,7 +510,7 @@ Test::TestIntfPrx::startDispatchAsync(::std::function<void ()> response,
                                       ::std::function<void(bool)> sent,
                                       const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_startDispatch, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_startDispatch, context);
 }
 
 /// \cond INTERNAL
@@ -527,13 +526,13 @@ Test::TestIntfPrx::_iceI_startDispatch(const ::std::shared_ptr<::IceInternal::Ou
 void
 Test::TestIntfPrx::finishDispatch(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_finishDispatch, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_finishDispatch, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::finishDispatchAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_finishDispatch, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_finishDispatch, context);
 }
 
 ::std::function<void()>
@@ -542,7 +541,7 @@ Test::TestIntfPrx::finishDispatchAsync(::std::function<void ()> response,
                                        ::std::function<void(bool)> sent,
                                        const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_finishDispatch, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_finishDispatch, context);
 }
 
 /// \cond INTERNAL
@@ -558,13 +557,13 @@ Test::TestIntfPrx::_iceI_finishDispatch(const ::std::shared_ptr<::IceInternal::O
 void
 Test::TestIntfPrx::shutdown(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_shutdown, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::shutdownAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_shutdown, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_shutdown, context);
 }
 
 ::std::function<void()>
@@ -573,7 +572,7 @@ Test::TestIntfPrx::shutdownAsync(::std::function<void ()> response,
                                  ::std::function<void(bool)> sent,
                                  const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
 }
 
 /// \cond INTERNAL
@@ -589,13 +588,13 @@ Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
 bool
 Test::TestIntfPrx::supportsAMD(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<bool>(true, this, &TestIntfPrx::_iceI_supportsAMD, context).get();
+    return ::IceInternal::makePromiseOutgoing<bool>(true, this, &TestIntfPrx::_iceI_supportsAMD, context).get();
 }
 
 ::std::future<bool>
 Test::TestIntfPrx::supportsAMDAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<bool, ::std::promise>(false, this, &TestIntfPrx::_iceI_supportsAMD, context);
+    return ::IceInternal::makePromiseOutgoing<bool>(false, this, &TestIntfPrx::_iceI_supportsAMD, context);
 }
 
 ::std::function<void()>
@@ -604,7 +603,7 @@ Test::TestIntfPrx::supportsAMDAsync(::std::function<void (bool)> response,
                                     ::std::function<void(bool)> sent,
                                     const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_supportsAMD, context);
+    return ::IceInternal::makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_supportsAMD, context);
 }
 
 /// \cond INTERNAL
@@ -621,13 +620,13 @@ Test::TestIntfPrx::_iceI_supportsAMD(const ::std::shared_ptr<::IceInternal::Outg
 bool
 Test::TestIntfPrx::supportsFunctionalTests(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<bool>(true, this, &TestIntfPrx::_iceI_supportsFunctionalTests, context).get();
+    return ::IceInternal::makePromiseOutgoing<bool>(true, this, &TestIntfPrx::_iceI_supportsFunctionalTests, context).get();
 }
 
 ::std::future<bool>
 Test::TestIntfPrx::supportsFunctionalTestsAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<bool, ::std::promise>(false, this, &TestIntfPrx::_iceI_supportsFunctionalTests, context);
+    return ::IceInternal::makePromiseOutgoing<bool>(false, this, &TestIntfPrx::_iceI_supportsFunctionalTests, context);
 }
 
 ::std::function<void()>
@@ -636,7 +635,7 @@ Test::TestIntfPrx::supportsFunctionalTestsAsync(::std::function<void (bool)> res
                                                 ::std::function<void(bool)> sent,
                                                 const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_supportsFunctionalTests, context);
+    return ::IceInternal::makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_supportsFunctionalTests, context);
 }
 
 /// \cond INTERNAL
@@ -653,13 +652,13 @@ Test::TestIntfPrx::_iceI_supportsFunctionalTests(const ::std::shared_ptr<::IceIn
 bool
 Test::TestIntfPrx::opBool(bool iceP_b, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<bool>(true, this, &TestIntfPrx::_iceI_opBool, iceP_b, context).get();
+    return ::IceInternal::makePromiseOutgoing<bool>(true, this, &TestIntfPrx::_iceI_opBool, iceP_b, context).get();
 }
 
 ::std::future<bool>
 Test::TestIntfPrx::opBoolAsync(bool iceP_b, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<bool, ::std::promise>(false, this, &TestIntfPrx::_iceI_opBool, iceP_b, context);
+    return ::IceInternal::makePromiseOutgoing<bool>(false, this, &TestIntfPrx::_iceI_opBool, iceP_b, context);
 }
 
 ::std::function<void()>
@@ -669,7 +668,7 @@ Test::TestIntfPrx::opBoolAsync(bool iceP_b,
                                ::std::function<void(bool)> sent,
                                const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opBool, iceP_b, context);
+    return ::IceInternal::makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opBool, iceP_b, context);
 }
 
 /// \cond INTERNAL
@@ -689,13 +688,13 @@ Test::TestIntfPrx::_iceI_opBool(const ::std::shared_ptr<::IceInternal::OutgoingA
 ::std::uint8_t
 Test::TestIntfPrx::opByte(::std::uint8_t iceP_b, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::uint8_t>(true, this, &TestIntfPrx::_iceI_opByte, iceP_b, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::uint8_t>(true, this, &TestIntfPrx::_iceI_opByte, iceP_b, context).get();
 }
 
 ::std::future<::std::uint8_t>
 Test::TestIntfPrx::opByteAsync(::std::uint8_t iceP_b, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::uint8_t, ::std::promise>(false, this, &TestIntfPrx::_iceI_opByte, iceP_b, context);
+    return ::IceInternal::makePromiseOutgoing<::std::uint8_t>(false, this, &TestIntfPrx::_iceI_opByte, iceP_b, context);
 }
 
 ::std::function<void()>
@@ -705,7 +704,7 @@ Test::TestIntfPrx::opByteAsync(::std::uint8_t iceP_b,
                                ::std::function<void(bool)> sent,
                                const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::uint8_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opByte, iceP_b, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::uint8_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opByte, iceP_b, context);
 }
 
 /// \cond INTERNAL
@@ -725,13 +724,13 @@ Test::TestIntfPrx::_iceI_opByte(const ::std::shared_ptr<::IceInternal::OutgoingA
 ::std::int16_t
 Test::TestIntfPrx::opShort(::std::int16_t iceP_s, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int16_t>(true, this, &TestIntfPrx::_iceI_opShort, iceP_s, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::int16_t>(true, this, &TestIntfPrx::_iceI_opShort, iceP_s, context).get();
 }
 
 ::std::future<::std::int16_t>
 Test::TestIntfPrx::opShortAsync(::std::int16_t iceP_s, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int16_t, ::std::promise>(false, this, &TestIntfPrx::_iceI_opShort, iceP_s, context);
+    return ::IceInternal::makePromiseOutgoing<::std::int16_t>(false, this, &TestIntfPrx::_iceI_opShort, iceP_s, context);
 }
 
 ::std::function<void()>
@@ -741,7 +740,7 @@ Test::TestIntfPrx::opShortAsync(::std::int16_t iceP_s,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::int16_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opShort, iceP_s, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int16_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opShort, iceP_s, context);
 }
 
 /// \cond INTERNAL
@@ -761,13 +760,13 @@ Test::TestIntfPrx::_iceI_opShort(const ::std::shared_ptr<::IceInternal::Outgoing
 ::std::int32_t
 Test::TestIntfPrx::opInt(::std::int32_t iceP_i, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t>(true, this, &TestIntfPrx::_iceI_opInt, iceP_i, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &TestIntfPrx::_iceI_opInt, iceP_i, context).get();
 }
 
 ::std::future<::std::int32_t>
 Test::TestIntfPrx::opIntAsync(::std::int32_t iceP_i, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &TestIntfPrx::_iceI_opInt, iceP_i, context);
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &TestIntfPrx::_iceI_opInt, iceP_i, context);
 }
 
 ::std::function<void()>
@@ -777,7 +776,7 @@ Test::TestIntfPrx::opIntAsync(::std::int32_t iceP_i,
                               ::std::function<void(bool)> sent,
                               const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opInt, iceP_i, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opInt, iceP_i, context);
 }
 
 /// \cond INTERNAL
@@ -797,13 +796,13 @@ Test::TestIntfPrx::_iceI_opInt(const ::std::shared_ptr<::IceInternal::OutgoingAs
 ::std::int64_t
 Test::TestIntfPrx::opLong(::std::int64_t iceP_l, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int64_t>(true, this, &TestIntfPrx::_iceI_opLong, iceP_l, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::int64_t>(true, this, &TestIntfPrx::_iceI_opLong, iceP_l, context).get();
 }
 
 ::std::future<::std::int64_t>
 Test::TestIntfPrx::opLongAsync(::std::int64_t iceP_l, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int64_t, ::std::promise>(false, this, &TestIntfPrx::_iceI_opLong, iceP_l, context);
+    return ::IceInternal::makePromiseOutgoing<::std::int64_t>(false, this, &TestIntfPrx::_iceI_opLong, iceP_l, context);
 }
 
 ::std::function<void()>
@@ -813,7 +812,7 @@ Test::TestIntfPrx::opLongAsync(::std::int64_t iceP_l,
                                ::std::function<void(bool)> sent,
                                const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::int64_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opLong, iceP_l, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int64_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opLong, iceP_l, context);
 }
 
 /// \cond INTERNAL
@@ -833,13 +832,13 @@ Test::TestIntfPrx::_iceI_opLong(const ::std::shared_ptr<::IceInternal::OutgoingA
 float
 Test::TestIntfPrx::opFloat(float iceP_f, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<float>(true, this, &TestIntfPrx::_iceI_opFloat, iceP_f, context).get();
+    return ::IceInternal::makePromiseOutgoing<float>(true, this, &TestIntfPrx::_iceI_opFloat, iceP_f, context).get();
 }
 
 ::std::future<float>
 Test::TestIntfPrx::opFloatAsync(float iceP_f, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<float, ::std::promise>(false, this, &TestIntfPrx::_iceI_opFloat, iceP_f, context);
+    return ::IceInternal::makePromiseOutgoing<float>(false, this, &TestIntfPrx::_iceI_opFloat, iceP_f, context);
 }
 
 ::std::function<void()>
@@ -849,7 +848,7 @@ Test::TestIntfPrx::opFloatAsync(float iceP_f,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<float>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opFloat, iceP_f, context);
+    return ::IceInternal::makeLambdaOutgoing<float>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opFloat, iceP_f, context);
 }
 
 /// \cond INTERNAL
@@ -869,13 +868,13 @@ Test::TestIntfPrx::_iceI_opFloat(const ::std::shared_ptr<::IceInternal::Outgoing
 double
 Test::TestIntfPrx::opDouble(double iceP_d, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<double>(true, this, &TestIntfPrx::_iceI_opDouble, iceP_d, context).get();
+    return ::IceInternal::makePromiseOutgoing<double>(true, this, &TestIntfPrx::_iceI_opDouble, iceP_d, context).get();
 }
 
 ::std::future<double>
 Test::TestIntfPrx::opDoubleAsync(double iceP_d, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<double, ::std::promise>(false, this, &TestIntfPrx::_iceI_opDouble, iceP_d, context);
+    return ::IceInternal::makePromiseOutgoing<double>(false, this, &TestIntfPrx::_iceI_opDouble, iceP_d, context);
 }
 
 ::std::function<void()>
@@ -885,7 +884,7 @@ Test::TestIntfPrx::opDoubleAsync(double iceP_d,
                                  ::std::function<void(bool)> sent,
                                  const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<double>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opDouble, iceP_d, context);
+    return ::IceInternal::makeLambdaOutgoing<double>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opDouble, iceP_d, context);
 }
 
 /// \cond INTERNAL
@@ -905,13 +904,13 @@ Test::TestIntfPrx::_iceI_opDouble(const ::std::shared_ptr<::IceInternal::Outgoin
 void
 Test::TestIntfPrx::pingBiDir(const ::std::optional<PingReplyPrx>& iceP_reply, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_pingBiDir, iceP_reply, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_pingBiDir, iceP_reply, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::pingBiDirAsync(const ::std::optional<PingReplyPrx>& iceP_reply, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_pingBiDir, iceP_reply, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_pingBiDir, iceP_reply, context);
 }
 
 ::std::function<void()>
@@ -921,7 +920,7 @@ Test::TestIntfPrx::pingBiDirAsync(const ::std::optional<PingReplyPrx>& iceP_repl
                                   ::std::function<void(bool)> sent,
                                   const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_pingBiDir, iceP_reply, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_pingBiDir, iceP_reply, context);
 }
 
 /// \cond INTERNAL
@@ -947,13 +946,13 @@ Test::TestIntfPrx::ice_staticId()
 void
 Test::TestIntfControllerPrx::holdAdapter(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfControllerPrx::_iceI_holdAdapter, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfControllerPrx::_iceI_holdAdapter, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfControllerPrx::holdAdapterAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfControllerPrx::_iceI_holdAdapter, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfControllerPrx::_iceI_holdAdapter, context);
 }
 
 ::std::function<void()>
@@ -962,7 +961,7 @@ Test::TestIntfControllerPrx::holdAdapterAsync(::std::function<void ()> response,
                                               ::std::function<void(bool)> sent,
                                               const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfControllerPrx::_iceI_holdAdapter, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfControllerPrx::_iceI_holdAdapter, context);
 }
 
 /// \cond INTERNAL
@@ -978,13 +977,13 @@ Test::TestIntfControllerPrx::_iceI_holdAdapter(const ::std::shared_ptr<::IceInte
 void
 Test::TestIntfControllerPrx::resumeAdapter(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfControllerPrx::_iceI_resumeAdapter, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfControllerPrx::_iceI_resumeAdapter, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfControllerPrx::resumeAdapterAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfControllerPrx::_iceI_resumeAdapter, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfControllerPrx::_iceI_resumeAdapter, context);
 }
 
 ::std::function<void()>
@@ -993,7 +992,7 @@ Test::TestIntfControllerPrx::resumeAdapterAsync(::std::function<void ()> respons
                                                 ::std::function<void(bool)> sent,
                                                 const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfControllerPrx::_iceI_resumeAdapter, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfControllerPrx::_iceI_resumeAdapter, context);
 }
 
 /// \cond INTERNAL
@@ -1016,7 +1015,7 @@ Test::TestIntfControllerPrx::ice_staticId()
 ::std::int32_t
 Test::Outer::Inner::TestIntfPrx::op(::std::int32_t iceP_i, ::std::int32_t& iceP_j, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<::std::int32_t, ::std::int32_t>>(true, this, &TestIntfPrx::_iceI_op, iceP_i, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::int32_t, ::std::int32_t>>(true, this, &TestIntfPrx::_iceI_op, iceP_i, context).get();
     iceP_j = ::std::get<1>(_result);
     return ::std::get<0>(_result);
 }
@@ -1024,7 +1023,7 @@ Test::Outer::Inner::TestIntfPrx::op(::std::int32_t iceP_i, ::std::int32_t& iceP_
 ::std::future<::std::tuple<::std::int32_t, ::std::int32_t>>
 Test::Outer::Inner::TestIntfPrx::opAsync(::std::int32_t iceP_i, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<::std::int32_t, ::std::int32_t>, ::std::promise>(false, this, &TestIntfPrx::_iceI_op, iceP_i, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::int32_t, ::std::int32_t>>(false, this, &TestIntfPrx::_iceI_op, iceP_i, context);
 }
 
 ::std::function<void()>
@@ -1038,7 +1037,7 @@ Test::Outer::Inner::TestIntfPrx::opAsync(::std::int32_t iceP_i,
     {
         response(::std::get<0>(_result), ::std::get<1>(_result));
     };
-    return _makeLambdaOutgoing<::std::tuple<::std::int32_t, ::std::int32_t>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::Outer::Inner::TestIntfPrx::_iceI_op, iceP_i, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::int32_t, ::std::int32_t>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::Outer::Inner::TestIntfPrx::_iceI_op, iceP_i, context);
 }
 
 /// \cond INTERNAL

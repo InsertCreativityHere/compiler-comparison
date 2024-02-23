@@ -18,8 +18,7 @@
 #endif
 #define ICE_BUILDING_GENERATED_CODE
 #include <FileParser.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -60,13 +59,13 @@ const ::std::string iceC_IceGrid_FileParser_parse_name = "parse";
 ::IceGrid::ApplicationDescriptor
 IceGrid::FileParserPrx::parse(const ::std::string& iceP_xmlFile, const ::std::optional<AdminPrx>& iceP_adminProxy, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<ApplicationDescriptor>(true, this, &FileParserPrx::_iceI_parse, iceP_xmlFile, iceP_adminProxy, context).get();
+    return ::IceInternal::makePromiseOutgoing<ApplicationDescriptor>(true, this, &FileParserPrx::_iceI_parse, iceP_xmlFile, iceP_adminProxy, context).get();
 }
 
 ::std::future<::IceGrid::ApplicationDescriptor>
 IceGrid::FileParserPrx::parseAsync(const ::std::string& iceP_xmlFile, const ::std::optional<AdminPrx>& iceP_adminProxy, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<ApplicationDescriptor, ::std::promise>(false, this, &FileParserPrx::_iceI_parse, iceP_xmlFile, iceP_adminProxy, context);
+    return ::IceInternal::makePromiseOutgoing<ApplicationDescriptor>(false, this, &FileParserPrx::_iceI_parse, iceP_xmlFile, iceP_adminProxy, context);
 }
 
 ::std::function<void()>
@@ -76,7 +75,7 @@ IceGrid::FileParserPrx::parseAsync(const ::std::string& iceP_xmlFile, const ::st
                                    ::std::function<void(bool)> sent,
                                    const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<ApplicationDescriptor>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::FileParserPrx::_iceI_parse, iceP_xmlFile, iceP_adminProxy, context);
+    return ::IceInternal::makeLambdaOutgoing<ApplicationDescriptor>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::FileParserPrx::_iceI_parse, iceP_xmlFile, iceP_adminProxy, context);
 }
 
 /// \cond INTERNAL

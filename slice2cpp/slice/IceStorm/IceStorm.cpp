@@ -18,8 +18,7 @@
 #endif
 #define ICE_BUILDING_GENERATED_CODE
 #include <IceStorm.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -124,13 +123,13 @@ const ::std::string iceC_IceStorm_Finder_getTopicManager_name = "getTopicManager
 ::std::string
 IceStorm::TopicPrx::getName(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::string>(true, this, &TopicPrx::_iceI_getName, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::string>(true, this, &TopicPrx::_iceI_getName, context).get();
 }
 
 ::std::future<::std::string>
 IceStorm::TopicPrx::getNameAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::string, ::std::promise>(false, this, &TopicPrx::_iceI_getName, context);
+    return ::IceInternal::makePromiseOutgoing<::std::string>(false, this, &TopicPrx::_iceI_getName, context);
 }
 
 ::std::function<void()>
@@ -139,7 +138,7 @@ IceStorm::TopicPrx::getNameAsync(::std::function<void (::std::string)> response,
                                  ::std::function<void(bool)> sent,
                                  const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicPrx::_iceI_getName, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicPrx::_iceI_getName, context);
 }
 
 /// \cond INTERNAL
@@ -156,13 +155,13 @@ IceStorm::TopicPrx::_iceI_getName(const ::std::shared_ptr<::IceInternal::Outgoin
 ::std::optional<::Ice::ObjectPrx>
 IceStorm::TopicPrx::getPublisher(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::optional<::Ice::ObjectPrx>>(true, this, &TopicPrx::_iceI_getPublisher, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::optional<::Ice::ObjectPrx>>(true, this, &TopicPrx::_iceI_getPublisher, context).get();
 }
 
 ::std::future<::std::optional<::Ice::ObjectPrx>>
 IceStorm::TopicPrx::getPublisherAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::optional<::Ice::ObjectPrx>, ::std::promise>(false, this, &TopicPrx::_iceI_getPublisher, context);
+    return ::IceInternal::makePromiseOutgoing<::std::optional<::Ice::ObjectPrx>>(false, this, &TopicPrx::_iceI_getPublisher, context);
 }
 
 ::std::function<void()>
@@ -171,7 +170,7 @@ IceStorm::TopicPrx::getPublisherAsync(::std::function<void (::std::optional<::Ic
                                       ::std::function<void(bool)> sent,
                                       const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::optional<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicPrx::_iceI_getPublisher, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::optional<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicPrx::_iceI_getPublisher, context);
 }
 
 /// \cond INTERNAL
@@ -188,13 +187,13 @@ IceStorm::TopicPrx::_iceI_getPublisher(const ::std::shared_ptr<::IceInternal::Ou
 ::std::optional<::Ice::ObjectPrx>
 IceStorm::TopicPrx::getNonReplicatedPublisher(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::optional<::Ice::ObjectPrx>>(true, this, &TopicPrx::_iceI_getNonReplicatedPublisher, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::optional<::Ice::ObjectPrx>>(true, this, &TopicPrx::_iceI_getNonReplicatedPublisher, context).get();
 }
 
 ::std::future<::std::optional<::Ice::ObjectPrx>>
 IceStorm::TopicPrx::getNonReplicatedPublisherAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::optional<::Ice::ObjectPrx>, ::std::promise>(false, this, &TopicPrx::_iceI_getNonReplicatedPublisher, context);
+    return ::IceInternal::makePromiseOutgoing<::std::optional<::Ice::ObjectPrx>>(false, this, &TopicPrx::_iceI_getNonReplicatedPublisher, context);
 }
 
 ::std::function<void()>
@@ -203,7 +202,7 @@ IceStorm::TopicPrx::getNonReplicatedPublisherAsync(::std::function<void (::std::
                                                    ::std::function<void(bool)> sent,
                                                    const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::optional<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicPrx::_iceI_getNonReplicatedPublisher, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::optional<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicPrx::_iceI_getNonReplicatedPublisher, context);
 }
 
 /// \cond INTERNAL
@@ -220,13 +219,13 @@ IceStorm::TopicPrx::_iceI_getNonReplicatedPublisher(const ::std::shared_ptr<::Ic
 ::std::optional<::Ice::ObjectPrx>
 IceStorm::TopicPrx::subscribeAndGetPublisher(const QoS& iceP_theQoS, const ::std::optional<::Ice::ObjectPrx>& iceP_subscriber, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::optional<::Ice::ObjectPrx>>(true, this, &TopicPrx::_iceI_subscribeAndGetPublisher, iceP_theQoS, iceP_subscriber, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::optional<::Ice::ObjectPrx>>(true, this, &TopicPrx::_iceI_subscribeAndGetPublisher, iceP_theQoS, iceP_subscriber, context).get();
 }
 
 ::std::future<::std::optional<::Ice::ObjectPrx>>
 IceStorm::TopicPrx::subscribeAndGetPublisherAsync(const QoS& iceP_theQoS, const ::std::optional<::Ice::ObjectPrx>& iceP_subscriber, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::optional<::Ice::ObjectPrx>, ::std::promise>(false, this, &TopicPrx::_iceI_subscribeAndGetPublisher, iceP_theQoS, iceP_subscriber, context);
+    return ::IceInternal::makePromiseOutgoing<::std::optional<::Ice::ObjectPrx>>(false, this, &TopicPrx::_iceI_subscribeAndGetPublisher, iceP_theQoS, iceP_subscriber, context);
 }
 
 ::std::function<void()>
@@ -236,7 +235,7 @@ IceStorm::TopicPrx::subscribeAndGetPublisherAsync(const QoS& iceP_theQoS, const 
                                                   ::std::function<void(bool)> sent,
                                                   const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::optional<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicPrx::_iceI_subscribeAndGetPublisher, iceP_theQoS, iceP_subscriber, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::optional<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicPrx::_iceI_subscribeAndGetPublisher, iceP_theQoS, iceP_subscriber, context);
 }
 
 /// \cond INTERNAL
@@ -277,13 +276,13 @@ IceStorm::TopicPrx::_iceI_subscribeAndGetPublisher(const ::std::shared_ptr<::Ice
 void
 IceStorm::TopicPrx::unsubscribe(const ::std::optional<::Ice::ObjectPrx>& iceP_subscriber, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TopicPrx::_iceI_unsubscribe, iceP_subscriber, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TopicPrx::_iceI_unsubscribe, iceP_subscriber, context).get();
 }
 
 ::std::future<void>
 IceStorm::TopicPrx::unsubscribeAsync(const ::std::optional<::Ice::ObjectPrx>& iceP_subscriber, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TopicPrx::_iceI_unsubscribe, iceP_subscriber, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TopicPrx::_iceI_unsubscribe, iceP_subscriber, context);
 }
 
 ::std::function<void()>
@@ -293,7 +292,7 @@ IceStorm::TopicPrx::unsubscribeAsync(const ::std::optional<::Ice::ObjectPrx>& ic
                                      ::std::function<void(bool)> sent,
                                      const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicPrx::_iceI_unsubscribe, iceP_subscriber, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicPrx::_iceI_unsubscribe, iceP_subscriber, context);
 }
 
 /// \cond INTERNAL
@@ -312,13 +311,13 @@ IceStorm::TopicPrx::_iceI_unsubscribe(const ::std::shared_ptr<::IceInternal::Out
 void
 IceStorm::TopicPrx::link(const ::std::optional<TopicPrx>& iceP_linkTo, ::std::int32_t iceP_cost, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TopicPrx::_iceI_link, iceP_linkTo, iceP_cost, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TopicPrx::_iceI_link, iceP_linkTo, iceP_cost, context).get();
 }
 
 ::std::future<void>
 IceStorm::TopicPrx::linkAsync(const ::std::optional<TopicPrx>& iceP_linkTo, ::std::int32_t iceP_cost, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TopicPrx::_iceI_link, iceP_linkTo, iceP_cost, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TopicPrx::_iceI_link, iceP_linkTo, iceP_cost, context);
 }
 
 ::std::function<void()>
@@ -328,7 +327,7 @@ IceStorm::TopicPrx::linkAsync(const ::std::optional<TopicPrx>& iceP_linkTo, ::st
                               ::std::function<void(bool)> sent,
                               const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicPrx::_iceI_link, iceP_linkTo, iceP_cost, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicPrx::_iceI_link, iceP_linkTo, iceP_cost, context);
 }
 
 /// \cond INTERNAL
@@ -361,13 +360,13 @@ IceStorm::TopicPrx::_iceI_link(const ::std::shared_ptr<::IceInternal::OutgoingAs
 void
 IceStorm::TopicPrx::unlink(const ::std::optional<TopicPrx>& iceP_linkTo, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TopicPrx::_iceI_unlink, iceP_linkTo, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TopicPrx::_iceI_unlink, iceP_linkTo, context).get();
 }
 
 ::std::future<void>
 IceStorm::TopicPrx::unlinkAsync(const ::std::optional<TopicPrx>& iceP_linkTo, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TopicPrx::_iceI_unlink, iceP_linkTo, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TopicPrx::_iceI_unlink, iceP_linkTo, context);
 }
 
 ::std::function<void()>
@@ -377,7 +376,7 @@ IceStorm::TopicPrx::unlinkAsync(const ::std::optional<TopicPrx>& iceP_linkTo,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicPrx::_iceI_unlink, iceP_linkTo, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicPrx::_iceI_unlink, iceP_linkTo, context);
 }
 
 /// \cond INTERNAL
@@ -410,13 +409,13 @@ IceStorm::TopicPrx::_iceI_unlink(const ::std::shared_ptr<::IceInternal::Outgoing
 ::IceStorm::LinkInfoSeq
 IceStorm::TopicPrx::getLinkInfoSeq(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<LinkInfoSeq>(true, this, &TopicPrx::_iceI_getLinkInfoSeq, context).get();
+    return ::IceInternal::makePromiseOutgoing<LinkInfoSeq>(true, this, &TopicPrx::_iceI_getLinkInfoSeq, context).get();
 }
 
 ::std::future<::IceStorm::LinkInfoSeq>
 IceStorm::TopicPrx::getLinkInfoSeqAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<LinkInfoSeq, ::std::promise>(false, this, &TopicPrx::_iceI_getLinkInfoSeq, context);
+    return ::IceInternal::makePromiseOutgoing<LinkInfoSeq>(false, this, &TopicPrx::_iceI_getLinkInfoSeq, context);
 }
 
 ::std::function<void()>
@@ -425,7 +424,7 @@ IceStorm::TopicPrx::getLinkInfoSeqAsync(::std::function<void (::IceStorm::LinkIn
                                         ::std::function<void(bool)> sent,
                                         const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<LinkInfoSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicPrx::_iceI_getLinkInfoSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<LinkInfoSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicPrx::_iceI_getLinkInfoSeq, context);
 }
 
 /// \cond INTERNAL
@@ -442,13 +441,13 @@ IceStorm::TopicPrx::_iceI_getLinkInfoSeq(const ::std::shared_ptr<::IceInternal::
 ::Ice::IdentitySeq
 IceStorm::TopicPrx::getSubscribers(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::Ice::IdentitySeq>(true, this, &TopicPrx::_iceI_getSubscribers, context).get();
+    return ::IceInternal::makePromiseOutgoing<::Ice::IdentitySeq>(true, this, &TopicPrx::_iceI_getSubscribers, context).get();
 }
 
 ::std::future<::Ice::IdentitySeq>
 IceStorm::TopicPrx::getSubscribersAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::Ice::IdentitySeq, ::std::promise>(false, this, &TopicPrx::_iceI_getSubscribers, context);
+    return ::IceInternal::makePromiseOutgoing<::Ice::IdentitySeq>(false, this, &TopicPrx::_iceI_getSubscribers, context);
 }
 
 ::std::function<void()>
@@ -457,7 +456,7 @@ IceStorm::TopicPrx::getSubscribersAsync(::std::function<void (::Ice::IdentitySeq
                                         ::std::function<void(bool)> sent,
                                         const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::Ice::IdentitySeq>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicPrx::_iceI_getSubscribers, context);
+    return ::IceInternal::makeLambdaOutgoing<::Ice::IdentitySeq>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicPrx::_iceI_getSubscribers, context);
 }
 
 /// \cond INTERNAL
@@ -474,13 +473,13 @@ IceStorm::TopicPrx::_iceI_getSubscribers(const ::std::shared_ptr<::IceInternal::
 void
 IceStorm::TopicPrx::destroy(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TopicPrx::_iceI_destroy, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TopicPrx::_iceI_destroy, context).get();
 }
 
 ::std::future<void>
 IceStorm::TopicPrx::destroyAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TopicPrx::_iceI_destroy, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TopicPrx::_iceI_destroy, context);
 }
 
 ::std::function<void()>
@@ -489,7 +488,7 @@ IceStorm::TopicPrx::destroyAsync(::std::function<void ()> response,
                                  ::std::function<void(bool)> sent,
                                  const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicPrx::_iceI_destroy, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicPrx::_iceI_destroy, context);
 }
 
 /// \cond INTERNAL
@@ -512,13 +511,13 @@ IceStorm::TopicPrx::ice_staticId()
 ::std::optional<::IceStorm::TopicPrx>
 IceStorm::TopicManagerPrx::create(const ::std::string& iceP_name, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::optional<TopicPrx>>(true, this, &TopicManagerPrx::_iceI_create, iceP_name, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::optional<TopicPrx>>(true, this, &TopicManagerPrx::_iceI_create, iceP_name, context).get();
 }
 
 ::std::future<::std::optional<::IceStorm::TopicPrx>>
 IceStorm::TopicManagerPrx::createAsync(const ::std::string& iceP_name, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::optional<TopicPrx>, ::std::promise>(false, this, &TopicManagerPrx::_iceI_create, iceP_name, context);
+    return ::IceInternal::makePromiseOutgoing<::std::optional<TopicPrx>>(false, this, &TopicManagerPrx::_iceI_create, iceP_name, context);
 }
 
 ::std::function<void()>
@@ -528,7 +527,7 @@ IceStorm::TopicManagerPrx::createAsync(const ::std::string& iceP_name,
                                        ::std::function<void(bool)> sent,
                                        const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::optional<TopicPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicManagerPrx::_iceI_create, iceP_name, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::optional<TopicPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicManagerPrx::_iceI_create, iceP_name, context);
 }
 
 /// \cond INTERNAL
@@ -561,13 +560,13 @@ IceStorm::TopicManagerPrx::_iceI_create(const ::std::shared_ptr<::IceInternal::O
 ::std::optional<::IceStorm::TopicPrx>
 IceStorm::TopicManagerPrx::retrieve(const ::std::string& iceP_name, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::optional<TopicPrx>>(true, this, &TopicManagerPrx::_iceI_retrieve, iceP_name, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::optional<TopicPrx>>(true, this, &TopicManagerPrx::_iceI_retrieve, iceP_name, context).get();
 }
 
 ::std::future<::std::optional<::IceStorm::TopicPrx>>
 IceStorm::TopicManagerPrx::retrieveAsync(const ::std::string& iceP_name, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::optional<TopicPrx>, ::std::promise>(false, this, &TopicManagerPrx::_iceI_retrieve, iceP_name, context);
+    return ::IceInternal::makePromiseOutgoing<::std::optional<TopicPrx>>(false, this, &TopicManagerPrx::_iceI_retrieve, iceP_name, context);
 }
 
 ::std::function<void()>
@@ -577,7 +576,7 @@ IceStorm::TopicManagerPrx::retrieveAsync(const ::std::string& iceP_name,
                                          ::std::function<void(bool)> sent,
                                          const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::optional<TopicPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicManagerPrx::_iceI_retrieve, iceP_name, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::optional<TopicPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicManagerPrx::_iceI_retrieve, iceP_name, context);
 }
 
 /// \cond INTERNAL
@@ -610,13 +609,13 @@ IceStorm::TopicManagerPrx::_iceI_retrieve(const ::std::shared_ptr<::IceInternal:
 ::IceStorm::TopicDict
 IceStorm::TopicManagerPrx::retrieveAll(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<TopicDict>(true, this, &TopicManagerPrx::_iceI_retrieveAll, context).get();
+    return ::IceInternal::makePromiseOutgoing<TopicDict>(true, this, &TopicManagerPrx::_iceI_retrieveAll, context).get();
 }
 
 ::std::future<::IceStorm::TopicDict>
 IceStorm::TopicManagerPrx::retrieveAllAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<TopicDict, ::std::promise>(false, this, &TopicManagerPrx::_iceI_retrieveAll, context);
+    return ::IceInternal::makePromiseOutgoing<TopicDict>(false, this, &TopicManagerPrx::_iceI_retrieveAll, context);
 }
 
 ::std::function<void()>
@@ -625,7 +624,7 @@ IceStorm::TopicManagerPrx::retrieveAllAsync(::std::function<void (::IceStorm::To
                                             ::std::function<void(bool)> sent,
                                             const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<TopicDict>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicManagerPrx::_iceI_retrieveAll, context);
+    return ::IceInternal::makeLambdaOutgoing<TopicDict>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::TopicManagerPrx::_iceI_retrieveAll, context);
 }
 
 /// \cond INTERNAL
@@ -649,13 +648,13 @@ IceStorm::TopicManagerPrx::ice_staticId()
 ::std::optional<::IceStorm::TopicManagerPrx>
 IceStorm::FinderPrx::getTopicManager(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::optional<TopicManagerPrx>>(true, this, &FinderPrx::_iceI_getTopicManager, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::optional<TopicManagerPrx>>(true, this, &FinderPrx::_iceI_getTopicManager, context).get();
 }
 
 ::std::future<::std::optional<::IceStorm::TopicManagerPrx>>
 IceStorm::FinderPrx::getTopicManagerAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::optional<TopicManagerPrx>, ::std::promise>(false, this, &FinderPrx::_iceI_getTopicManager, context);
+    return ::IceInternal::makePromiseOutgoing<::std::optional<TopicManagerPrx>>(false, this, &FinderPrx::_iceI_getTopicManager, context);
 }
 
 ::std::function<void()>
@@ -664,7 +663,7 @@ IceStorm::FinderPrx::getTopicManagerAsync(::std::function<void (::std::optional<
                                           ::std::function<void(bool)> sent,
                                           const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::optional<TopicManagerPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::FinderPrx::_iceI_getTopicManager, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::optional<TopicManagerPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceStorm::FinderPrx::_iceI_getTopicManager, context);
 }
 
 /// \cond INTERNAL

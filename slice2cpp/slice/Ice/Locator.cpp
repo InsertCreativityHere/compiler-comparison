@@ -18,9 +18,8 @@
 #endif
 #define ICE_BUILDING_GENERATED_CODE
 #include <Locator.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
 #include <Ice/Process.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -107,13 +106,13 @@ const ::std::string iceC_Ice_LocatorFinder_getLocator_name = "getLocator";
 ::std::optional<::Ice::ObjectPrx>
 Ice::LocatorPrx::findObjectById(const Identity& iceP_id, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::optional<::Ice::ObjectPrx>>(true, this, &LocatorPrx::_iceI_findObjectById, iceP_id, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::optional<::Ice::ObjectPrx>>(true, this, &LocatorPrx::_iceI_findObjectById, iceP_id, context).get();
 }
 
 ::std::future<::std::optional<::Ice::ObjectPrx>>
 Ice::LocatorPrx::findObjectByIdAsync(const Identity& iceP_id, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::optional<::Ice::ObjectPrx>, ::std::promise>(false, this, &LocatorPrx::_iceI_findObjectById, iceP_id, context);
+    return ::IceInternal::makePromiseOutgoing<::std::optional<::Ice::ObjectPrx>>(false, this, &LocatorPrx::_iceI_findObjectById, iceP_id, context);
 }
 
 ::std::function<void()>
@@ -123,7 +122,7 @@ Ice::LocatorPrx::findObjectByIdAsync(const Identity& iceP_id,
                                      ::std::function<void(bool)> sent,
                                      const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::optional<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorPrx::_iceI_findObjectById, iceP_id, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::optional<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorPrx::_iceI_findObjectById, iceP_id, context);
 }
 
 /// \cond INTERNAL
@@ -156,13 +155,13 @@ Ice::LocatorPrx::_iceI_findObjectById(const ::std::shared_ptr<::IceInternal::Out
 ::std::optional<::Ice::ObjectPrx>
 Ice::LocatorPrx::findAdapterById(const ::std::string& iceP_id, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::optional<::Ice::ObjectPrx>>(true, this, &LocatorPrx::_iceI_findAdapterById, iceP_id, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::optional<::Ice::ObjectPrx>>(true, this, &LocatorPrx::_iceI_findAdapterById, iceP_id, context).get();
 }
 
 ::std::future<::std::optional<::Ice::ObjectPrx>>
 Ice::LocatorPrx::findAdapterByIdAsync(const ::std::string& iceP_id, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::optional<::Ice::ObjectPrx>, ::std::promise>(false, this, &LocatorPrx::_iceI_findAdapterById, iceP_id, context);
+    return ::IceInternal::makePromiseOutgoing<::std::optional<::Ice::ObjectPrx>>(false, this, &LocatorPrx::_iceI_findAdapterById, iceP_id, context);
 }
 
 ::std::function<void()>
@@ -172,7 +171,7 @@ Ice::LocatorPrx::findAdapterByIdAsync(const ::std::string& iceP_id,
                                       ::std::function<void(bool)> sent,
                                       const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::optional<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorPrx::_iceI_findAdapterById, iceP_id, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::optional<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorPrx::_iceI_findAdapterById, iceP_id, context);
 }
 
 /// \cond INTERNAL
@@ -205,13 +204,13 @@ Ice::LocatorPrx::_iceI_findAdapterById(const ::std::shared_ptr<::IceInternal::Ou
 ::std::optional<::Ice::LocatorRegistryPrx>
 Ice::LocatorPrx::getRegistry(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::optional<LocatorRegistryPrx>>(true, this, &LocatorPrx::_iceI_getRegistry, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::optional<LocatorRegistryPrx>>(true, this, &LocatorPrx::_iceI_getRegistry, context).get();
 }
 
 ::std::future<::std::optional<::Ice::LocatorRegistryPrx>>
 Ice::LocatorPrx::getRegistryAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::optional<LocatorRegistryPrx>, ::std::promise>(false, this, &LocatorPrx::_iceI_getRegistry, context);
+    return ::IceInternal::makePromiseOutgoing<::std::optional<LocatorRegistryPrx>>(false, this, &LocatorPrx::_iceI_getRegistry, context);
 }
 
 ::std::function<void()>
@@ -220,7 +219,7 @@ Ice::LocatorPrx::getRegistryAsync(::std::function<void (::std::optional<::Ice::L
                                   ::std::function<void(bool)> sent,
                                   const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::optional<LocatorRegistryPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorPrx::_iceI_getRegistry, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::optional<LocatorRegistryPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorPrx::_iceI_getRegistry, context);
 }
 
 /// \cond INTERNAL
@@ -244,13 +243,13 @@ Ice::LocatorPrx::ice_staticId()
 void
 Ice::LocatorRegistryPrx::setAdapterDirectProxy(const ::std::string& iceP_id, const ::std::optional<::Ice::ObjectPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &LocatorRegistryPrx::_iceI_setAdapterDirectProxy, iceP_id, iceP_proxy, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &LocatorRegistryPrx::_iceI_setAdapterDirectProxy, iceP_id, iceP_proxy, context).get();
 }
 
 ::std::future<void>
 Ice::LocatorRegistryPrx::setAdapterDirectProxyAsync(const ::std::string& iceP_id, const ::std::optional<::Ice::ObjectPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &LocatorRegistryPrx::_iceI_setAdapterDirectProxy, iceP_id, iceP_proxy, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &LocatorRegistryPrx::_iceI_setAdapterDirectProxy, iceP_id, iceP_proxy, context);
 }
 
 ::std::function<void()>
@@ -260,7 +259,7 @@ Ice::LocatorRegistryPrx::setAdapterDirectProxyAsync(const ::std::string& iceP_id
                                                     ::std::function<void(bool)> sent,
                                                     const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorRegistryPrx::_iceI_setAdapterDirectProxy, iceP_id, iceP_proxy, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorRegistryPrx::_iceI_setAdapterDirectProxy, iceP_id, iceP_proxy, context);
 }
 
 /// \cond INTERNAL
@@ -297,13 +296,13 @@ Ice::LocatorRegistryPrx::_iceI_setAdapterDirectProxy(const ::std::shared_ptr<::I
 void
 Ice::LocatorRegistryPrx::setReplicatedAdapterDirectProxy(const ::std::string& iceP_adapterId, const ::std::string& iceP_replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& iceP_p, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &LocatorRegistryPrx::_iceI_setReplicatedAdapterDirectProxy, iceP_adapterId, iceP_replicaGroupId, iceP_p, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &LocatorRegistryPrx::_iceI_setReplicatedAdapterDirectProxy, iceP_adapterId, iceP_replicaGroupId, iceP_p, context).get();
 }
 
 ::std::future<void>
 Ice::LocatorRegistryPrx::setReplicatedAdapterDirectProxyAsync(const ::std::string& iceP_adapterId, const ::std::string& iceP_replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& iceP_p, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &LocatorRegistryPrx::_iceI_setReplicatedAdapterDirectProxy, iceP_adapterId, iceP_replicaGroupId, iceP_p, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &LocatorRegistryPrx::_iceI_setReplicatedAdapterDirectProxy, iceP_adapterId, iceP_replicaGroupId, iceP_p, context);
 }
 
 ::std::function<void()>
@@ -313,7 +312,7 @@ Ice::LocatorRegistryPrx::setReplicatedAdapterDirectProxyAsync(const ::std::strin
                                                               ::std::function<void(bool)> sent,
                                                               const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorRegistryPrx::_iceI_setReplicatedAdapterDirectProxy, iceP_adapterId, iceP_replicaGroupId, iceP_p, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorRegistryPrx::_iceI_setReplicatedAdapterDirectProxy, iceP_adapterId, iceP_replicaGroupId, iceP_p, context);
 }
 
 /// \cond INTERNAL
@@ -354,13 +353,13 @@ Ice::LocatorRegistryPrx::_iceI_setReplicatedAdapterDirectProxy(const ::std::shar
 void
 Ice::LocatorRegistryPrx::setServerProcessProxy(const ::std::string& iceP_id, const ::std::optional<ProcessPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &LocatorRegistryPrx::_iceI_setServerProcessProxy, iceP_id, iceP_proxy, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &LocatorRegistryPrx::_iceI_setServerProcessProxy, iceP_id, iceP_proxy, context).get();
 }
 
 ::std::future<void>
 Ice::LocatorRegistryPrx::setServerProcessProxyAsync(const ::std::string& iceP_id, const ::std::optional<ProcessPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &LocatorRegistryPrx::_iceI_setServerProcessProxy, iceP_id, iceP_proxy, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &LocatorRegistryPrx::_iceI_setServerProcessProxy, iceP_id, iceP_proxy, context);
 }
 
 ::std::function<void()>
@@ -370,7 +369,7 @@ Ice::LocatorRegistryPrx::setServerProcessProxyAsync(const ::std::string& iceP_id
                                                     ::std::function<void(bool)> sent,
                                                     const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorRegistryPrx::_iceI_setServerProcessProxy, iceP_id, iceP_proxy, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorRegistryPrx::_iceI_setServerProcessProxy, iceP_id, iceP_proxy, context);
 }
 
 /// \cond INTERNAL
@@ -410,13 +409,13 @@ Ice::LocatorRegistryPrx::ice_staticId()
 ::std::optional<::Ice::LocatorPrx>
 Ice::LocatorFinderPrx::getLocator(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::optional<LocatorPrx>>(true, this, &LocatorFinderPrx::_iceI_getLocator, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::optional<LocatorPrx>>(true, this, &LocatorFinderPrx::_iceI_getLocator, context).get();
 }
 
 ::std::future<::std::optional<::Ice::LocatorPrx>>
 Ice::LocatorFinderPrx::getLocatorAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::optional<LocatorPrx>, ::std::promise>(false, this, &LocatorFinderPrx::_iceI_getLocator, context);
+    return ::IceInternal::makePromiseOutgoing<::std::optional<LocatorPrx>>(false, this, &LocatorFinderPrx::_iceI_getLocator, context);
 }
 
 ::std::function<void()>
@@ -425,7 +424,7 @@ Ice::LocatorFinderPrx::getLocatorAsync(::std::function<void (::std::optional<::I
                                        ::std::function<void(bool)> sent,
                                        const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::optional<LocatorPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorFinderPrx::_iceI_getLocator, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::optional<LocatorPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::LocatorFinderPrx::_iceI_getLocator, context);
 }
 
 /// \cond INTERNAL

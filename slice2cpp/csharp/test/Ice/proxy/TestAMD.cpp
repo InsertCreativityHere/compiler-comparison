@@ -15,8 +15,7 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <TestAMD.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -75,13 +74,13 @@ const ::std::string iceC_Test_MyDerivedClass_echo_name = "echo";
 void
 Test::MyClassPrx::shutdown(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_shutdown, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
 Test::MyClassPrx::shutdownAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &MyClassPrx::_iceI_shutdown, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &MyClassPrx::_iceI_shutdown, context);
 }
 
 ::std::function<void()>
@@ -90,7 +89,7 @@ Test::MyClassPrx::shutdownAsync(::std::function<void ()> response,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_shutdown, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_shutdown, context);
 }
 
 /// \cond INTERNAL
@@ -106,13 +105,13 @@ Test::MyClassPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
 ::Ice::Context
 Test::MyClassPrx::getContext(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::Ice::Context>(true, this, &MyClassPrx::_iceI_getContext, context).get();
+    return ::IceInternal::makePromiseOutgoing<::Ice::Context>(true, this, &MyClassPrx::_iceI_getContext, context).get();
 }
 
 ::std::future<::Ice::Context>
 Test::MyClassPrx::getContextAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::Ice::Context, ::std::promise>(false, this, &MyClassPrx::_iceI_getContext, context);
+    return ::IceInternal::makePromiseOutgoing<::Ice::Context>(false, this, &MyClassPrx::_iceI_getContext, context);
 }
 
 ::std::function<void()>
@@ -121,7 +120,7 @@ Test::MyClassPrx::getContextAsync(::std::function<void (::Ice::Context)> respons
                                   ::std::function<void(bool)> sent,
                                   const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::Ice::Context>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getContext, context);
+    return ::IceInternal::makeLambdaOutgoing<::Ice::Context>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getContext, context);
 }
 
 /// \cond INTERNAL
@@ -145,13 +144,13 @@ Test::MyClassPrx::ice_staticId()
 ::std::optional<::Ice::ObjectPrx>
 Test::MyDerivedClassPrx::echo(const ::std::optional<::Ice::ObjectPrx>& iceP_obj, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::optional<::Ice::ObjectPrx>>(true, this, &MyDerivedClassPrx::_iceI_echo, iceP_obj, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::optional<::Ice::ObjectPrx>>(true, this, &MyDerivedClassPrx::_iceI_echo, iceP_obj, context).get();
 }
 
 ::std::future<::std::optional<::Ice::ObjectPrx>>
 Test::MyDerivedClassPrx::echoAsync(const ::std::optional<::Ice::ObjectPrx>& iceP_obj, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::optional<::Ice::ObjectPrx>, ::std::promise>(false, this, &MyDerivedClassPrx::_iceI_echo, iceP_obj, context);
+    return ::IceInternal::makePromiseOutgoing<::std::optional<::Ice::ObjectPrx>>(false, this, &MyDerivedClassPrx::_iceI_echo, iceP_obj, context);
 }
 
 ::std::function<void()>
@@ -161,7 +160,7 @@ Test::MyDerivedClassPrx::echoAsync(const ::std::optional<::Ice::ObjectPrx>& iceP
                                    ::std::function<void(bool)> sent,
                                    const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::optional<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyDerivedClassPrx::_iceI_echo, iceP_obj, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::optional<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyDerivedClassPrx::_iceI_echo, iceP_obj, context);
 }
 
 /// \cond INTERNAL

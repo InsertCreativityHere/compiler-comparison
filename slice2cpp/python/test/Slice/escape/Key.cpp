@@ -15,8 +15,7 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Key.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -108,13 +107,13 @@ const ::std::string iceC_and_print_raise_name = "raise";
 void
 _cpp_and::delPrx::elif(::std::int32_t iceP_else, ::std::int32_t& iceP_except, const ::Ice::Context& context) const
 {
-    iceP_except = _makePromiseOutgoing<::std::int32_t>(true, this, &delPrx::_iceI_elif, iceP_else, context).get();
+    iceP_except = ::IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &delPrx::_iceI_elif, iceP_else, context).get();
 }
 
 ::std::future<::std::int32_t>
 _cpp_and::delPrx::elifAsync(::std::int32_t iceP_else, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &delPrx::_iceI_elif, iceP_else, context);
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &delPrx::_iceI_elif, iceP_else, context);
 }
 
 ::std::function<void()>
@@ -124,7 +123,7 @@ _cpp_and::delPrx::elifAsync(::std::int32_t iceP_else,
                             ::std::function<void(bool)> sent,
                             const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &_cpp_and::delPrx::_iceI_elif, iceP_else, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &_cpp_and::delPrx::_iceI_elif, iceP_else, context);
 }
 
 /// \cond INTERNAL
@@ -151,13 +150,13 @@ _cpp_and::delPrx::ice_staticId()
 void
 _cpp_and::execPrx::finally(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &execPrx::_iceI_finally, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &execPrx::_iceI_finally, context).get();
 }
 
 ::std::future<void>
 _cpp_and::execPrx::finallyAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &execPrx::_iceI_finally, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &execPrx::_iceI_finally, context);
 }
 
 ::std::function<void()>
@@ -166,7 +165,7 @@ _cpp_and::execPrx::finallyAsync(::std::function<void ()> response,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &_cpp_and::execPrx::_iceI_finally, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &_cpp_and::execPrx::_iceI_finally, context);
 }
 
 /// \cond INTERNAL
@@ -196,13 +195,13 @@ _cpp_and::ifPrx::ice_staticId()
 ::_cpp_and::assert
 _cpp_and::printPrx::raise(const _cpp_continue& iceP_else, const ::std::shared_ptr<_cpp_for>& iceP_return, const ::std::optional<delPrx>& iceP_while, const ::std::optional<execPrx>& iceP_yield, const ::std::optional<ifPrx>& iceP_or, ::std::int32_t iceP_global, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<assert>(true, this, &printPrx::_iceI_raise, iceP_else, iceP_return, iceP_while, iceP_yield, iceP_or, iceP_global, context).get();
+    return ::IceInternal::makePromiseOutgoing<assert>(true, this, &printPrx::_iceI_raise, iceP_else, iceP_return, iceP_while, iceP_yield, iceP_or, iceP_global, context).get();
 }
 
 ::std::future<::_cpp_and::assert>
 _cpp_and::printPrx::raiseAsync(const _cpp_continue& iceP_else, const ::std::shared_ptr<_cpp_for>& iceP_return, const ::std::optional<delPrx>& iceP_while, const ::std::optional<execPrx>& iceP_yield, const ::std::optional<ifPrx>& iceP_or, ::std::int32_t iceP_global, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<assert, ::std::promise>(false, this, &printPrx::_iceI_raise, iceP_else, iceP_return, iceP_while, iceP_yield, iceP_or, iceP_global, context);
+    return ::IceInternal::makePromiseOutgoing<assert>(false, this, &printPrx::_iceI_raise, iceP_else, iceP_return, iceP_while, iceP_yield, iceP_or, iceP_global, context);
 }
 
 ::std::function<void()>
@@ -212,7 +211,7 @@ _cpp_and::printPrx::raiseAsync(const _cpp_continue& iceP_else, const ::std::shar
                                ::std::function<void(bool)> sent,
                                const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<assert>(std::move(response), std::move(ex), std::move(sent), this, &_cpp_and::printPrx::_iceI_raise, iceP_else, iceP_return, iceP_while, iceP_yield, iceP_or, iceP_global, context);
+    return ::IceInternal::makeLambdaOutgoing<assert>(std::move(response), std::move(ex), std::move(sent), this, &_cpp_and::printPrx::_iceI_raise, iceP_else, iceP_return, iceP_while, iceP_yield, iceP_or, iceP_global, context);
 }
 
 /// \cond INTERNAL

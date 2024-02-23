@@ -15,8 +15,7 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Session.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -59,13 +58,13 @@ const ::std::string iceC_Test_Session_shutdown_name = "shutdown";
 void
 Test::SessionPrx::destroyFromClient(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &SessionPrx::_iceI_destroyFromClient, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &SessionPrx::_iceI_destroyFromClient, context).get();
 }
 
 ::std::future<void>
 Test::SessionPrx::destroyFromClientAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &SessionPrx::_iceI_destroyFromClient, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &SessionPrx::_iceI_destroyFromClient, context);
 }
 
 ::std::function<void()>
@@ -74,7 +73,7 @@ Test::SessionPrx::destroyFromClientAsync(::std::function<void ()> response,
                                          ::std::function<void(bool)> sent,
                                          const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::SessionPrx::_iceI_destroyFromClient, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::SessionPrx::_iceI_destroyFromClient, context);
 }
 
 /// \cond INTERNAL
@@ -90,13 +89,13 @@ Test::SessionPrx::_iceI_destroyFromClient(const ::std::shared_ptr<::IceInternal:
 void
 Test::SessionPrx::shutdown(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &SessionPrx::_iceI_shutdown, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &SessionPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
 Test::SessionPrx::shutdownAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &SessionPrx::_iceI_shutdown, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &SessionPrx::_iceI_shutdown, context);
 }
 
 ::std::function<void()>
@@ -105,7 +104,7 @@ Test::SessionPrx::shutdownAsync(::std::function<void ()> response,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::SessionPrx::_iceI_shutdown, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::SessionPrx::_iceI_shutdown, context);
 }
 
 /// \cond INTERNAL

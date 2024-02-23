@@ -15,8 +15,7 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Key.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -108,13 +107,13 @@ const ::std::string iceC_abstract_new_notify_name = "notify";
 void
 abstract::catchPrx::checkedCast(::std::int32_t iceP_clone, ::std::int32_t& iceP_continue, const ::Ice::Context& context) const
 {
-    iceP_continue = _makePromiseOutgoing<::std::int32_t>(true, this, &catchPrx::_iceI_checkedCast, iceP_clone, context).get();
+    iceP_continue = ::IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &catchPrx::_iceI_checkedCast, iceP_clone, context).get();
 }
 
 ::std::future<::std::int32_t>
 abstract::catchPrx::checkedCastAsync(::std::int32_t iceP_clone, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &catchPrx::_iceI_checkedCast, iceP_clone, context);
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &catchPrx::_iceI_checkedCast, iceP_clone, context);
 }
 
 ::std::function<void()>
@@ -124,7 +123,7 @@ abstract::catchPrx::checkedCastAsync(::std::int32_t iceP_clone,
                                      ::std::function<void(bool)> sent,
                                      const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &abstract::catchPrx::_iceI_checkedCast, iceP_clone, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &abstract::catchPrx::_iceI_checkedCast, iceP_clone, context);
 }
 
 /// \cond INTERNAL
@@ -151,13 +150,13 @@ abstract::catchPrx::ice_staticId()
 void
 abstract::defaultPrx::_cpp_do(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &defaultPrx::_iceI_do, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &defaultPrx::_iceI_do, context).get();
 }
 
 ::std::future<void>
 abstract::defaultPrx::doAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &defaultPrx::_iceI_do, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &defaultPrx::_iceI_do, context);
 }
 
 ::std::function<void()>
@@ -166,7 +165,7 @@ abstract::defaultPrx::doAsync(::std::function<void ()> response,
                               ::std::function<void(bool)> sent,
                               const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &abstract::defaultPrx::_iceI_do, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &abstract::defaultPrx::_iceI_do, context);
 }
 
 /// \cond INTERNAL
@@ -196,13 +195,13 @@ abstract::finalizePrx::ice_staticId()
 ::abstract::assert
 abstract::newPrx::notify(const _cpp_break& iceP_notifyAll, const ::std::shared_ptr<_cpp_else>& iceP_null, const ::std::optional<finalizePrx>& iceP_package, const ::std::optional<catchPrx>& iceP_public, const ::std::optional<defaultPrx>& iceP_return, ::std::int32_t iceP_static, ::std::int32_t iceP_strictfp, ::std::int32_t iceP_super, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<assert>(true, this, &newPrx::_iceI_notify, iceP_notifyAll, iceP_null, iceP_package, iceP_public, iceP_return, iceP_static, iceP_strictfp, iceP_super, context).get();
+    return ::IceInternal::makePromiseOutgoing<assert>(true, this, &newPrx::_iceI_notify, iceP_notifyAll, iceP_null, iceP_package, iceP_public, iceP_return, iceP_static, iceP_strictfp, iceP_super, context).get();
 }
 
 ::std::future<::abstract::assert>
 abstract::newPrx::notifyAsync(const _cpp_break& iceP_notifyAll, const ::std::shared_ptr<_cpp_else>& iceP_null, const ::std::optional<finalizePrx>& iceP_package, const ::std::optional<catchPrx>& iceP_public, const ::std::optional<defaultPrx>& iceP_return, ::std::int32_t iceP_static, ::std::int32_t iceP_strictfp, ::std::int32_t iceP_super, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<assert, ::std::promise>(false, this, &newPrx::_iceI_notify, iceP_notifyAll, iceP_null, iceP_package, iceP_public, iceP_return, iceP_static, iceP_strictfp, iceP_super, context);
+    return ::IceInternal::makePromiseOutgoing<assert>(false, this, &newPrx::_iceI_notify, iceP_notifyAll, iceP_null, iceP_package, iceP_public, iceP_return, iceP_static, iceP_strictfp, iceP_super, context);
 }
 
 ::std::function<void()>
@@ -212,7 +211,7 @@ abstract::newPrx::notifyAsync(const _cpp_break& iceP_notifyAll, const ::std::sha
                               ::std::function<void(bool)> sent,
                               const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<assert>(std::move(response), std::move(ex), std::move(sent), this, &abstract::newPrx::_iceI_notify, iceP_notifyAll, iceP_null, iceP_package, iceP_public, iceP_return, iceP_static, iceP_strictfp, iceP_super, context);
+    return ::IceInternal::makeLambdaOutgoing<assert>(std::move(response), std::move(ex), std::move(sent), this, &abstract::newPrx::_iceI_notify, iceP_notifyAll, iceP_null, iceP_package, iceP_public, iceP_return, iceP_static, iceP_strictfp, iceP_super, context);
 }
 
 /// \cond INTERNAL

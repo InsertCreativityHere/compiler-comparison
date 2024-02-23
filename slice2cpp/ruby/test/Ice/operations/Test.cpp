@@ -15,8 +15,7 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -365,13 +364,13 @@ const ::std::string iceC_Test2_MyDerivedClass_ops[] =
 void
 Test::MyClassPrx::shutdown(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_shutdown, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
 Test::MyClassPrx::shutdownAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &MyClassPrx::_iceI_shutdown, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &MyClassPrx::_iceI_shutdown, context);
 }
 
 ::std::function<void()>
@@ -380,7 +379,7 @@ Test::MyClassPrx::shutdownAsync(::std::function<void ()> response,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_shutdown, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_shutdown, context);
 }
 
 /// \cond INTERNAL
@@ -396,13 +395,13 @@ Test::MyClassPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
 bool
 Test::MyClassPrx::supportsCompress(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<bool>(true, this, &MyClassPrx::_iceI_supportsCompress, context).get();
+    return ::IceInternal::makePromiseOutgoing<bool>(true, this, &MyClassPrx::_iceI_supportsCompress, context).get();
 }
 
 ::std::future<bool>
 Test::MyClassPrx::supportsCompressAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<bool, ::std::promise>(false, this, &MyClassPrx::_iceI_supportsCompress, context);
+    return ::IceInternal::makePromiseOutgoing<bool>(false, this, &MyClassPrx::_iceI_supportsCompress, context);
 }
 
 ::std::function<void()>
@@ -411,7 +410,7 @@ Test::MyClassPrx::supportsCompressAsync(::std::function<void (bool)> response,
                                         ::std::function<void(bool)> sent,
                                         const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_supportsCompress, context);
+    return ::IceInternal::makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_supportsCompress, context);
 }
 
 /// \cond INTERNAL
@@ -428,13 +427,13 @@ Test::MyClassPrx::_iceI_supportsCompress(const ::std::shared_ptr<::IceInternal::
 void
 Test::MyClassPrx::opVoid(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_opVoid, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_opVoid, context).get();
 }
 
 ::std::future<void>
 Test::MyClassPrx::opVoidAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &MyClassPrx::_iceI_opVoid, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &MyClassPrx::_iceI_opVoid, context);
 }
 
 ::std::function<void()>
@@ -443,7 +442,7 @@ Test::MyClassPrx::opVoidAsync(::std::function<void ()> response,
                               ::std::function<void(bool)> sent,
                               const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opVoid, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opVoid, context);
 }
 
 /// \cond INTERNAL
@@ -459,7 +458,7 @@ Test::MyClassPrx::_iceI_opVoid(const ::std::shared_ptr<::IceInternal::OutgoingAs
 ::std::uint8_t
 Test::MyClassPrx::opByte(::std::uint8_t iceP_p1, ::std::uint8_t iceP_p2, ::std::uint8_t& iceP_p3, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<::std::uint8_t, ::std::uint8_t>>(true, this, &MyClassPrx::_iceI_opByte, iceP_p1, iceP_p2, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::uint8_t, ::std::uint8_t>>(true, this, &MyClassPrx::_iceI_opByte, iceP_p1, iceP_p2, context).get();
     iceP_p3 = ::std::get<1>(_result);
     return ::std::get<0>(_result);
 }
@@ -467,7 +466,7 @@ Test::MyClassPrx::opByte(::std::uint8_t iceP_p1, ::std::uint8_t iceP_p2, ::std::
 ::std::future<::std::tuple<::std::uint8_t, ::std::uint8_t>>
 Test::MyClassPrx::opByteAsync(::std::uint8_t iceP_p1, ::std::uint8_t iceP_p2, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<::std::uint8_t, ::std::uint8_t>, ::std::promise>(false, this, &MyClassPrx::_iceI_opByte, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::uint8_t, ::std::uint8_t>>(false, this, &MyClassPrx::_iceI_opByte, iceP_p1, iceP_p2, context);
 }
 
 ::std::function<void()>
@@ -481,7 +480,7 @@ Test::MyClassPrx::opByteAsync(::std::uint8_t iceP_p1, ::std::uint8_t iceP_p2,
     {
         response(::std::get<0>(_result), ::std::get<1>(_result));
     };
-    return _makeLambdaOutgoing<::std::tuple<::std::uint8_t, ::std::uint8_t>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByte, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::uint8_t, ::std::uint8_t>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByte, iceP_p1, iceP_p2, context);
 }
 
 /// \cond INTERNAL
@@ -507,7 +506,7 @@ Test::MyClassPrx::_iceI_opByte(const ::std::shared_ptr<::IceInternal::OutgoingAs
 bool
 Test::MyClassPrx::opBool(bool iceP_p1, bool iceP_p2, bool& iceP_p3, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<bool, bool>>(true, this, &MyClassPrx::_iceI_opBool, iceP_p1, iceP_p2, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<bool, bool>>(true, this, &MyClassPrx::_iceI_opBool, iceP_p1, iceP_p2, context).get();
     iceP_p3 = ::std::get<1>(_result);
     return ::std::get<0>(_result);
 }
@@ -515,7 +514,7 @@ Test::MyClassPrx::opBool(bool iceP_p1, bool iceP_p2, bool& iceP_p3, const ::Ice:
 ::std::future<::std::tuple<bool, bool>>
 Test::MyClassPrx::opBoolAsync(bool iceP_p1, bool iceP_p2, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<bool, bool>, ::std::promise>(false, this, &MyClassPrx::_iceI_opBool, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<bool, bool>>(false, this, &MyClassPrx::_iceI_opBool, iceP_p1, iceP_p2, context);
 }
 
 ::std::function<void()>
@@ -529,7 +528,7 @@ Test::MyClassPrx::opBoolAsync(bool iceP_p1, bool iceP_p2,
     {
         response(::std::get<0>(_result), ::std::get<1>(_result));
     };
-    return _makeLambdaOutgoing<::std::tuple<bool, bool>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opBool, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<bool, bool>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opBool, iceP_p1, iceP_p2, context);
 }
 
 /// \cond INTERNAL
@@ -555,7 +554,7 @@ Test::MyClassPrx::_iceI_opBool(const ::std::shared_ptr<::IceInternal::OutgoingAs
 ::std::int64_t
 Test::MyClassPrx::opShortIntLong(::std::int16_t iceP_p1, ::std::int32_t iceP_p2, ::std::int64_t iceP_p3, ::std::int16_t& iceP_p4, ::std::int32_t& iceP_p5, ::std::int64_t& iceP_p6, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<::std::int64_t, ::std::int16_t, ::std::int32_t, ::std::int64_t>>(true, this, &MyClassPrx::_iceI_opShortIntLong, iceP_p1, iceP_p2, iceP_p3, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::int64_t, ::std::int16_t, ::std::int32_t, ::std::int64_t>>(true, this, &MyClassPrx::_iceI_opShortIntLong, iceP_p1, iceP_p2, iceP_p3, context).get();
     iceP_p4 = ::std::get<1>(_result);
     iceP_p5 = ::std::get<2>(_result);
     iceP_p6 = ::std::get<3>(_result);
@@ -565,7 +564,7 @@ Test::MyClassPrx::opShortIntLong(::std::int16_t iceP_p1, ::std::int32_t iceP_p2,
 ::std::future<::std::tuple<::std::int64_t, ::std::int16_t, ::std::int32_t, ::std::int64_t>>
 Test::MyClassPrx::opShortIntLongAsync(::std::int16_t iceP_p1, ::std::int32_t iceP_p2, ::std::int64_t iceP_p3, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<::std::int64_t, ::std::int16_t, ::std::int32_t, ::std::int64_t>, ::std::promise>(false, this, &MyClassPrx::_iceI_opShortIntLong, iceP_p1, iceP_p2, iceP_p3, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::int64_t, ::std::int16_t, ::std::int32_t, ::std::int64_t>>(false, this, &MyClassPrx::_iceI_opShortIntLong, iceP_p1, iceP_p2, iceP_p3, context);
 }
 
 ::std::function<void()>
@@ -579,7 +578,7 @@ Test::MyClassPrx::opShortIntLongAsync(::std::int16_t iceP_p1, ::std::int32_t ice
     {
         response(::std::get<0>(_result), ::std::get<1>(_result), ::std::get<2>(_result), ::std::get<3>(_result));
     };
-    return _makeLambdaOutgoing<::std::tuple<::std::int64_t, ::std::int16_t, ::std::int32_t, ::std::int64_t>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opShortIntLong, iceP_p1, iceP_p2, iceP_p3, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::int64_t, ::std::int16_t, ::std::int32_t, ::std::int64_t>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opShortIntLong, iceP_p1, iceP_p2, iceP_p3, context);
 }
 
 /// \cond INTERNAL
@@ -605,7 +604,7 @@ Test::MyClassPrx::_iceI_opShortIntLong(const ::std::shared_ptr<::IceInternal::Ou
 double
 Test::MyClassPrx::opFloatDouble(float iceP_p1, double iceP_p2, float& iceP_p3, double& iceP_p4, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<double, float, double>>(true, this, &MyClassPrx::_iceI_opFloatDouble, iceP_p1, iceP_p2, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<double, float, double>>(true, this, &MyClassPrx::_iceI_opFloatDouble, iceP_p1, iceP_p2, context).get();
     iceP_p3 = ::std::get<1>(_result);
     iceP_p4 = ::std::get<2>(_result);
     return ::std::get<0>(_result);
@@ -614,7 +613,7 @@ Test::MyClassPrx::opFloatDouble(float iceP_p1, double iceP_p2, float& iceP_p3, d
 ::std::future<::std::tuple<double, float, double>>
 Test::MyClassPrx::opFloatDoubleAsync(float iceP_p1, double iceP_p2, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<double, float, double>, ::std::promise>(false, this, &MyClassPrx::_iceI_opFloatDouble, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<double, float, double>>(false, this, &MyClassPrx::_iceI_opFloatDouble, iceP_p1, iceP_p2, context);
 }
 
 ::std::function<void()>
@@ -628,7 +627,7 @@ Test::MyClassPrx::opFloatDoubleAsync(float iceP_p1, double iceP_p2,
     {
         response(::std::get<0>(_result), ::std::get<1>(_result), ::std::get<2>(_result));
     };
-    return _makeLambdaOutgoing<::std::tuple<double, float, double>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opFloatDouble, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<double, float, double>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opFloatDouble, iceP_p1, iceP_p2, context);
 }
 
 /// \cond INTERNAL
@@ -654,7 +653,7 @@ Test::MyClassPrx::_iceI_opFloatDouble(const ::std::shared_ptr<::IceInternal::Out
 ::std::string
 Test::MyClassPrx::opString(const ::std::string& iceP_p1, const ::std::string& iceP_p2, ::std::string& iceP_p3, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<::std::string, ::std::string>>(true, this, &MyClassPrx::_iceI_opString, iceP_p1, iceP_p2, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::string, ::std::string>>(true, this, &MyClassPrx::_iceI_opString, iceP_p1, iceP_p2, context).get();
     iceP_p3 = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -662,7 +661,7 @@ Test::MyClassPrx::opString(const ::std::string& iceP_p1, const ::std::string& ic
 ::std::future<::std::tuple<::std::string, ::std::string>>
 Test::MyClassPrx::opStringAsync(const ::std::string& iceP_p1, const ::std::string& iceP_p2, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<::std::string, ::std::string>, ::std::promise>(false, this, &MyClassPrx::_iceI_opString, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::string, ::std::string>>(false, this, &MyClassPrx::_iceI_opString, iceP_p1, iceP_p2, context);
 }
 
 ::std::function<void()>
@@ -676,7 +675,7 @@ Test::MyClassPrx::opStringAsync(const ::std::string& iceP_p1, const ::std::strin
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<::std::string, ::std::string>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opString, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::string, ::std::string>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opString, iceP_p1, iceP_p2, context);
 }
 
 /// \cond INTERNAL
@@ -702,7 +701,7 @@ Test::MyClassPrx::_iceI_opString(const ::std::shared_ptr<::IceInternal::Outgoing
 ::Test::MyEnum
 Test::MyClassPrx::opMyEnum(MyEnum iceP_p1, MyEnum& iceP_p2, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<MyEnum, MyEnum>>(true, this, &MyClassPrx::_iceI_opMyEnum, iceP_p1, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<MyEnum, MyEnum>>(true, this, &MyClassPrx::_iceI_opMyEnum, iceP_p1, context).get();
     iceP_p2 = ::std::get<1>(_result);
     return ::std::get<0>(_result);
 }
@@ -710,7 +709,7 @@ Test::MyClassPrx::opMyEnum(MyEnum iceP_p1, MyEnum& iceP_p2, const ::Ice::Context
 ::std::future<::std::tuple<::Test::MyEnum, ::Test::MyEnum>>
 Test::MyClassPrx::opMyEnumAsync(MyEnum iceP_p1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<MyEnum, MyEnum>, ::std::promise>(false, this, &MyClassPrx::_iceI_opMyEnum, iceP_p1, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<MyEnum, MyEnum>>(false, this, &MyClassPrx::_iceI_opMyEnum, iceP_p1, context);
 }
 
 ::std::function<void()>
@@ -724,7 +723,7 @@ Test::MyClassPrx::opMyEnumAsync(MyEnum iceP_p1,
     {
         response(::std::get<0>(_result), ::std::get<1>(_result));
     };
-    return _makeLambdaOutgoing<::std::tuple<MyEnum, MyEnum>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMyEnum, iceP_p1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<MyEnum, MyEnum>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMyEnum, iceP_p1, context);
 }
 
 /// \cond INTERNAL
@@ -750,7 +749,7 @@ Test::MyClassPrx::_iceI_opMyEnum(const ::std::shared_ptr<::IceInternal::Outgoing
 ::std::optional<::Test::MyClassPrx>
 Test::MyClassPrx::opMyClass(const ::std::optional<MyClassPrx>& iceP_p1, ::std::optional<MyClassPrx>& iceP_p2, ::std::optional<MyClassPrx>& iceP_p3, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<::std::optional<MyClassPrx>, ::std::optional<MyClassPrx>, ::std::optional<MyClassPrx>>>(true, this, &MyClassPrx::_iceI_opMyClass, iceP_p1, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<MyClassPrx>, ::std::optional<MyClassPrx>, ::std::optional<MyClassPrx>>>(true, this, &MyClassPrx::_iceI_opMyClass, iceP_p1, context).get();
     iceP_p2 = ::std::move(::std::get<1>(_result));
     iceP_p3 = ::std::move(::std::get<2>(_result));
     return ::std::move(::std::get<0>(_result));
@@ -759,7 +758,7 @@ Test::MyClassPrx::opMyClass(const ::std::optional<MyClassPrx>& iceP_p1, ::std::o
 ::std::future<::std::tuple<::std::optional<::Test::MyClassPrx>, ::std::optional<::Test::MyClassPrx>, ::std::optional<::Test::MyClassPrx>>>
 Test::MyClassPrx::opMyClassAsync(const ::std::optional<MyClassPrx>& iceP_p1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<::std::optional<MyClassPrx>, ::std::optional<MyClassPrx>, ::std::optional<MyClassPrx>>, ::std::promise>(false, this, &MyClassPrx::_iceI_opMyClass, iceP_p1, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<MyClassPrx>, ::std::optional<MyClassPrx>, ::std::optional<MyClassPrx>>>(false, this, &MyClassPrx::_iceI_opMyClass, iceP_p1, context);
 }
 
 ::std::function<void()>
@@ -773,7 +772,7 @@ Test::MyClassPrx::opMyClassAsync(const ::std::optional<MyClassPrx>& iceP_p1,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)), ::std::move(::std::get<2>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<::std::optional<MyClassPrx>, ::std::optional<MyClassPrx>, ::std::optional<MyClassPrx>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMyClass, iceP_p1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<MyClassPrx>, ::std::optional<MyClassPrx>, ::std::optional<MyClassPrx>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMyClass, iceP_p1, context);
 }
 
 /// \cond INTERNAL
@@ -799,7 +798,7 @@ Test::MyClassPrx::_iceI_opMyClass(const ::std::shared_ptr<::IceInternal::Outgoin
 ::Test::Structure
 Test::MyClassPrx::opStruct(const Structure& iceP_p1, const Structure& iceP_p2, Structure& iceP_p3, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<Structure, Structure>>(true, this, &MyClassPrx::_iceI_opStruct, iceP_p1, iceP_p2, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<Structure, Structure>>(true, this, &MyClassPrx::_iceI_opStruct, iceP_p1, iceP_p2, context).get();
     iceP_p3 = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -807,7 +806,7 @@ Test::MyClassPrx::opStruct(const Structure& iceP_p1, const Structure& iceP_p2, S
 ::std::future<::std::tuple<::Test::Structure, ::Test::Structure>>
 Test::MyClassPrx::opStructAsync(const Structure& iceP_p1, const Structure& iceP_p2, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<Structure, Structure>, ::std::promise>(false, this, &MyClassPrx::_iceI_opStruct, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<Structure, Structure>>(false, this, &MyClassPrx::_iceI_opStruct, iceP_p1, iceP_p2, context);
 }
 
 ::std::function<void()>
@@ -821,7 +820,7 @@ Test::MyClassPrx::opStructAsync(const Structure& iceP_p1, const Structure& iceP_
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<Structure, Structure>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStruct, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<Structure, Structure>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStruct, iceP_p1, iceP_p2, context);
 }
 
 /// \cond INTERNAL
@@ -847,7 +846,7 @@ Test::MyClassPrx::_iceI_opStruct(const ::std::shared_ptr<::IceInternal::Outgoing
 ::Test::ByteS
 Test::MyClassPrx::opByteS(const ByteS& iceP_p1, const ByteS& iceP_p2, ByteS& iceP_p3, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<ByteS, ByteS>>(true, this, &MyClassPrx::_iceI_opByteS, iceP_p1, iceP_p2, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<ByteS, ByteS>>(true, this, &MyClassPrx::_iceI_opByteS, iceP_p1, iceP_p2, context).get();
     iceP_p3 = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -855,7 +854,7 @@ Test::MyClassPrx::opByteS(const ByteS& iceP_p1, const ByteS& iceP_p2, ByteS& ice
 ::std::future<::std::tuple<::Test::ByteS, ::Test::ByteS>>
 Test::MyClassPrx::opByteSAsync(const ByteS& iceP_p1, const ByteS& iceP_p2, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<ByteS, ByteS>, ::std::promise>(false, this, &MyClassPrx::_iceI_opByteS, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<ByteS, ByteS>>(false, this, &MyClassPrx::_iceI_opByteS, iceP_p1, iceP_p2, context);
 }
 
 ::std::function<void()>
@@ -869,7 +868,7 @@ Test::MyClassPrx::opByteSAsync(const ByteS& iceP_p1, const ByteS& iceP_p2,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<ByteS, ByteS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByteS, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ByteS, ByteS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByteS, iceP_p1, iceP_p2, context);
 }
 
 /// \cond INTERNAL
@@ -895,7 +894,7 @@ Test::MyClassPrx::_iceI_opByteS(const ::std::shared_ptr<::IceInternal::OutgoingA
 ::Test::BoolS
 Test::MyClassPrx::opBoolS(const BoolS& iceP_p1, const BoolS& iceP_p2, BoolS& iceP_p3, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<BoolS, BoolS>>(true, this, &MyClassPrx::_iceI_opBoolS, iceP_p1, iceP_p2, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<BoolS, BoolS>>(true, this, &MyClassPrx::_iceI_opBoolS, iceP_p1, iceP_p2, context).get();
     iceP_p3 = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -903,7 +902,7 @@ Test::MyClassPrx::opBoolS(const BoolS& iceP_p1, const BoolS& iceP_p2, BoolS& ice
 ::std::future<::std::tuple<::Test::BoolS, ::Test::BoolS>>
 Test::MyClassPrx::opBoolSAsync(const BoolS& iceP_p1, const BoolS& iceP_p2, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<BoolS, BoolS>, ::std::promise>(false, this, &MyClassPrx::_iceI_opBoolS, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<BoolS, BoolS>>(false, this, &MyClassPrx::_iceI_opBoolS, iceP_p1, iceP_p2, context);
 }
 
 ::std::function<void()>
@@ -917,7 +916,7 @@ Test::MyClassPrx::opBoolSAsync(const BoolS& iceP_p1, const BoolS& iceP_p2,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<BoolS, BoolS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opBoolS, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<BoolS, BoolS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opBoolS, iceP_p1, iceP_p2, context);
 }
 
 /// \cond INTERNAL
@@ -943,7 +942,7 @@ Test::MyClassPrx::_iceI_opBoolS(const ::std::shared_ptr<::IceInternal::OutgoingA
 ::Test::LongS
 Test::MyClassPrx::opShortIntLongS(const ShortS& iceP_p1, const IntS& iceP_p2, const LongS& iceP_p3, ShortS& iceP_p4, IntS& iceP_p5, LongS& iceP_p6, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<LongS, ShortS, IntS, LongS>>(true, this, &MyClassPrx::_iceI_opShortIntLongS, iceP_p1, iceP_p2, iceP_p3, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<LongS, ShortS, IntS, LongS>>(true, this, &MyClassPrx::_iceI_opShortIntLongS, iceP_p1, iceP_p2, iceP_p3, context).get();
     iceP_p4 = ::std::move(::std::get<1>(_result));
     iceP_p5 = ::std::move(::std::get<2>(_result));
     iceP_p6 = ::std::move(::std::get<3>(_result));
@@ -953,7 +952,7 @@ Test::MyClassPrx::opShortIntLongS(const ShortS& iceP_p1, const IntS& iceP_p2, co
 ::std::future<::std::tuple<::Test::LongS, ::Test::ShortS, ::Test::IntS, ::Test::LongS>>
 Test::MyClassPrx::opShortIntLongSAsync(const ShortS& iceP_p1, const IntS& iceP_p2, const LongS& iceP_p3, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<LongS, ShortS, IntS, LongS>, ::std::promise>(false, this, &MyClassPrx::_iceI_opShortIntLongS, iceP_p1, iceP_p2, iceP_p3, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<LongS, ShortS, IntS, LongS>>(false, this, &MyClassPrx::_iceI_opShortIntLongS, iceP_p1, iceP_p2, iceP_p3, context);
 }
 
 ::std::function<void()>
@@ -967,7 +966,7 @@ Test::MyClassPrx::opShortIntLongSAsync(const ShortS& iceP_p1, const IntS& iceP_p
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)), ::std::move(::std::get<2>(_result)), ::std::move(::std::get<3>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<LongS, ShortS, IntS, LongS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opShortIntLongS, iceP_p1, iceP_p2, iceP_p3, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<LongS, ShortS, IntS, LongS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opShortIntLongS, iceP_p1, iceP_p2, iceP_p3, context);
 }
 
 /// \cond INTERNAL
@@ -993,7 +992,7 @@ Test::MyClassPrx::_iceI_opShortIntLongS(const ::std::shared_ptr<::IceInternal::O
 ::Test::DoubleS
 Test::MyClassPrx::opFloatDoubleS(const FloatS& iceP_p1, const DoubleS& iceP_p2, FloatS& iceP_p3, DoubleS& iceP_p4, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<DoubleS, FloatS, DoubleS>>(true, this, &MyClassPrx::_iceI_opFloatDoubleS, iceP_p1, iceP_p2, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<DoubleS, FloatS, DoubleS>>(true, this, &MyClassPrx::_iceI_opFloatDoubleS, iceP_p1, iceP_p2, context).get();
     iceP_p3 = ::std::move(::std::get<1>(_result));
     iceP_p4 = ::std::move(::std::get<2>(_result));
     return ::std::move(::std::get<0>(_result));
@@ -1002,7 +1001,7 @@ Test::MyClassPrx::opFloatDoubleS(const FloatS& iceP_p1, const DoubleS& iceP_p2, 
 ::std::future<::std::tuple<::Test::DoubleS, ::Test::FloatS, ::Test::DoubleS>>
 Test::MyClassPrx::opFloatDoubleSAsync(const FloatS& iceP_p1, const DoubleS& iceP_p2, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<DoubleS, FloatS, DoubleS>, ::std::promise>(false, this, &MyClassPrx::_iceI_opFloatDoubleS, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<DoubleS, FloatS, DoubleS>>(false, this, &MyClassPrx::_iceI_opFloatDoubleS, iceP_p1, iceP_p2, context);
 }
 
 ::std::function<void()>
@@ -1016,7 +1015,7 @@ Test::MyClassPrx::opFloatDoubleSAsync(const FloatS& iceP_p1, const DoubleS& iceP
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)), ::std::move(::std::get<2>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<DoubleS, FloatS, DoubleS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opFloatDoubleS, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<DoubleS, FloatS, DoubleS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opFloatDoubleS, iceP_p1, iceP_p2, context);
 }
 
 /// \cond INTERNAL
@@ -1042,7 +1041,7 @@ Test::MyClassPrx::_iceI_opFloatDoubleS(const ::std::shared_ptr<::IceInternal::Ou
 ::Test::StringS
 Test::MyClassPrx::opStringS(const StringS& iceP_p1, const StringS& iceP_p2, StringS& iceP_p3, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<StringS, StringS>>(true, this, &MyClassPrx::_iceI_opStringS, iceP_p1, iceP_p2, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<StringS, StringS>>(true, this, &MyClassPrx::_iceI_opStringS, iceP_p1, iceP_p2, context).get();
     iceP_p3 = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -1050,7 +1049,7 @@ Test::MyClassPrx::opStringS(const StringS& iceP_p1, const StringS& iceP_p2, Stri
 ::std::future<::std::tuple<::Test::StringS, ::Test::StringS>>
 Test::MyClassPrx::opStringSAsync(const StringS& iceP_p1, const StringS& iceP_p2, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<StringS, StringS>, ::std::promise>(false, this, &MyClassPrx::_iceI_opStringS, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<StringS, StringS>>(false, this, &MyClassPrx::_iceI_opStringS, iceP_p1, iceP_p2, context);
 }
 
 ::std::function<void()>
@@ -1064,7 +1063,7 @@ Test::MyClassPrx::opStringSAsync(const StringS& iceP_p1, const StringS& iceP_p2,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<StringS, StringS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringS, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<StringS, StringS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringS, iceP_p1, iceP_p2, context);
 }
 
 /// \cond INTERNAL
@@ -1090,7 +1089,7 @@ Test::MyClassPrx::_iceI_opStringS(const ::std::shared_ptr<::IceInternal::Outgoin
 ::Test::ByteSS
 Test::MyClassPrx::opByteSS(const ByteSS& iceP_p1, const ByteSS& iceP_p2, ByteSS& iceP_p3, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<ByteSS, ByteSS>>(true, this, &MyClassPrx::_iceI_opByteSS, iceP_p1, iceP_p2, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<ByteSS, ByteSS>>(true, this, &MyClassPrx::_iceI_opByteSS, iceP_p1, iceP_p2, context).get();
     iceP_p3 = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -1098,7 +1097,7 @@ Test::MyClassPrx::opByteSS(const ByteSS& iceP_p1, const ByteSS& iceP_p2, ByteSS&
 ::std::future<::std::tuple<::Test::ByteSS, ::Test::ByteSS>>
 Test::MyClassPrx::opByteSSAsync(const ByteSS& iceP_p1, const ByteSS& iceP_p2, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<ByteSS, ByteSS>, ::std::promise>(false, this, &MyClassPrx::_iceI_opByteSS, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<ByteSS, ByteSS>>(false, this, &MyClassPrx::_iceI_opByteSS, iceP_p1, iceP_p2, context);
 }
 
 ::std::function<void()>
@@ -1112,7 +1111,7 @@ Test::MyClassPrx::opByteSSAsync(const ByteSS& iceP_p1, const ByteSS& iceP_p2,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<ByteSS, ByteSS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByteSS, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ByteSS, ByteSS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByteSS, iceP_p1, iceP_p2, context);
 }
 
 /// \cond INTERNAL
@@ -1138,7 +1137,7 @@ Test::MyClassPrx::_iceI_opByteSS(const ::std::shared_ptr<::IceInternal::Outgoing
 ::Test::BoolSS
 Test::MyClassPrx::opBoolSS(const BoolSS& iceP_p1, const BoolSS& iceP_p2, BoolSS& iceP_p3, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<BoolSS, BoolSS>>(true, this, &MyClassPrx::_iceI_opBoolSS, iceP_p1, iceP_p2, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<BoolSS, BoolSS>>(true, this, &MyClassPrx::_iceI_opBoolSS, iceP_p1, iceP_p2, context).get();
     iceP_p3 = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -1146,7 +1145,7 @@ Test::MyClassPrx::opBoolSS(const BoolSS& iceP_p1, const BoolSS& iceP_p2, BoolSS&
 ::std::future<::std::tuple<::Test::BoolSS, ::Test::BoolSS>>
 Test::MyClassPrx::opBoolSSAsync(const BoolSS& iceP_p1, const BoolSS& iceP_p2, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<BoolSS, BoolSS>, ::std::promise>(false, this, &MyClassPrx::_iceI_opBoolSS, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<BoolSS, BoolSS>>(false, this, &MyClassPrx::_iceI_opBoolSS, iceP_p1, iceP_p2, context);
 }
 
 ::std::function<void()>
@@ -1160,7 +1159,7 @@ Test::MyClassPrx::opBoolSSAsync(const BoolSS& iceP_p1, const BoolSS& iceP_p2,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<BoolSS, BoolSS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opBoolSS, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<BoolSS, BoolSS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opBoolSS, iceP_p1, iceP_p2, context);
 }
 
 /// \cond INTERNAL
@@ -1186,7 +1185,7 @@ Test::MyClassPrx::_iceI_opBoolSS(const ::std::shared_ptr<::IceInternal::Outgoing
 ::Test::LongSS
 Test::MyClassPrx::opShortIntLongSS(const ShortSS& iceP_p1, const IntSS& iceP_p2, const LongSS& iceP_p3, ShortSS& iceP_p4, IntSS& iceP_p5, LongSS& iceP_p6, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<LongSS, ShortSS, IntSS, LongSS>>(true, this, &MyClassPrx::_iceI_opShortIntLongSS, iceP_p1, iceP_p2, iceP_p3, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<LongSS, ShortSS, IntSS, LongSS>>(true, this, &MyClassPrx::_iceI_opShortIntLongSS, iceP_p1, iceP_p2, iceP_p3, context).get();
     iceP_p4 = ::std::move(::std::get<1>(_result));
     iceP_p5 = ::std::move(::std::get<2>(_result));
     iceP_p6 = ::std::move(::std::get<3>(_result));
@@ -1196,7 +1195,7 @@ Test::MyClassPrx::opShortIntLongSS(const ShortSS& iceP_p1, const IntSS& iceP_p2,
 ::std::future<::std::tuple<::Test::LongSS, ::Test::ShortSS, ::Test::IntSS, ::Test::LongSS>>
 Test::MyClassPrx::opShortIntLongSSAsync(const ShortSS& iceP_p1, const IntSS& iceP_p2, const LongSS& iceP_p3, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<LongSS, ShortSS, IntSS, LongSS>, ::std::promise>(false, this, &MyClassPrx::_iceI_opShortIntLongSS, iceP_p1, iceP_p2, iceP_p3, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<LongSS, ShortSS, IntSS, LongSS>>(false, this, &MyClassPrx::_iceI_opShortIntLongSS, iceP_p1, iceP_p2, iceP_p3, context);
 }
 
 ::std::function<void()>
@@ -1210,7 +1209,7 @@ Test::MyClassPrx::opShortIntLongSSAsync(const ShortSS& iceP_p1, const IntSS& ice
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)), ::std::move(::std::get<2>(_result)), ::std::move(::std::get<3>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<LongSS, ShortSS, IntSS, LongSS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opShortIntLongSS, iceP_p1, iceP_p2, iceP_p3, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<LongSS, ShortSS, IntSS, LongSS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opShortIntLongSS, iceP_p1, iceP_p2, iceP_p3, context);
 }
 
 /// \cond INTERNAL
@@ -1236,7 +1235,7 @@ Test::MyClassPrx::_iceI_opShortIntLongSS(const ::std::shared_ptr<::IceInternal::
 ::Test::DoubleSS
 Test::MyClassPrx::opFloatDoubleSS(const FloatSS& iceP_p1, const DoubleSS& iceP_p2, FloatSS& iceP_p3, DoubleSS& iceP_p4, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<DoubleSS, FloatSS, DoubleSS>>(true, this, &MyClassPrx::_iceI_opFloatDoubleSS, iceP_p1, iceP_p2, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<DoubleSS, FloatSS, DoubleSS>>(true, this, &MyClassPrx::_iceI_opFloatDoubleSS, iceP_p1, iceP_p2, context).get();
     iceP_p3 = ::std::move(::std::get<1>(_result));
     iceP_p4 = ::std::move(::std::get<2>(_result));
     return ::std::move(::std::get<0>(_result));
@@ -1245,7 +1244,7 @@ Test::MyClassPrx::opFloatDoubleSS(const FloatSS& iceP_p1, const DoubleSS& iceP_p
 ::std::future<::std::tuple<::Test::DoubleSS, ::Test::FloatSS, ::Test::DoubleSS>>
 Test::MyClassPrx::opFloatDoubleSSAsync(const FloatSS& iceP_p1, const DoubleSS& iceP_p2, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<DoubleSS, FloatSS, DoubleSS>, ::std::promise>(false, this, &MyClassPrx::_iceI_opFloatDoubleSS, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<DoubleSS, FloatSS, DoubleSS>>(false, this, &MyClassPrx::_iceI_opFloatDoubleSS, iceP_p1, iceP_p2, context);
 }
 
 ::std::function<void()>
@@ -1259,7 +1258,7 @@ Test::MyClassPrx::opFloatDoubleSSAsync(const FloatSS& iceP_p1, const DoubleSS& i
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)), ::std::move(::std::get<2>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<DoubleSS, FloatSS, DoubleSS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opFloatDoubleSS, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<DoubleSS, FloatSS, DoubleSS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opFloatDoubleSS, iceP_p1, iceP_p2, context);
 }
 
 /// \cond INTERNAL
@@ -1285,7 +1284,7 @@ Test::MyClassPrx::_iceI_opFloatDoubleSS(const ::std::shared_ptr<::IceInternal::O
 ::Test::StringSS
 Test::MyClassPrx::opStringSS(const StringSS& iceP_p1, const StringSS& iceP_p2, StringSS& iceP_p3, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<StringSS, StringSS>>(true, this, &MyClassPrx::_iceI_opStringSS, iceP_p1, iceP_p2, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<StringSS, StringSS>>(true, this, &MyClassPrx::_iceI_opStringSS, iceP_p1, iceP_p2, context).get();
     iceP_p3 = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -1293,7 +1292,7 @@ Test::MyClassPrx::opStringSS(const StringSS& iceP_p1, const StringSS& iceP_p2, S
 ::std::future<::std::tuple<::Test::StringSS, ::Test::StringSS>>
 Test::MyClassPrx::opStringSSAsync(const StringSS& iceP_p1, const StringSS& iceP_p2, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<StringSS, StringSS>, ::std::promise>(false, this, &MyClassPrx::_iceI_opStringSS, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<StringSS, StringSS>>(false, this, &MyClassPrx::_iceI_opStringSS, iceP_p1, iceP_p2, context);
 }
 
 ::std::function<void()>
@@ -1307,7 +1306,7 @@ Test::MyClassPrx::opStringSSAsync(const StringSS& iceP_p1, const StringSS& iceP_
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<StringSS, StringSS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringSS, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<StringSS, StringSS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringSS, iceP_p1, iceP_p2, context);
 }
 
 /// \cond INTERNAL
@@ -1333,7 +1332,7 @@ Test::MyClassPrx::_iceI_opStringSS(const ::std::shared_ptr<::IceInternal::Outgoi
 ::Test::StringSSS
 Test::MyClassPrx::opStringSSS(const StringSSS& iceP_p1, const StringSSS& iceP_p2, StringSSS& iceP_p3, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<StringSSS, StringSSS>>(true, this, &MyClassPrx::_iceI_opStringSSS, iceP_p1, iceP_p2, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<StringSSS, StringSSS>>(true, this, &MyClassPrx::_iceI_opStringSSS, iceP_p1, iceP_p2, context).get();
     iceP_p3 = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -1341,7 +1340,7 @@ Test::MyClassPrx::opStringSSS(const StringSSS& iceP_p1, const StringSSS& iceP_p2
 ::std::future<::std::tuple<::Test::StringSSS, ::Test::StringSSS>>
 Test::MyClassPrx::opStringSSSAsync(const StringSSS& iceP_p1, const StringSSS& iceP_p2, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<StringSSS, StringSSS>, ::std::promise>(false, this, &MyClassPrx::_iceI_opStringSSS, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<StringSSS, StringSSS>>(false, this, &MyClassPrx::_iceI_opStringSSS, iceP_p1, iceP_p2, context);
 }
 
 ::std::function<void()>
@@ -1355,7 +1354,7 @@ Test::MyClassPrx::opStringSSSAsync(const StringSSS& iceP_p1, const StringSSS& ic
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<StringSSS, StringSSS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringSSS, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<StringSSS, StringSSS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringSSS, iceP_p1, iceP_p2, context);
 }
 
 /// \cond INTERNAL
@@ -1381,7 +1380,7 @@ Test::MyClassPrx::_iceI_opStringSSS(const ::std::shared_ptr<::IceInternal::Outgo
 ::Test::ByteBoolD
 Test::MyClassPrx::opByteBoolD(const ByteBoolD& iceP_p1, const ByteBoolD& iceP_p2, ByteBoolD& iceP_p3, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<ByteBoolD, ByteBoolD>>(true, this, &MyClassPrx::_iceI_opByteBoolD, iceP_p1, iceP_p2, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<ByteBoolD, ByteBoolD>>(true, this, &MyClassPrx::_iceI_opByteBoolD, iceP_p1, iceP_p2, context).get();
     iceP_p3 = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -1389,7 +1388,7 @@ Test::MyClassPrx::opByteBoolD(const ByteBoolD& iceP_p1, const ByteBoolD& iceP_p2
 ::std::future<::std::tuple<::Test::ByteBoolD, ::Test::ByteBoolD>>
 Test::MyClassPrx::opByteBoolDAsync(const ByteBoolD& iceP_p1, const ByteBoolD& iceP_p2, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<ByteBoolD, ByteBoolD>, ::std::promise>(false, this, &MyClassPrx::_iceI_opByteBoolD, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<ByteBoolD, ByteBoolD>>(false, this, &MyClassPrx::_iceI_opByteBoolD, iceP_p1, iceP_p2, context);
 }
 
 ::std::function<void()>
@@ -1403,7 +1402,7 @@ Test::MyClassPrx::opByteBoolDAsync(const ByteBoolD& iceP_p1, const ByteBoolD& ic
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<ByteBoolD, ByteBoolD>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByteBoolD, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ByteBoolD, ByteBoolD>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByteBoolD, iceP_p1, iceP_p2, context);
 }
 
 /// \cond INTERNAL
@@ -1429,7 +1428,7 @@ Test::MyClassPrx::_iceI_opByteBoolD(const ::std::shared_ptr<::IceInternal::Outgo
 ::Test::ShortIntD
 Test::MyClassPrx::opShortIntD(const ShortIntD& iceP_p1, const ShortIntD& iceP_p2, ShortIntD& iceP_p3, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<ShortIntD, ShortIntD>>(true, this, &MyClassPrx::_iceI_opShortIntD, iceP_p1, iceP_p2, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<ShortIntD, ShortIntD>>(true, this, &MyClassPrx::_iceI_opShortIntD, iceP_p1, iceP_p2, context).get();
     iceP_p3 = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -1437,7 +1436,7 @@ Test::MyClassPrx::opShortIntD(const ShortIntD& iceP_p1, const ShortIntD& iceP_p2
 ::std::future<::std::tuple<::Test::ShortIntD, ::Test::ShortIntD>>
 Test::MyClassPrx::opShortIntDAsync(const ShortIntD& iceP_p1, const ShortIntD& iceP_p2, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<ShortIntD, ShortIntD>, ::std::promise>(false, this, &MyClassPrx::_iceI_opShortIntD, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<ShortIntD, ShortIntD>>(false, this, &MyClassPrx::_iceI_opShortIntD, iceP_p1, iceP_p2, context);
 }
 
 ::std::function<void()>
@@ -1451,7 +1450,7 @@ Test::MyClassPrx::opShortIntDAsync(const ShortIntD& iceP_p1, const ShortIntD& ic
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<ShortIntD, ShortIntD>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opShortIntD, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ShortIntD, ShortIntD>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opShortIntD, iceP_p1, iceP_p2, context);
 }
 
 /// \cond INTERNAL
@@ -1477,7 +1476,7 @@ Test::MyClassPrx::_iceI_opShortIntD(const ::std::shared_ptr<::IceInternal::Outgo
 ::Test::LongFloatD
 Test::MyClassPrx::opLongFloatD(const LongFloatD& iceP_p1, const LongFloatD& iceP_p2, LongFloatD& iceP_p3, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<LongFloatD, LongFloatD>>(true, this, &MyClassPrx::_iceI_opLongFloatD, iceP_p1, iceP_p2, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<LongFloatD, LongFloatD>>(true, this, &MyClassPrx::_iceI_opLongFloatD, iceP_p1, iceP_p2, context).get();
     iceP_p3 = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -1485,7 +1484,7 @@ Test::MyClassPrx::opLongFloatD(const LongFloatD& iceP_p1, const LongFloatD& iceP
 ::std::future<::std::tuple<::Test::LongFloatD, ::Test::LongFloatD>>
 Test::MyClassPrx::opLongFloatDAsync(const LongFloatD& iceP_p1, const LongFloatD& iceP_p2, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<LongFloatD, LongFloatD>, ::std::promise>(false, this, &MyClassPrx::_iceI_opLongFloatD, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<LongFloatD, LongFloatD>>(false, this, &MyClassPrx::_iceI_opLongFloatD, iceP_p1, iceP_p2, context);
 }
 
 ::std::function<void()>
@@ -1499,7 +1498,7 @@ Test::MyClassPrx::opLongFloatDAsync(const LongFloatD& iceP_p1, const LongFloatD&
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<LongFloatD, LongFloatD>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLongFloatD, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<LongFloatD, LongFloatD>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLongFloatD, iceP_p1, iceP_p2, context);
 }
 
 /// \cond INTERNAL
@@ -1525,7 +1524,7 @@ Test::MyClassPrx::_iceI_opLongFloatD(const ::std::shared_ptr<::IceInternal::Outg
 ::Test::StringStringD
 Test::MyClassPrx::opStringStringD(const StringStringD& iceP_p1, const StringStringD& iceP_p2, StringStringD& iceP_p3, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<StringStringD, StringStringD>>(true, this, &MyClassPrx::_iceI_opStringStringD, iceP_p1, iceP_p2, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<StringStringD, StringStringD>>(true, this, &MyClassPrx::_iceI_opStringStringD, iceP_p1, iceP_p2, context).get();
     iceP_p3 = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -1533,7 +1532,7 @@ Test::MyClassPrx::opStringStringD(const StringStringD& iceP_p1, const StringStri
 ::std::future<::std::tuple<::Test::StringStringD, ::Test::StringStringD>>
 Test::MyClassPrx::opStringStringDAsync(const StringStringD& iceP_p1, const StringStringD& iceP_p2, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<StringStringD, StringStringD>, ::std::promise>(false, this, &MyClassPrx::_iceI_opStringStringD, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<StringStringD, StringStringD>>(false, this, &MyClassPrx::_iceI_opStringStringD, iceP_p1, iceP_p2, context);
 }
 
 ::std::function<void()>
@@ -1547,7 +1546,7 @@ Test::MyClassPrx::opStringStringDAsync(const StringStringD& iceP_p1, const Strin
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<StringStringD, StringStringD>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringStringD, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<StringStringD, StringStringD>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringStringD, iceP_p1, iceP_p2, context);
 }
 
 /// \cond INTERNAL
@@ -1573,7 +1572,7 @@ Test::MyClassPrx::_iceI_opStringStringD(const ::std::shared_ptr<::IceInternal::O
 ::Test::StringMyEnumD
 Test::MyClassPrx::opStringMyEnumD(const StringMyEnumD& iceP_p1, const StringMyEnumD& iceP_p2, StringMyEnumD& iceP_p3, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<StringMyEnumD, StringMyEnumD>>(true, this, &MyClassPrx::_iceI_opStringMyEnumD, iceP_p1, iceP_p2, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<StringMyEnumD, StringMyEnumD>>(true, this, &MyClassPrx::_iceI_opStringMyEnumD, iceP_p1, iceP_p2, context).get();
     iceP_p3 = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -1581,7 +1580,7 @@ Test::MyClassPrx::opStringMyEnumD(const StringMyEnumD& iceP_p1, const StringMyEn
 ::std::future<::std::tuple<::Test::StringMyEnumD, ::Test::StringMyEnumD>>
 Test::MyClassPrx::opStringMyEnumDAsync(const StringMyEnumD& iceP_p1, const StringMyEnumD& iceP_p2, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<StringMyEnumD, StringMyEnumD>, ::std::promise>(false, this, &MyClassPrx::_iceI_opStringMyEnumD, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<StringMyEnumD, StringMyEnumD>>(false, this, &MyClassPrx::_iceI_opStringMyEnumD, iceP_p1, iceP_p2, context);
 }
 
 ::std::function<void()>
@@ -1595,7 +1594,7 @@ Test::MyClassPrx::opStringMyEnumDAsync(const StringMyEnumD& iceP_p1, const Strin
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<StringMyEnumD, StringMyEnumD>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringMyEnumD, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<StringMyEnumD, StringMyEnumD>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringMyEnumD, iceP_p1, iceP_p2, context);
 }
 
 /// \cond INTERNAL
@@ -1621,7 +1620,7 @@ Test::MyClassPrx::_iceI_opStringMyEnumD(const ::std::shared_ptr<::IceInternal::O
 ::Test::MyEnumStringD
 Test::MyClassPrx::opMyEnumStringD(const MyEnumStringD& iceP_p1, const MyEnumStringD& iceP_p2, MyEnumStringD& iceP_p3, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<MyEnumStringD, MyEnumStringD>>(true, this, &MyClassPrx::_iceI_opMyEnumStringD, iceP_p1, iceP_p2, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<MyEnumStringD, MyEnumStringD>>(true, this, &MyClassPrx::_iceI_opMyEnumStringD, iceP_p1, iceP_p2, context).get();
     iceP_p3 = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -1629,7 +1628,7 @@ Test::MyClassPrx::opMyEnumStringD(const MyEnumStringD& iceP_p1, const MyEnumStri
 ::std::future<::std::tuple<::Test::MyEnumStringD, ::Test::MyEnumStringD>>
 Test::MyClassPrx::opMyEnumStringDAsync(const MyEnumStringD& iceP_p1, const MyEnumStringD& iceP_p2, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<MyEnumStringD, MyEnumStringD>, ::std::promise>(false, this, &MyClassPrx::_iceI_opMyEnumStringD, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<MyEnumStringD, MyEnumStringD>>(false, this, &MyClassPrx::_iceI_opMyEnumStringD, iceP_p1, iceP_p2, context);
 }
 
 ::std::function<void()>
@@ -1643,7 +1642,7 @@ Test::MyClassPrx::opMyEnumStringDAsync(const MyEnumStringD& iceP_p1, const MyEnu
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<MyEnumStringD, MyEnumStringD>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMyEnumStringD, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<MyEnumStringD, MyEnumStringD>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMyEnumStringD, iceP_p1, iceP_p2, context);
 }
 
 /// \cond INTERNAL
@@ -1669,7 +1668,7 @@ Test::MyClassPrx::_iceI_opMyEnumStringD(const ::std::shared_ptr<::IceInternal::O
 ::Test::MyStructMyEnumD
 Test::MyClassPrx::opMyStructMyEnumD(const MyStructMyEnumD& iceP_p1, const MyStructMyEnumD& iceP_p2, MyStructMyEnumD& iceP_p3, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<MyStructMyEnumD, MyStructMyEnumD>>(true, this, &MyClassPrx::_iceI_opMyStructMyEnumD, iceP_p1, iceP_p2, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<MyStructMyEnumD, MyStructMyEnumD>>(true, this, &MyClassPrx::_iceI_opMyStructMyEnumD, iceP_p1, iceP_p2, context).get();
     iceP_p3 = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -1677,7 +1676,7 @@ Test::MyClassPrx::opMyStructMyEnumD(const MyStructMyEnumD& iceP_p1, const MyStru
 ::std::future<::std::tuple<::Test::MyStructMyEnumD, ::Test::MyStructMyEnumD>>
 Test::MyClassPrx::opMyStructMyEnumDAsync(const MyStructMyEnumD& iceP_p1, const MyStructMyEnumD& iceP_p2, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<MyStructMyEnumD, MyStructMyEnumD>, ::std::promise>(false, this, &MyClassPrx::_iceI_opMyStructMyEnumD, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<MyStructMyEnumD, MyStructMyEnumD>>(false, this, &MyClassPrx::_iceI_opMyStructMyEnumD, iceP_p1, iceP_p2, context);
 }
 
 ::std::function<void()>
@@ -1691,7 +1690,7 @@ Test::MyClassPrx::opMyStructMyEnumDAsync(const MyStructMyEnumD& iceP_p1, const M
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<MyStructMyEnumD, MyStructMyEnumD>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMyStructMyEnumD, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<MyStructMyEnumD, MyStructMyEnumD>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMyStructMyEnumD, iceP_p1, iceP_p2, context);
 }
 
 /// \cond INTERNAL
@@ -1717,7 +1716,7 @@ Test::MyClassPrx::_iceI_opMyStructMyEnumD(const ::std::shared_ptr<::IceInternal:
 ::Test::ByteBoolDS
 Test::MyClassPrx::opByteBoolDS(const ByteBoolDS& iceP_p1, const ByteBoolDS& iceP_p2, ByteBoolDS& iceP_p3, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<ByteBoolDS, ByteBoolDS>>(true, this, &MyClassPrx::_iceI_opByteBoolDS, iceP_p1, iceP_p2, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<ByteBoolDS, ByteBoolDS>>(true, this, &MyClassPrx::_iceI_opByteBoolDS, iceP_p1, iceP_p2, context).get();
     iceP_p3 = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -1725,7 +1724,7 @@ Test::MyClassPrx::opByteBoolDS(const ByteBoolDS& iceP_p1, const ByteBoolDS& iceP
 ::std::future<::std::tuple<::Test::ByteBoolDS, ::Test::ByteBoolDS>>
 Test::MyClassPrx::opByteBoolDSAsync(const ByteBoolDS& iceP_p1, const ByteBoolDS& iceP_p2, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<ByteBoolDS, ByteBoolDS>, ::std::promise>(false, this, &MyClassPrx::_iceI_opByteBoolDS, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<ByteBoolDS, ByteBoolDS>>(false, this, &MyClassPrx::_iceI_opByteBoolDS, iceP_p1, iceP_p2, context);
 }
 
 ::std::function<void()>
@@ -1739,7 +1738,7 @@ Test::MyClassPrx::opByteBoolDSAsync(const ByteBoolDS& iceP_p1, const ByteBoolDS&
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<ByteBoolDS, ByteBoolDS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByteBoolDS, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ByteBoolDS, ByteBoolDS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByteBoolDS, iceP_p1, iceP_p2, context);
 }
 
 /// \cond INTERNAL
@@ -1765,7 +1764,7 @@ Test::MyClassPrx::_iceI_opByteBoolDS(const ::std::shared_ptr<::IceInternal::Outg
 ::Test::ShortIntDS
 Test::MyClassPrx::opShortIntDS(const ShortIntDS& iceP_p1, const ShortIntDS& iceP_p2, ShortIntDS& iceP_p3, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<ShortIntDS, ShortIntDS>>(true, this, &MyClassPrx::_iceI_opShortIntDS, iceP_p1, iceP_p2, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<ShortIntDS, ShortIntDS>>(true, this, &MyClassPrx::_iceI_opShortIntDS, iceP_p1, iceP_p2, context).get();
     iceP_p3 = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -1773,7 +1772,7 @@ Test::MyClassPrx::opShortIntDS(const ShortIntDS& iceP_p1, const ShortIntDS& iceP
 ::std::future<::std::tuple<::Test::ShortIntDS, ::Test::ShortIntDS>>
 Test::MyClassPrx::opShortIntDSAsync(const ShortIntDS& iceP_p1, const ShortIntDS& iceP_p2, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<ShortIntDS, ShortIntDS>, ::std::promise>(false, this, &MyClassPrx::_iceI_opShortIntDS, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<ShortIntDS, ShortIntDS>>(false, this, &MyClassPrx::_iceI_opShortIntDS, iceP_p1, iceP_p2, context);
 }
 
 ::std::function<void()>
@@ -1787,7 +1786,7 @@ Test::MyClassPrx::opShortIntDSAsync(const ShortIntDS& iceP_p1, const ShortIntDS&
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<ShortIntDS, ShortIntDS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opShortIntDS, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ShortIntDS, ShortIntDS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opShortIntDS, iceP_p1, iceP_p2, context);
 }
 
 /// \cond INTERNAL
@@ -1813,7 +1812,7 @@ Test::MyClassPrx::_iceI_opShortIntDS(const ::std::shared_ptr<::IceInternal::Outg
 ::Test::LongFloatDS
 Test::MyClassPrx::opLongFloatDS(const LongFloatDS& iceP_p1, const LongFloatDS& iceP_p2, LongFloatDS& iceP_p3, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<LongFloatDS, LongFloatDS>>(true, this, &MyClassPrx::_iceI_opLongFloatDS, iceP_p1, iceP_p2, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<LongFloatDS, LongFloatDS>>(true, this, &MyClassPrx::_iceI_opLongFloatDS, iceP_p1, iceP_p2, context).get();
     iceP_p3 = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -1821,7 +1820,7 @@ Test::MyClassPrx::opLongFloatDS(const LongFloatDS& iceP_p1, const LongFloatDS& i
 ::std::future<::std::tuple<::Test::LongFloatDS, ::Test::LongFloatDS>>
 Test::MyClassPrx::opLongFloatDSAsync(const LongFloatDS& iceP_p1, const LongFloatDS& iceP_p2, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<LongFloatDS, LongFloatDS>, ::std::promise>(false, this, &MyClassPrx::_iceI_opLongFloatDS, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<LongFloatDS, LongFloatDS>>(false, this, &MyClassPrx::_iceI_opLongFloatDS, iceP_p1, iceP_p2, context);
 }
 
 ::std::function<void()>
@@ -1835,7 +1834,7 @@ Test::MyClassPrx::opLongFloatDSAsync(const LongFloatDS& iceP_p1, const LongFloat
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<LongFloatDS, LongFloatDS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLongFloatDS, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<LongFloatDS, LongFloatDS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLongFloatDS, iceP_p1, iceP_p2, context);
 }
 
 /// \cond INTERNAL
@@ -1861,7 +1860,7 @@ Test::MyClassPrx::_iceI_opLongFloatDS(const ::std::shared_ptr<::IceInternal::Out
 ::Test::StringStringDS
 Test::MyClassPrx::opStringStringDS(const StringStringDS& iceP_p1, const StringStringDS& iceP_p2, StringStringDS& iceP_p3, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<StringStringDS, StringStringDS>>(true, this, &MyClassPrx::_iceI_opStringStringDS, iceP_p1, iceP_p2, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<StringStringDS, StringStringDS>>(true, this, &MyClassPrx::_iceI_opStringStringDS, iceP_p1, iceP_p2, context).get();
     iceP_p3 = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -1869,7 +1868,7 @@ Test::MyClassPrx::opStringStringDS(const StringStringDS& iceP_p1, const StringSt
 ::std::future<::std::tuple<::Test::StringStringDS, ::Test::StringStringDS>>
 Test::MyClassPrx::opStringStringDSAsync(const StringStringDS& iceP_p1, const StringStringDS& iceP_p2, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<StringStringDS, StringStringDS>, ::std::promise>(false, this, &MyClassPrx::_iceI_opStringStringDS, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<StringStringDS, StringStringDS>>(false, this, &MyClassPrx::_iceI_opStringStringDS, iceP_p1, iceP_p2, context);
 }
 
 ::std::function<void()>
@@ -1883,7 +1882,7 @@ Test::MyClassPrx::opStringStringDSAsync(const StringStringDS& iceP_p1, const Str
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<StringStringDS, StringStringDS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringStringDS, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<StringStringDS, StringStringDS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringStringDS, iceP_p1, iceP_p2, context);
 }
 
 /// \cond INTERNAL
@@ -1909,7 +1908,7 @@ Test::MyClassPrx::_iceI_opStringStringDS(const ::std::shared_ptr<::IceInternal::
 ::Test::StringMyEnumDS
 Test::MyClassPrx::opStringMyEnumDS(const StringMyEnumDS& iceP_p1, const StringMyEnumDS& iceP_p2, StringMyEnumDS& iceP_p3, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<StringMyEnumDS, StringMyEnumDS>>(true, this, &MyClassPrx::_iceI_opStringMyEnumDS, iceP_p1, iceP_p2, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<StringMyEnumDS, StringMyEnumDS>>(true, this, &MyClassPrx::_iceI_opStringMyEnumDS, iceP_p1, iceP_p2, context).get();
     iceP_p3 = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -1917,7 +1916,7 @@ Test::MyClassPrx::opStringMyEnumDS(const StringMyEnumDS& iceP_p1, const StringMy
 ::std::future<::std::tuple<::Test::StringMyEnumDS, ::Test::StringMyEnumDS>>
 Test::MyClassPrx::opStringMyEnumDSAsync(const StringMyEnumDS& iceP_p1, const StringMyEnumDS& iceP_p2, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<StringMyEnumDS, StringMyEnumDS>, ::std::promise>(false, this, &MyClassPrx::_iceI_opStringMyEnumDS, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<StringMyEnumDS, StringMyEnumDS>>(false, this, &MyClassPrx::_iceI_opStringMyEnumDS, iceP_p1, iceP_p2, context);
 }
 
 ::std::function<void()>
@@ -1931,7 +1930,7 @@ Test::MyClassPrx::opStringMyEnumDSAsync(const StringMyEnumDS& iceP_p1, const Str
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<StringMyEnumDS, StringMyEnumDS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringMyEnumDS, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<StringMyEnumDS, StringMyEnumDS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringMyEnumDS, iceP_p1, iceP_p2, context);
 }
 
 /// \cond INTERNAL
@@ -1957,7 +1956,7 @@ Test::MyClassPrx::_iceI_opStringMyEnumDS(const ::std::shared_ptr<::IceInternal::
 ::Test::MyEnumStringDS
 Test::MyClassPrx::opMyEnumStringDS(const MyEnumStringDS& iceP_p1, const MyEnumStringDS& iceP_p2, MyEnumStringDS& iceP_p3, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<MyEnumStringDS, MyEnumStringDS>>(true, this, &MyClassPrx::_iceI_opMyEnumStringDS, iceP_p1, iceP_p2, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<MyEnumStringDS, MyEnumStringDS>>(true, this, &MyClassPrx::_iceI_opMyEnumStringDS, iceP_p1, iceP_p2, context).get();
     iceP_p3 = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -1965,7 +1964,7 @@ Test::MyClassPrx::opMyEnumStringDS(const MyEnumStringDS& iceP_p1, const MyEnumSt
 ::std::future<::std::tuple<::Test::MyEnumStringDS, ::Test::MyEnumStringDS>>
 Test::MyClassPrx::opMyEnumStringDSAsync(const MyEnumStringDS& iceP_p1, const MyEnumStringDS& iceP_p2, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<MyEnumStringDS, MyEnumStringDS>, ::std::promise>(false, this, &MyClassPrx::_iceI_opMyEnumStringDS, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<MyEnumStringDS, MyEnumStringDS>>(false, this, &MyClassPrx::_iceI_opMyEnumStringDS, iceP_p1, iceP_p2, context);
 }
 
 ::std::function<void()>
@@ -1979,7 +1978,7 @@ Test::MyClassPrx::opMyEnumStringDSAsync(const MyEnumStringDS& iceP_p1, const MyE
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<MyEnumStringDS, MyEnumStringDS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMyEnumStringDS, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<MyEnumStringDS, MyEnumStringDS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMyEnumStringDS, iceP_p1, iceP_p2, context);
 }
 
 /// \cond INTERNAL
@@ -2005,7 +2004,7 @@ Test::MyClassPrx::_iceI_opMyEnumStringDS(const ::std::shared_ptr<::IceInternal::
 ::Test::MyStructMyEnumDS
 Test::MyClassPrx::opMyStructMyEnumDS(const MyStructMyEnumDS& iceP_p1, const MyStructMyEnumDS& iceP_p2, MyStructMyEnumDS& iceP_p3, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<MyStructMyEnumDS, MyStructMyEnumDS>>(true, this, &MyClassPrx::_iceI_opMyStructMyEnumDS, iceP_p1, iceP_p2, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<MyStructMyEnumDS, MyStructMyEnumDS>>(true, this, &MyClassPrx::_iceI_opMyStructMyEnumDS, iceP_p1, iceP_p2, context).get();
     iceP_p3 = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -2013,7 +2012,7 @@ Test::MyClassPrx::opMyStructMyEnumDS(const MyStructMyEnumDS& iceP_p1, const MySt
 ::std::future<::std::tuple<::Test::MyStructMyEnumDS, ::Test::MyStructMyEnumDS>>
 Test::MyClassPrx::opMyStructMyEnumDSAsync(const MyStructMyEnumDS& iceP_p1, const MyStructMyEnumDS& iceP_p2, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<MyStructMyEnumDS, MyStructMyEnumDS>, ::std::promise>(false, this, &MyClassPrx::_iceI_opMyStructMyEnumDS, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<MyStructMyEnumDS, MyStructMyEnumDS>>(false, this, &MyClassPrx::_iceI_opMyStructMyEnumDS, iceP_p1, iceP_p2, context);
 }
 
 ::std::function<void()>
@@ -2027,7 +2026,7 @@ Test::MyClassPrx::opMyStructMyEnumDSAsync(const MyStructMyEnumDS& iceP_p1, const
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<MyStructMyEnumDS, MyStructMyEnumDS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMyStructMyEnumDS, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<MyStructMyEnumDS, MyStructMyEnumDS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMyStructMyEnumDS, iceP_p1, iceP_p2, context);
 }
 
 /// \cond INTERNAL
@@ -2053,7 +2052,7 @@ Test::MyClassPrx::_iceI_opMyStructMyEnumDS(const ::std::shared_ptr<::IceInternal
 ::Test::ByteByteSD
 Test::MyClassPrx::opByteByteSD(const ByteByteSD& iceP_p1, const ByteByteSD& iceP_p2, ByteByteSD& iceP_p3, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<ByteByteSD, ByteByteSD>>(true, this, &MyClassPrx::_iceI_opByteByteSD, iceP_p1, iceP_p2, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<ByteByteSD, ByteByteSD>>(true, this, &MyClassPrx::_iceI_opByteByteSD, iceP_p1, iceP_p2, context).get();
     iceP_p3 = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -2061,7 +2060,7 @@ Test::MyClassPrx::opByteByteSD(const ByteByteSD& iceP_p1, const ByteByteSD& iceP
 ::std::future<::std::tuple<::Test::ByteByteSD, ::Test::ByteByteSD>>
 Test::MyClassPrx::opByteByteSDAsync(const ByteByteSD& iceP_p1, const ByteByteSD& iceP_p2, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<ByteByteSD, ByteByteSD>, ::std::promise>(false, this, &MyClassPrx::_iceI_opByteByteSD, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<ByteByteSD, ByteByteSD>>(false, this, &MyClassPrx::_iceI_opByteByteSD, iceP_p1, iceP_p2, context);
 }
 
 ::std::function<void()>
@@ -2075,7 +2074,7 @@ Test::MyClassPrx::opByteByteSDAsync(const ByteByteSD& iceP_p1, const ByteByteSD&
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<ByteByteSD, ByteByteSD>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByteByteSD, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ByteByteSD, ByteByteSD>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByteByteSD, iceP_p1, iceP_p2, context);
 }
 
 /// \cond INTERNAL
@@ -2101,7 +2100,7 @@ Test::MyClassPrx::_iceI_opByteByteSD(const ::std::shared_ptr<::IceInternal::Outg
 ::Test::BoolBoolSD
 Test::MyClassPrx::opBoolBoolSD(const BoolBoolSD& iceP_p1, const BoolBoolSD& iceP_p2, BoolBoolSD& iceP_p3, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<BoolBoolSD, BoolBoolSD>>(true, this, &MyClassPrx::_iceI_opBoolBoolSD, iceP_p1, iceP_p2, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<BoolBoolSD, BoolBoolSD>>(true, this, &MyClassPrx::_iceI_opBoolBoolSD, iceP_p1, iceP_p2, context).get();
     iceP_p3 = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -2109,7 +2108,7 @@ Test::MyClassPrx::opBoolBoolSD(const BoolBoolSD& iceP_p1, const BoolBoolSD& iceP
 ::std::future<::std::tuple<::Test::BoolBoolSD, ::Test::BoolBoolSD>>
 Test::MyClassPrx::opBoolBoolSDAsync(const BoolBoolSD& iceP_p1, const BoolBoolSD& iceP_p2, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<BoolBoolSD, BoolBoolSD>, ::std::promise>(false, this, &MyClassPrx::_iceI_opBoolBoolSD, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<BoolBoolSD, BoolBoolSD>>(false, this, &MyClassPrx::_iceI_opBoolBoolSD, iceP_p1, iceP_p2, context);
 }
 
 ::std::function<void()>
@@ -2123,7 +2122,7 @@ Test::MyClassPrx::opBoolBoolSDAsync(const BoolBoolSD& iceP_p1, const BoolBoolSD&
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<BoolBoolSD, BoolBoolSD>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opBoolBoolSD, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<BoolBoolSD, BoolBoolSD>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opBoolBoolSD, iceP_p1, iceP_p2, context);
 }
 
 /// \cond INTERNAL
@@ -2149,7 +2148,7 @@ Test::MyClassPrx::_iceI_opBoolBoolSD(const ::std::shared_ptr<::IceInternal::Outg
 ::Test::ShortShortSD
 Test::MyClassPrx::opShortShortSD(const ShortShortSD& iceP_p1, const ShortShortSD& iceP_p2, ShortShortSD& iceP_p3, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<ShortShortSD, ShortShortSD>>(true, this, &MyClassPrx::_iceI_opShortShortSD, iceP_p1, iceP_p2, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<ShortShortSD, ShortShortSD>>(true, this, &MyClassPrx::_iceI_opShortShortSD, iceP_p1, iceP_p2, context).get();
     iceP_p3 = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -2157,7 +2156,7 @@ Test::MyClassPrx::opShortShortSD(const ShortShortSD& iceP_p1, const ShortShortSD
 ::std::future<::std::tuple<::Test::ShortShortSD, ::Test::ShortShortSD>>
 Test::MyClassPrx::opShortShortSDAsync(const ShortShortSD& iceP_p1, const ShortShortSD& iceP_p2, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<ShortShortSD, ShortShortSD>, ::std::promise>(false, this, &MyClassPrx::_iceI_opShortShortSD, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<ShortShortSD, ShortShortSD>>(false, this, &MyClassPrx::_iceI_opShortShortSD, iceP_p1, iceP_p2, context);
 }
 
 ::std::function<void()>
@@ -2171,7 +2170,7 @@ Test::MyClassPrx::opShortShortSDAsync(const ShortShortSD& iceP_p1, const ShortSh
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<ShortShortSD, ShortShortSD>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opShortShortSD, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ShortShortSD, ShortShortSD>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opShortShortSD, iceP_p1, iceP_p2, context);
 }
 
 /// \cond INTERNAL
@@ -2197,7 +2196,7 @@ Test::MyClassPrx::_iceI_opShortShortSD(const ::std::shared_ptr<::IceInternal::Ou
 ::Test::IntIntSD
 Test::MyClassPrx::opIntIntSD(const IntIntSD& iceP_p1, const IntIntSD& iceP_p2, IntIntSD& iceP_p3, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<IntIntSD, IntIntSD>>(true, this, &MyClassPrx::_iceI_opIntIntSD, iceP_p1, iceP_p2, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<IntIntSD, IntIntSD>>(true, this, &MyClassPrx::_iceI_opIntIntSD, iceP_p1, iceP_p2, context).get();
     iceP_p3 = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -2205,7 +2204,7 @@ Test::MyClassPrx::opIntIntSD(const IntIntSD& iceP_p1, const IntIntSD& iceP_p2, I
 ::std::future<::std::tuple<::Test::IntIntSD, ::Test::IntIntSD>>
 Test::MyClassPrx::opIntIntSDAsync(const IntIntSD& iceP_p1, const IntIntSD& iceP_p2, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<IntIntSD, IntIntSD>, ::std::promise>(false, this, &MyClassPrx::_iceI_opIntIntSD, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<IntIntSD, IntIntSD>>(false, this, &MyClassPrx::_iceI_opIntIntSD, iceP_p1, iceP_p2, context);
 }
 
 ::std::function<void()>
@@ -2219,7 +2218,7 @@ Test::MyClassPrx::opIntIntSDAsync(const IntIntSD& iceP_p1, const IntIntSD& iceP_
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<IntIntSD, IntIntSD>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opIntIntSD, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<IntIntSD, IntIntSD>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opIntIntSD, iceP_p1, iceP_p2, context);
 }
 
 /// \cond INTERNAL
@@ -2245,7 +2244,7 @@ Test::MyClassPrx::_iceI_opIntIntSD(const ::std::shared_ptr<::IceInternal::Outgoi
 ::Test::LongLongSD
 Test::MyClassPrx::opLongLongSD(const LongLongSD& iceP_p1, const LongLongSD& iceP_p2, LongLongSD& iceP_p3, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<LongLongSD, LongLongSD>>(true, this, &MyClassPrx::_iceI_opLongLongSD, iceP_p1, iceP_p2, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<LongLongSD, LongLongSD>>(true, this, &MyClassPrx::_iceI_opLongLongSD, iceP_p1, iceP_p2, context).get();
     iceP_p3 = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -2253,7 +2252,7 @@ Test::MyClassPrx::opLongLongSD(const LongLongSD& iceP_p1, const LongLongSD& iceP
 ::std::future<::std::tuple<::Test::LongLongSD, ::Test::LongLongSD>>
 Test::MyClassPrx::opLongLongSDAsync(const LongLongSD& iceP_p1, const LongLongSD& iceP_p2, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<LongLongSD, LongLongSD>, ::std::promise>(false, this, &MyClassPrx::_iceI_opLongLongSD, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<LongLongSD, LongLongSD>>(false, this, &MyClassPrx::_iceI_opLongLongSD, iceP_p1, iceP_p2, context);
 }
 
 ::std::function<void()>
@@ -2267,7 +2266,7 @@ Test::MyClassPrx::opLongLongSDAsync(const LongLongSD& iceP_p1, const LongLongSD&
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<LongLongSD, LongLongSD>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLongLongSD, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<LongLongSD, LongLongSD>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLongLongSD, iceP_p1, iceP_p2, context);
 }
 
 /// \cond INTERNAL
@@ -2293,7 +2292,7 @@ Test::MyClassPrx::_iceI_opLongLongSD(const ::std::shared_ptr<::IceInternal::Outg
 ::Test::StringFloatSD
 Test::MyClassPrx::opStringFloatSD(const StringFloatSD& iceP_p1, const StringFloatSD& iceP_p2, StringFloatSD& iceP_p3, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<StringFloatSD, StringFloatSD>>(true, this, &MyClassPrx::_iceI_opStringFloatSD, iceP_p1, iceP_p2, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<StringFloatSD, StringFloatSD>>(true, this, &MyClassPrx::_iceI_opStringFloatSD, iceP_p1, iceP_p2, context).get();
     iceP_p3 = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -2301,7 +2300,7 @@ Test::MyClassPrx::opStringFloatSD(const StringFloatSD& iceP_p1, const StringFloa
 ::std::future<::std::tuple<::Test::StringFloatSD, ::Test::StringFloatSD>>
 Test::MyClassPrx::opStringFloatSDAsync(const StringFloatSD& iceP_p1, const StringFloatSD& iceP_p2, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<StringFloatSD, StringFloatSD>, ::std::promise>(false, this, &MyClassPrx::_iceI_opStringFloatSD, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<StringFloatSD, StringFloatSD>>(false, this, &MyClassPrx::_iceI_opStringFloatSD, iceP_p1, iceP_p2, context);
 }
 
 ::std::function<void()>
@@ -2315,7 +2314,7 @@ Test::MyClassPrx::opStringFloatSDAsync(const StringFloatSD& iceP_p1, const Strin
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<StringFloatSD, StringFloatSD>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringFloatSD, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<StringFloatSD, StringFloatSD>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringFloatSD, iceP_p1, iceP_p2, context);
 }
 
 /// \cond INTERNAL
@@ -2341,7 +2340,7 @@ Test::MyClassPrx::_iceI_opStringFloatSD(const ::std::shared_ptr<::IceInternal::O
 ::Test::StringDoubleSD
 Test::MyClassPrx::opStringDoubleSD(const StringDoubleSD& iceP_p1, const StringDoubleSD& iceP_p2, StringDoubleSD& iceP_p3, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<StringDoubleSD, StringDoubleSD>>(true, this, &MyClassPrx::_iceI_opStringDoubleSD, iceP_p1, iceP_p2, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<StringDoubleSD, StringDoubleSD>>(true, this, &MyClassPrx::_iceI_opStringDoubleSD, iceP_p1, iceP_p2, context).get();
     iceP_p3 = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -2349,7 +2348,7 @@ Test::MyClassPrx::opStringDoubleSD(const StringDoubleSD& iceP_p1, const StringDo
 ::std::future<::std::tuple<::Test::StringDoubleSD, ::Test::StringDoubleSD>>
 Test::MyClassPrx::opStringDoubleSDAsync(const StringDoubleSD& iceP_p1, const StringDoubleSD& iceP_p2, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<StringDoubleSD, StringDoubleSD>, ::std::promise>(false, this, &MyClassPrx::_iceI_opStringDoubleSD, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<StringDoubleSD, StringDoubleSD>>(false, this, &MyClassPrx::_iceI_opStringDoubleSD, iceP_p1, iceP_p2, context);
 }
 
 ::std::function<void()>
@@ -2363,7 +2362,7 @@ Test::MyClassPrx::opStringDoubleSDAsync(const StringDoubleSD& iceP_p1, const Str
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<StringDoubleSD, StringDoubleSD>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringDoubleSD, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<StringDoubleSD, StringDoubleSD>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringDoubleSD, iceP_p1, iceP_p2, context);
 }
 
 /// \cond INTERNAL
@@ -2389,7 +2388,7 @@ Test::MyClassPrx::_iceI_opStringDoubleSD(const ::std::shared_ptr<::IceInternal::
 ::Test::StringStringSD
 Test::MyClassPrx::opStringStringSD(const StringStringSD& iceP_p1, const StringStringSD& iceP_p2, StringStringSD& iceP_p3, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<StringStringSD, StringStringSD>>(true, this, &MyClassPrx::_iceI_opStringStringSD, iceP_p1, iceP_p2, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<StringStringSD, StringStringSD>>(true, this, &MyClassPrx::_iceI_opStringStringSD, iceP_p1, iceP_p2, context).get();
     iceP_p3 = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -2397,7 +2396,7 @@ Test::MyClassPrx::opStringStringSD(const StringStringSD& iceP_p1, const StringSt
 ::std::future<::std::tuple<::Test::StringStringSD, ::Test::StringStringSD>>
 Test::MyClassPrx::opStringStringSDAsync(const StringStringSD& iceP_p1, const StringStringSD& iceP_p2, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<StringStringSD, StringStringSD>, ::std::promise>(false, this, &MyClassPrx::_iceI_opStringStringSD, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<StringStringSD, StringStringSD>>(false, this, &MyClassPrx::_iceI_opStringStringSD, iceP_p1, iceP_p2, context);
 }
 
 ::std::function<void()>
@@ -2411,7 +2410,7 @@ Test::MyClassPrx::opStringStringSDAsync(const StringStringSD& iceP_p1, const Str
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<StringStringSD, StringStringSD>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringStringSD, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<StringStringSD, StringStringSD>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringStringSD, iceP_p1, iceP_p2, context);
 }
 
 /// \cond INTERNAL
@@ -2437,7 +2436,7 @@ Test::MyClassPrx::_iceI_opStringStringSD(const ::std::shared_ptr<::IceInternal::
 ::Test::MyEnumMyEnumSD
 Test::MyClassPrx::opMyEnumMyEnumSD(const MyEnumMyEnumSD& iceP_p1, const MyEnumMyEnumSD& iceP_p2, MyEnumMyEnumSD& iceP_p3, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<MyEnumMyEnumSD, MyEnumMyEnumSD>>(true, this, &MyClassPrx::_iceI_opMyEnumMyEnumSD, iceP_p1, iceP_p2, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<MyEnumMyEnumSD, MyEnumMyEnumSD>>(true, this, &MyClassPrx::_iceI_opMyEnumMyEnumSD, iceP_p1, iceP_p2, context).get();
     iceP_p3 = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -2445,7 +2444,7 @@ Test::MyClassPrx::opMyEnumMyEnumSD(const MyEnumMyEnumSD& iceP_p1, const MyEnumMy
 ::std::future<::std::tuple<::Test::MyEnumMyEnumSD, ::Test::MyEnumMyEnumSD>>
 Test::MyClassPrx::opMyEnumMyEnumSDAsync(const MyEnumMyEnumSD& iceP_p1, const MyEnumMyEnumSD& iceP_p2, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<MyEnumMyEnumSD, MyEnumMyEnumSD>, ::std::promise>(false, this, &MyClassPrx::_iceI_opMyEnumMyEnumSD, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<MyEnumMyEnumSD, MyEnumMyEnumSD>>(false, this, &MyClassPrx::_iceI_opMyEnumMyEnumSD, iceP_p1, iceP_p2, context);
 }
 
 ::std::function<void()>
@@ -2459,7 +2458,7 @@ Test::MyClassPrx::opMyEnumMyEnumSDAsync(const MyEnumMyEnumSD& iceP_p1, const MyE
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<MyEnumMyEnumSD, MyEnumMyEnumSD>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMyEnumMyEnumSD, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<MyEnumMyEnumSD, MyEnumMyEnumSD>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMyEnumMyEnumSD, iceP_p1, iceP_p2, context);
 }
 
 /// \cond INTERNAL
@@ -2485,13 +2484,13 @@ Test::MyClassPrx::_iceI_opMyEnumMyEnumSD(const ::std::shared_ptr<::IceInternal::
 ::Test::IntS
 Test::MyClassPrx::opIntS(const IntS& iceP_s, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<IntS>(true, this, &MyClassPrx::_iceI_opIntS, iceP_s, context).get();
+    return ::IceInternal::makePromiseOutgoing<IntS>(true, this, &MyClassPrx::_iceI_opIntS, iceP_s, context).get();
 }
 
 ::std::future<::Test::IntS>
 Test::MyClassPrx::opIntSAsync(const IntS& iceP_s, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<IntS, ::std::promise>(false, this, &MyClassPrx::_iceI_opIntS, iceP_s, context);
+    return ::IceInternal::makePromiseOutgoing<IntS>(false, this, &MyClassPrx::_iceI_opIntS, iceP_s, context);
 }
 
 ::std::function<void()>
@@ -2501,7 +2500,7 @@ Test::MyClassPrx::opIntSAsync(const IntS& iceP_s,
                               ::std::function<void(bool)> sent,
                               const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<IntS>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opIntS, iceP_s, context);
+    return ::IceInternal::makeLambdaOutgoing<IntS>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opIntS, iceP_s, context);
 }
 
 /// \cond INTERNAL
@@ -2521,13 +2520,13 @@ Test::MyClassPrx::_iceI_opIntS(const ::std::shared_ptr<::IceInternal::OutgoingAs
 void
 Test::MyClassPrx::opByteSOneway(const ByteS& iceP_s, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_opByteSOneway, iceP_s, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_opByteSOneway, iceP_s, context).get();
 }
 
 ::std::future<void>
 Test::MyClassPrx::opByteSOnewayAsync(const ByteS& iceP_s, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &MyClassPrx::_iceI_opByteSOneway, iceP_s, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &MyClassPrx::_iceI_opByteSOneway, iceP_s, context);
 }
 
 ::std::function<void()>
@@ -2537,7 +2536,7 @@ Test::MyClassPrx::opByteSOnewayAsync(const ByteS& iceP_s,
                                      ::std::function<void(bool)> sent,
                                      const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByteSOneway, iceP_s, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByteSOneway, iceP_s, context);
 }
 
 /// \cond INTERNAL
@@ -2556,13 +2555,13 @@ Test::MyClassPrx::_iceI_opByteSOneway(const ::std::shared_ptr<::IceInternal::Out
 ::std::int32_t
 Test::MyClassPrx::opByteSOnewayCallCount(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t>(true, this, &MyClassPrx::_iceI_opByteSOnewayCallCount, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &MyClassPrx::_iceI_opByteSOnewayCallCount, context).get();
 }
 
 ::std::future<::std::int32_t>
 Test::MyClassPrx::opByteSOnewayCallCountAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &MyClassPrx::_iceI_opByteSOnewayCallCount, context);
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &MyClassPrx::_iceI_opByteSOnewayCallCount, context);
 }
 
 ::std::function<void()>
@@ -2571,7 +2570,7 @@ Test::MyClassPrx::opByteSOnewayCallCountAsync(::std::function<void (::std::int32
                                               ::std::function<void(bool)> sent,
                                               const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByteSOnewayCallCount, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByteSOnewayCallCount, context);
 }
 
 /// \cond INTERNAL
@@ -2588,13 +2587,13 @@ Test::MyClassPrx::_iceI_opByteSOnewayCallCount(const ::std::shared_ptr<::IceInte
 ::Ice::Context
 Test::MyClassPrx::opContext(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::Ice::Context>(true, this, &MyClassPrx::_iceI_opContext, context).get();
+    return ::IceInternal::makePromiseOutgoing<::Ice::Context>(true, this, &MyClassPrx::_iceI_opContext, context).get();
 }
 
 ::std::future<::Ice::Context>
 Test::MyClassPrx::opContextAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::Ice::Context, ::std::promise>(false, this, &MyClassPrx::_iceI_opContext, context);
+    return ::IceInternal::makePromiseOutgoing<::Ice::Context>(false, this, &MyClassPrx::_iceI_opContext, context);
 }
 
 ::std::function<void()>
@@ -2603,7 +2602,7 @@ Test::MyClassPrx::opContextAsync(::std::function<void (::Ice::Context)> response
                                  ::std::function<void(bool)> sent,
                                  const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::Ice::Context>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opContext, context);
+    return ::IceInternal::makeLambdaOutgoing<::Ice::Context>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opContext, context);
 }
 
 /// \cond INTERNAL
@@ -2620,13 +2619,13 @@ Test::MyClassPrx::_iceI_opContext(const ::std::shared_ptr<::IceInternal::Outgoin
 void
 Test::MyClassPrx::opIdempotent(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_opIdempotent, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_opIdempotent, context).get();
 }
 
 ::std::future<void>
 Test::MyClassPrx::opIdempotentAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &MyClassPrx::_iceI_opIdempotent, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &MyClassPrx::_iceI_opIdempotent, context);
 }
 
 ::std::function<void()>
@@ -2635,7 +2634,7 @@ Test::MyClassPrx::opIdempotentAsync(::std::function<void ()> response,
                                     ::std::function<void(bool)> sent,
                                     const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opIdempotent, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opIdempotent, context);
 }
 
 /// \cond INTERNAL
@@ -2651,13 +2650,13 @@ Test::MyClassPrx::_iceI_opIdempotent(const ::std::shared_ptr<::IceInternal::Outg
 void
 Test::MyClassPrx::opNonmutating(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_opNonmutating, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_opNonmutating, context).get();
 }
 
 ::std::future<void>
 Test::MyClassPrx::opNonmutatingAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &MyClassPrx::_iceI_opNonmutating, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &MyClassPrx::_iceI_opNonmutating, context);
 }
 
 ::std::function<void()>
@@ -2666,7 +2665,7 @@ Test::MyClassPrx::opNonmutatingAsync(::std::function<void ()> response,
                                      ::std::function<void(bool)> sent,
                                      const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opNonmutating, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opNonmutating, context);
 }
 
 /// \cond INTERNAL
@@ -2682,13 +2681,13 @@ Test::MyClassPrx::_iceI_opNonmutating(const ::std::shared_ptr<::IceInternal::Out
 ::std::uint8_t
 Test::MyClassPrx::opByte1(::std::uint8_t iceP_opByte1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::uint8_t>(true, this, &MyClassPrx::_iceI_opByte1, iceP_opByte1, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::uint8_t>(true, this, &MyClassPrx::_iceI_opByte1, iceP_opByte1, context).get();
 }
 
 ::std::future<::std::uint8_t>
 Test::MyClassPrx::opByte1Async(::std::uint8_t iceP_opByte1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::uint8_t, ::std::promise>(false, this, &MyClassPrx::_iceI_opByte1, iceP_opByte1, context);
+    return ::IceInternal::makePromiseOutgoing<::std::uint8_t>(false, this, &MyClassPrx::_iceI_opByte1, iceP_opByte1, context);
 }
 
 ::std::function<void()>
@@ -2698,7 +2697,7 @@ Test::MyClassPrx::opByte1Async(::std::uint8_t iceP_opByte1,
                                ::std::function<void(bool)> sent,
                                const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::uint8_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByte1, iceP_opByte1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::uint8_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByte1, iceP_opByte1, context);
 }
 
 /// \cond INTERNAL
@@ -2718,13 +2717,13 @@ Test::MyClassPrx::_iceI_opByte1(const ::std::shared_ptr<::IceInternal::OutgoingA
 ::std::int16_t
 Test::MyClassPrx::opShort1(::std::int16_t iceP_opShort1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int16_t>(true, this, &MyClassPrx::_iceI_opShort1, iceP_opShort1, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::int16_t>(true, this, &MyClassPrx::_iceI_opShort1, iceP_opShort1, context).get();
 }
 
 ::std::future<::std::int16_t>
 Test::MyClassPrx::opShort1Async(::std::int16_t iceP_opShort1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int16_t, ::std::promise>(false, this, &MyClassPrx::_iceI_opShort1, iceP_opShort1, context);
+    return ::IceInternal::makePromiseOutgoing<::std::int16_t>(false, this, &MyClassPrx::_iceI_opShort1, iceP_opShort1, context);
 }
 
 ::std::function<void()>
@@ -2734,7 +2733,7 @@ Test::MyClassPrx::opShort1Async(::std::int16_t iceP_opShort1,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::int16_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opShort1, iceP_opShort1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int16_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opShort1, iceP_opShort1, context);
 }
 
 /// \cond INTERNAL
@@ -2754,13 +2753,13 @@ Test::MyClassPrx::_iceI_opShort1(const ::std::shared_ptr<::IceInternal::Outgoing
 ::std::int32_t
 Test::MyClassPrx::opInt1(::std::int32_t iceP_opInt1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t>(true, this, &MyClassPrx::_iceI_opInt1, iceP_opInt1, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &MyClassPrx::_iceI_opInt1, iceP_opInt1, context).get();
 }
 
 ::std::future<::std::int32_t>
 Test::MyClassPrx::opInt1Async(::std::int32_t iceP_opInt1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &MyClassPrx::_iceI_opInt1, iceP_opInt1, context);
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &MyClassPrx::_iceI_opInt1, iceP_opInt1, context);
 }
 
 ::std::function<void()>
@@ -2770,7 +2769,7 @@ Test::MyClassPrx::opInt1Async(::std::int32_t iceP_opInt1,
                               ::std::function<void(bool)> sent,
                               const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opInt1, iceP_opInt1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opInt1, iceP_opInt1, context);
 }
 
 /// \cond INTERNAL
@@ -2790,13 +2789,13 @@ Test::MyClassPrx::_iceI_opInt1(const ::std::shared_ptr<::IceInternal::OutgoingAs
 ::std::int64_t
 Test::MyClassPrx::opLong1(::std::int64_t iceP_opLong1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int64_t>(true, this, &MyClassPrx::_iceI_opLong1, iceP_opLong1, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::int64_t>(true, this, &MyClassPrx::_iceI_opLong1, iceP_opLong1, context).get();
 }
 
 ::std::future<::std::int64_t>
 Test::MyClassPrx::opLong1Async(::std::int64_t iceP_opLong1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int64_t, ::std::promise>(false, this, &MyClassPrx::_iceI_opLong1, iceP_opLong1, context);
+    return ::IceInternal::makePromiseOutgoing<::std::int64_t>(false, this, &MyClassPrx::_iceI_opLong1, iceP_opLong1, context);
 }
 
 ::std::function<void()>
@@ -2806,7 +2805,7 @@ Test::MyClassPrx::opLong1Async(::std::int64_t iceP_opLong1,
                                ::std::function<void(bool)> sent,
                                const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::int64_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLong1, iceP_opLong1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int64_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLong1, iceP_opLong1, context);
 }
 
 /// \cond INTERNAL
@@ -2826,13 +2825,13 @@ Test::MyClassPrx::_iceI_opLong1(const ::std::shared_ptr<::IceInternal::OutgoingA
 float
 Test::MyClassPrx::opFloat1(float iceP_opFloat1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<float>(true, this, &MyClassPrx::_iceI_opFloat1, iceP_opFloat1, context).get();
+    return ::IceInternal::makePromiseOutgoing<float>(true, this, &MyClassPrx::_iceI_opFloat1, iceP_opFloat1, context).get();
 }
 
 ::std::future<float>
 Test::MyClassPrx::opFloat1Async(float iceP_opFloat1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<float, ::std::promise>(false, this, &MyClassPrx::_iceI_opFloat1, iceP_opFloat1, context);
+    return ::IceInternal::makePromiseOutgoing<float>(false, this, &MyClassPrx::_iceI_opFloat1, iceP_opFloat1, context);
 }
 
 ::std::function<void()>
@@ -2842,7 +2841,7 @@ Test::MyClassPrx::opFloat1Async(float iceP_opFloat1,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<float>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opFloat1, iceP_opFloat1, context);
+    return ::IceInternal::makeLambdaOutgoing<float>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opFloat1, iceP_opFloat1, context);
 }
 
 /// \cond INTERNAL
@@ -2862,13 +2861,13 @@ Test::MyClassPrx::_iceI_opFloat1(const ::std::shared_ptr<::IceInternal::Outgoing
 double
 Test::MyClassPrx::opDouble1(double iceP_opDouble1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<double>(true, this, &MyClassPrx::_iceI_opDouble1, iceP_opDouble1, context).get();
+    return ::IceInternal::makePromiseOutgoing<double>(true, this, &MyClassPrx::_iceI_opDouble1, iceP_opDouble1, context).get();
 }
 
 ::std::future<double>
 Test::MyClassPrx::opDouble1Async(double iceP_opDouble1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<double, ::std::promise>(false, this, &MyClassPrx::_iceI_opDouble1, iceP_opDouble1, context);
+    return ::IceInternal::makePromiseOutgoing<double>(false, this, &MyClassPrx::_iceI_opDouble1, iceP_opDouble1, context);
 }
 
 ::std::function<void()>
@@ -2878,7 +2877,7 @@ Test::MyClassPrx::opDouble1Async(double iceP_opDouble1,
                                  ::std::function<void(bool)> sent,
                                  const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<double>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opDouble1, iceP_opDouble1, context);
+    return ::IceInternal::makeLambdaOutgoing<double>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opDouble1, iceP_opDouble1, context);
 }
 
 /// \cond INTERNAL
@@ -2898,13 +2897,13 @@ Test::MyClassPrx::_iceI_opDouble1(const ::std::shared_ptr<::IceInternal::Outgoin
 ::std::string
 Test::MyClassPrx::opString1(const ::std::string& iceP_opString1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::string>(true, this, &MyClassPrx::_iceI_opString1, iceP_opString1, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::string>(true, this, &MyClassPrx::_iceI_opString1, iceP_opString1, context).get();
 }
 
 ::std::future<::std::string>
 Test::MyClassPrx::opString1Async(const ::std::string& iceP_opString1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::string, ::std::promise>(false, this, &MyClassPrx::_iceI_opString1, iceP_opString1, context);
+    return ::IceInternal::makePromiseOutgoing<::std::string>(false, this, &MyClassPrx::_iceI_opString1, iceP_opString1, context);
 }
 
 ::std::function<void()>
@@ -2914,7 +2913,7 @@ Test::MyClassPrx::opString1Async(const ::std::string& iceP_opString1,
                                  ::std::function<void(bool)> sent,
                                  const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opString1, iceP_opString1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opString1, iceP_opString1, context);
 }
 
 /// \cond INTERNAL
@@ -2934,13 +2933,13 @@ Test::MyClassPrx::_iceI_opString1(const ::std::shared_ptr<::IceInternal::Outgoin
 ::Test::StringS
 Test::MyClassPrx::opStringS1(const StringS& iceP_opStringS1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<StringS>(true, this, &MyClassPrx::_iceI_opStringS1, iceP_opStringS1, context).get();
+    return ::IceInternal::makePromiseOutgoing<StringS>(true, this, &MyClassPrx::_iceI_opStringS1, iceP_opStringS1, context).get();
 }
 
 ::std::future<::Test::StringS>
 Test::MyClassPrx::opStringS1Async(const StringS& iceP_opStringS1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<StringS, ::std::promise>(false, this, &MyClassPrx::_iceI_opStringS1, iceP_opStringS1, context);
+    return ::IceInternal::makePromiseOutgoing<StringS>(false, this, &MyClassPrx::_iceI_opStringS1, iceP_opStringS1, context);
 }
 
 ::std::function<void()>
@@ -2950,7 +2949,7 @@ Test::MyClassPrx::opStringS1Async(const StringS& iceP_opStringS1,
                                   ::std::function<void(bool)> sent,
                                   const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<StringS>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringS1, iceP_opStringS1, context);
+    return ::IceInternal::makeLambdaOutgoing<StringS>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringS1, iceP_opStringS1, context);
 }
 
 /// \cond INTERNAL
@@ -2970,13 +2969,13 @@ Test::MyClassPrx::_iceI_opStringS1(const ::std::shared_ptr<::IceInternal::Outgoi
 ::Test::ByteBoolD
 Test::MyClassPrx::opByteBoolD1(const ByteBoolD& iceP_opByteBoolD1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<ByteBoolD>(true, this, &MyClassPrx::_iceI_opByteBoolD1, iceP_opByteBoolD1, context).get();
+    return ::IceInternal::makePromiseOutgoing<ByteBoolD>(true, this, &MyClassPrx::_iceI_opByteBoolD1, iceP_opByteBoolD1, context).get();
 }
 
 ::std::future<::Test::ByteBoolD>
 Test::MyClassPrx::opByteBoolD1Async(const ByteBoolD& iceP_opByteBoolD1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<ByteBoolD, ::std::promise>(false, this, &MyClassPrx::_iceI_opByteBoolD1, iceP_opByteBoolD1, context);
+    return ::IceInternal::makePromiseOutgoing<ByteBoolD>(false, this, &MyClassPrx::_iceI_opByteBoolD1, iceP_opByteBoolD1, context);
 }
 
 ::std::function<void()>
@@ -2986,7 +2985,7 @@ Test::MyClassPrx::opByteBoolD1Async(const ByteBoolD& iceP_opByteBoolD1,
                                     ::std::function<void(bool)> sent,
                                     const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<ByteBoolD>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByteBoolD1, iceP_opByteBoolD1, context);
+    return ::IceInternal::makeLambdaOutgoing<ByteBoolD>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByteBoolD1, iceP_opByteBoolD1, context);
 }
 
 /// \cond INTERNAL
@@ -3006,13 +3005,13 @@ Test::MyClassPrx::_iceI_opByteBoolD1(const ::std::shared_ptr<::IceInternal::Outg
 ::Test::StringS
 Test::MyClassPrx::opStringS2(const StringS& iceP_stringS, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<StringS>(true, this, &MyClassPrx::_iceI_opStringS2, iceP_stringS, context).get();
+    return ::IceInternal::makePromiseOutgoing<StringS>(true, this, &MyClassPrx::_iceI_opStringS2, iceP_stringS, context).get();
 }
 
 ::std::future<::Test::StringS>
 Test::MyClassPrx::opStringS2Async(const StringS& iceP_stringS, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<StringS, ::std::promise>(false, this, &MyClassPrx::_iceI_opStringS2, iceP_stringS, context);
+    return ::IceInternal::makePromiseOutgoing<StringS>(false, this, &MyClassPrx::_iceI_opStringS2, iceP_stringS, context);
 }
 
 ::std::function<void()>
@@ -3022,7 +3021,7 @@ Test::MyClassPrx::opStringS2Async(const StringS& iceP_stringS,
                                   ::std::function<void(bool)> sent,
                                   const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<StringS>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringS2, iceP_stringS, context);
+    return ::IceInternal::makeLambdaOutgoing<StringS>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringS2, iceP_stringS, context);
 }
 
 /// \cond INTERNAL
@@ -3042,13 +3041,13 @@ Test::MyClassPrx::_iceI_opStringS2(const ::std::shared_ptr<::IceInternal::Outgoi
 ::Test::ByteBoolD
 Test::MyClassPrx::opByteBoolD2(const ByteBoolD& iceP_byteBoolD, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<ByteBoolD>(true, this, &MyClassPrx::_iceI_opByteBoolD2, iceP_byteBoolD, context).get();
+    return ::IceInternal::makePromiseOutgoing<ByteBoolD>(true, this, &MyClassPrx::_iceI_opByteBoolD2, iceP_byteBoolD, context).get();
 }
 
 ::std::future<::Test::ByteBoolD>
 Test::MyClassPrx::opByteBoolD2Async(const ByteBoolD& iceP_byteBoolD, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<ByteBoolD, ::std::promise>(false, this, &MyClassPrx::_iceI_opByteBoolD2, iceP_byteBoolD, context);
+    return ::IceInternal::makePromiseOutgoing<ByteBoolD>(false, this, &MyClassPrx::_iceI_opByteBoolD2, iceP_byteBoolD, context);
 }
 
 ::std::function<void()>
@@ -3058,7 +3057,7 @@ Test::MyClassPrx::opByteBoolD2Async(const ByteBoolD& iceP_byteBoolD,
                                     ::std::function<void(bool)> sent,
                                     const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<ByteBoolD>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByteBoolD2, iceP_byteBoolD, context);
+    return ::IceInternal::makeLambdaOutgoing<ByteBoolD>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opByteBoolD2, iceP_byteBoolD, context);
 }
 
 /// \cond INTERNAL
@@ -3078,13 +3077,13 @@ Test::MyClassPrx::_iceI_opByteBoolD2(const ::std::shared_ptr<::IceInternal::Outg
 ::Test::StringS
 Test::MyClassPrx::opStringLiterals(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<StringS>(true, this, &MyClassPrx::_iceI_opStringLiterals, context).get();
+    return ::IceInternal::makePromiseOutgoing<StringS>(true, this, &MyClassPrx::_iceI_opStringLiterals, context).get();
 }
 
 ::std::future<::Test::StringS>
 Test::MyClassPrx::opStringLiteralsAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<StringS, ::std::promise>(false, this, &MyClassPrx::_iceI_opStringLiterals, context);
+    return ::IceInternal::makePromiseOutgoing<StringS>(false, this, &MyClassPrx::_iceI_opStringLiterals, context);
 }
 
 ::std::function<void()>
@@ -3093,7 +3092,7 @@ Test::MyClassPrx::opStringLiteralsAsync(::std::function<void (::Test::StringS)> 
                                         ::std::function<void(bool)> sent,
                                         const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<StringS>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringLiterals, context);
+    return ::IceInternal::makeLambdaOutgoing<StringS>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opStringLiterals, context);
 }
 
 /// \cond INTERNAL
@@ -3110,13 +3109,13 @@ Test::MyClassPrx::_iceI_opStringLiterals(const ::std::shared_ptr<::IceInternal::
 ::Test::Structure
 Test::MyClassPrx::opMStruct1(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<Structure>(true, this, &MyClassPrx::_iceI_opMStruct1, context).get();
+    return ::IceInternal::makePromiseOutgoing<Structure>(true, this, &MyClassPrx::_iceI_opMStruct1, context).get();
 }
 
 ::std::future<::Test::Structure>
 Test::MyClassPrx::opMStruct1Async(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<Structure, ::std::promise>(false, this, &MyClassPrx::_iceI_opMStruct1, context);
+    return ::IceInternal::makePromiseOutgoing<Structure>(false, this, &MyClassPrx::_iceI_opMStruct1, context);
 }
 
 ::std::function<void()>
@@ -3125,7 +3124,7 @@ Test::MyClassPrx::opMStruct1Async(::std::function<void (::Test::Structure)> resp
                                   ::std::function<void(bool)> sent,
                                   const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<Structure>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMStruct1, context);
+    return ::IceInternal::makeLambdaOutgoing<Structure>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMStruct1, context);
 }
 
 /// \cond INTERNAL
@@ -3142,7 +3141,7 @@ Test::MyClassPrx::_iceI_opMStruct1(const ::std::shared_ptr<::IceInternal::Outgoi
 ::Test::Structure
 Test::MyClassPrx::opMStruct2(const Structure& iceP_p1, Structure& iceP_p2, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<Structure, Structure>>(true, this, &MyClassPrx::_iceI_opMStruct2, iceP_p1, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<Structure, Structure>>(true, this, &MyClassPrx::_iceI_opMStruct2, iceP_p1, context).get();
     iceP_p2 = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -3150,7 +3149,7 @@ Test::MyClassPrx::opMStruct2(const Structure& iceP_p1, Structure& iceP_p2, const
 ::std::future<::std::tuple<::Test::Structure, ::Test::Structure>>
 Test::MyClassPrx::opMStruct2Async(const Structure& iceP_p1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<Structure, Structure>, ::std::promise>(false, this, &MyClassPrx::_iceI_opMStruct2, iceP_p1, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<Structure, Structure>>(false, this, &MyClassPrx::_iceI_opMStruct2, iceP_p1, context);
 }
 
 ::std::function<void()>
@@ -3164,7 +3163,7 @@ Test::MyClassPrx::opMStruct2Async(const Structure& iceP_p1,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<Structure, Structure>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMStruct2, iceP_p1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<Structure, Structure>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMStruct2, iceP_p1, context);
 }
 
 /// \cond INTERNAL
@@ -3190,13 +3189,13 @@ Test::MyClassPrx::_iceI_opMStruct2(const ::std::shared_ptr<::IceInternal::Outgoi
 ::Test::StringS
 Test::MyClassPrx::opMSeq1(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<StringS>(true, this, &MyClassPrx::_iceI_opMSeq1, context).get();
+    return ::IceInternal::makePromiseOutgoing<StringS>(true, this, &MyClassPrx::_iceI_opMSeq1, context).get();
 }
 
 ::std::future<::Test::StringS>
 Test::MyClassPrx::opMSeq1Async(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<StringS, ::std::promise>(false, this, &MyClassPrx::_iceI_opMSeq1, context);
+    return ::IceInternal::makePromiseOutgoing<StringS>(false, this, &MyClassPrx::_iceI_opMSeq1, context);
 }
 
 ::std::function<void()>
@@ -3205,7 +3204,7 @@ Test::MyClassPrx::opMSeq1Async(::std::function<void (::Test::StringS)> response,
                                ::std::function<void(bool)> sent,
                                const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<StringS>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMSeq1, context);
+    return ::IceInternal::makeLambdaOutgoing<StringS>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMSeq1, context);
 }
 
 /// \cond INTERNAL
@@ -3222,7 +3221,7 @@ Test::MyClassPrx::_iceI_opMSeq1(const ::std::shared_ptr<::IceInternal::OutgoingA
 ::Test::StringS
 Test::MyClassPrx::opMSeq2(const StringS& iceP_p1, StringS& iceP_p2, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<StringS, StringS>>(true, this, &MyClassPrx::_iceI_opMSeq2, iceP_p1, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<StringS, StringS>>(true, this, &MyClassPrx::_iceI_opMSeq2, iceP_p1, context).get();
     iceP_p2 = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -3230,7 +3229,7 @@ Test::MyClassPrx::opMSeq2(const StringS& iceP_p1, StringS& iceP_p2, const ::Ice:
 ::std::future<::std::tuple<::Test::StringS, ::Test::StringS>>
 Test::MyClassPrx::opMSeq2Async(const StringS& iceP_p1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<StringS, StringS>, ::std::promise>(false, this, &MyClassPrx::_iceI_opMSeq2, iceP_p1, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<StringS, StringS>>(false, this, &MyClassPrx::_iceI_opMSeq2, iceP_p1, context);
 }
 
 ::std::function<void()>
@@ -3244,7 +3243,7 @@ Test::MyClassPrx::opMSeq2Async(const StringS& iceP_p1,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<StringS, StringS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMSeq2, iceP_p1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<StringS, StringS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMSeq2, iceP_p1, context);
 }
 
 /// \cond INTERNAL
@@ -3270,13 +3269,13 @@ Test::MyClassPrx::_iceI_opMSeq2(const ::std::shared_ptr<::IceInternal::OutgoingA
 ::Test::StringStringD
 Test::MyClassPrx::opMDict1(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<StringStringD>(true, this, &MyClassPrx::_iceI_opMDict1, context).get();
+    return ::IceInternal::makePromiseOutgoing<StringStringD>(true, this, &MyClassPrx::_iceI_opMDict1, context).get();
 }
 
 ::std::future<::Test::StringStringD>
 Test::MyClassPrx::opMDict1Async(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<StringStringD, ::std::promise>(false, this, &MyClassPrx::_iceI_opMDict1, context);
+    return ::IceInternal::makePromiseOutgoing<StringStringD>(false, this, &MyClassPrx::_iceI_opMDict1, context);
 }
 
 ::std::function<void()>
@@ -3285,7 +3284,7 @@ Test::MyClassPrx::opMDict1Async(::std::function<void (::Test::StringStringD)> re
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<StringStringD>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMDict1, context);
+    return ::IceInternal::makeLambdaOutgoing<StringStringD>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMDict1, context);
 }
 
 /// \cond INTERNAL
@@ -3302,7 +3301,7 @@ Test::MyClassPrx::_iceI_opMDict1(const ::std::shared_ptr<::IceInternal::Outgoing
 ::Test::StringStringD
 Test::MyClassPrx::opMDict2(const StringStringD& iceP_p1, StringStringD& iceP_p2, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<StringStringD, StringStringD>>(true, this, &MyClassPrx::_iceI_opMDict2, iceP_p1, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<StringStringD, StringStringD>>(true, this, &MyClassPrx::_iceI_opMDict2, iceP_p1, context).get();
     iceP_p2 = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -3310,7 +3309,7 @@ Test::MyClassPrx::opMDict2(const StringStringD& iceP_p1, StringStringD& iceP_p2,
 ::std::future<::std::tuple<::Test::StringStringD, ::Test::StringStringD>>
 Test::MyClassPrx::opMDict2Async(const StringStringD& iceP_p1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<StringStringD, StringStringD>, ::std::promise>(false, this, &MyClassPrx::_iceI_opMDict2, iceP_p1, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<StringStringD, StringStringD>>(false, this, &MyClassPrx::_iceI_opMDict2, iceP_p1, context);
 }
 
 ::std::function<void()>
@@ -3324,7 +3323,7 @@ Test::MyClassPrx::opMDict2Async(const StringStringD& iceP_p1,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<StringStringD, StringStringD>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMDict2, iceP_p1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<StringStringD, StringStringD>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opMDict2, iceP_p1, context);
 }
 
 /// \cond INTERNAL
@@ -3357,13 +3356,13 @@ Test::MyClassPrx::ice_staticId()
 void
 Test::MyDerivedClassPrx::opDerived(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &MyDerivedClassPrx::_iceI_opDerived, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &MyDerivedClassPrx::_iceI_opDerived, context).get();
 }
 
 ::std::future<void>
 Test::MyDerivedClassPrx::opDerivedAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &MyDerivedClassPrx::_iceI_opDerived, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &MyDerivedClassPrx::_iceI_opDerived, context);
 }
 
 ::std::function<void()>
@@ -3372,7 +3371,7 @@ Test::MyDerivedClassPrx::opDerivedAsync(::std::function<void ()> response,
                                         ::std::function<void(bool)> sent,
                                         const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyDerivedClassPrx::_iceI_opDerived, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyDerivedClassPrx::_iceI_opDerived, context);
 }
 
 /// \cond INTERNAL
@@ -3388,13 +3387,13 @@ Test::MyDerivedClassPrx::_iceI_opDerived(const ::std::shared_ptr<::IceInternal::
 ::std::shared_ptr<::Test::MyClass1>
 Test::MyDerivedClassPrx::opMyClass1(const ::std::shared_ptr<MyClass1>& iceP_opMyClass1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<MyClass1>>(true, this, &MyDerivedClassPrx::_iceI_opMyClass1, iceP_opMyClass1, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<MyClass1>>(true, this, &MyDerivedClassPrx::_iceI_opMyClass1, iceP_opMyClass1, context).get();
 }
 
 ::std::future<::std::shared_ptr<::Test::MyClass1>>
 Test::MyDerivedClassPrx::opMyClass1Async(const ::std::shared_ptr<MyClass1>& iceP_opMyClass1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<MyClass1>, ::std::promise>(false, this, &MyDerivedClassPrx::_iceI_opMyClass1, iceP_opMyClass1, context);
+    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<MyClass1>>(false, this, &MyDerivedClassPrx::_iceI_opMyClass1, iceP_opMyClass1, context);
 }
 
 ::std::function<void()>
@@ -3404,7 +3403,7 @@ Test::MyDerivedClassPrx::opMyClass1Async(const ::std::shared_ptr<MyClass1>& iceP
                                          ::std::function<void(bool)> sent,
                                          const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::shared_ptr<MyClass1>>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyDerivedClassPrx::_iceI_opMyClass1, iceP_opMyClass1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<MyClass1>>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyDerivedClassPrx::_iceI_opMyClass1, iceP_opMyClass1, context);
 }
 
 /// \cond INTERNAL
@@ -3432,13 +3431,13 @@ Test::MyDerivedClassPrx::_iceI_opMyClass1(const ::std::shared_ptr<::IceInternal:
 ::Test::MyStruct1
 Test::MyDerivedClassPrx::opMyStruct1(const MyStruct1& iceP_opMyStruct1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<MyStruct1>(true, this, &MyDerivedClassPrx::_iceI_opMyStruct1, iceP_opMyStruct1, context).get();
+    return ::IceInternal::makePromiseOutgoing<MyStruct1>(true, this, &MyDerivedClassPrx::_iceI_opMyStruct1, iceP_opMyStruct1, context).get();
 }
 
 ::std::future<::Test::MyStruct1>
 Test::MyDerivedClassPrx::opMyStruct1Async(const MyStruct1& iceP_opMyStruct1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<MyStruct1, ::std::promise>(false, this, &MyDerivedClassPrx::_iceI_opMyStruct1, iceP_opMyStruct1, context);
+    return ::IceInternal::makePromiseOutgoing<MyStruct1>(false, this, &MyDerivedClassPrx::_iceI_opMyStruct1, iceP_opMyStruct1, context);
 }
 
 ::std::function<void()>
@@ -3448,7 +3447,7 @@ Test::MyDerivedClassPrx::opMyStruct1Async(const MyStruct1& iceP_opMyStruct1,
                                           ::std::function<void(bool)> sent,
                                           const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<MyStruct1>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyDerivedClassPrx::_iceI_opMyStruct1, iceP_opMyStruct1, context);
+    return ::IceInternal::makeLambdaOutgoing<MyStruct1>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyDerivedClassPrx::_iceI_opMyStruct1, iceP_opMyStruct1, context);
 }
 
 /// \cond INTERNAL

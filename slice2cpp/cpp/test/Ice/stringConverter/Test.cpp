@@ -15,8 +15,7 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -61,13 +60,13 @@ const ::std::string iceC_Test_MyObject_shutdown_name = "shutdown";
 ::std::wstring
 Test::MyObjectPrx::widen(const ::std::string& iceP_msg, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::wstring>(true, this, &MyObjectPrx::_iceI_widen, iceP_msg, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::wstring>(true, this, &MyObjectPrx::_iceI_widen, iceP_msg, context).get();
 }
 
 ::std::future<::std::wstring>
 Test::MyObjectPrx::widenAsync(const ::std::string& iceP_msg, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::wstring, ::std::promise>(false, this, &MyObjectPrx::_iceI_widen, iceP_msg, context);
+    return ::IceInternal::makePromiseOutgoing<::std::wstring>(false, this, &MyObjectPrx::_iceI_widen, iceP_msg, context);
 }
 
 ::std::function<void()>
@@ -77,7 +76,7 @@ Test::MyObjectPrx::widenAsync(const ::std::string& iceP_msg,
                               ::std::function<void(bool)> sent,
                               const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::wstring>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_widen, iceP_msg, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::wstring>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_widen, iceP_msg, context);
 }
 
 /// \cond INTERNAL
@@ -110,13 +109,13 @@ Test::MyObjectPrx::_iceI_widen(const ::std::shared_ptr<::IceInternal::OutgoingAs
 ::std::string
 Test::MyObjectPrx::narrow(const ::std::wstring& iceP_wmsg, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::string>(true, this, &MyObjectPrx::_iceI_narrow, iceP_wmsg, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::string>(true, this, &MyObjectPrx::_iceI_narrow, iceP_wmsg, context).get();
 }
 
 ::std::future<::std::string>
 Test::MyObjectPrx::narrowAsync(const ::std::wstring& iceP_wmsg, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::string, ::std::promise>(false, this, &MyObjectPrx::_iceI_narrow, iceP_wmsg, context);
+    return ::IceInternal::makePromiseOutgoing<::std::string>(false, this, &MyObjectPrx::_iceI_narrow, iceP_wmsg, context);
 }
 
 ::std::function<void()>
@@ -126,7 +125,7 @@ Test::MyObjectPrx::narrowAsync(const ::std::wstring& iceP_wmsg,
                                ::std::function<void(bool)> sent,
                                const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_narrow, iceP_wmsg, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_narrow, iceP_wmsg, context);
 }
 
 /// \cond INTERNAL
@@ -146,13 +145,13 @@ Test::MyObjectPrx::_iceI_narrow(const ::std::shared_ptr<::IceInternal::OutgoingA
 void
 Test::MyObjectPrx::shutdown(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &MyObjectPrx::_iceI_shutdown, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &MyObjectPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
 Test::MyObjectPrx::shutdownAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &MyObjectPrx::_iceI_shutdown, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &MyObjectPrx::_iceI_shutdown, context);
 }
 
 ::std::function<void()>
@@ -161,7 +160,7 @@ Test::MyObjectPrx::shutdownAsync(::std::function<void ()> response,
                                  ::std::function<void(bool)> sent,
                                  const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_shutdown, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_shutdown, context);
 }
 
 /// \cond INTERNAL

@@ -15,8 +15,7 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -63,7 +62,7 @@ const ::std::string iceC_Test_TestIntf_shutdown_name = "shutdown";
 ::Test::ByteEnum
 Test::TestIntfPrx::opByte(ByteEnum iceP_b1, ByteEnum& iceP_b2, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<ByteEnum, ByteEnum>>(true, this, &TestIntfPrx::_iceI_opByte, iceP_b1, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<ByteEnum, ByteEnum>>(true, this, &TestIntfPrx::_iceI_opByte, iceP_b1, context).get();
     iceP_b2 = ::std::get<1>(_result);
     return ::std::get<0>(_result);
 }
@@ -71,7 +70,7 @@ Test::TestIntfPrx::opByte(ByteEnum iceP_b1, ByteEnum& iceP_b2, const ::Ice::Cont
 ::std::future<::std::tuple<::Test::ByteEnum, ::Test::ByteEnum>>
 Test::TestIntfPrx::opByteAsync(ByteEnum iceP_b1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<ByteEnum, ByteEnum>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opByte, iceP_b1, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<ByteEnum, ByteEnum>>(false, this, &TestIntfPrx::_iceI_opByte, iceP_b1, context);
 }
 
 ::std::function<void()>
@@ -85,7 +84,7 @@ Test::TestIntfPrx::opByteAsync(ByteEnum iceP_b1,
     {
         response(::std::get<0>(_result), ::std::get<1>(_result));
     };
-    return _makeLambdaOutgoing<::std::tuple<ByteEnum, ByteEnum>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opByte, iceP_b1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ByteEnum, ByteEnum>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opByte, iceP_b1, context);
 }
 
 /// \cond INTERNAL
@@ -111,7 +110,7 @@ Test::TestIntfPrx::_iceI_opByte(const ::std::shared_ptr<::IceInternal::OutgoingA
 ::Test::ShortEnum
 Test::TestIntfPrx::opShort(ShortEnum iceP_s1, ShortEnum& iceP_s2, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<ShortEnum, ShortEnum>>(true, this, &TestIntfPrx::_iceI_opShort, iceP_s1, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<ShortEnum, ShortEnum>>(true, this, &TestIntfPrx::_iceI_opShort, iceP_s1, context).get();
     iceP_s2 = ::std::get<1>(_result);
     return ::std::get<0>(_result);
 }
@@ -119,7 +118,7 @@ Test::TestIntfPrx::opShort(ShortEnum iceP_s1, ShortEnum& iceP_s2, const ::Ice::C
 ::std::future<::std::tuple<::Test::ShortEnum, ::Test::ShortEnum>>
 Test::TestIntfPrx::opShortAsync(ShortEnum iceP_s1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<ShortEnum, ShortEnum>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opShort, iceP_s1, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<ShortEnum, ShortEnum>>(false, this, &TestIntfPrx::_iceI_opShort, iceP_s1, context);
 }
 
 ::std::function<void()>
@@ -133,7 +132,7 @@ Test::TestIntfPrx::opShortAsync(ShortEnum iceP_s1,
     {
         response(::std::get<0>(_result), ::std::get<1>(_result));
     };
-    return _makeLambdaOutgoing<::std::tuple<ShortEnum, ShortEnum>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opShort, iceP_s1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ShortEnum, ShortEnum>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opShort, iceP_s1, context);
 }
 
 /// \cond INTERNAL
@@ -159,7 +158,7 @@ Test::TestIntfPrx::_iceI_opShort(const ::std::shared_ptr<::IceInternal::Outgoing
 ::Test::IntEnum
 Test::TestIntfPrx::opInt(IntEnum iceP_i1, IntEnum& iceP_i2, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<IntEnum, IntEnum>>(true, this, &TestIntfPrx::_iceI_opInt, iceP_i1, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<IntEnum, IntEnum>>(true, this, &TestIntfPrx::_iceI_opInt, iceP_i1, context).get();
     iceP_i2 = ::std::get<1>(_result);
     return ::std::get<0>(_result);
 }
@@ -167,7 +166,7 @@ Test::TestIntfPrx::opInt(IntEnum iceP_i1, IntEnum& iceP_i2, const ::Ice::Context
 ::std::future<::std::tuple<::Test::IntEnum, ::Test::IntEnum>>
 Test::TestIntfPrx::opIntAsync(IntEnum iceP_i1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<IntEnum, IntEnum>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opInt, iceP_i1, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<IntEnum, IntEnum>>(false, this, &TestIntfPrx::_iceI_opInt, iceP_i1, context);
 }
 
 ::std::function<void()>
@@ -181,7 +180,7 @@ Test::TestIntfPrx::opIntAsync(IntEnum iceP_i1,
     {
         response(::std::get<0>(_result), ::std::get<1>(_result));
     };
-    return _makeLambdaOutgoing<::std::tuple<IntEnum, IntEnum>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opInt, iceP_i1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<IntEnum, IntEnum>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opInt, iceP_i1, context);
 }
 
 /// \cond INTERNAL
@@ -207,7 +206,7 @@ Test::TestIntfPrx::_iceI_opInt(const ::std::shared_ptr<::IceInternal::OutgoingAs
 ::Test::SimpleEnum
 Test::TestIntfPrx::opSimple(SimpleEnum iceP_s1, SimpleEnum& iceP_s2, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<SimpleEnum, SimpleEnum>>(true, this, &TestIntfPrx::_iceI_opSimple, iceP_s1, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<SimpleEnum, SimpleEnum>>(true, this, &TestIntfPrx::_iceI_opSimple, iceP_s1, context).get();
     iceP_s2 = ::std::get<1>(_result);
     return ::std::get<0>(_result);
 }
@@ -215,7 +214,7 @@ Test::TestIntfPrx::opSimple(SimpleEnum iceP_s1, SimpleEnum& iceP_s2, const ::Ice
 ::std::future<::std::tuple<::Test::SimpleEnum, ::Test::SimpleEnum>>
 Test::TestIntfPrx::opSimpleAsync(SimpleEnum iceP_s1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<SimpleEnum, SimpleEnum>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opSimple, iceP_s1, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<SimpleEnum, SimpleEnum>>(false, this, &TestIntfPrx::_iceI_opSimple, iceP_s1, context);
 }
 
 ::std::function<void()>
@@ -229,7 +228,7 @@ Test::TestIntfPrx::opSimpleAsync(SimpleEnum iceP_s1,
     {
         response(::std::get<0>(_result), ::std::get<1>(_result));
     };
-    return _makeLambdaOutgoing<::std::tuple<SimpleEnum, SimpleEnum>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opSimple, iceP_s1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<SimpleEnum, SimpleEnum>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opSimple, iceP_s1, context);
 }
 
 /// \cond INTERNAL
@@ -255,13 +254,13 @@ Test::TestIntfPrx::_iceI_opSimple(const ::std::shared_ptr<::IceInternal::Outgoin
 void
 Test::TestIntfPrx::shutdown(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_shutdown, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::shutdownAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_shutdown, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_shutdown, context);
 }
 
 ::std::function<void()>
@@ -270,7 +269,7 @@ Test::TestIntfPrx::shutdownAsync(::std::function<void ()> response,
                                  ::std::function<void(bool)> sent,
                                  const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
 }
 
 /// \cond INTERNAL

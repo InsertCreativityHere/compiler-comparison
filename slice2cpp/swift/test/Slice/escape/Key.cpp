@@ -15,8 +15,7 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Key.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -93,13 +92,13 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::_cpp_and::as> iceC_and_as
 void
 _cpp_and::breakPrx::_cpp_case(::std::int32_t iceP_catch, ::std::int32_t& iceP_try, const ::Ice::Context& context) const
 {
-    iceP_try = _makePromiseOutgoing<::std::int32_t>(true, this, &breakPrx::_iceI_case, iceP_catch, context).get();
+    iceP_try = ::IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &breakPrx::_iceI_case, iceP_catch, context).get();
 }
 
 ::std::future<::std::int32_t>
 _cpp_and::breakPrx::caseAsync(::std::int32_t iceP_catch, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &breakPrx::_iceI_case, iceP_catch, context);
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &breakPrx::_iceI_case, iceP_catch, context);
 }
 
 ::std::function<void()>
@@ -109,7 +108,7 @@ _cpp_and::breakPrx::caseAsync(::std::int32_t iceP_catch,
                               ::std::function<void(bool)> sent,
                               const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &_cpp_and::breakPrx::_iceI_case, iceP_catch, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &_cpp_and::breakPrx::_iceI_case, iceP_catch, context);
 }
 
 /// \cond INTERNAL
@@ -136,13 +135,13 @@ _cpp_and::breakPrx::ice_staticId()
 void
 _cpp_and::funcPrx::_cpp_public(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &funcPrx::_iceI_public, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &funcPrx::_iceI_public, context).get();
 }
 
 ::std::future<void>
 _cpp_and::funcPrx::publicAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &funcPrx::_iceI_public, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &funcPrx::_iceI_public, context);
 }
 
 ::std::function<void()>
@@ -151,7 +150,7 @@ _cpp_and::funcPrx::publicAsync(::std::function<void ()> response,
                                ::std::function<void(bool)> sent,
                                const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &_cpp_and::funcPrx::_iceI_public, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &_cpp_and::funcPrx::_iceI_public, context);
 }
 
 /// \cond INTERNAL

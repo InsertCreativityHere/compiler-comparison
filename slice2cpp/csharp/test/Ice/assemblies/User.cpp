@@ -15,8 +15,7 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <User.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -57,13 +56,13 @@ const ::std::string iceC_User_Registry_getUserInfo_name = "getUserInfo";
 ::std::shared_ptr<::User::UserInfo>
 User::RegistryPrx::getUserInfo(const ::std::string& iceP_id, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<UserInfo>>(true, this, &RegistryPrx::_iceI_getUserInfo, iceP_id, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<UserInfo>>(true, this, &RegistryPrx::_iceI_getUserInfo, iceP_id, context).get();
 }
 
 ::std::future<::std::shared_ptr<::User::UserInfo>>
 User::RegistryPrx::getUserInfoAsync(const ::std::string& iceP_id, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<UserInfo>, ::std::promise>(false, this, &RegistryPrx::_iceI_getUserInfo, iceP_id, context);
+    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<UserInfo>>(false, this, &RegistryPrx::_iceI_getUserInfo, iceP_id, context);
 }
 
 ::std::function<void()>
@@ -73,7 +72,7 @@ User::RegistryPrx::getUserInfoAsync(const ::std::string& iceP_id,
                                     ::std::function<void(bool)> sent,
                                     const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::shared_ptr<UserInfo>>(std::move(response), std::move(ex), std::move(sent), this, &User::RegistryPrx::_iceI_getUserInfo, iceP_id, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<UserInfo>>(std::move(response), std::move(ex), std::move(sent), this, &User::RegistryPrx::_iceI_getUserInfo, iceP_id, context);
 }
 
 /// \cond INTERNAL

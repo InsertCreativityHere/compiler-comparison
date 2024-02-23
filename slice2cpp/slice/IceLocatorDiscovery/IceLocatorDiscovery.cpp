@@ -15,8 +15,7 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <IceLocatorDiscovery.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -70,13 +69,13 @@ const ::std::string iceC_IceLocatorDiscovery_Lookup_findLocator_name = "findLoca
 void
 IceLocatorDiscovery::LookupReplyPrx::foundLocator(const ::std::optional<::Ice::LocatorPrx>& iceP_prx, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &LookupReplyPrx::_iceI_foundLocator, iceP_prx, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &LookupReplyPrx::_iceI_foundLocator, iceP_prx, context).get();
 }
 
 ::std::future<void>
 IceLocatorDiscovery::LookupReplyPrx::foundLocatorAsync(const ::std::optional<::Ice::LocatorPrx>& iceP_prx, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &LookupReplyPrx::_iceI_foundLocator, iceP_prx, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &LookupReplyPrx::_iceI_foundLocator, iceP_prx, context);
 }
 
 ::std::function<void()>
@@ -86,7 +85,7 @@ IceLocatorDiscovery::LookupReplyPrx::foundLocatorAsync(const ::std::optional<::I
                                                        ::std::function<void(bool)> sent,
                                                        const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceLocatorDiscovery::LookupReplyPrx::_iceI_foundLocator, iceP_prx, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceLocatorDiscovery::LookupReplyPrx::_iceI_foundLocator, iceP_prx, context);
 }
 
 /// \cond INTERNAL
@@ -112,13 +111,13 @@ IceLocatorDiscovery::LookupReplyPrx::ice_staticId()
 void
 IceLocatorDiscovery::LookupPrx::findLocator(const ::std::string& iceP_instanceName, const ::std::optional<LookupReplyPrx>& iceP_reply, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &LookupPrx::_iceI_findLocator, iceP_instanceName, iceP_reply, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &LookupPrx::_iceI_findLocator, iceP_instanceName, iceP_reply, context).get();
 }
 
 ::std::future<void>
 IceLocatorDiscovery::LookupPrx::findLocatorAsync(const ::std::string& iceP_instanceName, const ::std::optional<LookupReplyPrx>& iceP_reply, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &LookupPrx::_iceI_findLocator, iceP_instanceName, iceP_reply, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &LookupPrx::_iceI_findLocator, iceP_instanceName, iceP_reply, context);
 }
 
 ::std::function<void()>
@@ -128,7 +127,7 @@ IceLocatorDiscovery::LookupPrx::findLocatorAsync(const ::std::string& iceP_insta
                                                  ::std::function<void(bool)> sent,
                                                  const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceLocatorDiscovery::LookupPrx::_iceI_findLocator, iceP_instanceName, iceP_reply, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceLocatorDiscovery::LookupPrx::_iceI_findLocator, iceP_instanceName, iceP_reply, context);
 }
 
 /// \cond INTERNAL

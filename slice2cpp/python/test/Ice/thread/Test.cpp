@@ -15,8 +15,7 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -93,13 +92,13 @@ const ::std::string iceC_Test_RemoteCommunicatorFactory_shutdown_name = "shutdow
 void
 Test::TestIntfPrx::sleep(::std::int32_t iceP_ms, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_sleep, iceP_ms, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_sleep, iceP_ms, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::sleepAsync(::std::int32_t iceP_ms, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_sleep, iceP_ms, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_sleep, iceP_ms, context);
 }
 
 ::std::function<void()>
@@ -109,7 +108,7 @@ Test::TestIntfPrx::sleepAsync(::std::int32_t iceP_ms,
                               ::std::function<void(bool)> sent,
                               const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_sleep, iceP_ms, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_sleep, iceP_ms, context);
 }
 
 /// \cond INTERNAL
@@ -135,13 +134,13 @@ Test::TestIntfPrx::ice_staticId()
 ::std::optional<::Test::TestIntfPrx>
 Test::RemoteCommunicatorPrx::getObject(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::optional<TestIntfPrx>>(true, this, &RemoteCommunicatorPrx::_iceI_getObject, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::optional<TestIntfPrx>>(true, this, &RemoteCommunicatorPrx::_iceI_getObject, context).get();
 }
 
 ::std::future<::std::optional<::Test::TestIntfPrx>>
 Test::RemoteCommunicatorPrx::getObjectAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::optional<TestIntfPrx>, ::std::promise>(false, this, &RemoteCommunicatorPrx::_iceI_getObject, context);
+    return ::IceInternal::makePromiseOutgoing<::std::optional<TestIntfPrx>>(false, this, &RemoteCommunicatorPrx::_iceI_getObject, context);
 }
 
 ::std::function<void()>
@@ -150,7 +149,7 @@ Test::RemoteCommunicatorPrx::getObjectAsync(::std::function<void (::std::optiona
                                             ::std::function<void(bool)> sent,
                                             const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::optional<TestIntfPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_getObject, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::optional<TestIntfPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_getObject, context);
 }
 
 /// \cond INTERNAL
@@ -167,13 +166,13 @@ Test::RemoteCommunicatorPrx::_iceI_getObject(const ::std::shared_ptr<::IceIntern
 ::std::int32_t
 Test::RemoteCommunicatorPrx::getThreadStartCount(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t>(true, this, &RemoteCommunicatorPrx::_iceI_getThreadStartCount, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &RemoteCommunicatorPrx::_iceI_getThreadStartCount, context).get();
 }
 
 ::std::future<::std::int32_t>
 Test::RemoteCommunicatorPrx::getThreadStartCountAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &RemoteCommunicatorPrx::_iceI_getThreadStartCount, context);
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &RemoteCommunicatorPrx::_iceI_getThreadStartCount, context);
 }
 
 ::std::function<void()>
@@ -182,7 +181,7 @@ Test::RemoteCommunicatorPrx::getThreadStartCountAsync(::std::function<void (::st
                                                       ::std::function<void(bool)> sent,
                                                       const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_getThreadStartCount, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_getThreadStartCount, context);
 }
 
 /// \cond INTERNAL
@@ -199,13 +198,13 @@ Test::RemoteCommunicatorPrx::_iceI_getThreadStartCount(const ::std::shared_ptr<:
 ::std::int32_t
 Test::RemoteCommunicatorPrx::getThreadStopCount(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t>(true, this, &RemoteCommunicatorPrx::_iceI_getThreadStopCount, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &RemoteCommunicatorPrx::_iceI_getThreadStopCount, context).get();
 }
 
 ::std::future<::std::int32_t>
 Test::RemoteCommunicatorPrx::getThreadStopCountAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &RemoteCommunicatorPrx::_iceI_getThreadStopCount, context);
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &RemoteCommunicatorPrx::_iceI_getThreadStopCount, context);
 }
 
 ::std::function<void()>
@@ -214,7 +213,7 @@ Test::RemoteCommunicatorPrx::getThreadStopCountAsync(::std::function<void (::std
                                                      ::std::function<void(bool)> sent,
                                                      const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_getThreadStopCount, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_getThreadStopCount, context);
 }
 
 /// \cond INTERNAL
@@ -231,13 +230,13 @@ Test::RemoteCommunicatorPrx::_iceI_getThreadStopCount(const ::std::shared_ptr<::
 void
 Test::RemoteCommunicatorPrx::destroy(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &RemoteCommunicatorPrx::_iceI_destroy, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &RemoteCommunicatorPrx::_iceI_destroy, context).get();
 }
 
 ::std::future<void>
 Test::RemoteCommunicatorPrx::destroyAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &RemoteCommunicatorPrx::_iceI_destroy, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &RemoteCommunicatorPrx::_iceI_destroy, context);
 }
 
 ::std::function<void()>
@@ -246,7 +245,7 @@ Test::RemoteCommunicatorPrx::destroyAsync(::std::function<void ()> response,
                                           ::std::function<void(bool)> sent,
                                           const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_destroy, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_destroy, context);
 }
 
 /// \cond INTERNAL
@@ -269,13 +268,13 @@ Test::RemoteCommunicatorPrx::ice_staticId()
 ::std::optional<::Test::RemoteCommunicatorPrx>
 Test::RemoteCommunicatorFactoryPrx::createCommunicator(const ::Ice::PropertyDict& iceP_props, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::optional<RemoteCommunicatorPrx>>(true, this, &RemoteCommunicatorFactoryPrx::_iceI_createCommunicator, iceP_props, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::optional<RemoteCommunicatorPrx>>(true, this, &RemoteCommunicatorFactoryPrx::_iceI_createCommunicator, iceP_props, context).get();
 }
 
 ::std::future<::std::optional<::Test::RemoteCommunicatorPrx>>
 Test::RemoteCommunicatorFactoryPrx::createCommunicatorAsync(const ::Ice::PropertyDict& iceP_props, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::optional<RemoteCommunicatorPrx>, ::std::promise>(false, this, &RemoteCommunicatorFactoryPrx::_iceI_createCommunicator, iceP_props, context);
+    return ::IceInternal::makePromiseOutgoing<::std::optional<RemoteCommunicatorPrx>>(false, this, &RemoteCommunicatorFactoryPrx::_iceI_createCommunicator, iceP_props, context);
 }
 
 ::std::function<void()>
@@ -285,7 +284,7 @@ Test::RemoteCommunicatorFactoryPrx::createCommunicatorAsync(const ::Ice::Propert
                                                             ::std::function<void(bool)> sent,
                                                             const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::optional<RemoteCommunicatorPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorFactoryPrx::_iceI_createCommunicator, iceP_props, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::optional<RemoteCommunicatorPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorFactoryPrx::_iceI_createCommunicator, iceP_props, context);
 }
 
 /// \cond INTERNAL
@@ -305,13 +304,13 @@ Test::RemoteCommunicatorFactoryPrx::_iceI_createCommunicator(const ::std::shared
 void
 Test::RemoteCommunicatorFactoryPrx::shutdown(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &RemoteCommunicatorFactoryPrx::_iceI_shutdown, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &RemoteCommunicatorFactoryPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
 Test::RemoteCommunicatorFactoryPrx::shutdownAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &RemoteCommunicatorFactoryPrx::_iceI_shutdown, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &RemoteCommunicatorFactoryPrx::_iceI_shutdown, context);
 }
 
 ::std::function<void()>
@@ -320,7 +319,7 @@ Test::RemoteCommunicatorFactoryPrx::shutdownAsync(::std::function<void ()> respo
                                                   ::std::function<void(bool)> sent,
                                                   const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorFactoryPrx::_iceI_shutdown, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorFactoryPrx::_iceI_shutdown, context);
 }
 
 /// \cond INTERNAL

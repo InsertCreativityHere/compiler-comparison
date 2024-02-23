@@ -15,8 +15,7 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -63,13 +62,13 @@ const ::std::string iceC_Test_Initial_shutdown_name = "shutdown";
 ::std::shared_ptr<::Test::ConcreteClass>
 Test::InitialPrx::getConcreteClass(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<ConcreteClass>>(true, this, &InitialPrx::_iceI_getConcreteClass, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<ConcreteClass>>(true, this, &InitialPrx::_iceI_getConcreteClass, context).get();
 }
 
 ::std::future<::std::shared_ptr<::Test::ConcreteClass>>
 Test::InitialPrx::getConcreteClassAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<ConcreteClass>, ::std::promise>(false, this, &InitialPrx::_iceI_getConcreteClass, context);
+    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<ConcreteClass>>(false, this, &InitialPrx::_iceI_getConcreteClass, context);
 }
 
 ::std::function<void()>
@@ -78,7 +77,7 @@ Test::InitialPrx::getConcreteClassAsync(::std::function<void (::std::shared_ptr<
                                         ::std::function<void(bool)> sent,
                                         const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::shared_ptr<ConcreteClass>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getConcreteClass, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<ConcreteClass>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getConcreteClass, context);
 }
 
 /// \cond INTERNAL
@@ -102,13 +101,13 @@ Test::InitialPrx::_iceI_getConcreteClass(const ::std::shared_ptr<::IceInternal::
 void
 Test::InitialPrx::throwException(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_throwException, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_throwException, context).get();
 }
 
 ::std::future<void>
 Test::InitialPrx::throwExceptionAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &InitialPrx::_iceI_throwException, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &InitialPrx::_iceI_throwException, context);
 }
 
 ::std::function<void()>
@@ -117,7 +116,7 @@ Test::InitialPrx::throwExceptionAsync(::std::function<void ()> response,
                                       ::std::function<void(bool)> sent,
                                       const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwException, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwException, context);
 }
 
 /// \cond INTERNAL
@@ -147,13 +146,13 @@ Test::InitialPrx::_iceI_throwException(const ::std::shared_ptr<::IceInternal::Ou
 void
 Test::InitialPrx::shutdown(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_shutdown, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
 Test::InitialPrx::shutdownAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &InitialPrx::_iceI_shutdown, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &InitialPrx::_iceI_shutdown, context);
 }
 
 ::std::function<void()>
@@ -162,7 +161,7 @@ Test::InitialPrx::shutdownAsync(::std::function<void ()> response,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_shutdown, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_shutdown, context);
 }
 
 /// \cond INTERNAL

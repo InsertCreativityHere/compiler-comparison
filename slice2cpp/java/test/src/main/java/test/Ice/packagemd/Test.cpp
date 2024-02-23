@@ -15,8 +15,7 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -81,13 +80,13 @@ const ::std::string iceC_Test_Initial_shutdown_name = "shutdown";
 ::std::shared_ptr<::Test1::C1>
 Test::InitialPrx::getTest1C2AsC1(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<::Test1::C1>>(true, this, &InitialPrx::_iceI_getTest1C2AsC1, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<::Test1::C1>>(true, this, &InitialPrx::_iceI_getTest1C2AsC1, context).get();
 }
 
 ::std::future<::std::shared_ptr<::Test1::C1>>
 Test::InitialPrx::getTest1C2AsC1Async(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<::Test1::C1>, ::std::promise>(false, this, &InitialPrx::_iceI_getTest1C2AsC1, context);
+    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<::Test1::C1>>(false, this, &InitialPrx::_iceI_getTest1C2AsC1, context);
 }
 
 ::std::function<void()>
@@ -96,7 +95,7 @@ Test::InitialPrx::getTest1C2AsC1Async(::std::function<void (::std::shared_ptr<::
                                       ::std::function<void(bool)> sent,
                                       const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::shared_ptr<::Test1::C1>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getTest1C2AsC1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<::Test1::C1>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getTest1C2AsC1, context);
 }
 
 /// \cond INTERNAL
@@ -120,13 +119,13 @@ Test::InitialPrx::_iceI_getTest1C2AsC1(const ::std::shared_ptr<::IceInternal::Ou
 ::std::shared_ptr<::Test1::C2>
 Test::InitialPrx::getTest1C2AsC2(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<::Test1::C2>>(true, this, &InitialPrx::_iceI_getTest1C2AsC2, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<::Test1::C2>>(true, this, &InitialPrx::_iceI_getTest1C2AsC2, context).get();
 }
 
 ::std::future<::std::shared_ptr<::Test1::C2>>
 Test::InitialPrx::getTest1C2AsC2Async(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<::Test1::C2>, ::std::promise>(false, this, &InitialPrx::_iceI_getTest1C2AsC2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<::Test1::C2>>(false, this, &InitialPrx::_iceI_getTest1C2AsC2, context);
 }
 
 ::std::function<void()>
@@ -135,7 +134,7 @@ Test::InitialPrx::getTest1C2AsC2Async(::std::function<void (::std::shared_ptr<::
                                       ::std::function<void(bool)> sent,
                                       const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::shared_ptr<::Test1::C2>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getTest1C2AsC2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<::Test1::C2>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getTest1C2AsC2, context);
 }
 
 /// \cond INTERNAL
@@ -159,13 +158,13 @@ Test::InitialPrx::_iceI_getTest1C2AsC2(const ::std::shared_ptr<::IceInternal::Ou
 void
 Test::InitialPrx::throwTest1E2AsE1(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_throwTest1E2AsE1, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_throwTest1E2AsE1, context).get();
 }
 
 ::std::future<void>
 Test::InitialPrx::throwTest1E2AsE1Async(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &InitialPrx::_iceI_throwTest1E2AsE1, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &InitialPrx::_iceI_throwTest1E2AsE1, context);
 }
 
 ::std::function<void()>
@@ -174,7 +173,7 @@ Test::InitialPrx::throwTest1E2AsE1Async(::std::function<void ()> response,
                                         ::std::function<void(bool)> sent,
                                         const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwTest1E2AsE1, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwTest1E2AsE1, context);
 }
 
 /// \cond INTERNAL
@@ -204,13 +203,13 @@ Test::InitialPrx::_iceI_throwTest1E2AsE1(const ::std::shared_ptr<::IceInternal::
 void
 Test::InitialPrx::throwTest1E2AsE2(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_throwTest1E2AsE2, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_throwTest1E2AsE2, context).get();
 }
 
 ::std::future<void>
 Test::InitialPrx::throwTest1E2AsE2Async(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &InitialPrx::_iceI_throwTest1E2AsE2, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &InitialPrx::_iceI_throwTest1E2AsE2, context);
 }
 
 ::std::function<void()>
@@ -219,7 +218,7 @@ Test::InitialPrx::throwTest1E2AsE2Async(::std::function<void ()> response,
                                         ::std::function<void(bool)> sent,
                                         const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwTest1E2AsE2, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwTest1E2AsE2, context);
 }
 
 /// \cond INTERNAL
@@ -249,13 +248,13 @@ Test::InitialPrx::_iceI_throwTest1E2AsE2(const ::std::shared_ptr<::IceInternal::
 void
 Test::InitialPrx::throwTest1Notify(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_throwTest1Notify, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_throwTest1Notify, context).get();
 }
 
 ::std::future<void>
 Test::InitialPrx::throwTest1NotifyAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &InitialPrx::_iceI_throwTest1Notify, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &InitialPrx::_iceI_throwTest1Notify, context);
 }
 
 ::std::function<void()>
@@ -264,7 +263,7 @@ Test::InitialPrx::throwTest1NotifyAsync(::std::function<void ()> response,
                                         ::std::function<void(bool)> sent,
                                         const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwTest1Notify, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwTest1Notify, context);
 }
 
 /// \cond INTERNAL
@@ -294,13 +293,13 @@ Test::InitialPrx::_iceI_throwTest1Notify(const ::std::shared_ptr<::IceInternal::
 ::std::shared_ptr<::Test2::C1>
 Test::InitialPrx::getTest2C2AsC1(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<::Test2::C1>>(true, this, &InitialPrx::_iceI_getTest2C2AsC1, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<::Test2::C1>>(true, this, &InitialPrx::_iceI_getTest2C2AsC1, context).get();
 }
 
 ::std::future<::std::shared_ptr<::Test2::C1>>
 Test::InitialPrx::getTest2C2AsC1Async(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<::Test2::C1>, ::std::promise>(false, this, &InitialPrx::_iceI_getTest2C2AsC1, context);
+    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<::Test2::C1>>(false, this, &InitialPrx::_iceI_getTest2C2AsC1, context);
 }
 
 ::std::function<void()>
@@ -309,7 +308,7 @@ Test::InitialPrx::getTest2C2AsC1Async(::std::function<void (::std::shared_ptr<::
                                       ::std::function<void(bool)> sent,
                                       const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::shared_ptr<::Test2::C1>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getTest2C2AsC1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<::Test2::C1>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getTest2C2AsC1, context);
 }
 
 /// \cond INTERNAL
@@ -333,13 +332,13 @@ Test::InitialPrx::_iceI_getTest2C2AsC1(const ::std::shared_ptr<::IceInternal::Ou
 ::std::shared_ptr<::Test2::C2>
 Test::InitialPrx::getTest2C2AsC2(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<::Test2::C2>>(true, this, &InitialPrx::_iceI_getTest2C2AsC2, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<::Test2::C2>>(true, this, &InitialPrx::_iceI_getTest2C2AsC2, context).get();
 }
 
 ::std::future<::std::shared_ptr<::Test2::C2>>
 Test::InitialPrx::getTest2C2AsC2Async(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<::Test2::C2>, ::std::promise>(false, this, &InitialPrx::_iceI_getTest2C2AsC2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<::Test2::C2>>(false, this, &InitialPrx::_iceI_getTest2C2AsC2, context);
 }
 
 ::std::function<void()>
@@ -348,7 +347,7 @@ Test::InitialPrx::getTest2C2AsC2Async(::std::function<void (::std::shared_ptr<::
                                       ::std::function<void(bool)> sent,
                                       const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::shared_ptr<::Test2::C2>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getTest2C2AsC2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<::Test2::C2>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getTest2C2AsC2, context);
 }
 
 /// \cond INTERNAL
@@ -372,13 +371,13 @@ Test::InitialPrx::_iceI_getTest2C2AsC2(const ::std::shared_ptr<::IceInternal::Ou
 void
 Test::InitialPrx::throwTest2E2AsE1(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_throwTest2E2AsE1, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_throwTest2E2AsE1, context).get();
 }
 
 ::std::future<void>
 Test::InitialPrx::throwTest2E2AsE1Async(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &InitialPrx::_iceI_throwTest2E2AsE1, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &InitialPrx::_iceI_throwTest2E2AsE1, context);
 }
 
 ::std::function<void()>
@@ -387,7 +386,7 @@ Test::InitialPrx::throwTest2E2AsE1Async(::std::function<void ()> response,
                                         ::std::function<void(bool)> sent,
                                         const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwTest2E2AsE1, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwTest2E2AsE1, context);
 }
 
 /// \cond INTERNAL
@@ -417,13 +416,13 @@ Test::InitialPrx::_iceI_throwTest2E2AsE1(const ::std::shared_ptr<::IceInternal::
 void
 Test::InitialPrx::throwTest2E2AsE2(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_throwTest2E2AsE2, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_throwTest2E2AsE2, context).get();
 }
 
 ::std::future<void>
 Test::InitialPrx::throwTest2E2AsE2Async(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &InitialPrx::_iceI_throwTest2E2AsE2, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &InitialPrx::_iceI_throwTest2E2AsE2, context);
 }
 
 ::std::function<void()>
@@ -432,7 +431,7 @@ Test::InitialPrx::throwTest2E2AsE2Async(::std::function<void ()> response,
                                         ::std::function<void(bool)> sent,
                                         const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwTest2E2AsE2, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwTest2E2AsE2, context);
 }
 
 /// \cond INTERNAL
@@ -462,13 +461,13 @@ Test::InitialPrx::_iceI_throwTest2E2AsE2(const ::std::shared_ptr<::IceInternal::
 ::std::shared_ptr<::Test3::C1>
 Test::InitialPrx::getTest3C2AsC1(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<::Test3::C1>>(true, this, &InitialPrx::_iceI_getTest3C2AsC1, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<::Test3::C1>>(true, this, &InitialPrx::_iceI_getTest3C2AsC1, context).get();
 }
 
 ::std::future<::std::shared_ptr<::Test3::C1>>
 Test::InitialPrx::getTest3C2AsC1Async(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<::Test3::C1>, ::std::promise>(false, this, &InitialPrx::_iceI_getTest3C2AsC1, context);
+    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<::Test3::C1>>(false, this, &InitialPrx::_iceI_getTest3C2AsC1, context);
 }
 
 ::std::function<void()>
@@ -477,7 +476,7 @@ Test::InitialPrx::getTest3C2AsC1Async(::std::function<void (::std::shared_ptr<::
                                       ::std::function<void(bool)> sent,
                                       const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::shared_ptr<::Test3::C1>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getTest3C2AsC1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<::Test3::C1>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getTest3C2AsC1, context);
 }
 
 /// \cond INTERNAL
@@ -501,13 +500,13 @@ Test::InitialPrx::_iceI_getTest3C2AsC1(const ::std::shared_ptr<::IceInternal::Ou
 ::std::shared_ptr<::Test3::C2>
 Test::InitialPrx::getTest3C2AsC2(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<::Test3::C2>>(true, this, &InitialPrx::_iceI_getTest3C2AsC2, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<::Test3::C2>>(true, this, &InitialPrx::_iceI_getTest3C2AsC2, context).get();
 }
 
 ::std::future<::std::shared_ptr<::Test3::C2>>
 Test::InitialPrx::getTest3C2AsC2Async(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<::Test3::C2>, ::std::promise>(false, this, &InitialPrx::_iceI_getTest3C2AsC2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<::Test3::C2>>(false, this, &InitialPrx::_iceI_getTest3C2AsC2, context);
 }
 
 ::std::function<void()>
@@ -516,7 +515,7 @@ Test::InitialPrx::getTest3C2AsC2Async(::std::function<void (::std::shared_ptr<::
                                       ::std::function<void(bool)> sent,
                                       const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::shared_ptr<::Test3::C2>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getTest3C2AsC2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<::Test3::C2>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getTest3C2AsC2, context);
 }
 
 /// \cond INTERNAL
@@ -540,13 +539,13 @@ Test::InitialPrx::_iceI_getTest3C2AsC2(const ::std::shared_ptr<::IceInternal::Ou
 void
 Test::InitialPrx::throwTest3E2AsE1(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_throwTest3E2AsE1, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_throwTest3E2AsE1, context).get();
 }
 
 ::std::future<void>
 Test::InitialPrx::throwTest3E2AsE1Async(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &InitialPrx::_iceI_throwTest3E2AsE1, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &InitialPrx::_iceI_throwTest3E2AsE1, context);
 }
 
 ::std::function<void()>
@@ -555,7 +554,7 @@ Test::InitialPrx::throwTest3E2AsE1Async(::std::function<void ()> response,
                                         ::std::function<void(bool)> sent,
                                         const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwTest3E2AsE1, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwTest3E2AsE1, context);
 }
 
 /// \cond INTERNAL
@@ -585,13 +584,13 @@ Test::InitialPrx::_iceI_throwTest3E2AsE1(const ::std::shared_ptr<::IceInternal::
 void
 Test::InitialPrx::throwTest3E2AsE2(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_throwTest3E2AsE2, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_throwTest3E2AsE2, context).get();
 }
 
 ::std::future<void>
 Test::InitialPrx::throwTest3E2AsE2Async(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &InitialPrx::_iceI_throwTest3E2AsE2, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &InitialPrx::_iceI_throwTest3E2AsE2, context);
 }
 
 ::std::function<void()>
@@ -600,7 +599,7 @@ Test::InitialPrx::throwTest3E2AsE2Async(::std::function<void ()> response,
                                         ::std::function<void(bool)> sent,
                                         const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwTest3E2AsE2, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwTest3E2AsE2, context);
 }
 
 /// \cond INTERNAL
@@ -630,13 +629,13 @@ Test::InitialPrx::_iceI_throwTest3E2AsE2(const ::std::shared_ptr<::IceInternal::
 void
 Test::InitialPrx::shutdown(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_shutdown, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &InitialPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
 Test::InitialPrx::shutdownAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &InitialPrx::_iceI_shutdown, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &InitialPrx::_iceI_shutdown, context);
 }
 
 ::std::function<void()>
@@ -645,7 +644,7 @@ Test::InitialPrx::shutdownAsync(::std::function<void ()> response,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_shutdown, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_shutdown, context);
 }
 
 /// \cond INTERNAL

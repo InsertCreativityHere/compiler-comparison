@@ -15,8 +15,7 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -91,13 +90,13 @@ const ::std::string iceC_Test_RemoteCommunicator_shutdown_name = "shutdown";
 ::std::string
 Test::TestIntfPrx::getAdapterName(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_getAdapterName, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_getAdapterName, context).get();
 }
 
 ::std::future<::std::string>
 Test::TestIntfPrx::getAdapterNameAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::string, ::std::promise>(false, this, &TestIntfPrx::_iceI_getAdapterName, context);
+    return ::IceInternal::makePromiseOutgoing<::std::string>(false, this, &TestIntfPrx::_iceI_getAdapterName, context);
 }
 
 ::std::function<void()>
@@ -106,7 +105,7 @@ Test::TestIntfPrx::getAdapterNameAsync(::std::function<void (::std::string)> res
                                        ::std::function<void(bool)> sent,
                                        const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getAdapterName, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getAdapterName, context);
 }
 
 /// \cond INTERNAL
@@ -130,13 +129,13 @@ Test::TestIntfPrx::ice_staticId()
 ::std::optional<::Test::TestIntfPrx>
 Test::RemoteObjectAdapterPrx::getTestIntf(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::optional<TestIntfPrx>>(true, this, &RemoteObjectAdapterPrx::_iceI_getTestIntf, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::optional<TestIntfPrx>>(true, this, &RemoteObjectAdapterPrx::_iceI_getTestIntf, context).get();
 }
 
 ::std::future<::std::optional<::Test::TestIntfPrx>>
 Test::RemoteObjectAdapterPrx::getTestIntfAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::optional<TestIntfPrx>, ::std::promise>(false, this, &RemoteObjectAdapterPrx::_iceI_getTestIntf, context);
+    return ::IceInternal::makePromiseOutgoing<::std::optional<TestIntfPrx>>(false, this, &RemoteObjectAdapterPrx::_iceI_getTestIntf, context);
 }
 
 ::std::function<void()>
@@ -145,7 +144,7 @@ Test::RemoteObjectAdapterPrx::getTestIntfAsync(::std::function<void (::std::opti
                                                ::std::function<void(bool)> sent,
                                                const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::optional<TestIntfPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteObjectAdapterPrx::_iceI_getTestIntf, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::optional<TestIntfPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteObjectAdapterPrx::_iceI_getTestIntf, context);
 }
 
 /// \cond INTERNAL
@@ -162,13 +161,13 @@ Test::RemoteObjectAdapterPrx::_iceI_getTestIntf(const ::std::shared_ptr<::IceInt
 void
 Test::RemoteObjectAdapterPrx::deactivate(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &RemoteObjectAdapterPrx::_iceI_deactivate, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &RemoteObjectAdapterPrx::_iceI_deactivate, context).get();
 }
 
 ::std::future<void>
 Test::RemoteObjectAdapterPrx::deactivateAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &RemoteObjectAdapterPrx::_iceI_deactivate, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &RemoteObjectAdapterPrx::_iceI_deactivate, context);
 }
 
 ::std::function<void()>
@@ -177,7 +176,7 @@ Test::RemoteObjectAdapterPrx::deactivateAsync(::std::function<void ()> response,
                                               ::std::function<void(bool)> sent,
                                               const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteObjectAdapterPrx::_iceI_deactivate, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteObjectAdapterPrx::_iceI_deactivate, context);
 }
 
 /// \cond INTERNAL
@@ -200,13 +199,13 @@ Test::RemoteObjectAdapterPrx::ice_staticId()
 ::std::optional<::Test::RemoteObjectAdapterPrx>
 Test::RemoteCommunicatorPrx::createObjectAdapter(const ::std::string& iceP_name, const ::std::string& iceP_endpoints, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::optional<RemoteObjectAdapterPrx>>(true, this, &RemoteCommunicatorPrx::_iceI_createObjectAdapter, iceP_name, iceP_endpoints, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::optional<RemoteObjectAdapterPrx>>(true, this, &RemoteCommunicatorPrx::_iceI_createObjectAdapter, iceP_name, iceP_endpoints, context).get();
 }
 
 ::std::future<::std::optional<::Test::RemoteObjectAdapterPrx>>
 Test::RemoteCommunicatorPrx::createObjectAdapterAsync(const ::std::string& iceP_name, const ::std::string& iceP_endpoints, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::optional<RemoteObjectAdapterPrx>, ::std::promise>(false, this, &RemoteCommunicatorPrx::_iceI_createObjectAdapter, iceP_name, iceP_endpoints, context);
+    return ::IceInternal::makePromiseOutgoing<::std::optional<RemoteObjectAdapterPrx>>(false, this, &RemoteCommunicatorPrx::_iceI_createObjectAdapter, iceP_name, iceP_endpoints, context);
 }
 
 ::std::function<void()>
@@ -216,7 +215,7 @@ Test::RemoteCommunicatorPrx::createObjectAdapterAsync(const ::std::string& iceP_
                                                       ::std::function<void(bool)> sent,
                                                       const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::optional<RemoteObjectAdapterPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_createObjectAdapter, iceP_name, iceP_endpoints, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::optional<RemoteObjectAdapterPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_createObjectAdapter, iceP_name, iceP_endpoints, context);
 }
 
 /// \cond INTERNAL
@@ -236,13 +235,13 @@ Test::RemoteCommunicatorPrx::_iceI_createObjectAdapter(const ::std::shared_ptr<:
 void
 Test::RemoteCommunicatorPrx::deactivateObjectAdapter(const ::std::optional<RemoteObjectAdapterPrx>& iceP_adapter, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &RemoteCommunicatorPrx::_iceI_deactivateObjectAdapter, iceP_adapter, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &RemoteCommunicatorPrx::_iceI_deactivateObjectAdapter, iceP_adapter, context).get();
 }
 
 ::std::future<void>
 Test::RemoteCommunicatorPrx::deactivateObjectAdapterAsync(const ::std::optional<RemoteObjectAdapterPrx>& iceP_adapter, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &RemoteCommunicatorPrx::_iceI_deactivateObjectAdapter, iceP_adapter, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &RemoteCommunicatorPrx::_iceI_deactivateObjectAdapter, iceP_adapter, context);
 }
 
 ::std::function<void()>
@@ -252,7 +251,7 @@ Test::RemoteCommunicatorPrx::deactivateObjectAdapterAsync(const ::std::optional<
                                                           ::std::function<void(bool)> sent,
                                                           const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_deactivateObjectAdapter, iceP_adapter, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_deactivateObjectAdapter, iceP_adapter, context);
 }
 
 /// \cond INTERNAL
@@ -271,13 +270,13 @@ Test::RemoteCommunicatorPrx::_iceI_deactivateObjectAdapter(const ::std::shared_p
 void
 Test::RemoteCommunicatorPrx::shutdown(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &RemoteCommunicatorPrx::_iceI_shutdown, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &RemoteCommunicatorPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
 Test::RemoteCommunicatorPrx::shutdownAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &RemoteCommunicatorPrx::_iceI_shutdown, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &RemoteCommunicatorPrx::_iceI_shutdown, context);
 }
 
 ::std::function<void()>
@@ -286,7 +285,7 @@ Test::RemoteCommunicatorPrx::shutdownAsync(::std::function<void ()> response,
                                            ::std::function<void(bool)> sent,
                                            const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_shutdown, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_shutdown, context);
 }
 
 /// \cond INTERNAL

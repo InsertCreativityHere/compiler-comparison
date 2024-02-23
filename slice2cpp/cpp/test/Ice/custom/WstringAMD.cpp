@@ -15,8 +15,7 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <WstringAMD.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -82,7 +81,7 @@ const ::std::string iceC_Test2_WstringClass_throwExcept_name = "throwExcept";
 ::std::wstring
 Test1::WstringClassPrx::opString(const ::std::wstring& iceP_s1, ::std::wstring& iceP_s2, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<::std::wstring, ::std::wstring>>(true, this, &WstringClassPrx::_iceI_opString, iceP_s1, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::wstring, ::std::wstring>>(true, this, &WstringClassPrx::_iceI_opString, iceP_s1, context).get();
     iceP_s2 = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -90,7 +89,7 @@ Test1::WstringClassPrx::opString(const ::std::wstring& iceP_s1, ::std::wstring& 
 ::std::future<::std::tuple<::std::wstring, ::std::wstring>>
 Test1::WstringClassPrx::opStringAsync(const ::std::wstring& iceP_s1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<::std::wstring, ::std::wstring>, ::std::promise>(false, this, &WstringClassPrx::_iceI_opString, iceP_s1, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::wstring, ::std::wstring>>(false, this, &WstringClassPrx::_iceI_opString, iceP_s1, context);
 }
 
 ::std::function<void()>
@@ -104,7 +103,7 @@ Test1::WstringClassPrx::opStringAsync(const ::std::wstring& iceP_s1,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<::std::wstring, ::std::wstring>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test1::WstringClassPrx::_iceI_opString, iceP_s1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::wstring, ::std::wstring>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test1::WstringClassPrx::_iceI_opString, iceP_s1, context);
 }
 
 /// \cond INTERNAL
@@ -130,7 +129,7 @@ Test1::WstringClassPrx::_iceI_opString(const ::std::shared_ptr<::IceInternal::Ou
 ::Test1::WstringStruct
 Test1::WstringClassPrx::opStruct(const WstringStruct& iceP_s1, WstringStruct& iceP_s2, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<WstringStruct, WstringStruct>>(true, this, &WstringClassPrx::_iceI_opStruct, iceP_s1, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<WstringStruct, WstringStruct>>(true, this, &WstringClassPrx::_iceI_opStruct, iceP_s1, context).get();
     iceP_s2 = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -138,7 +137,7 @@ Test1::WstringClassPrx::opStruct(const WstringStruct& iceP_s1, WstringStruct& ic
 ::std::future<::std::tuple<::Test1::WstringStruct, ::Test1::WstringStruct>>
 Test1::WstringClassPrx::opStructAsync(const WstringStruct& iceP_s1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<WstringStruct, WstringStruct>, ::std::promise>(false, this, &WstringClassPrx::_iceI_opStruct, iceP_s1, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<WstringStruct, WstringStruct>>(false, this, &WstringClassPrx::_iceI_opStruct, iceP_s1, context);
 }
 
 ::std::function<void()>
@@ -152,7 +151,7 @@ Test1::WstringClassPrx::opStructAsync(const WstringStruct& iceP_s1,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<WstringStruct, WstringStruct>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test1::WstringClassPrx::_iceI_opStruct, iceP_s1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<WstringStruct, WstringStruct>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test1::WstringClassPrx::_iceI_opStruct, iceP_s1, context);
 }
 
 /// \cond INTERNAL
@@ -178,13 +177,13 @@ Test1::WstringClassPrx::_iceI_opStruct(const ::std::shared_ptr<::IceInternal::Ou
 void
 Test1::WstringClassPrx::throwExcept(const ::std::wstring& iceP_reason, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &WstringClassPrx::_iceI_throwExcept, iceP_reason, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &WstringClassPrx::_iceI_throwExcept, iceP_reason, context).get();
 }
 
 ::std::future<void>
 Test1::WstringClassPrx::throwExceptAsync(const ::std::wstring& iceP_reason, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &WstringClassPrx::_iceI_throwExcept, iceP_reason, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &WstringClassPrx::_iceI_throwExcept, iceP_reason, context);
 }
 
 ::std::function<void()>
@@ -194,7 +193,7 @@ Test1::WstringClassPrx::throwExceptAsync(const ::std::wstring& iceP_reason,
                                          ::std::function<void(bool)> sent,
                                          const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test1::WstringClassPrx::_iceI_throwExcept, iceP_reason, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test1::WstringClassPrx::_iceI_throwExcept, iceP_reason, context);
 }
 
 /// \cond INTERNAL
@@ -234,7 +233,7 @@ Test1::WstringClassPrx::ice_staticId()
 ::std::wstring
 Test2::WstringClassPrx::opString(const ::std::wstring& iceP_s1, ::std::wstring& iceP_s2, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<::std::wstring, ::std::wstring>>(true, this, &WstringClassPrx::_iceI_opString, iceP_s1, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::wstring, ::std::wstring>>(true, this, &WstringClassPrx::_iceI_opString, iceP_s1, context).get();
     iceP_s2 = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -242,7 +241,7 @@ Test2::WstringClassPrx::opString(const ::std::wstring& iceP_s1, ::std::wstring& 
 ::std::future<::std::tuple<::std::wstring, ::std::wstring>>
 Test2::WstringClassPrx::opStringAsync(const ::std::wstring& iceP_s1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<::std::wstring, ::std::wstring>, ::std::promise>(false, this, &WstringClassPrx::_iceI_opString, iceP_s1, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::wstring, ::std::wstring>>(false, this, &WstringClassPrx::_iceI_opString, iceP_s1, context);
 }
 
 ::std::function<void()>
@@ -256,7 +255,7 @@ Test2::WstringClassPrx::opStringAsync(const ::std::wstring& iceP_s1,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<::std::wstring, ::std::wstring>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test2::WstringClassPrx::_iceI_opString, iceP_s1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::wstring, ::std::wstring>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test2::WstringClassPrx::_iceI_opString, iceP_s1, context);
 }
 
 /// \cond INTERNAL
@@ -282,7 +281,7 @@ Test2::WstringClassPrx::_iceI_opString(const ::std::shared_ptr<::IceInternal::Ou
 ::Test2::WstringStruct
 Test2::WstringClassPrx::opStruct(const WstringStruct& iceP_s1, WstringStruct& iceP_s2, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<WstringStruct, WstringStruct>>(true, this, &WstringClassPrx::_iceI_opStruct, iceP_s1, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<WstringStruct, WstringStruct>>(true, this, &WstringClassPrx::_iceI_opStruct, iceP_s1, context).get();
     iceP_s2 = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -290,7 +289,7 @@ Test2::WstringClassPrx::opStruct(const WstringStruct& iceP_s1, WstringStruct& ic
 ::std::future<::std::tuple<::Test2::WstringStruct, ::Test2::WstringStruct>>
 Test2::WstringClassPrx::opStructAsync(const WstringStruct& iceP_s1, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<WstringStruct, WstringStruct>, ::std::promise>(false, this, &WstringClassPrx::_iceI_opStruct, iceP_s1, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<WstringStruct, WstringStruct>>(false, this, &WstringClassPrx::_iceI_opStruct, iceP_s1, context);
 }
 
 ::std::function<void()>
@@ -304,7 +303,7 @@ Test2::WstringClassPrx::opStructAsync(const WstringStruct& iceP_s1,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<WstringStruct, WstringStruct>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test2::WstringClassPrx::_iceI_opStruct, iceP_s1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<WstringStruct, WstringStruct>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test2::WstringClassPrx::_iceI_opStruct, iceP_s1, context);
 }
 
 /// \cond INTERNAL
@@ -330,13 +329,13 @@ Test2::WstringClassPrx::_iceI_opStruct(const ::std::shared_ptr<::IceInternal::Ou
 void
 Test2::WstringClassPrx::throwExcept(const ::std::wstring& iceP_reason, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &WstringClassPrx::_iceI_throwExcept, iceP_reason, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &WstringClassPrx::_iceI_throwExcept, iceP_reason, context).get();
 }
 
 ::std::future<void>
 Test2::WstringClassPrx::throwExceptAsync(const ::std::wstring& iceP_reason, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &WstringClassPrx::_iceI_throwExcept, iceP_reason, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &WstringClassPrx::_iceI_throwExcept, iceP_reason, context);
 }
 
 ::std::function<void()>
@@ -346,7 +345,7 @@ Test2::WstringClassPrx::throwExceptAsync(const ::std::wstring& iceP_reason,
                                          ::std::function<void(bool)> sent,
                                          const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test2::WstringClassPrx::_iceI_throwExcept, iceP_reason, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test2::WstringClassPrx::_iceI_throwExcept, iceP_reason, context);
 }
 
 /// \cond INTERNAL

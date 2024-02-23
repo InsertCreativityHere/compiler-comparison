@@ -15,8 +15,7 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -141,7 +140,7 @@ const ::std::string iceC_Test_TestIntf_shutdown_name = "shutdown";
 ::Test::CSeq
 Test::TestIntfPrx::opCSeq(const CSeq& iceP_inSeq, CSeq& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<CSeq, CSeq>>(true, this, &TestIntfPrx::_iceI_opCSeq, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<CSeq, CSeq>>(true, this, &TestIntfPrx::_iceI_opCSeq, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -149,7 +148,7 @@ Test::TestIntfPrx::opCSeq(const CSeq& iceP_inSeq, CSeq& iceP_outSeq, const ::Ice
 ::std::future<::std::tuple<::Test::CSeq, ::Test::CSeq>>
 Test::TestIntfPrx::opCSeqAsync(const CSeq& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<CSeq, CSeq>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opCSeq, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<CSeq, CSeq>>(false, this, &TestIntfPrx::_iceI_opCSeq, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -163,7 +162,7 @@ Test::TestIntfPrx::opCSeqAsync(const CSeq& iceP_inSeq,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<CSeq, CSeq>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opCSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<CSeq, CSeq>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opCSeq, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -191,7 +190,7 @@ Test::TestIntfPrx::_iceI_opCSeq(const ::std::shared_ptr<::IceInternal::OutgoingA
 ::Test::CArray
 Test::TestIntfPrx::opCArray(const CArray& iceP_inSeq, CArray& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<CArray, CArray>>(true, this, &TestIntfPrx::_iceI_opCArray, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<CArray, CArray>>(true, this, &TestIntfPrx::_iceI_opCArray, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -199,7 +198,7 @@ Test::TestIntfPrx::opCArray(const CArray& iceP_inSeq, CArray& iceP_outSeq, const
 ::std::future<::std::tuple<::Test::CArray, ::Test::CArray>>
 Test::TestIntfPrx::opCArrayAsync(const CArray& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<CArray, CArray>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opCArray, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<CArray, CArray>>(false, this, &TestIntfPrx::_iceI_opCArray, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -213,7 +212,7 @@ Test::TestIntfPrx::opCArrayAsync(const CArray& iceP_inSeq,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<CArray, CArray>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opCArray, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<CArray, CArray>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opCArray, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -241,7 +240,7 @@ Test::TestIntfPrx::_iceI_opCArray(const ::std::shared_ptr<::IceInternal::Outgoin
 ::Test::CList
 Test::TestIntfPrx::opCList(const CList& iceP_inSeq, CList& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<CList, CList>>(true, this, &TestIntfPrx::_iceI_opCList, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<CList, CList>>(true, this, &TestIntfPrx::_iceI_opCList, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -249,7 +248,7 @@ Test::TestIntfPrx::opCList(const CList& iceP_inSeq, CList& iceP_outSeq, const ::
 ::std::future<::std::tuple<::Test::CList, ::Test::CList>>
 Test::TestIntfPrx::opCListAsync(const CList& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<CList, CList>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opCList, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<CList, CList>>(false, this, &TestIntfPrx::_iceI_opCList, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -263,7 +262,7 @@ Test::TestIntfPrx::opCListAsync(const CList& iceP_inSeq,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<CList, CList>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opCList, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<CList, CList>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opCList, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -291,7 +290,7 @@ Test::TestIntfPrx::_iceI_opCList(const ::std::shared_ptr<::IceInternal::Outgoing
 ::Test::BoolSeq
 Test::TestIntfPrx::opBoolSeq(const BoolSeq& iceP_inSeq, BoolSeq& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<BoolSeq, BoolSeq>>(true, this, &TestIntfPrx::_iceI_opBoolSeq, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<BoolSeq, BoolSeq>>(true, this, &TestIntfPrx::_iceI_opBoolSeq, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -299,7 +298,7 @@ Test::TestIntfPrx::opBoolSeq(const BoolSeq& iceP_inSeq, BoolSeq& iceP_outSeq, co
 ::std::future<::std::tuple<::Test::BoolSeq, ::Test::BoolSeq>>
 Test::TestIntfPrx::opBoolSeqAsync(const BoolSeq& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<BoolSeq, BoolSeq>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opBoolSeq, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<BoolSeq, BoolSeq>>(false, this, &TestIntfPrx::_iceI_opBoolSeq, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -313,7 +312,7 @@ Test::TestIntfPrx::opBoolSeqAsync(const BoolSeq& iceP_inSeq,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<BoolSeq, BoolSeq>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opBoolSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<BoolSeq, BoolSeq>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opBoolSeq, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -339,7 +338,7 @@ Test::TestIntfPrx::_iceI_opBoolSeq(const ::std::shared_ptr<::IceInternal::Outgoi
 ::Test::ByteSeq
 Test::TestIntfPrx::opByteSeq(const ByteSeq& iceP_inSeq, ByteSeq& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<ByteSeq, ByteSeq>>(true, this, &TestIntfPrx::_iceI_opByteSeq, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<ByteSeq, ByteSeq>>(true, this, &TestIntfPrx::_iceI_opByteSeq, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -347,7 +346,7 @@ Test::TestIntfPrx::opByteSeq(const ByteSeq& iceP_inSeq, ByteSeq& iceP_outSeq, co
 ::std::future<::std::tuple<::Test::ByteSeq, ::Test::ByteSeq>>
 Test::TestIntfPrx::opByteSeqAsync(const ByteSeq& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<ByteSeq, ByteSeq>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opByteSeq, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<ByteSeq, ByteSeq>>(false, this, &TestIntfPrx::_iceI_opByteSeq, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -361,7 +360,7 @@ Test::TestIntfPrx::opByteSeqAsync(const ByteSeq& iceP_inSeq,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<ByteSeq, ByteSeq>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opByteSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ByteSeq, ByteSeq>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opByteSeq, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -387,7 +386,7 @@ Test::TestIntfPrx::_iceI_opByteSeq(const ::std::shared_ptr<::IceInternal::Outgoi
 ::Test::ShortSeq
 Test::TestIntfPrx::opShortSeq(const ShortSeq& iceP_inSeq, ShortSeq& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<ShortSeq, ShortSeq>>(true, this, &TestIntfPrx::_iceI_opShortSeq, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<ShortSeq, ShortSeq>>(true, this, &TestIntfPrx::_iceI_opShortSeq, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -395,7 +394,7 @@ Test::TestIntfPrx::opShortSeq(const ShortSeq& iceP_inSeq, ShortSeq& iceP_outSeq,
 ::std::future<::std::tuple<::Test::ShortSeq, ::Test::ShortSeq>>
 Test::TestIntfPrx::opShortSeqAsync(const ShortSeq& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<ShortSeq, ShortSeq>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opShortSeq, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<ShortSeq, ShortSeq>>(false, this, &TestIntfPrx::_iceI_opShortSeq, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -409,7 +408,7 @@ Test::TestIntfPrx::opShortSeqAsync(const ShortSeq& iceP_inSeq,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<ShortSeq, ShortSeq>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opShortSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ShortSeq, ShortSeq>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opShortSeq, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -435,7 +434,7 @@ Test::TestIntfPrx::_iceI_opShortSeq(const ::std::shared_ptr<::IceInternal::Outgo
 ::Test::IntSeq
 Test::TestIntfPrx::opIntSeq(const IntSeq& iceP_inSeq, IntSeq& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<IntSeq, IntSeq>>(true, this, &TestIntfPrx::_iceI_opIntSeq, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<IntSeq, IntSeq>>(true, this, &TestIntfPrx::_iceI_opIntSeq, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -443,7 +442,7 @@ Test::TestIntfPrx::opIntSeq(const IntSeq& iceP_inSeq, IntSeq& iceP_outSeq, const
 ::std::future<::std::tuple<::Test::IntSeq, ::Test::IntSeq>>
 Test::TestIntfPrx::opIntSeqAsync(const IntSeq& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<IntSeq, IntSeq>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opIntSeq, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<IntSeq, IntSeq>>(false, this, &TestIntfPrx::_iceI_opIntSeq, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -457,7 +456,7 @@ Test::TestIntfPrx::opIntSeqAsync(const IntSeq& iceP_inSeq,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<IntSeq, IntSeq>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opIntSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<IntSeq, IntSeq>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opIntSeq, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -483,7 +482,7 @@ Test::TestIntfPrx::_iceI_opIntSeq(const ::std::shared_ptr<::IceInternal::Outgoin
 ::Test::LongSeq
 Test::TestIntfPrx::opLongSeq(const LongSeq& iceP_inSeq, LongSeq& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<LongSeq, LongSeq>>(true, this, &TestIntfPrx::_iceI_opLongSeq, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<LongSeq, LongSeq>>(true, this, &TestIntfPrx::_iceI_opLongSeq, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -491,7 +490,7 @@ Test::TestIntfPrx::opLongSeq(const LongSeq& iceP_inSeq, LongSeq& iceP_outSeq, co
 ::std::future<::std::tuple<::Test::LongSeq, ::Test::LongSeq>>
 Test::TestIntfPrx::opLongSeqAsync(const LongSeq& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<LongSeq, LongSeq>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opLongSeq, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<LongSeq, LongSeq>>(false, this, &TestIntfPrx::_iceI_opLongSeq, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -505,7 +504,7 @@ Test::TestIntfPrx::opLongSeqAsync(const LongSeq& iceP_inSeq,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<LongSeq, LongSeq>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opLongSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<LongSeq, LongSeq>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opLongSeq, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -531,7 +530,7 @@ Test::TestIntfPrx::_iceI_opLongSeq(const ::std::shared_ptr<::IceInternal::Outgoi
 ::Test::FloatSeq
 Test::TestIntfPrx::opFloatSeq(const FloatSeq& iceP_inSeq, FloatSeq& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<FloatSeq, FloatSeq>>(true, this, &TestIntfPrx::_iceI_opFloatSeq, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<FloatSeq, FloatSeq>>(true, this, &TestIntfPrx::_iceI_opFloatSeq, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -539,7 +538,7 @@ Test::TestIntfPrx::opFloatSeq(const FloatSeq& iceP_inSeq, FloatSeq& iceP_outSeq,
 ::std::future<::std::tuple<::Test::FloatSeq, ::Test::FloatSeq>>
 Test::TestIntfPrx::opFloatSeqAsync(const FloatSeq& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<FloatSeq, FloatSeq>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opFloatSeq, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<FloatSeq, FloatSeq>>(false, this, &TestIntfPrx::_iceI_opFloatSeq, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -553,7 +552,7 @@ Test::TestIntfPrx::opFloatSeqAsync(const FloatSeq& iceP_inSeq,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<FloatSeq, FloatSeq>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opFloatSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<FloatSeq, FloatSeq>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opFloatSeq, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -579,7 +578,7 @@ Test::TestIntfPrx::_iceI_opFloatSeq(const ::std::shared_ptr<::IceInternal::Outgo
 ::Test::DoubleSeq
 Test::TestIntfPrx::opDoubleSeq(const DoubleSeq& iceP_inSeq, DoubleSeq& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<DoubleSeq, DoubleSeq>>(true, this, &TestIntfPrx::_iceI_opDoubleSeq, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<DoubleSeq, DoubleSeq>>(true, this, &TestIntfPrx::_iceI_opDoubleSeq, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -587,7 +586,7 @@ Test::TestIntfPrx::opDoubleSeq(const DoubleSeq& iceP_inSeq, DoubleSeq& iceP_outS
 ::std::future<::std::tuple<::Test::DoubleSeq, ::Test::DoubleSeq>>
 Test::TestIntfPrx::opDoubleSeqAsync(const DoubleSeq& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<DoubleSeq, DoubleSeq>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opDoubleSeq, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<DoubleSeq, DoubleSeq>>(false, this, &TestIntfPrx::_iceI_opDoubleSeq, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -601,7 +600,7 @@ Test::TestIntfPrx::opDoubleSeqAsync(const DoubleSeq& iceP_inSeq,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<DoubleSeq, DoubleSeq>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opDoubleSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<DoubleSeq, DoubleSeq>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opDoubleSeq, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -627,7 +626,7 @@ Test::TestIntfPrx::_iceI_opDoubleSeq(const ::std::shared_ptr<::IceInternal::Outg
 ::Test::StringSeq
 Test::TestIntfPrx::opStringSeq(const StringSeq& iceP_inSeq, StringSeq& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<StringSeq, StringSeq>>(true, this, &TestIntfPrx::_iceI_opStringSeq, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<StringSeq, StringSeq>>(true, this, &TestIntfPrx::_iceI_opStringSeq, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -635,7 +634,7 @@ Test::TestIntfPrx::opStringSeq(const StringSeq& iceP_inSeq, StringSeq& iceP_outS
 ::std::future<::std::tuple<::Test::StringSeq, ::Test::StringSeq>>
 Test::TestIntfPrx::opStringSeqAsync(const StringSeq& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<StringSeq, StringSeq>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opStringSeq, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<StringSeq, StringSeq>>(false, this, &TestIntfPrx::_iceI_opStringSeq, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -649,7 +648,7 @@ Test::TestIntfPrx::opStringSeqAsync(const StringSeq& iceP_inSeq,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<StringSeq, StringSeq>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opStringSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<StringSeq, StringSeq>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opStringSeq, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -675,7 +674,7 @@ Test::TestIntfPrx::_iceI_opStringSeq(const ::std::shared_ptr<::IceInternal::Outg
 ::Test::ESeq
 Test::TestIntfPrx::opESeq(const ESeq& iceP_inSeq, ESeq& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<ESeq, ESeq>>(true, this, &TestIntfPrx::_iceI_opESeq, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<ESeq, ESeq>>(true, this, &TestIntfPrx::_iceI_opESeq, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -683,7 +682,7 @@ Test::TestIntfPrx::opESeq(const ESeq& iceP_inSeq, ESeq& iceP_outSeq, const ::Ice
 ::std::future<::std::tuple<::Test::ESeq, ::Test::ESeq>>
 Test::TestIntfPrx::opESeqAsync(const ESeq& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<ESeq, ESeq>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opESeq, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<ESeq, ESeq>>(false, this, &TestIntfPrx::_iceI_opESeq, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -697,7 +696,7 @@ Test::TestIntfPrx::opESeqAsync(const ESeq& iceP_inSeq,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<ESeq, ESeq>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opESeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ESeq, ESeq>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opESeq, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -723,7 +722,7 @@ Test::TestIntfPrx::_iceI_opESeq(const ::std::shared_ptr<::IceInternal::OutgoingA
 ::Test::SSeq
 Test::TestIntfPrx::opSSeq(const SSeq& iceP_inSeq, SSeq& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<SSeq, SSeq>>(true, this, &TestIntfPrx::_iceI_opSSeq, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<SSeq, SSeq>>(true, this, &TestIntfPrx::_iceI_opSSeq, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -731,7 +730,7 @@ Test::TestIntfPrx::opSSeq(const SSeq& iceP_inSeq, SSeq& iceP_outSeq, const ::Ice
 ::std::future<::std::tuple<::Test::SSeq, ::Test::SSeq>>
 Test::TestIntfPrx::opSSeqAsync(const SSeq& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<SSeq, SSeq>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opSSeq, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<SSeq, SSeq>>(false, this, &TestIntfPrx::_iceI_opSSeq, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -745,7 +744,7 @@ Test::TestIntfPrx::opSSeqAsync(const SSeq& iceP_inSeq,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<SSeq, SSeq>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opSSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<SSeq, SSeq>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opSSeq, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -771,7 +770,7 @@ Test::TestIntfPrx::_iceI_opSSeq(const ::std::shared_ptr<::IceInternal::OutgoingA
 ::Test::DSeq
 Test::TestIntfPrx::opDSeq(const DSeq& iceP_inSeq, DSeq& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<DSeq, DSeq>>(true, this, &TestIntfPrx::_iceI_opDSeq, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<DSeq, DSeq>>(true, this, &TestIntfPrx::_iceI_opDSeq, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -779,7 +778,7 @@ Test::TestIntfPrx::opDSeq(const DSeq& iceP_inSeq, DSeq& iceP_outSeq, const ::Ice
 ::std::future<::std::tuple<::Test::DSeq, ::Test::DSeq>>
 Test::TestIntfPrx::opDSeqAsync(const DSeq& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<DSeq, DSeq>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opDSeq, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<DSeq, DSeq>>(false, this, &TestIntfPrx::_iceI_opDSeq, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -793,7 +792,7 @@ Test::TestIntfPrx::opDSeqAsync(const DSeq& iceP_inSeq,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<DSeq, DSeq>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opDSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<DSeq, DSeq>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opDSeq, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -819,7 +818,7 @@ Test::TestIntfPrx::_iceI_opDSeq(const ::std::shared_ptr<::IceInternal::OutgoingA
 ::Test::StringSeqSeq
 Test::TestIntfPrx::opStringSeqSeq(const StringSeqSeq& iceP_inSeq, StringSeqSeq& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<StringSeqSeq, StringSeqSeq>>(true, this, &TestIntfPrx::_iceI_opStringSeqSeq, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<StringSeqSeq, StringSeqSeq>>(true, this, &TestIntfPrx::_iceI_opStringSeqSeq, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -827,7 +826,7 @@ Test::TestIntfPrx::opStringSeqSeq(const StringSeqSeq& iceP_inSeq, StringSeqSeq& 
 ::std::future<::std::tuple<::Test::StringSeqSeq, ::Test::StringSeqSeq>>
 Test::TestIntfPrx::opStringSeqSeqAsync(const StringSeqSeq& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<StringSeqSeq, StringSeqSeq>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opStringSeqSeq, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<StringSeqSeq, StringSeqSeq>>(false, this, &TestIntfPrx::_iceI_opStringSeqSeq, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -841,7 +840,7 @@ Test::TestIntfPrx::opStringSeqSeqAsync(const StringSeqSeq& iceP_inSeq,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<StringSeqSeq, StringSeqSeq>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opStringSeqSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<StringSeqSeq, StringSeqSeq>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opStringSeqSeq, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -867,7 +866,7 @@ Test::TestIntfPrx::_iceI_opStringSeqSeq(const ::std::shared_ptr<::IceInternal::O
 ::Test::ByteBuffer
 Test::TestIntfPrx::opByteBufferSeq(const ByteBuffer& iceP_inSeq, ByteBuffer& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<ByteBuffer, ByteBuffer>>(true, this, &TestIntfPrx::_iceI_opByteBufferSeq, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<ByteBuffer, ByteBuffer>>(true, this, &TestIntfPrx::_iceI_opByteBufferSeq, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -875,7 +874,7 @@ Test::TestIntfPrx::opByteBufferSeq(const ByteBuffer& iceP_inSeq, ByteBuffer& ice
 ::std::future<::std::tuple<::Test::ByteBuffer, ::Test::ByteBuffer>>
 Test::TestIntfPrx::opByteBufferSeqAsync(const ByteBuffer& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<ByteBuffer, ByteBuffer>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opByteBufferSeq, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<ByteBuffer, ByteBuffer>>(false, this, &TestIntfPrx::_iceI_opByteBufferSeq, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -889,7 +888,7 @@ Test::TestIntfPrx::opByteBufferSeqAsync(const ByteBuffer& iceP_inSeq,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<ByteBuffer, ByteBuffer>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opByteBufferSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ByteBuffer, ByteBuffer>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opByteBufferSeq, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -915,7 +914,7 @@ Test::TestIntfPrx::_iceI_opByteBufferSeq(const ::std::shared_ptr<::IceInternal::
 ::Test::ShortBuffer
 Test::TestIntfPrx::opShortBufferSeq(const ShortBuffer& iceP_inSeq, ShortBuffer& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<ShortBuffer, ShortBuffer>>(true, this, &TestIntfPrx::_iceI_opShortBufferSeq, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<ShortBuffer, ShortBuffer>>(true, this, &TestIntfPrx::_iceI_opShortBufferSeq, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -923,7 +922,7 @@ Test::TestIntfPrx::opShortBufferSeq(const ShortBuffer& iceP_inSeq, ShortBuffer& 
 ::std::future<::std::tuple<::Test::ShortBuffer, ::Test::ShortBuffer>>
 Test::TestIntfPrx::opShortBufferSeqAsync(const ShortBuffer& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<ShortBuffer, ShortBuffer>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opShortBufferSeq, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<ShortBuffer, ShortBuffer>>(false, this, &TestIntfPrx::_iceI_opShortBufferSeq, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -937,7 +936,7 @@ Test::TestIntfPrx::opShortBufferSeqAsync(const ShortBuffer& iceP_inSeq,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<ShortBuffer, ShortBuffer>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opShortBufferSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ShortBuffer, ShortBuffer>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opShortBufferSeq, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -963,7 +962,7 @@ Test::TestIntfPrx::_iceI_opShortBufferSeq(const ::std::shared_ptr<::IceInternal:
 ::Test::IntBuffer
 Test::TestIntfPrx::opIntBufferSeq(const IntBuffer& iceP_inSeq, IntBuffer& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<IntBuffer, IntBuffer>>(true, this, &TestIntfPrx::_iceI_opIntBufferSeq, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<IntBuffer, IntBuffer>>(true, this, &TestIntfPrx::_iceI_opIntBufferSeq, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -971,7 +970,7 @@ Test::TestIntfPrx::opIntBufferSeq(const IntBuffer& iceP_inSeq, IntBuffer& iceP_o
 ::std::future<::std::tuple<::Test::IntBuffer, ::Test::IntBuffer>>
 Test::TestIntfPrx::opIntBufferSeqAsync(const IntBuffer& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<IntBuffer, IntBuffer>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opIntBufferSeq, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<IntBuffer, IntBuffer>>(false, this, &TestIntfPrx::_iceI_opIntBufferSeq, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -985,7 +984,7 @@ Test::TestIntfPrx::opIntBufferSeqAsync(const IntBuffer& iceP_inSeq,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<IntBuffer, IntBuffer>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opIntBufferSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<IntBuffer, IntBuffer>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opIntBufferSeq, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -1011,7 +1010,7 @@ Test::TestIntfPrx::_iceI_opIntBufferSeq(const ::std::shared_ptr<::IceInternal::O
 ::Test::LongBuffer
 Test::TestIntfPrx::opLongBufferSeq(const LongBuffer& iceP_inSeq, LongBuffer& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<LongBuffer, LongBuffer>>(true, this, &TestIntfPrx::_iceI_opLongBufferSeq, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<LongBuffer, LongBuffer>>(true, this, &TestIntfPrx::_iceI_opLongBufferSeq, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -1019,7 +1018,7 @@ Test::TestIntfPrx::opLongBufferSeq(const LongBuffer& iceP_inSeq, LongBuffer& ice
 ::std::future<::std::tuple<::Test::LongBuffer, ::Test::LongBuffer>>
 Test::TestIntfPrx::opLongBufferSeqAsync(const LongBuffer& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<LongBuffer, LongBuffer>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opLongBufferSeq, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<LongBuffer, LongBuffer>>(false, this, &TestIntfPrx::_iceI_opLongBufferSeq, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -1033,7 +1032,7 @@ Test::TestIntfPrx::opLongBufferSeqAsync(const LongBuffer& iceP_inSeq,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<LongBuffer, LongBuffer>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opLongBufferSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<LongBuffer, LongBuffer>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opLongBufferSeq, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -1059,7 +1058,7 @@ Test::TestIntfPrx::_iceI_opLongBufferSeq(const ::std::shared_ptr<::IceInternal::
 ::Test::FloatBuffer
 Test::TestIntfPrx::opFloatBufferSeq(const FloatBuffer& iceP_inSeq, FloatBuffer& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<FloatBuffer, FloatBuffer>>(true, this, &TestIntfPrx::_iceI_opFloatBufferSeq, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<FloatBuffer, FloatBuffer>>(true, this, &TestIntfPrx::_iceI_opFloatBufferSeq, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -1067,7 +1066,7 @@ Test::TestIntfPrx::opFloatBufferSeq(const FloatBuffer& iceP_inSeq, FloatBuffer& 
 ::std::future<::std::tuple<::Test::FloatBuffer, ::Test::FloatBuffer>>
 Test::TestIntfPrx::opFloatBufferSeqAsync(const FloatBuffer& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<FloatBuffer, FloatBuffer>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opFloatBufferSeq, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<FloatBuffer, FloatBuffer>>(false, this, &TestIntfPrx::_iceI_opFloatBufferSeq, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -1081,7 +1080,7 @@ Test::TestIntfPrx::opFloatBufferSeqAsync(const FloatBuffer& iceP_inSeq,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<FloatBuffer, FloatBuffer>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opFloatBufferSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<FloatBuffer, FloatBuffer>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opFloatBufferSeq, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -1107,7 +1106,7 @@ Test::TestIntfPrx::_iceI_opFloatBufferSeq(const ::std::shared_ptr<::IceInternal:
 ::Test::DoubleBuffer
 Test::TestIntfPrx::opDoubleBufferSeq(const DoubleBuffer& iceP_inSeq, DoubleBuffer& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<DoubleBuffer, DoubleBuffer>>(true, this, &TestIntfPrx::_iceI_opDoubleBufferSeq, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<DoubleBuffer, DoubleBuffer>>(true, this, &TestIntfPrx::_iceI_opDoubleBufferSeq, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -1115,7 +1114,7 @@ Test::TestIntfPrx::opDoubleBufferSeq(const DoubleBuffer& iceP_inSeq, DoubleBuffe
 ::std::future<::std::tuple<::Test::DoubleBuffer, ::Test::DoubleBuffer>>
 Test::TestIntfPrx::opDoubleBufferSeqAsync(const DoubleBuffer& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<DoubleBuffer, DoubleBuffer>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opDoubleBufferSeq, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<DoubleBuffer, DoubleBuffer>>(false, this, &TestIntfPrx::_iceI_opDoubleBufferSeq, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -1129,7 +1128,7 @@ Test::TestIntfPrx::opDoubleBufferSeqAsync(const DoubleBuffer& iceP_inSeq,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<DoubleBuffer, DoubleBuffer>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opDoubleBufferSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<DoubleBuffer, DoubleBuffer>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opDoubleBufferSeq, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -1155,7 +1154,7 @@ Test::TestIntfPrx::_iceI_opDoubleBufferSeq(const ::std::shared_ptr<::IceInternal
 std::optional<::Test::CSeq>
 Test::TestIntfPrx::opOptCSeq(const std::optional<CSeq>& iceP_inSeq, std::optional<CSeq>& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<std::optional<CSeq>, std::optional<CSeq>>>(true, this, &TestIntfPrx::_iceI_opOptCSeq, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<CSeq>, std::optional<CSeq>>>(true, this, &TestIntfPrx::_iceI_opOptCSeq, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -1163,7 +1162,7 @@ Test::TestIntfPrx::opOptCSeq(const std::optional<CSeq>& iceP_inSeq, std::optiona
 ::std::future<::std::tuple<std::optional<::Test::CSeq>, std::optional<::Test::CSeq>>>
 Test::TestIntfPrx::opOptCSeqAsync(const std::optional<CSeq>& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<std::optional<CSeq>, std::optional<CSeq>>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opOptCSeq, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<CSeq>, std::optional<CSeq>>>(false, this, &TestIntfPrx::_iceI_opOptCSeq, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -1177,7 +1176,7 @@ Test::TestIntfPrx::opOptCSeqAsync(const std::optional<CSeq>& iceP_inSeq,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<std::optional<CSeq>, std::optional<CSeq>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptCSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<std::optional<CSeq>, std::optional<CSeq>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptCSeq, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -1203,7 +1202,7 @@ Test::TestIntfPrx::_iceI_opOptCSeq(const ::std::shared_ptr<::IceInternal::Outgoi
 std::optional<::Test::CArray>
 Test::TestIntfPrx::opOptCArray(const std::optional<CArray>& iceP_inSeq, std::optional<CArray>& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<std::optional<CArray>, std::optional<CArray>>>(true, this, &TestIntfPrx::_iceI_opOptCArray, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<CArray>, std::optional<CArray>>>(true, this, &TestIntfPrx::_iceI_opOptCArray, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -1211,7 +1210,7 @@ Test::TestIntfPrx::opOptCArray(const std::optional<CArray>& iceP_inSeq, std::opt
 ::std::future<::std::tuple<std::optional<::Test::CArray>, std::optional<::Test::CArray>>>
 Test::TestIntfPrx::opOptCArrayAsync(const std::optional<CArray>& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<std::optional<CArray>, std::optional<CArray>>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opOptCArray, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<CArray>, std::optional<CArray>>>(false, this, &TestIntfPrx::_iceI_opOptCArray, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -1225,7 +1224,7 @@ Test::TestIntfPrx::opOptCArrayAsync(const std::optional<CArray>& iceP_inSeq,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<std::optional<CArray>, std::optional<CArray>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptCArray, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<std::optional<CArray>, std::optional<CArray>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptCArray, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -1251,7 +1250,7 @@ Test::TestIntfPrx::_iceI_opOptCArray(const ::std::shared_ptr<::IceInternal::Outg
 std::optional<::Test::CList>
 Test::TestIntfPrx::opOptCList(const std::optional<CList>& iceP_inSeq, std::optional<CList>& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<std::optional<CList>, std::optional<CList>>>(true, this, &TestIntfPrx::_iceI_opOptCList, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<CList>, std::optional<CList>>>(true, this, &TestIntfPrx::_iceI_opOptCList, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -1259,7 +1258,7 @@ Test::TestIntfPrx::opOptCList(const std::optional<CList>& iceP_inSeq, std::optio
 ::std::future<::std::tuple<std::optional<::Test::CList>, std::optional<::Test::CList>>>
 Test::TestIntfPrx::opOptCListAsync(const std::optional<CList>& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<std::optional<CList>, std::optional<CList>>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opOptCList, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<CList>, std::optional<CList>>>(false, this, &TestIntfPrx::_iceI_opOptCList, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -1273,7 +1272,7 @@ Test::TestIntfPrx::opOptCListAsync(const std::optional<CList>& iceP_inSeq,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<std::optional<CList>, std::optional<CList>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptCList, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<std::optional<CList>, std::optional<CList>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptCList, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -1299,7 +1298,7 @@ Test::TestIntfPrx::_iceI_opOptCList(const ::std::shared_ptr<::IceInternal::Outgo
 std::optional<::Test::BoolSeq>
 Test::TestIntfPrx::opOptBoolSeq(const std::optional<BoolSeq>& iceP_inSeq, std::optional<BoolSeq>& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<std::optional<BoolSeq>, std::optional<BoolSeq>>>(true, this, &TestIntfPrx::_iceI_opOptBoolSeq, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<BoolSeq>, std::optional<BoolSeq>>>(true, this, &TestIntfPrx::_iceI_opOptBoolSeq, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -1307,7 +1306,7 @@ Test::TestIntfPrx::opOptBoolSeq(const std::optional<BoolSeq>& iceP_inSeq, std::o
 ::std::future<::std::tuple<std::optional<::Test::BoolSeq>, std::optional<::Test::BoolSeq>>>
 Test::TestIntfPrx::opOptBoolSeqAsync(const std::optional<BoolSeq>& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<std::optional<BoolSeq>, std::optional<BoolSeq>>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opOptBoolSeq, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<BoolSeq>, std::optional<BoolSeq>>>(false, this, &TestIntfPrx::_iceI_opOptBoolSeq, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -1321,7 +1320,7 @@ Test::TestIntfPrx::opOptBoolSeqAsync(const std::optional<BoolSeq>& iceP_inSeq,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<std::optional<BoolSeq>, std::optional<BoolSeq>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptBoolSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<std::optional<BoolSeq>, std::optional<BoolSeq>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptBoolSeq, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -1347,7 +1346,7 @@ Test::TestIntfPrx::_iceI_opOptBoolSeq(const ::std::shared_ptr<::IceInternal::Out
 std::optional<::Test::ByteSeq>
 Test::TestIntfPrx::opOptByteSeq(const std::optional<ByteSeq>& iceP_inSeq, std::optional<ByteSeq>& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<std::optional<ByteSeq>, std::optional<ByteSeq>>>(true, this, &TestIntfPrx::_iceI_opOptByteSeq, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<ByteSeq>, std::optional<ByteSeq>>>(true, this, &TestIntfPrx::_iceI_opOptByteSeq, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -1355,7 +1354,7 @@ Test::TestIntfPrx::opOptByteSeq(const std::optional<ByteSeq>& iceP_inSeq, std::o
 ::std::future<::std::tuple<std::optional<::Test::ByteSeq>, std::optional<::Test::ByteSeq>>>
 Test::TestIntfPrx::opOptByteSeqAsync(const std::optional<ByteSeq>& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<std::optional<ByteSeq>, std::optional<ByteSeq>>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opOptByteSeq, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<ByteSeq>, std::optional<ByteSeq>>>(false, this, &TestIntfPrx::_iceI_opOptByteSeq, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -1369,7 +1368,7 @@ Test::TestIntfPrx::opOptByteSeqAsync(const std::optional<ByteSeq>& iceP_inSeq,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<std::optional<ByteSeq>, std::optional<ByteSeq>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptByteSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<std::optional<ByteSeq>, std::optional<ByteSeq>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptByteSeq, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -1395,7 +1394,7 @@ Test::TestIntfPrx::_iceI_opOptByteSeq(const ::std::shared_ptr<::IceInternal::Out
 std::optional<::Test::ShortSeq>
 Test::TestIntfPrx::opOptShortSeq(const std::optional<ShortSeq>& iceP_inSeq, std::optional<ShortSeq>& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<std::optional<ShortSeq>, std::optional<ShortSeq>>>(true, this, &TestIntfPrx::_iceI_opOptShortSeq, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<ShortSeq>, std::optional<ShortSeq>>>(true, this, &TestIntfPrx::_iceI_opOptShortSeq, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -1403,7 +1402,7 @@ Test::TestIntfPrx::opOptShortSeq(const std::optional<ShortSeq>& iceP_inSeq, std:
 ::std::future<::std::tuple<std::optional<::Test::ShortSeq>, std::optional<::Test::ShortSeq>>>
 Test::TestIntfPrx::opOptShortSeqAsync(const std::optional<ShortSeq>& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<std::optional<ShortSeq>, std::optional<ShortSeq>>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opOptShortSeq, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<ShortSeq>, std::optional<ShortSeq>>>(false, this, &TestIntfPrx::_iceI_opOptShortSeq, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -1417,7 +1416,7 @@ Test::TestIntfPrx::opOptShortSeqAsync(const std::optional<ShortSeq>& iceP_inSeq,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<std::optional<ShortSeq>, std::optional<ShortSeq>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptShortSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<std::optional<ShortSeq>, std::optional<ShortSeq>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptShortSeq, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -1443,7 +1442,7 @@ Test::TestIntfPrx::_iceI_opOptShortSeq(const ::std::shared_ptr<::IceInternal::Ou
 std::optional<::Test::IntSeq>
 Test::TestIntfPrx::opOptIntSeq(const std::optional<IntSeq>& iceP_inSeq, std::optional<IntSeq>& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<std::optional<IntSeq>, std::optional<IntSeq>>>(true, this, &TestIntfPrx::_iceI_opOptIntSeq, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<IntSeq>, std::optional<IntSeq>>>(true, this, &TestIntfPrx::_iceI_opOptIntSeq, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -1451,7 +1450,7 @@ Test::TestIntfPrx::opOptIntSeq(const std::optional<IntSeq>& iceP_inSeq, std::opt
 ::std::future<::std::tuple<std::optional<::Test::IntSeq>, std::optional<::Test::IntSeq>>>
 Test::TestIntfPrx::opOptIntSeqAsync(const std::optional<IntSeq>& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<std::optional<IntSeq>, std::optional<IntSeq>>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opOptIntSeq, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<IntSeq>, std::optional<IntSeq>>>(false, this, &TestIntfPrx::_iceI_opOptIntSeq, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -1465,7 +1464,7 @@ Test::TestIntfPrx::opOptIntSeqAsync(const std::optional<IntSeq>& iceP_inSeq,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<std::optional<IntSeq>, std::optional<IntSeq>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptIntSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<std::optional<IntSeq>, std::optional<IntSeq>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptIntSeq, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -1491,7 +1490,7 @@ Test::TestIntfPrx::_iceI_opOptIntSeq(const ::std::shared_ptr<::IceInternal::Outg
 std::optional<::Test::LongSeq>
 Test::TestIntfPrx::opOptLongSeq(const std::optional<LongSeq>& iceP_inSeq, std::optional<LongSeq>& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<std::optional<LongSeq>, std::optional<LongSeq>>>(true, this, &TestIntfPrx::_iceI_opOptLongSeq, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<LongSeq>, std::optional<LongSeq>>>(true, this, &TestIntfPrx::_iceI_opOptLongSeq, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -1499,7 +1498,7 @@ Test::TestIntfPrx::opOptLongSeq(const std::optional<LongSeq>& iceP_inSeq, std::o
 ::std::future<::std::tuple<std::optional<::Test::LongSeq>, std::optional<::Test::LongSeq>>>
 Test::TestIntfPrx::opOptLongSeqAsync(const std::optional<LongSeq>& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<std::optional<LongSeq>, std::optional<LongSeq>>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opOptLongSeq, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<LongSeq>, std::optional<LongSeq>>>(false, this, &TestIntfPrx::_iceI_opOptLongSeq, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -1513,7 +1512,7 @@ Test::TestIntfPrx::opOptLongSeqAsync(const std::optional<LongSeq>& iceP_inSeq,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<std::optional<LongSeq>, std::optional<LongSeq>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptLongSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<std::optional<LongSeq>, std::optional<LongSeq>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptLongSeq, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -1539,7 +1538,7 @@ Test::TestIntfPrx::_iceI_opOptLongSeq(const ::std::shared_ptr<::IceInternal::Out
 std::optional<::Test::FloatSeq>
 Test::TestIntfPrx::opOptFloatSeq(const std::optional<FloatSeq>& iceP_inSeq, std::optional<FloatSeq>& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<std::optional<FloatSeq>, std::optional<FloatSeq>>>(true, this, &TestIntfPrx::_iceI_opOptFloatSeq, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<FloatSeq>, std::optional<FloatSeq>>>(true, this, &TestIntfPrx::_iceI_opOptFloatSeq, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -1547,7 +1546,7 @@ Test::TestIntfPrx::opOptFloatSeq(const std::optional<FloatSeq>& iceP_inSeq, std:
 ::std::future<::std::tuple<std::optional<::Test::FloatSeq>, std::optional<::Test::FloatSeq>>>
 Test::TestIntfPrx::opOptFloatSeqAsync(const std::optional<FloatSeq>& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<std::optional<FloatSeq>, std::optional<FloatSeq>>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opOptFloatSeq, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<FloatSeq>, std::optional<FloatSeq>>>(false, this, &TestIntfPrx::_iceI_opOptFloatSeq, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -1561,7 +1560,7 @@ Test::TestIntfPrx::opOptFloatSeqAsync(const std::optional<FloatSeq>& iceP_inSeq,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<std::optional<FloatSeq>, std::optional<FloatSeq>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptFloatSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<std::optional<FloatSeq>, std::optional<FloatSeq>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptFloatSeq, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -1587,7 +1586,7 @@ Test::TestIntfPrx::_iceI_opOptFloatSeq(const ::std::shared_ptr<::IceInternal::Ou
 std::optional<::Test::DoubleSeq>
 Test::TestIntfPrx::opOptDoubleSeq(const std::optional<DoubleSeq>& iceP_inSeq, std::optional<DoubleSeq>& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<std::optional<DoubleSeq>, std::optional<DoubleSeq>>>(true, this, &TestIntfPrx::_iceI_opOptDoubleSeq, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<DoubleSeq>, std::optional<DoubleSeq>>>(true, this, &TestIntfPrx::_iceI_opOptDoubleSeq, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -1595,7 +1594,7 @@ Test::TestIntfPrx::opOptDoubleSeq(const std::optional<DoubleSeq>& iceP_inSeq, st
 ::std::future<::std::tuple<std::optional<::Test::DoubleSeq>, std::optional<::Test::DoubleSeq>>>
 Test::TestIntfPrx::opOptDoubleSeqAsync(const std::optional<DoubleSeq>& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<std::optional<DoubleSeq>, std::optional<DoubleSeq>>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opOptDoubleSeq, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<DoubleSeq>, std::optional<DoubleSeq>>>(false, this, &TestIntfPrx::_iceI_opOptDoubleSeq, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -1609,7 +1608,7 @@ Test::TestIntfPrx::opOptDoubleSeqAsync(const std::optional<DoubleSeq>& iceP_inSe
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<std::optional<DoubleSeq>, std::optional<DoubleSeq>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptDoubleSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<std::optional<DoubleSeq>, std::optional<DoubleSeq>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptDoubleSeq, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -1635,7 +1634,7 @@ Test::TestIntfPrx::_iceI_opOptDoubleSeq(const ::std::shared_ptr<::IceInternal::O
 std::optional<::Test::StringSeq>
 Test::TestIntfPrx::opOptStringSeq(const std::optional<StringSeq>& iceP_inSeq, std::optional<StringSeq>& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<std::optional<StringSeq>, std::optional<StringSeq>>>(true, this, &TestIntfPrx::_iceI_opOptStringSeq, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<StringSeq>, std::optional<StringSeq>>>(true, this, &TestIntfPrx::_iceI_opOptStringSeq, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -1643,7 +1642,7 @@ Test::TestIntfPrx::opOptStringSeq(const std::optional<StringSeq>& iceP_inSeq, st
 ::std::future<::std::tuple<std::optional<::Test::StringSeq>, std::optional<::Test::StringSeq>>>
 Test::TestIntfPrx::opOptStringSeqAsync(const std::optional<StringSeq>& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<std::optional<StringSeq>, std::optional<StringSeq>>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opOptStringSeq, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<StringSeq>, std::optional<StringSeq>>>(false, this, &TestIntfPrx::_iceI_opOptStringSeq, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -1657,7 +1656,7 @@ Test::TestIntfPrx::opOptStringSeqAsync(const std::optional<StringSeq>& iceP_inSe
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<std::optional<StringSeq>, std::optional<StringSeq>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptStringSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<std::optional<StringSeq>, std::optional<StringSeq>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptStringSeq, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -1683,7 +1682,7 @@ Test::TestIntfPrx::_iceI_opOptStringSeq(const ::std::shared_ptr<::IceInternal::O
 std::optional<::Test::ESeq>
 Test::TestIntfPrx::opOptESeq(const std::optional<ESeq>& iceP_inSeq, std::optional<ESeq>& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<std::optional<ESeq>, std::optional<ESeq>>>(true, this, &TestIntfPrx::_iceI_opOptESeq, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<ESeq>, std::optional<ESeq>>>(true, this, &TestIntfPrx::_iceI_opOptESeq, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -1691,7 +1690,7 @@ Test::TestIntfPrx::opOptESeq(const std::optional<ESeq>& iceP_inSeq, std::optiona
 ::std::future<::std::tuple<std::optional<::Test::ESeq>, std::optional<::Test::ESeq>>>
 Test::TestIntfPrx::opOptESeqAsync(const std::optional<ESeq>& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<std::optional<ESeq>, std::optional<ESeq>>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opOptESeq, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<ESeq>, std::optional<ESeq>>>(false, this, &TestIntfPrx::_iceI_opOptESeq, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -1705,7 +1704,7 @@ Test::TestIntfPrx::opOptESeqAsync(const std::optional<ESeq>& iceP_inSeq,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<std::optional<ESeq>, std::optional<ESeq>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptESeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<std::optional<ESeq>, std::optional<ESeq>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptESeq, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -1731,7 +1730,7 @@ Test::TestIntfPrx::_iceI_opOptESeq(const ::std::shared_ptr<::IceInternal::Outgoi
 std::optional<::Test::SSeq>
 Test::TestIntfPrx::opOptSSeq(const std::optional<SSeq>& iceP_inSeq, std::optional<SSeq>& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<std::optional<SSeq>, std::optional<SSeq>>>(true, this, &TestIntfPrx::_iceI_opOptSSeq, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<SSeq>, std::optional<SSeq>>>(true, this, &TestIntfPrx::_iceI_opOptSSeq, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -1739,7 +1738,7 @@ Test::TestIntfPrx::opOptSSeq(const std::optional<SSeq>& iceP_inSeq, std::optiona
 ::std::future<::std::tuple<std::optional<::Test::SSeq>, std::optional<::Test::SSeq>>>
 Test::TestIntfPrx::opOptSSeqAsync(const std::optional<SSeq>& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<std::optional<SSeq>, std::optional<SSeq>>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opOptSSeq, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<SSeq>, std::optional<SSeq>>>(false, this, &TestIntfPrx::_iceI_opOptSSeq, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -1753,7 +1752,7 @@ Test::TestIntfPrx::opOptSSeqAsync(const std::optional<SSeq>& iceP_inSeq,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<std::optional<SSeq>, std::optional<SSeq>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptSSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<std::optional<SSeq>, std::optional<SSeq>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptSSeq, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -1779,7 +1778,7 @@ Test::TestIntfPrx::_iceI_opOptSSeq(const ::std::shared_ptr<::IceInternal::Outgoi
 std::optional<::Test::DSeq>
 Test::TestIntfPrx::opOptDSeq(const std::optional<DSeq>& iceP_inSeq, std::optional<DSeq>& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<std::optional<DSeq>, std::optional<DSeq>>>(true, this, &TestIntfPrx::_iceI_opOptDSeq, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<DSeq>, std::optional<DSeq>>>(true, this, &TestIntfPrx::_iceI_opOptDSeq, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -1787,7 +1786,7 @@ Test::TestIntfPrx::opOptDSeq(const std::optional<DSeq>& iceP_inSeq, std::optiona
 ::std::future<::std::tuple<std::optional<::Test::DSeq>, std::optional<::Test::DSeq>>>
 Test::TestIntfPrx::opOptDSeqAsync(const std::optional<DSeq>& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<std::optional<DSeq>, std::optional<DSeq>>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opOptDSeq, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<DSeq>, std::optional<DSeq>>>(false, this, &TestIntfPrx::_iceI_opOptDSeq, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -1801,7 +1800,7 @@ Test::TestIntfPrx::opOptDSeqAsync(const std::optional<DSeq>& iceP_inSeq,
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<std::optional<DSeq>, std::optional<DSeq>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptDSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<std::optional<DSeq>, std::optional<DSeq>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptDSeq, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -1827,7 +1826,7 @@ Test::TestIntfPrx::_iceI_opOptDSeq(const ::std::shared_ptr<::IceInternal::Outgoi
 std::optional<::Test::StringSeqSeq>
 Test::TestIntfPrx::opOptStringSeqSeq(const std::optional<StringSeqSeq>& iceP_inSeq, std::optional<StringSeqSeq>& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<std::optional<StringSeqSeq>, std::optional<StringSeqSeq>>>(true, this, &TestIntfPrx::_iceI_opOptStringSeqSeq, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<StringSeqSeq>, std::optional<StringSeqSeq>>>(true, this, &TestIntfPrx::_iceI_opOptStringSeqSeq, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -1835,7 +1834,7 @@ Test::TestIntfPrx::opOptStringSeqSeq(const std::optional<StringSeqSeq>& iceP_inS
 ::std::future<::std::tuple<std::optional<::Test::StringSeqSeq>, std::optional<::Test::StringSeqSeq>>>
 Test::TestIntfPrx::opOptStringSeqSeqAsync(const std::optional<StringSeqSeq>& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<std::optional<StringSeqSeq>, std::optional<StringSeqSeq>>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opOptStringSeqSeq, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<StringSeqSeq>, std::optional<StringSeqSeq>>>(false, this, &TestIntfPrx::_iceI_opOptStringSeqSeq, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -1849,7 +1848,7 @@ Test::TestIntfPrx::opOptStringSeqSeqAsync(const std::optional<StringSeqSeq>& ice
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<std::optional<StringSeqSeq>, std::optional<StringSeqSeq>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptStringSeqSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<std::optional<StringSeqSeq>, std::optional<StringSeqSeq>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptStringSeqSeq, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -1875,7 +1874,7 @@ Test::TestIntfPrx::_iceI_opOptStringSeqSeq(const ::std::shared_ptr<::IceInternal
 std::optional<::Test::ByteBuffer>
 Test::TestIntfPrx::opOptByteBufferSeq(const std::optional<ByteBuffer>& iceP_inSeq, std::optional<ByteBuffer>& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<std::optional<ByteBuffer>, std::optional<ByteBuffer>>>(true, this, &TestIntfPrx::_iceI_opOptByteBufferSeq, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<ByteBuffer>, std::optional<ByteBuffer>>>(true, this, &TestIntfPrx::_iceI_opOptByteBufferSeq, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -1883,7 +1882,7 @@ Test::TestIntfPrx::opOptByteBufferSeq(const std::optional<ByteBuffer>& iceP_inSe
 ::std::future<::std::tuple<std::optional<::Test::ByteBuffer>, std::optional<::Test::ByteBuffer>>>
 Test::TestIntfPrx::opOptByteBufferSeqAsync(const std::optional<ByteBuffer>& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<std::optional<ByteBuffer>, std::optional<ByteBuffer>>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opOptByteBufferSeq, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<ByteBuffer>, std::optional<ByteBuffer>>>(false, this, &TestIntfPrx::_iceI_opOptByteBufferSeq, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -1897,7 +1896,7 @@ Test::TestIntfPrx::opOptByteBufferSeqAsync(const std::optional<ByteBuffer>& iceP
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<std::optional<ByteBuffer>, std::optional<ByteBuffer>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptByteBufferSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<std::optional<ByteBuffer>, std::optional<ByteBuffer>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptByteBufferSeq, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -1923,7 +1922,7 @@ Test::TestIntfPrx::_iceI_opOptByteBufferSeq(const ::std::shared_ptr<::IceInterna
 std::optional<::Test::ShortBuffer>
 Test::TestIntfPrx::opOptShortBufferSeq(const std::optional<ShortBuffer>& iceP_inSeq, std::optional<ShortBuffer>& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<std::optional<ShortBuffer>, std::optional<ShortBuffer>>>(true, this, &TestIntfPrx::_iceI_opOptShortBufferSeq, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<ShortBuffer>, std::optional<ShortBuffer>>>(true, this, &TestIntfPrx::_iceI_opOptShortBufferSeq, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -1931,7 +1930,7 @@ Test::TestIntfPrx::opOptShortBufferSeq(const std::optional<ShortBuffer>& iceP_in
 ::std::future<::std::tuple<std::optional<::Test::ShortBuffer>, std::optional<::Test::ShortBuffer>>>
 Test::TestIntfPrx::opOptShortBufferSeqAsync(const std::optional<ShortBuffer>& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<std::optional<ShortBuffer>, std::optional<ShortBuffer>>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opOptShortBufferSeq, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<ShortBuffer>, std::optional<ShortBuffer>>>(false, this, &TestIntfPrx::_iceI_opOptShortBufferSeq, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -1945,7 +1944,7 @@ Test::TestIntfPrx::opOptShortBufferSeqAsync(const std::optional<ShortBuffer>& ic
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<std::optional<ShortBuffer>, std::optional<ShortBuffer>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptShortBufferSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<std::optional<ShortBuffer>, std::optional<ShortBuffer>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptShortBufferSeq, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -1971,7 +1970,7 @@ Test::TestIntfPrx::_iceI_opOptShortBufferSeq(const ::std::shared_ptr<::IceIntern
 std::optional<::Test::IntBuffer>
 Test::TestIntfPrx::opOptIntBufferSeq(const std::optional<IntBuffer>& iceP_inSeq, std::optional<IntBuffer>& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<std::optional<IntBuffer>, std::optional<IntBuffer>>>(true, this, &TestIntfPrx::_iceI_opOptIntBufferSeq, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<IntBuffer>, std::optional<IntBuffer>>>(true, this, &TestIntfPrx::_iceI_opOptIntBufferSeq, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -1979,7 +1978,7 @@ Test::TestIntfPrx::opOptIntBufferSeq(const std::optional<IntBuffer>& iceP_inSeq,
 ::std::future<::std::tuple<std::optional<::Test::IntBuffer>, std::optional<::Test::IntBuffer>>>
 Test::TestIntfPrx::opOptIntBufferSeqAsync(const std::optional<IntBuffer>& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<std::optional<IntBuffer>, std::optional<IntBuffer>>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opOptIntBufferSeq, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<IntBuffer>, std::optional<IntBuffer>>>(false, this, &TestIntfPrx::_iceI_opOptIntBufferSeq, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -1993,7 +1992,7 @@ Test::TestIntfPrx::opOptIntBufferSeqAsync(const std::optional<IntBuffer>& iceP_i
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<std::optional<IntBuffer>, std::optional<IntBuffer>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptIntBufferSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<std::optional<IntBuffer>, std::optional<IntBuffer>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptIntBufferSeq, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -2019,7 +2018,7 @@ Test::TestIntfPrx::_iceI_opOptIntBufferSeq(const ::std::shared_ptr<::IceInternal
 std::optional<::Test::LongBuffer>
 Test::TestIntfPrx::opOptLongBufferSeq(const std::optional<LongBuffer>& iceP_inSeq, std::optional<LongBuffer>& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<std::optional<LongBuffer>, std::optional<LongBuffer>>>(true, this, &TestIntfPrx::_iceI_opOptLongBufferSeq, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<LongBuffer>, std::optional<LongBuffer>>>(true, this, &TestIntfPrx::_iceI_opOptLongBufferSeq, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -2027,7 +2026,7 @@ Test::TestIntfPrx::opOptLongBufferSeq(const std::optional<LongBuffer>& iceP_inSe
 ::std::future<::std::tuple<std::optional<::Test::LongBuffer>, std::optional<::Test::LongBuffer>>>
 Test::TestIntfPrx::opOptLongBufferSeqAsync(const std::optional<LongBuffer>& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<std::optional<LongBuffer>, std::optional<LongBuffer>>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opOptLongBufferSeq, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<LongBuffer>, std::optional<LongBuffer>>>(false, this, &TestIntfPrx::_iceI_opOptLongBufferSeq, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -2041,7 +2040,7 @@ Test::TestIntfPrx::opOptLongBufferSeqAsync(const std::optional<LongBuffer>& iceP
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<std::optional<LongBuffer>, std::optional<LongBuffer>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptLongBufferSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<std::optional<LongBuffer>, std::optional<LongBuffer>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptLongBufferSeq, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -2067,7 +2066,7 @@ Test::TestIntfPrx::_iceI_opOptLongBufferSeq(const ::std::shared_ptr<::IceInterna
 std::optional<::Test::FloatBuffer>
 Test::TestIntfPrx::opOptFloatBufferSeq(const std::optional<FloatBuffer>& iceP_inSeq, std::optional<FloatBuffer>& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<std::optional<FloatBuffer>, std::optional<FloatBuffer>>>(true, this, &TestIntfPrx::_iceI_opOptFloatBufferSeq, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<FloatBuffer>, std::optional<FloatBuffer>>>(true, this, &TestIntfPrx::_iceI_opOptFloatBufferSeq, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -2075,7 +2074,7 @@ Test::TestIntfPrx::opOptFloatBufferSeq(const std::optional<FloatBuffer>& iceP_in
 ::std::future<::std::tuple<std::optional<::Test::FloatBuffer>, std::optional<::Test::FloatBuffer>>>
 Test::TestIntfPrx::opOptFloatBufferSeqAsync(const std::optional<FloatBuffer>& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<std::optional<FloatBuffer>, std::optional<FloatBuffer>>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opOptFloatBufferSeq, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<FloatBuffer>, std::optional<FloatBuffer>>>(false, this, &TestIntfPrx::_iceI_opOptFloatBufferSeq, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -2089,7 +2088,7 @@ Test::TestIntfPrx::opOptFloatBufferSeqAsync(const std::optional<FloatBuffer>& ic
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<std::optional<FloatBuffer>, std::optional<FloatBuffer>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptFloatBufferSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<std::optional<FloatBuffer>, std::optional<FloatBuffer>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptFloatBufferSeq, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -2115,7 +2114,7 @@ Test::TestIntfPrx::_iceI_opOptFloatBufferSeq(const ::std::shared_ptr<::IceIntern
 std::optional<::Test::DoubleBuffer>
 Test::TestIntfPrx::opOptDoubleBufferSeq(const std::optional<DoubleBuffer>& iceP_inSeq, std::optional<DoubleBuffer>& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<std::optional<DoubleBuffer>, std::optional<DoubleBuffer>>>(true, this, &TestIntfPrx::_iceI_opOptDoubleBufferSeq, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<DoubleBuffer>, std::optional<DoubleBuffer>>>(true, this, &TestIntfPrx::_iceI_opOptDoubleBufferSeq, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
@@ -2123,7 +2122,7 @@ Test::TestIntfPrx::opOptDoubleBufferSeq(const std::optional<DoubleBuffer>& iceP_
 ::std::future<::std::tuple<std::optional<::Test::DoubleBuffer>, std::optional<::Test::DoubleBuffer>>>
 Test::TestIntfPrx::opOptDoubleBufferSeqAsync(const std::optional<DoubleBuffer>& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<std::optional<DoubleBuffer>, std::optional<DoubleBuffer>>, ::std::promise>(false, this, &TestIntfPrx::_iceI_opOptDoubleBufferSeq, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<DoubleBuffer>, std::optional<DoubleBuffer>>>(false, this, &TestIntfPrx::_iceI_opOptDoubleBufferSeq, iceP_inSeq, context);
 }
 
 ::std::function<void()>
@@ -2137,7 +2136,7 @@ Test::TestIntfPrx::opOptDoubleBufferSeqAsync(const std::optional<DoubleBuffer>& 
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
     };
-    return _makeLambdaOutgoing<::std::tuple<std::optional<DoubleBuffer>, std::optional<DoubleBuffer>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptDoubleBufferSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<std::optional<DoubleBuffer>, std::optional<DoubleBuffer>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptDoubleBufferSeq, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
@@ -2163,13 +2162,13 @@ Test::TestIntfPrx::_iceI_opOptDoubleBufferSeq(const ::std::shared_ptr<::IceInter
 void
 Test::TestIntfPrx::shutdown(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_shutdown, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::shutdownAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_shutdown, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_shutdown, context);
 }
 
 ::std::function<void()>
@@ -2178,7 +2177,7 @@ Test::TestIntfPrx::shutdownAsync(::std::function<void ()> response,
                                  ::std::function<void(bool)> sent,
                                  const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
 }
 
 /// \cond INTERNAL

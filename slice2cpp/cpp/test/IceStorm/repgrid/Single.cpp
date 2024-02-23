@@ -15,8 +15,7 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Single.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -55,13 +54,13 @@ const ::std::string iceC_Test_Single_event_name = "event";
 void
 Test::SinglePrx::event(::std::int32_t iceP_i, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &SinglePrx::_iceI_event, iceP_i, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &SinglePrx::_iceI_event, iceP_i, context).get();
 }
 
 ::std::future<void>
 Test::SinglePrx::eventAsync(::std::int32_t iceP_i, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &SinglePrx::_iceI_event, iceP_i, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &SinglePrx::_iceI_event, iceP_i, context);
 }
 
 ::std::function<void()>
@@ -71,7 +70,7 @@ Test::SinglePrx::eventAsync(::std::int32_t iceP_i,
                             ::std::function<void(bool)> sent,
                             const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::SinglePrx::_iceI_event, iceP_i, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::SinglePrx::_iceI_event, iceP_i, context);
 }
 
 /// \cond INTERNAL

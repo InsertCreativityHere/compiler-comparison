@@ -18,8 +18,7 @@
 #endif
 #define ICE_BUILDING_GENERATED_CODE
 #include <Router.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -77,7 +76,7 @@ const ::std::string iceC_Ice_RouterFinder_getRouter_name = "getRouter";
 ::std::optional<::Ice::ObjectPrx>
 Ice::RouterPrx::getClientProxy(std::optional<bool>& iceP_hasRoutingTable, const ::Ice::Context& context) const
 {
-    auto _result = _makePromiseOutgoing<::std::tuple<::std::optional<::Ice::ObjectPrx>, std::optional<bool>>>(true, this, &RouterPrx::_iceI_getClientProxy, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<::Ice::ObjectPrx>, std::optional<bool>>>(true, this, &RouterPrx::_iceI_getClientProxy, context).get();
     iceP_hasRoutingTable = ::std::get<1>(_result);
     return ::std::move(::std::get<0>(_result));
 }
@@ -85,7 +84,7 @@ Ice::RouterPrx::getClientProxy(std::optional<bool>& iceP_hasRoutingTable, const 
 ::std::future<::std::tuple<::std::optional<::Ice::ObjectPrx>, std::optional<bool>>>
 Ice::RouterPrx::getClientProxyAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::tuple<::std::optional<::Ice::ObjectPrx>, std::optional<bool>>, ::std::promise>(false, this, &RouterPrx::_iceI_getClientProxy, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<::Ice::ObjectPrx>, std::optional<bool>>>(false, this, &RouterPrx::_iceI_getClientProxy, context);
 }
 
 ::std::function<void()>
@@ -98,7 +97,7 @@ Ice::RouterPrx::getClientProxyAsync(::std::function<void (::std::optional<::Ice:
     {
         response(::std::move(::std::get<0>(_result)), ::std::get<1>(_result));
     };
-    return _makeLambdaOutgoing<::std::tuple<::std::optional<::Ice::ObjectPrx>, std::optional<bool>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Ice::RouterPrx::_iceI_getClientProxy, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<::Ice::ObjectPrx>, std::optional<bool>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Ice::RouterPrx::_iceI_getClientProxy, context);
 }
 
 /// \cond INTERNAL
@@ -122,13 +121,13 @@ Ice::RouterPrx::_iceI_getClientProxy(const ::std::shared_ptr<::IceInternal::Outg
 ::std::optional<::Ice::ObjectPrx>
 Ice::RouterPrx::getServerProxy(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::optional<::Ice::ObjectPrx>>(true, this, &RouterPrx::_iceI_getServerProxy, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::optional<::Ice::ObjectPrx>>(true, this, &RouterPrx::_iceI_getServerProxy, context).get();
 }
 
 ::std::future<::std::optional<::Ice::ObjectPrx>>
 Ice::RouterPrx::getServerProxyAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::optional<::Ice::ObjectPrx>, ::std::promise>(false, this, &RouterPrx::_iceI_getServerProxy, context);
+    return ::IceInternal::makePromiseOutgoing<::std::optional<::Ice::ObjectPrx>>(false, this, &RouterPrx::_iceI_getServerProxy, context);
 }
 
 ::std::function<void()>
@@ -137,7 +136,7 @@ Ice::RouterPrx::getServerProxyAsync(::std::function<void (::std::optional<::Ice:
                                     ::std::function<void(bool)> sent,
                                     const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::optional<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::RouterPrx::_iceI_getServerProxy, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::optional<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::RouterPrx::_iceI_getServerProxy, context);
 }
 
 /// \cond INTERNAL
@@ -154,13 +153,13 @@ Ice::RouterPrx::_iceI_getServerProxy(const ::std::shared_ptr<::IceInternal::Outg
 ::Ice::ObjectProxySeq
 Ice::RouterPrx::addProxies(const ObjectProxySeq& iceP_proxies, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<ObjectProxySeq>(true, this, &RouterPrx::_iceI_addProxies, iceP_proxies, context).get();
+    return ::IceInternal::makePromiseOutgoing<ObjectProxySeq>(true, this, &RouterPrx::_iceI_addProxies, iceP_proxies, context).get();
 }
 
 ::std::future<::Ice::ObjectProxySeq>
 Ice::RouterPrx::addProxiesAsync(const ObjectProxySeq& iceP_proxies, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<ObjectProxySeq, ::std::promise>(false, this, &RouterPrx::_iceI_addProxies, iceP_proxies, context);
+    return ::IceInternal::makePromiseOutgoing<ObjectProxySeq>(false, this, &RouterPrx::_iceI_addProxies, iceP_proxies, context);
 }
 
 ::std::function<void()>
@@ -170,7 +169,7 @@ Ice::RouterPrx::addProxiesAsync(const ObjectProxySeq& iceP_proxies,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<ObjectProxySeq>(std::move(response), std::move(ex), std::move(sent), this, &Ice::RouterPrx::_iceI_addProxies, iceP_proxies, context);
+    return ::IceInternal::makeLambdaOutgoing<ObjectProxySeq>(std::move(response), std::move(ex), std::move(sent), this, &Ice::RouterPrx::_iceI_addProxies, iceP_proxies, context);
 }
 
 /// \cond INTERNAL
@@ -197,13 +196,13 @@ Ice::RouterPrx::ice_staticId()
 ::std::optional<::Ice::RouterPrx>
 Ice::RouterFinderPrx::getRouter(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::optional<RouterPrx>>(true, this, &RouterFinderPrx::_iceI_getRouter, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::optional<RouterPrx>>(true, this, &RouterFinderPrx::_iceI_getRouter, context).get();
 }
 
 ::std::future<::std::optional<::Ice::RouterPrx>>
 Ice::RouterFinderPrx::getRouterAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::optional<RouterPrx>, ::std::promise>(false, this, &RouterFinderPrx::_iceI_getRouter, context);
+    return ::IceInternal::makePromiseOutgoing<::std::optional<RouterPrx>>(false, this, &RouterFinderPrx::_iceI_getRouter, context);
 }
 
 ::std::function<void()>
@@ -212,7 +211,7 @@ Ice::RouterFinderPrx::getRouterAsync(::std::function<void (::std::optional<::Ice
                                      ::std::function<void(bool)> sent,
                                      const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::optional<RouterPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::RouterFinderPrx::_iceI_getRouter, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::optional<RouterPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::RouterFinderPrx::_iceI_getRouter, context);
 }
 
 /// \cond INTERNAL

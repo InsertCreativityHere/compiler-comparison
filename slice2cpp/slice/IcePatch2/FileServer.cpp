@@ -18,8 +18,7 @@
 #endif
 #define ICE_BUILDING_GENERATED_CODE
 #include <FileServer.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -74,13 +73,13 @@ const ::std::string iceC_IcePatch2_FileServer_getLargeFileCompressed_name = "get
 ::IcePatch2::FileInfoSeq
 IcePatch2::FileServerPrx::getFileInfoSeq(::std::int32_t iceP_partition, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<FileInfoSeq>(true, this, &FileServerPrx::_iceI_getFileInfoSeq, iceP_partition, context).get();
+    return ::IceInternal::makePromiseOutgoing<FileInfoSeq>(true, this, &FileServerPrx::_iceI_getFileInfoSeq, iceP_partition, context).get();
 }
 
 ::std::future<::IcePatch2::FileInfoSeq>
 IcePatch2::FileServerPrx::getFileInfoSeqAsync(::std::int32_t iceP_partition, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<FileInfoSeq, ::std::promise>(false, this, &FileServerPrx::_iceI_getFileInfoSeq, iceP_partition, context);
+    return ::IceInternal::makePromiseOutgoing<FileInfoSeq>(false, this, &FileServerPrx::_iceI_getFileInfoSeq, iceP_partition, context);
 }
 
 ::std::function<void()>
@@ -90,7 +89,7 @@ IcePatch2::FileServerPrx::getFileInfoSeqAsync(::std::int32_t iceP_partition,
                                               ::std::function<void(bool)> sent,
                                               const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<FileInfoSeq>(std::move(response), std::move(ex), std::move(sent), this, &IcePatch2::FileServerPrx::_iceI_getFileInfoSeq, iceP_partition, context);
+    return ::IceInternal::makeLambdaOutgoing<FileInfoSeq>(std::move(response), std::move(ex), std::move(sent), this, &IcePatch2::FileServerPrx::_iceI_getFileInfoSeq, iceP_partition, context);
 }
 
 /// \cond INTERNAL
@@ -127,13 +126,13 @@ IcePatch2::FileServerPrx::_iceI_getFileInfoSeq(const ::std::shared_ptr<::IceInte
 ::IcePatch2::LargeFileInfoSeq
 IcePatch2::FileServerPrx::getLargeFileInfoSeq(::std::int32_t iceP_partition, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<LargeFileInfoSeq>(true, this, &FileServerPrx::_iceI_getLargeFileInfoSeq, iceP_partition, context).get();
+    return ::IceInternal::makePromiseOutgoing<LargeFileInfoSeq>(true, this, &FileServerPrx::_iceI_getLargeFileInfoSeq, iceP_partition, context).get();
 }
 
 ::std::future<::IcePatch2::LargeFileInfoSeq>
 IcePatch2::FileServerPrx::getLargeFileInfoSeqAsync(::std::int32_t iceP_partition, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<LargeFileInfoSeq, ::std::promise>(false, this, &FileServerPrx::_iceI_getLargeFileInfoSeq, iceP_partition, context);
+    return ::IceInternal::makePromiseOutgoing<LargeFileInfoSeq>(false, this, &FileServerPrx::_iceI_getLargeFileInfoSeq, iceP_partition, context);
 }
 
 ::std::function<void()>
@@ -143,7 +142,7 @@ IcePatch2::FileServerPrx::getLargeFileInfoSeqAsync(::std::int32_t iceP_partition
                                                    ::std::function<void(bool)> sent,
                                                    const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<LargeFileInfoSeq>(std::move(response), std::move(ex), std::move(sent), this, &IcePatch2::FileServerPrx::_iceI_getLargeFileInfoSeq, iceP_partition, context);
+    return ::IceInternal::makeLambdaOutgoing<LargeFileInfoSeq>(std::move(response), std::move(ex), std::move(sent), this, &IcePatch2::FileServerPrx::_iceI_getLargeFileInfoSeq, iceP_partition, context);
 }
 
 /// \cond INTERNAL
@@ -176,13 +175,13 @@ IcePatch2::FileServerPrx::_iceI_getLargeFileInfoSeq(const ::std::shared_ptr<::Ic
 ::IcePatch2::ByteSeqSeq
 IcePatch2::FileServerPrx::getChecksumSeq(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<ByteSeqSeq>(true, this, &FileServerPrx::_iceI_getChecksumSeq, context).get();
+    return ::IceInternal::makePromiseOutgoing<ByteSeqSeq>(true, this, &FileServerPrx::_iceI_getChecksumSeq, context).get();
 }
 
 ::std::future<::IcePatch2::ByteSeqSeq>
 IcePatch2::FileServerPrx::getChecksumSeqAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<ByteSeqSeq, ::std::promise>(false, this, &FileServerPrx::_iceI_getChecksumSeq, context);
+    return ::IceInternal::makePromiseOutgoing<ByteSeqSeq>(false, this, &FileServerPrx::_iceI_getChecksumSeq, context);
 }
 
 ::std::function<void()>
@@ -191,7 +190,7 @@ IcePatch2::FileServerPrx::getChecksumSeqAsync(::std::function<void (::IcePatch2:
                                               ::std::function<void(bool)> sent,
                                               const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<ByteSeqSeq>(std::move(response), std::move(ex), std::move(sent), this, &IcePatch2::FileServerPrx::_iceI_getChecksumSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<ByteSeqSeq>(std::move(response), std::move(ex), std::move(sent), this, &IcePatch2::FileServerPrx::_iceI_getChecksumSeq, context);
 }
 
 /// \cond INTERNAL
@@ -208,13 +207,13 @@ IcePatch2::FileServerPrx::_iceI_getChecksumSeq(const ::std::shared_ptr<::IceInte
 ::Ice::ByteSeq
 IcePatch2::FileServerPrx::getChecksum(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::Ice::ByteSeq>(true, this, &FileServerPrx::_iceI_getChecksum, context).get();
+    return ::IceInternal::makePromiseOutgoing<::Ice::ByteSeq>(true, this, &FileServerPrx::_iceI_getChecksum, context).get();
 }
 
 ::std::future<::Ice::ByteSeq>
 IcePatch2::FileServerPrx::getChecksumAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::Ice::ByteSeq, ::std::promise>(false, this, &FileServerPrx::_iceI_getChecksum, context);
+    return ::IceInternal::makePromiseOutgoing<::Ice::ByteSeq>(false, this, &FileServerPrx::_iceI_getChecksum, context);
 }
 
 ::std::function<void()>
@@ -223,7 +222,7 @@ IcePatch2::FileServerPrx::getChecksumAsync(::std::function<void (::Ice::ByteSeq)
                                            ::std::function<void(bool)> sent,
                                            const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::Ice::ByteSeq>(std::move(response), std::move(ex), std::move(sent), this, &IcePatch2::FileServerPrx::_iceI_getChecksum, context);
+    return ::IceInternal::makeLambdaOutgoing<::Ice::ByteSeq>(std::move(response), std::move(ex), std::move(sent), this, &IcePatch2::FileServerPrx::_iceI_getChecksum, context);
 }
 
 /// \cond INTERNAL
@@ -240,13 +239,13 @@ IcePatch2::FileServerPrx::_iceI_getChecksum(const ::std::shared_ptr<::IceInterna
 ::Ice::ByteSeq
 IcePatch2::FileServerPrx::getFileCompressed(const ::std::string& iceP_path, ::std::int32_t iceP_pos, ::std::int32_t iceP_num, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::Ice::ByteSeq>(true, this, &FileServerPrx::_iceI_getFileCompressed, iceP_path, iceP_pos, iceP_num, context).get();
+    return ::IceInternal::makePromiseOutgoing<::Ice::ByteSeq>(true, this, &FileServerPrx::_iceI_getFileCompressed, iceP_path, iceP_pos, iceP_num, context).get();
 }
 
 ::std::future<::Ice::ByteSeq>
 IcePatch2::FileServerPrx::getFileCompressedAsync(const ::std::string& iceP_path, ::std::int32_t iceP_pos, ::std::int32_t iceP_num, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::Ice::ByteSeq, ::std::promise>(false, this, &FileServerPrx::_iceI_getFileCompressed, iceP_path, iceP_pos, iceP_num, context);
+    return ::IceInternal::makePromiseOutgoing<::Ice::ByteSeq>(false, this, &FileServerPrx::_iceI_getFileCompressed, iceP_path, iceP_pos, iceP_num, context);
 }
 
 ::std::function<void()>
@@ -338,13 +337,13 @@ IcePatch2::FileServerPrx::_iceI_getFileCompressed(const ::std::shared_ptr<::IceI
 ::Ice::ByteSeq
 IcePatch2::FileServerPrx::getLargeFileCompressed(const ::std::string& iceP_path, ::std::int64_t iceP_pos, ::std::int32_t iceP_num, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::Ice::ByteSeq>(true, this, &FileServerPrx::_iceI_getLargeFileCompressed, iceP_path, iceP_pos, iceP_num, context).get();
+    return ::IceInternal::makePromiseOutgoing<::Ice::ByteSeq>(true, this, &FileServerPrx::_iceI_getLargeFileCompressed, iceP_path, iceP_pos, iceP_num, context).get();
 }
 
 ::std::future<::Ice::ByteSeq>
 IcePatch2::FileServerPrx::getLargeFileCompressedAsync(const ::std::string& iceP_path, ::std::int64_t iceP_pos, ::std::int32_t iceP_num, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::Ice::ByteSeq, ::std::promise>(false, this, &FileServerPrx::_iceI_getLargeFileCompressed, iceP_path, iceP_pos, iceP_num, context);
+    return ::IceInternal::makePromiseOutgoing<::Ice::ByteSeq>(false, this, &FileServerPrx::_iceI_getLargeFileCompressed, iceP_path, iceP_pos, iceP_num, context);
 }
 
 ::std::function<void()>

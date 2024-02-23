@@ -15,8 +15,7 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -57,13 +56,13 @@ const ::std::string iceC_Test_TestIntf_getApplicationFile_name = "getApplication
 ::std::string
 Test::TestIntfPrx::getServerFile(const ::std::string& iceP_path, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_getServerFile, iceP_path, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_getServerFile, iceP_path, context).get();
 }
 
 ::std::future<::std::string>
 Test::TestIntfPrx::getServerFileAsync(const ::std::string& iceP_path, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::string, ::std::promise>(false, this, &TestIntfPrx::_iceI_getServerFile, iceP_path, context);
+    return ::IceInternal::makePromiseOutgoing<::std::string>(false, this, &TestIntfPrx::_iceI_getServerFile, iceP_path, context);
 }
 
 ::std::function<void()>
@@ -73,7 +72,7 @@ Test::TestIntfPrx::getServerFileAsync(const ::std::string& iceP_path,
                                       ::std::function<void(bool)> sent,
                                       const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getServerFile, iceP_path, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getServerFile, iceP_path, context);
 }
 
 /// \cond INTERNAL
@@ -93,13 +92,13 @@ Test::TestIntfPrx::_iceI_getServerFile(const ::std::shared_ptr<::IceInternal::Ou
 ::std::string
 Test::TestIntfPrx::getApplicationFile(const ::std::string& iceP_path, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_getApplicationFile, iceP_path, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_getApplicationFile, iceP_path, context).get();
 }
 
 ::std::future<::std::string>
 Test::TestIntfPrx::getApplicationFileAsync(const ::std::string& iceP_path, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::string, ::std::promise>(false, this, &TestIntfPrx::_iceI_getApplicationFile, iceP_path, context);
+    return ::IceInternal::makePromiseOutgoing<::std::string>(false, this, &TestIntfPrx::_iceI_getApplicationFile, iceP_path, context);
 }
 
 ::std::function<void()>
@@ -109,7 +108,7 @@ Test::TestIntfPrx::getApplicationFileAsync(const ::std::string& iceP_path,
                                            ::std::function<void(bool)> sent,
                                            const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getApplicationFile, iceP_path, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getApplicationFile, iceP_path, context);
 }
 
 /// \cond INTERNAL

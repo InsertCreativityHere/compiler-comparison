@@ -15,8 +15,7 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -55,13 +54,13 @@ const ::std::string iceC_Test_MyObject_getName_name = "getName";
 ::std::string
 Test::MyObjectPrx::getName(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::string>(true, this, &MyObjectPrx::_iceI_getName, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::string>(true, this, &MyObjectPrx::_iceI_getName, context).get();
 }
 
 ::std::future<::std::string>
 Test::MyObjectPrx::getNameAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::string, ::std::promise>(false, this, &MyObjectPrx::_iceI_getName, context);
+    return ::IceInternal::makePromiseOutgoing<::std::string>(false, this, &MyObjectPrx::_iceI_getName, context);
 }
 
 ::std::function<void()>
@@ -70,7 +69,7 @@ Test::MyObjectPrx::getNameAsync(::std::function<void (::std::string)> response,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_getName, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_getName, context);
 }
 
 /// \cond INTERNAL

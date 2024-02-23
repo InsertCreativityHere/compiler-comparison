@@ -15,8 +15,7 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Callback.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -90,13 +89,13 @@ const ::std::string iceC_Test_Callback_shutdown_name = "shutdown";
 void
 Test::CallbackReceiverPrx::callback(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &CallbackReceiverPrx::_iceI_callback, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &CallbackReceiverPrx::_iceI_callback, context).get();
 }
 
 ::std::future<void>
 Test::CallbackReceiverPrx::callbackAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &CallbackReceiverPrx::_iceI_callback, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &CallbackReceiverPrx::_iceI_callback, context);
 }
 
 ::std::function<void()>
@@ -105,7 +104,7 @@ Test::CallbackReceiverPrx::callbackAsync(::std::function<void ()> response,
                                          ::std::function<void(bool)> sent,
                                          const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackReceiverPrx::_iceI_callback, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackReceiverPrx::_iceI_callback, context);
 }
 
 /// \cond INTERNAL
@@ -121,13 +120,13 @@ Test::CallbackReceiverPrx::_iceI_callback(const ::std::shared_ptr<::IceInternal:
 void
 Test::CallbackReceiverPrx::callbackEx(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &CallbackReceiverPrx::_iceI_callbackEx, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &CallbackReceiverPrx::_iceI_callbackEx, context).get();
 }
 
 ::std::future<void>
 Test::CallbackReceiverPrx::callbackExAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &CallbackReceiverPrx::_iceI_callbackEx, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &CallbackReceiverPrx::_iceI_callbackEx, context);
 }
 
 ::std::function<void()>
@@ -136,7 +135,7 @@ Test::CallbackReceiverPrx::callbackExAsync(::std::function<void ()> response,
                                            ::std::function<void(bool)> sent,
                                            const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackReceiverPrx::_iceI_callbackEx, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackReceiverPrx::_iceI_callbackEx, context);
 }
 
 /// \cond INTERNAL
@@ -166,13 +165,13 @@ Test::CallbackReceiverPrx::_iceI_callbackEx(const ::std::shared_ptr<::IceInterna
 ::std::int32_t
 Test::CallbackReceiverPrx::concurrentCallback(::std::int32_t iceP_number, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t>(true, this, &CallbackReceiverPrx::_iceI_concurrentCallback, iceP_number, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &CallbackReceiverPrx::_iceI_concurrentCallback, iceP_number, context).get();
 }
 
 ::std::future<::std::int32_t>
 Test::CallbackReceiverPrx::concurrentCallbackAsync(::std::int32_t iceP_number, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &CallbackReceiverPrx::_iceI_concurrentCallback, iceP_number, context);
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &CallbackReceiverPrx::_iceI_concurrentCallback, iceP_number, context);
 }
 
 ::std::function<void()>
@@ -182,7 +181,7 @@ Test::CallbackReceiverPrx::concurrentCallbackAsync(::std::int32_t iceP_number,
                                                    ::std::function<void(bool)> sent,
                                                    const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackReceiverPrx::_iceI_concurrentCallback, iceP_number, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackReceiverPrx::_iceI_concurrentCallback, iceP_number, context);
 }
 
 /// \cond INTERNAL
@@ -202,13 +201,13 @@ Test::CallbackReceiverPrx::_iceI_concurrentCallback(const ::std::shared_ptr<::Ic
 void
 Test::CallbackReceiverPrx::waitCallback(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &CallbackReceiverPrx::_iceI_waitCallback, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &CallbackReceiverPrx::_iceI_waitCallback, context).get();
 }
 
 ::std::future<void>
 Test::CallbackReceiverPrx::waitCallbackAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &CallbackReceiverPrx::_iceI_waitCallback, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &CallbackReceiverPrx::_iceI_waitCallback, context);
 }
 
 ::std::function<void()>
@@ -217,7 +216,7 @@ Test::CallbackReceiverPrx::waitCallbackAsync(::std::function<void ()> response,
                                              ::std::function<void(bool)> sent,
                                              const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackReceiverPrx::_iceI_waitCallback, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackReceiverPrx::_iceI_waitCallback, context);
 }
 
 /// \cond INTERNAL
@@ -233,13 +232,13 @@ Test::CallbackReceiverPrx::_iceI_waitCallback(const ::std::shared_ptr<::IceInter
 void
 Test::CallbackReceiverPrx::callbackWithPayload(const ::Ice::ByteSeq& iceP_payload, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &CallbackReceiverPrx::_iceI_callbackWithPayload, iceP_payload, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &CallbackReceiverPrx::_iceI_callbackWithPayload, iceP_payload, context).get();
 }
 
 ::std::future<void>
 Test::CallbackReceiverPrx::callbackWithPayloadAsync(const ::Ice::ByteSeq& iceP_payload, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &CallbackReceiverPrx::_iceI_callbackWithPayload, iceP_payload, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &CallbackReceiverPrx::_iceI_callbackWithPayload, iceP_payload, context);
 }
 
 ::std::function<void()>
@@ -249,7 +248,7 @@ Test::CallbackReceiverPrx::callbackWithPayloadAsync(const ::Ice::ByteSeq& iceP_p
                                                     ::std::function<void(bool)> sent,
                                                     const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackReceiverPrx::_iceI_callbackWithPayload, iceP_payload, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackReceiverPrx::_iceI_callbackWithPayload, iceP_payload, context);
 }
 
 /// \cond INTERNAL
@@ -275,13 +274,13 @@ Test::CallbackReceiverPrx::ice_staticId()
 void
 Test::CallbackPrx::initiateCallback(const ::std::optional<CallbackReceiverPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &CallbackPrx::_iceI_initiateCallback, iceP_proxy, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &CallbackPrx::_iceI_initiateCallback, iceP_proxy, context).get();
 }
 
 ::std::future<void>
 Test::CallbackPrx::initiateCallbackAsync(const ::std::optional<CallbackReceiverPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &CallbackPrx::_iceI_initiateCallback, iceP_proxy, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &CallbackPrx::_iceI_initiateCallback, iceP_proxy, context);
 }
 
 ::std::function<void()>
@@ -291,7 +290,7 @@ Test::CallbackPrx::initiateCallbackAsync(const ::std::optional<CallbackReceiverP
                                          ::std::function<void(bool)> sent,
                                          const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_initiateCallback, iceP_proxy, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_initiateCallback, iceP_proxy, context);
 }
 
 /// \cond INTERNAL
@@ -310,13 +309,13 @@ Test::CallbackPrx::_iceI_initiateCallback(const ::std::shared_ptr<::IceInternal:
 void
 Test::CallbackPrx::initiateCallbackEx(const ::std::optional<CallbackReceiverPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &CallbackPrx::_iceI_initiateCallbackEx, iceP_proxy, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &CallbackPrx::_iceI_initiateCallbackEx, iceP_proxy, context).get();
 }
 
 ::std::future<void>
 Test::CallbackPrx::initiateCallbackExAsync(const ::std::optional<CallbackReceiverPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &CallbackPrx::_iceI_initiateCallbackEx, iceP_proxy, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &CallbackPrx::_iceI_initiateCallbackEx, iceP_proxy, context);
 }
 
 ::std::function<void()>
@@ -326,7 +325,7 @@ Test::CallbackPrx::initiateCallbackExAsync(const ::std::optional<CallbackReceive
                                            ::std::function<void(bool)> sent,
                                            const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_initiateCallbackEx, iceP_proxy, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_initiateCallbackEx, iceP_proxy, context);
 }
 
 /// \cond INTERNAL
@@ -359,13 +358,13 @@ Test::CallbackPrx::_iceI_initiateCallbackEx(const ::std::shared_ptr<::IceInterna
 ::std::int32_t
 Test::CallbackPrx::initiateConcurrentCallback(::std::int32_t iceP_number, const ::std::optional<CallbackReceiverPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t>(true, this, &CallbackPrx::_iceI_initiateConcurrentCallback, iceP_number, iceP_proxy, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &CallbackPrx::_iceI_initiateConcurrentCallback, iceP_number, iceP_proxy, context).get();
 }
 
 ::std::future<::std::int32_t>
 Test::CallbackPrx::initiateConcurrentCallbackAsync(::std::int32_t iceP_number, const ::std::optional<CallbackReceiverPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &CallbackPrx::_iceI_initiateConcurrentCallback, iceP_number, iceP_proxy, context);
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &CallbackPrx::_iceI_initiateConcurrentCallback, iceP_number, iceP_proxy, context);
 }
 
 ::std::function<void()>
@@ -375,7 +374,7 @@ Test::CallbackPrx::initiateConcurrentCallbackAsync(::std::int32_t iceP_number, c
                                                    ::std::function<void(bool)> sent,
                                                    const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_initiateConcurrentCallback, iceP_number, iceP_proxy, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_initiateConcurrentCallback, iceP_number, iceP_proxy, context);
 }
 
 /// \cond INTERNAL
@@ -395,13 +394,13 @@ Test::CallbackPrx::_iceI_initiateConcurrentCallback(const ::std::shared_ptr<::Ic
 void
 Test::CallbackPrx::initiateWaitCallback(const ::std::optional<CallbackReceiverPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &CallbackPrx::_iceI_initiateWaitCallback, iceP_proxy, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &CallbackPrx::_iceI_initiateWaitCallback, iceP_proxy, context).get();
 }
 
 ::std::future<void>
 Test::CallbackPrx::initiateWaitCallbackAsync(const ::std::optional<CallbackReceiverPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &CallbackPrx::_iceI_initiateWaitCallback, iceP_proxy, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &CallbackPrx::_iceI_initiateWaitCallback, iceP_proxy, context);
 }
 
 ::std::function<void()>
@@ -411,7 +410,7 @@ Test::CallbackPrx::initiateWaitCallbackAsync(const ::std::optional<CallbackRecei
                                              ::std::function<void(bool)> sent,
                                              const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_initiateWaitCallback, iceP_proxy, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_initiateWaitCallback, iceP_proxy, context);
 }
 
 /// \cond INTERNAL
@@ -430,13 +429,13 @@ Test::CallbackPrx::_iceI_initiateWaitCallback(const ::std::shared_ptr<::IceInter
 void
 Test::CallbackPrx::initiateCallbackWithPayload(const ::std::optional<CallbackReceiverPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &CallbackPrx::_iceI_initiateCallbackWithPayload, iceP_proxy, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &CallbackPrx::_iceI_initiateCallbackWithPayload, iceP_proxy, context).get();
 }
 
 ::std::future<void>
 Test::CallbackPrx::initiateCallbackWithPayloadAsync(const ::std::optional<CallbackReceiverPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &CallbackPrx::_iceI_initiateCallbackWithPayload, iceP_proxy, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &CallbackPrx::_iceI_initiateCallbackWithPayload, iceP_proxy, context);
 }
 
 ::std::function<void()>
@@ -446,7 +445,7 @@ Test::CallbackPrx::initiateCallbackWithPayloadAsync(const ::std::optional<Callba
                                                     ::std::function<void(bool)> sent,
                                                     const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_initiateCallbackWithPayload, iceP_proxy, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_initiateCallbackWithPayload, iceP_proxy, context);
 }
 
 /// \cond INTERNAL
@@ -465,13 +464,13 @@ Test::CallbackPrx::_iceI_initiateCallbackWithPayload(const ::std::shared_ptr<::I
 void
 Test::CallbackPrx::shutdown(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &CallbackPrx::_iceI_shutdown, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &CallbackPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
 Test::CallbackPrx::shutdownAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &CallbackPrx::_iceI_shutdown, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &CallbackPrx::_iceI_shutdown, context);
 }
 
 ::std::function<void()>
@@ -480,7 +479,7 @@ Test::CallbackPrx::shutdownAsync(::std::function<void ()> response,
                                  ::std::function<void(bool)> sent,
                                  const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_shutdown, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_shutdown, context);
 }
 
 /// \cond INTERNAL

@@ -15,8 +15,7 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <ClientPrivate.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -67,13 +66,13 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::ETwoMembers> iceC_T
 ::std::shared_ptr<::Test::Empty>
 Test::UnexpectedObjectExceptionTestPrx::op(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<Empty>>(true, this, &UnexpectedObjectExceptionTestPrx::_iceI_op, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<Empty>>(true, this, &UnexpectedObjectExceptionTestPrx::_iceI_op, context).get();
 }
 
 ::std::future<::std::shared_ptr<::Test::Empty>>
 Test::UnexpectedObjectExceptionTestPrx::opAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::shared_ptr<Empty>, ::std::promise>(false, this, &UnexpectedObjectExceptionTestPrx::_iceI_op, context);
+    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<Empty>>(false, this, &UnexpectedObjectExceptionTestPrx::_iceI_op, context);
 }
 
 ::std::function<void()>
@@ -82,7 +81,7 @@ Test::UnexpectedObjectExceptionTestPrx::opAsync(::std::function<void (::std::sha
                                                 ::std::function<void(bool)> sent,
                                                 const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::shared_ptr<Empty>>(std::move(response), std::move(ex), std::move(sent), this, &Test::UnexpectedObjectExceptionTestPrx::_iceI_op, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<Empty>>(std::move(response), std::move(ex), std::move(sent), this, &Test::UnexpectedObjectExceptionTestPrx::_iceI_op, context);
 }
 
 /// \cond INTERNAL

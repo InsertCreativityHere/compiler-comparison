@@ -15,8 +15,7 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -101,13 +100,13 @@ const ::std::string iceC_Test_RemoteCommunicator_shutdown_name = "shutdown";
 void
 Test::TestIntfPrx::sleep(::std::int32_t iceP_seconds, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_sleep, iceP_seconds, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_sleep, iceP_seconds, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::sleepAsync(::std::int32_t iceP_seconds, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_sleep, iceP_seconds, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_sleep, iceP_seconds, context);
 }
 
 ::std::function<void()>
@@ -117,7 +116,7 @@ Test::TestIntfPrx::sleepAsync(::std::int32_t iceP_seconds,
                               ::std::function<void(bool)> sent,
                               const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_sleep, iceP_seconds, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_sleep, iceP_seconds, context);
 }
 
 /// \cond INTERNAL
@@ -136,13 +135,13 @@ Test::TestIntfPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAs
 void
 Test::TestIntfPrx::sleepAndHold(::std::int32_t iceP_seconds, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_sleepAndHold, iceP_seconds, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_sleepAndHold, iceP_seconds, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::sleepAndHoldAsync(::std::int32_t iceP_seconds, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_sleepAndHold, iceP_seconds, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_sleepAndHold, iceP_seconds, context);
 }
 
 ::std::function<void()>
@@ -152,7 +151,7 @@ Test::TestIntfPrx::sleepAndHoldAsync(::std::int32_t iceP_seconds,
                                      ::std::function<void(bool)> sent,
                                      const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_sleepAndHold, iceP_seconds, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_sleepAndHold, iceP_seconds, context);
 }
 
 /// \cond INTERNAL
@@ -171,13 +170,13 @@ Test::TestIntfPrx::_iceI_sleepAndHold(const ::std::shared_ptr<::IceInternal::Out
 void
 Test::TestIntfPrx::interruptSleep(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_interruptSleep, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_interruptSleep, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::interruptSleepAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_interruptSleep, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_interruptSleep, context);
 }
 
 ::std::function<void()>
@@ -186,7 +185,7 @@ Test::TestIntfPrx::interruptSleepAsync(::std::function<void ()> response,
                                        ::std::function<void(bool)> sent,
                                        const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_interruptSleep, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_interruptSleep, context);
 }
 
 /// \cond INTERNAL
@@ -202,13 +201,13 @@ Test::TestIntfPrx::_iceI_interruptSleep(const ::std::shared_ptr<::IceInternal::O
 void
 Test::TestIntfPrx::startHeartbeatCount(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_startHeartbeatCount, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_startHeartbeatCount, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::startHeartbeatCountAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_startHeartbeatCount, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_startHeartbeatCount, context);
 }
 
 ::std::function<void()>
@@ -217,7 +216,7 @@ Test::TestIntfPrx::startHeartbeatCountAsync(::std::function<void ()> response,
                                             ::std::function<void(bool)> sent,
                                             const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_startHeartbeatCount, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_startHeartbeatCount, context);
 }
 
 /// \cond INTERNAL
@@ -233,13 +232,13 @@ Test::TestIntfPrx::_iceI_startHeartbeatCount(const ::std::shared_ptr<::IceIntern
 void
 Test::TestIntfPrx::waitForHeartbeatCount(::std::int32_t iceP_count, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_waitForHeartbeatCount, iceP_count, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_waitForHeartbeatCount, iceP_count, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::waitForHeartbeatCountAsync(::std::int32_t iceP_count, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_waitForHeartbeatCount, iceP_count, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_waitForHeartbeatCount, iceP_count, context);
 }
 
 ::std::function<void()>
@@ -249,7 +248,7 @@ Test::TestIntfPrx::waitForHeartbeatCountAsync(::std::int32_t iceP_count,
                                               ::std::function<void(bool)> sent,
                                               const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_waitForHeartbeatCount, iceP_count, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_waitForHeartbeatCount, iceP_count, context);
 }
 
 /// \cond INTERNAL
@@ -275,13 +274,13 @@ Test::TestIntfPrx::ice_staticId()
 ::std::optional<::Test::TestIntfPrx>
 Test::RemoteObjectAdapterPrx::getTestIntf(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::optional<TestIntfPrx>>(true, this, &RemoteObjectAdapterPrx::_iceI_getTestIntf, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::optional<TestIntfPrx>>(true, this, &RemoteObjectAdapterPrx::_iceI_getTestIntf, context).get();
 }
 
 ::std::future<::std::optional<::Test::TestIntfPrx>>
 Test::RemoteObjectAdapterPrx::getTestIntfAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::optional<TestIntfPrx>, ::std::promise>(false, this, &RemoteObjectAdapterPrx::_iceI_getTestIntf, context);
+    return ::IceInternal::makePromiseOutgoing<::std::optional<TestIntfPrx>>(false, this, &RemoteObjectAdapterPrx::_iceI_getTestIntf, context);
 }
 
 ::std::function<void()>
@@ -290,7 +289,7 @@ Test::RemoteObjectAdapterPrx::getTestIntfAsync(::std::function<void (::std::opti
                                                ::std::function<void(bool)> sent,
                                                const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::optional<TestIntfPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteObjectAdapterPrx::_iceI_getTestIntf, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::optional<TestIntfPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteObjectAdapterPrx::_iceI_getTestIntf, context);
 }
 
 /// \cond INTERNAL
@@ -307,13 +306,13 @@ Test::RemoteObjectAdapterPrx::_iceI_getTestIntf(const ::std::shared_ptr<::IceInt
 void
 Test::RemoteObjectAdapterPrx::activate(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &RemoteObjectAdapterPrx::_iceI_activate, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &RemoteObjectAdapterPrx::_iceI_activate, context).get();
 }
 
 ::std::future<void>
 Test::RemoteObjectAdapterPrx::activateAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &RemoteObjectAdapterPrx::_iceI_activate, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &RemoteObjectAdapterPrx::_iceI_activate, context);
 }
 
 ::std::function<void()>
@@ -322,7 +321,7 @@ Test::RemoteObjectAdapterPrx::activateAsync(::std::function<void ()> response,
                                             ::std::function<void(bool)> sent,
                                             const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteObjectAdapterPrx::_iceI_activate, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteObjectAdapterPrx::_iceI_activate, context);
 }
 
 /// \cond INTERNAL
@@ -338,13 +337,13 @@ Test::RemoteObjectAdapterPrx::_iceI_activate(const ::std::shared_ptr<::IceIntern
 void
 Test::RemoteObjectAdapterPrx::hold(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &RemoteObjectAdapterPrx::_iceI_hold, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &RemoteObjectAdapterPrx::_iceI_hold, context).get();
 }
 
 ::std::future<void>
 Test::RemoteObjectAdapterPrx::holdAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &RemoteObjectAdapterPrx::_iceI_hold, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &RemoteObjectAdapterPrx::_iceI_hold, context);
 }
 
 ::std::function<void()>
@@ -353,7 +352,7 @@ Test::RemoteObjectAdapterPrx::holdAsync(::std::function<void ()> response,
                                         ::std::function<void(bool)> sent,
                                         const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteObjectAdapterPrx::_iceI_hold, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteObjectAdapterPrx::_iceI_hold, context);
 }
 
 /// \cond INTERNAL
@@ -369,13 +368,13 @@ Test::RemoteObjectAdapterPrx::_iceI_hold(const ::std::shared_ptr<::IceInternal::
 void
 Test::RemoteObjectAdapterPrx::deactivate(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &RemoteObjectAdapterPrx::_iceI_deactivate, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &RemoteObjectAdapterPrx::_iceI_deactivate, context).get();
 }
 
 ::std::future<void>
 Test::RemoteObjectAdapterPrx::deactivateAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &RemoteObjectAdapterPrx::_iceI_deactivate, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &RemoteObjectAdapterPrx::_iceI_deactivate, context);
 }
 
 ::std::function<void()>
@@ -384,7 +383,7 @@ Test::RemoteObjectAdapterPrx::deactivateAsync(::std::function<void ()> response,
                                               ::std::function<void(bool)> sent,
                                               const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteObjectAdapterPrx::_iceI_deactivate, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteObjectAdapterPrx::_iceI_deactivate, context);
 }
 
 /// \cond INTERNAL
@@ -407,13 +406,13 @@ Test::RemoteObjectAdapterPrx::ice_staticId()
 ::std::optional<::Test::RemoteObjectAdapterPrx>
 Test::RemoteCommunicatorPrx::createObjectAdapter(::std::int32_t iceP_acmTimeout, ::std::int32_t iceP_close, ::std::int32_t iceP_heartbeat, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::optional<RemoteObjectAdapterPrx>>(true, this, &RemoteCommunicatorPrx::_iceI_createObjectAdapter, iceP_acmTimeout, iceP_close, iceP_heartbeat, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::optional<RemoteObjectAdapterPrx>>(true, this, &RemoteCommunicatorPrx::_iceI_createObjectAdapter, iceP_acmTimeout, iceP_close, iceP_heartbeat, context).get();
 }
 
 ::std::future<::std::optional<::Test::RemoteObjectAdapterPrx>>
 Test::RemoteCommunicatorPrx::createObjectAdapterAsync(::std::int32_t iceP_acmTimeout, ::std::int32_t iceP_close, ::std::int32_t iceP_heartbeat, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::optional<RemoteObjectAdapterPrx>, ::std::promise>(false, this, &RemoteCommunicatorPrx::_iceI_createObjectAdapter, iceP_acmTimeout, iceP_close, iceP_heartbeat, context);
+    return ::IceInternal::makePromiseOutgoing<::std::optional<RemoteObjectAdapterPrx>>(false, this, &RemoteCommunicatorPrx::_iceI_createObjectAdapter, iceP_acmTimeout, iceP_close, iceP_heartbeat, context);
 }
 
 ::std::function<void()>
@@ -423,7 +422,7 @@ Test::RemoteCommunicatorPrx::createObjectAdapterAsync(::std::int32_t iceP_acmTim
                                                       ::std::function<void(bool)> sent,
                                                       const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::optional<RemoteObjectAdapterPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_createObjectAdapter, iceP_acmTimeout, iceP_close, iceP_heartbeat, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::optional<RemoteObjectAdapterPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_createObjectAdapter, iceP_acmTimeout, iceP_close, iceP_heartbeat, context);
 }
 
 /// \cond INTERNAL
@@ -443,13 +442,13 @@ Test::RemoteCommunicatorPrx::_iceI_createObjectAdapter(const ::std::shared_ptr<:
 void
 Test::RemoteCommunicatorPrx::shutdown(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &RemoteCommunicatorPrx::_iceI_shutdown, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &RemoteCommunicatorPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
 Test::RemoteCommunicatorPrx::shutdownAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &RemoteCommunicatorPrx::_iceI_shutdown, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &RemoteCommunicatorPrx::_iceI_shutdown, context);
 }
 
 ::std::function<void()>
@@ -458,7 +457,7 @@ Test::RemoteCommunicatorPrx::shutdownAsync(::std::function<void ()> response,
                                            ::std::function<void(bool)> sent,
                                            const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_shutdown, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_shutdown, context);
 }
 
 /// \cond INTERNAL

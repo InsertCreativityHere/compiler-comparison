@@ -15,8 +15,7 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -102,13 +101,13 @@ const ::std::string iceC_Test_MyClass_shutdown_name = "shutdown";
 void
 Test::CallbackPrx::ping(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &CallbackPrx::_iceI_ping, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &CallbackPrx::_iceI_ping, context).get();
 }
 
 ::std::future<void>
 Test::CallbackPrx::pingAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &CallbackPrx::_iceI_ping, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &CallbackPrx::_iceI_ping, context);
 }
 
 ::std::function<void()>
@@ -117,7 +116,7 @@ Test::CallbackPrx::pingAsync(::std::function<void ()> response,
                              ::std::function<void(bool)> sent,
                              const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_ping, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_ping, context);
 }
 
 /// \cond INTERNAL
@@ -133,13 +132,13 @@ Test::CallbackPrx::_iceI_ping(const ::std::shared_ptr<::IceInternal::OutgoingAsy
 ::std::int32_t
 Test::CallbackPrx::getCount(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t>(true, this, &CallbackPrx::_iceI_getCount, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &CallbackPrx::_iceI_getCount, context).get();
 }
 
 ::std::future<::std::int32_t>
 Test::CallbackPrx::getCountAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &CallbackPrx::_iceI_getCount, context);
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &CallbackPrx::_iceI_getCount, context);
 }
 
 ::std::function<void()>
@@ -148,7 +147,7 @@ Test::CallbackPrx::getCountAsync(::std::function<void (::std::int32_t)> response
                                  ::std::function<void(bool)> sent,
                                  const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_getCount, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_getCount, context);
 }
 
 /// \cond INTERNAL
@@ -165,13 +164,13 @@ Test::CallbackPrx::_iceI_getCount(const ::std::shared_ptr<::IceInternal::Outgoin
 void
 Test::CallbackPrx::datagram(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &CallbackPrx::_iceI_datagram, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &CallbackPrx::_iceI_datagram, context).get();
 }
 
 ::std::future<void>
 Test::CallbackPrx::datagramAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &CallbackPrx::_iceI_datagram, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &CallbackPrx::_iceI_datagram, context);
 }
 
 ::std::function<void()>
@@ -180,7 +179,7 @@ Test::CallbackPrx::datagramAsync(::std::function<void ()> response,
                                  ::std::function<void(bool)> sent,
                                  const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_datagram, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_datagram, context);
 }
 
 /// \cond INTERNAL
@@ -196,13 +195,13 @@ Test::CallbackPrx::_iceI_datagram(const ::std::shared_ptr<::IceInternal::Outgoin
 ::std::int32_t
 Test::CallbackPrx::getDatagramCount(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t>(true, this, &CallbackPrx::_iceI_getDatagramCount, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &CallbackPrx::_iceI_getDatagramCount, context).get();
 }
 
 ::std::future<::std::int32_t>
 Test::CallbackPrx::getDatagramCountAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &CallbackPrx::_iceI_getDatagramCount, context);
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &CallbackPrx::_iceI_getDatagramCount, context);
 }
 
 ::std::function<void()>
@@ -211,7 +210,7 @@ Test::CallbackPrx::getDatagramCountAsync(::std::function<void (::std::int32_t)> 
                                          ::std::function<void(bool)> sent,
                                          const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_getDatagramCount, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_getDatagramCount, context);
 }
 
 /// \cond INTERNAL
@@ -235,13 +234,13 @@ Test::CallbackPrx::ice_staticId()
 void
 Test::MyClassPrx::callCallback(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_callCallback, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_callCallback, context).get();
 }
 
 ::std::future<void>
 Test::MyClassPrx::callCallbackAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &MyClassPrx::_iceI_callCallback, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &MyClassPrx::_iceI_callCallback, context);
 }
 
 ::std::function<void()>
@@ -250,7 +249,7 @@ Test::MyClassPrx::callCallbackAsync(::std::function<void ()> response,
                                     ::std::function<void(bool)> sent,
                                     const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_callCallback, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_callCallback, context);
 }
 
 /// \cond INTERNAL
@@ -266,13 +265,13 @@ Test::MyClassPrx::_iceI_callCallback(const ::std::shared_ptr<::IceInternal::Outg
 ::std::int32_t
 Test::MyClassPrx::getCallbackCount(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t>(true, this, &MyClassPrx::_iceI_getCallbackCount, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &MyClassPrx::_iceI_getCallbackCount, context).get();
 }
 
 ::std::future<::std::int32_t>
 Test::MyClassPrx::getCallbackCountAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &MyClassPrx::_iceI_getCallbackCount, context);
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &MyClassPrx::_iceI_getCallbackCount, context);
 }
 
 ::std::function<void()>
@@ -281,7 +280,7 @@ Test::MyClassPrx::getCallbackCountAsync(::std::function<void (::std::int32_t)> r
                                         ::std::function<void(bool)> sent,
                                         const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getCallbackCount, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getCallbackCount, context);
 }
 
 /// \cond INTERNAL
@@ -298,13 +297,13 @@ Test::MyClassPrx::_iceI_getCallbackCount(const ::std::shared_ptr<::IceInternal::
 void
 Test::MyClassPrx::incCounter(::std::int32_t iceP_expected, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_incCounter, iceP_expected, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_incCounter, iceP_expected, context).get();
 }
 
 ::std::future<void>
 Test::MyClassPrx::incCounterAsync(::std::int32_t iceP_expected, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &MyClassPrx::_iceI_incCounter, iceP_expected, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &MyClassPrx::_iceI_incCounter, iceP_expected, context);
 }
 
 ::std::function<void()>
@@ -314,7 +313,7 @@ Test::MyClassPrx::incCounterAsync(::std::int32_t iceP_expected,
                                   ::std::function<void(bool)> sent,
                                   const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_incCounter, iceP_expected, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_incCounter, iceP_expected, context);
 }
 
 /// \cond INTERNAL
@@ -333,13 +332,13 @@ Test::MyClassPrx::_iceI_incCounter(const ::std::shared_ptr<::IceInternal::Outgoi
 void
 Test::MyClassPrx::waitCounter(::std::int32_t iceP_value, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_waitCounter, iceP_value, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_waitCounter, iceP_value, context).get();
 }
 
 ::std::future<void>
 Test::MyClassPrx::waitCounterAsync(::std::int32_t iceP_value, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &MyClassPrx::_iceI_waitCounter, iceP_value, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &MyClassPrx::_iceI_waitCounter, iceP_value, context);
 }
 
 ::std::function<void()>
@@ -349,7 +348,7 @@ Test::MyClassPrx::waitCounterAsync(::std::int32_t iceP_value,
                                    ::std::function<void(bool)> sent,
                                    const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_waitCounter, iceP_value, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_waitCounter, iceP_value, context);
 }
 
 /// \cond INTERNAL
@@ -368,13 +367,13 @@ Test::MyClassPrx::_iceI_waitCounter(const ::std::shared_ptr<::IceInternal::Outgo
 ::std::int32_t
 Test::MyClassPrx::getConnectionCount(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t>(true, this, &MyClassPrx::_iceI_getConnectionCount, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &MyClassPrx::_iceI_getConnectionCount, context).get();
 }
 
 ::std::future<::std::int32_t>
 Test::MyClassPrx::getConnectionCountAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &MyClassPrx::_iceI_getConnectionCount, context);
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &MyClassPrx::_iceI_getConnectionCount, context);
 }
 
 ::std::function<void()>
@@ -383,7 +382,7 @@ Test::MyClassPrx::getConnectionCountAsync(::std::function<void (::std::int32_t)>
                                           ::std::function<void(bool)> sent,
                                           const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getConnectionCount, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getConnectionCount, context);
 }
 
 /// \cond INTERNAL
@@ -400,13 +399,13 @@ Test::MyClassPrx::_iceI_getConnectionCount(const ::std::shared_ptr<::IceInternal
 ::std::string
 Test::MyClassPrx::getConnectionInfo(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::string>(true, this, &MyClassPrx::_iceI_getConnectionInfo, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::string>(true, this, &MyClassPrx::_iceI_getConnectionInfo, context).get();
 }
 
 ::std::future<::std::string>
 Test::MyClassPrx::getConnectionInfoAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::string, ::std::promise>(false, this, &MyClassPrx::_iceI_getConnectionInfo, context);
+    return ::IceInternal::makePromiseOutgoing<::std::string>(false, this, &MyClassPrx::_iceI_getConnectionInfo, context);
 }
 
 ::std::function<void()>
@@ -415,7 +414,7 @@ Test::MyClassPrx::getConnectionInfoAsync(::std::function<void (::std::string)> r
                                          ::std::function<void(bool)> sent,
                                          const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getConnectionInfo, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getConnectionInfo, context);
 }
 
 /// \cond INTERNAL
@@ -432,13 +431,13 @@ Test::MyClassPrx::_iceI_getConnectionInfo(const ::std::shared_ptr<::IceInternal:
 void
 Test::MyClassPrx::closeConnection(bool iceP_force, const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_closeConnection, iceP_force, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_closeConnection, iceP_force, context).get();
 }
 
 ::std::future<void>
 Test::MyClassPrx::closeConnectionAsync(bool iceP_force, const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &MyClassPrx::_iceI_closeConnection, iceP_force, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &MyClassPrx::_iceI_closeConnection, iceP_force, context);
 }
 
 ::std::function<void()>
@@ -448,7 +447,7 @@ Test::MyClassPrx::closeConnectionAsync(bool iceP_force,
                                        ::std::function<void(bool)> sent,
                                        const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_closeConnection, iceP_force, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_closeConnection, iceP_force, context);
 }
 
 /// \cond INTERNAL
@@ -467,13 +466,13 @@ Test::MyClassPrx::_iceI_closeConnection(const ::std::shared_ptr<::IceInternal::O
 void
 Test::MyClassPrx::datagram(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_datagram, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_datagram, context).get();
 }
 
 ::std::future<void>
 Test::MyClassPrx::datagramAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &MyClassPrx::_iceI_datagram, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &MyClassPrx::_iceI_datagram, context);
 }
 
 ::std::function<void()>
@@ -482,7 +481,7 @@ Test::MyClassPrx::datagramAsync(::std::function<void ()> response,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_datagram, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_datagram, context);
 }
 
 /// \cond INTERNAL
@@ -498,13 +497,13 @@ Test::MyClassPrx::_iceI_datagram(const ::std::shared_ptr<::IceInternal::Outgoing
 ::std::int32_t
 Test::MyClassPrx::getDatagramCount(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t>(true, this, &MyClassPrx::_iceI_getDatagramCount, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &MyClassPrx::_iceI_getDatagramCount, context).get();
 }
 
 ::std::future<::std::int32_t>
 Test::MyClassPrx::getDatagramCountAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &MyClassPrx::_iceI_getDatagramCount, context);
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &MyClassPrx::_iceI_getDatagramCount, context);
 }
 
 ::std::function<void()>
@@ -513,7 +512,7 @@ Test::MyClassPrx::getDatagramCountAsync(::std::function<void (::std::int32_t)> r
                                         ::std::function<void(bool)> sent,
                                         const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getDatagramCount, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getDatagramCount, context);
 }
 
 /// \cond INTERNAL
@@ -530,13 +529,13 @@ Test::MyClassPrx::_iceI_getDatagramCount(const ::std::shared_ptr<::IceInternal::
 void
 Test::MyClassPrx::callDatagramCallback(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_callDatagramCallback, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_callDatagramCallback, context).get();
 }
 
 ::std::future<void>
 Test::MyClassPrx::callDatagramCallbackAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &MyClassPrx::_iceI_callDatagramCallback, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &MyClassPrx::_iceI_callDatagramCallback, context);
 }
 
 ::std::function<void()>
@@ -545,7 +544,7 @@ Test::MyClassPrx::callDatagramCallbackAsync(::std::function<void ()> response,
                                             ::std::function<void(bool)> sent,
                                             const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_callDatagramCallback, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_callDatagramCallback, context);
 }
 
 /// \cond INTERNAL
@@ -561,13 +560,13 @@ Test::MyClassPrx::_iceI_callDatagramCallback(const ::std::shared_ptr<::IceIntern
 ::std::int32_t
 Test::MyClassPrx::getCallbackDatagramCount(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t>(true, this, &MyClassPrx::_iceI_getCallbackDatagramCount, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &MyClassPrx::_iceI_getCallbackDatagramCount, context).get();
 }
 
 ::std::future<::std::int32_t>
 Test::MyClassPrx::getCallbackDatagramCountAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &MyClassPrx::_iceI_getCallbackDatagramCount, context);
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &MyClassPrx::_iceI_getCallbackDatagramCount, context);
 }
 
 ::std::function<void()>
@@ -576,7 +575,7 @@ Test::MyClassPrx::getCallbackDatagramCountAsync(::std::function<void (::std::int
                                                 ::std::function<void(bool)> sent,
                                                 const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getCallbackDatagramCount, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getCallbackDatagramCount, context);
 }
 
 /// \cond INTERNAL
@@ -593,13 +592,13 @@ Test::MyClassPrx::_iceI_getCallbackDatagramCount(const ::std::shared_ptr<::IceIn
 ::std::int32_t
 Test::MyClassPrx::getHeartbeatCount(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t>(true, this, &MyClassPrx::_iceI_getHeartbeatCount, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(true, this, &MyClassPrx::_iceI_getHeartbeatCount, context).get();
 }
 
 ::std::future<::std::int32_t>
 Test::MyClassPrx::getHeartbeatCountAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::int32_t, ::std::promise>(false, this, &MyClassPrx::_iceI_getHeartbeatCount, context);
+    return ::IceInternal::makePromiseOutgoing<::std::int32_t>(false, this, &MyClassPrx::_iceI_getHeartbeatCount, context);
 }
 
 ::std::function<void()>
@@ -608,7 +607,7 @@ Test::MyClassPrx::getHeartbeatCountAsync(::std::function<void (::std::int32_t)> 
                                          ::std::function<void(bool)> sent,
                                          const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getHeartbeatCount, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getHeartbeatCount, context);
 }
 
 /// \cond INTERNAL
@@ -625,13 +624,13 @@ Test::MyClassPrx::_iceI_getHeartbeatCount(const ::std::shared_ptr<::IceInternal:
 void
 Test::MyClassPrx::enableHeartbeats(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_enableHeartbeats, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_enableHeartbeats, context).get();
 }
 
 ::std::future<void>
 Test::MyClassPrx::enableHeartbeatsAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &MyClassPrx::_iceI_enableHeartbeats, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &MyClassPrx::_iceI_enableHeartbeats, context);
 }
 
 ::std::function<void()>
@@ -640,7 +639,7 @@ Test::MyClassPrx::enableHeartbeatsAsync(::std::function<void ()> response,
                                         ::std::function<void(bool)> sent,
                                         const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_enableHeartbeats, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_enableHeartbeats, context);
 }
 
 /// \cond INTERNAL
@@ -656,13 +655,13 @@ Test::MyClassPrx::_iceI_enableHeartbeats(const ::std::shared_ptr<::IceInternal::
 void
 Test::MyClassPrx::shutdown(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_shutdown, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
 Test::MyClassPrx::shutdownAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &MyClassPrx::_iceI_shutdown, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &MyClassPrx::_iceI_shutdown, context);
 }
 
 ::std::function<void()>
@@ -671,7 +670,7 @@ Test::MyClassPrx::shutdownAsync(::std::function<void ()> response,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_shutdown, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_shutdown, context);
 }
 
 /// \cond INTERNAL

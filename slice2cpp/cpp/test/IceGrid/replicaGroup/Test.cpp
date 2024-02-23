@@ -15,8 +15,7 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -57,13 +56,13 @@ const ::std::string iceC_Test_TestIntf_getReplicaIdAndShutdown_name = "getReplic
 ::std::string
 Test::TestIntfPrx::getReplicaId(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_getReplicaId, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_getReplicaId, context).get();
 }
 
 ::std::future<::std::string>
 Test::TestIntfPrx::getReplicaIdAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::string, ::std::promise>(false, this, &TestIntfPrx::_iceI_getReplicaId, context);
+    return ::IceInternal::makePromiseOutgoing<::std::string>(false, this, &TestIntfPrx::_iceI_getReplicaId, context);
 }
 
 ::std::function<void()>
@@ -72,7 +71,7 @@ Test::TestIntfPrx::getReplicaIdAsync(::std::function<void (::std::string)> respo
                                      ::std::function<void(bool)> sent,
                                      const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getReplicaId, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getReplicaId, context);
 }
 
 /// \cond INTERNAL
@@ -89,13 +88,13 @@ Test::TestIntfPrx::_iceI_getReplicaId(const ::std::shared_ptr<::IceInternal::Out
 ::std::string
 Test::TestIntfPrx::getReplicaIdAndShutdown(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_getReplicaIdAndShutdown, context).get();
+    return ::IceInternal::makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_getReplicaIdAndShutdown, context).get();
 }
 
 ::std::future<::std::string>
 Test::TestIntfPrx::getReplicaIdAndShutdownAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::std::string, ::std::promise>(false, this, &TestIntfPrx::_iceI_getReplicaIdAndShutdown, context);
+    return ::IceInternal::makePromiseOutgoing<::std::string>(false, this, &TestIntfPrx::_iceI_getReplicaIdAndShutdown, context);
 }
 
 ::std::function<void()>
@@ -104,7 +103,7 @@ Test::TestIntfPrx::getReplicaIdAndShutdownAsync(::std::function<void (::std::str
                                                 ::std::function<void(bool)> sent,
                                                 const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getReplicaIdAndShutdown, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getReplicaIdAndShutdown, context);
 }
 
 /// \cond INTERNAL

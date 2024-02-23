@@ -15,8 +15,7 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -55,13 +54,13 @@ const ::std::string iceC_Test_TestFacet_getChanges_name = "getChanges";
 ::Ice::PropertyDict
 Test::TestFacetPrx::getChanges(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::Ice::PropertyDict>(true, this, &TestFacetPrx::_iceI_getChanges, context).get();
+    return ::IceInternal::makePromiseOutgoing<::Ice::PropertyDict>(true, this, &TestFacetPrx::_iceI_getChanges, context).get();
 }
 
 ::std::future<::Ice::PropertyDict>
 Test::TestFacetPrx::getChangesAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::Ice::PropertyDict, ::std::promise>(false, this, &TestFacetPrx::_iceI_getChanges, context);
+    return ::IceInternal::makePromiseOutgoing<::Ice::PropertyDict>(false, this, &TestFacetPrx::_iceI_getChanges, context);
 }
 
 ::std::function<void()>
@@ -70,7 +69,7 @@ Test::TestFacetPrx::getChangesAsync(::std::function<void (::Ice::PropertyDict)> 
                                     ::std::function<void(bool)> sent,
                                     const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::Ice::PropertyDict>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestFacetPrx::_iceI_getChanges, context);
+    return ::IceInternal::makeLambdaOutgoing<::Ice::PropertyDict>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestFacetPrx::_iceI_getChanges, context);
 }
 
 /// \cond INTERNAL

@@ -15,8 +15,7 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
-#include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/PopDisableWarnings.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -59,13 +58,13 @@ const ::std::string iceC_Test_TestIntf_getConnectionInfoAsContext_name = "getCon
 void
 Test::TestIntfPrx::shutdown(const ::Ice::Context& context) const
 {
-    _makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_shutdown, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_shutdown, context).get();
 }
 
 ::std::future<void>
 Test::TestIntfPrx::shutdownAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<void, ::std::promise>(false, this, &TestIntfPrx::_iceI_shutdown, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_shutdown, context);
 }
 
 ::std::function<void()>
@@ -74,7 +73,7 @@ Test::TestIntfPrx::shutdownAsync(::std::function<void ()> response,
                                  ::std::function<void(bool)> sent,
                                  const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
 }
 
 /// \cond INTERNAL
@@ -90,13 +89,13 @@ Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
 ::Ice::Context
 Test::TestIntfPrx::getEndpointInfoAsContext(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::Ice::Context>(true, this, &TestIntfPrx::_iceI_getEndpointInfoAsContext, context).get();
+    return ::IceInternal::makePromiseOutgoing<::Ice::Context>(true, this, &TestIntfPrx::_iceI_getEndpointInfoAsContext, context).get();
 }
 
 ::std::future<::Ice::Context>
 Test::TestIntfPrx::getEndpointInfoAsContextAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::Ice::Context, ::std::promise>(false, this, &TestIntfPrx::_iceI_getEndpointInfoAsContext, context);
+    return ::IceInternal::makePromiseOutgoing<::Ice::Context>(false, this, &TestIntfPrx::_iceI_getEndpointInfoAsContext, context);
 }
 
 ::std::function<void()>
@@ -105,7 +104,7 @@ Test::TestIntfPrx::getEndpointInfoAsContextAsync(::std::function<void (::Ice::Co
                                                  ::std::function<void(bool)> sent,
                                                  const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::Ice::Context>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getEndpointInfoAsContext, context);
+    return ::IceInternal::makeLambdaOutgoing<::Ice::Context>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getEndpointInfoAsContext, context);
 }
 
 /// \cond INTERNAL
@@ -122,13 +121,13 @@ Test::TestIntfPrx::_iceI_getEndpointInfoAsContext(const ::std::shared_ptr<::IceI
 ::Ice::Context
 Test::TestIntfPrx::getConnectionInfoAsContext(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::Ice::Context>(true, this, &TestIntfPrx::_iceI_getConnectionInfoAsContext, context).get();
+    return ::IceInternal::makePromiseOutgoing<::Ice::Context>(true, this, &TestIntfPrx::_iceI_getConnectionInfoAsContext, context).get();
 }
 
 ::std::future<::Ice::Context>
 Test::TestIntfPrx::getConnectionInfoAsContextAsync(const ::Ice::Context& context) const
 {
-    return _makePromiseOutgoing<::Ice::Context, ::std::promise>(false, this, &TestIntfPrx::_iceI_getConnectionInfoAsContext, context);
+    return ::IceInternal::makePromiseOutgoing<::Ice::Context>(false, this, &TestIntfPrx::_iceI_getConnectionInfoAsContext, context);
 }
 
 ::std::function<void()>
@@ -137,7 +136,7 @@ Test::TestIntfPrx::getConnectionInfoAsContextAsync(::std::function<void (::Ice::
                                                    ::std::function<void(bool)> sent,
                                                    const ::Ice::Context& context) const
 {
-    return _makeLambdaOutgoing<::Ice::Context>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getConnectionInfoAsContext, context);
+    return ::IceInternal::makeLambdaOutgoing<::Ice::Context>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getConnectionInfoAsContext, context);
 }
 
 /// \cond INTERNAL
