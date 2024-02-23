@@ -841,11 +841,11 @@ namespace Test
                     {
                         throw ex;
                     }
-                    catch(TestImpossibleException)
+                    catch(TestIntfUserException)
                     {
                         throw;
                     }
-                    catch(TestIntfUserException)
+                    catch(TestImpossibleException)
                     {
                         throw;
                     }
@@ -891,11 +891,11 @@ namespace Test
                     {
                         throw ex;
                     }
-                    catch(TestImpossibleException)
+                    catch(TestIntfUserException)
                     {
                         throw;
                     }
-                    catch(TestIntfUserException)
+                    catch(TestImpossibleException)
                     {
                         throw;
                     }
@@ -935,11 +935,11 @@ namespace Test
                     {
                         throw ex;
                     }
-                    catch(TestImpossibleException)
+                    catch(TestIntfUserException)
                     {
                         throw;
                     }
-                    catch(TestIntfUserException)
+                    catch(TestImpossibleException)
                     {
                         throw;
                     }
