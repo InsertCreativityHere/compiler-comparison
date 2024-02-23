@@ -2089,9 +2089,9 @@ namespace Ice.inheritance
 
                 public abstract IAPrx iaop(IAPrx p, global::Ice.Current current = null);
 
-                public abstract global::Ice.inheritance.Test.MB.IB2Prx ib2op(global::Ice.inheritance.Test.MB.IB2Prx p, global::Ice.Current current = null);
-
                 public abstract global::Ice.inheritance.Test.MB.IB1Prx ib1op(global::Ice.inheritance.Test.MB.IB1Prx p, global::Ice.Current current = null);
+
+                public abstract global::Ice.inheritance.Test.MB.IB2Prx ib2op(global::Ice.inheritance.Test.MB.IB2Prx p, global::Ice.Current current = null);
 
                 #endregion
 

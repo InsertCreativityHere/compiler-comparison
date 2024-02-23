@@ -1636,13 +1636,13 @@ namespace BEGIN
     {
         #region Inherited Slice operations
 
+        public abstract void instance_variables(global::Ice.Current current = null);
+
         public abstract void @case(int clone, int def, global::Ice.Current current = null);
 
         public abstract void to_a(global::Ice.Current current = null);
 
         public abstract void instance_variable_set(global::Ice.Current current = null);
-
-        public abstract void instance_variables(global::Ice.Current current = null);
 
         #endregion
 
