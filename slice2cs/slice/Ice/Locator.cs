@@ -1116,11 +1116,11 @@ namespace Ice
                     {
                         throw ex;
                     }
-                    catch(AdapterAlreadyActiveException)
+                    catch(AdapterNotFoundException)
                     {
                         throw;
                     }
-                    catch(AdapterNotFoundException)
+                    catch(AdapterAlreadyActiveException)
                     {
                         throw;
                     }
@@ -1166,15 +1166,15 @@ namespace Ice
                     {
                         throw ex;
                     }
-                    catch(AdapterAlreadyActiveException)
-                    {
-                        throw;
-                    }
                     catch(AdapterNotFoundException)
                     {
                         throw;
                     }
                     catch(InvalidReplicaGroupIdException)
+                    {
+                        throw;
+                    }
+                    catch(AdapterAlreadyActiveException)
                     {
                         throw;
                     }
