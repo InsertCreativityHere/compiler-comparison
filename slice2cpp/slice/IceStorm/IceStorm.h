@@ -509,7 +509,7 @@ public:
      * @return A proxy to the topic instance.
      * @throws IceStorm::TopicExists Raised if a topic with the same name already exists.
      */
-    ::std::optional<TopicPrx> create(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<TopicPrx> create(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Create a new topic. The topic name must be unique.
@@ -517,7 +517,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<TopicPrx>> createAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::optional<TopicPrx>> createAsync(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Create a new topic. The topic name must be unique.
@@ -529,14 +529,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    createAsync(const ::std::string& name,
+    createAsync(::std::string_view name,
                 ::std::function<void(::std::optional<::IceStorm::TopicPrx>)> response,
                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                 ::std::function<void(bool)> sent = nullptr,
                 const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_create(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<TopicPrx>>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_create(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<TopicPrx>>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -546,7 +546,7 @@ public:
      * @return A proxy to the topic instance.
      * @throws IceStorm::NoSuchTopic Raised if the topic does not exist.
      */
-    ::std::optional<TopicPrx> retrieve(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<TopicPrx> retrieve(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Retrieve a topic by name.
@@ -554,7 +554,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<TopicPrx>> retrieveAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::optional<TopicPrx>> retrieveAsync(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Retrieve a topic by name.
@@ -566,14 +566,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    retrieveAsync(const ::std::string& name,
+    retrieveAsync(::std::string_view name,
                   ::std::function<void(::std::optional<::IceStorm::TopicPrx>)> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_retrieve(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<TopicPrx>>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_retrieve(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<TopicPrx>>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -796,7 +796,7 @@ public:
      * One-shot constructor to initialize all data members.
      * @param name The name of the linked topic.
      */
-    LinkExists(const ::std::string& name) :
+    LinkExists(::std::string_view name) :
         name(name)
     {
     }
@@ -844,7 +844,7 @@ public:
      * One-shot constructor to initialize all data members.
      * @param name The name of the link that does not exist.
      */
-    NoSuchLink(const ::std::string& name) :
+    NoSuchLink(::std::string_view name) :
         name(name)
     {
     }
@@ -918,7 +918,7 @@ public:
      * One-shot constructor to initialize all data members.
      * @param reason The reason for the failure.
      */
-    InvalidSubscriber(const ::std::string& reason) :
+    InvalidSubscriber(::std::string_view reason) :
         reason(reason)
     {
     }
@@ -962,7 +962,7 @@ public:
      * One-shot constructor to initialize all data members.
      * @param reason The reason for the failure.
      */
-    BadQoS(const ::std::string& reason) :
+    BadQoS(::std::string_view reason) :
         reason(reason)
     {
     }
@@ -1006,7 +1006,7 @@ public:
      * One-shot constructor to initialize all data members.
      * @param name The name of the topic that already exists.
      */
-    TopicExists(const ::std::string& name) :
+    TopicExists(::std::string_view name) :
         name(name)
     {
     }
@@ -1050,7 +1050,7 @@ public:
      * One-shot constructor to initialize all data members.
      * @param name The name of the topic that does not exist.
      */
-    NoSuchTopic(const ::std::string& name) :
+    NoSuchTopic(::std::string_view name) :
         name(name)
     {
     }

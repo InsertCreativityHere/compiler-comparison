@@ -228,7 +228,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    InvalidInputException(const ::std::string& message) :
+    InvalidInputException(::std::string_view message) :
         message(message)
     {
     }

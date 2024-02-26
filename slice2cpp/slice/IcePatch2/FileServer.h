@@ -229,7 +229,7 @@ public:
      *
      * @deprecated getFileCompressed() is deprecated, use getLargeFileCompressed() instead.
      */
-    ICE_DEPRECATED_API("getFileCompressed() is deprecated, use getLargeFileCompressed() instead.") ::Ice::ByteSeq getFileCompressed(const ::std::string& path, ::std::int32_t pos, ::std::int32_t num, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ICE_DEPRECATED_API("getFileCompressed() is deprecated, use getLargeFileCompressed() instead.") ::Ice::ByteSeq getFileCompressed(::std::string_view path, ::std::int32_t pos, ::std::int32_t num, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
@@ -243,7 +243,7 @@ public:
      *
      * @deprecated getFileCompressed() is deprecated, use getLargeFileCompressed() instead.
      */
-    ICE_DEPRECATED_API("getFileCompressed() is deprecated, use getLargeFileCompressed() instead.") ::std::future<::Ice::ByteSeq> getFileCompressedAsync(const ::std::string& path, ::std::int32_t pos, ::std::int32_t num, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ICE_DEPRECATED_API("getFileCompressed() is deprecated, use getLargeFileCompressed() instead.") ::std::future<::Ice::ByteSeq> getFileCompressedAsync(::std::string_view path, ::std::int32_t pos, ::std::int32_t num, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
@@ -261,14 +261,14 @@ public:
      * @deprecated getFileCompressed() is deprecated, use getLargeFileCompressed() instead.
      */
     ICE_DEPRECATED_API("getFileCompressed() is deprecated, use getLargeFileCompressed() instead.") ::std::function<void()>
-    getFileCompressedAsync(const ::std::string& path, ::std::int32_t pos, ::std::int32_t num,
+    getFileCompressedAsync(::std::string_view path, ::std::int32_t pos, ::std::int32_t num,
                            ::std::function<void(::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>)> response,
                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
                            ::std::function<void(bool)> sent = nullptr,
                            const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getFileCompressed(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::ByteSeq>>&, const ::std::string&, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
+    void _iceI_getFileCompressed(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::ByteSeq>>&, ::std::string_view, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -281,7 +281,7 @@ public:
      * @return A sequence containing the compressed file contents.
      * @throws IcePatch2::FileAccessException If an error occurred while trying to read the file.
      */
-    ::Ice::ByteSeq getLargeFileCompressed(const ::std::string& path, ::std::int64_t pos, ::std::int32_t num, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::Ice::ByteSeq getLargeFileCompressed(::std::string_view path, ::std::int64_t pos, ::std::int32_t num, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Read the specified file. This operation may only return fewer bytes than requested in case there was an
@@ -292,7 +292,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::Ice::ByteSeq> getLargeFileCompressedAsync(const ::std::string& path, ::std::int64_t pos, ::std::int32_t num, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::Ice::ByteSeq> getLargeFileCompressedAsync(::std::string_view path, ::std::int64_t pos, ::std::int32_t num, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Read the specified file. This operation may only return fewer bytes than requested in case there was an
@@ -307,14 +307,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getLargeFileCompressedAsync(const ::std::string& path, ::std::int64_t pos, ::std::int32_t num,
+    getLargeFileCompressedAsync(::std::string_view path, ::std::int64_t pos, ::std::int32_t num,
                                 ::std::function<void(::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>)> response,
                                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                 ::std::function<void(bool)> sent = nullptr,
                                 const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getLargeFileCompressed(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::ByteSeq>>&, const ::std::string&, ::std::int64_t, ::std::int32_t, const ::Ice::Context&) const;
+    void _iceI_getLargeFileCompressed(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::ByteSeq>>&, ::std::string_view, ::std::int64_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -422,7 +422,7 @@ public:
      * One-shot constructor to initialize all data members.
      * @param reason An explanation of the reason for the failure.
      */
-    FileAccessException(const ::std::string& reason) :
+    FileAccessException(::std::string_view reason) :
         reason(reason)
     {
     }
@@ -467,7 +467,7 @@ public:
      * One-shot constructor to initialize all data members.
      * @param reason An explanation of the reason for the failure.
      */
-    FileSizeRangeException(const ::std::string& reason) :
+    FileSizeRangeException(::std::string_view reason) :
         ::Ice::UserExceptionHelper<FileSizeRangeException, FileAccessException>(reason)
     {
     }

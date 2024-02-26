@@ -115,7 +115,7 @@ public:
      * @return The adapter proxy, or null if the adapter is not active.
      * @throws Ice::AdapterNotFoundException Raised if the adapter cannot be found.
      */
-    ::std::optional<::Ice::ObjectPrx> findAdapterById(const ::std::string& id, const Context& context = noExplicitContext) const;
+    ::std::optional<::Ice::ObjectPrx> findAdapterById(::std::string_view id, const Context& context = noExplicitContext) const;
 
     /**
      * Find an adapter by id and return a proxy that contains its endpoints.
@@ -123,7 +123,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<::Ice::ObjectPrx>> findAdapterByIdAsync(const ::std::string& id, const Context& context = noExplicitContext) const;
+    ::std::future<::std::optional<::Ice::ObjectPrx>> findAdapterByIdAsync(::std::string_view id, const Context& context = noExplicitContext) const;
 
     /**
      * Find an adapter by id and return a proxy that contains its endpoints.
@@ -135,14 +135,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    findAdapterByIdAsync(const ::std::string& id,
+    findAdapterByIdAsync(::std::string_view id,
                          ::std::function<void(::std::optional<::Ice::ObjectPrx>)> response,
                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
                          ::std::function<void(bool)> sent = nullptr,
                          const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_findAdapterById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>&, const ::std::string&, const Context&) const;
+    void _iceI_findAdapterById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>&, ::std::string_view, const Context&) const;
     /// \endcond
 
     /**
@@ -244,7 +244,7 @@ public:
      * @throws Ice::AdapterNotFoundException Raised if the adapter cannot be found, or if the locator only allows
      * registered adapters to set their active proxy and the adapter is not registered with the locator.
      */
-    void setAdapterDirectProxy(const ::std::string& id, const ::std::optional<::Ice::ObjectPrx>& proxy, const Context& context = noExplicitContext) const;
+    void setAdapterDirectProxy(::std::string_view id, const ::std::optional<::Ice::ObjectPrx>& proxy, const Context& context = noExplicitContext) const;
 
     /**
      * Set the adapter endpoints with the locator registry.
@@ -254,7 +254,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> setAdapterDirectProxyAsync(const ::std::string& id, const ::std::optional<::Ice::ObjectPrx>& proxy, const Context& context = noExplicitContext) const;
+    ::std::future<void> setAdapterDirectProxyAsync(::std::string_view id, const ::std::optional<::Ice::ObjectPrx>& proxy, const Context& context = noExplicitContext) const;
 
     /**
      * Set the adapter endpoints with the locator registry.
@@ -268,14 +268,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    setAdapterDirectProxyAsync(const ::std::string& id, const ::std::optional<::Ice::ObjectPrx>& proxy,
+    setAdapterDirectProxyAsync(::std::string_view id, const ::std::optional<::Ice::ObjectPrx>& proxy,
                                ::std::function<void()> response,
                                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                ::std::function<void(bool)> sent = nullptr,
                                const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_setAdapterDirectProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::optional<::Ice::ObjectPrx>&, const Context&) const;
+    void _iceI_setAdapterDirectProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, const ::std::optional<::Ice::ObjectPrx>&, const Context&) const;
     /// \endcond
 
     /**
@@ -291,7 +291,7 @@ public:
      * @throws Ice::InvalidReplicaGroupIdException Raised if the given replica group doesn't match the one registered with
      * the locator registry for this object adapter.
      */
-    void setReplicatedAdapterDirectProxy(const ::std::string& adapterId, const ::std::string& replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& p, const Context& context = noExplicitContext) const;
+    void setReplicatedAdapterDirectProxy(::std::string_view adapterId, ::std::string_view replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& p, const Context& context = noExplicitContext) const;
 
     /**
      * Set the adapter endpoints with the locator registry.
@@ -302,7 +302,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> setReplicatedAdapterDirectProxyAsync(const ::std::string& adapterId, const ::std::string& replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& p, const Context& context = noExplicitContext) const;
+    ::std::future<void> setReplicatedAdapterDirectProxyAsync(::std::string_view adapterId, ::std::string_view replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& p, const Context& context = noExplicitContext) const;
 
     /**
      * Set the adapter endpoints with the locator registry.
@@ -317,14 +317,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    setReplicatedAdapterDirectProxyAsync(const ::std::string& adapterId, const ::std::string& replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& p,
+    setReplicatedAdapterDirectProxyAsync(::std::string_view adapterId, ::std::string_view replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& p,
                                          ::std::function<void()> response,
                                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                          ::std::function<void(bool)> sent = nullptr,
                                          const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_setReplicatedAdapterDirectProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::string&, const ::std::optional<::Ice::ObjectPrx>&, const Context&) const;
+    void _iceI_setReplicatedAdapterDirectProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, ::std::string_view, const ::std::optional<::Ice::ObjectPrx>&, const Context&) const;
     /// \endcond
 
     /**
@@ -334,7 +334,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @throws Ice::ServerNotFoundException Raised if the server cannot be found.
      */
-    void setServerProcessProxy(const ::std::string& id, const ::std::optional<ProcessPrx>& proxy, const Context& context = noExplicitContext) const;
+    void setServerProcessProxy(::std::string_view id, const ::std::optional<ProcessPrx>& proxy, const Context& context = noExplicitContext) const;
 
     /**
      * Set the process proxy for a server.
@@ -343,7 +343,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> setServerProcessProxyAsync(const ::std::string& id, const ::std::optional<ProcessPrx>& proxy, const Context& context = noExplicitContext) const;
+    ::std::future<void> setServerProcessProxyAsync(::std::string_view id, const ::std::optional<ProcessPrx>& proxy, const Context& context = noExplicitContext) const;
 
     /**
      * Set the process proxy for a server.
@@ -356,14 +356,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    setServerProcessProxyAsync(const ::std::string& id, const ::std::optional<ProcessPrx>& proxy,
+    setServerProcessProxyAsync(::std::string_view id, const ::std::optional<ProcessPrx>& proxy,
                                ::std::function<void()> response,
                                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                ::std::function<void(bool)> sent = nullptr,
                                const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_setServerProcessProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::optional<ProcessPrx>&, const Context&) const;
+    void _iceI_setServerProcessProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, const ::std::optional<ProcessPrx>&, const Context&) const;
     /// \endcond
 
     /**

@@ -74,19 +74,19 @@ IceDiscovery::LookupReplyPrx::_iceI_foundObjectById(const ::std::shared_ptr<::Ic
 /// \endcond
 
 void
-IceDiscovery::LookupReplyPrx::foundAdapterById(const ::std::string& iceP_id, const ::std::optional<::Ice::ObjectPrx>& iceP_prx, bool iceP_isReplicaGroup, const ::Ice::Context& context) const
+IceDiscovery::LookupReplyPrx::foundAdapterById(::std::string_view iceP_id, const ::std::optional<::Ice::ObjectPrx>& iceP_prx, bool iceP_isReplicaGroup, const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &LookupReplyPrx::_iceI_foundAdapterById, iceP_id, iceP_prx, iceP_isReplicaGroup, context).get();
 }
 
 ::std::future<void>
-IceDiscovery::LookupReplyPrx::foundAdapterByIdAsync(const ::std::string& iceP_id, const ::std::optional<::Ice::ObjectPrx>& iceP_prx, bool iceP_isReplicaGroup, const ::Ice::Context& context) const
+IceDiscovery::LookupReplyPrx::foundAdapterByIdAsync(::std::string_view iceP_id, const ::std::optional<::Ice::ObjectPrx>& iceP_prx, bool iceP_isReplicaGroup, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &LookupReplyPrx::_iceI_foundAdapterById, iceP_id, iceP_prx, iceP_isReplicaGroup, context);
 }
 
 ::std::function<void()>
-IceDiscovery::LookupReplyPrx::foundAdapterByIdAsync(const ::std::string& iceP_id, const ::std::optional<::Ice::ObjectPrx>& iceP_prx, bool iceP_isReplicaGroup,
+IceDiscovery::LookupReplyPrx::foundAdapterByIdAsync(::std::string_view iceP_id, const ::std::optional<::Ice::ObjectPrx>& iceP_prx, bool iceP_isReplicaGroup,
                                                     ::std::function<void ()> response,
                                                     ::std::function<void(::std::exception_ptr)> ex,
                                                     ::std::function<void(bool)> sent,
@@ -97,7 +97,7 @@ IceDiscovery::LookupReplyPrx::foundAdapterByIdAsync(const ::std::string& iceP_id
 
 /// \cond INTERNAL
 void
-IceDiscovery::LookupReplyPrx::_iceI_foundAdapterById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_id, const ::std::optional<::Ice::ObjectPrx>& iceP_prx, bool iceP_isReplicaGroup, const ::Ice::Context& context) const
+IceDiscovery::LookupReplyPrx::_iceI_foundAdapterById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_id, const ::std::optional<::Ice::ObjectPrx>& iceP_prx, bool iceP_isReplicaGroup, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "foundAdapterById";
 
@@ -118,19 +118,19 @@ IceDiscovery::LookupReplyPrx::ice_staticId()
 }
 
 void
-IceDiscovery::LookupPrx::findObjectById(const ::std::string& iceP_domainId, const ::Ice::Identity& iceP_id, const ::std::optional<LookupReplyPrx>& iceP_reply, const ::Ice::Context& context) const
+IceDiscovery::LookupPrx::findObjectById(::std::string_view iceP_domainId, const ::Ice::Identity& iceP_id, const ::std::optional<LookupReplyPrx>& iceP_reply, const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &LookupPrx::_iceI_findObjectById, iceP_domainId, iceP_id, iceP_reply, context).get();
 }
 
 ::std::future<void>
-IceDiscovery::LookupPrx::findObjectByIdAsync(const ::std::string& iceP_domainId, const ::Ice::Identity& iceP_id, const ::std::optional<LookupReplyPrx>& iceP_reply, const ::Ice::Context& context) const
+IceDiscovery::LookupPrx::findObjectByIdAsync(::std::string_view iceP_domainId, const ::Ice::Identity& iceP_id, const ::std::optional<LookupReplyPrx>& iceP_reply, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &LookupPrx::_iceI_findObjectById, iceP_domainId, iceP_id, iceP_reply, context);
 }
 
 ::std::function<void()>
-IceDiscovery::LookupPrx::findObjectByIdAsync(const ::std::string& iceP_domainId, const ::Ice::Identity& iceP_id, const ::std::optional<LookupReplyPrx>& iceP_reply,
+IceDiscovery::LookupPrx::findObjectByIdAsync(::std::string_view iceP_domainId, const ::Ice::Identity& iceP_id, const ::std::optional<LookupReplyPrx>& iceP_reply,
                                              ::std::function<void ()> response,
                                              ::std::function<void(::std::exception_ptr)> ex,
                                              ::std::function<void(bool)> sent,
@@ -141,7 +141,7 @@ IceDiscovery::LookupPrx::findObjectByIdAsync(const ::std::string& iceP_domainId,
 
 /// \cond INTERNAL
 void
-IceDiscovery::LookupPrx::_iceI_findObjectById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_domainId, const ::Ice::Identity& iceP_id, const ::std::optional<LookupReplyPrx>& iceP_reply, const ::Ice::Context& context) const
+IceDiscovery::LookupPrx::_iceI_findObjectById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_domainId, const ::Ice::Identity& iceP_id, const ::std::optional<LookupReplyPrx>& iceP_reply, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "findObjectById";
 
@@ -155,19 +155,19 @@ IceDiscovery::LookupPrx::_iceI_findObjectById(const ::std::shared_ptr<::IceInter
 /// \endcond
 
 void
-IceDiscovery::LookupPrx::findAdapterById(const ::std::string& iceP_domainId, const ::std::string& iceP_id, const ::std::optional<LookupReplyPrx>& iceP_reply, const ::Ice::Context& context) const
+IceDiscovery::LookupPrx::findAdapterById(::std::string_view iceP_domainId, ::std::string_view iceP_id, const ::std::optional<LookupReplyPrx>& iceP_reply, const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &LookupPrx::_iceI_findAdapterById, iceP_domainId, iceP_id, iceP_reply, context).get();
 }
 
 ::std::future<void>
-IceDiscovery::LookupPrx::findAdapterByIdAsync(const ::std::string& iceP_domainId, const ::std::string& iceP_id, const ::std::optional<LookupReplyPrx>& iceP_reply, const ::Ice::Context& context) const
+IceDiscovery::LookupPrx::findAdapterByIdAsync(::std::string_view iceP_domainId, ::std::string_view iceP_id, const ::std::optional<LookupReplyPrx>& iceP_reply, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &LookupPrx::_iceI_findAdapterById, iceP_domainId, iceP_id, iceP_reply, context);
 }
 
 ::std::function<void()>
-IceDiscovery::LookupPrx::findAdapterByIdAsync(const ::std::string& iceP_domainId, const ::std::string& iceP_id, const ::std::optional<LookupReplyPrx>& iceP_reply,
+IceDiscovery::LookupPrx::findAdapterByIdAsync(::std::string_view iceP_domainId, ::std::string_view iceP_id, const ::std::optional<LookupReplyPrx>& iceP_reply,
                                               ::std::function<void ()> response,
                                               ::std::function<void(::std::exception_ptr)> ex,
                                               ::std::function<void(bool)> sent,
@@ -178,7 +178,7 @@ IceDiscovery::LookupPrx::findAdapterByIdAsync(const ::std::string& iceP_domainId
 
 /// \cond INTERNAL
 void
-IceDiscovery::LookupPrx::_iceI_findAdapterById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_domainId, const ::std::string& iceP_id, const ::std::optional<LookupReplyPrx>& iceP_reply, const ::Ice::Context& context) const
+IceDiscovery::LookupPrx::_iceI_findAdapterById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_domainId, ::std::string_view iceP_id, const ::std::optional<LookupReplyPrx>& iceP_reply, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "findAdapterById";
 

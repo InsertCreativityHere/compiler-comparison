@@ -274,7 +274,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Base(bool boolFalse, bool boolTrue, ::std::uint8_t b, ::std::int16_t s, ::std::int32_t i, ::std::int64_t l, float f, double d, const ::std::string& str, const ::std::string& noDefault, ::std::int32_t zeroI, ::std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD) :
+    Base(bool boolFalse, bool boolTrue, ::std::uint8_t b, ::std::int16_t s, ::std::int32_t i, ::std::int64_t l, float f, double d, ::std::string_view str, ::std::string_view noDefault, ::std::int32_t zeroI, ::std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD) :
         boolFalse(boolFalse),
         boolTrue(boolTrue),
         b(b),
@@ -347,7 +347,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Derived(bool boolFalse, bool boolTrue, ::std::uint8_t b, ::std::int16_t s, ::std::int32_t i, ::std::int64_t l, float f, double d, const ::std::string& str, const ::std::string& noDefault, ::std::int32_t zeroI, ::std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, ::Test::Color c1, ::Test::Color c2, ::Test::Color c3, ::Test::Nested::Color nc1, ::Test::Nested::Color nc2, ::Test::Nested::Color nc3) :
+    Derived(bool boolFalse, bool boolTrue, ::std::uint8_t b, ::std::int16_t s, ::std::int32_t i, ::std::int64_t l, float f, double d, ::std::string_view str, ::std::string_view noDefault, ::std::int32_t zeroI, ::std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, ::Test::Color c1, ::Test::Color c2, ::Test::Color c3, ::Test::Nested::Color nc1, ::Test::Nested::Color nc2, ::Test::Nested::Color nc3) :
         Ice::ValueHelper<Derived, Base>(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD),
         c1(c1),
         c2(c2),
@@ -394,7 +394,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    BaseEx(bool boolFalse, bool boolTrue, ::std::uint8_t b, ::std::int16_t s, ::std::int32_t i, ::std::int64_t l, float f, double d, const ::std::string& str, const ::std::string& noDefault, ::std::int32_t zeroI, ::std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD) :
+    BaseEx(bool boolFalse, bool boolTrue, ::std::uint8_t b, ::std::int16_t s, ::std::int32_t i, ::std::int64_t l, float f, double d, ::std::string_view str, ::std::string_view noDefault, ::std::int32_t zeroI, ::std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD) :
         boolFalse(boolFalse),
         boolTrue(boolTrue),
         b(b),
@@ -460,7 +460,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    DerivedEx(bool boolFalse, bool boolTrue, ::std::uint8_t b, ::std::int16_t s, ::std::int32_t i, ::std::int64_t l, float f, double d, const ::std::string& str, const ::std::string& noDefault, ::std::int32_t zeroI, ::std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, Color c1, Color c2, Color c3, ::Test::Nested::Color nc1, ::Test::Nested::Color nc2, ::Test::Nested::Color nc3) :
+    DerivedEx(bool boolFalse, bool boolTrue, ::std::uint8_t b, ::std::int16_t s, ::std::int32_t i, ::std::int64_t l, float f, double d, ::std::string_view str, ::std::string_view noDefault, ::std::int32_t zeroI, ::std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, Color c1, Color c2, Color c3, ::Test::Nested::Color nc1, ::Test::Nested::Color nc2, ::Test::Nested::Color nc3) :
         ::Ice::UserExceptionHelper<DerivedEx, BaseEx>(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD),
         c1(c1),
         c2(c2),
@@ -510,7 +510,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    ClassProperty(bool boolFalse, bool boolTrue, ::std::uint8_t b, ::std::int16_t s, ::std::int32_t i, ::std::int64_t l, float f, double d, const ::std::string& str, const ::std::string& noDefault, ::std::int32_t zeroI, ::std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD) :
+    ClassProperty(bool boolFalse, bool boolTrue, ::std::uint8_t b, ::std::int16_t s, ::std::int32_t i, ::std::int64_t l, float f, double d, ::std::string_view str, ::std::string_view noDefault, ::std::int32_t zeroI, ::std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD) :
         boolFalse(boolFalse),
         boolTrue(boolTrue),
         b(b),
@@ -605,7 +605,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    ExceptionProperty(bool boolFalse, bool boolTrue, ::std::uint8_t b, ::std::int16_t s, ::std::int32_t i, ::std::int64_t l, float f, double d, const ::std::string& str, const ::std::string& noDefault, ::std::int32_t zeroI, ::std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD) :
+    ExceptionProperty(bool boolFalse, bool boolTrue, ::std::uint8_t b, ::std::int16_t s, ::std::int32_t i, ::std::int64_t l, float f, double d, ::std::string_view str, ::std::string_view noDefault, ::std::int32_t zeroI, ::std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD) :
         boolFalse(boolFalse),
         boolTrue(boolTrue),
         b(b),
@@ -726,7 +726,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    ExceptionNoDefaultsBase(const ::std::string& str, Color c1, const ByteSeq& bs) :
+    ExceptionNoDefaultsBase(::std::string_view str, Color c1, const ByteSeq& bs) :
         str(str),
         c1(c1),
         bs(bs)
@@ -766,7 +766,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    ExceptionNoDefaults(const ::std::string& str, Color c1, const ByteSeq& bs, const InnerStruct& st, const InnerStruct2& st2, const IntStringDict& dict) :
+    ExceptionNoDefaults(::std::string_view str, Color c1, const ByteSeq& bs, const InnerStruct& st, const InnerStruct2& st2, const IntStringDict& dict) :
         ::Ice::UserExceptionHelper<ExceptionNoDefaults, ExceptionNoDefaultsBase>(str, c1, bs),
         st(st),
         st2(st2),
@@ -810,7 +810,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    ClassNoDefaultsBase(const ::std::string& str, ::Test::Color c1, const ::Test::ByteSeq& bs) :
+    ClassNoDefaultsBase(::std::string_view str, ::Test::Color c1, const ::Test::ByteSeq& bs) :
         str(str),
         c1(c1),
         bs(bs)
@@ -853,7 +853,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    ClassNoDefaults(const ::std::string& str, ::Test::Color c1, const ::Test::ByteSeq& bs, const ::Test::InnerStruct& st, const ::Test::InnerStruct2& st2, const ::Test::IntStringDict& dict) :
+    ClassNoDefaults(::std::string_view str, ::Test::Color c1, const ::Test::ByteSeq& bs, const ::Test::InnerStruct& st, const ::Test::InnerStruct2& st2, const ::Test::IntStringDict& dict) :
         Ice::ValueHelper<ClassNoDefaults, ClassNoDefaultsBase>(str, c1, bs),
         st(st),
         st2(st2),

@@ -3046,8 +3046,6 @@ public interface Initial extends com.zeroc.Ice.Object
 
     java.util.concurrent.CompletionStage<java.lang.Boolean> supportsCsharpSerializableAsync(com.zeroc.Ice.Current current);
 
-    java.util.concurrent.CompletionStage<java.lang.Boolean> supportsCppStringViewAsync(com.zeroc.Ice.Current current);
-
     java.util.concurrent.CompletionStage<java.lang.Boolean> supportsNullOptionalAsync(com.zeroc.Ice.Current current);
 
     /** @hidden */
@@ -4704,23 +4702,6 @@ public interface Initial extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_supportsCppStringView(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        return inS.setResultFuture(obj.supportsCppStringViewAsync(current), (ostr, ret) ->
-            {
-                ostr.writeBool(ret);
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_supportsNullOptional(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
@@ -4818,7 +4799,6 @@ public interface Initial extends com.zeroc.Ice.Object
         "returnOptionalClass",
         "sendOptionalClass",
         "shutdown",
-        "supportsCppStringView",
         "supportsCsharpSerializable",
         "supportsJavaSerializable",
         "supportsNullOptional",
@@ -5176,21 +5156,17 @@ public interface Initial extends com.zeroc.Ice.Object
             }
             case 84:
             {
-                return _iceD_supportsCppStringView(this, in, current);
+                return _iceD_supportsCsharpSerializable(this, in, current);
             }
             case 85:
             {
-                return _iceD_supportsCsharpSerializable(this, in, current);
+                return _iceD_supportsJavaSerializable(this, in, current);
             }
             case 86:
             {
-                return _iceD_supportsJavaSerializable(this, in, current);
-            }
-            case 87:
-            {
                 return _iceD_supportsNullOptional(this, in, current);
             }
-            case 88:
+            case 87:
             {
                 return _iceD_supportsRequiredParams(this, in, current);
             }

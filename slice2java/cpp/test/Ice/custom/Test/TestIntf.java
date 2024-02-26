@@ -596,40 +596,6 @@ public interface TestIntf extends com.zeroc.Ice.Object
     }
 
     /**
-     * Holds the result of operation opString.
-     **/
-    public static class OpStringResult
-    {
-        /**
-         * Default constructor.
-         **/
-        public OpStringResult()
-        {
-        }
-
-        public OpStringResult(String returnValue, String outString)
-        {
-            this.returnValue = returnValue;
-            this.outString = outString;
-        }
-
-        public String returnValue;
-        public String outString;
-
-        public void write(com.zeroc.Ice.OutputStream ostr)
-        {
-            ostr.writeString(this.outString);
-            ostr.writeString(returnValue);
-        }
-
-        public void read(com.zeroc.Ice.InputStream istr)
-        {
-            this.outString = istr.readString();
-            returnValue = istr.readString();
-        }
-    }
-
-    /**
      * Holds the result of operation opStringSeq.
      **/
     public static class OpStringSeqResult
@@ -1212,40 +1178,6 @@ public interface TestIntf extends com.zeroc.Ice.Object
     }
 
     /**
-     * Holds the result of operation opCustomIntStringDict.
-     **/
-    public static class OpCustomIntStringDictResult
-    {
-        /**
-         * Default constructor.
-         **/
-        public OpCustomIntStringDictResult()
-        {
-        }
-
-        public OpCustomIntStringDictResult(java.util.Map<java.lang.Integer, java.lang.String> returnValue, java.util.Map<java.lang.Integer, java.lang.String> odict)
-        {
-            this.returnValue = returnValue;
-            this.odict = odict;
-        }
-
-        public java.util.Map<java.lang.Integer, java.lang.String> returnValue;
-        public java.util.Map<java.lang.Integer, java.lang.String> odict;
-
-        public void write(com.zeroc.Ice.OutputStream ostr)
-        {
-            IntStringDictHelper.write(ostr, this.odict);
-            IntStringDictHelper.write(ostr, returnValue);
-        }
-
-        public void read(com.zeroc.Ice.InputStream istr)
-        {
-            this.odict = IntStringDictHelper.read(istr);
-            returnValue = IntStringDictHelper.read(istr);
-        }
-    }
-
-    /**
      * Holds the result of operation opShortBuffer.
      **/
     public static class OpShortBufferResult
@@ -1347,8 +1279,6 @@ public interface TestIntf extends com.zeroc.Ice.Object
 
     TestIntf.OpMyByteSeqResult opMyByteSeq(byte[] inSeq, com.zeroc.Ice.Current current);
 
-    TestIntf.OpStringResult opString(String inString, com.zeroc.Ice.Current current);
-
     TestIntf.OpStringSeqResult opStringSeq(String[] inSeq, com.zeroc.Ice.Current current);
 
     TestIntf.OpStringListResult opStringList(String[] inSeq, com.zeroc.Ice.Current current);
@@ -1386,8 +1316,6 @@ public interface TestIntf extends com.zeroc.Ice.Object
     TestIntf.OpIntStringDictResult opIntStringDict(java.util.Map<java.lang.Integer, java.lang.String> idict, com.zeroc.Ice.Current current);
 
     TestIntf.OpVarDictResult opVarDict(java.util.Map<java.lang.String, java.lang.Integer> idict, com.zeroc.Ice.Current current);
-
-    TestIntf.OpCustomIntStringDictResult opCustomIntStringDict(java.util.Map<java.lang.Integer, java.lang.String> idict, com.zeroc.Ice.Current current);
 
     TestIntf.OpShortBufferResult opShortBuffer(short[] inS, com.zeroc.Ice.Current current);
 
@@ -1772,27 +1700,6 @@ public interface TestIntf extends com.zeroc.Ice.Object
         iceP_inSeq = istr.readByteSeq();
         inS.endReadParams();
         TestIntf.OpMyByteSeqResult ret = obj.opMyByteSeq(iceP_inSeq, current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ret.write(ostr);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opString(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        String iceP_inString;
-        iceP_inString = istr.readString();
-        inS.endReadParams();
-        TestIntf.OpStringResult ret = obj.opString(iceP_inString, current);
         com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
         ret.write(ostr);
         inS.endWriteParams(ostr);
@@ -2211,27 +2118,6 @@ public interface TestIntf extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opCustomIntStringDict(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Map<java.lang.Integer, java.lang.String> iceP_idict;
-        iceP_idict = IntStringDictHelper.read(istr);
-        inS.endReadParams();
-        TestIntf.OpCustomIntStringDictResult ret = obj.opCustomIntStringDict(iceP_idict, current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ret.write(ostr);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opShortBuffer(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
@@ -2327,7 +2213,6 @@ public interface TestIntf extends com.zeroc.Ice.Object
         "opCList",
         "opCSeq",
         "opClassStruct",
-        "opCustomIntStringDict",
         "opDPrxList",
         "opDPrxSeq",
         "opDoubleArray",
@@ -2340,7 +2225,6 @@ public interface TestIntf extends com.zeroc.Ice.Object
         "opOutArrayByteSeq",
         "opOutRangeByteSeq",
         "opShortBuffer",
-        "opString",
         "opStringList",
         "opStringSeq",
         "opStringStringDictList",
@@ -2453,101 +2337,93 @@ public interface TestIntf extends com.zeroc.Ice.Object
             }
             case 21:
             {
-                return _iceD_opCustomIntStringDict(this, in, current);
+                return _iceD_opDPrxList(this, in, current);
             }
             case 22:
             {
-                return _iceD_opDPrxList(this, in, current);
+                return _iceD_opDPrxSeq(this, in, current);
             }
             case 23:
             {
-                return _iceD_opDPrxSeq(this, in, current);
+                return _iceD_opDoubleArray(this, in, current);
             }
             case 24:
             {
-                return _iceD_opDoubleArray(this, in, current);
+                return _iceD_opEList(this, in, current);
             }
             case 25:
             {
-                return _iceD_opEList(this, in, current);
+                return _iceD_opESeq(this, in, current);
             }
             case 26:
             {
-                return _iceD_opESeq(this, in, current);
+                return _iceD_opFixedList(this, in, current);
             }
             case 27:
             {
-                return _iceD_opFixedList(this, in, current);
+                return _iceD_opFixedSeq(this, in, current);
             }
             case 28:
             {
-                return _iceD_opFixedSeq(this, in, current);
+                return _iceD_opIntStringDict(this, in, current);
             }
             case 29:
             {
-                return _iceD_opIntStringDict(this, in, current);
+                return _iceD_opMyByteSeq(this, in, current);
             }
             case 30:
             {
-                return _iceD_opMyByteSeq(this, in, current);
+                return _iceD_opOutArrayByteSeq(this, in, current);
             }
             case 31:
             {
-                return _iceD_opOutArrayByteSeq(this, in, current);
+                return _iceD_opOutRangeByteSeq(this, in, current);
             }
             case 32:
             {
-                return _iceD_opOutRangeByteSeq(this, in, current);
+                return _iceD_opShortBuffer(this, in, current);
             }
             case 33:
             {
-                return _iceD_opShortBuffer(this, in, current);
+                return _iceD_opStringList(this, in, current);
             }
             case 34:
             {
-                return _iceD_opString(this, in, current);
+                return _iceD_opStringSeq(this, in, current);
             }
             case 35:
             {
-                return _iceD_opStringList(this, in, current);
+                return _iceD_opStringStringDictList(this, in, current);
             }
             case 36:
             {
-                return _iceD_opStringSeq(this, in, current);
+                return _iceD_opStringStringDictSeq(this, in, current);
             }
             case 37:
             {
-                return _iceD_opStringStringDictList(this, in, current);
+                return _iceD_opVarDict(this, in, current);
             }
             case 38:
             {
-                return _iceD_opStringStringDictSeq(this, in, current);
+                return _iceD_opVariableArray(this, in, current);
             }
             case 39:
             {
-                return _iceD_opVarDict(this, in, current);
+                return _iceD_opVariableList(this, in, current);
             }
             case 40:
             {
-                return _iceD_opVariableArray(this, in, current);
+                return _iceD_opVariableRange(this, in, current);
             }
             case 41:
             {
-                return _iceD_opVariableList(this, in, current);
+                return _iceD_opVariableRangeType(this, in, current);
             }
             case 42:
             {
-                return _iceD_opVariableRange(this, in, current);
-            }
-            case 43:
-            {
-                return _iceD_opVariableRangeType(this, in, current);
-            }
-            case 44:
-            {
                 return _iceD_opVariableSeq(this, in, current);
             }
-            case 45:
+            case 43:
             {
                 return _iceD_shutdown(this, in, current);
             }

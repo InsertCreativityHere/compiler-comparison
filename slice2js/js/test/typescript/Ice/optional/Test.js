@@ -790,7 +790,6 @@ Slice.defineOperations(Test.Initial, Test.InitialPrx, iceC_Test_Initial_ids, "::
     "supportsRequiredParams": [, , , , [1], , , , , ],
     "supportsJavaSerializable": [, , , , [1], , , , , ],
     "supportsCsharpSerializable": [, , , , [1], , , , , ],
-    "supportsCppStringView": [, , , , [1], , , , , ],
     "supportsNullOptional": [, , , , [1], , , , , ]
 });
 

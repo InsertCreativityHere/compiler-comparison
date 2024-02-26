@@ -194,19 +194,19 @@ class RemoteCommunicatorPrx : public ::Ice::Proxy<RemoteCommunicatorPrx, ::Ice::
 {
 public:
 
-    ::std::optional<RemoteObjectAdapterPrx> createObjectAdapter(const ::std::string& name, const ::std::string& endpoints, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<RemoteObjectAdapterPrx> createObjectAdapter(::std::string_view name, ::std::string_view endpoints, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::optional<RemoteObjectAdapterPrx>> createObjectAdapterAsync(const ::std::string& name, const ::std::string& endpoints, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::optional<RemoteObjectAdapterPrx>> createObjectAdapterAsync(::std::string_view name, ::std::string_view endpoints, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    createObjectAdapterAsync(const ::std::string& name, const ::std::string& endpoints,
+    createObjectAdapterAsync(::std::string_view name, ::std::string_view endpoints,
                              ::std::function<void(::std::optional<::Test::RemoteObjectAdapterPrx>)> response,
                              ::std::function<void(::std::exception_ptr)> ex = nullptr,
                              ::std::function<void(bool)> sent = nullptr,
                              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_createObjectAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<RemoteObjectAdapterPrx>>>&, const ::std::string&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_createObjectAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<RemoteObjectAdapterPrx>>>&, ::std::string_view, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     void deactivateObjectAdapter(const ::std::optional<RemoteObjectAdapterPrx>& adapter, const ::Ice::Context& context = ::Ice::noExplicitContext) const;

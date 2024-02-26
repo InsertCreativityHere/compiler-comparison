@@ -24,7 +24,6 @@
 #include <MyByteSeq.h>
 #include <CustomMap.h>
 #include <CustomBuffer.h>
-#include <StringView.h>
 
 #ifndef ICE_IGNORE_VERSION
 #   if ICE_INT_VERSION  != 30850
@@ -449,21 +448,6 @@ public:
     void _iceI_opMyByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<MyByteSeq, MyByteSeq>>>&, const MyByteSeq&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::string opString(const Util::string_view& inString, ::std::string& outString, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::future<::std::tuple<::std::string, ::std::string>> opStringAsync(const Util::string_view& inString, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::function<void()>
-    opStringAsync(const Util::string_view& inString,
-                  ::std::function<void(Util::string_view, Util::string_view)> response,
-                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                  ::std::function<void(bool)> sent = nullptr,
-                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::string, ::std::string>>>&, const Util::string_view&, const ::Ice::Context&) const;
-    /// \endcond
-
     std::deque<std::string> opStringSeq(const std::deque<std::string>& inSeq, std::deque<std::string>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::future<::std::tuple<std::deque<std::string>, std::deque<std::string>>> opStringSeqAsync(const std::deque<std::string>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -747,21 +731,6 @@ public:
 
     /// \cond INTERNAL
     void _iceI_opVarDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<std::string, std::int32_t>>>>&, const ::Test::CustomMap<std::string, std::int32_t>&, const ::Ice::Context&) const;
-    /// \endcond
-
-    ::Test::CustomMap<std::int32_t, std::string> opCustomIntStringDict(const ::std::map<std::int32_t, ::Util::string_view>& idict, ::Test::CustomMap<std::int32_t, std::string>& odict, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::future<::std::tuple<::Test::CustomMap<std::int32_t, std::string>, ::Test::CustomMap<std::int32_t, std::string>>> opCustomIntStringDictAsync(const ::std::map<std::int32_t, ::Util::string_view>& idict, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::function<void()>
-    opCustomIntStringDictAsync(const ::std::map<std::int32_t, ::Util::string_view>& idict,
-                               ::std::function<void(::std::map<std::int32_t, ::Util::string_view>, ::std::map<std::int32_t, ::Util::string_view>)> response,
-                               ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                               ::std::function<void(bool)> sent = nullptr,
-                               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opCustomIntStringDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::CustomMap<std::int32_t, std::string>, ::Test::CustomMap<std::int32_t, std::string>>>>&, const ::std::map<std::int32_t, ::Util::string_view>&, const ::Ice::Context&) const;
     /// \endcond
 
     ShortBuffer opShortBuffer(const ShortBuffer& inS, ShortBuffer& outS, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -1165,11 +1134,6 @@ public:
     bool _iceD_opMyByteSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void opStringAsync(Util::string_view inString, ::std::function<void(const Util::string_view& returnValue, const Util::string_view& outString)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opString(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
     virtual void opStringSeqAsync(std::deque<std::string> inSeq, ::std::function<void(const std::deque<std::string>& returnValue, const std::deque<std::string>& outSeq)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opStringSeq(::IceInternal::Incoming&, const ::Ice::Current&);
@@ -1263,11 +1227,6 @@ public:
     virtual void opVarDictAsync(::Test::CustomMap<std::string, std::int32_t> idict, ::std::function<void(const ::Test::CustomMap< int64_t, int64_t>& returnValue, const ::Test::CustomMap<std::string, std::int32_t>& odict)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opVarDict(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual void opCustomIntStringDictAsync(::std::map<std::int32_t, ::Util::string_view> idict, ::std::function<void(const ::std::map<std::int32_t, ::Util::string_view>& returnValue, const ::std::map<std::int32_t, ::Util::string_view>& odict)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opCustomIntStringDict(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
     virtual void opShortBufferAsync(ShortBuffer inS, ::std::function<void(const ShortBuffer& returnValue, const ShortBuffer& outS)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;

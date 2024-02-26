@@ -740,83 +740,6 @@ Test::InitialPrx::_iceI_opString(const ::std::shared_ptr<::IceInternal::Outgoing
 }
 /// \endcond
 
-std::optional<::std::string>
-Test::InitialPrx::opCustomString(const std::optional<Util::string_view>& iceP_p1, std::optional<::std::string>& iceP_p3, const ::Ice::Context& context) const
-{
-    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<::std::string>, std::optional<::std::string>>>(true, this, &InitialPrx::_iceI_opCustomString, iceP_p1, context).get();
-    iceP_p3 = ::std::move(::std::get<1>(_result));
-    return ::std::move(::std::get<0>(_result));
-}
-
-::std::future<::std::tuple<std::optional<::std::string>, std::optional<::std::string>>>
-Test::InitialPrx::opCustomStringAsync(const std::optional<Util::string_view>& iceP_p1, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<::std::string>, std::optional<::std::string>>>(false, this, &InitialPrx::_iceI_opCustomString, iceP_p1, context);
-}
-
-::std::function<void()>
-Test::InitialPrx::opCustomStringAsync(const std::optional<Util::string_view>& iceP_p1,
-                                      ::std::function<void (std::optional<Util::string_view>, std::optional<Util::string_view>)> response,
-                                      ::std::function<void(::std::exception_ptr)> ex,
-                                      ::std::function<void(bool)> sent,
-                                      const ::Ice::Context& context) const
-{
-    static const ::std::string operationName = "opCustomString";
-
-    _checkTwowayOnly(operationName);
-    ::std::function<void(::Ice::InputStream*)> read;
-    if(response)
-    {
-        read = [response](::Ice::InputStream* istr)
-        {
-            istr->startEncapsulation();
-            std::optional<Util::string_view> iceP_p3;
-            std::optional<Util::string_view> ret;
-            istr->readAll({1, 3}, ret, iceP_p3);
-            istr->endEncapsulation();
-            try
-            {
-                response(ret, iceP_p3);
-            }
-            catch(...)
-            {
-                throw ::std::current_exception();
-            }
-        };
-    }
-    auto outAsync = ::std::make_shared<::IceInternal::CustomLambdaOutgoing>(*this, read, ex, sent);
-
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll({2}, iceP_p1);
-        },
-        nullptr);
-    return [outAsync]() { outAsync->cancel(); };
-}
-
-/// \cond INTERNAL
-void
-Test::InitialPrx::_iceI_opCustomString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::optional<::std::string>, std::optional<::std::string>>>>& outAsync, const std::optional<Util::string_view>& iceP_p1, const ::Ice::Context& context) const
-{
-    static const ::std::string operationName = "opCustomString";
-
-    _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll({2}, iceP_p1);
-        },
-        nullptr,
-        [](::Ice::InputStream* istr)
-        {
-            ::std::tuple<std::optional<::std::string>, std::optional<::std::string>> v;
-            istr->readAll({1, 3}, ::std::get<0>(v), ::std::get<1>(v));
-            return v;
-        });
-}
-/// \endcond
-
 std::optional<::Test::MyEnum>
 Test::InitialPrx::opMyEnum(const std::optional<MyEnum>& iceP_p1, std::optional<MyEnum>& iceP_p3, const ::Ice::Context& context) const
 {
@@ -2214,83 +2137,6 @@ Test::InitialPrx::_iceI_opStringIntDict(const ::std::shared_ptr<::IceInternal::O
 }
 /// \endcond
 
-std::optional<::Test::CustomMap<std::int32_t, std::string>>
-Test::InitialPrx::opCustomIntStringDict(const std::optional<::std::map<std::int32_t, ::Util::string_view>>& iceP_p1, std::optional<::Test::CustomMap<std::int32_t, std::string>>& iceP_p3, const ::Ice::Context& context) const
-{
-    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<::Test::CustomMap<std::int32_t, std::string>>, std::optional<::Test::CustomMap<std::int32_t, std::string>>>>(true, this, &InitialPrx::_iceI_opCustomIntStringDict, iceP_p1, context).get();
-    iceP_p3 = ::std::move(::std::get<1>(_result));
-    return ::std::move(::std::get<0>(_result));
-}
-
-::std::future<::std::tuple<std::optional<::Test::CustomMap<std::int32_t, std::string>>, std::optional<::Test::CustomMap<std::int32_t, std::string>>>>
-Test::InitialPrx::opCustomIntStringDictAsync(const std::optional<::std::map<std::int32_t, ::Util::string_view>>& iceP_p1, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<::std::tuple<std::optional<::Test::CustomMap<std::int32_t, std::string>>, std::optional<::Test::CustomMap<std::int32_t, std::string>>>>(false, this, &InitialPrx::_iceI_opCustomIntStringDict, iceP_p1, context);
-}
-
-::std::function<void()>
-Test::InitialPrx::opCustomIntStringDictAsync(const std::optional<::std::map<std::int32_t, ::Util::string_view>>& iceP_p1,
-                                             ::std::function<void (std::optional<::std::map<std::int32_t, ::Util::string_view>>, std::optional<::std::map<std::int32_t, ::Util::string_view>>)> response,
-                                             ::std::function<void(::std::exception_ptr)> ex,
-                                             ::std::function<void(bool)> sent,
-                                             const ::Ice::Context& context) const
-{
-    static const ::std::string operationName = "opCustomIntStringDict";
-
-    _checkTwowayOnly(operationName);
-    ::std::function<void(::Ice::InputStream*)> read;
-    if(response)
-    {
-        read = [response](::Ice::InputStream* istr)
-        {
-            istr->startEncapsulation();
-            std::optional<::std::map<std::int32_t, ::Util::string_view>> iceP_p3;
-            std::optional<::std::map<std::int32_t, ::Util::string_view>> ret;
-            istr->readAll({1, 3}, ret, iceP_p3);
-            istr->endEncapsulation();
-            try
-            {
-                response(ret, iceP_p3);
-            }
-            catch(...)
-            {
-                throw ::std::current_exception();
-            }
-        };
-    }
-    auto outAsync = ::std::make_shared<::IceInternal::CustomLambdaOutgoing>(*this, read, ex, sent);
-
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll({2}, iceP_p1);
-        },
-        nullptr);
-    return [outAsync]() { outAsync->cancel(); };
-}
-
-/// \cond INTERNAL
-void
-Test::InitialPrx::_iceI_opCustomIntStringDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::optional<::Test::CustomMap<std::int32_t, std::string>>, std::optional<::Test::CustomMap<std::int32_t, std::string>>>>>& outAsync, const std::optional<::std::map<std::int32_t, ::Util::string_view>>& iceP_p1, const ::Ice::Context& context) const
-{
-    static const ::std::string operationName = "opCustomIntStringDict";
-
-    _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll({2}, iceP_p1);
-        },
-        nullptr,
-        [](::Ice::InputStream* istr)
-        {
-            ::std::tuple<std::optional<::Test::CustomMap<std::int32_t, std::string>>, std::optional<::Test::CustomMap<std::int32_t, std::string>>> v;
-            istr->readAll({1, 3}, ::std::get<0>(v), ::std::get<1>(v));
-            return v;
-        });
-}
-/// \endcond
-
 std::optional<::Test::IntOneOptionalDict>
 Test::InitialPrx::opIntOneOptionalDict(const std::optional<IntOneOptionalDict>& iceP_p1, std::optional<IntOneOptionalDict>& iceP_p3, const ::Ice::Context& context) const
 {
@@ -3003,40 +2849,6 @@ Test::InitialPrx::_iceI_supportsCsharpSerializable(const ::std::shared_ptr<::Ice
 /// \endcond
 
 bool
-Test::InitialPrx::supportsCppStringView(const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<bool>(true, this, &InitialPrx::_iceI_supportsCppStringView, context).get();
-}
-
-::std::future<bool>
-Test::InitialPrx::supportsCppStringViewAsync(const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<bool>(false, this, &InitialPrx::_iceI_supportsCppStringView, context);
-}
-
-::std::function<void()>
-Test::InitialPrx::supportsCppStringViewAsync(::std::function<void (bool)> response,
-                                             ::std::function<void(::std::exception_ptr)> ex,
-                                             ::std::function<void(bool)> sent,
-                                             const ::Ice::Context& context) const
-{
-    return ::IceInternal::makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_supportsCppStringView, context);
-}
-
-/// \cond INTERNAL
-void
-Test::InitialPrx::_iceI_supportsCppStringView(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, const ::Ice::Context& context) const
-{
-    static const ::std::string operationName = "supportsCppStringView";
-
-    _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-bool
 Test::InitialPrx::supportsNullOptional(const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<bool>(true, this, &InitialPrx::_iceI_supportsNullOptional, context).get();
@@ -3613,24 +3425,6 @@ Test::Initial::_iceD_opString(::IceInternal::Incoming& inS, const ::Ice::Current
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opCustomString(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
-    std::optional<Util::string_view> iceP_p1;
-    istr->readAll({2}, iceP_p1);
-    inS.endReadParams();
-    std::optional<::std::string> iceP_p3;
-    std::optional<::std::string> ret = this->opCustomString(::std::move(iceP_p1), iceP_p3, current);
-    auto ostr = inS.startWriteParams();
-    ostr->writeAll({1, 3}, ret, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
 Test::Initial::_iceD_opMyEnum(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
@@ -4027,24 +3821,6 @@ Test::Initial::_iceD_opStringIntDict(::IceInternal::Incoming& inS, const ::Ice::
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opCustomIntStringDict(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
-    std::optional<::std::map<std::int32_t, ::Util::string_view>> iceP_p1;
-    istr->readAll({2}, iceP_p1);
-    inS.endReadParams();
-    std::optional<::Test::CustomMap<std::int32_t, std::string>> iceP_p3;
-    std::optional<::Test::CustomMap<std::int32_t, std::string>> ret = this->opCustomIntStringDict(::std::move(iceP_p1), iceP_p3, current);
-    auto ostr = inS.startWriteParams();
-    ostr->writeAll({1, 3}, ret, iceP_p3);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
 Test::Initial::_iceD_opIntOneOptionalDict(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
@@ -4351,20 +4127,6 @@ Test::Initial::_iceD_supportsCsharpSerializable(::IceInternal::Incoming& inS, co
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_supportsCppStringView(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    bool ret = this->supportsCppStringView(current);
-    auto ostr = inS.startWriteParams();
-    ostr->writeAll(ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
 Test::Initial::_iceD_supportsNullOptional(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
@@ -4381,9 +4143,9 @@ Test::Initial::_iceD_supportsNullOptional(::IceInternal::Incoming& inS, const ::
 bool
 Test::Initial::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "opBool", "opBoolSeq", "opByte", "opByteSeq", "opClassAndUnknownOptional", "opCustomIntStringDict", "opCustomString", "opDerivedException", "opDouble", "opDoubleSeq", "opFixedStruct", "opFixedStructList", "opFixedStructSeq", "opFloat", "opFloatSeq", "opG", "opInt", "opIntIntDict", "opIntOneOptionalDict", "opIntSeq", "opLong", "opLongSeq", "opMDict1", "opMDict2", "opMG1", "opMG2", "opMSeq1", "opMSeq2", "opMStruct1", "opMStruct2", "opMyEnum", "opMyInterfaceProxy", "opOneOptional", "opOptionalException", "opRequiredException", "opSerializable", "opShort", "opShortSeq", "opSmallStruct", "opSmallStructList", "opSmallStructSeq", "opString", "opStringIntDict", "opStringSeq", "opVarStruct", "opVarStructSeq", "opVoid", "pingPong", "returnOptionalClass", "sendOptionalClass", "shutdown", "supportsCppStringView", "supportsCsharpSerializable", "supportsJavaSerializable", "supportsNullOptional", "supportsRequiredParams" };
+    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "opBool", "opBoolSeq", "opByte", "opByteSeq", "opClassAndUnknownOptional", "opDerivedException", "opDouble", "opDoubleSeq", "opFixedStruct", "opFixedStructList", "opFixedStructSeq", "opFloat", "opFloatSeq", "opG", "opInt", "opIntIntDict", "opIntOneOptionalDict", "opIntSeq", "opLong", "opLongSeq", "opMDict1", "opMDict2", "opMG1", "opMG2", "opMSeq1", "opMSeq2", "opMStruct1", "opMStruct2", "opMyEnum", "opMyInterfaceProxy", "opOneOptional", "opOptionalException", "opRequiredException", "opSerializable", "opShort", "opShortSeq", "opSmallStruct", "opSmallStructList", "opSmallStructSeq", "opString", "opStringIntDict", "opStringSeq", "opVarStruct", "opVarStructSeq", "opVoid", "pingPong", "returnOptionalClass", "sendOptionalClass", "shutdown", "supportsCsharpSerializable", "supportsJavaSerializable", "supportsNullOptional", "supportsRequiredParams" };
 
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 60, current.operation);
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 57, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
@@ -4429,205 +4191,193 @@ Test::Initial::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
         }
         case 9:
         {
-            return _iceD_opCustomIntStringDict(in, current);
+            return _iceD_opDerivedException(in, current);
         }
         case 10:
         {
-            return _iceD_opCustomString(in, current);
+            return _iceD_opDouble(in, current);
         }
         case 11:
         {
-            return _iceD_opDerivedException(in, current);
+            return _iceD_opDoubleSeq(in, current);
         }
         case 12:
         {
-            return _iceD_opDouble(in, current);
+            return _iceD_opFixedStruct(in, current);
         }
         case 13:
         {
-            return _iceD_opDoubleSeq(in, current);
+            return _iceD_opFixedStructList(in, current);
         }
         case 14:
         {
-            return _iceD_opFixedStruct(in, current);
+            return _iceD_opFixedStructSeq(in, current);
         }
         case 15:
         {
-            return _iceD_opFixedStructList(in, current);
+            return _iceD_opFloat(in, current);
         }
         case 16:
         {
-            return _iceD_opFixedStructSeq(in, current);
+            return _iceD_opFloatSeq(in, current);
         }
         case 17:
         {
-            return _iceD_opFloat(in, current);
+            return _iceD_opG(in, current);
         }
         case 18:
         {
-            return _iceD_opFloatSeq(in, current);
+            return _iceD_opInt(in, current);
         }
         case 19:
         {
-            return _iceD_opG(in, current);
+            return _iceD_opIntIntDict(in, current);
         }
         case 20:
         {
-            return _iceD_opInt(in, current);
+            return _iceD_opIntOneOptionalDict(in, current);
         }
         case 21:
         {
-            return _iceD_opIntIntDict(in, current);
+            return _iceD_opIntSeq(in, current);
         }
         case 22:
         {
-            return _iceD_opIntOneOptionalDict(in, current);
+            return _iceD_opLong(in, current);
         }
         case 23:
         {
-            return _iceD_opIntSeq(in, current);
+            return _iceD_opLongSeq(in, current);
         }
         case 24:
         {
-            return _iceD_opLong(in, current);
+            return _iceD_opMDict1(in, current);
         }
         case 25:
         {
-            return _iceD_opLongSeq(in, current);
+            return _iceD_opMDict2(in, current);
         }
         case 26:
         {
-            return _iceD_opMDict1(in, current);
+            return _iceD_opMG1(in, current);
         }
         case 27:
         {
-            return _iceD_opMDict2(in, current);
+            return _iceD_opMG2(in, current);
         }
         case 28:
         {
-            return _iceD_opMG1(in, current);
+            return _iceD_opMSeq1(in, current);
         }
         case 29:
         {
-            return _iceD_opMG2(in, current);
+            return _iceD_opMSeq2(in, current);
         }
         case 30:
         {
-            return _iceD_opMSeq1(in, current);
+            return _iceD_opMStruct1(in, current);
         }
         case 31:
         {
-            return _iceD_opMSeq2(in, current);
+            return _iceD_opMStruct2(in, current);
         }
         case 32:
         {
-            return _iceD_opMStruct1(in, current);
+            return _iceD_opMyEnum(in, current);
         }
         case 33:
         {
-            return _iceD_opMStruct2(in, current);
+            return _iceD_opMyInterfaceProxy(in, current);
         }
         case 34:
         {
-            return _iceD_opMyEnum(in, current);
+            return _iceD_opOneOptional(in, current);
         }
         case 35:
         {
-            return _iceD_opMyInterfaceProxy(in, current);
+            return _iceD_opOptionalException(in, current);
         }
         case 36:
         {
-            return _iceD_opOneOptional(in, current);
+            return _iceD_opRequiredException(in, current);
         }
         case 37:
         {
-            return _iceD_opOptionalException(in, current);
+            return _iceD_opSerializable(in, current);
         }
         case 38:
         {
-            return _iceD_opRequiredException(in, current);
+            return _iceD_opShort(in, current);
         }
         case 39:
         {
-            return _iceD_opSerializable(in, current);
+            return _iceD_opShortSeq(in, current);
         }
         case 40:
         {
-            return _iceD_opShort(in, current);
+            return _iceD_opSmallStruct(in, current);
         }
         case 41:
         {
-            return _iceD_opShortSeq(in, current);
+            return _iceD_opSmallStructList(in, current);
         }
         case 42:
         {
-            return _iceD_opSmallStruct(in, current);
+            return _iceD_opSmallStructSeq(in, current);
         }
         case 43:
         {
-            return _iceD_opSmallStructList(in, current);
+            return _iceD_opString(in, current);
         }
         case 44:
         {
-            return _iceD_opSmallStructSeq(in, current);
+            return _iceD_opStringIntDict(in, current);
         }
         case 45:
         {
-            return _iceD_opString(in, current);
+            return _iceD_opStringSeq(in, current);
         }
         case 46:
         {
-            return _iceD_opStringIntDict(in, current);
+            return _iceD_opVarStruct(in, current);
         }
         case 47:
         {
-            return _iceD_opStringSeq(in, current);
+            return _iceD_opVarStructSeq(in, current);
         }
         case 48:
         {
-            return _iceD_opVarStruct(in, current);
+            return _iceD_opVoid(in, current);
         }
         case 49:
         {
-            return _iceD_opVarStructSeq(in, current);
+            return _iceD_pingPong(in, current);
         }
         case 50:
         {
-            return _iceD_opVoid(in, current);
+            return _iceD_returnOptionalClass(in, current);
         }
         case 51:
         {
-            return _iceD_pingPong(in, current);
+            return _iceD_sendOptionalClass(in, current);
         }
         case 52:
         {
-            return _iceD_returnOptionalClass(in, current);
+            return _iceD_shutdown(in, current);
         }
         case 53:
         {
-            return _iceD_sendOptionalClass(in, current);
+            return _iceD_supportsCsharpSerializable(in, current);
         }
         case 54:
         {
-            return _iceD_shutdown(in, current);
+            return _iceD_supportsJavaSerializable(in, current);
         }
         case 55:
         {
-            return _iceD_supportsCppStringView(in, current);
-        }
-        case 56:
-        {
-            return _iceD_supportsCsharpSerializable(in, current);
-        }
-        case 57:
-        {
-            return _iceD_supportsJavaSerializable(in, current);
-        }
-        case 58:
-        {
             return _iceD_supportsNullOptional(in, current);
         }
-        case 59:
+        case 56:
         {
             return _iceD_supportsRequiredParams(in, current);
         }

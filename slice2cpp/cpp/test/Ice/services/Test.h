@@ -42,19 +42,19 @@ class ClockPrx : public ::Ice::Proxy<ClockPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void tick(const ::std::string& time, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void tick(::std::string_view time, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> tickAsync(const ::std::string& time, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> tickAsync(::std::string_view time, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    tickAsync(const ::std::string& time,
+    tickAsync(::std::string_view time,
               ::std::function<void()> response,
               ::std::function<void(::std::exception_ptr)> ex = nullptr,
               ::std::function<void(bool)> sent = nullptr,
               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_tick(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_tick(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**

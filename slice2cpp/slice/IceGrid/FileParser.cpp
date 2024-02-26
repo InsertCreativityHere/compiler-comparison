@@ -42,19 +42,19 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::ParseException> 
 }
 
 ::IceGrid::ApplicationDescriptor
-IceGrid::FileParserPrx::parse(const ::std::string& iceP_xmlFile, const ::std::optional<AdminPrx>& iceP_adminProxy, const ::Ice::Context& context) const
+IceGrid::FileParserPrx::parse(::std::string_view iceP_xmlFile, const ::std::optional<AdminPrx>& iceP_adminProxy, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<ApplicationDescriptor>(true, this, &FileParserPrx::_iceI_parse, iceP_xmlFile, iceP_adminProxy, context).get();
 }
 
 ::std::future<::IceGrid::ApplicationDescriptor>
-IceGrid::FileParserPrx::parseAsync(const ::std::string& iceP_xmlFile, const ::std::optional<AdminPrx>& iceP_adminProxy, const ::Ice::Context& context) const
+IceGrid::FileParserPrx::parseAsync(::std::string_view iceP_xmlFile, const ::std::optional<AdminPrx>& iceP_adminProxy, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<ApplicationDescriptor>(false, this, &FileParserPrx::_iceI_parse, iceP_xmlFile, iceP_adminProxy, context);
 }
 
 ::std::function<void()>
-IceGrid::FileParserPrx::parseAsync(const ::std::string& iceP_xmlFile, const ::std::optional<AdminPrx>& iceP_adminProxy,
+IceGrid::FileParserPrx::parseAsync(::std::string_view iceP_xmlFile, const ::std::optional<AdminPrx>& iceP_adminProxy,
                                    ::std::function<void (::IceGrid::ApplicationDescriptor)> response,
                                    ::std::function<void(::std::exception_ptr)> ex,
                                    ::std::function<void(bool)> sent,
@@ -65,7 +65,7 @@ IceGrid::FileParserPrx::parseAsync(const ::std::string& iceP_xmlFile, const ::st
 
 /// \cond INTERNAL
 void
-IceGrid::FileParserPrx::_iceI_parse(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ApplicationDescriptor>>& outAsync, const ::std::string& iceP_xmlFile, const ::std::optional<AdminPrx>& iceP_adminProxy, const ::Ice::Context& context) const
+IceGrid::FileParserPrx::_iceI_parse(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ApplicationDescriptor>>& outAsync, ::std::string_view iceP_xmlFile, const ::std::optional<AdminPrx>& iceP_adminProxy, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "parse";
 

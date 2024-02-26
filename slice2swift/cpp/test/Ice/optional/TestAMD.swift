@@ -1887,10 +1887,6 @@ public extension MyInterfacePrx {
 ///
 ///  - opStringAsync: 
 ///
-///  - opCustomString: 
-///
-///  - opCustomStringAsync: 
-///
 ///  - opMyEnum: 
 ///
 ///  - opMyEnumAsync: 
@@ -1983,10 +1979,6 @@ public extension MyInterfacePrx {
 ///
 ///  - opIntOneOptionalDictAsync: 
 ///
-///  - opCustomIntStringDict: 
-///
-///  - opCustomIntStringDictAsync: 
-///
 ///  - opClassAndUnknownOptional: 
 ///
 ///  - opClassAndUnknownOptionalAsync: 
@@ -2050,10 +2042,6 @@ public extension MyInterfacePrx {
 ///  - supportsCsharpSerializable: 
 ///
 ///  - supportsCsharpSerializableAsync: 
-///
-///  - supportsCppStringView: 
-///
-///  - supportsCppStringViewAsync: 
 ///
 ///  - supportsNullOptional: 
 ///
@@ -2189,10 +2177,6 @@ public extension Ice.InputStream {
 ///
 ///  - opStringAsync: 
 ///
-///  - opCustomString: 
-///
-///  - opCustomStringAsync: 
-///
 ///  - opMyEnum: 
 ///
 ///  - opMyEnumAsync: 
@@ -2285,10 +2269,6 @@ public extension Ice.InputStream {
 ///
 ///  - opIntOneOptionalDictAsync: 
 ///
-///  - opCustomIntStringDict: 
-///
-///  - opCustomIntStringDictAsync: 
-///
 ///  - opClassAndUnknownOptional: 
 ///
 ///  - opClassAndUnknownOptionalAsync: 
@@ -2352,10 +2332,6 @@ public extension Ice.InputStream {
 ///  - supportsCsharpSerializable: 
 ///
 ///  - supportsCsharpSerializableAsync: 
-///
-///  - supportsCppStringView: 
-///
-///  - supportsCppStringViewAsync: 
 ///
 ///  - supportsNullOptional: 
 ///
@@ -3065,61 +3041,6 @@ public extension InitialPrx {
     /// - returns: `PromiseKit.Promise<(returnValue: Swift.String?, p3: Swift.String?)>` - The result of the operation
     func opStringAsync(_ iceP_p1: Swift.String? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: Swift.String?, p3: Swift.String?)> {
         return _impl._invokeAsync(operation: "opString",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(tag: 2, value: iceP_p1)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.String? = try istr.read(tag: 1)
-                                      let iceP_p3: Swift.String? = try istr.read(tag: 3)
-                                      return (iceP_returnValue, iceP_p3)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
-    /// - parameter _: `Swift.String?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: Swift.String?, p3: Swift.String?)`:
-    ///
-    ///   - returnValue: `Swift.String?`
-    ///
-    ///   - p3: `Swift.String?`
-    func opCustomString(_ iceP_p1: Swift.String? = nil, context: Ice.Context? = nil) throws -> (returnValue: Swift.String?, p3: Swift.String?) {
-        return try _impl._invoke(operation: "opCustomString",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(tag: 2, value: iceP_p1)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.String? = try istr.read(tag: 1)
-                                     let iceP_p3: Swift.String? = try istr.read(tag: 3)
-                                     return (iceP_returnValue, iceP_p3)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.String?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<(returnValue: Swift.String?, p3: Swift.String?)>` - The result of the operation
-    func opCustomStringAsync(_ iceP_p1: Swift.String? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: Swift.String?, p3: Swift.String?)> {
-        return _impl._invokeAsync(operation: "opCustomString",
                                   mode: .Normal,
                                   write: { ostr in
                                       ostr.write(tag: 2, value: iceP_p1)
@@ -4405,61 +4326,6 @@ public extension InitialPrx {
     }
 
     ///
-    /// - parameter _: `IntStringDict?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: IntStringDict?, p3: IntStringDict?)`:
-    ///
-    ///   - returnValue: `IntStringDict?`
-    ///
-    ///   - p3: `IntStringDict?`
-    func opCustomIntStringDict(_ iceP_p1: IntStringDict? = nil, context: Ice.Context? = nil) throws -> (returnValue: IntStringDict?, p3: IntStringDict?) {
-        return try _impl._invoke(operation: "opCustomIntStringDict",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     IntStringDictHelper.write(to: ostr, tag: 2, value: iceP_p1)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: IntStringDict? = try IntStringDictHelper.read(from: istr, tag: 1)
-                                     let iceP_p3: IntStringDict? = try IntStringDictHelper.read(from: istr, tag: 3)
-                                     return (iceP_returnValue, iceP_p3)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `IntStringDict?`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<(returnValue: IntStringDict?, p3: IntStringDict?)>` - The result of the operation
-    func opCustomIntStringDictAsync(_ iceP_p1: IntStringDict? = nil, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: IntStringDict?, p3: IntStringDict?)> {
-        return _impl._invokeAsync(operation: "opCustomIntStringDict",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      IntStringDictHelper.write(to: ostr, tag: 2, value: iceP_p1)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: IntStringDict? = try IntStringDictHelper.read(from: istr, tag: 1)
-                                      let iceP_p3: IntStringDict? = try IntStringDictHelper.read(from: istr, tag: 3)
-                                      return (iceP_returnValue, iceP_p3)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
     /// - parameter _: `A?`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
@@ -5168,45 +5034,6 @@ public extension InitialPrx {
     /// - returns: `PromiseKit.Promise<Swift.Bool>` - The result of the operation
     func supportsCsharpSerializableAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Bool> {
         return _impl._invokeAsync(operation: "supportsCsharpSerializable",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.Bool = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Bool`
-    func supportsCppStringView(context: Ice.Context? = nil) throws -> Swift.Bool {
-        return try _impl._invoke(operation: "supportsCppStringView",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.Bool = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<Swift.Bool>` - The result of the operation
-    func supportsCppStringViewAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Bool> {
-        return _impl._invokeAsync(operation: "supportsCppStringView",
                                   mode: .Normal,
                                   read: { istr in
                                       let iceP_returnValue: Swift.Bool = try istr.read()
@@ -6157,10 +5984,6 @@ public struct InitialDisp: Ice.Disp {
             return try servant._iceD_opByteSeq(incoming: request, current: current)
         case "opClassAndUnknownOptional":
             return try servant._iceD_opClassAndUnknownOptional(incoming: request, current: current)
-        case "opCustomIntStringDict":
-            return try servant._iceD_opCustomIntStringDict(incoming: request, current: current)
-        case "opCustomString":
-            return try servant._iceD_opCustomString(incoming: request, current: current)
         case "opDerivedException":
             return try servant._iceD_opDerivedException(incoming: request, current: current)
         case "opDouble":
@@ -6249,8 +6072,6 @@ public struct InitialDisp: Ice.Disp {
             return try servant._iceD_sendOptionalClass(incoming: request, current: current)
         case "shutdown":
             return try servant._iceD_shutdown(incoming: request, current: current)
-        case "supportsCppStringView":
-            return try servant._iceD_supportsCppStringView(incoming: request, current: current)
         case "supportsCsharpSerializable":
             return try servant._iceD_supportsCsharpSerializable(incoming: request, current: current)
         case "supportsJavaSerializable":
@@ -6379,14 +6200,6 @@ public protocol Initial {
     ///
     /// - returns: `PromiseKit.Promise<(returnValue: Swift.String?, p3: Swift.String?)>` - The result of the operation
     func opStringAsync(p1: Swift.String?, current: Ice.Current) -> PromiseKit.Promise<(returnValue: Swift.String?, p3: Swift.String?)>
-
-    ///
-    /// - parameter p1: `Swift.String?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `PromiseKit.Promise<(returnValue: Swift.String?, p3: Swift.String?)>` - The result of the operation
-    func opCustomStringAsync(p1: Swift.String?, current: Ice.Current) -> PromiseKit.Promise<(returnValue: Swift.String?, p3: Swift.String?)>
 
     ///
     /// - parameter p1: `MyEnum?`
@@ -6573,14 +6386,6 @@ public protocol Initial {
     func opIntOneOptionalDictAsync(p1: IntOneOptionalDict?, current: Ice.Current) -> PromiseKit.Promise<(returnValue: IntOneOptionalDict?, p3: IntOneOptionalDict?)>
 
     ///
-    /// - parameter p1: `IntStringDict?`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `PromiseKit.Promise<(returnValue: IntStringDict?, p3: IntStringDict?)>` - The result of the operation
-    func opCustomIntStringDictAsync(p1: IntStringDict?, current: Ice.Current) -> PromiseKit.Promise<(returnValue: IntStringDict?, p3: IntStringDict?)>
-
-    ///
     /// - parameter p: `A?`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
@@ -6698,12 +6503,6 @@ public protocol Initial {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `PromiseKit.Promise<Swift.Bool>` - The result of the operation
-    func supportsCppStringViewAsync(current: Ice.Current) -> PromiseKit.Promise<Swift.Bool>
-
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `PromiseKit.Promise<Swift.Bool>` - The result of the operation
     func supportsNullOptionalAsync(current: Ice.Current) -> PromiseKit.Promise<Swift.Bool>
 }
 
@@ -6752,8 +6551,6 @@ public extension MyInterface {
 ///
 ///  - opString: 
 ///
-///  - opCustomString: 
-///
 ///  - opMyEnum: 
 ///
 ///  - opSmallStruct: 
@@ -6800,8 +6597,6 @@ public extension MyInterface {
 ///
 ///  - opIntOneOptionalDict: 
 ///
-///  - opCustomIntStringDict: 
-///
 ///  - opClassAndUnknownOptional: 
 ///
 ///  - sendOptionalClass: 
@@ -6833,8 +6628,6 @@ public extension MyInterface {
 ///  - supportsJavaSerializable: 
 ///
 ///  - supportsCsharpSerializable: 
-///
-///  - supportsCppStringView: 
 ///
 ///  - supportsNullOptional: 
 public extension Initial {
@@ -6993,19 +6786,6 @@ public extension Initial {
         }
 
         return inS.setResultPromise(opStringAsync(p1: iceP_p1, current: current)) { (ostr, retVals) in
-            let (iceP_returnValue, iceP_p3) = retVals
-            ostr.write(tag: 1, value: iceP_returnValue)
-            ostr.write(tag: 3, value: iceP_p3)
-        }
-    }
-
-    func _iceD_opCustomString(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_p1: Swift.String? = try inS.read { istr in
-            let iceP_p1: Swift.String? = try istr.read(tag: 2)
-            return iceP_p1
-        }
-
-        return inS.setResultPromise(opCustomStringAsync(p1: iceP_p1, current: current)) { (ostr, retVals) in
             let (iceP_returnValue, iceP_p3) = retVals
             ostr.write(tag: 1, value: iceP_returnValue)
             ostr.write(tag: 3, value: iceP_p3)
@@ -7312,19 +7092,6 @@ public extension Initial {
         }
     }
 
-    func _iceD_opCustomIntStringDict(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_p1: IntStringDict? = try inS.read { istr in
-            let iceP_p1: IntStringDict? = try IntStringDictHelper.read(from: istr, tag: 2)
-            return iceP_p1
-        }
-
-        return inS.setResultPromise(opCustomIntStringDictAsync(p1: iceP_p1, current: current)) { (ostr, retVals) in
-            let (iceP_returnValue, iceP_p3) = retVals
-            IntStringDictHelper.write(to: ostr, tag: 1, value: iceP_returnValue)
-            IntStringDictHelper.write(to: ostr, tag: 3, value: iceP_p3)
-        }
-    }
-
     func _iceD_opClassAndUnknownOptional(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
         let iceP_p: A? = try inS.read { istr in
             var iceP_p: A?
@@ -7491,15 +7258,6 @@ public extension Initial {
         try inS.readEmptyParams()
 
         return inS.setResultPromise(supportsCsharpSerializableAsync(current: current)) { (ostr, retVals) in
-            let iceP_returnValue = retVals
-            ostr.write(iceP_returnValue)
-        }
-    }
-
-    func _iceD_supportsCppStringView(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        return inS.setResultPromise(supportsCppStringViewAsync(current: current)) { (ostr, retVals) in
             let iceP_returnValue = retVals
             ostr.write(iceP_returnValue)
         }

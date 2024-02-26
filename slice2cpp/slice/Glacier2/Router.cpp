@@ -76,19 +76,19 @@ Glacier2::RouterPrx::_iceI_getCategoryForClient(const ::std::shared_ptr<::IceInt
 /// \endcond
 
 ::std::optional<::Glacier2::SessionPrx>
-Glacier2::RouterPrx::createSession(const ::std::string& iceP_userId, const ::std::string& iceP_password, const ::Ice::Context& context) const
+Glacier2::RouterPrx::createSession(::std::string_view iceP_userId, ::std::string_view iceP_password, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::optional<SessionPrx>>(true, this, &RouterPrx::_iceI_createSession, iceP_userId, iceP_password, context).get();
 }
 
 ::std::future<::std::optional<::Glacier2::SessionPrx>>
-Glacier2::RouterPrx::createSessionAsync(const ::std::string& iceP_userId, const ::std::string& iceP_password, const ::Ice::Context& context) const
+Glacier2::RouterPrx::createSessionAsync(::std::string_view iceP_userId, ::std::string_view iceP_password, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::optional<SessionPrx>>(false, this, &RouterPrx::_iceI_createSession, iceP_userId, iceP_password, context);
 }
 
 ::std::function<void()>
-Glacier2::RouterPrx::createSessionAsync(const ::std::string& iceP_userId, const ::std::string& iceP_password,
+Glacier2::RouterPrx::createSessionAsync(::std::string_view iceP_userId, ::std::string_view iceP_password,
                                         ::std::function<void (::std::optional<::Glacier2::SessionPrx>)> response,
                                         ::std::function<void(::std::exception_ptr)> ex,
                                         ::std::function<void(bool)> sent,
@@ -99,7 +99,7 @@ Glacier2::RouterPrx::createSessionAsync(const ::std::string& iceP_userId, const 
 
 /// \cond INTERNAL
 void
-Glacier2::RouterPrx::_iceI_createSession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<SessionPrx>>>& outAsync, const ::std::string& iceP_userId, const ::std::string& iceP_password, const ::Ice::Context& context) const
+Glacier2::RouterPrx::_iceI_createSession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<SessionPrx>>>& outAsync, ::std::string_view iceP_userId, ::std::string_view iceP_password, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "createSession";
 

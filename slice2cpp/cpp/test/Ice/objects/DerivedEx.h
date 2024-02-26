@@ -50,7 +50,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    DerivedEx(const ::std::string& reason) :
+    DerivedEx(::std::string_view reason) :
         ::Ice::UserExceptionHelper<DerivedEx, BaseEx>(reason)
     {
     }

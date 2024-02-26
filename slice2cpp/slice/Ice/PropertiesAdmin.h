@@ -62,7 +62,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The property value.
      */
-    ::std::string getProperty(const ::std::string& key, const Context& context = noExplicitContext) const;
+    ::std::string getProperty(::std::string_view key, const Context& context = noExplicitContext) const;
 
     /**
      * Get a property by key. If the property is not set, an empty string is returned.
@@ -70,7 +70,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::string> getPropertyAsync(const ::std::string& key, const Context& context = noExplicitContext) const;
+    ::std::future<::std::string> getPropertyAsync(::std::string_view key, const Context& context = noExplicitContext) const;
 
     /**
      * Get a property by key. If the property is not set, an empty string is returned.
@@ -82,14 +82,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getPropertyAsync(const ::std::string& key,
+    getPropertyAsync(::std::string_view key,
                      ::std::function<void(::std::string)> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
                      const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getProperty(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::std::string&, const Context&) const;
+    void _iceI_getProperty(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, ::std::string_view, const Context&) const;
     /// \endcond
 
     /**
@@ -99,7 +99,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The matching property set.
      */
-    PropertyDict getPropertiesForPrefix(const ::std::string& prefix, const Context& context = noExplicitContext) const;
+    PropertyDict getPropertiesForPrefix(::std::string_view prefix, const Context& context = noExplicitContext) const;
 
     /**
      * Get all properties whose keys begin with <em>prefix</em>. If <em>prefix</em> is an empty string then all
@@ -108,7 +108,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<PropertyDict> getPropertiesForPrefixAsync(const ::std::string& prefix, const Context& context = noExplicitContext) const;
+    ::std::future<PropertyDict> getPropertiesForPrefixAsync(::std::string_view prefix, const Context& context = noExplicitContext) const;
 
     /**
      * Get all properties whose keys begin with <em>prefix</em>. If <em>prefix</em> is an empty string then all
@@ -121,14 +121,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getPropertiesForPrefixAsync(const ::std::string& prefix,
+    getPropertiesForPrefixAsync(::std::string_view prefix,
                                 ::std::function<void(::Ice::PropertyDict)> response,
                                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                 ::std::function<void(bool)> sent = nullptr,
                                 const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getPropertiesForPrefix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<PropertyDict>>&, const ::std::string&, const Context&) const;
+    void _iceI_getPropertiesForPrefix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<PropertyDict>>&, ::std::string_view, const Context&) const;
     /// \endcond
 
     /**

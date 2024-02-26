@@ -324,7 +324,7 @@ public:
      * @param logs The path of each log file.
      * @param description A description of this descriptor.
      */
-    CommunicatorDescriptor(const ::IceGrid::AdapterDescriptorSeq& adapters, const ::IceGrid::PropertySetDescriptor& propertySet, const ::Ice::StringSeq& logs, const ::std::string& description) :
+    CommunicatorDescriptor(const ::IceGrid::AdapterDescriptorSeq& adapters, const ::IceGrid::PropertySetDescriptor& propertySet, const ::Ice::StringSeq& logs, ::std::string_view description) :
         adapters(adapters),
         propertySet(propertySet),
         logs(logs),
@@ -431,7 +431,7 @@ public:
      * @param allocatable Specifies if the server is allocatable.
      * @param user The user account used to run the server.
      */
-    ServerDescriptor(const ::IceGrid::AdapterDescriptorSeq& adapters, const ::IceGrid::PropertySetDescriptor& propertySet, const ::Ice::StringSeq& logs, const ::std::string& description, const ::std::string& id, const ::std::string& exe, const ::std::string& iceVersion, const ::std::string& pwd, const ::Ice::StringSeq& options, const ::Ice::StringSeq& envs, const ::std::string& activation, const ::std::string& activationTimeout, const ::std::string& deactivationTimeout, bool applicationDistrib, const ::IceGrid::DistributionDescriptor& distrib, bool allocatable, const ::std::string& user) :
+    ServerDescriptor(const ::IceGrid::AdapterDescriptorSeq& adapters, const ::IceGrid::PropertySetDescriptor& propertySet, const ::Ice::StringSeq& logs, ::std::string_view description, ::std::string_view id, ::std::string_view exe, ::std::string_view iceVersion, ::std::string_view pwd, const ::Ice::StringSeq& options, const ::Ice::StringSeq& envs, ::std::string_view activation, ::std::string_view activationTimeout, ::std::string_view deactivationTimeout, bool applicationDistrib, const ::IceGrid::DistributionDescriptor& distrib, bool allocatable, ::std::string_view user) :
         Ice::ValueHelper<ServerDescriptor, CommunicatorDescriptor>(adapters, propertySet, logs, description),
         id(id),
         exe(exe),
@@ -546,7 +546,7 @@ public:
      * @param name The service name.
      * @param entry The entry point of the IceBox service.
      */
-    ServiceDescriptor(const ::IceGrid::AdapterDescriptorSeq& adapters, const ::IceGrid::PropertySetDescriptor& propertySet, const ::Ice::StringSeq& logs, const ::std::string& description, const ::std::string& name, const ::std::string& entry) :
+    ServiceDescriptor(const ::IceGrid::AdapterDescriptorSeq& adapters, const ::IceGrid::PropertySetDescriptor& propertySet, const ::Ice::StringSeq& logs, ::std::string_view description, ::std::string_view name, ::std::string_view entry) :
         Ice::ValueHelper<ServiceDescriptor, CommunicatorDescriptor>(adapters, propertySet, logs, description),
         name(name),
         entry(entry)
@@ -712,7 +712,7 @@ public:
      * @param user The user account used to run the server.
      * @param services The service instances.
      */
-    IceBoxDescriptor(const ::IceGrid::AdapterDescriptorSeq& adapters, const ::IceGrid::PropertySetDescriptor& propertySet, const ::Ice::StringSeq& logs, const ::std::string& description, const ::std::string& id, const ::std::string& exe, const ::std::string& iceVersion, const ::std::string& pwd, const ::Ice::StringSeq& options, const ::Ice::StringSeq& envs, const ::std::string& activation, const ::std::string& activationTimeout, const ::std::string& deactivationTimeout, bool applicationDistrib, const ::IceGrid::DistributionDescriptor& distrib, bool allocatable, const ::std::string& user, const ::IceGrid::ServiceInstanceDescriptorSeq& services) :
+    IceBoxDescriptor(const ::IceGrid::AdapterDescriptorSeq& adapters, const ::IceGrid::PropertySetDescriptor& propertySet, const ::Ice::StringSeq& logs, ::std::string_view description, ::std::string_view id, ::std::string_view exe, ::std::string_view iceVersion, ::std::string_view pwd, const ::Ice::StringSeq& options, const ::Ice::StringSeq& envs, ::std::string_view activation, ::std::string_view activationTimeout, ::std::string_view deactivationTimeout, bool applicationDistrib, const ::IceGrid::DistributionDescriptor& distrib, bool allocatable, ::std::string_view user, const ::IceGrid::ServiceInstanceDescriptorSeq& services) :
         Ice::ValueHelper<IceBoxDescriptor, ServerDescriptor>(adapters, propertySet, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user),
         services(services)
     {
@@ -801,7 +801,7 @@ public:
      * One-shot constructor to initialize all data members.
      * @param nReplicas The number of replicas that will be used to gather the endpoints of a replica group.
      */
-    explicit LoadBalancingPolicy(const ::std::string& nReplicas) :
+    explicit LoadBalancingPolicy(::std::string_view nReplicas) :
         nReplicas(nReplicas)
     {
     }
@@ -848,7 +848,7 @@ public:
      * One-shot constructor to initialize all data members.
      * @param nReplicas The number of replicas that will be used to gather the endpoints of a replica group.
      */
-    explicit RandomLoadBalancingPolicy(const ::std::string& nReplicas) :
+    explicit RandomLoadBalancingPolicy(::std::string_view nReplicas) :
         Ice::ValueHelper<RandomLoadBalancingPolicy, LoadBalancingPolicy>(nReplicas)
     {
     }
@@ -890,7 +890,7 @@ public:
      * One-shot constructor to initialize all data members.
      * @param nReplicas The number of replicas that will be used to gather the endpoints of a replica group.
      */
-    explicit OrderedLoadBalancingPolicy(const ::std::string& nReplicas) :
+    explicit OrderedLoadBalancingPolicy(::std::string_view nReplicas) :
         Ice::ValueHelper<OrderedLoadBalancingPolicy, LoadBalancingPolicy>(nReplicas)
     {
     }
@@ -932,7 +932,7 @@ public:
      * One-shot constructor to initialize all data members.
      * @param nReplicas The number of replicas that will be used to gather the endpoints of a replica group.
      */
-    explicit RoundRobinLoadBalancingPolicy(const ::std::string& nReplicas) :
+    explicit RoundRobinLoadBalancingPolicy(::std::string_view nReplicas) :
         Ice::ValueHelper<RoundRobinLoadBalancingPolicy, LoadBalancingPolicy>(nReplicas)
     {
     }
@@ -975,7 +975,7 @@ public:
      * @param nReplicas The number of replicas that will be used to gather the endpoints of a replica group.
      * @param loadSample The load sample to use for the load balancing.
      */
-    AdaptiveLoadBalancingPolicy(const ::std::string& nReplicas, const ::std::string& loadSample) :
+    AdaptiveLoadBalancingPolicy(::std::string_view nReplicas, ::std::string_view loadSample) :
         Ice::ValueHelper<AdaptiveLoadBalancingPolicy, LoadBalancingPolicy>(nReplicas),
         loadSample(loadSample)
     {
@@ -1118,7 +1118,7 @@ public:
      * One-shot constructor to initialize all data members.
      * @param value The value of the boxed string.
      */
-    explicit BoxedString(const ::std::string& value) :
+    explicit BoxedString(::std::string_view value) :
         value(value)
     {
     }

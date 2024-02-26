@@ -785,7 +785,6 @@
         "opMG2": [, , , , ["Test.G", true, 1], [["Test.G", true, 2]], [["Test.G", true, 3]], , , ],
         "supportsRequiredParams": [, , , , [1], , , , , ],
         "supportsJavaSerializable": [, , , , [1], , , , , ],
-        "supportsCppStringView": [, , , , [1], , , , , ],
         "supportsNullOptional": [, , , , [1], , , , , ]
     });
     exports.Test = Test;

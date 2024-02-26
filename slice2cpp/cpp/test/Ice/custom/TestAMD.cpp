@@ -774,83 +774,6 @@ Test::TestIntfPrx::_iceI_opMyByteSeq(const ::std::shared_ptr<::IceInternal::Outg
 }
 /// \endcond
 
-::std::string
-Test::TestIntfPrx::opString(const Util::string_view& iceP_inString, ::std::string& iceP_outString, const ::Ice::Context& context) const
-{
-    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::string, ::std::string>>(true, this, &TestIntfPrx::_iceI_opString, iceP_inString, context).get();
-    iceP_outString = ::std::move(::std::get<1>(_result));
-    return ::std::move(::std::get<0>(_result));
-}
-
-::std::future<::std::tuple<::std::string, ::std::string>>
-Test::TestIntfPrx::opStringAsync(const Util::string_view& iceP_inString, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::string, ::std::string>>(false, this, &TestIntfPrx::_iceI_opString, iceP_inString, context);
-}
-
-::std::function<void()>
-Test::TestIntfPrx::opStringAsync(const Util::string_view& iceP_inString,
-                                 ::std::function<void (Util::string_view, Util::string_view)> response,
-                                 ::std::function<void(::std::exception_ptr)> ex,
-                                 ::std::function<void(bool)> sent,
-                                 const ::Ice::Context& context) const
-{
-    static const ::std::string operationName = "opString";
-
-    _checkTwowayOnly(operationName);
-    ::std::function<void(::Ice::InputStream*)> read;
-    if(response)
-    {
-        read = [response](::Ice::InputStream* istr)
-        {
-            istr->startEncapsulation();
-            Util::string_view iceP_outString;
-            Util::string_view ret;
-            istr->readAll(iceP_outString, ret);
-            istr->endEncapsulation();
-            try
-            {
-                response(ret, iceP_outString);
-            }
-            catch(...)
-            {
-                throw ::std::current_exception();
-            }
-        };
-    }
-    auto outAsync = ::std::make_shared<::IceInternal::CustomLambdaOutgoing>(*this, read, ex, sent);
-
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_inString);
-        },
-        nullptr);
-    return [outAsync]() { outAsync->cancel(); };
-}
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::string, ::std::string>>>& outAsync, const Util::string_view& iceP_inString, const ::Ice::Context& context) const
-{
-    static const ::std::string operationName = "opString";
-
-    _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_inString);
-        },
-        nullptr,
-        [](::Ice::InputStream* istr)
-        {
-            ::std::tuple<::std::string, ::std::string> v;
-            istr->readAll(::std::get<1>(v), ::std::get<0>(v));
-            return v;
-        });
-}
-/// \endcond
-
 std::deque<std::string>
 Test::TestIntfPrx::opStringSeq(const std::deque<std::string>& iceP_inSeq, std::deque<std::string>& iceP_outSeq, const ::Ice::Context& context) const
 {
@@ -1812,83 +1735,6 @@ Test::TestIntfPrx::_iceI_opVarDict(const ::std::shared_ptr<::IceInternal::Outgoi
 }
 /// \endcond
 
-::Test::CustomMap<std::int32_t, std::string>
-Test::TestIntfPrx::opCustomIntStringDict(const ::std::map<std::int32_t, ::Util::string_view>& iceP_idict, ::Test::CustomMap<std::int32_t, std::string>& iceP_odict, const ::Ice::Context& context) const
-{
-    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<::Test::CustomMap<std::int32_t, std::string>, ::Test::CustomMap<std::int32_t, std::string>>>(true, this, &TestIntfPrx::_iceI_opCustomIntStringDict, iceP_idict, context).get();
-    iceP_odict = ::std::move(::std::get<1>(_result));
-    return ::std::move(::std::get<0>(_result));
-}
-
-::std::future<::std::tuple<::Test::CustomMap<std::int32_t, std::string>, ::Test::CustomMap<std::int32_t, std::string>>>
-Test::TestIntfPrx::opCustomIntStringDictAsync(const ::std::map<std::int32_t, ::Util::string_view>& iceP_idict, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<::std::tuple<::Test::CustomMap<std::int32_t, std::string>, ::Test::CustomMap<std::int32_t, std::string>>>(false, this, &TestIntfPrx::_iceI_opCustomIntStringDict, iceP_idict, context);
-}
-
-::std::function<void()>
-Test::TestIntfPrx::opCustomIntStringDictAsync(const ::std::map<std::int32_t, ::Util::string_view>& iceP_idict,
-                                              ::std::function<void (::std::map<std::int32_t, ::Util::string_view>, ::std::map<std::int32_t, ::Util::string_view>)> response,
-                                              ::std::function<void(::std::exception_ptr)> ex,
-                                              ::std::function<void(bool)> sent,
-                                              const ::Ice::Context& context) const
-{
-    static const ::std::string operationName = "opCustomIntStringDict";
-
-    _checkTwowayOnly(operationName);
-    ::std::function<void(::Ice::InputStream*)> read;
-    if(response)
-    {
-        read = [response](::Ice::InputStream* istr)
-        {
-            istr->startEncapsulation();
-            ::std::map<std::int32_t, ::Util::string_view> iceP_odict;
-            ::std::map<std::int32_t, ::Util::string_view> ret;
-            istr->readAll(iceP_odict, ret);
-            istr->endEncapsulation();
-            try
-            {
-                response(ret, iceP_odict);
-            }
-            catch(...)
-            {
-                throw ::std::current_exception();
-            }
-        };
-    }
-    auto outAsync = ::std::make_shared<::IceInternal::CustomLambdaOutgoing>(*this, read, ex, sent);
-
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_idict);
-        },
-        nullptr);
-    return [outAsync]() { outAsync->cancel(); };
-}
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_opCustomIntStringDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::CustomMap<std::int32_t, std::string>, ::Test::CustomMap<std::int32_t, std::string>>>>& outAsync, const ::std::map<std::int32_t, ::Util::string_view>& iceP_idict, const ::Ice::Context& context) const
-{
-    static const ::std::string operationName = "opCustomIntStringDict";
-
-    _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_idict);
-        },
-        nullptr,
-        [](::Ice::InputStream* istr)
-        {
-            ::std::tuple<::Test::CustomMap<std::int32_t, std::string>, ::Test::CustomMap<std::int32_t, std::string>> v;
-            istr->readAll(::std::get<1>(v), ::std::get<0>(v));
-            return v;
-        });
-}
-/// \endcond
-
 ::Test::ShortBuffer
 Test::TestIntfPrx::opShortBuffer(const ShortBuffer& iceP_inS, ShortBuffer& iceP_outS, const ::Ice::Context& context) const
 {
@@ -2439,28 +2285,6 @@ Test::TestIntf::_iceD_opMyByteSeq(::IceInternal::Incoming& inS, const ::Ice::Cur
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_opString(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
-    Util::string_view iceP_inString;
-    istr->readAll(iceP_inString);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const Util::string_view& ret, const Util::string_view& iceP_outString)
-    {
-        auto ostr = inA->startWriteParams();
-        ostr->writeAll(iceP_outString, ret);
-        inA->endWriteParams();
-        inA->completed();
-    };
-    this->opStringAsync(::std::move(iceP_inString), responseCB, inA->exception(), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
 Test::TestIntf::_iceD_opStringSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
@@ -2884,28 +2708,6 @@ Test::TestIntf::_iceD_opVarDict(::IceInternal::Incoming& inS, const ::Ice::Curre
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_opCustomIntStringDict(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
-    ::std::map<std::int32_t, ::Util::string_view> iceP_idict;
-    istr->readAll(iceP_idict);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ::std::map<std::int32_t, ::Util::string_view>& ret, const ::std::map<std::int32_t, ::Util::string_view>& iceP_odict)
-    {
-        auto ostr = inA->startWriteParams();
-        ostr->writeAll(iceP_odict, ret);
-        inA->endWriteParams();
-        inA->completed();
-    };
-    this->opCustomIntStringDictAsync(::std::move(iceP_idict), responseCB, inA->exception(), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
 Test::TestIntf::_iceD_opShortBuffer(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
@@ -2986,9 +2788,9 @@ Test::TestIntf::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Curren
 bool
 Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "opBoolArray", "opBoolBuffer", "opBoolList", "opBoolRange", "opBoolSeq", "opBufferStruct", "opByteArray", "opByteList", "opByteRange", "opByteRangeType", "opByteSeq", "opCList", "opCSeq", "opClassStruct", "opCustomIntStringDict", "opDPrxList", "opDPrxSeq", "opDoubleArray", "opEList", "opESeq", "opFixedList", "opFixedSeq", "opIntStringDict", "opMyByteSeq", "opOutArrayByteSeq", "opOutRangeByteSeq", "opShortBuffer", "opString", "opStringList", "opStringSeq", "opStringStringDictList", "opStringStringDictSeq", "opVarDict", "opVariableArray", "opVariableList", "opVariableRange", "opVariableRangeType", "opVariableSeq", "shutdown" };
+    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "opBoolArray", "opBoolBuffer", "opBoolList", "opBoolRange", "opBoolSeq", "opBufferStruct", "opByteArray", "opByteList", "opByteRange", "opByteRangeType", "opByteSeq", "opCList", "opCSeq", "opClassStruct", "opDPrxList", "opDPrxSeq", "opDoubleArray", "opEList", "opESeq", "opFixedList", "opFixedSeq", "opIntStringDict", "opMyByteSeq", "opOutArrayByteSeq", "opOutRangeByteSeq", "opShortBuffer", "opStringList", "opStringSeq", "opStringStringDictList", "opStringStringDictSeq", "opVarDict", "opVariableArray", "opVariableList", "opVariableRange", "opVariableRangeType", "opVariableSeq", "shutdown" };
 
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 43, current.operation);
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 41, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
@@ -3070,101 +2872,93 @@ Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
         }
         case 18:
         {
-            return _iceD_opCustomIntStringDict(in, current);
+            return _iceD_opDPrxList(in, current);
         }
         case 19:
         {
-            return _iceD_opDPrxList(in, current);
+            return _iceD_opDPrxSeq(in, current);
         }
         case 20:
         {
-            return _iceD_opDPrxSeq(in, current);
+            return _iceD_opDoubleArray(in, current);
         }
         case 21:
         {
-            return _iceD_opDoubleArray(in, current);
+            return _iceD_opEList(in, current);
         }
         case 22:
         {
-            return _iceD_opEList(in, current);
+            return _iceD_opESeq(in, current);
         }
         case 23:
         {
-            return _iceD_opESeq(in, current);
+            return _iceD_opFixedList(in, current);
         }
         case 24:
         {
-            return _iceD_opFixedList(in, current);
+            return _iceD_opFixedSeq(in, current);
         }
         case 25:
         {
-            return _iceD_opFixedSeq(in, current);
+            return _iceD_opIntStringDict(in, current);
         }
         case 26:
         {
-            return _iceD_opIntStringDict(in, current);
+            return _iceD_opMyByteSeq(in, current);
         }
         case 27:
         {
-            return _iceD_opMyByteSeq(in, current);
+            return _iceD_opOutArrayByteSeq(in, current);
         }
         case 28:
         {
-            return _iceD_opOutArrayByteSeq(in, current);
+            return _iceD_opOutRangeByteSeq(in, current);
         }
         case 29:
         {
-            return _iceD_opOutRangeByteSeq(in, current);
+            return _iceD_opShortBuffer(in, current);
         }
         case 30:
         {
-            return _iceD_opShortBuffer(in, current);
+            return _iceD_opStringList(in, current);
         }
         case 31:
         {
-            return _iceD_opString(in, current);
+            return _iceD_opStringSeq(in, current);
         }
         case 32:
         {
-            return _iceD_opStringList(in, current);
+            return _iceD_opStringStringDictList(in, current);
         }
         case 33:
         {
-            return _iceD_opStringSeq(in, current);
+            return _iceD_opStringStringDictSeq(in, current);
         }
         case 34:
         {
-            return _iceD_opStringStringDictList(in, current);
+            return _iceD_opVarDict(in, current);
         }
         case 35:
         {
-            return _iceD_opStringStringDictSeq(in, current);
+            return _iceD_opVariableArray(in, current);
         }
         case 36:
         {
-            return _iceD_opVarDict(in, current);
+            return _iceD_opVariableList(in, current);
         }
         case 37:
         {
-            return _iceD_opVariableArray(in, current);
+            return _iceD_opVariableRange(in, current);
         }
         case 38:
         {
-            return _iceD_opVariableList(in, current);
+            return _iceD_opVariableRangeType(in, current);
         }
         case 39:
         {
-            return _iceD_opVariableRange(in, current);
-        }
-        case 40:
-        {
-            return _iceD_opVariableRangeType(in, current);
-        }
-        case 41:
-        {
             return _iceD_opVariableSeq(in, current);
         }
-        case 42:
+        case 40:
         {
             return _iceD_shutdown(in, current);
         }

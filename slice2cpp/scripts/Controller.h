@@ -106,19 +106,19 @@ public:
     void _iceI_stopServerSide(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, bool, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::string runClientSide(const ::std::string& host, const ::std::shared_ptr<Config>& config, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::string runClientSide(::std::string_view host, const ::std::shared_ptr<Config>& config, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> runClientSideAsync(const ::std::string& host, const ::std::shared_ptr<Config>& config, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::string> runClientSideAsync(::std::string_view host, const ::std::shared_ptr<Config>& config, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    runClientSideAsync(const ::std::string& host, const ::std::shared_ptr<Config>& config,
+    runClientSideAsync(::std::string_view host, const ::std::shared_ptr<Config>& config,
                        ::std::function<void(::std::string)> response,
                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
                        ::std::function<void(bool)> sent = nullptr,
                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_runClientSide(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::std::string&, const ::std::shared_ptr<Config>&, const ::Ice::Context&) const;
+    void _iceI_runClientSide(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, ::std::string_view, const ::std::shared_ptr<Config>&, const ::Ice::Context&) const;
     /// \endcond
 
     void destroy(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -187,19 +187,19 @@ class ControllerPrx : public ::Ice::Proxy<ControllerPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    ::std::optional<TestCasePrx> runTestCase(const ::std::string& mapping, const ::std::string& testsuite, const ::std::string& testcase, const ::std::string& cross, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<TestCasePrx> runTestCase(::std::string_view mapping, ::std::string_view testsuite, ::std::string_view testcase, ::std::string_view cross, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::optional<TestCasePrx>> runTestCaseAsync(const ::std::string& mapping, const ::std::string& testsuite, const ::std::string& testcase, const ::std::string& cross, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::optional<TestCasePrx>> runTestCaseAsync(::std::string_view mapping, ::std::string_view testsuite, ::std::string_view testcase, ::std::string_view cross, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    runTestCaseAsync(const ::std::string& mapping, const ::std::string& testsuite, const ::std::string& testcase, const ::std::string& cross,
+    runTestCaseAsync(::std::string_view mapping, ::std::string_view testsuite, ::std::string_view testcase, ::std::string_view cross,
                      ::std::function<void(::std::optional<::Test::Common::TestCasePrx>)> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_runTestCase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<TestCasePrx>>>&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_runTestCase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<TestCasePrx>>>&, ::std::string_view, ::std::string_view, ::std::string_view, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     ::std::shared_ptr<OptionOverrides> getOptionOverrides(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -216,34 +216,34 @@ public:
     void _iceI_getOptionOverrides(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<OptionOverrides>>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    StringSeq getTestSuites(const ::std::string& mapping, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    StringSeq getTestSuites(::std::string_view mapping, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<StringSeq> getTestSuitesAsync(const ::std::string& mapping, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<StringSeq> getTestSuitesAsync(::std::string_view mapping, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    getTestSuitesAsync(const ::std::string& mapping,
+    getTestSuitesAsync(::std::string_view mapping,
                        ::std::function<void(::Test::Common::StringSeq)> response,
                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
                        ::std::function<void(bool)> sent = nullptr,
                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getTestSuites(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<StringSeq>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_getTestSuites(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<StringSeq>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::string getHost(const ::std::string& protocol, bool ipv6, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::string getHost(::std::string_view protocol, bool ipv6, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> getHostAsync(const ::std::string& protocol, bool ipv6, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::string> getHostAsync(::std::string_view protocol, bool ipv6, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    getHostAsync(const ::std::string& protocol, bool ipv6,
+    getHostAsync(::std::string_view protocol, bool ipv6,
                  ::std::function<void(::std::string)> response,
                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
                  ::std::function<void(bool)> sent = nullptr,
                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getHost(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::std::string&, bool, const ::Ice::Context&) const;
+    void _iceI_getHost(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, ::std::string_view, bool, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -394,34 +394,34 @@ class ProcessControllerPrx : public ::Ice::Proxy<ProcessControllerPrx, ::Ice::Ob
 {
 public:
 
-    ::std::optional<ProcessPrx> start(const ::std::string& testsuite, const ::std::string& exe, const StringSeq& args, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<ProcessPrx> start(::std::string_view testsuite, ::std::string_view exe, const StringSeq& args, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::optional<ProcessPrx>> startAsync(const ::std::string& testsuite, const ::std::string& exe, const StringSeq& args, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::optional<ProcessPrx>> startAsync(::std::string_view testsuite, ::std::string_view exe, const StringSeq& args, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    startAsync(const ::std::string& testsuite, const ::std::string& exe, const StringSeq& args,
+    startAsync(::std::string_view testsuite, ::std::string_view exe, const StringSeq& args,
                ::std::function<void(::std::optional<::Test::Common::ProcessPrx>)> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_start(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<ProcessPrx>>>&, const ::std::string&, const ::std::string&, const StringSeq&, const ::Ice::Context&) const;
+    void _iceI_start(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<ProcessPrx>>>&, ::std::string_view, ::std::string_view, const StringSeq&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::string getHost(const ::std::string& protocol, bool ipv6, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::string getHost(::std::string_view protocol, bool ipv6, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> getHostAsync(const ::std::string& protocol, bool ipv6, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::string> getHostAsync(::std::string_view protocol, bool ipv6, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    getHostAsync(const ::std::string& protocol, bool ipv6,
+    getHostAsync(::std::string_view protocol, bool ipv6,
                  ::std::function<void(::std::string)> response,
                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
                  ::std::function<void(bool)> sent = nullptr,
                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getHost(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::std::string&, bool, const ::Ice::Context&) const;
+    void _iceI_getHost(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, ::std::string_view, bool, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -476,19 +476,19 @@ class BrowserProcessControllerPrx : public ::Ice::Proxy<BrowserProcessController
 {
 public:
 
-    void redirect(const ::std::string& url, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void redirect(::std::string_view url, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> redirectAsync(const ::std::string& url, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> redirectAsync(::std::string_view url, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    redirectAsync(const ::std::string& url,
+    redirectAsync(::std::string_view url,
                   ::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_redirect(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_redirect(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -740,7 +740,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    TestCaseNotExistException(const ::std::string& reason) :
+    TestCaseNotExistException(::std::string_view reason) :
         reason(reason)
     {
     }
@@ -776,7 +776,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    TestCaseFailedException(const ::std::string& output) :
+    TestCaseFailedException(::std::string_view output) :
         output(output)
     {
     }
@@ -812,7 +812,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    ProcessFailedException(const ::std::string& reason) :
+    ProcessFailedException(::std::string_view reason) :
         reason(reason)
     {
     }

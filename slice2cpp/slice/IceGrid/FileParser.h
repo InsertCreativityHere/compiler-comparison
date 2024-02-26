@@ -66,7 +66,7 @@ public:
      * @return The application descriptor.
      * @throws IceGrid::ParseException Raised if an error occurred during parsing.
      */
-    ApplicationDescriptor parse(const ::std::string& xmlFile, const ::std::optional<AdminPrx>& adminProxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ApplicationDescriptor parse(::std::string_view xmlFile, const ::std::optional<AdminPrx>& adminProxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Parse a file.
@@ -75,7 +75,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<ApplicationDescriptor> parseAsync(const ::std::string& xmlFile, const ::std::optional<AdminPrx>& adminProxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<ApplicationDescriptor> parseAsync(::std::string_view xmlFile, const ::std::optional<AdminPrx>& adminProxy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Parse a file.
@@ -88,14 +88,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    parseAsync(const ::std::string& xmlFile, const ::std::optional<AdminPrx>& adminProxy,
+    parseAsync(::std::string_view xmlFile, const ::std::optional<AdminPrx>& adminProxy,
                ::std::function<void(::IceGrid::ApplicationDescriptor)> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_parse(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ApplicationDescriptor>>&, const ::std::string&, const ::std::optional<AdminPrx>&, const ::Ice::Context&) const;
+    void _iceI_parse(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ApplicationDescriptor>>&, ::std::string_view, const ::std::optional<AdminPrx>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -169,7 +169,7 @@ public:
      * One-shot constructor to initialize all data members.
      * @param reason The reason for the failure.
      */
-    ParseException(const ::std::string& reason) :
+    ParseException(::std::string_view reason) :
         reason(reason)
     {
     }

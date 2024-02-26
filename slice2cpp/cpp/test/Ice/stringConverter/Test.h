@@ -42,34 +42,34 @@ class MyObjectPrx : public ::Ice::Proxy<MyObjectPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    ::std::wstring widen(const ::std::string& msg, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::wstring widen(::std::string_view msg, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::wstring> widenAsync(const ::std::string& msg, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::wstring> widenAsync(::std::string_view msg, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    widenAsync(const ::std::string& msg,
+    widenAsync(::std::string_view msg,
                ::std::function<void(::std::wstring)> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_widen(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::wstring>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_widen(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::wstring>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::string narrow(const ::std::wstring& wmsg, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::string narrow(::std::wstring_view wmsg, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> narrowAsync(const ::std::wstring& wmsg, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::string> narrowAsync(::std::wstring_view wmsg, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    narrowAsync(const ::std::wstring& wmsg,
+    narrowAsync(::std::wstring_view wmsg,
                 ::std::function<void(::std::string)> response,
                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                 ::std::function<void(bool)> sent = nullptr,
                 const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_narrow(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::std::wstring&, const ::Ice::Context&) const;
+    void _iceI_narrow(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, ::std::wstring_view, const ::Ice::Context&) const;
     /// \endcond
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;

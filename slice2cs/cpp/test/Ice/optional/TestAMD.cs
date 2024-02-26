@@ -2514,9 +2514,6 @@ namespace Test
     public delegate void Callback_Initial_opString(global::Ice.Optional<string> ret, global::Ice.Optional<string> p3);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Initial_opCustomString(global::Ice.Optional<string> ret, global::Ice.Optional<string> p3);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public delegate void Callback_Initial_opMyEnum(global::Ice.Optional<MyEnum> ret, global::Ice.Optional<MyEnum> p3);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -2586,9 +2583,6 @@ namespace Test
     public delegate void Callback_Initial_opIntOneOptionalDict(global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, OneOptional>> ret, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, OneOptional>> p3);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Initial_opCustomIntStringDict(global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, string>> ret, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, string>> p3);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public delegate void Callback_Initial_opClassAndUnknownOptional();
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -2635,9 +2629,6 @@ namespace Test
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public delegate void Callback_Initial_supportsCsharpSerializable(bool ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Initial_supportsCppStringView(bool ret);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public delegate void Callback_Initial_supportsNullOptional(bool ret);
@@ -2732,18 +2723,6 @@ namespace Test
     public struct Initial_OpStringResult
     {
         public Initial_OpStringResult(global::Ice.Optional<string> returnValue, global::Ice.Optional<string> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public global::Ice.Optional<string> returnValue;
-        public global::Ice.Optional<string> p3;
-    }
-
-    public struct Initial_OpCustomStringResult
-    {
-        public Initial_OpCustomStringResult(global::Ice.Optional<string> returnValue, global::Ice.Optional<string> p3)
         {
             this.returnValue = returnValue;
             this.p3 = p3;
@@ -3027,18 +3006,6 @@ namespace Test
 
         public global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, OneOptional>> returnValue;
         public global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, OneOptional>> p3;
-    }
-
-    public struct Initial_OpCustomIntStringDictResult
-    {
-        public Initial_OpCustomIntStringDictResult(global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, string>> returnValue, global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, string>> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, string>> returnValue;
-        public global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, string>> p3;
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -3370,10 +3337,6 @@ namespace Test
 
         global::System.Threading.Tasks.Task<Initial_OpStringResult> opStringAsync(global::Ice.Optional<string> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        global::Ice.Optional<string> opCustomString(global::Ice.Optional<string> p1, out global::Ice.Optional<string> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::System.Threading.Tasks.Task<Initial_OpCustomStringResult> opCustomStringAsync(global::Ice.Optional<string> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
         global::Ice.Optional<MyEnum> opMyEnum(global::Ice.Optional<MyEnum> p1, out global::Ice.Optional<MyEnum> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task<Initial_OpMyEnumResult> opMyEnumAsync(global::Ice.Optional<MyEnum> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
@@ -3466,10 +3429,6 @@ namespace Test
 
         global::System.Threading.Tasks.Task<Initial_OpIntOneOptionalDictResult> opIntOneOptionalDictAsync(global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, OneOptional>> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, string>> opCustomIntStringDict(global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, string>> p1, out global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, string>> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::System.Threading.Tasks.Task<Initial_OpCustomIntStringDictResult> opCustomIntStringDictAsync(global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, string>> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
         void opClassAndUnknownOptional(A p, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task opClassAndUnknownOptionalAsync(A p, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
@@ -3534,10 +3493,6 @@ namespace Test
 
         global::System.Threading.Tasks.Task<bool> supportsCsharpSerializableAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        bool supportsCppStringView(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::System.Threading.Tasks.Task<bool> supportsCppStringViewAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
         bool supportsNullOptional(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task<bool> supportsNullOptionalAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
@@ -3594,9 +3549,6 @@ namespace Test
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         global::System.Threading.Tasks.Task<Initial_OpStringResult> opStringAsync(global::Ice.Optional<string> p1, global::Ice.Current current = null);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<Initial_OpCustomStringResult> opCustomStringAsync(global::Ice.Optional<string> p1, global::Ice.Current current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         global::System.Threading.Tasks.Task<Initial_OpMyEnumResult> opMyEnumAsync(global::Ice.Optional<MyEnum> p1, global::Ice.Current current = null);
@@ -3668,9 +3620,6 @@ namespace Test
         global::System.Threading.Tasks.Task<Initial_OpIntOneOptionalDictResult> opIntOneOptionalDictAsync(global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, OneOptional>> p1, global::Ice.Current current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<Initial_OpCustomIntStringDictResult> opCustomIntStringDictAsync(global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, string>> p1, global::Ice.Current current = null);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         global::System.Threading.Tasks.Task opClassAndUnknownOptionalAsync(A p, global::Ice.Current current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -3717,9 +3666,6 @@ namespace Test
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         global::System.Threading.Tasks.Task<bool> supportsCsharpSerializableAsync(global::Ice.Current current = null);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<bool> supportsCppStringViewAsync(global::Ice.Current current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         global::System.Threading.Tasks.Task<bool> supportsNullOptionalAsync(global::Ice.Current current = null);
@@ -4848,20 +4794,6 @@ namespace Test
             }
         }
 
-        public global::Ice.Optional<string> opCustomString(global::Ice.Optional<string> p1, out global::Ice.Optional<string> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            try
-            {
-                var result_ = _iceI_opCustomStringAsync(p1, context, null, global::System.Threading.CancellationToken.None, true).Result;
-                p3 = result_.p3;
-                return result_.returnValue;
-            }
-            catch(global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException;
-            }
-        }
-
         public global::Ice.Optional<MyEnum> opMyEnum(global::Ice.Optional<MyEnum> p1, out global::Ice.Optional<MyEnum> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
             try
@@ -5184,20 +5116,6 @@ namespace Test
             }
         }
 
-        public global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, string>> opCustomIntStringDict(global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, string>> p1, out global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, string>> p3, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            try
-            {
-                var result_ = _iceI_opCustomIntStringDictAsync(p1, context, null, global::System.Threading.CancellationToken.None, true).Result;
-                p3 = result_.p3;
-                return result_.returnValue;
-            }
-            catch(global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException;
-            }
-        }
-
         public void opClassAndUnknownOptional(A p, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
             try
@@ -5391,18 +5309,6 @@ namespace Test
             try
             {
                 return _iceI_supportsCsharpSerializableAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
-            }
-            catch(global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException;
-            }
-        }
-
-        public bool supportsCppStringView(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            try
-            {
-                return _iceI_supportsCppStringViewAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
             catch(global::System.AggregateException ex_)
             {
@@ -5929,43 +5835,6 @@ namespace Test
                 read: (global::Ice.InputStream istr) =>
                 {
                     Initial_OpStringResult ret = new Initial_OpStringResult();
-                    ret.returnValue = istr.readString(1);
-                    ret.p3 = istr.readString(3);
-                    return ret;
-                });
-        }
-
-        public global::System.Threading.Tasks.Task<Initial_OpCustomStringResult> opCustomStringAsync(global::Ice.Optional<string> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-        {
-            return _iceI_opCustomStringAsync(p1, context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task<Initial_OpCustomStringResult> _iceI_opCustomStringAsync(global::Ice.Optional<string> iceP_p1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            iceCheckTwowayOnly(_opCustomString_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<Initial_OpCustomStringResult>(progress, cancel);
-            _iceI_opCustomString(iceP_p1, context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _opCustomString_name = "opCustomString";
-
-        private void _iceI_opCustomString(global::Ice.Optional<string> iceP_p1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<Initial_OpCustomStringResult>(completed);
-            outAsync.invoke(
-                _opCustomString_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
-                context,
-                synchronous,
-                write: (global::Ice.OutputStream ostr) =>
-                {
-                    ostr.writeString(2, iceP_p1);
-                },
-                read: (global::Ice.InputStream istr) =>
-                {
-                    Initial_OpCustomStringResult ret = new Initial_OpCustomStringResult();
                     ret.returnValue = istr.readString(1);
                     ret.p3 = istr.readString(3);
                     return ret;
@@ -7305,68 +7174,6 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<Initial_OpCustomIntStringDictResult> opCustomIntStringDictAsync(global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, string>> p1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-        {
-            return _iceI_opCustomIntStringDictAsync(p1, context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task<Initial_OpCustomIntStringDictResult> _iceI_opCustomIntStringDictAsync(global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, string>> iceP_p1, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            iceCheckTwowayOnly(_opCustomIntStringDict_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<Initial_OpCustomIntStringDictResult>(progress, cancel);
-            _iceI_opCustomIntStringDict(iceP_p1, context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _opCustomIntStringDict_name = "opCustomIntStringDict";
-
-        private void _iceI_opCustomIntStringDict(global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, string>> iceP_p1, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<Initial_OpCustomIntStringDictResult>(completed);
-            outAsync.invoke(
-                _opCustomIntStringDict_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
-                context,
-                synchronous,
-                write: (global::Ice.OutputStream ostr) =>
-                {
-                    if(iceP_p1.HasValue && ostr.writeOptional(2, global::Ice.OptionalFormat.FSize))
-                    {
-                        int pos = ostr.startSize();
-                        IntStringDictHelper.write(ostr, iceP_p1.Value);
-                        ostr.endSize(pos);
-                    }
-                },
-                read: (global::Ice.InputStream istr) =>
-                {
-                    Initial_OpCustomIntStringDictResult ret = new Initial_OpCustomIntStringDictResult();
-                    if(istr.readOptional(1, global::Ice.OptionalFormat.FSize))
-                    {
-                        istr.skip(4);
-                        global::System.Collections.Generic.Dictionary<int, string> tmpVal = new global::System.Collections.Generic.Dictionary<int, string>();
-                        tmpVal = IntStringDictHelper.read(istr);
-                        ret.returnValue = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, string>>(tmpVal);
-                    }
-                    else
-                    {
-                        ret.returnValue = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, string>>();
-                    }
-                    if(istr.readOptional(3, global::Ice.OptionalFormat.FSize))
-                    {
-                        istr.skip(4);
-                        global::System.Collections.Generic.Dictionary<int, string> tmpVal = new global::System.Collections.Generic.Dictionary<int, string>();
-                        tmpVal = IntStringDictHelper.read(istr);
-                        ret.p3 = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, string>>(tmpVal);
-                    }
-                    else
-                    {
-                        ret.p3 = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, string>>();
-                    }
-                    return ret;
-                });
-        }
-
         public global::System.Threading.Tasks.Task opClassAndUnknownOptionalAsync(A p, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
         {
             return _iceI_opClassAndUnknownOptionalAsync(p, context, progress, cancel, false);
@@ -7997,38 +7804,6 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<bool> supportsCppStringViewAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-        {
-            return _iceI_supportsCppStringViewAsync(context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task<bool> _iceI_supportsCppStringViewAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            iceCheckTwowayOnly(_supportsCppStringView_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<bool>(progress, cancel);
-            _iceI_supportsCppStringView(context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _supportsCppStringView_name = "supportsCppStringView";
-
-        private void _iceI_supportsCppStringView(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<bool>(completed);
-            outAsync.invoke(
-                _supportsCppStringView_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
-                context,
-                synchronous,
-                read: (global::Ice.InputStream istr) =>
-                {
-                    bool ret;
-                    ret = istr.readBool();
-                    return ret;
-                });
-        }
-
         public global::System.Threading.Tasks.Task<bool> supportsNullOptionalAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
         {
             return _iceI_supportsNullOptionalAsync(context, progress, cancel, false);
@@ -8337,8 +8112,6 @@ namespace Test
 
         public abstract global::System.Threading.Tasks.Task<Initial_OpStringResult> opStringAsync(global::Ice.Optional<string> p1, global::Ice.Current current = null);
 
-        public abstract global::System.Threading.Tasks.Task<Initial_OpCustomStringResult> opCustomStringAsync(global::Ice.Optional<string> p1, global::Ice.Current current = null);
-
         public abstract global::System.Threading.Tasks.Task<Initial_OpMyEnumResult> opMyEnumAsync(global::Ice.Optional<MyEnum> p1, global::Ice.Current current = null);
 
         public abstract global::System.Threading.Tasks.Task<Initial_OpSmallStructResult> opSmallStructAsync(global::Ice.Optional<SmallStruct> p1, global::Ice.Current current = null);
@@ -8385,8 +8158,6 @@ namespace Test
 
         public abstract global::System.Threading.Tasks.Task<Initial_OpIntOneOptionalDictResult> opIntOneOptionalDictAsync(global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, OneOptional>> p1, global::Ice.Current current = null);
 
-        public abstract global::System.Threading.Tasks.Task<Initial_OpCustomIntStringDictResult> opCustomIntStringDictAsync(global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, string>> p1, global::Ice.Current current = null);
-
         public abstract global::System.Threading.Tasks.Task opClassAndUnknownOptionalAsync(A p, global::Ice.Current current = null);
 
         public abstract global::System.Threading.Tasks.Task sendOptionalClassAsync(bool req, global::Ice.Optional<OneOptional> o, global::Ice.Current current = null);
@@ -8418,8 +8189,6 @@ namespace Test
         public abstract global::System.Threading.Tasks.Task<bool> supportsJavaSerializableAsync(global::Ice.Current current = null);
 
         public abstract global::System.Threading.Tasks.Task<bool> supportsCsharpSerializableAsync(global::Ice.Current current = null);
-
-        public abstract global::System.Threading.Tasks.Task<bool> supportsCppStringViewAsync(global::Ice.Current current = null);
 
         public abstract global::System.Threading.Tasks.Task<bool> supportsNullOptionalAsync(global::Ice.Current current = null);
 
@@ -8662,23 +8431,6 @@ namespace Test
             iceP_p1 = istr.readString(2);
             inS.endReadParams();
             return inS.setResultTask<Initial_OpStringResult>(obj.opStringAsync(iceP_p1, current),
-                (ostr, ret) =>
-                {
-                    ostr.writeString(1, ret.returnValue);
-                    ostr.writeString(3, ret.p3);
-                });
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opCustomString(Initial obj, global::IceInternal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            global::Ice.Optional<string> iceP_p1;
-            iceP_p1 = istr.readString(2);
-            inS.endReadParams();
-            return inS.setResultTask<Initial_OpCustomStringResult>(obj.opCustomStringAsync(iceP_p1, current),
                 (ostr, ret) =>
                 {
                     ostr.writeString(1, ret.returnValue);
@@ -9401,43 +9153,6 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opCustomIntStringDict(Initial obj, global::IceInternal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, string>> iceP_p1;
-            if(istr.readOptional(2, global::Ice.OptionalFormat.FSize))
-            {
-                istr.skip(4);
-                global::System.Collections.Generic.Dictionary<int, string> tmpVal = new global::System.Collections.Generic.Dictionary<int, string>();
-                tmpVal = IntStringDictHelper.read(istr);
-                iceP_p1 = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, string>>(tmpVal);
-            }
-            else
-            {
-                iceP_p1 = new global::Ice.Optional<global::System.Collections.Generic.Dictionary<int, string>>();
-            }
-            inS.endReadParams();
-            return inS.setResultTask<Initial_OpCustomIntStringDictResult>(obj.opCustomIntStringDictAsync(iceP_p1, current),
-                (ostr, ret) =>
-                {
-                    if(ret.returnValue.HasValue && ostr.writeOptional(1, global::Ice.OptionalFormat.FSize))
-                    {
-                        int pos = ostr.startSize();
-                        IntStringDictHelper.write(ostr, ret.returnValue.Value);
-                        ostr.endSize(pos);
-                    }
-                    if(ret.p3.HasValue && ostr.writeOptional(3, global::Ice.OptionalFormat.FSize))
-                    {
-                        int pos = ostr.startSize();
-                        IntStringDictHelper.write(ostr, ret.p3.Value);
-                        ostr.endSize(pos);
-                    }
-                });
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
         iceD_opClassAndUnknownOptional(Initial obj, global::IceInternal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
@@ -9663,19 +9378,6 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_supportsCppStringView(Initial obj, global::IceInternal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            return inS.setResultTask<bool>(obj.supportsCppStringViewAsync(current),
-                (ostr, ret) =>
-                {
-                    ostr.writeBool(ret);
-                });
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
         iceD_supportsNullOptional(Initial obj, global::IceInternal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
@@ -9698,8 +9400,6 @@ namespace Test
             "opByte",
             "opByteSeq",
             "opClassAndUnknownOptional",
-            "opCustomIntStringDict",
-            "opCustomString",
             "opDerivedException",
             "opDouble",
             "opDoubleSeq",
@@ -9744,7 +9444,6 @@ namespace Test
             "returnOptionalClass",
             "sendOptionalClass",
             "shutdown",
-            "supportsCppStringView",
             "supportsCsharpSerializable",
             "supportsJavaSerializable",
             "supportsNullOptional",
@@ -9800,205 +9499,193 @@ namespace Test
                 }
                 case 9:
                 {
-                    return iceD_opCustomIntStringDict(this, inS, current);
+                    return iceD_opDerivedException(this, inS, current);
                 }
                 case 10:
                 {
-                    return iceD_opCustomString(this, inS, current);
+                    return iceD_opDouble(this, inS, current);
                 }
                 case 11:
                 {
-                    return iceD_opDerivedException(this, inS, current);
+                    return iceD_opDoubleSeq(this, inS, current);
                 }
                 case 12:
                 {
-                    return iceD_opDouble(this, inS, current);
+                    return iceD_opFixedStruct(this, inS, current);
                 }
                 case 13:
                 {
-                    return iceD_opDoubleSeq(this, inS, current);
+                    return iceD_opFixedStructList(this, inS, current);
                 }
                 case 14:
                 {
-                    return iceD_opFixedStruct(this, inS, current);
+                    return iceD_opFixedStructSeq(this, inS, current);
                 }
                 case 15:
                 {
-                    return iceD_opFixedStructList(this, inS, current);
+                    return iceD_opFloat(this, inS, current);
                 }
                 case 16:
                 {
-                    return iceD_opFixedStructSeq(this, inS, current);
+                    return iceD_opFloatSeq(this, inS, current);
                 }
                 case 17:
                 {
-                    return iceD_opFloat(this, inS, current);
+                    return iceD_opG(this, inS, current);
                 }
                 case 18:
                 {
-                    return iceD_opFloatSeq(this, inS, current);
+                    return iceD_opInt(this, inS, current);
                 }
                 case 19:
                 {
-                    return iceD_opG(this, inS, current);
+                    return iceD_opIntIntDict(this, inS, current);
                 }
                 case 20:
                 {
-                    return iceD_opInt(this, inS, current);
+                    return iceD_opIntOneOptionalDict(this, inS, current);
                 }
                 case 21:
                 {
-                    return iceD_opIntIntDict(this, inS, current);
+                    return iceD_opIntSeq(this, inS, current);
                 }
                 case 22:
                 {
-                    return iceD_opIntOneOptionalDict(this, inS, current);
+                    return iceD_opLong(this, inS, current);
                 }
                 case 23:
                 {
-                    return iceD_opIntSeq(this, inS, current);
+                    return iceD_opLongSeq(this, inS, current);
                 }
                 case 24:
                 {
-                    return iceD_opLong(this, inS, current);
+                    return iceD_opMDict1(this, inS, current);
                 }
                 case 25:
                 {
-                    return iceD_opLongSeq(this, inS, current);
+                    return iceD_opMDict2(this, inS, current);
                 }
                 case 26:
                 {
-                    return iceD_opMDict1(this, inS, current);
+                    return iceD_opMG1(this, inS, current);
                 }
                 case 27:
                 {
-                    return iceD_opMDict2(this, inS, current);
+                    return iceD_opMG2(this, inS, current);
                 }
                 case 28:
                 {
-                    return iceD_opMG1(this, inS, current);
+                    return iceD_opMSeq1(this, inS, current);
                 }
                 case 29:
                 {
-                    return iceD_opMG2(this, inS, current);
+                    return iceD_opMSeq2(this, inS, current);
                 }
                 case 30:
                 {
-                    return iceD_opMSeq1(this, inS, current);
+                    return iceD_opMStruct1(this, inS, current);
                 }
                 case 31:
                 {
-                    return iceD_opMSeq2(this, inS, current);
+                    return iceD_opMStruct2(this, inS, current);
                 }
                 case 32:
                 {
-                    return iceD_opMStruct1(this, inS, current);
+                    return iceD_opMyEnum(this, inS, current);
                 }
                 case 33:
                 {
-                    return iceD_opMStruct2(this, inS, current);
+                    return iceD_opMyInterfaceProxy(this, inS, current);
                 }
                 case 34:
                 {
-                    return iceD_opMyEnum(this, inS, current);
+                    return iceD_opOneOptional(this, inS, current);
                 }
                 case 35:
                 {
-                    return iceD_opMyInterfaceProxy(this, inS, current);
+                    return iceD_opOptionalException(this, inS, current);
                 }
                 case 36:
                 {
-                    return iceD_opOneOptional(this, inS, current);
+                    return iceD_opRequiredException(this, inS, current);
                 }
                 case 37:
                 {
-                    return iceD_opOptionalException(this, inS, current);
+                    return iceD_opSerializable(this, inS, current);
                 }
                 case 38:
                 {
-                    return iceD_opRequiredException(this, inS, current);
+                    return iceD_opShort(this, inS, current);
                 }
                 case 39:
                 {
-                    return iceD_opSerializable(this, inS, current);
+                    return iceD_opShortSeq(this, inS, current);
                 }
                 case 40:
                 {
-                    return iceD_opShort(this, inS, current);
+                    return iceD_opSmallStruct(this, inS, current);
                 }
                 case 41:
                 {
-                    return iceD_opShortSeq(this, inS, current);
+                    return iceD_opSmallStructList(this, inS, current);
                 }
                 case 42:
                 {
-                    return iceD_opSmallStruct(this, inS, current);
+                    return iceD_opSmallStructSeq(this, inS, current);
                 }
                 case 43:
                 {
-                    return iceD_opSmallStructList(this, inS, current);
+                    return iceD_opString(this, inS, current);
                 }
                 case 44:
                 {
-                    return iceD_opSmallStructSeq(this, inS, current);
+                    return iceD_opStringIntDict(this, inS, current);
                 }
                 case 45:
                 {
-                    return iceD_opString(this, inS, current);
+                    return iceD_opStringSeq(this, inS, current);
                 }
                 case 46:
                 {
-                    return iceD_opStringIntDict(this, inS, current);
+                    return iceD_opVarStruct(this, inS, current);
                 }
                 case 47:
                 {
-                    return iceD_opStringSeq(this, inS, current);
+                    return iceD_opVarStructSeq(this, inS, current);
                 }
                 case 48:
                 {
-                    return iceD_opVarStruct(this, inS, current);
+                    return iceD_opVoid(this, inS, current);
                 }
                 case 49:
                 {
-                    return iceD_opVarStructSeq(this, inS, current);
+                    return iceD_pingPong(this, inS, current);
                 }
                 case 50:
                 {
-                    return iceD_opVoid(this, inS, current);
+                    return iceD_returnOptionalClass(this, inS, current);
                 }
                 case 51:
                 {
-                    return iceD_pingPong(this, inS, current);
+                    return iceD_sendOptionalClass(this, inS, current);
                 }
                 case 52:
                 {
-                    return iceD_returnOptionalClass(this, inS, current);
+                    return iceD_shutdown(this, inS, current);
                 }
                 case 53:
                 {
-                    return iceD_sendOptionalClass(this, inS, current);
+                    return iceD_supportsCsharpSerializable(this, inS, current);
                 }
                 case 54:
                 {
-                    return iceD_shutdown(this, inS, current);
+                    return iceD_supportsJavaSerializable(this, inS, current);
                 }
                 case 55:
                 {
-                    return iceD_supportsCppStringView(this, inS, current);
-                }
-                case 56:
-                {
-                    return iceD_supportsCsharpSerializable(this, inS, current);
-                }
-                case 57:
-                {
-                    return iceD_supportsJavaSerializable(this, inS, current);
-                }
-                case 58:
-                {
                     return iceD_supportsNullOptional(this, inS, current);
                 }
-                case 59:
+                case 56:
                 {
                     return iceD_supportsRequiredParams(this, inS, current);
                 }

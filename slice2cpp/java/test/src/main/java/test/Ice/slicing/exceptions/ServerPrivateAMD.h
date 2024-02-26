@@ -551,7 +551,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Base(const ::std::string& b) :
+    Base(::std::string_view b) :
         b(b)
     {
     }
@@ -591,7 +591,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    KnownDerived(const ::std::string& b, const ::std::string& kd) :
+    KnownDerived(::std::string_view b, ::std::string_view kd) :
         ::Ice::UserExceptionHelper<KnownDerived, Base>(b),
         kd(kd)
     {
@@ -628,7 +628,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    KnownIntermediate(const ::std::string& b, const ::std::string& ki) :
+    KnownIntermediate(::std::string_view b, ::std::string_view ki) :
         ::Ice::UserExceptionHelper<KnownIntermediate, Base>(b),
         ki(ki)
     {
@@ -665,7 +665,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    KnownMostDerived(const ::std::string& b, const ::std::string& ki, const ::std::string& kmd) :
+    KnownMostDerived(::std::string_view b, ::std::string_view ki, ::std::string_view kmd) :
         ::Ice::UserExceptionHelper<KnownMostDerived, KnownIntermediate>(b, ki),
         kmd(kmd)
     {
@@ -702,7 +702,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    KnownPreserved(const ::std::string& b, const ::std::string& kp) :
+    KnownPreserved(::std::string_view b, ::std::string_view kp) :
         ::Ice::UserExceptionHelper<KnownPreserved, Base>(b),
         kp(kp)
     {
@@ -754,7 +754,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    KnownPreservedDerived(const ::std::string& b, const ::std::string& kp, const ::std::string& kpd) :
+    KnownPreservedDerived(::std::string_view b, ::std::string_view kp, ::std::string_view kpd) :
         ::Ice::UserExceptionHelper<KnownPreservedDerived, KnownPreserved>(b, kp),
         kpd(kpd)
     {
@@ -794,7 +794,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit BaseClass(const ::std::string& bc) :
+    explicit BaseClass(::std::string_view bc) :
         bc(bc)
     {
     }
@@ -849,7 +849,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    UnknownDerived(const ::std::string& b, const ::std::string& ud) :
+    UnknownDerived(::std::string_view b, ::std::string_view ud) :
         ::Ice::UserExceptionHelper<UnknownDerived, Base>(b),
         ud(ud)
     {
@@ -886,7 +886,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    UnknownIntermediate(const ::std::string& b, const ::std::string& ui) :
+    UnknownIntermediate(::std::string_view b, ::std::string_view ui) :
         ::Ice::UserExceptionHelper<UnknownIntermediate, Base>(b),
         ui(ui)
     {
@@ -923,7 +923,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    UnknownMostDerived1(const ::std::string& b, const ::std::string& ki, const ::std::string& umd1) :
+    UnknownMostDerived1(::std::string_view b, ::std::string_view ki, ::std::string_view umd1) :
         ::Ice::UserExceptionHelper<UnknownMostDerived1, KnownIntermediate>(b, ki),
         umd1(umd1)
     {
@@ -960,7 +960,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    UnknownMostDerived2(const ::std::string& b, const ::std::string& ui, const ::std::string& umd2) :
+    UnknownMostDerived2(::std::string_view b, ::std::string_view ui, ::std::string_view umd2) :
         ::Ice::UserExceptionHelper<UnknownMostDerived2, UnknownIntermediate>(b, ui),
         umd2(umd2)
     {
@@ -1000,7 +1000,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    SPreservedClass(const ::std::string& bc, const ::std::string& spc) :
+    SPreservedClass(::std::string_view bc, ::std::string_view spc) :
         Ice::ValueHelper<SPreservedClass, BaseClass>(bc),
         spc(spc)
     {
@@ -1037,7 +1037,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    SPreserved1(const ::std::string& b, const ::std::string& kp, const ::std::string& kpd, const ::std::shared_ptr<BaseClass>& p1) :
+    SPreserved1(::std::string_view b, ::std::string_view kp, ::std::string_view kpd, const ::std::shared_ptr<BaseClass>& p1) :
         ::Ice::UserExceptionHelper<SPreserved1, KnownPreservedDerived>(b, kp, kpd),
         p1(p1)
     {
@@ -1078,7 +1078,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    SPreserved2(const ::std::string& b, const ::std::string& kp, const ::std::string& kpd, const ::std::shared_ptr<BaseClass>& p1, const ::std::shared_ptr<BaseClass>& p2) :
+    SPreserved2(::std::string_view b, ::std::string_view kp, ::std::string_view kpd, const ::std::shared_ptr<BaseClass>& p1, const ::std::shared_ptr<BaseClass>& p2) :
         ::Ice::UserExceptionHelper<SPreserved2, SPreserved1>(b, kp, kpd, p1),
         p2(p2)
     {

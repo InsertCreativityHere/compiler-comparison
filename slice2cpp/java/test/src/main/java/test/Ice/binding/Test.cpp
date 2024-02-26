@@ -152,19 +152,19 @@ Test::RemoteObjectAdapterPrx::ice_staticId()
 }
 
 ::std::optional<::Test::RemoteObjectAdapterPrx>
-Test::RemoteCommunicatorPrx::createObjectAdapter(const ::std::string& iceP_name, const ::std::string& iceP_endpoints, const ::Ice::Context& context) const
+Test::RemoteCommunicatorPrx::createObjectAdapter(::std::string_view iceP_name, ::std::string_view iceP_endpoints, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::optional<RemoteObjectAdapterPrx>>(true, this, &RemoteCommunicatorPrx::_iceI_createObjectAdapter, iceP_name, iceP_endpoints, context).get();
 }
 
 ::std::future<::std::optional<::Test::RemoteObjectAdapterPrx>>
-Test::RemoteCommunicatorPrx::createObjectAdapterAsync(const ::std::string& iceP_name, const ::std::string& iceP_endpoints, const ::Ice::Context& context) const
+Test::RemoteCommunicatorPrx::createObjectAdapterAsync(::std::string_view iceP_name, ::std::string_view iceP_endpoints, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::optional<RemoteObjectAdapterPrx>>(false, this, &RemoteCommunicatorPrx::_iceI_createObjectAdapter, iceP_name, iceP_endpoints, context);
 }
 
 ::std::function<void()>
-Test::RemoteCommunicatorPrx::createObjectAdapterAsync(const ::std::string& iceP_name, const ::std::string& iceP_endpoints,
+Test::RemoteCommunicatorPrx::createObjectAdapterAsync(::std::string_view iceP_name, ::std::string_view iceP_endpoints,
                                                       ::std::function<void (::std::optional<::Test::RemoteObjectAdapterPrx>)> response,
                                                       ::std::function<void(::std::exception_ptr)> ex,
                                                       ::std::function<void(bool)> sent,
@@ -175,7 +175,7 @@ Test::RemoteCommunicatorPrx::createObjectAdapterAsync(const ::std::string& iceP_
 
 /// \cond INTERNAL
 void
-Test::RemoteCommunicatorPrx::_iceI_createObjectAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<RemoteObjectAdapterPrx>>>& outAsync, const ::std::string& iceP_name, const ::std::string& iceP_endpoints, const ::Ice::Context& context) const
+Test::RemoteCommunicatorPrx::_iceI_createObjectAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<RemoteObjectAdapterPrx>>>& outAsync, ::std::string_view iceP_name, ::std::string_view iceP_endpoints, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "createObjectAdapter";
 

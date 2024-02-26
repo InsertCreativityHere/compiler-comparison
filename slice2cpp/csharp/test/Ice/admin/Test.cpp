@@ -105,19 +105,19 @@ Test::RemoteCommunicatorPrx::_iceI_getChanges(const ::std::shared_ptr<::IceInter
 /// \endcond
 
 void
-Test::RemoteCommunicatorPrx::print(const ::std::string& iceP_message, const ::Ice::Context& context) const
+Test::RemoteCommunicatorPrx::print(::std::string_view iceP_message, const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &RemoteCommunicatorPrx::_iceI_print, iceP_message, context).get();
 }
 
 ::std::future<void>
-Test::RemoteCommunicatorPrx::printAsync(const ::std::string& iceP_message, const ::Ice::Context& context) const
+Test::RemoteCommunicatorPrx::printAsync(::std::string_view iceP_message, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &RemoteCommunicatorPrx::_iceI_print, iceP_message, context);
 }
 
 ::std::function<void()>
-Test::RemoteCommunicatorPrx::printAsync(const ::std::string& iceP_message,
+Test::RemoteCommunicatorPrx::printAsync(::std::string_view iceP_message,
                                         ::std::function<void ()> response,
                                         ::std::function<void(::std::exception_ptr)> ex,
                                         ::std::function<void(bool)> sent,
@@ -128,7 +128,7 @@ Test::RemoteCommunicatorPrx::printAsync(const ::std::string& iceP_message,
 
 /// \cond INTERNAL
 void
-Test::RemoteCommunicatorPrx::_iceI_print(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_message, const ::Ice::Context& context) const
+Test::RemoteCommunicatorPrx::_iceI_print(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_message, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "print";
 
@@ -142,19 +142,19 @@ Test::RemoteCommunicatorPrx::_iceI_print(const ::std::shared_ptr<::IceInternal::
 /// \endcond
 
 void
-Test::RemoteCommunicatorPrx::trace(const ::std::string& iceP_category, const ::std::string& iceP_message, const ::Ice::Context& context) const
+Test::RemoteCommunicatorPrx::trace(::std::string_view iceP_category, ::std::string_view iceP_message, const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &RemoteCommunicatorPrx::_iceI_trace, iceP_category, iceP_message, context).get();
 }
 
 ::std::future<void>
-Test::RemoteCommunicatorPrx::traceAsync(const ::std::string& iceP_category, const ::std::string& iceP_message, const ::Ice::Context& context) const
+Test::RemoteCommunicatorPrx::traceAsync(::std::string_view iceP_category, ::std::string_view iceP_message, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &RemoteCommunicatorPrx::_iceI_trace, iceP_category, iceP_message, context);
 }
 
 ::std::function<void()>
-Test::RemoteCommunicatorPrx::traceAsync(const ::std::string& iceP_category, const ::std::string& iceP_message,
+Test::RemoteCommunicatorPrx::traceAsync(::std::string_view iceP_category, ::std::string_view iceP_message,
                                         ::std::function<void ()> response,
                                         ::std::function<void(::std::exception_ptr)> ex,
                                         ::std::function<void(bool)> sent,
@@ -165,7 +165,7 @@ Test::RemoteCommunicatorPrx::traceAsync(const ::std::string& iceP_category, cons
 
 /// \cond INTERNAL
 void
-Test::RemoteCommunicatorPrx::_iceI_trace(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_category, const ::std::string& iceP_message, const ::Ice::Context& context) const
+Test::RemoteCommunicatorPrx::_iceI_trace(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_category, ::std::string_view iceP_message, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "trace";
 
@@ -179,19 +179,19 @@ Test::RemoteCommunicatorPrx::_iceI_trace(const ::std::shared_ptr<::IceInternal::
 /// \endcond
 
 void
-Test::RemoteCommunicatorPrx::warning(const ::std::string& iceP_message, const ::Ice::Context& context) const
+Test::RemoteCommunicatorPrx::warning(::std::string_view iceP_message, const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &RemoteCommunicatorPrx::_iceI_warning, iceP_message, context).get();
 }
 
 ::std::future<void>
-Test::RemoteCommunicatorPrx::warningAsync(const ::std::string& iceP_message, const ::Ice::Context& context) const
+Test::RemoteCommunicatorPrx::warningAsync(::std::string_view iceP_message, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &RemoteCommunicatorPrx::_iceI_warning, iceP_message, context);
 }
 
 ::std::function<void()>
-Test::RemoteCommunicatorPrx::warningAsync(const ::std::string& iceP_message,
+Test::RemoteCommunicatorPrx::warningAsync(::std::string_view iceP_message,
                                           ::std::function<void ()> response,
                                           ::std::function<void(::std::exception_ptr)> ex,
                                           ::std::function<void(bool)> sent,
@@ -202,7 +202,7 @@ Test::RemoteCommunicatorPrx::warningAsync(const ::std::string& iceP_message,
 
 /// \cond INTERNAL
 void
-Test::RemoteCommunicatorPrx::_iceI_warning(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_message, const ::Ice::Context& context) const
+Test::RemoteCommunicatorPrx::_iceI_warning(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_message, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "warning";
 
@@ -216,19 +216,19 @@ Test::RemoteCommunicatorPrx::_iceI_warning(const ::std::shared_ptr<::IceInternal
 /// \endcond
 
 void
-Test::RemoteCommunicatorPrx::error(const ::std::string& iceP_message, const ::Ice::Context& context) const
+Test::RemoteCommunicatorPrx::error(::std::string_view iceP_message, const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &RemoteCommunicatorPrx::_iceI_error, iceP_message, context).get();
 }
 
 ::std::future<void>
-Test::RemoteCommunicatorPrx::errorAsync(const ::std::string& iceP_message, const ::Ice::Context& context) const
+Test::RemoteCommunicatorPrx::errorAsync(::std::string_view iceP_message, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &RemoteCommunicatorPrx::_iceI_error, iceP_message, context);
 }
 
 ::std::function<void()>
-Test::RemoteCommunicatorPrx::errorAsync(const ::std::string& iceP_message,
+Test::RemoteCommunicatorPrx::errorAsync(::std::string_view iceP_message,
                                         ::std::function<void ()> response,
                                         ::std::function<void(::std::exception_ptr)> ex,
                                         ::std::function<void(bool)> sent,
@@ -239,7 +239,7 @@ Test::RemoteCommunicatorPrx::errorAsync(const ::std::string& iceP_message,
 
 /// \cond INTERNAL
 void
-Test::RemoteCommunicatorPrx::_iceI_error(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_message, const ::Ice::Context& context) const
+Test::RemoteCommunicatorPrx::_iceI_error(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_message, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "error";
 

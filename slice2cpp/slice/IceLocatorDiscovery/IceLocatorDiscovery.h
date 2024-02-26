@@ -152,7 +152,7 @@ public:
      * @param reply The reply object to use to send the reply.
      * @param context The Context map to send with the invocation.
      */
-    void findLocator(const ::std::string& instanceName, const ::std::optional<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void findLocator(::std::string_view instanceName, const ::std::optional<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Find a locator proxy with the given instance name.
@@ -162,7 +162,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> findLocatorAsync(const ::std::string& instanceName, const ::std::optional<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> findLocatorAsync(::std::string_view instanceName, const ::std::optional<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Find a locator proxy with the given instance name.
@@ -176,14 +176,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    findLocatorAsync(const ::std::string& instanceName, const ::std::optional<LookupReplyPrx>& reply,
+    findLocatorAsync(::std::string_view instanceName, const ::std::optional<LookupReplyPrx>& reply,
                      ::std::function<void()> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_findLocator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::optional<LookupReplyPrx>&, const ::Ice::Context&) const;
+    void _iceI_findLocator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, const ::std::optional<LookupReplyPrx>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**

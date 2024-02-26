@@ -109,8 +109,6 @@
 %   supportsJavaSerializableAsync
 %   supportsCsharpSerializable
 %   supportsCsharpSerializableAsync
-%   supportsCppStringView
-%   supportsCppStringViewAsync
 %   supportsNullOptional
 %   supportsNullOptionalAsync
 %   checkedCast - Contacts the remote server to verify that the object implements this type.
@@ -2238,35 +2236,6 @@ classdef InitialPrx < Ice.ObjectPrx
                 varargout{1} = result;
             end
             r_ = obj.iceInvokeAsync('supportsCsharpSerializable', 0, true, [], 1, @unmarshal, {}, varargin{:});
-        end
-        function result = supportsCppStringView(obj, varargin)
-            % supportsCppStringView
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (logical)
-            
-            is_ = obj.iceInvoke('supportsCppStringView', 0, true, [], true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = is_.readBool();
-            is_.endEncapsulation();
-        end
-        function r_ = supportsCppStringViewAsync(obj, varargin)
-            % supportsCppStringViewAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = is_.readBool();
-                is_.endEncapsulation();
-                varargout{1} = result;
-            end
-            r_ = obj.iceInvokeAsync('supportsCppStringView', 0, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = supportsNullOptional(obj, varargin)
             % supportsNullOptional

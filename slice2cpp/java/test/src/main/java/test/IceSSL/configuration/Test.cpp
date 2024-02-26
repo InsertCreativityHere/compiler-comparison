@@ -70,19 +70,19 @@ Test::ServerPrx::_iceI_noCert(const ::std::shared_ptr<::IceInternal::OutgoingAsy
 /// \endcond
 
 void
-Test::ServerPrx::checkCert(const ::std::string& iceP_subjectDN, const ::std::string& iceP_issuerDN, const ::Ice::Context& context) const
+Test::ServerPrx::checkCert(::std::string_view iceP_subjectDN, ::std::string_view iceP_issuerDN, const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &ServerPrx::_iceI_checkCert, iceP_subjectDN, iceP_issuerDN, context).get();
 }
 
 ::std::future<void>
-Test::ServerPrx::checkCertAsync(const ::std::string& iceP_subjectDN, const ::std::string& iceP_issuerDN, const ::Ice::Context& context) const
+Test::ServerPrx::checkCertAsync(::std::string_view iceP_subjectDN, ::std::string_view iceP_issuerDN, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &ServerPrx::_iceI_checkCert, iceP_subjectDN, iceP_issuerDN, context);
 }
 
 ::std::function<void()>
-Test::ServerPrx::checkCertAsync(const ::std::string& iceP_subjectDN, const ::std::string& iceP_issuerDN,
+Test::ServerPrx::checkCertAsync(::std::string_view iceP_subjectDN, ::std::string_view iceP_issuerDN,
                                 ::std::function<void ()> response,
                                 ::std::function<void(::std::exception_ptr)> ex,
                                 ::std::function<void(bool)> sent,
@@ -93,7 +93,7 @@ Test::ServerPrx::checkCertAsync(const ::std::string& iceP_subjectDN, const ::std
 
 /// \cond INTERNAL
 void
-Test::ServerPrx::_iceI_checkCert(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_subjectDN, const ::std::string& iceP_issuerDN, const ::Ice::Context& context) const
+Test::ServerPrx::_iceI_checkCert(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_subjectDN, ::std::string_view iceP_issuerDN, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "checkCert";
 
@@ -107,19 +107,19 @@ Test::ServerPrx::_iceI_checkCert(const ::std::shared_ptr<::IceInternal::Outgoing
 /// \endcond
 
 void
-Test::ServerPrx::checkCipher(const ::std::string& iceP_cipher, const ::Ice::Context& context) const
+Test::ServerPrx::checkCipher(::std::string_view iceP_cipher, const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &ServerPrx::_iceI_checkCipher, iceP_cipher, context).get();
 }
 
 ::std::future<void>
-Test::ServerPrx::checkCipherAsync(const ::std::string& iceP_cipher, const ::Ice::Context& context) const
+Test::ServerPrx::checkCipherAsync(::std::string_view iceP_cipher, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &ServerPrx::_iceI_checkCipher, iceP_cipher, context);
 }
 
 ::std::function<void()>
-Test::ServerPrx::checkCipherAsync(const ::std::string& iceP_cipher,
+Test::ServerPrx::checkCipherAsync(::std::string_view iceP_cipher,
                                   ::std::function<void ()> response,
                                   ::std::function<void(::std::exception_ptr)> ex,
                                   ::std::function<void(bool)> sent,
@@ -130,7 +130,7 @@ Test::ServerPrx::checkCipherAsync(const ::std::string& iceP_cipher,
 
 /// \cond INTERNAL
 void
-Test::ServerPrx::_iceI_checkCipher(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_cipher, const ::Ice::Context& context) const
+Test::ServerPrx::_iceI_checkCipher(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_cipher, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "checkCipher";
 

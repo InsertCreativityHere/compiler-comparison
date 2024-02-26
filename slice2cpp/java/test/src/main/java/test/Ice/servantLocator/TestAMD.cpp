@@ -699,7 +699,7 @@ Test::TestIntf::_iceD_impossibleException(::IceInternal::Incoming& inS, const ::
     istr->readAll(iceP_throw);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ::std::string& ret)
+    auto responseCB = [inA](::std::string_view ret)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll(ret);
@@ -721,7 +721,7 @@ Test::TestIntf::_iceD_intfUserException(::IceInternal::Incoming& inS, const ::Ic
     istr->readAll(iceP_throw);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ::std::string& ret)
+    auto responseCB = [inA](::std::string_view ret)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll(ret);

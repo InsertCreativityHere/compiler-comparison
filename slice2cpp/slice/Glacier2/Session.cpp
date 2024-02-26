@@ -488,19 +488,19 @@ Glacier2::SessionControlPrx::ice_staticId()
 }
 
 ::std::optional<::Glacier2::SessionPrx>
-Glacier2::SessionManagerPrx::create(const ::std::string& iceP_userId, const ::std::optional<SessionControlPrx>& iceP_control, const ::Ice::Context& context) const
+Glacier2::SessionManagerPrx::create(::std::string_view iceP_userId, const ::std::optional<SessionControlPrx>& iceP_control, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::optional<SessionPrx>>(true, this, &SessionManagerPrx::_iceI_create, iceP_userId, iceP_control, context).get();
 }
 
 ::std::future<::std::optional<::Glacier2::SessionPrx>>
-Glacier2::SessionManagerPrx::createAsync(const ::std::string& iceP_userId, const ::std::optional<SessionControlPrx>& iceP_control, const ::Ice::Context& context) const
+Glacier2::SessionManagerPrx::createAsync(::std::string_view iceP_userId, const ::std::optional<SessionControlPrx>& iceP_control, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::optional<SessionPrx>>(false, this, &SessionManagerPrx::_iceI_create, iceP_userId, iceP_control, context);
 }
 
 ::std::function<void()>
-Glacier2::SessionManagerPrx::createAsync(const ::std::string& iceP_userId, const ::std::optional<SessionControlPrx>& iceP_control,
+Glacier2::SessionManagerPrx::createAsync(::std::string_view iceP_userId, const ::std::optional<SessionControlPrx>& iceP_control,
                                          ::std::function<void (::std::optional<::Glacier2::SessionPrx>)> response,
                                          ::std::function<void(::std::exception_ptr)> ex,
                                          ::std::function<void(bool)> sent,
@@ -511,7 +511,7 @@ Glacier2::SessionManagerPrx::createAsync(const ::std::string& iceP_userId, const
 
 /// \cond INTERNAL
 void
-Glacier2::SessionManagerPrx::_iceI_create(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<SessionPrx>>>& outAsync, const ::std::string& iceP_userId, const ::std::optional<SessionControlPrx>& iceP_control, const ::Ice::Context& context) const
+Glacier2::SessionManagerPrx::_iceI_create(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<SessionPrx>>>& outAsync, ::std::string_view iceP_userId, const ::std::optional<SessionControlPrx>& iceP_control, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "create";
 

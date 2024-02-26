@@ -42,34 +42,34 @@ class TestIntfPrx : public ::Ice::Proxy<TestIntfPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    ::std::string getServerFile(const ::std::string& path, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::string getServerFile(::std::string_view path, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> getServerFileAsync(const ::std::string& path, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::string> getServerFileAsync(::std::string_view path, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    getServerFileAsync(const ::std::string& path,
+    getServerFileAsync(::std::string_view path,
                        ::std::function<void(::std::string)> response,
                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
                        ::std::function<void(bool)> sent = nullptr,
                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getServerFile(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_getServerFile(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::string getApplicationFile(const ::std::string& path, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::string getApplicationFile(::std::string_view path, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> getApplicationFileAsync(const ::std::string& path, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::string> getApplicationFileAsync(::std::string_view path, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    getApplicationFileAsync(const ::std::string& path,
+    getApplicationFileAsync(::std::string_view path,
                             ::std::function<void(::std::string)> response,
                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
                             ::std::function<void(bool)> sent = nullptr,
                             const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getApplicationFile(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_getApplicationFile(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**

@@ -342,7 +342,7 @@ Test::MyClassPrx::_iceI_opFloatDouble(const ::std::shared_ptr<::IceInternal::Out
 /// \endcond
 
 ::std::string
-Test::MyClassPrx::opString(const ::std::string& iceP_p1, const ::std::string& iceP_p2, ::std::string& iceP_p3, const ::Ice::Context& context) const
+Test::MyClassPrx::opString(::std::string_view iceP_p1, ::std::string_view iceP_p2, ::std::string& iceP_p3, const ::Ice::Context& context) const
 {
     auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::string, ::std::string>>(true, this, &MyClassPrx::_iceI_opString, iceP_p1, iceP_p2, context).get();
     iceP_p3 = ::std::move(::std::get<1>(_result));
@@ -350,13 +350,13 @@ Test::MyClassPrx::opString(const ::std::string& iceP_p1, const ::std::string& ic
 }
 
 ::std::future<::std::tuple<::std::string, ::std::string>>
-Test::MyClassPrx::opStringAsync(const ::std::string& iceP_p1, const ::std::string& iceP_p2, const ::Ice::Context& context) const
+Test::MyClassPrx::opStringAsync(::std::string_view iceP_p1, ::std::string_view iceP_p2, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::string, ::std::string>>(false, this, &MyClassPrx::_iceI_opString, iceP_p1, iceP_p2, context);
 }
 
 ::std::function<void()>
-Test::MyClassPrx::opStringAsync(const ::std::string& iceP_p1, const ::std::string& iceP_p2,
+Test::MyClassPrx::opStringAsync(::std::string_view iceP_p1, ::std::string_view iceP_p2,
                                 ::std::function<void (::std::string, ::std::string)> response,
                                 ::std::function<void(::std::exception_ptr)> ex,
                                 ::std::function<void(bool)> sent,
@@ -371,7 +371,7 @@ Test::MyClassPrx::opStringAsync(const ::std::string& iceP_p1, const ::std::strin
 
 /// \cond INTERNAL
 void
-Test::MyClassPrx::_iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::string, ::std::string>>>& outAsync, const ::std::string& iceP_p1, const ::std::string& iceP_p2, const ::Ice::Context& context) const
+Test::MyClassPrx::_iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::string, ::std::string>>>& outAsync, ::std::string_view iceP_p1, ::std::string_view iceP_p2, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "opString";
 
@@ -2465,19 +2465,19 @@ Test::MyClassPrx::_iceI_opDouble1(const ::std::shared_ptr<::IceInternal::Outgoin
 /// \endcond
 
 ::std::string
-Test::MyClassPrx::opString1(const ::std::string& iceP_opString1, const ::Ice::Context& context) const
+Test::MyClassPrx::opString1(::std::string_view iceP_opString1, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::string>(true, this, &MyClassPrx::_iceI_opString1, iceP_opString1, context).get();
 }
 
 ::std::future<::std::string>
-Test::MyClassPrx::opString1Async(const ::std::string& iceP_opString1, const ::Ice::Context& context) const
+Test::MyClassPrx::opString1Async(::std::string_view iceP_opString1, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::string>(false, this, &MyClassPrx::_iceI_opString1, iceP_opString1, context);
 }
 
 ::std::function<void()>
-Test::MyClassPrx::opString1Async(const ::std::string& iceP_opString1,
+Test::MyClassPrx::opString1Async(::std::string_view iceP_opString1,
                                  ::std::function<void (::std::string)> response,
                                  ::std::function<void(::std::exception_ptr)> ex,
                                  ::std::function<void(bool)> sent,
@@ -2488,7 +2488,7 @@ Test::MyClassPrx::opString1Async(const ::std::string& iceP_opString1,
 
 /// \cond INTERNAL
 void
-Test::MyClassPrx::_iceI_opString1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::std::string& iceP_opString1, const ::Ice::Context& context) const
+Test::MyClassPrx::_iceI_opString1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, ::std::string_view iceP_opString1, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "opString1";
 

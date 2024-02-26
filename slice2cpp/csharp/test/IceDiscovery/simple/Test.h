@@ -111,64 +111,64 @@ class ControllerPrx : public ::Ice::Proxy<ControllerPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void activateObjectAdapter(const ::std::string& name, const ::std::string& adapterId, const ::std::string& replicaGroupId, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void activateObjectAdapter(::std::string_view name, ::std::string_view adapterId, ::std::string_view replicaGroupId, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> activateObjectAdapterAsync(const ::std::string& name, const ::std::string& adapterId, const ::std::string& replicaGroupId, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> activateObjectAdapterAsync(::std::string_view name, ::std::string_view adapterId, ::std::string_view replicaGroupId, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    activateObjectAdapterAsync(const ::std::string& name, const ::std::string& adapterId, const ::std::string& replicaGroupId,
+    activateObjectAdapterAsync(::std::string_view name, ::std::string_view adapterId, ::std::string_view replicaGroupId,
                                ::std::function<void()> response,
                                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                ::std::function<void(bool)> sent = nullptr,
                                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_activateObjectAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::string&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_activateObjectAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, ::std::string_view, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
-    void deactivateObjectAdapter(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void deactivateObjectAdapter(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> deactivateObjectAdapterAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> deactivateObjectAdapterAsync(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    deactivateObjectAdapterAsync(const ::std::string& name,
+    deactivateObjectAdapterAsync(::std::string_view name,
                                  ::std::function<void()> response,
                                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                  ::std::function<void(bool)> sent = nullptr,
                                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_deactivateObjectAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_deactivateObjectAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
-    void addObject(const ::std::string& oaName, const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void addObject(::std::string_view oaName, ::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> addObjectAsync(const ::std::string& oaName, const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> addObjectAsync(::std::string_view oaName, ::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    addObjectAsync(const ::std::string& oaName, const ::std::string& id,
+    addObjectAsync(::std::string_view oaName, ::std::string_view id,
                    ::std::function<void()> response,
                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                    ::std::function<void(bool)> sent = nullptr,
                    const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_addObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_addObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
-    void removeObject(const ::std::string& oaName, const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void removeObject(::std::string_view oaName, ::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> removeObjectAsync(const ::std::string& oaName, const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> removeObjectAsync(::std::string_view oaName, ::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    removeObjectAsync(const ::std::string& oaName, const ::std::string& id,
+    removeObjectAsync(::std::string_view oaName, ::std::string_view id,
                       ::std::function<void()> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_removeObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_removeObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;

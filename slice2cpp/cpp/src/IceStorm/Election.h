@@ -145,7 +145,7 @@ public:
      * @throws IceStormElection::ObserverInconsistencyException Raised if an
      * inconsisency was detected.
      */
-    void createTopic(const LogUpdate& llu, const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void createTopic(const LogUpdate& llu, ::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Create the topic with the given name.
@@ -154,7 +154,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> createTopicAsync(const LogUpdate& llu, const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> createTopicAsync(const LogUpdate& llu, ::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Create the topic with the given name.
@@ -167,14 +167,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    createTopicAsync(const LogUpdate& llu, const ::std::string& name,
+    createTopicAsync(const LogUpdate& llu, ::std::string_view name,
                      ::std::function<void()> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_createTopic(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const LogUpdate&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_createTopic(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const LogUpdate&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -185,7 +185,7 @@ public:
      * @throws IceStormElection::ObserverInconsistencyException Raised if an
      * inconsisency was detected.
      */
-    void destroyTopic(const LogUpdate& llu, const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void destroyTopic(const LogUpdate& llu, ::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Destroy the topic with the given name.
@@ -194,7 +194,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> destroyTopicAsync(const LogUpdate& llu, const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> destroyTopicAsync(const LogUpdate& llu, ::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Destroy the topic with the given name.
@@ -207,14 +207,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    destroyTopicAsync(const LogUpdate& llu, const ::std::string& name,
+    destroyTopicAsync(const LogUpdate& llu, ::std::string_view name,
                       ::std::function<void()> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_destroyTopic(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const LogUpdate&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_destroyTopic(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const LogUpdate&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -226,7 +226,7 @@ public:
      * @throws IceStormElection::ObserverInconsistencyException Raised if an
      * inconsisency was detected.
      */
-    void addSubscriber(const LogUpdate& llu, const ::std::string& topic, const ::IceStorm::SubscriberRecord& record, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void addSubscriber(const LogUpdate& llu, ::std::string_view topic, const ::IceStorm::SubscriberRecord& record, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Add a subscriber to a topic.
@@ -236,7 +236,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> addSubscriberAsync(const LogUpdate& llu, const ::std::string& topic, const ::IceStorm::SubscriberRecord& record, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> addSubscriberAsync(const LogUpdate& llu, ::std::string_view topic, const ::IceStorm::SubscriberRecord& record, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Add a subscriber to a topic.
@@ -250,14 +250,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    addSubscriberAsync(const LogUpdate& llu, const ::std::string& topic, const ::IceStorm::SubscriberRecord& record,
+    addSubscriberAsync(const LogUpdate& llu, ::std::string_view topic, const ::IceStorm::SubscriberRecord& record,
                        ::std::function<void()> response,
                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
                        ::std::function<void(bool)> sent = nullptr,
                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_addSubscriber(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const LogUpdate&, const ::std::string&, const ::IceStorm::SubscriberRecord&, const ::Ice::Context&) const;
+    void _iceI_addSubscriber(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const LogUpdate&, ::std::string_view, const ::IceStorm::SubscriberRecord&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -267,7 +267,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @throws IceStormElection::ObserverInconsistencyException Raised if an inconsisency was detected.
      */
-    void removeSubscriber(const LogUpdate& llu, const ::std::string& topic, const ::Ice::IdentitySeq& subscribers, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void removeSubscriber(const LogUpdate& llu, ::std::string_view topic, const ::Ice::IdentitySeq& subscribers, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Remove a subscriber from a topic.
@@ -276,7 +276,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> removeSubscriberAsync(const LogUpdate& llu, const ::std::string& topic, const ::Ice::IdentitySeq& subscribers, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> removeSubscriberAsync(const LogUpdate& llu, ::std::string_view topic, const ::Ice::IdentitySeq& subscribers, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Remove a subscriber from a topic.
@@ -289,14 +289,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    removeSubscriberAsync(const LogUpdate& llu, const ::std::string& topic, const ::Ice::IdentitySeq& subscribers,
+    removeSubscriberAsync(const LogUpdate& llu, ::std::string_view topic, const ::Ice::IdentitySeq& subscribers,
                           ::std::function<void()> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
                           const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_removeSubscriber(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const LogUpdate&, const ::std::string&, const ::Ice::IdentitySeq&, const ::Ice::Context&) const;
+    void _iceI_removeSubscriber(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const LogUpdate&, ::std::string_view, const ::Ice::IdentitySeq&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -448,7 +448,7 @@ public:
      * @param gn The group name.
      * @param context The Context map to send with the invocation.
      */
-    void invitation(::std::int32_t j, const ::std::string& gn, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void invitation(::std::int32_t j, ::std::string_view gn, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Invite the node into a group with the given coordinator and group name.
@@ -457,7 +457,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> invitationAsync(::std::int32_t j, const ::std::string& gn, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> invitationAsync(::std::int32_t j, ::std::string_view gn, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Invite the node into a group with the given coordinator and group name.
@@ -470,14 +470,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    invitationAsync(::std::int32_t j, const ::std::string& gn,
+    invitationAsync(::std::int32_t j, ::std::string_view gn,
                     ::std::function<void()> response,
                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
                     ::std::function<void(bool)> sent = nullptr,
                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_invitation(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_invitation(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -489,7 +489,7 @@ public:
      * @param generation The current generation count.
      * @param context The Context map to send with the invocation.
      */
-    void ready(::std::int32_t j, const ::std::string& gn, const ::std::optional<::Ice::ObjectPrx>& coordinator, ::std::int32_t max, ::std::int64_t generation, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void ready(::std::int32_t j, ::std::string_view gn, const ::std::optional<::Ice::ObjectPrx>& coordinator, ::std::int32_t max, ::std::int64_t generation, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Call from the group coordinator to a node to inform the node that the replica group is active.
@@ -501,7 +501,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> readyAsync(::std::int32_t j, const ::std::string& gn, const ::std::optional<::Ice::ObjectPrx>& coordinator, ::std::int32_t max, ::std::int64_t generation, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> readyAsync(::std::int32_t j, ::std::string_view gn, const ::std::optional<::Ice::ObjectPrx>& coordinator, ::std::int32_t max, ::std::int64_t generation, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Call from the group coordinator to a node to inform the node that the replica group is active.
@@ -517,14 +517,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    readyAsync(::std::int32_t j, const ::std::string& gn, const ::std::optional<::Ice::ObjectPrx>& coordinator, ::std::int32_t max, ::std::int64_t generation,
+    readyAsync(::std::int32_t j, ::std::string_view gn, const ::std::optional<::Ice::ObjectPrx>& coordinator, ::std::int32_t max, ::std::int64_t generation,
                ::std::function<void()> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_ready(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, const ::std::string&, const ::std::optional<::Ice::ObjectPrx>&, ::std::int32_t, ::std::int64_t, const ::Ice::Context&) const;
+    void _iceI_ready(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, ::std::string_view, const ::std::optional<::Ice::ObjectPrx>&, ::std::int32_t, ::std::int64_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -537,7 +537,7 @@ public:
      * @param max The highest priority node seen by this replica group.
      * @param context The Context map to send with the invocation.
      */
-    void accept(::std::int32_t j, const ::std::string& gn, const ::Ice::IntSeq& forwardedInvites, const ::std::optional<::Ice::ObjectPrx>& observer, const LogUpdate& llu, ::std::int32_t max, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void accept(::std::int32_t j, ::std::string_view gn, const ::Ice::IntSeq& forwardedInvites, const ::std::optional<::Ice::ObjectPrx>& observer, const LogUpdate& llu, ::std::int32_t max, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Called to accept an invitation into the given group.
@@ -550,7 +550,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> acceptAsync(::std::int32_t j, const ::std::string& gn, const ::Ice::IntSeq& forwardedInvites, const ::std::optional<::Ice::ObjectPrx>& observer, const LogUpdate& llu, ::std::int32_t max, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> acceptAsync(::std::int32_t j, ::std::string_view gn, const ::Ice::IntSeq& forwardedInvites, const ::std::optional<::Ice::ObjectPrx>& observer, const LogUpdate& llu, ::std::int32_t max, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Called to accept an invitation into the given group.
@@ -567,14 +567,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    acceptAsync(::std::int32_t j, const ::std::string& gn, const ::Ice::IntSeq& forwardedInvites, const ::std::optional<::Ice::ObjectPrx>& observer, const LogUpdate& llu, ::std::int32_t max,
+    acceptAsync(::std::int32_t j, ::std::string_view gn, const ::Ice::IntSeq& forwardedInvites, const ::std::optional<::Ice::ObjectPrx>& observer, const LogUpdate& llu, ::std::int32_t max,
                 ::std::function<void()> response,
                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                 ::std::function<void(bool)> sent = nullptr,
                 const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_accept(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, const ::std::string&, const ::Ice::IntSeq&, const ::std::optional<::Ice::ObjectPrx>&, const LogUpdate&, ::std::int32_t, const ::Ice::Context&) const;
+    void _iceI_accept(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, ::std::string_view, const ::Ice::IntSeq&, const ::std::optional<::Ice::ObjectPrx>&, const LogUpdate&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -616,7 +616,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return True if the node is a member, false otherwise.
      */
-    bool areYouThere(const ::std::string& gn, ::std::int32_t j, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    bool areYouThere(::std::string_view gn, ::std::int32_t j, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Determine if the node is a member of the given group with the given coordinator.
@@ -625,7 +625,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<bool> areYouThereAsync(const ::std::string& gn, ::std::int32_t j, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<bool> areYouThereAsync(::std::string_view gn, ::std::int32_t j, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Determine if the node is a member of the given group with the given coordinator.
@@ -638,14 +638,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    areYouThereAsync(const ::std::string& gn, ::std::int32_t j,
+    areYouThereAsync(::std::string_view gn, ::std::int32_t j,
                      ::std::function<void(bool)> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_areYouThere(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::std::string&, ::std::int32_t, const ::Ice::Context&) const;
+    void _iceI_areYouThere(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, ::std::string_view, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -838,7 +838,7 @@ public:
      * One-shot constructor to initialize all data members.
      * @param reason The reason for the inconsistency.
      */
-    ObserverInconsistencyException(const ::std::string& reason) :
+    ObserverInconsistencyException(::std::string_view reason) :
         reason(reason)
     {
     }

@@ -697,46 +697,6 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
-    default TestIntf.OpStringResult opString(String inString)
-    {
-        return opString(inString, com.zeroc.Ice.ObjectPrx.noExplicitContext);
-    }
-
-    default TestIntf.OpStringResult opString(String inString, java.util.Map<String, String> context)
-    {
-        return _iceI_opStringAsync(inString, context, true).waitForResponse();
-    }
-
-    default java.util.concurrent.CompletableFuture<TestIntf.OpStringResult> opStringAsync(String inString)
-    {
-        return _iceI_opStringAsync(inString, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
-    }
-
-    default java.util.concurrent.CompletableFuture<TestIntf.OpStringResult> opStringAsync(String inString, java.util.Map<String, String> context)
-    {
-        return _iceI_opStringAsync(inString, context, false);
-    }
-
-    /**
-     * @hidden
-     * @param iceP_inString -
-     * @param context -
-     * @param sync -
-     * @return -
-     **/
-    default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpStringResult> _iceI_opStringAsync(String iceP_inString, java.util.Map<String, String> context, boolean sync)
-    {
-        com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpStringResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opString", null, sync, null);
-        f.invoke(true, context, null, ostr -> {
-                     ostr.writeString(iceP_inString);
-                 }, istr -> {
-                     TestIntf.OpStringResult ret = new TestIntf.OpStringResult();
-                     ret.read(istr);
-                     return ret;
-                 });
-        return f;
-    }
-
     default TestIntf.OpStringSeqResult opStringSeq(String[] inSeq)
     {
         return opStringSeq(inSeq, com.zeroc.Ice.ObjectPrx.noExplicitContext);
@@ -1497,46 +1457,6 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
                      StringIntDictHelper.write(ostr, iceP_idict);
                  }, istr -> {
                      TestIntf.OpVarDictResult ret = new TestIntf.OpVarDictResult();
-                     ret.read(istr);
-                     return ret;
-                 });
-        return f;
-    }
-
-    default TestIntf.OpCustomIntStringDictResult opCustomIntStringDict(java.util.Map<java.lang.Integer, java.lang.String> idict)
-    {
-        return opCustomIntStringDict(idict, com.zeroc.Ice.ObjectPrx.noExplicitContext);
-    }
-
-    default TestIntf.OpCustomIntStringDictResult opCustomIntStringDict(java.util.Map<java.lang.Integer, java.lang.String> idict, java.util.Map<String, String> context)
-    {
-        return _iceI_opCustomIntStringDictAsync(idict, context, true).waitForResponse();
-    }
-
-    default java.util.concurrent.CompletableFuture<TestIntf.OpCustomIntStringDictResult> opCustomIntStringDictAsync(java.util.Map<java.lang.Integer, java.lang.String> idict)
-    {
-        return _iceI_opCustomIntStringDictAsync(idict, com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
-    }
-
-    default java.util.concurrent.CompletableFuture<TestIntf.OpCustomIntStringDictResult> opCustomIntStringDictAsync(java.util.Map<java.lang.Integer, java.lang.String> idict, java.util.Map<String, String> context)
-    {
-        return _iceI_opCustomIntStringDictAsync(idict, context, false);
-    }
-
-    /**
-     * @hidden
-     * @param iceP_idict -
-     * @param context -
-     * @param sync -
-     * @return -
-     **/
-    default com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpCustomIntStringDictResult> _iceI_opCustomIntStringDictAsync(java.util.Map<java.lang.Integer, java.lang.String> iceP_idict, java.util.Map<String, String> context, boolean sync)
-    {
-        com.zeroc.IceInternal.OutgoingAsync<TestIntf.OpCustomIntStringDictResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opCustomIntStringDict", null, sync, null);
-        f.invoke(true, context, null, ostr -> {
-                     IntStringDictHelper.write(ostr, iceP_idict);
-                 }, istr -> {
-                     TestIntf.OpCustomIntStringDictResult ret = new TestIntf.OpCustomIntStringDictResult();
                      ret.read(istr);
                      return ret;
                  });

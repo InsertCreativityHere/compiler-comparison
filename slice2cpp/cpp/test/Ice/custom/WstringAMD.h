@@ -61,19 +61,19 @@ class WstringClassPrx : public ::Ice::Proxy<WstringClassPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    ::std::wstring opString(const ::std::wstring& s1, ::std::wstring& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::wstring opString(::std::wstring_view s1, ::std::wstring& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::wstring, ::std::wstring>> opStringAsync(const ::std::wstring& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<::std::wstring, ::std::wstring>> opStringAsync(::std::wstring_view s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opStringAsync(const ::std::wstring& s1,
+    opStringAsync(::std::wstring_view s1,
                   ::std::function<void(::std::wstring, ::std::wstring)> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::wstring, ::std::wstring>>>&, const ::std::wstring&, const ::Ice::Context&) const;
+    void _iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::wstring, ::std::wstring>>>&, ::std::wstring_view, const ::Ice::Context&) const;
     /// \endcond
 
     WstringStruct opStruct(const WstringStruct& s1, WstringStruct& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -91,19 +91,19 @@ public:
     void _iceI_opStruct(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<WstringStruct, WstringStruct>>>&, const WstringStruct&, const ::Ice::Context&) const;
     /// \endcond
 
-    void throwExcept(const ::std::wstring& reason, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void throwExcept(::std::wstring_view reason, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwExceptAsync(const ::std::wstring& reason, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> throwExceptAsync(::std::wstring_view reason, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    throwExceptAsync(const ::std::wstring& reason,
+    throwExceptAsync(::std::wstring_view reason,
                      ::std::function<void()> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_throwExcept(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::wstring&, const ::Ice::Context&) const;
+    void _iceI_throwExcept(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::wstring_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -163,19 +163,19 @@ class WstringClassPrx : public ::Ice::Proxy<WstringClassPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    ::std::wstring opString(const ::std::wstring& s1, ::std::wstring& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::wstring opString(::std::wstring_view s1, ::std::wstring& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::wstring, ::std::wstring>> opStringAsync(const ::std::wstring& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<::std::wstring, ::std::wstring>> opStringAsync(::std::wstring_view s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opStringAsync(const ::std::wstring& s1,
+    opStringAsync(::std::wstring_view s1,
                   ::std::function<void(::std::wstring, ::std::wstring)> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::wstring, ::std::wstring>>>&, const ::std::wstring&, const ::Ice::Context&) const;
+    void _iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::wstring, ::std::wstring>>>&, ::std::wstring_view, const ::Ice::Context&) const;
     /// \endcond
 
     WstringStruct opStruct(const WstringStruct& s1, WstringStruct& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -193,19 +193,19 @@ public:
     void _iceI_opStruct(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<WstringStruct, WstringStruct>>>&, const WstringStruct&, const ::Ice::Context&) const;
     /// \endcond
 
-    void throwExcept(const ::std::wstring& reason, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void throwExcept(::std::wstring_view reason, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> throwExceptAsync(const ::std::wstring& reason, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> throwExceptAsync(::std::wstring_view reason, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    throwExceptAsync(const ::std::wstring& reason,
+    throwExceptAsync(::std::wstring_view reason,
                      ::std::function<void()> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_throwExcept(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::wstring&, const ::Ice::Context&) const;
+    void _iceI_throwExcept(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::wstring_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -288,7 +288,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    WstringException(const ::std::wstring& reason) :
+    WstringException(::std::wstring_view reason) :
         reason(reason)
     {
     }
@@ -354,7 +354,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    WstringException(const ::std::wstring& reason) :
+    WstringException(::std::wstring_view reason) :
         reason(reason)
     {
     }
@@ -415,7 +415,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual void opStringAsync(::std::wstring s1, ::std::function<void(const ::std::wstring& returnValue, const ::std::wstring& s2)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void opStringAsync(::std::wstring s1, ::std::function<void(::std::wstring_view returnValue, ::std::wstring_view s2)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opString(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -468,7 +468,7 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    virtual void opStringAsync(::std::wstring s1, ::std::function<void(const ::std::wstring& returnValue, const ::std::wstring& s2)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void opStringAsync(::std::wstring s1, ::std::function<void(::std::wstring_view returnValue, ::std::wstring_view s2)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opString(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond

@@ -39,19 +39,19 @@ const ::IceInternal::DefaultValueFactoryInit<::User::UserInfo> iceC_User_UserInf
 }
 
 ::std::shared_ptr<::User::UserInfo>
-User::RegistryPrx::getUserInfo(const ::std::string& iceP_id, const ::Ice::Context& context) const
+User::RegistryPrx::getUserInfo(::std::string_view iceP_id, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<UserInfo>>(true, this, &RegistryPrx::_iceI_getUserInfo, iceP_id, context).get();
 }
 
 ::std::future<::std::shared_ptr<::User::UserInfo>>
-User::RegistryPrx::getUserInfoAsync(const ::std::string& iceP_id, const ::Ice::Context& context) const
+User::RegistryPrx::getUserInfoAsync(::std::string_view iceP_id, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<UserInfo>>(false, this, &RegistryPrx::_iceI_getUserInfo, iceP_id, context);
 }
 
 ::std::function<void()>
-User::RegistryPrx::getUserInfoAsync(const ::std::string& iceP_id,
+User::RegistryPrx::getUserInfoAsync(::std::string_view iceP_id,
                                     ::std::function<void (::std::shared_ptr<::User::UserInfo>)> response,
                                     ::std::function<void(::std::exception_ptr)> ex,
                                     ::std::function<void(bool)> sent,
@@ -62,7 +62,7 @@ User::RegistryPrx::getUserInfoAsync(const ::std::string& iceP_id,
 
 /// \cond INTERNAL
 void
-User::RegistryPrx::_iceI_getUserInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<UserInfo>>>& outAsync, const ::std::string& iceP_id, const ::Ice::Context& context) const
+User::RegistryPrx::_iceI_getUserInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<UserInfo>>>& outAsync, ::std::string_view iceP_id, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "getUserInfo";
 

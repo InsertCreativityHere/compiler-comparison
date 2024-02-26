@@ -42,19 +42,19 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::UserAccountNotFo
 }
 
 ::std::string
-IceGrid::UserAccountMapperPrx::getUserAccount(const ::std::string& iceP_user, const ::Ice::Context& context) const
+IceGrid::UserAccountMapperPrx::getUserAccount(::std::string_view iceP_user, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::string>(true, this, &UserAccountMapperPrx::_iceI_getUserAccount, iceP_user, context).get();
 }
 
 ::std::future<::std::string>
-IceGrid::UserAccountMapperPrx::getUserAccountAsync(const ::std::string& iceP_user, const ::Ice::Context& context) const
+IceGrid::UserAccountMapperPrx::getUserAccountAsync(::std::string_view iceP_user, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::string>(false, this, &UserAccountMapperPrx::_iceI_getUserAccount, iceP_user, context);
 }
 
 ::std::function<void()>
-IceGrid::UserAccountMapperPrx::getUserAccountAsync(const ::std::string& iceP_user,
+IceGrid::UserAccountMapperPrx::getUserAccountAsync(::std::string_view iceP_user,
                                                    ::std::function<void (::std::string)> response,
                                                    ::std::function<void(::std::exception_ptr)> ex,
                                                    ::std::function<void(bool)> sent,
@@ -65,7 +65,7 @@ IceGrid::UserAccountMapperPrx::getUserAccountAsync(const ::std::string& iceP_use
 
 /// \cond INTERNAL
 void
-IceGrid::UserAccountMapperPrx::_iceI_getUserAccount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::std::string& iceP_user, const ::Ice::Context& context) const
+IceGrid::UserAccountMapperPrx::_iceI_getUserAccount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, ::std::string_view iceP_user, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "getUserAccount";
 

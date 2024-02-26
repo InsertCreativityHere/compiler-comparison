@@ -56,7 +56,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Derived(const ::Test::S& theS, const ::std::string& str, const ::std::string& b) :
+    Derived(const ::Test::S& theS, ::std::string_view str, ::std::string_view b) :
         Ice::ValueHelper<Derived, Base>(theS, str),
         b(b)
     {

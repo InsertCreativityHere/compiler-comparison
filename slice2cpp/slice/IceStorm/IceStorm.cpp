@@ -462,19 +462,19 @@ IceStorm::TopicPrx::ice_staticId()
 }
 
 ::std::optional<::IceStorm::TopicPrx>
-IceStorm::TopicManagerPrx::create(const ::std::string& iceP_name, const ::Ice::Context& context) const
+IceStorm::TopicManagerPrx::create(::std::string_view iceP_name, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::optional<TopicPrx>>(true, this, &TopicManagerPrx::_iceI_create, iceP_name, context).get();
 }
 
 ::std::future<::std::optional<::IceStorm::TopicPrx>>
-IceStorm::TopicManagerPrx::createAsync(const ::std::string& iceP_name, const ::Ice::Context& context) const
+IceStorm::TopicManagerPrx::createAsync(::std::string_view iceP_name, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::optional<TopicPrx>>(false, this, &TopicManagerPrx::_iceI_create, iceP_name, context);
 }
 
 ::std::function<void()>
-IceStorm::TopicManagerPrx::createAsync(const ::std::string& iceP_name,
+IceStorm::TopicManagerPrx::createAsync(::std::string_view iceP_name,
                                        ::std::function<void (::std::optional<::IceStorm::TopicPrx>)> response,
                                        ::std::function<void(::std::exception_ptr)> ex,
                                        ::std::function<void(bool)> sent,
@@ -485,7 +485,7 @@ IceStorm::TopicManagerPrx::createAsync(const ::std::string& iceP_name,
 
 /// \cond INTERNAL
 void
-IceStorm::TopicManagerPrx::_iceI_create(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<TopicPrx>>>& outAsync, const ::std::string& iceP_name, const ::Ice::Context& context) const
+IceStorm::TopicManagerPrx::_iceI_create(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<TopicPrx>>>& outAsync, ::std::string_view iceP_name, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "create";
 
@@ -513,19 +513,19 @@ IceStorm::TopicManagerPrx::_iceI_create(const ::std::shared_ptr<::IceInternal::O
 /// \endcond
 
 ::std::optional<::IceStorm::TopicPrx>
-IceStorm::TopicManagerPrx::retrieve(const ::std::string& iceP_name, const ::Ice::Context& context) const
+IceStorm::TopicManagerPrx::retrieve(::std::string_view iceP_name, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::optional<TopicPrx>>(true, this, &TopicManagerPrx::_iceI_retrieve, iceP_name, context).get();
 }
 
 ::std::future<::std::optional<::IceStorm::TopicPrx>>
-IceStorm::TopicManagerPrx::retrieveAsync(const ::std::string& iceP_name, const ::Ice::Context& context) const
+IceStorm::TopicManagerPrx::retrieveAsync(::std::string_view iceP_name, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::optional<TopicPrx>>(false, this, &TopicManagerPrx::_iceI_retrieve, iceP_name, context);
 }
 
 ::std::function<void()>
-IceStorm::TopicManagerPrx::retrieveAsync(const ::std::string& iceP_name,
+IceStorm::TopicManagerPrx::retrieveAsync(::std::string_view iceP_name,
                                          ::std::function<void (::std::optional<::IceStorm::TopicPrx>)> response,
                                          ::std::function<void(::std::exception_ptr)> ex,
                                          ::std::function<void(bool)> sent,
@@ -536,7 +536,7 @@ IceStorm::TopicManagerPrx::retrieveAsync(const ::std::string& iceP_name,
 
 /// \cond INTERNAL
 void
-IceStorm::TopicManagerPrx::_iceI_retrieve(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<TopicPrx>>>& outAsync, const ::std::string& iceP_name, const ::Ice::Context& context) const
+IceStorm::TopicManagerPrx::_iceI_retrieve(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<TopicPrx>>>& outAsync, ::std::string_view iceP_name, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "retrieve";
 

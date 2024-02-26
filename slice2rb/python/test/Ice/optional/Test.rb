@@ -962,10 +962,6 @@ module ::Test
                 InitialPrx_mixin::OP_supportsCsharpSerializable.invoke(self, [], context)
             end
 
-            def supportsCppStringView(context=nil)
-                InitialPrx_mixin::OP_supportsCppStringView.invoke(self, [], context)
-            end
-
             def supportsNullOptional(context=nil)
                 InitialPrx_mixin::OP_supportsNullOptional.invoke(self, [], context)
             end
@@ -1037,7 +1033,6 @@ module ::Test
         InitialPrx_mixin::OP_supportsRequiredParams = ::Ice::__defineOperation('supportsRequiredParams', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_bool, false, 0], [])
         InitialPrx_mixin::OP_supportsJavaSerializable = ::Ice::__defineOperation('supportsJavaSerializable', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_bool, false, 0], [])
         InitialPrx_mixin::OP_supportsCsharpSerializable = ::Ice::__defineOperation('supportsCsharpSerializable', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_bool, false, 0], [])
-        InitialPrx_mixin::OP_supportsCppStringView = ::Ice::__defineOperation('supportsCppStringView', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_bool, false, 0], [])
         InitialPrx_mixin::OP_supportsNullOptional = ::Ice::__defineOperation('supportsNullOptional', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_bool, false, 0], [])
     end
 end

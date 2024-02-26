@@ -66,7 +66,7 @@ public:
      * @return The user account name.
      * @throws IceGrid::UserAccountNotFoundException Raised if no user account is found for the given user.
      */
-    ::std::string getUserAccount(const ::std::string& user, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::string getUserAccount(::std::string_view user, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
@@ -77,7 +77,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::string> getUserAccountAsync(const ::std::string& user, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::string> getUserAccountAsync(::std::string_view user, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user
@@ -92,14 +92,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getUserAccountAsync(const ::std::string& user,
+    getUserAccountAsync(::std::string_view user,
                         ::std::function<void(::std::string)> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
                         const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getUserAccount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_getUserAccount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**

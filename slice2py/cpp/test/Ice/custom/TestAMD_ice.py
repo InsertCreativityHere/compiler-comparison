@@ -832,12 +832,6 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def opMyByteSeqAsync(self, inSeq, context=None):
             return _M_Test.TestIntf._op_opMyByteSeq.invokeAsync(self, ((inSeq, ), context))
 
-        def opString(self, inString, context=None):
-            return _M_Test.TestIntf._op_opString.invoke(self, ((inString, ), context))
-
-        def opStringAsync(self, inString, context=None):
-            return _M_Test.TestIntf._op_opString.invokeAsync(self, ((inString, ), context))
-
         def opStringSeq(self, inSeq, context=None):
             return _M_Test.TestIntf._op_opStringSeq.invoke(self, ((inSeq, ), context))
 
@@ -952,12 +946,6 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def opVarDictAsync(self, idict, context=None):
             return _M_Test.TestIntf._op_opVarDict.invokeAsync(self, ((idict, ), context))
 
-        def opCustomIntStringDict(self, idict, context=None):
-            return _M_Test.TestIntf._op_opCustomIntStringDict.invoke(self, ((idict, ), context))
-
-        def opCustomIntStringDictAsync(self, idict, context=None):
-            return _M_Test.TestIntf._op_opCustomIntStringDict.invokeAsync(self, ((idict, ), context))
-
         def opShortBuffer(self, inS, context=None):
             return _M_Test.TestIntf._op_opShortBuffer.invoke(self, ((inS, ), context))
 
@@ -1053,9 +1041,6 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def opMyByteSeq(self, inSeq, current=None):
             raise NotImplementedError("servant method 'opMyByteSeq' not implemented")
 
-        def opString(self, inString, current=None):
-            raise NotImplementedError("servant method 'opString' not implemented")
-
         def opStringSeq(self, inSeq, current=None):
             raise NotImplementedError("servant method 'opStringSeq' not implemented")
 
@@ -1113,9 +1098,6 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def opVarDict(self, idict, current=None):
             raise NotImplementedError("servant method 'opVarDict' not implemented")
 
-        def opCustomIntStringDict(self, idict, current=None):
-            raise NotImplementedError("servant method 'opCustomIntStringDict' not implemented")
-
         def opShortBuffer(self, inS, current=None):
             raise NotImplementedError("servant method 'opShortBuffer' not implemented")
 
@@ -1150,7 +1132,6 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
     TestIntf._op_opByteSeq = IcePy.Operation('opByteSeq', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_ByteSeq, False, 0),), (((), _M_Test._t_ByteSeq, False, 0),), ((), _M_Test._t_ByteSeq, False, 0), ())
     TestIntf._op_opByteList = IcePy.Operation('opByteList', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_ByteList, False, 0),), (((), _M_Test._t_ByteList, False, 0),), ((), _M_Test._t_ByteList, False, 0), ())
     TestIntf._op_opMyByteSeq = IcePy.Operation('opMyByteSeq', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_ByteSeq, False, 0),), (((), _M_Test._t_ByteSeq, False, 0),), ((), _M_Test._t_ByteSeq, False, 0), ())
-    TestIntf._op_opString = IcePy.Operation('opString', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_string, False, 0),), (((), IcePy._t_string, False, 0),), ((), IcePy._t_string, False, 0), ())
     TestIntf._op_opStringSeq = IcePy.Operation('opStringSeq', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_StringSeq, False, 0),), (((), _M_Test._t_StringSeq, False, 0),), ((), _M_Test._t_StringSeq, False, 0), ())
     TestIntf._op_opStringList = IcePy.Operation('opStringList', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_StringList, False, 0),), (((), _M_Test._t_StringList, False, 0),), ((), _M_Test._t_StringList, False, 0), ())
     TestIntf._op_opFixedSeq = IcePy.Operation('opFixedSeq', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_FixedSeq, False, 0),), (((), _M_Test._t_FixedSeq, False, 0),), ((), _M_Test._t_FixedSeq, False, 0), ())
@@ -1170,7 +1151,6 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
     TestIntf._op_opOutRangeByteSeq = IcePy.Operation('opOutRangeByteSeq', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_ByteSeq, False, 0),), (((), _M_Test._t_ByteSeq, False, 0),), None, ())
     TestIntf._op_opIntStringDict = IcePy.Operation('opIntStringDict', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_IntStringDict, False, 0),), (((), _M_Test._t_IntStringDict, False, 0),), ((), _M_Test._t_IntStringDict, False, 0), ())
     TestIntf._op_opVarDict = IcePy.Operation('opVarDict', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_StringIntDict, False, 0),), (((), _M_Test._t_StringIntDict, False, 0),), ((), _M_Test._t_LongLongDict, False, 0), ())
-    TestIntf._op_opCustomIntStringDict = IcePy.Operation('opCustomIntStringDict', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_IntStringDict, False, 0),), (((), _M_Test._t_IntStringDict, False, 0),), ((), _M_Test._t_IntStringDict, False, 0), ())
     TestIntf._op_opShortBuffer = IcePy.Operation('opShortBuffer', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_ShortBuffer, False, 0),), (((), _M_Test._t_ShortBuffer, False, 0),), ((), _M_Test._t_ShortBuffer, False, 0), ())
     TestIntf._op_opBoolBuffer = IcePy.Operation('opBoolBuffer', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_BoolSeq, False, 0),), (((), _M_Test._t_BoolSeq, False, 0),), ((), _M_Test._t_BoolSeq, False, 0), ())
     TestIntf._op_opBufferStruct = IcePy.Operation('opBufferStruct', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), _M_Test._t_BufferStruct, False, 0),), (), ((), _M_Test._t_BufferStruct, False, 0), ())

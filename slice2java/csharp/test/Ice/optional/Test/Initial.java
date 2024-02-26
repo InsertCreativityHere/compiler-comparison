@@ -1700,8 +1700,6 @@ public interface Initial extends com.zeroc.Ice.Object
 
     boolean supportsJavaSerializable(com.zeroc.Ice.Current current);
 
-    boolean supportsCppStringView(com.zeroc.Ice.Current current);
-
     boolean supportsNullOptional(com.zeroc.Ice.Current current);
 
     /** @hidden */
@@ -2750,24 +2748,6 @@ public interface Initial extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_supportsCppStringView(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        boolean ret = obj.supportsCppStringView(current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ostr.writeBool(ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_supportsNullOptional(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
@@ -2834,7 +2814,6 @@ public interface Initial extends com.zeroc.Ice.Object
         "returnOptionalClass",
         "sendOptionalClass",
         "shutdown",
-        "supportsCppStringView",
         "supportsJavaSerializable",
         "supportsNullOptional",
         "supportsRequiredParams"
@@ -3063,17 +3042,13 @@ public interface Initial extends com.zeroc.Ice.Object
             }
             case 52:
             {
-                return _iceD_supportsCppStringView(this, in, current);
+                return _iceD_supportsJavaSerializable(this, in, current);
             }
             case 53:
             {
-                return _iceD_supportsJavaSerializable(this, in, current);
-            }
-            case 54:
-            {
                 return _iceD_supportsNullOptional(this, in, current);
             }
-            case 55:
+            case 54:
             {
                 return _iceD_supportsRequiredParams(this, in, current);
             }

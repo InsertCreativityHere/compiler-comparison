@@ -96,7 +96,7 @@ public:
      * @param isReplicaGroup True if the adapter is also a member of a replica group.
      * @param context The Context map to send with the invocation.
      */
-    void foundAdapterById(const ::std::string& id, const ::std::optional<::Ice::ObjectPrx>& prx, bool isReplicaGroup, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void foundAdapterById(::std::string_view id, const ::std::optional<::Ice::ObjectPrx>& prx, bool isReplicaGroup, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Reply to the findAdpaterById request.
@@ -107,7 +107,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> foundAdapterByIdAsync(const ::std::string& id, const ::std::optional<::Ice::ObjectPrx>& prx, bool isReplicaGroup, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> foundAdapterByIdAsync(::std::string_view id, const ::std::optional<::Ice::ObjectPrx>& prx, bool isReplicaGroup, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Reply to the findAdpaterById request.
@@ -122,14 +122,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    foundAdapterByIdAsync(const ::std::string& id, const ::std::optional<::Ice::ObjectPrx>& prx, bool isReplicaGroup,
+    foundAdapterByIdAsync(::std::string_view id, const ::std::optional<::Ice::ObjectPrx>& prx, bool isReplicaGroup,
                           ::std::function<void()> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
                           const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_foundAdapterById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::optional<::Ice::ObjectPrx>&, bool, const ::Ice::Context&) const;
+    void _iceI_foundAdapterById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, const ::std::optional<::Ice::ObjectPrx>&, bool, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -196,7 +196,7 @@ public:
      * object is found.
      * @param context The Context map to send with the invocation.
      */
-    void findObjectById(const ::std::string& domainId, const ::Ice::Identity& id, const ::std::optional<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void findObjectById(::std::string_view domainId, const ::Ice::Identity& id, const ::std::optional<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Request to find an Ice object
@@ -208,7 +208,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> findObjectByIdAsync(const ::std::string& domainId, const ::Ice::Identity& id, const ::std::optional<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> findObjectByIdAsync(::std::string_view domainId, const ::Ice::Identity& id, const ::std::optional<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Request to find an Ice object
@@ -224,14 +224,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    findObjectByIdAsync(const ::std::string& domainId, const ::Ice::Identity& id, const ::std::optional<LookupReplyPrx>& reply,
+    findObjectByIdAsync(::std::string_view domainId, const ::Ice::Identity& id, const ::std::optional<LookupReplyPrx>& reply,
                         ::std::function<void()> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
                         const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_findObjectById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Identity&, const ::std::optional<LookupReplyPrx>&, const ::Ice::Context&) const;
+    void _iceI_findObjectById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, const ::Ice::Identity&, const ::std::optional<LookupReplyPrx>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -243,7 +243,7 @@ public:
      * adapter is found.
      * @param context The Context map to send with the invocation.
      */
-    void findAdapterById(const ::std::string& domainId, const ::std::string& id, const ::std::optional<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void findAdapterById(::std::string_view domainId, ::std::string_view id, const ::std::optional<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Request to find an object adapter
@@ -255,7 +255,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> findAdapterByIdAsync(const ::std::string& domainId, const ::std::string& id, const ::std::optional<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> findAdapterByIdAsync(::std::string_view domainId, ::std::string_view id, const ::std::optional<LookupReplyPrx>& reply, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Request to find an object adapter
@@ -271,14 +271,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    findAdapterByIdAsync(const ::std::string& domainId, const ::std::string& id, const ::std::optional<LookupReplyPrx>& reply,
+    findAdapterByIdAsync(::std::string_view domainId, ::std::string_view id, const ::std::optional<LookupReplyPrx>& reply,
                          ::std::function<void()> response,
                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
                          ::std::function<void(bool)> sent = nullptr,
                          const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_findAdapterById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::string&, const ::std::optional<LookupReplyPrx>&, const ::Ice::Context&) const;
+    void _iceI_findAdapterById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, ::std::string_view, const ::std::optional<LookupReplyPrx>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**

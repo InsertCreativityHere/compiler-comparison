@@ -1075,12 +1075,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def opStringAsync(self, p1, context=None):
             return _M_Test.Initial._op_opString.invokeAsync(self, ((p1, ), context))
 
-        def opCustomString(self, p1=Ice.Unset, context=None):
-            return _M_Test.Initial._op_opCustomString.invoke(self, ((p1, ), context))
-
-        def opCustomStringAsync(self, p1, context=None):
-            return _M_Test.Initial._op_opCustomString.invokeAsync(self, ((p1, ), context))
-
         def opMyEnum(self, p1=Ice.Unset, context=None):
             return _M_Test.Initial._op_opMyEnum.invoke(self, ((p1, ), context))
 
@@ -1213,12 +1207,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def opStringIntDictAsync(self, p1, context=None):
             return _M_Test.Initial._op_opStringIntDict.invokeAsync(self, ((p1, ), context))
 
-        def opCustomIntStringDict(self, p1=Ice.Unset, context=None):
-            return _M_Test.Initial._op_opCustomIntStringDict.invoke(self, ((p1, ), context))
-
-        def opCustomIntStringDictAsync(self, p1, context=None):
-            return _M_Test.Initial._op_opCustomIntStringDict.invokeAsync(self, ((p1, ), context))
-
         def opIntOneOptionalDict(self, p1=Ice.Unset, context=None):
             return _M_Test.Initial._op_opIntOneOptionalDict.invoke(self, ((p1, ), context))
 
@@ -1321,12 +1309,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def supportsCsharpSerializableAsync(self, context=None):
             return _M_Test.Initial._op_supportsCsharpSerializable.invokeAsync(self, ((), context))
 
-        def supportsCppStringView(self, context=None):
-            return _M_Test.Initial._op_supportsCppStringView.invoke(self, ((), context))
-
-        def supportsCppStringViewAsync(self, context=None):
-            return _M_Test.Initial._op_supportsCppStringView.invokeAsync(self, ((), context))
-
         def supportsNullOptional(self, context=None):
             return _M_Test.Initial._op_supportsNullOptional.invoke(self, ((), context))
 
@@ -1414,9 +1396,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def opString(self, p1, current=None):
             raise NotImplementedError("servant method 'opString' not implemented")
 
-        def opCustomString(self, p1, current=None):
-            raise NotImplementedError("servant method 'opCustomString' not implemented")
-
         def opMyEnum(self, p1, current=None):
             raise NotImplementedError("servant method 'opMyEnum' not implemented")
 
@@ -1482,9 +1461,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
 
         def opStringIntDict(self, p1, current=None):
             raise NotImplementedError("servant method 'opStringIntDict' not implemented")
-
-        def opCustomIntStringDict(self, p1, current=None):
-            raise NotImplementedError("servant method 'opCustomIntStringDict' not implemented")
 
         def opIntOneOptionalDict(self, p1, current=None):
             raise NotImplementedError("servant method 'opIntOneOptionalDict' not implemented")
@@ -1641,9 +1617,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def supportsCsharpSerializable(self, current=None):
             raise NotImplementedError("servant method 'supportsCsharpSerializable' not implemented")
 
-        def supportsCppStringView(self, current=None):
-            raise NotImplementedError("servant method 'supportsCppStringView' not implemented")
-
         def supportsNullOptional(self, current=None):
             raise NotImplementedError("servant method 'supportsNullOptional' not implemented")
 
@@ -1668,7 +1641,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
     Initial._op_opFloat = IcePy.Operation('opFloat', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_float, True, 2),), (((), IcePy._t_float, True, 3),), ((), IcePy._t_float, True, 1), ())
     Initial._op_opDouble = IcePy.Operation('opDouble', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_double, True, 2),), (((), IcePy._t_double, True, 3),), ((), IcePy._t_double, True, 1), ())
     Initial._op_opString = IcePy.Operation('opString', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, True, 2),), (((), IcePy._t_string, True, 3),), ((), IcePy._t_string, True, 1), ())
-    Initial._op_opCustomString = IcePy.Operation('opCustomString', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, True, 2),), (((), IcePy._t_string, True, 3),), ((), IcePy._t_string, True, 1), ())
     Initial._op_opMyEnum = IcePy.Operation('opMyEnum', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_MyEnum, True, 2),), (((), _M_Test._t_MyEnum, True, 3),), ((), _M_Test._t_MyEnum, True, 1), ())
     Initial._op_opSmallStruct = IcePy.Operation('opSmallStruct', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_SmallStruct, True, 2),), (((), _M_Test._t_SmallStruct, True, 3),), ((), _M_Test._t_SmallStruct, True, 1), ())
     Initial._op_opFixedStruct = IcePy.Operation('opFixedStruct', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_FixedStruct, True, 2),), (((), _M_Test._t_FixedStruct, True, 3),), ((), _M_Test._t_FixedStruct, True, 1), ())
@@ -1691,7 +1663,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
     Initial._op_opSerializable = IcePy.Operation('opSerializable', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_Serializable, True, 2),), (((), _M_Test._t_Serializable, True, 3),), ((), _M_Test._t_Serializable, True, 1), ())
     Initial._op_opIntIntDict = IcePy.Operation('opIntIntDict', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_IntIntDict, True, 2),), (((), _M_Test._t_IntIntDict, True, 3),), ((), _M_Test._t_IntIntDict, True, 1), ())
     Initial._op_opStringIntDict = IcePy.Operation('opStringIntDict', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_StringIntDict, True, 2),), (((), _M_Test._t_StringIntDict, True, 3),), ((), _M_Test._t_StringIntDict, True, 1), ())
-    Initial._op_opCustomIntStringDict = IcePy.Operation('opCustomIntStringDict', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_IntStringDict, True, 2),), (((), _M_Test._t_IntStringDict, True, 3),), ((), _M_Test._t_IntStringDict, True, 1), ())
     Initial._op_opIntOneOptionalDict = IcePy.Operation('opIntOneOptionalDict', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_IntOneOptionalDict, True, 2),), (((), _M_Test._t_IntOneOptionalDict, True, 3),), ((), _M_Test._t_IntOneOptionalDict, True, 1), ())
     Initial._op_opClassAndUnknownOptional = IcePy.Operation('opClassAndUnknownOptional', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_Test._t_A, False, 0),), (), None, ())
     Initial._op_sendOptionalClass = IcePy.Operation('sendOptionalClass', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_bool, False, 0), ((), _M_Test._t_OneOptional, True, 1)), (), None, ())
@@ -1709,7 +1680,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
     Initial._op_supportsRequiredParams = IcePy.Operation('supportsRequiredParams', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
     Initial._op_supportsJavaSerializable = IcePy.Operation('supportsJavaSerializable', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
     Initial._op_supportsCsharpSerializable = IcePy.Operation('supportsCsharpSerializable', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
-    Initial._op_supportsCppStringView = IcePy.Operation('supportsCppStringView', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
     Initial._op_supportsNullOptional = IcePy.Operation('supportsNullOptional', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
 
     _M_Test.Initial = Initial

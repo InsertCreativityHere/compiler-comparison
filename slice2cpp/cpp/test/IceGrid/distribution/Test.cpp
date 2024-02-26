@@ -37,19 +37,19 @@ namespace
 }
 
 ::std::string
-Test::TestIntfPrx::getServerFile(const ::std::string& iceP_path, const ::Ice::Context& context) const
+Test::TestIntfPrx::getServerFile(::std::string_view iceP_path, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_getServerFile, iceP_path, context).get();
 }
 
 ::std::future<::std::string>
-Test::TestIntfPrx::getServerFileAsync(const ::std::string& iceP_path, const ::Ice::Context& context) const
+Test::TestIntfPrx::getServerFileAsync(::std::string_view iceP_path, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::string>(false, this, &TestIntfPrx::_iceI_getServerFile, iceP_path, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::getServerFileAsync(const ::std::string& iceP_path,
+Test::TestIntfPrx::getServerFileAsync(::std::string_view iceP_path,
                                       ::std::function<void (::std::string)> response,
                                       ::std::function<void(::std::exception_ptr)> ex,
                                       ::std::function<void(bool)> sent,
@@ -60,7 +60,7 @@ Test::TestIntfPrx::getServerFileAsync(const ::std::string& iceP_path,
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_getServerFile(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::std::string& iceP_path, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_getServerFile(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, ::std::string_view iceP_path, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "getServerFile";
 
@@ -75,19 +75,19 @@ Test::TestIntfPrx::_iceI_getServerFile(const ::std::shared_ptr<::IceInternal::Ou
 /// \endcond
 
 ::std::string
-Test::TestIntfPrx::getApplicationFile(const ::std::string& iceP_path, const ::Ice::Context& context) const
+Test::TestIntfPrx::getApplicationFile(::std::string_view iceP_path, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_getApplicationFile, iceP_path, context).get();
 }
 
 ::std::future<::std::string>
-Test::TestIntfPrx::getApplicationFileAsync(const ::std::string& iceP_path, const ::Ice::Context& context) const
+Test::TestIntfPrx::getApplicationFileAsync(::std::string_view iceP_path, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::string>(false, this, &TestIntfPrx::_iceI_getApplicationFile, iceP_path, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::getApplicationFileAsync(const ::std::string& iceP_path,
+Test::TestIntfPrx::getApplicationFileAsync(::std::string_view iceP_path,
                                            ::std::function<void (::std::string)> response,
                                            ::std::function<void(::std::exception_ptr)> ex,
                                            ::std::function<void(bool)> sent,
@@ -98,7 +98,7 @@ Test::TestIntfPrx::getApplicationFileAsync(const ::std::string& iceP_path,
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_getApplicationFile(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::std::string& iceP_path, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_getApplicationFile(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, ::std::string_view iceP_path, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "getApplicationFile";
 

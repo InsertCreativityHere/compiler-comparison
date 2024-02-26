@@ -325,7 +325,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    CallbackException(double someValue, const ::std::string& someString) :
+    CallbackException(double someValue, ::std::string_view someString) :
         someValue(someValue),
         someString(someString)
     {

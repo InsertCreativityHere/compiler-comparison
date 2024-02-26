@@ -61,34 +61,34 @@ public:
     void _iceI_noCert(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void checkCert(const ::std::string& subjectDN, const ::std::string& issuerDN, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void checkCert(::std::string_view subjectDN, ::std::string_view issuerDN, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> checkCertAsync(const ::std::string& subjectDN, const ::std::string& issuerDN, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> checkCertAsync(::std::string_view subjectDN, ::std::string_view issuerDN, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    checkCertAsync(const ::std::string& subjectDN, const ::std::string& issuerDN,
+    checkCertAsync(::std::string_view subjectDN, ::std::string_view issuerDN,
                    ::std::function<void()> response,
                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                    ::std::function<void(bool)> sent = nullptr,
                    const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_checkCert(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_checkCert(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
-    void checkCipher(const ::std::string& cipher, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void checkCipher(::std::string_view cipher, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> checkCipherAsync(const ::std::string& cipher, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> checkCipherAsync(::std::string_view cipher, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    checkCipherAsync(const ::std::string& cipher,
+    checkCipherAsync(::std::string_view cipher,
                      ::std::function<void()> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_checkCipher(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_checkCipher(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**

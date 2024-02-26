@@ -611,10 +611,6 @@ module ::Test
                 TestIntfPrx_mixin::OP_opMyByteSeq.invoke(self, [inSeq], context)
             end
 
-            def opString(inString, context=nil)
-                TestIntfPrx_mixin::OP_opString.invoke(self, [inString], context)
-            end
-
             def opStringSeq(inSeq, context=nil)
                 TestIntfPrx_mixin::OP_opStringSeq.invoke(self, [inSeq], context)
             end
@@ -691,10 +687,6 @@ module ::Test
                 TestIntfPrx_mixin::OP_opVarDict.invoke(self, [idict], context)
             end
 
-            def opCustomIntStringDict(idict, context=nil)
-                TestIntfPrx_mixin::OP_opCustomIntStringDict.invoke(self, [idict], context)
-            end
-
             def opShortBuffer(inS, context=nil)
                 TestIntfPrx_mixin::OP_opShortBuffer.invoke(self, [inS], context)
             end
@@ -738,7 +730,6 @@ module ::Test
         TestIntfPrx_mixin::OP_opByteSeq = ::Ice::__defineOperation('opByteSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::T_ByteSeq, false, 0]], [[::Test::T_ByteSeq, false, 0]], [::Test::T_ByteSeq, false, 0], [])
         TestIntfPrx_mixin::OP_opByteList = ::Ice::__defineOperation('opByteList', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::T_ByteList, false, 0]], [[::Test::T_ByteList, false, 0]], [::Test::T_ByteList, false, 0], [])
         TestIntfPrx_mixin::OP_opMyByteSeq = ::Ice::__defineOperation('opMyByteSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::T_ByteSeq, false, 0]], [[::Test::T_ByteSeq, false, 0]], [::Test::T_ByteSeq, false, 0], [])
-        TestIntfPrx_mixin::OP_opString = ::Ice::__defineOperation('opString', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_string, false, 0]], [[::Ice::T_string, false, 0]], [::Ice::T_string, false, 0], [])
         TestIntfPrx_mixin::OP_opStringSeq = ::Ice::__defineOperation('opStringSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::T_StringSeq, false, 0]], [[::Test::T_StringSeq, false, 0]], [::Test::T_StringSeq, false, 0], [])
         TestIntfPrx_mixin::OP_opStringList = ::Ice::__defineOperation('opStringList', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::T_StringList, false, 0]], [[::Test::T_StringList, false, 0]], [::Test::T_StringList, false, 0], [])
         TestIntfPrx_mixin::OP_opFixedSeq = ::Ice::__defineOperation('opFixedSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::T_FixedSeq, false, 0]], [[::Test::T_FixedSeq, false, 0]], [::Test::T_FixedSeq, false, 0], [])
@@ -758,7 +749,6 @@ module ::Test
         TestIntfPrx_mixin::OP_opOutRangeByteSeq = ::Ice::__defineOperation('opOutRangeByteSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::T_ByteSeq, false, 0]], [[::Test::T_ByteSeq, false, 0]], nil, [])
         TestIntfPrx_mixin::OP_opIntStringDict = ::Ice::__defineOperation('opIntStringDict', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::T_IntStringDict, false, 0]], [[::Test::T_IntStringDict, false, 0]], [::Test::T_IntStringDict, false, 0], [])
         TestIntfPrx_mixin::OP_opVarDict = ::Ice::__defineOperation('opVarDict', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::T_StringIntDict, false, 0]], [[::Test::T_StringIntDict, false, 0]], [::Test::T_LongLongDict, false, 0], [])
-        TestIntfPrx_mixin::OP_opCustomIntStringDict = ::Ice::__defineOperation('opCustomIntStringDict', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::T_IntStringDict, false, 0]], [[::Test::T_IntStringDict, false, 0]], [::Test::T_IntStringDict, false, 0], [])
         TestIntfPrx_mixin::OP_opShortBuffer = ::Ice::__defineOperation('opShortBuffer', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::T_ShortBuffer, false, 0]], [[::Test::T_ShortBuffer, false, 0]], [::Test::T_ShortBuffer, false, 0], [])
         TestIntfPrx_mixin::OP_opBoolBuffer = ::Ice::__defineOperation('opBoolBuffer', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::T_BoolSeq, false, 0]], [[::Test::T_BoolSeq, false, 0]], [::Test::T_BoolSeq, false, 0], [])
         TestIntfPrx_mixin::OP_opBufferStruct = ::Ice::__defineOperation('opBufferStruct', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::T_BufferStruct, false, 0]], [], [::Test::T_BufferStruct, false, 0], [])

@@ -361,46 +361,6 @@ public interface Initial extends com.zeroc.Ice.Object
     }
 
     /**
-     * Holds the result of operation opCustomString.
-     **/
-    public static class OpCustomStringResult
-    {
-        /**
-         * Default constructor.
-         **/
-        public OpCustomStringResult()
-        {
-        }
-
-        public OpCustomStringResult(java.util.Optional<java.lang.String> returnValue, java.util.Optional<java.lang.String> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public OpCustomStringResult(String returnValue, String p3)
-        {
-            this.returnValue = java.util.Optional.ofNullable(returnValue);
-            this.p3 = java.util.Optional.ofNullable(p3);
-        }
-
-        public java.util.Optional<java.lang.String> returnValue;
-        public java.util.Optional<java.lang.String> p3;
-
-        public void write(com.zeroc.Ice.OutputStream ostr)
-        {
-            ostr.writeString(1, returnValue);
-            ostr.writeString(3, this.p3);
-        }
-
-        public void read(com.zeroc.Ice.InputStream istr)
-        {
-            returnValue = istr.readString(1);
-            this.p3 = istr.readString(3);
-        }
-    }
-
-    /**
      * Holds the result of operation opMyEnum.
      **/
     public static class OpMyEnumResult
@@ -1281,46 +1241,6 @@ public interface Initial extends com.zeroc.Ice.Object
     }
 
     /**
-     * Holds the result of operation opCustomIntStringDict.
-     **/
-    public static class OpCustomIntStringDictResult
-    {
-        /**
-         * Default constructor.
-         **/
-        public OpCustomIntStringDictResult()
-        {
-        }
-
-        public OpCustomIntStringDictResult(java.util.Optional<java.util.Map<java.lang.Integer, java.lang.String>> returnValue, java.util.Optional<java.util.Map<java.lang.Integer, java.lang.String>> p3)
-        {
-            this.returnValue = returnValue;
-            this.p3 = p3;
-        }
-
-        public OpCustomIntStringDictResult(java.util.Map<java.lang.Integer, java.lang.String> returnValue, java.util.Map<java.lang.Integer, java.lang.String> p3)
-        {
-            this.returnValue = java.util.Optional.ofNullable(returnValue);
-            this.p3 = java.util.Optional.ofNullable(p3);
-        }
-
-        public java.util.Optional<java.util.Map<java.lang.Integer, java.lang.String>> returnValue;
-        public java.util.Optional<java.util.Map<java.lang.Integer, java.lang.String>> p3;
-
-        public void write(com.zeroc.Ice.OutputStream ostr)
-        {
-            IntStringDictHelper.write(ostr, 1, returnValue);
-            IntStringDictHelper.write(ostr, 3, this.p3);
-        }
-
-        public void read(com.zeroc.Ice.InputStream istr)
-        {
-            returnValue = IntStringDictHelper.read(istr, 1);
-            this.p3 = IntStringDictHelper.read(istr, 3);
-        }
-    }
-
-    /**
      * Holds the result of operation opIntOneOptionalDict.
      **/
     public static class OpIntOneOptionalDictResult
@@ -1769,8 +1689,6 @@ public interface Initial extends com.zeroc.Ice.Object
 
     Initial.OpStringResult opString(java.util.Optional<java.lang.String> p1, com.zeroc.Ice.Current current);
 
-    Initial.OpCustomStringResult opCustomString(java.util.Optional<java.lang.String> p1, com.zeroc.Ice.Current current);
-
     Initial.OpMyEnumResult opMyEnum(java.util.Optional<MyEnum> p1, com.zeroc.Ice.Current current);
 
     Initial.OpSmallStructResult opSmallStruct(java.util.Optional<SmallStruct> p1, com.zeroc.Ice.Current current);
@@ -1815,8 +1733,6 @@ public interface Initial extends com.zeroc.Ice.Object
 
     Initial.OpStringIntDictResult opStringIntDict(java.util.Optional<java.util.Map<java.lang.String, java.lang.Integer>> p1, com.zeroc.Ice.Current current);
 
-    Initial.OpCustomIntStringDictResult opCustomIntStringDict(java.util.Optional<java.util.Map<java.lang.Integer, java.lang.String>> p1, com.zeroc.Ice.Current current);
-
     Initial.OpIntOneOptionalDictResult opIntOneOptionalDict(java.util.Optional<java.util.Map<java.lang.Integer, OneOptional>> p1, com.zeroc.Ice.Current current);
 
     void opClassAndUnknownOptional(A p, com.zeroc.Ice.Current current);
@@ -1850,8 +1766,6 @@ public interface Initial extends com.zeroc.Ice.Object
     boolean supportsJavaSerializable(com.zeroc.Ice.Current current);
 
     boolean supportsCsharpSerializable(com.zeroc.Ice.Current current);
-
-    boolean supportsCppStringView(com.zeroc.Ice.Current current);
 
     boolean supportsNullOptional(com.zeroc.Ice.Current current);
 
@@ -2151,27 +2065,6 @@ public interface Initial extends com.zeroc.Ice.Object
         iceP_p1 = istr.readString(2);
         inS.endReadParams();
         Initial.OpStringResult ret = obj.opString(iceP_p1, current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ret.write(ostr);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opCustomString(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Optional<java.lang.String> iceP_p1;
-        iceP_p1 = istr.readString(2);
-        inS.endReadParams();
-        Initial.OpCustomStringResult ret = obj.opCustomString(iceP_p1, current);
         com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
         ret.write(ostr);
         inS.endWriteParams(ostr);
@@ -2648,27 +2541,6 @@ public interface Initial extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opCustomIntStringDict(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        java.util.Optional<java.util.Map<java.lang.Integer, java.lang.String>> iceP_p1;
-        iceP_p1 = IntStringDictHelper.read(istr, 2);
-        inS.endReadParams();
-        Initial.OpCustomIntStringDictResult ret = obj.opCustomIntStringDict(iceP_p1, current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ret.write(ostr);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opIntOneOptionalDict(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
@@ -2978,24 +2850,6 @@ public interface Initial extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_supportsCppStringView(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        boolean ret = obj.supportsCppStringView(current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        ostr.writeBool(ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_supportsNullOptional(Initial obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
@@ -3019,8 +2873,6 @@ public interface Initial extends com.zeroc.Ice.Object
         "opByte",
         "opByteSeq",
         "opClassAndUnknownOptional",
-        "opCustomIntStringDict",
-        "opCustomString",
         "opDerivedException",
         "opDouble",
         "opDoubleSeq",
@@ -3065,7 +2917,6 @@ public interface Initial extends com.zeroc.Ice.Object
         "returnOptionalClass",
         "sendOptionalClass",
         "shutdown",
-        "supportsCppStringView",
         "supportsCsharpSerializable",
         "supportsJavaSerializable",
         "supportsNullOptional",
@@ -3123,205 +2974,193 @@ public interface Initial extends com.zeroc.Ice.Object
             }
             case 9:
             {
-                return _iceD_opCustomIntStringDict(this, in, current);
+                return _iceD_opDerivedException(this, in, current);
             }
             case 10:
             {
-                return _iceD_opCustomString(this, in, current);
+                return _iceD_opDouble(this, in, current);
             }
             case 11:
             {
-                return _iceD_opDerivedException(this, in, current);
+                return _iceD_opDoubleSeq(this, in, current);
             }
             case 12:
             {
-                return _iceD_opDouble(this, in, current);
+                return _iceD_opFixedStruct(this, in, current);
             }
             case 13:
             {
-                return _iceD_opDoubleSeq(this, in, current);
+                return _iceD_opFixedStructList(this, in, current);
             }
             case 14:
             {
-                return _iceD_opFixedStruct(this, in, current);
+                return _iceD_opFixedStructSeq(this, in, current);
             }
             case 15:
             {
-                return _iceD_opFixedStructList(this, in, current);
+                return _iceD_opFloat(this, in, current);
             }
             case 16:
             {
-                return _iceD_opFixedStructSeq(this, in, current);
+                return _iceD_opFloatSeq(this, in, current);
             }
             case 17:
             {
-                return _iceD_opFloat(this, in, current);
+                return _iceD_opG(this, in, current);
             }
             case 18:
             {
-                return _iceD_opFloatSeq(this, in, current);
+                return _iceD_opInt(this, in, current);
             }
             case 19:
             {
-                return _iceD_opG(this, in, current);
+                return _iceD_opIntIntDict(this, in, current);
             }
             case 20:
             {
-                return _iceD_opInt(this, in, current);
+                return _iceD_opIntOneOptionalDict(this, in, current);
             }
             case 21:
             {
-                return _iceD_opIntIntDict(this, in, current);
+                return _iceD_opIntSeq(this, in, current);
             }
             case 22:
             {
-                return _iceD_opIntOneOptionalDict(this, in, current);
+                return _iceD_opLong(this, in, current);
             }
             case 23:
             {
-                return _iceD_opIntSeq(this, in, current);
+                return _iceD_opLongSeq(this, in, current);
             }
             case 24:
             {
-                return _iceD_opLong(this, in, current);
+                return _iceD_opMDict1(this, in, current);
             }
             case 25:
             {
-                return _iceD_opLongSeq(this, in, current);
+                return _iceD_opMDict2(this, in, current);
             }
             case 26:
             {
-                return _iceD_opMDict1(this, in, current);
+                return _iceD_opMG1(this, in, current);
             }
             case 27:
             {
-                return _iceD_opMDict2(this, in, current);
+                return _iceD_opMG2(this, in, current);
             }
             case 28:
             {
-                return _iceD_opMG1(this, in, current);
+                return _iceD_opMSeq1(this, in, current);
             }
             case 29:
             {
-                return _iceD_opMG2(this, in, current);
+                return _iceD_opMSeq2(this, in, current);
             }
             case 30:
             {
-                return _iceD_opMSeq1(this, in, current);
+                return _iceD_opMStruct1(this, in, current);
             }
             case 31:
             {
-                return _iceD_opMSeq2(this, in, current);
+                return _iceD_opMStruct2(this, in, current);
             }
             case 32:
             {
-                return _iceD_opMStruct1(this, in, current);
+                return _iceD_opMyEnum(this, in, current);
             }
             case 33:
             {
-                return _iceD_opMStruct2(this, in, current);
+                return _iceD_opMyInterfaceProxy(this, in, current);
             }
             case 34:
             {
-                return _iceD_opMyEnum(this, in, current);
+                return _iceD_opOneOptional(this, in, current);
             }
             case 35:
             {
-                return _iceD_opMyInterfaceProxy(this, in, current);
+                return _iceD_opOptionalException(this, in, current);
             }
             case 36:
             {
-                return _iceD_opOneOptional(this, in, current);
+                return _iceD_opRequiredException(this, in, current);
             }
             case 37:
             {
-                return _iceD_opOptionalException(this, in, current);
+                return _iceD_opSerializable(this, in, current);
             }
             case 38:
             {
-                return _iceD_opRequiredException(this, in, current);
+                return _iceD_opShort(this, in, current);
             }
             case 39:
             {
-                return _iceD_opSerializable(this, in, current);
+                return _iceD_opShortSeq(this, in, current);
             }
             case 40:
             {
-                return _iceD_opShort(this, in, current);
+                return _iceD_opSmallStruct(this, in, current);
             }
             case 41:
             {
-                return _iceD_opShortSeq(this, in, current);
+                return _iceD_opSmallStructList(this, in, current);
             }
             case 42:
             {
-                return _iceD_opSmallStruct(this, in, current);
+                return _iceD_opSmallStructSeq(this, in, current);
             }
             case 43:
             {
-                return _iceD_opSmallStructList(this, in, current);
+                return _iceD_opString(this, in, current);
             }
             case 44:
             {
-                return _iceD_opSmallStructSeq(this, in, current);
+                return _iceD_opStringIntDict(this, in, current);
             }
             case 45:
             {
-                return _iceD_opString(this, in, current);
+                return _iceD_opStringSeq(this, in, current);
             }
             case 46:
             {
-                return _iceD_opStringIntDict(this, in, current);
+                return _iceD_opVarStruct(this, in, current);
             }
             case 47:
             {
-                return _iceD_opStringSeq(this, in, current);
+                return _iceD_opVarStructSeq(this, in, current);
             }
             case 48:
             {
-                return _iceD_opVarStruct(this, in, current);
+                return _iceD_opVoid(this, in, current);
             }
             case 49:
             {
-                return _iceD_opVarStructSeq(this, in, current);
+                return _iceD_pingPong(this, in, current);
             }
             case 50:
             {
-                return _iceD_opVoid(this, in, current);
+                return _iceD_returnOptionalClass(this, in, current);
             }
             case 51:
             {
-                return _iceD_pingPong(this, in, current);
+                return _iceD_sendOptionalClass(this, in, current);
             }
             case 52:
             {
-                return _iceD_returnOptionalClass(this, in, current);
+                return _iceD_shutdown(this, in, current);
             }
             case 53:
             {
-                return _iceD_sendOptionalClass(this, in, current);
+                return _iceD_supportsCsharpSerializable(this, in, current);
             }
             case 54:
             {
-                return _iceD_shutdown(this, in, current);
+                return _iceD_supportsJavaSerializable(this, in, current);
             }
             case 55:
             {
-                return _iceD_supportsCppStringView(this, in, current);
-            }
-            case 56:
-            {
-                return _iceD_supportsCsharpSerializable(this, in, current);
-            }
-            case 57:
-            {
-                return _iceD_supportsJavaSerializable(this, in, current);
-            }
-            case 58:
-            {
                 return _iceD_supportsNullOptional(this, in, current);
             }
-            case 59:
+            case 56:
             {
                 return _iceD_supportsRequiredParams(this, in, current);
             }

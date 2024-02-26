@@ -37,19 +37,19 @@ namespace
 }
 
 ::std::string
-Test::TestIntfPrx::getProperty(const ::std::string& iceP_name, const ::Ice::Context& context) const
+Test::TestIntfPrx::getProperty(::std::string_view iceP_name, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::string>(true, this, &TestIntfPrx::_iceI_getProperty, iceP_name, context).get();
 }
 
 ::std::future<::std::string>
-Test::TestIntfPrx::getPropertyAsync(const ::std::string& iceP_name, const ::Ice::Context& context) const
+Test::TestIntfPrx::getPropertyAsync(::std::string_view iceP_name, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::string>(false, this, &TestIntfPrx::_iceI_getProperty, iceP_name, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::getPropertyAsync(const ::std::string& iceP_name,
+Test::TestIntfPrx::getPropertyAsync(::std::string_view iceP_name,
                                     ::std::function<void (::std::string)> response,
                                     ::std::function<void(::std::exception_ptr)> ex,
                                     ::std::function<void(bool)> sent,
@@ -60,7 +60,7 @@ Test::TestIntfPrx::getPropertyAsync(const ::std::string& iceP_name,
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_getProperty(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::std::string& iceP_name, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_getProperty(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, ::std::string_view iceP_name, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "getProperty";
 

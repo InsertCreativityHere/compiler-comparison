@@ -792,7 +792,6 @@
         "supportsRequiredParams": [, , , , [1], , , , , ],
         "supportsJavaSerializable": [, , , , [1], , , , , ],
         "supportsCsharpSerializable": [, , , , [1], , , , , ],
-        "supportsCppStringView": [, , , , [1], , , , , ],
         "supportsNullOptional": [, , , , [1], , , , , ]
     });
     exports.Test = Test;

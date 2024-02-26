@@ -127,19 +127,19 @@ IceBox::ServiceObserverPrx::ice_staticId()
 }
 
 void
-IceBox::ServiceManagerPrx::startService(const ::std::string& iceP_service, const ::Ice::Context& context) const
+IceBox::ServiceManagerPrx::startService(::std::string_view iceP_service, const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &ServiceManagerPrx::_iceI_startService, iceP_service, context).get();
 }
 
 ::std::future<void>
-IceBox::ServiceManagerPrx::startServiceAsync(const ::std::string& iceP_service, const ::Ice::Context& context) const
+IceBox::ServiceManagerPrx::startServiceAsync(::std::string_view iceP_service, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &ServiceManagerPrx::_iceI_startService, iceP_service, context);
 }
 
 ::std::function<void()>
-IceBox::ServiceManagerPrx::startServiceAsync(const ::std::string& iceP_service,
+IceBox::ServiceManagerPrx::startServiceAsync(::std::string_view iceP_service,
                                              ::std::function<void ()> response,
                                              ::std::function<void(::std::exception_ptr)> ex,
                                              ::std::function<void(bool)> sent,
@@ -150,7 +150,7 @@ IceBox::ServiceManagerPrx::startServiceAsync(const ::std::string& iceP_service,
 
 /// \cond INTERNAL
 void
-IceBox::ServiceManagerPrx::_iceI_startService(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_service, const ::Ice::Context& context) const
+IceBox::ServiceManagerPrx::_iceI_startService(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_service, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "startService";
 
@@ -182,19 +182,19 @@ IceBox::ServiceManagerPrx::_iceI_startService(const ::std::shared_ptr<::IceInter
 /// \endcond
 
 void
-IceBox::ServiceManagerPrx::stopService(const ::std::string& iceP_service, const ::Ice::Context& context) const
+IceBox::ServiceManagerPrx::stopService(::std::string_view iceP_service, const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &ServiceManagerPrx::_iceI_stopService, iceP_service, context).get();
 }
 
 ::std::future<void>
-IceBox::ServiceManagerPrx::stopServiceAsync(const ::std::string& iceP_service, const ::Ice::Context& context) const
+IceBox::ServiceManagerPrx::stopServiceAsync(::std::string_view iceP_service, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &ServiceManagerPrx::_iceI_stopService, iceP_service, context);
 }
 
 ::std::function<void()>
-IceBox::ServiceManagerPrx::stopServiceAsync(const ::std::string& iceP_service,
+IceBox::ServiceManagerPrx::stopServiceAsync(::std::string_view iceP_service,
                                             ::std::function<void ()> response,
                                             ::std::function<void(::std::exception_ptr)> ex,
                                             ::std::function<void(bool)> sent,
@@ -205,7 +205,7 @@ IceBox::ServiceManagerPrx::stopServiceAsync(const ::std::string& iceP_service,
 
 /// \cond INTERNAL
 void
-IceBox::ServiceManagerPrx::_iceI_stopService(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_service, const ::Ice::Context& context) const
+IceBox::ServiceManagerPrx::_iceI_stopService(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_service, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "stopService";
 

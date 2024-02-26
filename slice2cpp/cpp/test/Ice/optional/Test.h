@@ -21,7 +21,6 @@
 #include <IceUtil/UndefSysMacros.h>
 #include <list>
 #include <CustomMap.h>
-#include <StringView.h>
 
 #ifndef ICE_IGNORE_VERSION
 #   if ICE_INT_VERSION  != 30850
@@ -408,21 +407,6 @@ public:
     void _iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::optional<::std::string>, std::optional<::std::string>>>>&, const std::optional<::std::string>&, const ::Ice::Context&) const;
     /// \endcond
 
-    std::optional<::std::string> opCustomString(const std::optional<Util::string_view>& p1, std::optional<::std::string>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::future<::std::tuple<std::optional<::std::string>, std::optional<::std::string>>> opCustomStringAsync(const std::optional<Util::string_view>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::function<void()>
-    opCustomStringAsync(const std::optional<Util::string_view>& p1,
-                        ::std::function<void(std::optional<Util::string_view>, std::optional<Util::string_view>)> response,
-                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                        ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opCustomString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::optional<::std::string>, std::optional<::std::string>>>>&, const std::optional<Util::string_view>&, const ::Ice::Context&) const;
-    /// \endcond
-
     std::optional<MyEnum> opMyEnum(const std::optional<MyEnum>& p1, std::optional<MyEnum>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::future<::std::tuple<std::optional<MyEnum>, std::optional<MyEnum>>> opMyEnumAsync(const std::optional<MyEnum>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -753,21 +737,6 @@ public:
     void _iceI_opStringIntDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::optional<StringIntDict>, std::optional<StringIntDict>>>>&, const std::optional<StringIntDict>&, const ::Ice::Context&) const;
     /// \endcond
 
-    std::optional<::Test::CustomMap<std::int32_t, std::string>> opCustomIntStringDict(const std::optional<::std::map<std::int32_t, ::Util::string_view>>& p1, std::optional<::Test::CustomMap<std::int32_t, std::string>>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::future<::std::tuple<std::optional<::Test::CustomMap<std::int32_t, std::string>>, std::optional<::Test::CustomMap<std::int32_t, std::string>>>> opCustomIntStringDictAsync(const std::optional<::std::map<std::int32_t, ::Util::string_view>>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::function<void()>
-    opCustomIntStringDictAsync(const std::optional<::std::map<std::int32_t, ::Util::string_view>>& p1,
-                               ::std::function<void(std::optional<::std::map<std::int32_t, ::Util::string_view>>, std::optional<::std::map<std::int32_t, ::Util::string_view>>)> response,
-                               ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                               ::std::function<void(bool)> sent = nullptr,
-                               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opCustomIntStringDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::optional<::Test::CustomMap<std::int32_t, std::string>>, std::optional<::Test::CustomMap<std::int32_t, std::string>>>>>&, const std::optional<::std::map<std::int32_t, ::Util::string_view>>&, const ::Ice::Context&) const;
-    /// \endcond
-
     std::optional<IntOneOptionalDict> opIntOneOptionalDict(const std::optional<IntOneOptionalDict>& p1, std::optional<IntOneOptionalDict>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::future<::std::tuple<std::optional<IntOneOptionalDict>, std::optional<IntOneOptionalDict>>> opIntOneOptionalDictAsync(const std::optional<IntOneOptionalDict>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -1013,20 +982,6 @@ public:
 
     /// \cond INTERNAL
     void _iceI_supportsCsharpSerializable(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::Ice::Context&) const;
-    /// \endcond
-
-    bool supportsCppStringView(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::future<bool> supportsCppStringViewAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::function<void()>
-    supportsCppStringViewAsync(::std::function<void(bool)> response,
-                               ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                               ::std::function<void(bool)> sent = nullptr,
-                               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_supportsCppStringView(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::Ice::Context&) const;
     /// \endcond
 
     bool supportsNullOptional(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -1414,7 +1369,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    C(::std::int32_t requiredA, const std::optional<::std::int32_t>& ma, const std::optional<::std::int32_t>& mb, const std::optional<::std::int32_t>& mc, ::std::int32_t requiredB, const std::optional<::std::int32_t>& md, const ::std::string& ss, const std::optional<::std::string>& ms) :
+    C(::std::int32_t requiredA, const std::optional<::std::int32_t>& ma, const std::optional<::std::int32_t>& mb, const std::optional<::std::int32_t>& mc, ::std::int32_t requiredB, const std::optional<::std::int32_t>& md, ::std::string_view ss, const std::optional<::std::string>& ms) :
         Ice::ValueHelper<C, B>(requiredA, ma, mb, mc, requiredB, md),
         ss(ss),
         ms(ms)
@@ -1536,7 +1491,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    DerivedException(bool req, const std::optional<::std::int32_t>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o, const ::std::string& d1, const std::optional<::std::string>& ss, const std::optional<::std::shared_ptr<OneOptional>>& o2, const ::std::string& d2) :
+    DerivedException(bool req, const std::optional<::std::int32_t>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o, ::std::string_view d1, const std::optional<::std::string>& ss, const std::optional<::std::shared_ptr<OneOptional>>& o2, ::std::string_view d2) :
         ::Ice::UserExceptionHelper<DerivedException, OptionalException>(req, a, b, o),
         d1(d1),
         ss(ss),
@@ -1579,7 +1534,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    RequiredException(bool req, const std::optional<::std::int32_t>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o, const ::std::string& ss, const ::std::shared_ptr<OneOptional>& o2) :
+    RequiredException(bool req, const std::optional<::std::int32_t>& a, const std::optional<::std::string>& b, const std::optional<::std::shared_ptr<OneOptional>>& o, ::std::string_view ss, const ::std::shared_ptr<OneOptional>& o2) :
         ::Ice::UserExceptionHelper<RequiredException, OptionalException>(req, a, b, o),
         ss(ss),
         o2(o2)
@@ -1760,7 +1715,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit G1(const ::std::string& a) :
+    explicit G1(::std::string_view a) :
         a(a)
     {
     }
@@ -2060,11 +2015,6 @@ public:
     bool _iceD_opString(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual std::optional<::std::string> opCustomString(std::optional<Util::string_view> p1, std::optional<::std::string>& p3, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opCustomString(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
     virtual std::optional<MyEnum> opMyEnum(std::optional<MyEnum> p1, std::optional<MyEnum>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opMyEnum(::IceInternal::Incoming&, const ::Ice::Current&);
@@ -2173,11 +2123,6 @@ public:
     virtual std::optional<StringIntDict> opStringIntDict(std::optional<StringIntDict> p1, std::optional<StringIntDict>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opStringIntDict(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual std::optional<::Test::CustomMap<std::int32_t, std::string>> opCustomIntStringDict(std::optional<::std::map<std::int32_t, ::Util::string_view>> p1, std::optional<::Test::CustomMap<std::int32_t, std::string>>& p3, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opCustomIntStringDict(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
     virtual std::optional<IntOneOptionalDict> opIntOneOptionalDict(std::optional<IntOneOptionalDict> p1, std::optional<IntOneOptionalDict>& p3, const ::Ice::Current& current) = 0;
@@ -2367,11 +2312,6 @@ public:
     virtual bool supportsCsharpSerializable(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_supportsCsharpSerializable(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual bool supportsCppStringView(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_supportsCppStringView(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
     virtual bool supportsNullOptional(const ::Ice::Current& current) = 0;

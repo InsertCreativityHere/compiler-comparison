@@ -42,19 +42,19 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::Ice::RemoteLoggerAlreadyA
 }
 
 void
-Ice::RemoteLoggerPrx::init(const ::std::string& iceP_prefix, const LogMessageSeq& iceP_logMessages, const ::Ice::Context& context) const
+Ice::RemoteLoggerPrx::init(::std::string_view iceP_prefix, const LogMessageSeq& iceP_logMessages, const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &RemoteLoggerPrx::_iceI_init, iceP_prefix, iceP_logMessages, context).get();
 }
 
 ::std::future<void>
-Ice::RemoteLoggerPrx::initAsync(const ::std::string& iceP_prefix, const LogMessageSeq& iceP_logMessages, const ::Ice::Context& context) const
+Ice::RemoteLoggerPrx::initAsync(::std::string_view iceP_prefix, const LogMessageSeq& iceP_logMessages, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &RemoteLoggerPrx::_iceI_init, iceP_prefix, iceP_logMessages, context);
 }
 
 ::std::function<void()>
-Ice::RemoteLoggerPrx::initAsync(const ::std::string& iceP_prefix, const LogMessageSeq& iceP_logMessages,
+Ice::RemoteLoggerPrx::initAsync(::std::string_view iceP_prefix, const LogMessageSeq& iceP_logMessages,
                                 ::std::function<void ()> response,
                                 ::std::function<void(::std::exception_ptr)> ex,
                                 ::std::function<void(bool)> sent,
@@ -65,7 +65,7 @@ Ice::RemoteLoggerPrx::initAsync(const ::std::string& iceP_prefix, const LogMessa
 
 /// \cond INTERNAL
 void
-Ice::RemoteLoggerPrx::_iceI_init(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_prefix, const LogMessageSeq& iceP_logMessages, const Context& context) const
+Ice::RemoteLoggerPrx::_iceI_init(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_prefix, const LogMessageSeq& iceP_logMessages, const Context& context) const
 {
     static const ::std::string operationName = "init";
 

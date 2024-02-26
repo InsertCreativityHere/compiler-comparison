@@ -371,19 +371,19 @@ Clash::IntfPrx::_iceI_istr(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT
 /// \endcond
 
 void
-Clash::IntfPrx::op(const ::std::string& iceP_context, const ::std::string& iceP_current, const ::std::string& iceP_response, const ::std::string& iceP_ex, const ::std::string& iceP_sent, const ::std::string& iceP_cookie, const ::std::string& iceP_sync, const ::std::string& iceP_result, const ::std::string& iceP_istr, const ::std::string& iceP_ostr, const std::optional<::std::string>& iceP_proxy, const ::Ice::Context& context) const
+Clash::IntfPrx::op(::std::string_view iceP_context, ::std::string_view iceP_current, ::std::string_view iceP_response, ::std::string_view iceP_ex, ::std::string_view iceP_sent, ::std::string_view iceP_cookie, ::std::string_view iceP_sync, ::std::string_view iceP_result, ::std::string_view iceP_istr, ::std::string_view iceP_ostr, const std::optional<::std::string>& iceP_proxy, const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &IntfPrx::_iceI_op, iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr, iceP_proxy, context).get();
 }
 
 ::std::future<void>
-Clash::IntfPrx::opAsync(const ::std::string& iceP_context, const ::std::string& iceP_current, const ::std::string& iceP_response, const ::std::string& iceP_ex, const ::std::string& iceP_sent, const ::std::string& iceP_cookie, const ::std::string& iceP_sync, const ::std::string& iceP_result, const ::std::string& iceP_istr, const ::std::string& iceP_ostr, const std::optional<::std::string>& iceP_proxy, const ::Ice::Context& context) const
+Clash::IntfPrx::opAsync(::std::string_view iceP_context, ::std::string_view iceP_current, ::std::string_view iceP_response, ::std::string_view iceP_ex, ::std::string_view iceP_sent, ::std::string_view iceP_cookie, ::std::string_view iceP_sync, ::std::string_view iceP_result, ::std::string_view iceP_istr, ::std::string_view iceP_ostr, const std::optional<::std::string>& iceP_proxy, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &IntfPrx::_iceI_op, iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr, iceP_proxy, context);
 }
 
 ::std::function<void()>
-Clash::IntfPrx::opAsync(const ::std::string& iceP_context, const ::std::string& iceP_current, const ::std::string& iceP_response, const ::std::string& iceP_ex, const ::std::string& iceP_sent, const ::std::string& iceP_cookie, const ::std::string& iceP_sync, const ::std::string& iceP_result, const ::std::string& iceP_istr, const ::std::string& iceP_ostr, const std::optional<::std::string>& iceP_proxy,
+Clash::IntfPrx::opAsync(::std::string_view iceP_context, ::std::string_view iceP_current, ::std::string_view iceP_response, ::std::string_view iceP_ex, ::std::string_view iceP_sent, ::std::string_view iceP_cookie, ::std::string_view iceP_sync, ::std::string_view iceP_result, ::std::string_view iceP_istr, ::std::string_view iceP_ostr, const std::optional<::std::string>& iceP_proxy,
                         ::std::function<void ()> response,
                         ::std::function<void(::std::exception_ptr)> ex,
                         ::std::function<void(bool)> sent,
@@ -394,7 +394,7 @@ Clash::IntfPrx::opAsync(const ::std::string& iceP_context, const ::std::string& 
 
 /// \cond INTERNAL
 void
-Clash::IntfPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_context, const ::std::string& iceP_current, const ::std::string& iceP_response, const ::std::string& iceP_ex, const ::std::string& iceP_sent, const ::std::string& iceP_cookie, const ::std::string& iceP_sync, const ::std::string& iceP_result, const ::std::string& iceP_istr, const ::std::string& iceP_ostr, const std::optional<::std::string>& iceP_proxy, const ::Ice::Context& context) const
+Clash::IntfPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_context, ::std::string_view iceP_current, ::std::string_view iceP_response, ::std::string_view iceP_ex, ::std::string_view iceP_sent, ::std::string_view iceP_cookie, ::std::string_view iceP_sync, ::std::string_view iceP_result, ::std::string_view iceP_istr, ::std::string_view iceP_ostr, const std::optional<::std::string>& iceP_proxy, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "op";
 

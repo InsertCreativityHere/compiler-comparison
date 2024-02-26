@@ -895,7 +895,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Base(const ::Test::S& theS, const ::std::string& str) :
+    Base(const ::Test::S& theS, ::std::string_view str) :
         theS(theS),
         str(str)
     {
@@ -1115,7 +1115,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    E(::std::int32_t i, const ::std::string& s) :
+    E(::std::int32_t i, ::std::string_view s) :
         i(i),
         s(s)
     {
@@ -1216,7 +1216,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    G(const ::Test::S& theS, const ::std::string& str) :
+    G(const ::Test::S& theS, ::std::string_view str) :
         Ice::ValueHelper<G, Base>(theS, str)
     {
     }
@@ -1350,7 +1350,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Ex(const ::std::string& reason) :
+    Ex(::std::string_view reason) :
         reason(reason)
     {
     }
@@ -1428,7 +1428,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Ex(const ::std::string& reason) :
+    Ex(::std::string_view reason) :
         reason(reason)
     {
     }
@@ -1471,7 +1471,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit A1(const ::std::string& name) :
+    explicit A1(::std::string_view name) :
         name(name)
     {
     }
@@ -1752,7 +1752,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit L(const ::std::string& data) :
+    explicit L(::std::string_view data) :
         data(data)
     {
     }
@@ -1944,7 +1944,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit IBase(const ::std::string& id) :
+    explicit IBase(::std::string_view id) :
         id(id)
     {
     }
@@ -1983,7 +1983,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    IDerived(const ::std::string& id, const ::std::string& name) :
+    IDerived(::std::string_view id, ::std::string_view name) :
         Ice::ValueHelper<IDerived, IBase>(id),
         name(name)
     {
@@ -2023,7 +2023,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit IDerived2(const ::std::string& id) :
+    explicit IDerived2(::std::string_view id) :
         Ice::ValueHelper<IDerived2, IBase>(id)
     {
     }

@@ -37,19 +37,19 @@ namespace
 }
 
 void
-Test::EventPrx::pub(const ::std::string& iceP_data, const ::Ice::Context& context) const
+Test::EventPrx::pub(::std::string_view iceP_data, const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &EventPrx::_iceI_pub, iceP_data, context).get();
 }
 
 ::std::future<void>
-Test::EventPrx::pubAsync(const ::std::string& iceP_data, const ::Ice::Context& context) const
+Test::EventPrx::pubAsync(::std::string_view iceP_data, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &EventPrx::_iceI_pub, iceP_data, context);
 }
 
 ::std::function<void()>
-Test::EventPrx::pubAsync(const ::std::string& iceP_data,
+Test::EventPrx::pubAsync(::std::string_view iceP_data,
                          ::std::function<void ()> response,
                          ::std::function<void(::std::exception_ptr)> ex,
                          ::std::function<void(bool)> sent,
@@ -60,7 +60,7 @@ Test::EventPrx::pubAsync(const ::std::string& iceP_data,
 
 /// \cond INTERNAL
 void
-Test::EventPrx::_iceI_pub(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_data, const ::Ice::Context& context) const
+Test::EventPrx::_iceI_pub(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_data, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "pub";
 

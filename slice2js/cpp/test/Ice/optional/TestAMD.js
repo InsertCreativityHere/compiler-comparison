@@ -755,7 +755,6 @@
         "opFloat": [, , , , [5, , 1], [[5, , 2]], [[5, , 3]], , , ],
         "opDouble": [, , , , [6, , 1], [[6, , 2]], [[6, , 3]], , , ],
         "opString": [, , , , [7, , 1], [[7, , 2]], [[7, , 3]], , , ],
-        "opCustomString": [, , , , [7, , 1], [[7, , 2]], [[7, , 3]], , , ],
         "opMyEnum": [, , , , [Test.MyEnum._helper, , 1], [[Test.MyEnum._helper, , 2]], [[Test.MyEnum._helper, , 3]], , , ],
         "opSmallStruct": [, , , , [Test.SmallStruct, , 1], [[Test.SmallStruct, , 2]], [[Test.SmallStruct, , 3]], , , ],
         "opFixedStruct": [, , , , [Test.FixedStruct, , 1], [[Test.FixedStruct, , 2]], [[Test.FixedStruct, , 3]], , , ],
@@ -779,7 +778,6 @@
         "opIntIntDict": [, , , , ["Test.IntIntDictHelper", , 1], [["Test.IntIntDictHelper", , 2]], [["Test.IntIntDictHelper", , 3]], , , ],
         "opStringIntDict": [, , , , ["Test.StringIntDictHelper", , 1], [["Test.StringIntDictHelper", , 2]], [["Test.StringIntDictHelper", , 3]], , , ],
         "opIntOneOptionalDict": [, , , , ["Test.IntOneOptionalDictHelper", , 1], [["Test.IntOneOptionalDictHelper", , 2]], [["Test.IntOneOptionalDictHelper", , 3]], , , ],
-        "opCustomIntStringDict": [, , , , ["Test.IntStringDictHelper", , 1], [["Test.IntStringDictHelper", , 2]], [["Test.IntStringDictHelper", , 3]], , , ],
         "opClassAndUnknownOptional": [, , , , , [["Test.A", true]], , , true, ],
         "sendOptionalClass": [, , , , , [[1], ["Test.OneOptional", true, 1]], , , , ],
         "returnOptionalClass": [, , , , , [[1]], [["Test.OneOptional", true, 1]], , , ],
@@ -796,7 +794,6 @@
         "supportsRequiredParams": [, , , , [1], , , , , ],
         "supportsJavaSerializable": [, , , , [1], , , , , ],
         "supportsCsharpSerializable": [, , , , [1], , , , , ],
-        "supportsCppStringView": [, , , , [1], , , , , ],
         "supportsNullOptional": [, , , , [1], , , , , ]
     });
     exports.Test = Test;

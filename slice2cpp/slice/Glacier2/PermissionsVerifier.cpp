@@ -42,7 +42,7 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::Glacier2::PermissionDenie
 }
 
 bool
-Glacier2::PermissionsVerifierPrx::checkPermissions(const ::std::string& iceP_userId, const ::std::string& iceP_password, ::std::string& iceP_reason, const ::Ice::Context& context) const
+Glacier2::PermissionsVerifierPrx::checkPermissions(::std::string_view iceP_userId, ::std::string_view iceP_password, ::std::string& iceP_reason, const ::Ice::Context& context) const
 {
     auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<bool, ::std::string>>(true, this, &PermissionsVerifierPrx::_iceI_checkPermissions, iceP_userId, iceP_password, context).get();
     iceP_reason = ::std::move(::std::get<1>(_result));
@@ -50,13 +50,13 @@ Glacier2::PermissionsVerifierPrx::checkPermissions(const ::std::string& iceP_use
 }
 
 ::std::future<::std::tuple<bool, ::std::string>>
-Glacier2::PermissionsVerifierPrx::checkPermissionsAsync(const ::std::string& iceP_userId, const ::std::string& iceP_password, const ::Ice::Context& context) const
+Glacier2::PermissionsVerifierPrx::checkPermissionsAsync(::std::string_view iceP_userId, ::std::string_view iceP_password, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::tuple<bool, ::std::string>>(false, this, &PermissionsVerifierPrx::_iceI_checkPermissions, iceP_userId, iceP_password, context);
 }
 
 ::std::function<void()>
-Glacier2::PermissionsVerifierPrx::checkPermissionsAsync(const ::std::string& iceP_userId, const ::std::string& iceP_password,
+Glacier2::PermissionsVerifierPrx::checkPermissionsAsync(::std::string_view iceP_userId, ::std::string_view iceP_password,
                                                         ::std::function<void (bool, ::std::string)> response,
                                                         ::std::function<void(::std::exception_ptr)> ex,
                                                         ::std::function<void(bool)> sent,
@@ -71,7 +71,7 @@ Glacier2::PermissionsVerifierPrx::checkPermissionsAsync(const ::std::string& ice
 
 /// \cond INTERNAL
 void
-Glacier2::PermissionsVerifierPrx::_iceI_checkPermissions(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<bool, ::std::string>>>& outAsync, const ::std::string& iceP_userId, const ::std::string& iceP_password, const ::Ice::Context& context) const
+Glacier2::PermissionsVerifierPrx::_iceI_checkPermissions(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<bool, ::std::string>>>& outAsync, ::std::string_view iceP_userId, ::std::string_view iceP_password, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "checkPermissions";
 

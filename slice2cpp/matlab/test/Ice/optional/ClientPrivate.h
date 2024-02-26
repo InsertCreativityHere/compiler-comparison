@@ -145,7 +145,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    D(::std::int32_t requiredA, const std::optional<::std::int32_t>& ma, const std::optional<::std::int32_t>& mb, const std::optional<::std::int32_t>& mc, ::std::int32_t requiredB, const std::optional<::std::int32_t>& md, const ::std::string& ds, const std::optional<::Test::StringSeq>& seq, const std::optional<::std::shared_ptr<::Test::A>>& ao) :
+    D(::std::int32_t requiredA, const std::optional<::std::int32_t>& ma, const std::optional<::std::int32_t>& mb, const std::optional<::std::int32_t>& mc, ::std::int32_t requiredB, const std::optional<::std::int32_t>& md, ::std::string_view ds, const std::optional<::Test::StringSeq>& seq, const std::optional<::std::shared_ptr<::Test::A>>& ao) :
         Ice::ValueHelper<D, B>(requiredA, ma, mb, mc, requiredB, md),
         ds(ds),
         seq(seq),

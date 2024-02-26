@@ -102,19 +102,19 @@ Ice::LocatorPrx::_iceI_findObjectById(const ::std::shared_ptr<::IceInternal::Out
 /// \endcond
 
 ::std::optional<::Ice::ObjectPrx>
-Ice::LocatorPrx::findAdapterById(const ::std::string& iceP_id, const ::Ice::Context& context) const
+Ice::LocatorPrx::findAdapterById(::std::string_view iceP_id, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::optional<::Ice::ObjectPrx>>(true, this, &LocatorPrx::_iceI_findAdapterById, iceP_id, context).get();
 }
 
 ::std::future<::std::optional<::Ice::ObjectPrx>>
-Ice::LocatorPrx::findAdapterByIdAsync(const ::std::string& iceP_id, const ::Ice::Context& context) const
+Ice::LocatorPrx::findAdapterByIdAsync(::std::string_view iceP_id, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::optional<::Ice::ObjectPrx>>(false, this, &LocatorPrx::_iceI_findAdapterById, iceP_id, context);
 }
 
 ::std::function<void()>
-Ice::LocatorPrx::findAdapterByIdAsync(const ::std::string& iceP_id,
+Ice::LocatorPrx::findAdapterByIdAsync(::std::string_view iceP_id,
                                       ::std::function<void (::std::optional<::Ice::ObjectPrx>)> response,
                                       ::std::function<void(::std::exception_ptr)> ex,
                                       ::std::function<void(bool)> sent,
@@ -125,7 +125,7 @@ Ice::LocatorPrx::findAdapterByIdAsync(const ::std::string& iceP_id,
 
 /// \cond INTERNAL
 void
-Ice::LocatorPrx::_iceI_findAdapterById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>& outAsync, const ::std::string& iceP_id, const Context& context) const
+Ice::LocatorPrx::_iceI_findAdapterById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>& outAsync, ::std::string_view iceP_id, const Context& context) const
 {
     static const ::std::string operationName = "findAdapterById";
 
@@ -194,19 +194,19 @@ Ice::LocatorPrx::ice_staticId()
 }
 
 void
-Ice::LocatorRegistryPrx::setAdapterDirectProxy(const ::std::string& iceP_id, const ::std::optional<::Ice::ObjectPrx>& iceP_proxy, const ::Ice::Context& context) const
+Ice::LocatorRegistryPrx::setAdapterDirectProxy(::std::string_view iceP_id, const ::std::optional<::Ice::ObjectPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &LocatorRegistryPrx::_iceI_setAdapterDirectProxy, iceP_id, iceP_proxy, context).get();
 }
 
 ::std::future<void>
-Ice::LocatorRegistryPrx::setAdapterDirectProxyAsync(const ::std::string& iceP_id, const ::std::optional<::Ice::ObjectPrx>& iceP_proxy, const ::Ice::Context& context) const
+Ice::LocatorRegistryPrx::setAdapterDirectProxyAsync(::std::string_view iceP_id, const ::std::optional<::Ice::ObjectPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &LocatorRegistryPrx::_iceI_setAdapterDirectProxy, iceP_id, iceP_proxy, context);
 }
 
 ::std::function<void()>
-Ice::LocatorRegistryPrx::setAdapterDirectProxyAsync(const ::std::string& iceP_id, const ::std::optional<::Ice::ObjectPrx>& iceP_proxy,
+Ice::LocatorRegistryPrx::setAdapterDirectProxyAsync(::std::string_view iceP_id, const ::std::optional<::Ice::ObjectPrx>& iceP_proxy,
                                                     ::std::function<void ()> response,
                                                     ::std::function<void(::std::exception_ptr)> ex,
                                                     ::std::function<void(bool)> sent,
@@ -217,7 +217,7 @@ Ice::LocatorRegistryPrx::setAdapterDirectProxyAsync(const ::std::string& iceP_id
 
 /// \cond INTERNAL
 void
-Ice::LocatorRegistryPrx::_iceI_setAdapterDirectProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_id, const ::std::optional<::Ice::ObjectPrx>& iceP_proxy, const Context& context) const
+Ice::LocatorRegistryPrx::_iceI_setAdapterDirectProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_id, const ::std::optional<::Ice::ObjectPrx>& iceP_proxy, const Context& context) const
 {
     static const ::std::string operationName = "setAdapterDirectProxy";
 
@@ -249,19 +249,19 @@ Ice::LocatorRegistryPrx::_iceI_setAdapterDirectProxy(const ::std::shared_ptr<::I
 /// \endcond
 
 void
-Ice::LocatorRegistryPrx::setReplicatedAdapterDirectProxy(const ::std::string& iceP_adapterId, const ::std::string& iceP_replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& iceP_p, const ::Ice::Context& context) const
+Ice::LocatorRegistryPrx::setReplicatedAdapterDirectProxy(::std::string_view iceP_adapterId, ::std::string_view iceP_replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& iceP_p, const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &LocatorRegistryPrx::_iceI_setReplicatedAdapterDirectProxy, iceP_adapterId, iceP_replicaGroupId, iceP_p, context).get();
 }
 
 ::std::future<void>
-Ice::LocatorRegistryPrx::setReplicatedAdapterDirectProxyAsync(const ::std::string& iceP_adapterId, const ::std::string& iceP_replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& iceP_p, const ::Ice::Context& context) const
+Ice::LocatorRegistryPrx::setReplicatedAdapterDirectProxyAsync(::std::string_view iceP_adapterId, ::std::string_view iceP_replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& iceP_p, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &LocatorRegistryPrx::_iceI_setReplicatedAdapterDirectProxy, iceP_adapterId, iceP_replicaGroupId, iceP_p, context);
 }
 
 ::std::function<void()>
-Ice::LocatorRegistryPrx::setReplicatedAdapterDirectProxyAsync(const ::std::string& iceP_adapterId, const ::std::string& iceP_replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& iceP_p,
+Ice::LocatorRegistryPrx::setReplicatedAdapterDirectProxyAsync(::std::string_view iceP_adapterId, ::std::string_view iceP_replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& iceP_p,
                                                               ::std::function<void ()> response,
                                                               ::std::function<void(::std::exception_ptr)> ex,
                                                               ::std::function<void(bool)> sent,
@@ -272,7 +272,7 @@ Ice::LocatorRegistryPrx::setReplicatedAdapterDirectProxyAsync(const ::std::strin
 
 /// \cond INTERNAL
 void
-Ice::LocatorRegistryPrx::_iceI_setReplicatedAdapterDirectProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_adapterId, const ::std::string& iceP_replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& iceP_p, const Context& context) const
+Ice::LocatorRegistryPrx::_iceI_setReplicatedAdapterDirectProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_adapterId, ::std::string_view iceP_replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& iceP_p, const Context& context) const
 {
     static const ::std::string operationName = "setReplicatedAdapterDirectProxy";
 
@@ -308,19 +308,19 @@ Ice::LocatorRegistryPrx::_iceI_setReplicatedAdapterDirectProxy(const ::std::shar
 /// \endcond
 
 void
-Ice::LocatorRegistryPrx::setServerProcessProxy(const ::std::string& iceP_id, const ::std::optional<ProcessPrx>& iceP_proxy, const ::Ice::Context& context) const
+Ice::LocatorRegistryPrx::setServerProcessProxy(::std::string_view iceP_id, const ::std::optional<ProcessPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &LocatorRegistryPrx::_iceI_setServerProcessProxy, iceP_id, iceP_proxy, context).get();
 }
 
 ::std::future<void>
-Ice::LocatorRegistryPrx::setServerProcessProxyAsync(const ::std::string& iceP_id, const ::std::optional<ProcessPrx>& iceP_proxy, const ::Ice::Context& context) const
+Ice::LocatorRegistryPrx::setServerProcessProxyAsync(::std::string_view iceP_id, const ::std::optional<ProcessPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &LocatorRegistryPrx::_iceI_setServerProcessProxy, iceP_id, iceP_proxy, context);
 }
 
 ::std::function<void()>
-Ice::LocatorRegistryPrx::setServerProcessProxyAsync(const ::std::string& iceP_id, const ::std::optional<ProcessPrx>& iceP_proxy,
+Ice::LocatorRegistryPrx::setServerProcessProxyAsync(::std::string_view iceP_id, const ::std::optional<ProcessPrx>& iceP_proxy,
                                                     ::std::function<void ()> response,
                                                     ::std::function<void(::std::exception_ptr)> ex,
                                                     ::std::function<void(bool)> sent,
@@ -331,7 +331,7 @@ Ice::LocatorRegistryPrx::setServerProcessProxyAsync(const ::std::string& iceP_id
 
 /// \cond INTERNAL
 void
-Ice::LocatorRegistryPrx::_iceI_setServerProcessProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_id, const ::std::optional<ProcessPrx>& iceP_proxy, const Context& context) const
+Ice::LocatorRegistryPrx::_iceI_setServerProcessProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_id, const ::std::optional<ProcessPrx>& iceP_proxy, const Context& context) const
 {
     static const ::std::string operationName = "setServerProcessProxy";
 

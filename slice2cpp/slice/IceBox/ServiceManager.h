@@ -194,7 +194,7 @@ public:
      * @throws IceBox::AlreadyStartedException If the service is already running.
      * @throws IceBox::NoSuchServiceException If no service could be found with the given name.
      */
-    void startService(const ::std::string& service, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void startService(::std::string_view service, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Start an individual service.
@@ -202,7 +202,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> startServiceAsync(const ::std::string& service, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> startServiceAsync(::std::string_view service, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Start an individual service.
@@ -214,14 +214,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    startServiceAsync(const ::std::string& service,
+    startServiceAsync(::std::string_view service,
                       ::std::function<void()> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_startService(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_startService(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -231,7 +231,7 @@ public:
      * @throws IceBox::AlreadyStoppedException If the service is already stopped.
      * @throws IceBox::NoSuchServiceException If no service could be found with the given name.
      */
-    void stopService(const ::std::string& service, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void stopService(::std::string_view service, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Stop an individual service.
@@ -239,7 +239,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> stopServiceAsync(const ::std::string& service, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> stopServiceAsync(::std::string_view service, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Stop an individual service.
@@ -251,14 +251,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    stopServiceAsync(const ::std::string& service,
+    stopServiceAsync(::std::string_view service,
                      ::std::function<void()> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_stopService(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_stopService(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**

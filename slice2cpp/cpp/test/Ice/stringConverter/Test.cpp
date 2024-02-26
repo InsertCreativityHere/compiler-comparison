@@ -39,19 +39,19 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::BadEncodingExceptio
 }
 
 ::std::wstring
-Test::MyObjectPrx::widen(const ::std::string& iceP_msg, const ::Ice::Context& context) const
+Test::MyObjectPrx::widen(::std::string_view iceP_msg, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::wstring>(true, this, &MyObjectPrx::_iceI_widen, iceP_msg, context).get();
 }
 
 ::std::future<::std::wstring>
-Test::MyObjectPrx::widenAsync(const ::std::string& iceP_msg, const ::Ice::Context& context) const
+Test::MyObjectPrx::widenAsync(::std::string_view iceP_msg, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::wstring>(false, this, &MyObjectPrx::_iceI_widen, iceP_msg, context);
 }
 
 ::std::function<void()>
-Test::MyObjectPrx::widenAsync(const ::std::string& iceP_msg,
+Test::MyObjectPrx::widenAsync(::std::string_view iceP_msg,
                               ::std::function<void (::std::wstring)> response,
                               ::std::function<void(::std::exception_ptr)> ex,
                               ::std::function<void(bool)> sent,
@@ -62,7 +62,7 @@ Test::MyObjectPrx::widenAsync(const ::std::string& iceP_msg,
 
 /// \cond INTERNAL
 void
-Test::MyObjectPrx::_iceI_widen(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::wstring>>& outAsync, const ::std::string& iceP_msg, const ::Ice::Context& context) const
+Test::MyObjectPrx::_iceI_widen(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::wstring>>& outAsync, ::std::string_view iceP_msg, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "widen";
 
@@ -90,19 +90,19 @@ Test::MyObjectPrx::_iceI_widen(const ::std::shared_ptr<::IceInternal::OutgoingAs
 /// \endcond
 
 ::std::string
-Test::MyObjectPrx::narrow(const ::std::wstring& iceP_wmsg, const ::Ice::Context& context) const
+Test::MyObjectPrx::narrow(::std::wstring_view iceP_wmsg, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::string>(true, this, &MyObjectPrx::_iceI_narrow, iceP_wmsg, context).get();
 }
 
 ::std::future<::std::string>
-Test::MyObjectPrx::narrowAsync(const ::std::wstring& iceP_wmsg, const ::Ice::Context& context) const
+Test::MyObjectPrx::narrowAsync(::std::wstring_view iceP_wmsg, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::string>(false, this, &MyObjectPrx::_iceI_narrow, iceP_wmsg, context);
 }
 
 ::std::function<void()>
-Test::MyObjectPrx::narrowAsync(const ::std::wstring& iceP_wmsg,
+Test::MyObjectPrx::narrowAsync(::std::wstring_view iceP_wmsg,
                                ::std::function<void (::std::string)> response,
                                ::std::function<void(::std::exception_ptr)> ex,
                                ::std::function<void(bool)> sent,
@@ -113,7 +113,7 @@ Test::MyObjectPrx::narrowAsync(const ::std::wstring& iceP_wmsg,
 
 /// \cond INTERNAL
 void
-Test::MyObjectPrx::_iceI_narrow(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::std::wstring& iceP_wmsg, const ::Ice::Context& context) const
+Test::MyObjectPrx::_iceI_narrow(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, ::std::wstring_view iceP_wmsg, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "narrow";
 

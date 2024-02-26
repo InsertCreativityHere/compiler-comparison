@@ -81,19 +81,19 @@ IceLocatorDiscovery::LookupReplyPrx::ice_staticId()
 }
 
 void
-IceLocatorDiscovery::LookupPrx::findLocator(const ::std::string& iceP_instanceName, const ::std::optional<LookupReplyPrx>& iceP_reply, const ::Ice::Context& context) const
+IceLocatorDiscovery::LookupPrx::findLocator(::std::string_view iceP_instanceName, const ::std::optional<LookupReplyPrx>& iceP_reply, const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &LookupPrx::_iceI_findLocator, iceP_instanceName, iceP_reply, context).get();
 }
 
 ::std::future<void>
-IceLocatorDiscovery::LookupPrx::findLocatorAsync(const ::std::string& iceP_instanceName, const ::std::optional<LookupReplyPrx>& iceP_reply, const ::Ice::Context& context) const
+IceLocatorDiscovery::LookupPrx::findLocatorAsync(::std::string_view iceP_instanceName, const ::std::optional<LookupReplyPrx>& iceP_reply, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &LookupPrx::_iceI_findLocator, iceP_instanceName, iceP_reply, context);
 }
 
 ::std::function<void()>
-IceLocatorDiscovery::LookupPrx::findLocatorAsync(const ::std::string& iceP_instanceName, const ::std::optional<LookupReplyPrx>& iceP_reply,
+IceLocatorDiscovery::LookupPrx::findLocatorAsync(::std::string_view iceP_instanceName, const ::std::optional<LookupReplyPrx>& iceP_reply,
                                                  ::std::function<void ()> response,
                                                  ::std::function<void(::std::exception_ptr)> ex,
                                                  ::std::function<void(bool)> sent,
@@ -104,7 +104,7 @@ IceLocatorDiscovery::LookupPrx::findLocatorAsync(const ::std::string& iceP_insta
 
 /// \cond INTERNAL
 void
-IceLocatorDiscovery::LookupPrx::_iceI_findLocator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_instanceName, const ::std::optional<LookupReplyPrx>& iceP_reply, const ::Ice::Context& context) const
+IceLocatorDiscovery::LookupPrx::_iceI_findLocator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_instanceName, const ::std::optional<LookupReplyPrx>& iceP_reply, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "findLocator";
 

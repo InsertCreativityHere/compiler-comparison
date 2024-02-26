@@ -802,10 +802,6 @@ module ::Test
                 InitialPrx_mixin::OP_opString.invoke(self, [p1], context)
             end
 
-            def opCustomString(p1, context=nil)
-                InitialPrx_mixin::OP_opCustomString.invoke(self, [p1], context)
-            end
-
             def opMyEnum(p1, context=nil)
                 InitialPrx_mixin::OP_opMyEnum.invoke(self, [p1], context)
             end
@@ -898,10 +894,6 @@ module ::Test
                 InitialPrx_mixin::OP_opIntOneOptionalDict.invoke(self, [p1], context)
             end
 
-            def opCustomIntStringDict(p1, context=nil)
-                InitialPrx_mixin::OP_opCustomIntStringDict.invoke(self, [p1], context)
-            end
-
             def opClassAndUnknownOptional(p, context=nil)
                 InitialPrx_mixin::OP_opClassAndUnknownOptional.invoke(self, [p], context)
             end
@@ -966,10 +958,6 @@ module ::Test
                 InitialPrx_mixin::OP_supportsCsharpSerializable.invoke(self, [], context)
             end
 
-            def supportsCppStringView(context=nil)
-                InitialPrx_mixin::OP_supportsCppStringView.invoke(self, [], context)
-            end
-
             def supportsNullOptional(context=nil)
                 InitialPrx_mixin::OP_supportsNullOptional.invoke(self, [], context)
             end
@@ -1000,7 +988,6 @@ module ::Test
         InitialPrx_mixin::OP_opFloat = ::Ice::__defineOperation('opFloat', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_float, true, 2]], [[::Ice::T_float, true, 3]], [::Ice::T_float, true, 1], [])
         InitialPrx_mixin::OP_opDouble = ::Ice::__defineOperation('opDouble', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_double, true, 2]], [[::Ice::T_double, true, 3]], [::Ice::T_double, true, 1], [])
         InitialPrx_mixin::OP_opString = ::Ice::__defineOperation('opString', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_string, true, 2]], [[::Ice::T_string, true, 3]], [::Ice::T_string, true, 1], [])
-        InitialPrx_mixin::OP_opCustomString = ::Ice::__defineOperation('opCustomString', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_string, true, 2]], [[::Ice::T_string, true, 3]], [::Ice::T_string, true, 1], [])
         InitialPrx_mixin::OP_opMyEnum = ::Ice::__defineOperation('opMyEnum', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::T_MyEnum, true, 2]], [[::Test::T_MyEnum, true, 3]], [::Test::T_MyEnum, true, 1], [])
         InitialPrx_mixin::OP_opSmallStruct = ::Ice::__defineOperation('opSmallStruct', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::T_SmallStruct, true, 2]], [[::Test::T_SmallStruct, true, 3]], [::Test::T_SmallStruct, true, 1], [])
         InitialPrx_mixin::OP_opFixedStruct = ::Ice::__defineOperation('opFixedStruct', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::T_FixedStruct, true, 2]], [[::Test::T_FixedStruct, true, 3]], [::Test::T_FixedStruct, true, 1], [])
@@ -1024,7 +1011,6 @@ module ::Test
         InitialPrx_mixin::OP_opIntIntDict = ::Ice::__defineOperation('opIntIntDict', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::T_IntIntDict, true, 2]], [[::Test::T_IntIntDict, true, 3]], [::Test::T_IntIntDict, true, 1], [])
         InitialPrx_mixin::OP_opStringIntDict = ::Ice::__defineOperation('opStringIntDict', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::T_StringIntDict, true, 2]], [[::Test::T_StringIntDict, true, 3]], [::Test::T_StringIntDict, true, 1], [])
         InitialPrx_mixin::OP_opIntOneOptionalDict = ::Ice::__defineOperation('opIntOneOptionalDict', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::T_IntOneOptionalDict, true, 2]], [[::Test::T_IntOneOptionalDict, true, 3]], [::Test::T_IntOneOptionalDict, true, 1], [])
-        InitialPrx_mixin::OP_opCustomIntStringDict = ::Ice::__defineOperation('opCustomIntStringDict', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::T_IntStringDict, true, 2]], [[::Test::T_IntStringDict, true, 3]], [::Test::T_IntStringDict, true, 1], [])
         InitialPrx_mixin::OP_opClassAndUnknownOptional = ::Ice::__defineOperation('opClassAndUnknownOptional', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Test::T_A, false, 0]], [], nil, [])
         InitialPrx_mixin::OP_sendOptionalClass = ::Ice::__defineOperation('sendOptionalClass', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_bool, false, 0], [::Test::T_OneOptional, true, 1]], [], nil, [])
         InitialPrx_mixin::OP_returnOptionalClass = ::Ice::__defineOperation('returnOptionalClass', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_bool, false, 0]], [[::Test::T_OneOptional, true, 1]], nil, [])
@@ -1041,7 +1027,6 @@ module ::Test
         InitialPrx_mixin::OP_supportsRequiredParams = ::Ice::__defineOperation('supportsRequiredParams', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], [::Ice::T_bool, false, 0], [])
         InitialPrx_mixin::OP_supportsJavaSerializable = ::Ice::__defineOperation('supportsJavaSerializable', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], [::Ice::T_bool, false, 0], [])
         InitialPrx_mixin::OP_supportsCsharpSerializable = ::Ice::__defineOperation('supportsCsharpSerializable', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], [::Ice::T_bool, false, 0], [])
-        InitialPrx_mixin::OP_supportsCppStringView = ::Ice::__defineOperation('supportsCppStringView', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], [::Ice::T_bool, false, 0], [])
         InitialPrx_mixin::OP_supportsNullOptional = ::Ice::__defineOperation('supportsNullOptional', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], [::Ice::T_bool, false, 0], [])
     end
 end

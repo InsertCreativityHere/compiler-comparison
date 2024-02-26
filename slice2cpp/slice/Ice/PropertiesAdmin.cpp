@@ -40,19 +40,19 @@ namespace
 }
 
 ::std::string
-Ice::PropertiesAdminPrx::getProperty(const ::std::string& iceP_key, const ::Ice::Context& context) const
+Ice::PropertiesAdminPrx::getProperty(::std::string_view iceP_key, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::string>(true, this, &PropertiesAdminPrx::_iceI_getProperty, iceP_key, context).get();
 }
 
 ::std::future<::std::string>
-Ice::PropertiesAdminPrx::getPropertyAsync(const ::std::string& iceP_key, const ::Ice::Context& context) const
+Ice::PropertiesAdminPrx::getPropertyAsync(::std::string_view iceP_key, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::string>(false, this, &PropertiesAdminPrx::_iceI_getProperty, iceP_key, context);
 }
 
 ::std::function<void()>
-Ice::PropertiesAdminPrx::getPropertyAsync(const ::std::string& iceP_key,
+Ice::PropertiesAdminPrx::getPropertyAsync(::std::string_view iceP_key,
                                           ::std::function<void (::std::string)> response,
                                           ::std::function<void(::std::exception_ptr)> ex,
                                           ::std::function<void(bool)> sent,
@@ -63,7 +63,7 @@ Ice::PropertiesAdminPrx::getPropertyAsync(const ::std::string& iceP_key,
 
 /// \cond INTERNAL
 void
-Ice::PropertiesAdminPrx::_iceI_getProperty(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::std::string& iceP_key, const Context& context) const
+Ice::PropertiesAdminPrx::_iceI_getProperty(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, ::std::string_view iceP_key, const Context& context) const
 {
     static const ::std::string operationName = "getProperty";
 
@@ -78,19 +78,19 @@ Ice::PropertiesAdminPrx::_iceI_getProperty(const ::std::shared_ptr<::IceInternal
 /// \endcond
 
 ::Ice::PropertyDict
-Ice::PropertiesAdminPrx::getPropertiesForPrefix(const ::std::string& iceP_prefix, const ::Ice::Context& context) const
+Ice::PropertiesAdminPrx::getPropertiesForPrefix(::std::string_view iceP_prefix, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<PropertyDict>(true, this, &PropertiesAdminPrx::_iceI_getPropertiesForPrefix, iceP_prefix, context).get();
 }
 
 ::std::future<::Ice::PropertyDict>
-Ice::PropertiesAdminPrx::getPropertiesForPrefixAsync(const ::std::string& iceP_prefix, const ::Ice::Context& context) const
+Ice::PropertiesAdminPrx::getPropertiesForPrefixAsync(::std::string_view iceP_prefix, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<PropertyDict>(false, this, &PropertiesAdminPrx::_iceI_getPropertiesForPrefix, iceP_prefix, context);
 }
 
 ::std::function<void()>
-Ice::PropertiesAdminPrx::getPropertiesForPrefixAsync(const ::std::string& iceP_prefix,
+Ice::PropertiesAdminPrx::getPropertiesForPrefixAsync(::std::string_view iceP_prefix,
                                                      ::std::function<void (::Ice::PropertyDict)> response,
                                                      ::std::function<void(::std::exception_ptr)> ex,
                                                      ::std::function<void(bool)> sent,
@@ -101,7 +101,7 @@ Ice::PropertiesAdminPrx::getPropertiesForPrefixAsync(const ::std::string& iceP_p
 
 /// \cond INTERNAL
 void
-Ice::PropertiesAdminPrx::_iceI_getPropertiesForPrefix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<PropertyDict>>& outAsync, const ::std::string& iceP_prefix, const Context& context) const
+Ice::PropertiesAdminPrx::_iceI_getPropertiesForPrefix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<PropertyDict>>& outAsync, ::std::string_view iceP_prefix, const Context& context) const
 {
     static const ::std::string operationName = "getPropertiesForPrefix";
 

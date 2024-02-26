@@ -718,7 +718,7 @@ public:
      * @return A proxy to the newly created session.
      * @throws Glacier2::CannotCreateSessionException Raised if the session cannot be created.
      */
-    ::std::optional<SessionPrx> create(const ::std::string& userId, const ::std::optional<SessionControlPrx>& control, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<SessionPrx> create(::std::string_view userId, const ::std::optional<SessionControlPrx>& control, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Create a new session.
@@ -727,7 +727,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<SessionPrx>> createAsync(const ::std::string& userId, const ::std::optional<SessionControlPrx>& control, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::optional<SessionPrx>> createAsync(::std::string_view userId, const ::std::optional<SessionControlPrx>& control, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Create a new session.
@@ -740,14 +740,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    createAsync(const ::std::string& userId, const ::std::optional<SessionControlPrx>& control,
+    createAsync(::std::string_view userId, const ::std::optional<SessionControlPrx>& control,
                 ::std::function<void(::std::optional<::Glacier2::SessionPrx>)> response,
                 ::std::function<void(::std::exception_ptr)> ex = nullptr,
                 ::std::function<void(bool)> sent = nullptr,
                 const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_create(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<SessionPrx>>>&, const ::std::string&, const ::std::optional<SessionControlPrx>&, const ::Ice::Context&) const;
+    void _iceI_create(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<SessionPrx>>>&, ::std::string_view, const ::std::optional<SessionControlPrx>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -920,7 +920,7 @@ public:
      * One-shot constructor to initialize all data members.
      * @param reason The reason why session creation has failed.
      */
-    CannotCreateSessionException(const ::std::string& reason) :
+    CannotCreateSessionException(::std::string_view reason) :
         reason(reason)
     {
     }

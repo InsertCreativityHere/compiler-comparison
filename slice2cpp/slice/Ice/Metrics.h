@@ -143,7 +143,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
-    void enableMetricsView(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void enableMetricsView(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Enables a metrics view.
@@ -151,7 +151,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> enableMetricsViewAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> enableMetricsViewAsync(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Enables a metrics view.
@@ -163,14 +163,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    enableMetricsViewAsync(const ::std::string& name,
+    enableMetricsViewAsync(::std::string_view name,
                            ::std::function<void()> response,
                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
                            ::std::function<void(bool)> sent = nullptr,
                            const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_enableMetricsView(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_enableMetricsView(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -179,7 +179,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
-    void disableMetricsView(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void disableMetricsView(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Disable a metrics view.
@@ -187,7 +187,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> disableMetricsViewAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> disableMetricsViewAsync(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Disable a metrics view.
@@ -199,14 +199,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    disableMetricsViewAsync(const ::std::string& name,
+    disableMetricsViewAsync(::std::string_view name,
                             ::std::function<void()> response,
                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
                             ::std::function<void(bool)> sent = nullptr,
                             const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_disableMetricsView(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_disableMetricsView(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -219,7 +219,7 @@ public:
      * @return The metrics view data.
      * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
-    MetricsView getMetricsView(const ::std::string& view, ::std::int64_t& timestamp, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    MetricsView getMetricsView(::std::string_view view, ::std::int64_t& timestamp, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
@@ -229,7 +229,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::tuple<MetricsView, ::std::int64_t>> getMetricsViewAsync(const ::std::string& view, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<MetricsView, ::std::int64_t>> getMetricsViewAsync(::std::string_view view, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
@@ -243,14 +243,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getMetricsViewAsync(const ::std::string& view,
+    getMetricsViewAsync(::std::string_view view,
                         ::std::function<void(::IceMX::MetricsView, ::std::int64_t)> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
                         const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getMetricsView(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<MetricsView, ::std::int64_t>>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_getMetricsView(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<MetricsView, ::std::int64_t>>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -261,7 +261,7 @@ public:
      * @return The metrics failures associated with the map.
      * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
-    MetricsFailuresSeq getMapMetricsFailures(const ::std::string& view, const ::std::string& map, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    MetricsFailuresSeq getMapMetricsFailures(::std::string_view view, ::std::string_view map, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the metrics failures associated with the given view and map.
@@ -270,7 +270,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<MetricsFailuresSeq> getMapMetricsFailuresAsync(const ::std::string& view, const ::std::string& map, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<MetricsFailuresSeq> getMapMetricsFailuresAsync(::std::string_view view, ::std::string_view map, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the metrics failures associated with the given view and map.
@@ -283,14 +283,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getMapMetricsFailuresAsync(const ::std::string& view, const ::std::string& map,
+    getMapMetricsFailuresAsync(::std::string_view view, ::std::string_view map,
                                ::std::function<void(::IceMX::MetricsFailuresSeq)> response,
                                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                ::std::function<void(bool)> sent = nullptr,
                                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getMapMetricsFailures(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MetricsFailuresSeq>>&, const ::std::string&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_getMapMetricsFailures(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MetricsFailuresSeq>>&, ::std::string_view, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -302,7 +302,7 @@ public:
      * @return The metrics failures associated with the metrics.
      * @throws IceMX::UnknownMetricsView Raised if the metrics view cannot be found.
      */
-    MetricsFailures getMetricsFailures(const ::std::string& view, const ::std::string& map, const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    MetricsFailures getMetricsFailures(::std::string_view view, ::std::string_view map, ::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the metrics failure associated for the given metrics.
@@ -312,7 +312,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<MetricsFailures> getMetricsFailuresAsync(const ::std::string& view, const ::std::string& map, const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<MetricsFailures> getMetricsFailuresAsync(::std::string_view view, ::std::string_view map, ::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the metrics failure associated for the given metrics.
@@ -326,14 +326,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getMetricsFailuresAsync(const ::std::string& view, const ::std::string& map, const ::std::string& id,
+    getMetricsFailuresAsync(::std::string_view view, ::std::string_view map, ::std::string_view id,
                             ::std::function<void(::IceMX::MetricsFailures)> response,
                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
                             ::std::function<void(bool)> sent = nullptr,
                             const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getMetricsFailures(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MetricsFailures>>&, const ::std::string&, const ::std::string&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_getMetricsFailures(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MetricsFailures>>&, ::std::string_view, ::std::string_view, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -414,7 +414,7 @@ public:
      * @param totalLifetime The sum of the lifetime of each observed objects.
      * @param failures The number of failures observed.
      */
-    Metrics(const ::std::string& id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures) :
+    Metrics(::std::string_view id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures) :
         id(id),
         total(total),
         current(current),
@@ -549,7 +549,7 @@ public:
      * @param inUseForUser The number of threads which are currently calling user code (servant dispatch, AMI callbacks, etc).
      * @param inUseForOther The number of threads which are currently performing other activities.
      */
-    ThreadMetrics(const ::std::string& id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int32_t inUseForIO, ::std::int32_t inUseForUser, ::std::int32_t inUseForOther) :
+    ThreadMetrics(::std::string_view id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int32_t inUseForIO, ::std::int32_t inUseForUser, ::std::int32_t inUseForOther) :
         Ice::ValueHelper<ThreadMetrics, Metrics>(id, total, current, totalLifetime, failures),
         inUseForIO(inUseForIO),
         inUseForUser(inUseForUser),
@@ -615,7 +615,7 @@ public:
      * @param size The size of the dispatch.
      * @param replySize The size of the dispatch reply.
      */
-    DispatchMetrics(const ::std::string& id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int32_t userException, ::std::int64_t size, ::std::int64_t replySize) :
+    DispatchMetrics(::std::string_view id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int32_t userException, ::std::int64_t size, ::std::int64_t replySize) :
         Ice::ValueHelper<DispatchMetrics, Metrics>(id, total, current, totalLifetime, failures),
         userException(userException),
         size(size),
@@ -681,7 +681,7 @@ public:
      * @param size The size of the invocation.
      * @param replySize The size of the invocation reply.
      */
-    ChildInvocationMetrics(const ::std::string& id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int64_t size, ::std::int64_t replySize) :
+    ChildInvocationMetrics(::std::string_view id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int64_t size, ::std::int64_t replySize) :
         Ice::ValueHelper<ChildInvocationMetrics, Metrics>(id, total, current, totalLifetime, failures),
         size(size),
         replySize(replySize)
@@ -741,7 +741,7 @@ public:
      * @param size The size of the invocation.
      * @param replySize The size of the invocation reply.
      */
-    CollocatedMetrics(const ::std::string& id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int64_t size, ::std::int64_t replySize) :
+    CollocatedMetrics(::std::string_view id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int64_t size, ::std::int64_t replySize) :
         Ice::ValueHelper<CollocatedMetrics, ChildInvocationMetrics>(id, total, current, totalLifetime, failures, size, replySize)
     {
     }
@@ -790,7 +790,7 @@ public:
      * @param size The size of the invocation.
      * @param replySize The size of the invocation reply.
      */
-    RemoteMetrics(const ::std::string& id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int64_t size, ::std::int64_t replySize) :
+    RemoteMetrics(::std::string_view id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int64_t size, ::std::int64_t replySize) :
         Ice::ValueHelper<RemoteMetrics, ChildInvocationMetrics>(id, total, current, totalLifetime, failures, size, replySize)
     {
     }
@@ -840,7 +840,7 @@ public:
      * @param remotes The remote invocation metrics map.
      * @param collocated The collocated invocation metrics map.
      */
-    InvocationMetrics(const ::std::string& id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int32_t retry, ::std::int32_t userException, const ::IceMX::MetricsMap& remotes, const ::IceMX::MetricsMap& collocated) :
+    InvocationMetrics(::std::string_view id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int32_t retry, ::std::int32_t userException, const ::IceMX::MetricsMap& remotes, const ::IceMX::MetricsMap& collocated) :
         Ice::ValueHelper<InvocationMetrics, Metrics>(id, total, current, totalLifetime, failures),
         retry(retry),
         userException(userException),
@@ -911,7 +911,7 @@ public:
      * @param receivedBytes The number of bytes received by the connection.
      * @param sentBytes The number of bytes sent by the connection.
      */
-    ConnectionMetrics(const ::std::string& id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int64_t receivedBytes, ::std::int64_t sentBytes) :
+    ConnectionMetrics(::std::string_view id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int64_t receivedBytes, ::std::int64_t sentBytes) :
         Ice::ValueHelper<ConnectionMetrics, Metrics>(id, total, current, totalLifetime, failures),
         receivedBytes(receivedBytes),
         sentBytes(sentBytes)

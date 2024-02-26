@@ -155,7 +155,7 @@ public:
      * @see #setAllocationTimeout
      * @see #releaseObject
      */
-    ::std::optional<::Ice::ObjectPrx> allocateObjectByType(const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<::Ice::ObjectPrx> allocateObjectByType(::std::string_view type, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
@@ -166,7 +166,7 @@ public:
      * @see #setAllocationTimeout
      * @see #releaseObject
      */
-    ::std::future<::std::optional<::Ice::ObjectPrx>> allocateObjectByTypeAsync(const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::optional<::Ice::ObjectPrx>> allocateObjectByTypeAsync(::std::string_view type, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Allocate an object with the given type. Depending on the allocation timeout, this operation can block until
@@ -181,14 +181,14 @@ public:
      * @see #releaseObject
      */
     ::std::function<void()>
-    allocateObjectByTypeAsync(const ::std::string& type,
+    allocateObjectByTypeAsync(::std::string_view type,
                               ::std::function<void(::std::optional<::Ice::ObjectPrx>)> response,
                               ::std::function<void(::std::exception_ptr)> ex = nullptr,
                               ::std::function<void(bool)> sent = nullptr,
                               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_allocateObjectByType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_allocateObjectByType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**

@@ -80,7 +80,7 @@ public:
      * @param published Number of events published on the topic by publishers.
      * @param forwarded Number of events forwarded on the topic by IceStorm topic links.
      */
-    TopicMetrics(const ::std::string& id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int64_t published, ::std::int64_t forwarded) :
+    TopicMetrics(::std::string_view id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int64_t published, ::std::int64_t forwarded) :
         Ice::ValueHelper<TopicMetrics, Metrics>(id, total, current, totalLifetime, failures),
         published(published),
         forwarded(forwarded)
@@ -144,7 +144,7 @@ public:
      * @param outstanding Number of outstanding events.
      * @param delivered Number of forwarded events.
      */
-    SubscriberMetrics(const ::std::string& id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int32_t queued, ::std::int32_t outstanding, ::std::int64_t delivered) :
+    SubscriberMetrics(::std::string_view id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int32_t queued, ::std::int32_t outstanding, ::std::int64_t delivered) :
         Ice::ValueHelper<SubscriberMetrics, Metrics>(id, total, current, totalLifetime, failures),
         queued(queued),
         outstanding(outstanding),

@@ -141,34 +141,34 @@ class BackgroundControllerPrx : public ::Ice::Proxy<BackgroundControllerPrx, ::I
 {
 public:
 
-    void pauseCall(const ::std::string& call, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void pauseCall(::std::string_view call, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> pauseCallAsync(const ::std::string& call, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> pauseCallAsync(::std::string_view call, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    pauseCallAsync(const ::std::string& call,
+    pauseCallAsync(::std::string_view call,
                    ::std::function<void()> response,
                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                    ::std::function<void(bool)> sent = nullptr,
                    const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_pauseCall(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_pauseCall(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
-    void resumeCall(const ::std::string& call, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void resumeCall(::std::string_view call, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> resumeCallAsync(const ::std::string& call, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> resumeCallAsync(::std::string_view call, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    resumeCallAsync(const ::std::string& call,
+    resumeCallAsync(::std::string_view call,
                     ::std::function<void()> response,
                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
                     ::std::function<void(bool)> sent = nullptr,
                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_resumeCall(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_resumeCall(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     void holdAdapter(const ::Ice::Context& context = ::Ice::noExplicitContext) const;

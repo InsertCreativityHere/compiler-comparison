@@ -147,19 +147,19 @@ Test::BackgroundPrx::ice_staticId()
 }
 
 void
-Test::BackgroundControllerPrx::pauseCall(const ::std::string& iceP_call, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::pauseCall(::std::string_view iceP_call, const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &BackgroundControllerPrx::_iceI_pauseCall, iceP_call, context).get();
 }
 
 ::std::future<void>
-Test::BackgroundControllerPrx::pauseCallAsync(const ::std::string& iceP_call, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::pauseCallAsync(::std::string_view iceP_call, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &BackgroundControllerPrx::_iceI_pauseCall, iceP_call, context);
 }
 
 ::std::function<void()>
-Test::BackgroundControllerPrx::pauseCallAsync(const ::std::string& iceP_call,
+Test::BackgroundControllerPrx::pauseCallAsync(::std::string_view iceP_call,
                                               ::std::function<void ()> response,
                                               ::std::function<void(::std::exception_ptr)> ex,
                                               ::std::function<void(bool)> sent,
@@ -170,7 +170,7 @@ Test::BackgroundControllerPrx::pauseCallAsync(const ::std::string& iceP_call,
 
 /// \cond INTERNAL
 void
-Test::BackgroundControllerPrx::_iceI_pauseCall(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_call, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::_iceI_pauseCall(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_call, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "pauseCall";
 
@@ -184,19 +184,19 @@ Test::BackgroundControllerPrx::_iceI_pauseCall(const ::std::shared_ptr<::IceInte
 /// \endcond
 
 void
-Test::BackgroundControllerPrx::resumeCall(const ::std::string& iceP_call, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::resumeCall(::std::string_view iceP_call, const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &BackgroundControllerPrx::_iceI_resumeCall, iceP_call, context).get();
 }
 
 ::std::future<void>
-Test::BackgroundControllerPrx::resumeCallAsync(const ::std::string& iceP_call, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::resumeCallAsync(::std::string_view iceP_call, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &BackgroundControllerPrx::_iceI_resumeCall, iceP_call, context);
 }
 
 ::std::function<void()>
-Test::BackgroundControllerPrx::resumeCallAsync(const ::std::string& iceP_call,
+Test::BackgroundControllerPrx::resumeCallAsync(::std::string_view iceP_call,
                                                ::std::function<void ()> response,
                                                ::std::function<void(::std::exception_ptr)> ex,
                                                ::std::function<void(bool)> sent,
@@ -207,7 +207,7 @@ Test::BackgroundControllerPrx::resumeCallAsync(const ::std::string& iceP_call,
 
 /// \cond INTERNAL
 void
-Test::BackgroundControllerPrx::_iceI_resumeCall(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_call, const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::_iceI_resumeCall(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_call, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "resumeCall";
 

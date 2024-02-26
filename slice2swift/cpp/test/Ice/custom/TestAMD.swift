@@ -3572,10 +3572,6 @@ public extension DPrx {}
 ///
 ///  - opMyByteSeqAsync: 
 ///
-///  - opString: 
-///
-///  - opStringAsync: 
-///
 ///  - opStringSeq: 
 ///
 ///  - opStringSeqAsync: 
@@ -3651,10 +3647,6 @@ public extension DPrx {}
 ///  - opVarDict: 
 ///
 ///  - opVarDictAsync: 
-///
-///  - opCustomIntStringDict: 
-///
-///  - opCustomIntStringDictAsync: 
 ///
 ///  - opShortBuffer: 
 ///
@@ -3806,10 +3798,6 @@ public extension Ice.InputStream {
 ///
 ///  - opMyByteSeqAsync: 
 ///
-///  - opString: 
-///
-///  - opStringAsync: 
-///
 ///  - opStringSeq: 
 ///
 ///  - opStringSeqAsync: 
@@ -3885,10 +3873,6 @@ public extension Ice.InputStream {
 ///  - opVarDict: 
 ///
 ///  - opVarDictAsync: 
-///
-///  - opCustomIntStringDict: 
-///
-///  - opCustomIntStringDictAsync: 
 ///
 ///  - opShortBuffer: 
 ///
@@ -4669,61 +4653,6 @@ public extension TestIntfPrx {
                                       let iceP_outSeq: ByteSeq = try istr.read()
                                       let iceP_returnValue: ByteSeq = try istr.read()
                                       return (iceP_returnValue, iceP_outSeq)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
-    /// - parameter _: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: Swift.String, outString: Swift.String)`:
-    ///
-    ///   - returnValue: `Swift.String`
-    ///
-    ///   - outString: `Swift.String`
-    func opString(_ iceP_inString: Swift.String, context: Ice.Context? = nil) throws -> (returnValue: Swift.String, outString: Swift.String) {
-        return try _impl._invoke(operation: "opString",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_inString)
-                                 },
-                                 read: { istr in
-                                     let iceP_outString: Swift.String = try istr.read()
-                                     let iceP_returnValue: Swift.String = try istr.read()
-                                     return (iceP_returnValue, iceP_outString)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<(returnValue: Swift.String, outString: Swift.String)>` - The result of the operation
-    func opStringAsync(_ iceP_inString: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: Swift.String, outString: Swift.String)> {
-        return _impl._invokeAsync(operation: "opString",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_inString)
-                                  },
-                                  read: { istr in
-                                      let iceP_outString: Swift.String = try istr.read()
-                                      let iceP_returnValue: Swift.String = try istr.read()
-                                      return (iceP_returnValue, iceP_outString)
                                   },
                                   context: context,
                                   sentOn: sentOn,
@@ -5783,61 +5712,6 @@ public extension TestIntfPrx {
     }
 
     ///
-    /// - parameter _: `IntStringDict`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: IntStringDict, odict: IntStringDict)`:
-    ///
-    ///   - returnValue: `IntStringDict`
-    ///
-    ///   - odict: `IntStringDict`
-    func opCustomIntStringDict(_ iceP_idict: IntStringDict, context: Ice.Context? = nil) throws -> (returnValue: IntStringDict, odict: IntStringDict) {
-        return try _impl._invoke(operation: "opCustomIntStringDict",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     IntStringDictHelper.write(to: ostr, value: iceP_idict)
-                                 },
-                                 read: { istr in
-                                     let iceP_odict: IntStringDict = try IntStringDictHelper.read(from: istr)
-                                     let iceP_returnValue: IntStringDict = try IntStringDictHelper.read(from: istr)
-                                     return (iceP_returnValue, iceP_odict)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `IntStringDict`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<(returnValue: IntStringDict, odict: IntStringDict)>` - The result of the operation
-    func opCustomIntStringDictAsync(_ iceP_idict: IntStringDict, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: IntStringDict, odict: IntStringDict)> {
-        return _impl._invokeAsync(operation: "opCustomIntStringDict",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      IntStringDictHelper.write(to: ostr, value: iceP_idict)
-                                  },
-                                  read: { istr in
-                                      let iceP_odict: IntStringDict = try IntStringDictHelper.read(from: istr)
-                                      let iceP_returnValue: IntStringDict = try IntStringDictHelper.read(from: istr)
-                                      return (iceP_returnValue, iceP_odict)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
     /// - parameter _: `ShortBuffer`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
@@ -6194,8 +6068,6 @@ public struct TestIntfDisp: Ice.Disp {
             return try servant._iceD_opCSeq(incoming: request, current: current)
         case "opClassStruct":
             return try servant._iceD_opClassStruct(incoming: request, current: current)
-        case "opCustomIntStringDict":
-            return try servant._iceD_opCustomIntStringDict(incoming: request, current: current)
         case "opDPrxList":
             return try servant._iceD_opDPrxList(incoming: request, current: current)
         case "opDPrxSeq":
@@ -6220,8 +6092,6 @@ public struct TestIntfDisp: Ice.Disp {
             return try servant._iceD_opOutRangeByteSeq(incoming: request, current: current)
         case "opShortBuffer":
             return try servant._iceD_opShortBuffer(incoming: request, current: current)
-        case "opString":
-            return try servant._iceD_opString(incoming: request, current: current)
         case "opStringList":
             return try servant._iceD_opStringList(incoming: request, current: current)
         case "opStringSeq":
@@ -6362,14 +6232,6 @@ public protocol TestIntf {
     ///
     /// - returns: `PromiseKit.Promise<(returnValue: ByteSeq, outSeq: ByteSeq)>` - The result of the operation
     func opMyByteSeqAsync(inSeq: ByteSeq, current: Ice.Current) -> PromiseKit.Promise<(returnValue: ByteSeq, outSeq: ByteSeq)>
-
-    ///
-    /// - parameter inString: `Swift.String`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `PromiseKit.Promise<(returnValue: Swift.String, outString: Swift.String)>` - The result of the operation
-    func opStringAsync(inString: Swift.String, current: Ice.Current) -> PromiseKit.Promise<(returnValue: Swift.String, outString: Swift.String)>
 
     ///
     /// - parameter inSeq: `StringSeq`
@@ -6526,14 +6388,6 @@ public protocol TestIntf {
     func opVarDictAsync(idict: StringIntDict, current: Ice.Current) -> PromiseKit.Promise<(returnValue: LongLongDict, odict: StringIntDict)>
 
     ///
-    /// - parameter idict: `IntStringDict`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `PromiseKit.Promise<(returnValue: IntStringDict, odict: IntStringDict)>` - The result of the operation
-    func opCustomIntStringDictAsync(idict: IntStringDict, current: Ice.Current) -> PromiseKit.Promise<(returnValue: IntStringDict, odict: IntStringDict)>
-
-    ///
     /// - parameter inS: `ShortBuffer`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
@@ -6599,8 +6453,6 @@ public extension D {}
 ///
 ///  - opMyByteSeq: 
 ///
-///  - opString: 
-///
 ///  - opStringSeq: 
 ///
 ///  - opStringList: 
@@ -6638,8 +6490,6 @@ public extension D {}
 ///  - opIntStringDict: 
 ///
 ///  - opVarDict: 
-///
-///  - opCustomIntStringDict: 
 ///
 ///  - opShortBuffer: 
 ///
@@ -6827,19 +6677,6 @@ public extension TestIntf {
         return inS.setResultPromise(opMyByteSeqAsync(inSeq: iceP_inSeq, current: current)) { (ostr, retVals) in
             let (iceP_returnValue, iceP_outSeq) = retVals
             ostr.write(iceP_outSeq)
-            ostr.write(iceP_returnValue)
-        }
-    }
-
-    func _iceD_opString(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_inString: Swift.String = try inS.read { istr in
-            let iceP_inString: Swift.String = try istr.read()
-            return iceP_inString
-        }
-
-        return inS.setResultPromise(opStringAsync(inString: iceP_inString, current: current)) { (ostr, retVals) in
-            let (iceP_returnValue, iceP_outString) = retVals
-            ostr.write(iceP_outString)
             ostr.write(iceP_returnValue)
         }
     }
@@ -7092,19 +6929,6 @@ public extension TestIntf {
             let (iceP_returnValue, iceP_odict) = retVals
             StringIntDictHelper.write(to: ostr, value: iceP_odict)
             LongLongDictHelper.write(to: ostr, value: iceP_returnValue)
-        }
-    }
-
-    func _iceD_opCustomIntStringDict(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_idict: IntStringDict = try inS.read { istr in
-            let iceP_idict: IntStringDict = try IntStringDictHelper.read(from: istr)
-            return iceP_idict
-        }
-
-        return inS.setResultPromise(opCustomIntStringDictAsync(idict: iceP_idict, current: current)) { (ostr, retVals) in
-            let (iceP_returnValue, iceP_odict) = retVals
-            IntStringDictHelper.write(to: ostr, value: iceP_odict)
-            IntStringDictHelper.write(to: ostr, value: iceP_returnValue)
         }
     }
 

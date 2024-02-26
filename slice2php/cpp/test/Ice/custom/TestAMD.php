@@ -965,7 +965,6 @@ namespace Test
     global $Test__t_VariableList;
     global $Test__t_BoolList;
     global $Test__t_ByteSeq;
-    global $IcePHP__t_string;
     global $Test__t_StringSeq;
     global $Test__t_StringList;
     global $Test__t_FixedSeq;
@@ -1000,7 +999,6 @@ namespace Test
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opByteSeq', 0, 0, 0, array(array($Test__t_ByteSeq)), array(array($Test__t_ByteSeq)), array($Test__t_ByteSeq), null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opByteList', 0, 0, 0, array(array($Test__t_ByteList)), array(array($Test__t_ByteList)), array($Test__t_ByteList), null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opMyByteSeq', 0, 0, 0, array(array($Test__t_ByteSeq)), array(array($Test__t_ByteSeq)), array($Test__t_ByteSeq), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opString', 0, 0, 0, array(array($IcePHP__t_string)), array(array($IcePHP__t_string)), array($IcePHP__t_string), null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opStringSeq', 0, 0, 0, array(array($Test__t_StringSeq)), array(array($Test__t_StringSeq)), array($Test__t_StringSeq), null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opStringList', 0, 0, 0, array(array($Test__t_StringList)), array(array($Test__t_StringList)), array($Test__t_StringList), null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opFixedSeq', 0, 0, 0, array(array($Test__t_FixedSeq)), array(array($Test__t_FixedSeq)), array($Test__t_FixedSeq), null);
@@ -1020,7 +1018,6 @@ namespace Test
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opOutRangeByteSeq', 0, 0, 0, array(array($Test__t_ByteSeq)), array(array($Test__t_ByteSeq)), null, null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opIntStringDict', 0, 0, 0, array(array($Test__t_IntStringDict)), array(array($Test__t_IntStringDict)), array($Test__t_IntStringDict), null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opVarDict', 0, 0, 0, array(array($Test__t_StringIntDict)), array(array($Test__t_StringIntDict)), array($Test__t_LongLongDict), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opCustomIntStringDict', 0, 0, 0, array(array($Test__t_IntStringDict)), array(array($Test__t_IntStringDict)), array($Test__t_IntStringDict), null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opShortBuffer', 0, 0, 0, array(array($Test__t_ShortBuffer)), array(array($Test__t_ShortBuffer)), array($Test__t_ShortBuffer), null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opBoolBuffer', 0, 0, 0, array(array($Test__t_BoolSeq)), array(array($Test__t_BoolSeq)), array($Test__t_BoolSeq), null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opBufferStruct', 0, 0, 0, array(array($Test__t_BufferStruct)), null, array($Test__t_BufferStruct), null);

@@ -128,19 +128,19 @@ IceGrid::SessionPrx::_iceI_allocateObjectById(const ::std::shared_ptr<::IceInter
 /// \endcond
 
 ::std::optional<::Ice::ObjectPrx>
-IceGrid::SessionPrx::allocateObjectByType(const ::std::string& iceP_type, const ::Ice::Context& context) const
+IceGrid::SessionPrx::allocateObjectByType(::std::string_view iceP_type, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::optional<::Ice::ObjectPrx>>(true, this, &SessionPrx::_iceI_allocateObjectByType, iceP_type, context).get();
 }
 
 ::std::future<::std::optional<::Ice::ObjectPrx>>
-IceGrid::SessionPrx::allocateObjectByTypeAsync(const ::std::string& iceP_type, const ::Ice::Context& context) const
+IceGrid::SessionPrx::allocateObjectByTypeAsync(::std::string_view iceP_type, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::optional<::Ice::ObjectPrx>>(false, this, &SessionPrx::_iceI_allocateObjectByType, iceP_type, context);
 }
 
 ::std::function<void()>
-IceGrid::SessionPrx::allocateObjectByTypeAsync(const ::std::string& iceP_type,
+IceGrid::SessionPrx::allocateObjectByTypeAsync(::std::string_view iceP_type,
                                                ::std::function<void (::std::optional<::Ice::ObjectPrx>)> response,
                                                ::std::function<void(::std::exception_ptr)> ex,
                                                ::std::function<void(bool)> sent,
@@ -151,7 +151,7 @@ IceGrid::SessionPrx::allocateObjectByTypeAsync(const ::std::string& iceP_type,
 
 /// \cond INTERNAL
 void
-IceGrid::SessionPrx::_iceI_allocateObjectByType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>& outAsync, const ::std::string& iceP_type, const ::Ice::Context& context) const
+IceGrid::SessionPrx::_iceI_allocateObjectByType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>& outAsync, ::std::string_view iceP_type, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "allocateObjectByType";
 

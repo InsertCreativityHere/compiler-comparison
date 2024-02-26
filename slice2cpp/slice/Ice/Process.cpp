@@ -73,19 +73,19 @@ Ice::ProcessPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingA
 /// \endcond
 
 void
-Ice::ProcessPrx::writeMessage(const ::std::string& iceP_message, ::std::int32_t iceP_fd, const ::Ice::Context& context) const
+Ice::ProcessPrx::writeMessage(::std::string_view iceP_message, ::std::int32_t iceP_fd, const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &ProcessPrx::_iceI_writeMessage, iceP_message, iceP_fd, context).get();
 }
 
 ::std::future<void>
-Ice::ProcessPrx::writeMessageAsync(const ::std::string& iceP_message, ::std::int32_t iceP_fd, const ::Ice::Context& context) const
+Ice::ProcessPrx::writeMessageAsync(::std::string_view iceP_message, ::std::int32_t iceP_fd, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &ProcessPrx::_iceI_writeMessage, iceP_message, iceP_fd, context);
 }
 
 ::std::function<void()>
-Ice::ProcessPrx::writeMessageAsync(const ::std::string& iceP_message, ::std::int32_t iceP_fd,
+Ice::ProcessPrx::writeMessageAsync(::std::string_view iceP_message, ::std::int32_t iceP_fd,
                                    ::std::function<void ()> response,
                                    ::std::function<void(::std::exception_ptr)> ex,
                                    ::std::function<void(bool)> sent,
@@ -96,7 +96,7 @@ Ice::ProcessPrx::writeMessageAsync(const ::std::string& iceP_message, ::std::int
 
 /// \cond INTERNAL
 void
-Ice::ProcessPrx::_iceI_writeMessage(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_message, ::std::int32_t iceP_fd, const Context& context) const
+Ice::ProcessPrx::_iceI_writeMessage(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_message, ::std::int32_t iceP_fd, const Context& context) const
 {
     static const ::std::string operationName = "writeMessage";
 

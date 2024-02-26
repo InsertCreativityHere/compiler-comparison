@@ -723,7 +723,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    E(const ::std::string& data) :
+    E(::std::string_view data) :
         data(data)
     {
     }
@@ -759,7 +759,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    F(const ::std::string& data) :
+    F(::std::string_view data) :
         data(data)
     {
     }

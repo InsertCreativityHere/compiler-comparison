@@ -388,7 +388,7 @@ public:
      * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
      * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
-    void removeApplication(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void removeApplication(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Remove an application from IceGrid.
@@ -396,7 +396,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> removeApplicationAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> removeApplicationAsync(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Remove an application from IceGrid.
@@ -408,14 +408,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    removeApplicationAsync(const ::std::string& name,
+    removeApplicationAsync(::std::string_view name,
                            ::std::function<void()> response,
                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
                            ::std::function<void(bool)> sent = nullptr,
                            const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_removeApplication(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_removeApplication(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -429,7 +429,7 @@ public:
      * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
      * @throws IceGrid::DeploymentException Raised if server instantiation failed.
      */
-    void instantiateServer(const ::std::string& application, const ::std::string& node, const ServerInstanceDescriptor& desc, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void instantiateServer(::std::string_view application, ::std::string_view node, const ServerInstanceDescriptor& desc, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Instantiate a server template from an application on the given node.
@@ -439,7 +439,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> instantiateServerAsync(const ::std::string& application, const ::std::string& node, const ServerInstanceDescriptor& desc, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> instantiateServerAsync(::std::string_view application, ::std::string_view node, const ServerInstanceDescriptor& desc, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Instantiate a server template from an application on the given node.
@@ -453,14 +453,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    instantiateServerAsync(const ::std::string& application, const ::std::string& node, const ServerInstanceDescriptor& desc,
+    instantiateServerAsync(::std::string_view application, ::std::string_view node, const ServerInstanceDescriptor& desc,
                            ::std::function<void()> response,
                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
                            ::std::function<void(bool)> sent = nullptr,
                            const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_instantiateServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::string&, const ServerInstanceDescriptor&, const ::Ice::Context&) const;
+    void _iceI_instantiateServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, ::std::string_view, const ServerInstanceDescriptor&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -471,7 +471,7 @@ public:
      * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
      * @throws IceGrid::PatchException Raised if the patch failed.
      */
-    void patchApplication(const ::std::string& name, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void patchApplication(::std::string_view name, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Patch the given application data.
@@ -480,7 +480,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> patchApplicationAsync(const ::std::string& name, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> patchApplicationAsync(::std::string_view name, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Patch the given application data.
@@ -493,14 +493,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    patchApplicationAsync(const ::std::string& name, bool shutdown,
+    patchApplicationAsync(::std::string_view name, bool shutdown,
                           ::std::function<void()> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
                           const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_patchApplication(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, bool, const ::Ice::Context&) const;
+    void _iceI_patchApplication(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, bool, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -510,7 +510,7 @@ public:
      * @return The application descriptor.
      * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
      */
-    ApplicationInfo getApplicationInfo(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ApplicationInfo getApplicationInfo(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get an application descriptor.
@@ -518,7 +518,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<ApplicationInfo> getApplicationInfoAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<ApplicationInfo> getApplicationInfoAsync(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get an application descriptor.
@@ -530,14 +530,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getApplicationInfoAsync(const ::std::string& name,
+    getApplicationInfoAsync(::std::string_view name,
                             ::std::function<void(::IceGrid::ApplicationInfo)> response,
                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
                             ::std::function<void(bool)> sent = nullptr,
                             const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getApplicationInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ApplicationInfo>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_getApplicationInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ApplicationInfo>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -612,7 +612,7 @@ public:
      * @return The server information.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
-    ServerInfo getServerInfo(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ServerInfo getServerInfo(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the server information for the server with the given id.
@@ -620,7 +620,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<ServerInfo> getServerInfoAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<ServerInfo> getServerInfoAsync(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the server information for the server with the given id.
@@ -632,14 +632,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getServerInfoAsync(const ::std::string& id,
+    getServerInfoAsync(::std::string_view id,
                        ::std::function<void(::IceGrid::ServerInfo)> response,
                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
                        ::std::function<void(bool)> sent = nullptr,
                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getServerInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ServerInfo>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_getServerInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ServerInfo>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -651,7 +651,7 @@ public:
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
-    ServerState getServerState(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ServerState getServerState(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get a server's state.
@@ -659,7 +659,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<ServerState> getServerStateAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<ServerState> getServerStateAsync(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get a server's state.
@@ -671,14 +671,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getServerStateAsync(const ::std::string& id,
+    getServerStateAsync(::std::string_view id,
                         ::std::function<void(::IceGrid::ServerState)> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
                         const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getServerState(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ServerState>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_getServerState(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ServerState>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -690,7 +690,7 @@ public:
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
-    ::std::int32_t getServerPid(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t getServerPid(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get a server's system process id. The process id is operating system dependent.
@@ -698,7 +698,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::int32_t> getServerPidAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::int32_t> getServerPidAsync(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get a server's system process id. The process id is operating system dependent.
@@ -710,14 +710,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getServerPidAsync(const ::std::string& id,
+    getServerPidAsync(::std::string_view id,
                       ::std::function<void(::std::int32_t)> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getServerPid(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_getServerPid(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -764,7 +764,7 @@ public:
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
-    ::std::optional<::Ice::ObjectPrx> getServerAdmin(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<::Ice::ObjectPrx> getServerAdmin(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get a proxy to the server's admin object.
@@ -772,7 +772,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<::Ice::ObjectPrx>> getServerAdminAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::optional<::Ice::ObjectPrx>> getServerAdminAsync(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get a proxy to the server's admin object.
@@ -784,14 +784,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getServerAdminAsync(const ::std::string& id,
+    getServerAdminAsync(::std::string_view id,
                         ::std::function<void(::std::optional<::Ice::ObjectPrx>)> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
                         const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getServerAdmin(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_getServerAdmin(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -804,7 +804,7 @@ public:
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
-    void enableServer(const ::std::string& id, bool enabled, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void enableServer(::std::string_view id, bool enabled, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
@@ -814,7 +814,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> enableServerAsync(const ::std::string& id, bool enabled, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> enableServerAsync(::std::string_view id, bool enabled, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
@@ -828,14 +828,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    enableServerAsync(const ::std::string& id, bool enabled,
+    enableServerAsync(::std::string_view id, bool enabled,
                       ::std::function<void()> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_enableServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, bool, const ::Ice::Context&) const;
+    void _iceI_enableServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, bool, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -847,7 +847,7 @@ public:
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
-    bool isServerEnabled(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    bool isServerEnabled(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Check if the server is enabled or disabled.
@@ -855,7 +855,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<bool> isServerEnabledAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<bool> isServerEnabledAsync(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Check if the server is enabled or disabled.
@@ -867,14 +867,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    isServerEnabledAsync(const ::std::string& id,
+    isServerEnabledAsync(::std::string_view id,
                          ::std::function<void(bool)> response,
                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
                          ::std::function<void(bool)> sent = nullptr,
                          const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_isServerEnabled(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_isServerEnabled(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -886,7 +886,7 @@ public:
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      * @throws IceGrid::ServerStartException Raised if the server couldn't be started.
      */
-    void startServer(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void startServer(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Start a server and wait for its activation.
@@ -894,7 +894,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> startServerAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> startServerAsync(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Start a server and wait for its activation.
@@ -906,14 +906,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    startServerAsync(const ::std::string& id,
+    startServerAsync(::std::string_view id,
                      ::std::function<void()> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_startServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_startServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -925,7 +925,7 @@ public:
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      * @throws IceGrid::ServerStopException Raised if the server couldn't be stopped.
      */
-    void stopServer(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void stopServer(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Stop a server.
@@ -933,7 +933,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> stopServerAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> stopServerAsync(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Stop a server.
@@ -945,14 +945,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    stopServerAsync(const ::std::string& id,
+    stopServerAsync(::std::string_view id,
                     ::std::function<void()> response,
                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
                     ::std::function<void(bool)> sent = nullptr,
                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_stopServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_stopServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -965,7 +965,7 @@ public:
      * @throws IceGrid::PatchException Raised if the patch failed.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
-    void patchServer(const ::std::string& id, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void patchServer(::std::string_view id, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Patch a server.
@@ -974,7 +974,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> patchServerAsync(const ::std::string& id, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> patchServerAsync(::std::string_view id, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Patch a server.
@@ -987,14 +987,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    patchServerAsync(const ::std::string& id, bool shutdown,
+    patchServerAsync(::std::string_view id, bool shutdown,
                      ::std::function<void()> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_patchServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, bool, const ::Ice::Context&) const;
+    void _iceI_patchServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, bool, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1007,7 +1007,7 @@ public:
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
-    void sendSignal(const ::std::string& id, const ::std::string& signal, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void sendSignal(::std::string_view id, ::std::string_view signal, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Send signal to a server.
@@ -1016,7 +1016,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> sendSignalAsync(const ::std::string& id, const ::std::string& signal, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> sendSignalAsync(::std::string_view id, ::std::string_view signal, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Send signal to a server.
@@ -1029,14 +1029,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    sendSignalAsync(const ::std::string& id, const ::std::string& signal,
+    sendSignalAsync(::std::string_view id, ::std::string_view signal,
                     ::std::function<void()> response,
                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
                     ::std::function<void(bool)> sent = nullptr,
                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_sendSignal(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_sendSignal(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1080,7 +1080,7 @@ public:
      * information of each member of the replica group.
      * @throws IceGrid::AdapterNotExistException Raised if the adapter or replica group doesn't exist.
      */
-    AdapterInfoSeq getAdapterInfo(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    AdapterInfoSeq getAdapterInfo(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the adapter information for the replica group or adapter with the given id.
@@ -1088,7 +1088,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<AdapterInfoSeq> getAdapterInfoAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<AdapterInfoSeq> getAdapterInfoAsync(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the adapter information for the replica group or adapter with the given id.
@@ -1100,14 +1100,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getAdapterInfoAsync(const ::std::string& id,
+    getAdapterInfoAsync(::std::string_view id,
                         ::std::function<void(::IceGrid::AdapterInfoSeq)> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
                         const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getAdapterInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<AdapterInfoSeq>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_getAdapterInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<AdapterInfoSeq>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1117,7 +1117,7 @@ public:
      * @throws IceGrid::AdapterNotExistException Raised if the adapter doesn't exist.
      * @throws IceGrid::DeploymentException Raised if application deployment failed.
      */
-    void removeAdapter(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void removeAdapter(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Remove the adapter with the given id.
@@ -1125,7 +1125,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> removeAdapterAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> removeAdapterAsync(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Remove the adapter with the given id.
@@ -1137,14 +1137,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    removeAdapterAsync(const ::std::string& id,
+    removeAdapterAsync(::std::string_view id,
                        ::std::function<void()> response,
                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
                        ::std::function<void(bool)> sent = nullptr,
                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_removeAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_removeAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1269,7 +1269,7 @@ public:
      * @throws IceGrid::DeploymentException Raised if application deployment failed.
      * @throws IceGrid::ObjectExistsException Raised if the object is already registered.
      */
-    void addObjectWithType(const ::std::optional<::Ice::ObjectPrx>& obj, const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void addObjectWithType(const ::std::optional<::Ice::ObjectPrx>& obj, ::std::string_view type, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Add an object to the object registry and explicitly specify its type.
@@ -1278,7 +1278,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> addObjectWithTypeAsync(const ::std::optional<::Ice::ObjectPrx>& obj, const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> addObjectWithTypeAsync(const ::std::optional<::Ice::ObjectPrx>& obj, ::std::string_view type, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Add an object to the object registry and explicitly specify its type.
@@ -1291,14 +1291,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    addObjectWithTypeAsync(const ::std::optional<::Ice::ObjectPrx>& obj, const ::std::string& type,
+    addObjectWithTypeAsync(const ::std::optional<::Ice::ObjectPrx>& obj, ::std::string_view type,
                            ::std::function<void()> response,
                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
                            ::std::function<void(bool)> sent = nullptr,
                            const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_addObjectWithType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<::Ice::ObjectPrx>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_addObjectWithType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<::Ice::ObjectPrx>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1385,7 +1385,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The object infos.
      */
-    ObjectInfoSeq getObjectInfosByType(const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ObjectInfoSeq getObjectInfosByType(::std::string_view type, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the object info of all the registered objects with the given type.
@@ -1393,7 +1393,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<ObjectInfoSeq> getObjectInfosByTypeAsync(const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<ObjectInfoSeq> getObjectInfosByTypeAsync(::std::string_view type, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the object info of all the registered objects with the given type.
@@ -1405,14 +1405,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getObjectInfosByTypeAsync(const ::std::string& type,
+    getObjectInfosByTypeAsync(::std::string_view type,
                               ::std::function<void(::IceGrid::ObjectInfoSeq)> response,
                               ::std::function<void(::std::exception_ptr)> ex = nullptr,
                               ::std::function<void(bool)> sent = nullptr,
                               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getObjectInfosByType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ObjectInfoSeq>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_getObjectInfosByType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ObjectInfoSeq>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1422,7 +1422,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return All the object infos with a stringified identity matching the given expression.
      */
-    ObjectInfoSeq getAllObjectInfos(const ::std::string& expr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ObjectInfoSeq getAllObjectInfos(::std::string_view expr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the object info of all the registered objects whose stringified identities match the given expression.
@@ -1431,7 +1431,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<ObjectInfoSeq> getAllObjectInfosAsync(const ::std::string& expr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<ObjectInfoSeq> getAllObjectInfosAsync(::std::string_view expr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the object info of all the registered objects whose stringified identities match the given expression.
@@ -1444,14 +1444,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getAllObjectInfosAsync(const ::std::string& expr,
+    getAllObjectInfosAsync(::std::string_view expr,
                            ::std::function<void(::IceGrid::ObjectInfoSeq)> response,
                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
                            ::std::function<void(bool)> sent = nullptr,
                            const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getAllObjectInfos(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ObjectInfoSeq>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_getAllObjectInfos(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ObjectInfoSeq>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1461,7 +1461,7 @@ public:
      * @return true if the node ping succeeded, false otherwise.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
      */
-    bool pingNode(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    bool pingNode(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Ping an IceGrid node to see if it is active.
@@ -1469,7 +1469,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<bool> pingNodeAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<bool> pingNodeAsync(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Ping an IceGrid node to see if it is active.
@@ -1481,14 +1481,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    pingNodeAsync(const ::std::string& name,
+    pingNodeAsync(::std::string_view name,
                   ::std::function<void(bool)> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_pingNode(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_pingNode(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1499,7 +1499,7 @@ public:
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
-    LoadInfo getNodeLoad(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    LoadInfo getNodeLoad(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the load averages of the node.
@@ -1507,7 +1507,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<LoadInfo> getNodeLoadAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<LoadInfo> getNodeLoadAsync(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the load averages of the node.
@@ -1519,14 +1519,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getNodeLoadAsync(const ::std::string& name,
+    getNodeLoadAsync(::std::string_view name,
                      ::std::function<void(::IceGrid::LoadInfo)> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getNodeLoad(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<LoadInfo>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_getNodeLoad(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<LoadInfo>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1537,7 +1537,7 @@ public:
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
-    NodeInfo getNodeInfo(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    NodeInfo getNodeInfo(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the node information for the node with the given name.
@@ -1545,7 +1545,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<NodeInfo> getNodeInfoAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<NodeInfo> getNodeInfoAsync(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the node information for the node with the given name.
@@ -1557,14 +1557,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getNodeInfoAsync(const ::std::string& name,
+    getNodeInfoAsync(::std::string_view name,
                      ::std::function<void(::IceGrid::NodeInfo)> response,
                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                      ::std::function<void(bool)> sent = nullptr,
                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getNodeInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<NodeInfo>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_getNodeInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<NodeInfo>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1575,7 +1575,7 @@ public:
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
-    ::std::optional<::Ice::ObjectPrx> getNodeAdmin(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<::Ice::ObjectPrx> getNodeAdmin(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get a proxy to the IceGrid node's admin object.
@@ -1583,7 +1583,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<::Ice::ObjectPrx>> getNodeAdminAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::optional<::Ice::ObjectPrx>> getNodeAdminAsync(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get a proxy to the IceGrid node's admin object.
@@ -1595,14 +1595,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getNodeAdminAsync(const ::std::string& name,
+    getNodeAdminAsync(::std::string_view name,
                       ::std::function<void(::std::optional<::Ice::ObjectPrx>)> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getNodeAdmin(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_getNodeAdmin(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1615,7 +1615,7 @@ public:
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
-    ::std::int32_t getNodeProcessorSocketCount(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::int32_t getNodeProcessorSocketCount(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the number of physical processor sockets for the machine running the node with the given name.
@@ -1625,7 +1625,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::int32_t> getNodeProcessorSocketCountAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::int32_t> getNodeProcessorSocketCountAsync(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the number of physical processor sockets for the machine running the node with the given name.
@@ -1639,14 +1639,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getNodeProcessorSocketCountAsync(const ::std::string& name,
+    getNodeProcessorSocketCountAsync(::std::string_view name,
                                      ::std::function<void(::std::int32_t)> response,
                                      ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                      ::std::function<void(bool)> sent = nullptr,
                                      const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getNodeProcessorSocketCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_getNodeProcessorSocketCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1656,7 +1656,7 @@ public:
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
-    void shutdownNode(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void shutdownNode(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Shutdown an IceGrid node.
@@ -1664,7 +1664,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> shutdownNodeAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> shutdownNodeAsync(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Shutdown an IceGrid node.
@@ -1676,14 +1676,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    shutdownNodeAsync(const ::std::string& name,
+    shutdownNodeAsync(::std::string_view name,
                       ::std::function<void()> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdownNode(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_shutdownNode(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1694,7 +1694,7 @@ public:
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
-    ::std::string getNodeHostname(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::string getNodeHostname(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the hostname of this node.
@@ -1702,7 +1702,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::string> getNodeHostnameAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::string> getNodeHostnameAsync(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the hostname of this node.
@@ -1714,14 +1714,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getNodeHostnameAsync(const ::std::string& name,
+    getNodeHostnameAsync(::std::string_view name,
                          ::std::function<void(::std::string)> response,
                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
                          ::std::function<void(bool)> sent = nullptr,
                          const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getNodeHostname(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_getNodeHostname(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1763,7 +1763,7 @@ public:
      * @return true if the registry ping succeeded, false otherwise.
      * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
      */
-    bool pingRegistry(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    bool pingRegistry(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Ping an IceGrid registry to see if it is active.
@@ -1771,7 +1771,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<bool> pingRegistryAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<bool> pingRegistryAsync(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Ping an IceGrid registry to see if it is active.
@@ -1783,14 +1783,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    pingRegistryAsync(const ::std::string& name,
+    pingRegistryAsync(::std::string_view name,
                       ::std::function<void(bool)> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_pingRegistry(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_pingRegistry(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1801,7 +1801,7 @@ public:
      * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
      * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
      */
-    RegistryInfo getRegistryInfo(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    RegistryInfo getRegistryInfo(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the registry information for the registry with the given name.
@@ -1809,7 +1809,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<RegistryInfo> getRegistryInfoAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<RegistryInfo> getRegistryInfoAsync(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get the registry information for the registry with the given name.
@@ -1821,14 +1821,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getRegistryInfoAsync(const ::std::string& name,
+    getRegistryInfoAsync(::std::string_view name,
                          ::std::function<void(::IceGrid::RegistryInfo)> response,
                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
                          ::std::function<void(bool)> sent = nullptr,
                          const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getRegistryInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<RegistryInfo>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_getRegistryInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<RegistryInfo>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1838,7 +1838,7 @@ public:
      * @return A proxy to the IceGrid registry's admin object
      * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
      */
-    ::std::optional<::Ice::ObjectPrx> getRegistryAdmin(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<::Ice::ObjectPrx> getRegistryAdmin(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get a proxy to the IceGrid registry's admin object.
@@ -1846,7 +1846,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<::Ice::ObjectPrx>> getRegistryAdminAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::optional<::Ice::ObjectPrx>> getRegistryAdminAsync(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Get a proxy to the IceGrid registry's admin object.
@@ -1858,14 +1858,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getRegistryAdminAsync(const ::std::string& name,
+    getRegistryAdminAsync(::std::string_view name,
                           ::std::function<void(::std::optional<::Ice::ObjectPrx>)> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
                           const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getRegistryAdmin(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_getRegistryAdmin(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1875,7 +1875,7 @@ public:
      * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
      * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
      */
-    void shutdownRegistry(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void shutdownRegistry(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Shutdown an IceGrid registry.
@@ -1883,7 +1883,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> shutdownRegistryAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> shutdownRegistryAsync(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Shutdown an IceGrid registry.
@@ -1895,14 +1895,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    shutdownRegistryAsync(const ::std::string& name,
+    shutdownRegistryAsync(::std::string_view name,
                           ::std::function<void()> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
                           const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_shutdownRegistry(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_shutdownRegistry(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -2230,7 +2230,7 @@ public:
      * @param name The node name.
      * @param context The Context map to send with the invocation.
      */
-    void registryDown(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void registryDown(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
@@ -2238,7 +2238,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> registryDownAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> registryDownAsync(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
@@ -2250,14 +2250,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    registryDownAsync(const ::std::string& name,
+    registryDownAsync(::std::string_view name,
                       ::std::function<void()> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_registryDown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_registryDown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -2394,7 +2394,7 @@ public:
      * @param name The node name.
      * @param context The Context map to send with the invocation.
      */
-    void nodeDown(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void nodeDown(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
@@ -2402,7 +2402,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> nodeDownAsync(const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> nodeDownAsync(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The <code>nodeDown</code> operation is called to notify an observer that a node went down.
@@ -2414,14 +2414,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    nodeDownAsync(const ::std::string& name,
+    nodeDownAsync(::std::string_view name,
                   ::std::function<void()> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_nodeDown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_nodeDown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -2430,7 +2430,7 @@ public:
      * @param updatedInfo The new server state.
      * @param context The Context map to send with the invocation.
      */
-    void updateServer(const ::std::string& node, const ServerDynamicInfo& updatedInfo, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void updateServer(::std::string_view node, const ServerDynamicInfo& updatedInfo, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The <code>updateServer</code> operation is called to notify an observer that the state of a server changed.
@@ -2439,7 +2439,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> updateServerAsync(const ::std::string& node, const ServerDynamicInfo& updatedInfo, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> updateServerAsync(::std::string_view node, const ServerDynamicInfo& updatedInfo, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The <code>updateServer</code> operation is called to notify an observer that the state of a server changed.
@@ -2452,14 +2452,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    updateServerAsync(const ::std::string& node, const ServerDynamicInfo& updatedInfo,
+    updateServerAsync(::std::string_view node, const ServerDynamicInfo& updatedInfo,
                       ::std::function<void()> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
                       const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_updateServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ServerDynamicInfo&, const ::Ice::Context&) const;
+    void _iceI_updateServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, const ServerDynamicInfo&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -2468,7 +2468,7 @@ public:
      * @param updatedInfo The new adapter state.
      * @param context The Context map to send with the invocation.
      */
-    void updateAdapter(const ::std::string& node, const AdapterDynamicInfo& updatedInfo, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void updateAdapter(::std::string_view node, const AdapterDynamicInfo& updatedInfo, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The <code>updateAdapter</code> operation is called to notify an observer that the state of an adapter changed.
@@ -2477,7 +2477,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> updateAdapterAsync(const ::std::string& node, const AdapterDynamicInfo& updatedInfo, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> updateAdapterAsync(::std::string_view node, const AdapterDynamicInfo& updatedInfo, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The <code>updateAdapter</code> operation is called to notify an observer that the state of an adapter changed.
@@ -2490,14 +2490,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    updateAdapterAsync(const ::std::string& node, const AdapterDynamicInfo& updatedInfo,
+    updateAdapterAsync(::std::string_view node, const AdapterDynamicInfo& updatedInfo,
                        ::std::function<void()> response,
                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
                        ::std::function<void(bool)> sent = nullptr,
                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_updateAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const AdapterDynamicInfo&, const ::Ice::Context&) const;
+    void _iceI_updateAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, const AdapterDynamicInfo&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -2644,7 +2644,7 @@ public:
      * @param name The name of the application that was removed.
      * @param context The Context map to send with the invocation.
      */
-    void applicationRemoved(::std::int32_t serial, const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void applicationRemoved(::std::int32_t serial, ::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The <code>applicationRemoved</code> operation is called to notify an observer that an application was removed.
@@ -2653,7 +2653,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> applicationRemovedAsync(::std::int32_t serial, const ::std::string& name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> applicationRemovedAsync(::std::int32_t serial, ::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The <code>applicationRemoved</code> operation is called to notify an observer that an application was removed.
@@ -2666,14 +2666,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    applicationRemovedAsync(::std::int32_t serial, const ::std::string& name,
+    applicationRemovedAsync(::std::int32_t serial, ::std::string_view name,
                             ::std::function<void()> response,
                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
                             ::std::function<void(bool)> sent = nullptr,
                             const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_applicationRemoved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_applicationRemoved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::int32_t, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -2885,7 +2885,7 @@ public:
      * @param id The ID of the removed adapter.
      * @param context The Context map to send with the invocation.
      */
-    void adapterRemoved(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void adapterRemoved(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
@@ -2893,7 +2893,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> adapterRemovedAsync(const ::std::string& id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> adapterRemovedAsync(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
@@ -2905,14 +2905,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    adapterRemovedAsync(const ::std::string& id,
+    adapterRemovedAsync(::std::string_view id,
                         ::std::function<void()> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
                         const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_adapterRemoved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_adapterRemoved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -3492,7 +3492,7 @@ public:
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
-    ::std::optional<FileIteratorPrx> openServerLog(const ::std::string& id, const ::std::string& path, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<FileIteratorPrx> openServerLog(::std::string_view id, ::std::string_view path, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Open the given server log file for reading. The file can be read with the returned file iterator.
@@ -3504,7 +3504,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<FileIteratorPrx>> openServerLogAsync(const ::std::string& id, const ::std::string& path, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::optional<FileIteratorPrx>> openServerLogAsync(::std::string_view id, ::std::string_view path, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Open the given server log file for reading. The file can be read with the returned file iterator.
@@ -3520,14 +3520,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    openServerLogAsync(const ::std::string& id, const ::std::string& path, ::std::int32_t count,
+    openServerLogAsync(::std::string_view id, ::std::string_view path, ::std::int32_t count,
                        ::std::function<void(::std::optional<::IceGrid::FileIteratorPrx>)> response,
                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
                        ::std::function<void(bool)> sent = nullptr,
                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_openServerLog(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<FileIteratorPrx>>>&, const ::std::string&, const ::std::string&, ::std::int32_t, const ::Ice::Context&) const;
+    void _iceI_openServerLog(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<FileIteratorPrx>>>&, ::std::string_view, ::std::string_view, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -3542,7 +3542,7 @@ public:
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
-    ::std::optional<FileIteratorPrx> openServerStdErr(const ::std::string& id, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<FileIteratorPrx> openServerStdErr(::std::string_view id, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Open the given server stderr file for reading. The file can be read with the returned file iterator.
@@ -3552,7 +3552,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<FileIteratorPrx>> openServerStdErrAsync(const ::std::string& id, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::optional<FileIteratorPrx>> openServerStdErrAsync(::std::string_view id, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Open the given server stderr file for reading. The file can be read with the returned file iterator.
@@ -3566,14 +3566,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    openServerStdErrAsync(const ::std::string& id, ::std::int32_t count,
+    openServerStdErrAsync(::std::string_view id, ::std::int32_t count,
                           ::std::function<void(::std::optional<::IceGrid::FileIteratorPrx>)> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
                           const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_openServerStdErr(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<FileIteratorPrx>>>&, const ::std::string&, ::std::int32_t, const ::Ice::Context&) const;
+    void _iceI_openServerStdErr(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<FileIteratorPrx>>>&, ::std::string_view, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -3588,7 +3588,7 @@ public:
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
      */
-    ::std::optional<FileIteratorPrx> openServerStdOut(const ::std::string& id, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<FileIteratorPrx> openServerStdOut(::std::string_view id, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Open the given server stdout file for reading. The file can be read with the returned file iterator.
@@ -3598,7 +3598,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<FileIteratorPrx>> openServerStdOutAsync(const ::std::string& id, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::optional<FileIteratorPrx>> openServerStdOutAsync(::std::string_view id, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Open the given server stdout file for reading. The file can be read with the returned file iterator.
@@ -3612,14 +3612,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    openServerStdOutAsync(const ::std::string& id, ::std::int32_t count,
+    openServerStdOutAsync(::std::string_view id, ::std::int32_t count,
                           ::std::function<void(::std::optional<::IceGrid::FileIteratorPrx>)> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
                           const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_openServerStdOut(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<FileIteratorPrx>>>&, const ::std::string&, ::std::int32_t, const ::Ice::Context&) const;
+    void _iceI_openServerStdOut(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<FileIteratorPrx>>>&, ::std::string_view, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -3633,7 +3633,7 @@ public:
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
-    ::std::optional<FileIteratorPrx> openNodeStdErr(const ::std::string& name, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<FileIteratorPrx> openNodeStdErr(::std::string_view name, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Open the given node stderr file for reading. The file can be read with the returned file iterator.
@@ -3643,7 +3643,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<FileIteratorPrx>> openNodeStdErrAsync(const ::std::string& name, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::optional<FileIteratorPrx>> openNodeStdErrAsync(::std::string_view name, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Open the given node stderr file for reading. The file can be read with the returned file iterator.
@@ -3657,14 +3657,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    openNodeStdErrAsync(const ::std::string& name, ::std::int32_t count,
+    openNodeStdErrAsync(::std::string_view name, ::std::int32_t count,
                         ::std::function<void(::std::optional<::IceGrid::FileIteratorPrx>)> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
                         const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_openNodeStdErr(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<FileIteratorPrx>>>&, const ::std::string&, ::std::int32_t, const ::Ice::Context&) const;
+    void _iceI_openNodeStdErr(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<FileIteratorPrx>>>&, ::std::string_view, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -3678,7 +3678,7 @@ public:
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
-    ::std::optional<FileIteratorPrx> openNodeStdOut(const ::std::string& name, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<FileIteratorPrx> openNodeStdOut(::std::string_view name, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Open the given node stdout file for reading. The file can be read with the returned file iterator.
@@ -3688,7 +3688,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<FileIteratorPrx>> openNodeStdOutAsync(const ::std::string& name, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::optional<FileIteratorPrx>> openNodeStdOutAsync(::std::string_view name, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Open the given node stdout file for reading. The file can be read with the returned file iterator.
@@ -3702,14 +3702,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    openNodeStdOutAsync(const ::std::string& name, ::std::int32_t count,
+    openNodeStdOutAsync(::std::string_view name, ::std::int32_t count,
                         ::std::function<void(::std::optional<::IceGrid::FileIteratorPrx>)> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
                         const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_openNodeStdOut(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<FileIteratorPrx>>>&, const ::std::string&, ::std::int32_t, const ::Ice::Context&) const;
+    void _iceI_openNodeStdOut(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<FileIteratorPrx>>>&, ::std::string_view, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -3723,7 +3723,7 @@ public:
      * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
      * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
      */
-    ::std::optional<FileIteratorPrx> openRegistryStdErr(const ::std::string& name, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<FileIteratorPrx> openRegistryStdErr(::std::string_view name, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Open the given registry stderr file for reading. The file can be read with the returned file iterator.
@@ -3733,7 +3733,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<FileIteratorPrx>> openRegistryStdErrAsync(const ::std::string& name, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::optional<FileIteratorPrx>> openRegistryStdErrAsync(::std::string_view name, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Open the given registry stderr file for reading. The file can be read with the returned file iterator.
@@ -3747,14 +3747,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    openRegistryStdErrAsync(const ::std::string& name, ::std::int32_t count,
+    openRegistryStdErrAsync(::std::string_view name, ::std::int32_t count,
                             ::std::function<void(::std::optional<::IceGrid::FileIteratorPrx>)> response,
                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
                             ::std::function<void(bool)> sent = nullptr,
                             const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_openRegistryStdErr(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<FileIteratorPrx>>>&, const ::std::string&, ::std::int32_t, const ::Ice::Context&) const;
+    void _iceI_openRegistryStdErr(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<FileIteratorPrx>>>&, ::std::string_view, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -3768,7 +3768,7 @@ public:
      * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
      * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
      */
-    ::std::optional<FileIteratorPrx> openRegistryStdOut(const ::std::string& name, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<FileIteratorPrx> openRegistryStdOut(::std::string_view name, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Open the given registry stdout file for reading. The file can be read with the returned file iterator.
@@ -3778,7 +3778,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<FileIteratorPrx>> openRegistryStdOutAsync(const ::std::string& name, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::optional<FileIteratorPrx>> openRegistryStdOutAsync(::std::string_view name, ::std::int32_t count, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Open the given registry stdout file for reading. The file can be read with the returned file iterator.
@@ -3792,14 +3792,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    openRegistryStdOutAsync(const ::std::string& name, ::std::int32_t count,
+    openRegistryStdOutAsync(::std::string_view name, ::std::int32_t count,
                             ::std::function<void(::std::optional<::IceGrid::FileIteratorPrx>)> response,
                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
                             ::std::function<void(bool)> sent = nullptr,
                             const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_openRegistryStdOut(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<FileIteratorPrx>>>&, const ::std::string&, ::std::int32_t, const ::Ice::Context&) const;
+    void _iceI_openRegistryStdOut(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<FileIteratorPrx>>>&, ::std::string_view, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**

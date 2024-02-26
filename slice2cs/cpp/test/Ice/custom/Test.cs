@@ -1116,9 +1116,6 @@ namespace Test
     public delegate void Callback_TestIntf_opMyByteSeq(byte[] ret, byte[] outSeq);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opString(string ret, string outString);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public delegate void Callback_TestIntf_opStringSeq(string[] ret, string[] outSeq);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1174,9 +1171,6 @@ namespace Test
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public delegate void Callback_TestIntf_opVarDict(global::System.Collections.Generic.Dictionary<long, long> ret, global::System.Collections.Generic.Dictionary<string, int> odict);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opCustomIntStringDict(global::System.Collections.Generic.Dictionary<int, string> ret, global::System.Collections.Generic.Dictionary<int, string> odict);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public delegate void Callback_TestIntf_opShortBuffer(short[] ret, short[] outS);
@@ -1397,18 +1391,6 @@ namespace Test
         public byte[] outSeq;
     }
 
-    public struct TestIntf_OpStringResult
-    {
-        public TestIntf_OpStringResult(string returnValue, string outString)
-        {
-            this.returnValue = returnValue;
-            this.outString = outString;
-        }
-
-        public string returnValue;
-        public string outString;
-    }
-
     public struct TestIntf_OpStringSeqResult
     {
         public TestIntf_OpStringSeqResult(string[] returnValue, string[] outSeq)
@@ -1615,18 +1597,6 @@ namespace Test
         public global::System.Collections.Generic.Dictionary<string, int> odict;
     }
 
-    public struct TestIntf_OpCustomIntStringDictResult
-    {
-        public TestIntf_OpCustomIntStringDictResult(global::System.Collections.Generic.Dictionary<int, string> returnValue, global::System.Collections.Generic.Dictionary<int, string> odict)
-        {
-            this.returnValue = returnValue;
-            this.odict = odict;
-        }
-
-        public global::System.Collections.Generic.Dictionary<int, string> returnValue;
-        public global::System.Collections.Generic.Dictionary<int, string> odict;
-    }
-
     public struct TestIntf_OpShortBufferResult
     {
         public TestIntf_OpShortBufferResult(short[] returnValue, short[] outS)
@@ -1730,10 +1700,6 @@ namespace Test
 
         global::System.Threading.Tasks.Task<TestIntf_OpMyByteSeqResult> opMyByteSeqAsync(byte[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        string opString(string inString, out string outString, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::System.Threading.Tasks.Task<TestIntf_OpStringResult> opStringAsync(string inString, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
         string[] opStringSeq(string[] inSeq, out string[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task<TestIntf_OpStringSeqResult> opStringSeqAsync(string[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
@@ -1809,10 +1775,6 @@ namespace Test
         global::System.Collections.Generic.Dictionary<long, long> opVarDict(global::System.Collections.Generic.Dictionary<string, int> idict, out global::System.Collections.Generic.Dictionary<string, int> odict, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task<TestIntf_OpVarDictResult> opVarDictAsync(global::System.Collections.Generic.Dictionary<string, int> idict, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        global::System.Collections.Generic.Dictionary<int, string> opCustomIntStringDict(global::System.Collections.Generic.Dictionary<int, string> idict, out global::System.Collections.Generic.Dictionary<int, string> odict, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::System.Threading.Tasks.Task<TestIntf_OpCustomIntStringDictResult> opCustomIntStringDictAsync(global::System.Collections.Generic.Dictionary<int, string> idict, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         short[] opShortBuffer(short[] inS, out short[] outS, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
@@ -1894,9 +1856,6 @@ namespace Test
         byte[] opMyByteSeq(byte[] inSeq, out byte[] outSeq, global::Ice.Current current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        string opString(string inString, out string outString, global::Ice.Current current = null);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         string[] opStringSeq(string[] inSeq, out string[] outSeq, global::Ice.Current current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1952,9 +1911,6 @@ namespace Test
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         global::System.Collections.Generic.Dictionary<long, long> opVarDict(global::System.Collections.Generic.Dictionary<string, int> idict, out global::System.Collections.Generic.Dictionary<string, int> odict, global::Ice.Current current = null);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Collections.Generic.Dictionary<int, string> opCustomIntStringDict(global::System.Collections.Generic.Dictionary<int, string> idict, out global::System.Collections.Generic.Dictionary<int, string> odict, global::Ice.Current current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         short[] opShortBuffer(short[] inS, out short[] outS, global::Ice.Current current = null);
@@ -4173,20 +4129,6 @@ namespace Test
             }
         }
 
-        public string opString(string inString, out string outString, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            try
-            {
-                var result_ = _iceI_opStringAsync(inString, context, null, global::System.Threading.CancellationToken.None, true).Result;
-                outString = result_.outString;
-                return result_.returnValue;
-            }
-            catch(global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException;
-            }
-        }
-
         public string[] opStringSeq(string[] inSeq, out string[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
             try
@@ -4441,20 +4383,6 @@ namespace Test
             try
             {
                 var result_ = _iceI_opVarDictAsync(idict, context, null, global::System.Threading.CancellationToken.None, true).Result;
-                odict = result_.odict;
-                return result_.returnValue;
-            }
-            catch(global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException;
-            }
-        }
-
-        public global::System.Collections.Generic.Dictionary<int, string> opCustomIntStringDict(global::System.Collections.Generic.Dictionary<int, string> idict, out global::System.Collections.Generic.Dictionary<int, string> odict, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            try
-            {
-                var result_ = _iceI_opCustomIntStringDictAsync(idict, context, null, global::System.Threading.CancellationToken.None, true).Result;
                 odict = result_.odict;
                 return result_.returnValue;
             }
@@ -5145,43 +5073,6 @@ namespace Test
                     TestIntf_OpMyByteSeqResult ret = new TestIntf_OpMyByteSeqResult();
                     ret.outSeq = ByteSeqHelper.read(istr);
                     ret.returnValue = ByteSeqHelper.read(istr);
-                    return ret;
-                });
-        }
-
-        public global::System.Threading.Tasks.Task<TestIntf_OpStringResult> opStringAsync(string inString, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-        {
-            return _iceI_opStringAsync(inString, context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task<TestIntf_OpStringResult> _iceI_opStringAsync(string iceP_inString, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            iceCheckTwowayOnly(_opString_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<TestIntf_OpStringResult>(progress, cancel);
-            _iceI_opString(iceP_inString, context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _opString_name = "opString";
-
-        private void _iceI_opString(string iceP_inString, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<TestIntf_OpStringResult>(completed);
-            outAsync.invoke(
-                _opString_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
-                context,
-                synchronous,
-                write: (global::Ice.OutputStream ostr) =>
-                {
-                    ostr.writeString(iceP_inString);
-                },
-                read: (global::Ice.InputStream istr) =>
-                {
-                    TestIntf_OpStringResult ret = new TestIntf_OpStringResult();
-                    ret.outString = istr.readString();
-                    ret.returnValue = istr.readString();
                     return ret;
                 });
         }
@@ -5893,43 +5784,6 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpCustomIntStringDictResult> opCustomIntStringDictAsync(global::System.Collections.Generic.Dictionary<int, string> idict, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-        {
-            return _iceI_opCustomIntStringDictAsync(idict, context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task<TestIntf_OpCustomIntStringDictResult> _iceI_opCustomIntStringDictAsync(global::System.Collections.Generic.Dictionary<int, string> iceP_idict, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            iceCheckTwowayOnly(_opCustomIntStringDict_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<TestIntf_OpCustomIntStringDictResult>(progress, cancel);
-            _iceI_opCustomIntStringDict(iceP_idict, context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _opCustomIntStringDict_name = "opCustomIntStringDict";
-
-        private void _iceI_opCustomIntStringDict(global::System.Collections.Generic.Dictionary<int, string> iceP_idict, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<TestIntf_OpCustomIntStringDictResult>(completed);
-            outAsync.invoke(
-                _opCustomIntStringDict_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
-                context,
-                synchronous,
-                write: (global::Ice.OutputStream ostr) =>
-                {
-                    IntStringDictHelper.write(ostr, iceP_idict);
-                },
-                read: (global::Ice.InputStream istr) =>
-                {
-                    TestIntf_OpCustomIntStringDictResult ret = new TestIntf_OpCustomIntStringDictResult();
-                    ret.odict = IntStringDictHelper.read(istr);
-                    ret.returnValue = IntStringDictHelper.read(istr);
-                    return ret;
-                });
-        }
-
         public global::System.Threading.Tasks.Task<TestIntf_OpShortBufferResult> opShortBufferAsync(short[] inS, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
         {
             return _iceI_opShortBufferAsync(inS, context, progress, cancel, false);
@@ -6283,8 +6137,6 @@ namespace Test
 
         public abstract byte[] opMyByteSeq(byte[] inSeq, out byte[] outSeq, global::Ice.Current current = null);
 
-        public abstract string opString(string inString, out string outString, global::Ice.Current current = null);
-
         public abstract string[] opStringSeq(string[] inSeq, out string[] outSeq, global::Ice.Current current = null);
 
         public abstract string[] opStringList(string[] inSeq, out string[] outSeq, global::Ice.Current current = null);
@@ -6322,8 +6174,6 @@ namespace Test
         public abstract global::System.Collections.Generic.Dictionary<int, string> opIntStringDict(global::System.Collections.Generic.Dictionary<int, string> idict, out global::System.Collections.Generic.Dictionary<int, string> odict, global::Ice.Current current = null);
 
         public abstract global::System.Collections.Generic.Dictionary<long, long> opVarDict(global::System.Collections.Generic.Dictionary<string, int> idict, out global::System.Collections.Generic.Dictionary<string, int> odict, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<int, string> opCustomIntStringDict(global::System.Collections.Generic.Dictionary<int, string> idict, out global::System.Collections.Generic.Dictionary<int, string> odict, global::Ice.Current current = null);
 
         public abstract short[] opShortBuffer(short[] inS, out short[] outS, global::Ice.Current current = null);
 
@@ -6669,24 +6519,6 @@ namespace Test
             var ostr = inS.startWriteParams();
             ByteSeqHelper.write(ostr, iceP_outSeq);
             ByteSeqHelper.write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opString(TestIntf obj, global::IceInternal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            string iceP_inString;
-            iceP_inString = istr.readString();
-            inS.endReadParams();
-            string iceP_outString;
-            var ret = obj.opString(iceP_inString, out iceP_outString, current);
-            var ostr = inS.startWriteParams();
-            ostr.writeString(iceP_outString);
-            ostr.writeString(ret);
             inS.endWriteParams(ostr);
             return inS.setResult(ostr);
         }
@@ -7042,24 +6874,6 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opCustomIntStringDict(TestIntf obj, global::IceInternal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            global::System.Collections.Generic.Dictionary<int, string> iceP_idict;
-            iceP_idict = IntStringDictHelper.read(istr);
-            inS.endReadParams();
-            global::System.Collections.Generic.Dictionary<int, string> iceP_odict;
-            var ret = obj.opCustomIntStringDict(iceP_idict, out iceP_odict, current);
-            var ostr = inS.startWriteParams();
-            IntStringDictHelper.write(ostr, iceP_odict);
-            IntStringDictHelper.write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
         iceD_opShortBuffer(TestIntf obj, global::IceInternal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
@@ -7144,7 +6958,6 @@ namespace Test
             "opCList",
             "opCSeq",
             "opClassStruct",
-            "opCustomIntStringDict",
             "opDPrxList",
             "opDPrxSeq",
             "opDoubleArray",
@@ -7157,7 +6970,6 @@ namespace Test
             "opOutArrayByteSeq",
             "opOutRangeByteSeq",
             "opShortBuffer",
-            "opString",
             "opStringList",
             "opStringSeq",
             "opStringStringDictList",
@@ -7268,101 +7080,93 @@ namespace Test
                 }
                 case 21:
                 {
-                    return iceD_opCustomIntStringDict(this, inS, current);
+                    return iceD_opDPrxList(this, inS, current);
                 }
                 case 22:
                 {
-                    return iceD_opDPrxList(this, inS, current);
+                    return iceD_opDPrxSeq(this, inS, current);
                 }
                 case 23:
                 {
-                    return iceD_opDPrxSeq(this, inS, current);
+                    return iceD_opDoubleArray(this, inS, current);
                 }
                 case 24:
                 {
-                    return iceD_opDoubleArray(this, inS, current);
+                    return iceD_opEList(this, inS, current);
                 }
                 case 25:
                 {
-                    return iceD_opEList(this, inS, current);
+                    return iceD_opESeq(this, inS, current);
                 }
                 case 26:
                 {
-                    return iceD_opESeq(this, inS, current);
+                    return iceD_opFixedList(this, inS, current);
                 }
                 case 27:
                 {
-                    return iceD_opFixedList(this, inS, current);
+                    return iceD_opFixedSeq(this, inS, current);
                 }
                 case 28:
                 {
-                    return iceD_opFixedSeq(this, inS, current);
+                    return iceD_opIntStringDict(this, inS, current);
                 }
                 case 29:
                 {
-                    return iceD_opIntStringDict(this, inS, current);
+                    return iceD_opMyByteSeq(this, inS, current);
                 }
                 case 30:
                 {
-                    return iceD_opMyByteSeq(this, inS, current);
+                    return iceD_opOutArrayByteSeq(this, inS, current);
                 }
                 case 31:
                 {
-                    return iceD_opOutArrayByteSeq(this, inS, current);
+                    return iceD_opOutRangeByteSeq(this, inS, current);
                 }
                 case 32:
                 {
-                    return iceD_opOutRangeByteSeq(this, inS, current);
+                    return iceD_opShortBuffer(this, inS, current);
                 }
                 case 33:
                 {
-                    return iceD_opShortBuffer(this, inS, current);
+                    return iceD_opStringList(this, inS, current);
                 }
                 case 34:
                 {
-                    return iceD_opString(this, inS, current);
+                    return iceD_opStringSeq(this, inS, current);
                 }
                 case 35:
                 {
-                    return iceD_opStringList(this, inS, current);
+                    return iceD_opStringStringDictList(this, inS, current);
                 }
                 case 36:
                 {
-                    return iceD_opStringSeq(this, inS, current);
+                    return iceD_opStringStringDictSeq(this, inS, current);
                 }
                 case 37:
                 {
-                    return iceD_opStringStringDictList(this, inS, current);
+                    return iceD_opVarDict(this, inS, current);
                 }
                 case 38:
                 {
-                    return iceD_opStringStringDictSeq(this, inS, current);
+                    return iceD_opVariableArray(this, inS, current);
                 }
                 case 39:
                 {
-                    return iceD_opVarDict(this, inS, current);
+                    return iceD_opVariableList(this, inS, current);
                 }
                 case 40:
                 {
-                    return iceD_opVariableArray(this, inS, current);
+                    return iceD_opVariableRange(this, inS, current);
                 }
                 case 41:
                 {
-                    return iceD_opVariableList(this, inS, current);
+                    return iceD_opVariableRangeType(this, inS, current);
                 }
                 case 42:
                 {
-                    return iceD_opVariableRange(this, inS, current);
-                }
-                case 43:
-                {
-                    return iceD_opVariableRangeType(this, inS, current);
-                }
-                case 44:
-                {
                     return iceD_opVariableSeq(this, inS, current);
                 }
-                case 45:
+                case 43:
                 {
                     return iceD_shutdown(this, inS, current);
                 }

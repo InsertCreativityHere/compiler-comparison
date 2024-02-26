@@ -55,7 +55,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    PreservedClass(const ::std::string& bc, const ::std::string& pc) :
+    PreservedClass(::std::string_view bc, ::std::string_view pc) :
         Ice::ValueHelper<PreservedClass, BaseClass>(bc),
         pc(pc)
     {
@@ -96,7 +96,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Preserved1(const ::std::string& b, const ::std::string& kp, const ::std::string& kpd, const ::std::shared_ptr<BaseClass>& p1) :
+    Preserved1(::std::string_view b, ::std::string_view kp, ::std::string_view kpd, const ::std::shared_ptr<BaseClass>& p1) :
         ::Ice::UserExceptionHelper<Preserved1, KnownPreservedDerived>(b, kp, kpd),
         p1(p1)
     {
@@ -137,7 +137,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Preserved2(const ::std::string& b, const ::std::string& kp, const ::std::string& kpd, const ::std::shared_ptr<BaseClass>& p1, const ::std::shared_ptr<BaseClass>& p2) :
+    Preserved2(::std::string_view b, ::std::string_view kp, ::std::string_view kpd, const ::std::shared_ptr<BaseClass>& p1, const ::std::shared_ptr<BaseClass>& p2) :
         ::Ice::UserExceptionHelper<Preserved2, Preserved1>(b, kp, kpd, p1),
         p2(p2)
     {

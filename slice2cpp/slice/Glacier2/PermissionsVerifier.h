@@ -71,7 +71,7 @@ public:
      * @throws Glacier2::PermissionDeniedException Raised if the user access is denied. This can be raised in place of
      * returning false with a reason set in the reason out parameter.
      */
-    bool checkPermissions(const ::std::string& userId, const ::std::string& password, ::std::string& reason, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    bool checkPermissions(::std::string_view userId, ::std::string_view password, ::std::string& reason, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Check whether a user has permission to access the router.
@@ -80,7 +80,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::tuple<bool, ::std::string>> checkPermissionsAsync(const ::std::string& userId, const ::std::string& password, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<bool, ::std::string>> checkPermissionsAsync(::std::string_view userId, ::std::string_view password, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Check whether a user has permission to access the router.
@@ -93,14 +93,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    checkPermissionsAsync(const ::std::string& userId, const ::std::string& password,
+    checkPermissionsAsync(::std::string_view userId, ::std::string_view password,
                           ::std::function<void(bool, ::std::string)> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
                           const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_checkPermissions(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<bool, ::std::string>>>&, const ::std::string&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_checkPermissions(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<bool, ::std::string>>>&, ::std::string_view, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -272,7 +272,7 @@ public:
      * One-shot constructor to initialize all data members.
      * @param reason The reason why permission was denied.
      */
-    PermissionDeniedException(const ::std::string& reason) :
+    PermissionDeniedException(::std::string_view reason) :
         reason(reason)
     {
     }

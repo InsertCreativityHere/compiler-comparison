@@ -128,7 +128,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit F1(const ::std::string& name) :
+    explicit F1(::std::string_view name) :
         name(name)
     {
     }

@@ -3875,43 +3875,6 @@ public interface InitialPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
-    default boolean supportsCppStringView()
-    {
-        return supportsCppStringView(com.zeroc.Ice.ObjectPrx.noExplicitContext);
-    }
-
-    default boolean supportsCppStringView(java.util.Map<String, String> context)
-    {
-        return _iceI_supportsCppStringViewAsync(context, true).waitForResponse();
-    }
-
-    default java.util.concurrent.CompletableFuture<java.lang.Boolean> supportsCppStringViewAsync()
-    {
-        return _iceI_supportsCppStringViewAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
-    }
-
-    default java.util.concurrent.CompletableFuture<java.lang.Boolean> supportsCppStringViewAsync(java.util.Map<String, String> context)
-    {
-        return _iceI_supportsCppStringViewAsync(context, false);
-    }
-
-    /**
-     * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
-     **/
-    default com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> _iceI_supportsCppStringViewAsync(java.util.Map<String, String> context, boolean sync)
-    {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "supportsCppStringView", null, sync, null);
-        f.invoke(true, context, null, null, istr -> {
-                     boolean ret;
-                     ret = istr.readBool();
-                     return ret;
-                 });
-        return f;
-    }
-
     default boolean supportsNullOptional()
     {
         return supportsNullOptional(com.zeroc.Ice.ObjectPrx.noExplicitContext);

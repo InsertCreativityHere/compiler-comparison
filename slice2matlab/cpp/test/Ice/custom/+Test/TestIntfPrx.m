@@ -35,8 +35,6 @@
 %   opByteListAsync
 %   opMyByteSeq
 %   opMyByteSeqAsync
-%   opString
-%   opStringAsync
 %   opStringSeq
 %   opStringSeqAsync
 %   opStringList
@@ -75,8 +73,6 @@
 %   opIntStringDictAsync
 %   opVarDict
 %   opVarDictAsync
-%   opCustomIntStringDict
-%   opCustomIntStringDictAsync
 %   opShortBuffer
 %   opShortBufferAsync
 %   opBoolBuffer
@@ -806,48 +802,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
                 varargout{2} = outSeq;
             end
             r_ = obj.iceInvokeAsync('opMyByteSeq', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
-        function [result, outString] = opString(obj, inString, varargin)
-            % opString
-            %
-            % Parameters:
-            %   inString (char)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (char)
-            %   outString (char)
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeString(inString);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opString', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            outString = is_.readString();
-            result = is_.readString();
-            is_.endEncapsulation();
-        end
-        function r_ = opStringAsync(obj, inString, varargin)
-            % opStringAsync
-            %
-            % Parameters:
-            %   inString (char)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeString(inString);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                outString = is_.readString();
-                result = is_.readString();
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = outString;
-            end
-            r_ = obj.iceInvokeAsync('opString', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, outSeq] = opStringSeq(obj, inSeq, varargin)
             % opStringSeq
@@ -1656,48 +1610,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
                 varargout{2} = odict;
             end
             r_ = obj.iceInvokeAsync('opVarDict', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
-        function [result, odict] = opCustomIntStringDict(obj, idict, varargin)
-            % opCustomIntStringDict
-            %
-            % Parameters:
-            %   idict (containers.Map)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (containers.Map)
-            %   odict (containers.Map)
-            
-            os_ = obj.iceStartWriteParams([]);
-            Test.IntStringDict.write(os_, idict);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opCustomIntStringDict', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            odict = Test.IntStringDict.read(is_);
-            result = Test.IntStringDict.read(is_);
-            is_.endEncapsulation();
-        end
-        function r_ = opCustomIntStringDictAsync(obj, idict, varargin)
-            % opCustomIntStringDictAsync
-            %
-            % Parameters:
-            %   idict (containers.Map)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            Test.IntStringDict.write(os_, idict);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                odict = Test.IntStringDict.read(is_);
-                result = Test.IntStringDict.read(is_);
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = odict;
-            end
-            r_ = obj.iceInvokeAsync('opCustomIntStringDict', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, outS] = opShortBuffer(obj, inS, varargin)
             % opShortBuffer

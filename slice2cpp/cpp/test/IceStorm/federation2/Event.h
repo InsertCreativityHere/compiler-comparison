@@ -42,19 +42,19 @@ class EventPrx : public ::Ice::Proxy<EventPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    void pub(const ::std::string& data, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void pub(::std::string_view data, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> pubAsync(const ::std::string& data, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> pubAsync(::std::string_view data, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    pubAsync(const ::std::string& data,
+    pubAsync(::std::string_view data,
              ::std::function<void()> response,
              ::std::function<void(::std::exception_ptr)> ex = nullptr,
              ::std::function<void(bool)> sent = nullptr,
              const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_pub(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_pub(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**

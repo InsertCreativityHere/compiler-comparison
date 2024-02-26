@@ -37,19 +37,19 @@ namespace
 }
 
 void
-Test::ClockPrx::tick(const ::std::string& iceP_time, const ::Ice::Context& context) const
+Test::ClockPrx::tick(::std::string_view iceP_time, const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &ClockPrx::_iceI_tick, iceP_time, context).get();
 }
 
 ::std::future<void>
-Test::ClockPrx::tickAsync(const ::std::string& iceP_time, const ::Ice::Context& context) const
+Test::ClockPrx::tickAsync(::std::string_view iceP_time, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &ClockPrx::_iceI_tick, iceP_time, context);
 }
 
 ::std::function<void()>
-Test::ClockPrx::tickAsync(const ::std::string& iceP_time,
+Test::ClockPrx::tickAsync(::std::string_view iceP_time,
                           ::std::function<void ()> response,
                           ::std::function<void(::std::exception_ptr)> ex,
                           ::std::function<void(bool)> sent,
@@ -60,7 +60,7 @@ Test::ClockPrx::tickAsync(const ::std::string& iceP_time,
 
 /// \cond INTERNAL
 void
-Test::ClockPrx::_iceI_tick(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_time, const ::Ice::Context& context) const
+Test::ClockPrx::_iceI_tick(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_time, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "tick";
 

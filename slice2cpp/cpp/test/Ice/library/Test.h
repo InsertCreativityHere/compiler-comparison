@@ -133,7 +133,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    UserError(const ::std::string& message) :
+    UserError(::std::string_view message) :
         message(message)
     {
     }

@@ -97,7 +97,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit C(const ::std::string& name) :
+    explicit C(::std::string_view name) :
         name(name)
     {
     }

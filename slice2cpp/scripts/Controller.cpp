@@ -150,19 +150,19 @@ Test::Common::TestCasePrx::_iceI_stopServerSide(const ::std::shared_ptr<::IceInt
 /// \endcond
 
 ::std::string
-Test::Common::TestCasePrx::runClientSide(const ::std::string& iceP_host, const ::std::shared_ptr<Config>& iceP_config, const ::Ice::Context& context) const
+Test::Common::TestCasePrx::runClientSide(::std::string_view iceP_host, const ::std::shared_ptr<Config>& iceP_config, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::string>(true, this, &TestCasePrx::_iceI_runClientSide, iceP_host, iceP_config, context).get();
 }
 
 ::std::future<::std::string>
-Test::Common::TestCasePrx::runClientSideAsync(const ::std::string& iceP_host, const ::std::shared_ptr<Config>& iceP_config, const ::Ice::Context& context) const
+Test::Common::TestCasePrx::runClientSideAsync(::std::string_view iceP_host, const ::std::shared_ptr<Config>& iceP_config, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::string>(false, this, &TestCasePrx::_iceI_runClientSide, iceP_host, iceP_config, context);
 }
 
 ::std::function<void()>
-Test::Common::TestCasePrx::runClientSideAsync(const ::std::string& iceP_host, const ::std::shared_ptr<Config>& iceP_config,
+Test::Common::TestCasePrx::runClientSideAsync(::std::string_view iceP_host, const ::std::shared_ptr<Config>& iceP_config,
                                               ::std::function<void (::std::string)> response,
                                               ::std::function<void(::std::exception_ptr)> ex,
                                               ::std::function<void(bool)> sent,
@@ -173,7 +173,7 @@ Test::Common::TestCasePrx::runClientSideAsync(const ::std::string& iceP_host, co
 
 /// \cond INTERNAL
 void
-Test::Common::TestCasePrx::_iceI_runClientSide(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::std::string& iceP_host, const ::std::shared_ptr<Config>& iceP_config, const ::Ice::Context& context) const
+Test::Common::TestCasePrx::_iceI_runClientSide(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, ::std::string_view iceP_host, const ::std::shared_ptr<Config>& iceP_config, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "runClientSide";
 
@@ -242,19 +242,19 @@ Test::Common::TestCasePrx::ice_staticId()
 }
 
 ::std::optional<::Test::Common::TestCasePrx>
-Test::Common::ControllerPrx::runTestCase(const ::std::string& iceP_mapping, const ::std::string& iceP_testsuite, const ::std::string& iceP_testcase, const ::std::string& iceP_cross, const ::Ice::Context& context) const
+Test::Common::ControllerPrx::runTestCase(::std::string_view iceP_mapping, ::std::string_view iceP_testsuite, ::std::string_view iceP_testcase, ::std::string_view iceP_cross, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::optional<TestCasePrx>>(true, this, &ControllerPrx::_iceI_runTestCase, iceP_mapping, iceP_testsuite, iceP_testcase, iceP_cross, context).get();
 }
 
 ::std::future<::std::optional<::Test::Common::TestCasePrx>>
-Test::Common::ControllerPrx::runTestCaseAsync(const ::std::string& iceP_mapping, const ::std::string& iceP_testsuite, const ::std::string& iceP_testcase, const ::std::string& iceP_cross, const ::Ice::Context& context) const
+Test::Common::ControllerPrx::runTestCaseAsync(::std::string_view iceP_mapping, ::std::string_view iceP_testsuite, ::std::string_view iceP_testcase, ::std::string_view iceP_cross, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::optional<TestCasePrx>>(false, this, &ControllerPrx::_iceI_runTestCase, iceP_mapping, iceP_testsuite, iceP_testcase, iceP_cross, context);
 }
 
 ::std::function<void()>
-Test::Common::ControllerPrx::runTestCaseAsync(const ::std::string& iceP_mapping, const ::std::string& iceP_testsuite, const ::std::string& iceP_testcase, const ::std::string& iceP_cross,
+Test::Common::ControllerPrx::runTestCaseAsync(::std::string_view iceP_mapping, ::std::string_view iceP_testsuite, ::std::string_view iceP_testcase, ::std::string_view iceP_cross,
                                               ::std::function<void (::std::optional<::Test::Common::TestCasePrx>)> response,
                                               ::std::function<void(::std::exception_ptr)> ex,
                                               ::std::function<void(bool)> sent,
@@ -265,7 +265,7 @@ Test::Common::ControllerPrx::runTestCaseAsync(const ::std::string& iceP_mapping,
 
 /// \cond INTERNAL
 void
-Test::Common::ControllerPrx::_iceI_runTestCase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<TestCasePrx>>>& outAsync, const ::std::string& iceP_mapping, const ::std::string& iceP_testsuite, const ::std::string& iceP_testcase, const ::std::string& iceP_cross, const ::Ice::Context& context) const
+Test::Common::ControllerPrx::_iceI_runTestCase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<TestCasePrx>>>& outAsync, ::std::string_view iceP_mapping, ::std::string_view iceP_testsuite, ::std::string_view iceP_testcase, ::std::string_view iceP_cross, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "runTestCase";
 
@@ -334,19 +334,19 @@ Test::Common::ControllerPrx::_iceI_getOptionOverrides(const ::std::shared_ptr<::
 /// \endcond
 
 ::Test::Common::StringSeq
-Test::Common::ControllerPrx::getTestSuites(const ::std::string& iceP_mapping, const ::Ice::Context& context) const
+Test::Common::ControllerPrx::getTestSuites(::std::string_view iceP_mapping, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<StringSeq>(true, this, &ControllerPrx::_iceI_getTestSuites, iceP_mapping, context).get();
 }
 
 ::std::future<::Test::Common::StringSeq>
-Test::Common::ControllerPrx::getTestSuitesAsync(const ::std::string& iceP_mapping, const ::Ice::Context& context) const
+Test::Common::ControllerPrx::getTestSuitesAsync(::std::string_view iceP_mapping, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<StringSeq>(false, this, &ControllerPrx::_iceI_getTestSuites, iceP_mapping, context);
 }
 
 ::std::function<void()>
-Test::Common::ControllerPrx::getTestSuitesAsync(const ::std::string& iceP_mapping,
+Test::Common::ControllerPrx::getTestSuitesAsync(::std::string_view iceP_mapping,
                                                 ::std::function<void (::Test::Common::StringSeq)> response,
                                                 ::std::function<void(::std::exception_ptr)> ex,
                                                 ::std::function<void(bool)> sent,
@@ -357,7 +357,7 @@ Test::Common::ControllerPrx::getTestSuitesAsync(const ::std::string& iceP_mappin
 
 /// \cond INTERNAL
 void
-Test::Common::ControllerPrx::_iceI_getTestSuites(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<StringSeq>>& outAsync, const ::std::string& iceP_mapping, const ::Ice::Context& context) const
+Test::Common::ControllerPrx::_iceI_getTestSuites(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<StringSeq>>& outAsync, ::std::string_view iceP_mapping, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "getTestSuites";
 
@@ -372,19 +372,19 @@ Test::Common::ControllerPrx::_iceI_getTestSuites(const ::std::shared_ptr<::IceIn
 /// \endcond
 
 ::std::string
-Test::Common::ControllerPrx::getHost(const ::std::string& iceP_protocol, bool iceP_ipv6, const ::Ice::Context& context) const
+Test::Common::ControllerPrx::getHost(::std::string_view iceP_protocol, bool iceP_ipv6, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::string>(true, this, &ControllerPrx::_iceI_getHost, iceP_protocol, iceP_ipv6, context).get();
 }
 
 ::std::future<::std::string>
-Test::Common::ControllerPrx::getHostAsync(const ::std::string& iceP_protocol, bool iceP_ipv6, const ::Ice::Context& context) const
+Test::Common::ControllerPrx::getHostAsync(::std::string_view iceP_protocol, bool iceP_ipv6, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::string>(false, this, &ControllerPrx::_iceI_getHost, iceP_protocol, iceP_ipv6, context);
 }
 
 ::std::function<void()>
-Test::Common::ControllerPrx::getHostAsync(const ::std::string& iceP_protocol, bool iceP_ipv6,
+Test::Common::ControllerPrx::getHostAsync(::std::string_view iceP_protocol, bool iceP_ipv6,
                                           ::std::function<void (::std::string)> response,
                                           ::std::function<void(::std::exception_ptr)> ex,
                                           ::std::function<void(bool)> sent,
@@ -395,7 +395,7 @@ Test::Common::ControllerPrx::getHostAsync(const ::std::string& iceP_protocol, bo
 
 /// \cond INTERNAL
 void
-Test::Common::ControllerPrx::_iceI_getHost(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::std::string& iceP_protocol, bool iceP_ipv6, const ::Ice::Context& context) const
+Test::Common::ControllerPrx::_iceI_getHost(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, ::std::string_view iceP_protocol, bool iceP_ipv6, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "getHost";
 
@@ -560,19 +560,19 @@ Test::Common::ProcessPrx::ice_staticId()
 }
 
 ::std::optional<::Test::Common::ProcessPrx>
-Test::Common::ProcessControllerPrx::start(const ::std::string& iceP_testsuite, const ::std::string& iceP_exe, const StringSeq& iceP_args, const ::Ice::Context& context) const
+Test::Common::ProcessControllerPrx::start(::std::string_view iceP_testsuite, ::std::string_view iceP_exe, const StringSeq& iceP_args, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::optional<ProcessPrx>>(true, this, &ProcessControllerPrx::_iceI_start, iceP_testsuite, iceP_exe, iceP_args, context).get();
 }
 
 ::std::future<::std::optional<::Test::Common::ProcessPrx>>
-Test::Common::ProcessControllerPrx::startAsync(const ::std::string& iceP_testsuite, const ::std::string& iceP_exe, const StringSeq& iceP_args, const ::Ice::Context& context) const
+Test::Common::ProcessControllerPrx::startAsync(::std::string_view iceP_testsuite, ::std::string_view iceP_exe, const StringSeq& iceP_args, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::optional<ProcessPrx>>(false, this, &ProcessControllerPrx::_iceI_start, iceP_testsuite, iceP_exe, iceP_args, context);
 }
 
 ::std::function<void()>
-Test::Common::ProcessControllerPrx::startAsync(const ::std::string& iceP_testsuite, const ::std::string& iceP_exe, const StringSeq& iceP_args,
+Test::Common::ProcessControllerPrx::startAsync(::std::string_view iceP_testsuite, ::std::string_view iceP_exe, const StringSeq& iceP_args,
                                                ::std::function<void (::std::optional<::Test::Common::ProcessPrx>)> response,
                                                ::std::function<void(::std::exception_ptr)> ex,
                                                ::std::function<void(bool)> sent,
@@ -583,7 +583,7 @@ Test::Common::ProcessControllerPrx::startAsync(const ::std::string& iceP_testsui
 
 /// \cond INTERNAL
 void
-Test::Common::ProcessControllerPrx::_iceI_start(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<ProcessPrx>>>& outAsync, const ::std::string& iceP_testsuite, const ::std::string& iceP_exe, const StringSeq& iceP_args, const ::Ice::Context& context) const
+Test::Common::ProcessControllerPrx::_iceI_start(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<ProcessPrx>>>& outAsync, ::std::string_view iceP_testsuite, ::std::string_view iceP_exe, const StringSeq& iceP_args, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "start";
 
@@ -611,19 +611,19 @@ Test::Common::ProcessControllerPrx::_iceI_start(const ::std::shared_ptr<::IceInt
 /// \endcond
 
 ::std::string
-Test::Common::ProcessControllerPrx::getHost(const ::std::string& iceP_protocol, bool iceP_ipv6, const ::Ice::Context& context) const
+Test::Common::ProcessControllerPrx::getHost(::std::string_view iceP_protocol, bool iceP_ipv6, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::string>(true, this, &ProcessControllerPrx::_iceI_getHost, iceP_protocol, iceP_ipv6, context).get();
 }
 
 ::std::future<::std::string>
-Test::Common::ProcessControllerPrx::getHostAsync(const ::std::string& iceP_protocol, bool iceP_ipv6, const ::Ice::Context& context) const
+Test::Common::ProcessControllerPrx::getHostAsync(::std::string_view iceP_protocol, bool iceP_ipv6, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::string>(false, this, &ProcessControllerPrx::_iceI_getHost, iceP_protocol, iceP_ipv6, context);
 }
 
 ::std::function<void()>
-Test::Common::ProcessControllerPrx::getHostAsync(const ::std::string& iceP_protocol, bool iceP_ipv6,
+Test::Common::ProcessControllerPrx::getHostAsync(::std::string_view iceP_protocol, bool iceP_ipv6,
                                                  ::std::function<void (::std::string)> response,
                                                  ::std::function<void(::std::exception_ptr)> ex,
                                                  ::std::function<void(bool)> sent,
@@ -634,7 +634,7 @@ Test::Common::ProcessControllerPrx::getHostAsync(const ::std::string& iceP_proto
 
 /// \cond INTERNAL
 void
-Test::Common::ProcessControllerPrx::_iceI_getHost(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::std::string& iceP_protocol, bool iceP_ipv6, const ::Ice::Context& context) const
+Test::Common::ProcessControllerPrx::_iceI_getHost(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, ::std::string_view iceP_protocol, bool iceP_ipv6, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "getHost";
 
@@ -656,19 +656,19 @@ Test::Common::ProcessControllerPrx::ice_staticId()
 }
 
 void
-Test::Common::BrowserProcessControllerPrx::redirect(const ::std::string& iceP_url, const ::Ice::Context& context) const
+Test::Common::BrowserProcessControllerPrx::redirect(::std::string_view iceP_url, const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &BrowserProcessControllerPrx::_iceI_redirect, iceP_url, context).get();
 }
 
 ::std::future<void>
-Test::Common::BrowserProcessControllerPrx::redirectAsync(const ::std::string& iceP_url, const ::Ice::Context& context) const
+Test::Common::BrowserProcessControllerPrx::redirectAsync(::std::string_view iceP_url, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &BrowserProcessControllerPrx::_iceI_redirect, iceP_url, context);
 }
 
 ::std::function<void()>
-Test::Common::BrowserProcessControllerPrx::redirectAsync(const ::std::string& iceP_url,
+Test::Common::BrowserProcessControllerPrx::redirectAsync(::std::string_view iceP_url,
                                                          ::std::function<void ()> response,
                                                          ::std::function<void(::std::exception_ptr)> ex,
                                                          ::std::function<void(bool)> sent,
@@ -679,7 +679,7 @@ Test::Common::BrowserProcessControllerPrx::redirectAsync(const ::std::string& ic
 
 /// \cond INTERNAL
 void
-Test::Common::BrowserProcessControllerPrx::_iceI_redirect(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::string& iceP_url, const ::Ice::Context& context) const
+Test::Common::BrowserProcessControllerPrx::_iceI_redirect(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_url, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "redirect";
 

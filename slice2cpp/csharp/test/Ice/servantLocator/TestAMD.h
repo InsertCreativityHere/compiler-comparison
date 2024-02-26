@@ -476,12 +476,12 @@ public:
     bool _iceD_unknownExceptionWithServantException(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void impossibleExceptionAsync(bool _cpp_throw, ::std::function<void(const ::std::string& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void impossibleExceptionAsync(bool _cpp_throw, ::std::function<void(::std::string_view returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_impossibleException(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void intfUserExceptionAsync(bool _cpp_throw, ::std::function<void(const ::std::string& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void intfUserExceptionAsync(bool _cpp_throw, ::std::function<void(::std::string_view returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_intfUserException(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond

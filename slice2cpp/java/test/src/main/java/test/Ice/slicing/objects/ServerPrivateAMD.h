@@ -719,7 +719,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit SBase(const ::std::string& sb) :
+    explicit SBase(::std::string_view sb) :
         sb(sb)
     {
     }
@@ -762,7 +762,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    SBSKnownDerived(const ::std::string& sb, const ::std::string& sbskd) :
+    SBSKnownDerived(::std::string_view sb, ::std::string_view sbskd) :
         Ice::ValueHelper<SBSKnownDerived, SBase>(sb),
         sbskd(sbskd)
     {
@@ -802,7 +802,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    B(const ::std::string& sb, const ::std::shared_ptr<::Test::B>& pb) :
+    B(::std::string_view sb, const ::std::shared_ptr<::Test::B>& pb) :
         sb(sb),
         pb(pb)
     {
@@ -843,7 +843,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    D1(const ::std::string& sb, const ::std::shared_ptr<::Test::B>& pb, const ::std::string& sd1, const ::std::shared_ptr<::Test::B>& pd1) :
+    D1(::std::string_view sb, const ::std::shared_ptr<::Test::B>& pb, ::std::string_view sd1, const ::std::shared_ptr<::Test::B>& pd1) :
         Ice::ValueHelper<D1, B>(sb, pb),
         sd1(sd1),
         pd1(pd1)
@@ -975,7 +975,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    BaseException(const ::std::string& sbe, const ::std::shared_ptr<B>& pb) :
+    BaseException(::std::string_view sbe, const ::std::shared_ptr<B>& pb) :
         sbe(sbe),
         pb(pb)
     {
@@ -1017,7 +1017,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    DerivedException(const ::std::string& sbe, const ::std::shared_ptr<B>& pb, const ::std::string& sde, const ::std::shared_ptr<D1>& pd1) :
+    DerivedException(::std::string_view sbe, const ::std::shared_ptr<B>& pb, ::std::string_view sde, const ::std::shared_ptr<D1>& pd1) :
         ::Ice::UserExceptionHelper<DerivedException, BaseException>(sbe, pb),
         sde(sde),
         pd1(pd1)
@@ -1098,7 +1098,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Preserved(::std::int32_t pi, const ::std::string& ps) :
+    Preserved(::std::int32_t pi, ::std::string_view ps) :
         Ice::ValueHelper<Preserved, PBase>(pi),
         ps(ps)
     {
@@ -1157,7 +1157,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    PDerived(::std::int32_t pi, const ::std::string& ps, const ::std::shared_ptr<::Test::PBase>& pb) :
+    PDerived(::std::int32_t pi, ::std::string_view ps, const ::std::shared_ptr<::Test::PBase>& pb) :
         Ice::ValueHelper<PDerived, Preserved>(pi, ps),
         pb(pb)
     {
@@ -1296,7 +1296,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    SBSUnknownDerived(const ::std::string& sb, const ::std::string& sbsud) :
+    SBSUnknownDerived(::std::string_view sb, ::std::string_view sbsud) :
         Ice::ValueHelper<SBSUnknownDerived, SBase>(sb),
         sbsud(sbsud)
     {
@@ -1336,7 +1336,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    SUnknown(const ::std::string& su, const ::std::shared_ptr<::Test::SUnknown>& cycle) :
+    SUnknown(::std::string_view su, const ::std::shared_ptr<::Test::SUnknown>& cycle) :
         su(su),
         cycle(cycle)
     {
@@ -1377,7 +1377,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    D2(const ::std::string& sb, const ::std::shared_ptr<::Test::B>& pb, const ::std::string& sd2, const ::std::shared_ptr<::Test::B>& pd2) :
+    D2(::std::string_view sb, const ::std::shared_ptr<::Test::B>& pb, ::std::string_view sd2, const ::std::shared_ptr<::Test::B>& pd2) :
         Ice::ValueHelper<D2, B>(sb, pb),
         sd2(sd2),
         pd2(pd2)
@@ -1419,7 +1419,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    D4(const ::std::string& sb, const ::std::shared_ptr<::Test::B>& pb, const ::std::shared_ptr<::Test::B>& p1, const ::std::shared_ptr<::Test::B>& p2) :
+    D4(::std::string_view sb, const ::std::shared_ptr<::Test::B>& pb, const ::std::shared_ptr<::Test::B>& p1, const ::std::shared_ptr<::Test::B>& p2) :
         Ice::ValueHelper<D4, B>(sb, pb),
         p1(p1),
         p2(p2)
@@ -1458,7 +1458,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    UnknownDerivedException(const ::std::string& sbe, const ::std::shared_ptr<B>& pb, const ::std::string& sude, const ::std::shared_ptr<D2>& pd2) :
+    UnknownDerivedException(::std::string_view sbe, const ::std::shared_ptr<B>& pb, ::std::string_view sude, const ::std::shared_ptr<D2>& pd2) :
         ::Ice::UserExceptionHelper<UnknownDerivedException, BaseException>(sbe, pb),
         sude(sude),
         pd2(pd2)
@@ -1539,7 +1539,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    PSUnknown(::std::int32_t pi, const ::std::string& ps, const ::std::string& psu, const ::std::shared_ptr<::Test::PNode>& graph, const ::std::shared_ptr<::Test::MyClass>& cl) :
+    PSUnknown(::std::int32_t pi, ::std::string_view ps, ::std::string_view psu, const ::std::shared_ptr<::Test::PNode>& graph, const ::std::shared_ptr<::Test::MyClass>& cl) :
         Ice::ValueHelper<PSUnknown, Preserved>(pi, ps),
         psu(psu),
         graph(graph),
@@ -1583,7 +1583,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    PSUnknown2(::std::int32_t pi, const ::std::string& ps, const ::std::shared_ptr<::Test::PBase>& pb) :
+    PSUnknown2(::std::int32_t pi, ::std::string_view ps, const ::std::shared_ptr<::Test::PBase>& pb) :
         Ice::ValueHelper<PSUnknown2, Preserved>(pi, ps),
         pb(pb)
     {

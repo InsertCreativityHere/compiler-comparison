@@ -424,7 +424,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    persistent(const ::std::string& identifier, const ::std::string& message, const ::std::string& stack, const ::std::string& cause, const ::std::string& type, const ::std::shared_ptr<logical>& end) :
+    persistent(::std::string_view identifier, ::std::string_view message, ::std::string_view stack, ::std::string_view cause, ::std::string_view type, const ::std::shared_ptr<logical>& end) :
         identifier(identifier),
         message(message),
         stack(stack),
@@ -474,7 +474,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    global(const ::std::string& identifier, const ::std::string& message, const ::std::string& stack, const ::std::string& cause, const ::std::string& type, const ::std::shared_ptr<logical>& end, ::std::int32_t enumeration) :
+    global(::std::string_view identifier, ::std::string_view message, ::std::string_view stack, ::std::string_view cause, ::std::string_view type, const ::std::shared_ptr<logical>& end, ::std::int32_t enumeration) :
         ::Ice::UserExceptionHelper<global, persistent>(identifier, message, stack, cause, type, end),
         enumeration(enumeration)
     {

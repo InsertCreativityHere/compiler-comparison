@@ -115,7 +115,7 @@ public:
      * @see SessionManager
      * @see PermissionsVerifier
      */
-    ::std::optional<SessionPrx> createSession(const ::std::string& userId, const ::std::string& password, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<SessionPrx> createSession(::std::string_view userId, ::std::string_view password, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Create a per-client session with the router. If a {@link SessionManager} has been installed, a proxy to a
@@ -132,7 +132,7 @@ public:
      * @see SessionManager
      * @see PermissionsVerifier
      */
-    ::std::future<::std::optional<SessionPrx>> createSessionAsync(const ::std::string& userId, const ::std::string& password, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::optional<SessionPrx>> createSessionAsync(::std::string_view userId, ::std::string_view password, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Create a per-client session with the router. If a {@link SessionManager} has been installed, a proxy to a
@@ -153,14 +153,14 @@ public:
      * @see PermissionsVerifier
      */
     ::std::function<void()>
-    createSessionAsync(const ::std::string& userId, const ::std::string& password,
+    createSessionAsync(::std::string_view userId, ::std::string_view password,
                        ::std::function<void(::std::optional<::Glacier2::SessionPrx>)> response,
                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
                        ::std::function<void(bool)> sent = nullptr,
                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_createSession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<SessionPrx>>>&, const ::std::string&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_createSession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<SessionPrx>>>&, ::std::string_view, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**

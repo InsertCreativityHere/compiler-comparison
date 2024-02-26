@@ -72,7 +72,7 @@ Test::MyClassPrx::_iceI_opOneway(const ::std::shared_ptr<::IceInternal::Outgoing
 /// \endcond
 
 ::std::string
-Test::MyClassPrx::opString(const ::std::string& iceP_s1, ::std::string& iceP_s2, const ::Ice::Context& context) const
+Test::MyClassPrx::opString(::std::string_view iceP_s1, ::std::string& iceP_s2, const ::Ice::Context& context) const
 {
     auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::string, ::std::string>>(true, this, &MyClassPrx::_iceI_opString, iceP_s1, context).get();
     iceP_s2 = ::std::move(::std::get<1>(_result));
@@ -80,13 +80,13 @@ Test::MyClassPrx::opString(const ::std::string& iceP_s1, ::std::string& iceP_s2,
 }
 
 ::std::future<::std::tuple<::std::string, ::std::string>>
-Test::MyClassPrx::opStringAsync(const ::std::string& iceP_s1, const ::Ice::Context& context) const
+Test::MyClassPrx::opStringAsync(::std::string_view iceP_s1, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::string, ::std::string>>(false, this, &MyClassPrx::_iceI_opString, iceP_s1, context);
 }
 
 ::std::function<void()>
-Test::MyClassPrx::opStringAsync(const ::std::string& iceP_s1,
+Test::MyClassPrx::opStringAsync(::std::string_view iceP_s1,
                                 ::std::function<void (::std::string, ::std::string)> response,
                                 ::std::function<void(::std::exception_ptr)> ex,
                                 ::std::function<void(bool)> sent,
@@ -101,7 +101,7 @@ Test::MyClassPrx::opStringAsync(const ::std::string& iceP_s1,
 
 /// \cond INTERNAL
 void
-Test::MyClassPrx::_iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::string, ::std::string>>>& outAsync, const ::std::string& iceP_s1, const ::Ice::Context& context) const
+Test::MyClassPrx::_iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::string, ::std::string>>>& outAsync, ::std::string_view iceP_s1, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "opString";
 

@@ -4102,40 +4102,6 @@ Test::InitialPrx::_iceI_supportsCsharpSerializable(const ::std::shared_ptr<::Ice
 /// \endcond
 
 bool
-Test::InitialPrx::supportsCppStringView(const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<bool>(true, this, &InitialPrx::_iceI_supportsCppStringView, context).get();
-}
-
-::std::future<bool>
-Test::InitialPrx::supportsCppStringViewAsync(const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<bool>(false, this, &InitialPrx::_iceI_supportsCppStringView, context);
-}
-
-::std::function<void()>
-Test::InitialPrx::supportsCppStringViewAsync(::std::function<void (bool)> response,
-                                             ::std::function<void(::std::exception_ptr)> ex,
-                                             ::std::function<void(bool)> sent,
-                                             const ::Ice::Context& context) const
-{
-    return ::IceInternal::makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_supportsCppStringView, context);
-}
-
-/// \cond INTERNAL
-void
-Test::InitialPrx::_iceI_supportsCppStringView(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, const ::Ice::Context& context) const
-{
-    static const ::std::string operationName = "supportsCppStringView";
-
-    _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-/// \endcond
-
-bool
 Test::InitialPrx::supportsNullOptional(const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<bool>(true, this, &InitialPrx::_iceI_supportsNullOptional, context).get();
@@ -5967,20 +5933,6 @@ Test::Initial::_iceD_supportsCsharpSerializable(::IceInternal::Incoming& inS, co
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_supportsCppStringView(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    bool ret = this->supportsCppStringView(current);
-    auto ostr = inS.startWriteParams();
-    ostr->writeAll(ret);
-    inS.endWriteParams();
-    return true;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
 Test::Initial::_iceD_supportsNullOptional(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
@@ -5997,9 +5949,9 @@ Test::Initial::_iceD_supportsNullOptional(::IceInternal::Incoming& inS, const ::
 bool
 Test::Initial::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "opBool", "opBoolReq", "opBoolSeq", "opBoolSeqReq", "opByte", "opByteReq", "opByteSeq", "opByteSeqReq", "opClassAndUnknownOptional", "opDerivedException", "opDouble", "opDoubleReq", "opDoubleSeq", "opDoubleSeqReq", "opFixedStruct", "opFixedStructList", "opFixedStructListReq", "opFixedStructReq", "opFixedStructSeq", "opFixedStructSeqReq", "opFloat", "opFloatReq", "opFloatSeq", "opFloatSeqReq", "opG", "opInt", "opIntIntDict", "opIntIntDictReq", "opIntOneOptionalDict", "opIntOneOptionalDictReq", "opIntReq", "opIntSeq", "opIntSeqReq", "opLong", "opLongReq", "opLongSeq", "opLongSeqReq", "opMDict1", "opMDict2", "opMG1", "opMG2", "opMSeq1", "opMSeq2", "opMStruct1", "opMStruct2", "opMyEnum", "opMyEnumReq", "opMyInterfaceProxy", "opMyInterfaceProxyReq", "opOneOptional", "opOneOptionalReq", "opOptionalException", "opRequiredException", "opSerializable", "opSerializableReq", "opShort", "opShortReq", "opShortSeq", "opShortSeqReq", "opSmallStruct", "opSmallStructList", "opSmallStructListReq", "opSmallStructReq", "opSmallStructSeq", "opSmallStructSeqReq", "opString", "opStringIntDict", "opStringIntDictReq", "opStringReq", "opStringSeq", "opStringSeqReq", "opVarStruct", "opVarStructReq", "opVarStructSeq", "opVarStructSeqReq", "opVoid", "pingPong", "returnOptionalClass", "sendOptionalClass", "shutdown", "supportsCppStringView", "supportsCsharpSerializable", "supportsJavaSerializable", "supportsNullOptional", "supportsRequiredParams" };
+    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "opBool", "opBoolReq", "opBoolSeq", "opBoolSeqReq", "opByte", "opByteReq", "opByteSeq", "opByteSeqReq", "opClassAndUnknownOptional", "opDerivedException", "opDouble", "opDoubleReq", "opDoubleSeq", "opDoubleSeqReq", "opFixedStruct", "opFixedStructList", "opFixedStructListReq", "opFixedStructReq", "opFixedStructSeq", "opFixedStructSeqReq", "opFloat", "opFloatReq", "opFloatSeq", "opFloatSeqReq", "opG", "opInt", "opIntIntDict", "opIntIntDictReq", "opIntOneOptionalDict", "opIntOneOptionalDictReq", "opIntReq", "opIntSeq", "opIntSeqReq", "opLong", "opLongReq", "opLongSeq", "opLongSeqReq", "opMDict1", "opMDict2", "opMG1", "opMG2", "opMSeq1", "opMSeq2", "opMStruct1", "opMStruct2", "opMyEnum", "opMyEnumReq", "opMyInterfaceProxy", "opMyInterfaceProxyReq", "opOneOptional", "opOneOptionalReq", "opOptionalException", "opRequiredException", "opSerializable", "opSerializableReq", "opShort", "opShortReq", "opShortSeq", "opShortSeqReq", "opSmallStruct", "opSmallStructList", "opSmallStructListReq", "opSmallStructReq", "opSmallStructSeq", "opSmallStructSeqReq", "opString", "opStringIntDict", "opStringIntDictReq", "opStringReq", "opStringSeq", "opStringSeqReq", "opVarStruct", "opVarStructReq", "opVarStructSeq", "opVarStructSeqReq", "opVoid", "pingPong", "returnOptionalClass", "sendOptionalClass", "shutdown", "supportsCsharpSerializable", "supportsJavaSerializable", "supportsNullOptional", "supportsRequiredParams" };
 
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 89, current.operation);
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 88, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
@@ -6345,21 +6297,17 @@ Test::Initial::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
         }
         case 84:
         {
-            return _iceD_supportsCppStringView(in, current);
+            return _iceD_supportsCsharpSerializable(in, current);
         }
         case 85:
         {
-            return _iceD_supportsCsharpSerializable(in, current);
+            return _iceD_supportsJavaSerializable(in, current);
         }
         case 86:
         {
-            return _iceD_supportsJavaSerializable(in, current);
-        }
-        case 87:
-        {
             return _iceD_supportsNullOptional(in, current);
         }
-        case 88:
+        case 87:
         {
             return _iceD_supportsRequiredParams(in, current);
         }

@@ -1318,12 +1318,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def supportsCsharpSerializableAsync(self, context=None):
             return _M_Test.Initial._op_supportsCsharpSerializable.invokeAsync(self, ((), context))
 
-        def supportsCppStringView(self, context=None):
-            return _M_Test.Initial._op_supportsCppStringView.invoke(self, ((), context))
-
-        def supportsCppStringViewAsync(self, context=None):
-            return _M_Test.Initial._op_supportsCppStringView.invokeAsync(self, ((), context))
-
         def supportsNullOptional(self, context=None):
             return _M_Test.Initial._op_supportsNullOptional.invoke(self, ((), context))
 
@@ -1625,9 +1619,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
         def supportsCsharpSerializable(self, current=None):
             raise NotImplementedError("servant method 'supportsCsharpSerializable' not implemented")
 
-        def supportsCppStringView(self, current=None):
-            raise NotImplementedError("servant method 'supportsCppStringView' not implemented")
-
         def supportsNullOptional(self, current=None):
             raise NotImplementedError("servant method 'supportsNullOptional' not implemented")
 
@@ -1693,7 +1684,6 @@ if 'InitialPrx' not in _M_Test.__dict__:
     Initial._op_supportsRequiredParams = IcePy.Operation('supportsRequiredParams', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
     Initial._op_supportsJavaSerializable = IcePy.Operation('supportsJavaSerializable', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
     Initial._op_supportsCsharpSerializable = IcePy.Operation('supportsCsharpSerializable', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
-    Initial._op_supportsCppStringView = IcePy.Operation('supportsCppStringView', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
     Initial._op_supportsNullOptional = IcePy.Operation('supportsNullOptional', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_bool, False, 0), ())
 
     _M_Test.Initial = Initial

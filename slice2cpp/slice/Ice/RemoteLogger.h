@@ -101,7 +101,7 @@ public:
      * @param logMessages Old log messages generated before "now".
      * @param context The Context map to send with the invocation.
      */
-    void init(const ::std::string& prefix, const LogMessageSeq& logMessages, const Context& context = noExplicitContext) const;
+    void init(::std::string_view prefix, const LogMessageSeq& logMessages, const Context& context = noExplicitContext) const;
 
     /**
      * init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
@@ -110,7 +110,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> initAsync(const ::std::string& prefix, const LogMessageSeq& logMessages, const Context& context = noExplicitContext) const;
+    ::std::future<void> initAsync(::std::string_view prefix, const LogMessageSeq& logMessages, const Context& context = noExplicitContext) const;
 
     /**
      * init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
@@ -123,14 +123,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    initAsync(const ::std::string& prefix, const LogMessageSeq& logMessages,
+    initAsync(::std::string_view prefix, const LogMessageSeq& logMessages,
               ::std::function<void()> response,
               ::std::function<void(::std::exception_ptr)> ex = nullptr,
               ::std::function<void(bool)> sent = nullptr,
               const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_init(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const LogMessageSeq&, const Context&) const;
+    void _iceI_init(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, const LogMessageSeq&, const Context&) const;
     /// \endcond
 
     /**

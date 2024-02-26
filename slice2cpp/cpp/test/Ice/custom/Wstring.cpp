@@ -41,7 +41,7 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::Test2::WstringException> 
 }
 
 ::std::wstring
-Test1::WstringClassPrx::opString(const ::std::wstring& iceP_s1, ::std::wstring& iceP_s2, const ::Ice::Context& context) const
+Test1::WstringClassPrx::opString(::std::wstring_view iceP_s1, ::std::wstring& iceP_s2, const ::Ice::Context& context) const
 {
     auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::wstring, ::std::wstring>>(true, this, &WstringClassPrx::_iceI_opString, iceP_s1, context).get();
     iceP_s2 = ::std::move(::std::get<1>(_result));
@@ -49,13 +49,13 @@ Test1::WstringClassPrx::opString(const ::std::wstring& iceP_s1, ::std::wstring& 
 }
 
 ::std::future<::std::tuple<::std::wstring, ::std::wstring>>
-Test1::WstringClassPrx::opStringAsync(const ::std::wstring& iceP_s1, const ::Ice::Context& context) const
+Test1::WstringClassPrx::opStringAsync(::std::wstring_view iceP_s1, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::wstring, ::std::wstring>>(false, this, &WstringClassPrx::_iceI_opString, iceP_s1, context);
 }
 
 ::std::function<void()>
-Test1::WstringClassPrx::opStringAsync(const ::std::wstring& iceP_s1,
+Test1::WstringClassPrx::opStringAsync(::std::wstring_view iceP_s1,
                                       ::std::function<void (::std::wstring, ::std::wstring)> response,
                                       ::std::function<void(::std::exception_ptr)> ex,
                                       ::std::function<void(bool)> sent,
@@ -70,7 +70,7 @@ Test1::WstringClassPrx::opStringAsync(const ::std::wstring& iceP_s1,
 
 /// \cond INTERNAL
 void
-Test1::WstringClassPrx::_iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::wstring, ::std::wstring>>>& outAsync, const ::std::wstring& iceP_s1, const ::Ice::Context& context) const
+Test1::WstringClassPrx::_iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::wstring, ::std::wstring>>>& outAsync, ::std::wstring_view iceP_s1, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "opString";
 
@@ -141,19 +141,19 @@ Test1::WstringClassPrx::_iceI_opStruct(const ::std::shared_ptr<::IceInternal::Ou
 /// \endcond
 
 void
-Test1::WstringClassPrx::throwExcept(const ::std::wstring& iceP_reason, const ::Ice::Context& context) const
+Test1::WstringClassPrx::throwExcept(::std::wstring_view iceP_reason, const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &WstringClassPrx::_iceI_throwExcept, iceP_reason, context).get();
 }
 
 ::std::future<void>
-Test1::WstringClassPrx::throwExceptAsync(const ::std::wstring& iceP_reason, const ::Ice::Context& context) const
+Test1::WstringClassPrx::throwExceptAsync(::std::wstring_view iceP_reason, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &WstringClassPrx::_iceI_throwExcept, iceP_reason, context);
 }
 
 ::std::function<void()>
-Test1::WstringClassPrx::throwExceptAsync(const ::std::wstring& iceP_reason,
+Test1::WstringClassPrx::throwExceptAsync(::std::wstring_view iceP_reason,
                                          ::std::function<void ()> response,
                                          ::std::function<void(::std::exception_ptr)> ex,
                                          ::std::function<void(bool)> sent,
@@ -164,7 +164,7 @@ Test1::WstringClassPrx::throwExceptAsync(const ::std::wstring& iceP_reason,
 
 /// \cond INTERNAL
 void
-Test1::WstringClassPrx::_iceI_throwExcept(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::wstring& iceP_reason, const ::Ice::Context& context) const
+Test1::WstringClassPrx::_iceI_throwExcept(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::wstring_view iceP_reason, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "throwExcept";
 
@@ -199,7 +199,7 @@ Test1::WstringClassPrx::ice_staticId()
 }
 
 ::std::wstring
-Test2::WstringClassPrx::opString(const ::std::wstring& iceP_s1, ::std::wstring& iceP_s2, const ::Ice::Context& context) const
+Test2::WstringClassPrx::opString(::std::wstring_view iceP_s1, ::std::wstring& iceP_s2, const ::Ice::Context& context) const
 {
     auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::wstring, ::std::wstring>>(true, this, &WstringClassPrx::_iceI_opString, iceP_s1, context).get();
     iceP_s2 = ::std::move(::std::get<1>(_result));
@@ -207,13 +207,13 @@ Test2::WstringClassPrx::opString(const ::std::wstring& iceP_s1, ::std::wstring& 
 }
 
 ::std::future<::std::tuple<::std::wstring, ::std::wstring>>
-Test2::WstringClassPrx::opStringAsync(const ::std::wstring& iceP_s1, const ::Ice::Context& context) const
+Test2::WstringClassPrx::opStringAsync(::std::wstring_view iceP_s1, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::wstring, ::std::wstring>>(false, this, &WstringClassPrx::_iceI_opString, iceP_s1, context);
 }
 
 ::std::function<void()>
-Test2::WstringClassPrx::opStringAsync(const ::std::wstring& iceP_s1,
+Test2::WstringClassPrx::opStringAsync(::std::wstring_view iceP_s1,
                                       ::std::function<void (::std::wstring, ::std::wstring)> response,
                                       ::std::function<void(::std::exception_ptr)> ex,
                                       ::std::function<void(bool)> sent,
@@ -228,7 +228,7 @@ Test2::WstringClassPrx::opStringAsync(const ::std::wstring& iceP_s1,
 
 /// \cond INTERNAL
 void
-Test2::WstringClassPrx::_iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::wstring, ::std::wstring>>>& outAsync, const ::std::wstring& iceP_s1, const ::Ice::Context& context) const
+Test2::WstringClassPrx::_iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::wstring, ::std::wstring>>>& outAsync, ::std::wstring_view iceP_s1, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "opString";
 
@@ -299,19 +299,19 @@ Test2::WstringClassPrx::_iceI_opStruct(const ::std::shared_ptr<::IceInternal::Ou
 /// \endcond
 
 void
-Test2::WstringClassPrx::throwExcept(const ::std::wstring& iceP_reason, const ::Ice::Context& context) const
+Test2::WstringClassPrx::throwExcept(::std::wstring_view iceP_reason, const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &WstringClassPrx::_iceI_throwExcept, iceP_reason, context).get();
 }
 
 ::std::future<void>
-Test2::WstringClassPrx::throwExceptAsync(const ::std::wstring& iceP_reason, const ::Ice::Context& context) const
+Test2::WstringClassPrx::throwExceptAsync(::std::wstring_view iceP_reason, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &WstringClassPrx::_iceI_throwExcept, iceP_reason, context);
 }
 
 ::std::function<void()>
-Test2::WstringClassPrx::throwExceptAsync(const ::std::wstring& iceP_reason,
+Test2::WstringClassPrx::throwExceptAsync(::std::wstring_view iceP_reason,
                                          ::std::function<void ()> response,
                                          ::std::function<void(::std::exception_ptr)> ex,
                                          ::std::function<void(bool)> sent,
@@ -322,7 +322,7 @@ Test2::WstringClassPrx::throwExceptAsync(const ::std::wstring& iceP_reason,
 
 /// \cond INTERNAL
 void
-Test2::WstringClassPrx::_iceI_throwExcept(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::wstring& iceP_reason, const ::Ice::Context& context) const
+Test2::WstringClassPrx::_iceI_throwExcept(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::wstring_view iceP_reason, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "throwExcept";
 

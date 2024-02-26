@@ -105,64 +105,64 @@ public:
     void _iceI_removeUpdateCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void print(const ::std::string& message, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void print(::std::string_view message, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> printAsync(const ::std::string& message, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> printAsync(::std::string_view message, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    printAsync(const ::std::string& message,
+    printAsync(::std::string_view message,
                ::std::function<void()> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_print(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_print(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
-    void trace(const ::std::string& category, const ::std::string& message, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void trace(::std::string_view category, ::std::string_view message, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> traceAsync(const ::std::string& category, const ::std::string& message, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> traceAsync(::std::string_view category, ::std::string_view message, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    traceAsync(const ::std::string& category, const ::std::string& message,
+    traceAsync(::std::string_view category, ::std::string_view message,
                ::std::function<void()> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_trace(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_trace(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
-    void warning(const ::std::string& message, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void warning(::std::string_view message, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> warningAsync(const ::std::string& message, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> warningAsync(::std::string_view message, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    warningAsync(const ::std::string& message,
+    warningAsync(::std::string_view message,
                  ::std::function<void()> response,
                  ::std::function<void(::std::exception_ptr)> ex = nullptr,
                  ::std::function<void(bool)> sent = nullptr,
                  const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_warning(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_warning(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
-    void error(const ::std::string& message, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void error(::std::string_view message, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> errorAsync(const ::std::string& message, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> errorAsync(::std::string_view message, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    errorAsync(const ::std::string& message,
+    errorAsync(::std::string_view message,
                ::std::function<void()> response,
                ::std::function<void(::std::exception_ptr)> ex = nullptr,
                ::std::function<void(bool)> sent = nullptr,
                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_error(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_error(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;

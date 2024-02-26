@@ -66,7 +66,7 @@ public:
      * One-shot constructor to initialize all data members.
      * @param name The name of the application.
      */
-    ApplicationNotExistException(const ::std::string& name) :
+    ApplicationNotExistException(::std::string_view name) :
         name(name)
     {
     }
@@ -114,7 +114,7 @@ public:
      * One-shot constructor to initialize all data members.
      * @param id The identifier of the server.
      */
-    ServerNotExistException(const ::std::string& id) :
+    ServerNotExistException(::std::string_view id) :
         id(id)
     {
     }
@@ -159,7 +159,7 @@ public:
      * @param id The identifier of the server.
      * @param reason The reason for the failure.
      */
-    ServerStartException(const ::std::string& id, const ::std::string& reason) :
+    ServerStartException(::std::string_view id, ::std::string_view reason) :
         id(id),
         reason(reason)
     {
@@ -209,7 +209,7 @@ public:
      * @param id The identifier of the server.
      * @param reason The reason for the failure.
      */
-    ServerStopException(const ::std::string& id, const ::std::string& reason) :
+    ServerStopException(::std::string_view id, ::std::string_view reason) :
         id(id),
         reason(reason)
     {
@@ -258,7 +258,7 @@ public:
      * One-shot constructor to initialize all data members.
      * @param id The id of the object adapter.
      */
-    AdapterNotExistException(const ::std::string& id) :
+    AdapterNotExistException(::std::string_view id) :
         id(id)
     {
     }
@@ -390,7 +390,7 @@ public:
      * One-shot constructor to initialize all data members.
      * @param name The node name.
      */
-    NodeNotExistException(const ::std::string& name) :
+    NodeNotExistException(::std::string_view name) :
         name(name)
     {
     }
@@ -434,7 +434,7 @@ public:
      * One-shot constructor to initialize all data members.
      * @param name The registry name.
      */
-    RegistryNotExistException(const ::std::string& name) :
+    RegistryNotExistException(::std::string_view name) :
         name(name)
     {
     }
@@ -478,7 +478,7 @@ public:
      * One-shot constructor to initialize all data members.
      * @param reason The reason for the failure.
      */
-    DeploymentException(const ::std::string& reason) :
+    DeploymentException(::std::string_view reason) :
         reason(reason)
     {
     }
@@ -523,7 +523,7 @@ public:
      * @param name The name of the node that is not reachable.
      * @param reason The reason why the node couldn't be reached.
      */
-    NodeUnreachableException(const ::std::string& name, const ::std::string& reason) :
+    NodeUnreachableException(::std::string_view name, ::std::string_view reason) :
         name(name),
         reason(reason)
     {
@@ -573,7 +573,7 @@ public:
      * @param name The id of the server that is not reachable.
      * @param reason The reason why the server couldn't be reached.
      */
-    ServerUnreachableException(const ::std::string& name, const ::std::string& reason) :
+    ServerUnreachableException(::std::string_view name, ::std::string_view reason) :
         name(name),
         reason(reason)
     {
@@ -623,7 +623,7 @@ public:
      * @param name The name of the registry that is not reachable.
      * @param reason The reason why the registry couldn't be reached.
      */
-    RegistryUnreachableException(const ::std::string& name, const ::std::string& reason) :
+    RegistryUnreachableException(::std::string_view name, ::std::string_view reason) :
         name(name),
         reason(reason)
     {
@@ -672,7 +672,7 @@ public:
      * One-shot constructor to initialize all data members.
      * @param reason The details of the unknown signal.
      */
-    BadSignalException(const ::std::string& reason) :
+    BadSignalException(::std::string_view reason) :
         reason(reason)
     {
     }
@@ -760,7 +760,7 @@ public:
      * One-shot constructor to initialize all data members.
      * @param lockUserId The id of the user holding the lock (if any).
      */
-    AccessDeniedException(const ::std::string& lockUserId) :
+    AccessDeniedException(::std::string_view lockUserId) :
         lockUserId(lockUserId)
     {
     }
@@ -804,7 +804,7 @@ public:
      * One-shot constructor to initialize all data members.
      * @param reason The reason why the object couldn't be allocated.
      */
-    AllocationException(const ::std::string& reason) :
+    AllocationException(::std::string_view reason) :
         reason(reason)
     {
     }
@@ -848,7 +848,7 @@ public:
      * One-shot constructor to initialize all data members.
      * @param reason The reason why the object couldn't be allocated.
      */
-    AllocationTimeoutException(const ::std::string& reason) :
+    AllocationTimeoutException(::std::string_view reason) :
         ::Ice::UserExceptionHelper<AllocationTimeoutException, AllocationException>(reason)
     {
     }
@@ -887,7 +887,7 @@ public:
      * One-shot constructor to initialize all data members.
      * @param reason The reason why permission was denied.
      */
-    PermissionDeniedException(const ::std::string& reason) :
+    PermissionDeniedException(::std::string_view reason) :
         reason(reason)
     {
     }
@@ -983,7 +983,7 @@ public:
      * One-shot constructor to initialize all data members.
      * @param reason The reason for the failure.
      */
-    FileNotAvailableException(const ::std::string& reason) :
+    FileNotAvailableException(::std::string_view reason) :
         reason(reason)
     {
     }

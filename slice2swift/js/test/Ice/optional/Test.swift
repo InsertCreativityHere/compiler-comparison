@@ -1982,10 +1982,6 @@ public extension MyInterfacePrx {
 ///
 ///  - supportsCsharpSerializableAsync: 
 ///
-///  - supportsCppStringView: 
-///
-///  - supportsCppStringViewAsync: 
-///
 ///  - supportsNullOptional: 
 ///
 ///  - supportsNullOptionalAsync: 
@@ -2275,10 +2271,6 @@ public extension Ice.InputStream {
 ///  - supportsCsharpSerializable: 
 ///
 ///  - supportsCsharpSerializableAsync: 
-///
-///  - supportsCppStringView: 
-///
-///  - supportsCppStringViewAsync: 
 ///
 ///  - supportsNullOptional: 
 ///
@@ -4996,45 +4988,6 @@ public extension InitialPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
     /// - returns: `Swift.Bool`
-    func supportsCppStringView(context: Ice.Context? = nil) throws -> Swift.Bool {
-        return try _impl._invoke(operation: "supportsCppStringView",
-                                 mode: .Normal,
-                                 read: { istr in
-                                     let iceP_returnValue: Swift.Bool = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<Swift.Bool>` - The result of the operation
-    func supportsCppStringViewAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Bool> {
-        return _impl._invokeAsync(operation: "supportsCppStringView",
-                                  mode: .Normal,
-                                  read: { istr in
-                                      let iceP_returnValue: Swift.Bool = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Swift.Bool`
     func supportsNullOptional(context: Ice.Context? = nil) throws -> Swift.Bool {
         return try _impl._invoke(operation: "supportsNullOptional",
                                  mode: .Normal,
@@ -6289,8 +6242,6 @@ public struct InitialDisp: Ice.Disp {
             return try servant._iceD_sendOptionalClass(incoming: request, current: current)
         case "shutdown":
             return try servant._iceD_shutdown(incoming: request, current: current)
-        case "supportsCppStringView":
-            return try servant._iceD_supportsCppStringView(incoming: request, current: current)
         case "supportsCsharpSerializable":
             return try servant._iceD_supportsCsharpSerializable(incoming: request, current: current)
         case "supportsJavaSerializable":
@@ -6848,12 +6799,6 @@ public protocol Initial {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `Swift.Bool`
-    func supportsCppStringView(current: Ice.Current) throws -> Swift.Bool
-
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `Swift.Bool`
     func supportsNullOptional(current: Ice.Current) throws -> Swift.Bool
 }
 
@@ -7032,8 +6977,6 @@ public extension MyInterface {
 ///  - supportsJavaSerializable: 
 ///
 ///  - supportsCsharpSerializable: 
-///
-///  - supportsCppStringView: 
 ///
 ///  - supportsNullOptional: 
 public extension Initial {
@@ -7722,16 +7665,6 @@ public extension Initial {
         try inS.readEmptyParams()
 
         let iceP_returnValue = try self.supportsCsharpSerializable(current: current)
-
-        return inS.setResult{ ostr in
-            ostr.write(iceP_returnValue)
-        }
-    }
-
-    func _iceD_supportsCppStringView(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        let iceP_returnValue = try self.supportsCppStringView(current: current)
 
         return inS.setResult{ ostr in
             ostr.write(iceP_returnValue)

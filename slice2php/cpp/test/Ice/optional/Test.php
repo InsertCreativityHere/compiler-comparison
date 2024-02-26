@@ -1244,7 +1244,6 @@ namespace Test
     global $Test__t_Serializable;
     global $Test__t_IntIntDict;
     global $Test__t_StringIntDict;
-    global $Test__t_IntStringDict;
     global $Test__t_IntOneOptionalDict;
     global $Test__t_A;
     global $Test__t_G;
@@ -1261,7 +1260,6 @@ namespace Test
     IcePHP_defineOperation($Test__t_InitialPrx, 'opFloat', 0, 0, 0, array(array($IcePHP__t_float, 2)), array(array($IcePHP__t_float, 3)), array($IcePHP__t_float, 1), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'opDouble', 0, 0, 0, array(array($IcePHP__t_double, 2)), array(array($IcePHP__t_double, 3)), array($IcePHP__t_double, 1), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'opString', 0, 0, 0, array(array($IcePHP__t_string, 2)), array(array($IcePHP__t_string, 3)), array($IcePHP__t_string, 1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opCustomString', 0, 0, 0, array(array($IcePHP__t_string, 2)), array(array($IcePHP__t_string, 3)), array($IcePHP__t_string, 1), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'opMyEnum', 0, 0, 0, array(array($Test__t_MyEnum, 2)), array(array($Test__t_MyEnum, 3)), array($Test__t_MyEnum, 1), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'opSmallStruct', 0, 0, 0, array(array($Test__t_SmallStruct, 2)), array(array($Test__t_SmallStruct, 3)), array($Test__t_SmallStruct, 1), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'opFixedStruct', 0, 0, 0, array(array($Test__t_FixedStruct, 2)), array(array($Test__t_FixedStruct, 3)), array($Test__t_FixedStruct, 1), null);
@@ -1284,7 +1282,6 @@ namespace Test
     IcePHP_defineOperation($Test__t_InitialPrx, 'opSerializable', 0, 0, 0, array(array($Test__t_Serializable, 2)), array(array($Test__t_Serializable, 3)), array($Test__t_Serializable, 1), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'opIntIntDict', 0, 0, 0, array(array($Test__t_IntIntDict, 2)), array(array($Test__t_IntIntDict, 3)), array($Test__t_IntIntDict, 1), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'opStringIntDict', 0, 0, 0, array(array($Test__t_StringIntDict, 2)), array(array($Test__t_StringIntDict, 3)), array($Test__t_StringIntDict, 1), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'opCustomIntStringDict', 0, 0, 0, array(array($Test__t_IntStringDict, 2)), array(array($Test__t_IntStringDict, 3)), array($Test__t_IntStringDict, 1), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'opIntOneOptionalDict', 0, 0, 0, array(array($Test__t_IntOneOptionalDict, 2)), array(array($Test__t_IntOneOptionalDict, 3)), array($Test__t_IntOneOptionalDict, 1), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'opClassAndUnknownOptional', 0, 0, 0, array(array($Test__t_A)), null, null, null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'sendOptionalClass', 0, 0, 0, array(array($IcePHP__t_bool), array($Test__t_OneOptional, 1)), null, null, null);
@@ -1302,7 +1299,6 @@ namespace Test
     IcePHP_defineOperation($Test__t_InitialPrx, 'supportsRequiredParams', 0, 0, 0, null, null, array($IcePHP__t_bool), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'supportsJavaSerializable', 0, 0, 0, null, null, array($IcePHP__t_bool), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'supportsCsharpSerializable', 0, 0, 0, null, null, array($IcePHP__t_bool), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'supportsCppStringView', 0, 0, 0, null, null, array($IcePHP__t_bool), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'supportsNullOptional', 0, 0, 0, null, null, array($IcePHP__t_bool), null);
 }
 ?>

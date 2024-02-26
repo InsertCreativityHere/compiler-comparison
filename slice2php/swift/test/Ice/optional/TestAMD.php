@@ -1287,7 +1287,6 @@ namespace Test
     IcePHP_defineOperation($Test__t_InitialPrx, 'supportsRequiredParams', 0, 0, 0, null, null, array($IcePHP__t_bool), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'supportsJavaSerializable', 0, 0, 0, null, null, array($IcePHP__t_bool), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'supportsCsharpSerializable', 0, 0, 0, null, null, array($IcePHP__t_bool), null);
-    IcePHP_defineOperation($Test__t_InitialPrx, 'supportsCppStringView', 0, 0, 0, null, null, array($IcePHP__t_bool), null);
     IcePHP_defineOperation($Test__t_InitialPrx, 'supportsNullOptional', 0, 0, 0, null, null, array($IcePHP__t_bool), null);
 }
 ?>

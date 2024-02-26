@@ -129,7 +129,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The proxy or null, if no such object has been found.
      */
-    ::std::optional<::Ice::ObjectPrx> findObjectByType(const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<::Ice::ObjectPrx> findObjectByType(::std::string_view type, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Find a well-known object by type. If there are several objects registered for the given type, the object is
@@ -138,7 +138,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<::Ice::ObjectPrx>> findObjectByTypeAsync(const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::optional<::Ice::ObjectPrx>> findObjectByTypeAsync(::std::string_view type, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Find a well-known object by type. If there are several objects registered for the given type, the object is
@@ -151,14 +151,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    findObjectByTypeAsync(const ::std::string& type,
+    findObjectByTypeAsync(::std::string_view type,
                           ::std::function<void(::std::optional<::Ice::ObjectPrx>)> response,
                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
                           ::std::function<void(bool)> sent = nullptr,
                           const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_findObjectByType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_findObjectByType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -170,7 +170,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The proxy or null, if no such object has been found.
      */
-    ::std::optional<::Ice::ObjectPrx> findObjectByTypeOnLeastLoadedNode(const ::std::string& type, LoadSample sample, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<::Ice::ObjectPrx> findObjectByTypeOnLeastLoadedNode(::std::string_view type, LoadSample sample, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
@@ -181,7 +181,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<::Ice::ObjectPrx>> findObjectByTypeOnLeastLoadedNodeAsync(const ::std::string& type, LoadSample sample, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::optional<::Ice::ObjectPrx>> findObjectByTypeOnLeastLoadedNodeAsync(::std::string_view type, LoadSample sample, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Find a well-known object by type on the least-loaded node. If the registry does not know which node hosts
@@ -196,14 +196,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    findObjectByTypeOnLeastLoadedNodeAsync(const ::std::string& type, LoadSample sample,
+    findObjectByTypeOnLeastLoadedNodeAsync(::std::string_view type, LoadSample sample,
                                            ::std::function<void(::std::optional<::Ice::ObjectPrx>)> response,
                                            ::std::function<void(::std::exception_ptr)> ex = nullptr,
                                            ::std::function<void(bool)> sent = nullptr,
                                            const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_findObjectByTypeOnLeastLoadedNode(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>&, const ::std::string&, LoadSample, const ::Ice::Context&) const;
+    void _iceI_findObjectByTypeOnLeastLoadedNode(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>&, ::std::string_view, LoadSample, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -212,7 +212,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The proxies or an empty sequence, if no such objects have been found.
      */
-    ::Ice::ObjectProxySeq findAllObjectsByType(const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::Ice::ObjectProxySeq findAllObjectsByType(::std::string_view type, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Find all the well-known objects with the given type.
@@ -220,7 +220,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::Ice::ObjectProxySeq> findAllObjectsByTypeAsync(const ::std::string& type, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::Ice::ObjectProxySeq> findAllObjectsByTypeAsync(::std::string_view type, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Find all the well-known objects with the given type.
@@ -232,14 +232,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    findAllObjectsByTypeAsync(const ::std::string& type,
+    findAllObjectsByTypeAsync(::std::string_view type,
                               ::std::function<void(::Ice::ObjectProxySeq)> response,
                               ::std::function<void(::std::exception_ptr)> ex = nullptr,
                               ::std::function<void(bool)> sent = nullptr,
                               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_findAllObjectsByType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::ObjectProxySeq>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_findAllObjectsByType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::ObjectProxySeq>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -348,7 +348,7 @@ public:
      * @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
      * user is not allowed access.
      */
-    ::std::optional<SessionPrx> createSession(const ::std::string& userId, const ::std::string& password, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<SessionPrx> createSession(::std::string_view userId, ::std::string_view password, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Create a client session.
@@ -357,7 +357,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<SessionPrx>> createSessionAsync(const ::std::string& userId, const ::std::string& password, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::optional<SessionPrx>> createSessionAsync(::std::string_view userId, ::std::string_view password, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Create a client session.
@@ -370,14 +370,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    createSessionAsync(const ::std::string& userId, const ::std::string& password,
+    createSessionAsync(::std::string_view userId, ::std::string_view password,
                        ::std::function<void(::std::optional<::IceGrid::SessionPrx>)> response,
                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
                        ::std::function<void(bool)> sent = nullptr,
                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_createSession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<SessionPrx>>>&, const ::std::string&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_createSession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<SessionPrx>>>&, ::std::string_view, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -389,7 +389,7 @@ public:
      * @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
      * user is not allowed access.
      */
-    ::std::optional<AdminSessionPrx> createAdminSession(const ::std::string& userId, const ::std::string& password, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<AdminSessionPrx> createAdminSession(::std::string_view userId, ::std::string_view password, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Create an administrative session.
@@ -398,7 +398,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<AdminSessionPrx>> createAdminSessionAsync(const ::std::string& userId, const ::std::string& password, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::optional<AdminSessionPrx>> createAdminSessionAsync(::std::string_view userId, ::std::string_view password, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Create an administrative session.
@@ -411,14 +411,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    createAdminSessionAsync(const ::std::string& userId, const ::std::string& password,
+    createAdminSessionAsync(::std::string_view userId, ::std::string_view password,
                             ::std::function<void(::std::optional<::IceGrid::AdminSessionPrx>)> response,
                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
                             ::std::function<void(bool)> sent = nullptr,
                             const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_createAdminSession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<AdminSessionPrx>>>&, const ::std::string&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_createAdminSession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<AdminSessionPrx>>>&, ::std::string_view, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**

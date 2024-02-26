@@ -2744,9 +2744,6 @@ namespace Ice.optional.AMD
         public delegate void Callback_Initial_supportsJavaSerializable(bool ret);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_Initial_supportsCppStringView(bool ret);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public delegate void Callback_Initial_supportsNullOptional(bool ret);
     }
 }
@@ -3595,10 +3592,6 @@ namespace Ice.optional.AMD
 
             global::System.Threading.Tasks.Task<bool> supportsJavaSerializableAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-            bool supportsCppStringView(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-            global::System.Threading.Tasks.Task<bool> supportsCppStringViewAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
             bool supportsNullOptional(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
             global::System.Threading.Tasks.Task<bool> supportsNullOptionalAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
@@ -3769,9 +3762,6 @@ namespace Ice.optional.AMD
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Threading.Tasks.Task<bool> supportsJavaSerializableAsync(global::Ice.Current current = null);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            global::System.Threading.Tasks.Task<bool> supportsCppStringViewAsync(global::Ice.Current current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             global::System.Threading.Tasks.Task<bool> supportsNullOptionalAsync(global::Ice.Current current = null);
@@ -5344,18 +5334,6 @@ namespace Ice.optional.AMD
                 try
                 {
                     return _iceI_supportsJavaSerializableAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
-                }
-                catch(global::System.AggregateException ex_)
-                {
-                    throw ex_.InnerException;
-                }
-            }
-
-            public bool supportsCppStringView(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-            {
-                try
-                {
-                    return _iceI_supportsCppStringViewAsync(context, null, global::System.Threading.CancellationToken.None, true).Result;
                 }
                 catch(global::System.AggregateException ex_)
                 {
@@ -7764,38 +7742,6 @@ namespace Ice.optional.AMD
                     });
             }
 
-            public global::System.Threading.Tasks.Task<bool> supportsCppStringViewAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-            {
-                return _iceI_supportsCppStringViewAsync(context, progress, cancel, false);
-            }
-
-            private global::System.Threading.Tasks.Task<bool> _iceI_supportsCppStringViewAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-            {
-                iceCheckTwowayOnly(_supportsCppStringView_name);
-                var completed = new global::IceInternal.OperationTaskCompletionCallback<bool>(progress, cancel);
-                _iceI_supportsCppStringView(context, synchronous, completed);
-                return completed.Task;
-            }
-
-            private const string _supportsCppStringView_name = "supportsCppStringView";
-
-            private void _iceI_supportsCppStringView(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
-            {
-                var outAsync = getOutgoingAsync<bool>(completed);
-                outAsync.invoke(
-                    _supportsCppStringView_name,
-                    global::Ice.OperationMode.Normal,
-                    global::Ice.FormatType.DefaultFormat,
-                    context,
-                    synchronous,
-                    read: (global::Ice.InputStream istr) =>
-                    {
-                        bool ret;
-                        ret = istr.readBool();
-                        return ret;
-                    });
-            }
-
             public global::System.Threading.Tasks.Task<bool> supportsNullOptionalAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
             {
                 return _iceI_supportsNullOptionalAsync(context, progress, cancel, false);
@@ -8180,8 +8126,6 @@ namespace Ice.optional.AMD
             public abstract global::System.Threading.Tasks.Task<bool> supportsRequiredParamsAsync(global::Ice.Current current = null);
 
             public abstract global::System.Threading.Tasks.Task<bool> supportsJavaSerializableAsync(global::Ice.Current current = null);
-
-            public abstract global::System.Threading.Tasks.Task<bool> supportsCppStringViewAsync(global::Ice.Current current = null);
 
             public abstract global::System.Threading.Tasks.Task<bool> supportsNullOptionalAsync(global::Ice.Current current = null);
 
@@ -9332,19 +9276,6 @@ namespace Ice.optional.AMD
 
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
             public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-            iceD_supportsCppStringView(Initial obj, global::IceInternal.Incoming inS, global::Ice.Current current)
-            {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-                inS.readEmptyParams();
-                return inS.setResultTask<bool>(obj.supportsCppStringViewAsync(current),
-                    (ostr, ret) =>
-                    {
-                        ostr.writeBool(ret);
-                    });
-            }
-
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-            public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
             iceD_supportsNullOptional(Initial obj, global::IceInternal.Incoming inS, global::Ice.Current current)
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
@@ -9410,7 +9341,6 @@ namespace Ice.optional.AMD
                 "returnOptionalClass",
                 "sendOptionalClass",
                 "shutdown",
-                "supportsCppStringView",
                 "supportsJavaSerializable",
                 "supportsNullOptional",
                 "supportsRequiredParams"
@@ -9637,17 +9567,13 @@ namespace Ice.optional.AMD
                     }
                     case 52:
                     {
-                        return iceD_supportsCppStringView(this, inS, current);
+                        return iceD_supportsJavaSerializable(this, inS, current);
                     }
                     case 53:
                     {
-                        return iceD_supportsJavaSerializable(this, inS, current);
-                    }
-                    case 54:
-                    {
                         return iceD_supportsNullOptional(this, inS, current);
                     }
-                    case 55:
+                    case 54:
                     {
                         return iceD_supportsRequiredParams(this, inS, current);
                     }

@@ -50,7 +50,7 @@ public:
      * One-shot constructor to initialize all data members.
      * @param reason The reason why permission was denied.
      */
-    ExtendedPermissionDeniedException(const ::std::string& reason) :
+    ExtendedPermissionDeniedException(::std::string_view reason) :
         ::Ice::UserExceptionHelper<ExtendedPermissionDeniedException, ::Glacier2::PermissionDeniedException>(reason)
     {
     }

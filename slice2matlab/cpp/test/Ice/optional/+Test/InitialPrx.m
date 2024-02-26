@@ -27,8 +27,6 @@
 %   opDoubleAsync
 %   opString
 %   opStringAsync
-%   opCustomString
-%   opCustomStringAsync
 %   opMyEnum
 %   opMyEnumAsync
 %   opSmallStruct
@@ -73,8 +71,6 @@
 %   opIntIntDictAsync
 %   opStringIntDict
 %   opStringIntDictAsync
-%   opCustomIntStringDict
-%   opCustomIntStringDictAsync
 %   opIntOneOptionalDict
 %   opIntOneOptionalDictAsync
 %   opClassAndUnknownOptional
@@ -109,8 +105,6 @@
 %   supportsJavaSerializableAsync
 %   supportsCsharpSerializable
 %   supportsCsharpSerializableAsync
-%   supportsCppStringView
-%   supportsCppStringViewAsync
 %   supportsNullOptional
 %   supportsNullOptionalAsync
 %   checkedCast - Contacts the remote server to verify that the object implements this type.
@@ -620,48 +614,6 @@ classdef InitialPrx < Ice.ObjectPrx
                 varargout{2} = p3;
             end
             r_ = obj.iceInvokeAsync('opString', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
-        function [result, p3] = opCustomString(obj, p1, varargin)
-            % opCustomString
-            %
-            % Parameters:
-            %   p1 (char)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (char)
-            %   p3 (char)
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeStringOpt(2, p1);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opCustomString', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = is_.readStringOpt(1);
-            p3 = is_.readStringOpt(3);
-            is_.endEncapsulation();
-        end
-        function r_ = opCustomStringAsync(obj, p1, varargin)
-            % opCustomStringAsync
-            %
-            % Parameters:
-            %   p1 (char)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeStringOpt(2, p1);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = is_.readStringOpt(1);
-                p3 = is_.readStringOpt(3);
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = p3;
-            end
-            r_ = obj.iceInvokeAsync('opCustomString', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, p3] = opMyEnum(obj, p1, varargin)
             % opMyEnum
@@ -1605,48 +1557,6 @@ classdef InitialPrx < Ice.ObjectPrx
             end
             r_ = obj.iceInvokeAsync('opStringIntDict', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
-        function [result, p3] = opCustomIntStringDict(obj, p1, varargin)
-            % opCustomIntStringDict
-            %
-            % Parameters:
-            %   p1 (containers.Map)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (containers.Map)
-            %   p3 (containers.Map)
-            
-            os_ = obj.iceStartWriteParams([]);
-            Test.IntStringDict.writeOpt(os_, 2, p1);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opCustomIntStringDict', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = Test.IntStringDict.readOpt(is_, 1);
-            p3 = Test.IntStringDict.readOpt(is_, 3);
-            is_.endEncapsulation();
-        end
-        function r_ = opCustomIntStringDictAsync(obj, p1, varargin)
-            % opCustomIntStringDictAsync
-            %
-            % Parameters:
-            %   p1 (containers.Map)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            Test.IntStringDict.writeOpt(os_, 2, p1);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = Test.IntStringDict.readOpt(is_, 1);
-                p3 = Test.IntStringDict.readOpt(is_, 3);
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = p3;
-            end
-            r_ = obj.iceInvokeAsync('opCustomIntStringDict', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
         function [result, p3] = opIntOneOptionalDict(obj, p1, varargin)
             % opIntOneOptionalDict
             %
@@ -2238,35 +2148,6 @@ classdef InitialPrx < Ice.ObjectPrx
                 varargout{1} = result;
             end
             r_ = obj.iceInvokeAsync('supportsCsharpSerializable', 0, true, [], 1, @unmarshal, {}, varargin{:});
-        end
-        function result = supportsCppStringView(obj, varargin)
-            % supportsCppStringView
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (logical)
-            
-            is_ = obj.iceInvoke('supportsCppStringView', 0, true, [], true, {}, varargin{:});
-            is_.startEncapsulation();
-            result = is_.readBool();
-            is_.endEncapsulation();
-        end
-        function r_ = supportsCppStringViewAsync(obj, varargin)
-            % supportsCppStringViewAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = is_.readBool();
-                is_.endEncapsulation();
-                varargout{1} = result;
-            end
-            r_ = obj.iceInvokeAsync('supportsCppStringView', 0, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = supportsNullOptional(obj, varargin)
             % supportsNullOptional

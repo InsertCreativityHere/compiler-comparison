@@ -343,19 +343,19 @@ public:
     void _iceI_opFloatDouble(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<double, float, double>>>&, float, double, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::string opString(const ::std::string& p1, const ::std::string& p2, ::std::string& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::string opString(::std::string_view p1, ::std::string_view p2, ::std::string& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::string, ::std::string>> opStringAsync(const ::std::string& p1, const ::std::string& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<::std::string, ::std::string>> opStringAsync(::std::string_view p1, ::std::string_view p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opStringAsync(const ::std::string& p1, const ::std::string& p2,
+    opStringAsync(::std::string_view p1, ::std::string_view p2,
                   ::std::function<void(::std::string, ::std::string)> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::string, ::std::string>>>&, const ::std::string&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::string, ::std::string>>>&, ::std::string_view, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     MyEnum opMyEnum(MyEnum p1, MyEnum& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -1104,19 +1104,19 @@ public:
     void _iceI_opDouble1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<double>>&, double, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::string opString1(const ::std::string& opString1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::string opString1(::std::string_view opString1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> opString1Async(const ::std::string& opString1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::string> opString1Async(::std::string_view opString1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opString1Async(const ::std::string& opString1,
+    opString1Async(::std::string_view opString1,
                    ::std::function<void(::std::string)> response,
                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                    ::std::function<void(bool)> sent = nullptr,
                    const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opString1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_opString1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     StringS opStringS1(const StringS& opStringS1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -1629,7 +1629,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    MyClass1(const ::std::string& tesT, const ::std::optional<::Test::MyClassPrx>& myClass, const ::std::string& myClass1) :
+    MyClass1(::std::string_view tesT, const ::std::optional<::Test::MyClassPrx>& myClass, ::std::string_view myClass1) :
         tesT(tesT),
         myClass(myClass),
         myClass1(myClass1)

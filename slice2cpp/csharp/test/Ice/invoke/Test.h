@@ -56,19 +56,19 @@ public:
     void _iceI_opOneway(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::string opString(const ::std::string& s1, ::std::string& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::string opString(::std::string_view s1, ::std::string& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::string, ::std::string>> opStringAsync(const ::std::string& s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<::std::string, ::std::string>> opStringAsync(::std::string_view s1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opStringAsync(const ::std::string& s1,
+    opStringAsync(::std::string_view s1,
                   ::std::function<void(::std::string, ::std::string)> response,
                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
                   ::std::function<void(bool)> sent = nullptr,
                   const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::string, ::std::string>>>&, const ::std::string&, const ::Ice::Context&) const;
+    void _iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::string, ::std::string>>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     void opException(const ::Ice::Context& context = ::Ice::noExplicitContext) const;

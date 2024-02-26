@@ -428,7 +428,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    NestedException(const ::std::string& str) :
+    NestedException(::std::string_view str) :
         str(str)
     {
     }
@@ -524,7 +524,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    NestedException2(const ::std::string& str) :
+    NestedException2(::std::string_view str) :
         str(str)
     {
     }

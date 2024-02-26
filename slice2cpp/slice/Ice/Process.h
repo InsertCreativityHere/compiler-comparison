@@ -98,7 +98,7 @@ public:
      * @param fd 1 for stdout, 2 for stderr.
      * @param context The Context map to send with the invocation.
      */
-    void writeMessage(const ::std::string& message, ::std::int32_t fd, const Context& context = noExplicitContext) const;
+    void writeMessage(::std::string_view message, ::std::int32_t fd, const Context& context = noExplicitContext) const;
 
     /**
      * Write a message on the process' stdout or stderr.
@@ -107,7 +107,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> writeMessageAsync(const ::std::string& message, ::std::int32_t fd, const Context& context = noExplicitContext) const;
+    ::std::future<void> writeMessageAsync(::std::string_view message, ::std::int32_t fd, const Context& context = noExplicitContext) const;
 
     /**
      * Write a message on the process' stdout or stderr.
@@ -120,14 +120,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    writeMessageAsync(const ::std::string& message, ::std::int32_t fd,
+    writeMessageAsync(::std::string_view message, ::std::int32_t fd,
                       ::std::function<void()> response,
                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
                       ::std::function<void(bool)> sent = nullptr,
                       const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_writeMessage(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::string&, ::std::int32_t, const Context&) const;
+    void _iceI_writeMessage(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, ::std::int32_t, const Context&) const;
     /// \endcond
 
     /**
