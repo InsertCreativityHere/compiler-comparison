@@ -70,7 +70,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The router's client proxy.
      */
-    ::std::optional<::Ice::ObjectPrx> getClientProxy(std::optional<bool>& hasRoutingTable, const Context& context = noExplicitContext) const;
+    ::std::optional<::Ice::ObjectPrx> getClientProxy(::std::optional<bool>& hasRoutingTable, const Context& context = noExplicitContext) const;
 
     /**
      * Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
@@ -78,7 +78,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::tuple<::std::optional<::Ice::ObjectPrx>, std::optional<bool>>> getClientProxyAsync(const Context& context = noExplicitContext) const;
+    ::std::future<::std::tuple<::std::optional<::Ice::ObjectPrx>, ::std::optional<bool>>> getClientProxyAsync(const Context& context = noExplicitContext) const;
 
     /**
      * Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
@@ -90,13 +90,13 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getClientProxyAsync(::std::function<void(::std::optional<::Ice::ObjectPrx>, std::optional<bool>)> response,
+    getClientProxyAsync(::std::function<void(::std::optional<::Ice::ObjectPrx>, ::std::optional<bool>)> response,
                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
                         ::std::function<void(bool)> sent = nullptr,
                         const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getClientProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::Ice::ObjectPrx>, std::optional<bool>>>>&, const Context&) const;
+    void _iceI_getClientProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::Ice::ObjectPrx>, ::std::optional<bool>>>>&, const Context&) const;
     /// \endcond
 
     /**
@@ -352,7 +352,7 @@ public:
      * @param current The Current object for the invocation.
      * @return The router's client proxy.
      */
-    virtual ::std::optional<::Ice::ObjectPrx> getClientProxy(std::optional<bool>& hasRoutingTable, const Current& current) const = 0;
+    virtual ::std::optional<::Ice::ObjectPrx> getClientProxy(::std::optional<bool>& hasRoutingTable, const Current& current) const = 0;
     /// \cond INTERNAL
     bool _iceD_getClientProxy(::IceInternal::Incoming&, const Current&) const;
     /// \endcond

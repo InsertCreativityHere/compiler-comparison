@@ -40,35 +40,35 @@ namespace
 }
 
 ::std::optional<::Ice::ObjectPrx>
-Ice::RouterPrx::getClientProxy(std::optional<bool>& iceP_hasRoutingTable, const ::Ice::Context& context) const
+Ice::RouterPrx::getClientProxy(::std::optional<bool>& iceP_hasRoutingTable, const ::Ice::Context& context) const
 {
-    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<::Ice::ObjectPrx>, std::optional<bool>>>(true, this, &RouterPrx::_iceI_getClientProxy, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<::Ice::ObjectPrx>, ::std::optional<bool>>>(true, this, &RouterPrx::_iceI_getClientProxy, context).get();
     iceP_hasRoutingTable = ::std::get<1>(_result);
     return ::std::move(::std::get<0>(_result));
 }
 
-::std::future<::std::tuple<::std::optional<::Ice::ObjectPrx>, std::optional<bool>>>
+::std::future<::std::tuple<::std::optional<::Ice::ObjectPrx>, ::std::optional<bool>>>
 Ice::RouterPrx::getClientProxyAsync(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<::Ice::ObjectPrx>, std::optional<bool>>>(false, this, &RouterPrx::_iceI_getClientProxy, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<::Ice::ObjectPrx>, ::std::optional<bool>>>(false, this, &RouterPrx::_iceI_getClientProxy, context);
 }
 
 ::std::function<void()>
-Ice::RouterPrx::getClientProxyAsync(::std::function<void (::std::optional<::Ice::ObjectPrx>, std::optional<bool>)> response,
+Ice::RouterPrx::getClientProxyAsync(::std::function<void (::std::optional<::Ice::ObjectPrx>, ::std::optional<bool>)> response,
                                     ::std::function<void(::std::exception_ptr)> ex,
                                     ::std::function<void(bool)> sent,
                                     const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<::std::optional<::Ice::ObjectPrx>, std::optional<bool>>&& _result)
+    auto _responseCb = [response](::std::tuple<::std::optional<::Ice::ObjectPrx>, ::std::optional<bool>>&& _result)
     {
         response(::std::move(::std::get<0>(_result)), ::std::get<1>(_result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<::Ice::ObjectPrx>, std::optional<bool>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Ice::RouterPrx::_iceI_getClientProxy, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<::Ice::ObjectPrx>, ::std::optional<bool>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Ice::RouterPrx::_iceI_getClientProxy, context);
 }
 
 /// \cond INTERNAL
 void
-Ice::RouterPrx::_iceI_getClientProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::Ice::ObjectPrx>, std::optional<bool>>>>& outAsync, const Context& context) const
+Ice::RouterPrx::_iceI_getClientProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::Ice::ObjectPrx>, ::std::optional<bool>>>>& outAsync, const Context& context) const
 {
     static const ::std::string operationName = "getClientProxy";
 
@@ -78,7 +78,7 @@ Ice::RouterPrx::_iceI_getClientProxy(const ::std::shared_ptr<::IceInternal::Outg
         nullptr,
         [](InputStream* istr)
         {
-            ::std::tuple<::std::optional<::Ice::ObjectPrx>, std::optional<bool>> v;
+            ::std::tuple<::std::optional<::Ice::ObjectPrx>, ::std::optional<bool>> v;
             istr->readAll(::std::get<0>(v));
             istr->readAll({1}, ::std::get<1>(v));
             return v;
@@ -232,7 +232,7 @@ Ice::Router::_iceD_getClientProxy(::IceInternal::Incoming& inS, const Current& c
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
     inS.readEmptyParams();
-    std::optional<bool> iceP_hasRoutingTable;
+    ::std::optional<bool> iceP_hasRoutingTable;
     ::std::optional<::Ice::ObjectPrx> ret = this->getClientProxy(iceP_hasRoutingTable, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll(ret);

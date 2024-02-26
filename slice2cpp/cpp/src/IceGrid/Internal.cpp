@@ -1777,19 +1777,19 @@ IceGrid::ReplicaSessionPrx::_iceI_getTimeout(const ::std::shared_ptr<::IceIntern
 /// \endcond
 
 void
-IceGrid::ReplicaSessionPrx::setDatabaseObserver(const ::std::optional<DatabaseObserverPrx>& iceP_dbObs, const std::optional<StringLongDict>& iceP_serials, const ::Ice::Context& context) const
+IceGrid::ReplicaSessionPrx::setDatabaseObserver(const ::std::optional<DatabaseObserverPrx>& iceP_dbObs, const ::std::optional<StringLongDict>& iceP_serials, const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &ReplicaSessionPrx::_iceI_setDatabaseObserver, iceP_dbObs, iceP_serials, context).get();
 }
 
 ::std::future<void>
-IceGrid::ReplicaSessionPrx::setDatabaseObserverAsync(const ::std::optional<DatabaseObserverPrx>& iceP_dbObs, const std::optional<StringLongDict>& iceP_serials, const ::Ice::Context& context) const
+IceGrid::ReplicaSessionPrx::setDatabaseObserverAsync(const ::std::optional<DatabaseObserverPrx>& iceP_dbObs, const ::std::optional<StringLongDict>& iceP_serials, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &ReplicaSessionPrx::_iceI_setDatabaseObserver, iceP_dbObs, iceP_serials, context);
 }
 
 ::std::function<void()>
-IceGrid::ReplicaSessionPrx::setDatabaseObserverAsync(const ::std::optional<DatabaseObserverPrx>& iceP_dbObs, const std::optional<StringLongDict>& iceP_serials,
+IceGrid::ReplicaSessionPrx::setDatabaseObserverAsync(const ::std::optional<DatabaseObserverPrx>& iceP_dbObs, const ::std::optional<StringLongDict>& iceP_serials,
                                                      ::std::function<void ()> response,
                                                      ::std::function<void(::std::exception_ptr)> ex,
                                                      ::std::function<void(bool)> sent,
@@ -1800,7 +1800,7 @@ IceGrid::ReplicaSessionPrx::setDatabaseObserverAsync(const ::std::optional<Datab
 
 /// \cond INTERNAL
 void
-IceGrid::ReplicaSessionPrx::_iceI_setDatabaseObserver(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<DatabaseObserverPrx>& iceP_dbObs, const std::optional<StringLongDict>& iceP_serials, const ::Ice::Context& context) const
+IceGrid::ReplicaSessionPrx::_iceI_setDatabaseObserver(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<DatabaseObserverPrx>& iceP_dbObs, const ::std::optional<StringLongDict>& iceP_serials, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "setDatabaseObserver";
 
@@ -1946,11 +1946,11 @@ IceGrid::ReplicaSessionPrx::_iceI_setAdapterDirectProxy(const ::std::shared_ptr<
             {
                 ex.ice_throw();
             }
-            catch(const AdapterNotExistException&)
+            catch(const AdapterExistsException&)
             {
                 throw;
             }
-            catch(const AdapterExistsException&)
+            catch(const AdapterNotExistException&)
             {
                 throw;
             }
@@ -2079,11 +2079,11 @@ IceGrid::InternalRegistryPrx::_iceI_registerNode(const ::std::shared_ptr<::IceIn
             {
                 ex.ice_throw();
             }
-            catch(const PermissionDeniedException&)
+            catch(const NodeActiveException&)
             {
                 throw;
             }
-            catch(const NodeActiveException&)
+            catch(const PermissionDeniedException&)
             {
                 throw;
             }
@@ -2135,11 +2135,11 @@ IceGrid::InternalRegistryPrx::_iceI_registerReplica(const ::std::shared_ptr<::Ic
             {
                 ex.ice_throw();
             }
-            catch(const PermissionDeniedException&)
+            catch(const ReplicaActiveException&)
             {
                 throw;
             }
-            catch(const ReplicaActiveException&)
+            catch(const PermissionDeniedException&)
             {
                 throw;
             }
@@ -3916,7 +3916,7 @@ IceGrid::ReplicaSession::_iceD_setDatabaseObserver(::IceInternal::Incoming& inS,
     _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
     auto istr = inS.startReadParams();
     ::std::optional<DatabaseObserverPrx> iceP_dbObs;
-    std::optional<StringLongDict> iceP_serials;
+    ::std::optional<StringLongDict> iceP_serials;
     istr->readAll(iceP_dbObs);
     istr->readAll({1}, iceP_serials);
     inS.endReadParams();

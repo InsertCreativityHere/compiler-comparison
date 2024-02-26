@@ -183,7 +183,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    OptionalClass(bool bo, ::std::uint8_t by, const std::optional<::std::int16_t>& sh, const std::optional<::std::int32_t>& i) :
+    OptionalClass(bool bo, ::std::uint8_t by, const ::std::optional<::std::int16_t>& sh, const ::std::optional<::std::int32_t>& i) :
         bo(bo),
         by(by),
         sh(sh),
@@ -195,7 +195,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const ::std::uint8_t&, const std::optional<::std::int16_t>&, const std::optional<::std::int32_t>&> ice_tuple() const
+    std::tuple<const bool&, const ::std::uint8_t&, const ::std::optional<::std::int16_t>&, const ::std::optional<::std::int32_t>&> ice_tuple() const
     {
         return std::tie(bo, by, sh, i);
     }
@@ -208,8 +208,8 @@ public:
 
     bool bo;
     ::std::uint8_t by;
-    std::optional<::std::int16_t> sh;
-    std::optional<::std::int32_t> i;
+    ::std::optional<::std::int16_t> sh;
+    ::std::optional<::std::int32_t> i;
 };
 
 /// \cond INTERNAL

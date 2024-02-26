@@ -206,7 +206,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    OptionalClass(bool bo, ::std::uint8_t by, const std::optional<::std::int16_t>& sh, const std::optional<::std::int32_t>& i, const std::optional<::Test::SmallStruct>& sm, const std::optional<::Test::MyEnumS>& enumS4, const std::optional<::Test::MyClassS>& myClassS5, const std::optional<::Test::ByteBoolD>& byteBoolD6, const std::optional<::Test::ShortIntD>& shortIntD7, const std::optional<::Test::MyEnum>& enum8, const std::optional<::std::shared_ptr<::Test::MyClass>>& class9, const std::optional<::Test::StringMyClassD>& stringMyClassD10, const std::optional<::Ice::IntSeq>& intSeq12, const std::optional<::Ice::ByteSeq>& byteSeq13, const std::optional<::Ice::StringSeq>& stringSeq14, const std::optional<::Test::Point>& p15) :
+    OptionalClass(bool bo, ::std::uint8_t by, const ::std::optional<::std::int16_t>& sh, const ::std::optional<::std::int32_t>& i, const ::std::optional<::Test::SmallStruct>& sm, const ::std::optional<::Test::MyEnumS>& enumS4, const ::std::optional<::Test::MyClassS>& myClassS5, const ::std::optional<::Test::ByteBoolD>& byteBoolD6, const ::std::optional<::Test::ShortIntD>& shortIntD7, const ::std::optional<::Test::MyEnum>& enum8, const ::std::optional<::std::shared_ptr<::Test::MyClass>>& class9, const ::std::optional<::Test::StringMyClassD>& stringMyClassD10, const ::std::optional<::Ice::IntSeq>& intSeq12, const ::std::optional<::Ice::ByteSeq>& byteSeq13, const ::std::optional<::Ice::StringSeq>& stringSeq14, const ::std::optional<::Test::Point>& p15) :
         bo(bo),
         by(by),
         sh(sh),
@@ -230,7 +230,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const ::std::uint8_t&, const std::optional<::std::int16_t>&, const std::optional<::std::int32_t>&, const std::optional<::Test::SmallStruct>&, const std::optional<::Test::MyEnumS>&, const std::optional<::Test::MyClassS>&, const std::optional<::Test::ByteBoolD>&, const std::optional<::Test::ShortIntD>&, const std::optional<::Test::MyEnum>&, const std::optional<::std::shared_ptr<::Test::MyClass>>&, const std::optional<::Test::StringMyClassD>&, const std::optional<::Ice::IntSeq>&, const std::optional<::Ice::ByteSeq>&, const std::optional<::Ice::StringSeq>&, const std::optional<::Test::Point>&> ice_tuple() const
+    std::tuple<const bool&, const ::std::uint8_t&, const ::std::optional<::std::int16_t>&, const ::std::optional<::std::int32_t>&, const ::std::optional<::Test::SmallStruct>&, const ::std::optional<::Test::MyEnumS>&, const ::std::optional<::Test::MyClassS>&, const ::std::optional<::Test::ByteBoolD>&, const ::std::optional<::Test::ShortIntD>&, const ::std::optional<::Test::MyEnum>&, const ::std::optional<::std::shared_ptr<::Test::MyClass>>&, const ::std::optional<::Test::StringMyClassD>&, const ::std::optional<::Ice::IntSeq>&, const ::std::optional<::Ice::ByteSeq>&, const ::std::optional<::Ice::StringSeq>&, const ::std::optional<::Test::Point>&> ice_tuple() const
     {
         return std::tie(bo, by, sh, i, sm, enumS4, myClassS5, byteBoolD6, shortIntD7, enum8, class9, stringMyClassD10, intSeq12, byteSeq13, stringSeq14, p15);
     }
@@ -243,20 +243,20 @@ public:
 
     bool bo;
     ::std::uint8_t by;
-    std::optional<::std::int16_t> sh;
-    std::optional<::std::int32_t> i;
-    std::optional<::Test::SmallStruct> sm;
-    std::optional<::Test::MyEnumS> enumS4;
-    std::optional<::Test::MyClassS> myClassS5;
-    std::optional<::Test::ByteBoolD> byteBoolD6;
-    std::optional<::Test::ShortIntD> shortIntD7;
-    std::optional<::Test::MyEnum> enum8;
-    std::optional<::std::shared_ptr<::Test::MyClass>> class9;
-    std::optional<::Test::StringMyClassD> stringMyClassD10;
-    std::optional<::Ice::IntSeq> intSeq12;
-    std::optional<::Ice::ByteSeq> byteSeq13;
-    std::optional<::Ice::StringSeq> stringSeq14;
-    std::optional<::Test::Point> p15;
+    ::std::optional<::std::int16_t> sh;
+    ::std::optional<::std::int32_t> i;
+    ::std::optional<::Test::SmallStruct> sm;
+    ::std::optional<::Test::MyEnumS> enumS4;
+    ::std::optional<::Test::MyClassS> myClassS5;
+    ::std::optional<::Test::ByteBoolD> byteBoolD6;
+    ::std::optional<::Test::ShortIntD> shortIntD7;
+    ::std::optional<::Test::MyEnum> enum8;
+    ::std::optional<::std::shared_ptr<::Test::MyClass>> class9;
+    ::std::optional<::Test::StringMyClassD> stringMyClassD10;
+    ::std::optional<::Ice::IntSeq> intSeq12;
+    ::std::optional<::Ice::ByteSeq> byteSeq13;
+    ::std::optional<::Ice::StringSeq> stringSeq14;
+    ::std::optional<::Test::Point> p15;
 };
 
 /// \cond INTERNAL

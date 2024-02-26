@@ -641,7 +641,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Config(const std::optional<::std::string>& protocol, const std::optional<bool>& mx, const std::optional<bool>& serialize, const std::optional<bool>& compress, const std::optional<bool>& ipv6, const std::optional<::Test::Common::StringSeq>& cprops, const std::optional<::Test::Common::StringSeq>& sprops) :
+    Config(const ::std::optional<::std::string>& protocol, const ::std::optional<bool>& mx, const ::std::optional<bool>& serialize, const ::std::optional<bool>& compress, const ::std::optional<bool>& ipv6, const ::std::optional<::Test::Common::StringSeq>& cprops, const ::std::optional<::Test::Common::StringSeq>& sprops) :
         protocol(protocol),
         mx(mx),
         serialize(serialize),
@@ -656,7 +656,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const std::optional<::std::string>&, const std::optional<bool>&, const std::optional<bool>&, const std::optional<bool>&, const std::optional<bool>&, const std::optional<::Test::Common::StringSeq>&, const std::optional<::Test::Common::StringSeq>&> ice_tuple() const
+    std::tuple<const ::std::optional<::std::string>&, const ::std::optional<bool>&, const ::std::optional<bool>&, const ::std::optional<bool>&, const ::std::optional<bool>&, const ::std::optional<::Test::Common::StringSeq>&, const ::std::optional<::Test::Common::StringSeq>&> ice_tuple() const
     {
         return std::tie(protocol, mx, serialize, compress, ipv6, cprops, sprops);
     }
@@ -667,13 +667,13 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    std::optional<::std::string> protocol;
-    std::optional<bool> mx;
-    std::optional<bool> serialize;
-    std::optional<bool> compress;
-    std::optional<bool> ipv6;
-    std::optional<::Test::Common::StringSeq> cprops;
-    std::optional<::Test::Common::StringSeq> sprops;
+    ::std::optional<::std::string> protocol;
+    ::std::optional<bool> mx;
+    ::std::optional<bool> serialize;
+    ::std::optional<bool> compress;
+    ::std::optional<bool> ipv6;
+    ::std::optional<::Test::Common::StringSeq> cprops;
+    ::std::optional<::Test::Common::StringSeq> sprops;
 };
 
 /// \cond INTERNAL
@@ -696,7 +696,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    OptionOverrides(const std::optional<::Test::Common::StringSeq>& protocol, const std::optional<::Test::Common::BoolSeq>& mx, const std::optional<::Test::Common::BoolSeq>& serialize, const std::optional<::Test::Common::BoolSeq>& compress, const std::optional<::Test::Common::BoolSeq>& ipv6) :
+    OptionOverrides(const ::std::optional<::Test::Common::StringSeq>& protocol, const ::std::optional<::Test::Common::BoolSeq>& mx, const ::std::optional<::Test::Common::BoolSeq>& serialize, const ::std::optional<::Test::Common::BoolSeq>& compress, const ::std::optional<::Test::Common::BoolSeq>& ipv6) :
         protocol(protocol),
         mx(mx),
         serialize(serialize),
@@ -709,7 +709,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const std::optional<::Test::Common::StringSeq>&, const std::optional<::Test::Common::BoolSeq>&, const std::optional<::Test::Common::BoolSeq>&, const std::optional<::Test::Common::BoolSeq>&, const std::optional<::Test::Common::BoolSeq>&> ice_tuple() const
+    std::tuple<const ::std::optional<::Test::Common::StringSeq>&, const ::std::optional<::Test::Common::BoolSeq>&, const ::std::optional<::Test::Common::BoolSeq>&, const ::std::optional<::Test::Common::BoolSeq>&, const ::std::optional<::Test::Common::BoolSeq>&> ice_tuple() const
     {
         return std::tie(protocol, mx, serialize, compress, ipv6);
     }
@@ -720,11 +720,11 @@ public:
      */
     static const ::std::string& ice_staticId();
 
-    std::optional<::Test::Common::StringSeq> protocol;
-    std::optional<::Test::Common::BoolSeq> mx;
-    std::optional<::Test::Common::BoolSeq> serialize;
-    std::optional<::Test::Common::BoolSeq> compress;
-    std::optional<::Test::Common::BoolSeq> ipv6;
+    ::std::optional<::Test::Common::StringSeq> protocol;
+    ::std::optional<::Test::Common::BoolSeq> mx;
+    ::std::optional<::Test::Common::BoolSeq> serialize;
+    ::std::optional<::Test::Common::BoolSeq> compress;
+    ::std::optional<::Test::Common::BoolSeq> ipv6;
 };
 
 class TestCaseNotExistException : public ::Ice::UserExceptionHelper<TestCaseNotExistException, ::Ice::UserException>

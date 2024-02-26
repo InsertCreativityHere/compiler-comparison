@@ -371,19 +371,19 @@ Clash::IntfPrx::_iceI_istr(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT
 /// \endcond
 
 void
-Clash::IntfPrx::op(::std::string_view iceP_context, ::std::string_view iceP_current, ::std::string_view iceP_response, ::std::string_view iceP_ex, ::std::string_view iceP_sent, ::std::string_view iceP_cookie, ::std::string_view iceP_sync, ::std::string_view iceP_result, ::std::string_view iceP_istr, ::std::string_view iceP_ostr, const std::optional<::std::string>& iceP_proxy, const ::Ice::Context& context) const
+Clash::IntfPrx::op(::std::string_view iceP_context, ::std::string_view iceP_current, ::std::string_view iceP_response, ::std::string_view iceP_ex, ::std::string_view iceP_sent, ::std::string_view iceP_cookie, ::std::string_view iceP_sync, ::std::string_view iceP_result, ::std::string_view iceP_istr, ::std::string_view iceP_ostr, const ::std::optional<::std::string>& iceP_proxy, const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &IntfPrx::_iceI_op, iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr, iceP_proxy, context).get();
 }
 
 ::std::future<void>
-Clash::IntfPrx::opAsync(::std::string_view iceP_context, ::std::string_view iceP_current, ::std::string_view iceP_response, ::std::string_view iceP_ex, ::std::string_view iceP_sent, ::std::string_view iceP_cookie, ::std::string_view iceP_sync, ::std::string_view iceP_result, ::std::string_view iceP_istr, ::std::string_view iceP_ostr, const std::optional<::std::string>& iceP_proxy, const ::Ice::Context& context) const
+Clash::IntfPrx::opAsync(::std::string_view iceP_context, ::std::string_view iceP_current, ::std::string_view iceP_response, ::std::string_view iceP_ex, ::std::string_view iceP_sent, ::std::string_view iceP_cookie, ::std::string_view iceP_sync, ::std::string_view iceP_result, ::std::string_view iceP_istr, ::std::string_view iceP_ostr, const ::std::optional<::std::string>& iceP_proxy, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &IntfPrx::_iceI_op, iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr, iceP_proxy, context);
 }
 
 ::std::function<void()>
-Clash::IntfPrx::opAsync(::std::string_view iceP_context, ::std::string_view iceP_current, ::std::string_view iceP_response, ::std::string_view iceP_ex, ::std::string_view iceP_sent, ::std::string_view iceP_cookie, ::std::string_view iceP_sync, ::std::string_view iceP_result, ::std::string_view iceP_istr, ::std::string_view iceP_ostr, const std::optional<::std::string>& iceP_proxy,
+Clash::IntfPrx::opAsync(::std::string_view iceP_context, ::std::string_view iceP_current, ::std::string_view iceP_response, ::std::string_view iceP_ex, ::std::string_view iceP_sent, ::std::string_view iceP_cookie, ::std::string_view iceP_sync, ::std::string_view iceP_result, ::std::string_view iceP_istr, ::std::string_view iceP_ostr, const ::std::optional<::std::string>& iceP_proxy,
                         ::std::function<void ()> response,
                         ::std::function<void(::std::exception_ptr)> ex,
                         ::std::function<void(bool)> sent,
@@ -394,7 +394,7 @@ Clash::IntfPrx::opAsync(::std::string_view iceP_context, ::std::string_view iceP
 
 /// \cond INTERNAL
 void
-Clash::IntfPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_context, ::std::string_view iceP_current, ::std::string_view iceP_response, ::std::string_view iceP_ex, ::std::string_view iceP_sent, ::std::string_view iceP_cookie, ::std::string_view iceP_sync, ::std::string_view iceP_result, ::std::string_view iceP_istr, ::std::string_view iceP_ostr, const std::optional<::std::string>& iceP_proxy, const ::Ice::Context& context) const
+Clash::IntfPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_context, ::std::string_view iceP_current, ::std::string_view iceP_response, ::std::string_view iceP_ex, ::std::string_view iceP_sent, ::std::string_view iceP_cookie, ::std::string_view iceP_sync, ::std::string_view iceP_result, ::std::string_view iceP_istr, ::std::string_view iceP_ostr, const ::std::optional<::std::string>& iceP_proxy, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "op";
 
@@ -409,9 +409,9 @@ Clash::IntfPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<v
 /// \endcond
 
 void
-Clash::IntfPrx::opOut(::std::string& iceP_context, ::std::string& iceP_current, ::std::string& iceP_response, ::std::string& iceP_ex, ::std::string& iceP_sent, ::std::string& iceP_cookie, ::std::string& iceP_sync, ::std::string& iceP_result, ::std::string& iceP_istr, ::std::string& iceP_ostr, std::optional<::std::string>& iceP_proxy, const ::Ice::Context& context) const
+Clash::IntfPrx::opOut(::std::string& iceP_context, ::std::string& iceP_current, ::std::string& iceP_response, ::std::string& iceP_ex, ::std::string& iceP_sent, ::std::string& iceP_cookie, ::std::string& iceP_sync, ::std::string& iceP_result, ::std::string& iceP_istr, ::std::string& iceP_ostr, ::std::optional<::std::string>& iceP_proxy, const ::Ice::Context& context) const
 {
-    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, std::optional<::std::string>>>(true, this, &IntfPrx::_iceI_opOut, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::optional<::std::string>>>(true, this, &IntfPrx::_iceI_opOut, context).get();
     iceP_context = ::std::move(::std::get<0>(_result));
     iceP_current = ::std::move(::std::get<1>(_result));
     iceP_response = ::std::move(::std::get<2>(_result));
@@ -425,28 +425,28 @@ Clash::IntfPrx::opOut(::std::string& iceP_context, ::std::string& iceP_current, 
     iceP_proxy = ::std::move(::std::get<10>(_result));
 }
 
-::std::future<::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, std::optional<::std::string>>>
+::std::future<::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::optional<::std::string>>>
 Clash::IntfPrx::opOutAsync(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, std::optional<::std::string>>>(false, this, &IntfPrx::_iceI_opOut, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::optional<::std::string>>>(false, this, &IntfPrx::_iceI_opOut, context);
 }
 
 ::std::function<void()>
-Clash::IntfPrx::opOutAsync(::std::function<void (::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, std::optional<::std::string>)> response,
+Clash::IntfPrx::opOutAsync(::std::function<void (::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::optional<::std::string>)> response,
                            ::std::function<void(::std::exception_ptr)> ex,
                            ::std::function<void(bool)> sent,
                            const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, std::optional<::std::string>>&& _result)
+    auto _responseCb = [response](::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::optional<::std::string>>&& _result)
     {
         response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)), ::std::move(::std::get<2>(_result)), ::std::move(::std::get<3>(_result)), ::std::move(::std::get<4>(_result)), ::std::move(::std::get<5>(_result)), ::std::move(::std::get<6>(_result)), ::std::move(::std::get<7>(_result)), ::std::move(::std::get<8>(_result)), ::std::move(::std::get<9>(_result)), ::std::move(::std::get<10>(_result)));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, std::optional<::std::string>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_opOut, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::optional<::std::string>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_opOut, context);
 }
 
 /// \cond INTERNAL
 void
-Clash::IntfPrx::_iceI_opOut(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, std::optional<::std::string>>>>& outAsync, const ::Ice::Context& context) const
+Clash::IntfPrx::_iceI_opOut(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::optional<::std::string>>>>& outAsync, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "opOut";
 
@@ -456,7 +456,7 @@ Clash::IntfPrx::_iceI_opOut(const ::std::shared_ptr<::IceInternal::OutgoingAsync
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, std::optional<::std::string>> v;
+            ::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::optional<::std::string>> v;
             istr->readAll(::std::get<0>(v), ::std::get<1>(v), ::std::get<2>(v), ::std::get<3>(v), ::std::get<4>(v), ::std::get<5>(v), ::std::get<6>(v), ::std::get<7>(v), ::std::get<8>(v), ::std::get<9>(v));
             istr->readAll({1}, ::std::get<10>(v));
             return v;
@@ -649,7 +649,7 @@ Clash::Intf::_iceD_op(::IceInternal::Incoming& inS, const ::Ice::Current& curren
     ::std::string iceP_result;
     ::std::string iceP_istr;
     ::std::string iceP_ostr;
-    std::optional<::std::string> iceP_proxy;
+    ::std::optional<::std::string> iceP_proxy;
     istr->readAll(iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr);
     istr->readAll({1}, iceP_proxy);
     inS.endReadParams();
@@ -675,7 +675,7 @@ Clash::Intf::_iceD_opOut(::IceInternal::Incoming& inS, const ::Ice::Current& cur
     ::std::string iceP_result;
     ::std::string iceP_istr;
     ::std::string iceP_ostr;
-    std::optional<::std::string> iceP_proxy;
+    ::std::optional<::std::string> iceP_proxy;
     this->opOut(iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr, iceP_proxy, current);
     auto ostr = inS.startWriteParams();
     ostr->writeAll(iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr);
