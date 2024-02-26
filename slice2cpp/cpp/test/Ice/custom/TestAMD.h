@@ -162,7 +162,7 @@ using DictClassPtr = ::std::shared_ptr<DictClass>;
 
 using BoolBuffer = Test::CustomBuffer<bool>;
 
-using ShortBuffer = Test::CustomBuffer<Ice::Short>;
+using ShortBuffer = Test::CustomBuffer<std::int16_t>;
 
 using IntBuffer = Test::CustomBuffer<std::int32_t>;
 

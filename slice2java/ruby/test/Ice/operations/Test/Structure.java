@@ -170,5 +170,5 @@ public class Structure implements java.lang.Cloneable,
     private static final Structure _nullMarshalValue = new Structure();
 
     /** @hidden */
-    public static final long serialVersionUID = 8996388236230805333L;
+    public static final long serialVersionUID = -5227456742156089142L;
 }
