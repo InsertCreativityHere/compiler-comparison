@@ -168,5 +168,5 @@ public class Color implements java.lang.Cloneable,
     private static final Color _nullMarshalValue = new Color();
 
     /** @hidden */
-    public static final long serialVersionUID = -3579492923685995530L;
+    public static final long serialVersionUID = 6112807631688915062L;
 }

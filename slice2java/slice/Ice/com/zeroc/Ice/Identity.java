@@ -171,5 +171,5 @@ public class Identity implements java.lang.Cloneable,
     private static final Identity _nullMarshalValue = new Identity();
 
     /** @hidden */
-    public static final long serialVersionUID = 8213041886156298853L;
+    public static final long serialVersionUID = -1960684490647568411L;
 }

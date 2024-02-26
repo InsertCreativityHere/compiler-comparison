@@ -167,9 +167,9 @@ using IntBuffer = Test::CustomBuffer<std::int32_t>;
 
 using LongBuffer = Test::CustomBuffer<int64_t>;
 
-using FloatBuffer = Test::CustomBuffer<Ice::Float>;
+using FloatBuffer = Test::CustomBuffer<float>;
 
-using DoubleBuffer = Test::CustomBuffer<Ice::Double>;
+using DoubleBuffer = Test::CustomBuffer<double>;
 
 using ByteBuffer = Test::CustomBuffer<Ice::Byte>;
 struct BufferStruct;

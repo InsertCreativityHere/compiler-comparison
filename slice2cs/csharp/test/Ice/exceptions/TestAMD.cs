@@ -1277,11 +1277,11 @@ namespace Ice.exceptions.AMD
                         {
                             throw ex;
                         }
-                        catch(D)
+                        catch(A)
                         {
                             throw;
                         }
-                        catch(A)
+                        catch(D)
                         {
                             throw;
                         }
