@@ -1389,11 +1389,11 @@ namespace Test
                     {
                         throw ex;
                     }
-                    catch(A)
+                    catch(D)
                     {
                         throw;
                     }
-                    catch(D)
+                    catch(A)
                     {
                         throw;
                     }
