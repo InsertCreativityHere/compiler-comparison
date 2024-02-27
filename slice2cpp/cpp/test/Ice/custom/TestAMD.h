@@ -143,12 +143,6 @@ using DPrxListSeq = ::std::vector<DPrxList>;
 using DPrxSeqList = std::list< ::Test::DPrxSeq>;
 
 using DoubleSeq = ::std::vector<double>;
-struct ClassOtherStruct;
-
-using ClassOtherStructSeq = ::std::vector<ClassOtherStruct>;
-struct ClassStruct;
-
-using ClassStructSeq = ::std::vector<ClassStruct>;
 
 using IntStringDict = Test::CustomMap<std::int32_t, std::string>;
 
@@ -296,81 +290,6 @@ public:
 
     /// \cond INTERNAL
     void _iceI_opVariableArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<VariableList, VariableList>>>&, const ::std::pair<const Variable*, const Variable*>&, const ::Ice::Context&) const;
-    /// \endcond
-
-    BoolSeq opBoolRange(const BoolSeq& inSeq, BoolSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::future<::std::tuple<BoolSeq, BoolSeq>> opBoolRangeAsync(const BoolSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::function<void()>
-    opBoolRangeAsync(const BoolSeq& inSeq,
-                     ::std::function<void(::Test::BoolSeq, ::Test::BoolSeq)> response,
-                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                     ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opBoolRange(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<BoolSeq, BoolSeq>>>&, const BoolSeq&, const ::Ice::Context&) const;
-    /// \endcond
-
-    ByteList opByteRange(const ByteList& inSeq, ByteList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::future<::std::tuple<ByteList, ByteList>> opByteRangeAsync(const ByteList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::function<void()>
-    opByteRangeAsync(const ByteList& inSeq,
-                     ::std::function<void(::Test::ByteList, ::Test::ByteList)> response,
-                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                     ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opByteRange(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ByteList, ByteList>>>&, const ByteList&, const ::Ice::Context&) const;
-    /// \endcond
-
-    VariableList opVariableRange(const VariableList& inSeq, VariableList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::future<::std::tuple<VariableList, VariableList>> opVariableRangeAsync(const VariableList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::function<void()>
-    opVariableRangeAsync(const VariableList& inSeq,
-                         ::std::function<void(::Test::VariableList, ::Test::VariableList)> response,
-                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                         ::std::function<void(bool)> sent = nullptr,
-                         const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opVariableRange(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<VariableList, VariableList>>>&, const VariableList&, const ::Ice::Context&) const;
-    /// \endcond
-
-    ByteList opByteRangeType(const ByteList& inSeq, ByteList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::future<::std::tuple<ByteList, ByteList>> opByteRangeTypeAsync(const ByteList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::function<void()>
-    opByteRangeTypeAsync(const ByteList& inSeq,
-                         ::std::function<void(::Test::ByteList, ::Test::ByteList)> response,
-                         ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                         ::std::function<void(bool)> sent = nullptr,
-                         const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opByteRangeType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ByteList, ByteList>>>&, const ByteList&, const ::Ice::Context&) const;
-    /// \endcond
-
-    VariableList opVariableRangeType(const VariableList& inSeq, VariableList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::future<::std::tuple<VariableList, VariableList>> opVariableRangeTypeAsync(const VariableList& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::function<void()>
-    opVariableRangeTypeAsync(const VariableList& inSeq,
-                             ::std::function<void(::Test::VariableList, ::Test::VariableList)> response,
-                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                             ::std::function<void(bool)> sent = nullptr,
-                             const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opVariableRangeType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<VariableList, VariableList>>>&, const VariableList&, const ::Ice::Context&) const;
     /// \endcond
 
     std::deque<bool> opBoolSeq(const std::deque<bool>& inSeq, std::deque<bool>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -658,21 +577,6 @@ public:
     void _iceI_opCList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<CList, CList>>>&, const CList&, const ::Ice::Context&) const;
     /// \endcond
 
-    ClassStruct opClassStruct(const ClassStruct& inS, const ClassStructSeq& inSeq, ClassStruct& outS, ClassStructSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::future<::std::tuple<ClassStruct, ClassStruct, ClassStructSeq>> opClassStructAsync(const ClassStruct& inS, const ClassStructSeq& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::function<void()>
-    opClassStructAsync(const ClassStruct& inS, const ClassStructSeq& inSeq,
-                       ::std::function<void(::Test::ClassStruct, ::Test::ClassStruct, ::Test::ClassStructSeq)> response,
-                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                       ::std::function<void(bool)> sent = nullptr,
-                       const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opClassStruct(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ClassStruct, ClassStruct, ClassStructSeq>>>&, const ClassStruct&, const ClassStructSeq&, const ::Ice::Context&) const;
-    /// \endcond
-
     void opOutArrayByteSeq(const ByteSeq& org, ByteSeq& copy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::future<ByteSeq> opOutArrayByteSeqAsync(const ByteSeq& org, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -686,21 +590,6 @@ public:
 
     /// \cond INTERNAL
     void _iceI_opOutArrayByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ByteSeq>>&, const ByteSeq&, const ::Ice::Context&) const;
-    /// \endcond
-
-    void opOutRangeByteSeq(const ByteSeq& org, ByteSeq& copy, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::future<ByteSeq> opOutRangeByteSeqAsync(const ByteSeq& org, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::function<void()>
-    opOutRangeByteSeqAsync(const ByteSeq& org,
-                           ::std::function<void(::Test::ByteSeq)> response,
-                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                           ::std::function<void(bool)> sent = nullptr,
-                           const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opOutRangeByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ByteSeq>>&, const ByteSeq&, const ::Ice::Context&) const;
     /// \endcond
 
     IntStringDict opIntStringDict(const IntStringDict& idict, IntStringDict& odict, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -908,36 +797,6 @@ public:
 static C _iceS_C_init;
 /// \endcond
 
-struct ClassOtherStruct
-{
-    ::std::int32_t x;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::int32_t&> ice_tuple() const
-    {
-        return std::tie(x);
-    }
-};
-
-struct ClassStruct
-{
-    ::Test::ClassOtherStructSeq otherSeq;
-    ::Test::ClassOtherStruct other;
-    ::std::int32_t y;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::Test::ClassOtherStructSeq&, const ::Test::ClassOtherStruct&, const ::std::int32_t&> ice_tuple() const
-    {
-        return std::tie(otherSeq, other, y);
-    }
-};
-
 class DictClass : public ::Ice::ValueHelper<DictClass, ::Ice::Value>
 {
 public:
@@ -1084,31 +943,6 @@ public:
     bool _iceD_opVariableArray(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void opBoolRangeAsync(BoolSeq inSeq, ::std::function<void(const BoolSeq& returnValue, const BoolSeq& outSeq)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opBoolRange(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual void opByteRangeAsync(ByteList inSeq, ::std::function<void(const ByteList& returnValue, const ByteList& outSeq)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opByteRange(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual void opVariableRangeAsync(VariableList inSeq, ::std::function<void(const VariableList& returnValue, const VariableList& outSeq)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opVariableRange(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual void opByteRangeTypeAsync(ByteList inSeq, ::std::function<void(const ByteList& returnValue, const ByteList& outSeq)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opByteRangeType(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual void opVariableRangeTypeAsync(VariableList inSeq, ::std::function<void(const VariableList& returnValue, const VariableList& outSeq)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opVariableRangeType(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
     virtual void opBoolSeqAsync(std::deque<bool> inSeq, ::std::function<void(const std::deque<bool>& returnValue, const std::deque<bool>& outSeq)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opBoolSeq(::IceInternal::Incoming&, const ::Ice::Current&);
@@ -1204,19 +1038,9 @@ public:
     bool _iceD_opCList(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void opClassStructAsync(ClassStruct inS, ClassStructSeq inSeq, ::std::function<void(const ClassStruct& returnValue, const ClassStruct& outS, const ClassStructSeq& outSeq)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opClassStruct(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
     virtual void opOutArrayByteSeqAsync(ByteSeq org, ::std::function<void(const ::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>& copy)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opOutArrayByteSeq(::IceInternal::Incoming&, const ::Ice::Current&);
-    /// \endcond
-
-    virtual void opOutRangeByteSeqAsync(ByteSeq org, ::std::function<void(const ByteSeq& copy)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_opOutRangeByteSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
     virtual void opIntStringDictAsync(IntStringDict idict, ::std::function<void(const IntStringDict& returnValue, const IntStringDict& odict)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
@@ -1304,40 +1128,6 @@ struct StreamableTraits< ::Test::E>
     static const int maxValue = 2;
     static const int minWireSize = 1;
     static const bool fixedLength = false;
-};
-
-template<>
-struct StreamableTraits<::Test::ClassOtherStruct>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 4;
-    static const bool fixedLength = true;
-};
-
-template<typename S>
-struct StreamReader<::Test::ClassOtherStruct, S>
-{
-    static void read(S* istr, ::Test::ClassOtherStruct& v)
-    {
-        istr->readAll(v.x);
-    }
-};
-
-template<>
-struct StreamableTraits<::Test::ClassStruct>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 9;
-    static const bool fixedLength = false;
-};
-
-template<typename S>
-struct StreamReader<::Test::ClassStruct, S>
-{
-    static void read(S* istr, ::Test::ClassStruct& v)
-    {
-        istr->readAll(v.otherSeq, v.other, v.y);
-    }
 };
 
 template<typename S>

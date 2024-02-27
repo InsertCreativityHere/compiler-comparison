@@ -67,7 +67,7 @@
  Slice module `::Inner' should be map to Swift module `Test'
 /Users/austin/Code/zeroc/ice/php/test/Ice/operations/Test.ice:329: invalid module mapping:
  Slice module `::Test2' should be map to Swift module `Test'
-/Users/austin/Code/zeroc/ice/cpp/test/Ice/stream/Test.ice:132: invalid module mapping:
+/Users/austin/Code/zeroc/ice/cpp/test/Ice/stream/Test.ice:127: invalid module mapping:
  Slice module `::Test2' should be map to Swift module `Test'
 /Users/austin/Code/zeroc/ice/cpp/test/Ice/scope/Test.ice:147: invalid module mapping:
  Slice module `::Inner' should be map to Swift module `Test'

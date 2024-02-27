@@ -115,30 +115,6 @@ namespace Test
 
 namespace Test
 {
-    global $Test__t_ClassStruct;
-    class ClassStruct
-    {
-        public function __construct($i=0)
-        {
-            $this->i = $i;
-        }
-
-        public function __toString(): string
-        {
-            global $Test__t_ClassStruct;
-            return IcePHP_stringify($this, $Test__t_ClassStruct);
-        }
-
-        public $i;
-    }
-
-    global $IcePHP__t_int;
-    $Test__t_ClassStruct = IcePHP_defineStruct('::Test::ClassStruct', '\\Test\\ClassStruct', array(
-        array('i', $IcePHP__t_int)));
-}
-
-namespace Test
-{
     global $Test__t_OptionalClass;
     class OptionalClass extends \Ice\Value
     {
@@ -611,30 +587,6 @@ namespace Test\Sub
 
 namespace Test\Sub
 {
-    global $Test_Sub__t_NestedClassStruct;
-    class NestedClassStruct
-    {
-        public function __construct($i=0)
-        {
-            $this->i = $i;
-        }
-
-        public function __toString(): string
-        {
-            global $Test_Sub__t_NestedClassStruct;
-            return IcePHP_stringify($this, $Test_Sub__t_NestedClassStruct);
-        }
-
-        public $i;
-    }
-
-    global $IcePHP__t_int;
-    $Test_Sub__t_NestedClassStruct = IcePHP_defineStruct('::Test::Sub::NestedClassStruct', '\\Test\\Sub\\NestedClassStruct', array(
-        array('i', $IcePHP__t_int)));
-}
-
-namespace Test\Sub
-{
     global $Test_Sub__t_NestedException;
     class NestedException extends \Ice\UserException
     {
@@ -729,30 +681,6 @@ namespace Test2\Sub2
         array('d', $IcePHP__t_double),
         array('str', $IcePHP__t_string),
         array('e', $Test2_Sub2__t_NestedEnum2)));
-}
-
-namespace Test2\Sub2
-{
-    global $Test2_Sub2__t_NestedClassStruct2;
-    class NestedClassStruct2
-    {
-        public function __construct($i=0)
-        {
-            $this->i = $i;
-        }
-
-        public function __toString(): string
-        {
-            global $Test2_Sub2__t_NestedClassStruct2;
-            return IcePHP_stringify($this, $Test2_Sub2__t_NestedClassStruct2);
-        }
-
-        public $i;
-    }
-
-    global $IcePHP__t_int;
-    $Test2_Sub2__t_NestedClassStruct2 = IcePHP_defineStruct('::Test2::Sub2::NestedClassStruct2', '\\Test2\\Sub2\\NestedClassStruct2', array(
-        array('i', $IcePHP__t_int)));
 }
 
 namespace Test2\Sub2

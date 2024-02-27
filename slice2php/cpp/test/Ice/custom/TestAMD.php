@@ -661,84 +661,6 @@ namespace Test
 
 namespace Test
 {
-    global $Test__t_ClassOtherStruct;
-    class ClassOtherStruct
-    {
-        public function __construct($x=0)
-        {
-            $this->x = $x;
-        }
-
-        public function __toString(): string
-        {
-            global $Test__t_ClassOtherStruct;
-            return IcePHP_stringify($this, $Test__t_ClassOtherStruct);
-        }
-
-        public $x;
-    }
-
-    global $IcePHP__t_int;
-    $Test__t_ClassOtherStruct = IcePHP_defineStruct('::Test::ClassOtherStruct', '\\Test\\ClassOtherStruct', array(
-        array('x', $IcePHP__t_int)));
-}
-
-namespace Test
-{
-    global $Test__t_ClassOtherStructSeq;
-
-    if(!isset($Test__t_ClassOtherStructSeq))
-    {
-        global $Test__t_ClassOtherStruct;
-        $Test__t_ClassOtherStructSeq = IcePHP_defineSequence('::Test::ClassOtherStructSeq', $Test__t_ClassOtherStruct);
-    }
-}
-
-namespace Test
-{
-    global $Test__t_ClassStruct;
-    class ClassStruct
-    {
-        public function __construct($otherSeq=null, $other=null, $y=0)
-        {
-            $this->otherSeq = $otherSeq;
-            $this->other = is_null($other) ? new \Test\ClassOtherStruct : $other;
-            $this->y = $y;
-        }
-
-        public function __toString(): string
-        {
-            global $Test__t_ClassStruct;
-            return IcePHP_stringify($this, $Test__t_ClassStruct);
-        }
-
-        public $otherSeq;
-        public $other;
-        public $y;
-    }
-
-    global $Test__t_ClassOtherStructSeq;
-    global $Test__t_ClassOtherStruct;
-    global $IcePHP__t_int;
-    $Test__t_ClassStruct = IcePHP_defineStruct('::Test::ClassStruct', '\\Test\\ClassStruct', array(
-        array('otherSeq', $Test__t_ClassOtherStructSeq),
-        array('other', $Test__t_ClassOtherStruct),
-        array('y', $IcePHP__t_int)));
-}
-
-namespace Test
-{
-    global $Test__t_ClassStructSeq;
-
-    if(!isset($Test__t_ClassStructSeq))
-    {
-        global $Test__t_ClassStruct;
-        $Test__t_ClassStructSeq = IcePHP_defineSequence('::Test::ClassStructSeq', $Test__t_ClassStruct);
-    }
-}
-
-namespace Test
-{
     global $Test__t_IntStringDict;
 
     if(!isset($Test__t_IntStringDict))
@@ -978,8 +900,6 @@ namespace Test
     global $Test__t_DPrxList;
     global $Test__t_CSeq;
     global $Test__t_CList;
-    global $Test__t_ClassStruct;
-    global $Test__t_ClassStructSeq;
     global $Test__t_IntStringDict;
     global $Test__t_StringIntDict;
     global $Test__t_LongLongDict;
@@ -989,11 +909,6 @@ namespace Test
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opBoolArray', 0, 0, 0, array(array($Test__t_BoolSeq)), array(array($Test__t_BoolSeq)), array($Test__t_BoolSeq), null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opByteArray', 0, 0, 0, array(array($Test__t_ByteList)), array(array($Test__t_ByteList)), array($Test__t_ByteList), null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opVariableArray', 0, 0, 0, array(array($Test__t_VariableList)), array(array($Test__t_VariableList)), array($Test__t_VariableList), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opBoolRange', 0, 0, 0, array(array($Test__t_BoolSeq)), array(array($Test__t_BoolSeq)), array($Test__t_BoolSeq), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opByteRange', 0, 0, 0, array(array($Test__t_ByteList)), array(array($Test__t_ByteList)), array($Test__t_ByteList), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opVariableRange', 0, 0, 0, array(array($Test__t_VariableList)), array(array($Test__t_VariableList)), array($Test__t_VariableList), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opByteRangeType', 0, 0, 0, array(array($Test__t_ByteList)), array(array($Test__t_ByteList)), array($Test__t_ByteList), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opVariableRangeType', 0, 0, 0, array(array($Test__t_VariableList)), array(array($Test__t_VariableList)), array($Test__t_VariableList), null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opBoolSeq', 0, 0, 0, array(array($Test__t_BoolSeq)), array(array($Test__t_BoolSeq)), array($Test__t_BoolSeq), null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opBoolList', 0, 0, 0, array(array($Test__t_BoolList)), array(array($Test__t_BoolList)), array($Test__t_BoolList), null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opByteSeq', 0, 0, 0, array(array($Test__t_ByteSeq)), array(array($Test__t_ByteSeq)), array($Test__t_ByteSeq), null);
@@ -1013,9 +928,7 @@ namespace Test
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opDPrxList', 0, 0, 0, array(array($Test__t_DPrxList)), array(array($Test__t_DPrxList)), array($Test__t_DPrxList), null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opCSeq', 0, 0, 0, array(array($Test__t_CSeq)), array(array($Test__t_CSeq)), array($Test__t_CSeq), null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opCList', 0, 0, 0, array(array($Test__t_CList)), array(array($Test__t_CList)), array($Test__t_CList), null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opClassStruct', 0, 0, 0, array(array($Test__t_ClassStruct), array($Test__t_ClassStructSeq)), array(array($Test__t_ClassStruct), array($Test__t_ClassStructSeq)), array($Test__t_ClassStruct), null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opOutArrayByteSeq', 0, 0, 0, array(array($Test__t_ByteSeq)), array(array($Test__t_ByteSeq)), null, null);
-    IcePHP_defineOperation($Test__t_TestIntfPrx, 'opOutRangeByteSeq', 0, 0, 0, array(array($Test__t_ByteSeq)), array(array($Test__t_ByteSeq)), null, null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opIntStringDict', 0, 0, 0, array(array($Test__t_IntStringDict)), array(array($Test__t_IntStringDict)), array($Test__t_IntStringDict), null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opVarDict', 0, 0, 0, array(array($Test__t_StringIntDict)), array(array($Test__t_StringIntDict)), array($Test__t_LongLongDict), null);
     IcePHP_defineOperation($Test__t_TestIntfPrx, 'opShortBuffer', 0, 0, 0, array(array($Test__t_ShortBuffer)), array(array($Test__t_ShortBuffer)), array($Test__t_ShortBuffer), null);

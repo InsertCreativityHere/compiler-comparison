@@ -44,7 +44,6 @@ class MyClass;
 
 using MyClassPtr = ::std::shared_ptr<MyClass>;
 struct SmallStruct;
-struct ClassStruct;
 class OptionalClass;
 
 using OptionalClassPtr = ::std::shared_ptr<OptionalClass>;
@@ -98,7 +97,6 @@ enum class NestedEnum : unsigned char
     nestedEnum3
 };
 struct NestedStruct;
-struct NestedClassStruct;
 
 }
 
@@ -119,7 +117,6 @@ enum class NestedEnum2 : unsigned char
     nestedEnum6
 };
 struct NestedStruct2;
-struct NestedClassStruct2;
 
 }
 
@@ -205,20 +202,6 @@ struct SmallStruct
     std::tuple<const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::Test::MyEnum&, const ::std::optional<::Test::MyInterfacePrx>&> ice_tuple() const
     {
         return std::tie(bo, by, sh, i, l, f, d, str, e, p);
-    }
-};
-
-struct ClassStruct
-{
-    ::std::int32_t i;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::int32_t&> ice_tuple() const
-    {
-        return std::tie(i);
     }
 };
 
@@ -401,20 +384,6 @@ struct NestedStruct
     }
 };
 
-struct NestedClassStruct
-{
-    ::std::int32_t i;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::int32_t&> ice_tuple() const
-    {
-        return std::tie(i);
-    }
-};
-
 class NestedException : public ::Ice::UserExceptionHelper<NestedException, ::Ice::UserException>
 {
 public:
@@ -494,20 +463,6 @@ struct NestedStruct2
     std::tuple<const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::Test2::Sub2::NestedEnum2&> ice_tuple() const
     {
         return std::tie(bo, by, sh, i, l, f, d, str, e);
-    }
-};
-
-struct NestedClassStruct2
-{
-    ::std::int32_t i;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::int32_t&> ice_tuple() const
-    {
-        return std::tie(i);
     }
 };
 
@@ -630,23 +585,6 @@ struct StreamReader<::Test::SmallStruct, S>
     }
 };
 
-template<>
-struct StreamableTraits<::Test::ClassStruct>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 4;
-    static const bool fixedLength = true;
-};
-
-template<typename S>
-struct StreamReader<::Test::ClassStruct, S>
-{
-    static void read(S* istr, ::Test::ClassStruct& v)
-    {
-        istr->readAll(v.i);
-    }
-};
-
 template<typename S>
 struct StreamWriter<::Test::OptionalClass, S>
 {
@@ -712,23 +650,6 @@ struct StreamReader<::Test::Sub::NestedStruct, S>
     }
 };
 
-template<>
-struct StreamableTraits<::Test::Sub::NestedClassStruct>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 4;
-    static const bool fixedLength = true;
-};
-
-template<typename S>
-struct StreamReader<::Test::Sub::NestedClassStruct, S>
-{
-    static void read(S* istr, ::Test::Sub::NestedClassStruct& v)
-    {
-        istr->readAll(v.i);
-    }
-};
-
 template<typename S>
 struct StreamReader<::Test::Sub::NestedException, S>
 {
@@ -769,23 +690,6 @@ struct StreamReader<::Test2::Sub2::NestedStruct2, S>
     static void read(S* istr, ::Test2::Sub2::NestedStruct2& v)
     {
         istr->readAll(v.bo, v.by, v.sh, v.i, v.l, v.f, v.d, v.str, v.e);
-    }
-};
-
-template<>
-struct StreamableTraits<::Test2::Sub2::NestedClassStruct2>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 4;
-    static const bool fixedLength = true;
-};
-
-template<typename S>
-struct StreamReader<::Test2::Sub2::NestedClassStruct2, S>
-{
-    static void read(S* istr, ::Test2::Sub2::NestedClassStruct2& v)
-    {
-        istr->readAll(v.i);
     }
 };
 

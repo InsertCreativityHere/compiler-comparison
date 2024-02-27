@@ -141,31 +141,6 @@
 
     Slice.defineStruct(Test.VarStruct, true, true);
 
-    Test.ClassVarStruct = class
-    {
-        constructor(a = 0)
-        {
-            this.a = a;
-        }
-
-        _write(ostr)
-        {
-            ostr.writeInt(this.a);
-        }
-
-        _read(istr)
-        {
-            this.a = istr.readInt();
-        }
-
-        static get minWireSize()
-        {
-            return  4;
-        }
-    };
-
-    Slice.defineStruct(Test.ClassVarStruct, true, false);
-
     Slice.defineSequence(Test, "ByteSeqHelper", "Ice.ByteHelper", true);
 
     Slice.defineSequence(Test, "BoolSeqHelper", "Ice.BoolHelper", true);
@@ -556,26 +531,23 @@
 
     Test.OptionalWithCustom = class extends Ice.Value
     {
-        constructor(l = undefined, lp = undefined, s = undefined)
+        constructor(l = undefined, lp = undefined)
         {
             super();
             this.l = l;
             this.lp = lp;
-            this.s = s;
         }
 
         _iceWriteMemberImpl(ostr)
         {
             Test.SmallStructListHelper.writeOptional(ostr, 1, this.l);
             Test.SmallStructListHelper.writeOptional(ostr, 2, this.lp);
-            Test.ClassVarStruct.writeOptional(ostr, 3, this.s);
         }
 
         _iceReadMemberImpl(istr)
         {
             this.l = Test.SmallStructListHelper.readOptional(istr, 1);
             this.lp = Test.SmallStructListHelper.readOptional(istr, 2);
-            this.s = Test.ClassVarStruct.readOptional(istr, 3);
         }
     };
 

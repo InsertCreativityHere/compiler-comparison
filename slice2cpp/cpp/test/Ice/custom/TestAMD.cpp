@@ -274,256 +274,6 @@ Test::TestIntfPrx::_iceI_opVariableArray(const ::std::shared_ptr<::IceInternal::
 }
 /// \endcond
 
-::Test::BoolSeq
-Test::TestIntfPrx::opBoolRange(const BoolSeq& iceP_inSeq, BoolSeq& iceP_outSeq, const ::Ice::Context& context) const
-{
-    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<BoolSeq, BoolSeq>>(true, this, &TestIntfPrx::_iceI_opBoolRange, iceP_inSeq, context).get();
-    iceP_outSeq = ::std::move(::std::get<1>(_result));
-    return ::std::move(::std::get<0>(_result));
-}
-
-::std::future<::std::tuple<::Test::BoolSeq, ::Test::BoolSeq>>
-Test::TestIntfPrx::opBoolRangeAsync(const BoolSeq& iceP_inSeq, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<::std::tuple<BoolSeq, BoolSeq>>(false, this, &TestIntfPrx::_iceI_opBoolRange, iceP_inSeq, context);
-}
-
-::std::function<void()>
-Test::TestIntfPrx::opBoolRangeAsync(const BoolSeq& iceP_inSeq,
-                                    ::std::function<void (::Test::BoolSeq, ::Test::BoolSeq)> response,
-                                    ::std::function<void(::std::exception_ptr)> ex,
-                                    ::std::function<void(bool)> sent,
-                                    const ::Ice::Context& context) const
-{
-    auto _responseCb = [response](::std::tuple<BoolSeq, BoolSeq>&& _result)
-    {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
-    };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<BoolSeq, BoolSeq>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opBoolRange, iceP_inSeq, context);
-}
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_opBoolRange(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<BoolSeq, BoolSeq>>>& outAsync, const BoolSeq& iceP_inSeq, const ::Ice::Context& context) const
-{
-    static const ::std::string operationName = "opBoolRange";
-
-    _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_inSeq);
-        },
-        nullptr,
-        [](::Ice::InputStream* istr)
-        {
-            ::std::tuple<BoolSeq, BoolSeq> v;
-            istr->readAll(::std::get<1>(v), ::std::get<0>(v));
-            return v;
-        });
-}
-/// \endcond
-
-::Test::ByteList
-Test::TestIntfPrx::opByteRange(const ByteList& iceP_inSeq, ByteList& iceP_outSeq, const ::Ice::Context& context) const
-{
-    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<ByteList, ByteList>>(true, this, &TestIntfPrx::_iceI_opByteRange, iceP_inSeq, context).get();
-    iceP_outSeq = ::std::move(::std::get<1>(_result));
-    return ::std::move(::std::get<0>(_result));
-}
-
-::std::future<::std::tuple<::Test::ByteList, ::Test::ByteList>>
-Test::TestIntfPrx::opByteRangeAsync(const ByteList& iceP_inSeq, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<::std::tuple<ByteList, ByteList>>(false, this, &TestIntfPrx::_iceI_opByteRange, iceP_inSeq, context);
-}
-
-::std::function<void()>
-Test::TestIntfPrx::opByteRangeAsync(const ByteList& iceP_inSeq,
-                                    ::std::function<void (::Test::ByteList, ::Test::ByteList)> response,
-                                    ::std::function<void(::std::exception_ptr)> ex,
-                                    ::std::function<void(bool)> sent,
-                                    const ::Ice::Context& context) const
-{
-    auto _responseCb = [response](::std::tuple<ByteList, ByteList>&& _result)
-    {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
-    };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ByteList, ByteList>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opByteRange, iceP_inSeq, context);
-}
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_opByteRange(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ByteList, ByteList>>>& outAsync, const ByteList& iceP_inSeq, const ::Ice::Context& context) const
-{
-    static const ::std::string operationName = "opByteRange";
-
-    _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_inSeq);
-        },
-        nullptr,
-        [](::Ice::InputStream* istr)
-        {
-            ::std::tuple<ByteList, ByteList> v;
-            istr->readAll(::std::get<1>(v), ::std::get<0>(v));
-            return v;
-        });
-}
-/// \endcond
-
-::Test::VariableList
-Test::TestIntfPrx::opVariableRange(const VariableList& iceP_inSeq, VariableList& iceP_outSeq, const ::Ice::Context& context) const
-{
-    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<VariableList, VariableList>>(true, this, &TestIntfPrx::_iceI_opVariableRange, iceP_inSeq, context).get();
-    iceP_outSeq = ::std::move(::std::get<1>(_result));
-    return ::std::move(::std::get<0>(_result));
-}
-
-::std::future<::std::tuple<::Test::VariableList, ::Test::VariableList>>
-Test::TestIntfPrx::opVariableRangeAsync(const VariableList& iceP_inSeq, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<::std::tuple<VariableList, VariableList>>(false, this, &TestIntfPrx::_iceI_opVariableRange, iceP_inSeq, context);
-}
-
-::std::function<void()>
-Test::TestIntfPrx::opVariableRangeAsync(const VariableList& iceP_inSeq,
-                                        ::std::function<void (::Test::VariableList, ::Test::VariableList)> response,
-                                        ::std::function<void(::std::exception_ptr)> ex,
-                                        ::std::function<void(bool)> sent,
-                                        const ::Ice::Context& context) const
-{
-    auto _responseCb = [response](::std::tuple<VariableList, VariableList>&& _result)
-    {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
-    };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<VariableList, VariableList>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opVariableRange, iceP_inSeq, context);
-}
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_opVariableRange(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<VariableList, VariableList>>>& outAsync, const VariableList& iceP_inSeq, const ::Ice::Context& context) const
-{
-    static const ::std::string operationName = "opVariableRange";
-
-    _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_inSeq);
-        },
-        nullptr,
-        [](::Ice::InputStream* istr)
-        {
-            ::std::tuple<VariableList, VariableList> v;
-            istr->readAll(::std::get<1>(v), ::std::get<0>(v));
-            return v;
-        });
-}
-/// \endcond
-
-::Test::ByteList
-Test::TestIntfPrx::opByteRangeType(const ByteList& iceP_inSeq, ByteList& iceP_outSeq, const ::Ice::Context& context) const
-{
-    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<ByteList, ByteList>>(true, this, &TestIntfPrx::_iceI_opByteRangeType, iceP_inSeq, context).get();
-    iceP_outSeq = ::std::move(::std::get<1>(_result));
-    return ::std::move(::std::get<0>(_result));
-}
-
-::std::future<::std::tuple<::Test::ByteList, ::Test::ByteList>>
-Test::TestIntfPrx::opByteRangeTypeAsync(const ByteList& iceP_inSeq, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<::std::tuple<ByteList, ByteList>>(false, this, &TestIntfPrx::_iceI_opByteRangeType, iceP_inSeq, context);
-}
-
-::std::function<void()>
-Test::TestIntfPrx::opByteRangeTypeAsync(const ByteList& iceP_inSeq,
-                                        ::std::function<void (::Test::ByteList, ::Test::ByteList)> response,
-                                        ::std::function<void(::std::exception_ptr)> ex,
-                                        ::std::function<void(bool)> sent,
-                                        const ::Ice::Context& context) const
-{
-    auto _responseCb = [response](::std::tuple<ByteList, ByteList>&& _result)
-    {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
-    };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ByteList, ByteList>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opByteRangeType, iceP_inSeq, context);
-}
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_opByteRangeType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ByteList, ByteList>>>& outAsync, const ByteList& iceP_inSeq, const ::Ice::Context& context) const
-{
-    static const ::std::string operationName = "opByteRangeType";
-
-    _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_inSeq);
-        },
-        nullptr,
-        [](::Ice::InputStream* istr)
-        {
-            ::std::tuple<ByteList, ByteList> v;
-            istr->readAll(::std::get<1>(v), ::std::get<0>(v));
-            return v;
-        });
-}
-/// \endcond
-
-::Test::VariableList
-Test::TestIntfPrx::opVariableRangeType(const VariableList& iceP_inSeq, VariableList& iceP_outSeq, const ::Ice::Context& context) const
-{
-    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<VariableList, VariableList>>(true, this, &TestIntfPrx::_iceI_opVariableRangeType, iceP_inSeq, context).get();
-    iceP_outSeq = ::std::move(::std::get<1>(_result));
-    return ::std::move(::std::get<0>(_result));
-}
-
-::std::future<::std::tuple<::Test::VariableList, ::Test::VariableList>>
-Test::TestIntfPrx::opVariableRangeTypeAsync(const VariableList& iceP_inSeq, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<::std::tuple<VariableList, VariableList>>(false, this, &TestIntfPrx::_iceI_opVariableRangeType, iceP_inSeq, context);
-}
-
-::std::function<void()>
-Test::TestIntfPrx::opVariableRangeTypeAsync(const VariableList& iceP_inSeq,
-                                            ::std::function<void (::Test::VariableList, ::Test::VariableList)> response,
-                                            ::std::function<void(::std::exception_ptr)> ex,
-                                            ::std::function<void(bool)> sent,
-                                            const ::Ice::Context& context) const
-{
-    auto _responseCb = [response](::std::tuple<VariableList, VariableList>&& _result)
-    {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
-    };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<VariableList, VariableList>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opVariableRangeType, iceP_inSeq, context);
-}
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_opVariableRangeType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<VariableList, VariableList>>>& outAsync, const VariableList& iceP_inSeq, const ::Ice::Context& context) const
-{
-    static const ::std::string operationName = "opVariableRangeType";
-
-    _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_inSeq);
-        },
-        nullptr,
-        [](::Ice::InputStream* istr)
-        {
-            ::std::tuple<VariableList, VariableList> v;
-            istr->readAll(::std::get<1>(v), ::std::get<0>(v));
-            return v;
-        });
-}
-/// \endcond
-
 std::deque<bool>
 Test::TestIntfPrx::opBoolSeq(const std::deque<bool>& iceP_inSeq, std::deque<bool>& iceP_outSeq, const ::Ice::Context& context) const
 {
@@ -1478,57 +1228,6 @@ Test::TestIntfPrx::_iceI_opCList(const ::std::shared_ptr<::IceInternal::Outgoing
 }
 /// \endcond
 
-::Test::ClassStruct
-Test::TestIntfPrx::opClassStruct(const ClassStruct& iceP_inS, const ClassStructSeq& iceP_inSeq, ClassStruct& iceP_outS, ClassStructSeq& iceP_outSeq, const ::Ice::Context& context) const
-{
-    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<ClassStruct, ClassStruct, ClassStructSeq>>(true, this, &TestIntfPrx::_iceI_opClassStruct, iceP_inS, iceP_inSeq, context).get();
-    iceP_outS = ::std::move(::std::get<1>(_result));
-    iceP_outSeq = ::std::move(::std::get<2>(_result));
-    return ::std::move(::std::get<0>(_result));
-}
-
-::std::future<::std::tuple<::Test::ClassStruct, ::Test::ClassStruct, ::Test::ClassStructSeq>>
-Test::TestIntfPrx::opClassStructAsync(const ClassStruct& iceP_inS, const ClassStructSeq& iceP_inSeq, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<::std::tuple<ClassStruct, ClassStruct, ClassStructSeq>>(false, this, &TestIntfPrx::_iceI_opClassStruct, iceP_inS, iceP_inSeq, context);
-}
-
-::std::function<void()>
-Test::TestIntfPrx::opClassStructAsync(const ClassStruct& iceP_inS, const ClassStructSeq& iceP_inSeq,
-                                      ::std::function<void (::Test::ClassStruct, ::Test::ClassStruct, ::Test::ClassStructSeq)> response,
-                                      ::std::function<void(::std::exception_ptr)> ex,
-                                      ::std::function<void(bool)> sent,
-                                      const ::Ice::Context& context) const
-{
-    auto _responseCb = [response](::std::tuple<ClassStruct, ClassStruct, ClassStructSeq>&& _result)
-    {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)), ::std::move(::std::get<2>(_result)));
-    };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ClassStruct, ClassStruct, ClassStructSeq>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opClassStruct, iceP_inS, iceP_inSeq, context);
-}
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_opClassStruct(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ClassStruct, ClassStruct, ClassStructSeq>>>& outAsync, const ClassStruct& iceP_inS, const ClassStructSeq& iceP_inSeq, const ::Ice::Context& context) const
-{
-    static const ::std::string operationName = "opClassStruct";
-
-    _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_inS, iceP_inSeq);
-        },
-        nullptr,
-        [](::Ice::InputStream* istr)
-        {
-            ::std::tuple<ClassStruct, ClassStruct, ClassStructSeq> v;
-            istr->readAll(::std::get<1>(v), ::std::get<2>(v), ::std::get<0>(v));
-            return v;
-        });
-}
-/// \endcond
-
 void
 Test::TestIntfPrx::opOutArrayByteSeq(const ByteSeq& iceP_org, ByteSeq& iceP_copy, const ::Ice::Context& context) const
 {
@@ -1586,44 +1285,6 @@ void
 Test::TestIntfPrx::_iceI_opOutArrayByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ByteSeq>>& outAsync, const ByteSeq& iceP_org, const ::Ice::Context& context) const
 {
     static const ::std::string operationName = "opOutArrayByteSeq";
-
-    _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_org);
-        },
-        nullptr);
-}
-/// \endcond
-
-void
-Test::TestIntfPrx::opOutRangeByteSeq(const ByteSeq& iceP_org, ByteSeq& iceP_copy, const ::Ice::Context& context) const
-{
-    iceP_copy = ::IceInternal::makePromiseOutgoing<ByteSeq>(true, this, &TestIntfPrx::_iceI_opOutRangeByteSeq, iceP_org, context).get();
-}
-
-::std::future<::Test::ByteSeq>
-Test::TestIntfPrx::opOutRangeByteSeqAsync(const ByteSeq& iceP_org, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<ByteSeq>(false, this, &TestIntfPrx::_iceI_opOutRangeByteSeq, iceP_org, context);
-}
-
-::std::function<void()>
-Test::TestIntfPrx::opOutRangeByteSeqAsync(const ByteSeq& iceP_org,
-                                          ::std::function<void (::Test::ByteSeq)> response,
-                                          ::std::function<void(::std::exception_ptr)> ex,
-                                          ::std::function<void(bool)> sent,
-                                          const ::Ice::Context& context) const
-{
-    return ::IceInternal::makeLambdaOutgoing<ByteSeq>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOutRangeByteSeq, iceP_org, context);
-}
-
-/// \cond INTERNAL
-void
-Test::TestIntfPrx::_iceI_opOutRangeByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ByteSeq>>& outAsync, const ByteSeq& iceP_org, const ::Ice::Context& context) const
-{
-    static const ::std::string operationName = "opOutRangeByteSeq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -2065,116 +1726,6 @@ Test::TestIntf::_iceD_opVariableArray(::IceInternal::Incoming& inS, const ::Ice:
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_opBoolRange(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
-    BoolSeq iceP_inSeq;
-    istr->readAll(iceP_inSeq);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const BoolSeq& ret, const BoolSeq& iceP_outSeq)
-    {
-        auto ostr = inA->startWriteParams();
-        ostr->writeAll(iceP_outSeq, ret);
-        inA->endWriteParams();
-        inA->completed();
-    };
-    this->opBoolRangeAsync(::std::move(iceP_inSeq), responseCB, inA->exception(), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opByteRange(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
-    ByteList iceP_inSeq;
-    istr->readAll(iceP_inSeq);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ByteList& ret, const ByteList& iceP_outSeq)
-    {
-        auto ostr = inA->startWriteParams();
-        ostr->writeAll(iceP_outSeq, ret);
-        inA->endWriteParams();
-        inA->completed();
-    };
-    this->opByteRangeAsync(::std::move(iceP_inSeq), responseCB, inA->exception(), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opVariableRange(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
-    VariableList iceP_inSeq;
-    istr->readAll(iceP_inSeq);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const VariableList& ret, const VariableList& iceP_outSeq)
-    {
-        auto ostr = inA->startWriteParams();
-        ostr->writeAll(iceP_outSeq, ret);
-        inA->endWriteParams();
-        inA->completed();
-    };
-    this->opVariableRangeAsync(::std::move(iceP_inSeq), responseCB, inA->exception(), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opByteRangeType(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
-    ByteList iceP_inSeq;
-    istr->readAll(iceP_inSeq);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ByteList& ret, const ByteList& iceP_outSeq)
-    {
-        auto ostr = inA->startWriteParams();
-        ostr->writeAll(iceP_outSeq, ret);
-        inA->endWriteParams();
-        inA->completed();
-    };
-    this->opByteRangeTypeAsync(::std::move(iceP_inSeq), responseCB, inA->exception(), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opVariableRangeType(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
-    VariableList iceP_inSeq;
-    istr->readAll(iceP_inSeq);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const VariableList& ret, const VariableList& iceP_outSeq)
-    {
-        auto ostr = inA->startWriteParams();
-        ostr->writeAll(iceP_outSeq, ret);
-        inA->endWriteParams();
-        inA->completed();
-    };
-    this->opVariableRangeTypeAsync(::std::move(iceP_inSeq), responseCB, inA->exception(), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
 Test::TestIntf::_iceD_opBoolSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
@@ -2597,29 +2148,6 @@ Test::TestIntf::_iceD_opCList(::IceInternal::Incoming& inS, const ::Ice::Current
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_opClassStruct(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
-    ClassStruct iceP_inS;
-    ClassStructSeq iceP_inSeq;
-    istr->readAll(iceP_inS, iceP_inSeq);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ClassStruct& ret, const ClassStruct& iceP_outS, const ClassStructSeq& iceP_outSeq)
-    {
-        auto ostr = inA->startWriteParams();
-        ostr->writeAll(iceP_outS, iceP_outSeq, ret);
-        inA->endWriteParams();
-        inA->completed();
-    };
-    this->opClassStructAsync(::std::move(iceP_inS), ::std::move(iceP_inSeq), responseCB, inA->exception(), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
 Test::TestIntf::_iceD_opOutArrayByteSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
@@ -2636,28 +2164,6 @@ Test::TestIntf::_iceD_opOutArrayByteSeq(::IceInternal::Incoming& inS, const ::Ic
         inA->completed();
     };
     this->opOutArrayByteSeqAsync(::std::move(iceP_org), responseCB, inA->exception(), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opOutRangeByteSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
-    ByteSeq iceP_org;
-    istr->readAll(iceP_org);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ByteSeq& iceP_copy)
-    {
-        auto ostr = inA->startWriteParams();
-        ostr->writeAll(iceP_copy);
-        inA->endWriteParams();
-        inA->completed();
-    };
-    this->opOutRangeByteSeqAsync(::std::move(iceP_org), responseCB, inA->exception(), current);
     return false;
 }
 /// \endcond
@@ -2788,9 +2294,9 @@ Test::TestIntf::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Curren
 bool
 Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
 {
-    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "opBoolArray", "opBoolBuffer", "opBoolList", "opBoolRange", "opBoolSeq", "opBufferStruct", "opByteArray", "opByteList", "opByteRange", "opByteRangeType", "opByteSeq", "opCList", "opCSeq", "opClassStruct", "opDPrxList", "opDPrxSeq", "opDoubleArray", "opEList", "opESeq", "opFixedList", "opFixedSeq", "opIntStringDict", "opMyByteSeq", "opOutArrayByteSeq", "opOutRangeByteSeq", "opShortBuffer", "opStringList", "opStringSeq", "opStringStringDictList", "opStringStringDictSeq", "opVarDict", "opVariableArray", "opVariableList", "opVariableRange", "opVariableRangeType", "opVariableSeq", "shutdown" };
+    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "opBoolArray", "opBoolBuffer", "opBoolList", "opBoolSeq", "opBufferStruct", "opByteArray", "opByteList", "opByteSeq", "opCList", "opCSeq", "opDPrxList", "opDPrxSeq", "opDoubleArray", "opEList", "opESeq", "opFixedList", "opFixedSeq", "opIntStringDict", "opMyByteSeq", "opOutArrayByteSeq", "opShortBuffer", "opStringList", "opStringSeq", "opStringStringDictList", "opStringStringDictSeq", "opVarDict", "opVariableArray", "opVariableList", "opVariableSeq", "shutdown" };
 
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 41, current.operation);
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 34, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
@@ -2828,137 +2334,109 @@ Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
         }
         case 7:
         {
-            return _iceD_opBoolRange(in, current);
+            return _iceD_opBoolSeq(in, current);
         }
         case 8:
         {
-            return _iceD_opBoolSeq(in, current);
+            return _iceD_opBufferStruct(in, current);
         }
         case 9:
         {
-            return _iceD_opBufferStruct(in, current);
+            return _iceD_opByteArray(in, current);
         }
         case 10:
         {
-            return _iceD_opByteArray(in, current);
+            return _iceD_opByteList(in, current);
         }
         case 11:
         {
-            return _iceD_opByteList(in, current);
+            return _iceD_opByteSeq(in, current);
         }
         case 12:
         {
-            return _iceD_opByteRange(in, current);
+            return _iceD_opCList(in, current);
         }
         case 13:
         {
-            return _iceD_opByteRangeType(in, current);
+            return _iceD_opCSeq(in, current);
         }
         case 14:
         {
-            return _iceD_opByteSeq(in, current);
+            return _iceD_opDPrxList(in, current);
         }
         case 15:
         {
-            return _iceD_opCList(in, current);
+            return _iceD_opDPrxSeq(in, current);
         }
         case 16:
         {
-            return _iceD_opCSeq(in, current);
+            return _iceD_opDoubleArray(in, current);
         }
         case 17:
         {
-            return _iceD_opClassStruct(in, current);
+            return _iceD_opEList(in, current);
         }
         case 18:
         {
-            return _iceD_opDPrxList(in, current);
+            return _iceD_opESeq(in, current);
         }
         case 19:
         {
-            return _iceD_opDPrxSeq(in, current);
+            return _iceD_opFixedList(in, current);
         }
         case 20:
         {
-            return _iceD_opDoubleArray(in, current);
+            return _iceD_opFixedSeq(in, current);
         }
         case 21:
         {
-            return _iceD_opEList(in, current);
+            return _iceD_opIntStringDict(in, current);
         }
         case 22:
         {
-            return _iceD_opESeq(in, current);
+            return _iceD_opMyByteSeq(in, current);
         }
         case 23:
         {
-            return _iceD_opFixedList(in, current);
+            return _iceD_opOutArrayByteSeq(in, current);
         }
         case 24:
         {
-            return _iceD_opFixedSeq(in, current);
+            return _iceD_opShortBuffer(in, current);
         }
         case 25:
         {
-            return _iceD_opIntStringDict(in, current);
+            return _iceD_opStringList(in, current);
         }
         case 26:
         {
-            return _iceD_opMyByteSeq(in, current);
+            return _iceD_opStringSeq(in, current);
         }
         case 27:
         {
-            return _iceD_opOutArrayByteSeq(in, current);
+            return _iceD_opStringStringDictList(in, current);
         }
         case 28:
         {
-            return _iceD_opOutRangeByteSeq(in, current);
+            return _iceD_opStringStringDictSeq(in, current);
         }
         case 29:
         {
-            return _iceD_opShortBuffer(in, current);
+            return _iceD_opVarDict(in, current);
         }
         case 30:
         {
-            return _iceD_opStringList(in, current);
+            return _iceD_opVariableArray(in, current);
         }
         case 31:
         {
-            return _iceD_opStringSeq(in, current);
+            return _iceD_opVariableList(in, current);
         }
         case 32:
         {
-            return _iceD_opStringStringDictList(in, current);
-        }
-        case 33:
-        {
-            return _iceD_opStringStringDictSeq(in, current);
-        }
-        case 34:
-        {
-            return _iceD_opVarDict(in, current);
-        }
-        case 35:
-        {
-            return _iceD_opVariableArray(in, current);
-        }
-        case 36:
-        {
-            return _iceD_opVariableList(in, current);
-        }
-        case 37:
-        {
-            return _iceD_opVariableRange(in, current);
-        }
-        case 38:
-        {
-            return _iceD_opVariableRangeType(in, current);
-        }
-        case 39:
-        {
             return _iceD_opVariableSeq(in, current);
         }
-        case 40:
+        case 33:
         {
             return _iceD_shutdown(in, current);
         }

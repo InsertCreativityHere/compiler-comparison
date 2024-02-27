@@ -200,66 +200,6 @@
 
     Slice.defineSequence(Test, "DoubleSeqHelper", "Ice.DoubleHelper", true);
 
-    Test.ClassOtherStruct = class
-    {
-        constructor(x = 0)
-        {
-            this.x = x;
-        }
-
-        _write(ostr)
-        {
-            ostr.writeInt(this.x);
-        }
-
-        _read(istr)
-        {
-            this.x = istr.readInt();
-        }
-
-        static get minWireSize()
-        {
-            return  4;
-        }
-    };
-
-    Slice.defineStruct(Test.ClassOtherStruct, true, false);
-
-    Slice.defineSequence(Test, "ClassOtherStructSeqHelper", "Test.ClassOtherStruct", true);
-
-    Test.ClassStruct = class
-    {
-        constructor(otherSeq = null, other = new Test.ClassOtherStruct(), y = 0)
-        {
-            this.otherSeq = otherSeq;
-            this.other = other;
-            this.y = y;
-        }
-
-        _write(ostr)
-        {
-            Test.ClassOtherStructSeqHelper.write(ostr, this.otherSeq);
-            Test.ClassOtherStruct.write(ostr, this.other);
-            ostr.writeInt(this.y);
-        }
-
-        _read(istr)
-        {
-            this.otherSeq = Test.ClassOtherStructSeqHelper.read(istr);
-            this.other = Test.ClassOtherStruct.read(istr, this.other);
-            this.y = istr.readInt();
-        }
-
-        static get minWireSize()
-        {
-            return  9;
-        }
-    };
-
-    Slice.defineStruct(Test.ClassStruct, true, true);
-
-    Slice.defineSequence(Test, "ClassStructSeqHelper", "Test.ClassStruct", false);
-
     Slice.defineDictionary(Test, "IntStringDict", "IntStringDictHelper", "Ice.IntHelper", "Ice.StringHelper", false, undefined, undefined);
 
     Slice.defineDictionary(Test, "LongLongDict", "LongLongDictHelper", "Ice.LongHelper", "Ice.LongHelper", true, Ice.HashMap.compareEquals, undefined);
@@ -363,16 +303,10 @@
         "opBoolArray": [, , , , ["Test.BoolSeqHelper"], [["Test.BoolSeqHelper"]], [["Test.BoolSeqHelper"]], , , ],
         "opByteArray": [, , , , ["Test.ByteListHelper"], [["Test.ByteListHelper"]], [["Test.ByteListHelper"]], , , ],
         "opVariableArray": [, , , , ["Test.VariableListHelper"], [["Test.VariableListHelper"]], [["Test.VariableListHelper"]], , , ],
-        "opBoolRange": [, , , , ["Test.BoolSeqHelper"], [["Test.BoolSeqHelper"]], [["Test.BoolSeqHelper"]], , , ],
-        "opByteRange": [, , , , ["Test.ByteListHelper"], [["Test.ByteListHelper"]], [["Test.ByteListHelper"]], , , ],
-        "opVariableRange": [, , , , ["Test.VariableListHelper"], [["Test.VariableListHelper"]], [["Test.VariableListHelper"]], , , ],
-        "opByteRangeType": [, , , , ["Test.ByteListHelper"], [["Test.ByteListHelper"]], [["Test.ByteListHelper"]], , , ],
-        "opVariableRangeType": [, , , , ["Test.VariableListHelper"], [["Test.VariableListHelper"]], [["Test.VariableListHelper"]], , , ],
         "opBoolSeq": [, , , , ["Test.BoolSeqHelper"], [["Test.BoolSeqHelper"]], [["Test.BoolSeqHelper"]], , , ],
         "opBoolList": [, , , , ["Test.BoolListHelper"], [["Test.BoolListHelper"]], [["Test.BoolListHelper"]], , , ],
         "opBoolDequeList": [, , , , ["Test.BoolDequeListHelper"], [["Test.BoolDequeListHelper"]], [["Test.BoolDequeListHelper"]], , , ],
         "opBoolDequeListArray": [, , , , ["Test.BoolDequeListHelper"], [["Test.BoolDequeListHelper"]], [["Test.BoolDequeListHelper"]], , , ],
-        "opBoolDequeListRange": [, , , , ["Test.BoolDequeListHelper"], [["Test.BoolDequeListHelper"]], [["Test.BoolDequeListHelper"]], , , ],
         "opByteSeq": [, , , , ["Test.ByteSeqHelper"], [["Test.ByteSeqHelper"]], [["Test.ByteSeqHelper"]], , , ],
         "opByteList": [, , , , ["Test.ByteListHelper"], [["Test.ByteListHelper"]], [["Test.ByteListHelper"]], , , ],
         "opMyByteSeq": [, , , , ["Test.ByteSeqHelper"], [["Test.ByteSeqHelper"]], [["Test.ByteSeqHelper"]], , , ],
@@ -390,9 +324,7 @@
         "opDPrxList": [, , , , ["Test.DPrxListHelper"], [["Test.DPrxListHelper"]], [["Test.DPrxListHelper"]], , , ],
         "opCSeq": [, , , , ["Test.CSeqHelper"], [["Test.CSeqHelper"]], [["Test.CSeqHelper"]], , true, true],
         "opCList": [, , , , ["Test.CListHelper"], [["Test.CListHelper"]], [["Test.CListHelper"]], , true, true],
-        "opClassStruct": [, , , , [Test.ClassStruct], [[Test.ClassStruct], ["Test.ClassStructSeqHelper"]], [[Test.ClassStruct], ["Test.ClassStructSeqHelper"]], , , ],
         "opOutArrayByteSeq": [, , , , , [["Test.ByteSeqHelper"]], [["Test.ByteSeqHelper"]], , , ],
-        "opOutRangeByteSeq": [, , , , , [["Test.ByteSeqHelper"]], [["Test.ByteSeqHelper"]], , , ],
         "opIntStringDict": [, , , , ["Test.IntStringDictHelper"], [["Test.IntStringDictHelper"]], [["Test.IntStringDictHelper"]], , , ],
         "opVarDict": [, , , , ["Test.LongLongDictHelper"], [["Test.StringIntDictHelper"]], [["Test.StringIntDictHelper"]], , , ],
         "opShortBuffer": [, , , , ["Test.ShortBufferHelper"], [["Test.ShortBufferHelper"]], [["Test.ShortBufferHelper"]], , , ],

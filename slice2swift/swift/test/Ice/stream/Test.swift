@@ -173,65 +173,6 @@ public extension Ice.OutputStream {
     }
 }
 
-public struct ClassStruct: Swift.Hashable {
-    public var i: Swift.Int32 = 0
-
-    public init() {}
-
-    public init(i: Swift.Int32) {
-        self.i = i
-    }
-}
-
-/// An `Ice.InputStream` extension to read `ClassStruct` structured values from the stream.
-public extension Ice.InputStream {
-    /// Read a `ClassStruct` structured value from the stream.
-    ///
-    /// - returns: `ClassStruct` - The structured value read from the stream.
-    func read() throws -> ClassStruct {
-        var v = ClassStruct()
-        v.i = try self.read()
-        return v
-    }
-
-    /// Read an optional `ClassStruct?` structured value from the stream.
-    ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `ClassStruct?` - The structured value read from the stream.
-    func read(tag: Swift.Int32) throws -> ClassStruct? {
-        guard try readOptional(tag: tag, expectedFormat: .VSize) else {
-            return nil
-        }
-        try skipSize()
-        return try read() as ClassStruct
-    }
-}
-
-/// An `Ice.OutputStream` extension to write `ClassStruct` structured values from the stream.
-public extension Ice.OutputStream {
-    /// Write a `ClassStruct` structured value to the stream.
-    ///
-    /// - parameter _: `ClassStruct` - The value to write to the stream.
-    func write(_ v: ClassStruct) {
-        self.write(v.i)
-    }
-
-    /// Write an optional `ClassStruct?` structured value to the stream.
-    ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ClassStruct?` - The value to write to the stream.
-    func write(tag: Swift.Int32, value: ClassStruct?) {
-        if let v = value {
-            if writeOptional(tag: tag, format: .VSize) {
-                write(size: 4)
-                write(v)
-            }
-        }
-    }
-}
-
 /// Traits for Slice class`OptionalClass`.
 public struct OptionalClassTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::OptionalClass"]
@@ -1710,65 +1651,6 @@ public extension Ice.OutputStream {
     }
 }
 
-public struct SubNestedClassStruct: Swift.Hashable {
-    public var i: Swift.Int32 = 0
-
-    public init() {}
-
-    public init(i: Swift.Int32) {
-        self.i = i
-    }
-}
-
-/// An `Ice.InputStream` extension to read `SubNestedClassStruct` structured values from the stream.
-public extension Ice.InputStream {
-    /// Read a `SubNestedClassStruct` structured value from the stream.
-    ///
-    /// - returns: `SubNestedClassStruct` - The structured value read from the stream.
-    func read() throws -> SubNestedClassStruct {
-        var v = SubNestedClassStruct()
-        v.i = try self.read()
-        return v
-    }
-
-    /// Read an optional `SubNestedClassStruct?` structured value from the stream.
-    ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `SubNestedClassStruct?` - The structured value read from the stream.
-    func read(tag: Swift.Int32) throws -> SubNestedClassStruct? {
-        guard try readOptional(tag: tag, expectedFormat: .VSize) else {
-            return nil
-        }
-        try skipSize()
-        return try read() as SubNestedClassStruct
-    }
-}
-
-/// An `Ice.OutputStream` extension to write `SubNestedClassStruct` structured values from the stream.
-public extension Ice.OutputStream {
-    /// Write a `SubNestedClassStruct` structured value to the stream.
-    ///
-    /// - parameter _: `SubNestedClassStruct` - The value to write to the stream.
-    func write(_ v: SubNestedClassStruct) {
-        self.write(v.i)
-    }
-
-    /// Write an optional `SubNestedClassStruct?` structured value to the stream.
-    ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `SubNestedClassStruct?` - The value to write to the stream.
-    func write(tag: Swift.Int32, value: SubNestedClassStruct?) {
-        if let v = value {
-            if writeOptional(tag: tag, format: .VSize) {
-                write(size: 4)
-                write(v)
-            }
-        }
-    }
-}
-
 /// :nodoc:
 public class SubNestedException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
@@ -1958,65 +1840,6 @@ public extension Ice.OutputStream {
                 let pos = startSize()
                 write(v)
                 endSize(position: pos)
-            }
-        }
-    }
-}
-
-public struct Test2Sub2NestedClassStruct2: Swift.Hashable {
-    public var i: Swift.Int32 = 0
-
-    public init() {}
-
-    public init(i: Swift.Int32) {
-        self.i = i
-    }
-}
-
-/// An `Ice.InputStream` extension to read `Test2Sub2NestedClassStruct2` structured values from the stream.
-public extension Ice.InputStream {
-    /// Read a `Test2Sub2NestedClassStruct2` structured value from the stream.
-    ///
-    /// - returns: `Test2Sub2NestedClassStruct2` - The structured value read from the stream.
-    func read() throws -> Test2Sub2NestedClassStruct2 {
-        var v = Test2Sub2NestedClassStruct2()
-        v.i = try self.read()
-        return v
-    }
-
-    /// Read an optional `Test2Sub2NestedClassStruct2?` structured value from the stream.
-    ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `Test2Sub2NestedClassStruct2?` - The structured value read from the stream.
-    func read(tag: Swift.Int32) throws -> Test2Sub2NestedClassStruct2? {
-        guard try readOptional(tag: tag, expectedFormat: .VSize) else {
-            return nil
-        }
-        try skipSize()
-        return try read() as Test2Sub2NestedClassStruct2
-    }
-}
-
-/// An `Ice.OutputStream` extension to write `Test2Sub2NestedClassStruct2` structured values from the stream.
-public extension Ice.OutputStream {
-    /// Write a `Test2Sub2NestedClassStruct2` structured value to the stream.
-    ///
-    /// - parameter _: `Test2Sub2NestedClassStruct2` - The value to write to the stream.
-    func write(_ v: Test2Sub2NestedClassStruct2) {
-        self.write(v.i)
-    }
-
-    /// Write an optional `Test2Sub2NestedClassStruct2?` structured value to the stream.
-    ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `Test2Sub2NestedClassStruct2?` - The value to write to the stream.
-    func write(tag: Swift.Int32, value: Test2Sub2NestedClassStruct2?) {
-        if let v = value {
-            if writeOptional(tag: tag, format: .VSize) {
-                write(size: 4)
-                write(v)
             }
         }
     }

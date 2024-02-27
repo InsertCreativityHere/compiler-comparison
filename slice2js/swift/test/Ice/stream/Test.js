@@ -79,31 +79,6 @@
 
     Slice.defineStruct(Test.SmallStruct, false, true);
 
-    Test.ClassStruct = class
-    {
-        constructor(i = 0)
-        {
-            this.i = i;
-        }
-
-        _write(ostr)
-        {
-            ostr.writeInt(this.i);
-        }
-
-        _read(istr)
-        {
-            this.i = istr.readInt();
-        }
-
-        static get minWireSize()
-        {
-            return  4;
-        }
-    };
-
-    Slice.defineStruct(Test.ClassStruct, true, false);
-
     Test.OptionalClass = class extends Ice.Value
     {
         constructor(bo = false, by = 0, sh = undefined, i = undefined)
@@ -340,31 +315,6 @@
 
     Slice.defineStruct(Test.Sub.NestedStruct, false, true);
 
-    Test.Sub.NestedClassStruct = class
-    {
-        constructor(i = 0)
-        {
-            this.i = i;
-        }
-
-        _write(ostr)
-        {
-            ostr.writeInt(this.i);
-        }
-
-        _read(istr)
-        {
-            this.i = istr.readInt();
-        }
-
-        static get minWireSize()
-        {
-            return  4;
-        }
-    };
-
-    Slice.defineStruct(Test.Sub.NestedClassStruct, true, false);
-
     Test.Sub.NestedException = class extends Ice.UserException
     {
         constructor(str = "", _cause = "")
@@ -454,31 +404,6 @@
     };
 
     Slice.defineStruct(Test2.Sub2.NestedStruct2, false, true);
-
-    Test2.Sub2.NestedClassStruct2 = class
-    {
-        constructor(i = 0)
-        {
-            this.i = i;
-        }
-
-        _write(ostr)
-        {
-            ostr.writeInt(this.i);
-        }
-
-        _read(istr)
-        {
-            this.i = istr.readInt();
-        }
-
-        static get minWireSize()
-        {
-            return  4;
-        }
-    };
-
-    Slice.defineStruct(Test2.Sub2.NestedClassStruct2, true, false);
 
     Test2.Sub2.NestedException2 = class extends Ice.UserException
     {

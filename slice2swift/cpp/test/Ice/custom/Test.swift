@@ -2933,263 +2933,6 @@ public struct DPrxSeqListHelper {
 
 public typealias DoubleSeq = [Swift.Double]
 
-public struct ClassOtherStruct: Swift.Hashable {
-    public var x: Swift.Int32 = 0
-
-    public init() {}
-
-    public init(x: Swift.Int32) {
-        self.x = x
-    }
-}
-
-/// An `Ice.InputStream` extension to read `ClassOtherStruct` structured values from the stream.
-public extension Ice.InputStream {
-    /// Read a `ClassOtherStruct` structured value from the stream.
-    ///
-    /// - returns: `ClassOtherStruct` - The structured value read from the stream.
-    func read() throws -> ClassOtherStruct {
-        var v = ClassOtherStruct()
-        v.x = try self.read()
-        return v
-    }
-
-    /// Read an optional `ClassOtherStruct?` structured value from the stream.
-    ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `ClassOtherStruct?` - The structured value read from the stream.
-    func read(tag: Swift.Int32) throws -> ClassOtherStruct? {
-        guard try readOptional(tag: tag, expectedFormat: .VSize) else {
-            return nil
-        }
-        try skipSize()
-        return try read() as ClassOtherStruct
-    }
-}
-
-/// An `Ice.OutputStream` extension to write `ClassOtherStruct` structured values from the stream.
-public extension Ice.OutputStream {
-    /// Write a `ClassOtherStruct` structured value to the stream.
-    ///
-    /// - parameter _: `ClassOtherStruct` - The value to write to the stream.
-    func write(_ v: ClassOtherStruct) {
-        self.write(v.x)
-    }
-
-    /// Write an optional `ClassOtherStruct?` structured value to the stream.
-    ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ClassOtherStruct?` - The value to write to the stream.
-    func write(tag: Swift.Int32, value: ClassOtherStruct?) {
-        if let v = value {
-            if writeOptional(tag: tag, format: .VSize) {
-                write(size: 4)
-                write(v)
-            }
-        }
-    }
-}
-
-public typealias ClassOtherStructSeq = [ClassOtherStruct]
-
-/// Helper class to read and write `ClassOtherStructSeq` sequence values from
-/// `Ice.InputStream` and `Ice.OutputStream`.
-public struct ClassOtherStructSeqHelper {
-    /// Read a `ClassOtherStructSeq` sequence from the stream.
-    ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
-    ///
-    /// - returns: `ClassOtherStructSeq` - The sequence read from the stream.
-    public static func read(from istr: Ice.InputStream) throws -> ClassOtherStructSeq {
-        let sz = try istr.readAndCheckSeqSize(minSize: 4)
-        var v = ClassOtherStructSeq()
-        v.reserveCapacity(sz)
-        for _ in 0 ..< sz {
-            let j: ClassOtherStruct = try istr.read()
-            v.append(j)
-        }
-        return v
-    }
-    /// Read an optional `ClassOtherStructSeq?` sequence from the stream.
-    ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
-    ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `ClassOtherStructSeq` - The sequence read from the stream.
-    public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> ClassOtherStructSeq? {
-        guard try istr.readOptional(tag: tag, expectedFormat: .VSize) else {
-            return nil
-        }
-        try istr.skipSize()
-        return try read(from: istr)
-    }
-
-    /// Wite a `ClassOtherStructSeq` sequence to the stream.
-    ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `ClassOtherStructSeq` - The sequence value to write to the stream.
-    public static func write(to ostr: Ice.OutputStream, value v: ClassOtherStructSeq) {
-        ostr.write(size: v.count)
-        for item in v {
-            ostr.write(item)
-        }
-    }
-
-    /// Wite an optional `ClassOtherStructSeq?` sequence to the stream.
-    ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ClassOtherStructSeq` The sequence value to write to the stream.
-    public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: ClassOtherStructSeq?) {
-        guard let val = v else {
-            return
-        }
-        if ostr.writeOptionalVSize(tag: tag, len: val.count, elemSize: 4) {
-            write(to: ostr, value: val)
-        }
-    }
-}
-
-public struct ClassStruct: Swift.Hashable {
-    public var otherSeq: ClassOtherStructSeq = ClassOtherStructSeq()
-    public var other: ClassOtherStruct = ClassOtherStruct()
-    public var y: Swift.Int32 = 0
-
-    public init() {}
-
-    public init(otherSeq: ClassOtherStructSeq, other: ClassOtherStruct, y: Swift.Int32) {
-        self.otherSeq = otherSeq
-        self.other = other
-        self.y = y
-    }
-}
-
-/// An `Ice.InputStream` extension to read `ClassStruct` structured values from the stream.
-public extension Ice.InputStream {
-    /// Read a `ClassStruct` structured value from the stream.
-    ///
-    /// - returns: `ClassStruct` - The structured value read from the stream.
-    func read() throws -> ClassStruct {
-        var v = ClassStruct()
-        v.otherSeq = try ClassOtherStructSeqHelper.read(from: self)
-        v.other = try self.read()
-        v.y = try self.read()
-        return v
-    }
-
-    /// Read an optional `ClassStruct?` structured value from the stream.
-    ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `ClassStruct?` - The structured value read from the stream.
-    func read(tag: Swift.Int32) throws -> ClassStruct? {
-        guard try readOptional(tag: tag, expectedFormat: .FSize) else {
-            return nil
-        }
-        try skip(4)
-        return try read() as ClassStruct
-    }
-}
-
-/// An `Ice.OutputStream` extension to write `ClassStruct` structured values from the stream.
-public extension Ice.OutputStream {
-    /// Write a `ClassStruct` structured value to the stream.
-    ///
-    /// - parameter _: `ClassStruct` - The value to write to the stream.
-    func write(_ v: ClassStruct) {
-        ClassOtherStructSeqHelper.write(to: self, value: v.otherSeq)
-        self.write(v.other)
-        self.write(v.y)
-    }
-
-    /// Write an optional `ClassStruct?` structured value to the stream.
-    ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ClassStruct?` - The value to write to the stream.
-    func write(tag: Swift.Int32, value: ClassStruct?) {
-        if let v = value {
-            if writeOptional(tag: tag, format: .FSize) {
-                let pos = startSize()
-                write(v)
-                endSize(position: pos)
-            }
-        }
-    }
-}
-
-public typealias ClassStructSeq = [ClassStruct]
-
-/// Helper class to read and write `ClassStructSeq` sequence values from
-/// `Ice.InputStream` and `Ice.OutputStream`.
-public struct ClassStructSeqHelper {
-    /// Read a `ClassStructSeq` sequence from the stream.
-    ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
-    ///
-    /// - returns: `ClassStructSeq` - The sequence read from the stream.
-    public static func read(from istr: Ice.InputStream) throws -> ClassStructSeq {
-        let sz = try istr.readAndCheckSeqSize(minSize: 9)
-        var v = ClassStructSeq()
-        v.reserveCapacity(sz)
-        for _ in 0 ..< sz {
-            let j: ClassStruct = try istr.read()
-            v.append(j)
-        }
-        return v
-    }
-    /// Read an optional `ClassStructSeq?` sequence from the stream.
-    ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
-    ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `ClassStructSeq` - The sequence read from the stream.
-    public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> ClassStructSeq? {
-        guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
-            return nil
-        }
-        try istr.skip(4)
-        return try read(from: istr)
-    }
-
-    /// Wite a `ClassStructSeq` sequence to the stream.
-    ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `ClassStructSeq` - The sequence value to write to the stream.
-    public static func write(to ostr: Ice.OutputStream, value v: ClassStructSeq) {
-        ostr.write(size: v.count)
-        for item in v {
-            ostr.write(item)
-        }
-    }
-
-    /// Wite an optional `ClassStructSeq?` sequence to the stream.
-    ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `ClassStructSeq` The sequence value to write to the stream.
-    public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: ClassStructSeq?) {
-        guard let val = v else {
-            return
-        }
-        if ostr.writeOptional(tag: tag, format: .FSize) {
-            let pos = ostr.startSize()
-            write(to: ostr, value: val)
-            ostr.endSize(position: pos)
-        }
-    }
-}
-
 public typealias IntStringDict = [Swift.Int32: Swift.String]
 
 /// Helper class to read and write `IntStringDict` dictionary values from
@@ -3598,26 +3341,6 @@ public extension DPrx {}
 ///
 ///  - opVariableArrayAsync: 
 ///
-///  - opBoolRange: 
-///
-///  - opBoolRangeAsync: 
-///
-///  - opByteRange: 
-///
-///  - opByteRangeAsync: 
-///
-///  - opVariableRange: 
-///
-///  - opVariableRangeAsync: 
-///
-///  - opByteRangeType: 
-///
-///  - opByteRangeTypeAsync: 
-///
-///  - opVariableRangeType: 
-///
-///  - opVariableRangeTypeAsync: 
-///
 ///  - opBoolSeq: 
 ///
 ///  - opBoolSeqAsync: 
@@ -3633,10 +3356,6 @@ public extension DPrx {}
 ///  - opBoolDequeListArray: 
 ///
 ///  - opBoolDequeListArrayAsync: 
-///
-///  - opBoolDequeListRange: 
-///
-///  - opBoolDequeListRangeAsync: 
 ///
 ///  - opByteSeq: 
 ///
@@ -3706,17 +3425,9 @@ public extension DPrx {}
 ///
 ///  - opCListAsync: 
 ///
-///  - opClassStruct: 
-///
-///  - opClassStructAsync: 
-///
 ///  - opOutArrayByteSeq: 
 ///
 ///  - opOutArrayByteSeqAsync: 
-///
-///  - opOutRangeByteSeq: 
-///
-///  - opOutRangeByteSeqAsync: 
 ///
 ///  - opIntStringDict: 
 ///
@@ -3836,26 +3547,6 @@ public extension Ice.InputStream {
 ///
 ///  - opVariableArrayAsync: 
 ///
-///  - opBoolRange: 
-///
-///  - opBoolRangeAsync: 
-///
-///  - opByteRange: 
-///
-///  - opByteRangeAsync: 
-///
-///  - opVariableRange: 
-///
-///  - opVariableRangeAsync: 
-///
-///  - opByteRangeType: 
-///
-///  - opByteRangeTypeAsync: 
-///
-///  - opVariableRangeType: 
-///
-///  - opVariableRangeTypeAsync: 
-///
 ///  - opBoolSeq: 
 ///
 ///  - opBoolSeqAsync: 
@@ -3871,10 +3562,6 @@ public extension Ice.InputStream {
 ///  - opBoolDequeListArray: 
 ///
 ///  - opBoolDequeListArrayAsync: 
-///
-///  - opBoolDequeListRange: 
-///
-///  - opBoolDequeListRangeAsync: 
 ///
 ///  - opByteSeq: 
 ///
@@ -3944,17 +3631,9 @@ public extension Ice.InputStream {
 ///
 ///  - opCListAsync: 
 ///
-///  - opClassStruct: 
-///
-///  - opClassStructAsync: 
-///
 ///  - opOutArrayByteSeq: 
 ///
 ///  - opOutArrayByteSeqAsync: 
-///
-///  - opOutRangeByteSeq: 
-///
-///  - opOutRangeByteSeqAsync: 
 ///
 ///  - opIntStringDict: 
 ///
@@ -4210,281 +3889,6 @@ public extension TestIntfPrx {
     ///   - returnValue: `BoolSeq`
     ///
     ///   - outSeq: `BoolSeq`
-    func opBoolRange(_ iceP_inSeq: BoolSeq, context: Ice.Context? = nil) throws -> (returnValue: BoolSeq, outSeq: BoolSeq) {
-        return try _impl._invoke(operation: "opBoolRange",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_outSeq: BoolSeq = try istr.read()
-                                     let iceP_returnValue: BoolSeq = try istr.read()
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `BoolSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<(returnValue: BoolSeq, outSeq: BoolSeq)>` - The result of the operation
-    func opBoolRangeAsync(_ iceP_inSeq: BoolSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: BoolSeq, outSeq: BoolSeq)> {
-        return _impl._invokeAsync(operation: "opBoolRange",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_inSeq)
-                                  },
-                                  read: { istr in
-                                      let iceP_outSeq: BoolSeq = try istr.read()
-                                      let iceP_returnValue: BoolSeq = try istr.read()
-                                      return (iceP_returnValue, iceP_outSeq)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
-    /// - parameter _: `ByteList`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ByteList, outSeq: ByteList)`:
-    ///
-    ///   - returnValue: `ByteList`
-    ///
-    ///   - outSeq: `ByteList`
-    func opByteRange(_ iceP_inSeq: ByteList, context: Ice.Context? = nil) throws -> (returnValue: ByteList, outSeq: ByteList) {
-        return try _impl._invoke(operation: "opByteRange",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_outSeq: ByteList = try istr.read()
-                                     let iceP_returnValue: ByteList = try istr.read()
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `ByteList`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<(returnValue: ByteList, outSeq: ByteList)>` - The result of the operation
-    func opByteRangeAsync(_ iceP_inSeq: ByteList, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: ByteList, outSeq: ByteList)> {
-        return _impl._invokeAsync(operation: "opByteRange",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_inSeq)
-                                  },
-                                  read: { istr in
-                                      let iceP_outSeq: ByteList = try istr.read()
-                                      let iceP_returnValue: ByteList = try istr.read()
-                                      return (iceP_returnValue, iceP_outSeq)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
-    /// - parameter _: `VariableList`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: VariableList, outSeq: VariableList)`:
-    ///
-    ///   - returnValue: `VariableList`
-    ///
-    ///   - outSeq: `VariableList`
-    func opVariableRange(_ iceP_inSeq: VariableList, context: Ice.Context? = nil) throws -> (returnValue: VariableList, outSeq: VariableList) {
-        return try _impl._invoke(operation: "opVariableRange",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     VariableListHelper.write(to: ostr, value: iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_outSeq: VariableList = try VariableListHelper.read(from: istr)
-                                     let iceP_returnValue: VariableList = try VariableListHelper.read(from: istr)
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `VariableList`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<(returnValue: VariableList, outSeq: VariableList)>` - The result of the operation
-    func opVariableRangeAsync(_ iceP_inSeq: VariableList, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: VariableList, outSeq: VariableList)> {
-        return _impl._invokeAsync(operation: "opVariableRange",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      VariableListHelper.write(to: ostr, value: iceP_inSeq)
-                                  },
-                                  read: { istr in
-                                      let iceP_outSeq: VariableList = try VariableListHelper.read(from: istr)
-                                      let iceP_returnValue: VariableList = try VariableListHelper.read(from: istr)
-                                      return (iceP_returnValue, iceP_outSeq)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
-    /// - parameter _: `ByteList`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ByteList, outSeq: ByteList)`:
-    ///
-    ///   - returnValue: `ByteList`
-    ///
-    ///   - outSeq: `ByteList`
-    func opByteRangeType(_ iceP_inSeq: ByteList, context: Ice.Context? = nil) throws -> (returnValue: ByteList, outSeq: ByteList) {
-        return try _impl._invoke(operation: "opByteRangeType",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_outSeq: ByteList = try istr.read()
-                                     let iceP_returnValue: ByteList = try istr.read()
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `ByteList`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<(returnValue: ByteList, outSeq: ByteList)>` - The result of the operation
-    func opByteRangeTypeAsync(_ iceP_inSeq: ByteList, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: ByteList, outSeq: ByteList)> {
-        return _impl._invokeAsync(operation: "opByteRangeType",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_inSeq)
-                                  },
-                                  read: { istr in
-                                      let iceP_outSeq: ByteList = try istr.read()
-                                      let iceP_returnValue: ByteList = try istr.read()
-                                      return (iceP_returnValue, iceP_outSeq)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
-    /// - parameter _: `VariableList`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: VariableList, outSeq: VariableList)`:
-    ///
-    ///   - returnValue: `VariableList`
-    ///
-    ///   - outSeq: `VariableList`
-    func opVariableRangeType(_ iceP_inSeq: VariableList, context: Ice.Context? = nil) throws -> (returnValue: VariableList, outSeq: VariableList) {
-        return try _impl._invoke(operation: "opVariableRangeType",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     VariableListHelper.write(to: ostr, value: iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_outSeq: VariableList = try VariableListHelper.read(from: istr)
-                                     let iceP_returnValue: VariableList = try VariableListHelper.read(from: istr)
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `VariableList`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<(returnValue: VariableList, outSeq: VariableList)>` - The result of the operation
-    func opVariableRangeTypeAsync(_ iceP_inSeq: VariableList, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: VariableList, outSeq: VariableList)> {
-        return _impl._invokeAsync(operation: "opVariableRangeType",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      VariableListHelper.write(to: ostr, value: iceP_inSeq)
-                                  },
-                                  read: { istr in
-                                      let iceP_outSeq: VariableList = try VariableListHelper.read(from: istr)
-                                      let iceP_returnValue: VariableList = try VariableListHelper.read(from: istr)
-                                      return (iceP_returnValue, iceP_outSeq)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
-    /// - parameter _: `BoolSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: BoolSeq, outSeq: BoolSeq)`:
-    ///
-    ///   - returnValue: `BoolSeq`
-    ///
-    ///   - outSeq: `BoolSeq`
     func opBoolSeq(_ iceP_inSeq: BoolSeq, context: Ice.Context? = nil) throws -> (returnValue: BoolSeq, outSeq: BoolSeq) {
         return try _impl._invoke(operation: "opBoolSeq",
                                  mode: .Normal,
@@ -4680,61 +4084,6 @@ public extension TestIntfPrx {
     /// - returns: `PromiseKit.Promise<(returnValue: BoolDequeList, outSeq: BoolDequeList)>` - The result of the operation
     func opBoolDequeListArrayAsync(_ iceP_inSeq: BoolDequeList, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: BoolDequeList, outSeq: BoolDequeList)> {
         return _impl._invokeAsync(operation: "opBoolDequeListArray",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      BoolDequeListHelper.write(to: ostr, value: iceP_inSeq)
-                                  },
-                                  read: { istr in
-                                      let iceP_outSeq: BoolDequeList = try BoolDequeListHelper.read(from: istr)
-                                      let iceP_returnValue: BoolDequeList = try BoolDequeListHelper.read(from: istr)
-                                      return (iceP_returnValue, iceP_outSeq)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
-    /// - parameter _: `BoolDequeList`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: BoolDequeList, outSeq: BoolDequeList)`:
-    ///
-    ///   - returnValue: `BoolDequeList`
-    ///
-    ///   - outSeq: `BoolDequeList`
-    func opBoolDequeListRange(_ iceP_inSeq: BoolDequeList, context: Ice.Context? = nil) throws -> (returnValue: BoolDequeList, outSeq: BoolDequeList) {
-        return try _impl._invoke(operation: "opBoolDequeListRange",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     BoolDequeListHelper.write(to: ostr, value: iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_outSeq: BoolDequeList = try BoolDequeListHelper.read(from: istr)
-                                     let iceP_returnValue: BoolDequeList = try BoolDequeListHelper.read(from: istr)
-                                     return (iceP_returnValue, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `BoolDequeList`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<(returnValue: BoolDequeList, outSeq: BoolDequeList)>` - The result of the operation
-    func opBoolDequeListRangeAsync(_ iceP_inSeq: BoolDequeList, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: BoolDequeList, outSeq: BoolDequeList)> {
-        return _impl._invokeAsync(operation: "opBoolDequeListRange",
                                   mode: .Normal,
                                   write: { ostr in
                                       BoolDequeListHelper.write(to: ostr, value: iceP_inSeq)
@@ -5694,71 +5043,6 @@ public extension TestIntfPrx {
     }
 
     ///
-    /// - parameter inS: `ClassStruct`
-    ///
-    /// - parameter inSeq: `ClassStructSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `(returnValue: ClassStruct, outS: ClassStruct, outSeq: ClassStructSeq)`:
-    ///
-    ///   - returnValue: `ClassStruct`
-    ///
-    ///   - outS: `ClassStruct`
-    ///
-    ///   - outSeq: `ClassStructSeq`
-    func opClassStruct(inS iceP_inS: ClassStruct, inSeq iceP_inSeq: ClassStructSeq, context: Ice.Context? = nil) throws -> (returnValue: ClassStruct, outS: ClassStruct, outSeq: ClassStructSeq) {
-        return try _impl._invoke(operation: "opClassStruct",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_inS)
-                                     ClassStructSeqHelper.write(to: ostr, value: iceP_inSeq)
-                                 },
-                                 read: { istr in
-                                     let iceP_outS: ClassStruct = try istr.read()
-                                     let iceP_outSeq: ClassStructSeq = try ClassStructSeqHelper.read(from: istr)
-                                     let iceP_returnValue: ClassStruct = try istr.read()
-                                     return (iceP_returnValue, iceP_outS, iceP_outSeq)
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter inS: `ClassStruct`
-    ///
-    /// - parameter inSeq: `ClassStructSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<(returnValue: ClassStruct, outS: ClassStruct, outSeq: ClassStructSeq)>` - The result of the operation
-    func opClassStructAsync(inS iceP_inS: ClassStruct, inSeq iceP_inSeq: ClassStructSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: ClassStruct, outS: ClassStruct, outSeq: ClassStructSeq)> {
-        return _impl._invokeAsync(operation: "opClassStruct",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_inS)
-                                      ClassStructSeqHelper.write(to: ostr, value: iceP_inSeq)
-                                  },
-                                  read: { istr in
-                                      let iceP_outS: ClassStruct = try istr.read()
-                                      let iceP_outSeq: ClassStructSeq = try ClassStructSeqHelper.read(from: istr)
-                                      let iceP_returnValue: ClassStruct = try istr.read()
-                                      return (iceP_returnValue, iceP_outS, iceP_outSeq)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
     /// - parameter _: `ByteSeq`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
@@ -5793,55 +5077,6 @@ public extension TestIntfPrx {
     /// - returns: `PromiseKit.Promise<ByteSeq>` - The result of the operation
     func opOutArrayByteSeqAsync(_ iceP_org: ByteSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<ByteSeq> {
         return _impl._invokeAsync(operation: "opOutArrayByteSeq",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_org)
-                                  },
-                                  read: { istr in
-                                      let iceP_copy: ByteSeq = try istr.read()
-                                      return iceP_copy
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
-    /// - parameter _: `ByteSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `ByteSeq`
-    func opOutRangeByteSeq(_ iceP_org: ByteSeq, context: Ice.Context? = nil) throws -> ByteSeq {
-        return try _impl._invoke(operation: "opOutRangeByteSeq",
-                                 mode: .Normal,
-                                 write: { ostr in
-                                     ostr.write(iceP_org)
-                                 },
-                                 read: { istr in
-                                     let iceP_copy: ByteSeq = try istr.read()
-                                     return iceP_copy
-                                 },
-                                 context: context)
-    }
-
-    ///
-    /// - parameter _: `ByteSeq`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<ByteSeq>` - The result of the operation
-    func opOutRangeByteSeqAsync(_ iceP_org: ByteSeq, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<ByteSeq> {
-        return _impl._invokeAsync(operation: "opOutRangeByteSeq",
                                   mode: .Normal,
                                   write: { ostr in
                                       ostr.write(iceP_org)
@@ -6303,12 +5538,8 @@ public struct TestIntfDisp: Ice.Disp {
             return try servant._iceD_opBoolDequeList(incoming: request, current: current)
         case "opBoolDequeListArray":
             return try servant._iceD_opBoolDequeListArray(incoming: request, current: current)
-        case "opBoolDequeListRange":
-            return try servant._iceD_opBoolDequeListRange(incoming: request, current: current)
         case "opBoolList":
             return try servant._iceD_opBoolList(incoming: request, current: current)
-        case "opBoolRange":
-            return try servant._iceD_opBoolRange(incoming: request, current: current)
         case "opBoolSeq":
             return try servant._iceD_opBoolSeq(incoming: request, current: current)
         case "opBufferStruct":
@@ -6317,18 +5548,12 @@ public struct TestIntfDisp: Ice.Disp {
             return try servant._iceD_opByteArray(incoming: request, current: current)
         case "opByteList":
             return try servant._iceD_opByteList(incoming: request, current: current)
-        case "opByteRange":
-            return try servant._iceD_opByteRange(incoming: request, current: current)
-        case "opByteRangeType":
-            return try servant._iceD_opByteRangeType(incoming: request, current: current)
         case "opByteSeq":
             return try servant._iceD_opByteSeq(incoming: request, current: current)
         case "opCList":
             return try servant._iceD_opCList(incoming: request, current: current)
         case "opCSeq":
             return try servant._iceD_opCSeq(incoming: request, current: current)
-        case "opClassStruct":
-            return try servant._iceD_opClassStruct(incoming: request, current: current)
         case "opDPrxList":
             return try servant._iceD_opDPrxList(incoming: request, current: current)
         case "opDPrxSeq":
@@ -6349,8 +5574,6 @@ public struct TestIntfDisp: Ice.Disp {
             return try servant._iceD_opMyByteSeq(incoming: request, current: current)
         case "opOutArrayByteSeq":
             return try servant._iceD_opOutArrayByteSeq(incoming: request, current: current)
-        case "opOutRangeByteSeq":
-            return try servant._iceD_opOutRangeByteSeq(incoming: request, current: current)
         case "opShortBuffer":
             return try servant._iceD_opShortBuffer(incoming: request, current: current)
         case "opStringList":
@@ -6367,10 +5590,6 @@ public struct TestIntfDisp: Ice.Disp {
             return try servant._iceD_opVariableArray(incoming: request, current: current)
         case "opVariableList":
             return try servant._iceD_opVariableList(incoming: request, current: current)
-        case "opVariableRange":
-            return try servant._iceD_opVariableRange(incoming: request, current: current)
-        case "opVariableRangeType":
-            return try servant._iceD_opVariableRangeType(incoming: request, current: current)
         case "opVariableSeq":
             return try servant._iceD_opVariableSeq(incoming: request, current: current)
         case "shutdown":
@@ -6440,66 +5659,6 @@ public protocol TestIntf {
     ///   - returnValue: `BoolSeq`
     ///
     ///   - outSeq: `BoolSeq`
-    func opBoolRange(inSeq: BoolSeq, current: Ice.Current) throws -> (returnValue: BoolSeq, outSeq: BoolSeq)
-
-    ///
-    /// - parameter inSeq: `ByteList`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ByteList, outSeq: ByteList)`:
-    ///
-    ///   - returnValue: `ByteList`
-    ///
-    ///   - outSeq: `ByteList`
-    func opByteRange(inSeq: ByteList, current: Ice.Current) throws -> (returnValue: ByteList, outSeq: ByteList)
-
-    ///
-    /// - parameter inSeq: `VariableList`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: VariableList, outSeq: VariableList)`:
-    ///
-    ///   - returnValue: `VariableList`
-    ///
-    ///   - outSeq: `VariableList`
-    func opVariableRange(inSeq: VariableList, current: Ice.Current) throws -> (returnValue: VariableList, outSeq: VariableList)
-
-    ///
-    /// - parameter inSeq: `ByteList`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ByteList, outSeq: ByteList)`:
-    ///
-    ///   - returnValue: `ByteList`
-    ///
-    ///   - outSeq: `ByteList`
-    func opByteRangeType(inSeq: ByteList, current: Ice.Current) throws -> (returnValue: ByteList, outSeq: ByteList)
-
-    ///
-    /// - parameter inSeq: `VariableList`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: VariableList, outSeq: VariableList)`:
-    ///
-    ///   - returnValue: `VariableList`
-    ///
-    ///   - outSeq: `VariableList`
-    func opVariableRangeType(inSeq: VariableList, current: Ice.Current) throws -> (returnValue: VariableList, outSeq: VariableList)
-
-    ///
-    /// - parameter inSeq: `BoolSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: BoolSeq, outSeq: BoolSeq)`:
-    ///
-    ///   - returnValue: `BoolSeq`
-    ///
-    ///   - outSeq: `BoolSeq`
     func opBoolSeq(inSeq: BoolSeq, current: Ice.Current) throws -> (returnValue: BoolSeq, outSeq: BoolSeq)
 
     ///
@@ -6537,18 +5696,6 @@ public protocol TestIntf {
     ///
     ///   - outSeq: `BoolDequeList`
     func opBoolDequeListArray(inSeq: BoolDequeList, current: Ice.Current) throws -> (returnValue: BoolDequeList, outSeq: BoolDequeList)
-
-    ///
-    /// - parameter inSeq: `BoolDequeList`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: BoolDequeList, outSeq: BoolDequeList)`:
-    ///
-    ///   - returnValue: `BoolDequeList`
-    ///
-    ///   - outSeq: `BoolDequeList`
-    func opBoolDequeListRange(inSeq: BoolDequeList, current: Ice.Current) throws -> (returnValue: BoolDequeList, outSeq: BoolDequeList)
 
     ///
     /// - parameter inSeq: `ByteSeq`
@@ -6755,36 +5902,12 @@ public protocol TestIntf {
     func opCList(inSeq: CList, current: Ice.Current) throws -> (returnValue: CList, outSeq: CList)
 
     ///
-    /// - parameter inS: `ClassStruct`
-    ///
-    /// - parameter inSeq: `ClassStructSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `(returnValue: ClassStruct, outS: ClassStruct, outSeq: ClassStructSeq)`:
-    ///
-    ///   - returnValue: `ClassStruct`
-    ///
-    ///   - outS: `ClassStruct`
-    ///
-    ///   - outSeq: `ClassStructSeq`
-    func opClassStruct(inS: ClassStruct, inSeq: ClassStructSeq, current: Ice.Current) throws -> (returnValue: ClassStruct, outS: ClassStruct, outSeq: ClassStructSeq)
-
-    ///
     /// - parameter org: `ByteSeq`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `ByteSeq`
     func opOutArrayByteSeq(org: ByteSeq, current: Ice.Current) throws -> ByteSeq
-
-    ///
-    /// - parameter org: `ByteSeq`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `ByteSeq`
-    func opOutRangeByteSeq(org: ByteSeq, current: Ice.Current) throws -> ByteSeq
 
     ///
     /// - parameter idict: `IntStringDict`
@@ -6862,16 +5985,6 @@ public extension D {}
 ///
 ///  - opVariableArray: 
 ///
-///  - opBoolRange: 
-///
-///  - opByteRange: 
-///
-///  - opVariableRange: 
-///
-///  - opByteRangeType: 
-///
-///  - opVariableRangeType: 
-///
 ///  - opBoolSeq: 
 ///
 ///  - opBoolList: 
@@ -6879,8 +5992,6 @@ public extension D {}
 ///  - opBoolDequeList: 
 ///
 ///  - opBoolDequeListArray: 
-///
-///  - opBoolDequeListRange: 
 ///
 ///  - opByteSeq: 
 ///
@@ -6916,11 +6027,7 @@ public extension D {}
 ///
 ///  - opCList: 
 ///
-///  - opClassStruct: 
-///
 ///  - opOutArrayByteSeq: 
-///
-///  - opOutRangeByteSeq: 
 ///
 ///  - opIntStringDict: 
 ///
@@ -6990,76 +6097,6 @@ public extension TestIntf {
         }
     }
 
-    func _iceD_opBoolRange(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_inSeq: BoolSeq = try inS.read { istr in
-            let iceP_inSeq: BoolSeq = try istr.read()
-            return iceP_inSeq
-        }
-
-        let (iceP_returnValue, iceP_outSeq) = try self.opBoolRange(inSeq: iceP_inSeq, current: current)
-
-        return inS.setResult{ ostr in
-            ostr.write(iceP_outSeq)
-            ostr.write(iceP_returnValue)
-        }
-    }
-
-    func _iceD_opByteRange(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_inSeq: ByteList = try inS.read { istr in
-            let iceP_inSeq: ByteList = try istr.read()
-            return iceP_inSeq
-        }
-
-        let (iceP_returnValue, iceP_outSeq) = try self.opByteRange(inSeq: iceP_inSeq, current: current)
-
-        return inS.setResult{ ostr in
-            ostr.write(iceP_outSeq)
-            ostr.write(iceP_returnValue)
-        }
-    }
-
-    func _iceD_opVariableRange(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_inSeq: VariableList = try inS.read { istr in
-            let iceP_inSeq: VariableList = try VariableListHelper.read(from: istr)
-            return iceP_inSeq
-        }
-
-        let (iceP_returnValue, iceP_outSeq) = try self.opVariableRange(inSeq: iceP_inSeq, current: current)
-
-        return inS.setResult{ ostr in
-            VariableListHelper.write(to: ostr, value: iceP_outSeq)
-            VariableListHelper.write(to: ostr, value: iceP_returnValue)
-        }
-    }
-
-    func _iceD_opByteRangeType(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_inSeq: ByteList = try inS.read { istr in
-            let iceP_inSeq: ByteList = try istr.read()
-            return iceP_inSeq
-        }
-
-        let (iceP_returnValue, iceP_outSeq) = try self.opByteRangeType(inSeq: iceP_inSeq, current: current)
-
-        return inS.setResult{ ostr in
-            ostr.write(iceP_outSeq)
-            ostr.write(iceP_returnValue)
-        }
-    }
-
-    func _iceD_opVariableRangeType(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_inSeq: VariableList = try inS.read { istr in
-            let iceP_inSeq: VariableList = try VariableListHelper.read(from: istr)
-            return iceP_inSeq
-        }
-
-        let (iceP_returnValue, iceP_outSeq) = try self.opVariableRangeType(inSeq: iceP_inSeq, current: current)
-
-        return inS.setResult{ ostr in
-            VariableListHelper.write(to: ostr, value: iceP_outSeq)
-            VariableListHelper.write(to: ostr, value: iceP_returnValue)
-        }
-    }
-
     func _iceD_opBoolSeq(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
         let iceP_inSeq: BoolSeq = try inS.read { istr in
             let iceP_inSeq: BoolSeq = try istr.read()
@@ -7109,20 +6146,6 @@ public extension TestIntf {
         }
 
         let (iceP_returnValue, iceP_outSeq) = try self.opBoolDequeListArray(inSeq: iceP_inSeq, current: current)
-
-        return inS.setResult{ ostr in
-            BoolDequeListHelper.write(to: ostr, value: iceP_outSeq)
-            BoolDequeListHelper.write(to: ostr, value: iceP_returnValue)
-        }
-    }
-
-    func _iceD_opBoolDequeListRange(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_inSeq: BoolDequeList = try inS.read { istr in
-            let iceP_inSeq: BoolDequeList = try BoolDequeListHelper.read(from: istr)
-            return iceP_inSeq
-        }
-
-        let (iceP_returnValue, iceP_outSeq) = try self.opBoolDequeListRange(inSeq: iceP_inSeq, current: current)
 
         return inS.setResult{ ostr in
             BoolDequeListHelper.write(to: ostr, value: iceP_outSeq)
@@ -7372,22 +6395,6 @@ public extension TestIntf {
         }
     }
 
-    func _iceD_opClassStruct(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_inS, iceP_inSeq): (ClassStruct, ClassStructSeq) = try inS.read { istr in
-            let iceP_inS: ClassStruct = try istr.read()
-            let iceP_inSeq: ClassStructSeq = try ClassStructSeqHelper.read(from: istr)
-            return (iceP_inS, iceP_inSeq)
-        }
-
-        let (iceP_returnValue, iceP_outS, iceP_outSeq) = try self.opClassStruct(inS: iceP_inS, inSeq: iceP_inSeq, current: current)
-
-        return inS.setResult{ ostr in
-            ostr.write(iceP_outS)
-            ClassStructSeqHelper.write(to: ostr, value: iceP_outSeq)
-            ostr.write(iceP_returnValue)
-        }
-    }
-
     func _iceD_opOutArrayByteSeq(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
         let iceP_org: ByteSeq = try inS.read { istr in
             let iceP_org: ByteSeq = try istr.read()
@@ -7395,19 +6402,6 @@ public extension TestIntf {
         }
 
         let iceP_copy = try self.opOutArrayByteSeq(org: iceP_org, current: current)
-
-        return inS.setResult{ ostr in
-            ostr.write(iceP_copy)
-        }
-    }
-
-    func _iceD_opOutRangeByteSeq(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_org: ByteSeq = try inS.read { istr in
-            let iceP_org: ByteSeq = try istr.read()
-            return iceP_org
-        }
-
-        let iceP_copy = try self.opOutRangeByteSeq(org: iceP_org, current: current)
 
         return inS.setResult{ ostr in
             ostr.write(iceP_copy)

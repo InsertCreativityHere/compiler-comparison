@@ -417,286 +417,6 @@ namespace Test
     {
     }
 
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial struct ClassOtherStruct
-    {
-        #region Slice data members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public int x;
-
-        #endregion
-
-        partial void ice_initialize();
-
-        #region Constructor
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ClassOtherStruct(int x)
-        {
-            this.x = x;
-            ice_initialize();
-        }
-
-        #endregion
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Test::ClassOtherStruct");
-            global::IceInternal.HashUtil.hashAdd(ref h_, x);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
-        {
-            if(!(other is ClassOtherStruct))
-            {
-                return false;
-            }
-            ClassOtherStruct o = (ClassOtherStruct)other;
-            if(!this.x.Equals(o.x))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(ClassOtherStruct lhs, ClassOtherStruct rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(ClassOtherStruct lhs, ClassOtherStruct rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
-
-        #region Marshaling support
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_writeMembers(global::Ice.OutputStream ostr)
-        {
-            ostr.writeInt(this.x);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.x = istr.readInt();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static void ice_write(global::Ice.OutputStream ostr, ClassOtherStruct v)
-        {
-            v.ice_writeMembers(ostr);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static ClassOtherStruct ice_read(global::Ice.InputStream istr)
-        {
-            var v = new ClassOtherStruct();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        #endregion
-    }
-
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class ClassStruct : global::System.ICloneable
-    {
-        #region Slice data members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ClassOtherStruct[] otherSeq;
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ClassOtherStruct other;
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public int y;
-
-        #endregion
-
-        partial void ice_initialize();
-
-        #region Constructors
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ClassStruct()
-        {
-            this.other = new ClassOtherStruct();
-            ice_initialize();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public ClassStruct(ClassOtherStruct[] otherSeq, ClassOtherStruct other, int y)
-        {
-            this.otherSeq = otherSeq;
-            this.other = other;
-            this.y = y;
-            ice_initialize();
-        }
-
-        #endregion
-
-        #region ICloneable members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public object Clone()
-        {
-            return MemberwiseClone();
-        }
-
-        #endregion
-
-        #region Object members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override int GetHashCode()
-        {
-            int h_ = 5381;
-            global::IceInternal.HashUtil.hashAdd(ref h_, "::Test::ClassStruct");
-            global::IceInternal.HashUtil.hashAdd(ref h_, otherSeq);
-            global::IceInternal.HashUtil.hashAdd(ref h_, other);
-            global::IceInternal.HashUtil.hashAdd(ref h_, y);
-            return h_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override bool Equals(object other)
-        {
-            if(object.ReferenceEquals(this, other))
-            {
-                return true;
-            }
-            if(other == null)
-            {
-                return false;
-            }
-            if(GetType() != other.GetType())
-            {
-                return false;
-            }
-            ClassStruct o = (ClassStruct)other;
-            if(this.otherSeq == null)
-            {
-                if(o.otherSeq != null)
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                if(!IceUtilInternal.Arrays.Equals(this.otherSeq, o.otherSeq))
-                {
-                    return false;
-                }
-            }
-            if(!this.other.Equals(o.other))
-            {
-                return false;
-            }
-            if(!this.y.Equals(o.y))
-            {
-                return false;
-            }
-            return true;
-        }
-
-        #endregion
-
-        #region Comparison members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator==(ClassStruct lhs, ClassStruct rhs)
-        {
-            return Equals(lhs, rhs);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static bool operator!=(ClassStruct lhs, ClassStruct rhs)
-        {
-            return !Equals(lhs, rhs);
-        }
-
-        #endregion
-
-        #region Marshaling support
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_writeMembers(global::Ice.OutputStream ostr)
-        {
-            ClassOtherStructSeqHelper.write(ostr, this.otherSeq);
-            this.other.ice_writeMembers(ostr);
-            ostr.writeInt(this.y);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public void ice_readMembers(global::Ice.InputStream istr)
-        {
-            this.otherSeq = ClassOtherStructSeqHelper.read(istr);
-            this.other.ice_readMembers(istr);
-            this.y = istr.readInt();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static void ice_write(global::Ice.OutputStream ostr, ClassStruct v)
-        {
-            if(v == null)
-            {
-                _nullMarshalValue.ice_writeMembers(ostr);
-            }
-            else
-            {
-                v.ice_writeMembers(ostr);
-            }
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static ClassStruct ice_read(global::Ice.InputStream istr)
-        {
-            var v = new ClassStruct();
-            v.ice_readMembers(istr);
-            return v;
-        }
-
-        private static readonly ClassStruct _nullMarshalValue = new ClassStruct();
-
-        #endregion
-    }
-
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
@@ -1077,21 +797,6 @@ namespace Test
     public delegate void Callback_TestIntf_opVariableArray(Variable[] ret, Variable[] outSeq);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opBoolRange(bool[] ret, bool[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opByteRange(byte[] ret, byte[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opVariableRange(Variable[] ret, Variable[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opByteRangeType(byte[] ret, byte[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opVariableRangeType(Variable[] ret, Variable[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public delegate void Callback_TestIntf_opBoolSeq(bool[] ret, bool[] outSeq);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1102,9 +807,6 @@ namespace Test
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public delegate void Callback_TestIntf_opBoolDequeListArray(bool[][] ret, bool[][] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opBoolDequeListRange(bool[][] ret, bool[][] outSeq);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public delegate void Callback_TestIntf_opByteSeq(byte[] ret, byte[] outSeq);
@@ -1158,13 +860,7 @@ namespace Test
     public delegate void Callback_TestIntf_opCList(C[] ret, C[] outSeq);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opClassStruct(ClassStruct ret, ClassStruct outS, ClassStruct[] outSeq);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public delegate void Callback_TestIntf_opOutArrayByteSeq(byte[] copy);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_opOutRangeByteSeq(byte[] copy);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public delegate void Callback_TestIntf_opIntStringDict(global::System.Collections.Generic.Dictionary<int, string> ret, global::System.Collections.Generic.Dictionary<int, string> odict);
@@ -1235,66 +931,6 @@ namespace Test
         public Variable[] outSeq;
     }
 
-    public struct TestIntf_OpBoolRangeResult
-    {
-        public TestIntf_OpBoolRangeResult(bool[] returnValue, bool[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public bool[] returnValue;
-        public bool[] outSeq;
-    }
-
-    public struct TestIntf_OpByteRangeResult
-    {
-        public TestIntf_OpByteRangeResult(byte[] returnValue, byte[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public byte[] returnValue;
-        public byte[] outSeq;
-    }
-
-    public struct TestIntf_OpVariableRangeResult
-    {
-        public TestIntf_OpVariableRangeResult(Variable[] returnValue, Variable[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public Variable[] returnValue;
-        public Variable[] outSeq;
-    }
-
-    public struct TestIntf_OpByteRangeTypeResult
-    {
-        public TestIntf_OpByteRangeTypeResult(byte[] returnValue, byte[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public byte[] returnValue;
-        public byte[] outSeq;
-    }
-
-    public struct TestIntf_OpVariableRangeTypeResult
-    {
-        public TestIntf_OpVariableRangeTypeResult(Variable[] returnValue, Variable[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public Variable[] returnValue;
-        public Variable[] outSeq;
-    }
-
     public struct TestIntf_OpBoolSeqResult
     {
         public TestIntf_OpBoolSeqResult(bool[] returnValue, bool[] outSeq)
@@ -1334,18 +970,6 @@ namespace Test
     public struct TestIntf_OpBoolDequeListArrayResult
     {
         public TestIntf_OpBoolDequeListArrayResult(bool[][] returnValue, bool[][] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outSeq = outSeq;
-        }
-
-        public bool[][] returnValue;
-        public bool[][] outSeq;
-    }
-
-    public struct TestIntf_OpBoolDequeListRangeResult
-    {
-        public TestIntf_OpBoolDequeListRangeResult(bool[][] returnValue, bool[][] outSeq)
         {
             this.returnValue = returnValue;
             this.outSeq = outSeq;
@@ -1559,20 +1183,6 @@ namespace Test
         public C[] outSeq;
     }
 
-    public struct TestIntf_OpClassStructResult
-    {
-        public TestIntf_OpClassStructResult(ClassStruct returnValue, ClassStruct outS, ClassStruct[] outSeq)
-        {
-            this.returnValue = returnValue;
-            this.outS = outS;
-            this.outSeq = outSeq;
-        }
-
-        public ClassStruct returnValue;
-        public ClassStruct outS;
-        public ClassStruct[] outSeq;
-    }
-
     public struct TestIntf_OpIntStringDictResult
     {
         public TestIntf_OpIntStringDictResult(global::System.Collections.Generic.Dictionary<int, string> returnValue, global::System.Collections.Generic.Dictionary<int, string> odict)
@@ -1648,26 +1258,6 @@ namespace Test
 
         global::System.Threading.Tasks.Task<TestIntf_OpVariableArrayResult> opVariableArrayAsync(Variable[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        bool[] opBoolRange(bool[] inSeq, out bool[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::System.Threading.Tasks.Task<TestIntf_OpBoolRangeResult> opBoolRangeAsync(bool[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        byte[] opByteRange(byte[] inSeq, out byte[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::System.Threading.Tasks.Task<TestIntf_OpByteRangeResult> opByteRangeAsync(byte[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        Variable[] opVariableRange(Variable[] inSeq, out Variable[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::System.Threading.Tasks.Task<TestIntf_OpVariableRangeResult> opVariableRangeAsync(Variable[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        byte[] opByteRangeType(byte[] inSeq, out byte[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::System.Threading.Tasks.Task<TestIntf_OpByteRangeTypeResult> opByteRangeTypeAsync(byte[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        Variable[] opVariableRangeType(Variable[] inSeq, out Variable[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::System.Threading.Tasks.Task<TestIntf_OpVariableRangeTypeResult> opVariableRangeTypeAsync(Variable[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
         bool[] opBoolSeq(bool[] inSeq, out bool[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task<TestIntf_OpBoolSeqResult> opBoolSeqAsync(bool[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
@@ -1683,10 +1273,6 @@ namespace Test
         bool[][] opBoolDequeListArray(bool[][] inSeq, out bool[][] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task<TestIntf_OpBoolDequeListArrayResult> opBoolDequeListArrayAsync(bool[][] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        bool[][] opBoolDequeListRange(bool[][] inSeq, out bool[][] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::System.Threading.Tasks.Task<TestIntf_OpBoolDequeListRangeResult> opBoolDequeListRangeAsync(bool[][] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         byte[] opByteSeq(byte[] inSeq, out byte[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
@@ -1756,17 +1342,9 @@ namespace Test
 
         global::System.Threading.Tasks.Task<TestIntf_OpCListResult> opCListAsync(C[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        ClassStruct opClassStruct(ClassStruct inS, ClassStruct[] inSeq, out ClassStruct outS, out ClassStruct[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::System.Threading.Tasks.Task<TestIntf_OpClassStructResult> opClassStructAsync(ClassStruct inS, ClassStruct[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
         void opOutArrayByteSeq(byte[] org, out byte[] copy, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task<byte[]> opOutArrayByteSeqAsync(byte[] org, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        void opOutRangeByteSeq(byte[] org, out byte[] copy, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::System.Threading.Tasks.Task<byte[]> opOutRangeByteSeqAsync(byte[] org, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         global::System.Collections.Generic.Dictionary<int, string> opIntStringDict(global::System.Collections.Generic.Dictionary<int, string> idict, out global::System.Collections.Generic.Dictionary<int, string> odict, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
@@ -1817,21 +1395,6 @@ namespace Test
         Variable[] opVariableArray(Variable[] inSeq, out Variable[] outSeq, global::Ice.Current current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        bool[] opBoolRange(bool[] inSeq, out bool[] outSeq, global::Ice.Current current = null);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        byte[] opByteRange(byte[] inSeq, out byte[] outSeq, global::Ice.Current current = null);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        Variable[] opVariableRange(Variable[] inSeq, out Variable[] outSeq, global::Ice.Current current = null);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        byte[] opByteRangeType(byte[] inSeq, out byte[] outSeq, global::Ice.Current current = null);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        Variable[] opVariableRangeType(Variable[] inSeq, out Variable[] outSeq, global::Ice.Current current = null);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         bool[] opBoolSeq(bool[] inSeq, out bool[] outSeq, global::Ice.Current current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1842,9 +1405,6 @@ namespace Test
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         bool[][] opBoolDequeListArray(bool[][] inSeq, out bool[][] outSeq, global::Ice.Current current = null);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        bool[][] opBoolDequeListRange(bool[][] inSeq, out bool[][] outSeq, global::Ice.Current current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         byte[] opByteSeq(byte[] inSeq, out byte[] outSeq, global::Ice.Current current = null);
@@ -1898,13 +1458,7 @@ namespace Test
         C[] opCList(C[] inSeq, out C[] outSeq, global::Ice.Current current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        ClassStruct opClassStruct(ClassStruct inS, ClassStruct[] inSeq, out ClassStruct outS, out ClassStruct[] outSeq, global::Ice.Current current = null);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         void opOutArrayByteSeq(byte[] org, out byte[] copy, global::Ice.Current current = null);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void opOutRangeByteSeq(byte[] org, out byte[] copy, global::Ice.Current current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         global::System.Collections.Generic.Dictionary<int, string> opIntStringDict(global::System.Collections.Generic.Dictionary<int, string> idict, out global::System.Collections.Generic.Dictionary<int, string> odict, global::Ice.Current current = null);
@@ -3590,75 +3144,6 @@ namespace Test
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public sealed class ClassOtherStructSeqHelper
-    {
-        public static void write(global::Ice.OutputStream ostr, ClassOtherStruct[] v)
-        {
-            if(v == null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
-                {
-                    v[ix].ice_writeMembers(ostr);
-                }
-            }
-        }
-
-        public static ClassOtherStruct[] read(global::Ice.InputStream istr)
-        {
-            ClassOtherStruct[] v;
-            {
-                int szx = istr.readAndCheckSeqSize(4);
-                v = new ClassOtherStruct[szx];
-                for(int ix = 0; ix < szx; ++ix)
-                {
-                    v[ix].ice_readMembers(istr);
-                }
-            }
-            return v;
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public sealed class ClassStructSeqHelper
-    {
-        public static void write(global::Ice.OutputStream ostr, ClassStruct[] v)
-        {
-            if(v == null)
-            {
-                ostr.writeSize(0);
-            }
-            else
-            {
-                ostr.writeSize(v.Length);
-                for(int ix = 0; ix < v.Length; ++ix)
-                {
-                    (v[ix] == null ? new ClassStruct() : v[ix]).ice_writeMembers(ostr);
-                }
-            }
-        }
-
-        public static ClassStruct[] read(global::Ice.InputStream istr)
-        {
-            ClassStruct[] v;
-            {
-                int szx = istr.readAndCheckSeqSize(9);
-                v = new ClassStruct[szx];
-                for(int ix = 0; ix < szx; ++ix)
-                {
-                    v[ix] = new ClassStruct();
-                    v[ix].ice_readMembers(istr);
-                }
-            }
-            return v;
-        }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class IntStringDictHelper
     {
         public static void write(global::Ice.OutputStream ostr,
@@ -3947,76 +3432,6 @@ namespace Test
             }
         }
 
-        public bool[] opBoolRange(bool[] inSeq, out bool[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            try
-            {
-                var result_ = _iceI_opBoolRangeAsync(inSeq, context, null, global::System.Threading.CancellationToken.None, true).Result;
-                outSeq = result_.outSeq;
-                return result_.returnValue;
-            }
-            catch(global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException;
-            }
-        }
-
-        public byte[] opByteRange(byte[] inSeq, out byte[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            try
-            {
-                var result_ = _iceI_opByteRangeAsync(inSeq, context, null, global::System.Threading.CancellationToken.None, true).Result;
-                outSeq = result_.outSeq;
-                return result_.returnValue;
-            }
-            catch(global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException;
-            }
-        }
-
-        public Variable[] opVariableRange(Variable[] inSeq, out Variable[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            try
-            {
-                var result_ = _iceI_opVariableRangeAsync(inSeq, context, null, global::System.Threading.CancellationToken.None, true).Result;
-                outSeq = result_.outSeq;
-                return result_.returnValue;
-            }
-            catch(global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException;
-            }
-        }
-
-        public byte[] opByteRangeType(byte[] inSeq, out byte[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            try
-            {
-                var result_ = _iceI_opByteRangeTypeAsync(inSeq, context, null, global::System.Threading.CancellationToken.None, true).Result;
-                outSeq = result_.outSeq;
-                return result_.returnValue;
-            }
-            catch(global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException;
-            }
-        }
-
-        public Variable[] opVariableRangeType(Variable[] inSeq, out Variable[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            try
-            {
-                var result_ = _iceI_opVariableRangeTypeAsync(inSeq, context, null, global::System.Threading.CancellationToken.None, true).Result;
-                outSeq = result_.outSeq;
-                return result_.returnValue;
-            }
-            catch(global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException;
-            }
-        }
-
         public bool[] opBoolSeq(bool[] inSeq, out bool[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
             try
@@ -4064,20 +3479,6 @@ namespace Test
             try
             {
                 var result_ = _iceI_opBoolDequeListArrayAsync(inSeq, context, null, global::System.Threading.CancellationToken.None, true).Result;
-                outSeq = result_.outSeq;
-                return result_.returnValue;
-            }
-            catch(global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException;
-            }
-        }
-
-        public bool[][] opBoolDequeListRange(bool[][] inSeq, out bool[][] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            try
-            {
-                var result_ = _iceI_opBoolDequeListRangeAsync(inSeq, context, null, global::System.Threading.CancellationToken.None, true).Result;
                 outSeq = result_.outSeq;
                 return result_.returnValue;
             }
@@ -4325,38 +3726,11 @@ namespace Test
             }
         }
 
-        public ClassStruct opClassStruct(ClassStruct inS, ClassStruct[] inSeq, out ClassStruct outS, out ClassStruct[] outSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            try
-            {
-                var result_ = _iceI_opClassStructAsync(inS, inSeq, context, null, global::System.Threading.CancellationToken.None, true).Result;
-                outS = result_.outS;
-                outSeq = result_.outSeq;
-                return result_.returnValue;
-            }
-            catch(global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException;
-            }
-        }
-
         public void opOutArrayByteSeq(byte[] org, out byte[] copy, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
             try
             {
                 copy = _iceI_opOutArrayByteSeqAsync(org, context, null, global::System.Threading.CancellationToken.None, true).Result;
-            }
-            catch(global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException;
-            }
-        }
-
-        public void opOutRangeByteSeq(byte[] org, out byte[] copy, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            try
-            {
-                copy = _iceI_opOutRangeByteSeqAsync(org, context, null, global::System.Threading.CancellationToken.None, true).Result;
             }
             catch(global::System.AggregateException ex_)
             {
@@ -4596,191 +3970,6 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpBoolRangeResult> opBoolRangeAsync(bool[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-        {
-            return _iceI_opBoolRangeAsync(inSeq, context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task<TestIntf_OpBoolRangeResult> _iceI_opBoolRangeAsync(bool[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            iceCheckTwowayOnly(_opBoolRange_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<TestIntf_OpBoolRangeResult>(progress, cancel);
-            _iceI_opBoolRange(iceP_inSeq, context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _opBoolRange_name = "opBoolRange";
-
-        private void _iceI_opBoolRange(bool[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<TestIntf_OpBoolRangeResult>(completed);
-            outAsync.invoke(
-                _opBoolRange_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
-                context,
-                synchronous,
-                write: (global::Ice.OutputStream ostr) =>
-                {
-                    BoolSeqHelper.write(ostr, iceP_inSeq);
-                },
-                read: (global::Ice.InputStream istr) =>
-                {
-                    TestIntf_OpBoolRangeResult ret = new TestIntf_OpBoolRangeResult();
-                    ret.outSeq = BoolSeqHelper.read(istr);
-                    ret.returnValue = BoolSeqHelper.read(istr);
-                    return ret;
-                });
-        }
-
-        public global::System.Threading.Tasks.Task<TestIntf_OpByteRangeResult> opByteRangeAsync(byte[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-        {
-            return _iceI_opByteRangeAsync(inSeq, context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task<TestIntf_OpByteRangeResult> _iceI_opByteRangeAsync(byte[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            iceCheckTwowayOnly(_opByteRange_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<TestIntf_OpByteRangeResult>(progress, cancel);
-            _iceI_opByteRange(iceP_inSeq, context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _opByteRange_name = "opByteRange";
-
-        private void _iceI_opByteRange(byte[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<TestIntf_OpByteRangeResult>(completed);
-            outAsync.invoke(
-                _opByteRange_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
-                context,
-                synchronous,
-                write: (global::Ice.OutputStream ostr) =>
-                {
-                    ByteListHelper.write(ostr, iceP_inSeq);
-                },
-                read: (global::Ice.InputStream istr) =>
-                {
-                    TestIntf_OpByteRangeResult ret = new TestIntf_OpByteRangeResult();
-                    ret.outSeq = ByteListHelper.read(istr);
-                    ret.returnValue = ByteListHelper.read(istr);
-                    return ret;
-                });
-        }
-
-        public global::System.Threading.Tasks.Task<TestIntf_OpVariableRangeResult> opVariableRangeAsync(Variable[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-        {
-            return _iceI_opVariableRangeAsync(inSeq, context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task<TestIntf_OpVariableRangeResult> _iceI_opVariableRangeAsync(Variable[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            iceCheckTwowayOnly(_opVariableRange_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<TestIntf_OpVariableRangeResult>(progress, cancel);
-            _iceI_opVariableRange(iceP_inSeq, context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _opVariableRange_name = "opVariableRange";
-
-        private void _iceI_opVariableRange(Variable[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<TestIntf_OpVariableRangeResult>(completed);
-            outAsync.invoke(
-                _opVariableRange_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
-                context,
-                synchronous,
-                write: (global::Ice.OutputStream ostr) =>
-                {
-                    VariableListHelper.write(ostr, iceP_inSeq);
-                },
-                read: (global::Ice.InputStream istr) =>
-                {
-                    TestIntf_OpVariableRangeResult ret = new TestIntf_OpVariableRangeResult();
-                    ret.outSeq = VariableListHelper.read(istr);
-                    ret.returnValue = VariableListHelper.read(istr);
-                    return ret;
-                });
-        }
-
-        public global::System.Threading.Tasks.Task<TestIntf_OpByteRangeTypeResult> opByteRangeTypeAsync(byte[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-        {
-            return _iceI_opByteRangeTypeAsync(inSeq, context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task<TestIntf_OpByteRangeTypeResult> _iceI_opByteRangeTypeAsync(byte[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            iceCheckTwowayOnly(_opByteRangeType_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<TestIntf_OpByteRangeTypeResult>(progress, cancel);
-            _iceI_opByteRangeType(iceP_inSeq, context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _opByteRangeType_name = "opByteRangeType";
-
-        private void _iceI_opByteRangeType(byte[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<TestIntf_OpByteRangeTypeResult>(completed);
-            outAsync.invoke(
-                _opByteRangeType_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
-                context,
-                synchronous,
-                write: (global::Ice.OutputStream ostr) =>
-                {
-                    ByteListHelper.write(ostr, iceP_inSeq);
-                },
-                read: (global::Ice.InputStream istr) =>
-                {
-                    TestIntf_OpByteRangeTypeResult ret = new TestIntf_OpByteRangeTypeResult();
-                    ret.outSeq = ByteListHelper.read(istr);
-                    ret.returnValue = ByteListHelper.read(istr);
-                    return ret;
-                });
-        }
-
-        public global::System.Threading.Tasks.Task<TestIntf_OpVariableRangeTypeResult> opVariableRangeTypeAsync(Variable[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-        {
-            return _iceI_opVariableRangeTypeAsync(inSeq, context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task<TestIntf_OpVariableRangeTypeResult> _iceI_opVariableRangeTypeAsync(Variable[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            iceCheckTwowayOnly(_opVariableRangeType_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<TestIntf_OpVariableRangeTypeResult>(progress, cancel);
-            _iceI_opVariableRangeType(iceP_inSeq, context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _opVariableRangeType_name = "opVariableRangeType";
-
-        private void _iceI_opVariableRangeType(Variable[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<TestIntf_OpVariableRangeTypeResult>(completed);
-            outAsync.invoke(
-                _opVariableRangeType_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
-                context,
-                synchronous,
-                write: (global::Ice.OutputStream ostr) =>
-                {
-                    VariableListHelper.write(ostr, iceP_inSeq);
-                },
-                read: (global::Ice.InputStream istr) =>
-                {
-                    TestIntf_OpVariableRangeTypeResult ret = new TestIntf_OpVariableRangeTypeResult();
-                    ret.outSeq = VariableListHelper.read(istr);
-                    ret.returnValue = VariableListHelper.read(istr);
-                    return ret;
-                });
-        }
-
         public global::System.Threading.Tasks.Task<TestIntf_OpBoolSeqResult> opBoolSeqAsync(bool[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
         {
             return _iceI_opBoolSeqAsync(inSeq, context, progress, cancel, false);
@@ -4923,43 +4112,6 @@ namespace Test
                 read: (global::Ice.InputStream istr) =>
                 {
                     TestIntf_OpBoolDequeListArrayResult ret = new TestIntf_OpBoolDequeListArrayResult();
-                    ret.outSeq = BoolDequeListHelper.read(istr);
-                    ret.returnValue = BoolDequeListHelper.read(istr);
-                    return ret;
-                });
-        }
-
-        public global::System.Threading.Tasks.Task<TestIntf_OpBoolDequeListRangeResult> opBoolDequeListRangeAsync(bool[][] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-        {
-            return _iceI_opBoolDequeListRangeAsync(inSeq, context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task<TestIntf_OpBoolDequeListRangeResult> _iceI_opBoolDequeListRangeAsync(bool[][] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            iceCheckTwowayOnly(_opBoolDequeListRange_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<TestIntf_OpBoolDequeListRangeResult>(progress, cancel);
-            _iceI_opBoolDequeListRange(iceP_inSeq, context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _opBoolDequeListRange_name = "opBoolDequeListRange";
-
-        private void _iceI_opBoolDequeListRange(bool[][] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<TestIntf_OpBoolDequeListRangeResult>(completed);
-            outAsync.invoke(
-                _opBoolDequeListRange_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
-                context,
-                synchronous,
-                write: (global::Ice.OutputStream ostr) =>
-                {
-                    BoolDequeListHelper.write(ostr, iceP_inSeq);
-                },
-                read: (global::Ice.InputStream istr) =>
-                {
-                    TestIntf_OpBoolDequeListRangeResult ret = new TestIntf_OpBoolDequeListRangeResult();
                     ret.outSeq = BoolDequeListHelper.read(istr);
                     ret.returnValue = BoolDequeListHelper.read(istr);
                     return ret;
@@ -5599,45 +4751,6 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task<TestIntf_OpClassStructResult> opClassStructAsync(ClassStruct inS, ClassStruct[] inSeq, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-        {
-            return _iceI_opClassStructAsync(inS, inSeq, context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task<TestIntf_OpClassStructResult> _iceI_opClassStructAsync(ClassStruct iceP_inS, ClassStruct[] iceP_inSeq, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            iceCheckTwowayOnly(_opClassStruct_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<TestIntf_OpClassStructResult>(progress, cancel);
-            _iceI_opClassStruct(iceP_inS, iceP_inSeq, context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _opClassStruct_name = "opClassStruct";
-
-        private void _iceI_opClassStruct(ClassStruct iceP_inS, ClassStruct[] iceP_inSeq, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<TestIntf_OpClassStructResult>(completed);
-            outAsync.invoke(
-                _opClassStruct_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
-                context,
-                synchronous,
-                write: (global::Ice.OutputStream ostr) =>
-                {
-                    ClassStruct.ice_write(ostr, iceP_inS);
-                    ClassStructSeqHelper.write(ostr, iceP_inSeq);
-                },
-                read: (global::Ice.InputStream istr) =>
-                {
-                    TestIntf_OpClassStructResult ret = new TestIntf_OpClassStructResult();
-                    ret.outS = ClassStruct.ice_read(istr);
-                    ret.outSeq = ClassStructSeqHelper.read(istr);
-                    ret.returnValue = ClassStruct.ice_read(istr);
-                    return ret;
-                });
-        }
-
         public global::System.Threading.Tasks.Task<byte[]> opOutArrayByteSeqAsync(byte[] org, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
         {
             return _iceI_opOutArrayByteSeqAsync(org, context, progress, cancel, false);
@@ -5658,42 +4771,6 @@ namespace Test
             var outAsync = getOutgoingAsync<byte[]>(completed);
             outAsync.invoke(
                 _opOutArrayByteSeq_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
-                context,
-                synchronous,
-                write: (global::Ice.OutputStream ostr) =>
-                {
-                    ByteSeqHelper.write(ostr, iceP_org);
-                },
-                read: (global::Ice.InputStream istr) =>
-                {
-                    byte[] iceP_copy;
-                    iceP_copy = ByteSeqHelper.read(istr);
-                    return iceP_copy;
-                });
-        }
-
-        public global::System.Threading.Tasks.Task<byte[]> opOutRangeByteSeqAsync(byte[] org, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-        {
-            return _iceI_opOutRangeByteSeqAsync(org, context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task<byte[]> _iceI_opOutRangeByteSeqAsync(byte[] iceP_org, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            iceCheckTwowayOnly(_opOutRangeByteSeq_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<byte[]>(progress, cancel);
-            _iceI_opOutRangeByteSeq(iceP_org, context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _opOutRangeByteSeq_name = "opOutRangeByteSeq";
-
-        private void _iceI_opOutRangeByteSeq(byte[] iceP_org, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<byte[]>(completed);
-            outAsync.invoke(
-                _opOutRangeByteSeq_name,
                 global::Ice.OperationMode.Normal,
                 global::Ice.FormatType.DefaultFormat,
                 context,
@@ -6111,16 +5188,6 @@ namespace Test
 
         public abstract Variable[] opVariableArray(Variable[] inSeq, out Variable[] outSeq, global::Ice.Current current = null);
 
-        public abstract bool[] opBoolRange(bool[] inSeq, out bool[] outSeq, global::Ice.Current current = null);
-
-        public abstract byte[] opByteRange(byte[] inSeq, out byte[] outSeq, global::Ice.Current current = null);
-
-        public abstract Variable[] opVariableRange(Variable[] inSeq, out Variable[] outSeq, global::Ice.Current current = null);
-
-        public abstract byte[] opByteRangeType(byte[] inSeq, out byte[] outSeq, global::Ice.Current current = null);
-
-        public abstract Variable[] opVariableRangeType(Variable[] inSeq, out Variable[] outSeq, global::Ice.Current current = null);
-
         public abstract bool[] opBoolSeq(bool[] inSeq, out bool[] outSeq, global::Ice.Current current = null);
 
         public abstract bool[] opBoolList(bool[] inSeq, out bool[] outSeq, global::Ice.Current current = null);
@@ -6128,8 +5195,6 @@ namespace Test
         public abstract bool[][] opBoolDequeList(bool[][] inSeq, out bool[][] outSeq, global::Ice.Current current = null);
 
         public abstract bool[][] opBoolDequeListArray(bool[][] inSeq, out bool[][] outSeq, global::Ice.Current current = null);
-
-        public abstract bool[][] opBoolDequeListRange(bool[][] inSeq, out bool[][] outSeq, global::Ice.Current current = null);
 
         public abstract byte[] opByteSeq(byte[] inSeq, out byte[] outSeq, global::Ice.Current current = null);
 
@@ -6165,11 +5230,7 @@ namespace Test
 
         public abstract C[] opCList(C[] inSeq, out C[] outSeq, global::Ice.Current current = null);
 
-        public abstract ClassStruct opClassStruct(ClassStruct inS, ClassStruct[] inSeq, out ClassStruct outS, out ClassStruct[] outSeq, global::Ice.Current current = null);
-
         public abstract void opOutArrayByteSeq(byte[] org, out byte[] copy, global::Ice.Current current = null);
-
-        public abstract void opOutRangeByteSeq(byte[] org, out byte[] copy, global::Ice.Current current = null);
 
         public abstract global::System.Collections.Generic.Dictionary<int, string> opIntStringDict(global::System.Collections.Generic.Dictionary<int, string> idict, out global::System.Collections.Generic.Dictionary<int, string> odict, global::Ice.Current current = null);
 
@@ -6291,96 +5352,6 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opBoolRange(TestIntf obj, global::IceInternal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            bool[] iceP_inSeq;
-            iceP_inSeq = BoolSeqHelper.read(istr);
-            inS.endReadParams();
-            bool[] iceP_outSeq;
-            var ret = obj.opBoolRange(iceP_inSeq, out iceP_outSeq, current);
-            var ostr = inS.startWriteParams();
-            BoolSeqHelper.write(ostr, iceP_outSeq);
-            BoolSeqHelper.write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opByteRange(TestIntf obj, global::IceInternal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            byte[] iceP_inSeq;
-            iceP_inSeq = ByteListHelper.read(istr);
-            inS.endReadParams();
-            byte[] iceP_outSeq;
-            var ret = obj.opByteRange(iceP_inSeq, out iceP_outSeq, current);
-            var ostr = inS.startWriteParams();
-            ByteListHelper.write(ostr, iceP_outSeq);
-            ByteListHelper.write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opVariableRange(TestIntf obj, global::IceInternal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            Variable[] iceP_inSeq;
-            iceP_inSeq = VariableListHelper.read(istr);
-            inS.endReadParams();
-            Variable[] iceP_outSeq;
-            var ret = obj.opVariableRange(iceP_inSeq, out iceP_outSeq, current);
-            var ostr = inS.startWriteParams();
-            VariableListHelper.write(ostr, iceP_outSeq);
-            VariableListHelper.write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opByteRangeType(TestIntf obj, global::IceInternal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            byte[] iceP_inSeq;
-            iceP_inSeq = ByteListHelper.read(istr);
-            inS.endReadParams();
-            byte[] iceP_outSeq;
-            var ret = obj.opByteRangeType(iceP_inSeq, out iceP_outSeq, current);
-            var ostr = inS.startWriteParams();
-            ByteListHelper.write(ostr, iceP_outSeq);
-            ByteListHelper.write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opVariableRangeType(TestIntf obj, global::IceInternal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            Variable[] iceP_inSeq;
-            iceP_inSeq = VariableListHelper.read(istr);
-            inS.endReadParams();
-            Variable[] iceP_outSeq;
-            var ret = obj.opVariableRangeType(iceP_inSeq, out iceP_outSeq, current);
-            var ostr = inS.startWriteParams();
-            VariableListHelper.write(ostr, iceP_outSeq);
-            VariableListHelper.write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
         iceD_opBoolSeq(TestIntf obj, global::IceInternal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
@@ -6444,24 +5415,6 @@ namespace Test
             inS.endReadParams();
             bool[][] iceP_outSeq;
             var ret = obj.opBoolDequeListArray(iceP_inSeq, out iceP_outSeq, current);
-            var ostr = inS.startWriteParams();
-            BoolDequeListHelper.write(ostr, iceP_outSeq);
-            BoolDequeListHelper.write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opBoolDequeListRange(TestIntf obj, global::IceInternal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            bool[][] iceP_inSeq;
-            iceP_inSeq = BoolDequeListHelper.read(istr);
-            inS.endReadParams();
-            bool[][] iceP_outSeq;
-            var ret = obj.opBoolDequeListRange(iceP_inSeq, out iceP_outSeq, current);
             var ostr = inS.startWriteParams();
             BoolDequeListHelper.write(ostr, iceP_outSeq);
             BoolDequeListHelper.write(ostr, ret);
@@ -6781,29 +5734,6 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opClassStruct(TestIntf obj, global::IceInternal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            ClassStruct iceP_inS;
-            iceP_inS = null;
-            ClassStruct[] iceP_inSeq;
-            iceP_inS = ClassStruct.ice_read(istr);
-            iceP_inSeq = ClassStructSeqHelper.read(istr);
-            inS.endReadParams();
-            ClassStruct iceP_outS;
-            ClassStruct[] iceP_outSeq;
-            var ret = obj.opClassStruct(iceP_inS, iceP_inSeq, out iceP_outS, out iceP_outSeq, current);
-            var ostr = inS.startWriteParams();
-            ClassStruct.ice_write(ostr, iceP_outS);
-            ClassStructSeqHelper.write(ostr, iceP_outSeq);
-            ClassStruct.ice_write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
         iceD_opOutArrayByteSeq(TestIntf obj, global::IceInternal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
@@ -6813,23 +5743,6 @@ namespace Test
             inS.endReadParams();
             byte[] iceP_copy;
             obj.opOutArrayByteSeq(iceP_org, out iceP_copy, current);
-            var ostr = inS.startWriteParams();
-            ByteSeqHelper.write(ostr, iceP_copy);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opOutRangeByteSeq(TestIntf obj, global::IceInternal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            byte[] iceP_org;
-            iceP_org = ByteSeqHelper.read(istr);
-            inS.endReadParams();
-            byte[] iceP_copy;
-            obj.opOutRangeByteSeq(iceP_org, out iceP_copy, current);
             var ostr = inS.startWriteParams();
             ByteSeqHelper.write(ostr, iceP_copy);
             inS.endWriteParams(ostr);
@@ -6945,19 +5858,14 @@ namespace Test
             "opBoolBuffer",
             "opBoolDequeList",
             "opBoolDequeListArray",
-            "opBoolDequeListRange",
             "opBoolList",
-            "opBoolRange",
             "opBoolSeq",
             "opBufferStruct",
             "opByteArray",
             "opByteList",
-            "opByteRange",
-            "opByteRangeType",
             "opByteSeq",
             "opCList",
             "opCSeq",
-            "opClassStruct",
             "opDPrxList",
             "opDPrxSeq",
             "opDoubleArray",
@@ -6968,7 +5876,6 @@ namespace Test
             "opIntStringDict",
             "opMyByteSeq",
             "opOutArrayByteSeq",
-            "opOutRangeByteSeq",
             "opShortBuffer",
             "opStringList",
             "opStringSeq",
@@ -6977,8 +5884,6 @@ namespace Test
             "opVarDict",
             "opVariableArray",
             "opVariableList",
-            "opVariableRange",
-            "opVariableRangeType",
             "opVariableSeq",
             "shutdown"
         };
@@ -7028,145 +5933,113 @@ namespace Test
                 }
                 case 8:
                 {
-                    return iceD_opBoolDequeListRange(this, inS, current);
+                    return iceD_opBoolList(this, inS, current);
                 }
                 case 9:
                 {
-                    return iceD_opBoolList(this, inS, current);
+                    return iceD_opBoolSeq(this, inS, current);
                 }
                 case 10:
                 {
-                    return iceD_opBoolRange(this, inS, current);
+                    return iceD_opBufferStruct(this, inS, current);
                 }
                 case 11:
                 {
-                    return iceD_opBoolSeq(this, inS, current);
+                    return iceD_opByteArray(this, inS, current);
                 }
                 case 12:
                 {
-                    return iceD_opBufferStruct(this, inS, current);
+                    return iceD_opByteList(this, inS, current);
                 }
                 case 13:
                 {
-                    return iceD_opByteArray(this, inS, current);
+                    return iceD_opByteSeq(this, inS, current);
                 }
                 case 14:
                 {
-                    return iceD_opByteList(this, inS, current);
+                    return iceD_opCList(this, inS, current);
                 }
                 case 15:
                 {
-                    return iceD_opByteRange(this, inS, current);
+                    return iceD_opCSeq(this, inS, current);
                 }
                 case 16:
                 {
-                    return iceD_opByteRangeType(this, inS, current);
+                    return iceD_opDPrxList(this, inS, current);
                 }
                 case 17:
                 {
-                    return iceD_opByteSeq(this, inS, current);
+                    return iceD_opDPrxSeq(this, inS, current);
                 }
                 case 18:
                 {
-                    return iceD_opCList(this, inS, current);
+                    return iceD_opDoubleArray(this, inS, current);
                 }
                 case 19:
                 {
-                    return iceD_opCSeq(this, inS, current);
+                    return iceD_opEList(this, inS, current);
                 }
                 case 20:
                 {
-                    return iceD_opClassStruct(this, inS, current);
+                    return iceD_opESeq(this, inS, current);
                 }
                 case 21:
                 {
-                    return iceD_opDPrxList(this, inS, current);
+                    return iceD_opFixedList(this, inS, current);
                 }
                 case 22:
                 {
-                    return iceD_opDPrxSeq(this, inS, current);
+                    return iceD_opFixedSeq(this, inS, current);
                 }
                 case 23:
                 {
-                    return iceD_opDoubleArray(this, inS, current);
+                    return iceD_opIntStringDict(this, inS, current);
                 }
                 case 24:
                 {
-                    return iceD_opEList(this, inS, current);
+                    return iceD_opMyByteSeq(this, inS, current);
                 }
                 case 25:
                 {
-                    return iceD_opESeq(this, inS, current);
+                    return iceD_opOutArrayByteSeq(this, inS, current);
                 }
                 case 26:
                 {
-                    return iceD_opFixedList(this, inS, current);
+                    return iceD_opShortBuffer(this, inS, current);
                 }
                 case 27:
                 {
-                    return iceD_opFixedSeq(this, inS, current);
+                    return iceD_opStringList(this, inS, current);
                 }
                 case 28:
                 {
-                    return iceD_opIntStringDict(this, inS, current);
+                    return iceD_opStringSeq(this, inS, current);
                 }
                 case 29:
                 {
-                    return iceD_opMyByteSeq(this, inS, current);
+                    return iceD_opStringStringDictList(this, inS, current);
                 }
                 case 30:
                 {
-                    return iceD_opOutArrayByteSeq(this, inS, current);
+                    return iceD_opStringStringDictSeq(this, inS, current);
                 }
                 case 31:
                 {
-                    return iceD_opOutRangeByteSeq(this, inS, current);
+                    return iceD_opVarDict(this, inS, current);
                 }
                 case 32:
                 {
-                    return iceD_opShortBuffer(this, inS, current);
+                    return iceD_opVariableArray(this, inS, current);
                 }
                 case 33:
                 {
-                    return iceD_opStringList(this, inS, current);
+                    return iceD_opVariableList(this, inS, current);
                 }
                 case 34:
                 {
-                    return iceD_opStringSeq(this, inS, current);
-                }
-                case 35:
-                {
-                    return iceD_opStringStringDictList(this, inS, current);
-                }
-                case 36:
-                {
-                    return iceD_opStringStringDictSeq(this, inS, current);
-                }
-                case 37:
-                {
-                    return iceD_opVarDict(this, inS, current);
-                }
-                case 38:
-                {
-                    return iceD_opVariableArray(this, inS, current);
-                }
-                case 39:
-                {
-                    return iceD_opVariableList(this, inS, current);
-                }
-                case 40:
-                {
-                    return iceD_opVariableRange(this, inS, current);
-                }
-                case 41:
-                {
-                    return iceD_opVariableRangeType(this, inS, current);
-                }
-                case 42:
-                {
                     return iceD_opVariableSeq(this, inS, current);
                 }
-                case 43:
+                case 35:
                 {
                     return iceD_shutdown(this, inS, current);
                 }

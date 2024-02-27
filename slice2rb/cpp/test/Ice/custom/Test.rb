@@ -362,82 +362,6 @@ module ::Test
         T_DoubleSeq = ::Ice::__defineSequence('::Test::DoubleSeq', ::Ice::T_double)
     end
 
-    if not defined?(::Test::ClassOtherStruct)
-        class ClassOtherStruct
-            include ::Ice::Inspect_mixin
-            def initialize(x=0)
-                @x = x
-            end
-
-            def hash
-                _h = 0
-                _h = 5 * _h + @x.hash
-                _h % 0x7fffffff
-            end
-
-            def ==(other)
-                return false if !other.is_a? ::Test::ClassOtherStruct or
-                    @x != other.x
-                true
-            end
-
-            def eql?(other)
-                return other.class == self.class && other == self
-            end
-
-            attr_accessor :x
-        end
-
-        T_ClassOtherStruct = ::Ice::__defineStruct('::Test::ClassOtherStruct', ClassOtherStruct, [["x", ::Ice::T_int]])
-    end
-
-    if not defined?(::Test::T_ClassOtherStructSeq)
-        T_ClassOtherStructSeq = ::Ice::__defineSequence('::Test::ClassOtherStructSeq', ::Test::T_ClassOtherStruct)
-    end
-
-    if not defined?(::Test::ClassStruct)
-        class ClassStruct
-            include ::Ice::Inspect_mixin
-            def initialize(otherSeq=nil, other=::Test::ClassOtherStruct.new, y=0)
-                @otherSeq = otherSeq
-                @other = other
-                @y = y
-            end
-
-            def hash
-                _h = 0
-                _h = 5 * _h + @otherSeq.hash
-                _h = 5 * _h + @other.hash
-                _h = 5 * _h + @y.hash
-                _h % 0x7fffffff
-            end
-
-            def ==(other)
-                return false if !other.is_a? ::Test::ClassStruct or
-                    @otherSeq != other.otherSeq or
-                    @other != other.other or
-                    @y != other.y
-                true
-            end
-
-            def eql?(other)
-                return other.class == self.class && other == self
-            end
-
-            attr_accessor :otherSeq, :other, :y
-        end
-
-        T_ClassStruct = ::Ice::__defineStruct('::Test::ClassStruct', ClassStruct, [
-            ["otherSeq", ::Test::T_ClassOtherStructSeq],
-            ["other", ::Test::T_ClassOtherStruct],
-            ["y", ::Ice::T_int]
-        ])
-    end
-
-    if not defined?(::Test::T_ClassStructSeq)
-        T_ClassStructSeq = ::Ice::__defineSequence('::Test::ClassStructSeq', ::Test::T_ClassStruct)
-    end
-
     if not defined?(::Test::T_IntStringDict)
         T_IntStringDict = ::Ice::__defineDictionary('::Test::IntStringDict', ::Ice::T_int, ::Ice::T_string)
     end
@@ -575,26 +499,6 @@ module ::Test
                 TestIntfPrx_mixin::OP_opVariableArray.invoke(self, [inSeq], context)
             end
 
-            def opBoolRange(inSeq, context=nil)
-                TestIntfPrx_mixin::OP_opBoolRange.invoke(self, [inSeq], context)
-            end
-
-            def opByteRange(inSeq, context=nil)
-                TestIntfPrx_mixin::OP_opByteRange.invoke(self, [inSeq], context)
-            end
-
-            def opVariableRange(inSeq, context=nil)
-                TestIntfPrx_mixin::OP_opVariableRange.invoke(self, [inSeq], context)
-            end
-
-            def opByteRangeType(inSeq, context=nil)
-                TestIntfPrx_mixin::OP_opByteRangeType.invoke(self, [inSeq], context)
-            end
-
-            def opVariableRangeType(inSeq, context=nil)
-                TestIntfPrx_mixin::OP_opVariableRangeType.invoke(self, [inSeq], context)
-            end
-
             def opBoolSeq(inSeq, context=nil)
                 TestIntfPrx_mixin::OP_opBoolSeq.invoke(self, [inSeq], context)
             end
@@ -609,10 +513,6 @@ module ::Test
 
             def opBoolDequeListArray(inSeq, context=nil)
                 TestIntfPrx_mixin::OP_opBoolDequeListArray.invoke(self, [inSeq], context)
-            end
-
-            def opBoolDequeListRange(inSeq, context=nil)
-                TestIntfPrx_mixin::OP_opBoolDequeListRange.invoke(self, [inSeq], context)
             end
 
             def opByteSeq(inSeq, context=nil)
@@ -683,16 +583,8 @@ module ::Test
                 TestIntfPrx_mixin::OP_opCList.invoke(self, [inSeq], context)
             end
 
-            def opClassStruct(inS, inSeq, context=nil)
-                TestIntfPrx_mixin::OP_opClassStruct.invoke(self, [inS, inSeq], context)
-            end
-
             def opOutArrayByteSeq(org, context=nil)
                 TestIntfPrx_mixin::OP_opOutArrayByteSeq.invoke(self, [org], context)
-            end
-
-            def opOutRangeByteSeq(org, context=nil)
-                TestIntfPrx_mixin::OP_opOutRangeByteSeq.invoke(self, [org], context)
             end
 
             def opIntStringDict(idict, context=nil)
@@ -736,16 +628,10 @@ module ::Test
         TestIntfPrx_mixin::OP_opBoolArray = ::Ice::__defineOperation('opBoolArray', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_BoolSeq, false, 0]], [[::Test::T_BoolSeq, false, 0]], [::Test::T_BoolSeq, false, 0], [])
         TestIntfPrx_mixin::OP_opByteArray = ::Ice::__defineOperation('opByteArray', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ByteList, false, 0]], [[::Test::T_ByteList, false, 0]], [::Test::T_ByteList, false, 0], [])
         TestIntfPrx_mixin::OP_opVariableArray = ::Ice::__defineOperation('opVariableArray', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_VariableList, false, 0]], [[::Test::T_VariableList, false, 0]], [::Test::T_VariableList, false, 0], [])
-        TestIntfPrx_mixin::OP_opBoolRange = ::Ice::__defineOperation('opBoolRange', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_BoolSeq, false, 0]], [[::Test::T_BoolSeq, false, 0]], [::Test::T_BoolSeq, false, 0], [])
-        TestIntfPrx_mixin::OP_opByteRange = ::Ice::__defineOperation('opByteRange', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ByteList, false, 0]], [[::Test::T_ByteList, false, 0]], [::Test::T_ByteList, false, 0], [])
-        TestIntfPrx_mixin::OP_opVariableRange = ::Ice::__defineOperation('opVariableRange', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_VariableList, false, 0]], [[::Test::T_VariableList, false, 0]], [::Test::T_VariableList, false, 0], [])
-        TestIntfPrx_mixin::OP_opByteRangeType = ::Ice::__defineOperation('opByteRangeType', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ByteList, false, 0]], [[::Test::T_ByteList, false, 0]], [::Test::T_ByteList, false, 0], [])
-        TestIntfPrx_mixin::OP_opVariableRangeType = ::Ice::__defineOperation('opVariableRangeType', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_VariableList, false, 0]], [[::Test::T_VariableList, false, 0]], [::Test::T_VariableList, false, 0], [])
         TestIntfPrx_mixin::OP_opBoolSeq = ::Ice::__defineOperation('opBoolSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_BoolSeq, false, 0]], [[::Test::T_BoolSeq, false, 0]], [::Test::T_BoolSeq, false, 0], [])
         TestIntfPrx_mixin::OP_opBoolList = ::Ice::__defineOperation('opBoolList', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_BoolList, false, 0]], [[::Test::T_BoolList, false, 0]], [::Test::T_BoolList, false, 0], [])
         TestIntfPrx_mixin::OP_opBoolDequeList = ::Ice::__defineOperation('opBoolDequeList', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_BoolDequeList, false, 0]], [[::Test::T_BoolDequeList, false, 0]], [::Test::T_BoolDequeList, false, 0], [])
         TestIntfPrx_mixin::OP_opBoolDequeListArray = ::Ice::__defineOperation('opBoolDequeListArray', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_BoolDequeList, false, 0]], [[::Test::T_BoolDequeList, false, 0]], [::Test::T_BoolDequeList, false, 0], [])
-        TestIntfPrx_mixin::OP_opBoolDequeListRange = ::Ice::__defineOperation('opBoolDequeListRange', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_BoolDequeList, false, 0]], [[::Test::T_BoolDequeList, false, 0]], [::Test::T_BoolDequeList, false, 0], [])
         TestIntfPrx_mixin::OP_opByteSeq = ::Ice::__defineOperation('opByteSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ByteSeq, false, 0]], [[::Test::T_ByteSeq, false, 0]], [::Test::T_ByteSeq, false, 0], [])
         TestIntfPrx_mixin::OP_opByteList = ::Ice::__defineOperation('opByteList', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ByteList, false, 0]], [[::Test::T_ByteList, false, 0]], [::Test::T_ByteList, false, 0], [])
         TestIntfPrx_mixin::OP_opMyByteSeq = ::Ice::__defineOperation('opMyByteSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ByteSeq, false, 0]], [[::Test::T_ByteSeq, false, 0]], [::Test::T_ByteSeq, false, 0], [])
@@ -763,9 +649,7 @@ module ::Test
         TestIntfPrx_mixin::OP_opDPrxList = ::Ice::__defineOperation('opDPrxList', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_DPrxList, false, 0]], [[::Test::T_DPrxList, false, 0]], [::Test::T_DPrxList, false, 0], [])
         TestIntfPrx_mixin::OP_opCSeq = ::Ice::__defineOperation('opCSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_CSeq, false, 0]], [[::Test::T_CSeq, false, 0]], [::Test::T_CSeq, false, 0], [])
         TestIntfPrx_mixin::OP_opCList = ::Ice::__defineOperation('opCList', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_CList, false, 0]], [[::Test::T_CList, false, 0]], [::Test::T_CList, false, 0], [])
-        TestIntfPrx_mixin::OP_opClassStruct = ::Ice::__defineOperation('opClassStruct', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ClassStruct, false, 0], [::Test::T_ClassStructSeq, false, 0]], [[::Test::T_ClassStruct, false, 0], [::Test::T_ClassStructSeq, false, 0]], [::Test::T_ClassStruct, false, 0], [])
         TestIntfPrx_mixin::OP_opOutArrayByteSeq = ::Ice::__defineOperation('opOutArrayByteSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ByteSeq, false, 0]], [[::Test::T_ByteSeq, false, 0]], nil, [])
-        TestIntfPrx_mixin::OP_opOutRangeByteSeq = ::Ice::__defineOperation('opOutRangeByteSeq', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ByteSeq, false, 0]], [[::Test::T_ByteSeq, false, 0]], nil, [])
         TestIntfPrx_mixin::OP_opIntStringDict = ::Ice::__defineOperation('opIntStringDict', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_IntStringDict, false, 0]], [[::Test::T_IntStringDict, false, 0]], [::Test::T_IntStringDict, false, 0], [])
         TestIntfPrx_mixin::OP_opVarDict = ::Ice::__defineOperation('opVarDict', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_StringIntDict, false, 0]], [[::Test::T_StringIntDict, false, 0]], [::Test::T_LongLongDict, false, 0], [])
         TestIntfPrx_mixin::OP_opShortBuffer = ::Ice::__defineOperation('opShortBuffer', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ShortBuffer, false, 0]], [[::Test::T_ShortBuffer, false, 0]], [::Test::T_ShortBuffer, false, 0], [])

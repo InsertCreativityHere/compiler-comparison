@@ -144,35 +144,6 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::ClassStruct)
-        class ClassStruct
-            include ::Ice::Inspect_mixin
-            def initialize(i=0)
-                @i = i
-            end
-
-            def hash
-                _h = 0
-                _h = 5 * _h + @i.hash
-                _h % 0x7fffffff
-            end
-
-            def ==(other)
-                return false if !other.is_a? ::Test::ClassStruct or
-                    @i != other.i
-                true
-            end
-
-            def eql?(other)
-                return other.class == self.class && other == self
-            end
-
-            attr_accessor :i
-        end
-
-        T_ClassStruct = ::Ice::__defineStruct('::Test::ClassStruct', ClassStruct, [["i", ::Ice::T_int]])
-    end
-
     if not defined?(::Test::OptionalClass_Mixin)
 
         module ::Test::OptionalClass_Mixin
@@ -476,35 +447,6 @@ module ::Test
             ])
         end
 
-        if not defined?(::Test::Sub::NestedClassStruct)
-            class NestedClassStruct
-                include ::Ice::Inspect_mixin
-                def initialize(i=0)
-                    @i = i
-                end
-
-                def hash
-                    _h = 0
-                    _h = 5 * _h + @i.hash
-                    _h % 0x7fffffff
-                end
-
-                def ==(other)
-                    return false if !other.is_a? ::Test::Sub::NestedClassStruct or
-                        @i != other.i
-                    true
-                end
-
-                def eql?(other)
-                    return other.class == self.class && other == self
-                end
-
-                attr_accessor :i
-            end
-
-            T_NestedClassStruct = ::Ice::__defineStruct('::Test::Sub::NestedClassStruct', NestedClassStruct, [["i", ::Ice::T_int]])
-        end
-
         if not defined?(::Test::Sub::NestedException)
             class NestedException < Ice::UserException
                 def initialize(str='')
@@ -638,35 +580,6 @@ module ::Test2
                 ["str", ::Ice::T_string],
                 ["e", ::Test2::Sub2::T_NestedEnum2]
             ])
-        end
-
-        if not defined?(::Test2::Sub2::NestedClassStruct2)
-            class NestedClassStruct2
-                include ::Ice::Inspect_mixin
-                def initialize(i=0)
-                    @i = i
-                end
-
-                def hash
-                    _h = 0
-                    _h = 5 * _h + @i.hash
-                    _h % 0x7fffffff
-                end
-
-                def ==(other)
-                    return false if !other.is_a? ::Test2::Sub2::NestedClassStruct2 or
-                        @i != other.i
-                    true
-                end
-
-                def eql?(other)
-                    return other.class == self.class && other == self
-                end
-
-                attr_accessor :i
-            end
-
-            T_NestedClassStruct2 = ::Ice::__defineStruct('::Test2::Sub2::NestedClassStruct2', NestedClassStruct2, [["i", ::Ice::T_int]])
         end
 
         if not defined?(::Test2::Sub2::NestedException2)

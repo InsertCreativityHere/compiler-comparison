@@ -13246,23 +13246,13 @@ namespace Test
 
         public abstract global::System.Threading.Tasks.Task<byte> opByte1Async(byte opByte1, global::Ice.Current current = null);
 
+        public abstract global::System.Threading.Tasks.Task<short> opShort1Async(short opShort1, global::Ice.Current current = null);
+
         public abstract global::System.Threading.Tasks.Task<int> opInt1Async(int opInt1, global::Ice.Current current = null);
 
         public abstract global::System.Threading.Tasks.Task<long> opLong1Async(long opLong1, global::Ice.Current current = null);
 
         public abstract global::System.Threading.Tasks.Task<float> opFloat1Async(float opFloat1, global::Ice.Current current = null);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpMSeq1MarshaledResult> opMSeq1Async(global::Ice.Current current = null);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpMSeq2MarshaledResult> opMSeq2Async(string[] p1, global::Ice.Current current = null);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict1MarshaledResult> opMDict1Async(global::Ice.Current current = null);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict2MarshaledResult> opMDict2Async(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpMStruct2MarshaledResult> opMStruct2Async(Structure p1, global::Ice.Current current = null);
-
-        public abstract global::System.Threading.Tasks.Task<short> opShort1Async(short opShort1, global::Ice.Current current = null);
 
         public abstract global::System.Threading.Tasks.Task<double> opDouble1Async(double opDouble1, global::Ice.Current current = null);
 
@@ -13281,6 +13271,16 @@ namespace Test
         public abstract global::System.Threading.Tasks.Task<string[]> opWStringLiteralsAsync(global::Ice.Current current = null);
 
         public abstract global::System.Threading.Tasks.Task<MyClass_OpMStruct1MarshaledResult> opMStruct1Async(global::Ice.Current current = null);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpMStruct2MarshaledResult> opMStruct2Async(Structure p1, global::Ice.Current current = null);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpMSeq1MarshaledResult> opMSeq1Async(global::Ice.Current current = null);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpMSeq2MarshaledResult> opMSeq2Async(string[] p1, global::Ice.Current current = null);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict1MarshaledResult> opMDict1Async(global::Ice.Current current = null);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict2MarshaledResult> opMDict2Async(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
 
         #endregion
 

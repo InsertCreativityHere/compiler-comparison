@@ -9,16 +9,6 @@
 %   opByteArrayAsync
 %   opVariableArray
 %   opVariableArrayAsync
-%   opBoolRange
-%   opBoolRangeAsync
-%   opByteRange
-%   opByteRangeAsync
-%   opVariableRange
-%   opVariableRangeAsync
-%   opByteRangeType
-%   opByteRangeTypeAsync
-%   opVariableRangeType
-%   opVariableRangeTypeAsync
 %   opBoolSeq
 %   opBoolSeqAsync
 %   opBoolList
@@ -27,8 +17,6 @@
 %   opBoolDequeListAsync
 %   opBoolDequeListArray
 %   opBoolDequeListArrayAsync
-%   opBoolDequeListRange
-%   opBoolDequeListRangeAsync
 %   opByteSeq
 %   opByteSeqAsync
 %   opByteList
@@ -63,12 +51,8 @@
 %   opCSeqAsync
 %   opCList
 %   opCListAsync
-%   opClassStruct
-%   opClassStructAsync
 %   opOutArrayByteSeq
 %   opOutArrayByteSeqAsync
-%   opOutRangeByteSeq
-%   opOutRangeByteSeqAsync
 %   opIntStringDict
 %   opIntStringDictAsync
 %   opVarDict
@@ -257,216 +241,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             end
             r_ = obj.iceInvokeAsync('opVariableArray', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
-        function [result, outSeq] = opBoolRange(obj, inSeq, varargin)
-            % opBoolRange
-            %
-            % Parameters:
-            %   inSeq (Test.BoolSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.BoolSeq)
-            %   outSeq (Test.BoolSeq)
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeBoolSeq(inSeq);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opBoolRange', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            outSeq = is_.readBoolSeq();
-            result = is_.readBoolSeq();
-            is_.endEncapsulation();
-        end
-        function r_ = opBoolRangeAsync(obj, inSeq, varargin)
-            % opBoolRangeAsync
-            %
-            % Parameters:
-            %   inSeq (Test.BoolSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeBoolSeq(inSeq);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                outSeq = is_.readBoolSeq();
-                result = is_.readBoolSeq();
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = outSeq;
-            end
-            r_ = obj.iceInvokeAsync('opBoolRange', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
-        function [result, outSeq] = opByteRange(obj, inSeq, varargin)
-            % opByteRange
-            %
-            % Parameters:
-            %   inSeq (Test.ByteList)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.ByteList)
-            %   outSeq (Test.ByteList)
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeByteSeq(inSeq);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opByteRange', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            outSeq = is_.readByteSeq();
-            result = is_.readByteSeq();
-            is_.endEncapsulation();
-        end
-        function r_ = opByteRangeAsync(obj, inSeq, varargin)
-            % opByteRangeAsync
-            %
-            % Parameters:
-            %   inSeq (Test.ByteList)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeByteSeq(inSeq);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                outSeq = is_.readByteSeq();
-                result = is_.readByteSeq();
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = outSeq;
-            end
-            r_ = obj.iceInvokeAsync('opByteRange', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
-        function [result, outSeq] = opVariableRange(obj, inSeq, varargin)
-            % opVariableRange
-            %
-            % Parameters:
-            %   inSeq (Test.VariableList)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.VariableList)
-            %   outSeq (Test.VariableList)
-            
-            os_ = obj.iceStartWriteParams([]);
-            Test.VariableList.write(os_, inSeq);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opVariableRange', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            outSeq = Test.VariableList.read(is_);
-            result = Test.VariableList.read(is_);
-            is_.endEncapsulation();
-        end
-        function r_ = opVariableRangeAsync(obj, inSeq, varargin)
-            % opVariableRangeAsync
-            %
-            % Parameters:
-            %   inSeq (Test.VariableList)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            Test.VariableList.write(os_, inSeq);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                outSeq = Test.VariableList.read(is_);
-                result = Test.VariableList.read(is_);
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = outSeq;
-            end
-            r_ = obj.iceInvokeAsync('opVariableRange', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
-        function [result, outSeq] = opByteRangeType(obj, inSeq, varargin)
-            % opByteRangeType
-            %
-            % Parameters:
-            %   inSeq (Test.ByteList)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.ByteList)
-            %   outSeq (Test.ByteList)
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeByteSeq(inSeq);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opByteRangeType', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            outSeq = is_.readByteSeq();
-            result = is_.readByteSeq();
-            is_.endEncapsulation();
-        end
-        function r_ = opByteRangeTypeAsync(obj, inSeq, varargin)
-            % opByteRangeTypeAsync
-            %
-            % Parameters:
-            %   inSeq (Test.ByteList)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeByteSeq(inSeq);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                outSeq = is_.readByteSeq();
-                result = is_.readByteSeq();
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = outSeq;
-            end
-            r_ = obj.iceInvokeAsync('opByteRangeType', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
-        function [result, outSeq] = opVariableRangeType(obj, inSeq, varargin)
-            % opVariableRangeType
-            %
-            % Parameters:
-            %   inSeq (Test.VariableList)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.VariableList)
-            %   outSeq (Test.VariableList)
-            
-            os_ = obj.iceStartWriteParams([]);
-            Test.VariableList.write(os_, inSeq);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opVariableRangeType', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            outSeq = Test.VariableList.read(is_);
-            result = Test.VariableList.read(is_);
-            is_.endEncapsulation();
-        end
-        function r_ = opVariableRangeTypeAsync(obj, inSeq, varargin)
-            % opVariableRangeTypeAsync
-            %
-            % Parameters:
-            %   inSeq (Test.VariableList)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            Test.VariableList.write(os_, inSeq);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                outSeq = Test.VariableList.read(is_);
-                result = Test.VariableList.read(is_);
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = outSeq;
-            end
-            r_ = obj.iceInvokeAsync('opVariableRangeType', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
         function [result, outSeq] = opBoolSeq(obj, inSeq, varargin)
             % opBoolSeq
             %
@@ -634,48 +408,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
                 varargout{2} = outSeq;
             end
             r_ = obj.iceInvokeAsync('opBoolDequeListArray', 0, true, os_, 2, @unmarshal, {}, varargin{:});
-        end
-        function [result, outSeq] = opBoolDequeListRange(obj, inSeq, varargin)
-            % opBoolDequeListRange
-            %
-            % Parameters:
-            %   inSeq (Test.BoolDequeList)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.BoolDequeList)
-            %   outSeq (Test.BoolDequeList)
-            
-            os_ = obj.iceStartWriteParams([]);
-            Test.BoolDequeList.write(os_, inSeq);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opBoolDequeListRange', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            outSeq = Test.BoolDequeList.read(is_);
-            result = Test.BoolDequeList.read(is_);
-            is_.endEncapsulation();
-        end
-        function r_ = opBoolDequeListRangeAsync(obj, inSeq, varargin)
-            % opBoolDequeListRangeAsync
-            %
-            % Parameters:
-            %   inSeq (Test.BoolDequeList)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            Test.BoolDequeList.write(os_, inSeq);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                outSeq = Test.BoolDequeList.read(is_);
-                result = Test.BoolDequeList.read(is_);
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = outSeq;
-            end
-            r_ = obj.iceInvokeAsync('opBoolDequeListRange', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
         function [result, outSeq] = opByteSeq(obj, inSeq, varargin)
             % opByteSeq
@@ -1403,56 +1135,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             end
             r_ = obj.iceInvokeAsync('opCList', 0, true, os_, 2, @unmarshal, {}, varargin{:});
         end
-        function [result, outS, outSeq] = opClassStruct(obj, inS, inSeq, varargin)
-            % opClassStruct
-            %
-            % Parameters:
-            %   inS (Test.ClassStruct)
-            %   inSeq (Test.ClassStructSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns:
-            %   result (Test.ClassStruct)
-            %   outS (Test.ClassStruct)
-            %   outSeq (Test.ClassStructSeq)
-            
-            os_ = obj.iceStartWriteParams([]);
-            Test.ClassStruct.ice_write(os_, inS);
-            Test.ClassStructSeq.write(os_, inSeq);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opClassStruct', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            outS = Test.ClassStruct.ice_read(is_);
-            outSeq = Test.ClassStructSeq.read(is_);
-            result = Test.ClassStruct.ice_read(is_);
-            is_.endEncapsulation();
-        end
-        function r_ = opClassStructAsync(obj, inS, inSeq, varargin)
-            % opClassStructAsync
-            %
-            % Parameters:
-            %   inS (Test.ClassStruct)
-            %   inSeq (Test.ClassStructSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            Test.ClassStruct.ice_write(os_, inS);
-            Test.ClassStructSeq.write(os_, inSeq);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                outS = Test.ClassStruct.ice_read(is_);
-                outSeq = Test.ClassStructSeq.read(is_);
-                result = Test.ClassStruct.ice_read(is_);
-                is_.endEncapsulation();
-                varargout{1} = result;
-                varargout{2} = outS;
-                varargout{3} = outSeq;
-            end
-            r_ = obj.iceInvokeAsync('opClassStruct', 0, true, os_, 3, @unmarshal, {}, varargin{:});
-        end
         function copy = opOutArrayByteSeq(obj, org, varargin)
             % opOutArrayByteSeq
             %
@@ -1489,43 +1171,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
                 varargout{1} = copy;
             end
             r_ = obj.iceInvokeAsync('opOutArrayByteSeq', 0, true, os_, 1, @unmarshal, {}, varargin{:});
-        end
-        function copy = opOutRangeByteSeq(obj, org, varargin)
-            % opOutRangeByteSeq
-            %
-            % Parameters:
-            %   org (Test.ByteSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Test.ByteSeq)
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeByteSeq(org);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('opOutRangeByteSeq', 0, true, os_, true, {}, varargin{:});
-            is_.startEncapsulation();
-            copy = is_.readByteSeq();
-            is_.endEncapsulation();
-        end
-        function r_ = opOutRangeByteSeqAsync(obj, org, varargin)
-            % opOutRangeByteSeqAsync
-            %
-            % Parameters:
-            %   org (Test.ByteSeq)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeByteSeq(org);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                copy = is_.readByteSeq();
-                is_.endEncapsulation();
-                varargout{1} = copy;
-            end
-            r_ = obj.iceInvokeAsync('opOutRangeByteSeq', 0, true, os_, 1, @unmarshal, {}, varargin{:});
         end
         function [result, odict] = opIntStringDict(obj, idict, varargin)
             % opIntStringDict
