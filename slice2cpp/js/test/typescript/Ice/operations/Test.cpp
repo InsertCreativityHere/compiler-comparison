@@ -3232,10 +3232,10 @@ Test::MyClassPrx::_iceI_opMDict2(const ::std::shared_ptr<::IceInternal::Outgoing
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::MyClassPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::MyClass";
+    static constexpr ::std::string_view typeId = "::Test::MyClass";
     return typeId;
 }
 
@@ -3356,10 +3356,10 @@ Test::MyDerivedClassPrx::_iceI_opMyStruct1(const ::std::shared_ptr<::IceInternal
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::MyDerivedClassPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::MyDerivedClass";
+    static constexpr ::std::string_view typeId = "::Test::MyDerivedClass";
     return typeId;
 }
 
@@ -3529,17 +3529,17 @@ Test::EchoPrx::_iceI_supportsCompress(const ::std::shared_ptr<::IceInternal::Out
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::EchoPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Echo";
+    static constexpr ::std::string_view typeId = "::Test::Echo";
     return typeId;
 }
 
-const ::std::string&
+::std::string_view
 Test2::MyDerivedClassPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test2::MyDerivedClass";
+    static constexpr ::std::string_view typeId = "::Test2::MyDerivedClass";
     return typeId;
 }
 
@@ -3547,10 +3547,10 @@ Test::MyClass1::~MyClass1()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::MyClass1::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::MyClass1";
+    static constexpr ::std::string_view typeId = "::Test::MyClass1";
     return typeId;
 }
 
@@ -3564,13 +3564,13 @@ Test::MyClass::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::MyClass::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::MyClass::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::MyClass";
+    static constexpr ::std::string_view typeId = "::Test::MyClass";
     return typeId;
 }
 
@@ -5192,13 +5192,13 @@ Test::MyDerivedClass::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::MyDerivedClass::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::MyDerivedClass::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::MyDerivedClass";
+    static constexpr ::std::string_view typeId = "::Test::MyDerivedClass";
     return typeId;
 }
 
@@ -5595,13 +5595,13 @@ Test::Echo::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::Echo::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::Echo::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Echo";
+    static constexpr ::std::string_view typeId = "::Test::Echo";
     return typeId;
 }
 
@@ -5736,13 +5736,13 @@ Test2::MyDerivedClass::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test2::MyDerivedClass::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test2::MyDerivedClass::ice_staticId()
 {
-    static const ::std::string typeId = "::Test2::MyDerivedClass";
+    static constexpr ::std::string_view typeId = "::Test2::MyDerivedClass";
     return typeId;
 }
 

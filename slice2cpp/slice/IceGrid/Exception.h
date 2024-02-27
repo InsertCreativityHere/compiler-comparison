@@ -84,7 +84,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
 
     /**
      * The name of the application.
@@ -132,7 +132,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
 
     /**
      * The identifier of the server.
@@ -178,7 +178,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
 
     /**
      * The identifier of the server.
@@ -228,7 +228,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
 
     /**
      * The identifier of the server.
@@ -276,7 +276,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
 
     /**
      * The id of the object adapter.
@@ -320,7 +320,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
 
     /**
      * The identity of the object.
@@ -364,7 +364,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
 
     /**
      * The identity of the object.
@@ -408,7 +408,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
 
     /**
      * The node name.
@@ -452,7 +452,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
 
     /**
      * The registry name.
@@ -496,7 +496,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
 
     /**
      * The reason for the failure.
@@ -542,7 +542,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
 
     /**
      * The name of the node that is not reachable.
@@ -592,7 +592,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
 
     /**
      * The id of the server that is not reachable.
@@ -642,7 +642,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
 
     /**
      * The name of the registry that is not reachable.
@@ -690,7 +690,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
 
     /**
      * The details of the unknown signal.
@@ -734,7 +734,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
 
     /**
      * The reasons why the patch failed.
@@ -778,7 +778,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
 
     /**
      * The id of the user holding the lock (if any).
@@ -822,7 +822,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
 
     /**
      * The reason why the object couldn't be allocated.
@@ -866,7 +866,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
 };
 
 /**
@@ -905,7 +905,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
 
     /**
      * The reason why permission was denied.
@@ -951,7 +951,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
 
     /**
      * The identity of the observer.
@@ -1001,7 +1001,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
 
     /**
      * The reason for the failure.

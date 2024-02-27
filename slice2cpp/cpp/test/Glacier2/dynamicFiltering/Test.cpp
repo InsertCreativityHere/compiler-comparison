@@ -102,10 +102,10 @@ Test::BackendPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::BackendPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Backend";
+    static constexpr ::std::string_view typeId = "::Test::Backend";
     return typeId;
 }
 
@@ -180,10 +180,10 @@ Test::TestControllerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::O
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::TestControllerPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::TestController";
+    static constexpr ::std::string_view typeId = "::Test::TestController";
     return typeId;
 }
 
@@ -220,10 +220,10 @@ Test::TestSessionPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outg
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::TestSessionPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::TestSession";
+    static constexpr ::std::string_view typeId = "::Test::TestSession";
     return typeId;
 }
 
@@ -237,13 +237,13 @@ Test::Backend::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::Backend::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::Backend::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Backend";
+    static constexpr ::std::string_view typeId = "::Test::Backend";
     return typeId;
 }
 
@@ -328,13 +328,13 @@ Test::TestController::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::TestController::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::TestController::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::TestController";
+    static constexpr ::std::string_view typeId = "::Test::TestController";
     return typeId;
 }
 
@@ -426,13 +426,13 @@ Test::TestSession::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::TestSession::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::TestSession::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::TestSession";
+    static constexpr ::std::string_view typeId = "::Test::TestSession";
     return typeId;
 }
 

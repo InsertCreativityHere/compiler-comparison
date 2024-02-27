@@ -89,10 +89,10 @@ Test::UnexpectedObjectExceptionTestPrx::_iceI_op(const ::std::shared_ptr<::IceIn
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::UnexpectedObjectExceptionTestPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::UnexpectedObjectExceptionTest";
+    static constexpr ::std::string_view typeId = "::Test::UnexpectedObjectExceptionTest";
     return typeId;
 }
 
@@ -100,10 +100,10 @@ Test::Empty::~Empty()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::Empty::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Empty";
+    static constexpr ::std::string_view typeId = "::Test::Empty";
     return typeId;
 }
 
@@ -111,10 +111,10 @@ Test::AlsoEmpty::~AlsoEmpty()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::AlsoEmpty::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::AlsoEmpty";
+    static constexpr ::std::string_view typeId = "::Test::AlsoEmpty";
     return typeId;
 }
 
@@ -122,10 +122,10 @@ Test::COneMember::~COneMember()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::COneMember::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::COneMember";
+    static constexpr ::std::string_view typeId = "::Test::COneMember";
     return typeId;
 }
 
@@ -133,10 +133,10 @@ Test::CTwoMembers::~CTwoMembers()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::CTwoMembers::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::CTwoMembers";
+    static constexpr ::std::string_view typeId = "::Test::CTwoMembers";
     return typeId;
 }
 
@@ -144,10 +144,10 @@ Test::EOneMember::~EOneMember()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::EOneMember::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::EOneMember";
+    static constexpr ::std::string_view typeId = "::Test::EOneMember";
     return typeId;
 }
 
@@ -163,10 +163,10 @@ Test::ETwoMembers::~ETwoMembers()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::ETwoMembers::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::ETwoMembers";
+    static constexpr ::std::string_view typeId = "::Test::ETwoMembers";
     return typeId;
 }
 
@@ -188,13 +188,13 @@ Test::UnexpectedObjectExceptionTest::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::UnexpectedObjectExceptionTest::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::UnexpectedObjectExceptionTest::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::UnexpectedObjectExceptionTest";
+    static constexpr ::std::string_view typeId = "::Test::UnexpectedObjectExceptionTest";
     return typeId;
 }
 

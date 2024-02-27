@@ -202,7 +202,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     explicit IAPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -274,7 +274,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
 #if defined(__GNUC__)
 #   pragma GCC diagnostic push
@@ -350,7 +350,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
 #if defined(__GNUC__)
 #   pragma GCC diagnostic push
@@ -431,7 +431,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
 #if defined(__GNUC__)
 #   pragma GCC diagnostic push
@@ -564,7 +564,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     explicit InitialPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -650,7 +650,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     ::std::int32_t aA;
 };
@@ -694,7 +694,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     ::std::int32_t bB;
 };
@@ -734,7 +734,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     ::std::int32_t cC;
 };
@@ -774,7 +774,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     ::std::int32_t dD;
 };
@@ -818,7 +818,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     ::std::int32_t aA;
 };
@@ -858,7 +858,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     ::std::int32_t bB;
 };
@@ -898,7 +898,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     ::std::int32_t cC;
 };
@@ -938,7 +938,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     ::std::int32_t dD;
 };
@@ -982,7 +982,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     ::std::int32_t aA;
 };
@@ -1022,7 +1022,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     ::std::int32_t bB;
 };
@@ -1062,7 +1062,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     ::std::int32_t cC;
 };
@@ -1102,7 +1102,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     ::std::int32_t dD;
 };
@@ -1146,7 +1146,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     ::std::int32_t aA;
 };
@@ -1186,7 +1186,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     ::std::int32_t bB;
 };
@@ -1226,7 +1226,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     ::std::int32_t cC;
 };
@@ -1266,7 +1266,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     ::std::int32_t dD;
 };
@@ -1310,7 +1310,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     ::std::int32_t aA;
 };
@@ -1350,7 +1350,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     ::std::int32_t bB;
 };
@@ -1390,7 +1390,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     ::std::int32_t cC;
 };
@@ -1430,7 +1430,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     ::std::int32_t dD;
 };
@@ -1474,7 +1474,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     ::std::int32_t aA;
 };
@@ -1514,7 +1514,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     ::std::int32_t bB;
 };
@@ -1554,7 +1554,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     ::std::int32_t cC;
 };
@@ -1594,7 +1594,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     ::std::int32_t dD;
 };
@@ -1633,7 +1633,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     virtual ::std::optional<IAPrx> iaop(::std::optional<IAPrx> p, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -1676,7 +1676,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     virtual ::std::optional<IB1Prx> ib1op(::std::optional<IB1Prx> p, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -1714,7 +1714,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     virtual ::std::optional<IB2Prx> ib2op(::std::optional<IB2Prx> p, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -1758,7 +1758,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     virtual ::std::optional<ICPrx> icop(::std::optional<ICPrx> p, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -1798,7 +1798,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

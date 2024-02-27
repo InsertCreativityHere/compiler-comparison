@@ -143,10 +143,10 @@ Test::ServerPrx::_iceI_checkCipher(const ::std::shared_ptr<::IceInternal::Outgoi
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::ServerPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Server";
+    static constexpr ::std::string_view typeId = "::Test::Server";
     return typeId;
 }
 
@@ -258,10 +258,10 @@ Test::ServerFactoryPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Ou
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::ServerFactoryPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::ServerFactory";
+    static constexpr ::std::string_view typeId = "::Test::ServerFactory";
     return typeId;
 }
 
@@ -275,13 +275,13 @@ Test::Server::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::Server::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::Server::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Server";
+    static constexpr ::std::string_view typeId = "::Test::Server";
     return typeId;
 }
 
@@ -389,13 +389,13 @@ Test::ServerFactory::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::ServerFactory::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::ServerFactory::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::ServerFactory";
+    static constexpr ::std::string_view typeId = "::Test::ServerFactory";
     return typeId;
 }
 

@@ -234,10 +234,10 @@ Test::Common::TestCasePrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal::
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::Common::TestCasePrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Common::TestCase";
+    static constexpr ::std::string_view typeId = "::Test::Common::TestCase";
     return typeId;
 }
 
@@ -409,10 +409,10 @@ Test::Common::ControllerPrx::_iceI_getHost(const ::std::shared_ptr<::IceInternal
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::Common::ControllerPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Common::Controller";
+    static constexpr ::std::string_view typeId = "::Test::Common::Controller";
     return typeId;
 }
 
@@ -552,10 +552,10 @@ Test::Common::ProcessPrx::_iceI_terminate(const ::std::shared_ptr<::IceInternal:
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::Common::ProcessPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Common::Process";
+    static constexpr ::std::string_view typeId = "::Test::Common::Process";
     return typeId;
 }
 
@@ -648,10 +648,10 @@ Test::Common::ProcessControllerPrx::_iceI_getHost(const ::std::shared_ptr<::IceI
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::Common::ProcessControllerPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Common::ProcessController";
+    static constexpr ::std::string_view typeId = "::Test::Common::ProcessController";
     return typeId;
 }
 
@@ -692,10 +692,10 @@ Test::Common::BrowserProcessControllerPrx::_iceI_redirect(const ::std::shared_pt
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::Common::BrowserProcessControllerPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Common::BrowserProcessController";
+    static constexpr ::std::string_view typeId = "::Test::Common::BrowserProcessController";
     return typeId;
 }
 
@@ -736,10 +736,10 @@ Test::Common::ProcessControllerRegistryPrx::_iceI_setProcessController(const ::s
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::Common::ProcessControllerRegistryPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Common::ProcessControllerRegistry";
+    static constexpr ::std::string_view typeId = "::Test::Common::ProcessControllerRegistry";
     return typeId;
 }
 
@@ -747,10 +747,10 @@ Test::Common::Config::~Config()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::Common::Config::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Common::Config";
+    static constexpr ::std::string_view typeId = "::Test::Common::Config";
     return typeId;
 }
 
@@ -758,10 +758,10 @@ Test::Common::OptionOverrides::~OptionOverrides()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::Common::OptionOverrides::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Common::OptionOverrides";
+    static constexpr ::std::string_view typeId = "::Test::Common::OptionOverrides";
     return typeId;
 }
 
@@ -769,10 +769,10 @@ Test::Common::TestCaseNotExistException::~TestCaseNotExistException()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::Common::TestCaseNotExistException::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Common::TestCaseNotExistException";
+    static constexpr ::std::string_view typeId = "::Test::Common::TestCaseNotExistException";
     return typeId;
 }
 
@@ -780,10 +780,10 @@ Test::Common::TestCaseFailedException::~TestCaseFailedException()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::Common::TestCaseFailedException::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Common::TestCaseFailedException";
+    static constexpr ::std::string_view typeId = "::Test::Common::TestCaseFailedException";
     return typeId;
 }
 
@@ -791,10 +791,10 @@ Test::Common::ProcessFailedException::~ProcessFailedException()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::Common::ProcessFailedException::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Common::ProcessFailedException";
+    static constexpr ::std::string_view typeId = "::Test::Common::ProcessFailedException";
     return typeId;
 }
 
@@ -808,13 +808,13 @@ Test::Common::TestCase::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::Common::TestCase::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::Common::TestCase::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Common::TestCase";
+    static constexpr ::std::string_view typeId = "::Test::Common::TestCase";
     return typeId;
 }
 
@@ -949,13 +949,13 @@ Test::Common::Controller::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::Common::Controller::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::Common::Controller::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Common::Controller";
+    static constexpr ::std::string_view typeId = "::Test::Common::Controller";
     return typeId;
 }
 
@@ -1094,13 +1094,13 @@ Test::Common::Process::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::Common::Process::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::Common::Process::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Common::Process";
+    static constexpr ::std::string_view typeId = "::Test::Common::Process";
     return typeId;
 }
 
@@ -1211,13 +1211,13 @@ Test::Common::ProcessController::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::Common::ProcessController::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::Common::ProcessController::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Common::ProcessController";
+    static constexpr ::std::string_view typeId = "::Test::Common::ProcessController";
     return typeId;
 }
 
@@ -1315,13 +1315,13 @@ Test::Common::BrowserProcessController::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::Common::BrowserProcessController::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::Common::BrowserProcessController::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Common::BrowserProcessController";
+    static constexpr ::std::string_view typeId = "::Test::Common::BrowserProcessController";
     return typeId;
 }
 
@@ -1401,13 +1401,13 @@ Test::Common::ProcessControllerRegistry::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::Common::ProcessControllerRegistry::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::Common::ProcessControllerRegistry::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Common::ProcessControllerRegistry";
+    static constexpr ::std::string_view typeId = "::Test::Common::ProcessControllerRegistry";
     return typeId;
 }
 

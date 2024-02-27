@@ -1972,7 +1972,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     explicit AdminPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -2101,7 +2101,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     explicit FileIteratorPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -2264,7 +2264,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     explicit RegistryObserverPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -2504,7 +2504,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     explicit NodeObserverPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -2718,7 +2718,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     explicit ApplicationObserverPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -2919,7 +2919,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     explicit AdapterObserverPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -3123,7 +3123,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     explicit ObjectObserverPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -3806,7 +3806,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
 #if defined(__GNUC__)
 #   pragma GCC diagnostic push
@@ -4268,7 +4268,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     /**
      * Add an application to IceGrid.
@@ -4919,7 +4919,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     /**
      * Read lines from the log file.
@@ -4980,7 +4980,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     /**
      * The <code>registryInit</code> operation is called after registration of an observer to indicate the state of
@@ -5048,7 +5048,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     /**
      * The <code>nodeInit</code> operation indicates the current state of nodes. It is called after the registration
@@ -5138,7 +5138,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     /**
      * <code>applicationInit</code> is called after the registration of an observer to indicate the state of the
@@ -5220,7 +5220,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     /**
      * <code>adapterInit</code> is called after registration of an observer to indicate the state of the registry.
@@ -5298,7 +5298,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     /**
      * <code>objectInit</code> is called after the registration of an observer to indicate the state of the registry.
@@ -5380,7 +5380,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     /**
      * Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the

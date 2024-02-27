@@ -777,10 +777,10 @@ Test::NumPy::CustomPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Ou
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::NumPy::CustomPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::NumPy::Custom";
+    static constexpr ::std::string_view typeId = "::Test::NumPy::Custom";
     return typeId;
 }
 
@@ -788,10 +788,10 @@ Test::NumPy::D::~D()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::NumPy::D::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::NumPy::D";
+    static constexpr ::std::string_view typeId = "::Test::NumPy::D";
     return typeId;
 }
 
@@ -805,13 +805,13 @@ Test::NumPy::Custom::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::NumPy::Custom::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::NumPy::Custom::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::NumPy::Custom";
+    static constexpr ::std::string_view typeId = "::Test::NumPy::Custom";
     return typeId;
 }
 

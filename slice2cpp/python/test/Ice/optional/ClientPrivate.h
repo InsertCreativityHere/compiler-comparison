@@ -80,7 +80,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     explicit Initial2Prx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -166,7 +166,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     ::std::string ds;
     ::std::optional<::Test::StringSeq> seq;
@@ -206,7 +206,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     virtual void opClassAndUnknownOptional(::std::shared_ptr<A> p, ::std::optional<::std::shared_ptr<::Ice::Value>> o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

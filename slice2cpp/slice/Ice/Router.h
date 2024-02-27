@@ -171,7 +171,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     explicit RouterPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -263,7 +263,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     explicit RouterFinderPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -340,7 +340,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     /**
      * Get the router's client proxy, i.e., the proxy to use for forwarding requests from the client to the router.
@@ -414,7 +414,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     /**
      * Get the router proxy implemented by the process hosting this finder object. The proxy might point to several

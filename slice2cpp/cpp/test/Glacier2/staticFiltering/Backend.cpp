@@ -69,10 +69,10 @@ Test::BackendPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::BackendPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Backend";
+    static constexpr ::std::string_view typeId = "::Test::Backend";
     return typeId;
 }
 
@@ -86,13 +86,13 @@ Test::Backend::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::Backend::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::Backend::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Backend";
+    static constexpr ::std::string_view typeId = "::Test::Backend";
     return typeId;
 }
 

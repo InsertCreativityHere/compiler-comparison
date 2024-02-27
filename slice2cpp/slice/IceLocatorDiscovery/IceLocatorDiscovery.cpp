@@ -73,10 +73,10 @@ IceLocatorDiscovery::LookupReplyPrx::_iceI_foundLocator(const ::std::shared_ptr<
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 IceLocatorDiscovery::LookupReplyPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::IceLocatorDiscovery::LookupReply";
+    static constexpr ::std::string_view typeId = "::IceLocatorDiscovery::LookupReply";
     return typeId;
 }
 
@@ -117,10 +117,10 @@ IceLocatorDiscovery::LookupPrx::_iceI_findLocator(const ::std::shared_ptr<::IceI
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 IceLocatorDiscovery::LookupPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::IceLocatorDiscovery::Lookup";
+    static constexpr ::std::string_view typeId = "::IceLocatorDiscovery::Lookup";
     return typeId;
 }
 
@@ -134,13 +134,13 @@ IceLocatorDiscovery::LookupReply::ice_ids(const ::Ice::Current&) const
 ::std::string
 IceLocatorDiscovery::LookupReply::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 IceLocatorDiscovery::LookupReply::ice_staticId()
 {
-    static const ::std::string typeId = "::IceLocatorDiscovery::LookupReply";
+    static constexpr ::std::string_view typeId = "::IceLocatorDiscovery::LookupReply";
     return typeId;
 }
 
@@ -212,13 +212,13 @@ IceLocatorDiscovery::Lookup::ice_ids(const ::Ice::Current&) const
 ::std::string
 IceLocatorDiscovery::Lookup::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 IceLocatorDiscovery::Lookup::ice_staticId()
 {
-    static const ::std::string typeId = "::IceLocatorDiscovery::Lookup";
+    static constexpr ::std::string_view typeId = "::IceLocatorDiscovery::Lookup";
     return typeId;
 }
 

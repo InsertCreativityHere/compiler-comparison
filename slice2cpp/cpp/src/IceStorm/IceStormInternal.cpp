@@ -75,10 +75,10 @@ IceStorm::TopicLinkPrx::_iceI_forward(const ::std::shared_ptr<::IceInternal::Out
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 IceStorm::TopicLinkPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::IceStorm::TopicLink";
+    static constexpr ::std::string_view typeId = "::IceStorm::TopicLink";
     return typeId;
 }
 
@@ -167,10 +167,10 @@ IceStorm::TopicInternalPrx::_iceI_reap(const ::std::shared_ptr<::IceInternal::Ou
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 IceStorm::TopicInternalPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::IceStorm::TopicInternal";
+    static constexpr ::std::string_view typeId = "::IceStorm::TopicInternal";
     return typeId;
 }
 
@@ -208,10 +208,10 @@ IceStorm::TopicManagerInternalPrx::_iceI_getReplicaNode(const ::std::shared_ptr<
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 IceStorm::TopicManagerInternalPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::IceStorm::TopicManagerInternal";
+    static constexpr ::std::string_view typeId = "::IceStorm::TopicManagerInternal";
     return typeId;
 }
 
@@ -219,10 +219,10 @@ IceStorm::ReapWouldBlock::~ReapWouldBlock()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceStorm::ReapWouldBlock::ice_staticId()
 {
-    static const ::std::string typeId = "::IceStorm::ReapWouldBlock";
+    static constexpr ::std::string_view typeId = "::IceStorm::ReapWouldBlock";
     return typeId;
 }
 
@@ -236,13 +236,13 @@ IceStorm::TopicLink::ice_ids(const ::Ice::Current&) const
 ::std::string
 IceStorm::TopicLink::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 IceStorm::TopicLink::ice_staticId()
 {
-    static const ::std::string typeId = "::IceStorm::TopicLink";
+    static constexpr ::std::string_view typeId = "::IceStorm::TopicLink";
     return typeId;
 }
 
@@ -314,13 +314,13 @@ IceStorm::TopicInternal::ice_ids(const ::Ice::Current&) const
 ::std::string
 IceStorm::TopicInternal::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 IceStorm::TopicInternal::ice_staticId()
 {
-    static const ::std::string typeId = "::IceStorm::TopicInternal";
+    static constexpr ::std::string_view typeId = "::IceStorm::TopicInternal";
     return typeId;
 }
 
@@ -450,13 +450,13 @@ IceStorm::TopicManagerInternal::ice_ids(const ::Ice::Current&) const
 ::std::string
 IceStorm::TopicManagerInternal::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 IceStorm::TopicManagerInternal::ice_staticId()
 {
-    static const ::std::string typeId = "::IceStorm::TopicManagerInternal";
+    static constexpr ::std::string_view typeId = "::IceStorm::TopicManagerInternal";
     return typeId;
 }
 

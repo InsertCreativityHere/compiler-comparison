@@ -100,7 +100,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICESTORM_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICESTORM_API) static ::std::string_view ice_staticId();
 
     /**
      * Number of events published on the topic by publishers.
@@ -165,7 +165,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICESTORM_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICESTORM_API) static ::std::string_view ice_staticId();
 
     /**
      * Number of queued events.

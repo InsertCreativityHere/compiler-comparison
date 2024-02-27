@@ -45,9 +45,9 @@ IceMX::SessionMetrics::~SessionMetrics()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceMX::SessionMetrics::ice_staticId()
 {
-    static const ::std::string typeId = "::IceMX::SessionMetrics";
+    static constexpr ::std::string_view typeId = "::IceMX::SessionMetrics";
     return typeId;
 }

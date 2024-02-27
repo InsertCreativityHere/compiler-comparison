@@ -115,10 +115,10 @@ Ice::RemoteLoggerPrx::_iceI_log(const ::std::shared_ptr<::IceInternal::OutgoingA
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Ice::RemoteLoggerPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Ice::RemoteLogger";
+    static constexpr ::std::string_view typeId = "::Ice::RemoteLogger";
     return typeId;
 }
 
@@ -261,10 +261,10 @@ Ice::LoggerAdminPrx::_iceI_getLog(const ::std::shared_ptr<::IceInternal::Outgoin
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Ice::LoggerAdminPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Ice::LoggerAdmin";
+    static constexpr ::std::string_view typeId = "::Ice::LoggerAdmin";
     return typeId;
 }
 
@@ -272,10 +272,10 @@ Ice::RemoteLoggerAlreadyAttachedException::~RemoteLoggerAlreadyAttachedException
 {
 }
 
-const ::std::string&
+::std::string_view
 Ice::RemoteLoggerAlreadyAttachedException::ice_staticId()
 {
-    static const ::std::string typeId = "::Ice::RemoteLoggerAlreadyAttachedException";
+    static constexpr ::std::string_view typeId = "::Ice::RemoteLoggerAlreadyAttachedException";
     return typeId;
 }
 
@@ -289,13 +289,13 @@ Ice::RemoteLogger::ice_ids(const Current&) const
 ::std::string
 Ice::RemoteLogger::ice_id(const Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Ice::RemoteLogger::ice_staticId()
 {
-    static const ::std::string typeId = "::Ice::RemoteLogger";
+    static constexpr ::std::string_view typeId = "::Ice::RemoteLogger";
     return typeId;
 }
 
@@ -387,13 +387,13 @@ Ice::LoggerAdmin::ice_ids(const Current&) const
 ::std::string
 Ice::LoggerAdmin::ice_id(const Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Ice::LoggerAdmin::ice_staticId()
 {
-    static const ::std::string typeId = "::Ice::LoggerAdmin";
+    static constexpr ::std::string_view typeId = "::Ice::LoggerAdmin";
     return typeId;
 }
 

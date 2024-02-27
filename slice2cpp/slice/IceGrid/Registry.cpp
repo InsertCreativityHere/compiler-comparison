@@ -229,10 +229,10 @@ IceGrid::QueryPrx::_iceI_findAllReplicas(const ::std::shared_ptr<::IceInternal::
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 IceGrid::QueryPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::Query";
+    static constexpr ::std::string_view typeId = "::IceGrid::Query";
     return typeId;
 }
 
@@ -500,10 +500,10 @@ IceGrid::RegistryPrx::_iceI_getACMTimeout(const ::std::shared_ptr<::IceInternal:
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 IceGrid::RegistryPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::Registry";
+    static constexpr ::std::string_view typeId = "::IceGrid::Registry";
     return typeId;
 }
 
@@ -575,10 +575,10 @@ IceGrid::LocatorPrx::_iceI_getLocalQuery(const ::std::shared_ptr<::IceInternal::
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 IceGrid::LocatorPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::Locator";
+    static constexpr ::std::string_view typeId = "::IceGrid::Locator";
     return typeId;
 }
 
@@ -592,13 +592,13 @@ IceGrid::Query::ice_ids(const ::Ice::Current&) const
 ::std::string
 IceGrid::Query::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::Query::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::Query";
+    static constexpr ::std::string_view typeId = "::IceGrid::Query";
     return typeId;
 }
 
@@ -757,13 +757,13 @@ IceGrid::Registry::ice_ids(const ::Ice::Current&) const
 ::std::string
 IceGrid::Registry::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::Registry::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::Registry";
+    static constexpr ::std::string_view typeId = "::IceGrid::Registry";
     return typeId;
 }
 
@@ -932,13 +932,13 @@ IceGrid::Locator::ice_ids(const ::Ice::Current&) const
 ::std::string
 IceGrid::Locator::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::Locator::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::Locator";
+    static constexpr ::std::string_view typeId = "::IceGrid::Locator";
     return typeId;
 }
 

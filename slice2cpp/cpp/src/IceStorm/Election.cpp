@@ -293,10 +293,10 @@ IceStormElection::ReplicaObserverPrx::_iceI_removeSubscriber(const ::std::shared
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 IceStormElection::ReplicaObserverPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::IceStormElection::ReplicaObserver";
+    static constexpr ::std::string_view typeId = "::IceStormElection::ReplicaObserver";
     return typeId;
 }
 
@@ -346,10 +346,10 @@ IceStormElection::TopicManagerSyncPrx::_iceI_getContent(const ::std::shared_ptr<
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 IceStormElection::TopicManagerSyncPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::IceStormElection::TopicManagerSync";
+    static constexpr ::std::string_view typeId = "::IceStormElection::TopicManagerSync";
     return typeId;
 }
 
@@ -638,10 +638,10 @@ IceStormElection::NodePrx::_iceI_query(const ::std::shared_ptr<::IceInternal::Ou
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 IceStormElection::NodePrx::ice_staticId()
 {
-    static const ::std::string typeId = "::IceStormElection::Node";
+    static constexpr ::std::string_view typeId = "::IceStormElection::Node";
     return typeId;
 }
 
@@ -649,10 +649,10 @@ IceStormElection::ObserverInconsistencyException::~ObserverInconsistencyExceptio
 {
 }
 
-const ::std::string&
+::std::string_view
 IceStormElection::ObserverInconsistencyException::ice_staticId()
 {
-    static const ::std::string typeId = "::IceStormElection::ObserverInconsistencyException";
+    static constexpr ::std::string_view typeId = "::IceStormElection::ObserverInconsistencyException";
     return typeId;
 }
 
@@ -666,13 +666,13 @@ IceStormElection::ReplicaObserver::ice_ids(const ::Ice::Current&) const
 ::std::string
 IceStormElection::ReplicaObserver::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 IceStormElection::ReplicaObserver::ice_staticId()
 {
-    static const ::std::string typeId = "::IceStormElection::ReplicaObserver";
+    static constexpr ::std::string_view typeId = "::IceStormElection::ReplicaObserver";
     return typeId;
 }
 
@@ -827,13 +827,13 @@ IceStormElection::TopicManagerSync::ice_ids(const ::Ice::Current&) const
 ::std::string
 IceStormElection::TopicManagerSync::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 IceStormElection::TopicManagerSync::ice_staticId()
 {
-    static const ::std::string typeId = "::IceStormElection::TopicManagerSync";
+    static constexpr ::std::string_view typeId = "::IceStormElection::TopicManagerSync";
     return typeId;
 }
 
@@ -906,13 +906,13 @@ IceStormElection::Node::ice_ids(const ::Ice::Current&) const
 ::std::string
 IceStormElection::Node::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 IceStormElection::Node::ice_staticId()
 {
-    static const ::std::string typeId = "::IceStormElection::Node";
+    static constexpr ::std::string_view typeId = "::IceStormElection::Node";
     return typeId;
 }
 

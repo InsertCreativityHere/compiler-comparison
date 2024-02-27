@@ -152,10 +152,10 @@ Ice::PropertiesAdminPrx::_iceI_setProperties(const ::std::shared_ptr<::IceIntern
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Ice::PropertiesAdminPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Ice::PropertiesAdmin";
+    static constexpr ::std::string_view typeId = "::Ice::PropertiesAdmin";
     return typeId;
 }
 
@@ -169,13 +169,13 @@ Ice::PropertiesAdmin::ice_ids(const Current&) const
 ::std::string
 Ice::PropertiesAdmin::ice_id(const Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Ice::PropertiesAdmin::ice_staticId()
 {
-    static const ::std::string typeId = "::Ice::PropertiesAdmin";
+    static constexpr ::std::string_view typeId = "::Ice::PropertiesAdmin";
     return typeId;
 }
 

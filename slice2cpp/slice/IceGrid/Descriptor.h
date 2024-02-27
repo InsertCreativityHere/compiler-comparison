@@ -345,7 +345,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
 
     /**
      * The object adapters.
@@ -462,7 +462,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
 
     /**
      * The server id.
@@ -566,7 +566,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
 
     /**
      * The service name.
@@ -731,7 +731,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
 
     /**
      * The service instances.
@@ -819,7 +819,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
 
     /**
      * The number of replicas that will be used to gather the endpoints of a replica group.
@@ -866,7 +866,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
 };
 
 /**
@@ -908,7 +908,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
 };
 
 /**
@@ -950,7 +950,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
 };
 
 /**
@@ -994,7 +994,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
 
     /**
      * The load sample to use for the load balancing. The allowed values for this attribute are "1", "5" and "15",
@@ -1136,7 +1136,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
 
     /**
      * The value of the boxed string.
@@ -1240,7 +1240,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
 
     /**
      * The value of the boxed distribution descriptor.

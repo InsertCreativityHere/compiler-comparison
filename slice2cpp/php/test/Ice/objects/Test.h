@@ -139,7 +139,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     explicit IPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -191,7 +191,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
 #if defined(__GNUC__)
 #   pragma GCC diagnostic push
@@ -641,7 +641,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     explicit InitialPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -707,7 +707,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     explicit UnexpectedObjectExceptionTestPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -805,7 +805,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     ::Test::S theS;
     ::std::string str;
@@ -852,7 +852,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     ::std::shared_ptr<::Test::B> theB;
     ::std::shared_ptr<::Test::C> theC;
@@ -895,7 +895,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     ::std::shared_ptr<::Test::A> theA;
 };
@@ -936,7 +936,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     ::std::shared_ptr<::Test::B> theB;
     bool preMarshalInvoked;
@@ -981,7 +981,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     ::std::shared_ptr<::Test::A> theA;
     ::std::shared_ptr<::Test::B> theB;
@@ -1025,7 +1025,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
 protected:
 
@@ -1073,7 +1073,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
 protected:
 
@@ -1125,7 +1125,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 };
 
 class Compact : public ::Ice::ValueHelper<Compact, ::Ice::Value>
@@ -1154,7 +1154,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 };
 
 class CompactExt : public ::Ice::ValueHelper<CompactExt, Compact>
@@ -1183,7 +1183,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 };
 
 class A1 : public ::Ice::ValueHelper<A1, ::Ice::Value>
@@ -1220,7 +1220,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     ::std::string name;
 };
@@ -1260,7 +1260,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     ::std::shared_ptr<::Test::A1> a1;
     ::std::shared_ptr<::Test::A1> a2;
@@ -1302,7 +1302,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     ::std::shared_ptr<::Test::A1> a3;
     ::std::shared_ptr<::Test::A1> a4;
@@ -1340,7 +1340,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     /// \cond STREAM
     virtual bool _usesClasses() const override;
@@ -1383,7 +1383,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     ::std::shared_ptr<::Test::A1> a3;
     ::std::shared_ptr<::Test::A1> a4;
@@ -1423,7 +1423,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     ::std::shared_ptr<::Test::Recursive> v;
 };
@@ -1462,7 +1462,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     ::std::shared_ptr<::Ice::Value> value;
 };
@@ -1501,7 +1501,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     ::std::string data;
 };
@@ -1541,7 +1541,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     ::std::shared_ptr<::Test::F1> f1;
     ::std::optional<::Test::F2Prx> f2;
@@ -1573,7 +1573,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 };
 
 class AlsoEmpty : public ::Ice::ValueHelper<AlsoEmpty, ::Ice::Value>
@@ -1602,7 +1602,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 };
 
 class COneMember : public ::Ice::ValueHelper<COneMember, ::Ice::Value>
@@ -1639,7 +1639,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     ::std::shared_ptr<::Test::Empty> e;
 };
@@ -1679,7 +1679,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     ::std::shared_ptr<::Test::Empty> e1;
     ::std::shared_ptr<::Test::Empty> e2;
@@ -1716,7 +1716,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     /// \cond STREAM
     virtual bool _usesClasses() const override;
@@ -1757,7 +1757,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     /// \cond STREAM
     virtual bool _usesClasses() const override;
@@ -1832,7 +1832,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 };
 
 using IPtr = ::std::shared_ptr<I>;
@@ -1861,7 +1861,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 };
 
 using JPtr = ::std::shared_ptr<J>;
@@ -1890,7 +1890,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -2084,7 +2084,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     virtual ::std::shared_ptr<Empty> op(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

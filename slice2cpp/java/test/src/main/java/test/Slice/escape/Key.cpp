@@ -80,10 +80,10 @@ abstract::catchPrx::_iceI_checkedCast(const ::std::shared_ptr<::IceInternal::Out
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 abstract::catchPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::catch";
+    static constexpr ::std::string_view typeId = "::abstract::catch";
     return typeId;
 }
 
@@ -120,17 +120,17 @@ abstract::defaultPrx::_iceI_do(const ::std::shared_ptr<::IceInternal::OutgoingAs
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 abstract::defaultPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::default";
+    static constexpr ::std::string_view typeId = "::abstract::default";
     return typeId;
 }
 
-const ::std::string&
+::std::string_view
 abstract::finalizePrx::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::finalize";
+    static constexpr ::std::string_view typeId = "::abstract::finalize";
     return typeId;
 }
 
@@ -190,10 +190,10 @@ abstract::newPrx::_iceI_notify(const ::std::shared_ptr<::IceInternal::OutgoingAs
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 abstract::newPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::new";
+    static constexpr ::std::string_view typeId = "::abstract::new";
     return typeId;
 }
 
@@ -201,10 +201,10 @@ abstract::_cpp_else::~_cpp_else()
 {
 }
 
-const ::std::string&
+::std::string_view
 abstract::_cpp_else::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::else";
+    static constexpr ::std::string_view typeId = "::abstract::else";
     return typeId;
 }
 
@@ -212,10 +212,10 @@ abstract::hashCode::~hashCode()
 {
 }
 
-const ::std::string&
+::std::string_view
 abstract::hashCode::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::hashCode";
+    static constexpr ::std::string_view typeId = "::abstract::hashCode";
     return typeId;
 }
 
@@ -223,10 +223,10 @@ abstract::import::~import()
 {
 }
 
-const ::std::string&
+::std::string_view
 abstract::import::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::import";
+    static constexpr ::std::string_view typeId = "::abstract::import";
     return typeId;
 }
 
@@ -240,13 +240,13 @@ abstract::_cpp_catch::ice_ids(const ::Ice::Current&) const
 ::std::string
 abstract::_cpp_catch::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 abstract::_cpp_catch::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::catch";
+    static constexpr ::std::string_view typeId = "::abstract::catch";
     return typeId;
 }
 
@@ -325,13 +325,13 @@ abstract::_cpp_default::ice_ids(const ::Ice::Current&) const
 ::std::string
 abstract::_cpp_default::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 abstract::_cpp_default::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::default";
+    static constexpr ::std::string_view typeId = "::abstract::default";
     return typeId;
 }
 
@@ -400,13 +400,13 @@ abstract::finalize::ice_ids(const ::Ice::Current&) const
 ::std::string
 abstract::finalize::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 abstract::finalize::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::finalize";
+    static constexpr ::std::string_view typeId = "::abstract::finalize";
     return typeId;
 }
 
@@ -467,13 +467,13 @@ abstract::_cpp_new::ice_ids(const ::Ice::Current&) const
 ::std::string
 abstract::_cpp_new::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 abstract::_cpp_new::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::new";
+    static constexpr ::std::string_view typeId = "::abstract::new";
     return typeId;
 }
 

@@ -191,10 +191,10 @@ Test1::WstringClassPrx::_iceI_throwExcept(const ::std::shared_ptr<::IceInternal:
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test1::WstringClassPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test1::WstringClass";
+    static constexpr ::std::string_view typeId = "::Test1::WstringClass";
     return typeId;
 }
 
@@ -349,10 +349,10 @@ Test2::WstringClassPrx::_iceI_throwExcept(const ::std::shared_ptr<::IceInternal:
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test2::WstringClassPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test2::WstringClass";
+    static constexpr ::std::string_view typeId = "::Test2::WstringClass";
     return typeId;
 }
 
@@ -360,10 +360,10 @@ Test1::WstringException::~WstringException()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test1::WstringException::ice_staticId()
 {
-    static const ::std::string typeId = "::Test1::WstringException";
+    static constexpr ::std::string_view typeId = "::Test1::WstringException";
     return typeId;
 }
 
@@ -371,10 +371,10 @@ Test2::WstringException::~WstringException()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test2::WstringException::ice_staticId()
 {
-    static const ::std::string typeId = "::Test2::WstringException";
+    static constexpr ::std::string_view typeId = "::Test2::WstringException";
     return typeId;
 }
 
@@ -388,13 +388,13 @@ Test1::WstringClass::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test1::WstringClass::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test1::WstringClass::ice_staticId()
 {
-    static const ::std::string typeId = "::Test1::WstringClass";
+    static constexpr ::std::string_view typeId = "::Test1::WstringClass";
     return typeId;
 }
 
@@ -510,13 +510,13 @@ Test2::WstringClass::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test2::WstringClass::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test2::WstringClass::ice_staticId()
 {
-    static const ::std::string typeId = "::Test2::WstringClass";
+    static constexpr ::std::string_view typeId = "::Test2::WstringClass";
     return typeId;
 }
 

@@ -119,10 +119,10 @@ IceBox::ServiceObserverPrx::_iceI_servicesStopped(const ::std::shared_ptr<::IceI
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 IceBox::ServiceObserverPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::IceBox::ServiceObserver";
+    static constexpr ::std::string_view typeId = "::IceBox::ServiceObserver";
     return typeId;
 }
 
@@ -306,10 +306,10 @@ IceBox::ServiceManagerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal:
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 IceBox::ServiceManagerPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::IceBox::ServiceManager";
+    static constexpr ::std::string_view typeId = "::IceBox::ServiceManager";
     return typeId;
 }
 
@@ -317,10 +317,10 @@ IceBox::AlreadyStartedException::~AlreadyStartedException()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceBox::AlreadyStartedException::ice_staticId()
 {
-    static const ::std::string typeId = "::IceBox::AlreadyStartedException";
+    static constexpr ::std::string_view typeId = "::IceBox::AlreadyStartedException";
     return typeId;
 }
 
@@ -328,10 +328,10 @@ IceBox::AlreadyStoppedException::~AlreadyStoppedException()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceBox::AlreadyStoppedException::ice_staticId()
 {
-    static const ::std::string typeId = "::IceBox::AlreadyStoppedException";
+    static constexpr ::std::string_view typeId = "::IceBox::AlreadyStoppedException";
     return typeId;
 }
 
@@ -339,10 +339,10 @@ IceBox::NoSuchServiceException::~NoSuchServiceException()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceBox::NoSuchServiceException::ice_staticId()
 {
-    static const ::std::string typeId = "::IceBox::NoSuchServiceException";
+    static constexpr ::std::string_view typeId = "::IceBox::NoSuchServiceException";
     return typeId;
 }
 
@@ -356,13 +356,13 @@ IceBox::ServiceObserver::ice_ids(const ::Ice::Current&) const
 ::std::string
 IceBox::ServiceObserver::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 IceBox::ServiceObserver::ice_staticId()
 {
-    static const ::std::string typeId = "::IceBox::ServiceObserver";
+    static constexpr ::std::string_view typeId = "::IceBox::ServiceObserver";
     return typeId;
 }
 
@@ -453,13 +453,13 @@ IceBox::ServiceManager::ice_ids(const ::Ice::Current&) const
 ::std::string
 IceBox::ServiceManager::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 IceBox::ServiceManager::ice_staticId()
 {
-    static const ::std::string typeId = "::IceBox::ServiceManager";
+    static constexpr ::std::string_view typeId = "::IceBox::ServiceManager";
     return typeId;
 }
 

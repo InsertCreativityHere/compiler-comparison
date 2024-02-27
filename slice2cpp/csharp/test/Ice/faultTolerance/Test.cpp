@@ -169,10 +169,10 @@ Test::TestIntfPrx::_iceI_pid(const ::std::shared_ptr<::IceInternal::OutgoingAsyn
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::TestIntfPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::TestIntf";
+    static constexpr ::std::string_view typeId = "::Test::TestIntf";
     return typeId;
 }
 
@@ -209,10 +209,10 @@ Test::CleanerPrx::_iceI_cleanup(const ::std::shared_ptr<::IceInternal::OutgoingA
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::CleanerPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Cleaner";
+    static constexpr ::std::string_view typeId = "::Test::Cleaner";
     return typeId;
 }
 
@@ -226,13 +226,13 @@ Test::TestIntf::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::TestIntf::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::TestIntf::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::TestIntf";
+    static constexpr ::std::string_view typeId = "::Test::TestIntf";
     return typeId;
 }
 
@@ -351,13 +351,13 @@ Test::Cleaner::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::Cleaner::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::Cleaner::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Cleaner";
+    static constexpr ::std::string_view typeId = "::Test::Cleaner";
     return typeId;
 }
 

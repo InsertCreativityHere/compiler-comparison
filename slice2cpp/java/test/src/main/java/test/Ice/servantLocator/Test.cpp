@@ -512,10 +512,10 @@ Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::TestIntfPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::TestIntf";
+    static constexpr ::std::string_view typeId = "::Test::TestIntf";
     return typeId;
 }
 
@@ -556,10 +556,10 @@ Test::TestActivationPrx::_iceI_activateServantLocator(const ::std::shared_ptr<::
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::TestActivationPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::TestActivation";
+    static constexpr ::std::string_view typeId = "::Test::TestActivation";
     return typeId;
 }
 
@@ -567,10 +567,10 @@ Test::TestIntfUserException::~TestIntfUserException()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::TestIntfUserException::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::TestIntfUserException";
+    static constexpr ::std::string_view typeId = "::Test::TestIntfUserException";
     return typeId;
 }
 
@@ -578,10 +578,10 @@ Test::TestImpossibleException::~TestImpossibleException()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::TestImpossibleException::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::TestImpossibleException";
+    static constexpr ::std::string_view typeId = "::Test::TestImpossibleException";
     return typeId;
 }
 
@@ -595,13 +595,13 @@ Test::TestIntf::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::TestIntf::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::TestIntf::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::TestIntf";
+    static constexpr ::std::string_view typeId = "::Test::TestIntf";
     return typeId;
 }
 
@@ -856,13 +856,13 @@ Test::TestActivation::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::TestActivation::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::TestActivation::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::TestActivation";
+    static constexpr ::std::string_view typeId = "::Test::TestActivation";
     return typeId;
 }
 

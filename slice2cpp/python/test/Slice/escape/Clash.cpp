@@ -464,10 +464,10 @@ Clash::IntfPrx::_iceI_opOut(const ::std::shared_ptr<::IceInternal::OutgoingAsync
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Clash::IntfPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Clash::Intf";
+    static constexpr ::std::string_view typeId = "::Clash::Intf";
     return typeId;
 }
 
@@ -475,10 +475,10 @@ Clash::Cls::~Cls()
 {
 }
 
-const ::std::string&
+::std::string_view
 Clash::Cls::ice_staticId()
 {
-    static const ::std::string typeId = "::Clash::Cls";
+    static constexpr ::std::string_view typeId = "::Clash::Cls";
     return typeId;
 }
 
@@ -486,10 +486,10 @@ Clash::Ex::~Ex()
 {
 }
 
-const ::std::string&
+::std::string_view
 Clash::Ex::ice_staticId()
 {
-    static const ::std::string typeId = "::Clash::Ex";
+    static constexpr ::std::string_view typeId = "::Clash::Ex";
     return typeId;
 }
 
@@ -503,13 +503,13 @@ Clash::Intf::ice_ids(const ::Ice::Current&) const
 ::std::string
 Clash::Intf::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Clash::Intf::ice_staticId()
 {
-    static const ::std::string typeId = "::Clash::Intf";
+    static constexpr ::std::string_view typeId = "::Clash::Intf";
     return typeId;
 }
 

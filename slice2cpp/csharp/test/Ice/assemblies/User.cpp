@@ -96,10 +96,10 @@ User::RegistryPrx::_iceI_getUserInfo(const ::std::shared_ptr<::IceInternal::Outg
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 User::RegistryPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::User::Registry";
+    static constexpr ::std::string_view typeId = "::User::Registry";
     return typeId;
 }
 
@@ -107,10 +107,10 @@ User::UserInfo::~UserInfo()
 {
 }
 
-const ::std::string&
+::std::string_view
 User::UserInfo::ice_staticId()
 {
-    static const ::std::string typeId = "::User::UserInfo";
+    static constexpr ::std::string_view typeId = "::User::UserInfo";
     return typeId;
 }
 
@@ -124,13 +124,13 @@ User::Registry::ice_ids(const ::Ice::Current&) const
 ::std::string
 User::Registry::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 User::Registry::ice_staticId()
 {
-    static const ::std::string typeId = "::User::Registry";
+    static constexpr ::std::string_view typeId = "::User::Registry";
     return typeId;
 }
 

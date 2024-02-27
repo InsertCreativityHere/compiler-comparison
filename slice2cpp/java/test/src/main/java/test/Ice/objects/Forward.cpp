@@ -71,10 +71,10 @@ Test::F2Prx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::F2Prx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::F2";
+    static constexpr ::std::string_view typeId = "::Test::F2";
     return typeId;
 }
 
@@ -82,10 +82,10 @@ Test::F1::~F1()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::F1::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::F1";
+    static constexpr ::std::string_view typeId = "::Test::F1";
     return typeId;
 }
 
@@ -99,13 +99,13 @@ Test::F2::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::F2::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::F2::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::F2";
+    static constexpr ::std::string_view typeId = "::Test::F2";
     return typeId;
 }
 

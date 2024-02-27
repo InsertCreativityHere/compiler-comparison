@@ -71,10 +71,10 @@ Test::PingReplyPrx::_iceI_reply(const ::std::shared_ptr<::IceInternal::OutgoingA
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::PingReplyPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::PingReply";
+    static constexpr ::std::string_view typeId = "::Test::PingReply";
     return typeId;
 }
 
@@ -612,10 +612,10 @@ Test::TestIntfPrx::_iceI_pingBidDir(const ::std::shared_ptr<::IceInternal::Outgo
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::TestIntfPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::TestIntf";
+    static constexpr ::std::string_view typeId = "::Test::TestIntf";
     return typeId;
 }
 
@@ -685,10 +685,10 @@ Test::TestIntfControllerPrx::_iceI_resumeAdapter(const ::std::shared_ptr<::IceIn
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::TestIntfControllerPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::TestIntfController";
+    static constexpr ::std::string_view typeId = "::Test::TestIntfController";
     return typeId;
 }
 
@@ -696,10 +696,10 @@ Test::TestIntfException::~TestIntfException()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::TestIntfException::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::TestIntfException";
+    static constexpr ::std::string_view typeId = "::Test::TestIntfException";
     return typeId;
 }
 
@@ -713,13 +713,13 @@ Test::PingReply::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::PingReply::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::PingReply::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::PingReply";
+    static constexpr ::std::string_view typeId = "::Test::PingReply";
     return typeId;
 }
 
@@ -788,13 +788,13 @@ Test::TestIntf::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::TestIntf::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::TestIntf::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::TestIntf";
+    static constexpr ::std::string_view typeId = "::Test::TestIntf";
     return typeId;
 }
 
@@ -1112,13 +1112,13 @@ Test::TestIntfController::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::TestIntfController::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::TestIntfController::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::TestIntfController";
+    static constexpr ::std::string_view typeId = "::Test::TestIntfController";
     return typeId;
 }
 

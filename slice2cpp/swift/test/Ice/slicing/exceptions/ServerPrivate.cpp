@@ -54,10 +54,10 @@ Test::UnknownDerived::~UnknownDerived()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::UnknownDerived::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::UnknownDerived";
+    static constexpr ::std::string_view typeId = "::Test::UnknownDerived";
     return typeId;
 }
 
@@ -65,10 +65,10 @@ Test::UnknownIntermediate::~UnknownIntermediate()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::UnknownIntermediate::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::UnknownIntermediate";
+    static constexpr ::std::string_view typeId = "::Test::UnknownIntermediate";
     return typeId;
 }
 
@@ -76,10 +76,10 @@ Test::UnknownMostDerived1::~UnknownMostDerived1()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::UnknownMostDerived1::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::UnknownMostDerived1";
+    static constexpr ::std::string_view typeId = "::Test::UnknownMostDerived1";
     return typeId;
 }
 
@@ -87,10 +87,10 @@ Test::UnknownMostDerived2::~UnknownMostDerived2()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::UnknownMostDerived2::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::UnknownMostDerived2";
+    static constexpr ::std::string_view typeId = "::Test::UnknownMostDerived2";
     return typeId;
 }
 
@@ -98,10 +98,10 @@ Test::SPreservedClass::~SPreservedClass()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::SPreservedClass::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::SPreservedClass";
+    static constexpr ::std::string_view typeId = "::Test::SPreservedClass";
     return typeId;
 }
 
@@ -109,10 +109,10 @@ Test::SPreserved1::~SPreserved1()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::SPreserved1::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::SPreserved1";
+    static constexpr ::std::string_view typeId = "::Test::SPreserved1";
     return typeId;
 }
 
@@ -128,9 +128,9 @@ Test::SPreserved2::~SPreserved2()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::SPreserved2::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::SPreserved2";
+    static constexpr ::std::string_view typeId = "::Test::SPreserved2";
     return typeId;
 }

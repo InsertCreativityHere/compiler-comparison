@@ -46,10 +46,10 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::Test2::Sub2::NestedExcept
 
 }
 
-const ::std::string&
+::std::string_view
 Test::MyInterfacePrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::MyInterface";
+    static constexpr ::std::string_view typeId = "::Test::MyInterface";
     return typeId;
 }
 
@@ -57,10 +57,10 @@ Test::OptionalClass::~OptionalClass()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::OptionalClass::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::OptionalClass";
+    static constexpr ::std::string_view typeId = "::Test::OptionalClass";
     return typeId;
 }
 
@@ -68,10 +68,10 @@ Test::MyClass::~MyClass()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::MyClass::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::MyClass";
+    static constexpr ::std::string_view typeId = "::Test::MyClass";
     return typeId;
 }
 
@@ -79,10 +79,10 @@ Test::MyException::~MyException()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::MyException::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::MyException";
+    static constexpr ::std::string_view typeId = "::Test::MyException";
     return typeId;
 }
 
@@ -98,10 +98,10 @@ Test::Sub::NestedException::~NestedException()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::Sub::NestedException::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Sub::NestedException";
+    static constexpr ::std::string_view typeId = "::Test::Sub::NestedException";
     return typeId;
 }
 
@@ -109,10 +109,10 @@ Test2::Sub2::NestedException2::~NestedException2()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test2::Sub2::NestedException2::ice_staticId()
 {
-    static const ::std::string typeId = "::Test2::Sub2::NestedException2";
+    static constexpr ::std::string_view typeId = "::Test2::Sub2::NestedException2";
     return typeId;
 }
 
@@ -126,12 +126,12 @@ Test::MyInterface::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::MyInterface::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::MyInterface::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::MyInterface";
+    static constexpr ::std::string_view typeId = "::Test::MyInterface";
     return typeId;
 }

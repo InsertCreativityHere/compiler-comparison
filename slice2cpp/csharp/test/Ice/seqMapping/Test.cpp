@@ -40,10 +40,10 @@ const ::IceInternal::DefaultValueFactoryInit<::Test::CR> iceC_Test_CR_init("::Te
 
 }
 
-const ::std::string&
+::std::string_view
 Test::IPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::I";
+    static constexpr ::std::string_view typeId = "::Test::I";
     return typeId;
 }
 
@@ -3846,10 +3846,10 @@ Test::MyClassPrx::_iceI_opCustomCVSS(const ::std::shared_ptr<::IceInternal::Outg
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::MyClassPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::MyClass";
+    static constexpr ::std::string_view typeId = "::Test::MyClass";
     return typeId;
 }
 
@@ -3857,10 +3857,10 @@ Test::CV::~CV()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::CV::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::CV";
+    static constexpr ::std::string_view typeId = "::Test::CV";
     return typeId;
 }
 
@@ -3868,10 +3868,10 @@ Test::CR::~CR()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::CR::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::CR";
+    static constexpr ::std::string_view typeId = "::Test::CR";
     return typeId;
 }
 
@@ -3885,13 +3885,13 @@ Test::I::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::I::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::I::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::I";
+    static constexpr ::std::string_view typeId = "::Test::I";
     return typeId;
 }
 
@@ -3905,13 +3905,13 @@ Test::MyClass::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::MyClass::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::MyClass::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::MyClass";
+    static constexpr ::std::string_view typeId = "::Test::MyClass";
     return typeId;
 }
 

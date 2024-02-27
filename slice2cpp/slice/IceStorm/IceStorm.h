@@ -450,7 +450,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     explicit TopicPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -612,7 +612,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     explicit TopicManagerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -700,7 +700,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     explicit FinderPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -814,7 +814,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICESTORM_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICESTORM_API) static ::std::string_view ice_staticId();
 
     /**
      * The name of the linked topic.
@@ -862,7 +862,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICESTORM_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICESTORM_API) static ::std::string_view ice_staticId();
 
     /**
      * The name of the link that does not exist.
@@ -897,7 +897,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICESTORM_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICESTORM_API) static ::std::string_view ice_staticId();
 };
 
 /**
@@ -936,7 +936,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICESTORM_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICESTORM_API) static ::std::string_view ice_staticId();
 
     /**
      * The reason for the failure.
@@ -980,7 +980,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICESTORM_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICESTORM_API) static ::std::string_view ice_staticId();
 
     /**
      * The reason for the failure.
@@ -1024,7 +1024,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICESTORM_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICESTORM_API) static ::std::string_view ice_staticId();
 
     /**
      * The name of the topic that already exists.
@@ -1068,7 +1068,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICESTORM_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICESTORM_API) static ::std::string_view ice_staticId();
 
     /**
      * The name of the topic that does not exist.
@@ -1116,7 +1116,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     /**
      * Get the name of this topic.
@@ -1267,7 +1267,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     /**
      * Create a new topic. The topic name must be unique.
@@ -1338,7 +1338,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     /**
      * Get the topic manager proxy. The proxy might point to several replicas.

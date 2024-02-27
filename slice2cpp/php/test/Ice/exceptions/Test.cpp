@@ -44,10 +44,10 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::D> iceC_Test_D_init
 
 }
 
-const ::std::string&
+::std::string_view
 Test::EmptyPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Empty";
+    static constexpr ::std::string_view typeId = "::Test::Empty";
     return typeId;
 }
 
@@ -727,10 +727,10 @@ Test::ThrowerPrx::_iceI_throwLocalExceptionIdempotent(const ::std::shared_ptr<::
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::ThrowerPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Thrower";
+    static constexpr ::std::string_view typeId = "::Test::Thrower";
     return typeId;
 }
 
@@ -767,10 +767,10 @@ Test::WrongOperationPrx::_iceI_noSuchOperation(const ::std::shared_ptr<::IceInte
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::WrongOperationPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::WrongOperation";
+    static constexpr ::std::string_view typeId = "::Test::WrongOperation";
     return typeId;
 }
 
@@ -778,10 +778,10 @@ Test::A::~A()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::A::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::A";
+    static constexpr ::std::string_view typeId = "::Test::A";
     return typeId;
 }
 
@@ -789,10 +789,10 @@ Test::B::~B()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::B::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::B";
+    static constexpr ::std::string_view typeId = "::Test::B";
     return typeId;
 }
 
@@ -800,10 +800,10 @@ Test::C::~C()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::C::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::C";
+    static constexpr ::std::string_view typeId = "::Test::C";
     return typeId;
 }
 
@@ -811,10 +811,10 @@ Test::D::~D()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::D::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::D";
+    static constexpr ::std::string_view typeId = "::Test::D";
     return typeId;
 }
 
@@ -828,13 +828,13 @@ Test::Empty::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::Empty::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::Empty::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Empty";
+    static constexpr ::std::string_view typeId = "::Test::Empty";
     return typeId;
 }
 
@@ -848,13 +848,13 @@ Test::Thrower::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::Thrower::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::Thrower::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Thrower";
+    static constexpr ::std::string_view typeId = "::Test::Thrower";
     return typeId;
 }
 
@@ -1211,13 +1211,13 @@ Test::WrongOperation::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::WrongOperation::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::WrongOperation::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::WrongOperation";
+    static constexpr ::std::string_view typeId = "::Test::WrongOperation";
     return typeId;
 }
 

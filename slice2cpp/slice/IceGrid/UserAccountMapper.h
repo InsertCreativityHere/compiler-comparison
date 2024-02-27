@@ -106,7 +106,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     explicit UserAccountMapperPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -182,7 +182,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
 };
 
 /// \cond INTERNAL
@@ -221,7 +221,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     /**
      * Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user

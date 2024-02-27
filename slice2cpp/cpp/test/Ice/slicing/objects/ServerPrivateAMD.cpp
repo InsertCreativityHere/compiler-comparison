@@ -58,10 +58,10 @@ Test::SBSUnknownDerived::~SBSUnknownDerived()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::SBSUnknownDerived::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::SBSUnknownDerived";
+    static constexpr ::std::string_view typeId = "::Test::SBSUnknownDerived";
     return typeId;
 }
 
@@ -69,10 +69,10 @@ Test::SUnknown::~SUnknown()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::SUnknown::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::SUnknown";
+    static constexpr ::std::string_view typeId = "::Test::SUnknown";
     return typeId;
 }
 
@@ -80,10 +80,10 @@ Test::D2::~D2()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::D2::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::D2";
+    static constexpr ::std::string_view typeId = "::Test::D2";
     return typeId;
 }
 
@@ -91,10 +91,10 @@ Test::D4::~D4()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::D4::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::D4";
+    static constexpr ::std::string_view typeId = "::Test::D4";
     return typeId;
 }
 
@@ -102,10 +102,10 @@ Test::UnknownDerivedException::~UnknownDerivedException()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::UnknownDerivedException::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::UnknownDerivedException";
+    static constexpr ::std::string_view typeId = "::Test::UnknownDerivedException";
     return typeId;
 }
 
@@ -113,10 +113,10 @@ Test::MyClass::~MyClass()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::MyClass::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::MyClass";
+    static constexpr ::std::string_view typeId = "::Test::MyClass";
     return typeId;
 }
 
@@ -124,10 +124,10 @@ Test::PSUnknown::~PSUnknown()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::PSUnknown::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::PSUnknown";
+    static constexpr ::std::string_view typeId = "::Test::PSUnknown";
     return typeId;
 }
 
@@ -135,10 +135,10 @@ Test::PSUnknown2::~PSUnknown2()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::PSUnknown2::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::PSUnknown2";
+    static constexpr ::std::string_view typeId = "::Test::PSUnknown2";
     return typeId;
 }
 
@@ -146,10 +146,10 @@ Test::PSUnknownException::~PSUnknownException()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::PSUnknownException::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::PSUnknownException";
+    static constexpr ::std::string_view typeId = "::Test::PSUnknownException";
     return typeId;
 }
 

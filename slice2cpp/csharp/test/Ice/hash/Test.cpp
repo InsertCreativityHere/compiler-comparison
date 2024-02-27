@@ -50,10 +50,10 @@ Test::BaseException::~BaseException()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::BaseException::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::BaseException";
+    static constexpr ::std::string_view typeId = "::Test::BaseException";
     return typeId;
 }
 
@@ -61,10 +61,10 @@ Test::InvalidPointException::~InvalidPointException()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::InvalidPointException::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::InvalidPointException";
+    static constexpr ::std::string_view typeId = "::Test::InvalidPointException";
     return typeId;
 }
 
@@ -72,10 +72,10 @@ Test::InvalidLengthException::~InvalidLengthException()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::InvalidLengthException::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::InvalidLengthException";
+    static constexpr ::std::string_view typeId = "::Test::InvalidLengthException";
     return typeId;
 }
 
@@ -83,10 +83,10 @@ Test::OtherException::~OtherException()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::OtherException::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::OtherException";
+    static constexpr ::std::string_view typeId = "::Test::OtherException";
     return typeId;
 }
 
@@ -94,9 +94,9 @@ Test::Pen::~Pen()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::Pen::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Pen";
+    static constexpr ::std::string_view typeId = "::Test::Pen";
     return typeId;
 }

@@ -70,10 +70,10 @@ Test::TestIntfPrx::_iceI_getAdapterId(const ::std::shared_ptr<::IceInternal::Out
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::TestIntfPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::TestIntf";
+    static constexpr ::std::string_view typeId = "::Test::TestIntf";
     return typeId;
 }
 
@@ -258,10 +258,10 @@ Test::ControllerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgo
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::ControllerPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Controller";
+    static constexpr ::std::string_view typeId = "::Test::Controller";
     return typeId;
 }
 
@@ -275,13 +275,13 @@ Test::TestIntf::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::TestIntf::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::TestIntf::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::TestIntf";
+    static constexpr ::std::string_view typeId = "::Test::TestIntf";
     return typeId;
 }
 
@@ -352,13 +352,13 @@ Test::Controller::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::Controller::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::Controller::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Controller";
+    static constexpr ::std::string_view typeId = "::Test::Controller";
     return typeId;
 }
 

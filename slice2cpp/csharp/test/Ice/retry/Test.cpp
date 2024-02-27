@@ -247,10 +247,10 @@ Test::RetryPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAs
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::RetryPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Retry";
+    static constexpr ::std::string_view typeId = "::Test::Retry";
     return typeId;
 }
 
@@ -264,13 +264,13 @@ Test::Retry::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::Retry::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::Retry::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Retry";
+    static constexpr ::std::string_view typeId = "::Test::Retry";
     return typeId;
 }
 

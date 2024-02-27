@@ -139,10 +139,10 @@ Test::BackgroundPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgo
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::BackgroundPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Background";
+    static constexpr ::std::string_view typeId = "::Test::Background";
     return typeId;
 }
 
@@ -508,10 +508,10 @@ Test::BackgroundControllerPrx::_iceI_buffered(const ::std::shared_ptr<::IceInter
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::BackgroundControllerPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::BackgroundController";
+    static constexpr ::std::string_view typeId = "::Test::BackgroundController";
     return typeId;
 }
 
@@ -525,13 +525,13 @@ Test::Background::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::Background::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::Background::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Background";
+    static constexpr ::std::string_view typeId = "::Test::Background";
     return typeId;
 }
 
@@ -635,13 +635,13 @@ Test::BackgroundController::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::BackgroundController::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::BackgroundController::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::BackgroundController";
+    static constexpr ::std::string_view typeId = "::Test::BackgroundController";
     return typeId;
 }
 

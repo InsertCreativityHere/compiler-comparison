@@ -44,10 +44,10 @@ Test::Default::~Default()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::Default::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Default";
+    static constexpr ::std::string_view typeId = "::Test::Default";
     return typeId;
 }
 
@@ -55,9 +55,9 @@ Test::NoDefault::~NoDefault()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::NoDefault::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::NoDefault";
+    static constexpr ::std::string_view typeId = "::Test::NoDefault";
     return typeId;
 }

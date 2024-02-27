@@ -47,10 +47,10 @@ IceMX::TopicMetrics::~TopicMetrics()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceMX::TopicMetrics::ice_staticId()
 {
-    static const ::std::string typeId = "::IceMX::TopicMetrics";
+    static constexpr ::std::string_view typeId = "::IceMX::TopicMetrics";
     return typeId;
 }
 
@@ -58,9 +58,9 @@ IceMX::SubscriberMetrics::~SubscriberMetrics()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceMX::SubscriberMetrics::ice_staticId()
 {
-    static const ::std::string typeId = "::IceMX::SubscriberMetrics";
+    static constexpr ::std::string_view typeId = "::IceMX::SubscriberMetrics";
     return typeId;
 }

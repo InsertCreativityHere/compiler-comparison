@@ -101,10 +101,10 @@ Test::MyInterfacePrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAs
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::MyInterfacePrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::MyInterface";
+    static constexpr ::std::string_view typeId = "::Test::MyInterface";
     return typeId;
 }
 
@@ -4135,10 +4135,10 @@ Test::InitialPrx::_iceI_supportsNullOptional(const ::std::shared_ptr<::IceIntern
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::InitialPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Initial";
+    static constexpr ::std::string_view typeId = "::Test::Initial";
     return typeId;
 }
 
@@ -4146,10 +4146,10 @@ Test::OneOptional::~OneOptional()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::OneOptional::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::OneOptional";
+    static constexpr ::std::string_view typeId = "::Test::OneOptional";
     return typeId;
 }
 
@@ -4157,10 +4157,10 @@ Test::MultiOptional::~MultiOptional()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::MultiOptional::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::MultiOptional";
+    static constexpr ::std::string_view typeId = "::Test::MultiOptional";
     return typeId;
 }
 
@@ -4168,10 +4168,10 @@ Test::A::~A()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::A::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::A";
+    static constexpr ::std::string_view typeId = "::Test::A";
     return typeId;
 }
 
@@ -4203,10 +4203,10 @@ Test::B::_iceRead(::Ice::InputStream* istr)
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::B::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::B";
+    static constexpr ::std::string_view typeId = "::Test::B";
     return typeId;
 }
 
@@ -4214,10 +4214,10 @@ Test::C::~C()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::C::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::C";
+    static constexpr ::std::string_view typeId = "::Test::C";
     return typeId;
 }
 
@@ -4225,10 +4225,10 @@ Test::WD::~WD()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::WD::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::WD";
+    static constexpr ::std::string_view typeId = "::Test::WD";
     return typeId;
 }
 
@@ -4236,10 +4236,10 @@ Test::OptionalException::~OptionalException()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::OptionalException::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::OptionalException";
+    static constexpr ::std::string_view typeId = "::Test::OptionalException";
     return typeId;
 }
 
@@ -4247,10 +4247,10 @@ Test::DerivedException::~DerivedException()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::DerivedException::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::DerivedException";
+    static constexpr ::std::string_view typeId = "::Test::DerivedException";
     return typeId;
 }
 
@@ -4258,10 +4258,10 @@ Test::RequiredException::~RequiredException()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::RequiredException::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::RequiredException";
+    static constexpr ::std::string_view typeId = "::Test::RequiredException";
     return typeId;
 }
 
@@ -4277,10 +4277,10 @@ Test::OptionalWithCustom::~OptionalWithCustom()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::OptionalWithCustom::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::OptionalWithCustom";
+    static constexpr ::std::string_view typeId = "::Test::OptionalWithCustom";
     return typeId;
 }
 
@@ -4288,10 +4288,10 @@ Test::E::~E()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::E::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::E";
+    static constexpr ::std::string_view typeId = "::Test::E";
     return typeId;
 }
 
@@ -4299,10 +4299,10 @@ Test::F::~F()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::F::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::F";
+    static constexpr ::std::string_view typeId = "::Test::F";
     return typeId;
 }
 
@@ -4310,10 +4310,10 @@ Test::G1::~G1()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::G1::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::G1";
+    static constexpr ::std::string_view typeId = "::Test::G1";
     return typeId;
 }
 
@@ -4321,10 +4321,10 @@ Test::G2::~G2()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::G2::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::G2";
+    static constexpr ::std::string_view typeId = "::Test::G2";
     return typeId;
 }
 
@@ -4332,10 +4332,10 @@ Test::G::~G()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::G::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::G";
+    static constexpr ::std::string_view typeId = "::Test::G";
     return typeId;
 }
 
@@ -4343,10 +4343,10 @@ Test::Recursive::~Recursive()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::Recursive::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Recursive";
+    static constexpr ::std::string_view typeId = "::Test::Recursive";
     return typeId;
 }
 
@@ -4360,13 +4360,13 @@ Test::MyInterface::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::MyInterface::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::MyInterface::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::MyInterface";
+    static constexpr ::std::string_view typeId = "::Test::MyInterface";
     return typeId;
 }
 
@@ -4435,13 +4435,13 @@ Test::Initial::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::Initial::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::Initial::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Initial";
+    static constexpr ::std::string_view typeId = "::Test::Initial";
     return typeId;
 }
 

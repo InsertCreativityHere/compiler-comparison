@@ -92,10 +92,10 @@ IceGrid::UserAccountMapperPrx::_iceI_getUserAccount(const ::std::shared_ptr<::Ic
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 IceGrid::UserAccountMapperPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::UserAccountMapper";
+    static constexpr ::std::string_view typeId = "::IceGrid::UserAccountMapper";
     return typeId;
 }
 
@@ -103,10 +103,10 @@ IceGrid::UserAccountNotFoundException::~UserAccountNotFoundException()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::UserAccountNotFoundException::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::UserAccountNotFoundException";
+    static constexpr ::std::string_view typeId = "::IceGrid::UserAccountNotFoundException";
     return typeId;
 }
 
@@ -120,13 +120,13 @@ IceGrid::UserAccountMapper::ice_ids(const ::Ice::Current&) const
 ::std::string
 IceGrid::UserAccountMapper::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::UserAccountMapper::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::UserAccountMapper";
+    static constexpr ::std::string_view typeId = "::IceGrid::UserAccountMapper";
     return typeId;
 }
 

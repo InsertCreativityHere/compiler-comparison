@@ -193,10 +193,10 @@ Test::HelloPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAs
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::HelloPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Hello";
+    static constexpr ::std::string_view typeId = "::Test::Hello";
     return typeId;
 }
 
@@ -204,10 +204,10 @@ Test::UE::~UE()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::UE::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::UE";
+    static constexpr ::std::string_view typeId = "::Test::UE";
     return typeId;
 }
 
@@ -221,13 +221,13 @@ Test::Hello::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::Hello::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::Hello::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Hello";
+    static constexpr ::std::string_view typeId = "::Test::Hello";
     return typeId;
 }
 

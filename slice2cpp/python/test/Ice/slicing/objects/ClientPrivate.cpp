@@ -53,10 +53,10 @@ Test::D3::~D3()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::D3::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::D3";
+    static constexpr ::std::string_view typeId = "::Test::D3";
     return typeId;
 }
 
@@ -88,10 +88,10 @@ Test::PCUnknown::_iceRead(::Ice::InputStream* istr)
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::PCUnknown::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::PCUnknown";
+    static constexpr ::std::string_view typeId = "::Test::PCUnknown";
     return typeId;
 }
 
@@ -99,10 +99,10 @@ Test::PCDerived::~PCDerived()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::PCDerived::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::PCDerived";
+    static constexpr ::std::string_view typeId = "::Test::PCDerived";
     return typeId;
 }
 
@@ -110,10 +110,10 @@ Test::PCDerived2::~PCDerived2()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::PCDerived2::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::PCDerived2";
+    static constexpr ::std::string_view typeId = "::Test::PCDerived2";
     return typeId;
 }
 
@@ -121,10 +121,10 @@ Test::PCDerived3::~PCDerived3()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::PCDerived3::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::PCDerived3";
+    static constexpr ::std::string_view typeId = "::Test::PCDerived3";
     return typeId;
 }
 
@@ -132,9 +132,9 @@ Test::CompactPCDerived::~CompactPCDerived()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::CompactPCDerived::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::CompactPCDerived";
+    static constexpr ::std::string_view typeId = "::Test::CompactPCDerived";
     return typeId;
 }

@@ -186,10 +186,10 @@ Ice::LocatorPrx::_iceI_getRegistry(const ::std::shared_ptr<::IceInternal::Outgoi
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Ice::LocatorPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Ice::Locator";
+    static constexpr ::std::string_view typeId = "::Ice::Locator";
     return typeId;
 }
 
@@ -358,10 +358,10 @@ Ice::LocatorRegistryPrx::_iceI_setServerProcessProxy(const ::std::shared_ptr<::I
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Ice::LocatorRegistryPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Ice::LocatorRegistry";
+    static constexpr ::std::string_view typeId = "::Ice::LocatorRegistry";
     return typeId;
 }
 
@@ -399,10 +399,10 @@ Ice::LocatorFinderPrx::_iceI_getLocator(const ::std::shared_ptr<::IceInternal::O
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Ice::LocatorFinderPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Ice::LocatorFinder";
+    static constexpr ::std::string_view typeId = "::Ice::LocatorFinder";
     return typeId;
 }
 
@@ -410,10 +410,10 @@ Ice::AdapterNotFoundException::~AdapterNotFoundException()
 {
 }
 
-const ::std::string&
+::std::string_view
 Ice::AdapterNotFoundException::ice_staticId()
 {
-    static const ::std::string typeId = "::Ice::AdapterNotFoundException";
+    static constexpr ::std::string_view typeId = "::Ice::AdapterNotFoundException";
     return typeId;
 }
 
@@ -421,10 +421,10 @@ Ice::InvalidReplicaGroupIdException::~InvalidReplicaGroupIdException()
 {
 }
 
-const ::std::string&
+::std::string_view
 Ice::InvalidReplicaGroupIdException::ice_staticId()
 {
-    static const ::std::string typeId = "::Ice::InvalidReplicaGroupIdException";
+    static constexpr ::std::string_view typeId = "::Ice::InvalidReplicaGroupIdException";
     return typeId;
 }
 
@@ -432,10 +432,10 @@ Ice::AdapterAlreadyActiveException::~AdapterAlreadyActiveException()
 {
 }
 
-const ::std::string&
+::std::string_view
 Ice::AdapterAlreadyActiveException::ice_staticId()
 {
-    static const ::std::string typeId = "::Ice::AdapterAlreadyActiveException";
+    static constexpr ::std::string_view typeId = "::Ice::AdapterAlreadyActiveException";
     return typeId;
 }
 
@@ -443,10 +443,10 @@ Ice::ObjectNotFoundException::~ObjectNotFoundException()
 {
 }
 
-const ::std::string&
+::std::string_view
 Ice::ObjectNotFoundException::ice_staticId()
 {
-    static const ::std::string typeId = "::Ice::ObjectNotFoundException";
+    static constexpr ::std::string_view typeId = "::Ice::ObjectNotFoundException";
     return typeId;
 }
 
@@ -454,10 +454,10 @@ Ice::ServerNotFoundException::~ServerNotFoundException()
 {
 }
 
-const ::std::string&
+::std::string_view
 Ice::ServerNotFoundException::ice_staticId()
 {
-    static const ::std::string typeId = "::Ice::ServerNotFoundException";
+    static constexpr ::std::string_view typeId = "::Ice::ServerNotFoundException";
     return typeId;
 }
 
@@ -471,13 +471,13 @@ Ice::Locator::ice_ids(const Current&) const
 ::std::string
 Ice::Locator::ice_id(const Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Ice::Locator::ice_staticId()
 {
-    static const ::std::string typeId = "::Ice::Locator";
+    static constexpr ::std::string_view typeId = "::Ice::Locator";
     return typeId;
 }
 
@@ -600,13 +600,13 @@ Ice::LocatorRegistry::ice_ids(const Current&) const
 ::std::string
 Ice::LocatorRegistry::ice_id(const Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Ice::LocatorRegistry::ice_staticId()
 {
-    static const ::std::string typeId = "::Ice::LocatorRegistry";
+    static constexpr ::std::string_view typeId = "::Ice::LocatorRegistry";
     return typeId;
 }
 
@@ -720,13 +720,13 @@ Ice::LocatorFinder::ice_ids(const Current&) const
 ::std::string
 Ice::LocatorFinder::ice_id(const Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Ice::LocatorFinder::ice_staticId()
 {
-    static const ::std::string typeId = "::Ice::LocatorFinder";
+    static constexpr ::std::string_view typeId = "::Ice::LocatorFinder";
     return typeId;
 }
 

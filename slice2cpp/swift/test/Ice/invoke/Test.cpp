@@ -201,10 +201,10 @@ Test::MyClassPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::MyClassPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::MyClass";
+    static constexpr ::std::string_view typeId = "::Test::MyClass";
     return typeId;
 }
 
@@ -212,10 +212,10 @@ Test::MyException::~MyException()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::MyException::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::MyException";
+    static constexpr ::std::string_view typeId = "::Test::MyException";
     return typeId;
 }
 
@@ -229,13 +229,13 @@ Test::MyClass::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::MyClass::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::MyClass::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::MyClass";
+    static constexpr ::std::string_view typeId = "::Test::MyClass";
     return typeId;
 }
 

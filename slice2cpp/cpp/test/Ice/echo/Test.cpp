@@ -168,10 +168,10 @@ Test::EchoPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsy
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::EchoPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Echo";
+    static constexpr ::std::string_view typeId = "::Test::Echo";
     return typeId;
 }
 
@@ -185,13 +185,13 @@ Test::Echo::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::Echo::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::Echo::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Echo";
+    static constexpr ::std::string_view typeId = "::Test::Echo";
     return typeId;
 }
 

@@ -73,10 +73,10 @@ Test::ClockPrx::_iceI_tick(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::ClockPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Clock";
+    static constexpr ::std::string_view typeId = "::Test::Clock";
     return typeId;
 }
 
@@ -90,13 +90,13 @@ Test::Clock::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::Clock::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::Clock::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Clock";
+    static constexpr ::std::string_view typeId = "::Test::Clock";
     return typeId;
 }
 

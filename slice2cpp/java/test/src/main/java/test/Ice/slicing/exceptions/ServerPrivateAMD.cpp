@@ -252,10 +252,10 @@ Test::RelayPrx::_iceI_unknownPreservedAsKnownPreserved(const ::std::shared_ptr<:
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::RelayPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Relay";
+    static constexpr ::std::string_view typeId = "::Test::Relay";
     return typeId;
 }
 
@@ -1342,10 +1342,10 @@ Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::TestIntfPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::TestIntf";
+    static constexpr ::std::string_view typeId = "::Test::TestIntf";
     return typeId;
 }
 
@@ -1353,10 +1353,10 @@ Test::Base::~Base()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::Base::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Base";
+    static constexpr ::std::string_view typeId = "::Test::Base";
     return typeId;
 }
 
@@ -1364,10 +1364,10 @@ Test::KnownDerived::~KnownDerived()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::KnownDerived::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::KnownDerived";
+    static constexpr ::std::string_view typeId = "::Test::KnownDerived";
     return typeId;
 }
 
@@ -1375,10 +1375,10 @@ Test::KnownIntermediate::~KnownIntermediate()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::KnownIntermediate::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::KnownIntermediate";
+    static constexpr ::std::string_view typeId = "::Test::KnownIntermediate";
     return typeId;
 }
 
@@ -1386,10 +1386,10 @@ Test::KnownMostDerived::~KnownMostDerived()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::KnownMostDerived::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::KnownMostDerived";
+    static constexpr ::std::string_view typeId = "::Test::KnownMostDerived";
     return typeId;
 }
 
@@ -1397,10 +1397,10 @@ Test::KnownPreserved::~KnownPreserved()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::KnownPreserved::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::KnownPreserved";
+    static constexpr ::std::string_view typeId = "::Test::KnownPreserved";
     return typeId;
 }
 
@@ -1432,10 +1432,10 @@ Test::KnownPreservedDerived::~KnownPreservedDerived()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::KnownPreservedDerived::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::KnownPreservedDerived";
+    static constexpr ::std::string_view typeId = "::Test::KnownPreservedDerived";
     return typeId;
 }
 
@@ -1467,10 +1467,10 @@ Test::BaseClass::_iceRead(::Ice::InputStream* istr)
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::BaseClass::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::BaseClass";
+    static constexpr ::std::string_view typeId = "::Test::BaseClass";
     return typeId;
 }
 
@@ -1478,10 +1478,10 @@ Test::UnknownDerived::~UnknownDerived()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::UnknownDerived::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::UnknownDerived";
+    static constexpr ::std::string_view typeId = "::Test::UnknownDerived";
     return typeId;
 }
 
@@ -1489,10 +1489,10 @@ Test::UnknownIntermediate::~UnknownIntermediate()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::UnknownIntermediate::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::UnknownIntermediate";
+    static constexpr ::std::string_view typeId = "::Test::UnknownIntermediate";
     return typeId;
 }
 
@@ -1500,10 +1500,10 @@ Test::UnknownMostDerived1::~UnknownMostDerived1()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::UnknownMostDerived1::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::UnknownMostDerived1";
+    static constexpr ::std::string_view typeId = "::Test::UnknownMostDerived1";
     return typeId;
 }
 
@@ -1511,10 +1511,10 @@ Test::UnknownMostDerived2::~UnknownMostDerived2()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::UnknownMostDerived2::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::UnknownMostDerived2";
+    static constexpr ::std::string_view typeId = "::Test::UnknownMostDerived2";
     return typeId;
 }
 
@@ -1522,10 +1522,10 @@ Test::SPreservedClass::~SPreservedClass()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::SPreservedClass::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::SPreservedClass";
+    static constexpr ::std::string_view typeId = "::Test::SPreservedClass";
     return typeId;
 }
 
@@ -1533,10 +1533,10 @@ Test::SPreserved1::~SPreserved1()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::SPreserved1::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::SPreserved1";
+    static constexpr ::std::string_view typeId = "::Test::SPreserved1";
     return typeId;
 }
 
@@ -1552,10 +1552,10 @@ Test::SPreserved2::~SPreserved2()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::SPreserved2::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::SPreserved2";
+    static constexpr ::std::string_view typeId = "::Test::SPreserved2";
     return typeId;
 }
 
@@ -1569,13 +1569,13 @@ Test::Relay::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::Relay::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::Relay::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Relay";
+    static constexpr ::std::string_view typeId = "::Test::Relay";
     return typeId;
 }
 
@@ -1696,13 +1696,13 @@ Test::TestIntf::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::TestIntf::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::TestIntf::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::TestIntf";
+    static constexpr ::std::string_view typeId = "::Test::TestIntf";
     return typeId;
 }
 

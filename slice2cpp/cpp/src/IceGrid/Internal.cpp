@@ -190,10 +190,10 @@ IceGrid::AdapterPrx::_iceI_setDirectProxy(const ::std::shared_ptr<::IceInternal:
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 IceGrid::AdapterPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::Adapter";
+    static constexpr ::std::string_view typeId = "::IceGrid::Adapter";
     return typeId;
 }
 
@@ -312,10 +312,10 @@ IceGrid::FileReaderPrx::_iceI_read(const ::std::shared_ptr<::IceInternal::Outgoi
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 IceGrid::FileReaderPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::FileReader";
+    static constexpr ::std::string_view typeId = "::IceGrid::FileReader";
     return typeId;
 }
 
@@ -729,10 +729,10 @@ IceGrid::ServerPrx::_iceI_setProcess(const ::std::shared_ptr<::IceInternal::Outg
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 IceGrid::ServerPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::Server";
+    static constexpr ::std::string_view typeId = "::IceGrid::Server";
     return typeId;
 }
 
@@ -847,10 +847,10 @@ IceGrid::ReplicaObserverPrx::_iceI_replicaRemoved(const ::std::shared_ptr<::IceI
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 IceGrid::ReplicaObserverPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::ReplicaObserver";
+    static constexpr ::std::string_view typeId = "::IceGrid::ReplicaObserver";
     return typeId;
 }
 
@@ -924,10 +924,10 @@ IceGrid::PatcherFeedbackPrx::_iceI_failed(const ::std::shared_ptr<::IceInternal:
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 IceGrid::PatcherFeedbackPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::PatcherFeedback";
+    static constexpr ::std::string_view typeId = "::IceGrid::PatcherFeedback";
     return typeId;
 }
 
@@ -1409,10 +1409,10 @@ IceGrid::NodePrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 IceGrid::NodePrx::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::Node";
+    static constexpr ::std::string_view typeId = "::IceGrid::Node";
     return typeId;
 }
 
@@ -1695,17 +1695,17 @@ IceGrid::NodeSessionPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal::Ou
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 IceGrid::NodeSessionPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::NodeSession";
+    static constexpr ::std::string_view typeId = "::IceGrid::NodeSession";
     return typeId;
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::DatabaseObserverPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::DatabaseObserver";
+    static constexpr ::std::string_view typeId = "::IceGrid::DatabaseObserver";
     return typeId;
 }
 
@@ -2031,10 +2031,10 @@ IceGrid::ReplicaSessionPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal:
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 IceGrid::ReplicaSessionPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::ReplicaSession";
+    static constexpr ::std::string_view typeId = "::IceGrid::ReplicaSession";
     return typeId;
 }
 
@@ -2427,10 +2427,10 @@ IceGrid::InternalRegistryPrx::_iceI_shutdown(const ::std::shared_ptr<::IceIntern
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 IceGrid::InternalRegistryPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::InternalRegistry";
+    static constexpr ::std::string_view typeId = "::IceGrid::InternalRegistry";
     return typeId;
 }
 
@@ -2438,10 +2438,10 @@ IceGrid::InternalDbEnvDescriptor::~InternalDbEnvDescriptor()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::InternalDbEnvDescriptor::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::InternalDbEnvDescriptor";
+    static constexpr ::std::string_view typeId = "::IceGrid::InternalDbEnvDescriptor";
     return typeId;
 }
 
@@ -2449,10 +2449,10 @@ IceGrid::InternalAdapterDescriptor::~InternalAdapterDescriptor()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::InternalAdapterDescriptor::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::InternalAdapterDescriptor";
+    static constexpr ::std::string_view typeId = "::IceGrid::InternalAdapterDescriptor";
     return typeId;
 }
 
@@ -2460,10 +2460,10 @@ IceGrid::InternalDistributionDescriptor::~InternalDistributionDescriptor()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::InternalDistributionDescriptor::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::InternalDistributionDescriptor";
+    static constexpr ::std::string_view typeId = "::IceGrid::InternalDistributionDescriptor";
     return typeId;
 }
 
@@ -2471,10 +2471,10 @@ IceGrid::InternalServerDescriptor::~InternalServerDescriptor()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::InternalServerDescriptor::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::InternalServerDescriptor";
+    static constexpr ::std::string_view typeId = "::IceGrid::InternalServerDescriptor";
     return typeId;
 }
 
@@ -2482,10 +2482,10 @@ IceGrid::AdapterActiveException::~AdapterActiveException()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::AdapterActiveException::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::AdapterActiveException";
+    static constexpr ::std::string_view typeId = "::IceGrid::AdapterActiveException";
     return typeId;
 }
 
@@ -2493,10 +2493,10 @@ IceGrid::AdapterNotActiveException::~AdapterNotActiveException()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::AdapterNotActiveException::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::AdapterNotActiveException";
+    static constexpr ::std::string_view typeId = "::IceGrid::AdapterNotActiveException";
     return typeId;
 }
 
@@ -2504,10 +2504,10 @@ IceGrid::AdapterExistsException::~AdapterExistsException()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::AdapterExistsException::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::AdapterExistsException";
+    static constexpr ::std::string_view typeId = "::IceGrid::AdapterExistsException";
     return typeId;
 }
 
@@ -2515,10 +2515,10 @@ IceGrid::NodeActiveException::~NodeActiveException()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::NodeActiveException::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::NodeActiveException";
+    static constexpr ::std::string_view typeId = "::IceGrid::NodeActiveException";
     return typeId;
 }
 
@@ -2526,10 +2526,10 @@ IceGrid::ReplicaActiveException::~ReplicaActiveException()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::ReplicaActiveException::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::ReplicaActiveException";
+    static constexpr ::std::string_view typeId = "::IceGrid::ReplicaActiveException";
     return typeId;
 }
 
@@ -2537,10 +2537,10 @@ IceGrid::InternalNodeInfo::~InternalNodeInfo()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::InternalNodeInfo::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::InternalNodeInfo";
+    static constexpr ::std::string_view typeId = "::IceGrid::InternalNodeInfo";
     return typeId;
 }
 
@@ -2548,10 +2548,10 @@ IceGrid::InternalReplicaInfo::~InternalReplicaInfo()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::InternalReplicaInfo::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::InternalReplicaInfo";
+    static constexpr ::std::string_view typeId = "::IceGrid::InternalReplicaInfo";
     return typeId;
 }
 
@@ -2565,13 +2565,13 @@ IceGrid::Adapter::ice_ids(const ::Ice::Current&) const
 ::std::string
 IceGrid::Adapter::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::Adapter::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::Adapter";
+    static constexpr ::std::string_view typeId = "::IceGrid::Adapter";
     return typeId;
 }
 
@@ -2684,13 +2684,13 @@ IceGrid::FileReader::ice_ids(const ::Ice::Current&) const
 ::std::string
 IceGrid::FileReader::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::FileReader::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::FileReader";
+    static constexpr ::std::string_view typeId = "::IceGrid::FileReader";
     return typeId;
 }
 
@@ -2790,13 +2790,13 @@ IceGrid::Server::ice_ids(const ::Ice::Current&) const
 ::std::string
 IceGrid::Server::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::Server::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::Server";
+    static constexpr ::std::string_view typeId = "::IceGrid::Server";
     return typeId;
 }
 
@@ -3043,13 +3043,13 @@ IceGrid::ReplicaObserver::ice_ids(const ::Ice::Current&) const
 ::std::string
 IceGrid::ReplicaObserver::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::ReplicaObserver::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::ReplicaObserver";
+    static constexpr ::std::string_view typeId = "::IceGrid::ReplicaObserver";
     return typeId;
 }
 
@@ -3159,13 +3159,13 @@ IceGrid::PatcherFeedback::ice_ids(const ::Ice::Current&) const
 ::std::string
 IceGrid::PatcherFeedback::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::PatcherFeedback::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::PatcherFeedback";
+    static constexpr ::std::string_view typeId = "::IceGrid::PatcherFeedback";
     return typeId;
 }
 
@@ -3253,13 +3253,13 @@ IceGrid::Node::ice_ids(const ::Ice::Current&) const
 ::std::string
 IceGrid::Node::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::Node::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::Node";
+    static constexpr ::std::string_view typeId = "::IceGrid::Node";
     return typeId;
 }
 
@@ -3563,13 +3563,13 @@ IceGrid::NodeSession::ice_ids(const ::Ice::Current&) const
 ::std::string
 IceGrid::NodeSession::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::NodeSession::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::NodeSession";
+    static constexpr ::std::string_view typeId = "::IceGrid::NodeSession";
     return typeId;
 }
 
@@ -3766,13 +3766,13 @@ IceGrid::DatabaseObserver::ice_ids(const ::Ice::Current&) const
 ::std::string
 IceGrid::DatabaseObserver::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::DatabaseObserver::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::DatabaseObserver";
+    static constexpr ::std::string_view typeId = "::IceGrid::DatabaseObserver";
     return typeId;
 }
 
@@ -3873,13 +3873,13 @@ IceGrid::ReplicaSession::ice_ids(const ::Ice::Current&) const
 ::std::string
 IceGrid::ReplicaSession::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::ReplicaSession::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::ReplicaSession";
+    static constexpr ::std::string_view typeId = "::IceGrid::ReplicaSession";
     return typeId;
 }
 
@@ -4083,13 +4083,13 @@ IceGrid::InternalRegistry::ice_ids(const ::Ice::Current&) const
 ::std::string
 IceGrid::InternalRegistry::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::InternalRegistry::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::InternalRegistry";
+    static constexpr ::std::string_view typeId = "::IceGrid::InternalRegistry";
     return typeId;
 }
 

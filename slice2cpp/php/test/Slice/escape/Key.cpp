@@ -80,10 +80,10 @@ _cpp_and::breakPrx::_iceI_case(const ::std::shared_ptr<::IceInternal::OutgoingAs
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 _cpp_and::breakPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::and::break";
+    static constexpr ::std::string_view typeId = "::and::break";
     return typeId;
 }
 
@@ -124,10 +124,10 @@ _cpp_and::functionPrx::_iceI_continue(const ::std::shared_ptr<::IceInternal::Out
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 _cpp_and::functionPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::and::function";
+    static constexpr ::std::string_view typeId = "::and::function";
     return typeId;
 }
 
@@ -164,17 +164,17 @@ _cpp_and::diePrx::_iceI_do(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 _cpp_and::diePrx::ice_staticId()
 {
-    static const ::std::string typeId = "::and::die";
+    static constexpr ::std::string_view typeId = "::and::die";
     return typeId;
 }
 
-const ::std::string&
+::std::string_view
 _cpp_and::enddeclarePrx::ice_staticId()
 {
-    static const ::std::string typeId = "::and::enddeclare";
+    static constexpr ::std::string_view typeId = "::and::enddeclare";
     return typeId;
 }
 
@@ -234,10 +234,10 @@ _cpp_and::forPrx::_iceI_foreach(const ::std::shared_ptr<::IceInternal::OutgoingA
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 _cpp_and::forPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::and::for";
+    static constexpr ::std::string_view typeId = "::and::for";
     return typeId;
 }
 
@@ -245,10 +245,10 @@ _cpp_and::echo::~echo()
 {
 }
 
-const ::std::string&
+::std::string_view
 _cpp_and::echo::ice_staticId()
 {
-    static const ::std::string typeId = "::and::echo";
+    static constexpr ::std::string_view typeId = "::and::echo";
     return typeId;
 }
 
@@ -256,10 +256,10 @@ _cpp_and::endif::~endif()
 {
 }
 
-const ::std::string&
+::std::string_view
 _cpp_and::endif::ice_staticId()
 {
-    static const ::std::string typeId = "::and::endif";
+    static constexpr ::std::string_view typeId = "::and::endif";
     return typeId;
 }
 
@@ -267,10 +267,10 @@ _cpp_and::endwhile::~endwhile()
 {
 }
 
-const ::std::string&
+::std::string_view
 _cpp_and::endwhile::ice_staticId()
 {
-    static const ::std::string typeId = "::and::endwhile";
+    static constexpr ::std::string_view typeId = "::and::endwhile";
     return typeId;
 }
 
@@ -284,13 +284,13 @@ _cpp_and::_cpp_break::ice_ids(const ::Ice::Current&) const
 ::std::string
 _cpp_and::_cpp_break::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 _cpp_and::_cpp_break::ice_staticId()
 {
-    static const ::std::string typeId = "::and::break";
+    static constexpr ::std::string_view typeId = "::and::break";
     return typeId;
 }
 
@@ -365,13 +365,13 @@ _cpp_and::function::ice_ids(const ::Ice::Current&) const
 ::std::string
 _cpp_and::function::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 _cpp_and::function::ice_staticId()
 {
-    static const ::std::string typeId = "::and::function";
+    static constexpr ::std::string_view typeId = "::and::function";
     return typeId;
 }
 
@@ -444,13 +444,13 @@ _cpp_and::die::ice_ids(const ::Ice::Current&) const
 ::std::string
 _cpp_and::die::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 _cpp_and::die::ice_staticId()
 {
-    static const ::std::string typeId = "::and::die";
+    static constexpr ::std::string_view typeId = "::and::die";
     return typeId;
 }
 
@@ -519,13 +519,13 @@ _cpp_and::enddeclare::ice_ids(const ::Ice::Current&) const
 ::std::string
 _cpp_and::enddeclare::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 _cpp_and::enddeclare::ice_staticId()
 {
-    static const ::std::string typeId = "::and::enddeclare";
+    static constexpr ::std::string_view typeId = "::and::enddeclare";
     return typeId;
 }
 
@@ -586,13 +586,13 @@ _cpp_and::_cpp_for::ice_ids(const ::Ice::Current&) const
 ::std::string
 _cpp_and::_cpp_for::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 _cpp_and::_cpp_for::ice_staticId()
 {
-    static const ::std::string typeId = "::and::for";
+    static constexpr ::std::string_view typeId = "::and::for";
     return typeId;
 }
 

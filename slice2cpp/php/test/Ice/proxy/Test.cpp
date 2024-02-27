@@ -103,10 +103,10 @@ Test::MyClassPrx::_iceI_getContext(const ::std::shared_ptr<::IceInternal::Outgoi
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::MyClassPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::MyClass";
+    static constexpr ::std::string_view typeId = "::Test::MyClass";
     return typeId;
 }
 
@@ -148,10 +148,10 @@ Test::MyDerivedClassPrx::_iceI_echo(const ::std::shared_ptr<::IceInternal::Outgo
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::MyDerivedClassPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::MyDerivedClass";
+    static constexpr ::std::string_view typeId = "::Test::MyDerivedClass";
     return typeId;
 }
 
@@ -165,13 +165,13 @@ Test::MyClass::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::MyClass::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::MyClass::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::MyClass";
+    static constexpr ::std::string_view typeId = "::Test::MyClass";
     return typeId;
 }
 
@@ -258,13 +258,13 @@ Test::MyDerivedClass::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::MyDerivedClass::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::MyDerivedClass::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::MyDerivedClass";
+    static constexpr ::std::string_view typeId = "::Test::MyDerivedClass";
     return typeId;
 }
 

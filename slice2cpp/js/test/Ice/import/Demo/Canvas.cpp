@@ -110,10 +110,10 @@ Demo::gx::CanvasPrx::_iceI_paintCircle(const ::std::shared_ptr<::IceInternal::Ou
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Demo::gx::CanvasPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Demo::gx::Canvas";
+    static constexpr ::std::string_view typeId = "::Demo::gx::Canvas";
     return typeId;
 }
 
@@ -150,10 +150,10 @@ Demo::gx::SessionPrx::_iceI_destroySession(const ::std::shared_ptr<::IceInternal
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Demo::gx::SessionPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Demo::gx::Session";
+    static constexpr ::std::string_view typeId = "::Demo::gx::Session";
     return typeId;
 }
 
@@ -167,13 +167,13 @@ Demo::gx::Canvas::ice_ids(const ::Ice::Current&) const
 ::std::string
 Demo::gx::Canvas::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Demo::gx::Canvas::ice_staticId()
 {
-    static const ::std::string typeId = "::Demo::gx::Canvas";
+    static constexpr ::std::string_view typeId = "::Demo::gx::Canvas";
     return typeId;
 }
 
@@ -264,13 +264,13 @@ Demo::gx::Session::ice_ids(const ::Ice::Current&) const
 ::std::string
 Demo::gx::Session::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Demo::gx::Session::ice_staticId()
 {
-    static const ::std::string typeId = "::Demo::gx::Session";
+    static constexpr ::std::string_view typeId = "::Demo::gx::Session";
     return typeId;
 }
 

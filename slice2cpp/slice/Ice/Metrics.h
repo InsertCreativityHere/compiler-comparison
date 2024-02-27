@@ -340,7 +340,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     explicit MetricsAdminPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -436,7 +436,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId();
 
     /**
      * The metrics identifier.
@@ -518,7 +518,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId();
 };
 
 /**
@@ -570,7 +570,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId();
 
     /**
      * The number of threads which are currently performing socket read or writes.
@@ -636,7 +636,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId();
 
     /**
      * The number of dispatch that failed with a user exception.
@@ -701,7 +701,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId();
 
     /**
      * The size of the invocation. This corresponds to the size of the marshalled input parameters.
@@ -759,7 +759,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId();
 };
 
 /**
@@ -808,7 +808,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId();
 };
 
 /**
@@ -862,7 +862,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId();
 
     /**
      * The number of retries for the invocation(s).
@@ -931,7 +931,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId();
 
     /**
      * The number of bytes received by the connection.
@@ -983,7 +983,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     /**
      * Get the names of enabled and disabled metrics.

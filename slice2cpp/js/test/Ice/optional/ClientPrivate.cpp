@@ -112,10 +112,10 @@ Test::Initial2Prx::_iceI_opVoid(const ::std::shared_ptr<::IceInternal::OutgoingA
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::Initial2Prx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Initial2";
+    static constexpr ::std::string_view typeId = "::Test::Initial2";
     return typeId;
 }
 
@@ -129,13 +129,13 @@ Test::Initial2::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::Initial2::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::Initial2::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Initial2";
+    static constexpr ::std::string_view typeId = "::Test::Initial2";
     return typeId;
 }
 

@@ -180,10 +180,10 @@ classdef::_cpp_break::elseifPrx::_iceI_checkedCast(const ::std::shared_ptr<::Ice
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 classdef::_cpp_break::elseifPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::classdef::break::elseif";
+    static constexpr ::std::string_view typeId = "::classdef::break::elseif";
     return typeId;
 }
 
@@ -191,10 +191,10 @@ classdef::_cpp_break::logical::~logical()
 {
 }
 
-const ::std::string&
+::std::string_view
 classdef::_cpp_break::logical::ice_staticId()
 {
-    static const ::std::string typeId = "::classdef::break::logical";
+    static constexpr ::std::string_view typeId = "::classdef::break::logical";
     return typeId;
 }
 
@@ -202,10 +202,10 @@ classdef::_cpp_break::_cpp_xor::~_cpp_xor()
 {
 }
 
-const ::std::string&
+::std::string_view
 classdef::_cpp_break::_cpp_xor::ice_staticId()
 {
-    static const ::std::string typeId = "::classdef::break::xor";
+    static constexpr ::std::string_view typeId = "::classdef::break::xor";
     return typeId;
 }
 
@@ -213,10 +213,10 @@ classdef::_cpp_break::_cpp_try::~_cpp_try()
 {
 }
 
-const ::std::string&
+::std::string_view
 classdef::_cpp_break::_cpp_try::ice_staticId()
 {
-    static const ::std::string typeId = "::classdef::break::try";
+    static constexpr ::std::string_view typeId = "::classdef::break::try";
     return typeId;
 }
 
@@ -224,10 +224,10 @@ classdef::_cpp_break::properties::~properties()
 {
 }
 
-const ::std::string&
+::std::string_view
 classdef::_cpp_break::properties::ice_staticId()
 {
-    static const ::std::string typeId = "::classdef::break::properties";
+    static constexpr ::std::string_view typeId = "::classdef::break::properties";
     return typeId;
 }
 
@@ -235,10 +235,10 @@ classdef::_cpp_break::persistent::~persistent()
 {
 }
 
-const ::std::string&
+::std::string_view
 classdef::_cpp_break::persistent::ice_staticId()
 {
-    static const ::std::string typeId = "::classdef::break::persistent";
+    static constexpr ::std::string_view typeId = "::classdef::break::persistent";
     return typeId;
 }
 
@@ -254,10 +254,10 @@ classdef::_cpp_break::global::~global()
 {
 }
 
-const ::std::string&
+::std::string_view
 classdef::_cpp_break::global::ice_staticId()
 {
-    static const ::std::string typeId = "::classdef::break::global";
+    static constexpr ::std::string_view typeId = "::classdef::break::global";
     return typeId;
 }
 
@@ -271,13 +271,13 @@ classdef::_cpp_break::elseif::ice_ids(const ::Ice::Current&) const
 ::std::string
 classdef::_cpp_break::elseif::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 classdef::_cpp_break::elseif::ice_staticId()
 {
-    static const ::std::string typeId = "::classdef::break::elseif";
+    static constexpr ::std::string_view typeId = "::classdef::break::elseif";
     return typeId;
 }
 

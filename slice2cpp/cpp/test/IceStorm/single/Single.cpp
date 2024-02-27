@@ -73,10 +73,10 @@ Test::SinglePrx::_iceI_event(const ::std::shared_ptr<::IceInternal::OutgoingAsyn
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::SinglePrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Single";
+    static constexpr ::std::string_view typeId = "::Test::Single";
     return typeId;
 }
 
@@ -90,13 +90,13 @@ Test::Single::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::Single::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::Single::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Single";
+    static constexpr ::std::string_view typeId = "::Test::Single";
     return typeId;
 }
 

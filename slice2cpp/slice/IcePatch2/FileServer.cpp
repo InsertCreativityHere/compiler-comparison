@@ -415,10 +415,10 @@ IcePatch2::FileServerPrx::_iceI_getLargeFileCompressed(const ::std::shared_ptr<:
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 IcePatch2::FileServerPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::IcePatch2::FileServer";
+    static constexpr ::std::string_view typeId = "::IcePatch2::FileServer";
     return typeId;
 }
 
@@ -426,10 +426,10 @@ IcePatch2::PartitionOutOfRangeException::~PartitionOutOfRangeException()
 {
 }
 
-const ::std::string&
+::std::string_view
 IcePatch2::PartitionOutOfRangeException::ice_staticId()
 {
-    static const ::std::string typeId = "::IcePatch2::PartitionOutOfRangeException";
+    static constexpr ::std::string_view typeId = "::IcePatch2::PartitionOutOfRangeException";
     return typeId;
 }
 
@@ -437,10 +437,10 @@ IcePatch2::FileAccessException::~FileAccessException()
 {
 }
 
-const ::std::string&
+::std::string_view
 IcePatch2::FileAccessException::ice_staticId()
 {
-    static const ::std::string typeId = "::IcePatch2::FileAccessException";
+    static constexpr ::std::string_view typeId = "::IcePatch2::FileAccessException";
     return typeId;
 }
 
@@ -448,10 +448,10 @@ IcePatch2::FileSizeRangeException::~FileSizeRangeException()
 {
 }
 
-const ::std::string&
+::std::string_view
 IcePatch2::FileSizeRangeException::ice_staticId()
 {
-    static const ::std::string typeId = "::IcePatch2::FileSizeRangeException";
+    static constexpr ::std::string_view typeId = "::IcePatch2::FileSizeRangeException";
     return typeId;
 }
 
@@ -465,13 +465,13 @@ IcePatch2::FileServer::ice_ids(const ::Ice::Current&) const
 ::std::string
 IcePatch2::FileServer::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 IcePatch2::FileServer::ice_staticId()
 {
-    static const ::std::string typeId = "::IcePatch2::FileServer";
+    static constexpr ::std::string_view typeId = "::IcePatch2::FileServer";
     return typeId;
 }
 

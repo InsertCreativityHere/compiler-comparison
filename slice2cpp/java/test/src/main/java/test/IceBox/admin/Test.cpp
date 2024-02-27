@@ -70,10 +70,10 @@ Test::TestFacetPrx::_iceI_getChanges(const ::std::shared_ptr<::IceInternal::Outg
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::TestFacetPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::TestFacet";
+    static constexpr ::std::string_view typeId = "::Test::TestFacet";
     return typeId;
 }
 
@@ -87,13 +87,13 @@ Test::TestFacet::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::TestFacet::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::TestFacet::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::TestFacet";
+    static constexpr ::std::string_view typeId = "::Test::TestFacet";
     return typeId;
 }
 

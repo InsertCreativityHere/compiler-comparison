@@ -56,10 +56,10 @@ Test::Base::~Base()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::Base::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Base";
+    static constexpr ::std::string_view typeId = "::Test::Base";
     return typeId;
 }
 
@@ -67,10 +67,10 @@ Test::Derived::~Derived()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::Derived::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Derived";
+    static constexpr ::std::string_view typeId = "::Test::Derived";
     return typeId;
 }
 
@@ -78,10 +78,10 @@ Test::BaseEx::~BaseEx()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::BaseEx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::BaseEx";
+    static constexpr ::std::string_view typeId = "::Test::BaseEx";
     return typeId;
 }
 
@@ -89,10 +89,10 @@ Test::DerivedEx::~DerivedEx()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::DerivedEx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::DerivedEx";
+    static constexpr ::std::string_view typeId = "::Test::DerivedEx";
     return typeId;
 }
 
@@ -100,10 +100,10 @@ Test::ExceptionNoDefaultsBase::~ExceptionNoDefaultsBase()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::ExceptionNoDefaultsBase::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::ExceptionNoDefaultsBase";
+    static constexpr ::std::string_view typeId = "::Test::ExceptionNoDefaultsBase";
     return typeId;
 }
 
@@ -111,10 +111,10 @@ Test::ExceptionNoDefaults::~ExceptionNoDefaults()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::ExceptionNoDefaults::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::ExceptionNoDefaults";
+    static constexpr ::std::string_view typeId = "::Test::ExceptionNoDefaults";
     return typeId;
 }
 
@@ -122,10 +122,10 @@ Test::ClassNoDefaultsBase::~ClassNoDefaultsBase()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::ClassNoDefaultsBase::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::ClassNoDefaultsBase";
+    static constexpr ::std::string_view typeId = "::Test::ClassNoDefaultsBase";
     return typeId;
 }
 
@@ -133,9 +133,9 @@ Test::ClassNoDefaults::~ClassNoDefaults()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::ClassNoDefaults::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::ClassNoDefaults";
+    static constexpr ::std::string_view typeId = "::Test::ClassNoDefaults";
     return typeId;
 }

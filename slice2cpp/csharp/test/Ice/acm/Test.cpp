@@ -213,10 +213,10 @@ Test::TestIntfPrx::_iceI_waitForHeartbeatCount(const ::std::shared_ptr<::IceInte
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::TestIntfPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::TestIntf";
+    static constexpr ::std::string_view typeId = "::Test::TestIntf";
     return typeId;
 }
 
@@ -353,10 +353,10 @@ Test::RemoteObjectAdapterPrx::_iceI_deactivate(const ::std::shared_ptr<::IceInte
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::RemoteObjectAdapterPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::RemoteObjectAdapter";
+    static constexpr ::std::string_view typeId = "::Test::RemoteObjectAdapter";
     return typeId;
 }
 
@@ -431,10 +431,10 @@ Test::RemoteCommunicatorPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInterna
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::RemoteCommunicatorPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::RemoteCommunicator";
+    static constexpr ::std::string_view typeId = "::Test::RemoteCommunicator";
     return typeId;
 }
 
@@ -448,13 +448,13 @@ Test::TestIntf::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::TestIntf::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::TestIntf::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::TestIntf";
+    static constexpr ::std::string_view typeId = "::Test::TestIntf";
     return typeId;
 }
 
@@ -596,13 +596,13 @@ Test::RemoteObjectAdapter::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::RemoteObjectAdapter::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::RemoteObjectAdapter::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::RemoteObjectAdapter";
+    static constexpr ::std::string_view typeId = "::Test::RemoteObjectAdapter";
     return typeId;
 }
 
@@ -721,13 +721,13 @@ Test::RemoteCommunicator::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::RemoteCommunicator::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::RemoteCommunicator::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::RemoteCommunicator";
+    static constexpr ::std::string_view typeId = "::Test::RemoteCommunicator";
     return typeId;
 }
 

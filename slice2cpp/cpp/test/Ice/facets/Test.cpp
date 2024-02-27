@@ -36,10 +36,10 @@ namespace
 
 }
 
-const ::std::string&
+::std::string_view
 Test::EmptyPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Empty";
+    static constexpr ::std::string_view typeId = "::Test::Empty";
     return typeId;
 }
 
@@ -77,10 +77,10 @@ Test::APrx::_iceI_callA(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::APrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::A";
+    static constexpr ::std::string_view typeId = "::Test::A";
     return typeId;
 }
 
@@ -118,10 +118,10 @@ Test::BPrx::_iceI_callB(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::BPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::B";
+    static constexpr ::std::string_view typeId = "::Test::B";
     return typeId;
 }
 
@@ -159,10 +159,10 @@ Test::CPrx::_iceI_callC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::CPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::C";
+    static constexpr ::std::string_view typeId = "::Test::C";
     return typeId;
 }
 
@@ -200,10 +200,10 @@ Test::DPrx::_iceI_callD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::DPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::D";
+    static constexpr ::std::string_view typeId = "::Test::D";
     return typeId;
 }
 
@@ -241,10 +241,10 @@ Test::EPrx::_iceI_callE(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::EPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::E";
+    static constexpr ::std::string_view typeId = "::Test::E";
     return typeId;
 }
 
@@ -282,10 +282,10 @@ Test::FPrx::_iceI_callF(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::FPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::F";
+    static constexpr ::std::string_view typeId = "::Test::F";
     return typeId;
 }
 
@@ -356,10 +356,10 @@ Test::GPrx::_iceI_callG(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::GPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::G";
+    static constexpr ::std::string_view typeId = "::Test::G";
     return typeId;
 }
 
@@ -397,10 +397,10 @@ Test::HPrx::_iceI_callH(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::HPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::H";
+    static constexpr ::std::string_view typeId = "::Test::H";
     return typeId;
 }
 
@@ -414,13 +414,13 @@ Test::Empty::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::Empty::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::Empty::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Empty";
+    static constexpr ::std::string_view typeId = "::Test::Empty";
     return typeId;
 }
 
@@ -434,13 +434,13 @@ Test::A::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::A::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::A::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::A";
+    static constexpr ::std::string_view typeId = "::Test::A";
     return typeId;
 }
 
@@ -511,13 +511,13 @@ Test::B::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::B::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::B::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::B";
+    static constexpr ::std::string_view typeId = "::Test::B";
     return typeId;
 }
 
@@ -592,13 +592,13 @@ Test::C::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::C::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::C::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::C";
+    static constexpr ::std::string_view typeId = "::Test::C";
     return typeId;
 }
 
@@ -673,13 +673,13 @@ Test::D::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::D::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::D::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::D";
+    static constexpr ::std::string_view typeId = "::Test::D";
     return typeId;
 }
 
@@ -762,13 +762,13 @@ Test::E::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::E::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::E::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::E";
+    static constexpr ::std::string_view typeId = "::Test::E";
     return typeId;
 }
 
@@ -839,13 +839,13 @@ Test::F::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::F::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::F::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::F";
+    static constexpr ::std::string_view typeId = "::Test::F";
     return typeId;
 }
 
@@ -920,13 +920,13 @@ Test::G::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::G::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::G::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::G";
+    static constexpr ::std::string_view typeId = "::Test::G";
     return typeId;
 }
 
@@ -1013,13 +1013,13 @@ Test::H::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::H::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::H::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::H";
+    static constexpr ::std::string_view typeId = "::Test::H";
     return typeId;
 }
 

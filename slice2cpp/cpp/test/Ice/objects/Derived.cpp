@@ -42,9 +42,9 @@ Test::Derived::~Derived()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::Derived::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Derived";
+    static constexpr ::std::string_view typeId = "::Test::Derived";
     return typeId;
 }

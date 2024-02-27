@@ -178,17 +178,17 @@ BEGIN::breakPrx::_iceI_instance_variables(const ::std::shared_ptr<::IceInternal:
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 BEGIN::breakPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::BEGIN::break";
+    static constexpr ::std::string_view typeId = "::BEGIN::break";
     return typeId;
 }
 
-const ::std::string&
+::std::string_view
 BEGIN::elsifPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::BEGIN::elsif";
+    static constexpr ::std::string_view typeId = "::BEGIN::elsif";
     return typeId;
 }
 
@@ -244,10 +244,10 @@ BEGIN::extendPrx::_iceI_for(const ::std::shared_ptr<::IceInternal::OutgoingAsync
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 BEGIN::extendPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::BEGIN::extend";
+    static constexpr ::std::string_view typeId = "::BEGIN::extend";
     return typeId;
 }
 
@@ -255,10 +255,10 @@ BEGIN::display::~display()
 {
 }
 
-const ::std::string&
+::std::string_view
 BEGIN::display::ice_staticId()
 {
-    static const ::std::string typeId = "::BEGIN::display";
+    static constexpr ::std::string_view typeId = "::BEGIN::display";
     return typeId;
 }
 
@@ -266,10 +266,10 @@ BEGIN::next::~next()
 {
 }
 
-const ::std::string&
+::std::string_view
 BEGIN::next::ice_staticId()
 {
-    static const ::std::string typeId = "::BEGIN::next";
+    static constexpr ::std::string_view typeId = "::BEGIN::next";
     return typeId;
 }
 
@@ -277,10 +277,10 @@ BEGIN::nil::~nil()
 {
 }
 
-const ::std::string&
+::std::string_view
 BEGIN::nil::ice_staticId()
 {
-    static const ::std::string typeId = "::BEGIN::nil";
+    static constexpr ::std::string_view typeId = "::BEGIN::nil";
     return typeId;
 }
 
@@ -294,13 +294,13 @@ BEGIN::_cpp_break::ice_ids(const ::Ice::Current&) const
 ::std::string
 BEGIN::_cpp_break::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 BEGIN::_cpp_break::ice_staticId()
 {
-    static const ::std::string typeId = "::BEGIN::break";
+    static constexpr ::std::string_view typeId = "::BEGIN::break";
     return typeId;
 }
 
@@ -421,13 +421,13 @@ BEGIN::elsif::ice_ids(const ::Ice::Current&) const
 ::std::string
 BEGIN::elsif::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 BEGIN::elsif::ice_staticId()
 {
-    static const ::std::string typeId = "::BEGIN::elsif";
+    static constexpr ::std::string_view typeId = "::BEGIN::elsif";
     return typeId;
 }
 
@@ -496,13 +496,13 @@ BEGIN::extend::ice_ids(const ::Ice::Current&) const
 ::std::string
 BEGIN::extend::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 BEGIN::extend::ice_staticId()
 {
-    static const ::std::string typeId = "::BEGIN::extend";
+    static constexpr ::std::string_view typeId = "::BEGIN::extend";
     return typeId;
 }
 

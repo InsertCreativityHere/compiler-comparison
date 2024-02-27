@@ -73,10 +73,10 @@ Test::TestLocatorRegistryPrx::_iceI_addObject(const ::std::shared_ptr<::IceInter
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::TestLocatorRegistryPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::TestLocatorRegistry";
+    static constexpr ::std::string_view typeId = "::Test::TestLocatorRegistry";
     return typeId;
 }
 
@@ -114,10 +114,10 @@ Test::TestLocatorPrx::_iceI_getRequestCount(const ::std::shared_ptr<::IceInterna
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::TestLocatorPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::TestLocator";
+    static constexpr ::std::string_view typeId = "::Test::TestLocator";
     return typeId;
 }
 
@@ -187,10 +187,10 @@ Test::ServerManagerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Ou
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::ServerManagerPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::ServerManager";
+    static constexpr ::std::string_view typeId = "::Test::ServerManager";
     return typeId;
 }
 
@@ -227,10 +227,10 @@ Test::HelloPrx::_iceI_sayHello(const ::std::shared_ptr<::IceInternal::OutgoingAs
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::HelloPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Hello";
+    static constexpr ::std::string_view typeId = "::Test::Hello";
     return typeId;
 }
 
@@ -368,10 +368,10 @@ Test::TestIntfPrx::_iceI_migrateHello(const ::std::shared_ptr<::IceInternal::Out
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::TestIntfPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::TestIntf";
+    static constexpr ::std::string_view typeId = "::Test::TestIntf";
     return typeId;
 }
 
@@ -385,13 +385,13 @@ Test::TestLocatorRegistry::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::TestLocatorRegistry::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::TestLocatorRegistry::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::TestLocatorRegistry";
+    static constexpr ::std::string_view typeId = "::Test::TestLocatorRegistry";
     return typeId;
 }
 
@@ -475,13 +475,13 @@ Test::TestLocator::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::TestLocator::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::TestLocator::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::TestLocator";
+    static constexpr ::std::string_view typeId = "::Test::TestLocator";
     return typeId;
 }
 
@@ -564,13 +564,13 @@ Test::ServerManager::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::ServerManager::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::ServerManager::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::ServerManager";
+    static constexpr ::std::string_view typeId = "::Test::ServerManager";
     return typeId;
 }
 
@@ -655,13 +655,13 @@ Test::Hello::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::Hello::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::Hello::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Hello";
+    static constexpr ::std::string_view typeId = "::Test::Hello";
     return typeId;
 }
 
@@ -730,13 +730,13 @@ Test::TestIntf::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::TestIntf::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::TestIntf::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::TestIntf";
+    static constexpr ::std::string_view typeId = "::Test::TestIntf";
     return typeId;
 }
 

@@ -107,7 +107,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(GLACIER2_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(GLACIER2_API) static ::std::string_view ice_staticId();
 
     /**
      * Number of client requests forwarded.

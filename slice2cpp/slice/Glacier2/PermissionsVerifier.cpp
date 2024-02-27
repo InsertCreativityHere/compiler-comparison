@@ -104,10 +104,10 @@ Glacier2::PermissionsVerifierPrx::_iceI_checkPermissions(const ::std::shared_ptr
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Glacier2::PermissionsVerifierPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Glacier2::PermissionsVerifier";
+    static constexpr ::std::string_view typeId = "::Glacier2::PermissionsVerifier";
     return typeId;
 }
 
@@ -174,10 +174,10 @@ Glacier2::SSLPermissionsVerifierPrx::_iceI_authorize(const ::std::shared_ptr<::I
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Glacier2::SSLPermissionsVerifierPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Glacier2::SSLPermissionsVerifier";
+    static constexpr ::std::string_view typeId = "::Glacier2::SSLPermissionsVerifier";
     return typeId;
 }
 
@@ -185,10 +185,10 @@ Glacier2::PermissionDeniedException::~PermissionDeniedException()
 {
 }
 
-const ::std::string&
+::std::string_view
 Glacier2::PermissionDeniedException::ice_staticId()
 {
-    static const ::std::string typeId = "::Glacier2::PermissionDeniedException";
+    static constexpr ::std::string_view typeId = "::Glacier2::PermissionDeniedException";
     return typeId;
 }
 
@@ -226,13 +226,13 @@ Glacier2::PermissionsVerifier::ice_ids(const ::Ice::Current&) const
 ::std::string
 Glacier2::PermissionsVerifier::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Glacier2::PermissionsVerifier::ice_staticId()
 {
-    static const ::std::string typeId = "::Glacier2::PermissionsVerifier";
+    static constexpr ::std::string_view typeId = "::Glacier2::PermissionsVerifier";
     return typeId;
 }
 
@@ -309,13 +309,13 @@ Glacier2::SSLPermissionsVerifier::ice_ids(const ::Ice::Current&) const
 ::std::string
 Glacier2::SSLPermissionsVerifier::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Glacier2::SSLPermissionsVerifier::ice_staticId()
 {
-    static const ::std::string typeId = "::Glacier2::SSLPermissionsVerifier";
+    static constexpr ::std::string_view typeId = "::Glacier2::SSLPermissionsVerifier";
     return typeId;
 }
 

@@ -102,10 +102,10 @@ Test::SessionPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::SessionPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Session";
+    static constexpr ::std::string_view typeId = "::Test::Session";
     return typeId;
 }
 
@@ -119,13 +119,13 @@ Test::Session::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::Session::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::Session::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Session";
+    static constexpr ::std::string_view typeId = "::Test::Session";
     return typeId;
 }
 

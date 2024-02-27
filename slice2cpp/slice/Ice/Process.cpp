@@ -109,10 +109,10 @@ Ice::ProcessPrx::_iceI_writeMessage(const ::std::shared_ptr<::IceInternal::Outgo
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Ice::ProcessPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Ice::Process";
+    static constexpr ::std::string_view typeId = "::Ice::Process";
     return typeId;
 }
 
@@ -126,13 +126,13 @@ Ice::Process::ice_ids(const Current&) const
 ::std::string
 Ice::Process::ice_id(const Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Ice::Process::ice_staticId()
 {
-    static const ::std::string typeId = "::Ice::Process";
+    static constexpr ::std::string_view typeId = "::Ice::Process";
     return typeId;
 }
 

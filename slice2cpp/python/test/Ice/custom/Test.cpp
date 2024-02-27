@@ -1148,10 +1148,10 @@ Test::CustomPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingA
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::CustomPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Custom";
+    static constexpr ::std::string_view typeId = "::Test::Custom";
     return typeId;
 }
 
@@ -1159,10 +1159,10 @@ Test::C::~C()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::C::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::C";
+    static constexpr ::std::string_view typeId = "::Test::C";
     return typeId;
 }
 
@@ -1170,10 +1170,10 @@ Test::D::~D()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::D::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::D";
+    static constexpr ::std::string_view typeId = "::Test::D";
     return typeId;
 }
 
@@ -1187,13 +1187,13 @@ Test::Custom::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::Custom::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::Custom::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Custom";
+    static constexpr ::std::string_view typeId = "::Test::Custom";
     return typeId;
 }
 

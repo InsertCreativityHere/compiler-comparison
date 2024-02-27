@@ -92,10 +92,10 @@ Test::MyInterfacePrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAs
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::MyInterfacePrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::MyInterface";
+    static constexpr ::std::string_view typeId = "::Test::MyInterface";
     return typeId;
 }
 
@@ -103,10 +103,10 @@ Test::UserError::~UserError()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::UserError::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::UserError";
+    static constexpr ::std::string_view typeId = "::Test::UserError";
     return typeId;
 }
 
@@ -120,13 +120,13 @@ Test::MyInterface::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::MyInterface::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::MyInterface::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::MyInterface";
+    static constexpr ::std::string_view typeId = "::Test::MyInterface";
     return typeId;
 }
 

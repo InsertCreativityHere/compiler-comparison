@@ -85,10 +85,10 @@ IceGrid::ApplicationNotExistException::~ApplicationNotExistException()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::ApplicationNotExistException::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::ApplicationNotExistException";
+    static constexpr ::std::string_view typeId = "::IceGrid::ApplicationNotExistException";
     return typeId;
 }
 
@@ -96,10 +96,10 @@ IceGrid::ServerNotExistException::~ServerNotExistException()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::ServerNotExistException::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::ServerNotExistException";
+    static constexpr ::std::string_view typeId = "::IceGrid::ServerNotExistException";
     return typeId;
 }
 
@@ -107,10 +107,10 @@ IceGrid::ServerStartException::~ServerStartException()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::ServerStartException::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::ServerStartException";
+    static constexpr ::std::string_view typeId = "::IceGrid::ServerStartException";
     return typeId;
 }
 
@@ -118,10 +118,10 @@ IceGrid::ServerStopException::~ServerStopException()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::ServerStopException::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::ServerStopException";
+    static constexpr ::std::string_view typeId = "::IceGrid::ServerStopException";
     return typeId;
 }
 
@@ -129,10 +129,10 @@ IceGrid::AdapterNotExistException::~AdapterNotExistException()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::AdapterNotExistException::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::AdapterNotExistException";
+    static constexpr ::std::string_view typeId = "::IceGrid::AdapterNotExistException";
     return typeId;
 }
 
@@ -140,10 +140,10 @@ IceGrid::ObjectExistsException::~ObjectExistsException()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::ObjectExistsException::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::ObjectExistsException";
+    static constexpr ::std::string_view typeId = "::IceGrid::ObjectExistsException";
     return typeId;
 }
 
@@ -151,10 +151,10 @@ IceGrid::ObjectNotRegisteredException::~ObjectNotRegisteredException()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::ObjectNotRegisteredException::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::ObjectNotRegisteredException";
+    static constexpr ::std::string_view typeId = "::IceGrid::ObjectNotRegisteredException";
     return typeId;
 }
 
@@ -162,10 +162,10 @@ IceGrid::NodeNotExistException::~NodeNotExistException()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::NodeNotExistException::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::NodeNotExistException";
+    static constexpr ::std::string_view typeId = "::IceGrid::NodeNotExistException";
     return typeId;
 }
 
@@ -173,10 +173,10 @@ IceGrid::RegistryNotExistException::~RegistryNotExistException()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::RegistryNotExistException::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::RegistryNotExistException";
+    static constexpr ::std::string_view typeId = "::IceGrid::RegistryNotExistException";
     return typeId;
 }
 
@@ -184,10 +184,10 @@ IceGrid::DeploymentException::~DeploymentException()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::DeploymentException::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::DeploymentException";
+    static constexpr ::std::string_view typeId = "::IceGrid::DeploymentException";
     return typeId;
 }
 
@@ -195,10 +195,10 @@ IceGrid::NodeUnreachableException::~NodeUnreachableException()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::NodeUnreachableException::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::NodeUnreachableException";
+    static constexpr ::std::string_view typeId = "::IceGrid::NodeUnreachableException";
     return typeId;
 }
 
@@ -206,10 +206,10 @@ IceGrid::ServerUnreachableException::~ServerUnreachableException()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::ServerUnreachableException::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::ServerUnreachableException";
+    static constexpr ::std::string_view typeId = "::IceGrid::ServerUnreachableException";
     return typeId;
 }
 
@@ -217,10 +217,10 @@ IceGrid::RegistryUnreachableException::~RegistryUnreachableException()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::RegistryUnreachableException::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::RegistryUnreachableException";
+    static constexpr ::std::string_view typeId = "::IceGrid::RegistryUnreachableException";
     return typeId;
 }
 
@@ -228,10 +228,10 @@ IceGrid::BadSignalException::~BadSignalException()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::BadSignalException::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::BadSignalException";
+    static constexpr ::std::string_view typeId = "::IceGrid::BadSignalException";
     return typeId;
 }
 
@@ -239,10 +239,10 @@ IceGrid::PatchException::~PatchException()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::PatchException::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::PatchException";
+    static constexpr ::std::string_view typeId = "::IceGrid::PatchException";
     return typeId;
 }
 
@@ -250,10 +250,10 @@ IceGrid::AccessDeniedException::~AccessDeniedException()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::AccessDeniedException::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::AccessDeniedException";
+    static constexpr ::std::string_view typeId = "::IceGrid::AccessDeniedException";
     return typeId;
 }
 
@@ -261,10 +261,10 @@ IceGrid::AllocationException::~AllocationException()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::AllocationException::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::AllocationException";
+    static constexpr ::std::string_view typeId = "::IceGrid::AllocationException";
     return typeId;
 }
 
@@ -272,10 +272,10 @@ IceGrid::AllocationTimeoutException::~AllocationTimeoutException()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::AllocationTimeoutException::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::AllocationTimeoutException";
+    static constexpr ::std::string_view typeId = "::IceGrid::AllocationTimeoutException";
     return typeId;
 }
 
@@ -283,10 +283,10 @@ IceGrid::PermissionDeniedException::~PermissionDeniedException()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::PermissionDeniedException::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::PermissionDeniedException";
+    static constexpr ::std::string_view typeId = "::IceGrid::PermissionDeniedException";
     return typeId;
 }
 
@@ -294,10 +294,10 @@ IceGrid::ObserverAlreadyRegisteredException::~ObserverAlreadyRegisteredException
 {
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::ObserverAlreadyRegisteredException::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::ObserverAlreadyRegisteredException";
+    static constexpr ::std::string_view typeId = "::IceGrid::ObserverAlreadyRegisteredException";
     return typeId;
 }
 
@@ -305,9 +305,9 @@ IceGrid::FileNotAvailableException::~FileNotAvailableException()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceGrid::FileNotAvailableException::ice_staticId()
 {
-    static const ::std::string typeId = "::IceGrid::FileNotAvailableException";
+    static constexpr ::std::string_view typeId = "::IceGrid::FileNotAvailableException";
     return typeId;
 }

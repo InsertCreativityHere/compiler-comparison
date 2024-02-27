@@ -223,10 +223,10 @@ Test::MyClassPrx::_iceI_opSerialStructJava(const ::std::shared_ptr<::IceInternal
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::MyClassPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::MyClass";
+    static constexpr ::std::string_view typeId = "::Test::MyClass";
     return typeId;
 }
 
@@ -234,10 +234,10 @@ Test::Bar::~Bar()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::Bar::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Bar";
+    static constexpr ::std::string_view typeId = "::Test::Bar";
     return typeId;
 }
 
@@ -245,10 +245,10 @@ Test::Baz::~Baz()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::Baz::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Baz";
+    static constexpr ::std::string_view typeId = "::Test::Baz";
     return typeId;
 }
 
@@ -262,13 +262,13 @@ Test::MyClass::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::MyClass::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::MyClass::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::MyClass";
+    static constexpr ::std::string_view typeId = "::Test::MyClass";
     return typeId;
 }
 

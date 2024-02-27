@@ -177,10 +177,10 @@ Test::InitialPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::InitialPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Initial";
+    static constexpr ::std::string_view typeId = "::Test::Initial";
     return typeId;
 }
 
@@ -188,10 +188,10 @@ Test::Base::~Base()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::Base::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Base";
+    static constexpr ::std::string_view typeId = "::Test::Base";
     return typeId;
 }
 
@@ -199,10 +199,10 @@ Test::Derived::~Derived()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::Derived::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Derived";
+    static constexpr ::std::string_view typeId = "::Test::Derived";
     return typeId;
 }
 
@@ -210,10 +210,10 @@ Test::Ex::~Ex()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::Ex::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Ex";
+    static constexpr ::std::string_view typeId = "::Test::Ex";
     return typeId;
 }
 
@@ -235,13 +235,13 @@ Test::Initial::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::Initial::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::Initial::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Initial";
+    static constexpr ::std::string_view typeId = "::Test::Initial";
     return typeId;
 }
 

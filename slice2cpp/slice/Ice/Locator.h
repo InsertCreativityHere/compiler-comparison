@@ -181,7 +181,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     explicit LocatorPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -370,7 +370,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     explicit LocatorRegistryPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -462,7 +462,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     explicit LocatorFinderPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -538,7 +538,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId();
 };
 
 /// \cond INTERNAL
@@ -572,7 +572,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId();
 };
 
 /**
@@ -602,7 +602,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId();
 };
 
 /**
@@ -632,7 +632,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId();
 };
 
 /**
@@ -662,7 +662,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICE_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId();
 };
 
 }
@@ -700,7 +700,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     /**
      * Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
@@ -775,7 +775,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     /**
      * Set the adapter endpoints with the locator registry.
@@ -864,7 +864,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     /**
      * Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several

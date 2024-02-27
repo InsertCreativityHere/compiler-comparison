@@ -60,10 +60,10 @@ LocalTest::C1::~C1()
 {
 }
 
-const ::std::string&
+::std::string_view
 LocalTest::C1::ice_staticId()
 {
-    static const ::std::string typeId = "::LocalTest::C1";
+    static constexpr ::std::string_view typeId = "::LocalTest::C1";
     return typeId;
 }
 
@@ -71,10 +71,10 @@ LocalTest::CB1::~CB1()
 {
 }
 
-const ::std::string&
+::std::string_view
 LocalTest::CB1::ice_staticId()
 {
-    static const ::std::string typeId = "::LocalTest::CB1";
+    static constexpr ::std::string_view typeId = "::LocalTest::CB1";
     return typeId;
 }
 
@@ -82,10 +82,10 @@ LocalTest::CB2::~CB2()
 {
 }
 
-const ::std::string&
+::std::string_view
 LocalTest::CB2::ice_staticId()
 {
-    static const ::std::string typeId = "::LocalTest::CB2";
+    static constexpr ::std::string_view typeId = "::LocalTest::CB2";
     return typeId;
 }
 
@@ -93,10 +93,10 @@ LocalTest::CB3::~CB3()
 {
 }
 
-const ::std::string&
+::std::string_view
 LocalTest::CB3::ice_staticId()
 {
-    static const ::std::string typeId = "::LocalTest::CB3";
+    static constexpr ::std::string_view typeId = "::LocalTest::CB3";
     return typeId;
 }
 
@@ -104,10 +104,10 @@ LocalTest::CB4::~CB4()
 {
 }
 
-const ::std::string&
+::std::string_view
 LocalTest::CB4::ice_staticId()
 {
-    static const ::std::string typeId = "::LocalTest::CB4";
+    static constexpr ::std::string_view typeId = "::LocalTest::CB4";
     return typeId;
 }
 
@@ -115,10 +115,10 @@ LocalTest::CB5::~CB5()
 {
 }
 
-const ::std::string&
+::std::string_view
 LocalTest::CB5::ice_staticId()
 {
-    static const ::std::string typeId = "::LocalTest::CB5";
+    static constexpr ::std::string_view typeId = "::LocalTest::CB5";
     return typeId;
 }
 
@@ -126,10 +126,10 @@ LocalTest::CB6::~CB6()
 {
 }
 
-const ::std::string&
+::std::string_view
 LocalTest::CB6::ice_staticId()
 {
-    static const ::std::string typeId = "::LocalTest::CB6";
+    static constexpr ::std::string_view typeId = "::LocalTest::CB6";
     return typeId;
 }
 
@@ -137,10 +137,10 @@ LocalTest::CB7::~CB7()
 {
 }
 
-const ::std::string&
+::std::string_view
 LocalTest::CB7::ice_staticId()
 {
-    static const ::std::string typeId = "::LocalTest::CB7";
+    static constexpr ::std::string_view typeId = "::LocalTest::CB7";
     return typeId;
 }
 
@@ -148,10 +148,10 @@ LocalTest::CB8::~CB8()
 {
 }
 
-const ::std::string&
+::std::string_view
 LocalTest::CB8::ice_staticId()
 {
-    static const ::std::string typeId = "::LocalTest::CB8";
+    static constexpr ::std::string_view typeId = "::LocalTest::CB8";
     return typeId;
 }
 
@@ -159,9 +159,9 @@ LocalTest::Opt::~Opt()
 {
 }
 
-const ::std::string&
+::std::string_view
 LocalTest::Opt::ice_staticId()
 {
-    static const ::std::string typeId = "::LocalTest::Opt";
+    static constexpr ::std::string_view typeId = "::LocalTest::Opt";
     return typeId;
 }

@@ -42,9 +42,9 @@ Test::Pen::~Pen()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::Pen::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Pen";
+    static constexpr ::std::string_view typeId = "::Test::Pen";
     return typeId;
 }

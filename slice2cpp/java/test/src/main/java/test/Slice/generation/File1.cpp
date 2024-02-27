@@ -71,10 +71,10 @@ Test::Interface1Prx::_iceI_method(const ::std::shared_ptr<::IceInternal::Outgoin
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::Interface1Prx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Interface1";
+    static constexpr ::std::string_view typeId = "::Test::Interface1";
     return typeId;
 }
 
@@ -82,10 +82,10 @@ Test2::Class1::~Class1()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test2::Class1::ice_staticId()
 {
-    static const ::std::string typeId = "::Test2::Class1";
+    static constexpr ::std::string_view typeId = "::Test2::Class1";
     return typeId;
 }
 
@@ -99,13 +99,13 @@ Test::Interface1::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::Interface1::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::Interface1::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Interface1";
+    static constexpr ::std::string_view typeId = "::Test::Interface1";
     return typeId;
 }
 

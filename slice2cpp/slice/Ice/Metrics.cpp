@@ -371,10 +371,10 @@ IceMX::MetricsAdminPrx::_iceI_getMetricsFailures(const ::std::shared_ptr<::IceIn
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 IceMX::MetricsAdminPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::IceMX::MetricsAdmin";
+    static constexpr ::std::string_view typeId = "::IceMX::MetricsAdmin";
     return typeId;
 }
 
@@ -382,10 +382,10 @@ IceMX::Metrics::~Metrics()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceMX::Metrics::ice_staticId()
 {
-    static const ::std::string typeId = "::IceMX::Metrics";
+    static constexpr ::std::string_view typeId = "::IceMX::Metrics";
     return typeId;
 }
 
@@ -393,10 +393,10 @@ IceMX::UnknownMetricsView::~UnknownMetricsView()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceMX::UnknownMetricsView::ice_staticId()
 {
-    static const ::std::string typeId = "::IceMX::UnknownMetricsView";
+    static constexpr ::std::string_view typeId = "::IceMX::UnknownMetricsView";
     return typeId;
 }
 
@@ -404,10 +404,10 @@ IceMX::ThreadMetrics::~ThreadMetrics()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceMX::ThreadMetrics::ice_staticId()
 {
-    static const ::std::string typeId = "::IceMX::ThreadMetrics";
+    static constexpr ::std::string_view typeId = "::IceMX::ThreadMetrics";
     return typeId;
 }
 
@@ -415,10 +415,10 @@ IceMX::DispatchMetrics::~DispatchMetrics()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceMX::DispatchMetrics::ice_staticId()
 {
-    static const ::std::string typeId = "::IceMX::DispatchMetrics";
+    static constexpr ::std::string_view typeId = "::IceMX::DispatchMetrics";
     return typeId;
 }
 
@@ -426,10 +426,10 @@ IceMX::ChildInvocationMetrics::~ChildInvocationMetrics()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceMX::ChildInvocationMetrics::ice_staticId()
 {
-    static const ::std::string typeId = "::IceMX::ChildInvocationMetrics";
+    static constexpr ::std::string_view typeId = "::IceMX::ChildInvocationMetrics";
     return typeId;
 }
 
@@ -437,10 +437,10 @@ IceMX::CollocatedMetrics::~CollocatedMetrics()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceMX::CollocatedMetrics::ice_staticId()
 {
-    static const ::std::string typeId = "::IceMX::CollocatedMetrics";
+    static constexpr ::std::string_view typeId = "::IceMX::CollocatedMetrics";
     return typeId;
 }
 
@@ -448,10 +448,10 @@ IceMX::RemoteMetrics::~RemoteMetrics()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceMX::RemoteMetrics::ice_staticId()
 {
-    static const ::std::string typeId = "::IceMX::RemoteMetrics";
+    static constexpr ::std::string_view typeId = "::IceMX::RemoteMetrics";
     return typeId;
 }
 
@@ -459,10 +459,10 @@ IceMX::InvocationMetrics::~InvocationMetrics()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceMX::InvocationMetrics::ice_staticId()
 {
-    static const ::std::string typeId = "::IceMX::InvocationMetrics";
+    static constexpr ::std::string_view typeId = "::IceMX::InvocationMetrics";
     return typeId;
 }
 
@@ -470,10 +470,10 @@ IceMX::ConnectionMetrics::~ConnectionMetrics()
 {
 }
 
-const ::std::string&
+::std::string_view
 IceMX::ConnectionMetrics::ice_staticId()
 {
-    static const ::std::string typeId = "::IceMX::ConnectionMetrics";
+    static constexpr ::std::string_view typeId = "::IceMX::ConnectionMetrics";
     return typeId;
 }
 
@@ -487,13 +487,13 @@ IceMX::MetricsAdmin::ice_ids(const ::Ice::Current&) const
 ::std::string
 IceMX::MetricsAdmin::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 IceMX::MetricsAdmin::ice_staticId()
 {
-    static const ::std::string typeId = "::IceMX::MetricsAdmin";
+    static constexpr ::std::string_view typeId = "::IceMX::MetricsAdmin";
     return typeId;
 }
 

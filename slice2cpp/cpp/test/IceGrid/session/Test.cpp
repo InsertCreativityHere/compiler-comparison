@@ -42,9 +42,9 @@ Test::ExtendedPermissionDeniedException::~ExtendedPermissionDeniedException()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::ExtendedPermissionDeniedException::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::ExtendedPermissionDeniedException";
+    static constexpr ::std::string_view typeId = "::Test::ExtendedPermissionDeniedException";
     return typeId;
 }

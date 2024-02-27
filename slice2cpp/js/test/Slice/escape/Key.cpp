@@ -84,10 +84,10 @@ await::casePrx::_iceI_catch(const ::std::shared_ptr<::IceInternal::OutgoingAsync
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 await::casePrx::ice_staticId()
 {
-    static const ::std::string typeId = "::await::case";
+    static constexpr ::std::string_view typeId = "::await::case";
     return typeId;
 }
 
@@ -124,17 +124,17 @@ await::typeofPrx::_iceI_default(const ::std::shared_ptr<::IceInternal::OutgoingA
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 await::typeofPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::await::typeof";
+    static constexpr ::std::string_view typeId = "::await::typeof";
     return typeId;
 }
 
-const ::std::string&
+::std::string_view
 await::explicitPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::await::explicit";
+    static constexpr ::std::string_view typeId = "::await::explicit";
     return typeId;
 }
 
@@ -326,10 +326,10 @@ await::optionalParamsPrx::_iceI_foreach(const ::std::shared_ptr<::IceInternal::O
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 await::optionalParamsPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::await::optionalParams";
+    static constexpr ::std::string_view typeId = "::await::optionalParams";
     return typeId;
 }
 
@@ -389,10 +389,10 @@ await::implicitPrx::_iceI_in(const ::std::shared_ptr<::IceInternal::OutgoingAsyn
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 await::implicitPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::await::implicit";
+    static constexpr ::std::string_view typeId = "::await::implicit";
     return typeId;
 }
 
@@ -429,10 +429,10 @@ await::System::TestPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::Outgoing
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 await::System::TestPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::await::System::Test";
+    static constexpr ::std::string_view typeId = "::await::System::Test";
     return typeId;
 }
 
@@ -469,10 +469,10 @@ System::TestPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 System::TestPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::System::Test";
+    static constexpr ::std::string_view typeId = "::System::Test";
     return typeId;
 }
 
@@ -480,10 +480,10 @@ await::_cpp_delete::~_cpp_delete()
 {
 }
 
-const ::std::string&
+::std::string_view
 await::_cpp_delete::ice_staticId()
 {
-    static const ::std::string typeId = "::await::delete";
+    static constexpr ::std::string_view typeId = "::await::delete";
     return typeId;
 }
 
@@ -491,10 +491,10 @@ await::package::~package()
 {
 }
 
-const ::std::string&
+::std::string_view
 await::package::ice_staticId()
 {
-    static const ::std::string typeId = "::await::package";
+    static constexpr ::std::string_view typeId = "::await::package";
     return typeId;
 }
 
@@ -502,10 +502,10 @@ await::fixed::~fixed()
 {
 }
 
-const ::std::string&
+::std::string_view
 await::fixed::ice_staticId()
 {
-    static const ::std::string typeId = "::await::fixed";
+    static constexpr ::std::string_view typeId = "::await::fixed";
     return typeId;
 }
 
@@ -513,10 +513,10 @@ await::foreach::~foreach()
 {
 }
 
-const ::std::string&
+::std::string_view
 await::foreach::ice_staticId()
 {
-    static const ::std::string typeId = "::await::foreach";
+    static constexpr ::std::string_view typeId = "::await::foreach";
     return typeId;
 }
 
@@ -524,10 +524,10 @@ await::BaseMethods::~BaseMethods()
 {
 }
 
-const ::std::string&
+::std::string_view
 await::BaseMethods::ice_staticId()
 {
-    static const ::std::string typeId = "::await::BaseMethods";
+    static constexpr ::std::string_view typeId = "::await::BaseMethods";
     return typeId;
 }
 
@@ -541,13 +541,13 @@ await::_cpp_case::ice_ids(const ::Ice::Current&) const
 ::std::string
 await::_cpp_case::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 await::_cpp_case::ice_staticId()
 {
-    static const ::std::string typeId = "::await::case";
+    static constexpr ::std::string_view typeId = "::await::case";
     return typeId;
 }
 
@@ -626,13 +626,13 @@ await::typeof::ice_ids(const ::Ice::Current&) const
 ::std::string
 await::typeof::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 await::typeof::ice_staticId()
 {
-    static const ::std::string typeId = "::await::typeof";
+    static constexpr ::std::string_view typeId = "::await::typeof";
     return typeId;
 }
 
@@ -701,13 +701,13 @@ await::_cpp_explicit::ice_ids(const ::Ice::Current&) const
 ::std::string
 await::_cpp_explicit::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 await::_cpp_explicit::ice_staticId()
 {
-    static const ::std::string typeId = "::await::explicit";
+    static constexpr ::std::string_view typeId = "::await::explicit";
     return typeId;
 }
 
@@ -768,13 +768,13 @@ await::optionalParams::ice_ids(const ::Ice::Current&) const
 ::std::string
 await::optionalParams::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 await::optionalParams::ice_staticId()
 {
-    static const ::std::string typeId = "::await::optionalParams";
+    static constexpr ::std::string_view typeId = "::await::optionalParams";
     return typeId;
 }
 
@@ -928,13 +928,13 @@ await::implicit::ice_ids(const ::Ice::Current&) const
 ::std::string
 await::implicit::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 await::implicit::ice_staticId()
 {
-    static const ::std::string typeId = "::await::implicit";
+    static constexpr ::std::string_view typeId = "::await::implicit";
     return typeId;
 }
 
@@ -1018,13 +1018,13 @@ await::System::Test::ice_ids(const ::Ice::Current&) const
 ::std::string
 await::System::Test::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 await::System::Test::ice_staticId()
 {
-    static const ::std::string typeId = "::await::System::Test";
+    static constexpr ::std::string_view typeId = "::await::System::Test";
     return typeId;
 }
 
@@ -1093,13 +1093,13 @@ System::Test::ice_ids(const ::Ice::Current&) const
 ::std::string
 System::Test::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 System::Test::ice_staticId()
 {
-    static const ::std::string typeId = "::System::Test";
+    static constexpr ::std::string_view typeId = "::System::Test";
     return typeId;
 }
 

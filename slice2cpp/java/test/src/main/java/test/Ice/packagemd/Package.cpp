@@ -56,10 +56,10 @@ Test2::C1::~C1()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test2::C1::ice_staticId()
 {
-    static const ::std::string typeId = "::Test2::C1";
+    static constexpr ::std::string_view typeId = "::Test2::C1";
     return typeId;
 }
 
@@ -67,10 +67,10 @@ Test2::C2::~C2()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test2::C2::ice_staticId()
 {
-    static const ::std::string typeId = "::Test2::C2";
+    static constexpr ::std::string_view typeId = "::Test2::C2";
     return typeId;
 }
 
@@ -78,10 +78,10 @@ Test2::E1::~E1()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test2::E1::ice_staticId()
 {
-    static const ::std::string typeId = "::Test2::E1";
+    static constexpr ::std::string_view typeId = "::Test2::E1";
     return typeId;
 }
 
@@ -89,10 +89,10 @@ Test2::E2::~E2()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test2::E2::ice_staticId()
 {
-    static const ::std::string typeId = "::Test2::E2";
+    static constexpr ::std::string_view typeId = "::Test2::E2";
     return typeId;
 }
 
@@ -100,10 +100,10 @@ Test3::C1::~C1()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test3::C1::ice_staticId()
 {
-    static const ::std::string typeId = "::Test3::C1";
+    static constexpr ::std::string_view typeId = "::Test3::C1";
     return typeId;
 }
 
@@ -111,10 +111,10 @@ Test3::C2::~C2()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test3::C2::ice_staticId()
 {
-    static const ::std::string typeId = "::Test3::C2";
+    static constexpr ::std::string_view typeId = "::Test3::C2";
     return typeId;
 }
 
@@ -122,10 +122,10 @@ Test3::E1::~E1()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test3::E1::ice_staticId()
 {
-    static const ::std::string typeId = "::Test3::E1";
+    static constexpr ::std::string_view typeId = "::Test3::E1";
     return typeId;
 }
 
@@ -133,9 +133,9 @@ Test3::E2::~E2()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test3::E2::ice_staticId()
 {
-    static const ::std::string typeId = "::Test3::E2";
+    static constexpr ::std::string_view typeId = "::Test3::E2";
     return typeId;
 }

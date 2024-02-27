@@ -321,7 +321,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     explicit FileServerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -397,7 +397,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEPATCH2_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICEPATCH2_API) static ::std::string_view ice_staticId();
 };
 
 /// \cond INTERNAL
@@ -440,7 +440,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEPATCH2_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICEPATCH2_API) static ::std::string_view ice_staticId();
 
     /**
      * An explanation of the reason for the failure.
@@ -485,7 +485,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEPATCH2_API) static const ::std::string& ice_staticId();
+    ICE_MEMBER(ICEPATCH2_API) static ::std::string_view ice_staticId();
 };
 
 }
@@ -520,7 +520,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static const ::std::string& ice_staticId();
+    static ::std::string_view ice_staticId();
 
     /**
      * Return file information for the specified partition. <p class="Deprecated"> This operation is deprecated and

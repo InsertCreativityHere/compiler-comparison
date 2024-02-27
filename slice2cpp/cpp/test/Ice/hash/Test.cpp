@@ -42,9 +42,9 @@ Test::Point::~Point()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::Point::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Point";
+    static constexpr ::std::string_view typeId = "::Test::Point";
     return typeId;
 }

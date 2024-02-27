@@ -84,10 +84,10 @@ abstract::casePrx::_iceI_catch(const ::std::shared_ptr<::IceInternal::OutgoingAs
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 abstract::casePrx::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::case";
+    static constexpr ::std::string_view typeId = "::abstract::case";
     return typeId;
 }
 
@@ -124,17 +124,17 @@ abstract::decimalPrx::_iceI_default(const ::std::shared_ptr<::IceInternal::Outgo
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 abstract::decimalPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::decimal";
+    static constexpr ::std::string_view typeId = "::abstract::decimal";
     return typeId;
 }
 
-const ::std::string&
+::std::string_view
 abstract::explicitPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::explicit";
+    static constexpr ::std::string_view typeId = "::abstract::explicit";
     return typeId;
 }
 
@@ -324,10 +324,10 @@ abstract::optionalParamsPrx::_iceI_foreach(const ::std::shared_ptr<::IceInternal
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 abstract::optionalParamsPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::optionalParams";
+    static constexpr ::std::string_view typeId = "::abstract::optionalParams";
     return typeId;
 }
 
@@ -387,10 +387,10 @@ abstract::implicitPrx::_iceI_in(const ::std::shared_ptr<::IceInternal::OutgoingA
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 abstract::implicitPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::implicit";
+    static constexpr ::std::string_view typeId = "::abstract::implicit";
     return typeId;
 }
 
@@ -427,10 +427,10 @@ abstract::System::TestPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::Outgo
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 abstract::System::TestPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::System::Test";
+    static constexpr ::std::string_view typeId = "::abstract::System::Test";
     return typeId;
 }
 
@@ -467,10 +467,10 @@ System::TestPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 System::TestPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::System::Test";
+    static constexpr ::std::string_view typeId = "::System::Test";
     return typeId;
 }
 
@@ -478,10 +478,10 @@ abstract::delegate::~delegate()
 {
 }
 
-const ::std::string&
+::std::string_view
 abstract::delegate::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::delegate";
+    static constexpr ::std::string_view typeId = "::abstract::delegate";
     return typeId;
 }
 
@@ -489,10 +489,10 @@ abstract::optionalMembers::~optionalMembers()
 {
 }
 
-const ::std::string&
+::std::string_view
 abstract::optionalMembers::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::optionalMembers";
+    static constexpr ::std::string_view typeId = "::abstract::optionalMembers";
     return typeId;
 }
 
@@ -500,10 +500,10 @@ abstract::fixed::~fixed()
 {
 }
 
-const ::std::string&
+::std::string_view
 abstract::fixed::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::fixed";
+    static constexpr ::std::string_view typeId = "::abstract::fixed";
     return typeId;
 }
 
@@ -511,10 +511,10 @@ abstract::foreach::~foreach()
 {
 }
 
-const ::std::string&
+::std::string_view
 abstract::foreach::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::foreach";
+    static constexpr ::std::string_view typeId = "::abstract::foreach";
     return typeId;
 }
 
@@ -522,10 +522,10 @@ abstract::BaseMethods::~BaseMethods()
 {
 }
 
-const ::std::string&
+::std::string_view
 abstract::BaseMethods::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::BaseMethods";
+    static constexpr ::std::string_view typeId = "::abstract::BaseMethods";
     return typeId;
 }
 
@@ -539,13 +539,13 @@ abstract::_cpp_case::ice_ids(const ::Ice::Current&) const
 ::std::string
 abstract::_cpp_case::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 abstract::_cpp_case::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::case";
+    static constexpr ::std::string_view typeId = "::abstract::case";
     return typeId;
 }
 
@@ -624,13 +624,13 @@ abstract::decimal::ice_ids(const ::Ice::Current&) const
 ::std::string
 abstract::decimal::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 abstract::decimal::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::decimal";
+    static constexpr ::std::string_view typeId = "::abstract::decimal";
     return typeId;
 }
 
@@ -699,13 +699,13 @@ abstract::_cpp_explicit::ice_ids(const ::Ice::Current&) const
 ::std::string
 abstract::_cpp_explicit::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 abstract::_cpp_explicit::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::explicit";
+    static constexpr ::std::string_view typeId = "::abstract::explicit";
     return typeId;
 }
 
@@ -766,13 +766,13 @@ abstract::optionalParams::ice_ids(const ::Ice::Current&) const
 ::std::string
 abstract::optionalParams::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 abstract::optionalParams::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::optionalParams";
+    static constexpr ::std::string_view typeId = "::abstract::optionalParams";
     return typeId;
 }
 
@@ -923,13 +923,13 @@ abstract::implicit::ice_ids(const ::Ice::Current&) const
 ::std::string
 abstract::implicit::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 abstract::implicit::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::implicit";
+    static constexpr ::std::string_view typeId = "::abstract::implicit";
     return typeId;
 }
 
@@ -1012,13 +1012,13 @@ abstract::System::Test::ice_ids(const ::Ice::Current&) const
 ::std::string
 abstract::System::Test::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 abstract::System::Test::ice_staticId()
 {
-    static const ::std::string typeId = "::abstract::System::Test";
+    static constexpr ::std::string_view typeId = "::abstract::System::Test";
     return typeId;
 }
 
@@ -1087,13 +1087,13 @@ System::Test::ice_ids(const ::Ice::Current&) const
 ::std::string
 System::Test::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 System::Test::ice_staticId()
 {
-    static const ::std::string typeId = "::System::Test";
+    static constexpr ::std::string_view typeId = "::System::Test";
     return typeId;
 }
 

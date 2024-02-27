@@ -69,10 +69,10 @@ Test::CallbackReceiverPrx::_iceI_callback(const ::std::shared_ptr<::IceInternal:
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::CallbackReceiverPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::CallbackReceiver";
+    static constexpr ::std::string_view typeId = "::Test::CallbackReceiver";
     return typeId;
 }
 
@@ -146,10 +146,10 @@ Test::CallbackPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
 }
 /// \endcond
 
-const ::std::string&
+::std::string_view
 Test::CallbackPrx::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Callback";
+    static constexpr ::std::string_view typeId = "::Test::Callback";
     return typeId;
 }
 
@@ -163,13 +163,13 @@ Test::CallbackReceiver::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::CallbackReceiver::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::CallbackReceiver::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::CallbackReceiver";
+    static constexpr ::std::string_view typeId = "::Test::CallbackReceiver";
     return typeId;
 }
 
@@ -238,13 +238,13 @@ Test::Callback::ice_ids(const ::Ice::Current&) const
 ::std::string
 Test::Callback::ice_id(const ::Ice::Current&) const
 {
-    return ice_staticId();
+    return ::std::string{ice_staticId()};
 }
 
-const ::std::string&
+::std::string_view
 Test::Callback::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Callback";
+    static constexpr ::std::string_view typeId = "::Test::Callback";
     return typeId;
 }
 

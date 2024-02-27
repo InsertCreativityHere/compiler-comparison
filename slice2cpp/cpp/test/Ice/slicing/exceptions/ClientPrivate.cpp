@@ -46,10 +46,10 @@ Test::PreservedClass::~PreservedClass()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::PreservedClass::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::PreservedClass";
+    static constexpr ::std::string_view typeId = "::Test::PreservedClass";
     return typeId;
 }
 
@@ -57,10 +57,10 @@ Test::Preserved1::~Preserved1()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::Preserved1::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Preserved1";
+    static constexpr ::std::string_view typeId = "::Test::Preserved1";
     return typeId;
 }
 
@@ -76,9 +76,9 @@ Test::Preserved2::~Preserved2()
 {
 }
 
-const ::std::string&
+::std::string_view
 Test::Preserved2::ice_staticId()
 {
-    static const ::std::string typeId = "::Test::Preserved2";
+    static constexpr ::std::string_view typeId = "::Test::Preserved2";
     return typeId;
 }

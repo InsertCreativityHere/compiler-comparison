@@ -42,9 +42,9 @@ Core::ArgumentException::~ArgumentException()
 {
 }
 
-const ::std::string&
+::std::string_view
 Core::ArgumentException::ice_staticId()
 {
-    static const ::std::string typeId = "::Core::ArgumentException";
+    static constexpr ::std::string_view typeId = "::Core::ArgumentException";
     return typeId;
 }
