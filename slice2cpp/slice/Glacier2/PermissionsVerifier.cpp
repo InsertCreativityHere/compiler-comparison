@@ -62,9 +62,9 @@ Glacier2::PermissionsVerifierPrx::checkPermissionsAsync(::std::string_view iceP_
                                                         ::std::function<void(bool)> sent,
                                                         const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<bool, ::std::string>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<bool, ::std::string>&& _result)
     {
-        response(::std::get<0>(_result), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<bool, ::std::string>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Glacier2::PermissionsVerifierPrx::_iceI_checkPermissions, iceP_userId, iceP_password, context);
 }
@@ -132,9 +132,9 @@ Glacier2::SSLPermissionsVerifierPrx::authorizeAsync(const SSLInfo& iceP_info,
                                                     ::std::function<void(bool)> sent,
                                                     const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<bool, ::std::string>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<bool, ::std::string>&& _result)
     {
-        response(::std::get<0>(_result), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<bool, ::std::string>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Glacier2::SSLPermissionsVerifierPrx::_iceI_authorize, iceP_info, context);
 }

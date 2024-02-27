@@ -68,9 +68,9 @@ Test::TestIntfPrx::opDoubleArrayAsync(const ::std::pair<const double*, const dou
                                       ::std::function<void(bool)> sent,
                                       const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<DoubleSeq, DoubleSeq>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<DoubleSeq, DoubleSeq>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<DoubleSeq, DoubleSeq>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opDoubleArray, iceP_inSeq, context);
 }
@@ -118,9 +118,9 @@ Test::TestIntfPrx::opBoolArrayAsync(const ::std::pair<const bool*, const bool*>&
                                     ::std::function<void(bool)> sent,
                                     const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<BoolSeq, BoolSeq>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<BoolSeq, BoolSeq>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<BoolSeq, BoolSeq>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opBoolArray, iceP_inSeq, context);
 }
@@ -245,9 +245,9 @@ Test::TestIntfPrx::opVariableArrayAsync(const ::std::pair<const Variable*, const
                                         ::std::function<void(bool)> sent,
                                         const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<VariableList, VariableList>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<VariableList, VariableList>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<VariableList, VariableList>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opVariableArray, iceP_inSeq, context);
 }
@@ -295,9 +295,9 @@ Test::TestIntfPrx::opBoolSeqAsync(const std::deque<bool>& iceP_inSeq,
                                   ::std::function<void(bool)> sent,
                                   const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<std::deque<bool>, std::deque<bool>>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<std::deque<bool>, std::deque<bool>>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<std::deque<bool>, std::deque<bool>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opBoolSeq, iceP_inSeq, context);
 }
@@ -345,9 +345,9 @@ Test::TestIntfPrx::opBoolListAsync(const BoolList& iceP_inSeq,
                                    ::std::function<void(bool)> sent,
                                    const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<BoolList, BoolList>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<BoolList, BoolList>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<BoolList, BoolList>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opBoolList, iceP_inSeq, context);
 }
@@ -395,9 +395,9 @@ Test::TestIntfPrx::opByteSeqAsync(const std::deque< ::Ice::Byte>& iceP_inSeq,
                                   ::std::function<void(bool)> sent,
                                   const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<std::deque< ::Ice::Byte>, std::deque< ::Ice::Byte>>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<std::deque< ::Ice::Byte>, std::deque< ::Ice::Byte>>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<std::deque< ::Ice::Byte>, std::deque< ::Ice::Byte>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opByteSeq, iceP_inSeq, context);
 }
@@ -445,9 +445,9 @@ Test::TestIntfPrx::opByteListAsync(const ByteList& iceP_inSeq,
                                    ::std::function<void(bool)> sent,
                                    const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<ByteList, ByteList>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<ByteList, ByteList>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<ByteList, ByteList>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opByteList, iceP_inSeq, context);
 }
@@ -495,9 +495,9 @@ Test::TestIntfPrx::opMyByteSeqAsync(const MyByteSeq& iceP_inSeq,
                                     ::std::function<void(bool)> sent,
                                     const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<MyByteSeq, MyByteSeq>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<MyByteSeq, MyByteSeq>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<MyByteSeq, MyByteSeq>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opMyByteSeq, iceP_inSeq, context);
 }
@@ -545,9 +545,9 @@ Test::TestIntfPrx::opStringSeqAsync(const std::deque<std::string>& iceP_inSeq,
                                     ::std::function<void(bool)> sent,
                                     const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<std::deque<std::string>, std::deque<std::string>>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<std::deque<std::string>, std::deque<std::string>>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<std::deque<std::string>, std::deque<std::string>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opStringSeq, iceP_inSeq, context);
 }
@@ -595,9 +595,9 @@ Test::TestIntfPrx::opStringListAsync(const StringList& iceP_inSeq,
                                      ::std::function<void(bool)> sent,
                                      const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<StringList, StringList>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<StringList, StringList>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<StringList, StringList>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opStringList, iceP_inSeq, context);
 }
@@ -645,9 +645,9 @@ Test::TestIntfPrx::opFixedSeqAsync(const std::deque< ::Test::Fixed>& iceP_inSeq,
                                    ::std::function<void(bool)> sent,
                                    const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<std::deque< ::Test::Fixed>, std::deque< ::Test::Fixed>>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<std::deque< ::Test::Fixed>, std::deque< ::Test::Fixed>>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<std::deque< ::Test::Fixed>, std::deque< ::Test::Fixed>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opFixedSeq, iceP_inSeq, context);
 }
@@ -695,9 +695,9 @@ Test::TestIntfPrx::opFixedListAsync(const FixedList& iceP_inSeq,
                                     ::std::function<void(bool)> sent,
                                     const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<FixedList, FixedList>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<FixedList, FixedList>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<FixedList, FixedList>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opFixedList, iceP_inSeq, context);
 }
@@ -745,9 +745,9 @@ Test::TestIntfPrx::opVariableSeqAsync(const std::deque< ::Test::Variable>& iceP_
                                       ::std::function<void(bool)> sent,
                                       const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<std::deque< ::Test::Variable>, std::deque< ::Test::Variable>>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<std::deque< ::Test::Variable>, std::deque< ::Test::Variable>>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<std::deque< ::Test::Variable>, std::deque< ::Test::Variable>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opVariableSeq, iceP_inSeq, context);
 }
@@ -795,9 +795,9 @@ Test::TestIntfPrx::opVariableListAsync(const VariableList& iceP_inSeq,
                                        ::std::function<void(bool)> sent,
                                        const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<VariableList, VariableList>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<VariableList, VariableList>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<VariableList, VariableList>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opVariableList, iceP_inSeq, context);
 }
@@ -845,9 +845,9 @@ Test::TestIntfPrx::opStringStringDictSeqAsync(const std::deque< ::Test::StringSt
                                               ::std::function<void(bool)> sent,
                                               const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<std::deque< ::Test::StringStringDict>, std::deque< ::Test::StringStringDict>>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<std::deque< ::Test::StringStringDict>, std::deque< ::Test::StringStringDict>>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<std::deque< ::Test::StringStringDict>, std::deque< ::Test::StringStringDict>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opStringStringDictSeq, iceP_inSeq, context);
 }
@@ -895,9 +895,9 @@ Test::TestIntfPrx::opStringStringDictListAsync(const StringStringDictList& iceP_
                                                ::std::function<void(bool)> sent,
                                                const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<StringStringDictList, StringStringDictList>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<StringStringDictList, StringStringDictList>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<StringStringDictList, StringStringDictList>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opStringStringDictList, iceP_inSeq, context);
 }
@@ -945,9 +945,9 @@ Test::TestIntfPrx::opESeqAsync(const std::deque< ::Test::E>& iceP_inSeq,
                                ::std::function<void(bool)> sent,
                                const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<std::deque< ::Test::E>, std::deque< ::Test::E>>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<std::deque< ::Test::E>, std::deque< ::Test::E>>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<std::deque< ::Test::E>, std::deque< ::Test::E>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opESeq, iceP_inSeq, context);
 }
@@ -995,9 +995,9 @@ Test::TestIntfPrx::opEListAsync(const EList& iceP_inSeq,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<EList, EList>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<EList, EList>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<EList, EList>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opEList, iceP_inSeq, context);
 }
@@ -1045,9 +1045,9 @@ Test::TestIntfPrx::opDPrxSeqAsync(const std::deque<::Test::DPrxPtr>& iceP_inSeq,
                                   ::std::function<void(bool)> sent,
                                   const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<std::deque<::Test::DPrxPtr>, std::deque<::Test::DPrxPtr>>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<std::deque<::Test::DPrxPtr>, std::deque<::Test::DPrxPtr>>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<std::deque<::Test::DPrxPtr>, std::deque<::Test::DPrxPtr>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opDPrxSeq, iceP_inSeq, context);
 }
@@ -1095,9 +1095,9 @@ Test::TestIntfPrx::opDPrxListAsync(const DPrxList& iceP_inSeq,
                                    ::std::function<void(bool)> sent,
                                    const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<DPrxList, DPrxList>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<DPrxList, DPrxList>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<DPrxList, DPrxList>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opDPrxList, iceP_inSeq, context);
 }
@@ -1145,9 +1145,9 @@ Test::TestIntfPrx::opCSeqAsync(const std::deque<std::shared_ptr<Test::C>>& iceP_
                                ::std::function<void(bool)> sent,
                                const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<std::deque<std::shared_ptr<Test::C>>, std::deque<std::shared_ptr<Test::C>>>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<std::deque<std::shared_ptr<Test::C>>, std::deque<std::shared_ptr<Test::C>>>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<std::deque<std::shared_ptr<Test::C>>, std::deque<std::shared_ptr<Test::C>>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opCSeq, iceP_inSeq, context);
 }
@@ -1197,9 +1197,9 @@ Test::TestIntfPrx::opCListAsync(const CList& iceP_inSeq,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<CList, CList>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<CList, CList>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<CList, CList>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opCList, iceP_inSeq, context);
 }
@@ -1317,9 +1317,9 @@ Test::TestIntfPrx::opIntStringDictAsync(const IntStringDict& iceP_idict,
                                         ::std::function<void(bool)> sent,
                                         const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<IntStringDict, IntStringDict>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<IntStringDict, IntStringDict>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<IntStringDict, IntStringDict>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opIntStringDict, iceP_idict, context);
 }
@@ -1367,9 +1367,9 @@ Test::TestIntfPrx::opVarDictAsync(const ::Test::CustomMap<std::string, std::int3
                                   ::std::function<void(bool)> sent,
                                   const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<std::string, std::int32_t>>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<std::string, std::int32_t>>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<std::string, std::int32_t>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opVarDict, iceP_idict, context);
 }
@@ -1417,9 +1417,9 @@ Test::TestIntfPrx::opShortBufferAsync(const ShortBuffer& iceP_inS,
                                       ::std::function<void(bool)> sent,
                                       const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<ShortBuffer, ShortBuffer>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<ShortBuffer, ShortBuffer>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<ShortBuffer, ShortBuffer>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opShortBuffer, iceP_inS, context);
 }
@@ -1467,9 +1467,9 @@ Test::TestIntfPrx::opBoolBufferAsync(const ::Test::CustomBuffer<bool>& iceP_inS,
                                      ::std::function<void(bool)> sent,
                                      const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<::Test::CustomBuffer<bool>, ::Test::CustomBuffer<bool>>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<::Test::CustomBuffer<bool>, ::Test::CustomBuffer<bool>>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<::Test::CustomBuffer<bool>, ::Test::CustomBuffer<bool>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opBoolBuffer, iceP_inS, context);
 }

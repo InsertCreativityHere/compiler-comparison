@@ -979,9 +979,9 @@ Test::Outer::Inner::TestIntfPrx::opAsync(::std::int32_t iceP_i,
                                          ::std::function<void(bool)> sent,
                                          const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<::std::int32_t, ::std::int32_t>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<::std::int32_t, ::std::int32_t>&& _result)
     {
-        response(::std::get<0>(_result), ::std::get<1>(_result));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::int32_t, ::std::int32_t>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::Outer::Inner::TestIntfPrx::_iceI_op, iceP_i, context);
 }

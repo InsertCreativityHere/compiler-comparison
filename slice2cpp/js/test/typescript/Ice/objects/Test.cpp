@@ -633,9 +633,9 @@ Test::InitialPrx::getAllAsync(::std::function<void (::std::shared_ptr<::Test::B>
                               ::std::function<void(bool)> sent,
                               const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>, ::std::shared_ptr<C>, ::std::shared_ptr<D>>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>, ::std::shared_ptr<C>, ::std::shared_ptr<D>>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)), ::std::move(::std::get<2>(_result)), ::std::move(::std::get<3>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>, ::std::shared_ptr<C>, ::std::shared_ptr<D>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getAll, context);
 }
@@ -722,9 +722,9 @@ Test::InitialPrx::opValueAsync(const ::std::shared_ptr<::Ice::Value>& iceP_v1,
                                ::std::function<void(bool)> sent,
                                const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<::std::shared_ptr<::Ice::Value>, ::std::shared_ptr<::Ice::Value>>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<::std::shared_ptr<::Ice::Value>, ::std::shared_ptr<::Ice::Value>>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::shared_ptr<::Ice::Value>, ::std::shared_ptr<::Ice::Value>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opValue, iceP_v1, context);
 }
@@ -774,9 +774,9 @@ Test::InitialPrx::opValueSeqAsync(const ValueSeq& iceP_v1,
                                   ::std::function<void(bool)> sent,
                                   const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<ValueSeq, ValueSeq>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<ValueSeq, ValueSeq>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<ValueSeq, ValueSeq>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opValueSeq, iceP_v1, context);
 }
@@ -826,9 +826,9 @@ Test::InitialPrx::opValueMapAsync(const ValueMap& iceP_v1,
                                   ::std::function<void(bool)> sent,
                                   const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<ValueMap, ValueMap>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<ValueMap, ValueMap>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<ValueMap, ValueMap>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opValueMap, iceP_v1, context);
 }
@@ -1009,9 +1009,9 @@ Test::InitialPrx::opBaseSeqAsync(const BaseSeq& iceP_inSeq,
                                  ::std::function<void(bool)> sent,
                                  const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<BaseSeq, BaseSeq>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<BaseSeq, BaseSeq>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<BaseSeq, BaseSeq>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opBaseSeq, iceP_inSeq, context);
 }
@@ -1278,9 +1278,9 @@ Test::InitialPrx::opMAsync(const ::std::shared_ptr<M>& iceP_v1,
                            ::std::function<void(bool)> sent,
                            const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<::std::shared_ptr<M>, ::std::shared_ptr<M>>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<::std::shared_ptr<M>, ::std::shared_ptr<M>>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::shared_ptr<M>, ::std::shared_ptr<M>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opM, iceP_v1, context);
 }
@@ -1330,9 +1330,9 @@ Test::InitialPrx::opF1Async(const ::std::shared_ptr<F1>& iceP_f11,
                             ::std::function<void(bool)> sent,
                             const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<::std::shared_ptr<F1>, ::std::shared_ptr<F1>>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<::std::shared_ptr<F1>, ::std::shared_ptr<F1>>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::shared_ptr<F1>, ::std::shared_ptr<F1>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opF1, iceP_f11, context);
 }
@@ -1382,9 +1382,9 @@ Test::InitialPrx::opF2Async(const ::std::optional<F2Prx>& iceP_f21,
                             ::std::function<void(bool)> sent,
                             const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<::std::optional<F2Prx>, ::std::optional<F2Prx>>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<::std::optional<F2Prx>, ::std::optional<F2Prx>>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<F2Prx>, ::std::optional<F2Prx>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opF2, iceP_f21, context);
 }
@@ -1432,9 +1432,9 @@ Test::InitialPrx::opF3Async(const ::std::shared_ptr<F3>& iceP_f31,
                             ::std::function<void(bool)> sent,
                             const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<::std::shared_ptr<F3>, ::std::shared_ptr<F3>>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<::std::shared_ptr<F3>, ::std::shared_ptr<F3>>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::shared_ptr<F3>, ::std::shared_ptr<F3>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_opF3, iceP_f31, context);
 }

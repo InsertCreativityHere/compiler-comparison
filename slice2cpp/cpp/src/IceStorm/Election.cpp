@@ -320,9 +320,9 @@ IceStormElection::TopicManagerSyncPrx::getContentAsync(::std::function<void (::I
                                                        ::std::function<void(bool)> sent,
                                                        const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<LogUpdate, TopicContentSeq>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<LogUpdate, TopicContentSeq>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<LogUpdate, TopicContentSeq>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &IceStormElection::TopicManagerSyncPrx::_iceI_getContent, context);
 }

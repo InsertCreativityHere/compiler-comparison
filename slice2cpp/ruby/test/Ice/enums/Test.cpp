@@ -57,9 +57,9 @@ Test::TestIntfPrx::opByteAsync(ByteEnum iceP_b1,
                                ::std::function<void(bool)> sent,
                                const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<ByteEnum, ByteEnum>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<ByteEnum, ByteEnum>&& _result)
     {
-        response(::std::get<0>(_result), ::std::get<1>(_result));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<ByteEnum, ByteEnum>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opByte, iceP_b1, context);
 }
@@ -107,9 +107,9 @@ Test::TestIntfPrx::opShortAsync(ShortEnum iceP_s1,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<ShortEnum, ShortEnum>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<ShortEnum, ShortEnum>&& _result)
     {
-        response(::std::get<0>(_result), ::std::get<1>(_result));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<ShortEnum, ShortEnum>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opShort, iceP_s1, context);
 }
@@ -157,9 +157,9 @@ Test::TestIntfPrx::opIntAsync(IntEnum iceP_i1,
                               ::std::function<void(bool)> sent,
                               const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<IntEnum, IntEnum>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<IntEnum, IntEnum>&& _result)
     {
-        response(::std::get<0>(_result), ::std::get<1>(_result));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<IntEnum, IntEnum>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opInt, iceP_i1, context);
 }
@@ -207,9 +207,9 @@ Test::TestIntfPrx::opSimpleAsync(SimpleEnum iceP_s1,
                                  ::std::function<void(bool)> sent,
                                  const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<SimpleEnum, SimpleEnum>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<SimpleEnum, SimpleEnum>&& _result)
     {
-        response(::std::get<0>(_result), ::std::get<1>(_result));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<SimpleEnum, SimpleEnum>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opSimple, iceP_s1, context);
 }

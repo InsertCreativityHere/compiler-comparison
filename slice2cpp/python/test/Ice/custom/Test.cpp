@@ -61,9 +61,9 @@ Test::CustomPrx::opByteString1Async(const ByteString& iceP_b1,
                                     ::std::function<void(bool)> sent,
                                     const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<ByteString, ByteString>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<ByteString, ByteString>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<ByteString, ByteString>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::CustomPrx::_iceI_opByteString1, iceP_b1, context);
 }
@@ -111,9 +111,9 @@ Test::CustomPrx::opByteString2Async(const ByteString& iceP_b1,
                                     ::std::function<void(bool)> sent,
                                     const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<ByteString, ByteString>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<ByteString, ByteString>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<ByteString, ByteString>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::CustomPrx::_iceI_opByteString2, iceP_b1, context);
 }
@@ -161,9 +161,9 @@ Test::CustomPrx::opByteList1Async(const ByteList& iceP_b1,
                                   ::std::function<void(bool)> sent,
                                   const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<ByteList, ByteList>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<ByteList, ByteList>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<ByteList, ByteList>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::CustomPrx::_iceI_opByteList1, iceP_b1, context);
 }
@@ -211,9 +211,9 @@ Test::CustomPrx::opByteList2Async(const ByteList& iceP_b1,
                                   ::std::function<void(bool)> sent,
                                   const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<ByteList, ByteList>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<ByteList, ByteList>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<ByteList, ByteList>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::CustomPrx::_iceI_opByteList2, iceP_b1, context);
 }
@@ -261,9 +261,9 @@ Test::CustomPrx::opStringList1Async(const StringList& iceP_s1,
                                     ::std::function<void(bool)> sent,
                                     const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<StringList, StringList>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<StringList, StringList>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<StringList, StringList>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::CustomPrx::_iceI_opStringList1, iceP_s1, context);
 }
@@ -311,9 +311,9 @@ Test::CustomPrx::opStringList2Async(const StringList& iceP_s1,
                                     ::std::function<void(bool)> sent,
                                     const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<StringList, StringList>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<StringList, StringList>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<StringList, StringList>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::CustomPrx::_iceI_opStringList2, iceP_s1, context);
 }
@@ -361,9 +361,9 @@ Test::CustomPrx::opStringTuple1Async(const StringTuple& iceP_s1,
                                      ::std::function<void(bool)> sent,
                                      const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<StringTuple, StringTuple>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<StringTuple, StringTuple>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<StringTuple, StringTuple>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::CustomPrx::_iceI_opStringTuple1, iceP_s1, context);
 }
@@ -411,9 +411,9 @@ Test::CustomPrx::opStringTuple2Async(const StringTuple& iceP_s1,
                                      ::std::function<void(bool)> sent,
                                      const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<StringTuple, StringTuple>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<StringTuple, StringTuple>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<StringTuple, StringTuple>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::CustomPrx::_iceI_opStringTuple2, iceP_s1, context);
 }
@@ -536,9 +536,9 @@ Test::CustomPrx::opBoolSeqAsync(const BoolSeq1& iceP_v1,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<BoolSeq1, BoolSeq2>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<BoolSeq1, BoolSeq2>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<BoolSeq1, BoolSeq2>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::CustomPrx::_iceI_opBoolSeq, iceP_v1, context);
 }
@@ -586,9 +586,9 @@ Test::CustomPrx::opByteSeqAsync(const ByteSeq1& iceP_v1,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<ByteSeq1, ByteSeq2>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<ByteSeq1, ByteSeq2>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<ByteSeq1, ByteSeq2>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::CustomPrx::_iceI_opByteSeq, iceP_v1, context);
 }
@@ -636,9 +636,9 @@ Test::CustomPrx::opShortSeqAsync(const ShortSeq1& iceP_v1,
                                  ::std::function<void(bool)> sent,
                                  const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<ShortSeq1, ShortSeq2>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<ShortSeq1, ShortSeq2>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<ShortSeq1, ShortSeq2>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::CustomPrx::_iceI_opShortSeq, iceP_v1, context);
 }
@@ -686,9 +686,9 @@ Test::CustomPrx::opIntSeqAsync(const IntSeq1& iceP_v1,
                                ::std::function<void(bool)> sent,
                                const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<IntSeq1, IntSeq2>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<IntSeq1, IntSeq2>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<IntSeq1, IntSeq2>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::CustomPrx::_iceI_opIntSeq, iceP_v1, context);
 }
@@ -736,9 +736,9 @@ Test::CustomPrx::opLongSeqAsync(const LongSeq1& iceP_v1,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<LongSeq1, LongSeq2>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<LongSeq1, LongSeq2>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<LongSeq1, LongSeq2>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::CustomPrx::_iceI_opLongSeq, iceP_v1, context);
 }
@@ -786,9 +786,9 @@ Test::CustomPrx::opFloatSeqAsync(const FloatSeq1& iceP_v1,
                                  ::std::function<void(bool)> sent,
                                  const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<FloatSeq1, FloatSeq2>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<FloatSeq1, FloatSeq2>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<FloatSeq1, FloatSeq2>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::CustomPrx::_iceI_opFloatSeq, iceP_v1, context);
 }
@@ -836,9 +836,9 @@ Test::CustomPrx::opDoubleSeqAsync(const DoubleSeq1& iceP_v1,
                                   ::std::function<void(bool)> sent,
                                   const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<DoubleSeq1, DoubleSeq2>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<DoubleSeq1, DoubleSeq2>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<DoubleSeq1, DoubleSeq2>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::CustomPrx::_iceI_opDoubleSeq, iceP_v1, context);
 }

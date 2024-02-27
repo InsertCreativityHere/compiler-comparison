@@ -59,9 +59,9 @@ Test::NumPy::CustomPrx::opBoolSeqAsync(const BoolSeq1& iceP_v1,
                                        ::std::function<void(bool)> sent,
                                        const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<BoolSeq1, BoolSeq2>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<BoolSeq1, BoolSeq2>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<BoolSeq1, BoolSeq2>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::NumPy::CustomPrx::_iceI_opBoolSeq, iceP_v1, context);
 }
@@ -109,9 +109,9 @@ Test::NumPy::CustomPrx::opByteSeqAsync(const ByteSeq1& iceP_v1,
                                        ::std::function<void(bool)> sent,
                                        const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<ByteSeq1, ByteSeq2>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<ByteSeq1, ByteSeq2>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<ByteSeq1, ByteSeq2>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::NumPy::CustomPrx::_iceI_opByteSeq, iceP_v1, context);
 }
@@ -159,9 +159,9 @@ Test::NumPy::CustomPrx::opShortSeqAsync(const ShortSeq1& iceP_v1,
                                         ::std::function<void(bool)> sent,
                                         const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<ShortSeq1, ShortSeq2>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<ShortSeq1, ShortSeq2>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<ShortSeq1, ShortSeq2>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::NumPy::CustomPrx::_iceI_opShortSeq, iceP_v1, context);
 }
@@ -209,9 +209,9 @@ Test::NumPy::CustomPrx::opIntSeqAsync(const IntSeq1& iceP_v1,
                                       ::std::function<void(bool)> sent,
                                       const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<IntSeq1, IntSeq2>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<IntSeq1, IntSeq2>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<IntSeq1, IntSeq2>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::NumPy::CustomPrx::_iceI_opIntSeq, iceP_v1, context);
 }
@@ -259,9 +259,9 @@ Test::NumPy::CustomPrx::opLongSeqAsync(const LongSeq1& iceP_v1,
                                        ::std::function<void(bool)> sent,
                                        const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<LongSeq1, LongSeq2>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<LongSeq1, LongSeq2>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<LongSeq1, LongSeq2>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::NumPy::CustomPrx::_iceI_opLongSeq, iceP_v1, context);
 }
@@ -309,9 +309,9 @@ Test::NumPy::CustomPrx::opFloatSeqAsync(const FloatSeq1& iceP_v1,
                                         ::std::function<void(bool)> sent,
                                         const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<FloatSeq1, FloatSeq2>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<FloatSeq1, FloatSeq2>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<FloatSeq1, FloatSeq2>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::NumPy::CustomPrx::_iceI_opFloatSeq, iceP_v1, context);
 }
@@ -359,9 +359,9 @@ Test::NumPy::CustomPrx::opDoubleSeqAsync(const DoubleSeq1& iceP_v1,
                                          ::std::function<void(bool)> sent,
                                          const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<DoubleSeq1, DoubleSeq2>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<DoubleSeq1, DoubleSeq2>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<DoubleSeq1, DoubleSeq2>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::NumPy::CustomPrx::_iceI_opDoubleSeq, iceP_v1, context);
 }

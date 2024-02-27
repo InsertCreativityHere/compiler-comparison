@@ -619,9 +619,9 @@ Test::TestIntfPrx::paramTest1Async(::std::function<void (::std::shared_ptr<::Tes
                                    ::std::function<void(bool)> sent,
                                    const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_paramTest1, context);
 }
@@ -666,9 +666,9 @@ Test::TestIntfPrx::paramTest2Async(::std::function<void (::std::shared_ptr<::Tes
                                    ::std::function<void(bool)> sent,
                                    const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_paramTest2, context);
 }
@@ -714,9 +714,9 @@ Test::TestIntfPrx::paramTest3Async(::std::function<void (::std::shared_ptr<::Tes
                                    ::std::function<void(bool)> sent,
                                    const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>, ::std::shared_ptr<B>>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>, ::std::shared_ptr<B>>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)), ::std::move(::std::get<2>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>, ::std::shared_ptr<B>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_paramTest3, context);
 }
@@ -761,9 +761,9 @@ Test::TestIntfPrx::paramTest4Async(::std::function<void (::std::shared_ptr<::Tes
                                    ::std::function<void(bool)> sent,
                                    const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_paramTest4, context);
 }
@@ -809,9 +809,9 @@ Test::TestIntfPrx::returnTest1Async(::std::function<void (::std::shared_ptr<::Te
                                     ::std::function<void(bool)> sent,
                                     const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>, ::std::shared_ptr<B>>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>, ::std::shared_ptr<B>>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)), ::std::move(::std::get<2>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>, ::std::shared_ptr<B>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_returnTest1, context);
 }
@@ -857,9 +857,9 @@ Test::TestIntfPrx::returnTest2Async(::std::function<void (::std::shared_ptr<::Te
                                     ::std::function<void(bool)> sent,
                                     const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>, ::std::shared_ptr<B>>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>, ::std::shared_ptr<B>>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)), ::std::move(::std::get<2>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>, ::std::shared_ptr<B>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_returnTest2, context);
 }
@@ -997,9 +997,9 @@ Test::TestIntfPrx::dictionaryTestAsync(const BDict& iceP_bin,
                                        ::std::function<void(bool)> sent,
                                        const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<BDict, BDict>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<BDict, BDict>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<BDict, BDict>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_dictionaryTest, iceP_bin, context);
 }

@@ -232,9 +232,9 @@ Ice::LoggerAdminPrx::getLogAsync(const LogMessageTypeSeq& iceP_messageTypes, con
                                  ::std::function<void(bool)> sent,
                                  const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<LogMessageSeq, ::std::string>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<LogMessageSeq, ::std::string>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<LogMessageSeq, ::std::string>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Ice::LoggerAdminPrx::_iceI_getLog, iceP_messageTypes, iceP_traceCategories, iceP_messageMax, context);
 }

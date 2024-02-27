@@ -249,9 +249,9 @@ abstract::optionalParamsPrx::inAsync(::std::function<void (::std::optional<::abs
                                      ::std::function<void(bool)> sent,
                                      const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<::std::optional<_cpp_break>, ::std::optional<as>, ::std::optional<explicitPrx>, ::std::optional<_cpp_while>, ::std::optional<::std::string>>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<::std::optional<_cpp_break>, ::std::optional<as>, ::std::optional<explicitPrx>, ::std::optional<_cpp_while>, ::std::optional<::std::string>>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::get<1>(_result), ::std::move(::std::get<2>(_result)), ::std::move(::std::get<3>(_result)), ::std::move(::std::get<4>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<_cpp_break>, ::std::optional<as>, ::std::optional<explicitPrx>, ::std::optional<_cpp_while>, ::std::optional<::std::string>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &abstract::optionalParamsPrx::_iceI_in, context);
 }
@@ -298,9 +298,9 @@ abstract::optionalParamsPrx::foreachAsync(::std::function<void (::std::optional<
                                           ::std::function<void(bool)> sent,
                                           const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<::std::optional<_cpp_break>, ::std::optional<as>, ::std::optional<explicitPrx>, ::std::optional<_cpp_while>, ::std::optional<::std::string>>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<::std::optional<_cpp_break>, ::std::optional<as>, ::std::optional<explicitPrx>, ::std::optional<_cpp_while>, ::std::optional<::std::string>>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::get<1>(_result), ::std::move(::std::get<2>(_result)), ::std::move(::std::get<3>(_result)), ::std::move(::std::get<4>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<_cpp_break>, ::std::optional<as>, ::std::optional<explicitPrx>, ::std::optional<_cpp_while>, ::std::optional<::std::string>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &abstract::optionalParamsPrx::_iceI_foreach, context);
 }

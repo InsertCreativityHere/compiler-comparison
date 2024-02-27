@@ -61,9 +61,9 @@ Test1::WstringClassPrx::opStringAsync(::std::wstring_view iceP_s1,
                                       ::std::function<void(bool)> sent,
                                       const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<::std::wstring, ::std::wstring>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<::std::wstring, ::std::wstring>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::wstring, ::std::wstring>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test1::WstringClassPrx::_iceI_opString, iceP_s1, context);
 }
@@ -111,9 +111,9 @@ Test1::WstringClassPrx::opStructAsync(const WstringStruct& iceP_s1,
                                       ::std::function<void(bool)> sent,
                                       const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<WstringStruct, WstringStruct>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<WstringStruct, WstringStruct>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<WstringStruct, WstringStruct>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test1::WstringClassPrx::_iceI_opStruct, iceP_s1, context);
 }
@@ -219,9 +219,9 @@ Test2::WstringClassPrx::opStringAsync(::std::wstring_view iceP_s1,
                                       ::std::function<void(bool)> sent,
                                       const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<::std::wstring, ::std::wstring>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<::std::wstring, ::std::wstring>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::wstring, ::std::wstring>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test2::WstringClassPrx::_iceI_opString, iceP_s1, context);
 }
@@ -269,9 +269,9 @@ Test2::WstringClassPrx::opStructAsync(const WstringStruct& iceP_s1,
                                       ::std::function<void(bool)> sent,
                                       const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<WstringStruct, WstringStruct>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<WstringStruct, WstringStruct>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<WstringStruct, WstringStruct>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test2::WstringClassPrx::_iceI_opStruct, iceP_s1, context);
 }

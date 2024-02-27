@@ -438,9 +438,9 @@ Clash::IntfPrx::opOutAsync(::std::function<void (::std::string, ::std::string, :
                            ::std::function<void(bool)> sent,
                            const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::optional<::std::string>, ::std::optional<::std::int32_t>>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::optional<::std::string>, ::std::optional<::std::int32_t>>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)), ::std::move(::std::get<2>(_result)), ::std::move(::std::get<3>(_result)), ::std::move(::std::get<4>(_result)), ::std::move(::std::get<5>(_result)), ::std::move(::std::get<6>(_result)), ::std::move(::std::get<7>(_result)), ::std::move(::std::get<8>(_result)), ::std::move(::std::get<9>(_result)), ::std::move(::std::get<10>(_result)), ::std::get<11>(_result));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::optional<::std::string>, ::std::optional<::std::int32_t>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Clash::IntfPrx::_iceI_opOut, context);
 }

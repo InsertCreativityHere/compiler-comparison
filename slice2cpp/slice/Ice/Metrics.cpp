@@ -77,9 +77,9 @@ IceMX::MetricsAdminPrx::getMetricsViewNamesAsync(::std::function<void (::Ice::St
                                                  ::std::function<void(bool)> sent,
                                                  const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<::Ice::StringSeq, ::Ice::StringSeq>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<::Ice::StringSeq, ::Ice::StringSeq>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<::Ice::StringSeq, ::Ice::StringSeq>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_getMetricsViewNames, context);
 }
@@ -226,9 +226,9 @@ IceMX::MetricsAdminPrx::getMetricsViewAsync(::std::string_view iceP_view,
                                             ::std::function<void(bool)> sent,
                                             const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<MetricsView, ::std::int64_t>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<MetricsView, ::std::int64_t>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::get<1>(_result));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<MetricsView, ::std::int64_t>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_getMetricsView, iceP_view, context);
 }

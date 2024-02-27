@@ -101,9 +101,9 @@ Test::MyClassPrx::opAByteSAsync(const AByteS& iceP_i,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<AByteS, AByteS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<AByteS, AByteS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<AByteS, AByteS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opAByteS, iceP_i, context);
 }
@@ -151,9 +151,9 @@ Test::MyClassPrx::opLByteSAsync(const LByteS& iceP_i,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<LByteS, LByteS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<LByteS, LByteS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<LByteS, LByteS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLByteS, iceP_i, context);
 }
@@ -201,9 +201,9 @@ Test::MyClassPrx::opKByteSAsync(const KByteS& iceP_i,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<KByteS, KByteS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<KByteS, KByteS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<KByteS, KByteS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opKByteS, iceP_i, context);
 }
@@ -251,9 +251,9 @@ Test::MyClassPrx::opQByteSAsync(const QByteS& iceP_i,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<QByteS, QByteS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<QByteS, QByteS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<QByteS, QByteS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opQByteS, iceP_i, context);
 }
@@ -301,9 +301,9 @@ Test::MyClassPrx::opSByteSAsync(const SByteS& iceP_i,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<SByteS, SByteS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<SByteS, SByteS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<SByteS, SByteS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSByteS, iceP_i, context);
 }
@@ -351,9 +351,9 @@ Test::MyClassPrx::opABoolSAsync(const ABoolS& iceP_i,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<ABoolS, ABoolS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<ABoolS, ABoolS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<ABoolS, ABoolS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opABoolS, iceP_i, context);
 }
@@ -401,9 +401,9 @@ Test::MyClassPrx::opLBoolSAsync(const LBoolS& iceP_i,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<LBoolS, LBoolS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<LBoolS, LBoolS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<LBoolS, LBoolS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLBoolS, iceP_i, context);
 }
@@ -451,9 +451,9 @@ Test::MyClassPrx::opKBoolSAsync(const KBoolS& iceP_i,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<KBoolS, KBoolS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<KBoolS, KBoolS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<KBoolS, KBoolS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opKBoolS, iceP_i, context);
 }
@@ -501,9 +501,9 @@ Test::MyClassPrx::opQBoolSAsync(const QBoolS& iceP_i,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<QBoolS, QBoolS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<QBoolS, QBoolS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<QBoolS, QBoolS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opQBoolS, iceP_i, context);
 }
@@ -551,9 +551,9 @@ Test::MyClassPrx::opSBoolSAsync(const SBoolS& iceP_i,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<SBoolS, SBoolS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<SBoolS, SBoolS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<SBoolS, SBoolS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSBoolS, iceP_i, context);
 }
@@ -601,9 +601,9 @@ Test::MyClassPrx::opAShortSAsync(const AShortS& iceP_i,
                                  ::std::function<void(bool)> sent,
                                  const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<AShortS, AShortS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<AShortS, AShortS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<AShortS, AShortS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opAShortS, iceP_i, context);
 }
@@ -651,9 +651,9 @@ Test::MyClassPrx::opLShortSAsync(const LShortS& iceP_i,
                                  ::std::function<void(bool)> sent,
                                  const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<LShortS, LShortS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<LShortS, LShortS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<LShortS, LShortS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLShortS, iceP_i, context);
 }
@@ -701,9 +701,9 @@ Test::MyClassPrx::opKShortSAsync(const KShortS& iceP_i,
                                  ::std::function<void(bool)> sent,
                                  const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<KShortS, KShortS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<KShortS, KShortS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<KShortS, KShortS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opKShortS, iceP_i, context);
 }
@@ -751,9 +751,9 @@ Test::MyClassPrx::opQShortSAsync(const QShortS& iceP_i,
                                  ::std::function<void(bool)> sent,
                                  const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<QShortS, QShortS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<QShortS, QShortS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<QShortS, QShortS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opQShortS, iceP_i, context);
 }
@@ -801,9 +801,9 @@ Test::MyClassPrx::opSShortSAsync(const SShortS& iceP_i,
                                  ::std::function<void(bool)> sent,
                                  const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<SShortS, SShortS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<SShortS, SShortS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<SShortS, SShortS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSShortS, iceP_i, context);
 }
@@ -851,9 +851,9 @@ Test::MyClassPrx::opAIntSAsync(const AIntS& iceP_i,
                                ::std::function<void(bool)> sent,
                                const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<AIntS, AIntS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<AIntS, AIntS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<AIntS, AIntS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opAIntS, iceP_i, context);
 }
@@ -901,9 +901,9 @@ Test::MyClassPrx::opLIntSAsync(const LIntS& iceP_i,
                                ::std::function<void(bool)> sent,
                                const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<LIntS, LIntS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<LIntS, LIntS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<LIntS, LIntS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLIntS, iceP_i, context);
 }
@@ -951,9 +951,9 @@ Test::MyClassPrx::opKIntSAsync(const KIntS& iceP_i,
                                ::std::function<void(bool)> sent,
                                const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<KIntS, KIntS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<KIntS, KIntS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<KIntS, KIntS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opKIntS, iceP_i, context);
 }
@@ -1001,9 +1001,9 @@ Test::MyClassPrx::opQIntSAsync(const QIntS& iceP_i,
                                ::std::function<void(bool)> sent,
                                const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<QIntS, QIntS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<QIntS, QIntS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<QIntS, QIntS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opQIntS, iceP_i, context);
 }
@@ -1051,9 +1051,9 @@ Test::MyClassPrx::opSIntSAsync(const SIntS& iceP_i,
                                ::std::function<void(bool)> sent,
                                const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<SIntS, SIntS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<SIntS, SIntS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<SIntS, SIntS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSIntS, iceP_i, context);
 }
@@ -1101,9 +1101,9 @@ Test::MyClassPrx::opALongSAsync(const ALongS& iceP_i,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<ALongS, ALongS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<ALongS, ALongS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<ALongS, ALongS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opALongS, iceP_i, context);
 }
@@ -1151,9 +1151,9 @@ Test::MyClassPrx::opLLongSAsync(const LLongS& iceP_i,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<LLongS, LLongS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<LLongS, LLongS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<LLongS, LLongS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLLongS, iceP_i, context);
 }
@@ -1201,9 +1201,9 @@ Test::MyClassPrx::opKLongSAsync(const KLongS& iceP_i,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<KLongS, KLongS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<KLongS, KLongS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<KLongS, KLongS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opKLongS, iceP_i, context);
 }
@@ -1251,9 +1251,9 @@ Test::MyClassPrx::opQLongSAsync(const QLongS& iceP_i,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<QLongS, QLongS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<QLongS, QLongS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<QLongS, QLongS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opQLongS, iceP_i, context);
 }
@@ -1301,9 +1301,9 @@ Test::MyClassPrx::opSLongSAsync(const SLongS& iceP_i,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<SLongS, SLongS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<SLongS, SLongS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<SLongS, SLongS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSLongS, iceP_i, context);
 }
@@ -1351,9 +1351,9 @@ Test::MyClassPrx::opAFloatSAsync(const AFloatS& iceP_i,
                                  ::std::function<void(bool)> sent,
                                  const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<AFloatS, AFloatS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<AFloatS, AFloatS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<AFloatS, AFloatS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opAFloatS, iceP_i, context);
 }
@@ -1401,9 +1401,9 @@ Test::MyClassPrx::opLFloatSAsync(const LFloatS& iceP_i,
                                  ::std::function<void(bool)> sent,
                                  const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<LFloatS, LFloatS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<LFloatS, LFloatS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<LFloatS, LFloatS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLFloatS, iceP_i, context);
 }
@@ -1451,9 +1451,9 @@ Test::MyClassPrx::opKFloatSAsync(const KFloatS& iceP_i,
                                  ::std::function<void(bool)> sent,
                                  const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<KFloatS, KFloatS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<KFloatS, KFloatS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<KFloatS, KFloatS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opKFloatS, iceP_i, context);
 }
@@ -1501,9 +1501,9 @@ Test::MyClassPrx::opQFloatSAsync(const QFloatS& iceP_i,
                                  ::std::function<void(bool)> sent,
                                  const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<QFloatS, QFloatS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<QFloatS, QFloatS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<QFloatS, QFloatS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opQFloatS, iceP_i, context);
 }
@@ -1551,9 +1551,9 @@ Test::MyClassPrx::opSFloatSAsync(const SFloatS& iceP_i,
                                  ::std::function<void(bool)> sent,
                                  const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<SFloatS, SFloatS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<SFloatS, SFloatS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<SFloatS, SFloatS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSFloatS, iceP_i, context);
 }
@@ -1601,9 +1601,9 @@ Test::MyClassPrx::opADoubleSAsync(const ADoubleS& iceP_i,
                                   ::std::function<void(bool)> sent,
                                   const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<ADoubleS, ADoubleS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<ADoubleS, ADoubleS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<ADoubleS, ADoubleS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opADoubleS, iceP_i, context);
 }
@@ -1651,9 +1651,9 @@ Test::MyClassPrx::opLDoubleSAsync(const LDoubleS& iceP_i,
                                   ::std::function<void(bool)> sent,
                                   const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<LDoubleS, LDoubleS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<LDoubleS, LDoubleS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<LDoubleS, LDoubleS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLDoubleS, iceP_i, context);
 }
@@ -1701,9 +1701,9 @@ Test::MyClassPrx::opKDoubleSAsync(const KDoubleS& iceP_i,
                                   ::std::function<void(bool)> sent,
                                   const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<KDoubleS, KDoubleS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<KDoubleS, KDoubleS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<KDoubleS, KDoubleS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opKDoubleS, iceP_i, context);
 }
@@ -1751,9 +1751,9 @@ Test::MyClassPrx::opQDoubleSAsync(const QDoubleS& iceP_i,
                                   ::std::function<void(bool)> sent,
                                   const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<QDoubleS, QDoubleS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<QDoubleS, QDoubleS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<QDoubleS, QDoubleS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opQDoubleS, iceP_i, context);
 }
@@ -1801,9 +1801,9 @@ Test::MyClassPrx::opSDoubleSAsync(const SDoubleS& iceP_i,
                                   ::std::function<void(bool)> sent,
                                   const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<SDoubleS, SDoubleS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<SDoubleS, SDoubleS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<SDoubleS, SDoubleS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSDoubleS, iceP_i, context);
 }
@@ -1851,9 +1851,9 @@ Test::MyClassPrx::opAStringSAsync(const AStringS& iceP_i,
                                   ::std::function<void(bool)> sent,
                                   const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<AStringS, AStringS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<AStringS, AStringS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<AStringS, AStringS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opAStringS, iceP_i, context);
 }
@@ -1901,9 +1901,9 @@ Test::MyClassPrx::opLStringSAsync(const LStringS& iceP_i,
                                   ::std::function<void(bool)> sent,
                                   const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<LStringS, LStringS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<LStringS, LStringS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<LStringS, LStringS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLStringS, iceP_i, context);
 }
@@ -1951,9 +1951,9 @@ Test::MyClassPrx::opKStringSAsync(const KStringS& iceP_i,
                                   ::std::function<void(bool)> sent,
                                   const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<KStringS, KStringS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<KStringS, KStringS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<KStringS, KStringS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opKStringS, iceP_i, context);
 }
@@ -2001,9 +2001,9 @@ Test::MyClassPrx::opQStringSAsync(const QStringS& iceP_i,
                                   ::std::function<void(bool)> sent,
                                   const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<QStringS, QStringS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<QStringS, QStringS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<QStringS, QStringS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opQStringS, iceP_i, context);
 }
@@ -2051,9 +2051,9 @@ Test::MyClassPrx::opSStringSAsync(const SStringS& iceP_i,
                                   ::std::function<void(bool)> sent,
                                   const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<SStringS, SStringS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<SStringS, SStringS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<SStringS, SStringS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSStringS, iceP_i, context);
 }
@@ -2101,9 +2101,9 @@ Test::MyClassPrx::opAObjectSAsync(const AObjectS& iceP_i,
                                   ::std::function<void(bool)> sent,
                                   const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<AObjectS, AObjectS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<AObjectS, AObjectS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<AObjectS, AObjectS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opAObjectS, iceP_i, context);
 }
@@ -2153,9 +2153,9 @@ Test::MyClassPrx::opLObjectSAsync(const LObjectS& iceP_i,
                                   ::std::function<void(bool)> sent,
                                   const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<LObjectS, LObjectS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<LObjectS, LObjectS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<LObjectS, LObjectS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLObjectS, iceP_i, context);
 }
@@ -2205,9 +2205,9 @@ Test::MyClassPrx::opAObjectPrxSAsync(const AObjectPrxS& iceP_i,
                                      ::std::function<void(bool)> sent,
                                      const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<AObjectPrxS, AObjectPrxS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<AObjectPrxS, AObjectPrxS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<AObjectPrxS, AObjectPrxS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opAObjectPrxS, iceP_i, context);
 }
@@ -2255,9 +2255,9 @@ Test::MyClassPrx::opLObjectPrxSAsync(const LObjectPrxS& iceP_i,
                                      ::std::function<void(bool)> sent,
                                      const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<LObjectPrxS, LObjectPrxS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<LObjectPrxS, LObjectPrxS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<LObjectPrxS, LObjectPrxS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLObjectPrxS, iceP_i, context);
 }
@@ -2305,9 +2305,9 @@ Test::MyClassPrx::opKObjectPrxSAsync(const KObjectPrxS& iceP_i,
                                      ::std::function<void(bool)> sent,
                                      const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<KObjectPrxS, KObjectPrxS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<KObjectPrxS, KObjectPrxS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<KObjectPrxS, KObjectPrxS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opKObjectPrxS, iceP_i, context);
 }
@@ -2355,9 +2355,9 @@ Test::MyClassPrx::opQObjectPrxSAsync(const QObjectPrxS& iceP_i,
                                      ::std::function<void(bool)> sent,
                                      const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<QObjectPrxS, QObjectPrxS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<QObjectPrxS, QObjectPrxS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<QObjectPrxS, QObjectPrxS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opQObjectPrxS, iceP_i, context);
 }
@@ -2405,9 +2405,9 @@ Test::MyClassPrx::opSObjectPrxSAsync(const SObjectPrxS& iceP_i,
                                      ::std::function<void(bool)> sent,
                                      const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<SObjectPrxS, SObjectPrxS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<SObjectPrxS, SObjectPrxS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<SObjectPrxS, SObjectPrxS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSObjectPrxS, iceP_i, context);
 }
@@ -2455,9 +2455,9 @@ Test::MyClassPrx::opAStructSAsync(const AStructS& iceP_i,
                                   ::std::function<void(bool)> sent,
                                   const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<AStructS, AStructS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<AStructS, AStructS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<AStructS, AStructS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opAStructS, iceP_i, context);
 }
@@ -2505,9 +2505,9 @@ Test::MyClassPrx::opLStructSAsync(const LStructS& iceP_i,
                                   ::std::function<void(bool)> sent,
                                   const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<LStructS, LStructS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<LStructS, LStructS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<LStructS, LStructS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLStructS, iceP_i, context);
 }
@@ -2555,9 +2555,9 @@ Test::MyClassPrx::opKStructSAsync(const KStructS& iceP_i,
                                   ::std::function<void(bool)> sent,
                                   const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<KStructS, KStructS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<KStructS, KStructS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<KStructS, KStructS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opKStructS, iceP_i, context);
 }
@@ -2605,9 +2605,9 @@ Test::MyClassPrx::opQStructSAsync(const QStructS& iceP_i,
                                   ::std::function<void(bool)> sent,
                                   const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<QStructS, QStructS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<QStructS, QStructS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<QStructS, QStructS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opQStructS, iceP_i, context);
 }
@@ -2655,9 +2655,9 @@ Test::MyClassPrx::opSStructSAsync(const SStructS& iceP_i,
                                   ::std::function<void(bool)> sent,
                                   const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<SStructS, SStructS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<SStructS, SStructS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<SStructS, SStructS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSStructS, iceP_i, context);
 }
@@ -2705,9 +2705,9 @@ Test::MyClassPrx::opAStructSDAsync(const AStructSD& iceP_i,
                                    ::std::function<void(bool)> sent,
                                    const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<AStructSD, AStructSD>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<AStructSD, AStructSD>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<AStructSD, AStructSD>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opAStructSD, iceP_i, context);
 }
@@ -2755,9 +2755,9 @@ Test::MyClassPrx::opLStructSDAsync(const LStructSD& iceP_i,
                                    ::std::function<void(bool)> sent,
                                    const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<LStructSD, LStructSD>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<LStructSD, LStructSD>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<LStructSD, LStructSD>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLStructSD, iceP_i, context);
 }
@@ -2805,9 +2805,9 @@ Test::MyClassPrx::opKStructSDAsync(const KStructSD& iceP_i,
                                    ::std::function<void(bool)> sent,
                                    const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<KStructSD, KStructSD>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<KStructSD, KStructSD>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<KStructSD, KStructSD>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opKStructSD, iceP_i, context);
 }
@@ -2855,9 +2855,9 @@ Test::MyClassPrx::opQStructSDAsync(const QStructSD& iceP_i,
                                    ::std::function<void(bool)> sent,
                                    const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<QStructSD, QStructSD>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<QStructSD, QStructSD>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<QStructSD, QStructSD>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opQStructSD, iceP_i, context);
 }
@@ -2905,9 +2905,9 @@ Test::MyClassPrx::opSStructSDAsync(const SStructSD& iceP_i,
                                    ::std::function<void(bool)> sent,
                                    const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<SStructSD, SStructSD>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<SStructSD, SStructSD>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<SStructSD, SStructSD>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSStructSD, iceP_i, context);
 }
@@ -2955,9 +2955,9 @@ Test::MyClassPrx::opACVSAsync(const ACVS& iceP_i,
                               ::std::function<void(bool)> sent,
                               const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<ACVS, ACVS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<ACVS, ACVS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<ACVS, ACVS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opACVS, iceP_i, context);
 }
@@ -3007,9 +3007,9 @@ Test::MyClassPrx::opLCVSAsync(const LCVS& iceP_i,
                               ::std::function<void(bool)> sent,
                               const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<LCVS, LCVS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<LCVS, LCVS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<LCVS, LCVS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLCVS, iceP_i, context);
 }
@@ -3059,9 +3059,9 @@ Test::MyClassPrx::opACRSAsync(const ACRS& iceP_i,
                               ::std::function<void(bool)> sent,
                               const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<ACRS, ACRS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<ACRS, ACRS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<ACRS, ACRS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opACRS, iceP_i, context);
 }
@@ -3111,9 +3111,9 @@ Test::MyClassPrx::opLCRSAsync(const LCRS& iceP_i,
                               ::std::function<void(bool)> sent,
                               const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<LCRS, LCRS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<LCRS, LCRS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<LCRS, LCRS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLCRS, iceP_i, context);
 }
@@ -3163,9 +3163,9 @@ Test::MyClassPrx::opAEnSAsync(const AEnS& iceP_i,
                               ::std::function<void(bool)> sent,
                               const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<AEnS, AEnS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<AEnS, AEnS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<AEnS, AEnS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opAEnS, iceP_i, context);
 }
@@ -3213,9 +3213,9 @@ Test::MyClassPrx::opLEnSAsync(const LEnS& iceP_i,
                               ::std::function<void(bool)> sent,
                               const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<LEnS, LEnS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<LEnS, LEnS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<LEnS, LEnS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLEnS, iceP_i, context);
 }
@@ -3263,9 +3263,9 @@ Test::MyClassPrx::opKEnSAsync(const KEnS& iceP_i,
                               ::std::function<void(bool)> sent,
                               const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<KEnS, KEnS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<KEnS, KEnS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<KEnS, KEnS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opKEnS, iceP_i, context);
 }
@@ -3313,9 +3313,9 @@ Test::MyClassPrx::opQEnSAsync(const QEnS& iceP_i,
                               ::std::function<void(bool)> sent,
                               const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<QEnS, QEnS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<QEnS, QEnS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<QEnS, QEnS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opQEnS, iceP_i, context);
 }
@@ -3363,9 +3363,9 @@ Test::MyClassPrx::opSEnSAsync(const SEnS& iceP_i,
                               ::std::function<void(bool)> sent,
                               const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<SEnS, SEnS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<SEnS, SEnS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<SEnS, SEnS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSEnS, iceP_i, context);
 }
@@ -3413,9 +3413,9 @@ Test::MyClassPrx::opAIPrxSAsync(const AIPrxS& iceP_i,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<AIPrxS, AIPrxS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<AIPrxS, AIPrxS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<AIPrxS, AIPrxS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opAIPrxS, iceP_i, context);
 }
@@ -3463,9 +3463,9 @@ Test::MyClassPrx::opLIPrxSAsync(const LIPrxS& iceP_i,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<LIPrxS, LIPrxS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<LIPrxS, LIPrxS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<LIPrxS, LIPrxS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opLIPrxS, iceP_i, context);
 }
@@ -3513,9 +3513,9 @@ Test::MyClassPrx::opKIPrxSAsync(const KIPrxS& iceP_i,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<KIPrxS, KIPrxS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<KIPrxS, KIPrxS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<KIPrxS, KIPrxS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opKIPrxS, iceP_i, context);
 }
@@ -3563,9 +3563,9 @@ Test::MyClassPrx::opQIPrxSAsync(const QIPrxS& iceP_i,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<QIPrxS, QIPrxS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<QIPrxS, QIPrxS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<QIPrxS, QIPrxS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opQIPrxS, iceP_i, context);
 }
@@ -3613,9 +3613,9 @@ Test::MyClassPrx::opSIPrxSAsync(const SIPrxS& iceP_i,
                                 ::std::function<void(bool)> sent,
                                 const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<SIPrxS, SIPrxS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<SIPrxS, SIPrxS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<SIPrxS, SIPrxS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSIPrxS, iceP_i, context);
 }
@@ -3663,9 +3663,9 @@ Test::MyClassPrx::opCustomIntSAsync(const CustomIntS& iceP_i,
                                     ::std::function<void(bool)> sent,
                                     const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<CustomIntS, CustomIntS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<CustomIntS, CustomIntS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<CustomIntS, CustomIntS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opCustomIntS, iceP_i, context);
 }
@@ -3713,9 +3713,9 @@ Test::MyClassPrx::opCustomCVSAsync(const CustomCVS& iceP_i,
                                    ::std::function<void(bool)> sent,
                                    const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<CustomCVS, CustomCVS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<CustomCVS, CustomCVS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<CustomCVS, CustomCVS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opCustomCVS, iceP_i, context);
 }
@@ -3765,9 +3765,9 @@ Test::MyClassPrx::opCustomIntSSAsync(const CustomIntSS& iceP_i,
                                      ::std::function<void(bool)> sent,
                                      const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<CustomIntSS, CustomIntSS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<CustomIntSS, CustomIntSS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<CustomIntSS, CustomIntSS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opCustomIntSS, iceP_i, context);
 }
@@ -3815,9 +3815,9 @@ Test::MyClassPrx::opCustomCVSSAsync(const CustomCVSS& iceP_i,
                                     ::std::function<void(bool)> sent,
                                     const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<CustomCVSS, CustomCVSS>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<CustomCVSS, CustomCVSS>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<CustomCVSS, CustomCVSS>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opCustomCVSS, iceP_i, context);
 }

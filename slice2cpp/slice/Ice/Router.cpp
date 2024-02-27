@@ -59,9 +59,9 @@ Ice::RouterPrx::getClientProxyAsync(::std::function<void (::std::optional<::Ice:
                                     ::std::function<void(bool)> sent,
                                     const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<::std::optional<::Ice::ObjectPrx>, ::std::optional<bool>>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<::std::optional<::Ice::ObjectPrx>, ::std::optional<bool>>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::get<1>(_result));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<::Ice::ObjectPrx>, ::std::optional<bool>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Ice::RouterPrx::_iceI_getClientProxy, context);
 }

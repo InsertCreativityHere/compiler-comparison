@@ -270,9 +270,9 @@ IceGrid::FileReaderPrx::readAsync(::std::string_view iceP_filename, ::std::int64
                                   ::std::function<void(bool)> sent,
                                   const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<bool, ::std::int64_t, ::Ice::StringSeq>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<bool, ::std::int64_t, ::Ice::StringSeq>&& _result)
     {
-        response(::std::get<0>(_result), ::std::get<1>(_result), ::std::move(::std::get<2>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<bool, ::std::int64_t, ::Ice::StringSeq>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &IceGrid::FileReaderPrx::_iceI_read, iceP_filename, iceP_pos, iceP_size, context);
 }
@@ -954,9 +954,9 @@ IceGrid::NodePrx::loadServerAsync(const ::std::shared_ptr<InternalServerDescript
                                   ::std::function<void(bool)> sent,
                                   const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, ::std::int32_t, ::std::int32_t>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, ::std::int32_t, ::std::int32_t>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)), ::std::get<2>(_result), ::std::get<3>(_result));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, ::std::int32_t, ::std::int32_t>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &IceGrid::NodePrx::_iceI_loadServer, iceP_svr, iceP_replicaName, context);
 }
@@ -1020,9 +1020,9 @@ IceGrid::NodePrx::loadServerWithoutRestartAsync(const ::std::shared_ptr<Internal
                                                 ::std::function<void(bool)> sent,
                                                 const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, ::std::int32_t, ::std::int32_t>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, ::std::int32_t, ::std::int32_t>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::move(::std::get<1>(_result)), ::std::get<2>(_result), ::std::get<3>(_result));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, ::std::int32_t, ::std::int32_t>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &IceGrid::NodePrx::_iceI_loadServerWithoutRestart, iceP_svr, iceP_replicaName, context);
 }
@@ -2275,9 +2275,9 @@ IceGrid::InternalRegistryPrx::getApplicationsAsync(::std::function<void (::IceGr
                                                    ::std::function<void(bool)> sent,
                                                    const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<ApplicationInfoSeq, ::std::int64_t>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<ApplicationInfoSeq, ::std::int64_t>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::get<1>(_result));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<ApplicationInfoSeq, ::std::int64_t>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &IceGrid::InternalRegistryPrx::_iceI_getApplications, context);
 }
@@ -2322,9 +2322,9 @@ IceGrid::InternalRegistryPrx::getAdaptersAsync(::std::function<void (::IceGrid::
                                                ::std::function<void(bool)> sent,
                                                const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<AdapterInfoSeq, ::std::int64_t>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<AdapterInfoSeq, ::std::int64_t>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::get<1>(_result));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<AdapterInfoSeq, ::std::int64_t>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &IceGrid::InternalRegistryPrx::_iceI_getAdapters, context);
 }
@@ -2368,9 +2368,9 @@ IceGrid::InternalRegistryPrx::getObjectsAsync(::std::function<void (::IceGrid::O
                                               ::std::function<void(bool)> sent,
                                               const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<ObjectInfoSeq, ::std::int64_t>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<ObjectInfoSeq, ::std::int64_t>&& _result)
     {
-        response(::std::move(::std::get<0>(_result)), ::std::get<1>(_result));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<ObjectInfoSeq, ::std::int64_t>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &IceGrid::InternalRegistryPrx::_iceI_getObjects, context);
 }

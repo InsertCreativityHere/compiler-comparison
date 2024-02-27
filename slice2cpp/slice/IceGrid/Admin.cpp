@@ -2536,9 +2536,9 @@ IceGrid::FileIteratorPrx::readAsync(::std::int32_t iceP_size,
                                     ::std::function<void(bool)> sent,
                                     const ::Ice::Context& context) const
 {
-    auto _responseCb = [response](::std::tuple<bool, ::Ice::StringSeq>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<bool, ::Ice::StringSeq>&& _result)
     {
-        response(::std::get<0>(_result), ::std::move(::std::get<1>(_result)));
+        ::std::apply(::std::move(_response), ::std::move(_result));
     };
     return ::IceInternal::makeLambdaOutgoing<::std::tuple<bool, ::Ice::StringSeq>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &IceGrid::FileIteratorPrx::_iceI_read, iceP_size, context);
 }
