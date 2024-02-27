@@ -16883,11 +16883,25 @@ namespace Test
 
         #region Inherited Slice operations
 
-        public abstract double[][] opFloatDoubleSS(float[][] p1, double[][] p2, out float[][] p3, out double[][] p4, global::Ice.Current current = null);
+        public abstract string[] opStringS2(string[] stringS, global::Ice.Current current = null);
 
-        public abstract string[][] opStringSS(string[][] p1, string[][] p2, out string[][] p3, global::Ice.Current current = null);
+        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::Ice.Current current = null);
 
-        public abstract string[][][] opStringSSS(string[][][] p1, string[][][] p2, out string[][][] p3, global::Ice.Current current = null);
+        public abstract string[] opStringLiterals(global::Ice.Current current = null);
+
+        public abstract string[] opWStringLiterals(global::Ice.Current current = null);
+
+        public abstract MyClass_OpMStruct1MarshaledResult opMStruct1(global::Ice.Current current = null);
+
+        public abstract MyClass_OpMStruct2MarshaledResult opMStruct2(Structure p1, global::Ice.Current current = null);
+
+        public abstract MyClass_OpMSeq1MarshaledResult opMSeq1(global::Ice.Current current = null);
+
+        public abstract MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, global::Ice.Current current = null);
+
+        public abstract MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current = null);
+
+        public abstract MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
 
         public abstract void shutdown(global::Ice.Current current = null);
 
@@ -16927,35 +16941,11 @@ namespace Test
 
         public abstract long[][] opShortIntLongSS(short[][] p1, int[][] p2, long[][] p3, out short[][] p4, out int[][] p5, out long[][] p6, global::Ice.Current current = null);
 
-        public abstract float opFloat1(float opFloat1, global::Ice.Current current = null);
+        public abstract double[][] opFloatDoubleSS(float[][] p1, double[][] p2, out float[][] p3, out double[][] p4, global::Ice.Current current = null);
 
-        public abstract double opDouble1(double opDouble1, global::Ice.Current current = null);
+        public abstract string[][] opStringSS(string[][] p1, string[][] p2, out string[][] p3, global::Ice.Current current = null);
 
-        public abstract string opString1(string opString1, global::Ice.Current current = null);
-
-        public abstract string[] opStringS1(string[] opStringS1, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::Ice.Current current = null);
-
-        public abstract string[] opStringS2(string[] stringS, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::Ice.Current current = null);
-
-        public abstract string[] opStringLiterals(global::Ice.Current current = null);
-
-        public abstract string[] opWStringLiterals(global::Ice.Current current = null);
-
-        public abstract MyClass_OpMStruct1MarshaledResult opMStruct1(global::Ice.Current current = null);
-
-        public abstract MyClass_OpMStruct2MarshaledResult opMStruct2(Structure p1, global::Ice.Current current = null);
-
-        public abstract MyClass_OpMSeq1MarshaledResult opMSeq1(global::Ice.Current current = null);
-
-        public abstract MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, global::Ice.Current current = null);
-
-        public abstract MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current = null);
-
-        public abstract MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
+        public abstract string[][][] opStringSSS(string[][][] p1, string[][][] p2, out string[][][] p3, global::Ice.Current current = null);
 
         public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD(global::System.Collections.Generic.Dictionary<byte, bool> p1, global::System.Collections.Generic.Dictionary<byte, bool> p2, out global::System.Collections.Generic.Dictionary<byte, bool> p3, global::Ice.Current current = null);
 
@@ -17024,6 +17014,16 @@ namespace Test
         public abstract int opInt1(int opInt1, global::Ice.Current current = null);
 
         public abstract long opLong1(long opLong1, global::Ice.Current current = null);
+
+        public abstract float opFloat1(float opFloat1, global::Ice.Current current = null);
+
+        public abstract double opDouble1(double opDouble1, global::Ice.Current current = null);
+
+        public abstract string opString1(string opString1, global::Ice.Current current = null);
+
+        public abstract string[] opStringS1(string[] opStringS1, global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::Ice.Current current = null);
 
         #endregion
 
@@ -17529,11 +17529,25 @@ namespace Test2
     {
         #region Inherited Slice operations
 
-        public abstract double[][] opFloatDoubleSS(float[][] p1, double[][] p2, out float[][] p3, out double[][] p4, global::Ice.Current current = null);
+        public abstract string[] opStringS2(string[] stringS, global::Ice.Current current = null);
 
-        public abstract string[][] opStringSS(string[][] p1, string[][] p2, out string[][] p3, global::Ice.Current current = null);
+        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::Ice.Current current = null);
 
-        public abstract string[][][] opStringSSS(string[][][] p1, string[][][] p2, out string[][][] p3, global::Ice.Current current = null);
+        public abstract string[] opStringLiterals(global::Ice.Current current = null);
+
+        public abstract string[] opWStringLiterals(global::Ice.Current current = null);
+
+        public abstract global::Test.MyClass_OpMStruct1MarshaledResult opMStruct1(global::Ice.Current current = null);
+
+        public abstract global::Test.MyClass_OpMStruct2MarshaledResult opMStruct2(global::Test.Structure p1, global::Ice.Current current = null);
+
+        public abstract global::Test.MyClass_OpMSeq1MarshaledResult opMSeq1(global::Ice.Current current = null);
+
+        public abstract global::Test.MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, global::Ice.Current current = null);
+
+        public abstract global::Test.MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current = null);
+
+        public abstract global::Test.MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
 
         public abstract void shutdown(global::Ice.Current current = null);
 
@@ -17573,35 +17587,11 @@ namespace Test2
 
         public abstract long[][] opShortIntLongSS(short[][] p1, int[][] p2, long[][] p3, out short[][] p4, out int[][] p5, out long[][] p6, global::Ice.Current current = null);
 
-        public abstract float opFloat1(float opFloat1, global::Ice.Current current = null);
+        public abstract double[][] opFloatDoubleSS(float[][] p1, double[][] p2, out float[][] p3, out double[][] p4, global::Ice.Current current = null);
 
-        public abstract double opDouble1(double opDouble1, global::Ice.Current current = null);
+        public abstract string[][] opStringSS(string[][] p1, string[][] p2, out string[][] p3, global::Ice.Current current = null);
 
-        public abstract string opString1(string opString1, global::Ice.Current current = null);
-
-        public abstract string[] opStringS1(string[] opStringS1, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::Ice.Current current = null);
-
-        public abstract string[] opStringS2(string[] stringS, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD2(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::Ice.Current current = null);
-
-        public abstract string[] opStringLiterals(global::Ice.Current current = null);
-
-        public abstract string[] opWStringLiterals(global::Ice.Current current = null);
-
-        public abstract global::Test.MyClass_OpMStruct1MarshaledResult opMStruct1(global::Ice.Current current = null);
-
-        public abstract global::Test.MyClass_OpMStruct2MarshaledResult opMStruct2(global::Test.Structure p1, global::Ice.Current current = null);
-
-        public abstract global::Test.MyClass_OpMSeq1MarshaledResult opMSeq1(global::Ice.Current current = null);
-
-        public abstract global::Test.MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, global::Ice.Current current = null);
-
-        public abstract global::Test.MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current = null);
-
-        public abstract global::Test.MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
+        public abstract string[][][] opStringSSS(string[][][] p1, string[][][] p2, out string[][][] p3, global::Ice.Current current = null);
 
         public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD(global::System.Collections.Generic.Dictionary<byte, bool> p1, global::System.Collections.Generic.Dictionary<byte, bool> p2, out global::System.Collections.Generic.Dictionary<byte, bool> p3, global::Ice.Current current = null);
 
@@ -17670,6 +17660,16 @@ namespace Test2
         public abstract int opInt1(int opInt1, global::Ice.Current current = null);
 
         public abstract long opLong1(long opLong1, global::Ice.Current current = null);
+
+        public abstract float opFloat1(float opFloat1, global::Ice.Current current = null);
+
+        public abstract double opDouble1(double opDouble1, global::Ice.Current current = null);
+
+        public abstract string opString1(string opString1, global::Ice.Current current = null);
+
+        public abstract string[] opStringS1(string[] opStringS1, global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::Ice.Current current = null);
 
         #endregion
 

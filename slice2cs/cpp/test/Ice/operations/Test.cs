@@ -17256,6 +17256,12 @@ namespace Test
 
         public abstract global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] opMyStructMyEnumDS(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p2, out global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p3, global::Ice.Current current = null);
 
+        public abstract void opIdempotent(global::Ice.Current current = null);
+
+        public abstract void opNonmutating(global::Ice.Current current = null);
+
+        public abstract byte opByte1(byte opByte1, global::Ice.Current current = null);
+
         public abstract global::System.Collections.Generic.Dictionary<byte, byte[]> opByteByteSD(global::System.Collections.Generic.Dictionary<byte, byte[]> p1, global::System.Collections.Generic.Dictionary<byte, byte[]> p2, out global::System.Collections.Generic.Dictionary<byte, byte[]> p3, global::Ice.Current current = null);
 
         public abstract global::System.Collections.Generic.Dictionary<bool, bool[]> opBoolBoolSD(global::System.Collections.Generic.Dictionary<bool, bool[]> p1, global::System.Collections.Generic.Dictionary<bool, bool[]> p2, out global::System.Collections.Generic.Dictionary<bool, bool[]> p3, global::Ice.Current current = null);
@@ -17283,12 +17289,6 @@ namespace Test
         public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(global::Ice.Current current = null);
 
         public abstract void opDoubleMarshaling(double p1, double[] p2, global::Ice.Current current = null);
-
-        public abstract void opIdempotent(global::Ice.Current current = null);
-
-        public abstract void opNonmutating(global::Ice.Current current = null);
-
-        public abstract byte opByte1(byte opByte1, global::Ice.Current current = null);
 
         public abstract short opShort1(short opShort1, global::Ice.Current current = null);
 
@@ -17902,6 +17902,12 @@ namespace Test2
 
         public abstract global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum>[] opMyStructMyEnumDS(global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum>[] p1, global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum>[] p2, out global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum>[] p3, global::Ice.Current current = null);
 
+        public abstract void opIdempotent(global::Ice.Current current = null);
+
+        public abstract void opNonmutating(global::Ice.Current current = null);
+
+        public abstract byte opByte1(byte opByte1, global::Ice.Current current = null);
+
         public abstract global::System.Collections.Generic.Dictionary<byte, byte[]> opByteByteSD(global::System.Collections.Generic.Dictionary<byte, byte[]> p1, global::System.Collections.Generic.Dictionary<byte, byte[]> p2, out global::System.Collections.Generic.Dictionary<byte, byte[]> p3, global::Ice.Current current = null);
 
         public abstract global::System.Collections.Generic.Dictionary<bool, bool[]> opBoolBoolSD(global::System.Collections.Generic.Dictionary<bool, bool[]> p1, global::System.Collections.Generic.Dictionary<bool, bool[]> p2, out global::System.Collections.Generic.Dictionary<bool, bool[]> p3, global::Ice.Current current = null);
@@ -17929,12 +17935,6 @@ namespace Test2
         public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(global::Ice.Current current = null);
 
         public abstract void opDoubleMarshaling(double p1, double[] p2, global::Ice.Current current = null);
-
-        public abstract void opIdempotent(global::Ice.Current current = null);
-
-        public abstract void opNonmutating(global::Ice.Current current = null);
-
-        public abstract byte opByte1(byte opByte1, global::Ice.Current current = null);
 
         public abstract short opShort1(short opShort1, global::Ice.Current current = null);
 
