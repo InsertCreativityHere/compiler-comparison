@@ -69,8 +69,8 @@ Slice.defineOperations(IceGrid.Session, IceGrid.SessionPrx, iceC_IceGrid_Session
     "keepAlive": [, 2, 2, , , , , , , ],
     "allocateObjectById": [, , , , [9], [[Ice.Identity]], ,
     [
-        IceGrid.ObjectNotRegisteredException,
-        IceGrid.AllocationException
+        IceGrid.AllocationException,
+        IceGrid.ObjectNotRegisteredException
     ], , ],
     "allocateObjectByType": [, , , , [9], [[7]], ,
     [
@@ -78,8 +78,8 @@ Slice.defineOperations(IceGrid.Session, IceGrid.SessionPrx, iceC_IceGrid_Session
     ], , ],
     "releaseObject": [, , , , , [[Ice.Identity]], ,
     [
-        IceGrid.ObjectNotRegisteredException,
-        IceGrid.AllocationException
+        IceGrid.AllocationException,
+        IceGrid.ObjectNotRegisteredException
     ], , ],
     "setAllocationTimeout": [, 2, 2, , , [[3]], , , , ]
 });

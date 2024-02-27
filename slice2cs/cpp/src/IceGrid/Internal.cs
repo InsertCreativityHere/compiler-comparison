@@ -7451,11 +7451,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(DeploymentException)
+                    catch(ObserverAlreadyRegisteredException)
                     {
                         throw;
                     }
-                    catch(ObserverAlreadyRegisteredException)
+                    catch(DeploymentException)
                     {
                         throw;
                     }
@@ -7559,11 +7559,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(AdapterNotExistException)
+                    catch(AdapterExistsException)
                     {
                         throw;
                     }
-                    catch(AdapterExistsException)
+                    catch(AdapterNotExistException)
                     {
                         throw;
                     }
