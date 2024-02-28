@@ -374,37 +374,37 @@ Test::TestIntfPrx::_iceI_opBoolList(const ::std::shared_ptr<::IceInternal::Outgo
 }
 /// \endcond
 
-std::deque< ::Ice::Byte>
-Test::TestIntfPrx::opByteSeq(const std::deque< ::Ice::Byte>& iceP_inSeq, std::deque< ::Ice::Byte>& iceP_outSeq, const ::Ice::Context& context) const
+std::deque<std::uint8_t>
+Test::TestIntfPrx::opByteSeq(const std::deque<std::uint8_t>& iceP_inSeq, std::deque<std::uint8_t>& iceP_outSeq, const ::Ice::Context& context) const
 {
-    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<std::deque< ::Ice::Byte>, std::deque< ::Ice::Byte>>>(true, this, &TestIntfPrx::_iceI_opByteSeq, iceP_inSeq, context).get();
+    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<std::deque<std::uint8_t>, std::deque<std::uint8_t>>>(true, this, &TestIntfPrx::_iceI_opByteSeq, iceP_inSeq, context).get();
     iceP_outSeq = ::std::move(::std::get<1>(_result));
     return ::std::move(::std::get<0>(_result));
 }
 
-::std::future<::std::tuple<std::deque< ::Ice::Byte>, std::deque< ::Ice::Byte>>>
-Test::TestIntfPrx::opByteSeqAsync(const std::deque< ::Ice::Byte>& iceP_inSeq, const ::Ice::Context& context) const
+::std::future<::std::tuple<std::deque<std::uint8_t>, std::deque<std::uint8_t>>>
+Test::TestIntfPrx::opByteSeqAsync(const std::deque<std::uint8_t>& iceP_inSeq, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::tuple<std::deque< ::Ice::Byte>, std::deque< ::Ice::Byte>>>(false, this, &TestIntfPrx::_iceI_opByteSeq, iceP_inSeq, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<std::deque<std::uint8_t>, std::deque<std::uint8_t>>>(false, this, &TestIntfPrx::_iceI_opByteSeq, iceP_inSeq, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::opByteSeqAsync(const std::deque< ::Ice::Byte>& iceP_inSeq,
-                                  ::std::function<void (std::deque< ::Ice::Byte>, std::deque< ::Ice::Byte>)> response,
+Test::TestIntfPrx::opByteSeqAsync(const std::deque<std::uint8_t>& iceP_inSeq,
+                                  ::std::function<void (std::deque<std::uint8_t>, std::deque<std::uint8_t>)> response,
                                   ::std::function<void(::std::exception_ptr)> ex,
                                   ::std::function<void(bool)> sent,
                                   const ::Ice::Context& context) const
 {
-    auto _responseCb = [_response = ::std::move(response)](::std::tuple<std::deque< ::Ice::Byte>, std::deque< ::Ice::Byte>>&& _result)
+    auto _responseCb = [_response = ::std::move(response)](::std::tuple<std::deque<std::uint8_t>, std::deque<std::uint8_t>>&& _result)
     {
         ::std::apply(::std::move(_response), ::std::move(_result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<std::deque< ::Ice::Byte>, std::deque< ::Ice::Byte>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opByteSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<std::deque<std::uint8_t>, std::deque<std::uint8_t>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opByteSeq, iceP_inSeq, context);
 }
 
 /// \cond INTERNAL
 void
-Test::TestIntfPrx::_iceI_opByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::deque< ::Ice::Byte>, std::deque< ::Ice::Byte>>>>& outAsync, const std::deque< ::Ice::Byte>& iceP_inSeq, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_opByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::deque<std::uint8_t>, std::deque<std::uint8_t>>>>& outAsync, const std::deque<std::uint8_t>& iceP_inSeq, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "opByteSeq";
 
@@ -417,7 +417,7 @@ Test::TestIntfPrx::_iceI_opByteSeq(const ::std::shared_ptr<::IceInternal::Outgoi
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::tuple<std::deque< ::Ice::Byte>, std::deque< ::Ice::Byte>> v;
+            ::std::tuple<std::deque<std::uint8_t>, std::deque<std::uint8_t>> v;
             istr->readAll(::std::get<1>(v), ::std::get<0>(v));
             return v;
         });
@@ -1774,11 +1774,11 @@ Test::TestIntf::_iceD_opByteSeq(::IceInternal::Incoming& inS, const ::Ice::Curre
 {
     _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
     auto istr = inS.startReadParams();
-    std::deque< ::Ice::Byte> iceP_inSeq;
+    std::deque<std::uint8_t> iceP_inSeq;
     istr->readAll(iceP_inSeq);
     inS.endReadParams();
     auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const std::deque< ::Ice::Byte>& ret, const std::deque< ::Ice::Byte>& iceP_outSeq)
+    auto responseCB = [inA](const std::deque<std::uint8_t>& ret, const std::deque<std::uint8_t>& iceP_outSeq)
     {
         auto ostr = inA->startWriteParams();
         ostr->writeAll(iceP_outSeq, ret);

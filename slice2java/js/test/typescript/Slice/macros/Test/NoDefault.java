@@ -50,7 +50,7 @@ public class NoDefault extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 5029395768280471807L;
+    public static final long serialVersionUID = 809033506423885407L;
 
     /** @hidden */
     @Override

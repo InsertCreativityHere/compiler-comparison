@@ -69,5 +69,5 @@ public class KnownMostDerived extends KnownIntermediate
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -7384912277416644314L;
+    public static final long serialVersionUID = -7384918455940410072L;
 }

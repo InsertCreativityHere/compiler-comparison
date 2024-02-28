@@ -47,7 +47,7 @@ using BoolSeqList = std::list< ::Test::BoolSeq>;
 
 using ByteSeq = ::std::vector<::std::uint8_t>;
 
-using ByteList = std::list< ::Ice::Byte>;
+using ByteList = std::list<std::uint8_t>;
 
 using ByteListList = std::list< ::Test::ByteList>;
 
@@ -165,7 +165,7 @@ using FloatBuffer = Test::CustomBuffer<float>;
 
 using DoubleBuffer = Test::CustomBuffer<double>;
 
-using ByteBuffer = Test::CustomBuffer<Ice::Byte>;
+using ByteBuffer = Test::CustomBuffer<std::uint8_t>;
 struct BufferStruct;
 class TestIntfPrx;
 
@@ -322,19 +322,19 @@ public:
     void _iceI_opBoolList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<BoolList, BoolList>>>&, const BoolList&, const ::Ice::Context&) const;
     /// \endcond
 
-    std::deque< ::Ice::Byte> opByteSeq(const std::deque< ::Ice::Byte>& inSeq, std::deque< ::Ice::Byte>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    std::deque<std::uint8_t> opByteSeq(const std::deque<std::uint8_t>& inSeq, std::deque<std::uint8_t>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::deque< ::Ice::Byte>, std::deque< ::Ice::Byte>>> opByteSeqAsync(const std::deque< ::Ice::Byte>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<std::deque<std::uint8_t>, std::deque<std::uint8_t>>> opByteSeqAsync(const std::deque<std::uint8_t>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opByteSeqAsync(const std::deque< ::Ice::Byte>& inSeq,
-                   ::std::function<void(std::deque< ::Ice::Byte>, std::deque< ::Ice::Byte>)> response,
+    opByteSeqAsync(const std::deque<std::uint8_t>& inSeq,
+                   ::std::function<void(std::deque<std::uint8_t>, std::deque<std::uint8_t>)> response,
                    ::std::function<void(::std::exception_ptr)> ex = nullptr,
                    ::std::function<void(bool)> sent = nullptr,
                    const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::deque< ::Ice::Byte>, std::deque< ::Ice::Byte>>>>&, const std::deque< ::Ice::Byte>&, const ::Ice::Context&) const;
+    void _iceI_opByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::deque<std::uint8_t>, std::deque<std::uint8_t>>>>&, const std::deque<std::uint8_t>&, const ::Ice::Context&) const;
     /// \endcond
 
     ByteList opByteList(const ByteList& inSeq, ByteList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -953,7 +953,7 @@ public:
     bool _iceD_opBoolList(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void opByteSeqAsync(std::deque< ::Ice::Byte> inSeq, ::std::function<void(const std::deque< ::Ice::Byte>& returnValue, const std::deque< ::Ice::Byte>& outSeq)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void opByteSeqAsync(std::deque<std::uint8_t> inSeq, ::std::function<void(const std::deque<std::uint8_t>& returnValue, const std::deque<std::uint8_t>& outSeq)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opByteSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
