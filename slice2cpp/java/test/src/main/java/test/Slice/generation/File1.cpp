@@ -63,7 +63,7 @@ Test::Interface1Prx::methodAsync(::std::function<void ()> response,
 void
 Test::Interface1Prx::_iceI_method(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "method";
+    static constexpr ::std::string_view operationName = "method";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

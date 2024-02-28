@@ -61,7 +61,7 @@ Test::TimeoutPrx::opAsync(::std::function<void ()> response,
 void
 Test::TimeoutPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "op";
+    static constexpr ::std::string_view operationName = "op";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -95,7 +95,7 @@ Test::TimeoutPrx::sendDataAsync(const ByteSeq& iceP_seq,
 void
 Test::TimeoutPrx::_iceI_sendData(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ByteSeq& iceP_seq, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "sendData";
+    static constexpr ::std::string_view operationName = "sendData";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -132,7 +132,7 @@ Test::TimeoutPrx::sleepAsync(::std::int32_t iceP_to,
 void
 Test::TimeoutPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_to, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "sleep";
+    static constexpr ::std::string_view operationName = "sleep";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -176,7 +176,7 @@ Test::ControllerPrx::holdAdapterAsync(::std::int32_t iceP_to,
 void
 Test::ControllerPrx::_iceI_holdAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_to, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "holdAdapter";
+    static constexpr ::std::string_view operationName = "holdAdapter";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -212,7 +212,7 @@ Test::ControllerPrx::resumeAdapterAsync(::std::function<void ()> response,
 void
 Test::ControllerPrx::_iceI_resumeAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "resumeAdapter";
+    static constexpr ::std::string_view operationName = "resumeAdapter";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -245,7 +245,7 @@ Test::ControllerPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::ControllerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

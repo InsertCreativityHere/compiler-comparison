@@ -73,7 +73,7 @@ classdef::_cpp_break::elseifPrx::eventsAsync(::std::function<void ()> response,
 void
 classdef::_cpp_break::elseifPrx::_iceI_events(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "events";
+    static constexpr ::std::string_view operationName = "events";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -106,7 +106,7 @@ classdef::_cpp_break::elseifPrx::functionAsync(::std::function<void ()> response
 void
 classdef::_cpp_break::elseifPrx::_iceI_function(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "function";
+    static constexpr ::std::string_view operationName = "function";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -139,7 +139,7 @@ classdef::_cpp_break::elseifPrx::deleteAsync(::std::function<void ()> response,
 void
 classdef::_cpp_break::elseifPrx::_iceI_delete(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "delete";
+    static constexpr ::std::string_view operationName = "delete";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -172,7 +172,7 @@ classdef::_cpp_break::elseifPrx::checkedCastAsync(::std::function<void ()> respo
 void
 classdef::_cpp_break::elseifPrx::_iceI_checkedCast(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "checkedCast";
+    static constexpr ::std::string_view operationName = "checkedCast";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

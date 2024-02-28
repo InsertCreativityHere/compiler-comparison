@@ -61,7 +61,7 @@ Test::TestIntfPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -94,7 +94,7 @@ Test::TestIntfPrx::abortAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_abort(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "abort";
+    static constexpr ::std::string_view operationName = "abort";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -127,7 +127,7 @@ Test::TestIntfPrx::idempotentAbortAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_idempotentAbort(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "idempotentAbort";
+    static constexpr ::std::string_view operationName = "idempotentAbort";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -160,7 +160,7 @@ Test::TestIntfPrx::pidAsync(::std::function<void (::std::int32_t)> response,
 void
 Test::TestIntfPrx::_iceI_pid(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "pid";
+    static constexpr ::std::string_view operationName = "pid";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
@@ -201,7 +201,7 @@ Test::CleanerPrx::cleanupAsync(::std::function<void ()> response,
 void
 Test::CleanerPrx::_iceI_cleanup(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "cleanup";
+    static constexpr ::std::string_view operationName = "cleanup";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

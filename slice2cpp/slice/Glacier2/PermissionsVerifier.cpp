@@ -73,7 +73,7 @@ Glacier2::PermissionsVerifierPrx::checkPermissionsAsync(::std::string_view iceP_
 void
 Glacier2::PermissionsVerifierPrx::_iceI_checkPermissions(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<bool, ::std::string>>>& outAsync, ::std::string_view iceP_userId, ::std::string_view iceP_password, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "checkPermissions";
+    static constexpr ::std::string_view operationName = "checkPermissions";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::SlicedFormat, context,
@@ -143,7 +143,7 @@ Glacier2::SSLPermissionsVerifierPrx::authorizeAsync(const SSLInfo& iceP_info,
 void
 Glacier2::SSLPermissionsVerifierPrx::_iceI_authorize(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<bool, ::std::string>>>& outAsync, const SSLInfo& iceP_info, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "authorize";
+    static constexpr ::std::string_view operationName = "authorize";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::SlicedFormat, context,

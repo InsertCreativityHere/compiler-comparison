@@ -61,7 +61,7 @@ Test::ServerPrx::noCertAsync(::std::function<void ()> response,
 void
 Test::ServerPrx::_iceI_noCert(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "noCert";
+    static constexpr ::std::string_view operationName = "noCert";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -95,7 +95,7 @@ Test::ServerPrx::checkCertAsync(::std::string_view iceP_subjectDN, ::std::string
 void
 Test::ServerPrx::_iceI_checkCert(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_subjectDN, ::std::string_view iceP_issuerDN, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "checkCert";
+    static constexpr ::std::string_view operationName = "checkCert";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -132,7 +132,7 @@ Test::ServerPrx::checkCipherAsync(::std::string_view iceP_cipher,
 void
 Test::ServerPrx::_iceI_checkCipher(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_cipher, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "checkCipher";
+    static constexpr ::std::string_view operationName = "checkCipher";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -176,7 +176,7 @@ Test::ServerFactoryPrx::createServerAsync(const Properties& iceP_props,
 void
 Test::ServerFactoryPrx::_iceI_createServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<ServerPrx>>>& outAsync, const Properties& iceP_props, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "createServer";
+    static constexpr ::std::string_view operationName = "createServer";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -214,7 +214,7 @@ Test::ServerFactoryPrx::destroyServerAsync(const ::std::optional<ServerPrx>& ice
 void
 Test::ServerFactoryPrx::_iceI_destroyServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<ServerPrx>& iceP_srv, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "destroyServer";
+    static constexpr ::std::string_view operationName = "destroyServer";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -250,7 +250,7 @@ Test::ServerFactoryPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::ServerFactoryPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

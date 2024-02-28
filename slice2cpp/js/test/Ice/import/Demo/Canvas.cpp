@@ -62,7 +62,7 @@ Demo::gx::CanvasPrx::paintSquareAsync(const Square& iceP_square,
 void
 Demo::gx::CanvasPrx::_iceI_paintSquare(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const Square& iceP_square, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "paintSquare";
+    static constexpr ::std::string_view operationName = "paintSquare";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -99,7 +99,7 @@ Demo::gx::CanvasPrx::paintCircleAsync(const Circle& iceP_circle,
 void
 Demo::gx::CanvasPrx::_iceI_paintCircle(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const Circle& iceP_circle, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "paintCircle";
+    static constexpr ::std::string_view operationName = "paintCircle";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -142,7 +142,7 @@ Demo::gx::SessionPrx::destroySessionAsync(::std::function<void ()> response,
 void
 Demo::gx::SessionPrx::_iceI_destroySession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "destroySession";
+    static constexpr ::std::string_view operationName = "destroySession";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

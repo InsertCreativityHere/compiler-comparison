@@ -61,7 +61,7 @@ Test::MyObjectPrx::getNameAsync(::std::function<void (::std::string)> response,
 void
 Test::MyObjectPrx::_iceI_getName(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getName";
+    static constexpr ::std::string_view operationName = "getName";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,

@@ -68,7 +68,7 @@ _cpp_and::delPrx::elifAsync(::std::int32_t iceP_else,
 void
 _cpp_and::delPrx::_iceI_elif(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_else, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "elif";
+    static constexpr ::std::string_view operationName = "elif";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -112,7 +112,7 @@ _cpp_and::execPrx::finallyAsync(::std::function<void ()> response,
 void
 _cpp_and::execPrx::_iceI_finally(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "finally";
+    static constexpr ::std::string_view operationName = "finally";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -160,7 +160,7 @@ _cpp_and::printPrx::raiseAsync(const _cpp_continue& iceP_else, const ::std::shar
 void
 _cpp_and::printPrx::_iceI_raise(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<assert>>& outAsync, const _cpp_continue& iceP_else, const ::std::shared_ptr<_cpp_for>& iceP_return, const ::std::optional<delPrx>& iceP_while, const ::std::optional<execPrx>& iceP_yield, const ::std::optional<ifPrx>& iceP_or, ::std::int32_t iceP_global, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "raise";
+    static constexpr ::std::string_view operationName = "raise";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,

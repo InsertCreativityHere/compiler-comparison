@@ -73,7 +73,7 @@ Test::UnexpectedObjectExceptionTestPrx::opAsync(::std::function<void (::std::sha
 void
 Test::UnexpectedObjectExceptionTestPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<AlsoEmpty>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "op";
+    static constexpr ::std::string_view operationName = "op";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,

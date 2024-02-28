@@ -88,7 +88,7 @@ IceMX::MetricsAdminPrx::getMetricsViewNamesAsync(::std::function<void (::Ice::St
 void
 IceMX::MetricsAdminPrx::_iceI_getMetricsViewNames(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Ice::StringSeq, ::Ice::StringSeq>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getMetricsViewNames";
+    static constexpr ::std::string_view operationName = "getMetricsViewNames";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
@@ -129,7 +129,7 @@ IceMX::MetricsAdminPrx::enableMetricsViewAsync(::std::string_view iceP_name,
 void
 IceMX::MetricsAdminPrx::_iceI_enableMetricsView(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_name, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "enableMetricsView";
+    static constexpr ::std::string_view operationName = "enableMetricsView";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
@@ -180,7 +180,7 @@ IceMX::MetricsAdminPrx::disableMetricsViewAsync(::std::string_view iceP_name,
 void
 IceMX::MetricsAdminPrx::_iceI_disableMetricsView(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_name, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "disableMetricsView";
+    static constexpr ::std::string_view operationName = "disableMetricsView";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
@@ -237,7 +237,7 @@ IceMX::MetricsAdminPrx::getMetricsViewAsync(::std::string_view iceP_view,
 void
 IceMX::MetricsAdminPrx::_iceI_getMetricsView(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<MetricsView, ::std::int64_t>>>& outAsync, ::std::string_view iceP_view, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getMetricsView";
+    static constexpr ::std::string_view operationName = "getMetricsView";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
@@ -295,7 +295,7 @@ IceMX::MetricsAdminPrx::getMapMetricsFailuresAsync(::std::string_view iceP_view,
 void
 IceMX::MetricsAdminPrx::_iceI_getMapMetricsFailures(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MetricsFailuresSeq>>& outAsync, ::std::string_view iceP_view, ::std::string_view iceP_map, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getMapMetricsFailures";
+    static constexpr ::std::string_view operationName = "getMapMetricsFailures";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
@@ -346,7 +346,7 @@ IceMX::MetricsAdminPrx::getMetricsFailuresAsync(::std::string_view iceP_view, ::
 void
 IceMX::MetricsAdminPrx::_iceI_getMetricsFailures(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MetricsFailures>>& outAsync, ::std::string_view iceP_view, ::std::string_view iceP_map, ::std::string_view iceP_id, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getMetricsFailures";
+    static constexpr ::std::string_view operationName = "getMetricsFailures";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,

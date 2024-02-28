@@ -66,7 +66,7 @@ Glacier2::SessionPrx::destroyAsync(::std::function<void ()> response,
 void
 Glacier2::SessionPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "destroy";
+    static constexpr ::std::string_view operationName = "destroy";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -107,7 +107,7 @@ Glacier2::StringSetPrx::addAsync(const ::Ice::StringSeq& iceP_additions,
 void
 Glacier2::StringSetPrx::_iceI_add(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::StringSeq& iceP_additions, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "add";
+    static constexpr ::std::string_view operationName = "add";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -144,7 +144,7 @@ Glacier2::StringSetPrx::removeAsync(const ::Ice::StringSeq& iceP_deletions,
 void
 Glacier2::StringSetPrx::_iceI_remove(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::StringSeq& iceP_deletions, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "remove";
+    static constexpr ::std::string_view operationName = "remove";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -180,7 +180,7 @@ Glacier2::StringSetPrx::getAsync(::std::function<void (::Ice::StringSeq)> respon
 void
 Glacier2::StringSetPrx::_iceI_get(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::StringSeq>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "get";
+    static constexpr ::std::string_view operationName = "get";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
@@ -222,7 +222,7 @@ Glacier2::IdentitySetPrx::addAsync(const ::Ice::IdentitySeq& iceP_additions,
 void
 Glacier2::IdentitySetPrx::_iceI_add(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::IdentitySeq& iceP_additions, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "add";
+    static constexpr ::std::string_view operationName = "add";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -259,7 +259,7 @@ Glacier2::IdentitySetPrx::removeAsync(const ::Ice::IdentitySeq& iceP_deletions,
 void
 Glacier2::IdentitySetPrx::_iceI_remove(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::IdentitySeq& iceP_deletions, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "remove";
+    static constexpr ::std::string_view operationName = "remove";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -295,7 +295,7 @@ Glacier2::IdentitySetPrx::getAsync(::std::function<void (::Ice::IdentitySeq)> re
 void
 Glacier2::IdentitySetPrx::_iceI_get(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::IdentitySeq>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "get";
+    static constexpr ::std::string_view operationName = "get";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
@@ -336,7 +336,7 @@ Glacier2::SessionControlPrx::categoriesAsync(::std::function<void (::std::option
 void
 Glacier2::SessionControlPrx::_iceI_categories(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<StringSetPrx>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "categories";
+    static constexpr ::std::string_view operationName = "categories";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -370,7 +370,7 @@ Glacier2::SessionControlPrx::adapterIdsAsync(::std::function<void (::std::option
 void
 Glacier2::SessionControlPrx::_iceI_adapterIds(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<StringSetPrx>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "adapterIds";
+    static constexpr ::std::string_view operationName = "adapterIds";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -404,7 +404,7 @@ Glacier2::SessionControlPrx::identitiesAsync(::std::function<void (::std::option
 void
 Glacier2::SessionControlPrx::_iceI_identities(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<IdentitySetPrx>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "identities";
+    static constexpr ::std::string_view operationName = "identities";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -438,7 +438,7 @@ Glacier2::SessionControlPrx::getSessionTimeoutAsync(::std::function<void (::std:
 void
 Glacier2::SessionControlPrx::_iceI_getSessionTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getSessionTimeout";
+    static constexpr ::std::string_view operationName = "getSessionTimeout";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
@@ -472,7 +472,7 @@ Glacier2::SessionControlPrx::destroyAsync(::std::function<void ()> response,
 void
 Glacier2::SessionControlPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "destroy";
+    static constexpr ::std::string_view operationName = "destroy";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -513,7 +513,7 @@ Glacier2::SessionManagerPrx::createAsync(::std::string_view iceP_userId, const :
 void
 Glacier2::SessionManagerPrx::_iceI_create(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<SessionPrx>>>& outAsync, ::std::string_view iceP_userId, const ::std::optional<SessionControlPrx>& iceP_control, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "create";
+    static constexpr ::std::string_view operationName = "create";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
@@ -571,7 +571,7 @@ Glacier2::SSLSessionManagerPrx::createAsync(const SSLInfo& iceP_info, const ::st
 void
 Glacier2::SSLSessionManagerPrx::_iceI_create(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<SessionPrx>>>& outAsync, const SSLInfo& iceP_info, const ::std::optional<SessionControlPrx>& iceP_control, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "create";
+    static constexpr ::std::string_view operationName = "create";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,

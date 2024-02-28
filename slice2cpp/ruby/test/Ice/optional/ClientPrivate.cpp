@@ -64,7 +64,7 @@ Test::Initial2Prx::opClassAndUnknownOptionalAsync(const ::std::shared_ptr<A>& ic
 void
 Test::Initial2Prx::_iceI_opClassAndUnknownOptional(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<A>& iceP_p, const ::std::optional<::std::shared_ptr<::Ice::Value>>& iceP_o, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opClassAndUnknownOptional";
+    static constexpr ::std::string_view operationName = "opClassAndUnknownOptional";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -103,7 +103,7 @@ Test::Initial2Prx::opVoidAsync(const ::std::optional<::std::int32_t>& iceP_a, co
 void
 Test::Initial2Prx::_iceI_opVoid(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<::std::int32_t>& iceP_a, const ::std::optional<::std::string>& iceP_v, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opVoid";
+    static constexpr ::std::string_view operationName = "opVoid";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)

@@ -62,7 +62,7 @@ Test::RetryPrx::opAsync(bool iceP_kill,
 void
 Test::RetryPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_kill, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "op";
+    static constexpr ::std::string_view operationName = "op";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -99,7 +99,7 @@ Test::RetryPrx::opIdempotentAsync(::std::int32_t iceP_c,
 void
 Test::RetryPrx::_iceI_opIdempotent(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_c, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opIdempotent";
+    static constexpr ::std::string_view operationName = "opIdempotent";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
@@ -136,7 +136,7 @@ Test::RetryPrx::opNotIdempotentAsync(::std::function<void ()> response,
 void
 Test::RetryPrx::_iceI_opNotIdempotent(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opNotIdempotent";
+    static constexpr ::std::string_view operationName = "opNotIdempotent";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -169,7 +169,7 @@ Test::RetryPrx::opSystemExceptionAsync(::std::function<void ()> response,
 void
 Test::RetryPrx::_iceI_opSystemException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opSystemException";
+    static constexpr ::std::string_view operationName = "opSystemException";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -203,7 +203,7 @@ Test::RetryPrx::sleepAsync(::std::int32_t iceP_delay,
 void
 Test::RetryPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_delay, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "sleep";
+    static constexpr ::std::string_view operationName = "sleep";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -239,7 +239,7 @@ Test::RetryPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::RetryPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

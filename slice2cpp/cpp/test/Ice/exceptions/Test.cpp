@@ -82,7 +82,7 @@ Test::ThrowerPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::ThrowerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -115,7 +115,7 @@ Test::ThrowerPrx::supportsUndeclaredExceptionsAsync(::std::function<void (bool)>
 void
 Test::ThrowerPrx::_iceI_supportsUndeclaredExceptions(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "supportsUndeclaredExceptions";
+    static constexpr ::std::string_view operationName = "supportsUndeclaredExceptions";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -149,7 +149,7 @@ Test::ThrowerPrx::supportsAssertExceptionAsync(::std::function<void (bool)> resp
 void
 Test::ThrowerPrx::_iceI_supportsAssertException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "supportsAssertException";
+    static constexpr ::std::string_view operationName = "supportsAssertException";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -184,7 +184,7 @@ Test::ThrowerPrx::throwAasAAsync(::std::int32_t iceP_a,
 void
 Test::ThrowerPrx::_iceI_throwAasA(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_a, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "throwAasA";
+    static constexpr ::std::string_view operationName = "throwAasA";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -235,7 +235,7 @@ Test::ThrowerPrx::throwAorDasAorDAsync(::std::int32_t iceP_a,
 void
 Test::ThrowerPrx::_iceI_throwAorDasAorD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_a, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "throwAorDasAorD";
+    static constexpr ::std::string_view operationName = "throwAorDasAorD";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -290,7 +290,7 @@ Test::ThrowerPrx::throwBasAAsync(::std::int32_t iceP_a, ::std::int32_t iceP_b,
 void
 Test::ThrowerPrx::_iceI_throwBasA(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_a, ::std::int32_t iceP_b, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "throwBasA";
+    static constexpr ::std::string_view operationName = "throwBasA";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -341,7 +341,7 @@ Test::ThrowerPrx::throwCasAAsync(::std::int32_t iceP_a, ::std::int32_t iceP_b, :
 void
 Test::ThrowerPrx::_iceI_throwCasA(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_a, ::std::int32_t iceP_b, ::std::int32_t iceP_c, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "throwCasA";
+    static constexpr ::std::string_view operationName = "throwCasA";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -392,7 +392,7 @@ Test::ThrowerPrx::throwBasBAsync(::std::int32_t iceP_a, ::std::int32_t iceP_b,
 void
 Test::ThrowerPrx::_iceI_throwBasB(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_a, ::std::int32_t iceP_b, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "throwBasB";
+    static constexpr ::std::string_view operationName = "throwBasB";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -443,7 +443,7 @@ Test::ThrowerPrx::throwCasBAsync(::std::int32_t iceP_a, ::std::int32_t iceP_b, :
 void
 Test::ThrowerPrx::_iceI_throwCasB(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_a, ::std::int32_t iceP_b, ::std::int32_t iceP_c, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "throwCasB";
+    static constexpr ::std::string_view operationName = "throwCasB";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -494,7 +494,7 @@ Test::ThrowerPrx::throwCasCAsync(::std::int32_t iceP_a, ::std::int32_t iceP_b, :
 void
 Test::ThrowerPrx::_iceI_throwCasC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_a, ::std::int32_t iceP_b, ::std::int32_t iceP_c, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "throwCasC";
+    static constexpr ::std::string_view operationName = "throwCasC";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -545,7 +545,7 @@ Test::ThrowerPrx::throwModAAsync(::std::int32_t iceP_a, ::std::int32_t iceP_a2,
 void
 Test::ThrowerPrx::_iceI_throwModA(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_a, ::std::int32_t iceP_a2, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "throwModA";
+    static constexpr ::std::string_view operationName = "throwModA";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -596,7 +596,7 @@ Test::ThrowerPrx::throwUndeclaredAAsync(::std::int32_t iceP_a,
 void
 Test::ThrowerPrx::_iceI_throwUndeclaredA(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_a, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "throwUndeclaredA";
+    static constexpr ::std::string_view operationName = "throwUndeclaredA";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -633,7 +633,7 @@ Test::ThrowerPrx::throwUndeclaredBAsync(::std::int32_t iceP_a, ::std::int32_t ic
 void
 Test::ThrowerPrx::_iceI_throwUndeclaredB(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_a, ::std::int32_t iceP_b, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "throwUndeclaredB";
+    static constexpr ::std::string_view operationName = "throwUndeclaredB";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -670,7 +670,7 @@ Test::ThrowerPrx::throwUndeclaredCAsync(::std::int32_t iceP_a, ::std::int32_t ic
 void
 Test::ThrowerPrx::_iceI_throwUndeclaredC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_a, ::std::int32_t iceP_b, ::std::int32_t iceP_c, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "throwUndeclaredC";
+    static constexpr ::std::string_view operationName = "throwUndeclaredC";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -706,7 +706,7 @@ Test::ThrowerPrx::throwLocalExceptionAsync(::std::function<void ()> response,
 void
 Test::ThrowerPrx::_iceI_throwLocalException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "throwLocalException";
+    static constexpr ::std::string_view operationName = "throwLocalException";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -739,7 +739,7 @@ Test::ThrowerPrx::throwNonIceExceptionAsync(::std::function<void ()> response,
 void
 Test::ThrowerPrx::_iceI_throwNonIceException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "throwNonIceException";
+    static constexpr ::std::string_view operationName = "throwNonIceException";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -772,7 +772,7 @@ Test::ThrowerPrx::throwAssertExceptionAsync(::std::function<void ()> response,
 void
 Test::ThrowerPrx::_iceI_throwAssertException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "throwAssertException";
+    static constexpr ::std::string_view operationName = "throwAssertException";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -806,7 +806,7 @@ Test::ThrowerPrx::throwMemoryLimitExceptionAsync(const ::Ice::ByteSeq& iceP_seq,
 void
 Test::ThrowerPrx::_iceI_throwMemoryLimitException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::ByteSeq>>& outAsync, const ::Ice::ByteSeq& iceP_seq, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "throwMemoryLimitException";
+    static constexpr ::std::string_view operationName = "throwMemoryLimitException";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -843,7 +843,7 @@ Test::ThrowerPrx::throwLocalExceptionIdempotentAsync(::std::function<void ()> re
 void
 Test::ThrowerPrx::_iceI_throwLocalExceptionIdempotent(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "throwLocalExceptionIdempotent";
+    static constexpr ::std::string_view operationName = "throwLocalExceptionIdempotent";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -876,7 +876,7 @@ Test::ThrowerPrx::throwAfterResponseAsync(::std::function<void ()> response,
 void
 Test::ThrowerPrx::_iceI_throwAfterResponse(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "throwAfterResponse";
+    static constexpr ::std::string_view operationName = "throwAfterResponse";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -909,7 +909,7 @@ Test::ThrowerPrx::throwAfterExceptionAsync(::std::function<void ()> response,
 void
 Test::ThrowerPrx::_iceI_throwAfterException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "throwAfterException";
+    static constexpr ::std::string_view operationName = "throwAfterException";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -963,7 +963,7 @@ Test::WrongOperationPrx::noSuchOperationAsync(::std::function<void ()> response,
 void
 Test::WrongOperationPrx::_iceI_noSuchOperation(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "noSuchOperation";
+    static constexpr ::std::string_view operationName = "noSuchOperation";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

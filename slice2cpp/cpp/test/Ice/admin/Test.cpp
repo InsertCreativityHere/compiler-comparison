@@ -61,7 +61,7 @@ Test::RemoteCommunicatorPrx::getAdminAsync(::std::function<void (::std::optional
 void
 Test::RemoteCommunicatorPrx::_iceI_getAdmin(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getAdmin";
+    static constexpr ::std::string_view operationName = "getAdmin";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -95,7 +95,7 @@ Test::RemoteCommunicatorPrx::getChangesAsync(::std::function<void (::Ice::Proper
 void
 Test::RemoteCommunicatorPrx::_iceI_getChanges(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::PropertyDict>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getChanges";
+    static constexpr ::std::string_view operationName = "getChanges";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -129,7 +129,7 @@ Test::RemoteCommunicatorPrx::addUpdateCallbackAsync(::std::function<void ()> res
 void
 Test::RemoteCommunicatorPrx::_iceI_addUpdateCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "addUpdateCallback";
+    static constexpr ::std::string_view operationName = "addUpdateCallback";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -162,7 +162,7 @@ Test::RemoteCommunicatorPrx::removeUpdateCallbackAsync(::std::function<void ()> 
 void
 Test::RemoteCommunicatorPrx::_iceI_removeUpdateCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "removeUpdateCallback";
+    static constexpr ::std::string_view operationName = "removeUpdateCallback";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -196,7 +196,7 @@ Test::RemoteCommunicatorPrx::printAsync(::std::string_view iceP_message,
 void
 Test::RemoteCommunicatorPrx::_iceI_print(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_message, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "print";
+    static constexpr ::std::string_view operationName = "print";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -233,7 +233,7 @@ Test::RemoteCommunicatorPrx::traceAsync(::std::string_view iceP_category, ::std:
 void
 Test::RemoteCommunicatorPrx::_iceI_trace(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_category, ::std::string_view iceP_message, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "trace";
+    static constexpr ::std::string_view operationName = "trace";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -270,7 +270,7 @@ Test::RemoteCommunicatorPrx::warningAsync(::std::string_view iceP_message,
 void
 Test::RemoteCommunicatorPrx::_iceI_warning(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_message, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "warning";
+    static constexpr ::std::string_view operationName = "warning";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -307,7 +307,7 @@ Test::RemoteCommunicatorPrx::errorAsync(::std::string_view iceP_message,
 void
 Test::RemoteCommunicatorPrx::_iceI_error(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_message, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "error";
+    static constexpr ::std::string_view operationName = "error";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -343,7 +343,7 @@ Test::RemoteCommunicatorPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::RemoteCommunicatorPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -376,7 +376,7 @@ Test::RemoteCommunicatorPrx::waitForShutdownAsync(::std::function<void ()> respo
 void
 Test::RemoteCommunicatorPrx::_iceI_waitForShutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "waitForShutdown";
+    static constexpr ::std::string_view operationName = "waitForShutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -409,7 +409,7 @@ Test::RemoteCommunicatorPrx::destroyAsync(::std::function<void ()> response,
 void
 Test::RemoteCommunicatorPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "destroy";
+    static constexpr ::std::string_view operationName = "destroy";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -450,7 +450,7 @@ Test::RemoteCommunicatorFactoryPrx::createCommunicatorAsync(const ::Ice::Propert
 void
 Test::RemoteCommunicatorFactoryPrx::_iceI_createCommunicator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<RemoteCommunicatorPrx>>>& outAsync, const ::Ice::PropertyDict& iceP_props, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "createCommunicator";
+    static constexpr ::std::string_view operationName = "createCommunicator";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -487,7 +487,7 @@ Test::RemoteCommunicatorFactoryPrx::shutdownAsync(::std::function<void ()> respo
 void
 Test::RemoteCommunicatorFactoryPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -527,7 +527,7 @@ Test::TestFacetPrx::opAsync(::std::function<void ()> response,
 void
 Test::TestFacetPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "op";
+    static constexpr ::std::string_view operationName = "op";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

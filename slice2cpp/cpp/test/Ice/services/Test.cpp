@@ -62,7 +62,7 @@ Test::ClockPrx::tickAsync(::std::string_view iceP_time,
 void
 Test::ClockPrx::_iceI_tick(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_time, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "tick";
+    static constexpr ::std::string_view operationName = "tick";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)

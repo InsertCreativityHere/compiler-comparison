@@ -63,7 +63,7 @@ Test::TestIntfPrx::opAsync(::std::function<void (::std::int32_t)> response,
 void
 Test::TestIntfPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "op";
+    static constexpr ::std::string_view operationName = "op";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -98,7 +98,7 @@ Test::TestIntfPrx::callOpOnAsync(const ::std::optional<TestIntfPrx>& iceP_proxy,
 void
 Test::TestIntfPrx::_iceI_callOpOn(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, const ::std::optional<TestIntfPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "callOpOn";
+    static constexpr ::std::string_view operationName = "callOpOn";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -135,7 +135,7 @@ Test::TestIntfPrx::throwUserException1Async(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_throwUserException1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "throwUserException1";
+    static constexpr ::std::string_view operationName = "throwUserException1";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -182,7 +182,7 @@ Test::TestIntfPrx::throwUserException2Async(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_throwUserException2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "throwUserException2";
+    static constexpr ::std::string_view operationName = "throwUserException2";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -229,7 +229,7 @@ Test::TestIntfPrx::throwUnhandledException1Async(::std::function<void ()> respon
 void
 Test::TestIntfPrx::_iceI_throwUnhandledException1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "throwUnhandledException1";
+    static constexpr ::std::string_view operationName = "throwUnhandledException1";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -262,7 +262,7 @@ Test::TestIntfPrx::throwUnhandledException2Async(::std::function<void ()> respon
 void
 Test::TestIntfPrx::_iceI_throwUnhandledException2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "throwUnhandledException2";
+    static constexpr ::std::string_view operationName = "throwUnhandledException2";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -296,7 +296,7 @@ Test::TestIntfPrx::sleepAsync(::std::int32_t iceP_ms,
 void
 Test::TestIntfPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_ms, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "sleep";
+    static constexpr ::std::string_view operationName = "sleep";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -332,7 +332,7 @@ Test::TestIntfPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

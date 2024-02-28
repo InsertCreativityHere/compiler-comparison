@@ -62,7 +62,7 @@ Test::TestLocatorRegistryPrx::addObjectAsync(const ::std::optional<::Ice::Object
 void
 Test::TestLocatorRegistryPrx::_iceI_addObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<::Ice::ObjectPrx>& iceP_obj, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "addObject";
+    static constexpr ::std::string_view operationName = "addObject";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -105,7 +105,7 @@ Test::TestLocatorPrx::getRequestCountAsync(::std::function<void (::std::int32_t)
 void
 Test::TestLocatorPrx::_iceI_getRequestCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getRequestCount";
+    static constexpr ::std::string_view operationName = "getRequestCount";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
@@ -146,7 +146,7 @@ Test::ServerManagerPrx::startServerAsync(::std::function<void ()> response,
 void
 Test::ServerManagerPrx::_iceI_startServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "startServer";
+    static constexpr ::std::string_view operationName = "startServer";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -179,7 +179,7 @@ Test::ServerManagerPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::ServerManagerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -219,7 +219,7 @@ Test::HelloPrx::sayHelloAsync(::std::function<void ()> response,
 void
 Test::HelloPrx::_iceI_sayHello(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "sayHello";
+    static constexpr ::std::string_view operationName = "sayHello";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -259,7 +259,7 @@ Test::TestIntfPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -292,7 +292,7 @@ Test::TestIntfPrx::getHelloAsync(::std::function<void (::std::optional<::Test::H
 void
 Test::TestIntfPrx::_iceI_getHello(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<HelloPrx>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getHello";
+    static constexpr ::std::string_view operationName = "getHello";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -326,7 +326,7 @@ Test::TestIntfPrx::getReplicatedHelloAsync(::std::function<void (::std::optional
 void
 Test::TestIntfPrx::_iceI_getReplicatedHello(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<HelloPrx>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getReplicatedHello";
+    static constexpr ::std::string_view operationName = "getReplicatedHello";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -360,7 +360,7 @@ Test::TestIntfPrx::migrateHelloAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_migrateHello(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "migrateHello";
+    static constexpr ::std::string_view operationName = "migrateHello";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

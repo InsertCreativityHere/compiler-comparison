@@ -81,7 +81,7 @@ Test::RelayPrx::knownPreservedAsBaseAsync(::std::function<void ()> response,
 void
 Test::RelayPrx::_iceI_knownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "knownPreservedAsBase";
+    static constexpr ::std::string_view operationName = "knownPreservedAsBase";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
@@ -128,7 +128,7 @@ Test::RelayPrx::knownPreservedAsKnownPreservedAsync(::std::function<void ()> res
 void
 Test::RelayPrx::_iceI_knownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "knownPreservedAsKnownPreserved";
+    static constexpr ::std::string_view operationName = "knownPreservedAsKnownPreserved";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
@@ -175,7 +175,7 @@ Test::RelayPrx::unknownPreservedAsBaseAsync(::std::function<void ()> response,
 void
 Test::RelayPrx::_iceI_unknownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "unknownPreservedAsBase";
+    static constexpr ::std::string_view operationName = "unknownPreservedAsBase";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
@@ -222,7 +222,7 @@ Test::RelayPrx::unknownPreservedAsKnownPreservedAsync(::std::function<void ()> r
 void
 Test::RelayPrx::_iceI_unknownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "unknownPreservedAsKnownPreserved";
+    static constexpr ::std::string_view operationName = "unknownPreservedAsKnownPreserved";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
@@ -276,7 +276,7 @@ Test::TestIntfPrx::baseAsBaseAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_baseAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "baseAsBase";
+    static constexpr ::std::string_view operationName = "baseAsBase";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
@@ -323,7 +323,7 @@ Test::TestIntfPrx::unknownDerivedAsBaseAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_unknownDerivedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "unknownDerivedAsBase";
+    static constexpr ::std::string_view operationName = "unknownDerivedAsBase";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
@@ -370,7 +370,7 @@ Test::TestIntfPrx::knownDerivedAsBaseAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_knownDerivedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "knownDerivedAsBase";
+    static constexpr ::std::string_view operationName = "knownDerivedAsBase";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
@@ -417,7 +417,7 @@ Test::TestIntfPrx::knownDerivedAsKnownDerivedAsync(::std::function<void ()> resp
 void
 Test::TestIntfPrx::_iceI_knownDerivedAsKnownDerived(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "knownDerivedAsKnownDerived";
+    static constexpr ::std::string_view operationName = "knownDerivedAsKnownDerived";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
@@ -464,7 +464,7 @@ Test::TestIntfPrx::unknownIntermediateAsBaseAsync(::std::function<void ()> respo
 void
 Test::TestIntfPrx::_iceI_unknownIntermediateAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "unknownIntermediateAsBase";
+    static constexpr ::std::string_view operationName = "unknownIntermediateAsBase";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
@@ -511,7 +511,7 @@ Test::TestIntfPrx::knownIntermediateAsBaseAsync(::std::function<void ()> respons
 void
 Test::TestIntfPrx::_iceI_knownIntermediateAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "knownIntermediateAsBase";
+    static constexpr ::std::string_view operationName = "knownIntermediateAsBase";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
@@ -558,7 +558,7 @@ Test::TestIntfPrx::knownMostDerivedAsBaseAsync(::std::function<void ()> response
 void
 Test::TestIntfPrx::_iceI_knownMostDerivedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "knownMostDerivedAsBase";
+    static constexpr ::std::string_view operationName = "knownMostDerivedAsBase";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
@@ -605,7 +605,7 @@ Test::TestIntfPrx::knownIntermediateAsKnownIntermediateAsync(::std::function<voi
 void
 Test::TestIntfPrx::_iceI_knownIntermediateAsKnownIntermediate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "knownIntermediateAsKnownIntermediate";
+    static constexpr ::std::string_view operationName = "knownIntermediateAsKnownIntermediate";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
@@ -652,7 +652,7 @@ Test::TestIntfPrx::knownMostDerivedAsKnownIntermediateAsync(::std::function<void
 void
 Test::TestIntfPrx::_iceI_knownMostDerivedAsKnownIntermediate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "knownMostDerivedAsKnownIntermediate";
+    static constexpr ::std::string_view operationName = "knownMostDerivedAsKnownIntermediate";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
@@ -699,7 +699,7 @@ Test::TestIntfPrx::knownMostDerivedAsKnownMostDerivedAsync(::std::function<void 
 void
 Test::TestIntfPrx::_iceI_knownMostDerivedAsKnownMostDerived(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "knownMostDerivedAsKnownMostDerived";
+    static constexpr ::std::string_view operationName = "knownMostDerivedAsKnownMostDerived";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
@@ -746,7 +746,7 @@ Test::TestIntfPrx::unknownMostDerived1AsBaseAsync(::std::function<void ()> respo
 void
 Test::TestIntfPrx::_iceI_unknownMostDerived1AsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "unknownMostDerived1AsBase";
+    static constexpr ::std::string_view operationName = "unknownMostDerived1AsBase";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
@@ -793,7 +793,7 @@ Test::TestIntfPrx::unknownMostDerived1AsKnownIntermediateAsync(::std::function<v
 void
 Test::TestIntfPrx::_iceI_unknownMostDerived1AsKnownIntermediate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "unknownMostDerived1AsKnownIntermediate";
+    static constexpr ::std::string_view operationName = "unknownMostDerived1AsKnownIntermediate";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
@@ -840,7 +840,7 @@ Test::TestIntfPrx::unknownMostDerived2AsBaseAsync(::std::function<void ()> respo
 void
 Test::TestIntfPrx::_iceI_unknownMostDerived2AsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "unknownMostDerived2AsBase";
+    static constexpr ::std::string_view operationName = "unknownMostDerived2AsBase";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
@@ -887,7 +887,7 @@ Test::TestIntfPrx::unknownMostDerived2AsBaseCompactAsync(::std::function<void ()
 void
 Test::TestIntfPrx::_iceI_unknownMostDerived2AsBaseCompact(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "unknownMostDerived2AsBaseCompact";
+    static constexpr ::std::string_view operationName = "unknownMostDerived2AsBaseCompact";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::CompactFormat, context,
@@ -934,7 +934,7 @@ Test::TestIntfPrx::knownPreservedAsBaseAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_knownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "knownPreservedAsBase";
+    static constexpr ::std::string_view operationName = "knownPreservedAsBase";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
@@ -981,7 +981,7 @@ Test::TestIntfPrx::knownPreservedAsKnownPreservedAsync(::std::function<void ()> 
 void
 Test::TestIntfPrx::_iceI_knownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "knownPreservedAsKnownPreserved";
+    static constexpr ::std::string_view operationName = "knownPreservedAsKnownPreserved";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
@@ -1029,7 +1029,7 @@ Test::TestIntfPrx::relayKnownPreservedAsBaseAsync(const ::std::optional<RelayPrx
 void
 Test::TestIntfPrx::_iceI_relayKnownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<RelayPrx>& iceP_r, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "relayKnownPreservedAsBase";
+    static constexpr ::std::string_view operationName = "relayKnownPreservedAsBase";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
@@ -1080,7 +1080,7 @@ Test::TestIntfPrx::relayKnownPreservedAsKnownPreservedAsync(const ::std::optiona
 void
 Test::TestIntfPrx::_iceI_relayKnownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<RelayPrx>& iceP_r, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "relayKnownPreservedAsKnownPreserved";
+    static constexpr ::std::string_view operationName = "relayKnownPreservedAsKnownPreserved";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
@@ -1130,7 +1130,7 @@ Test::TestIntfPrx::unknownPreservedAsBaseAsync(::std::function<void ()> response
 void
 Test::TestIntfPrx::_iceI_unknownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "unknownPreservedAsBase";
+    static constexpr ::std::string_view operationName = "unknownPreservedAsBase";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
@@ -1177,7 +1177,7 @@ Test::TestIntfPrx::unknownPreservedAsKnownPreservedAsync(::std::function<void ()
 void
 Test::TestIntfPrx::_iceI_unknownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "unknownPreservedAsKnownPreserved";
+    static constexpr ::std::string_view operationName = "unknownPreservedAsKnownPreserved";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
@@ -1225,7 +1225,7 @@ Test::TestIntfPrx::relayUnknownPreservedAsBaseAsync(const ::std::optional<RelayP
 void
 Test::TestIntfPrx::_iceI_relayUnknownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<RelayPrx>& iceP_r, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "relayUnknownPreservedAsBase";
+    static constexpr ::std::string_view operationName = "relayUnknownPreservedAsBase";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
@@ -1276,7 +1276,7 @@ Test::TestIntfPrx::relayUnknownPreservedAsKnownPreservedAsync(const ::std::optio
 void
 Test::TestIntfPrx::_iceI_relayUnknownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<RelayPrx>& iceP_r, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "relayUnknownPreservedAsKnownPreserved";
+    static constexpr ::std::string_view operationName = "relayUnknownPreservedAsKnownPreserved";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
@@ -1326,7 +1326,7 @@ Test::TestIntfPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
         nullptr,

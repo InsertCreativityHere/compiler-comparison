@@ -68,7 +68,7 @@ abstract::catchPrx::checkedCastAsync(::std::int32_t iceP_clone,
 void
 abstract::catchPrx::_iceI_checkedCast(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_clone, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "checkedCast";
+    static constexpr ::std::string_view operationName = "checkedCast";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -112,7 +112,7 @@ abstract::defaultPrx::doAsync(::std::function<void ()> response,
 void
 abstract::defaultPrx::_iceI_do(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "do";
+    static constexpr ::std::string_view operationName = "do";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -160,7 +160,7 @@ abstract::newPrx::notifyAsync(const _cpp_break& iceP_notifyAll, const ::std::sha
 void
 abstract::newPrx::_iceI_notify(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<assert>>& outAsync, const _cpp_break& iceP_notifyAll, const ::std::shared_ptr<_cpp_else>& iceP_null, const ::std::optional<finalizePrx>& iceP_package, const ::std::optional<catchPrx>& iceP_public, const ::std::optional<defaultPrx>& iceP_return, ::std::int32_t iceP_static, ::std::int32_t iceP_strictfp, ::std::int32_t iceP_super, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "notify";
+    static constexpr ::std::string_view operationName = "notify";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,

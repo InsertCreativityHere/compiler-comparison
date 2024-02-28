@@ -62,7 +62,7 @@ Test::TestIntfPrx::getServerFileAsync(::std::string_view iceP_path,
 void
 Test::TestIntfPrx::_iceI_getServerFile(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, ::std::string_view iceP_path, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getServerFile";
+    static constexpr ::std::string_view operationName = "getServerFile";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -100,7 +100,7 @@ Test::TestIntfPrx::getApplicationFileAsync(::std::string_view iceP_path,
 void
 Test::TestIntfPrx::_iceI_getApplicationFile(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, ::std::string_view iceP_path, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getApplicationFile";
+    static constexpr ::std::string_view operationName = "getApplicationFile";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,

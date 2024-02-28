@@ -67,5 +67,5 @@ public class SPreserved2 extends SPreserved1
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 3036462487246576386L;
+    public static final long serialVersionUID = 3036464154444179211L;
 }

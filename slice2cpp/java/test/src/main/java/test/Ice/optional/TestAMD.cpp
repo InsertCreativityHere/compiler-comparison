@@ -93,7 +93,7 @@ Test::MyInterfacePrx::opAsync(::std::function<void ()> response,
 void
 Test::MyInterfacePrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "op";
+    static constexpr ::std::string_view operationName = "op";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -133,7 +133,7 @@ Test::InitialPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::InitialPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -167,7 +167,7 @@ Test::InitialPrx::pingPongAsync(const ::std::shared_ptr<::Ice::Value>& iceP_o,
 void
 Test::InitialPrx::_iceI_pingPong(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::Value>>>& outAsync, const ::std::shared_ptr<::Ice::Value>& iceP_o, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "pingPong";
+    static constexpr ::std::string_view operationName = "pingPong";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -213,7 +213,7 @@ Test::InitialPrx::opOptionalExceptionAsync(const ::std::optional<::std::int32_t>
 void
 Test::InitialPrx::_iceI_opOptionalException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<::std::int32_t>& iceP_a, const ::std::optional<::std::string>& iceP_b, const ::std::optional<::std::shared_ptr<OneOptional>>& iceP_o, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opOptionalException";
+    static constexpr ::std::string_view operationName = "opOptionalException";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -264,7 +264,7 @@ Test::InitialPrx::opDerivedExceptionAsync(const ::std::optional<::std::int32_t>&
 void
 Test::InitialPrx::_iceI_opDerivedException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<::std::int32_t>& iceP_a, const ::std::optional<::std::string>& iceP_b, const ::std::optional<::std::shared_ptr<OneOptional>>& iceP_o, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opDerivedException";
+    static constexpr ::std::string_view operationName = "opDerivedException";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -315,7 +315,7 @@ Test::InitialPrx::opRequiredExceptionAsync(const ::std::optional<::std::int32_t>
 void
 Test::InitialPrx::_iceI_opRequiredException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<::std::int32_t>& iceP_a, const ::std::optional<::std::string>& iceP_b, const ::std::optional<::std::shared_ptr<OneOptional>>& iceP_o, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opRequiredException";
+    static constexpr ::std::string_view operationName = "opRequiredException";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -372,7 +372,7 @@ Test::InitialPrx::opByteAsync(const ::std::optional<::std::uint8_t>& iceP_p1,
 void
 Test::InitialPrx::_iceI_opByte(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::uint8_t>, ::std::optional<::std::uint8_t>>>>& outAsync, const ::std::optional<::std::uint8_t>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opByte";
+    static constexpr ::std::string_view operationName = "opByte";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -422,7 +422,7 @@ Test::InitialPrx::opByteReqAsync(const ::std::optional<::std::uint8_t>& iceP_p1,
 void
 Test::InitialPrx::_iceI_opByteReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::uint8_t>, ::std::optional<::std::uint8_t>>>>& outAsync, const ::std::optional<::std::uint8_t>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opByteReq";
+    static constexpr ::std::string_view operationName = "opByteReq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -472,7 +472,7 @@ Test::InitialPrx::opBoolAsync(const ::std::optional<bool>& iceP_p1,
 void
 Test::InitialPrx::_iceI_opBool(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<bool>, ::std::optional<bool>>>>& outAsync, const ::std::optional<bool>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opBool";
+    static constexpr ::std::string_view operationName = "opBool";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -522,7 +522,7 @@ Test::InitialPrx::opBoolReqAsync(const ::std::optional<bool>& iceP_p1,
 void
 Test::InitialPrx::_iceI_opBoolReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<bool>, ::std::optional<bool>>>>& outAsync, const ::std::optional<bool>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opBoolReq";
+    static constexpr ::std::string_view operationName = "opBoolReq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -572,7 +572,7 @@ Test::InitialPrx::opShortAsync(const ::std::optional<::std::int16_t>& iceP_p1,
 void
 Test::InitialPrx::_iceI_opShort(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::int16_t>, ::std::optional<::std::int16_t>>>>& outAsync, const ::std::optional<::std::int16_t>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opShort";
+    static constexpr ::std::string_view operationName = "opShort";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -622,7 +622,7 @@ Test::InitialPrx::opShortReqAsync(const ::std::optional<::std::int16_t>& iceP_p1
 void
 Test::InitialPrx::_iceI_opShortReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::int16_t>, ::std::optional<::std::int16_t>>>>& outAsync, const ::std::optional<::std::int16_t>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opShortReq";
+    static constexpr ::std::string_view operationName = "opShortReq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -672,7 +672,7 @@ Test::InitialPrx::opIntAsync(const ::std::optional<::std::int32_t>& iceP_p1,
 void
 Test::InitialPrx::_iceI_opInt(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::int32_t>, ::std::optional<::std::int32_t>>>>& outAsync, const ::std::optional<::std::int32_t>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opInt";
+    static constexpr ::std::string_view operationName = "opInt";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -722,7 +722,7 @@ Test::InitialPrx::opIntReqAsync(const ::std::optional<::std::int32_t>& iceP_p1,
 void
 Test::InitialPrx::_iceI_opIntReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::int32_t>, ::std::optional<::std::int32_t>>>>& outAsync, const ::std::optional<::std::int32_t>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opIntReq";
+    static constexpr ::std::string_view operationName = "opIntReq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -772,7 +772,7 @@ Test::InitialPrx::opLongAsync(const ::std::optional<::std::int64_t>& iceP_p1,
 void
 Test::InitialPrx::_iceI_opLong(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::int64_t>, ::std::optional<::std::int64_t>>>>& outAsync, const ::std::optional<::std::int64_t>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opLong";
+    static constexpr ::std::string_view operationName = "opLong";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -822,7 +822,7 @@ Test::InitialPrx::opLongReqAsync(const ::std::optional<::std::int64_t>& iceP_p1,
 void
 Test::InitialPrx::_iceI_opLongReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::int64_t>, ::std::optional<::std::int64_t>>>>& outAsync, const ::std::optional<::std::int64_t>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opLongReq";
+    static constexpr ::std::string_view operationName = "opLongReq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -872,7 +872,7 @@ Test::InitialPrx::opFloatAsync(const ::std::optional<float>& iceP_p1,
 void
 Test::InitialPrx::_iceI_opFloat(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<float>, ::std::optional<float>>>>& outAsync, const ::std::optional<float>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opFloat";
+    static constexpr ::std::string_view operationName = "opFloat";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -922,7 +922,7 @@ Test::InitialPrx::opFloatReqAsync(const ::std::optional<float>& iceP_p1,
 void
 Test::InitialPrx::_iceI_opFloatReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<float>, ::std::optional<float>>>>& outAsync, const ::std::optional<float>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opFloatReq";
+    static constexpr ::std::string_view operationName = "opFloatReq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -972,7 +972,7 @@ Test::InitialPrx::opDoubleAsync(const ::std::optional<double>& iceP_p1,
 void
 Test::InitialPrx::_iceI_opDouble(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<double>, ::std::optional<double>>>>& outAsync, const ::std::optional<double>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opDouble";
+    static constexpr ::std::string_view operationName = "opDouble";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1022,7 +1022,7 @@ Test::InitialPrx::opDoubleReqAsync(const ::std::optional<double>& iceP_p1,
 void
 Test::InitialPrx::_iceI_opDoubleReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<double>, ::std::optional<double>>>>& outAsync, const ::std::optional<double>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opDoubleReq";
+    static constexpr ::std::string_view operationName = "opDoubleReq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1072,7 +1072,7 @@ Test::InitialPrx::opStringAsync(const ::std::optional<::std::string>& iceP_p1,
 void
 Test::InitialPrx::_iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::string>, ::std::optional<::std::string>>>>& outAsync, const ::std::optional<::std::string>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opString";
+    static constexpr ::std::string_view operationName = "opString";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1122,7 +1122,7 @@ Test::InitialPrx::opStringReqAsync(const ::std::optional<::std::string>& iceP_p1
 void
 Test::InitialPrx::_iceI_opStringReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::string>, ::std::optional<::std::string>>>>& outAsync, const ::std::optional<::std::string>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opStringReq";
+    static constexpr ::std::string_view operationName = "opStringReq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1172,7 +1172,7 @@ Test::InitialPrx::opMyEnumAsync(const ::std::optional<MyEnum>& iceP_p1,
 void
 Test::InitialPrx::_iceI_opMyEnum(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<MyEnum>, ::std::optional<MyEnum>>>>& outAsync, const ::std::optional<MyEnum>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opMyEnum";
+    static constexpr ::std::string_view operationName = "opMyEnum";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1222,7 +1222,7 @@ Test::InitialPrx::opMyEnumReqAsync(const ::std::optional<MyEnum>& iceP_p1,
 void
 Test::InitialPrx::_iceI_opMyEnumReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<MyEnum>, ::std::optional<MyEnum>>>>& outAsync, const ::std::optional<MyEnum>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opMyEnumReq";
+    static constexpr ::std::string_view operationName = "opMyEnumReq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1272,7 +1272,7 @@ Test::InitialPrx::opSmallStructAsync(const ::std::optional<SmallStruct>& iceP_p1
 void
 Test::InitialPrx::_iceI_opSmallStruct(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<SmallStruct>, ::std::optional<SmallStruct>>>>& outAsync, const ::std::optional<SmallStruct>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opSmallStruct";
+    static constexpr ::std::string_view operationName = "opSmallStruct";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1322,7 +1322,7 @@ Test::InitialPrx::opSmallStructReqAsync(const ::std::optional<SmallStruct>& iceP
 void
 Test::InitialPrx::_iceI_opSmallStructReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<SmallStruct>, ::std::optional<SmallStruct>>>>& outAsync, const ::std::optional<SmallStruct>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opSmallStructReq";
+    static constexpr ::std::string_view operationName = "opSmallStructReq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1372,7 +1372,7 @@ Test::InitialPrx::opFixedStructAsync(const ::std::optional<FixedStruct>& iceP_p1
 void
 Test::InitialPrx::_iceI_opFixedStruct(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<FixedStruct>, ::std::optional<FixedStruct>>>>& outAsync, const ::std::optional<FixedStruct>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opFixedStruct";
+    static constexpr ::std::string_view operationName = "opFixedStruct";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1422,7 +1422,7 @@ Test::InitialPrx::opFixedStructReqAsync(const ::std::optional<FixedStruct>& iceP
 void
 Test::InitialPrx::_iceI_opFixedStructReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<FixedStruct>, ::std::optional<FixedStruct>>>>& outAsync, const ::std::optional<FixedStruct>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opFixedStructReq";
+    static constexpr ::std::string_view operationName = "opFixedStructReq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1472,7 +1472,7 @@ Test::InitialPrx::opVarStructAsync(const ::std::optional<VarStruct>& iceP_p1,
 void
 Test::InitialPrx::_iceI_opVarStruct(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<VarStruct>, ::std::optional<VarStruct>>>>& outAsync, const ::std::optional<VarStruct>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opVarStruct";
+    static constexpr ::std::string_view operationName = "opVarStruct";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1522,7 +1522,7 @@ Test::InitialPrx::opVarStructReqAsync(const ::std::optional<VarStruct>& iceP_p1,
 void
 Test::InitialPrx::_iceI_opVarStructReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<VarStruct>, ::std::optional<VarStruct>>>>& outAsync, const ::std::optional<VarStruct>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opVarStructReq";
+    static constexpr ::std::string_view operationName = "opVarStructReq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1572,7 +1572,7 @@ Test::InitialPrx::opOneOptionalAsync(const ::std::optional<::std::shared_ptr<One
 void
 Test::InitialPrx::_iceI_opOneOptional(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::shared_ptr<OneOptional>>, ::std::optional<::std::shared_ptr<OneOptional>>>>>& outAsync, const ::std::optional<::std::shared_ptr<OneOptional>>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opOneOptional";
+    static constexpr ::std::string_view operationName = "opOneOptional";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1622,7 +1622,7 @@ Test::InitialPrx::opOneOptionalReqAsync(const ::std::optional<::std::shared_ptr<
 void
 Test::InitialPrx::_iceI_opOneOptionalReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::shared_ptr<OneOptional>>, ::std::optional<::std::shared_ptr<OneOptional>>>>>& outAsync, const ::std::optional<::std::shared_ptr<OneOptional>>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opOneOptionalReq";
+    static constexpr ::std::string_view operationName = "opOneOptionalReq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1672,7 +1672,7 @@ Test::InitialPrx::opMyInterfaceProxyAsync(const ::std::optional<MyInterfacePrx>&
 void
 Test::InitialPrx::_iceI_opMyInterfaceProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<MyInterfacePrx>, ::std::optional<MyInterfacePrx>>>>& outAsync, const ::std::optional<MyInterfacePrx>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opMyInterfaceProxy";
+    static constexpr ::std::string_view operationName = "opMyInterfaceProxy";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1722,7 +1722,7 @@ Test::InitialPrx::opMyInterfaceProxyReqAsync(const ::std::optional<MyInterfacePr
 void
 Test::InitialPrx::_iceI_opMyInterfaceProxyReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<MyInterfacePrx>, ::std::optional<MyInterfacePrx>>>>& outAsync, const ::std::optional<MyInterfacePrx>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opMyInterfaceProxyReq";
+    static constexpr ::std::string_view operationName = "opMyInterfaceProxyReq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1772,7 +1772,7 @@ Test::InitialPrx::opByteSeqAsync(const ::std::optional<ByteSeq>& iceP_p1,
 void
 Test::InitialPrx::_iceI_opByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<ByteSeq>, ::std::optional<ByteSeq>>>>& outAsync, const ::std::optional<ByteSeq>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opByteSeq";
+    static constexpr ::std::string_view operationName = "opByteSeq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1822,7 +1822,7 @@ Test::InitialPrx::opByteSeqReqAsync(const ::std::optional<ByteSeq>& iceP_p1,
 void
 Test::InitialPrx::_iceI_opByteSeqReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<ByteSeq>, ::std::optional<ByteSeq>>>>& outAsync, const ::std::optional<ByteSeq>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opByteSeqReq";
+    static constexpr ::std::string_view operationName = "opByteSeqReq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1872,7 +1872,7 @@ Test::InitialPrx::opBoolSeqAsync(const ::std::optional<BoolSeq>& iceP_p1,
 void
 Test::InitialPrx::_iceI_opBoolSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<BoolSeq>, ::std::optional<BoolSeq>>>>& outAsync, const ::std::optional<BoolSeq>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opBoolSeq";
+    static constexpr ::std::string_view operationName = "opBoolSeq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1922,7 +1922,7 @@ Test::InitialPrx::opBoolSeqReqAsync(const ::std::optional<BoolSeq>& iceP_p1,
 void
 Test::InitialPrx::_iceI_opBoolSeqReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<BoolSeq>, ::std::optional<BoolSeq>>>>& outAsync, const ::std::optional<BoolSeq>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opBoolSeqReq";
+    static constexpr ::std::string_view operationName = "opBoolSeqReq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1972,7 +1972,7 @@ Test::InitialPrx::opShortSeqAsync(const ::std::optional<ShortSeq>& iceP_p1,
 void
 Test::InitialPrx::_iceI_opShortSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<ShortSeq>, ::std::optional<ShortSeq>>>>& outAsync, const ::std::optional<ShortSeq>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opShortSeq";
+    static constexpr ::std::string_view operationName = "opShortSeq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -2022,7 +2022,7 @@ Test::InitialPrx::opShortSeqReqAsync(const ::std::optional<ShortSeq>& iceP_p1,
 void
 Test::InitialPrx::_iceI_opShortSeqReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<ShortSeq>, ::std::optional<ShortSeq>>>>& outAsync, const ::std::optional<ShortSeq>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opShortSeqReq";
+    static constexpr ::std::string_view operationName = "opShortSeqReq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -2072,7 +2072,7 @@ Test::InitialPrx::opIntSeqAsync(const ::std::optional<IntSeq>& iceP_p1,
 void
 Test::InitialPrx::_iceI_opIntSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<IntSeq>, ::std::optional<IntSeq>>>>& outAsync, const ::std::optional<IntSeq>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opIntSeq";
+    static constexpr ::std::string_view operationName = "opIntSeq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -2122,7 +2122,7 @@ Test::InitialPrx::opIntSeqReqAsync(const ::std::optional<IntSeq>& iceP_p1,
 void
 Test::InitialPrx::_iceI_opIntSeqReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<IntSeq>, ::std::optional<IntSeq>>>>& outAsync, const ::std::optional<IntSeq>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opIntSeqReq";
+    static constexpr ::std::string_view operationName = "opIntSeqReq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -2172,7 +2172,7 @@ Test::InitialPrx::opLongSeqAsync(const ::std::optional<LongSeq>& iceP_p1,
 void
 Test::InitialPrx::_iceI_opLongSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<LongSeq>, ::std::optional<LongSeq>>>>& outAsync, const ::std::optional<LongSeq>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opLongSeq";
+    static constexpr ::std::string_view operationName = "opLongSeq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -2222,7 +2222,7 @@ Test::InitialPrx::opLongSeqReqAsync(const ::std::optional<LongSeq>& iceP_p1,
 void
 Test::InitialPrx::_iceI_opLongSeqReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<LongSeq>, ::std::optional<LongSeq>>>>& outAsync, const ::std::optional<LongSeq>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opLongSeqReq";
+    static constexpr ::std::string_view operationName = "opLongSeqReq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -2272,7 +2272,7 @@ Test::InitialPrx::opFloatSeqAsync(const ::std::optional<FloatSeq>& iceP_p1,
 void
 Test::InitialPrx::_iceI_opFloatSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<FloatSeq>, ::std::optional<FloatSeq>>>>& outAsync, const ::std::optional<FloatSeq>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opFloatSeq";
+    static constexpr ::std::string_view operationName = "opFloatSeq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -2322,7 +2322,7 @@ Test::InitialPrx::opFloatSeqReqAsync(const ::std::optional<FloatSeq>& iceP_p1,
 void
 Test::InitialPrx::_iceI_opFloatSeqReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<FloatSeq>, ::std::optional<FloatSeq>>>>& outAsync, const ::std::optional<FloatSeq>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opFloatSeqReq";
+    static constexpr ::std::string_view operationName = "opFloatSeqReq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -2372,7 +2372,7 @@ Test::InitialPrx::opDoubleSeqAsync(const ::std::optional<DoubleSeq>& iceP_p1,
 void
 Test::InitialPrx::_iceI_opDoubleSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<DoubleSeq>, ::std::optional<DoubleSeq>>>>& outAsync, const ::std::optional<DoubleSeq>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opDoubleSeq";
+    static constexpr ::std::string_view operationName = "opDoubleSeq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -2422,7 +2422,7 @@ Test::InitialPrx::opDoubleSeqReqAsync(const ::std::optional<DoubleSeq>& iceP_p1,
 void
 Test::InitialPrx::_iceI_opDoubleSeqReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<DoubleSeq>, ::std::optional<DoubleSeq>>>>& outAsync, const ::std::optional<DoubleSeq>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opDoubleSeqReq";
+    static constexpr ::std::string_view operationName = "opDoubleSeqReq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -2472,7 +2472,7 @@ Test::InitialPrx::opStringSeqAsync(const ::std::optional<StringSeq>& iceP_p1,
 void
 Test::InitialPrx::_iceI_opStringSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<StringSeq>, ::std::optional<StringSeq>>>>& outAsync, const ::std::optional<StringSeq>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opStringSeq";
+    static constexpr ::std::string_view operationName = "opStringSeq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -2522,7 +2522,7 @@ Test::InitialPrx::opStringSeqReqAsync(const ::std::optional<StringSeq>& iceP_p1,
 void
 Test::InitialPrx::_iceI_opStringSeqReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<StringSeq>, ::std::optional<StringSeq>>>>& outAsync, const ::std::optional<StringSeq>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opStringSeqReq";
+    static constexpr ::std::string_view operationName = "opStringSeqReq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -2572,7 +2572,7 @@ Test::InitialPrx::opSmallStructSeqAsync(const ::std::optional<SmallStructSeq>& i
 void
 Test::InitialPrx::_iceI_opSmallStructSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<SmallStructSeq>, ::std::optional<SmallStructSeq>>>>& outAsync, const ::std::optional<SmallStructSeq>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opSmallStructSeq";
+    static constexpr ::std::string_view operationName = "opSmallStructSeq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -2622,7 +2622,7 @@ Test::InitialPrx::opSmallStructSeqReqAsync(const ::std::optional<SmallStructSeq>
 void
 Test::InitialPrx::_iceI_opSmallStructSeqReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<SmallStructSeq>, ::std::optional<SmallStructSeq>>>>& outAsync, const ::std::optional<SmallStructSeq>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opSmallStructSeqReq";
+    static constexpr ::std::string_view operationName = "opSmallStructSeqReq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -2672,7 +2672,7 @@ Test::InitialPrx::opSmallStructListAsync(const ::std::optional<SmallStructList>&
 void
 Test::InitialPrx::_iceI_opSmallStructList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<SmallStructList>, ::std::optional<SmallStructList>>>>& outAsync, const ::std::optional<SmallStructList>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opSmallStructList";
+    static constexpr ::std::string_view operationName = "opSmallStructList";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -2722,7 +2722,7 @@ Test::InitialPrx::opSmallStructListReqAsync(const ::std::optional<SmallStructLis
 void
 Test::InitialPrx::_iceI_opSmallStructListReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<SmallStructList>, ::std::optional<SmallStructList>>>>& outAsync, const ::std::optional<SmallStructList>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opSmallStructListReq";
+    static constexpr ::std::string_view operationName = "opSmallStructListReq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -2772,7 +2772,7 @@ Test::InitialPrx::opFixedStructSeqAsync(const ::std::optional<FixedStructSeq>& i
 void
 Test::InitialPrx::_iceI_opFixedStructSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<FixedStructSeq>, ::std::optional<FixedStructSeq>>>>& outAsync, const ::std::optional<FixedStructSeq>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opFixedStructSeq";
+    static constexpr ::std::string_view operationName = "opFixedStructSeq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -2822,7 +2822,7 @@ Test::InitialPrx::opFixedStructSeqReqAsync(const ::std::optional<FixedStructSeq>
 void
 Test::InitialPrx::_iceI_opFixedStructSeqReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<FixedStructSeq>, ::std::optional<FixedStructSeq>>>>& outAsync, const ::std::optional<FixedStructSeq>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opFixedStructSeqReq";
+    static constexpr ::std::string_view operationName = "opFixedStructSeqReq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -2872,7 +2872,7 @@ Test::InitialPrx::opFixedStructListAsync(const ::std::optional<FixedStructList>&
 void
 Test::InitialPrx::_iceI_opFixedStructList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<FixedStructList>, ::std::optional<FixedStructList>>>>& outAsync, const ::std::optional<FixedStructList>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opFixedStructList";
+    static constexpr ::std::string_view operationName = "opFixedStructList";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -2922,7 +2922,7 @@ Test::InitialPrx::opFixedStructListReqAsync(const ::std::optional<FixedStructLis
 void
 Test::InitialPrx::_iceI_opFixedStructListReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<FixedStructList>, ::std::optional<FixedStructList>>>>& outAsync, const ::std::optional<FixedStructList>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opFixedStructListReq";
+    static constexpr ::std::string_view operationName = "opFixedStructListReq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -2972,7 +2972,7 @@ Test::InitialPrx::opVarStructSeqAsync(const ::std::optional<VarStructSeq>& iceP_
 void
 Test::InitialPrx::_iceI_opVarStructSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<VarStructSeq>, ::std::optional<VarStructSeq>>>>& outAsync, const ::std::optional<VarStructSeq>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opVarStructSeq";
+    static constexpr ::std::string_view operationName = "opVarStructSeq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3022,7 +3022,7 @@ Test::InitialPrx::opVarStructSeqReqAsync(const ::std::optional<VarStructSeq>& ic
 void
 Test::InitialPrx::_iceI_opVarStructSeqReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<VarStructSeq>, ::std::optional<VarStructSeq>>>>& outAsync, const ::std::optional<VarStructSeq>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opVarStructSeqReq";
+    static constexpr ::std::string_view operationName = "opVarStructSeqReq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3072,7 +3072,7 @@ Test::InitialPrx::opSerializableAsync(const ::std::optional<Serializable>& iceP_
 void
 Test::InitialPrx::_iceI_opSerializable(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<Serializable>, ::std::optional<Serializable>>>>& outAsync, const ::std::optional<Serializable>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opSerializable";
+    static constexpr ::std::string_view operationName = "opSerializable";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3122,7 +3122,7 @@ Test::InitialPrx::opSerializableReqAsync(const ::std::optional<Serializable>& ic
 void
 Test::InitialPrx::_iceI_opSerializableReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<Serializable>, ::std::optional<Serializable>>>>& outAsync, const ::std::optional<Serializable>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opSerializableReq";
+    static constexpr ::std::string_view operationName = "opSerializableReq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3172,7 +3172,7 @@ Test::InitialPrx::opIntIntDictAsync(const ::std::optional<IntIntDict>& iceP_p1,
 void
 Test::InitialPrx::_iceI_opIntIntDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<IntIntDict>, ::std::optional<IntIntDict>>>>& outAsync, const ::std::optional<IntIntDict>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opIntIntDict";
+    static constexpr ::std::string_view operationName = "opIntIntDict";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3222,7 +3222,7 @@ Test::InitialPrx::opIntIntDictReqAsync(const ::std::optional<IntIntDict>& iceP_p
 void
 Test::InitialPrx::_iceI_opIntIntDictReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<IntIntDict>, ::std::optional<IntIntDict>>>>& outAsync, const ::std::optional<IntIntDict>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opIntIntDictReq";
+    static constexpr ::std::string_view operationName = "opIntIntDictReq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3272,7 +3272,7 @@ Test::InitialPrx::opStringIntDictAsync(const ::std::optional<StringIntDict>& ice
 void
 Test::InitialPrx::_iceI_opStringIntDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<StringIntDict>, ::std::optional<StringIntDict>>>>& outAsync, const ::std::optional<StringIntDict>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opStringIntDict";
+    static constexpr ::std::string_view operationName = "opStringIntDict";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3322,7 +3322,7 @@ Test::InitialPrx::opStringIntDictReqAsync(const ::std::optional<StringIntDict>& 
 void
 Test::InitialPrx::_iceI_opStringIntDictReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<StringIntDict>, ::std::optional<StringIntDict>>>>& outAsync, const ::std::optional<StringIntDict>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opStringIntDictReq";
+    static constexpr ::std::string_view operationName = "opStringIntDictReq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3372,7 +3372,7 @@ Test::InitialPrx::opIntOneOptionalDictAsync(const ::std::optional<IntOneOptional
 void
 Test::InitialPrx::_iceI_opIntOneOptionalDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<IntOneOptionalDict>, ::std::optional<IntOneOptionalDict>>>>& outAsync, const ::std::optional<IntOneOptionalDict>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opIntOneOptionalDict";
+    static constexpr ::std::string_view operationName = "opIntOneOptionalDict";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3422,7 +3422,7 @@ Test::InitialPrx::opIntOneOptionalDictReqAsync(const ::std::optional<IntOneOptio
 void
 Test::InitialPrx::_iceI_opIntOneOptionalDictReq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<IntOneOptionalDict>, ::std::optional<IntOneOptionalDict>>>>& outAsync, const ::std::optional<IntOneOptionalDict>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opIntOneOptionalDictReq";
+    static constexpr ::std::string_view operationName = "opIntOneOptionalDictReq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3466,7 +3466,7 @@ Test::InitialPrx::opClassAndUnknownOptionalAsync(const ::std::shared_ptr<A>& ice
 void
 Test::InitialPrx::_iceI_opClassAndUnknownOptional(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<A>& iceP_p, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opClassAndUnknownOptional";
+    static constexpr ::std::string_view operationName = "opClassAndUnknownOptional";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -3504,7 +3504,7 @@ Test::InitialPrx::sendOptionalClassAsync(bool iceP_req, const ::std::optional<::
 void
 Test::InitialPrx::_iceI_sendOptionalClass(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_req, const ::std::optional<::std::shared_ptr<OneOptional>>& iceP_o, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "sendOptionalClass";
+    static constexpr ::std::string_view operationName = "sendOptionalClass";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -3542,7 +3542,7 @@ Test::InitialPrx::returnOptionalClassAsync(bool iceP_req,
 void
 Test::InitialPrx::_iceI_returnOptionalClass(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::std::shared_ptr<OneOptional>>>>& outAsync, bool iceP_req, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "returnOptionalClass";
+    static constexpr ::std::string_view operationName = "returnOptionalClass";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3586,7 +3586,7 @@ Test::InitialPrx::opGAsync(const ::std::shared_ptr<G>& iceP_g,
 void
 Test::InitialPrx::_iceI_opG(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<G>>>& outAsync, const ::std::shared_ptr<G>& iceP_g, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opG";
+    static constexpr ::std::string_view operationName = "opG";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3631,7 +3631,7 @@ Test::InitialPrx::opVoidAsync(::std::function<void ()> response,
 void
 Test::InitialPrx::_iceI_opVoid(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opVoid";
+    static constexpr ::std::string_view operationName = "opVoid";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -3664,7 +3664,7 @@ Test::InitialPrx::opMStruct1Async(::std::function<void (::std::optional<::Test::
 void
 Test::InitialPrx::_iceI_opMStruct1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<SmallStruct>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opMStruct1";
+    static constexpr ::std::string_view operationName = "opMStruct1";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3711,7 +3711,7 @@ Test::InitialPrx::opMStruct2Async(const ::std::optional<SmallStruct>& iceP_p1,
 void
 Test::InitialPrx::_iceI_opMStruct2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<SmallStruct>, ::std::optional<SmallStruct>>>>& outAsync, const ::std::optional<SmallStruct>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opMStruct2";
+    static constexpr ::std::string_view operationName = "opMStruct2";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3754,7 +3754,7 @@ Test::InitialPrx::opMSeq1Async(::std::function<void (::std::optional<::Test::Str
 void
 Test::InitialPrx::_iceI_opMSeq1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<StringSeq>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opMSeq1";
+    static constexpr ::std::string_view operationName = "opMSeq1";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3801,7 +3801,7 @@ Test::InitialPrx::opMSeq2Async(const ::std::optional<StringSeq>& iceP_p1,
 void
 Test::InitialPrx::_iceI_opMSeq2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<StringSeq>, ::std::optional<StringSeq>>>>& outAsync, const ::std::optional<StringSeq>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opMSeq2";
+    static constexpr ::std::string_view operationName = "opMSeq2";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3844,7 +3844,7 @@ Test::InitialPrx::opMDict1Async(::std::function<void (::std::optional<::Test::St
 void
 Test::InitialPrx::_iceI_opMDict1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<StringIntDict>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opMDict1";
+    static constexpr ::std::string_view operationName = "opMDict1";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3891,7 +3891,7 @@ Test::InitialPrx::opMDict2Async(const ::std::optional<StringIntDict>& iceP_p1,
 void
 Test::InitialPrx::_iceI_opMDict2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<StringIntDict>, ::std::optional<StringIntDict>>>>& outAsync, const ::std::optional<StringIntDict>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opMDict2";
+    static constexpr ::std::string_view operationName = "opMDict2";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3934,7 +3934,7 @@ Test::InitialPrx::opMG1Async(::std::function<void (::std::optional<::std::shared
 void
 Test::InitialPrx::_iceI_opMG1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::std::shared_ptr<G>>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opMG1";
+    static constexpr ::std::string_view operationName = "opMG1";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -3981,7 +3981,7 @@ Test::InitialPrx::opMG2Async(const ::std::optional<::std::shared_ptr<G>>& iceP_p
 void
 Test::InitialPrx::_iceI_opMG2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::shared_ptr<G>>, ::std::optional<::std::shared_ptr<G>>>>>& outAsync, const ::std::optional<::std::shared_ptr<G>>& iceP_p1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opMG2";
+    static constexpr ::std::string_view operationName = "opMG2";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -4024,7 +4024,7 @@ Test::InitialPrx::supportsRequiredParamsAsync(::std::function<void (bool)> respo
 void
 Test::InitialPrx::_iceI_supportsRequiredParams(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "supportsRequiredParams";
+    static constexpr ::std::string_view operationName = "supportsRequiredParams";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -4058,7 +4058,7 @@ Test::InitialPrx::supportsJavaSerializableAsync(::std::function<void (bool)> res
 void
 Test::InitialPrx::_iceI_supportsJavaSerializable(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "supportsJavaSerializable";
+    static constexpr ::std::string_view operationName = "supportsJavaSerializable";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -4092,7 +4092,7 @@ Test::InitialPrx::supportsCsharpSerializableAsync(::std::function<void (bool)> r
 void
 Test::InitialPrx::_iceI_supportsCsharpSerializable(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "supportsCsharpSerializable";
+    static constexpr ::std::string_view operationName = "supportsCsharpSerializable";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -4126,7 +4126,7 @@ Test::InitialPrx::supportsNullOptionalAsync(::std::function<void (bool)> respons
 void
 Test::InitialPrx::_iceI_supportsNullOptional(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "supportsNullOptional";
+    static constexpr ::std::string_view operationName = "supportsNullOptional";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,

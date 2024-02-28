@@ -72,7 +72,7 @@ Test::Common::TestCasePrx::startServerSideAsync(const ::std::shared_ptr<Config>&
 void
 Test::Common::TestCasePrx::_iceI_startServerSide(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::std::shared_ptr<Config>& iceP_config, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "startServerSide";
+    static constexpr ::std::string_view operationName = "startServerSide";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -124,7 +124,7 @@ Test::Common::TestCasePrx::stopServerSideAsync(bool iceP_success,
 void
 Test::Common::TestCasePrx::_iceI_stopServerSide(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, bool iceP_success, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "stopServerSide";
+    static constexpr ::std::string_view operationName = "stopServerSide";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -175,7 +175,7 @@ Test::Common::TestCasePrx::runClientSideAsync(::std::string_view iceP_host, cons
 void
 Test::Common::TestCasePrx::_iceI_runClientSide(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, ::std::string_view iceP_host, const ::std::shared_ptr<Config>& iceP_config, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "runClientSide";
+    static constexpr ::std::string_view operationName = "runClientSide";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -226,7 +226,7 @@ Test::Common::TestCasePrx::destroyAsync(::std::function<void ()> response,
 void
 Test::Common::TestCasePrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "destroy";
+    static constexpr ::std::string_view operationName = "destroy";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -267,7 +267,7 @@ Test::Common::ControllerPrx::runTestCaseAsync(::std::string_view iceP_mapping, :
 void
 Test::Common::ControllerPrx::_iceI_runTestCase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<TestCasePrx>>>& outAsync, ::std::string_view iceP_mapping, ::std::string_view iceP_testsuite, ::std::string_view iceP_testcase, ::std::string_view iceP_cross, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "runTestCase";
+    static constexpr ::std::string_view operationName = "runTestCase";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -317,7 +317,7 @@ Test::Common::ControllerPrx::getOptionOverridesAsync(::std::function<void (::std
 void
 Test::Common::ControllerPrx::_iceI_getOptionOverrides(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<OptionOverrides>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getOptionOverrides";
+    static constexpr ::std::string_view operationName = "getOptionOverrides";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -359,7 +359,7 @@ Test::Common::ControllerPrx::getTestSuitesAsync(::std::string_view iceP_mapping,
 void
 Test::Common::ControllerPrx::_iceI_getTestSuites(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<StringSeq>>& outAsync, ::std::string_view iceP_mapping, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getTestSuites";
+    static constexpr ::std::string_view operationName = "getTestSuites";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -397,7 +397,7 @@ Test::Common::ControllerPrx::getHostAsync(::std::string_view iceP_protocol, bool
 void
 Test::Common::ControllerPrx::_iceI_getHost(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, ::std::string_view iceP_protocol, bool iceP_ipv6, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getHost";
+    static constexpr ::std::string_view operationName = "getHost";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -442,7 +442,7 @@ Test::Common::ProcessPrx::waitReadyAsync(::std::int32_t iceP_timeout,
 void
 Test::Common::ProcessPrx::_iceI_waitReady(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_timeout, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "waitReady";
+    static constexpr ::std::string_view operationName = "waitReady";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -493,7 +493,7 @@ Test::Common::ProcessPrx::waitSuccessAsync(::std::int32_t iceP_timeout,
 void
 Test::Common::ProcessPrx::_iceI_waitSuccess(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_timeout, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "waitSuccess";
+    static constexpr ::std::string_view operationName = "waitSuccess";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -543,7 +543,7 @@ Test::Common::ProcessPrx::terminateAsync(::std::function<void (::std::string)> r
 void
 Test::Common::ProcessPrx::_iceI_terminate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "terminate";
+    static constexpr ::std::string_view operationName = "terminate";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -585,7 +585,7 @@ Test::Common::ProcessControllerPrx::startAsync(::std::string_view iceP_testsuite
 void
 Test::Common::ProcessControllerPrx::_iceI_start(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<ProcessPrx>>>& outAsync, ::std::string_view iceP_testsuite, ::std::string_view iceP_exe, const StringSeq& iceP_args, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "start";
+    static constexpr ::std::string_view operationName = "start";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -636,7 +636,7 @@ Test::Common::ProcessControllerPrx::getHostAsync(::std::string_view iceP_protoco
 void
 Test::Common::ProcessControllerPrx::_iceI_getHost(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, ::std::string_view iceP_protocol, bool iceP_ipv6, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getHost";
+    static constexpr ::std::string_view operationName = "getHost";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -681,7 +681,7 @@ Test::Common::BrowserProcessControllerPrx::redirectAsync(::std::string_view iceP
 void
 Test::Common::BrowserProcessControllerPrx::_iceI_redirect(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_url, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "redirect";
+    static constexpr ::std::string_view operationName = "redirect";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -725,7 +725,7 @@ Test::Common::ProcessControllerRegistryPrx::setProcessControllerAsync(const ::st
 void
 Test::Common::ProcessControllerRegistryPrx::_iceI_setProcessController(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<ProcessControllerPrx>& iceP_controller, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "setProcessController";
+    static constexpr ::std::string_view operationName = "setProcessController";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)

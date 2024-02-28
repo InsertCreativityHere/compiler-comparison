@@ -61,7 +61,7 @@ Test::TestIntfPrx::transientAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_transient(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "transient";
+    static constexpr ::std::string_view operationName = "transient";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -94,7 +94,7 @@ Test::TestIntfPrx::deactivateAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_deactivate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "deactivate";
+    static constexpr ::std::string_view operationName = "deactivate";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

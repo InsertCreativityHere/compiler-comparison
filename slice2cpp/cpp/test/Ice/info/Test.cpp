@@ -61,7 +61,7 @@ Test::TestIntfPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -94,7 +94,7 @@ Test::TestIntfPrx::getEndpointInfoAsContextAsync(::std::function<void (::Ice::Co
 void
 Test::TestIntfPrx::_iceI_getEndpointInfoAsContext(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::Context>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getEndpointInfoAsContext";
+    static constexpr ::std::string_view operationName = "getEndpointInfoAsContext";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -128,7 +128,7 @@ Test::TestIntfPrx::getConnectionInfoAsContextAsync(::std::function<void (::Ice::
 void
 Test::TestIntfPrx::_iceI_getConnectionInfoAsContext(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::Context>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getConnectionInfoAsContext";
+    static constexpr ::std::string_view operationName = "getConnectionInfoAsContext";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,

@@ -72,7 +72,7 @@ Test1::WstringClassPrx::opStringAsync(::std::wstring_view iceP_s1,
 void
 Test1::WstringClassPrx::_iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::wstring, ::std::wstring>>>& outAsync, ::std::wstring_view iceP_s1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opString";
+    static constexpr ::std::string_view operationName = "opString";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -122,7 +122,7 @@ Test1::WstringClassPrx::opStructAsync(const WstringStruct& iceP_s1,
 void
 Test1::WstringClassPrx::_iceI_opStruct(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<WstringStruct, WstringStruct>>>& outAsync, const WstringStruct& iceP_s1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opStruct";
+    static constexpr ::std::string_view operationName = "opStruct";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -166,7 +166,7 @@ Test1::WstringClassPrx::throwExceptAsync(::std::wstring_view iceP_reason,
 void
 Test1::WstringClassPrx::_iceI_throwExcept(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::wstring_view iceP_reason, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "throwExcept";
+    static constexpr ::std::string_view operationName = "throwExcept";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -230,7 +230,7 @@ Test2::WstringClassPrx::opStringAsync(::std::wstring_view iceP_s1,
 void
 Test2::WstringClassPrx::_iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::wstring, ::std::wstring>>>& outAsync, ::std::wstring_view iceP_s1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opString";
+    static constexpr ::std::string_view operationName = "opString";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -280,7 +280,7 @@ Test2::WstringClassPrx::opStructAsync(const WstringStruct& iceP_s1,
 void
 Test2::WstringClassPrx::_iceI_opStruct(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<WstringStruct, WstringStruct>>>& outAsync, const WstringStruct& iceP_s1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opStruct";
+    static constexpr ::std::string_view operationName = "opStruct";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -324,7 +324,7 @@ Test2::WstringClassPrx::throwExceptAsync(::std::wstring_view iceP_reason,
 void
 Test2::WstringClassPrx::_iceI_throwExcept(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::wstring_view iceP_reason, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "throwExcept";
+    static constexpr ::std::string_view operationName = "throwExcept";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,

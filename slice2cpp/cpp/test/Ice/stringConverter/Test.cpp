@@ -64,7 +64,7 @@ Test::MyObjectPrx::widenAsync(::std::string_view iceP_msg,
 void
 Test::MyObjectPrx::_iceI_widen(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::wstring>>& outAsync, ::std::string_view iceP_msg, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "widen";
+    static constexpr ::std::string_view operationName = "widen";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -115,7 +115,7 @@ Test::MyObjectPrx::narrowAsync(::std::wstring_view iceP_wmsg,
 void
 Test::MyObjectPrx::_iceI_narrow(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, ::std::wstring_view iceP_wmsg, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "narrow";
+    static constexpr ::std::string_view operationName = "narrow";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -152,7 +152,7 @@ Test::MyObjectPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::MyObjectPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

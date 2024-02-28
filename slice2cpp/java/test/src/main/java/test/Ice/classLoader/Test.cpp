@@ -65,7 +65,7 @@ Test::InitialPrx::getConcreteClassAsync(::std::function<void (::std::shared_ptr<
 void
 Test::InitialPrx::_iceI_getConcreteClass(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<ConcreteClass>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getConcreteClass";
+    static constexpr ::std::string_view operationName = "getConcreteClass";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -106,7 +106,7 @@ Test::InitialPrx::throwExceptionAsync(::std::function<void ()> response,
 void
 Test::InitialPrx::_iceI_throwException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "throwException";
+    static constexpr ::std::string_view operationName = "throwException";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -153,7 +153,7 @@ Test::InitialPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::InitialPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

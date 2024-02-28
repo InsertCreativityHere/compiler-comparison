@@ -70,7 +70,7 @@ Test::NumPy::CustomPrx::opBoolSeqAsync(const BoolSeq1& iceP_v1,
 void
 Test::NumPy::CustomPrx::_iceI_opBoolSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<BoolSeq1, BoolSeq2>>>& outAsync, const BoolSeq1& iceP_v1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opBoolSeq";
+    static constexpr ::std::string_view operationName = "opBoolSeq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -120,7 +120,7 @@ Test::NumPy::CustomPrx::opByteSeqAsync(const ByteSeq1& iceP_v1,
 void
 Test::NumPy::CustomPrx::_iceI_opByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ByteSeq1, ByteSeq2>>>& outAsync, const ByteSeq1& iceP_v1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opByteSeq";
+    static constexpr ::std::string_view operationName = "opByteSeq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -170,7 +170,7 @@ Test::NumPy::CustomPrx::opShortSeqAsync(const ShortSeq1& iceP_v1,
 void
 Test::NumPy::CustomPrx::_iceI_opShortSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ShortSeq1, ShortSeq2>>>& outAsync, const ShortSeq1& iceP_v1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opShortSeq";
+    static constexpr ::std::string_view operationName = "opShortSeq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -220,7 +220,7 @@ Test::NumPy::CustomPrx::opIntSeqAsync(const IntSeq1& iceP_v1,
 void
 Test::NumPy::CustomPrx::_iceI_opIntSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<IntSeq1, IntSeq2>>>& outAsync, const IntSeq1& iceP_v1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opIntSeq";
+    static constexpr ::std::string_view operationName = "opIntSeq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -270,7 +270,7 @@ Test::NumPy::CustomPrx::opLongSeqAsync(const LongSeq1& iceP_v1,
 void
 Test::NumPy::CustomPrx::_iceI_opLongSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<LongSeq1, LongSeq2>>>& outAsync, const LongSeq1& iceP_v1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opLongSeq";
+    static constexpr ::std::string_view operationName = "opLongSeq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -320,7 +320,7 @@ Test::NumPy::CustomPrx::opFloatSeqAsync(const FloatSeq1& iceP_v1,
 void
 Test::NumPy::CustomPrx::_iceI_opFloatSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<FloatSeq1, FloatSeq2>>>& outAsync, const FloatSeq1& iceP_v1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opFloatSeq";
+    static constexpr ::std::string_view operationName = "opFloatSeq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -370,7 +370,7 @@ Test::NumPy::CustomPrx::opDoubleSeqAsync(const DoubleSeq1& iceP_v1,
 void
 Test::NumPy::CustomPrx::_iceI_opDoubleSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<DoubleSeq1, DoubleSeq2>>>& outAsync, const DoubleSeq1& iceP_v1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opDoubleSeq";
+    static constexpr ::std::string_view operationName = "opDoubleSeq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -414,7 +414,7 @@ Test::NumPy::CustomPrx::opComplex128SeqAsync(const Complex128Seq& iceP_v1,
 void
 Test::NumPy::CustomPrx::_iceI_opComplex128Seq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Complex128Seq>>& outAsync, const Complex128Seq& iceP_v1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opComplex128Seq";
+    static constexpr ::std::string_view operationName = "opComplex128Seq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -451,7 +451,7 @@ Test::NumPy::CustomPrx::opBoolMatrixAsync(::std::function<void (::Test::NumPy::B
 void
 Test::NumPy::CustomPrx::_iceI_opBoolMatrix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<BoolSeq1>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opBoolMatrix";
+    static constexpr ::std::string_view operationName = "opBoolMatrix";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -485,7 +485,7 @@ Test::NumPy::CustomPrx::opByteMatrixAsync(::std::function<void (::Test::NumPy::B
 void
 Test::NumPy::CustomPrx::_iceI_opByteMatrix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ByteSeq1>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opByteMatrix";
+    static constexpr ::std::string_view operationName = "opByteMatrix";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -519,7 +519,7 @@ Test::NumPy::CustomPrx::opShortMatrixAsync(::std::function<void (::Test::NumPy::
 void
 Test::NumPy::CustomPrx::_iceI_opShortMatrix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ShortSeq1>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opShortMatrix";
+    static constexpr ::std::string_view operationName = "opShortMatrix";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -553,7 +553,7 @@ Test::NumPy::CustomPrx::opIntMatrixAsync(::std::function<void (::Test::NumPy::In
 void
 Test::NumPy::CustomPrx::_iceI_opIntMatrix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<IntSeq1>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opIntMatrix";
+    static constexpr ::std::string_view operationName = "opIntMatrix";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -587,7 +587,7 @@ Test::NumPy::CustomPrx::opLongMatrixAsync(::std::function<void (::Test::NumPy::L
 void
 Test::NumPy::CustomPrx::_iceI_opLongMatrix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<LongSeq1>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opLongMatrix";
+    static constexpr ::std::string_view operationName = "opLongMatrix";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -621,7 +621,7 @@ Test::NumPy::CustomPrx::opFloatMatrixAsync(::std::function<void (::Test::NumPy::
 void
 Test::NumPy::CustomPrx::_iceI_opFloatMatrix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<FloatSeq1>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opFloatMatrix";
+    static constexpr ::std::string_view operationName = "opFloatMatrix";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -655,7 +655,7 @@ Test::NumPy::CustomPrx::opDoubleMatrixAsync(::std::function<void (::Test::NumPy:
 void
 Test::NumPy::CustomPrx::_iceI_opDoubleMatrix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<DoubleSeq1>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opDoubleMatrix";
+    static constexpr ::std::string_view operationName = "opDoubleMatrix";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -689,7 +689,7 @@ Test::NumPy::CustomPrx::opBogusNumpyArrayTypeAsync(::std::function<void (::Test:
 void
 Test::NumPy::CustomPrx::_iceI_opBogusNumpyArrayType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<BoolSeq1>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opBogusNumpyArrayType";
+    static constexpr ::std::string_view operationName = "opBogusNumpyArrayType";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -724,7 +724,7 @@ Test::NumPy::CustomPrx::opDAsync(const ::std::shared_ptr<D>& iceP_d,
 void
 Test::NumPy::CustomPrx::_iceI_opD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<D>>>& outAsync, const ::std::shared_ptr<D>& iceP_d, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opD";
+    static constexpr ::std::string_view operationName = "opD";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -769,7 +769,7 @@ Test::NumPy::CustomPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::NumPy::CustomPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

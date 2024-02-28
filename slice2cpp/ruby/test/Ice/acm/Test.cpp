@@ -62,7 +62,7 @@ Test::TestIntfPrx::sleepAsync(::std::int32_t iceP_seconds,
 void
 Test::TestIntfPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_seconds, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "sleep";
+    static constexpr ::std::string_view operationName = "sleep";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -99,7 +99,7 @@ Test::TestIntfPrx::sleepAndHoldAsync(::std::int32_t iceP_seconds,
 void
 Test::TestIntfPrx::_iceI_sleepAndHold(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_seconds, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "sleepAndHold";
+    static constexpr ::std::string_view operationName = "sleepAndHold";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -135,7 +135,7 @@ Test::TestIntfPrx::interruptSleepAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_interruptSleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "interruptSleep";
+    static constexpr ::std::string_view operationName = "interruptSleep";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -168,7 +168,7 @@ Test::TestIntfPrx::startHeartbeatCountAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_startHeartbeatCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "startHeartbeatCount";
+    static constexpr ::std::string_view operationName = "startHeartbeatCount";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -202,7 +202,7 @@ Test::TestIntfPrx::waitForHeartbeatCountAsync(::std::int32_t iceP_count,
 void
 Test::TestIntfPrx::_iceI_waitForHeartbeatCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_count, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "waitForHeartbeatCount";
+    static constexpr ::std::string_view operationName = "waitForHeartbeatCount";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -245,7 +245,7 @@ Test::RemoteObjectAdapterPrx::getTestIntfAsync(::std::function<void (::std::opti
 void
 Test::RemoteObjectAdapterPrx::_iceI_getTestIntf(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<TestIntfPrx>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getTestIntf";
+    static constexpr ::std::string_view operationName = "getTestIntf";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -279,7 +279,7 @@ Test::RemoteObjectAdapterPrx::activateAsync(::std::function<void ()> response,
 void
 Test::RemoteObjectAdapterPrx::_iceI_activate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "activate";
+    static constexpr ::std::string_view operationName = "activate";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -312,7 +312,7 @@ Test::RemoteObjectAdapterPrx::holdAsync(::std::function<void ()> response,
 void
 Test::RemoteObjectAdapterPrx::_iceI_hold(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "hold";
+    static constexpr ::std::string_view operationName = "hold";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -345,7 +345,7 @@ Test::RemoteObjectAdapterPrx::deactivateAsync(::std::function<void ()> response,
 void
 Test::RemoteObjectAdapterPrx::_iceI_deactivate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "deactivate";
+    static constexpr ::std::string_view operationName = "deactivate";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -386,7 +386,7 @@ Test::RemoteCommunicatorPrx::createObjectAdapterAsync(::std::int32_t iceP_acmTim
 void
 Test::RemoteCommunicatorPrx::_iceI_createObjectAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<RemoteObjectAdapterPrx>>>& outAsync, ::std::int32_t iceP_acmTimeout, ::std::int32_t iceP_close, ::std::int32_t iceP_heartbeat, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "createObjectAdapter";
+    static constexpr ::std::string_view operationName = "createObjectAdapter";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -423,7 +423,7 @@ Test::RemoteCommunicatorPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::RemoteCommunicatorPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

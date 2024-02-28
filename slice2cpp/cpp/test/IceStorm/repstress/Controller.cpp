@@ -61,7 +61,7 @@ Test::ControllerPrx::stopAsync(::std::function<void ()> response,
 void
 Test::ControllerPrx::_iceI_stop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "stop";
+    static constexpr ::std::string_view operationName = "stop";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

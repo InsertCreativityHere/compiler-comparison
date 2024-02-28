@@ -67,7 +67,7 @@ Ice::RemoteLoggerPrx::initAsync(::std::string_view iceP_prefix, const LogMessage
 void
 Ice::RemoteLoggerPrx::_iceI_init(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_prefix, const LogMessageSeq& iceP_logMessages, const Context& context) const
 {
-    static const ::std::string operationName = "init";
+    static constexpr ::std::string_view operationName = "init";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](OutputStream* ostr)
@@ -104,7 +104,7 @@ Ice::RemoteLoggerPrx::logAsync(const LogMessage& iceP_message,
 void
 Ice::RemoteLoggerPrx::_iceI_log(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const LogMessage& iceP_message, const Context& context) const
 {
-    static const ::std::string operationName = "log";
+    static constexpr ::std::string_view operationName = "log";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](OutputStream* ostr)
@@ -148,7 +148,7 @@ Ice::LoggerAdminPrx::attachRemoteLoggerAsync(const ::std::optional<RemoteLoggerP
 void
 Ice::LoggerAdminPrx::_iceI_attachRemoteLogger(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<RemoteLoggerPrx>& iceP_prx, const LogMessageTypeSeq& iceP_messageTypes, const StringSeq& iceP_traceCategories, ::std::int32_t iceP_messageMax, const Context& context) const
 {
-    static const ::std::string operationName = "attachRemoteLogger";
+    static constexpr ::std::string_view operationName = "attachRemoteLogger";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -199,7 +199,7 @@ Ice::LoggerAdminPrx::detachRemoteLoggerAsync(const ::std::optional<RemoteLoggerP
 void
 Ice::LoggerAdminPrx::_iceI_detachRemoteLogger(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, const ::std::optional<RemoteLoggerPrx>& iceP_prx, const Context& context) const
 {
-    static const ::std::string operationName = "detachRemoteLogger";
+    static constexpr ::std::string_view operationName = "detachRemoteLogger";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -243,7 +243,7 @@ Ice::LoggerAdminPrx::getLogAsync(const LogMessageTypeSeq& iceP_messageTypes, con
 void
 Ice::LoggerAdminPrx::_iceI_getLog(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<LogMessageSeq, ::std::string>>>& outAsync, const LogMessageTypeSeq& iceP_messageTypes, const StringSeq& iceP_traceCategories, ::std::int32_t iceP_messageMax, const Context& context) const
 {
-    static const ::std::string operationName = "getLog";
+    static constexpr ::std::string_view operationName = "getLog";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,

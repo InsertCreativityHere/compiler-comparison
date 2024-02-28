@@ -72,7 +72,7 @@ await::casePrx::catchAsync(::std::int32_t iceP_checked,
 void
 await::casePrx::_iceI_catch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_checked, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "catch";
+    static constexpr ::std::string_view operationName = "catch";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -116,7 +116,7 @@ await::typeofPrx::defaultAsync(::std::function<void ()> response,
 void
 await::typeofPrx::_iceI_default(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "default";
+    static constexpr ::std::string_view operationName = "default";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -164,7 +164,7 @@ await::optionalParamsPrx::forAsync(const ::std::optional<var>& iceP_goto, const 
 void
 await::optionalParamsPrx::_iceI_for(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<_cpp_break>>>& outAsync, const ::std::optional<var>& iceP_goto, const ::std::optional<explicitPrx>& iceP_if, const ::std::optional<_cpp_while>& iceP_internal, const ::std::optional<::std::string>& iceP_namespace, const ::std::optional<explicitPrx>& iceP_null, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "for";
+    static constexpr ::std::string_view operationName = "for";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -208,7 +208,7 @@ await::optionalParamsPrx::continueAsync(const ::std::optional<var>& iceP_goto, c
 void
 await::optionalParamsPrx::_iceI_continue(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<_cpp_break>>>& outAsync, const ::std::optional<var>& iceP_goto, const ::std::optional<explicitPrx>& iceP_if, const ::std::optional<_cpp_while>& iceP_internal, const ::std::optional<::std::string>& iceP_namespace, const ::std::optional<explicitPrx>& iceP_null, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "continue";
+    static constexpr ::std::string_view operationName = "continue";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -261,7 +261,7 @@ await::optionalParamsPrx::inAsync(::std::function<void (::std::optional<::await:
 void
 await::optionalParamsPrx::_iceI_in(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<_cpp_break>, ::std::optional<var>, ::std::optional<explicitPrx>, ::std::optional<_cpp_while>, ::std::optional<::std::string>, ::std::optional<explicitPrx>>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "in";
+    static constexpr ::std::string_view operationName = "in";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -311,7 +311,7 @@ await::optionalParamsPrx::foreachAsync(::std::function<void (::std::optional<::a
 void
 await::optionalParamsPrx::_iceI_foreach(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<_cpp_break>, ::std::optional<var>, ::std::optional<explicitPrx>, ::std::optional<_cpp_while>, ::std::optional<::std::string>, ::std::optional<explicitPrx>>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "foreach";
+    static constexpr ::std::string_view operationName = "foreach";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -359,7 +359,7 @@ await::implicitPrx::inAsync(const _cpp_break& iceP_internal, const ::std::shared
 void
 await::implicitPrx::_iceI_in(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<var>>& outAsync, const _cpp_break& iceP_internal, const ::std::shared_ptr<_cpp_delete>& iceP_is, const ::std::optional<explicitPrx>& iceP_lock, const ::std::optional<casePrx>& iceP_namespace, const ::std::optional<typeofPrx>& iceP_new, const ::std::shared_ptr<_cpp_delete>& iceP_null, const ::std::optional<explicitPrx>& iceP_operator, ::std::int32_t iceP_override, ::std::int32_t iceP_params, ::std::int32_t iceP_private, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "in";
+    static constexpr ::std::string_view operationName = "in";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -421,7 +421,7 @@ await::System::TestPrx::opAsync(::std::function<void ()> response,
 void
 await::System::TestPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "op";
+    static constexpr ::std::string_view operationName = "op";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -461,7 +461,7 @@ System::TestPrx::opAsync(::std::function<void ()> response,
 void
 System::TestPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "op";
+    static constexpr ::std::string_view operationName = "op";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

@@ -62,7 +62,7 @@ IceDiscovery::LookupReplyPrx::foundObjectByIdAsync(const ::Ice::Identity& iceP_i
 void
 IceDiscovery::LookupReplyPrx::_iceI_foundObjectById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Identity& iceP_id, const ::std::optional<::Ice::ObjectPrx>& iceP_prx, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "foundObjectById";
+    static constexpr ::std::string_view operationName = "foundObjectById";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -99,7 +99,7 @@ IceDiscovery::LookupReplyPrx::foundAdapterByIdAsync(::std::string_view iceP_id, 
 void
 IceDiscovery::LookupReplyPrx::_iceI_foundAdapterById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_id, const ::std::optional<::Ice::ObjectPrx>& iceP_prx, bool iceP_isReplicaGroup, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "foundAdapterById";
+    static constexpr ::std::string_view operationName = "foundAdapterById";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -143,7 +143,7 @@ IceDiscovery::LookupPrx::findObjectByIdAsync(::std::string_view iceP_domainId, c
 void
 IceDiscovery::LookupPrx::_iceI_findObjectById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_domainId, const ::Ice::Identity& iceP_id, const ::std::optional<LookupReplyPrx>& iceP_reply, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "findObjectById";
+    static constexpr ::std::string_view operationName = "findObjectById";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -180,7 +180,7 @@ IceDiscovery::LookupPrx::findAdapterByIdAsync(::std::string_view iceP_domainId, 
 void
 IceDiscovery::LookupPrx::_iceI_findAdapterById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_domainId, ::std::string_view iceP_id, const ::std::optional<LookupReplyPrx>& iceP_reply, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "findAdapterById";
+    static constexpr ::std::string_view operationName = "findAdapterById";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)

@@ -64,7 +64,7 @@ Ice::ProcessPrx::shutdownAsync(::std::function<void ()> response,
 void
 Ice::ProcessPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -98,7 +98,7 @@ Ice::ProcessPrx::writeMessageAsync(::std::string_view iceP_message, ::std::int32
 void
 Ice::ProcessPrx::_iceI_writeMessage(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_message, ::std::int32_t iceP_fd, const Context& context) const
 {
-    static const ::std::string operationName = "writeMessage";
+    static constexpr ::std::string_view operationName = "writeMessage";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](OutputStream* ostr)

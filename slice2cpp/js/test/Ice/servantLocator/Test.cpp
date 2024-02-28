@@ -65,7 +65,7 @@ Test::TestIntfPrx::requestFailedExceptionAsync(::std::function<void ()> response
 void
 Test::TestIntfPrx::_iceI_requestFailedException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "requestFailedException";
+    static constexpr ::std::string_view operationName = "requestFailedException";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -98,7 +98,7 @@ Test::TestIntfPrx::unknownUserExceptionAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_unknownUserException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "unknownUserException";
+    static constexpr ::std::string_view operationName = "unknownUserException";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -131,7 +131,7 @@ Test::TestIntfPrx::unknownLocalExceptionAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_unknownLocalException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "unknownLocalException";
+    static constexpr ::std::string_view operationName = "unknownLocalException";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -164,7 +164,7 @@ Test::TestIntfPrx::unknownExceptionAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_unknownException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "unknownException";
+    static constexpr ::std::string_view operationName = "unknownException";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -197,7 +197,7 @@ Test::TestIntfPrx::localExceptionAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_localException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "localException";
+    static constexpr ::std::string_view operationName = "localException";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -230,7 +230,7 @@ Test::TestIntfPrx::userExceptionAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_userException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "userException";
+    static constexpr ::std::string_view operationName = "userException";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -263,7 +263,7 @@ Test::TestIntfPrx::jsExceptionAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_jsException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "jsException";
+    static constexpr ::std::string_view operationName = "jsException";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -296,7 +296,7 @@ Test::TestIntfPrx::unknownExceptionWithServantExceptionAsync(::std::function<voi
 void
 Test::TestIntfPrx::_iceI_unknownExceptionWithServantException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "unknownExceptionWithServantException";
+    static constexpr ::std::string_view operationName = "unknownExceptionWithServantException";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -330,7 +330,7 @@ Test::TestIntfPrx::impossibleExceptionAsync(bool iceP_throw,
 void
 Test::TestIntfPrx::_iceI_impossibleException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, bool iceP_throw, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "impossibleException";
+    static constexpr ::std::string_view operationName = "impossibleException";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -381,7 +381,7 @@ Test::TestIntfPrx::intfUserExceptionAsync(bool iceP_throw,
 void
 Test::TestIntfPrx::_iceI_intfUserException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, bool iceP_throw, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "intfUserException";
+    static constexpr ::std::string_view operationName = "intfUserException";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -435,7 +435,7 @@ Test::TestIntfPrx::asyncResponseAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_asyncResponse(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "asyncResponse";
+    static constexpr ::std::string_view operationName = "asyncResponse";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -486,7 +486,7 @@ Test::TestIntfPrx::asyncExceptionAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_asyncException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "asyncException";
+    static constexpr ::std::string_view operationName = "asyncException";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -537,7 +537,7 @@ Test::TestIntfPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -578,7 +578,7 @@ Test::TestActivationPrx::activateServantLocatorAsync(bool iceP_activate,
 void
 Test::TestActivationPrx::_iceI_activateServantLocator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_activate, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "activateServantLocator";
+    static constexpr ::std::string_view operationName = "activateServantLocator";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -621,7 +621,7 @@ Test::EchoPrx::setConnectionAsync(::std::function<void ()> response,
 void
 Test::EchoPrx::_iceI_setConnection(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "setConnection";
+    static constexpr ::std::string_view operationName = "setConnection";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -654,7 +654,7 @@ Test::EchoPrx::startBatchAsync(::std::function<void ()> response,
 void
 Test::EchoPrx::_iceI_startBatch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "startBatch";
+    static constexpr ::std::string_view operationName = "startBatch";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -687,7 +687,7 @@ Test::EchoPrx::flushBatchAsync(::std::function<void ()> response,
 void
 Test::EchoPrx::_iceI_flushBatch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "flushBatch";
+    static constexpr ::std::string_view operationName = "flushBatch";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -720,7 +720,7 @@ Test::EchoPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::EchoPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

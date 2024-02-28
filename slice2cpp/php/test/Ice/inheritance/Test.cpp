@@ -62,7 +62,7 @@ Test::MA::IAPrx::iaopAsync(const ::std::optional<IAPrx>& iceP_p,
 void
 Test::MA::IAPrx::_iceI_iaop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<IAPrx>>>& outAsync, const ::std::optional<IAPrx>& iceP_p, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "iaop";
+    static constexpr ::std::string_view operationName = "iaop";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -107,7 +107,7 @@ Test::MB::IB1Prx::ib1opAsync(const ::std::optional<IB1Prx>& iceP_p,
 void
 Test::MB::IB1Prx::_iceI_ib1op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<IB1Prx>>>& outAsync, const ::std::optional<IB1Prx>& iceP_p, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "ib1op";
+    static constexpr ::std::string_view operationName = "ib1op";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -152,7 +152,7 @@ Test::MB::IB2Prx::ib2opAsync(const ::std::optional<IB2Prx>& iceP_p,
 void
 Test::MB::IB2Prx::_iceI_ib2op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<IB2Prx>>>& outAsync, const ::std::optional<IB2Prx>& iceP_p, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "ib2op";
+    static constexpr ::std::string_view operationName = "ib2op";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -197,7 +197,7 @@ Test::MA::ICPrx::icopAsync(const ::std::optional<ICPrx>& iceP_p,
 void
 Test::MA::ICPrx::_iceI_icop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<ICPrx>>>& outAsync, const ::std::optional<ICPrx>& iceP_p, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "icop";
+    static constexpr ::std::string_view operationName = "icop";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -241,7 +241,7 @@ Test::InitialPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::InitialPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -274,7 +274,7 @@ Test::InitialPrx::iaopAsync(::std::function<void (::std::optional<::Test::MA::IA
 void
 Test::InitialPrx::_iceI_iaop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Test::MA::IAPrx>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "iaop";
+    static constexpr ::std::string_view operationName = "iaop";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -308,7 +308,7 @@ Test::InitialPrx::ib1opAsync(::std::function<void (::std::optional<::Test::MB::I
 void
 Test::InitialPrx::_iceI_ib1op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Test::MB::IB1Prx>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "ib1op";
+    static constexpr ::std::string_view operationName = "ib1op";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -342,7 +342,7 @@ Test::InitialPrx::ib2opAsync(::std::function<void (::std::optional<::Test::MB::I
 void
 Test::InitialPrx::_iceI_ib2op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Test::MB::IB2Prx>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "ib2op";
+    static constexpr ::std::string_view operationName = "ib2op";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -376,7 +376,7 @@ Test::InitialPrx::icopAsync(::std::function<void (::std::optional<::Test::MA::IC
 void
 Test::InitialPrx::_iceI_icop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Test::MA::ICPrx>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "icop";
+    static constexpr ::std::string_view operationName = "icop";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,

@@ -78,7 +78,7 @@ IceStorm::TopicPrx::getNameAsync(::std::function<void (::std::string)> response,
 void
 IceStorm::TopicPrx::_iceI_getName(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getName";
+    static constexpr ::std::string_view operationName = "getName";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
@@ -112,7 +112,7 @@ IceStorm::TopicPrx::getPublisherAsync(::std::function<void (::std::optional<::Ic
 void
 IceStorm::TopicPrx::_iceI_getPublisher(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getPublisher";
+    static constexpr ::std::string_view operationName = "getPublisher";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
@@ -146,7 +146,7 @@ IceStorm::TopicPrx::getNonReplicatedPublisherAsync(::std::function<void (::std::
 void
 IceStorm::TopicPrx::_iceI_getNonReplicatedPublisher(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getNonReplicatedPublisher";
+    static constexpr ::std::string_view operationName = "getNonReplicatedPublisher";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
@@ -181,7 +181,7 @@ IceStorm::TopicPrx::subscribeAndGetPublisherAsync(const QoS& iceP_theQoS, const 
 void
 IceStorm::TopicPrx::_iceI_subscribeAndGetPublisher(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>& outAsync, const QoS& iceP_theQoS, const ::std::optional<::Ice::ObjectPrx>& iceP_subscriber, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "subscribeAndGetPublisher";
+    static constexpr ::std::string_view operationName = "subscribeAndGetPublisher";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -240,7 +240,7 @@ IceStorm::TopicPrx::unsubscribeAsync(const ::std::optional<::Ice::ObjectPrx>& ic
 void
 IceStorm::TopicPrx::_iceI_unsubscribe(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<::Ice::ObjectPrx>& iceP_subscriber, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "unsubscribe";
+    static constexpr ::std::string_view operationName = "unsubscribe";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -277,7 +277,7 @@ IceStorm::TopicPrx::linkAsync(const ::std::optional<TopicPrx>& iceP_linkTo, ::st
 void
 IceStorm::TopicPrx::_iceI_link(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<TopicPrx>& iceP_linkTo, ::std::int32_t iceP_cost, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "link";
+    static constexpr ::std::string_view operationName = "link";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -328,7 +328,7 @@ IceStorm::TopicPrx::unlinkAsync(const ::std::optional<TopicPrx>& iceP_linkTo,
 void
 IceStorm::TopicPrx::_iceI_unlink(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<TopicPrx>& iceP_linkTo, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "unlink";
+    static constexpr ::std::string_view operationName = "unlink";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -378,7 +378,7 @@ IceStorm::TopicPrx::getLinkInfoSeqAsync(::std::function<void (::IceStorm::LinkIn
 void
 IceStorm::TopicPrx::_iceI_getLinkInfoSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<LinkInfoSeq>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getLinkInfoSeq";
+    static constexpr ::std::string_view operationName = "getLinkInfoSeq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
@@ -412,7 +412,7 @@ IceStorm::TopicPrx::getSubscribersAsync(::std::function<void (::Ice::IdentitySeq
 void
 IceStorm::TopicPrx::_iceI_getSubscribers(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::IdentitySeq>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getSubscribers";
+    static constexpr ::std::string_view operationName = "getSubscribers";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -446,7 +446,7 @@ IceStorm::TopicPrx::destroyAsync(::std::function<void ()> response,
 void
 IceStorm::TopicPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "destroy";
+    static constexpr ::std::string_view operationName = "destroy";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -487,7 +487,7 @@ IceStorm::TopicManagerPrx::createAsync(::std::string_view iceP_name,
 void
 IceStorm::TopicManagerPrx::_iceI_create(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<TopicPrx>>>& outAsync, ::std::string_view iceP_name, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "create";
+    static constexpr ::std::string_view operationName = "create";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -538,7 +538,7 @@ IceStorm::TopicManagerPrx::retrieveAsync(::std::string_view iceP_name,
 void
 IceStorm::TopicManagerPrx::_iceI_retrieve(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<TopicPrx>>>& outAsync, ::std::string_view iceP_name, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "retrieve";
+    static constexpr ::std::string_view operationName = "retrieve";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
@@ -588,7 +588,7 @@ IceStorm::TopicManagerPrx::retrieveAllAsync(::std::function<void (::IceStorm::To
 void
 IceStorm::TopicManagerPrx::_iceI_retrieveAll(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TopicDict>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "retrieveAll";
+    static constexpr ::std::string_view operationName = "retrieveAll";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
@@ -629,7 +629,7 @@ IceStorm::FinderPrx::getTopicManagerAsync(::std::function<void (::std::optional<
 void
 IceStorm::FinderPrx::_iceI_getTopicManager(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<TopicManagerPrx>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getTopicManager";
+    static constexpr ::std::string_view operationName = "getTopicManager";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,

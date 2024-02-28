@@ -61,7 +61,7 @@ Test::PingReplyPrx::replyAsync(::std::function<void ()> response,
 void
 Test::PingReplyPrx::_iceI_reply(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "reply";
+    static constexpr ::std::string_view operationName = "reply";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -102,7 +102,7 @@ Test::TestIntfPrx::pingAsync(const ::std::optional<PingReplyPrx>& iceP_reply,
 void
 Test::TestIntfPrx::_iceI_ping(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<PingReplyPrx>& iceP_reply, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "ping";
+    static constexpr ::std::string_view operationName = "ping";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -139,7 +139,7 @@ Test::TestIntfPrx::sendByteSeqAsync(const ByteSeq& iceP_seq, const ::std::option
 void
 Test::TestIntfPrx::_iceI_sendByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ByteSeq& iceP_seq, const ::std::optional<PingReplyPrx>& iceP_reply, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "sendByteSeq";
+    static constexpr ::std::string_view operationName = "sendByteSeq";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -176,7 +176,7 @@ Test::TestIntfPrx::pingBiDirAsync(const ::Ice::Identity& iceP_reply,
 void
 Test::TestIntfPrx::_iceI_pingBiDir(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Identity& iceP_reply, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "pingBiDir";
+    static constexpr ::std::string_view operationName = "pingBiDir";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -212,7 +212,7 @@ Test::TestIntfPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

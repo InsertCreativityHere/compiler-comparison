@@ -64,7 +64,7 @@ IceGrid::SessionPrx::keepAliveAsync(::std::function<void ()> response,
 void
 IceGrid::SessionPrx::_iceI_keepAlive(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "keepAlive";
+    static constexpr ::std::string_view operationName = "keepAlive";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -98,7 +98,7 @@ IceGrid::SessionPrx::allocateObjectByIdAsync(const ::Ice::Identity& iceP_id,
 void
 IceGrid::SessionPrx::_iceI_allocateObjectById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>& outAsync, const ::Ice::Identity& iceP_id, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "allocateObjectById";
+    static constexpr ::std::string_view operationName = "allocateObjectById";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -153,7 +153,7 @@ IceGrid::SessionPrx::allocateObjectByTypeAsync(::std::string_view iceP_type,
 void
 IceGrid::SessionPrx::_iceI_allocateObjectByType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>& outAsync, ::std::string_view iceP_type, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "allocateObjectByType";
+    static constexpr ::std::string_view operationName = "allocateObjectByType";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -204,7 +204,7 @@ IceGrid::SessionPrx::releaseObjectAsync(const ::Ice::Identity& iceP_id,
 void
 IceGrid::SessionPrx::_iceI_releaseObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Identity& iceP_id, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "releaseObject";
+    static constexpr ::std::string_view operationName = "releaseObject";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -259,7 +259,7 @@ IceGrid::SessionPrx::setAllocationTimeoutAsync(::std::int32_t iceP_timeout,
 void
 IceGrid::SessionPrx::_iceI_setAllocationTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_timeout, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "setAllocationTimeout";
+    static constexpr ::std::string_view operationName = "setAllocationTimeout";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)

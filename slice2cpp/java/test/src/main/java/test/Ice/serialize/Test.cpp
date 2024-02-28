@@ -67,7 +67,7 @@ Test::InitialPrx::getStruct1Async(::std::function<void (::Test::ByteS)> response
 void
 Test::InitialPrx::_iceI_getStruct1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ByteS>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getStruct1";
+    static constexpr ::std::string_view operationName = "getStruct1";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -101,7 +101,7 @@ Test::InitialPrx::getBaseAsync(::std::function<void (::Test::ByteS)> response,
 void
 Test::InitialPrx::_iceI_getBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ByteS>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getBase";
+    static constexpr ::std::string_view operationName = "getBase";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -135,7 +135,7 @@ Test::InitialPrx::getExAsync(::std::function<void (::Test::ByteS)> response,
 void
 Test::InitialPrx::_iceI_getEx(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ByteS>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getEx";
+    static constexpr ::std::string_view operationName = "getEx";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -169,7 +169,7 @@ Test::InitialPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::InitialPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

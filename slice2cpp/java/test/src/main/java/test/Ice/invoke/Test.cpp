@@ -63,7 +63,7 @@ Test::MyClassPrx::opOnewayAsync(::std::function<void ()> response,
 void
 Test::MyClassPrx::_iceI_opOneway(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opOneway";
+    static constexpr ::std::string_view operationName = "opOneway";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -103,7 +103,7 @@ Test::MyClassPrx::opStringAsync(::std::string_view iceP_s1,
 void
 Test::MyClassPrx::_iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::string, ::std::string>>>& outAsync, ::std::string_view iceP_s1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opString";
+    static constexpr ::std::string_view operationName = "opString";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -146,7 +146,7 @@ Test::MyClassPrx::opExceptionAsync(::std::function<void ()> response,
 void
 Test::MyClassPrx::_iceI_opException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opException";
+    static constexpr ::std::string_view operationName = "opException";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -193,7 +193,7 @@ Test::MyClassPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::MyClassPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

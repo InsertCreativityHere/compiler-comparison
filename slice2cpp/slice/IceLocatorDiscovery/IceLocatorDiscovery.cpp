@@ -62,7 +62,7 @@ IceLocatorDiscovery::LookupReplyPrx::foundLocatorAsync(const ::std::optional<::I
 void
 IceLocatorDiscovery::LookupReplyPrx::_iceI_foundLocator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<::Ice::LocatorPrx>& iceP_prx, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "foundLocator";
+    static constexpr ::std::string_view operationName = "foundLocator";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -106,7 +106,7 @@ IceLocatorDiscovery::LookupPrx::findLocatorAsync(::std::string_view iceP_instanc
 void
 IceLocatorDiscovery::LookupPrx::_iceI_findLocator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_instanceName, const ::std::optional<LookupReplyPrx>& iceP_reply, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "findLocator";
+    static constexpr ::std::string_view operationName = "findLocator";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)

@@ -68,7 +68,7 @@ _cpp_and::breakPrx::caseAsync(::std::int32_t iceP_catch,
 void
 _cpp_and::breakPrx::_iceI_case(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_catch, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "case";
+    static constexpr ::std::string_view operationName = "case";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -112,7 +112,7 @@ _cpp_and::funcPrx::publicAsync(::std::function<void ()> response,
 void
 _cpp_and::funcPrx::_iceI_public(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "public";
+    static constexpr ::std::string_view operationName = "public";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

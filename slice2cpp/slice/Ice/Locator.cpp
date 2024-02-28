@@ -76,7 +76,7 @@ Ice::LocatorPrx::findObjectByIdAsync(const Identity& iceP_id,
 void
 Ice::LocatorPrx::_iceI_findObjectById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>& outAsync, const Identity& iceP_id, const Context& context) const
 {
-    static const ::std::string operationName = "findObjectById";
+    static constexpr ::std::string_view operationName = "findObjectById";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
@@ -127,7 +127,7 @@ Ice::LocatorPrx::findAdapterByIdAsync(::std::string_view iceP_id,
 void
 Ice::LocatorPrx::_iceI_findAdapterById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>& outAsync, ::std::string_view iceP_id, const Context& context) const
 {
-    static const ::std::string operationName = "findAdapterById";
+    static constexpr ::std::string_view operationName = "findAdapterById";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
@@ -177,7 +177,7 @@ Ice::LocatorPrx::getRegistryAsync(::std::function<void (::std::optional<::Ice::L
 void
 Ice::LocatorPrx::_iceI_getRegistry(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<LocatorRegistryPrx>>>& outAsync, const Context& context) const
 {
-    static const ::std::string operationName = "getRegistry";
+    static constexpr ::std::string_view operationName = "getRegistry";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
@@ -219,7 +219,7 @@ Ice::LocatorRegistryPrx::setAdapterDirectProxyAsync(::std::string_view iceP_id, 
 void
 Ice::LocatorRegistryPrx::_iceI_setAdapterDirectProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_id, const ::std::optional<::Ice::ObjectPrx>& iceP_proxy, const Context& context) const
 {
-    static const ::std::string operationName = "setAdapterDirectProxy";
+    static constexpr ::std::string_view operationName = "setAdapterDirectProxy";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
@@ -274,7 +274,7 @@ Ice::LocatorRegistryPrx::setReplicatedAdapterDirectProxyAsync(::std::string_view
 void
 Ice::LocatorRegistryPrx::_iceI_setReplicatedAdapterDirectProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_adapterId, ::std::string_view iceP_replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& iceP_p, const Context& context) const
 {
-    static const ::std::string operationName = "setReplicatedAdapterDirectProxy";
+    static constexpr ::std::string_view operationName = "setReplicatedAdapterDirectProxy";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
@@ -333,7 +333,7 @@ Ice::LocatorRegistryPrx::setServerProcessProxyAsync(::std::string_view iceP_id, 
 void
 Ice::LocatorRegistryPrx::_iceI_setServerProcessProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_id, const ::std::optional<ProcessPrx>& iceP_proxy, const Context& context) const
 {
-    static const ::std::string operationName = "setServerProcessProxy";
+    static constexpr ::std::string_view operationName = "setServerProcessProxy";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
@@ -390,7 +390,7 @@ Ice::LocatorFinderPrx::getLocatorAsync(::std::function<void (::std::optional<::I
 void
 Ice::LocatorFinderPrx::_iceI_getLocator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<LocatorPrx>>>& outAsync, const Context& context) const
 {
-    static const ::std::string operationName = "getLocator";
+    static constexpr ::std::string_view operationName = "getLocator";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,

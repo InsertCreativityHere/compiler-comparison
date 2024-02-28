@@ -67,7 +67,7 @@ IceGrid::UserAccountMapperPrx::getUserAccountAsync(::std::string_view iceP_user,
 void
 IceGrid::UserAccountMapperPrx::_iceI_getUserAccount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, ::std::string_view iceP_user, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getUserAccount";
+    static constexpr ::std::string_view operationName = "getUserAccount";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,

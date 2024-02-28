@@ -62,7 +62,7 @@ Test::TestIntfPrx::sleepAsync(::std::int32_t iceP_ms,
 void
 Test::TestIntfPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_ms, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "sleep";
+    static constexpr ::std::string_view operationName = "sleep";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -105,7 +105,7 @@ Test::RemoteCommunicatorPrx::getObjectAsync(::std::function<void (::std::optiona
 void
 Test::RemoteCommunicatorPrx::_iceI_getObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<TestIntfPrx>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getObject";
+    static constexpr ::std::string_view operationName = "getObject";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -139,7 +139,7 @@ Test::RemoteCommunicatorPrx::getThreadStartCountAsync(::std::function<void (::st
 void
 Test::RemoteCommunicatorPrx::_iceI_getThreadStartCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getThreadStartCount";
+    static constexpr ::std::string_view operationName = "getThreadStartCount";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -173,7 +173,7 @@ Test::RemoteCommunicatorPrx::getThreadStopCountAsync(::std::function<void (::std
 void
 Test::RemoteCommunicatorPrx::_iceI_getThreadStopCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getThreadStopCount";
+    static constexpr ::std::string_view operationName = "getThreadStopCount";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -207,7 +207,7 @@ Test::RemoteCommunicatorPrx::destroyAsync(::std::function<void ()> response,
 void
 Test::RemoteCommunicatorPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "destroy";
+    static constexpr ::std::string_view operationName = "destroy";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -248,7 +248,7 @@ Test::RemoteCommunicatorFactoryPrx::createCommunicatorAsync(const ::Ice::Propert
 void
 Test::RemoteCommunicatorFactoryPrx::_iceI_createCommunicator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<RemoteCommunicatorPrx>>>& outAsync, const ::Ice::PropertyDict& iceP_props, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "createCommunicator";
+    static constexpr ::std::string_view operationName = "createCommunicator";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -285,7 +285,7 @@ Test::RemoteCommunicatorFactoryPrx::shutdownAsync(::std::function<void ()> respo
 void
 Test::RemoteCommunicatorFactoryPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

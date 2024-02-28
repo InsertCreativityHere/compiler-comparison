@@ -61,7 +61,7 @@ Test::BackendPrx::checkAsync(::std::function<void ()> response,
 void
 Test::BackendPrx::_iceI_check(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "check";
+    static constexpr ::std::string_view operationName = "check";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -94,7 +94,7 @@ Test::BackendPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::BackendPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -135,7 +135,7 @@ Test::TestControllerPrx::stepAsync(const ::std::optional<::Glacier2::SessionPrx>
 void
 Test::TestControllerPrx::_iceI_step(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<TestToken>>& outAsync, const ::std::optional<::Glacier2::SessionPrx>& iceP_currentSession, const TestToken& iceP_currentState, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "step";
+    static constexpr ::std::string_view operationName = "step";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -172,7 +172,7 @@ Test::TestControllerPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::TestControllerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -212,7 +212,7 @@ Test::TestSessionPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::TestSessionPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

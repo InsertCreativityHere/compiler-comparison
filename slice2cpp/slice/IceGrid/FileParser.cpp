@@ -67,7 +67,7 @@ IceGrid::FileParserPrx::parseAsync(::std::string_view iceP_xmlFile, const ::std:
 void
 IceGrid::FileParserPrx::_iceI_parse(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ApplicationDescriptor>>& outAsync, ::std::string_view iceP_xmlFile, const ::std::optional<AdminPrx>& iceP_adminProxy, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "parse";
+    static constexpr ::std::string_view operationName = "parse";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,

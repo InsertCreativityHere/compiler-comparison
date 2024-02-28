@@ -61,7 +61,7 @@ Test::MyClassPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::MyClassPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -94,7 +94,7 @@ Test::MyClassPrx::getContextAsync(::std::function<void (::Ice::Context)> respons
 void
 Test::MyClassPrx::_iceI_getContext(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::Context>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getContext";
+    static constexpr ::std::string_view operationName = "getContext";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -136,7 +136,7 @@ Test::MyDerivedClassPrx::echoAsync(const ::std::optional<::Ice::ObjectPrx>& iceP
 void
 Test::MyDerivedClassPrx::_iceI_echo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>& outAsync, const ::std::optional<::Ice::ObjectPrx>& iceP_obj, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "echo";
+    static constexpr ::std::string_view operationName = "echo";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,

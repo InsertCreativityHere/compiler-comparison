@@ -64,7 +64,7 @@ IceStorm::TopicLinkPrx::forwardAsync(const EventDataSeq& iceP_events,
 void
 IceStorm::TopicLinkPrx::_iceI_forward(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const EventDataSeq& iceP_events, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "forward";
+    static constexpr ::std::string_view operationName = "forward";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -107,7 +107,7 @@ IceStorm::TopicInternalPrx::getLinkProxyAsync(::std::function<void (::std::optio
 void
 IceStorm::TopicInternalPrx::_iceI_getLinkProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<TopicLinkPrx>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getLinkProxy";
+    static constexpr ::std::string_view operationName = "getLinkProxy";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
@@ -142,7 +142,7 @@ IceStorm::TopicInternalPrx::reapAsync(const ::Ice::IdentitySeq& iceP_id,
 void
 IceStorm::TopicInternalPrx::_iceI_reap(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::IdentitySeq& iceP_id, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "reap";
+    static constexpr ::std::string_view operationName = "reap";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -199,7 +199,7 @@ IceStorm::TopicManagerInternalPrx::getReplicaNodeAsync(::std::function<void (::s
 void
 IceStorm::TopicManagerInternalPrx::_iceI_getReplicaNode(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::IceStormElection::NodePrx>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getReplicaNode";
+    static constexpr ::std::string_view operationName = "getReplicaNode";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,

@@ -61,7 +61,7 @@ Test::InitialPrx::getNoNamespaceC2AsC1Async(::std::function<void (::std::shared_
 void
 Test::InitialPrx::_iceI_getNoNamespaceC2AsC1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::NoNamespace::C1>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getNoNamespaceC2AsC1";
+    static constexpr ::std::string_view operationName = "getNoNamespaceC2AsC1";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -102,7 +102,7 @@ Test::InitialPrx::getNoNamespaceC2AsC2Async(::std::function<void (::std::shared_
 void
 Test::InitialPrx::_iceI_getNoNamespaceC2AsC2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::NoNamespace::C2>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getNoNamespaceC2AsC2";
+    static constexpr ::std::string_view operationName = "getNoNamespaceC2AsC2";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -143,7 +143,7 @@ Test::InitialPrx::throwNoNamespaceE2AsE1Async(::std::function<void ()> response,
 void
 Test::InitialPrx::_iceI_throwNoNamespaceE2AsE1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "throwNoNamespaceE2AsE1";
+    static constexpr ::std::string_view operationName = "throwNoNamespaceE2AsE1";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -190,7 +190,7 @@ Test::InitialPrx::throwNoNamespaceE2AsE2Async(::std::function<void ()> response,
 void
 Test::InitialPrx::_iceI_throwNoNamespaceE2AsE2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "throwNoNamespaceE2AsE2";
+    static constexpr ::std::string_view operationName = "throwNoNamespaceE2AsE2";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -237,7 +237,7 @@ Test::InitialPrx::throwNoNamespaceNotifyAsync(::std::function<void ()> response,
 void
 Test::InitialPrx::_iceI_throwNoNamespaceNotify(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "throwNoNamespaceNotify";
+    static constexpr ::std::string_view operationName = "throwNoNamespaceNotify";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -284,7 +284,7 @@ Test::InitialPrx::getWithNamespaceC2AsC1Async(::std::function<void (::std::share
 void
 Test::InitialPrx::_iceI_getWithNamespaceC2AsC1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::WithNamespace::C1>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getWithNamespaceC2AsC1";
+    static constexpr ::std::string_view operationName = "getWithNamespaceC2AsC1";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -325,7 +325,7 @@ Test::InitialPrx::getWithNamespaceC2AsC2Async(::std::function<void (::std::share
 void
 Test::InitialPrx::_iceI_getWithNamespaceC2AsC2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::WithNamespace::C2>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getWithNamespaceC2AsC2";
+    static constexpr ::std::string_view operationName = "getWithNamespaceC2AsC2";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -366,7 +366,7 @@ Test::InitialPrx::throwWithNamespaceE2AsE1Async(::std::function<void ()> respons
 void
 Test::InitialPrx::_iceI_throwWithNamespaceE2AsE1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "throwWithNamespaceE2AsE1";
+    static constexpr ::std::string_view operationName = "throwWithNamespaceE2AsE1";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -413,7 +413,7 @@ Test::InitialPrx::throwWithNamespaceE2AsE2Async(::std::function<void ()> respons
 void
 Test::InitialPrx::_iceI_throwWithNamespaceE2AsE2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "throwWithNamespaceE2AsE2";
+    static constexpr ::std::string_view operationName = "throwWithNamespaceE2AsE2";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -460,7 +460,7 @@ Test::InitialPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::InitialPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

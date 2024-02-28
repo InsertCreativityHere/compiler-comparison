@@ -65,7 +65,7 @@ Test::MyClassPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::MyClassPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -105,7 +105,7 @@ Test::MyClassPrx::opSerialSmallJavaAsync(const SerialSmall& iceP_i,
 void
 Test::MyClassPrx::_iceI_opSerialSmallJava(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SerialSmall, SerialSmall>>>& outAsync, const SerialSmall& iceP_i, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opSerialSmallJava";
+    static constexpr ::std::string_view operationName = "opSerialSmallJava";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -155,7 +155,7 @@ Test::MyClassPrx::opSerialLargeJavaAsync(const SerialLarge& iceP_i,
 void
 Test::MyClassPrx::_iceI_opSerialLargeJava(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SerialLarge, SerialLarge>>>& outAsync, const SerialLarge& iceP_i, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opSerialLargeJava";
+    static constexpr ::std::string_view operationName = "opSerialLargeJava";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -205,7 +205,7 @@ Test::MyClassPrx::opSerialStructJavaAsync(const SerialStruct& iceP_i,
 void
 Test::MyClassPrx::_iceI_opSerialStructJava(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SerialStruct, SerialStruct>>>& outAsync, const SerialStruct& iceP_i, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opSerialStructJava";
+    static constexpr ::std::string_view operationName = "opSerialStructJava";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,

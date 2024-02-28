@@ -145,7 +145,7 @@ Test::InitialPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::InitialPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -178,7 +178,7 @@ Test::InitialPrx::getB1Async(::std::function<void (::std::shared_ptr<::Test::B>)
 void
 Test::InitialPrx::_iceI_getB1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<B>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getB1";
+    static constexpr ::std::string_view operationName = "getB1";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -219,7 +219,7 @@ Test::InitialPrx::getB2Async(::std::function<void (::std::shared_ptr<::Test::B>)
 void
 Test::InitialPrx::_iceI_getB2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<B>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getB2";
+    static constexpr ::std::string_view operationName = "getB2";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -260,7 +260,7 @@ Test::InitialPrx::getCAsync(::std::function<void (::std::shared_ptr<::Test::C>)>
 void
 Test::InitialPrx::_iceI_getC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<C>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getC";
+    static constexpr ::std::string_view operationName = "getC";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -301,7 +301,7 @@ Test::InitialPrx::getDAsync(::std::function<void (::std::shared_ptr<::Test::D>)>
 void
 Test::InitialPrx::_iceI_getD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<D>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getD";
+    static constexpr ::std::string_view operationName = "getD";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -342,7 +342,7 @@ Test::InitialPrx::getEAsync(::std::function<void (::std::shared_ptr<::Test::E>)>
 void
 Test::InitialPrx::_iceI_getE(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<E>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getE";
+    static constexpr ::std::string_view operationName = "getE";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -383,7 +383,7 @@ Test::InitialPrx::getFAsync(::std::function<void (::std::shared_ptr<::Test::F>)>
 void
 Test::InitialPrx::_iceI_getF(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<F>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getF";
+    static constexpr ::std::string_view operationName = "getF";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -425,7 +425,7 @@ Test::InitialPrx::setRecursiveAsync(const ::std::shared_ptr<Recursive>& iceP_p,
 void
 Test::InitialPrx::_iceI_setRecursive(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<Recursive>& iceP_p, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "setRecursive";
+    static constexpr ::std::string_view operationName = "setRecursive";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -462,7 +462,7 @@ Test::InitialPrx::supportsClassGraphDepthMaxAsync(::std::function<void (bool)> r
 void
 Test::InitialPrx::_iceI_supportsClassGraphDepthMax(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "supportsClassGraphDepthMax";
+    static constexpr ::std::string_view operationName = "supportsClassGraphDepthMax";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -497,7 +497,7 @@ Test::InitialPrx::setCycleAsync(const ::std::shared_ptr<Recursive>& iceP_r,
 void
 Test::InitialPrx::_iceI_setCycle(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<Recursive>& iceP_r, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "setCycle";
+    static constexpr ::std::string_view operationName = "setCycle";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -534,7 +534,7 @@ Test::InitialPrx::acceptsClassCyclesAsync(::std::function<void (bool)> response,
 void
 Test::InitialPrx::_iceI_acceptsClassCycles(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "acceptsClassCycles";
+    static constexpr ::std::string_view operationName = "acceptsClassCycles";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -568,7 +568,7 @@ Test::InitialPrx::getMBAsync(::std::function<void (::std::shared_ptr<::Test::B>)
 void
 Test::InitialPrx::_iceI_getMB(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<B>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getMB";
+    static constexpr ::std::string_view operationName = "getMB";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -609,7 +609,7 @@ Test::InitialPrx::getAMDMBAsync(::std::function<void (::std::shared_ptr<::Test::
 void
 Test::InitialPrx::_iceI_getAMDMB(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<B>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getAMDMB";
+    static constexpr ::std::string_view operationName = "getAMDMB";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -658,7 +658,7 @@ Test::InitialPrx::getAllAsync(::std::function<void (::std::shared_ptr<::Test::B>
 void
 Test::InitialPrx::_iceI_getAll(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>, ::std::shared_ptr<C>, ::std::shared_ptr<D>>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getAll";
+    static constexpr ::std::string_view operationName = "getAll";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -699,7 +699,7 @@ Test::InitialPrx::getKAsync(::std::function<void (::std::shared_ptr<::Test::K>)>
 void
 Test::InitialPrx::_iceI_getK(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<K>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getK";
+    static constexpr ::std::string_view operationName = "getK";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -747,7 +747,7 @@ Test::InitialPrx::opValueAsync(const ::std::shared_ptr<::Ice::Value>& iceP_v1,
 void
 Test::InitialPrx::_iceI_opValue(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::shared_ptr<::Ice::Value>, ::std::shared_ptr<::Ice::Value>>>>& outAsync, const ::std::shared_ptr<::Ice::Value>& iceP_v1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opValue";
+    static constexpr ::std::string_view operationName = "opValue";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -799,7 +799,7 @@ Test::InitialPrx::opValueSeqAsync(const ValueSeq& iceP_v1,
 void
 Test::InitialPrx::_iceI_opValueSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ValueSeq, ValueSeq>>>& outAsync, const ValueSeq& iceP_v1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opValueSeq";
+    static constexpr ::std::string_view operationName = "opValueSeq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -851,7 +851,7 @@ Test::InitialPrx::opValueMapAsync(const ValueMap& iceP_v1,
 void
 Test::InitialPrx::_iceI_opValueMap(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ValueMap, ValueMap>>>& outAsync, const ValueMap& iceP_v1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opValueMap";
+    static constexpr ::std::string_view operationName = "opValueMap";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -897,7 +897,7 @@ Test::InitialPrx::getD1Async(const ::std::shared_ptr<D1>& iceP_d1,
 void
 Test::InitialPrx::_iceI_getD1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<D1>>>& outAsync, const ::std::shared_ptr<D1>& iceP_d1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getD1";
+    static constexpr ::std::string_view operationName = "getD1";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -942,7 +942,7 @@ Test::InitialPrx::throwEDerivedAsync(::std::function<void ()> response,
 void
 Test::InitialPrx::_iceI_throwEDerived(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "throwEDerived";
+    static constexpr ::std::string_view operationName = "throwEDerived";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -990,7 +990,7 @@ Test::InitialPrx::setGAsync(const ::std::shared_ptr<G>& iceP_theG,
 void
 Test::InitialPrx::_iceI_setG(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<G>& iceP_theG, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "setG";
+    static constexpr ::std::string_view operationName = "setG";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -1034,7 +1034,7 @@ Test::InitialPrx::opBaseSeqAsync(const BaseSeq& iceP_inSeq,
 void
 Test::InitialPrx::_iceI_opBaseSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<BaseSeq, BaseSeq>>>& outAsync, const BaseSeq& iceP_inSeq, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opBaseSeq";
+    static constexpr ::std::string_view operationName = "opBaseSeq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1079,7 +1079,7 @@ Test::InitialPrx::getCompactAsync(::std::function<void (::std::shared_ptr<::Test
 void
 Test::InitialPrx::_iceI_getCompact(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<Compact>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getCompact";
+    static constexpr ::std::string_view operationName = "getCompact";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1120,7 +1120,7 @@ Test::InitialPrx::getInnerAAsync(::std::function<void (::std::shared_ptr<::Test:
 void
 Test::InitialPrx::_iceI_getInnerA(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::Inner::A>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getInnerA";
+    static constexpr ::std::string_view operationName = "getInnerA";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1161,7 +1161,7 @@ Test::InitialPrx::getInnerSubAAsync(::std::function<void (::std::shared_ptr<::Te
 void
 Test::InitialPrx::_iceI_getInnerSubA(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Test::Inner::Sub::A>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getInnerSubA";
+    static constexpr ::std::string_view operationName = "getInnerSubA";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1202,7 +1202,7 @@ Test::InitialPrx::throwInnerExAsync(::std::function<void ()> response,
 void
 Test::InitialPrx::_iceI_throwInnerEx(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "throwInnerEx";
+    static constexpr ::std::string_view operationName = "throwInnerEx";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1249,7 +1249,7 @@ Test::InitialPrx::throwInnerSubExAsync(::std::function<void ()> response,
 void
 Test::InitialPrx::_iceI_throwInnerSubEx(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "throwInnerSubEx";
+    static constexpr ::std::string_view operationName = "throwInnerSubEx";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1303,7 +1303,7 @@ Test::InitialPrx::opMAsync(const ::std::shared_ptr<M>& iceP_v1,
 void
 Test::InitialPrx::_iceI_opM(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::shared_ptr<M>, ::std::shared_ptr<M>>>>& outAsync, const ::std::shared_ptr<M>& iceP_v1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opM";
+    static constexpr ::std::string_view operationName = "opM";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1355,7 +1355,7 @@ Test::InitialPrx::opF1Async(const ::std::shared_ptr<F1>& iceP_f11,
 void
 Test::InitialPrx::_iceI_opF1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::shared_ptr<F1>, ::std::shared_ptr<F1>>>>& outAsync, const ::std::shared_ptr<F1>& iceP_f11, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opF1";
+    static constexpr ::std::string_view operationName = "opF1";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1407,7 +1407,7 @@ Test::InitialPrx::opF2Async(const ::std::optional<F2Prx>& iceP_f21,
 void
 Test::InitialPrx::_iceI_opF2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<F2Prx>, ::std::optional<F2Prx>>>>& outAsync, const ::std::optional<F2Prx>& iceP_f21, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opF2";
+    static constexpr ::std::string_view operationName = "opF2";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1457,7 +1457,7 @@ Test::InitialPrx::opF3Async(const ::std::shared_ptr<F3>& iceP_f31,
 void
 Test::InitialPrx::_iceI_opF3(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::shared_ptr<F3>, ::std::shared_ptr<F3>>>>& outAsync, const ::std::shared_ptr<F3>& iceP_f31, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opF3";
+    static constexpr ::std::string_view operationName = "opF3";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1502,7 +1502,7 @@ Test::InitialPrx::hasF3Async(::std::function<void (bool)> response,
 void
 Test::InitialPrx::_iceI_hasF3(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "hasF3";
+    static constexpr ::std::string_view operationName = "hasF3";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1543,7 +1543,7 @@ Test::UnexpectedObjectExceptionTestPrx::opAsync(::std::function<void (::std::sha
 void
 Test::UnexpectedObjectExceptionTestPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<Empty>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "op";
+    static constexpr ::std::string_view operationName = "op";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,

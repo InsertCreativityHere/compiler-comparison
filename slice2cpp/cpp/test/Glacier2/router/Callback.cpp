@@ -63,7 +63,7 @@ Test::CallbackReceiverPrx::callbackAsync(::std::function<void ()> response,
 void
 Test::CallbackReceiverPrx::_iceI_callback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "callback";
+    static constexpr ::std::string_view operationName = "callback";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -96,7 +96,7 @@ Test::CallbackReceiverPrx::callbackExAsync(::std::function<void ()> response,
 void
 Test::CallbackReceiverPrx::_iceI_callbackEx(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "callbackEx";
+    static constexpr ::std::string_view operationName = "callbackEx";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -144,7 +144,7 @@ Test::CallbackReceiverPrx::concurrentCallbackAsync(::std::int32_t iceP_number,
 void
 Test::CallbackReceiverPrx::_iceI_concurrentCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_number, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "concurrentCallback";
+    static constexpr ::std::string_view operationName = "concurrentCallback";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -181,7 +181,7 @@ Test::CallbackReceiverPrx::waitCallbackAsync(::std::function<void ()> response,
 void
 Test::CallbackReceiverPrx::_iceI_waitCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "waitCallback";
+    static constexpr ::std::string_view operationName = "waitCallback";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -215,7 +215,7 @@ Test::CallbackReceiverPrx::callbackWithPayloadAsync(const ::Ice::ByteSeq& iceP_p
 void
 Test::CallbackReceiverPrx::_iceI_callbackWithPayload(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::ByteSeq& iceP_payload, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "callbackWithPayload";
+    static constexpr ::std::string_view operationName = "callbackWithPayload";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -259,7 +259,7 @@ Test::CallbackPrx::initiateCallbackAsync(const ::std::optional<CallbackReceiverP
 void
 Test::CallbackPrx::_iceI_initiateCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<CallbackReceiverPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "initiateCallback";
+    static constexpr ::std::string_view operationName = "initiateCallback";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -296,7 +296,7 @@ Test::CallbackPrx::initiateCallbackExAsync(const ::std::optional<CallbackReceive
 void
 Test::CallbackPrx::_iceI_initiateCallbackEx(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<CallbackReceiverPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "initiateCallbackEx";
+    static constexpr ::std::string_view operationName = "initiateCallbackEx";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -347,7 +347,7 @@ Test::CallbackPrx::initiateConcurrentCallbackAsync(::std::int32_t iceP_number, c
 void
 Test::CallbackPrx::_iceI_initiateConcurrentCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_number, const ::std::optional<CallbackReceiverPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "initiateConcurrentCallback";
+    static constexpr ::std::string_view operationName = "initiateConcurrentCallback";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -385,7 +385,7 @@ Test::CallbackPrx::initiateWaitCallbackAsync(const ::std::optional<CallbackRecei
 void
 Test::CallbackPrx::_iceI_initiateWaitCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<CallbackReceiverPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "initiateWaitCallback";
+    static constexpr ::std::string_view operationName = "initiateWaitCallback";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -422,7 +422,7 @@ Test::CallbackPrx::initiateCallbackWithPayloadAsync(const ::std::optional<Callba
 void
 Test::CallbackPrx::_iceI_initiateCallbackWithPayload(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<CallbackReceiverPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "initiateCallbackWithPayload";
+    static constexpr ::std::string_view operationName = "initiateCallbackWithPayload";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -458,7 +458,7 @@ Test::CallbackPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::CallbackPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

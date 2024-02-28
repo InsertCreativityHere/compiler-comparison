@@ -61,7 +61,7 @@ Test::TestIntfPrx::getAdapterNameAsync(::std::function<void (::std::string)> res
 void
 Test::TestIntfPrx::_iceI_getAdapterName(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getAdapterName";
+    static constexpr ::std::string_view operationName = "getAdapterName";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -102,7 +102,7 @@ Test::RemoteObjectAdapterPrx::getTestIntfAsync(::std::function<void (::std::opti
 void
 Test::RemoteObjectAdapterPrx::_iceI_getTestIntf(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<TestIntfPrx>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getTestIntf";
+    static constexpr ::std::string_view operationName = "getTestIntf";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -136,7 +136,7 @@ Test::RemoteObjectAdapterPrx::deactivateAsync(::std::function<void ()> response,
 void
 Test::RemoteObjectAdapterPrx::_iceI_deactivate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "deactivate";
+    static constexpr ::std::string_view operationName = "deactivate";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -177,7 +177,7 @@ Test::RemoteCommunicatorPrx::createObjectAdapterAsync(::std::string_view iceP_na
 void
 Test::RemoteCommunicatorPrx::_iceI_createObjectAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<RemoteObjectAdapterPrx>>>& outAsync, ::std::string_view iceP_name, ::std::string_view iceP_endpoints, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "createObjectAdapter";
+    static constexpr ::std::string_view operationName = "createObjectAdapter";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -215,7 +215,7 @@ Test::RemoteCommunicatorPrx::deactivateObjectAdapterAsync(const ::std::optional<
 void
 Test::RemoteCommunicatorPrx::_iceI_deactivateObjectAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<RemoteObjectAdapterPrx>& iceP_adapter, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "deactivateObjectAdapter";
+    static constexpr ::std::string_view operationName = "deactivateObjectAdapter";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -251,7 +251,7 @@ Test::RemoteCommunicatorPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::RemoteCommunicatorPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

@@ -78,7 +78,7 @@ Test::IPrx::opSAsync(const S& iceP_s1,
 void
 Test::IPrx::_iceI_opS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<S, S>>>& outAsync, const S& iceP_s1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opS";
+    static constexpr ::std::string_view operationName = "opS";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -128,7 +128,7 @@ Test::IPrx::opSSeqAsync(const SSeq& iceP_s1,
 void
 Test::IPrx::_iceI_opSSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SSeq, SSeq>>>& outAsync, const SSeq& iceP_s1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opSSeq";
+    static constexpr ::std::string_view operationName = "opSSeq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -178,7 +178,7 @@ Test::IPrx::opSMapAsync(const SMap& iceP_s1,
 void
 Test::IPrx::_iceI_opSMap(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SMap, SMap>>>& outAsync, const SMap& iceP_s1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opSMap";
+    static constexpr ::std::string_view operationName = "opSMap";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -228,7 +228,7 @@ Test::IPrx::opCAsync(const ::std::shared_ptr<C>& iceP_c1,
 void
 Test::IPrx::_iceI_opC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::shared_ptr<C>, ::std::shared_ptr<C>>>>& outAsync, const ::std::shared_ptr<C>& iceP_c1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opC";
+    static constexpr ::std::string_view operationName = "opC";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -280,7 +280,7 @@ Test::IPrx::opCSeqAsync(const CSeq& iceP_s1,
 void
 Test::IPrx::_iceI_opCSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<CSeq, CSeq>>>& outAsync, const CSeq& iceP_s1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opCSeq";
+    static constexpr ::std::string_view operationName = "opCSeq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -332,7 +332,7 @@ Test::IPrx::opCMapAsync(const CMap& iceP_c1,
 void
 Test::IPrx::_iceI_opCMap(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<CMap, CMap>>>& outAsync, const CMap& iceP_c1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opCMap";
+    static constexpr ::std::string_view operationName = "opCMap";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -378,7 +378,7 @@ Test::IPrx::opE1Async(E1 iceP_E1,
 void
 Test::IPrx::_iceI_opE1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<E1>>& outAsync, E1 iceP_E1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opE1";
+    static constexpr ::std::string_view operationName = "opE1";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -416,7 +416,7 @@ Test::IPrx::opS1Async(const S1& iceP_S1,
 void
 Test::IPrx::_iceI_opS1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<S1>>& outAsync, const S1& iceP_S1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opS1";
+    static constexpr ::std::string_view operationName = "opS1";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -454,7 +454,7 @@ Test::IPrx::opC1Async(const ::std::shared_ptr<C1>& iceP_C1,
 void
 Test::IPrx::_iceI_opC1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<C1>>>& outAsync, const ::std::shared_ptr<C1>& iceP_C1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opC1";
+    static constexpr ::std::string_view operationName = "opC1";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -500,7 +500,7 @@ Test::IPrx::opS1SeqAsync(const S1Seq& iceP_S1Seq,
 void
 Test::IPrx::_iceI_opS1Seq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<S1Seq>>& outAsync, const S1Seq& iceP_S1Seq, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opS1Seq";
+    static constexpr ::std::string_view operationName = "opS1Seq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -538,7 +538,7 @@ Test::IPrx::opS1MapAsync(const S1Map& iceP_S1Map,
 void
 Test::IPrx::_iceI_opS1Map(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<S1Map>>& outAsync, const S1Map& iceP_S1Map, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opS1Map";
+    static constexpr ::std::string_view operationName = "opS1Map";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -575,7 +575,7 @@ Test::IPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::IPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -622,7 +622,7 @@ Test::Inner::Inner2::IPrx::opSAsync(const S& iceP_s1,
 void
 Test::Inner::Inner2::IPrx::_iceI_opS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<S, S>>>& outAsync, const S& iceP_s1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opS";
+    static constexpr ::std::string_view operationName = "opS";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -672,7 +672,7 @@ Test::Inner::Inner2::IPrx::opSSeqAsync(const SSeq& iceP_s1,
 void
 Test::Inner::Inner2::IPrx::_iceI_opSSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SSeq, SSeq>>>& outAsync, const SSeq& iceP_s1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opSSeq";
+    static constexpr ::std::string_view operationName = "opSSeq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -722,7 +722,7 @@ Test::Inner::Inner2::IPrx::opSMapAsync(const SMap& iceP_s1,
 void
 Test::Inner::Inner2::IPrx::_iceI_opSMap(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SMap, SMap>>>& outAsync, const SMap& iceP_s1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opSMap";
+    static constexpr ::std::string_view operationName = "opSMap";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -772,7 +772,7 @@ Test::Inner::Inner2::IPrx::opCAsync(const ::std::shared_ptr<C>& iceP_c1,
 void
 Test::Inner::Inner2::IPrx::_iceI_opC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::shared_ptr<C>, ::std::shared_ptr<C>>>>& outAsync, const ::std::shared_ptr<C>& iceP_c1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opC";
+    static constexpr ::std::string_view operationName = "opC";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -824,7 +824,7 @@ Test::Inner::Inner2::IPrx::opCSeqAsync(const CSeq& iceP_c1,
 void
 Test::Inner::Inner2::IPrx::_iceI_opCSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<CSeq, CSeq>>>& outAsync, const CSeq& iceP_c1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opCSeq";
+    static constexpr ::std::string_view operationName = "opCSeq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -876,7 +876,7 @@ Test::Inner::Inner2::IPrx::opCMapAsync(const CMap& iceP_c1,
 void
 Test::Inner::Inner2::IPrx::_iceI_opCMap(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<CMap, CMap>>>& outAsync, const CMap& iceP_c1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opCMap";
+    static constexpr ::std::string_view operationName = "opCMap";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -921,7 +921,7 @@ Test::Inner::Inner2::IPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::Inner::Inner2::IPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -968,7 +968,7 @@ Test::Inner::IPrx::opSAsync(const ::Test::Inner::Inner2::S& iceP_s1,
 void
 Test::Inner::IPrx::_iceI_opS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::Inner::Inner2::S, ::Test::Inner::Inner2::S>>>& outAsync, const ::Test::Inner::Inner2::S& iceP_s1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opS";
+    static constexpr ::std::string_view operationName = "opS";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1018,7 +1018,7 @@ Test::Inner::IPrx::opSSeqAsync(const ::Test::Inner::Inner2::SSeq& iceP_s1,
 void
 Test::Inner::IPrx::_iceI_opSSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::Inner::Inner2::SSeq, ::Test::Inner::Inner2::SSeq>>>& outAsync, const ::Test::Inner::Inner2::SSeq& iceP_s1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opSSeq";
+    static constexpr ::std::string_view operationName = "opSSeq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1068,7 +1068,7 @@ Test::Inner::IPrx::opSMapAsync(const ::Test::Inner::Inner2::SMap& iceP_s1,
 void
 Test::Inner::IPrx::_iceI_opSMap(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::Inner::Inner2::SMap, ::Test::Inner::Inner2::SMap>>>& outAsync, const ::Test::Inner::Inner2::SMap& iceP_s1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opSMap";
+    static constexpr ::std::string_view operationName = "opSMap";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1118,7 +1118,7 @@ Test::Inner::IPrx::opCAsync(const ::std::shared_ptr<::Test::Inner::Inner2::C>& i
 void
 Test::Inner::IPrx::_iceI_opC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::shared_ptr<::Test::Inner::Inner2::C>, ::std::shared_ptr<::Test::Inner::Inner2::C>>>>& outAsync, const ::std::shared_ptr<::Test::Inner::Inner2::C>& iceP_c1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opC";
+    static constexpr ::std::string_view operationName = "opC";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1170,7 +1170,7 @@ Test::Inner::IPrx::opCSeqAsync(const ::Test::Inner::Inner2::CSeq& iceP_c1,
 void
 Test::Inner::IPrx::_iceI_opCSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::Inner::Inner2::CSeq, ::Test::Inner::Inner2::CSeq>>>& outAsync, const ::Test::Inner::Inner2::CSeq& iceP_c1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opCSeq";
+    static constexpr ::std::string_view operationName = "opCSeq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1222,7 +1222,7 @@ Test::Inner::IPrx::opCMapAsync(const ::Test::Inner::Inner2::CMap& iceP_c1,
 void
 Test::Inner::IPrx::_iceI_opCMap(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::Inner::Inner2::CMap, ::Test::Inner::Inner2::CMap>>>& outAsync, const ::Test::Inner::Inner2::CMap& iceP_c1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opCMap";
+    static constexpr ::std::string_view operationName = "opCMap";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1267,7 +1267,7 @@ Test::Inner::IPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::Inner::IPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -1314,7 +1314,7 @@ Inner::Test::Inner2::IPrx::opSAsync(const ::Test::S& iceP_s1,
 void
 Inner::Test::Inner2::IPrx::_iceI_opS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::S, ::Test::S>>>& outAsync, const ::Test::S& iceP_s1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opS";
+    static constexpr ::std::string_view operationName = "opS";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1364,7 +1364,7 @@ Inner::Test::Inner2::IPrx::opSSeqAsync(const ::Test::SSeq& iceP_s1,
 void
 Inner::Test::Inner2::IPrx::_iceI_opSSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::SSeq, ::Test::SSeq>>>& outAsync, const ::Test::SSeq& iceP_s1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opSSeq";
+    static constexpr ::std::string_view operationName = "opSSeq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1414,7 +1414,7 @@ Inner::Test::Inner2::IPrx::opSMapAsync(const ::Test::SMap& iceP_s1,
 void
 Inner::Test::Inner2::IPrx::_iceI_opSMap(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::SMap, ::Test::SMap>>>& outAsync, const ::Test::SMap& iceP_s1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opSMap";
+    static constexpr ::std::string_view operationName = "opSMap";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1464,7 +1464,7 @@ Inner::Test::Inner2::IPrx::opCAsync(const ::std::shared_ptr<::Test::C>& iceP_c1,
 void
 Inner::Test::Inner2::IPrx::_iceI_opC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::shared_ptr<::Test::C>, ::std::shared_ptr<::Test::C>>>>& outAsync, const ::std::shared_ptr<::Test::C>& iceP_c1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opC";
+    static constexpr ::std::string_view operationName = "opC";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1516,7 +1516,7 @@ Inner::Test::Inner2::IPrx::opCSeqAsync(const ::Test::CSeq& iceP_c1,
 void
 Inner::Test::Inner2::IPrx::_iceI_opCSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::CSeq, ::Test::CSeq>>>& outAsync, const ::Test::CSeq& iceP_c1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opCSeq";
+    static constexpr ::std::string_view operationName = "opCSeq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1568,7 +1568,7 @@ Inner::Test::Inner2::IPrx::opCMapAsync(const ::Test::CMap& iceP_c1,
 void
 Inner::Test::Inner2::IPrx::_iceI_opCMap(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::CMap, ::Test::CMap>>>& outAsync, const ::Test::CMap& iceP_c1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opCMap";
+    static constexpr ::std::string_view operationName = "opCMap";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -1613,7 +1613,7 @@ Inner::Test::Inner2::IPrx::shutdownAsync(::std::function<void ()> response,
 void
 Inner::Test::Inner2::IPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

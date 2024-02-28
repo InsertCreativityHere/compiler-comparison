@@ -61,7 +61,7 @@ Test::TestFacetPrx::getChangesAsync(::std::function<void (::Ice::PropertyDict)> 
 void
 Test::TestFacetPrx::_iceI_getChanges(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::PropertyDict>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getChanges";
+    static constexpr ::std::string_view operationName = "getChanges";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,

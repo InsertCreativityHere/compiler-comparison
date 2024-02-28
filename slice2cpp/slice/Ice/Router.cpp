@@ -70,7 +70,7 @@ Ice::RouterPrx::getClientProxyAsync(::std::function<void (::std::optional<::Ice:
 void
 Ice::RouterPrx::_iceI_getClientProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::Ice::ObjectPrx>, ::std::optional<bool>>>>& outAsync, const Context& context) const
 {
-    static const ::std::string operationName = "getClientProxy";
+    static constexpr ::std::string_view operationName = "getClientProxy";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
@@ -111,7 +111,7 @@ Ice::RouterPrx::getServerProxyAsync(::std::function<void (::std::optional<::Ice:
 void
 Ice::RouterPrx::_iceI_getServerProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>& outAsync, const Context& context) const
 {
-    static const ::std::string operationName = "getServerProxy";
+    static constexpr ::std::string_view operationName = "getServerProxy";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
@@ -146,7 +146,7 @@ Ice::RouterPrx::addProxiesAsync(const ObjectProxySeq& iceP_proxies,
 void
 Ice::RouterPrx::_iceI_addProxies(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ObjectProxySeq>>& outAsync, const ObjectProxySeq& iceP_proxies, const Context& context) const
 {
-    static const ::std::string operationName = "addProxies";
+    static constexpr ::std::string_view operationName = "addProxies";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
@@ -190,7 +190,7 @@ Ice::RouterFinderPrx::getRouterAsync(::std::function<void (::std::optional<::Ice
 void
 Ice::RouterFinderPrx::_iceI_getRouter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<RouterPrx>>>& outAsync, const Context& context) const
 {
-    static const ::std::string operationName = "getRouter";
+    static constexpr ::std::string_view operationName = "getRouter";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,

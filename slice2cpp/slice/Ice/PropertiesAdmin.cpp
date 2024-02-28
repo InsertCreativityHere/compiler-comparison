@@ -65,7 +65,7 @@ Ice::PropertiesAdminPrx::getPropertyAsync(::std::string_view iceP_key,
 void
 Ice::PropertiesAdminPrx::_iceI_getProperty(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, ::std::string_view iceP_key, const Context& context) const
 {
-    static const ::std::string operationName = "getProperty";
+    static constexpr ::std::string_view operationName = "getProperty";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -103,7 +103,7 @@ Ice::PropertiesAdminPrx::getPropertiesForPrefixAsync(::std::string_view iceP_pre
 void
 Ice::PropertiesAdminPrx::_iceI_getPropertiesForPrefix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<PropertyDict>>& outAsync, ::std::string_view iceP_prefix, const Context& context) const
 {
-    static const ::std::string operationName = "getPropertiesForPrefix";
+    static constexpr ::std::string_view operationName = "getPropertiesForPrefix";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -141,7 +141,7 @@ Ice::PropertiesAdminPrx::setPropertiesAsync(const PropertyDict& iceP_newProperti
 void
 Ice::PropertiesAdminPrx::_iceI_setProperties(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const PropertyDict& iceP_newProperties, const Context& context) const
 {
-    static const ::std::string operationName = "setProperties";
+    static constexpr ::std::string_view operationName = "setProperties";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](OutputStream* ostr)

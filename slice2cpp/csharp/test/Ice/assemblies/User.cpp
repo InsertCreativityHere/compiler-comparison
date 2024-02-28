@@ -64,7 +64,7 @@ User::RegistryPrx::getUserInfoAsync(::std::string_view iceP_id,
 void
 User::RegistryPrx::_iceI_getUserInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<UserInfo>>>& outAsync, ::std::string_view iceP_id, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getUserInfo";
+    static constexpr ::std::string_view operationName = "getUserInfo";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,

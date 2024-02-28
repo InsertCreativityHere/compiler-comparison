@@ -62,7 +62,7 @@ Test::TestIntfPrx::getPropertyAsync(::std::string_view iceP_name,
 void
 Test::TestIntfPrx::_iceI_getProperty(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, ::std::string_view iceP_name, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getProperty";
+    static constexpr ::std::string_view operationName = "getProperty";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -99,7 +99,7 @@ Test::TestIntfPrx::getArgsAsync(::std::function<void (::Ice::StringSeq)> respons
 void
 Test::TestIntfPrx::_iceI_getArgs(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::StringSeq>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getArgs";
+    static constexpr ::std::string_view operationName = "getArgs";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,

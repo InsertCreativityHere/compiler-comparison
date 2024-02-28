@@ -71,7 +71,7 @@ IcePatch2::FileServerPrx::getFileInfoSeqAsync(::std::int32_t iceP_partition,
 void
 IcePatch2::FileServerPrx::_iceI_getFileInfoSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<FileInfoSeq>>& outAsync, ::std::int32_t iceP_partition, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getFileInfoSeq";
+    static constexpr ::std::string_view operationName = "getFileInfoSeq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
@@ -126,7 +126,7 @@ IcePatch2::FileServerPrx::getLargeFileInfoSeqAsync(::std::int32_t iceP_partition
 void
 IcePatch2::FileServerPrx::_iceI_getLargeFileInfoSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<LargeFileInfoSeq>>& outAsync, ::std::int32_t iceP_partition, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getLargeFileInfoSeq";
+    static constexpr ::std::string_view operationName = "getLargeFileInfoSeq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
@@ -176,7 +176,7 @@ IcePatch2::FileServerPrx::getChecksumSeqAsync(::std::function<void (::IcePatch2:
 void
 IcePatch2::FileServerPrx::_iceI_getChecksumSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ByteSeqSeq>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getChecksumSeq";
+    static constexpr ::std::string_view operationName = "getChecksumSeq";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
@@ -210,7 +210,7 @@ IcePatch2::FileServerPrx::getChecksumAsync(::std::function<void (::Ice::ByteSeq)
 void
 IcePatch2::FileServerPrx::_iceI_getChecksum(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::ByteSeq>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getChecksum";
+    static constexpr ::std::string_view operationName = "getChecksum";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
@@ -238,7 +238,7 @@ IcePatch2::FileServerPrx::getFileCompressedAsync(::std::string_view iceP_path, :
                                                  ::std::function<void(bool)> sent,
                                                  const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getFileCompressed";
+    static constexpr ::std::string_view operationName = "getFileCompressed";
 
     _checkTwowayOnly(operationName);
     ::std::function<void(::Ice::InputStream*)> read;
@@ -292,7 +292,7 @@ IcePatch2::FileServerPrx::getFileCompressedAsync(::std::string_view iceP_path, :
 void
 IcePatch2::FileServerPrx::_iceI_getFileCompressed(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::ByteSeq>>& outAsync, ::std::string_view iceP_path, ::std::int32_t iceP_pos, ::std::int32_t iceP_num, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getFileCompressed";
+    static constexpr ::std::string_view operationName = "getFileCompressed";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
@@ -340,7 +340,7 @@ IcePatch2::FileServerPrx::getLargeFileCompressedAsync(::std::string_view iceP_pa
                                                       ::std::function<void(bool)> sent,
                                                       const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getLargeFileCompressed";
+    static constexpr ::std::string_view operationName = "getLargeFileCompressed";
 
     _checkTwowayOnly(operationName);
     ::std::function<void(::Ice::InputStream*)> read;
@@ -390,7 +390,7 @@ IcePatch2::FileServerPrx::getLargeFileCompressedAsync(::std::string_view iceP_pa
 void
 IcePatch2::FileServerPrx::_iceI_getLargeFileCompressed(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::ByteSeq>>& outAsync, ::std::string_view iceP_path, ::std::int64_t iceP_pos, ::std::int32_t iceP_num, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getLargeFileCompressed";
+    static constexpr ::std::string_view operationName = "getLargeFileCompressed";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,

@@ -64,7 +64,7 @@ Test::BackgroundPrx::opAsync(::std::function<void ()> response,
 void
 Test::BackgroundPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "op";
+    static constexpr ::std::string_view operationName = "op";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -98,7 +98,7 @@ Test::BackgroundPrx::opWithPayloadAsync(const ::Ice::ByteSeq& iceP_seq,
 void
 Test::BackgroundPrx::_iceI_opWithPayload(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::ByteSeq& iceP_seq, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opWithPayload";
+    static constexpr ::std::string_view operationName = "opWithPayload";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -134,7 +134,7 @@ Test::BackgroundPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::BackgroundPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -175,7 +175,7 @@ Test::BackgroundControllerPrx::pauseCallAsync(::std::string_view iceP_call,
 void
 Test::BackgroundControllerPrx::_iceI_pauseCall(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_call, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "pauseCall";
+    static constexpr ::std::string_view operationName = "pauseCall";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -212,7 +212,7 @@ Test::BackgroundControllerPrx::resumeCallAsync(::std::string_view iceP_call,
 void
 Test::BackgroundControllerPrx::_iceI_resumeCall(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_call, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "resumeCall";
+    static constexpr ::std::string_view operationName = "resumeCall";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -248,7 +248,7 @@ Test::BackgroundControllerPrx::holdAdapterAsync(::std::function<void ()> respons
 void
 Test::BackgroundControllerPrx::_iceI_holdAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "holdAdapter";
+    static constexpr ::std::string_view operationName = "holdAdapter";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -281,7 +281,7 @@ Test::BackgroundControllerPrx::resumeAdapterAsync(::std::function<void ()> respo
 void
 Test::BackgroundControllerPrx::_iceI_resumeAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "resumeAdapter";
+    static constexpr ::std::string_view operationName = "resumeAdapter";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -315,7 +315,7 @@ Test::BackgroundControllerPrx::initializeSocketOperationAsync(::std::int32_t ice
 void
 Test::BackgroundControllerPrx::_iceI_initializeSocketOperation(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_status, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "initializeSocketOperation";
+    static constexpr ::std::string_view operationName = "initializeSocketOperation";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -352,7 +352,7 @@ Test::BackgroundControllerPrx::initializeExceptionAsync(bool iceP_enable,
 void
 Test::BackgroundControllerPrx::_iceI_initializeException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_enable, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "initializeException";
+    static constexpr ::std::string_view operationName = "initializeException";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -389,7 +389,7 @@ Test::BackgroundControllerPrx::readReadyAsync(bool iceP_enable,
 void
 Test::BackgroundControllerPrx::_iceI_readReady(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_enable, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "readReady";
+    static constexpr ::std::string_view operationName = "readReady";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -426,7 +426,7 @@ Test::BackgroundControllerPrx::readExceptionAsync(bool iceP_enable,
 void
 Test::BackgroundControllerPrx::_iceI_readException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_enable, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "readException";
+    static constexpr ::std::string_view operationName = "readException";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -463,7 +463,7 @@ Test::BackgroundControllerPrx::writeReadyAsync(bool iceP_enable,
 void
 Test::BackgroundControllerPrx::_iceI_writeReady(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_enable, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "writeReady";
+    static constexpr ::std::string_view operationName = "writeReady";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -500,7 +500,7 @@ Test::BackgroundControllerPrx::writeExceptionAsync(bool iceP_enable,
 void
 Test::BackgroundControllerPrx::_iceI_writeException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_enable, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "writeException";
+    static constexpr ::std::string_view operationName = "writeException";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -537,7 +537,7 @@ Test::BackgroundControllerPrx::bufferedAsync(bool iceP_enable,
 void
 Test::BackgroundControllerPrx::_iceI_buffered(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_enable, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "buffered";
+    static constexpr ::std::string_view operationName = "buffered";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)

@@ -68,7 +68,7 @@ BEGIN::breakPrx::caseAsync(::std::int32_t iceP_clone, ::std::int32_t iceP_def,
 void
 BEGIN::breakPrx::_iceI_case(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_clone, ::std::int32_t iceP_def, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "case";
+    static constexpr ::std::string_view operationName = "case";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -104,7 +104,7 @@ BEGIN::breakPrx::to_aAsync(::std::function<void ()> response,
 void
 BEGIN::breakPrx::_iceI_to_a(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "to_a";
+    static constexpr ::std::string_view operationName = "to_a";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -137,7 +137,7 @@ BEGIN::breakPrx::instance_variable_setAsync(::std::function<void ()> response,
 void
 BEGIN::breakPrx::_iceI_instance_variable_set(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "instance_variable_set";
+    static constexpr ::std::string_view operationName = "instance_variable_set";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -170,7 +170,7 @@ BEGIN::breakPrx::instance_variablesAsync(::std::function<void ()> response,
 void
 BEGIN::breakPrx::_iceI_instance_variables(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "instance_variables";
+    static constexpr ::std::string_view operationName = "instance_variables";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -218,7 +218,7 @@ BEGIN::extendPrx::forAsync(const ::std::shared_ptr<display>& iceP_freeze, const 
 void
 BEGIN::extendPrx::_iceI_for(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<END>>& outAsync, const ::std::shared_ptr<display>& iceP_freeze, const ::std::optional<elsifPrx>& iceP_hash, const ::std::optional<breakPrx>& iceP_if, const ::std::shared_ptr<display>& iceP_inspect, const ::std::optional<elsifPrx>& iceP_method, ::std::int32_t iceP_methods, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "for";
+    static constexpr ::std::string_view operationName = "for";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,

@@ -68,7 +68,7 @@ _cpp_and::breakPrx::caseAsync(::std::int32_t iceP_catch,
 void
 _cpp_and::breakPrx::_iceI_case(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_catch, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "case";
+    static constexpr ::std::string_view operationName = "case";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -113,7 +113,7 @@ _cpp_and::functionPrx::continueAsync(::std::int32_t iceP_declare, ::std::int32_t
 void
 _cpp_and::functionPrx::_iceI_continue(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_declare, ::std::int32_t iceP_default, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "continue";
+    static constexpr ::std::string_view operationName = "continue";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -156,7 +156,7 @@ _cpp_and::diePrx::doAsync(::std::function<void ()> response,
 void
 _cpp_and::diePrx::_iceI_do(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "do";
+    static constexpr ::std::string_view operationName = "do";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -204,7 +204,7 @@ _cpp_and::forPrx::foreachAsync(const ::std::optional<breakPrx>& iceP_if, const :
 void
 _cpp_and::forPrx::_iceI_foreach(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<array>>& outAsync, const ::std::optional<breakPrx>& iceP_if, const ::std::shared_ptr<echo>& iceP_global, const ::std::optional<functionPrx>& iceP_include, const ::std::optional<diePrx>& iceP_return, const ::std::optional<enddeclarePrx>& iceP_list, ::std::int32_t iceP_new, ::std::int32_t iceP_static, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "foreach";
+    static constexpr ::std::string_view operationName = "foreach";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,

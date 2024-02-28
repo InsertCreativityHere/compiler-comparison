@@ -61,7 +61,7 @@ Test::CallbackReceiverPrx::callbackAsync(::std::function<void ()> response,
 void
 Test::CallbackReceiverPrx::_iceI_callback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "callback";
+    static constexpr ::std::string_view operationName = "callback";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -102,7 +102,7 @@ Test::CallbackPrx::initiateCallbackAsync(const ::std::optional<CallbackReceiverP
 void
 Test::CallbackPrx::_iceI_initiateCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<CallbackReceiverPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "initiateCallback";
+    static constexpr ::std::string_view operationName = "initiateCallback";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -138,7 +138,7 @@ Test::CallbackPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::CallbackPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

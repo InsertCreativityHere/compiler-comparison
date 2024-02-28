@@ -65,7 +65,7 @@ IceGrid::QueryPrx::findObjectByIdAsync(const ::Ice::Identity& iceP_id,
 void
 IceGrid::QueryPrx::_iceI_findObjectById(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>& outAsync, const ::Ice::Identity& iceP_id, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "findObjectById";
+    static constexpr ::std::string_view operationName = "findObjectById";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
@@ -103,7 +103,7 @@ IceGrid::QueryPrx::findObjectByTypeAsync(::std::string_view iceP_type,
 void
 IceGrid::QueryPrx::_iceI_findObjectByType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>& outAsync, ::std::string_view iceP_type, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "findObjectByType";
+    static constexpr ::std::string_view operationName = "findObjectByType";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
@@ -141,7 +141,7 @@ IceGrid::QueryPrx::findObjectByTypeOnLeastLoadedNodeAsync(::std::string_view ice
 void
 IceGrid::QueryPrx::_iceI_findObjectByTypeOnLeastLoadedNode(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>& outAsync, ::std::string_view iceP_type, LoadSample iceP_sample, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "findObjectByTypeOnLeastLoadedNode";
+    static constexpr ::std::string_view operationName = "findObjectByTypeOnLeastLoadedNode";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
@@ -179,7 +179,7 @@ IceGrid::QueryPrx::findAllObjectsByTypeAsync(::std::string_view iceP_type,
 void
 IceGrid::QueryPrx::_iceI_findAllObjectsByType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::ObjectProxySeq>>& outAsync, ::std::string_view iceP_type, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "findAllObjectsByType";
+    static constexpr ::std::string_view operationName = "findAllObjectsByType";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
@@ -217,7 +217,7 @@ IceGrid::QueryPrx::findAllReplicasAsync(const ::std::optional<::Ice::ObjectPrx>&
 void
 IceGrid::QueryPrx::_iceI_findAllReplicas(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::ObjectProxySeq>>& outAsync, const ::std::optional<::Ice::ObjectPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "findAllReplicas";
+    static constexpr ::std::string_view operationName = "findAllReplicas";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
@@ -262,7 +262,7 @@ IceGrid::RegistryPrx::createSessionAsync(::std::string_view iceP_userId, ::std::
 void
 IceGrid::RegistryPrx::_iceI_createSession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<SessionPrx>>>& outAsync, ::std::string_view iceP_userId, ::std::string_view iceP_password, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "createSession";
+    static constexpr ::std::string_view operationName = "createSession";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -313,7 +313,7 @@ IceGrid::RegistryPrx::createAdminSessionAsync(::std::string_view iceP_userId, ::
 void
 IceGrid::RegistryPrx::_iceI_createAdminSession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<AdminSessionPrx>>>& outAsync, ::std::string_view iceP_userId, ::std::string_view iceP_password, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "createAdminSession";
+    static constexpr ::std::string_view operationName = "createAdminSession";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -363,7 +363,7 @@ IceGrid::RegistryPrx::createSessionFromSecureConnectionAsync(::std::function<voi
 void
 IceGrid::RegistryPrx::_iceI_createSessionFromSecureConnection(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<SessionPrx>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "createSessionFromSecureConnection";
+    static constexpr ::std::string_view operationName = "createSessionFromSecureConnection";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -410,7 +410,7 @@ IceGrid::RegistryPrx::createAdminSessionFromSecureConnectionAsync(::std::functio
 void
 IceGrid::RegistryPrx::_iceI_createAdminSessionFromSecureConnection(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<AdminSessionPrx>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "createAdminSessionFromSecureConnection";
+    static constexpr ::std::string_view operationName = "createAdminSessionFromSecureConnection";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -457,7 +457,7 @@ IceGrid::RegistryPrx::getSessionTimeoutAsync(::std::function<void (::std::int32_
 void
 IceGrid::RegistryPrx::_iceI_getSessionTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getSessionTimeout";
+    static constexpr ::std::string_view operationName = "getSessionTimeout";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
@@ -491,7 +491,7 @@ IceGrid::RegistryPrx::getACMTimeoutAsync(::std::function<void (::std::int32_t)> 
 void
 IceGrid::RegistryPrx::_iceI_getACMTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getACMTimeout";
+    static constexpr ::std::string_view operationName = "getACMTimeout";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
@@ -532,7 +532,7 @@ IceGrid::LocatorPrx::getLocalRegistryAsync(::std::function<void (::std::optional
 void
 IceGrid::LocatorPrx::_iceI_getLocalRegistry(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<RegistryPrx>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getLocalRegistry";
+    static constexpr ::std::string_view operationName = "getLocalRegistry";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
@@ -566,7 +566,7 @@ IceGrid::LocatorPrx::getLocalQueryAsync(::std::function<void (::std::optional<::
 void
 IceGrid::LocatorPrx::_iceI_getLocalQuery(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<QueryPrx>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getLocalQuery";
+    static constexpr ::std::string_view operationName = "getLocalQuery";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,

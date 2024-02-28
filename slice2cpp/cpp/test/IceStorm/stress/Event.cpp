@@ -62,7 +62,7 @@ Test::EventPrx::pubAsync(::std::int32_t iceP_counter,
 void
 Test::EventPrx::_iceI_pub(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_counter, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "pub";
+    static constexpr ::std::string_view operationName = "pub";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)

@@ -64,7 +64,7 @@ Test::HelloPrx::sayHelloAsync(::std::int32_t iceP_delay,
 void
 Test::HelloPrx::_iceI_sayHello(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_delay, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "sayHello";
+    static constexpr ::std::string_view operationName = "sayHello";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -101,7 +101,7 @@ Test::HelloPrx::addAsync(::std::int32_t iceP_s1, ::std::int32_t iceP_s2,
 void
 Test::HelloPrx::_iceI_add(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_s1, ::std::int32_t iceP_s2, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "add";
+    static constexpr ::std::string_view operationName = "add";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -138,7 +138,7 @@ Test::HelloPrx::raiseUEAsync(::std::function<void ()> response,
 void
 Test::HelloPrx::_iceI_raiseUE(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "raiseUE";
+    static constexpr ::std::string_view operationName = "raiseUE";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -185,7 +185,7 @@ Test::HelloPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::HelloPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

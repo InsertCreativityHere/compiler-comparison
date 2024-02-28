@@ -61,7 +61,7 @@ Test::TestIntfPrx::getReplicaIdAsync(::std::function<void (::std::string)> respo
 void
 Test::TestIntfPrx::_iceI_getReplicaId(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getReplicaId";
+    static constexpr ::std::string_view operationName = "getReplicaId";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -95,7 +95,7 @@ Test::TestIntfPrx::getReplicaIdAndShutdownAsync(::std::function<void (::std::str
 void
 Test::TestIntfPrx::_iceI_getReplicaIdAndShutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getReplicaIdAndShutdown";
+    static constexpr ::std::string_view operationName = "getReplicaIdAndShutdown";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,

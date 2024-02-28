@@ -62,7 +62,7 @@ Test::HoldPrx::putOnHoldAsync(::std::int32_t iceP_seconds,
 void
 Test::HoldPrx::_iceI_putOnHold(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_seconds, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "putOnHold";
+    static constexpr ::std::string_view operationName = "putOnHold";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -98,7 +98,7 @@ Test::HoldPrx::waitForHoldAsync(::std::function<void ()> response,
 void
 Test::HoldPrx::_iceI_waitForHold(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "waitForHold";
+    static constexpr ::std::string_view operationName = "waitForHold";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -132,7 +132,7 @@ Test::HoldPrx::setAsync(::std::int32_t iceP_value, ::std::int32_t iceP_delay,
 void
 Test::HoldPrx::_iceI_set(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_value, ::std::int32_t iceP_delay, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "set";
+    static constexpr ::std::string_view operationName = "set";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -170,7 +170,7 @@ Test::HoldPrx::setOnewayAsync(::std::int32_t iceP_value, ::std::int32_t iceP_exp
 void
 Test::HoldPrx::_iceI_setOneway(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_value, ::std::int32_t iceP_expected, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "setOneway";
+    static constexpr ::std::string_view operationName = "setOneway";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -206,7 +206,7 @@ Test::HoldPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::HoldPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,

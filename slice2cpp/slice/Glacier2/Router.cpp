@@ -66,7 +66,7 @@ Glacier2::RouterPrx::getCategoryForClientAsync(::std::function<void (::std::stri
 void
 Glacier2::RouterPrx::_iceI_getCategoryForClient(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getCategoryForClient";
+    static constexpr ::std::string_view operationName = "getCategoryForClient";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
@@ -101,7 +101,7 @@ Glacier2::RouterPrx::createSessionAsync(::std::string_view iceP_userId, ::std::s
 void
 Glacier2::RouterPrx::_iceI_createSession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<SessionPrx>>>& outAsync, ::std::string_view iceP_userId, ::std::string_view iceP_password, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "createSession";
+    static constexpr ::std::string_view operationName = "createSession";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
@@ -155,7 +155,7 @@ Glacier2::RouterPrx::createSessionFromSecureConnectionAsync(::std::function<void
 void
 Glacier2::RouterPrx::_iceI_createSessionFromSecureConnection(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<SessionPrx>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "createSessionFromSecureConnection";
+    static constexpr ::std::string_view operationName = "createSessionFromSecureConnection";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
@@ -206,7 +206,7 @@ Glacier2::RouterPrx::refreshSessionAsync(::std::function<void ()> response,
 void
 Glacier2::RouterPrx::_iceI_refreshSession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "refreshSession";
+    static constexpr ::std::string_view operationName = "refreshSession";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -253,7 +253,7 @@ Glacier2::RouterPrx::destroySessionAsync(::std::function<void ()> response,
 void
 Glacier2::RouterPrx::_iceI_destroySession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "destroySession";
+    static constexpr ::std::string_view operationName = "destroySession";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -300,7 +300,7 @@ Glacier2::RouterPrx::getSessionTimeoutAsync(::std::function<void (::std::int64_t
 void
 Glacier2::RouterPrx::_iceI_getSessionTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int64_t>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getSessionTimeout";
+    static constexpr ::std::string_view operationName = "getSessionTimeout";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
@@ -334,7 +334,7 @@ Glacier2::RouterPrx::getACMTimeoutAsync(::std::function<void (::std::int32_t)> r
 void
 Glacier2::RouterPrx::_iceI_getACMTimeout(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "getACMTimeout";
+    static constexpr ::std::string_view operationName = "getACMTimeout";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,

@@ -65,7 +65,7 @@ Clash::IntfPrx::contextAsync(::std::function<void ()> response,
 void
 Clash::IntfPrx::_iceI_context(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "context";
+    static constexpr ::std::string_view operationName = "context";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -98,7 +98,7 @@ Clash::IntfPrx::currentAsync(::std::function<void ()> response,
 void
 Clash::IntfPrx::_iceI_current(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "current";
+    static constexpr ::std::string_view operationName = "current";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -131,7 +131,7 @@ Clash::IntfPrx::responseAsync(::std::function<void ()> response,
 void
 Clash::IntfPrx::_iceI_response(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "response";
+    static constexpr ::std::string_view operationName = "response";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -164,7 +164,7 @@ Clash::IntfPrx::upCastAsync(::std::function<void ()> response,
 void
 Clash::IntfPrx::_iceI_upCast(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "upCast";
+    static constexpr ::std::string_view operationName = "upCast";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -197,7 +197,7 @@ Clash::IntfPrx::typeIdAsync(::std::function<void ()> response,
 void
 Clash::IntfPrx::_iceI_typeId(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "typeId";
+    static constexpr ::std::string_view operationName = "typeId";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -230,7 +230,7 @@ Clash::IntfPrx::delAsync(::std::function<void ()> response,
 void
 Clash::IntfPrx::_iceI_del(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "del";
+    static constexpr ::std::string_view operationName = "del";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -263,7 +263,7 @@ Clash::IntfPrx::cookieAsync(::std::function<void ()> response,
 void
 Clash::IntfPrx::_iceI_cookie(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "cookie";
+    static constexpr ::std::string_view operationName = "cookie";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -296,7 +296,7 @@ Clash::IntfPrx::syncAsync(::std::function<void ()> response,
 void
 Clash::IntfPrx::_iceI_sync(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "sync";
+    static constexpr ::std::string_view operationName = "sync";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -329,7 +329,7 @@ Clash::IntfPrx::inSAsync(::std::function<void ()> response,
 void
 Clash::IntfPrx::_iceI_inS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "inS";
+    static constexpr ::std::string_view operationName = "inS";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -362,7 +362,7 @@ Clash::IntfPrx::istrAsync(::std::function<void ()> response,
 void
 Clash::IntfPrx::_iceI_istr(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "istr";
+    static constexpr ::std::string_view operationName = "istr";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
@@ -396,7 +396,7 @@ Clash::IntfPrx::opAsync(::std::string_view iceP_context, ::std::string_view iceP
 void
 Clash::IntfPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_context, ::std::string_view iceP_current, ::std::string_view iceP_response, ::std::string_view iceP_ex, ::std::string_view iceP_sent, ::std::string_view iceP_cookie, ::std::string_view iceP_sync, ::std::string_view iceP_result, ::std::string_view iceP_istr, ::std::string_view iceP_ostr, const ::std::optional<::std::string>& iceP_proxy, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "op";
+    static constexpr ::std::string_view operationName = "op";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         [&](::Ice::OutputStream* ostr)
@@ -448,7 +448,7 @@ Clash::IntfPrx::opOutAsync(::std::function<void (::std::string, ::std::string, :
 void
 Clash::IntfPrx::_iceI_opOut(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::string, ::std::optional<::std::string>>>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opOut";
+    static constexpr ::std::string_view operationName = "opOut";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,

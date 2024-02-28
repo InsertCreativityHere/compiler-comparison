@@ -68,7 +68,7 @@ Test::TestIntfPrx::opByteAsync(ByteEnum iceP_b1,
 void
 Test::TestIntfPrx::_iceI_opByte(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ByteEnum, ByteEnum>>>& outAsync, ByteEnum iceP_b1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opByte";
+    static constexpr ::std::string_view operationName = "opByte";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -118,7 +118,7 @@ Test::TestIntfPrx::opShortAsync(ShortEnum iceP_s1,
 void
 Test::TestIntfPrx::_iceI_opShort(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ShortEnum, ShortEnum>>>& outAsync, ShortEnum iceP_s1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opShort";
+    static constexpr ::std::string_view operationName = "opShort";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -168,7 +168,7 @@ Test::TestIntfPrx::opIntAsync(IntEnum iceP_i1,
 void
 Test::TestIntfPrx::_iceI_opInt(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<IntEnum, IntEnum>>>& outAsync, IntEnum iceP_i1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opInt";
+    static constexpr ::std::string_view operationName = "opInt";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -218,7 +218,7 @@ Test::TestIntfPrx::opSimpleAsync(SimpleEnum iceP_s1,
 void
 Test::TestIntfPrx::_iceI_opSimple(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SimpleEnum, SimpleEnum>>>& outAsync, SimpleEnum iceP_s1, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "opSimple";
+    static constexpr ::std::string_view operationName = "opSimple";
 
     _checkTwowayOnly(operationName);
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
@@ -261,7 +261,7 @@ Test::TestIntfPrx::shutdownAsync(::std::function<void ()> response,
 void
 Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
-    static const ::std::string operationName = "shutdown";
+    static constexpr ::std::string_view operationName = "shutdown";
 
     outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
         nullptr,
