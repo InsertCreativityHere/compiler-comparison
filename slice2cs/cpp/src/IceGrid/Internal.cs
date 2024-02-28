@@ -7451,11 +7451,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(DeploymentException)
+                    catch(ObserverAlreadyRegisteredException)
                     {
                         throw;
                     }
-                    catch(ObserverAlreadyRegisteredException)
+                    catch(DeploymentException)
                     {
                         throw;
                     }
@@ -8066,11 +8066,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(NodeActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
-                    catch(PermissionDeniedException)
+                    catch(NodeActiveException)
                     {
                         throw;
                     }
@@ -8122,11 +8122,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(ReplicaActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
-                    catch(PermissionDeniedException)
+                    catch(ReplicaActiveException)
                     {
                         throw;
                     }
@@ -9982,10 +9982,6 @@ namespace IceGrid
     {
         #region Inherited Slice operations
 
-        public abstract void objectUpdated(ObjectInfo info, global::Ice.Current current = null);
-
-        public abstract void objectRemoved(global::Ice.Identity id, global::Ice.Current current = null);
-
         public abstract void applicationInit(int serial, ApplicationInfo[] applications, global::Ice.Current current = null);
 
         public abstract void applicationAdded(int serial, ApplicationInfo desc, global::Ice.Current current = null);
@@ -10005,6 +10001,10 @@ namespace IceGrid
         public abstract void objectInit(ObjectInfo[] objects, global::Ice.Current current = null);
 
         public abstract void objectAdded(ObjectInfo info, global::Ice.Current current = null);
+
+        public abstract void objectUpdated(ObjectInfo info, global::Ice.Current current = null);
+
+        public abstract void objectRemoved(global::Ice.Identity id, global::Ice.Current current = null);
 
         #endregion
 
