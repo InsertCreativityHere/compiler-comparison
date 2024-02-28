@@ -27,8 +27,8 @@ public interface Thrower extends com.zeroc.Ice.Object
         throws A;
 
     void throwAorDasAorD(int a, com.zeroc.Ice.Current current)
-        throws D,
-               A;
+        throws A,
+               D;
 
     void throwBasA(int a, int b, com.zeroc.Ice.Current current)
         throws A;
