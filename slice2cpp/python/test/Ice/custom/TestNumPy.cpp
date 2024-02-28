@@ -41,9 +41,9 @@ const ::IceInternal::DefaultValueFactoryInit<::Test::NumPy::D> iceC_Test_NumPy_D
 ::Test::NumPy::BoolSeq1
 Test::NumPy::CustomPrx::opBoolSeq(const BoolSeq1& iceP_v1, BoolSeq2& iceP_v2, const ::Ice::Context& context) const
 {
-    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<BoolSeq1, BoolSeq2>>(true, this, &CustomPrx::_iceI_opBoolSeq, iceP_v1, context).get();
-    iceP_v2 = ::std::move(::std::get<1>(_result));
-    return ::std::move(::std::get<0>(_result));
+    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<BoolSeq1, BoolSeq2>>(true, this, &CustomPrx::_iceI_opBoolSeq, iceP_v1, context).get();
+    iceP_v2 = ::std::move(::std::get<1>(result));
+    return ::std::move(::std::get<0>(result));
 }
 
 ::std::future<::std::tuple<::Test::NumPy::BoolSeq1, ::Test::NumPy::BoolSeq2>>
@@ -53,20 +53,15 @@ Test::NumPy::CustomPrx::opBoolSeqAsync(const BoolSeq1& iceP_v1, const ::Ice::Con
 }
 
 ::std::function<void()>
-Test::NumPy::CustomPrx::opBoolSeqAsync(const BoolSeq1& iceP_v1,
-                                       ::std::function<void (::Test::NumPy::BoolSeq1, ::Test::NumPy::BoolSeq2)> response,
-                                       ::std::function<void(::std::exception_ptr)> ex,
-                                       ::std::function<void(bool)> sent,
-                                       const ::Ice::Context& context) const
+Test::NumPy::CustomPrx::opBoolSeqAsync(const BoolSeq1& iceP_v1, ::std::function<void(::Test::NumPy::BoolSeq1, ::Test::NumPy::BoolSeq2)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto _responseCb = [_response = ::std::move(response)](::std::tuple<BoolSeq1, BoolSeq2>&& _result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<BoolSeq1, BoolSeq2>&& result)
     {
-        ::std::apply(::std::move(_response), ::std::move(_result));
+        ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<BoolSeq1, BoolSeq2>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::NumPy::CustomPrx::_iceI_opBoolSeq, iceP_v1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<BoolSeq1, BoolSeq2>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::NumPy::CustomPrx::_iceI_opBoolSeq, iceP_v1, context);
 }
 
-/// \cond INTERNAL
 void
 Test::NumPy::CustomPrx::_iceI_opBoolSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<BoolSeq1, BoolSeq2>>>& outAsync, const BoolSeq1& iceP_v1, const ::Ice::Context& context) const
 {
@@ -86,14 +81,13 @@ Test::NumPy::CustomPrx::_iceI_opBoolSeq(const ::std::shared_ptr<::IceInternal::O
             return v;
         });
 }
-/// \endcond
 
 ::Test::NumPy::ByteSeq1
 Test::NumPy::CustomPrx::opByteSeq(const ByteSeq1& iceP_v1, ByteSeq2& iceP_v2, const ::Ice::Context& context) const
 {
-    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<ByteSeq1, ByteSeq2>>(true, this, &CustomPrx::_iceI_opByteSeq, iceP_v1, context).get();
-    iceP_v2 = ::std::move(::std::get<1>(_result));
-    return ::std::move(::std::get<0>(_result));
+    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<ByteSeq1, ByteSeq2>>(true, this, &CustomPrx::_iceI_opByteSeq, iceP_v1, context).get();
+    iceP_v2 = ::std::move(::std::get<1>(result));
+    return ::std::move(::std::get<0>(result));
 }
 
 ::std::future<::std::tuple<::Test::NumPy::ByteSeq1, ::Test::NumPy::ByteSeq2>>
@@ -103,20 +97,15 @@ Test::NumPy::CustomPrx::opByteSeqAsync(const ByteSeq1& iceP_v1, const ::Ice::Con
 }
 
 ::std::function<void()>
-Test::NumPy::CustomPrx::opByteSeqAsync(const ByteSeq1& iceP_v1,
-                                       ::std::function<void (::Test::NumPy::ByteSeq1, ::Test::NumPy::ByteSeq2)> response,
-                                       ::std::function<void(::std::exception_ptr)> ex,
-                                       ::std::function<void(bool)> sent,
-                                       const ::Ice::Context& context) const
+Test::NumPy::CustomPrx::opByteSeqAsync(const ByteSeq1& iceP_v1, ::std::function<void(::Test::NumPy::ByteSeq1, ::Test::NumPy::ByteSeq2)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto _responseCb = [_response = ::std::move(response)](::std::tuple<ByteSeq1, ByteSeq2>&& _result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<ByteSeq1, ByteSeq2>&& result)
     {
-        ::std::apply(::std::move(_response), ::std::move(_result));
+        ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ByteSeq1, ByteSeq2>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::NumPy::CustomPrx::_iceI_opByteSeq, iceP_v1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ByteSeq1, ByteSeq2>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::NumPy::CustomPrx::_iceI_opByteSeq, iceP_v1, context);
 }
 
-/// \cond INTERNAL
 void
 Test::NumPy::CustomPrx::_iceI_opByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ByteSeq1, ByteSeq2>>>& outAsync, const ByteSeq1& iceP_v1, const ::Ice::Context& context) const
 {
@@ -136,14 +125,13 @@ Test::NumPy::CustomPrx::_iceI_opByteSeq(const ::std::shared_ptr<::IceInternal::O
             return v;
         });
 }
-/// \endcond
 
 ::Test::NumPy::ShortSeq1
 Test::NumPy::CustomPrx::opShortSeq(const ShortSeq1& iceP_v1, ShortSeq2& iceP_v2, const ::Ice::Context& context) const
 {
-    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<ShortSeq1, ShortSeq2>>(true, this, &CustomPrx::_iceI_opShortSeq, iceP_v1, context).get();
-    iceP_v2 = ::std::move(::std::get<1>(_result));
-    return ::std::move(::std::get<0>(_result));
+    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<ShortSeq1, ShortSeq2>>(true, this, &CustomPrx::_iceI_opShortSeq, iceP_v1, context).get();
+    iceP_v2 = ::std::move(::std::get<1>(result));
+    return ::std::move(::std::get<0>(result));
 }
 
 ::std::future<::std::tuple<::Test::NumPy::ShortSeq1, ::Test::NumPy::ShortSeq2>>
@@ -153,20 +141,15 @@ Test::NumPy::CustomPrx::opShortSeqAsync(const ShortSeq1& iceP_v1, const ::Ice::C
 }
 
 ::std::function<void()>
-Test::NumPy::CustomPrx::opShortSeqAsync(const ShortSeq1& iceP_v1,
-                                        ::std::function<void (::Test::NumPy::ShortSeq1, ::Test::NumPy::ShortSeq2)> response,
-                                        ::std::function<void(::std::exception_ptr)> ex,
-                                        ::std::function<void(bool)> sent,
-                                        const ::Ice::Context& context) const
+Test::NumPy::CustomPrx::opShortSeqAsync(const ShortSeq1& iceP_v1, ::std::function<void(::Test::NumPy::ShortSeq1, ::Test::NumPy::ShortSeq2)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto _responseCb = [_response = ::std::move(response)](::std::tuple<ShortSeq1, ShortSeq2>&& _result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<ShortSeq1, ShortSeq2>&& result)
     {
-        ::std::apply(::std::move(_response), ::std::move(_result));
+        ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ShortSeq1, ShortSeq2>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::NumPy::CustomPrx::_iceI_opShortSeq, iceP_v1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ShortSeq1, ShortSeq2>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::NumPy::CustomPrx::_iceI_opShortSeq, iceP_v1, context);
 }
 
-/// \cond INTERNAL
 void
 Test::NumPy::CustomPrx::_iceI_opShortSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ShortSeq1, ShortSeq2>>>& outAsync, const ShortSeq1& iceP_v1, const ::Ice::Context& context) const
 {
@@ -186,14 +169,13 @@ Test::NumPy::CustomPrx::_iceI_opShortSeq(const ::std::shared_ptr<::IceInternal::
             return v;
         });
 }
-/// \endcond
 
 ::Test::NumPy::IntSeq1
 Test::NumPy::CustomPrx::opIntSeq(const IntSeq1& iceP_v1, IntSeq2& iceP_v2, const ::Ice::Context& context) const
 {
-    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<IntSeq1, IntSeq2>>(true, this, &CustomPrx::_iceI_opIntSeq, iceP_v1, context).get();
-    iceP_v2 = ::std::move(::std::get<1>(_result));
-    return ::std::move(::std::get<0>(_result));
+    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<IntSeq1, IntSeq2>>(true, this, &CustomPrx::_iceI_opIntSeq, iceP_v1, context).get();
+    iceP_v2 = ::std::move(::std::get<1>(result));
+    return ::std::move(::std::get<0>(result));
 }
 
 ::std::future<::std::tuple<::Test::NumPy::IntSeq1, ::Test::NumPy::IntSeq2>>
@@ -203,20 +185,15 @@ Test::NumPy::CustomPrx::opIntSeqAsync(const IntSeq1& iceP_v1, const ::Ice::Conte
 }
 
 ::std::function<void()>
-Test::NumPy::CustomPrx::opIntSeqAsync(const IntSeq1& iceP_v1,
-                                      ::std::function<void (::Test::NumPy::IntSeq1, ::Test::NumPy::IntSeq2)> response,
-                                      ::std::function<void(::std::exception_ptr)> ex,
-                                      ::std::function<void(bool)> sent,
-                                      const ::Ice::Context& context) const
+Test::NumPy::CustomPrx::opIntSeqAsync(const IntSeq1& iceP_v1, ::std::function<void(::Test::NumPy::IntSeq1, ::Test::NumPy::IntSeq2)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto _responseCb = [_response = ::std::move(response)](::std::tuple<IntSeq1, IntSeq2>&& _result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<IntSeq1, IntSeq2>&& result)
     {
-        ::std::apply(::std::move(_response), ::std::move(_result));
+        ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<IntSeq1, IntSeq2>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::NumPy::CustomPrx::_iceI_opIntSeq, iceP_v1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<IntSeq1, IntSeq2>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::NumPy::CustomPrx::_iceI_opIntSeq, iceP_v1, context);
 }
 
-/// \cond INTERNAL
 void
 Test::NumPy::CustomPrx::_iceI_opIntSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<IntSeq1, IntSeq2>>>& outAsync, const IntSeq1& iceP_v1, const ::Ice::Context& context) const
 {
@@ -236,14 +213,13 @@ Test::NumPy::CustomPrx::_iceI_opIntSeq(const ::std::shared_ptr<::IceInternal::Ou
             return v;
         });
 }
-/// \endcond
 
 ::Test::NumPy::LongSeq1
 Test::NumPy::CustomPrx::opLongSeq(const LongSeq1& iceP_v1, LongSeq2& iceP_v2, const ::Ice::Context& context) const
 {
-    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<LongSeq1, LongSeq2>>(true, this, &CustomPrx::_iceI_opLongSeq, iceP_v1, context).get();
-    iceP_v2 = ::std::move(::std::get<1>(_result));
-    return ::std::move(::std::get<0>(_result));
+    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<LongSeq1, LongSeq2>>(true, this, &CustomPrx::_iceI_opLongSeq, iceP_v1, context).get();
+    iceP_v2 = ::std::move(::std::get<1>(result));
+    return ::std::move(::std::get<0>(result));
 }
 
 ::std::future<::std::tuple<::Test::NumPy::LongSeq1, ::Test::NumPy::LongSeq2>>
@@ -253,20 +229,15 @@ Test::NumPy::CustomPrx::opLongSeqAsync(const LongSeq1& iceP_v1, const ::Ice::Con
 }
 
 ::std::function<void()>
-Test::NumPy::CustomPrx::opLongSeqAsync(const LongSeq1& iceP_v1,
-                                       ::std::function<void (::Test::NumPy::LongSeq1, ::Test::NumPy::LongSeq2)> response,
-                                       ::std::function<void(::std::exception_ptr)> ex,
-                                       ::std::function<void(bool)> sent,
-                                       const ::Ice::Context& context) const
+Test::NumPy::CustomPrx::opLongSeqAsync(const LongSeq1& iceP_v1, ::std::function<void(::Test::NumPy::LongSeq1, ::Test::NumPy::LongSeq2)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto _responseCb = [_response = ::std::move(response)](::std::tuple<LongSeq1, LongSeq2>&& _result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<LongSeq1, LongSeq2>&& result)
     {
-        ::std::apply(::std::move(_response), ::std::move(_result));
+        ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<LongSeq1, LongSeq2>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::NumPy::CustomPrx::_iceI_opLongSeq, iceP_v1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<LongSeq1, LongSeq2>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::NumPy::CustomPrx::_iceI_opLongSeq, iceP_v1, context);
 }
 
-/// \cond INTERNAL
 void
 Test::NumPy::CustomPrx::_iceI_opLongSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<LongSeq1, LongSeq2>>>& outAsync, const LongSeq1& iceP_v1, const ::Ice::Context& context) const
 {
@@ -286,14 +257,13 @@ Test::NumPy::CustomPrx::_iceI_opLongSeq(const ::std::shared_ptr<::IceInternal::O
             return v;
         });
 }
-/// \endcond
 
 ::Test::NumPy::FloatSeq1
 Test::NumPy::CustomPrx::opFloatSeq(const FloatSeq1& iceP_v1, FloatSeq2& iceP_v2, const ::Ice::Context& context) const
 {
-    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<FloatSeq1, FloatSeq2>>(true, this, &CustomPrx::_iceI_opFloatSeq, iceP_v1, context).get();
-    iceP_v2 = ::std::move(::std::get<1>(_result));
-    return ::std::move(::std::get<0>(_result));
+    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<FloatSeq1, FloatSeq2>>(true, this, &CustomPrx::_iceI_opFloatSeq, iceP_v1, context).get();
+    iceP_v2 = ::std::move(::std::get<1>(result));
+    return ::std::move(::std::get<0>(result));
 }
 
 ::std::future<::std::tuple<::Test::NumPy::FloatSeq1, ::Test::NumPy::FloatSeq2>>
@@ -303,20 +273,15 @@ Test::NumPy::CustomPrx::opFloatSeqAsync(const FloatSeq1& iceP_v1, const ::Ice::C
 }
 
 ::std::function<void()>
-Test::NumPy::CustomPrx::opFloatSeqAsync(const FloatSeq1& iceP_v1,
-                                        ::std::function<void (::Test::NumPy::FloatSeq1, ::Test::NumPy::FloatSeq2)> response,
-                                        ::std::function<void(::std::exception_ptr)> ex,
-                                        ::std::function<void(bool)> sent,
-                                        const ::Ice::Context& context) const
+Test::NumPy::CustomPrx::opFloatSeqAsync(const FloatSeq1& iceP_v1, ::std::function<void(::Test::NumPy::FloatSeq1, ::Test::NumPy::FloatSeq2)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto _responseCb = [_response = ::std::move(response)](::std::tuple<FloatSeq1, FloatSeq2>&& _result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<FloatSeq1, FloatSeq2>&& result)
     {
-        ::std::apply(::std::move(_response), ::std::move(_result));
+        ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<FloatSeq1, FloatSeq2>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::NumPy::CustomPrx::_iceI_opFloatSeq, iceP_v1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<FloatSeq1, FloatSeq2>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::NumPy::CustomPrx::_iceI_opFloatSeq, iceP_v1, context);
 }
 
-/// \cond INTERNAL
 void
 Test::NumPy::CustomPrx::_iceI_opFloatSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<FloatSeq1, FloatSeq2>>>& outAsync, const FloatSeq1& iceP_v1, const ::Ice::Context& context) const
 {
@@ -336,14 +301,13 @@ Test::NumPy::CustomPrx::_iceI_opFloatSeq(const ::std::shared_ptr<::IceInternal::
             return v;
         });
 }
-/// \endcond
 
 ::Test::NumPy::DoubleSeq1
 Test::NumPy::CustomPrx::opDoubleSeq(const DoubleSeq1& iceP_v1, DoubleSeq2& iceP_v2, const ::Ice::Context& context) const
 {
-    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<DoubleSeq1, DoubleSeq2>>(true, this, &CustomPrx::_iceI_opDoubleSeq, iceP_v1, context).get();
-    iceP_v2 = ::std::move(::std::get<1>(_result));
-    return ::std::move(::std::get<0>(_result));
+    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<DoubleSeq1, DoubleSeq2>>(true, this, &CustomPrx::_iceI_opDoubleSeq, iceP_v1, context).get();
+    iceP_v2 = ::std::move(::std::get<1>(result));
+    return ::std::move(::std::get<0>(result));
 }
 
 ::std::future<::std::tuple<::Test::NumPy::DoubleSeq1, ::Test::NumPy::DoubleSeq2>>
@@ -353,20 +317,15 @@ Test::NumPy::CustomPrx::opDoubleSeqAsync(const DoubleSeq1& iceP_v1, const ::Ice:
 }
 
 ::std::function<void()>
-Test::NumPy::CustomPrx::opDoubleSeqAsync(const DoubleSeq1& iceP_v1,
-                                         ::std::function<void (::Test::NumPy::DoubleSeq1, ::Test::NumPy::DoubleSeq2)> response,
-                                         ::std::function<void(::std::exception_ptr)> ex,
-                                         ::std::function<void(bool)> sent,
-                                         const ::Ice::Context& context) const
+Test::NumPy::CustomPrx::opDoubleSeqAsync(const DoubleSeq1& iceP_v1, ::std::function<void(::Test::NumPy::DoubleSeq1, ::Test::NumPy::DoubleSeq2)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto _responseCb = [_response = ::std::move(response)](::std::tuple<DoubleSeq1, DoubleSeq2>&& _result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<DoubleSeq1, DoubleSeq2>&& result)
     {
-        ::std::apply(::std::move(_response), ::std::move(_result));
+        ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<DoubleSeq1, DoubleSeq2>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::NumPy::CustomPrx::_iceI_opDoubleSeq, iceP_v1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<DoubleSeq1, DoubleSeq2>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::NumPy::CustomPrx::_iceI_opDoubleSeq, iceP_v1, context);
 }
 
-/// \cond INTERNAL
 void
 Test::NumPy::CustomPrx::_iceI_opDoubleSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<DoubleSeq1, DoubleSeq2>>>& outAsync, const DoubleSeq1& iceP_v1, const ::Ice::Context& context) const
 {
@@ -386,7 +345,6 @@ Test::NumPy::CustomPrx::_iceI_opDoubleSeq(const ::std::shared_ptr<::IceInternal:
             return v;
         });
 }
-/// \endcond
 
 ::Test::NumPy::Complex128Seq
 Test::NumPy::CustomPrx::opComplex128Seq(const Complex128Seq& iceP_v1, const ::Ice::Context& context) const
@@ -401,16 +359,11 @@ Test::NumPy::CustomPrx::opComplex128SeqAsync(const Complex128Seq& iceP_v1, const
 }
 
 ::std::function<void()>
-Test::NumPy::CustomPrx::opComplex128SeqAsync(const Complex128Seq& iceP_v1,
-                                             ::std::function<void (::Test::NumPy::Complex128Seq)> response,
-                                             ::std::function<void(::std::exception_ptr)> ex,
-                                             ::std::function<void(bool)> sent,
-                                             const ::Ice::Context& context) const
+Test::NumPy::CustomPrx::opComplex128SeqAsync(const Complex128Seq& iceP_v1, ::std::function<void(::Test::NumPy::Complex128Seq)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<Complex128Seq>(std::move(response), std::move(ex), std::move(sent), this, &Test::NumPy::CustomPrx::_iceI_opComplex128Seq, iceP_v1, context);
 }
 
-/// \cond INTERNAL
 void
 Test::NumPy::CustomPrx::_iceI_opComplex128Seq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Complex128Seq>>& outAsync, const Complex128Seq& iceP_v1, const ::Ice::Context& context) const
 {
@@ -424,7 +377,6 @@ Test::NumPy::CustomPrx::_iceI_opComplex128Seq(const ::std::shared_ptr<::IceInter
         },
         nullptr);
 }
-/// \endcond
 
 ::Test::NumPy::BoolSeq1
 Test::NumPy::CustomPrx::opBoolMatrix(const ::Ice::Context& context) const
@@ -439,15 +391,11 @@ Test::NumPy::CustomPrx::opBoolMatrixAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::NumPy::CustomPrx::opBoolMatrixAsync(::std::function<void (::Test::NumPy::BoolSeq1)> response,
-                                          ::std::function<void(::std::exception_ptr)> ex,
-                                          ::std::function<void(bool)> sent,
-                                          const ::Ice::Context& context) const
+Test::NumPy::CustomPrx::opBoolMatrixAsync(::std::function<void(::Test::NumPy::BoolSeq1)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<BoolSeq1>(std::move(response), std::move(ex), std::move(sent), this, &Test::NumPy::CustomPrx::_iceI_opBoolMatrix, context);
 }
 
-/// \cond INTERNAL
 void
 Test::NumPy::CustomPrx::_iceI_opBoolMatrix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<BoolSeq1>>& outAsync, const ::Ice::Context& context) const
 {
@@ -458,7 +406,6 @@ Test::NumPy::CustomPrx::_iceI_opBoolMatrix(const ::std::shared_ptr<::IceInternal
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::Test::NumPy::ByteSeq1
 Test::NumPy::CustomPrx::opByteMatrix(const ::Ice::Context& context) const
@@ -473,15 +420,11 @@ Test::NumPy::CustomPrx::opByteMatrixAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::NumPy::CustomPrx::opByteMatrixAsync(::std::function<void (::Test::NumPy::ByteSeq1)> response,
-                                          ::std::function<void(::std::exception_ptr)> ex,
-                                          ::std::function<void(bool)> sent,
-                                          const ::Ice::Context& context) const
+Test::NumPy::CustomPrx::opByteMatrixAsync(::std::function<void(::Test::NumPy::ByteSeq1)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<ByteSeq1>(std::move(response), std::move(ex), std::move(sent), this, &Test::NumPy::CustomPrx::_iceI_opByteMatrix, context);
 }
 
-/// \cond INTERNAL
 void
 Test::NumPy::CustomPrx::_iceI_opByteMatrix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ByteSeq1>>& outAsync, const ::Ice::Context& context) const
 {
@@ -492,7 +435,6 @@ Test::NumPy::CustomPrx::_iceI_opByteMatrix(const ::std::shared_ptr<::IceInternal
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::Test::NumPy::ShortSeq1
 Test::NumPy::CustomPrx::opShortMatrix(const ::Ice::Context& context) const
@@ -507,15 +449,11 @@ Test::NumPy::CustomPrx::opShortMatrixAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::NumPy::CustomPrx::opShortMatrixAsync(::std::function<void (::Test::NumPy::ShortSeq1)> response,
-                                           ::std::function<void(::std::exception_ptr)> ex,
-                                           ::std::function<void(bool)> sent,
-                                           const ::Ice::Context& context) const
+Test::NumPy::CustomPrx::opShortMatrixAsync(::std::function<void(::Test::NumPy::ShortSeq1)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<ShortSeq1>(std::move(response), std::move(ex), std::move(sent), this, &Test::NumPy::CustomPrx::_iceI_opShortMatrix, context);
 }
 
-/// \cond INTERNAL
 void
 Test::NumPy::CustomPrx::_iceI_opShortMatrix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ShortSeq1>>& outAsync, const ::Ice::Context& context) const
 {
@@ -526,7 +464,6 @@ Test::NumPy::CustomPrx::_iceI_opShortMatrix(const ::std::shared_ptr<::IceInterna
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::Test::NumPy::IntSeq1
 Test::NumPy::CustomPrx::opIntMatrix(const ::Ice::Context& context) const
@@ -541,15 +478,11 @@ Test::NumPy::CustomPrx::opIntMatrixAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::NumPy::CustomPrx::opIntMatrixAsync(::std::function<void (::Test::NumPy::IntSeq1)> response,
-                                         ::std::function<void(::std::exception_ptr)> ex,
-                                         ::std::function<void(bool)> sent,
-                                         const ::Ice::Context& context) const
+Test::NumPy::CustomPrx::opIntMatrixAsync(::std::function<void(::Test::NumPy::IntSeq1)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<IntSeq1>(std::move(response), std::move(ex), std::move(sent), this, &Test::NumPy::CustomPrx::_iceI_opIntMatrix, context);
 }
 
-/// \cond INTERNAL
 void
 Test::NumPy::CustomPrx::_iceI_opIntMatrix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<IntSeq1>>& outAsync, const ::Ice::Context& context) const
 {
@@ -560,7 +493,6 @@ Test::NumPy::CustomPrx::_iceI_opIntMatrix(const ::std::shared_ptr<::IceInternal:
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::Test::NumPy::LongSeq1
 Test::NumPy::CustomPrx::opLongMatrix(const ::Ice::Context& context) const
@@ -575,15 +507,11 @@ Test::NumPy::CustomPrx::opLongMatrixAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::NumPy::CustomPrx::opLongMatrixAsync(::std::function<void (::Test::NumPy::LongSeq1)> response,
-                                          ::std::function<void(::std::exception_ptr)> ex,
-                                          ::std::function<void(bool)> sent,
-                                          const ::Ice::Context& context) const
+Test::NumPy::CustomPrx::opLongMatrixAsync(::std::function<void(::Test::NumPy::LongSeq1)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<LongSeq1>(std::move(response), std::move(ex), std::move(sent), this, &Test::NumPy::CustomPrx::_iceI_opLongMatrix, context);
 }
 
-/// \cond INTERNAL
 void
 Test::NumPy::CustomPrx::_iceI_opLongMatrix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<LongSeq1>>& outAsync, const ::Ice::Context& context) const
 {
@@ -594,7 +522,6 @@ Test::NumPy::CustomPrx::_iceI_opLongMatrix(const ::std::shared_ptr<::IceInternal
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::Test::NumPy::FloatSeq1
 Test::NumPy::CustomPrx::opFloatMatrix(const ::Ice::Context& context) const
@@ -609,15 +536,11 @@ Test::NumPy::CustomPrx::opFloatMatrixAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::NumPy::CustomPrx::opFloatMatrixAsync(::std::function<void (::Test::NumPy::FloatSeq1)> response,
-                                           ::std::function<void(::std::exception_ptr)> ex,
-                                           ::std::function<void(bool)> sent,
-                                           const ::Ice::Context& context) const
+Test::NumPy::CustomPrx::opFloatMatrixAsync(::std::function<void(::Test::NumPy::FloatSeq1)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<FloatSeq1>(std::move(response), std::move(ex), std::move(sent), this, &Test::NumPy::CustomPrx::_iceI_opFloatMatrix, context);
 }
 
-/// \cond INTERNAL
 void
 Test::NumPy::CustomPrx::_iceI_opFloatMatrix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<FloatSeq1>>& outAsync, const ::Ice::Context& context) const
 {
@@ -628,7 +551,6 @@ Test::NumPy::CustomPrx::_iceI_opFloatMatrix(const ::std::shared_ptr<::IceInterna
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::Test::NumPy::DoubleSeq1
 Test::NumPy::CustomPrx::opDoubleMatrix(const ::Ice::Context& context) const
@@ -643,15 +565,11 @@ Test::NumPy::CustomPrx::opDoubleMatrixAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::NumPy::CustomPrx::opDoubleMatrixAsync(::std::function<void (::Test::NumPy::DoubleSeq1)> response,
-                                            ::std::function<void(::std::exception_ptr)> ex,
-                                            ::std::function<void(bool)> sent,
-                                            const ::Ice::Context& context) const
+Test::NumPy::CustomPrx::opDoubleMatrixAsync(::std::function<void(::Test::NumPy::DoubleSeq1)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<DoubleSeq1>(std::move(response), std::move(ex), std::move(sent), this, &Test::NumPy::CustomPrx::_iceI_opDoubleMatrix, context);
 }
 
-/// \cond INTERNAL
 void
 Test::NumPy::CustomPrx::_iceI_opDoubleMatrix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<DoubleSeq1>>& outAsync, const ::Ice::Context& context) const
 {
@@ -662,7 +580,6 @@ Test::NumPy::CustomPrx::_iceI_opDoubleMatrix(const ::std::shared_ptr<::IceIntern
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::Test::NumPy::BoolSeq1
 Test::NumPy::CustomPrx::opBogusNumpyArrayType(const ::Ice::Context& context) const
@@ -677,15 +594,11 @@ Test::NumPy::CustomPrx::opBogusNumpyArrayTypeAsync(const ::Ice::Context& context
 }
 
 ::std::function<void()>
-Test::NumPy::CustomPrx::opBogusNumpyArrayTypeAsync(::std::function<void (::Test::NumPy::BoolSeq1)> response,
-                                                   ::std::function<void(::std::exception_ptr)> ex,
-                                                   ::std::function<void(bool)> sent,
-                                                   const ::Ice::Context& context) const
+Test::NumPy::CustomPrx::opBogusNumpyArrayTypeAsync(::std::function<void(::Test::NumPy::BoolSeq1)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<BoolSeq1>(std::move(response), std::move(ex), std::move(sent), this, &Test::NumPy::CustomPrx::_iceI_opBogusNumpyArrayType, context);
 }
 
-/// \cond INTERNAL
 void
 Test::NumPy::CustomPrx::_iceI_opBogusNumpyArrayType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<BoolSeq1>>& outAsync, const ::Ice::Context& context) const
 {
@@ -696,7 +609,6 @@ Test::NumPy::CustomPrx::_iceI_opBogusNumpyArrayType(const ::std::shared_ptr<::Ic
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::std::shared_ptr<::Test::NumPy::D>
 Test::NumPy::CustomPrx::opD(const ::std::shared_ptr<D>& iceP_d, const ::Ice::Context& context) const
@@ -711,16 +623,11 @@ Test::NumPy::CustomPrx::opDAsync(const ::std::shared_ptr<D>& iceP_d, const ::Ice
 }
 
 ::std::function<void()>
-Test::NumPy::CustomPrx::opDAsync(const ::std::shared_ptr<D>& iceP_d,
-                                 ::std::function<void (::std::shared_ptr<::Test::NumPy::D>)> response,
-                                 ::std::function<void(::std::exception_ptr)> ex,
-                                 ::std::function<void(bool)> sent,
-                                 const ::Ice::Context& context) const
+Test::NumPy::CustomPrx::opDAsync(const ::std::shared_ptr<D>& iceP_d, ::std::function<void(::std::shared_ptr<::Test::NumPy::D>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<D>>(std::move(response), std::move(ex), std::move(sent), this, &Test::NumPy::CustomPrx::_iceI_opD, iceP_d, context);
 }
 
-/// \cond INTERNAL
 void
 Test::NumPy::CustomPrx::_iceI_opD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<D>>>& outAsync, const ::std::shared_ptr<D>& iceP_d, const ::Ice::Context& context) const
 {
@@ -742,7 +649,6 @@ Test::NumPy::CustomPrx::_iceI_opD(const ::std::shared_ptr<::IceInternal::Outgoin
             return ret;
         });
 }
-/// \endcond
 
 void
 Test::NumPy::CustomPrx::shutdown(const ::Ice::Context& context) const
@@ -757,15 +663,11 @@ Test::NumPy::CustomPrx::shutdownAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::NumPy::CustomPrx::shutdownAsync(::std::function<void ()> response,
-                                      ::std::function<void(::std::exception_ptr)> ex,
-                                      ::std::function<void(bool)> sent,
-                                      const ::Ice::Context& context) const
+Test::NumPy::CustomPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::NumPy::CustomPrx::_iceI_shutdown, context);
 }
 
-/// \cond INTERNAL
 void
 Test::NumPy::CustomPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -775,7 +677,6 @@ Test::NumPy::CustomPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Ou
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Test::NumPy::CustomPrx::ice_staticId()

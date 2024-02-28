@@ -51,11 +51,7 @@ public:
     ::std::future<::std::shared_ptr<UserInfo>> getUserInfoAsync(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    getUserInfoAsync(::std::string_view id,
-                     ::std::function<void(::std::shared_ptr<::User::UserInfo>)> response,
-                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                     ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    getUserInfoAsync(::std::string_view id, ::std::function<void(::std::shared_ptr<::User::UserInfo>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_getUserInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<UserInfo>>>&, ::std::string_view, const ::Ice::Context&) const;

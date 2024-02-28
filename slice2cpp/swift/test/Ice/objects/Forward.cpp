@@ -51,15 +51,11 @@ Test::F2Prx::opAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::F2Prx::opAsync(::std::function<void ()> response,
-                     ::std::function<void(::std::exception_ptr)> ex,
-                     ::std::function<void(bool)> sent,
-                     const ::Ice::Context& context) const
+Test::F2Prx::opAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::F2Prx::_iceI_op, context);
 }
 
-/// \cond INTERNAL
 void
 Test::F2Prx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -69,7 +65,6 @@ Test::F2Prx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Test::F2Prx::ice_staticId()

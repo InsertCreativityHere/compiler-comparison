@@ -49,15 +49,11 @@ Test::TestIntfPrx::shutdownAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::shutdownAsync(::std::function<void ()> response,
-                                 ::std::function<void(::std::exception_ptr)> ex,
-                                 ::std::function<void(bool)> sent,
-                                 const ::Ice::Context& context) const
+Test::TestIntfPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
 }
 
-/// \cond INTERNAL
 void
 Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -67,7 +63,6 @@ Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::std::string
 Test::TestIntfPrx::getProperty(::std::string_view iceP_name, const ::Ice::Context& context) const
@@ -82,16 +77,11 @@ Test::TestIntfPrx::getPropertyAsync(::std::string_view iceP_name, const ::Ice::C
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::getPropertyAsync(::std::string_view iceP_name,
-                                    ::std::function<void (::std::string)> response,
-                                    ::std::function<void(::std::exception_ptr)> ex,
-                                    ::std::function<void(bool)> sent,
-                                    const ::Ice::Context& context) const
+Test::TestIntfPrx::getPropertyAsync(::std::string_view iceP_name, ::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getProperty, iceP_name, context);
 }
 
-/// \cond INTERNAL
 void
 Test::TestIntfPrx::_iceI_getProperty(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, ::std::string_view iceP_name, const ::Ice::Context& context) const
 {
@@ -105,7 +95,6 @@ Test::TestIntfPrx::_iceI_getProperty(const ::std::shared_ptr<::IceInternal::Outg
         },
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Test::TestIntfPrx::ice_staticId()

@@ -55,16 +55,11 @@ BEGIN::breakPrx::caseAsync(::std::int32_t iceP_clone, ::std::int32_t iceP_def, c
 }
 
 ::std::function<void()>
-BEGIN::breakPrx::caseAsync(::std::int32_t iceP_clone, ::std::int32_t iceP_def,
-                           ::std::function<void ()> response,
-                           ::std::function<void(::std::exception_ptr)> ex,
-                           ::std::function<void(bool)> sent,
-                           const ::Ice::Context& context) const
+BEGIN::breakPrx::caseAsync(::std::int32_t iceP_clone, ::std::int32_t iceP_def, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &BEGIN::breakPrx::_iceI_case, iceP_clone, iceP_def, context);
 }
 
-/// \cond INTERNAL
 void
 BEGIN::breakPrx::_iceI_case(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_clone, ::std::int32_t iceP_def, const ::Ice::Context& context) const
 {
@@ -77,7 +72,6 @@ BEGIN::breakPrx::_iceI_case(const ::std::shared_ptr<::IceInternal::OutgoingAsync
         },
         nullptr);
 }
-/// \endcond
 
 void
 BEGIN::breakPrx::to_a(const ::Ice::Context& context) const
@@ -92,15 +86,11 @@ BEGIN::breakPrx::to_aAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-BEGIN::breakPrx::to_aAsync(::std::function<void ()> response,
-                           ::std::function<void(::std::exception_ptr)> ex,
-                           ::std::function<void(bool)> sent,
-                           const ::Ice::Context& context) const
+BEGIN::breakPrx::to_aAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &BEGIN::breakPrx::_iceI_to_a, context);
 }
 
-/// \cond INTERNAL
 void
 BEGIN::breakPrx::_iceI_to_a(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -110,7 +100,6 @@ BEGIN::breakPrx::_iceI_to_a(const ::std::shared_ptr<::IceInternal::OutgoingAsync
         nullptr,
         nullptr);
 }
-/// \endcond
 
 void
 BEGIN::breakPrx::instance_variable_set(const ::Ice::Context& context) const
@@ -125,15 +114,11 @@ BEGIN::breakPrx::instance_variable_setAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-BEGIN::breakPrx::instance_variable_setAsync(::std::function<void ()> response,
-                                            ::std::function<void(::std::exception_ptr)> ex,
-                                            ::std::function<void(bool)> sent,
-                                            const ::Ice::Context& context) const
+BEGIN::breakPrx::instance_variable_setAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &BEGIN::breakPrx::_iceI_instance_variable_set, context);
 }
 
-/// \cond INTERNAL
 void
 BEGIN::breakPrx::_iceI_instance_variable_set(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -143,7 +128,6 @@ BEGIN::breakPrx::_iceI_instance_variable_set(const ::std::shared_ptr<::IceIntern
         nullptr,
         nullptr);
 }
-/// \endcond
 
 void
 BEGIN::breakPrx::instance_variables(const ::Ice::Context& context) const
@@ -158,15 +142,11 @@ BEGIN::breakPrx::instance_variablesAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-BEGIN::breakPrx::instance_variablesAsync(::std::function<void ()> response,
-                                         ::std::function<void(::std::exception_ptr)> ex,
-                                         ::std::function<void(bool)> sent,
-                                         const ::Ice::Context& context) const
+BEGIN::breakPrx::instance_variablesAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &BEGIN::breakPrx::_iceI_instance_variables, context);
 }
 
-/// \cond INTERNAL
 void
 BEGIN::breakPrx::_iceI_instance_variables(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -176,7 +156,6 @@ BEGIN::breakPrx::_iceI_instance_variables(const ::std::shared_ptr<::IceInternal:
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 BEGIN::breakPrx::ice_staticId()
@@ -205,16 +184,11 @@ BEGIN::extendPrx::forAsync(const ::std::shared_ptr<display>& iceP_freeze, const 
 }
 
 ::std::function<void()>
-BEGIN::extendPrx::forAsync(const ::std::shared_ptr<display>& iceP_freeze, const ::std::optional<elsifPrx>& iceP_hash, const ::std::optional<breakPrx>& iceP_if, const ::std::shared_ptr<display>& iceP_inspect, const ::std::optional<elsifPrx>& iceP_method, ::std::int32_t iceP_methods,
-                           ::std::function<void (::BEGIN::END)> response,
-                           ::std::function<void(::std::exception_ptr)> ex,
-                           ::std::function<void(bool)> sent,
-                           const ::Ice::Context& context) const
+BEGIN::extendPrx::forAsync(const ::std::shared_ptr<display>& iceP_freeze, const ::std::optional<elsifPrx>& iceP_hash, const ::std::optional<breakPrx>& iceP_if, const ::std::shared_ptr<display>& iceP_inspect, const ::std::optional<elsifPrx>& iceP_method, ::std::int32_t iceP_methods, ::std::function<void(::BEGIN::END)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<END>(std::move(response), std::move(ex), std::move(sent), this, &BEGIN::extendPrx::_iceI_for, iceP_freeze, iceP_hash, iceP_if, iceP_inspect, iceP_method, iceP_methods, context);
 }
 
-/// \cond INTERNAL
 void
 BEGIN::extendPrx::_iceI_for(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<END>>& outAsync, const ::std::shared_ptr<display>& iceP_freeze, const ::std::optional<elsifPrx>& iceP_hash, const ::std::optional<breakPrx>& iceP_if, const ::std::shared_ptr<display>& iceP_inspect, const ::std::optional<elsifPrx>& iceP_method, ::std::int32_t iceP_methods, const ::Ice::Context& context) const
 {
@@ -242,7 +216,6 @@ BEGIN::extendPrx::_iceI_for(const ::std::shared_ptr<::IceInternal::OutgoingAsync
             }
         });
 }
-/// \endcond
 
 ::std::string_view
 BEGIN::extendPrx::ice_staticId()

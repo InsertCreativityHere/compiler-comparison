@@ -42,9 +42,9 @@ namespace
 ::std::optional<::Ice::ObjectPrx>
 Ice::RouterPrx::getClientProxy(::std::optional<bool>& iceP_hasRoutingTable, const ::Ice::Context& context) const
 {
-    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<::Ice::ObjectPrx>, ::std::optional<bool>>>(true, this, &RouterPrx::_iceI_getClientProxy, context).get();
-    iceP_hasRoutingTable = ::std::get<1>(_result);
-    return ::std::move(::std::get<0>(_result));
+    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<::Ice::ObjectPrx>, ::std::optional<bool>>>(true, this, &RouterPrx::_iceI_getClientProxy, context).get();
+    iceP_hasRoutingTable = ::std::get<1>(result);
+    return ::std::move(::std::get<0>(result));
 }
 
 ::std::future<::std::tuple<::std::optional<::Ice::ObjectPrx>, ::std::optional<bool>>>
@@ -54,19 +54,15 @@ Ice::RouterPrx::getClientProxyAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Ice::RouterPrx::getClientProxyAsync(::std::function<void (::std::optional<::Ice::ObjectPrx>, ::std::optional<bool>)> response,
-                                    ::std::function<void(::std::exception_ptr)> ex,
-                                    ::std::function<void(bool)> sent,
-                                    const ::Ice::Context& context) const
+Ice::RouterPrx::getClientProxyAsync(::std::function<void(::std::optional<::Ice::ObjectPrx>, ::std::optional<bool>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto _responseCb = [_response = ::std::move(response)](::std::tuple<::std::optional<::Ice::ObjectPrx>, ::std::optional<bool>>&& _result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<::Ice::ObjectPrx>, ::std::optional<bool>>&& result)
     {
-        ::std::apply(::std::move(_response), ::std::move(_result));
+        ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<::Ice::ObjectPrx>, ::std::optional<bool>>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Ice::RouterPrx::_iceI_getClientProxy, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<::Ice::ObjectPrx>, ::std::optional<bool>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Ice::RouterPrx::_iceI_getClientProxy, context);
 }
 
-/// \cond INTERNAL
 void
 Ice::RouterPrx::_iceI_getClientProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::Ice::ObjectPrx>, ::std::optional<bool>>>>& outAsync, const Context& context) const
 {
@@ -84,7 +80,6 @@ Ice::RouterPrx::_iceI_getClientProxy(const ::std::shared_ptr<::IceInternal::Outg
             return v;
         });
 }
-/// \endcond
 
 ::std::optional<::Ice::ObjectPrx>
 Ice::RouterPrx::getServerProxy(const ::Ice::Context& context) const
@@ -99,15 +94,11 @@ Ice::RouterPrx::getServerProxyAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Ice::RouterPrx::getServerProxyAsync(::std::function<void (::std::optional<::Ice::ObjectPrx>)> response,
-                                    ::std::function<void(::std::exception_ptr)> ex,
-                                    ::std::function<void(bool)> sent,
-                                    const ::Ice::Context& context) const
+Ice::RouterPrx::getServerProxyAsync(::std::function<void(::std::optional<::Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<::std::optional<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::RouterPrx::_iceI_getServerProxy, context);
 }
 
-/// \cond INTERNAL
 void
 Ice::RouterPrx::_iceI_getServerProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>& outAsync, const Context& context) const
 {
@@ -118,7 +109,6 @@ Ice::RouterPrx::_iceI_getServerProxy(const ::std::shared_ptr<::IceInternal::Outg
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::Ice::ObjectProxySeq
 Ice::RouterPrx::addProxies(const ObjectProxySeq& iceP_proxies, const ::Ice::Context& context) const
@@ -133,16 +123,11 @@ Ice::RouterPrx::addProxiesAsync(const ObjectProxySeq& iceP_proxies, const ::Ice:
 }
 
 ::std::function<void()>
-Ice::RouterPrx::addProxiesAsync(const ObjectProxySeq& iceP_proxies,
-                                ::std::function<void (::Ice::ObjectProxySeq)> response,
-                                ::std::function<void(::std::exception_ptr)> ex,
-                                ::std::function<void(bool)> sent,
-                                const ::Ice::Context& context) const
+Ice::RouterPrx::addProxiesAsync(const ObjectProxySeq& iceP_proxies, ::std::function<void(::Ice::ObjectProxySeq)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<ObjectProxySeq>(std::move(response), std::move(ex), std::move(sent), this, &Ice::RouterPrx::_iceI_addProxies, iceP_proxies, context);
 }
 
-/// \cond INTERNAL
 void
 Ice::RouterPrx::_iceI_addProxies(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ObjectProxySeq>>& outAsync, const ObjectProxySeq& iceP_proxies, const Context& context) const
 {
@@ -156,7 +141,6 @@ Ice::RouterPrx::_iceI_addProxies(const ::std::shared_ptr<::IceInternal::Outgoing
         },
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Ice::RouterPrx::ice_staticId()
@@ -178,15 +162,11 @@ Ice::RouterFinderPrx::getRouterAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Ice::RouterFinderPrx::getRouterAsync(::std::function<void (::std::optional<::Ice::RouterPrx>)> response,
-                                     ::std::function<void(::std::exception_ptr)> ex,
-                                     ::std::function<void(bool)> sent,
-                                     const ::Ice::Context& context) const
+Ice::RouterFinderPrx::getRouterAsync(::std::function<void(::std::optional<::Ice::RouterPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<::std::optional<RouterPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Ice::RouterFinderPrx::_iceI_getRouter, context);
 }
 
-/// \cond INTERNAL
 void
 Ice::RouterFinderPrx::_iceI_getRouter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<RouterPrx>>>& outAsync, const Context& context) const
 {
@@ -197,7 +177,6 @@ Ice::RouterFinderPrx::_iceI_getRouter(const ::std::shared_ptr<::IceInternal::Out
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Ice::RouterFinderPrx::ice_staticId()

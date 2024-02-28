@@ -88,11 +88,7 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    parseAsync(::std::string_view xmlFile, const ::std::optional<AdminPrx>& adminProxy,
-               ::std::function<void(::IceGrid::ApplicationDescriptor)> response,
-               ::std::function<void(::std::exception_ptr)> ex = nullptr,
-               ::std::function<void(bool)> sent = nullptr,
-               const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    parseAsync(::std::string_view xmlFile, const ::std::optional<AdminPrx>& adminProxy, ::std::function<void(::IceGrid::ApplicationDescriptor)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_parse(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ApplicationDescriptor>>&, ::std::string_view, const ::std::optional<AdminPrx>&, const ::Ice::Context&) const;

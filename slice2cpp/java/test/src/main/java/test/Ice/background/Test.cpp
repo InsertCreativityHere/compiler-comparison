@@ -49,15 +49,11 @@ Test::BackgroundPrx::opAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::BackgroundPrx::opAsync(::std::function<void ()> response,
-                             ::std::function<void(::std::exception_ptr)> ex,
-                             ::std::function<void(bool)> sent,
-                             const ::Ice::Context& context) const
+Test::BackgroundPrx::opAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundPrx::_iceI_op, context);
 }
 
-/// \cond INTERNAL
 void
 Test::BackgroundPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -67,7 +63,6 @@ Test::BackgroundPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsy
         nullptr,
         nullptr);
 }
-/// \endcond
 
 void
 Test::BackgroundPrx::opWithPayload(const ::Ice::ByteSeq& iceP_seq, const ::Ice::Context& context) const
@@ -82,16 +77,11 @@ Test::BackgroundPrx::opWithPayloadAsync(const ::Ice::ByteSeq& iceP_seq, const ::
 }
 
 ::std::function<void()>
-Test::BackgroundPrx::opWithPayloadAsync(const ::Ice::ByteSeq& iceP_seq,
-                                        ::std::function<void ()> response,
-                                        ::std::function<void(::std::exception_ptr)> ex,
-                                        ::std::function<void(bool)> sent,
-                                        const ::Ice::Context& context) const
+Test::BackgroundPrx::opWithPayloadAsync(const ::Ice::ByteSeq& iceP_seq, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundPrx::_iceI_opWithPayload, iceP_seq, context);
 }
 
-/// \cond INTERNAL
 void
 Test::BackgroundPrx::_iceI_opWithPayload(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::ByteSeq& iceP_seq, const ::Ice::Context& context) const
 {
@@ -104,7 +94,6 @@ Test::BackgroundPrx::_iceI_opWithPayload(const ::std::shared_ptr<::IceInternal::
         },
         nullptr);
 }
-/// \endcond
 
 void
 Test::BackgroundPrx::shutdown(const ::Ice::Context& context) const
@@ -119,15 +108,11 @@ Test::BackgroundPrx::shutdownAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::BackgroundPrx::shutdownAsync(::std::function<void ()> response,
-                                   ::std::function<void(::std::exception_ptr)> ex,
-                                   ::std::function<void(bool)> sent,
-                                   const ::Ice::Context& context) const
+Test::BackgroundPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundPrx::_iceI_shutdown, context);
 }
 
-/// \cond INTERNAL
 void
 Test::BackgroundPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -137,7 +122,6 @@ Test::BackgroundPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgo
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Test::BackgroundPrx::ice_staticId()
@@ -159,16 +143,11 @@ Test::BackgroundControllerPrx::pauseCallAsync(::std::string_view iceP_call, cons
 }
 
 ::std::function<void()>
-Test::BackgroundControllerPrx::pauseCallAsync(::std::string_view iceP_call,
-                                              ::std::function<void ()> response,
-                                              ::std::function<void(::std::exception_ptr)> ex,
-                                              ::std::function<void(bool)> sent,
-                                              const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::pauseCallAsync(::std::string_view iceP_call, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_pauseCall, iceP_call, context);
 }
 
-/// \cond INTERNAL
 void
 Test::BackgroundControllerPrx::_iceI_pauseCall(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_call, const ::Ice::Context& context) const
 {
@@ -181,7 +160,6 @@ Test::BackgroundControllerPrx::_iceI_pauseCall(const ::std::shared_ptr<::IceInte
         },
         nullptr);
 }
-/// \endcond
 
 void
 Test::BackgroundControllerPrx::resumeCall(::std::string_view iceP_call, const ::Ice::Context& context) const
@@ -196,16 +174,11 @@ Test::BackgroundControllerPrx::resumeCallAsync(::std::string_view iceP_call, con
 }
 
 ::std::function<void()>
-Test::BackgroundControllerPrx::resumeCallAsync(::std::string_view iceP_call,
-                                               ::std::function<void ()> response,
-                                               ::std::function<void(::std::exception_ptr)> ex,
-                                               ::std::function<void(bool)> sent,
-                                               const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::resumeCallAsync(::std::string_view iceP_call, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_resumeCall, iceP_call, context);
 }
 
-/// \cond INTERNAL
 void
 Test::BackgroundControllerPrx::_iceI_resumeCall(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_call, const ::Ice::Context& context) const
 {
@@ -218,7 +191,6 @@ Test::BackgroundControllerPrx::_iceI_resumeCall(const ::std::shared_ptr<::IceInt
         },
         nullptr);
 }
-/// \endcond
 
 void
 Test::BackgroundControllerPrx::holdAdapter(const ::Ice::Context& context) const
@@ -233,15 +205,11 @@ Test::BackgroundControllerPrx::holdAdapterAsync(const ::Ice::Context& context) c
 }
 
 ::std::function<void()>
-Test::BackgroundControllerPrx::holdAdapterAsync(::std::function<void ()> response,
-                                                ::std::function<void(::std::exception_ptr)> ex,
-                                                ::std::function<void(bool)> sent,
-                                                const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::holdAdapterAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_holdAdapter, context);
 }
 
-/// \cond INTERNAL
 void
 Test::BackgroundControllerPrx::_iceI_holdAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -251,7 +219,6 @@ Test::BackgroundControllerPrx::_iceI_holdAdapter(const ::std::shared_ptr<::IceIn
         nullptr,
         nullptr);
 }
-/// \endcond
 
 void
 Test::BackgroundControllerPrx::resumeAdapter(const ::Ice::Context& context) const
@@ -266,15 +233,11 @@ Test::BackgroundControllerPrx::resumeAdapterAsync(const ::Ice::Context& context)
 }
 
 ::std::function<void()>
-Test::BackgroundControllerPrx::resumeAdapterAsync(::std::function<void ()> response,
-                                                  ::std::function<void(::std::exception_ptr)> ex,
-                                                  ::std::function<void(bool)> sent,
-                                                  const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::resumeAdapterAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_resumeAdapter, context);
 }
 
-/// \cond INTERNAL
 void
 Test::BackgroundControllerPrx::_iceI_resumeAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -284,7 +247,6 @@ Test::BackgroundControllerPrx::_iceI_resumeAdapter(const ::std::shared_ptr<::Ice
         nullptr,
         nullptr);
 }
-/// \endcond
 
 void
 Test::BackgroundControllerPrx::initializeSocketStatus(::std::int32_t iceP_status, const ::Ice::Context& context) const
@@ -299,16 +261,11 @@ Test::BackgroundControllerPrx::initializeSocketStatusAsync(::std::int32_t iceP_s
 }
 
 ::std::function<void()>
-Test::BackgroundControllerPrx::initializeSocketStatusAsync(::std::int32_t iceP_status,
-                                                           ::std::function<void ()> response,
-                                                           ::std::function<void(::std::exception_ptr)> ex,
-                                                           ::std::function<void(bool)> sent,
-                                                           const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::initializeSocketStatusAsync(::std::int32_t iceP_status, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_initializeSocketStatus, iceP_status, context);
 }
 
-/// \cond INTERNAL
 void
 Test::BackgroundControllerPrx::_iceI_initializeSocketStatus(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_status, const ::Ice::Context& context) const
 {
@@ -321,7 +278,6 @@ Test::BackgroundControllerPrx::_iceI_initializeSocketStatus(const ::std::shared_
         },
         nullptr);
 }
-/// \endcond
 
 void
 Test::BackgroundControllerPrx::initializeException(bool iceP_enable, const ::Ice::Context& context) const
@@ -336,16 +292,11 @@ Test::BackgroundControllerPrx::initializeExceptionAsync(bool iceP_enable, const 
 }
 
 ::std::function<void()>
-Test::BackgroundControllerPrx::initializeExceptionAsync(bool iceP_enable,
-                                                        ::std::function<void ()> response,
-                                                        ::std::function<void(::std::exception_ptr)> ex,
-                                                        ::std::function<void(bool)> sent,
-                                                        const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::initializeExceptionAsync(bool iceP_enable, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_initializeException, iceP_enable, context);
 }
 
-/// \cond INTERNAL
 void
 Test::BackgroundControllerPrx::_iceI_initializeException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_enable, const ::Ice::Context& context) const
 {
@@ -358,7 +309,6 @@ Test::BackgroundControllerPrx::_iceI_initializeException(const ::std::shared_ptr
         },
         nullptr);
 }
-/// \endcond
 
 void
 Test::BackgroundControllerPrx::readReady(bool iceP_enable, const ::Ice::Context& context) const
@@ -373,16 +323,11 @@ Test::BackgroundControllerPrx::readReadyAsync(bool iceP_enable, const ::Ice::Con
 }
 
 ::std::function<void()>
-Test::BackgroundControllerPrx::readReadyAsync(bool iceP_enable,
-                                              ::std::function<void ()> response,
-                                              ::std::function<void(::std::exception_ptr)> ex,
-                                              ::std::function<void(bool)> sent,
-                                              const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::readReadyAsync(bool iceP_enable, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_readReady, iceP_enable, context);
 }
 
-/// \cond INTERNAL
 void
 Test::BackgroundControllerPrx::_iceI_readReady(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_enable, const ::Ice::Context& context) const
 {
@@ -395,7 +340,6 @@ Test::BackgroundControllerPrx::_iceI_readReady(const ::std::shared_ptr<::IceInte
         },
         nullptr);
 }
-/// \endcond
 
 void
 Test::BackgroundControllerPrx::readException(bool iceP_enable, const ::Ice::Context& context) const
@@ -410,16 +354,11 @@ Test::BackgroundControllerPrx::readExceptionAsync(bool iceP_enable, const ::Ice:
 }
 
 ::std::function<void()>
-Test::BackgroundControllerPrx::readExceptionAsync(bool iceP_enable,
-                                                  ::std::function<void ()> response,
-                                                  ::std::function<void(::std::exception_ptr)> ex,
-                                                  ::std::function<void(bool)> sent,
-                                                  const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::readExceptionAsync(bool iceP_enable, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_readException, iceP_enable, context);
 }
 
-/// \cond INTERNAL
 void
 Test::BackgroundControllerPrx::_iceI_readException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_enable, const ::Ice::Context& context) const
 {
@@ -432,7 +371,6 @@ Test::BackgroundControllerPrx::_iceI_readException(const ::std::shared_ptr<::Ice
         },
         nullptr);
 }
-/// \endcond
 
 void
 Test::BackgroundControllerPrx::writeReady(bool iceP_enable, const ::Ice::Context& context) const
@@ -447,16 +385,11 @@ Test::BackgroundControllerPrx::writeReadyAsync(bool iceP_enable, const ::Ice::Co
 }
 
 ::std::function<void()>
-Test::BackgroundControllerPrx::writeReadyAsync(bool iceP_enable,
-                                               ::std::function<void ()> response,
-                                               ::std::function<void(::std::exception_ptr)> ex,
-                                               ::std::function<void(bool)> sent,
-                                               const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::writeReadyAsync(bool iceP_enable, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_writeReady, iceP_enable, context);
 }
 
-/// \cond INTERNAL
 void
 Test::BackgroundControllerPrx::_iceI_writeReady(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_enable, const ::Ice::Context& context) const
 {
@@ -469,7 +402,6 @@ Test::BackgroundControllerPrx::_iceI_writeReady(const ::std::shared_ptr<::IceInt
         },
         nullptr);
 }
-/// \endcond
 
 void
 Test::BackgroundControllerPrx::writeException(bool iceP_enable, const ::Ice::Context& context) const
@@ -484,16 +416,11 @@ Test::BackgroundControllerPrx::writeExceptionAsync(bool iceP_enable, const ::Ice
 }
 
 ::std::function<void()>
-Test::BackgroundControllerPrx::writeExceptionAsync(bool iceP_enable,
-                                                   ::std::function<void ()> response,
-                                                   ::std::function<void(::std::exception_ptr)> ex,
-                                                   ::std::function<void(bool)> sent,
-                                                   const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::writeExceptionAsync(bool iceP_enable, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_writeException, iceP_enable, context);
 }
 
-/// \cond INTERNAL
 void
 Test::BackgroundControllerPrx::_iceI_writeException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_enable, const ::Ice::Context& context) const
 {
@@ -506,7 +433,6 @@ Test::BackgroundControllerPrx::_iceI_writeException(const ::std::shared_ptr<::Ic
         },
         nullptr);
 }
-/// \endcond
 
 void
 Test::BackgroundControllerPrx::buffered(bool iceP_enable, const ::Ice::Context& context) const
@@ -521,16 +447,11 @@ Test::BackgroundControllerPrx::bufferedAsync(bool iceP_enable, const ::Ice::Cont
 }
 
 ::std::function<void()>
-Test::BackgroundControllerPrx::bufferedAsync(bool iceP_enable,
-                                             ::std::function<void ()> response,
-                                             ::std::function<void(::std::exception_ptr)> ex,
-                                             ::std::function<void(bool)> sent,
-                                             const ::Ice::Context& context) const
+Test::BackgroundControllerPrx::bufferedAsync(bool iceP_enable, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_buffered, iceP_enable, context);
 }
 
-/// \cond INTERNAL
 void
 Test::BackgroundControllerPrx::_iceI_buffered(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_enable, const ::Ice::Context& context) const
 {
@@ -543,7 +464,6 @@ Test::BackgroundControllerPrx::_iceI_buffered(const ::std::shared_ptr<::IceInter
         },
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Test::BackgroundControllerPrx::ice_staticId()

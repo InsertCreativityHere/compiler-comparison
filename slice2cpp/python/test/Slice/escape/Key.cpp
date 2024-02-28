@@ -55,16 +55,11 @@ _cpp_and::delPrx::elifAsync(::std::int32_t iceP_else, const ::Ice::Context& cont
 }
 
 ::std::function<void()>
-_cpp_and::delPrx::elifAsync(::std::int32_t iceP_else,
-                            ::std::function<void (::std::int32_t)> response,
-                            ::std::function<void(::std::exception_ptr)> ex,
-                            ::std::function<void(bool)> sent,
-                            const ::Ice::Context& context) const
+_cpp_and::delPrx::elifAsync(::std::int32_t iceP_else, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &_cpp_and::delPrx::_iceI_elif, iceP_else, context);
 }
 
-/// \cond INTERNAL
 void
 _cpp_and::delPrx::_iceI_elif(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_else, const ::Ice::Context& context) const
 {
@@ -78,7 +73,6 @@ _cpp_and::delPrx::_iceI_elif(const ::std::shared_ptr<::IceInternal::OutgoingAsyn
         },
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 _cpp_and::delPrx::ice_staticId()
@@ -100,15 +94,11 @@ _cpp_and::execPrx::finallyAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-_cpp_and::execPrx::finallyAsync(::std::function<void ()> response,
-                                ::std::function<void(::std::exception_ptr)> ex,
-                                ::std::function<void(bool)> sent,
-                                const ::Ice::Context& context) const
+_cpp_and::execPrx::finallyAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &_cpp_and::execPrx::_iceI_finally, context);
 }
 
-/// \cond INTERNAL
 void
 _cpp_and::execPrx::_iceI_finally(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -118,7 +108,6 @@ _cpp_and::execPrx::_iceI_finally(const ::std::shared_ptr<::IceInternal::Outgoing
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 _cpp_and::execPrx::ice_staticId()
@@ -147,16 +136,11 @@ _cpp_and::printPrx::raiseAsync(const _cpp_continue& iceP_else, const ::std::shar
 }
 
 ::std::function<void()>
-_cpp_and::printPrx::raiseAsync(const _cpp_continue& iceP_else, const ::std::shared_ptr<_cpp_for>& iceP_return, const ::std::optional<delPrx>& iceP_while, const ::std::optional<execPrx>& iceP_yield, const ::std::optional<ifPrx>& iceP_or, ::std::int32_t iceP_global,
-                               ::std::function<void (::_cpp_and::assert)> response,
-                               ::std::function<void(::std::exception_ptr)> ex,
-                               ::std::function<void(bool)> sent,
-                               const ::Ice::Context& context) const
+_cpp_and::printPrx::raiseAsync(const _cpp_continue& iceP_else, const ::std::shared_ptr<_cpp_for>& iceP_return, const ::std::optional<delPrx>& iceP_while, const ::std::optional<execPrx>& iceP_yield, const ::std::optional<ifPrx>& iceP_or, ::std::int32_t iceP_global, ::std::function<void(::_cpp_and::assert)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<assert>(std::move(response), std::move(ex), std::move(sent), this, &_cpp_and::printPrx::_iceI_raise, iceP_else, iceP_return, iceP_while, iceP_yield, iceP_or, iceP_global, context);
 }
 
-/// \cond INTERNAL
 void
 _cpp_and::printPrx::_iceI_raise(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<assert>>& outAsync, const _cpp_continue& iceP_else, const ::std::shared_ptr<_cpp_for>& iceP_return, const ::std::optional<delPrx>& iceP_while, const ::std::optional<execPrx>& iceP_yield, const ::std::optional<ifPrx>& iceP_or, ::std::int32_t iceP_global, const ::Ice::Context& context) const
 {
@@ -184,7 +168,6 @@ _cpp_and::printPrx::_iceI_raise(const ::std::shared_ptr<::IceInternal::OutgoingA
             }
         });
 }
-/// \endcond
 
 ::std::string_view
 _cpp_and::printPrx::ice_staticId()

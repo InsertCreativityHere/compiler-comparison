@@ -82,11 +82,7 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getPropertyAsync(::std::string_view key,
-                     ::std::function<void(::std::string)> response,
-                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                     ::std::function<void(bool)> sent = nullptr,
-                     const Context& context = noExplicitContext) const;
+    getPropertyAsync(::std::string_view key, ::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_getProperty(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, ::std::string_view, const Context&) const;
@@ -121,11 +117,7 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getPropertiesForPrefixAsync(::std::string_view prefix,
-                                ::std::function<void(::Ice::PropertyDict)> response,
-                                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                                ::std::function<void(bool)> sent = nullptr,
-                                const Context& context = noExplicitContext) const;
+    getPropertiesForPrefixAsync(::std::string_view prefix, ::std::function<void(::Ice::PropertyDict)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_getPropertiesForPrefix(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<PropertyDict>>&, ::std::string_view, const Context&) const;
@@ -165,11 +157,7 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    setPropertiesAsync(const PropertyDict& newProperties,
-                       ::std::function<void()> response,
-                       ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                       ::std::function<void(bool)> sent = nullptr,
-                       const Context& context = noExplicitContext) const;
+    setPropertiesAsync(const PropertyDict& newProperties, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_setProperties(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const PropertyDict&, const Context&) const;

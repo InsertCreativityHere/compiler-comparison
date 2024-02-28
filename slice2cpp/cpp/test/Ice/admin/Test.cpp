@@ -49,15 +49,11 @@ Test::RemoteCommunicatorPrx::getAdminAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::RemoteCommunicatorPrx::getAdminAsync(::std::function<void (::std::optional<::Ice::ObjectPrx>)> response,
-                                           ::std::function<void(::std::exception_ptr)> ex,
-                                           ::std::function<void(bool)> sent,
-                                           const ::Ice::Context& context) const
+Test::RemoteCommunicatorPrx::getAdminAsync(::std::function<void(::std::optional<::Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<::std::optional<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_getAdmin, context);
 }
 
-/// \cond INTERNAL
 void
 Test::RemoteCommunicatorPrx::_iceI_getAdmin(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>& outAsync, const ::Ice::Context& context) const
 {
@@ -68,7 +64,6 @@ Test::RemoteCommunicatorPrx::_iceI_getAdmin(const ::std::shared_ptr<::IceInterna
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::Ice::PropertyDict
 Test::RemoteCommunicatorPrx::getChanges(const ::Ice::Context& context) const
@@ -83,15 +78,11 @@ Test::RemoteCommunicatorPrx::getChangesAsync(const ::Ice::Context& context) cons
 }
 
 ::std::function<void()>
-Test::RemoteCommunicatorPrx::getChangesAsync(::std::function<void (::Ice::PropertyDict)> response,
-                                             ::std::function<void(::std::exception_ptr)> ex,
-                                             ::std::function<void(bool)> sent,
-                                             const ::Ice::Context& context) const
+Test::RemoteCommunicatorPrx::getChangesAsync(::std::function<void(::Ice::PropertyDict)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<::Ice::PropertyDict>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_getChanges, context);
 }
 
-/// \cond INTERNAL
 void
 Test::RemoteCommunicatorPrx::_iceI_getChanges(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::PropertyDict>>& outAsync, const ::Ice::Context& context) const
 {
@@ -102,7 +93,6 @@ Test::RemoteCommunicatorPrx::_iceI_getChanges(const ::std::shared_ptr<::IceInter
         nullptr,
         nullptr);
 }
-/// \endcond
 
 void
 Test::RemoteCommunicatorPrx::addUpdateCallback(const ::Ice::Context& context) const
@@ -117,15 +107,11 @@ Test::RemoteCommunicatorPrx::addUpdateCallbackAsync(const ::Ice::Context& contex
 }
 
 ::std::function<void()>
-Test::RemoteCommunicatorPrx::addUpdateCallbackAsync(::std::function<void ()> response,
-                                                    ::std::function<void(::std::exception_ptr)> ex,
-                                                    ::std::function<void(bool)> sent,
-                                                    const ::Ice::Context& context) const
+Test::RemoteCommunicatorPrx::addUpdateCallbackAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_addUpdateCallback, context);
 }
 
-/// \cond INTERNAL
 void
 Test::RemoteCommunicatorPrx::_iceI_addUpdateCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -135,7 +121,6 @@ Test::RemoteCommunicatorPrx::_iceI_addUpdateCallback(const ::std::shared_ptr<::I
         nullptr,
         nullptr);
 }
-/// \endcond
 
 void
 Test::RemoteCommunicatorPrx::removeUpdateCallback(const ::Ice::Context& context) const
@@ -150,15 +135,11 @@ Test::RemoteCommunicatorPrx::removeUpdateCallbackAsync(const ::Ice::Context& con
 }
 
 ::std::function<void()>
-Test::RemoteCommunicatorPrx::removeUpdateCallbackAsync(::std::function<void ()> response,
-                                                       ::std::function<void(::std::exception_ptr)> ex,
-                                                       ::std::function<void(bool)> sent,
-                                                       const ::Ice::Context& context) const
+Test::RemoteCommunicatorPrx::removeUpdateCallbackAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_removeUpdateCallback, context);
 }
 
-/// \cond INTERNAL
 void
 Test::RemoteCommunicatorPrx::_iceI_removeUpdateCallback(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -168,7 +149,6 @@ Test::RemoteCommunicatorPrx::_iceI_removeUpdateCallback(const ::std::shared_ptr<
         nullptr,
         nullptr);
 }
-/// \endcond
 
 void
 Test::RemoteCommunicatorPrx::print(::std::string_view iceP_message, const ::Ice::Context& context) const
@@ -183,16 +163,11 @@ Test::RemoteCommunicatorPrx::printAsync(::std::string_view iceP_message, const :
 }
 
 ::std::function<void()>
-Test::RemoteCommunicatorPrx::printAsync(::std::string_view iceP_message,
-                                        ::std::function<void ()> response,
-                                        ::std::function<void(::std::exception_ptr)> ex,
-                                        ::std::function<void(bool)> sent,
-                                        const ::Ice::Context& context) const
+Test::RemoteCommunicatorPrx::printAsync(::std::string_view iceP_message, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_print, iceP_message, context);
 }
 
-/// \cond INTERNAL
 void
 Test::RemoteCommunicatorPrx::_iceI_print(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_message, const ::Ice::Context& context) const
 {
@@ -205,7 +180,6 @@ Test::RemoteCommunicatorPrx::_iceI_print(const ::std::shared_ptr<::IceInternal::
         },
         nullptr);
 }
-/// \endcond
 
 void
 Test::RemoteCommunicatorPrx::trace(::std::string_view iceP_category, ::std::string_view iceP_message, const ::Ice::Context& context) const
@@ -220,16 +194,11 @@ Test::RemoteCommunicatorPrx::traceAsync(::std::string_view iceP_category, ::std:
 }
 
 ::std::function<void()>
-Test::RemoteCommunicatorPrx::traceAsync(::std::string_view iceP_category, ::std::string_view iceP_message,
-                                        ::std::function<void ()> response,
-                                        ::std::function<void(::std::exception_ptr)> ex,
-                                        ::std::function<void(bool)> sent,
-                                        const ::Ice::Context& context) const
+Test::RemoteCommunicatorPrx::traceAsync(::std::string_view iceP_category, ::std::string_view iceP_message, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_trace, iceP_category, iceP_message, context);
 }
 
-/// \cond INTERNAL
 void
 Test::RemoteCommunicatorPrx::_iceI_trace(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_category, ::std::string_view iceP_message, const ::Ice::Context& context) const
 {
@@ -242,7 +211,6 @@ Test::RemoteCommunicatorPrx::_iceI_trace(const ::std::shared_ptr<::IceInternal::
         },
         nullptr);
 }
-/// \endcond
 
 void
 Test::RemoteCommunicatorPrx::warning(::std::string_view iceP_message, const ::Ice::Context& context) const
@@ -257,16 +225,11 @@ Test::RemoteCommunicatorPrx::warningAsync(::std::string_view iceP_message, const
 }
 
 ::std::function<void()>
-Test::RemoteCommunicatorPrx::warningAsync(::std::string_view iceP_message,
-                                          ::std::function<void ()> response,
-                                          ::std::function<void(::std::exception_ptr)> ex,
-                                          ::std::function<void(bool)> sent,
-                                          const ::Ice::Context& context) const
+Test::RemoteCommunicatorPrx::warningAsync(::std::string_view iceP_message, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_warning, iceP_message, context);
 }
 
-/// \cond INTERNAL
 void
 Test::RemoteCommunicatorPrx::_iceI_warning(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_message, const ::Ice::Context& context) const
 {
@@ -279,7 +242,6 @@ Test::RemoteCommunicatorPrx::_iceI_warning(const ::std::shared_ptr<::IceInternal
         },
         nullptr);
 }
-/// \endcond
 
 void
 Test::RemoteCommunicatorPrx::error(::std::string_view iceP_message, const ::Ice::Context& context) const
@@ -294,16 +256,11 @@ Test::RemoteCommunicatorPrx::errorAsync(::std::string_view iceP_message, const :
 }
 
 ::std::function<void()>
-Test::RemoteCommunicatorPrx::errorAsync(::std::string_view iceP_message,
-                                        ::std::function<void ()> response,
-                                        ::std::function<void(::std::exception_ptr)> ex,
-                                        ::std::function<void(bool)> sent,
-                                        const ::Ice::Context& context) const
+Test::RemoteCommunicatorPrx::errorAsync(::std::string_view iceP_message, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_error, iceP_message, context);
 }
 
-/// \cond INTERNAL
 void
 Test::RemoteCommunicatorPrx::_iceI_error(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_message, const ::Ice::Context& context) const
 {
@@ -316,7 +273,6 @@ Test::RemoteCommunicatorPrx::_iceI_error(const ::std::shared_ptr<::IceInternal::
         },
         nullptr);
 }
-/// \endcond
 
 void
 Test::RemoteCommunicatorPrx::shutdown(const ::Ice::Context& context) const
@@ -331,15 +287,11 @@ Test::RemoteCommunicatorPrx::shutdownAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::RemoteCommunicatorPrx::shutdownAsync(::std::function<void ()> response,
-                                           ::std::function<void(::std::exception_ptr)> ex,
-                                           ::std::function<void(bool)> sent,
-                                           const ::Ice::Context& context) const
+Test::RemoteCommunicatorPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_shutdown, context);
 }
 
-/// \cond INTERNAL
 void
 Test::RemoteCommunicatorPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -349,7 +301,6 @@ Test::RemoteCommunicatorPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInterna
         nullptr,
         nullptr);
 }
-/// \endcond
 
 void
 Test::RemoteCommunicatorPrx::waitForShutdown(const ::Ice::Context& context) const
@@ -364,15 +315,11 @@ Test::RemoteCommunicatorPrx::waitForShutdownAsync(const ::Ice::Context& context)
 }
 
 ::std::function<void()>
-Test::RemoteCommunicatorPrx::waitForShutdownAsync(::std::function<void ()> response,
-                                                  ::std::function<void(::std::exception_ptr)> ex,
-                                                  ::std::function<void(bool)> sent,
-                                                  const ::Ice::Context& context) const
+Test::RemoteCommunicatorPrx::waitForShutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_waitForShutdown, context);
 }
 
-/// \cond INTERNAL
 void
 Test::RemoteCommunicatorPrx::_iceI_waitForShutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -382,7 +329,6 @@ Test::RemoteCommunicatorPrx::_iceI_waitForShutdown(const ::std::shared_ptr<::Ice
         nullptr,
         nullptr);
 }
-/// \endcond
 
 void
 Test::RemoteCommunicatorPrx::destroy(const ::Ice::Context& context) const
@@ -397,15 +343,11 @@ Test::RemoteCommunicatorPrx::destroyAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::RemoteCommunicatorPrx::destroyAsync(::std::function<void ()> response,
-                                          ::std::function<void(::std::exception_ptr)> ex,
-                                          ::std::function<void(bool)> sent,
-                                          const ::Ice::Context& context) const
+Test::RemoteCommunicatorPrx::destroyAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_destroy, context);
 }
 
-/// \cond INTERNAL
 void
 Test::RemoteCommunicatorPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -415,7 +357,6 @@ Test::RemoteCommunicatorPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Test::RemoteCommunicatorPrx::ice_staticId()
@@ -437,16 +378,11 @@ Test::RemoteCommunicatorFactoryPrx::createCommunicatorAsync(const ::Ice::Propert
 }
 
 ::std::function<void()>
-Test::RemoteCommunicatorFactoryPrx::createCommunicatorAsync(const ::Ice::PropertyDict& iceP_props,
-                                                            ::std::function<void (::std::optional<::Test::RemoteCommunicatorPrx>)> response,
-                                                            ::std::function<void(::std::exception_ptr)> ex,
-                                                            ::std::function<void(bool)> sent,
-                                                            const ::Ice::Context& context) const
+Test::RemoteCommunicatorFactoryPrx::createCommunicatorAsync(const ::Ice::PropertyDict& iceP_props, ::std::function<void(::std::optional<::Test::RemoteCommunicatorPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<::std::optional<RemoteCommunicatorPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorFactoryPrx::_iceI_createCommunicator, iceP_props, context);
 }
 
-/// \cond INTERNAL
 void
 Test::RemoteCommunicatorFactoryPrx::_iceI_createCommunicator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<RemoteCommunicatorPrx>>>& outAsync, const ::Ice::PropertyDict& iceP_props, const ::Ice::Context& context) const
 {
@@ -460,7 +396,6 @@ Test::RemoteCommunicatorFactoryPrx::_iceI_createCommunicator(const ::std::shared
         },
         nullptr);
 }
-/// \endcond
 
 void
 Test::RemoteCommunicatorFactoryPrx::shutdown(const ::Ice::Context& context) const
@@ -475,15 +410,11 @@ Test::RemoteCommunicatorFactoryPrx::shutdownAsync(const ::Ice::Context& context)
 }
 
 ::std::function<void()>
-Test::RemoteCommunicatorFactoryPrx::shutdownAsync(::std::function<void ()> response,
-                                                  ::std::function<void(::std::exception_ptr)> ex,
-                                                  ::std::function<void(bool)> sent,
-                                                  const ::Ice::Context& context) const
+Test::RemoteCommunicatorFactoryPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorFactoryPrx::_iceI_shutdown, context);
 }
 
-/// \cond INTERNAL
 void
 Test::RemoteCommunicatorFactoryPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -493,7 +424,6 @@ Test::RemoteCommunicatorFactoryPrx::_iceI_shutdown(const ::std::shared_ptr<::Ice
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Test::RemoteCommunicatorFactoryPrx::ice_staticId()
@@ -515,15 +445,11 @@ Test::TestFacetPrx::opAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::TestFacetPrx::opAsync(::std::function<void ()> response,
-                            ::std::function<void(::std::exception_ptr)> ex,
-                            ::std::function<void(bool)> sent,
-                            const ::Ice::Context& context) const
+Test::TestFacetPrx::opAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestFacetPrx::_iceI_op, context);
 }
 
-/// \cond INTERNAL
 void
 Test::TestFacetPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -533,7 +459,6 @@ Test::TestFacetPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyn
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Test::TestFacetPrx::ice_staticId()

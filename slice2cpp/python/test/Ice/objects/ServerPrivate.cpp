@@ -61,15 +61,11 @@ Test::UnexpectedObjectExceptionTestPrx::opAsync(const ::Ice::Context& context) c
 }
 
 ::std::function<void()>
-Test::UnexpectedObjectExceptionTestPrx::opAsync(::std::function<void (::std::shared_ptr<::Test::AlsoEmpty>)> response,
-                                                ::std::function<void(::std::exception_ptr)> ex,
-                                                ::std::function<void(bool)> sent,
-                                                const ::Ice::Context& context) const
+Test::UnexpectedObjectExceptionTestPrx::opAsync(::std::function<void(::std::shared_ptr<::Test::AlsoEmpty>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<AlsoEmpty>>(std::move(response), std::move(ex), std::move(sent), this, &Test::UnexpectedObjectExceptionTestPrx::_iceI_op, context);
 }
 
-/// \cond INTERNAL
 void
 Test::UnexpectedObjectExceptionTestPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<AlsoEmpty>>>& outAsync, const ::Ice::Context& context) const
 {
@@ -87,7 +83,6 @@ Test::UnexpectedObjectExceptionTestPrx::_iceI_op(const ::std::shared_ptr<::IceIn
             return ret;
         });
 }
-/// \endcond
 
 ::std::string_view
 Test::UnexpectedObjectExceptionTestPrx::ice_staticId()

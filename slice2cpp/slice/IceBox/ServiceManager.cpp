@@ -58,16 +58,11 @@ IceBox::ServiceObserverPrx::servicesStartedAsync(const ::Ice::StringSeq& iceP_se
 }
 
 ::std::function<void()>
-IceBox::ServiceObserverPrx::servicesStartedAsync(const ::Ice::StringSeq& iceP_services,
-                                                 ::std::function<void ()> response,
-                                                 ::std::function<void(::std::exception_ptr)> ex,
-                                                 ::std::function<void(bool)> sent,
-                                                 const ::Ice::Context& context) const
+IceBox::ServiceObserverPrx::servicesStartedAsync(const ::Ice::StringSeq& iceP_services, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceBox::ServiceObserverPrx::_iceI_servicesStarted, iceP_services, context);
 }
 
-/// \cond INTERNAL
 void
 IceBox::ServiceObserverPrx::_iceI_servicesStarted(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::StringSeq& iceP_services, const ::Ice::Context& context) const
 {
@@ -80,7 +75,6 @@ IceBox::ServiceObserverPrx::_iceI_servicesStarted(const ::std::shared_ptr<::IceI
         },
         nullptr);
 }
-/// \endcond
 
 void
 IceBox::ServiceObserverPrx::servicesStopped(const ::Ice::StringSeq& iceP_services, const ::Ice::Context& context) const
@@ -95,16 +89,11 @@ IceBox::ServiceObserverPrx::servicesStoppedAsync(const ::Ice::StringSeq& iceP_se
 }
 
 ::std::function<void()>
-IceBox::ServiceObserverPrx::servicesStoppedAsync(const ::Ice::StringSeq& iceP_services,
-                                                 ::std::function<void ()> response,
-                                                 ::std::function<void(::std::exception_ptr)> ex,
-                                                 ::std::function<void(bool)> sent,
-                                                 const ::Ice::Context& context) const
+IceBox::ServiceObserverPrx::servicesStoppedAsync(const ::Ice::StringSeq& iceP_services, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceBox::ServiceObserverPrx::_iceI_servicesStopped, iceP_services, context);
 }
 
-/// \cond INTERNAL
 void
 IceBox::ServiceObserverPrx::_iceI_servicesStopped(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::StringSeq& iceP_services, const ::Ice::Context& context) const
 {
@@ -117,7 +106,6 @@ IceBox::ServiceObserverPrx::_iceI_servicesStopped(const ::std::shared_ptr<::IceI
         },
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 IceBox::ServiceObserverPrx::ice_staticId()
@@ -139,16 +127,11 @@ IceBox::ServiceManagerPrx::startServiceAsync(::std::string_view iceP_service, co
 }
 
 ::std::function<void()>
-IceBox::ServiceManagerPrx::startServiceAsync(::std::string_view iceP_service,
-                                             ::std::function<void ()> response,
-                                             ::std::function<void(::std::exception_ptr)> ex,
-                                             ::std::function<void(bool)> sent,
-                                             const ::Ice::Context& context) const
+IceBox::ServiceManagerPrx::startServiceAsync(::std::string_view iceP_service, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceBox::ServiceManagerPrx::_iceI_startService, iceP_service, context);
 }
 
-/// \cond INTERNAL
 void
 IceBox::ServiceManagerPrx::_iceI_startService(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_service, const ::Ice::Context& context) const
 {
@@ -179,7 +162,6 @@ IceBox::ServiceManagerPrx::_iceI_startService(const ::std::shared_ptr<::IceInter
             }
         });
 }
-/// \endcond
 
 void
 IceBox::ServiceManagerPrx::stopService(::std::string_view iceP_service, const ::Ice::Context& context) const
@@ -194,16 +176,11 @@ IceBox::ServiceManagerPrx::stopServiceAsync(::std::string_view iceP_service, con
 }
 
 ::std::function<void()>
-IceBox::ServiceManagerPrx::stopServiceAsync(::std::string_view iceP_service,
-                                            ::std::function<void ()> response,
-                                            ::std::function<void(::std::exception_ptr)> ex,
-                                            ::std::function<void(bool)> sent,
-                                            const ::Ice::Context& context) const
+IceBox::ServiceManagerPrx::stopServiceAsync(::std::string_view iceP_service, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceBox::ServiceManagerPrx::_iceI_stopService, iceP_service, context);
 }
 
-/// \cond INTERNAL
 void
 IceBox::ServiceManagerPrx::_iceI_stopService(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_service, const ::Ice::Context& context) const
 {
@@ -234,7 +211,6 @@ IceBox::ServiceManagerPrx::_iceI_stopService(const ::std::shared_ptr<::IceIntern
             }
         });
 }
-/// \endcond
 
 void
 IceBox::ServiceManagerPrx::addObserver(const ::std::optional<ServiceObserverPrx>& iceP_observer, const ::Ice::Context& context) const
@@ -249,16 +225,11 @@ IceBox::ServiceManagerPrx::addObserverAsync(const ::std::optional<ServiceObserve
 }
 
 ::std::function<void()>
-IceBox::ServiceManagerPrx::addObserverAsync(const ::std::optional<ServiceObserverPrx>& iceP_observer,
-                                            ::std::function<void ()> response,
-                                            ::std::function<void(::std::exception_ptr)> ex,
-                                            ::std::function<void(bool)> sent,
-                                            const ::Ice::Context& context) const
+IceBox::ServiceManagerPrx::addObserverAsync(const ::std::optional<ServiceObserverPrx>& iceP_observer, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceBox::ServiceManagerPrx::_iceI_addObserver, iceP_observer, context);
 }
 
-/// \cond INTERNAL
 void
 IceBox::ServiceManagerPrx::_iceI_addObserver(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<ServiceObserverPrx>& iceP_observer, const ::Ice::Context& context) const
 {
@@ -271,7 +242,6 @@ IceBox::ServiceManagerPrx::_iceI_addObserver(const ::std::shared_ptr<::IceIntern
         },
         nullptr);
 }
-/// \endcond
 
 void
 IceBox::ServiceManagerPrx::shutdown(const ::Ice::Context& context) const
@@ -286,15 +256,11 @@ IceBox::ServiceManagerPrx::shutdownAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-IceBox::ServiceManagerPrx::shutdownAsync(::std::function<void ()> response,
-                                         ::std::function<void(::std::exception_ptr)> ex,
-                                         ::std::function<void(bool)> sent,
-                                         const ::Ice::Context& context) const
+IceBox::ServiceManagerPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceBox::ServiceManagerPrx::_iceI_shutdown, context);
 }
 
-/// \cond INTERNAL
 void
 IceBox::ServiceManagerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -304,7 +270,6 @@ IceBox::ServiceManagerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal:
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 IceBox::ServiceManagerPrx::ice_staticId()

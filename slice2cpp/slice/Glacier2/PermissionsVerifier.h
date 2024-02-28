@@ -93,11 +93,7 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    checkPermissionsAsync(::std::string_view userId, ::std::string_view password,
-                          ::std::function<void(bool, ::std::string)> response,
-                          ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                          ::std::function<void(bool)> sent = nullptr,
-                          const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    checkPermissionsAsync(::std::string_view userId, ::std::string_view password, ::std::function<void(bool, ::std::string)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_checkPermissions(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<bool, ::std::string>>>&, ::std::string_view, ::std::string_view, const ::Ice::Context&) const;
@@ -191,11 +187,7 @@ public:
      * @see SSLInfo
      */
     ::std::function<void()>
-    authorizeAsync(const SSLInfo& info,
-                   ::std::function<void(bool, ::std::string)> response,
-                   ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                   ::std::function<void(bool)> sent = nullptr,
-                   const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    authorizeAsync(const SSLInfo& info, ::std::function<void(bool, ::std::string)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_authorize(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<bool, ::std::string>>>&, const SSLInfo&, const ::Ice::Context&) const;

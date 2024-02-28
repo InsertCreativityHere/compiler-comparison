@@ -99,11 +99,7 @@ public:
      * @deprecated getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.
      */
     ICE_DEPRECATED_API("getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.") ::std::function<void()>
-    getFileInfoSeqAsync(::std::int32_t partition,
-                        ::std::function<void(::IcePatch2::FileInfoSeq)> response,
-                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                        ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    getFileInfoSeqAsync(::std::int32_t partition, ::std::function<void(::IcePatch2::FileInfoSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_getFileInfoSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<FileInfoSeq>>&, ::std::int32_t, const ::Ice::Context&) const;
@@ -136,11 +132,7 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getLargeFileInfoSeqAsync(::std::int32_t partition,
-                             ::std::function<void(::IcePatch2::LargeFileInfoSeq)> response,
-                             ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                             ::std::function<void(bool)> sent = nullptr,
-                             const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    getLargeFileInfoSeqAsync(::std::int32_t partition, ::std::function<void(::IcePatch2::LargeFileInfoSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_getLargeFileInfoSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<LargeFileInfoSeq>>&, ::std::int32_t, const ::Ice::Context&) const;
@@ -171,10 +163,7 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getChecksumSeqAsync(::std::function<void(::IcePatch2::ByteSeqSeq)> response,
-                        ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                        ::std::function<void(bool)> sent = nullptr,
-                        const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    getChecksumSeqAsync(::std::function<void(::IcePatch2::ByteSeqSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_getChecksumSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ByteSeqSeq>>&, const ::Ice::Context&) const;
@@ -206,10 +195,7 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getChecksumAsync(::std::function<void(::Ice::ByteSeq)> response,
-                     ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                     ::std::function<void(bool)> sent = nullptr,
-                     const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    getChecksumAsync(::std::function<void(::Ice::ByteSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_getChecksum(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::ByteSeq>>&, const ::Ice::Context&) const;
@@ -261,14 +247,14 @@ public:
      * @deprecated getFileCompressed() is deprecated, use getLargeFileCompressed() instead.
      */
     ICE_DEPRECATED_API("getFileCompressed() is deprecated, use getLargeFileCompressed() instead.") ::std::function<void()>
-    getFileCompressedAsync(::std::string_view path, ::std::int32_t pos, ::std::int32_t num,
-                           ::std::function<void(::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>)> response,
-                           ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                           ::std::function<void(bool)> sent = nullptr,
-                           const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    getFileCompressedAsync(::std::string_view path, ::std::int32_t pos, ::std::int32_t num, ::std::function<void(::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_getFileCompressed(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::ByteSeq>>&, ::std::string_view, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
+    /// \endcond
+
+    /// \cond INTERNAL
+    void _iceIL_getFileCompressed(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>>>&, ::std::string_view, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -307,14 +293,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getLargeFileCompressedAsync(::std::string_view path, ::std::int64_t pos, ::std::int32_t num,
-                                ::std::function<void(::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>)> response,
-                                ::std::function<void(::std::exception_ptr)> ex = nullptr,
-                                ::std::function<void(bool)> sent = nullptr,
-                                const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    getLargeFileCompressedAsync(::std::string_view path, ::std::int64_t pos, ::std::int32_t num, ::std::function<void(::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_getLargeFileCompressed(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::ByteSeq>>&, ::std::string_view, ::std::int64_t, ::std::int32_t, const ::Ice::Context&) const;
+    /// \endcond
+
+    /// \cond INTERNAL
+    void _iceIL_getLargeFileCompressed(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>>>&, ::std::string_view, ::std::int64_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**

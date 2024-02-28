@@ -49,15 +49,11 @@ Test::Interface2Prx::methodAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::Interface2Prx::methodAsync(::std::function<void ()> response,
-                                 ::std::function<void(::std::exception_ptr)> ex,
-                                 ::std::function<void(bool)> sent,
-                                 const ::Ice::Context& context) const
+Test::Interface2Prx::methodAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::Interface2Prx::_iceI_method, context);
 }
 
-/// \cond INTERNAL
 void
 Test::Interface2Prx::_iceI_method(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -67,7 +63,6 @@ Test::Interface2Prx::_iceI_method(const ::std::shared_ptr<::IceInternal::Outgoin
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Test::Interface2Prx::ice_staticId()

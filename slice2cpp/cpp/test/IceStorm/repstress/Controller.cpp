@@ -49,15 +49,11 @@ Test::ControllerPrx::stopAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::ControllerPrx::stopAsync(::std::function<void ()> response,
-                               ::std::function<void(::std::exception_ptr)> ex,
-                               ::std::function<void(bool)> sent,
-                               const ::Ice::Context& context) const
+Test::ControllerPrx::stopAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ControllerPrx::_iceI_stop, context);
 }
 
-/// \cond INTERNAL
 void
 Test::ControllerPrx::_iceI_stop(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -67,7 +63,6 @@ Test::ControllerPrx::_iceI_stop(const ::std::shared_ptr<::IceInternal::OutgoingA
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Test::ControllerPrx::ice_staticId()

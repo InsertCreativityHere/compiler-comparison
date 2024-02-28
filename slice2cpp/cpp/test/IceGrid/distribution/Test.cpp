@@ -49,16 +49,11 @@ Test::TestIntfPrx::getServerFileAsync(::std::string_view iceP_path, const ::Ice:
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::getServerFileAsync(::std::string_view iceP_path,
-                                      ::std::function<void (::std::string)> response,
-                                      ::std::function<void(::std::exception_ptr)> ex,
-                                      ::std::function<void(bool)> sent,
-                                      const ::Ice::Context& context) const
+Test::TestIntfPrx::getServerFileAsync(::std::string_view iceP_path, ::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getServerFile, iceP_path, context);
 }
 
-/// \cond INTERNAL
 void
 Test::TestIntfPrx::_iceI_getServerFile(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, ::std::string_view iceP_path, const ::Ice::Context& context) const
 {
@@ -72,7 +67,6 @@ Test::TestIntfPrx::_iceI_getServerFile(const ::std::shared_ptr<::IceInternal::Ou
         },
         nullptr);
 }
-/// \endcond
 
 ::std::string
 Test::TestIntfPrx::getApplicationFile(::std::string_view iceP_path, const ::Ice::Context& context) const
@@ -87,16 +81,11 @@ Test::TestIntfPrx::getApplicationFileAsync(::std::string_view iceP_path, const :
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::getApplicationFileAsync(::std::string_view iceP_path,
-                                           ::std::function<void (::std::string)> response,
-                                           ::std::function<void(::std::exception_ptr)> ex,
-                                           ::std::function<void(bool)> sent,
-                                           const ::Ice::Context& context) const
+Test::TestIntfPrx::getApplicationFileAsync(::std::string_view iceP_path, ::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_getApplicationFile, iceP_path, context);
 }
 
-/// \cond INTERNAL
 void
 Test::TestIntfPrx::_iceI_getApplicationFile(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, ::std::string_view iceP_path, const ::Ice::Context& context) const
 {
@@ -110,7 +99,6 @@ Test::TestIntfPrx::_iceI_getApplicationFile(const ::std::shared_ptr<::IceInterna
         },
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Test::TestIntfPrx::ice_staticId()

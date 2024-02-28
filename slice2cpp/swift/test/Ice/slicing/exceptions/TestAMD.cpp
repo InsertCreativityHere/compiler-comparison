@@ -63,15 +63,11 @@ Test::RelayPrx::knownPreservedAsBaseAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::RelayPrx::knownPreservedAsBaseAsync(::std::function<void ()> response,
-                                          ::std::function<void(::std::exception_ptr)> ex,
-                                          ::std::function<void(bool)> sent,
-                                          const ::Ice::Context& context) const
+Test::RelayPrx::knownPreservedAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RelayPrx::_iceI_knownPreservedAsBase, context);
 }
 
-/// \cond INTERNAL
 void
 Test::RelayPrx::_iceI_knownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -95,7 +91,6 @@ Test::RelayPrx::_iceI_knownPreservedAsBase(const ::std::shared_ptr<::IceInternal
             }
         });
 }
-/// \endcond
 
 void
 Test::RelayPrx::knownPreservedAsKnownPreserved(const ::Ice::Context& context) const
@@ -110,15 +105,11 @@ Test::RelayPrx::knownPreservedAsKnownPreservedAsync(const ::Ice::Context& contex
 }
 
 ::std::function<void()>
-Test::RelayPrx::knownPreservedAsKnownPreservedAsync(::std::function<void ()> response,
-                                                    ::std::function<void(::std::exception_ptr)> ex,
-                                                    ::std::function<void(bool)> sent,
-                                                    const ::Ice::Context& context) const
+Test::RelayPrx::knownPreservedAsKnownPreservedAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RelayPrx::_iceI_knownPreservedAsKnownPreserved, context);
 }
 
-/// \cond INTERNAL
 void
 Test::RelayPrx::_iceI_knownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -142,7 +133,6 @@ Test::RelayPrx::_iceI_knownPreservedAsKnownPreserved(const ::std::shared_ptr<::I
             }
         });
 }
-/// \endcond
 
 void
 Test::RelayPrx::unknownPreservedAsBase(const ::Ice::Context& context) const
@@ -157,15 +147,11 @@ Test::RelayPrx::unknownPreservedAsBaseAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::RelayPrx::unknownPreservedAsBaseAsync(::std::function<void ()> response,
-                                            ::std::function<void(::std::exception_ptr)> ex,
-                                            ::std::function<void(bool)> sent,
-                                            const ::Ice::Context& context) const
+Test::RelayPrx::unknownPreservedAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RelayPrx::_iceI_unknownPreservedAsBase, context);
 }
 
-/// \cond INTERNAL
 void
 Test::RelayPrx::_iceI_unknownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -189,7 +175,6 @@ Test::RelayPrx::_iceI_unknownPreservedAsBase(const ::std::shared_ptr<::IceIntern
             }
         });
 }
-/// \endcond
 
 void
 Test::RelayPrx::unknownPreservedAsKnownPreserved(const ::Ice::Context& context) const
@@ -204,15 +189,11 @@ Test::RelayPrx::unknownPreservedAsKnownPreservedAsync(const ::Ice::Context& cont
 }
 
 ::std::function<void()>
-Test::RelayPrx::unknownPreservedAsKnownPreservedAsync(::std::function<void ()> response,
-                                                      ::std::function<void(::std::exception_ptr)> ex,
-                                                      ::std::function<void(bool)> sent,
-                                                      const ::Ice::Context& context) const
+Test::RelayPrx::unknownPreservedAsKnownPreservedAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RelayPrx::_iceI_unknownPreservedAsKnownPreserved, context);
 }
 
-/// \cond INTERNAL
 void
 Test::RelayPrx::_iceI_unknownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -236,7 +217,6 @@ Test::RelayPrx::_iceI_unknownPreservedAsKnownPreserved(const ::std::shared_ptr<:
             }
         });
 }
-/// \endcond
 
 ::std::string_view
 Test::RelayPrx::ice_staticId()
@@ -258,15 +238,11 @@ Test::TestIntfPrx::baseAsBaseAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::baseAsBaseAsync(::std::function<void ()> response,
-                                   ::std::function<void(::std::exception_ptr)> ex,
-                                   ::std::function<void(bool)> sent,
-                                   const ::Ice::Context& context) const
+Test::TestIntfPrx::baseAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_baseAsBase, context);
 }
 
-/// \cond INTERNAL
 void
 Test::TestIntfPrx::_iceI_baseAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -290,7 +266,6 @@ Test::TestIntfPrx::_iceI_baseAsBase(const ::std::shared_ptr<::IceInternal::Outgo
             }
         });
 }
-/// \endcond
 
 void
 Test::TestIntfPrx::unknownDerivedAsBase(const ::Ice::Context& context) const
@@ -305,15 +280,11 @@ Test::TestIntfPrx::unknownDerivedAsBaseAsync(const ::Ice::Context& context) cons
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::unknownDerivedAsBaseAsync(::std::function<void ()> response,
-                                             ::std::function<void(::std::exception_ptr)> ex,
-                                             ::std::function<void(bool)> sent,
-                                             const ::Ice::Context& context) const
+Test::TestIntfPrx::unknownDerivedAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownDerivedAsBase, context);
 }
 
-/// \cond INTERNAL
 void
 Test::TestIntfPrx::_iceI_unknownDerivedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -337,7 +308,6 @@ Test::TestIntfPrx::_iceI_unknownDerivedAsBase(const ::std::shared_ptr<::IceInter
             }
         });
 }
-/// \endcond
 
 void
 Test::TestIntfPrx::knownDerivedAsBase(const ::Ice::Context& context) const
@@ -352,15 +322,11 @@ Test::TestIntfPrx::knownDerivedAsBaseAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::knownDerivedAsBaseAsync(::std::function<void ()> response,
-                                           ::std::function<void(::std::exception_ptr)> ex,
-                                           ::std::function<void(bool)> sent,
-                                           const ::Ice::Context& context) const
+Test::TestIntfPrx::knownDerivedAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownDerivedAsBase, context);
 }
 
-/// \cond INTERNAL
 void
 Test::TestIntfPrx::_iceI_knownDerivedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -384,7 +350,6 @@ Test::TestIntfPrx::_iceI_knownDerivedAsBase(const ::std::shared_ptr<::IceInterna
             }
         });
 }
-/// \endcond
 
 void
 Test::TestIntfPrx::knownDerivedAsKnownDerived(const ::Ice::Context& context) const
@@ -399,15 +364,11 @@ Test::TestIntfPrx::knownDerivedAsKnownDerivedAsync(const ::Ice::Context& context
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::knownDerivedAsKnownDerivedAsync(::std::function<void ()> response,
-                                                   ::std::function<void(::std::exception_ptr)> ex,
-                                                   ::std::function<void(bool)> sent,
-                                                   const ::Ice::Context& context) const
+Test::TestIntfPrx::knownDerivedAsKnownDerivedAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownDerivedAsKnownDerived, context);
 }
 
-/// \cond INTERNAL
 void
 Test::TestIntfPrx::_iceI_knownDerivedAsKnownDerived(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -431,7 +392,6 @@ Test::TestIntfPrx::_iceI_knownDerivedAsKnownDerived(const ::std::shared_ptr<::Ic
             }
         });
 }
-/// \endcond
 
 void
 Test::TestIntfPrx::unknownIntermediateAsBase(const ::Ice::Context& context) const
@@ -446,15 +406,11 @@ Test::TestIntfPrx::unknownIntermediateAsBaseAsync(const ::Ice::Context& context)
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::unknownIntermediateAsBaseAsync(::std::function<void ()> response,
-                                                  ::std::function<void(::std::exception_ptr)> ex,
-                                                  ::std::function<void(bool)> sent,
-                                                  const ::Ice::Context& context) const
+Test::TestIntfPrx::unknownIntermediateAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownIntermediateAsBase, context);
 }
 
-/// \cond INTERNAL
 void
 Test::TestIntfPrx::_iceI_unknownIntermediateAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -478,7 +434,6 @@ Test::TestIntfPrx::_iceI_unknownIntermediateAsBase(const ::std::shared_ptr<::Ice
             }
         });
 }
-/// \endcond
 
 void
 Test::TestIntfPrx::knownIntermediateAsBase(const ::Ice::Context& context) const
@@ -493,15 +448,11 @@ Test::TestIntfPrx::knownIntermediateAsBaseAsync(const ::Ice::Context& context) c
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::knownIntermediateAsBaseAsync(::std::function<void ()> response,
-                                                ::std::function<void(::std::exception_ptr)> ex,
-                                                ::std::function<void(bool)> sent,
-                                                const ::Ice::Context& context) const
+Test::TestIntfPrx::knownIntermediateAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownIntermediateAsBase, context);
 }
 
-/// \cond INTERNAL
 void
 Test::TestIntfPrx::_iceI_knownIntermediateAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -525,7 +476,6 @@ Test::TestIntfPrx::_iceI_knownIntermediateAsBase(const ::std::shared_ptr<::IceIn
             }
         });
 }
-/// \endcond
 
 void
 Test::TestIntfPrx::knownMostDerivedAsBase(const ::Ice::Context& context) const
@@ -540,15 +490,11 @@ Test::TestIntfPrx::knownMostDerivedAsBaseAsync(const ::Ice::Context& context) co
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::knownMostDerivedAsBaseAsync(::std::function<void ()> response,
-                                               ::std::function<void(::std::exception_ptr)> ex,
-                                               ::std::function<void(bool)> sent,
-                                               const ::Ice::Context& context) const
+Test::TestIntfPrx::knownMostDerivedAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownMostDerivedAsBase, context);
 }
 
-/// \cond INTERNAL
 void
 Test::TestIntfPrx::_iceI_knownMostDerivedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -572,7 +518,6 @@ Test::TestIntfPrx::_iceI_knownMostDerivedAsBase(const ::std::shared_ptr<::IceInt
             }
         });
 }
-/// \endcond
 
 void
 Test::TestIntfPrx::knownIntermediateAsKnownIntermediate(const ::Ice::Context& context) const
@@ -587,15 +532,11 @@ Test::TestIntfPrx::knownIntermediateAsKnownIntermediateAsync(const ::Ice::Contex
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::knownIntermediateAsKnownIntermediateAsync(::std::function<void ()> response,
-                                                             ::std::function<void(::std::exception_ptr)> ex,
-                                                             ::std::function<void(bool)> sent,
-                                                             const ::Ice::Context& context) const
+Test::TestIntfPrx::knownIntermediateAsKnownIntermediateAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownIntermediateAsKnownIntermediate, context);
 }
 
-/// \cond INTERNAL
 void
 Test::TestIntfPrx::_iceI_knownIntermediateAsKnownIntermediate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -619,7 +560,6 @@ Test::TestIntfPrx::_iceI_knownIntermediateAsKnownIntermediate(const ::std::share
             }
         });
 }
-/// \endcond
 
 void
 Test::TestIntfPrx::knownMostDerivedAsKnownIntermediate(const ::Ice::Context& context) const
@@ -634,15 +574,11 @@ Test::TestIntfPrx::knownMostDerivedAsKnownIntermediateAsync(const ::Ice::Context
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::knownMostDerivedAsKnownIntermediateAsync(::std::function<void ()> response,
-                                                            ::std::function<void(::std::exception_ptr)> ex,
-                                                            ::std::function<void(bool)> sent,
-                                                            const ::Ice::Context& context) const
+Test::TestIntfPrx::knownMostDerivedAsKnownIntermediateAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownMostDerivedAsKnownIntermediate, context);
 }
 
-/// \cond INTERNAL
 void
 Test::TestIntfPrx::_iceI_knownMostDerivedAsKnownIntermediate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -666,7 +602,6 @@ Test::TestIntfPrx::_iceI_knownMostDerivedAsKnownIntermediate(const ::std::shared
             }
         });
 }
-/// \endcond
 
 void
 Test::TestIntfPrx::knownMostDerivedAsKnownMostDerived(const ::Ice::Context& context) const
@@ -681,15 +616,11 @@ Test::TestIntfPrx::knownMostDerivedAsKnownMostDerivedAsync(const ::Ice::Context&
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::knownMostDerivedAsKnownMostDerivedAsync(::std::function<void ()> response,
-                                                           ::std::function<void(::std::exception_ptr)> ex,
-                                                           ::std::function<void(bool)> sent,
-                                                           const ::Ice::Context& context) const
+Test::TestIntfPrx::knownMostDerivedAsKnownMostDerivedAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownMostDerivedAsKnownMostDerived, context);
 }
 
-/// \cond INTERNAL
 void
 Test::TestIntfPrx::_iceI_knownMostDerivedAsKnownMostDerived(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -713,7 +644,6 @@ Test::TestIntfPrx::_iceI_knownMostDerivedAsKnownMostDerived(const ::std::shared_
             }
         });
 }
-/// \endcond
 
 void
 Test::TestIntfPrx::unknownMostDerived1AsBase(const ::Ice::Context& context) const
@@ -728,15 +658,11 @@ Test::TestIntfPrx::unknownMostDerived1AsBaseAsync(const ::Ice::Context& context)
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::unknownMostDerived1AsBaseAsync(::std::function<void ()> response,
-                                                  ::std::function<void(::std::exception_ptr)> ex,
-                                                  ::std::function<void(bool)> sent,
-                                                  const ::Ice::Context& context) const
+Test::TestIntfPrx::unknownMostDerived1AsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownMostDerived1AsBase, context);
 }
 
-/// \cond INTERNAL
 void
 Test::TestIntfPrx::_iceI_unknownMostDerived1AsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -760,7 +686,6 @@ Test::TestIntfPrx::_iceI_unknownMostDerived1AsBase(const ::std::shared_ptr<::Ice
             }
         });
 }
-/// \endcond
 
 void
 Test::TestIntfPrx::unknownMostDerived1AsKnownIntermediate(const ::Ice::Context& context) const
@@ -775,15 +700,11 @@ Test::TestIntfPrx::unknownMostDerived1AsKnownIntermediateAsync(const ::Ice::Cont
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::unknownMostDerived1AsKnownIntermediateAsync(::std::function<void ()> response,
-                                                               ::std::function<void(::std::exception_ptr)> ex,
-                                                               ::std::function<void(bool)> sent,
-                                                               const ::Ice::Context& context) const
+Test::TestIntfPrx::unknownMostDerived1AsKnownIntermediateAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownMostDerived1AsKnownIntermediate, context);
 }
 
-/// \cond INTERNAL
 void
 Test::TestIntfPrx::_iceI_unknownMostDerived1AsKnownIntermediate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -807,7 +728,6 @@ Test::TestIntfPrx::_iceI_unknownMostDerived1AsKnownIntermediate(const ::std::sha
             }
         });
 }
-/// \endcond
 
 void
 Test::TestIntfPrx::unknownMostDerived2AsBase(const ::Ice::Context& context) const
@@ -822,15 +742,11 @@ Test::TestIntfPrx::unknownMostDerived2AsBaseAsync(const ::Ice::Context& context)
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::unknownMostDerived2AsBaseAsync(::std::function<void ()> response,
-                                                  ::std::function<void(::std::exception_ptr)> ex,
-                                                  ::std::function<void(bool)> sent,
-                                                  const ::Ice::Context& context) const
+Test::TestIntfPrx::unknownMostDerived2AsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownMostDerived2AsBase, context);
 }
 
-/// \cond INTERNAL
 void
 Test::TestIntfPrx::_iceI_unknownMostDerived2AsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -854,7 +770,6 @@ Test::TestIntfPrx::_iceI_unknownMostDerived2AsBase(const ::std::shared_ptr<::Ice
             }
         });
 }
-/// \endcond
 
 void
 Test::TestIntfPrx::unknownMostDerived2AsBaseCompact(const ::Ice::Context& context) const
@@ -869,15 +784,11 @@ Test::TestIntfPrx::unknownMostDerived2AsBaseCompactAsync(const ::Ice::Context& c
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::unknownMostDerived2AsBaseCompactAsync(::std::function<void ()> response,
-                                                         ::std::function<void(::std::exception_ptr)> ex,
-                                                         ::std::function<void(bool)> sent,
-                                                         const ::Ice::Context& context) const
+Test::TestIntfPrx::unknownMostDerived2AsBaseCompactAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownMostDerived2AsBaseCompact, context);
 }
 
-/// \cond INTERNAL
 void
 Test::TestIntfPrx::_iceI_unknownMostDerived2AsBaseCompact(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -901,7 +812,6 @@ Test::TestIntfPrx::_iceI_unknownMostDerived2AsBaseCompact(const ::std::shared_pt
             }
         });
 }
-/// \endcond
 
 void
 Test::TestIntfPrx::knownPreservedAsBase(const ::Ice::Context& context) const
@@ -916,15 +826,11 @@ Test::TestIntfPrx::knownPreservedAsBaseAsync(const ::Ice::Context& context) cons
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::knownPreservedAsBaseAsync(::std::function<void ()> response,
-                                             ::std::function<void(::std::exception_ptr)> ex,
-                                             ::std::function<void(bool)> sent,
-                                             const ::Ice::Context& context) const
+Test::TestIntfPrx::knownPreservedAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownPreservedAsBase, context);
 }
 
-/// \cond INTERNAL
 void
 Test::TestIntfPrx::_iceI_knownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -948,7 +854,6 @@ Test::TestIntfPrx::_iceI_knownPreservedAsBase(const ::std::shared_ptr<::IceInter
             }
         });
 }
-/// \endcond
 
 void
 Test::TestIntfPrx::knownPreservedAsKnownPreserved(const ::Ice::Context& context) const
@@ -963,15 +868,11 @@ Test::TestIntfPrx::knownPreservedAsKnownPreservedAsync(const ::Ice::Context& con
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::knownPreservedAsKnownPreservedAsync(::std::function<void ()> response,
-                                                       ::std::function<void(::std::exception_ptr)> ex,
-                                                       ::std::function<void(bool)> sent,
-                                                       const ::Ice::Context& context) const
+Test::TestIntfPrx::knownPreservedAsKnownPreservedAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownPreservedAsKnownPreserved, context);
 }
 
-/// \cond INTERNAL
 void
 Test::TestIntfPrx::_iceI_knownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -995,7 +896,6 @@ Test::TestIntfPrx::_iceI_knownPreservedAsKnownPreserved(const ::std::shared_ptr<
             }
         });
 }
-/// \endcond
 
 void
 Test::TestIntfPrx::relayKnownPreservedAsBase(const ::std::optional<RelayPrx>& iceP_r, const ::Ice::Context& context) const
@@ -1010,16 +910,11 @@ Test::TestIntfPrx::relayKnownPreservedAsBaseAsync(const ::std::optional<RelayPrx
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::relayKnownPreservedAsBaseAsync(const ::std::optional<RelayPrx>& iceP_r,
-                                                  ::std::function<void ()> response,
-                                                  ::std::function<void(::std::exception_ptr)> ex,
-                                                  ::std::function<void(bool)> sent,
-                                                  const ::Ice::Context& context) const
+Test::TestIntfPrx::relayKnownPreservedAsBaseAsync(const ::std::optional<RelayPrx>& iceP_r, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_relayKnownPreservedAsBase, iceP_r, context);
 }
 
-/// \cond INTERNAL
 void
 Test::TestIntfPrx::_iceI_relayKnownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<RelayPrx>& iceP_r, const ::Ice::Context& context) const
 {
@@ -1046,7 +941,6 @@ Test::TestIntfPrx::_iceI_relayKnownPreservedAsBase(const ::std::shared_ptr<::Ice
             }
         });
 }
-/// \endcond
 
 void
 Test::TestIntfPrx::relayKnownPreservedAsKnownPreserved(const ::std::optional<RelayPrx>& iceP_r, const ::Ice::Context& context) const
@@ -1061,16 +955,11 @@ Test::TestIntfPrx::relayKnownPreservedAsKnownPreservedAsync(const ::std::optiona
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::relayKnownPreservedAsKnownPreservedAsync(const ::std::optional<RelayPrx>& iceP_r,
-                                                            ::std::function<void ()> response,
-                                                            ::std::function<void(::std::exception_ptr)> ex,
-                                                            ::std::function<void(bool)> sent,
-                                                            const ::Ice::Context& context) const
+Test::TestIntfPrx::relayKnownPreservedAsKnownPreservedAsync(const ::std::optional<RelayPrx>& iceP_r, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_relayKnownPreservedAsKnownPreserved, iceP_r, context);
 }
 
-/// \cond INTERNAL
 void
 Test::TestIntfPrx::_iceI_relayKnownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<RelayPrx>& iceP_r, const ::Ice::Context& context) const
 {
@@ -1097,7 +986,6 @@ Test::TestIntfPrx::_iceI_relayKnownPreservedAsKnownPreserved(const ::std::shared
             }
         });
 }
-/// \endcond
 
 void
 Test::TestIntfPrx::unknownPreservedAsBase(const ::Ice::Context& context) const
@@ -1112,15 +1000,11 @@ Test::TestIntfPrx::unknownPreservedAsBaseAsync(const ::Ice::Context& context) co
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::unknownPreservedAsBaseAsync(::std::function<void ()> response,
-                                               ::std::function<void(::std::exception_ptr)> ex,
-                                               ::std::function<void(bool)> sent,
-                                               const ::Ice::Context& context) const
+Test::TestIntfPrx::unknownPreservedAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownPreservedAsBase, context);
 }
 
-/// \cond INTERNAL
 void
 Test::TestIntfPrx::_iceI_unknownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -1144,7 +1028,6 @@ Test::TestIntfPrx::_iceI_unknownPreservedAsBase(const ::std::shared_ptr<::IceInt
             }
         });
 }
-/// \endcond
 
 void
 Test::TestIntfPrx::unknownPreservedAsKnownPreserved(const ::Ice::Context& context) const
@@ -1159,15 +1042,11 @@ Test::TestIntfPrx::unknownPreservedAsKnownPreservedAsync(const ::Ice::Context& c
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::unknownPreservedAsKnownPreservedAsync(::std::function<void ()> response,
-                                                         ::std::function<void(::std::exception_ptr)> ex,
-                                                         ::std::function<void(bool)> sent,
-                                                         const ::Ice::Context& context) const
+Test::TestIntfPrx::unknownPreservedAsKnownPreservedAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownPreservedAsKnownPreserved, context);
 }
 
-/// \cond INTERNAL
 void
 Test::TestIntfPrx::_iceI_unknownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -1191,7 +1070,6 @@ Test::TestIntfPrx::_iceI_unknownPreservedAsKnownPreserved(const ::std::shared_pt
             }
         });
 }
-/// \endcond
 
 void
 Test::TestIntfPrx::relayUnknownPreservedAsBase(const ::std::optional<RelayPrx>& iceP_r, const ::Ice::Context& context) const
@@ -1206,16 +1084,11 @@ Test::TestIntfPrx::relayUnknownPreservedAsBaseAsync(const ::std::optional<RelayP
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::relayUnknownPreservedAsBaseAsync(const ::std::optional<RelayPrx>& iceP_r,
-                                                    ::std::function<void ()> response,
-                                                    ::std::function<void(::std::exception_ptr)> ex,
-                                                    ::std::function<void(bool)> sent,
-                                                    const ::Ice::Context& context) const
+Test::TestIntfPrx::relayUnknownPreservedAsBaseAsync(const ::std::optional<RelayPrx>& iceP_r, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_relayUnknownPreservedAsBase, iceP_r, context);
 }
 
-/// \cond INTERNAL
 void
 Test::TestIntfPrx::_iceI_relayUnknownPreservedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<RelayPrx>& iceP_r, const ::Ice::Context& context) const
 {
@@ -1242,7 +1115,6 @@ Test::TestIntfPrx::_iceI_relayUnknownPreservedAsBase(const ::std::shared_ptr<::I
             }
         });
 }
-/// \endcond
 
 void
 Test::TestIntfPrx::relayUnknownPreservedAsKnownPreserved(const ::std::optional<RelayPrx>& iceP_r, const ::Ice::Context& context) const
@@ -1257,16 +1129,11 @@ Test::TestIntfPrx::relayUnknownPreservedAsKnownPreservedAsync(const ::std::optio
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::relayUnknownPreservedAsKnownPreservedAsync(const ::std::optional<RelayPrx>& iceP_r,
-                                                              ::std::function<void ()> response,
-                                                              ::std::function<void(::std::exception_ptr)> ex,
-                                                              ::std::function<void(bool)> sent,
-                                                              const ::Ice::Context& context) const
+Test::TestIntfPrx::relayUnknownPreservedAsKnownPreservedAsync(const ::std::optional<RelayPrx>& iceP_r, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_relayUnknownPreservedAsKnownPreserved, iceP_r, context);
 }
 
-/// \cond INTERNAL
 void
 Test::TestIntfPrx::_iceI_relayUnknownPreservedAsKnownPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<RelayPrx>& iceP_r, const ::Ice::Context& context) const
 {
@@ -1293,7 +1160,6 @@ Test::TestIntfPrx::_iceI_relayUnknownPreservedAsKnownPreserved(const ::std::shar
             }
         });
 }
-/// \endcond
 
 void
 Test::TestIntfPrx::shutdown(const ::Ice::Context& context) const
@@ -1308,15 +1174,11 @@ Test::TestIntfPrx::shutdownAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::shutdownAsync(::std::function<void ()> response,
-                                 ::std::function<void(::std::exception_ptr)> ex,
-                                 ::std::function<void(bool)> sent,
-                                 const ::Ice::Context& context) const
+Test::TestIntfPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
 }
 
-/// \cond INTERNAL
 void
 Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -1326,7 +1188,6 @@ Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Test::TestIntfPrx::ice_staticId()

@@ -49,16 +49,11 @@ Demo::gx::CanvasPrx::paintSquareAsync(const Square& iceP_square, const ::Ice::Co
 }
 
 ::std::function<void()>
-Demo::gx::CanvasPrx::paintSquareAsync(const Square& iceP_square,
-                                      ::std::function<void ()> response,
-                                      ::std::function<void(::std::exception_ptr)> ex,
-                                      ::std::function<void(bool)> sent,
-                                      const ::Ice::Context& context) const
+Demo::gx::CanvasPrx::paintSquareAsync(const Square& iceP_square, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Demo::gx::CanvasPrx::_iceI_paintSquare, iceP_square, context);
 }
 
-/// \cond INTERNAL
 void
 Demo::gx::CanvasPrx::_iceI_paintSquare(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const Square& iceP_square, const ::Ice::Context& context) const
 {
@@ -71,7 +66,6 @@ Demo::gx::CanvasPrx::_iceI_paintSquare(const ::std::shared_ptr<::IceInternal::Ou
         },
         nullptr);
 }
-/// \endcond
 
 void
 Demo::gx::CanvasPrx::paintCircle(const Circle& iceP_circle, const ::Ice::Context& context) const
@@ -86,16 +80,11 @@ Demo::gx::CanvasPrx::paintCircleAsync(const Circle& iceP_circle, const ::Ice::Co
 }
 
 ::std::function<void()>
-Demo::gx::CanvasPrx::paintCircleAsync(const Circle& iceP_circle,
-                                      ::std::function<void ()> response,
-                                      ::std::function<void(::std::exception_ptr)> ex,
-                                      ::std::function<void(bool)> sent,
-                                      const ::Ice::Context& context) const
+Demo::gx::CanvasPrx::paintCircleAsync(const Circle& iceP_circle, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Demo::gx::CanvasPrx::_iceI_paintCircle, iceP_circle, context);
 }
 
-/// \cond INTERNAL
 void
 Demo::gx::CanvasPrx::_iceI_paintCircle(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const Circle& iceP_circle, const ::Ice::Context& context) const
 {
@@ -108,7 +97,6 @@ Demo::gx::CanvasPrx::_iceI_paintCircle(const ::std::shared_ptr<::IceInternal::Ou
         },
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Demo::gx::CanvasPrx::ice_staticId()
@@ -130,15 +118,11 @@ Demo::gx::SessionPrx::destroySessionAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Demo::gx::SessionPrx::destroySessionAsync(::std::function<void ()> response,
-                                          ::std::function<void(::std::exception_ptr)> ex,
-                                          ::std::function<void(bool)> sent,
-                                          const ::Ice::Context& context) const
+Demo::gx::SessionPrx::destroySessionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Demo::gx::SessionPrx::_iceI_destroySession, context);
 }
 
-/// \cond INTERNAL
 void
 Demo::gx::SessionPrx::_iceI_destroySession(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -148,7 +132,6 @@ Demo::gx::SessionPrx::_iceI_destroySession(const ::std::shared_ptr<::IceInternal
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Demo::gx::SessionPrx::ice_staticId()

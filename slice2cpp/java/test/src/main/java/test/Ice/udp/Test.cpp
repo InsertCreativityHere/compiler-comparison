@@ -49,15 +49,11 @@ Test::PingReplyPrx::replyAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::PingReplyPrx::replyAsync(::std::function<void ()> response,
-                               ::std::function<void(::std::exception_ptr)> ex,
-                               ::std::function<void(bool)> sent,
-                               const ::Ice::Context& context) const
+Test::PingReplyPrx::replyAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::PingReplyPrx::_iceI_reply, context);
 }
 
-/// \cond INTERNAL
 void
 Test::PingReplyPrx::_iceI_reply(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -67,7 +63,6 @@ Test::PingReplyPrx::_iceI_reply(const ::std::shared_ptr<::IceInternal::OutgoingA
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Test::PingReplyPrx::ice_staticId()
@@ -89,16 +84,11 @@ Test::TestIntfPrx::pingAsync(const ::std::optional<PingReplyPrx>& iceP_reply, co
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::pingAsync(const ::std::optional<PingReplyPrx>& iceP_reply,
-                             ::std::function<void ()> response,
-                             ::std::function<void(::std::exception_ptr)> ex,
-                             ::std::function<void(bool)> sent,
-                             const ::Ice::Context& context) const
+Test::TestIntfPrx::pingAsync(const ::std::optional<PingReplyPrx>& iceP_reply, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_ping, iceP_reply, context);
 }
 
-/// \cond INTERNAL
 void
 Test::TestIntfPrx::_iceI_ping(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<PingReplyPrx>& iceP_reply, const ::Ice::Context& context) const
 {
@@ -111,7 +101,6 @@ Test::TestIntfPrx::_iceI_ping(const ::std::shared_ptr<::IceInternal::OutgoingAsy
         },
         nullptr);
 }
-/// \endcond
 
 void
 Test::TestIntfPrx::sendByteSeq(const ByteSeq& iceP_seq, const ::std::optional<PingReplyPrx>& iceP_reply, const ::Ice::Context& context) const
@@ -126,16 +115,11 @@ Test::TestIntfPrx::sendByteSeqAsync(const ByteSeq& iceP_seq, const ::std::option
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::sendByteSeqAsync(const ByteSeq& iceP_seq, const ::std::optional<PingReplyPrx>& iceP_reply,
-                                    ::std::function<void ()> response,
-                                    ::std::function<void(::std::exception_ptr)> ex,
-                                    ::std::function<void(bool)> sent,
-                                    const ::Ice::Context& context) const
+Test::TestIntfPrx::sendByteSeqAsync(const ByteSeq& iceP_seq, const ::std::optional<PingReplyPrx>& iceP_reply, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_sendByteSeq, iceP_seq, iceP_reply, context);
 }
 
-/// \cond INTERNAL
 void
 Test::TestIntfPrx::_iceI_sendByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ByteSeq& iceP_seq, const ::std::optional<PingReplyPrx>& iceP_reply, const ::Ice::Context& context) const
 {
@@ -148,7 +132,6 @@ Test::TestIntfPrx::_iceI_sendByteSeq(const ::std::shared_ptr<::IceInternal::Outg
         },
         nullptr);
 }
-/// \endcond
 
 void
 Test::TestIntfPrx::pingBiDir(const ::Ice::Identity& iceP_id, const ::Ice::Context& context) const
@@ -163,16 +146,11 @@ Test::TestIntfPrx::pingBiDirAsync(const ::Ice::Identity& iceP_id, const ::Ice::C
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::pingBiDirAsync(const ::Ice::Identity& iceP_id,
-                                  ::std::function<void ()> response,
-                                  ::std::function<void(::std::exception_ptr)> ex,
-                                  ::std::function<void(bool)> sent,
-                                  const ::Ice::Context& context) const
+Test::TestIntfPrx::pingBiDirAsync(const ::Ice::Identity& iceP_id, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_pingBiDir, iceP_id, context);
 }
 
-/// \cond INTERNAL
 void
 Test::TestIntfPrx::_iceI_pingBiDir(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Identity& iceP_id, const ::Ice::Context& context) const
 {
@@ -185,7 +163,6 @@ Test::TestIntfPrx::_iceI_pingBiDir(const ::std::shared_ptr<::IceInternal::Outgoi
         },
         nullptr);
 }
-/// \endcond
 
 void
 Test::TestIntfPrx::shutdown(const ::Ice::Context& context) const
@@ -200,15 +177,11 @@ Test::TestIntfPrx::shutdownAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::shutdownAsync(::std::function<void ()> response,
-                                 ::std::function<void(::std::exception_ptr)> ex,
-                                 ::std::function<void(bool)> sent,
-                                 const ::Ice::Context& context) const
+Test::TestIntfPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
 }
 
-/// \cond INTERNAL
 void
 Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -218,7 +191,6 @@ Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Test::TestIntfPrx::ice_staticId()

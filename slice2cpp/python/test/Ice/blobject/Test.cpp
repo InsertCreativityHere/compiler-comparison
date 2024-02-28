@@ -51,16 +51,11 @@ Test::HelloPrx::sayHelloAsync(::std::int32_t iceP_delay, const ::Ice::Context& c
 }
 
 ::std::function<void()>
-Test::HelloPrx::sayHelloAsync(::std::int32_t iceP_delay,
-                              ::std::function<void ()> response,
-                              ::std::function<void(::std::exception_ptr)> ex,
-                              ::std::function<void(bool)> sent,
-                              const ::Ice::Context& context) const
+Test::HelloPrx::sayHelloAsync(::std::int32_t iceP_delay, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::HelloPrx::_iceI_sayHello, iceP_delay, context);
 }
 
-/// \cond INTERNAL
 void
 Test::HelloPrx::_iceI_sayHello(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_delay, const ::Ice::Context& context) const
 {
@@ -73,7 +68,6 @@ Test::HelloPrx::_iceI_sayHello(const ::std::shared_ptr<::IceInternal::OutgoingAs
         },
         nullptr);
 }
-/// \endcond
 
 ::std::int32_t
 Test::HelloPrx::add(::std::int32_t iceP_s1, ::std::int32_t iceP_s2, const ::Ice::Context& context) const
@@ -88,16 +82,11 @@ Test::HelloPrx::addAsync(::std::int32_t iceP_s1, ::std::int32_t iceP_s2, const :
 }
 
 ::std::function<void()>
-Test::HelloPrx::addAsync(::std::int32_t iceP_s1, ::std::int32_t iceP_s2,
-                         ::std::function<void (::std::int32_t)> response,
-                         ::std::function<void(::std::exception_ptr)> ex,
-                         ::std::function<void(bool)> sent,
-                         const ::Ice::Context& context) const
+Test::HelloPrx::addAsync(::std::int32_t iceP_s1, ::std::int32_t iceP_s2, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::HelloPrx::_iceI_add, iceP_s1, iceP_s2, context);
 }
 
-/// \cond INTERNAL
 void
 Test::HelloPrx::_iceI_add(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_s1, ::std::int32_t iceP_s2, const ::Ice::Context& context) const
 {
@@ -111,7 +100,6 @@ Test::HelloPrx::_iceI_add(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<
         },
         nullptr);
 }
-/// \endcond
 
 void
 Test::HelloPrx::raiseUE(const ::Ice::Context& context) const
@@ -126,15 +114,11 @@ Test::HelloPrx::raiseUEAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::HelloPrx::raiseUEAsync(::std::function<void ()> response,
-                             ::std::function<void(::std::exception_ptr)> ex,
-                             ::std::function<void(bool)> sent,
-                             const ::Ice::Context& context) const
+Test::HelloPrx::raiseUEAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::HelloPrx::_iceI_raiseUE, context);
 }
 
-/// \cond INTERNAL
 void
 Test::HelloPrx::_iceI_raiseUE(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -158,7 +142,6 @@ Test::HelloPrx::_iceI_raiseUE(const ::std::shared_ptr<::IceInternal::OutgoingAsy
             }
         });
 }
-/// \endcond
 
 void
 Test::HelloPrx::shutdown(const ::Ice::Context& context) const
@@ -173,15 +156,11 @@ Test::HelloPrx::shutdownAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::HelloPrx::shutdownAsync(::std::function<void ()> response,
-                              ::std::function<void(::std::exception_ptr)> ex,
-                              ::std::function<void(bool)> sent,
-                              const ::Ice::Context& context) const
+Test::HelloPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::HelloPrx::_iceI_shutdown, context);
 }
 
-/// \cond INTERNAL
 void
 Test::HelloPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -191,7 +170,6 @@ Test::HelloPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAs
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Test::HelloPrx::ice_staticId()

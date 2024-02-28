@@ -51,16 +51,11 @@ Test::MyObjectPrx::widenAsync(::std::string_view iceP_msg, const ::Ice::Context&
 }
 
 ::std::function<void()>
-Test::MyObjectPrx::widenAsync(::std::string_view iceP_msg,
-                              ::std::function<void (::std::wstring)> response,
-                              ::std::function<void(::std::exception_ptr)> ex,
-                              ::std::function<void(bool)> sent,
-                              const ::Ice::Context& context) const
+Test::MyObjectPrx::widenAsync(::std::string_view iceP_msg, ::std::function<void(::std::wstring)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<::std::wstring>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_widen, iceP_msg, context);
 }
 
-/// \cond INTERNAL
 void
 Test::MyObjectPrx::_iceI_widen(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::wstring>>& outAsync, ::std::string_view iceP_msg, const ::Ice::Context& context) const
 {
@@ -87,7 +82,6 @@ Test::MyObjectPrx::_iceI_widen(const ::std::shared_ptr<::IceInternal::OutgoingAs
             }
         });
 }
-/// \endcond
 
 ::std::string
 Test::MyObjectPrx::narrow(::std::wstring_view iceP_wmsg, const ::Ice::Context& context) const
@@ -102,16 +96,11 @@ Test::MyObjectPrx::narrowAsync(::std::wstring_view iceP_wmsg, const ::Ice::Conte
 }
 
 ::std::function<void()>
-Test::MyObjectPrx::narrowAsync(::std::wstring_view iceP_wmsg,
-                               ::std::function<void (::std::string)> response,
-                               ::std::function<void(::std::exception_ptr)> ex,
-                               ::std::function<void(bool)> sent,
-                               const ::Ice::Context& context) const
+Test::MyObjectPrx::narrowAsync(::std::wstring_view iceP_wmsg, ::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_narrow, iceP_wmsg, context);
 }
 
-/// \cond INTERNAL
 void
 Test::MyObjectPrx::_iceI_narrow(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, ::std::wstring_view iceP_wmsg, const ::Ice::Context& context) const
 {
@@ -125,7 +114,6 @@ Test::MyObjectPrx::_iceI_narrow(const ::std::shared_ptr<::IceInternal::OutgoingA
         },
         nullptr);
 }
-/// \endcond
 
 void
 Test::MyObjectPrx::shutdown(const ::Ice::Context& context) const
@@ -140,15 +128,11 @@ Test::MyObjectPrx::shutdownAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::MyObjectPrx::shutdownAsync(::std::function<void ()> response,
-                                 ::std::function<void(::std::exception_ptr)> ex,
-                                 ::std::function<void(bool)> sent,
-                                 const ::Ice::Context& context) const
+Test::MyObjectPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_shutdown, context);
 }
 
-/// \cond INTERNAL
 void
 Test::MyObjectPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -158,7 +142,6 @@ Test::MyObjectPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Test::MyObjectPrx::ice_staticId()

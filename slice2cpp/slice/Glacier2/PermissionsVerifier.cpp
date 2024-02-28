@@ -44,9 +44,9 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::Glacier2::PermissionDenie
 bool
 Glacier2::PermissionsVerifierPrx::checkPermissions(::std::string_view iceP_userId, ::std::string_view iceP_password, ::std::string& iceP_reason, const ::Ice::Context& context) const
 {
-    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<bool, ::std::string>>(true, this, &PermissionsVerifierPrx::_iceI_checkPermissions, iceP_userId, iceP_password, context).get();
-    iceP_reason = ::std::move(::std::get<1>(_result));
-    return ::std::get<0>(_result);
+    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<bool, ::std::string>>(true, this, &PermissionsVerifierPrx::_iceI_checkPermissions, iceP_userId, iceP_password, context).get();
+    iceP_reason = ::std::move(::std::get<1>(result));
+    return ::std::get<0>(result);
 }
 
 ::std::future<::std::tuple<bool, ::std::string>>
@@ -56,20 +56,15 @@ Glacier2::PermissionsVerifierPrx::checkPermissionsAsync(::std::string_view iceP_
 }
 
 ::std::function<void()>
-Glacier2::PermissionsVerifierPrx::checkPermissionsAsync(::std::string_view iceP_userId, ::std::string_view iceP_password,
-                                                        ::std::function<void (bool, ::std::string)> response,
-                                                        ::std::function<void(::std::exception_ptr)> ex,
-                                                        ::std::function<void(bool)> sent,
-                                                        const ::Ice::Context& context) const
+Glacier2::PermissionsVerifierPrx::checkPermissionsAsync(::std::string_view iceP_userId, ::std::string_view iceP_password, ::std::function<void(bool, ::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto _responseCb = [_response = ::std::move(response)](::std::tuple<bool, ::std::string>&& _result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<bool, ::std::string>&& result)
     {
-        ::std::apply(::std::move(_response), ::std::move(_result));
+        ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<bool, ::std::string>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Glacier2::PermissionsVerifierPrx::_iceI_checkPermissions, iceP_userId, iceP_password, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<bool, ::std::string>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Glacier2::PermissionsVerifierPrx::_iceI_checkPermissions, iceP_userId, iceP_password, context);
 }
 
-/// \cond INTERNAL
 void
 Glacier2::PermissionsVerifierPrx::_iceI_checkPermissions(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<bool, ::std::string>>>& outAsync, ::std::string_view iceP_userId, ::std::string_view iceP_password, const ::Ice::Context& context) const
 {
@@ -102,7 +97,6 @@ Glacier2::PermissionsVerifierPrx::_iceI_checkPermissions(const ::std::shared_ptr
             return v;
         });
 }
-/// \endcond
 
 ::std::string_view
 Glacier2::PermissionsVerifierPrx::ice_staticId()
@@ -114,9 +108,9 @@ Glacier2::PermissionsVerifierPrx::ice_staticId()
 bool
 Glacier2::SSLPermissionsVerifierPrx::authorize(const SSLInfo& iceP_info, ::std::string& iceP_reason, const ::Ice::Context& context) const
 {
-    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<bool, ::std::string>>(true, this, &SSLPermissionsVerifierPrx::_iceI_authorize, iceP_info, context).get();
-    iceP_reason = ::std::move(::std::get<1>(_result));
-    return ::std::get<0>(_result);
+    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<bool, ::std::string>>(true, this, &SSLPermissionsVerifierPrx::_iceI_authorize, iceP_info, context).get();
+    iceP_reason = ::std::move(::std::get<1>(result));
+    return ::std::get<0>(result);
 }
 
 ::std::future<::std::tuple<bool, ::std::string>>
@@ -126,20 +120,15 @@ Glacier2::SSLPermissionsVerifierPrx::authorizeAsync(const SSLInfo& iceP_info, co
 }
 
 ::std::function<void()>
-Glacier2::SSLPermissionsVerifierPrx::authorizeAsync(const SSLInfo& iceP_info,
-                                                    ::std::function<void (bool, ::std::string)> response,
-                                                    ::std::function<void(::std::exception_ptr)> ex,
-                                                    ::std::function<void(bool)> sent,
-                                                    const ::Ice::Context& context) const
+Glacier2::SSLPermissionsVerifierPrx::authorizeAsync(const SSLInfo& iceP_info, ::std::function<void(bool, ::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto _responseCb = [_response = ::std::move(response)](::std::tuple<bool, ::std::string>&& _result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<bool, ::std::string>&& result)
     {
-        ::std::apply(::std::move(_response), ::std::move(_result));
+        ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<bool, ::std::string>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Glacier2::SSLPermissionsVerifierPrx::_iceI_authorize, iceP_info, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<bool, ::std::string>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Glacier2::SSLPermissionsVerifierPrx::_iceI_authorize, iceP_info, context);
 }
 
-/// \cond INTERNAL
 void
 Glacier2::SSLPermissionsVerifierPrx::_iceI_authorize(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<bool, ::std::string>>>& outAsync, const SSLInfo& iceP_info, const ::Ice::Context& context) const
 {
@@ -172,7 +161,6 @@ Glacier2::SSLPermissionsVerifierPrx::_iceI_authorize(const ::std::shared_ptr<::I
             return v;
         });
 }
-/// \endcond
 
 ::std::string_view
 Glacier2::SSLPermissionsVerifierPrx::ice_staticId()

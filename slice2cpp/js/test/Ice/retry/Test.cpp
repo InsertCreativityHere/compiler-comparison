@@ -49,16 +49,11 @@ Test::RetryPrx::opAsync(bool iceP_kill, const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::RetryPrx::opAsync(bool iceP_kill,
-                        ::std::function<void ()> response,
-                        ::std::function<void(::std::exception_ptr)> ex,
-                        ::std::function<void(bool)> sent,
-                        const ::Ice::Context& context) const
+Test::RetryPrx::opAsync(bool iceP_kill, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RetryPrx::_iceI_op, iceP_kill, context);
 }
 
-/// \cond INTERNAL
 void
 Test::RetryPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_kill, const ::Ice::Context& context) const
 {
@@ -71,7 +66,6 @@ Test::RetryPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<v
         },
         nullptr);
 }
-/// \endcond
 
 ::std::int32_t
 Test::RetryPrx::opIdempotent(::std::int32_t iceP_c, const ::Ice::Context& context) const
@@ -86,16 +80,11 @@ Test::RetryPrx::opIdempotentAsync(::std::int32_t iceP_c, const ::Ice::Context& c
 }
 
 ::std::function<void()>
-Test::RetryPrx::opIdempotentAsync(::std::int32_t iceP_c,
-                                  ::std::function<void (::std::int32_t)> response,
-                                  ::std::function<void(::std::exception_ptr)> ex,
-                                  ::std::function<void(bool)> sent,
-                                  const ::Ice::Context& context) const
+Test::RetryPrx::opIdempotentAsync(::std::int32_t iceP_c, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::RetryPrx::_iceI_opIdempotent, iceP_c, context);
 }
 
-/// \cond INTERNAL
 void
 Test::RetryPrx::_iceI_opIdempotent(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_c, const ::Ice::Context& context) const
 {
@@ -109,7 +98,6 @@ Test::RetryPrx::_iceI_opIdempotent(const ::std::shared_ptr<::IceInternal::Outgoi
         },
         nullptr);
 }
-/// \endcond
 
 void
 Test::RetryPrx::opNotIdempotent(const ::Ice::Context& context) const
@@ -124,15 +112,11 @@ Test::RetryPrx::opNotIdempotentAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::RetryPrx::opNotIdempotentAsync(::std::function<void ()> response,
-                                     ::std::function<void(::std::exception_ptr)> ex,
-                                     ::std::function<void(bool)> sent,
-                                     const ::Ice::Context& context) const
+Test::RetryPrx::opNotIdempotentAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RetryPrx::_iceI_opNotIdempotent, context);
 }
 
-/// \cond INTERNAL
 void
 Test::RetryPrx::_iceI_opNotIdempotent(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -142,7 +126,6 @@ Test::RetryPrx::_iceI_opNotIdempotent(const ::std::shared_ptr<::IceInternal::Out
         nullptr,
         nullptr);
 }
-/// \endcond
 
 void
 Test::RetryPrx::opSystemException(const ::Ice::Context& context) const
@@ -157,15 +140,11 @@ Test::RetryPrx::opSystemExceptionAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::RetryPrx::opSystemExceptionAsync(::std::function<void ()> response,
-                                       ::std::function<void(::std::exception_ptr)> ex,
-                                       ::std::function<void(bool)> sent,
-                                       const ::Ice::Context& context) const
+Test::RetryPrx::opSystemExceptionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RetryPrx::_iceI_opSystemException, context);
 }
 
-/// \cond INTERNAL
 void
 Test::RetryPrx::_iceI_opSystemException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -175,7 +154,6 @@ Test::RetryPrx::_iceI_opSystemException(const ::std::shared_ptr<::IceInternal::O
         nullptr,
         nullptr);
 }
-/// \endcond
 
 void
 Test::RetryPrx::shutdown(const ::Ice::Context& context) const
@@ -190,15 +168,11 @@ Test::RetryPrx::shutdownAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::RetryPrx::shutdownAsync(::std::function<void ()> response,
-                              ::std::function<void(::std::exception_ptr)> ex,
-                              ::std::function<void(bool)> sent,
-                              const ::Ice::Context& context) const
+Test::RetryPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RetryPrx::_iceI_shutdown, context);
 }
 
-/// \cond INTERNAL
 void
 Test::RetryPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -208,7 +182,6 @@ Test::RetryPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAs
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Test::RetryPrx::ice_staticId()

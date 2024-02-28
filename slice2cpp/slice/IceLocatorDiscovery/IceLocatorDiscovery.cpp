@@ -49,16 +49,11 @@ IceLocatorDiscovery::LookupReplyPrx::foundLocatorAsync(const ::std::optional<::I
 }
 
 ::std::function<void()>
-IceLocatorDiscovery::LookupReplyPrx::foundLocatorAsync(const ::std::optional<::Ice::LocatorPrx>& iceP_prx,
-                                                       ::std::function<void ()> response,
-                                                       ::std::function<void(::std::exception_ptr)> ex,
-                                                       ::std::function<void(bool)> sent,
-                                                       const ::Ice::Context& context) const
+IceLocatorDiscovery::LookupReplyPrx::foundLocatorAsync(const ::std::optional<::Ice::LocatorPrx>& iceP_prx, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceLocatorDiscovery::LookupReplyPrx::_iceI_foundLocator, iceP_prx, context);
 }
 
-/// \cond INTERNAL
 void
 IceLocatorDiscovery::LookupReplyPrx::_iceI_foundLocator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<::Ice::LocatorPrx>& iceP_prx, const ::Ice::Context& context) const
 {
@@ -71,7 +66,6 @@ IceLocatorDiscovery::LookupReplyPrx::_iceI_foundLocator(const ::std::shared_ptr<
         },
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 IceLocatorDiscovery::LookupReplyPrx::ice_staticId()
@@ -93,16 +87,11 @@ IceLocatorDiscovery::LookupPrx::findLocatorAsync(::std::string_view iceP_instanc
 }
 
 ::std::function<void()>
-IceLocatorDiscovery::LookupPrx::findLocatorAsync(::std::string_view iceP_instanceName, const ::std::optional<LookupReplyPrx>& iceP_reply,
-                                                 ::std::function<void ()> response,
-                                                 ::std::function<void(::std::exception_ptr)> ex,
-                                                 ::std::function<void(bool)> sent,
-                                                 const ::Ice::Context& context) const
+IceLocatorDiscovery::LookupPrx::findLocatorAsync(::std::string_view iceP_instanceName, const ::std::optional<LookupReplyPrx>& iceP_reply, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceLocatorDiscovery::LookupPrx::_iceI_findLocator, iceP_instanceName, iceP_reply, context);
 }
 
-/// \cond INTERNAL
 void
 IceLocatorDiscovery::LookupPrx::_iceI_findLocator(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_instanceName, const ::std::optional<LookupReplyPrx>& iceP_reply, const ::Ice::Context& context) const
 {
@@ -115,7 +104,6 @@ IceLocatorDiscovery::LookupPrx::_iceI_findLocator(const ::std::shared_ptr<::IceI
         },
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 IceLocatorDiscovery::LookupPrx::ice_staticId()

@@ -49,15 +49,11 @@ Test::TestFacetPrx::getChangesAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::TestFacetPrx::getChangesAsync(::std::function<void (::Ice::PropertyDict)> response,
-                                    ::std::function<void(::std::exception_ptr)> ex,
-                                    ::std::function<void(bool)> sent,
-                                    const ::Ice::Context& context) const
+Test::TestFacetPrx::getChangesAsync(::std::function<void(::Ice::PropertyDict)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<::Ice::PropertyDict>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestFacetPrx::_iceI_getChanges, context);
 }
 
-/// \cond INTERNAL
 void
 Test::TestFacetPrx::_iceI_getChanges(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::PropertyDict>>& outAsync, const ::Ice::Context& context) const
 {
@@ -68,7 +64,6 @@ Test::TestFacetPrx::_iceI_getChanges(const ::std::shared_ptr<::IceInternal::Outg
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Test::TestFacetPrx::ice_staticId()

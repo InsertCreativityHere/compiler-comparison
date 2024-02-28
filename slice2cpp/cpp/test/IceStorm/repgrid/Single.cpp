@@ -49,16 +49,11 @@ Test::SinglePrx::eventAsync(::std::int32_t iceP_i, const ::Ice::Context& context
 }
 
 ::std::function<void()>
-Test::SinglePrx::eventAsync(::std::int32_t iceP_i,
-                            ::std::function<void ()> response,
-                            ::std::function<void(::std::exception_ptr)> ex,
-                            ::std::function<void(bool)> sent,
-                            const ::Ice::Context& context) const
+Test::SinglePrx::eventAsync(::std::int32_t iceP_i, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::SinglePrx::_iceI_event, iceP_i, context);
 }
 
-/// \cond INTERNAL
 void
 Test::SinglePrx::_iceI_event(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_i, const ::Ice::Context& context) const
 {
@@ -71,7 +66,6 @@ Test::SinglePrx::_iceI_event(const ::std::shared_ptr<::IceInternal::OutgoingAsyn
         },
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Test::SinglePrx::ice_staticId()

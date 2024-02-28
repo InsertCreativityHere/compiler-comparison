@@ -55,15 +55,11 @@ Test::InitialPrx::getStruct1Async(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::InitialPrx::getStruct1Async(::std::function<void (::Test::ByteS)> response,
-                                  ::std::function<void(::std::exception_ptr)> ex,
-                                  ::std::function<void(bool)> sent,
-                                  const ::Ice::Context& context) const
+Test::InitialPrx::getStruct1Async(::std::function<void(::Test::ByteS)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<ByteS>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getStruct1, context);
 }
 
-/// \cond INTERNAL
 void
 Test::InitialPrx::_iceI_getStruct1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ByteS>>& outAsync, const ::Ice::Context& context) const
 {
@@ -74,7 +70,6 @@ Test::InitialPrx::_iceI_getStruct1(const ::std::shared_ptr<::IceInternal::Outgoi
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::Test::ByteS
 Test::InitialPrx::getBase(const ::Ice::Context& context) const
@@ -89,15 +84,11 @@ Test::InitialPrx::getBaseAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::InitialPrx::getBaseAsync(::std::function<void (::Test::ByteS)> response,
-                               ::std::function<void(::std::exception_ptr)> ex,
-                               ::std::function<void(bool)> sent,
-                               const ::Ice::Context& context) const
+Test::InitialPrx::getBaseAsync(::std::function<void(::Test::ByteS)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<ByteS>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getBase, context);
 }
 
-/// \cond INTERNAL
 void
 Test::InitialPrx::_iceI_getBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ByteS>>& outAsync, const ::Ice::Context& context) const
 {
@@ -108,7 +99,6 @@ Test::InitialPrx::_iceI_getBase(const ::std::shared_ptr<::IceInternal::OutgoingA
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::Test::ByteS
 Test::InitialPrx::getEx(const ::Ice::Context& context) const
@@ -123,15 +113,11 @@ Test::InitialPrx::getExAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::InitialPrx::getExAsync(::std::function<void (::Test::ByteS)> response,
-                             ::std::function<void(::std::exception_ptr)> ex,
-                             ::std::function<void(bool)> sent,
-                             const ::Ice::Context& context) const
+Test::InitialPrx::getExAsync(::std::function<void(::Test::ByteS)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<ByteS>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getEx, context);
 }
 
-/// \cond INTERNAL
 void
 Test::InitialPrx::_iceI_getEx(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ByteS>>& outAsync, const ::Ice::Context& context) const
 {
@@ -142,7 +128,6 @@ Test::InitialPrx::_iceI_getEx(const ::std::shared_ptr<::IceInternal::OutgoingAsy
         nullptr,
         nullptr);
 }
-/// \endcond
 
 void
 Test::InitialPrx::shutdown(const ::Ice::Context& context) const
@@ -157,15 +142,11 @@ Test::InitialPrx::shutdownAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::InitialPrx::shutdownAsync(::std::function<void ()> response,
-                                ::std::function<void(::std::exception_ptr)> ex,
-                                ::std::function<void(bool)> sent,
-                                const ::Ice::Context& context) const
+Test::InitialPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_shutdown, context);
 }
 
-/// \cond INTERNAL
 void
 Test::InitialPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -175,7 +156,6 @@ Test::InitialPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Test::InitialPrx::ice_staticId()

@@ -55,16 +55,11 @@ abstract::catchPrx::checkedCastAsync(::std::int32_t iceP_clone, const ::Ice::Con
 }
 
 ::std::function<void()>
-abstract::catchPrx::checkedCastAsync(::std::int32_t iceP_clone,
-                                     ::std::function<void (::std::int32_t)> response,
-                                     ::std::function<void(::std::exception_ptr)> ex,
-                                     ::std::function<void(bool)> sent,
-                                     const ::Ice::Context& context) const
+abstract::catchPrx::checkedCastAsync(::std::int32_t iceP_clone, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &abstract::catchPrx::_iceI_checkedCast, iceP_clone, context);
 }
 
-/// \cond INTERNAL
 void
 abstract::catchPrx::_iceI_checkedCast(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_clone, const ::Ice::Context& context) const
 {
@@ -78,7 +73,6 @@ abstract::catchPrx::_iceI_checkedCast(const ::std::shared_ptr<::IceInternal::Out
         },
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 abstract::catchPrx::ice_staticId()
@@ -100,15 +94,11 @@ abstract::defaultPrx::doAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-abstract::defaultPrx::doAsync(::std::function<void ()> response,
-                              ::std::function<void(::std::exception_ptr)> ex,
-                              ::std::function<void(bool)> sent,
-                              const ::Ice::Context& context) const
+abstract::defaultPrx::doAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &abstract::defaultPrx::_iceI_do, context);
 }
 
-/// \cond INTERNAL
 void
 abstract::defaultPrx::_iceI_do(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -118,7 +108,6 @@ abstract::defaultPrx::_iceI_do(const ::std::shared_ptr<::IceInternal::OutgoingAs
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 abstract::defaultPrx::ice_staticId()
@@ -147,16 +136,11 @@ abstract::newPrx::notifyAsync(const _cpp_break& iceP_notifyAll, const ::std::sha
 }
 
 ::std::function<void()>
-abstract::newPrx::notifyAsync(const _cpp_break& iceP_notifyAll, const ::std::shared_ptr<_cpp_else>& iceP_null, const ::std::optional<finalizePrx>& iceP_package, const ::std::optional<catchPrx>& iceP_public, const ::std::optional<defaultPrx>& iceP_return, ::std::int32_t iceP_static, ::std::int32_t iceP_strictfp, ::std::int32_t iceP_super,
-                              ::std::function<void (::abstract::assert)> response,
-                              ::std::function<void(::std::exception_ptr)> ex,
-                              ::std::function<void(bool)> sent,
-                              const ::Ice::Context& context) const
+abstract::newPrx::notifyAsync(const _cpp_break& iceP_notifyAll, const ::std::shared_ptr<_cpp_else>& iceP_null, const ::std::optional<finalizePrx>& iceP_package, const ::std::optional<catchPrx>& iceP_public, const ::std::optional<defaultPrx>& iceP_return, ::std::int32_t iceP_static, ::std::int32_t iceP_strictfp, ::std::int32_t iceP_super, ::std::function<void(::abstract::assert)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<assert>(std::move(response), std::move(ex), std::move(sent), this, &abstract::newPrx::_iceI_notify, iceP_notifyAll, iceP_null, iceP_package, iceP_public, iceP_return, iceP_static, iceP_strictfp, iceP_super, context);
 }
 
-/// \cond INTERNAL
 void
 abstract::newPrx::_iceI_notify(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<assert>>& outAsync, const _cpp_break& iceP_notifyAll, const ::std::shared_ptr<_cpp_else>& iceP_null, const ::std::optional<finalizePrx>& iceP_package, const ::std::optional<catchPrx>& iceP_public, const ::std::optional<defaultPrx>& iceP_return, ::std::int32_t iceP_static, ::std::int32_t iceP_strictfp, ::std::int32_t iceP_super, const ::Ice::Context& context) const
 {
@@ -188,7 +172,6 @@ abstract::newPrx::_iceI_notify(const ::std::shared_ptr<::IceInternal::OutgoingAs
             }
         });
 }
-/// \endcond
 
 ::std::string_view
 abstract::newPrx::ice_staticId()

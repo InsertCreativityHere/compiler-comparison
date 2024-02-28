@@ -56,15 +56,11 @@ Test::APrx::callAAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::APrx::callAAsync(::std::function<void (::std::string)> response,
-                       ::std::function<void(::std::exception_ptr)> ex,
-                       ::std::function<void(bool)> sent,
-                       const ::Ice::Context& context) const
+Test::APrx::callAAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::APrx::_iceI_callA, context);
 }
 
-/// \cond INTERNAL
 void
 Test::APrx::_iceI_callA(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
@@ -75,7 +71,6 @@ Test::APrx::_iceI_callA(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Test::APrx::ice_staticId()
@@ -97,15 +92,11 @@ Test::BPrx::callBAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::BPrx::callBAsync(::std::function<void (::std::string)> response,
-                       ::std::function<void(::std::exception_ptr)> ex,
-                       ::std::function<void(bool)> sent,
-                       const ::Ice::Context& context) const
+Test::BPrx::callBAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::BPrx::_iceI_callB, context);
 }
 
-/// \cond INTERNAL
 void
 Test::BPrx::_iceI_callB(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
@@ -116,7 +107,6 @@ Test::BPrx::_iceI_callB(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Test::BPrx::ice_staticId()
@@ -138,15 +128,11 @@ Test::CPrx::callCAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::CPrx::callCAsync(::std::function<void (::std::string)> response,
-                       ::std::function<void(::std::exception_ptr)> ex,
-                       ::std::function<void(bool)> sent,
-                       const ::Ice::Context& context) const
+Test::CPrx::callCAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::CPrx::_iceI_callC, context);
 }
 
-/// \cond INTERNAL
 void
 Test::CPrx::_iceI_callC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
@@ -157,7 +143,6 @@ Test::CPrx::_iceI_callC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Test::CPrx::ice_staticId()
@@ -179,15 +164,11 @@ Test::DPrx::callDAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::DPrx::callDAsync(::std::function<void (::std::string)> response,
-                       ::std::function<void(::std::exception_ptr)> ex,
-                       ::std::function<void(bool)> sent,
-                       const ::Ice::Context& context) const
+Test::DPrx::callDAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::DPrx::_iceI_callD, context);
 }
 
-/// \cond INTERNAL
 void
 Test::DPrx::_iceI_callD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
@@ -198,7 +179,6 @@ Test::DPrx::_iceI_callD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Test::DPrx::ice_staticId()
@@ -220,15 +200,11 @@ Test::EPrx::callEAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::EPrx::callEAsync(::std::function<void (::std::string)> response,
-                       ::std::function<void(::std::exception_ptr)> ex,
-                       ::std::function<void(bool)> sent,
-                       const ::Ice::Context& context) const
+Test::EPrx::callEAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::EPrx::_iceI_callE, context);
 }
 
-/// \cond INTERNAL
 void
 Test::EPrx::_iceI_callE(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
@@ -239,7 +215,6 @@ Test::EPrx::_iceI_callE(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Test::EPrx::ice_staticId()
@@ -261,15 +236,11 @@ Test::FPrx::callFAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::FPrx::callFAsync(::std::function<void (::std::string)> response,
-                       ::std::function<void(::std::exception_ptr)> ex,
-                       ::std::function<void(bool)> sent,
-                       const ::Ice::Context& context) const
+Test::FPrx::callFAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::FPrx::_iceI_callF, context);
 }
 
-/// \cond INTERNAL
 void
 Test::FPrx::_iceI_callF(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
@@ -280,7 +251,6 @@ Test::FPrx::_iceI_callF(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Test::FPrx::ice_staticId()
@@ -302,15 +272,11 @@ Test::GPrx::shutdownAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::GPrx::shutdownAsync(::std::function<void ()> response,
-                          ::std::function<void(::std::exception_ptr)> ex,
-                          ::std::function<void(bool)> sent,
-                          const ::Ice::Context& context) const
+Test::GPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::GPrx::_iceI_shutdown, context);
 }
 
-/// \cond INTERNAL
 void
 Test::GPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -320,7 +286,6 @@ Test::GPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::std::string
 Test::GPrx::callG(const ::Ice::Context& context) const
@@ -335,15 +300,11 @@ Test::GPrx::callGAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::GPrx::callGAsync(::std::function<void (::std::string)> response,
-                       ::std::function<void(::std::exception_ptr)> ex,
-                       ::std::function<void(bool)> sent,
-                       const ::Ice::Context& context) const
+Test::GPrx::callGAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::GPrx::_iceI_callG, context);
 }
 
-/// \cond INTERNAL
 void
 Test::GPrx::_iceI_callG(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
@@ -354,7 +315,6 @@ Test::GPrx::_iceI_callG(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Test::GPrx::ice_staticId()
@@ -376,15 +336,11 @@ Test::HPrx::callHAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::HPrx::callHAsync(::std::function<void (::std::string)> response,
-                       ::std::function<void(::std::exception_ptr)> ex,
-                       ::std::function<void(bool)> sent,
-                       const ::Ice::Context& context) const
+Test::HPrx::callHAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::HPrx::_iceI_callH, context);
 }
 
-/// \cond INTERNAL
 void
 Test::HPrx::_iceI_callH(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
@@ -395,7 +351,6 @@ Test::HPrx::_iceI_callH(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Test::HPrx::ice_staticId()

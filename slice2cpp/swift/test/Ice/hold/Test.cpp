@@ -49,16 +49,11 @@ Test::HoldPrx::putOnHoldAsync(::std::int32_t iceP_seconds, const ::Ice::Context&
 }
 
 ::std::function<void()>
-Test::HoldPrx::putOnHoldAsync(::std::int32_t iceP_seconds,
-                              ::std::function<void ()> response,
-                              ::std::function<void(::std::exception_ptr)> ex,
-                              ::std::function<void(bool)> sent,
-                              const ::Ice::Context& context) const
+Test::HoldPrx::putOnHoldAsync(::std::int32_t iceP_seconds, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::HoldPrx::_iceI_putOnHold, iceP_seconds, context);
 }
 
-/// \cond INTERNAL
 void
 Test::HoldPrx::_iceI_putOnHold(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_seconds, const ::Ice::Context& context) const
 {
@@ -71,7 +66,6 @@ Test::HoldPrx::_iceI_putOnHold(const ::std::shared_ptr<::IceInternal::OutgoingAs
         },
         nullptr);
 }
-/// \endcond
 
 void
 Test::HoldPrx::waitForHold(const ::Ice::Context& context) const
@@ -86,15 +80,11 @@ Test::HoldPrx::waitForHoldAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::HoldPrx::waitForHoldAsync(::std::function<void ()> response,
-                                ::std::function<void(::std::exception_ptr)> ex,
-                                ::std::function<void(bool)> sent,
-                                const ::Ice::Context& context) const
+Test::HoldPrx::waitForHoldAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::HoldPrx::_iceI_waitForHold, context);
 }
 
-/// \cond INTERNAL
 void
 Test::HoldPrx::_iceI_waitForHold(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -104,7 +94,6 @@ Test::HoldPrx::_iceI_waitForHold(const ::std::shared_ptr<::IceInternal::Outgoing
         nullptr,
         nullptr);
 }
-/// \endcond
 
 void
 Test::HoldPrx::setOneway(::std::int32_t iceP_value, ::std::int32_t iceP_expected, const ::Ice::Context& context) const
@@ -119,16 +108,11 @@ Test::HoldPrx::setOnewayAsync(::std::int32_t iceP_value, ::std::int32_t iceP_exp
 }
 
 ::std::function<void()>
-Test::HoldPrx::setOnewayAsync(::std::int32_t iceP_value, ::std::int32_t iceP_expected,
-                              ::std::function<void ()> response,
-                              ::std::function<void(::std::exception_ptr)> ex,
-                              ::std::function<void(bool)> sent,
-                              const ::Ice::Context& context) const
+Test::HoldPrx::setOnewayAsync(::std::int32_t iceP_value, ::std::int32_t iceP_expected, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::HoldPrx::_iceI_setOneway, iceP_value, iceP_expected, context);
 }
 
-/// \cond INTERNAL
 void
 Test::HoldPrx::_iceI_setOneway(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_value, ::std::int32_t iceP_expected, const ::Ice::Context& context) const
 {
@@ -141,7 +125,6 @@ Test::HoldPrx::_iceI_setOneway(const ::std::shared_ptr<::IceInternal::OutgoingAs
         },
         nullptr);
 }
-/// \endcond
 
 ::std::int32_t
 Test::HoldPrx::set(::std::int32_t iceP_value, ::std::int32_t iceP_delay, const ::Ice::Context& context) const
@@ -156,16 +139,11 @@ Test::HoldPrx::setAsync(::std::int32_t iceP_value, ::std::int32_t iceP_delay, co
 }
 
 ::std::function<void()>
-Test::HoldPrx::setAsync(::std::int32_t iceP_value, ::std::int32_t iceP_delay,
-                        ::std::function<void (::std::int32_t)> response,
-                        ::std::function<void(::std::exception_ptr)> ex,
-                        ::std::function<void(bool)> sent,
-                        const ::Ice::Context& context) const
+Test::HoldPrx::setAsync(::std::int32_t iceP_value, ::std::int32_t iceP_delay, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::HoldPrx::_iceI_set, iceP_value, iceP_delay, context);
 }
 
-/// \cond INTERNAL
 void
 Test::HoldPrx::_iceI_set(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_value, ::std::int32_t iceP_delay, const ::Ice::Context& context) const
 {
@@ -179,7 +157,6 @@ Test::HoldPrx::_iceI_set(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<:
         },
         nullptr);
 }
-/// \endcond
 
 void
 Test::HoldPrx::shutdown(const ::Ice::Context& context) const
@@ -194,15 +171,11 @@ Test::HoldPrx::shutdownAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::HoldPrx::shutdownAsync(::std::function<void ()> response,
-                             ::std::function<void(::std::exception_ptr)> ex,
-                             ::std::function<void(bool)> sent,
-                             const ::Ice::Context& context) const
+Test::HoldPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::HoldPrx::_iceI_shutdown, context);
 }
 
-/// \cond INTERNAL
 void
 Test::HoldPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -212,7 +185,6 @@ Test::HoldPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsy
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Test::HoldPrx::ice_staticId()

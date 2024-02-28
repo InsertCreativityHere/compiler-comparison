@@ -53,15 +53,11 @@ Test::InitialPrx::getConcreteClassAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::InitialPrx::getConcreteClassAsync(::std::function<void (::std::shared_ptr<::Test::ConcreteClass>)> response,
-                                        ::std::function<void(::std::exception_ptr)> ex,
-                                        ::std::function<void(bool)> sent,
-                                        const ::Ice::Context& context) const
+Test::InitialPrx::getConcreteClassAsync(::std::function<void(::std::shared_ptr<::Test::ConcreteClass>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<ConcreteClass>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getConcreteClass, context);
 }
 
-/// \cond INTERNAL
 void
 Test::InitialPrx::_iceI_getConcreteClass(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<ConcreteClass>>>& outAsync, const ::Ice::Context& context) const
 {
@@ -79,7 +75,6 @@ Test::InitialPrx::_iceI_getConcreteClass(const ::std::shared_ptr<::IceInternal::
             return ret;
         });
 }
-/// \endcond
 
 void
 Test::InitialPrx::throwException(const ::Ice::Context& context) const
@@ -94,15 +89,11 @@ Test::InitialPrx::throwExceptionAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::InitialPrx::throwExceptionAsync(::std::function<void ()> response,
-                                      ::std::function<void(::std::exception_ptr)> ex,
-                                      ::std::function<void(bool)> sent,
-                                      const ::Ice::Context& context) const
+Test::InitialPrx::throwExceptionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwException, context);
 }
 
-/// \cond INTERNAL
 void
 Test::InitialPrx::_iceI_throwException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -126,7 +117,6 @@ Test::InitialPrx::_iceI_throwException(const ::std::shared_ptr<::IceInternal::Ou
             }
         });
 }
-/// \endcond
 
 void
 Test::InitialPrx::shutdown(const ::Ice::Context& context) const
@@ -141,15 +131,11 @@ Test::InitialPrx::shutdownAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::InitialPrx::shutdownAsync(::std::function<void ()> response,
-                                ::std::function<void(::std::exception_ptr)> ex,
-                                ::std::function<void(bool)> sent,
-                                const ::Ice::Context& context) const
+Test::InitialPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_shutdown, context);
 }
 
-/// \cond INTERNAL
 void
 Test::InitialPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -159,7 +145,6 @@ Test::InitialPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Test::InitialPrx::ice_staticId()

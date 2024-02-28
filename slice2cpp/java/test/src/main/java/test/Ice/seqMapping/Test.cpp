@@ -53,15 +53,11 @@ Test::MyClassPrx::shutdownAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::MyClassPrx::shutdownAsync(::std::function<void ()> response,
-                                ::std::function<void(::std::exception_ptr)> ex,
-                                ::std::function<void(bool)> sent,
-                                const ::Ice::Context& context) const
+Test::MyClassPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_shutdown, context);
 }
 
-/// \cond INTERNAL
 void
 Test::MyClassPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -71,14 +67,13 @@ Test::MyClassPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::Test::SerialSmall
 Test::MyClassPrx::opSerialSmallJava(const SerialSmall& iceP_i, SerialSmall& iceP_o, const ::Ice::Context& context) const
 {
-    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<SerialSmall, SerialSmall>>(true, this, &MyClassPrx::_iceI_opSerialSmallJava, iceP_i, context).get();
-    iceP_o = ::std::move(::std::get<1>(_result));
-    return ::std::move(::std::get<0>(_result));
+    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<SerialSmall, SerialSmall>>(true, this, &MyClassPrx::_iceI_opSerialSmallJava, iceP_i, context).get();
+    iceP_o = ::std::move(::std::get<1>(result));
+    return ::std::move(::std::get<0>(result));
 }
 
 ::std::future<::std::tuple<::Test::SerialSmall, ::Test::SerialSmall>>
@@ -88,20 +83,15 @@ Test::MyClassPrx::opSerialSmallJavaAsync(const SerialSmall& iceP_i, const ::Ice:
 }
 
 ::std::function<void()>
-Test::MyClassPrx::opSerialSmallJavaAsync(const SerialSmall& iceP_i,
-                                         ::std::function<void (::Test::SerialSmall, ::Test::SerialSmall)> response,
-                                         ::std::function<void(::std::exception_ptr)> ex,
-                                         ::std::function<void(bool)> sent,
-                                         const ::Ice::Context& context) const
+Test::MyClassPrx::opSerialSmallJavaAsync(const SerialSmall& iceP_i, ::std::function<void(::Test::SerialSmall, ::Test::SerialSmall)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto _responseCb = [_response = ::std::move(response)](::std::tuple<SerialSmall, SerialSmall>&& _result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<SerialSmall, SerialSmall>&& result)
     {
-        ::std::apply(::std::move(_response), ::std::move(_result));
+        ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<SerialSmall, SerialSmall>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSerialSmallJava, iceP_i, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<SerialSmall, SerialSmall>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSerialSmallJava, iceP_i, context);
 }
 
-/// \cond INTERNAL
 void
 Test::MyClassPrx::_iceI_opSerialSmallJava(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SerialSmall, SerialSmall>>>& outAsync, const SerialSmall& iceP_i, const ::Ice::Context& context) const
 {
@@ -121,14 +111,13 @@ Test::MyClassPrx::_iceI_opSerialSmallJava(const ::std::shared_ptr<::IceInternal:
             return v;
         });
 }
-/// \endcond
 
 ::Test::SerialLarge
 Test::MyClassPrx::opSerialLargeJava(const SerialLarge& iceP_i, SerialLarge& iceP_o, const ::Ice::Context& context) const
 {
-    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<SerialLarge, SerialLarge>>(true, this, &MyClassPrx::_iceI_opSerialLargeJava, iceP_i, context).get();
-    iceP_o = ::std::move(::std::get<1>(_result));
-    return ::std::move(::std::get<0>(_result));
+    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<SerialLarge, SerialLarge>>(true, this, &MyClassPrx::_iceI_opSerialLargeJava, iceP_i, context).get();
+    iceP_o = ::std::move(::std::get<1>(result));
+    return ::std::move(::std::get<0>(result));
 }
 
 ::std::future<::std::tuple<::Test::SerialLarge, ::Test::SerialLarge>>
@@ -138,20 +127,15 @@ Test::MyClassPrx::opSerialLargeJavaAsync(const SerialLarge& iceP_i, const ::Ice:
 }
 
 ::std::function<void()>
-Test::MyClassPrx::opSerialLargeJavaAsync(const SerialLarge& iceP_i,
-                                         ::std::function<void (::Test::SerialLarge, ::Test::SerialLarge)> response,
-                                         ::std::function<void(::std::exception_ptr)> ex,
-                                         ::std::function<void(bool)> sent,
-                                         const ::Ice::Context& context) const
+Test::MyClassPrx::opSerialLargeJavaAsync(const SerialLarge& iceP_i, ::std::function<void(::Test::SerialLarge, ::Test::SerialLarge)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto _responseCb = [_response = ::std::move(response)](::std::tuple<SerialLarge, SerialLarge>&& _result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<SerialLarge, SerialLarge>&& result)
     {
-        ::std::apply(::std::move(_response), ::std::move(_result));
+        ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<SerialLarge, SerialLarge>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSerialLargeJava, iceP_i, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<SerialLarge, SerialLarge>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSerialLargeJava, iceP_i, context);
 }
 
-/// \cond INTERNAL
 void
 Test::MyClassPrx::_iceI_opSerialLargeJava(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SerialLarge, SerialLarge>>>& outAsync, const SerialLarge& iceP_i, const ::Ice::Context& context) const
 {
@@ -171,14 +155,13 @@ Test::MyClassPrx::_iceI_opSerialLargeJava(const ::std::shared_ptr<::IceInternal:
             return v;
         });
 }
-/// \endcond
 
 ::Test::SerialStruct
 Test::MyClassPrx::opSerialStructJava(const SerialStruct& iceP_i, SerialStruct& iceP_o, const ::Ice::Context& context) const
 {
-    auto _result = ::IceInternal::makePromiseOutgoing<::std::tuple<SerialStruct, SerialStruct>>(true, this, &MyClassPrx::_iceI_opSerialStructJava, iceP_i, context).get();
-    iceP_o = ::std::move(::std::get<1>(_result));
-    return ::std::move(::std::get<0>(_result));
+    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<SerialStruct, SerialStruct>>(true, this, &MyClassPrx::_iceI_opSerialStructJava, iceP_i, context).get();
+    iceP_o = ::std::move(::std::get<1>(result));
+    return ::std::move(::std::get<0>(result));
 }
 
 ::std::future<::std::tuple<::Test::SerialStruct, ::Test::SerialStruct>>
@@ -188,20 +171,15 @@ Test::MyClassPrx::opSerialStructJavaAsync(const SerialStruct& iceP_i, const ::Ic
 }
 
 ::std::function<void()>
-Test::MyClassPrx::opSerialStructJavaAsync(const SerialStruct& iceP_i,
-                                          ::std::function<void (::Test::SerialStruct, ::Test::SerialStruct)> response,
-                                          ::std::function<void(::std::exception_ptr)> ex,
-                                          ::std::function<void(bool)> sent,
-                                          const ::Ice::Context& context) const
+Test::MyClassPrx::opSerialStructJavaAsync(const SerialStruct& iceP_i, ::std::function<void(::Test::SerialStruct, ::Test::SerialStruct)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto _responseCb = [_response = ::std::move(response)](::std::tuple<SerialStruct, SerialStruct>&& _result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<SerialStruct, SerialStruct>&& result)
     {
-        ::std::apply(::std::move(_response), ::std::move(_result));
+        ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<SerialStruct, SerialStruct>>(std::move(_responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSerialStructJava, iceP_i, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<SerialStruct, SerialStruct>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSerialStructJava, iceP_i, context);
 }
 
-/// \cond INTERNAL
 void
 Test::MyClassPrx::_iceI_opSerialStructJava(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SerialStruct, SerialStruct>>>& outAsync, const SerialStruct& iceP_i, const ::Ice::Context& context) const
 {
@@ -221,7 +199,6 @@ Test::MyClassPrx::_iceI_opSerialStructJava(const ::std::shared_ptr<::IceInternal
             return v;
         });
 }
-/// \endcond
 
 ::std::string_view
 Test::MyClassPrx::ice_staticId()

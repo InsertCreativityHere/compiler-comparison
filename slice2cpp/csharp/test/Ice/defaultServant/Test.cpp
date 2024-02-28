@@ -49,15 +49,11 @@ Test::MyObjectPrx::getNameAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::MyObjectPrx::getNameAsync(::std::function<void (::std::string)> response,
-                                ::std::function<void(::std::exception_ptr)> ex,
-                                ::std::function<void(bool)> sent,
-                                const ::Ice::Context& context) const
+Test::MyObjectPrx::getNameAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_getName, context);
 }
 
-/// \cond INTERNAL
 void
 Test::MyObjectPrx::_iceI_getName(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::Ice::Context& context) const
 {
@@ -68,7 +64,6 @@ Test::MyObjectPrx::_iceI_getName(const ::std::shared_ptr<::IceInternal::Outgoing
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Test::MyObjectPrx::ice_staticId()

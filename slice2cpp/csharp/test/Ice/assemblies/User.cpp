@@ -51,16 +51,11 @@ User::RegistryPrx::getUserInfoAsync(::std::string_view iceP_id, const ::Ice::Con
 }
 
 ::std::function<void()>
-User::RegistryPrx::getUserInfoAsync(::std::string_view iceP_id,
-                                    ::std::function<void (::std::shared_ptr<::User::UserInfo>)> response,
-                                    ::std::function<void(::std::exception_ptr)> ex,
-                                    ::std::function<void(bool)> sent,
-                                    const ::Ice::Context& context) const
+User::RegistryPrx::getUserInfoAsync(::std::string_view iceP_id, ::std::function<void(::std::shared_ptr<::User::UserInfo>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<UserInfo>>(std::move(response), std::move(ex), std::move(sent), this, &User::RegistryPrx::_iceI_getUserInfo, iceP_id, context);
 }
 
-/// \cond INTERNAL
 void
 User::RegistryPrx::_iceI_getUserInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<UserInfo>>>& outAsync, ::std::string_view iceP_id, const ::Ice::Context& context) const
 {
@@ -94,7 +89,6 @@ User::RegistryPrx::_iceI_getUserInfo(const ::std::shared_ptr<::IceInternal::Outg
             return ret;
         });
 }
-/// \endcond
 
 ::std::string_view
 User::RegistryPrx::ice_staticId()

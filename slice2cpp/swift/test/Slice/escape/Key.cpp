@@ -55,16 +55,11 @@ _cpp_and::breakPrx::caseAsync(::std::int32_t iceP_catch, const ::Ice::Context& c
 }
 
 ::std::function<void()>
-_cpp_and::breakPrx::caseAsync(::std::int32_t iceP_catch,
-                              ::std::function<void (::std::int32_t)> response,
-                              ::std::function<void(::std::exception_ptr)> ex,
-                              ::std::function<void(bool)> sent,
-                              const ::Ice::Context& context) const
+_cpp_and::breakPrx::caseAsync(::std::int32_t iceP_catch, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &_cpp_and::breakPrx::_iceI_case, iceP_catch, context);
 }
 
-/// \cond INTERNAL
 void
 _cpp_and::breakPrx::_iceI_case(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::int32_t>>& outAsync, ::std::int32_t iceP_catch, const ::Ice::Context& context) const
 {
@@ -78,7 +73,6 @@ _cpp_and::breakPrx::_iceI_case(const ::std::shared_ptr<::IceInternal::OutgoingAs
         },
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 _cpp_and::breakPrx::ice_staticId()
@@ -100,15 +94,11 @@ _cpp_and::funcPrx::publicAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-_cpp_and::funcPrx::publicAsync(::std::function<void ()> response,
-                               ::std::function<void(::std::exception_ptr)> ex,
-                               ::std::function<void(bool)> sent,
-                               const ::Ice::Context& context) const
+_cpp_and::funcPrx::publicAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &_cpp_and::funcPrx::_iceI_public, context);
 }
 
-/// \cond INTERNAL
 void
 _cpp_and::funcPrx::_iceI_public(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -118,7 +108,6 @@ _cpp_and::funcPrx::_iceI_public(const ::std::shared_ptr<::IceInternal::OutgoingA
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 _cpp_and::funcPrx::ice_staticId()

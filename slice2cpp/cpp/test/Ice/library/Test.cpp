@@ -54,16 +54,11 @@ Test::MyInterfacePrx::opAsync(bool iceP_throwIt, const ::Ice::Context& context) 
 }
 
 ::std::function<void()>
-Test::MyInterfacePrx::opAsync(bool iceP_throwIt,
-                              ::std::function<void ()> response,
-                              ::std::function<void(::std::exception_ptr)> ex,
-                              ::std::function<void(bool)> sent,
-                              const ::Ice::Context& context) const
+Test::MyInterfacePrx::opAsync(bool iceP_throwIt, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyInterfacePrx::_iceI_op, iceP_throwIt, context);
 }
 
-/// \cond INTERNAL
 void
 Test::MyInterfacePrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, bool iceP_throwIt, const ::Ice::Context& context) const
 {
@@ -90,7 +85,6 @@ Test::MyInterfacePrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAs
             }
         });
 }
-/// \endcond
 
 ::std::string_view
 Test::MyInterfacePrx::ice_staticId()

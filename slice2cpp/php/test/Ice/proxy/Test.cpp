@@ -49,15 +49,11 @@ Test::MyClassPrx::shutdownAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::MyClassPrx::shutdownAsync(::std::function<void ()> response,
-                                ::std::function<void(::std::exception_ptr)> ex,
-                                ::std::function<void(bool)> sent,
-                                const ::Ice::Context& context) const
+Test::MyClassPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_shutdown, context);
 }
 
-/// \cond INTERNAL
 void
 Test::MyClassPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -67,7 +63,6 @@ Test::MyClassPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::Test::Context
 Test::MyClassPrx::getContext(const ::Ice::Context& context) const
@@ -82,15 +77,11 @@ Test::MyClassPrx::getContextAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::MyClassPrx::getContextAsync(::std::function<void (::Test::Context)> response,
-                                  ::std::function<void(::std::exception_ptr)> ex,
-                                  ::std::function<void(bool)> sent,
-                                  const ::Ice::Context& context) const
+Test::MyClassPrx::getContextAsync(::std::function<void(::Test::Context)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<Context>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getContext, context);
 }
 
-/// \cond INTERNAL
 void
 Test::MyClassPrx::_iceI_getContext(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<Context>>& outAsync, const ::Ice::Context& context) const
 {
@@ -101,7 +92,6 @@ Test::MyClassPrx::_iceI_getContext(const ::std::shared_ptr<::IceInternal::Outgoi
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Test::MyClassPrx::ice_staticId()
@@ -123,16 +113,11 @@ Test::MyDerivedClassPrx::echoAsync(const ::std::optional<::Ice::ObjectPrx>& iceP
 }
 
 ::std::function<void()>
-Test::MyDerivedClassPrx::echoAsync(const ::std::optional<::Ice::ObjectPrx>& iceP_obj,
-                                   ::std::function<void (::std::optional<::Ice::ObjectPrx>)> response,
-                                   ::std::function<void(::std::exception_ptr)> ex,
-                                   ::std::function<void(bool)> sent,
-                                   const ::Ice::Context& context) const
+Test::MyDerivedClassPrx::echoAsync(const ::std::optional<::Ice::ObjectPrx>& iceP_obj, ::std::function<void(::std::optional<::Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<::std::optional<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyDerivedClassPrx::_iceI_echo, iceP_obj, context);
 }
 
-/// \cond INTERNAL
 void
 Test::MyDerivedClassPrx::_iceI_echo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::Ice::ObjectPrx>>>& outAsync, const ::std::optional<::Ice::ObjectPrx>& iceP_obj, const ::Ice::Context& context) const
 {
@@ -146,7 +131,6 @@ Test::MyDerivedClassPrx::_iceI_echo(const ::std::shared_ptr<::IceInternal::Outgo
         },
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Test::MyDerivedClassPrx::ice_staticId()

@@ -49,16 +49,11 @@ Test::Initial2Prx::opClassAndUnknownOptionalAsync(const ::std::shared_ptr<A>& ic
 }
 
 ::std::function<void()>
-Test::Initial2Prx::opClassAndUnknownOptionalAsync(const ::std::shared_ptr<A>& iceP_p, const ::std::optional<::std::shared_ptr<::Ice::Value>>& iceP_o,
-                                                  ::std::function<void ()> response,
-                                                  ::std::function<void(::std::exception_ptr)> ex,
-                                                  ::std::function<void(bool)> sent,
-                                                  const ::Ice::Context& context) const
+Test::Initial2Prx::opClassAndUnknownOptionalAsync(const ::std::shared_ptr<A>& iceP_p, const ::std::optional<::std::shared_ptr<::Ice::Value>>& iceP_o, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::Initial2Prx::_iceI_opClassAndUnknownOptional, iceP_p, iceP_o, context);
 }
 
-/// \cond INTERNAL
 void
 Test::Initial2Prx::_iceI_opClassAndUnknownOptional(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<A>& iceP_p, const ::std::optional<::std::shared_ptr<::Ice::Value>>& iceP_o, const ::Ice::Context& context) const
 {
@@ -73,7 +68,6 @@ Test::Initial2Prx::_iceI_opClassAndUnknownOptional(const ::std::shared_ptr<::Ice
         },
         nullptr);
 }
-/// \endcond
 
 void
 Test::Initial2Prx::opVoid(const ::std::optional<::std::int32_t>& iceP_a, const ::std::optional<::std::string>& iceP_v, const ::Ice::Context& context) const
@@ -88,16 +82,11 @@ Test::Initial2Prx::opVoidAsync(const ::std::optional<::std::int32_t>& iceP_a, co
 }
 
 ::std::function<void()>
-Test::Initial2Prx::opVoidAsync(const ::std::optional<::std::int32_t>& iceP_a, const ::std::optional<::std::string>& iceP_v,
-                               ::std::function<void ()> response,
-                               ::std::function<void(::std::exception_ptr)> ex,
-                               ::std::function<void(bool)> sent,
-                               const ::Ice::Context& context) const
+Test::Initial2Prx::opVoidAsync(const ::std::optional<::std::int32_t>& iceP_a, const ::std::optional<::std::string>& iceP_v, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::Initial2Prx::_iceI_opVoid, iceP_a, iceP_v, context);
 }
 
-/// \cond INTERNAL
 void
 Test::Initial2Prx::_iceI_opVoid(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<::std::int32_t>& iceP_a, const ::std::optional<::std::string>& iceP_v, const ::Ice::Context& context) const
 {
@@ -110,7 +99,6 @@ Test::Initial2Prx::_iceI_opVoid(const ::std::shared_ptr<::IceInternal::OutgoingA
         },
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Test::Initial2Prx::ice_staticId()

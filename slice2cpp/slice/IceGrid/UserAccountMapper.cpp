@@ -54,16 +54,11 @@ IceGrid::UserAccountMapperPrx::getUserAccountAsync(::std::string_view iceP_user,
 }
 
 ::std::function<void()>
-IceGrid::UserAccountMapperPrx::getUserAccountAsync(::std::string_view iceP_user,
-                                                   ::std::function<void (::std::string)> response,
-                                                   ::std::function<void(::std::exception_ptr)> ex,
-                                                   ::std::function<void(bool)> sent,
-                                                   const ::Ice::Context& context) const
+IceGrid::UserAccountMapperPrx::getUserAccountAsync(::std::string_view iceP_user, ::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::UserAccountMapperPrx::_iceI_getUserAccount, iceP_user, context);
 }
 
-/// \cond INTERNAL
 void
 IceGrid::UserAccountMapperPrx::_iceI_getUserAccount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, ::std::string_view iceP_user, const ::Ice::Context& context) const
 {
@@ -90,7 +85,6 @@ IceGrid::UserAccountMapperPrx::_iceI_getUserAccount(const ::std::shared_ptr<::Ic
             }
         });
 }
-/// \endcond
 
 ::std::string_view
 IceGrid::UserAccountMapperPrx::ice_staticId()

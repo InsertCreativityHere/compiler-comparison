@@ -49,16 +49,11 @@ Test::TestIntfPrx::sleepAsync(::std::int32_t iceP_seconds, const ::Ice::Context&
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::sleepAsync(::std::int32_t iceP_seconds,
-                              ::std::function<void ()> response,
-                              ::std::function<void(::std::exception_ptr)> ex,
-                              ::std::function<void(bool)> sent,
-                              const ::Ice::Context& context) const
+Test::TestIntfPrx::sleepAsync(::std::int32_t iceP_seconds, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_sleep, iceP_seconds, context);
 }
 
-/// \cond INTERNAL
 void
 Test::TestIntfPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_seconds, const ::Ice::Context& context) const
 {
@@ -71,7 +66,6 @@ Test::TestIntfPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAs
         },
         nullptr);
 }
-/// \endcond
 
 void
 Test::TestIntfPrx::sleepAndHold(::std::int32_t iceP_seconds, const ::Ice::Context& context) const
@@ -86,16 +80,11 @@ Test::TestIntfPrx::sleepAndHoldAsync(::std::int32_t iceP_seconds, const ::Ice::C
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::sleepAndHoldAsync(::std::int32_t iceP_seconds,
-                                     ::std::function<void ()> response,
-                                     ::std::function<void(::std::exception_ptr)> ex,
-                                     ::std::function<void(bool)> sent,
-                                     const ::Ice::Context& context) const
+Test::TestIntfPrx::sleepAndHoldAsync(::std::int32_t iceP_seconds, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_sleepAndHold, iceP_seconds, context);
 }
 
-/// \cond INTERNAL
 void
 Test::TestIntfPrx::_iceI_sleepAndHold(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_seconds, const ::Ice::Context& context) const
 {
@@ -108,7 +97,6 @@ Test::TestIntfPrx::_iceI_sleepAndHold(const ::std::shared_ptr<::IceInternal::Out
         },
         nullptr);
 }
-/// \endcond
 
 void
 Test::TestIntfPrx::interruptSleep(const ::Ice::Context& context) const
@@ -123,15 +111,11 @@ Test::TestIntfPrx::interruptSleepAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::interruptSleepAsync(::std::function<void ()> response,
-                                       ::std::function<void(::std::exception_ptr)> ex,
-                                       ::std::function<void(bool)> sent,
-                                       const ::Ice::Context& context) const
+Test::TestIntfPrx::interruptSleepAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_interruptSleep, context);
 }
 
-/// \cond INTERNAL
 void
 Test::TestIntfPrx::_iceI_interruptSleep(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -141,7 +125,6 @@ Test::TestIntfPrx::_iceI_interruptSleep(const ::std::shared_ptr<::IceInternal::O
         nullptr,
         nullptr);
 }
-/// \endcond
 
 void
 Test::TestIntfPrx::startHeartbeatCount(const ::Ice::Context& context) const
@@ -156,15 +139,11 @@ Test::TestIntfPrx::startHeartbeatCountAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::startHeartbeatCountAsync(::std::function<void ()> response,
-                                            ::std::function<void(::std::exception_ptr)> ex,
-                                            ::std::function<void(bool)> sent,
-                                            const ::Ice::Context& context) const
+Test::TestIntfPrx::startHeartbeatCountAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_startHeartbeatCount, context);
 }
 
-/// \cond INTERNAL
 void
 Test::TestIntfPrx::_iceI_startHeartbeatCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -174,7 +153,6 @@ Test::TestIntfPrx::_iceI_startHeartbeatCount(const ::std::shared_ptr<::IceIntern
         nullptr,
         nullptr);
 }
-/// \endcond
 
 void
 Test::TestIntfPrx::waitForHeartbeatCount(::std::int32_t iceP_count, const ::Ice::Context& context) const
@@ -189,16 +167,11 @@ Test::TestIntfPrx::waitForHeartbeatCountAsync(::std::int32_t iceP_count, const :
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::waitForHeartbeatCountAsync(::std::int32_t iceP_count,
-                                              ::std::function<void ()> response,
-                                              ::std::function<void(::std::exception_ptr)> ex,
-                                              ::std::function<void(bool)> sent,
-                                              const ::Ice::Context& context) const
+Test::TestIntfPrx::waitForHeartbeatCountAsync(::std::int32_t iceP_count, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_waitForHeartbeatCount, iceP_count, context);
 }
 
-/// \cond INTERNAL
 void
 Test::TestIntfPrx::_iceI_waitForHeartbeatCount(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::int32_t iceP_count, const ::Ice::Context& context) const
 {
@@ -211,7 +184,6 @@ Test::TestIntfPrx::_iceI_waitForHeartbeatCount(const ::std::shared_ptr<::IceInte
         },
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Test::TestIntfPrx::ice_staticId()
@@ -233,15 +205,11 @@ Test::RemoteObjectAdapterPrx::getTestIntfAsync(const ::Ice::Context& context) co
 }
 
 ::std::function<void()>
-Test::RemoteObjectAdapterPrx::getTestIntfAsync(::std::function<void (::std::optional<::Test::TestIntfPrx>)> response,
-                                               ::std::function<void(::std::exception_ptr)> ex,
-                                               ::std::function<void(bool)> sent,
-                                               const ::Ice::Context& context) const
+Test::RemoteObjectAdapterPrx::getTestIntfAsync(::std::function<void(::std::optional<::Test::TestIntfPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<::std::optional<TestIntfPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteObjectAdapterPrx::_iceI_getTestIntf, context);
 }
 
-/// \cond INTERNAL
 void
 Test::RemoteObjectAdapterPrx::_iceI_getTestIntf(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<TestIntfPrx>>>& outAsync, const ::Ice::Context& context) const
 {
@@ -252,7 +220,6 @@ Test::RemoteObjectAdapterPrx::_iceI_getTestIntf(const ::std::shared_ptr<::IceInt
         nullptr,
         nullptr);
 }
-/// \endcond
 
 void
 Test::RemoteObjectAdapterPrx::activate(const ::Ice::Context& context) const
@@ -267,15 +234,11 @@ Test::RemoteObjectAdapterPrx::activateAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::RemoteObjectAdapterPrx::activateAsync(::std::function<void ()> response,
-                                            ::std::function<void(::std::exception_ptr)> ex,
-                                            ::std::function<void(bool)> sent,
-                                            const ::Ice::Context& context) const
+Test::RemoteObjectAdapterPrx::activateAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteObjectAdapterPrx::_iceI_activate, context);
 }
 
-/// \cond INTERNAL
 void
 Test::RemoteObjectAdapterPrx::_iceI_activate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -285,7 +248,6 @@ Test::RemoteObjectAdapterPrx::_iceI_activate(const ::std::shared_ptr<::IceIntern
         nullptr,
         nullptr);
 }
-/// \endcond
 
 void
 Test::RemoteObjectAdapterPrx::hold(const ::Ice::Context& context) const
@@ -300,15 +262,11 @@ Test::RemoteObjectAdapterPrx::holdAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::RemoteObjectAdapterPrx::holdAsync(::std::function<void ()> response,
-                                        ::std::function<void(::std::exception_ptr)> ex,
-                                        ::std::function<void(bool)> sent,
-                                        const ::Ice::Context& context) const
+Test::RemoteObjectAdapterPrx::holdAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteObjectAdapterPrx::_iceI_hold, context);
 }
 
-/// \cond INTERNAL
 void
 Test::RemoteObjectAdapterPrx::_iceI_hold(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -318,7 +276,6 @@ Test::RemoteObjectAdapterPrx::_iceI_hold(const ::std::shared_ptr<::IceInternal::
         nullptr,
         nullptr);
 }
-/// \endcond
 
 void
 Test::RemoteObjectAdapterPrx::deactivate(const ::Ice::Context& context) const
@@ -333,15 +290,11 @@ Test::RemoteObjectAdapterPrx::deactivateAsync(const ::Ice::Context& context) con
 }
 
 ::std::function<void()>
-Test::RemoteObjectAdapterPrx::deactivateAsync(::std::function<void ()> response,
-                                              ::std::function<void(::std::exception_ptr)> ex,
-                                              ::std::function<void(bool)> sent,
-                                              const ::Ice::Context& context) const
+Test::RemoteObjectAdapterPrx::deactivateAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteObjectAdapterPrx::_iceI_deactivate, context);
 }
 
-/// \cond INTERNAL
 void
 Test::RemoteObjectAdapterPrx::_iceI_deactivate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -351,7 +304,6 @@ Test::RemoteObjectAdapterPrx::_iceI_deactivate(const ::std::shared_ptr<::IceInte
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Test::RemoteObjectAdapterPrx::ice_staticId()
@@ -373,16 +325,11 @@ Test::RemoteCommunicatorPrx::createObjectAdapterAsync(::std::int32_t iceP_acmTim
 }
 
 ::std::function<void()>
-Test::RemoteCommunicatorPrx::createObjectAdapterAsync(::std::int32_t iceP_acmTimeout, ::std::int32_t iceP_close, ::std::int32_t iceP_heartbeat,
-                                                      ::std::function<void (::std::optional<::Test::RemoteObjectAdapterPrx>)> response,
-                                                      ::std::function<void(::std::exception_ptr)> ex,
-                                                      ::std::function<void(bool)> sent,
-                                                      const ::Ice::Context& context) const
+Test::RemoteCommunicatorPrx::createObjectAdapterAsync(::std::int32_t iceP_acmTimeout, ::std::int32_t iceP_close, ::std::int32_t iceP_heartbeat, ::std::function<void(::std::optional<::Test::RemoteObjectAdapterPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<::std::optional<RemoteObjectAdapterPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_createObjectAdapter, iceP_acmTimeout, iceP_close, iceP_heartbeat, context);
 }
 
-/// \cond INTERNAL
 void
 Test::RemoteCommunicatorPrx::_iceI_createObjectAdapter(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<RemoteObjectAdapterPrx>>>& outAsync, ::std::int32_t iceP_acmTimeout, ::std::int32_t iceP_close, ::std::int32_t iceP_heartbeat, const ::Ice::Context& context) const
 {
@@ -396,7 +343,6 @@ Test::RemoteCommunicatorPrx::_iceI_createObjectAdapter(const ::std::shared_ptr<:
         },
         nullptr);
 }
-/// \endcond
 
 void
 Test::RemoteCommunicatorPrx::shutdown(const ::Ice::Context& context) const
@@ -411,15 +357,11 @@ Test::RemoteCommunicatorPrx::shutdownAsync(const ::Ice::Context& context) const
 }
 
 ::std::function<void()>
-Test::RemoteCommunicatorPrx::shutdownAsync(::std::function<void ()> response,
-                                           ::std::function<void(::std::exception_ptr)> ex,
-                                           ::std::function<void(bool)> sent,
-                                           const ::Ice::Context& context) const
+Test::RemoteCommunicatorPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_shutdown, context);
 }
 
-/// \cond INTERNAL
 void
 Test::RemoteCommunicatorPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
 {
@@ -429,7 +371,6 @@ Test::RemoteCommunicatorPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInterna
         nullptr,
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Test::RemoteCommunicatorPrx::ice_staticId()

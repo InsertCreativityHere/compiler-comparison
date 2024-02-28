@@ -49,16 +49,11 @@ Test::ClockPrx::tickAsync(::std::string_view iceP_time, const ::Ice::Context& co
 }
 
 ::std::function<void()>
-Test::ClockPrx::tickAsync(::std::string_view iceP_time,
-                          ::std::function<void ()> response,
-                          ::std::function<void(::std::exception_ptr)> ex,
-                          ::std::function<void(bool)> sent,
-                          const ::Ice::Context& context) const
+Test::ClockPrx::tickAsync(::std::string_view iceP_time, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ClockPrx::_iceI_tick, iceP_time, context);
 }
 
-/// \cond INTERNAL
 void
 Test::ClockPrx::_iceI_tick(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_time, const ::Ice::Context& context) const
 {
@@ -71,7 +66,6 @@ Test::ClockPrx::_iceI_tick(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT
         },
         nullptr);
 }
-/// \endcond
 
 ::std::string_view
 Test::ClockPrx::ice_staticId()
