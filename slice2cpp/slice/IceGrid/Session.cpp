@@ -102,11 +102,11 @@ IceGrid::SessionPrx::_iceI_allocateObjectById(const ::std::shared_ptr<::IceInter
             {
                 ex.ice_throw();
             }
-            catch(const AllocationException&)
+            catch(const ObjectNotRegisteredException&)
             {
                 throw;
             }
-            catch(const ObjectNotRegisteredException&)
+            catch(const AllocationException&)
             {
                 throw;
             }
@@ -196,11 +196,11 @@ IceGrid::SessionPrx::_iceI_releaseObject(const ::std::shared_ptr<::IceInternal::
             {
                 ex.ice_throw();
             }
-            catch(const AllocationException&)
+            catch(const ObjectNotRegisteredException&)
             {
                 throw;
             }
-            catch(const ObjectNotRegisteredException&)
+            catch(const AllocationException&)
             {
                 throw;
             }
