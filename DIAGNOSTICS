@@ -1,3 +1,6 @@
+/Users/austin/Code/zeroc/ice/swift/test/Ice/optional/Test.ice:238: warning: ignoring invalid metadata `cpp:view-type:Util::string_view'
+/Users/austin/Code/zeroc/ice/swift/test/Ice/optional/Test.ice:238: warning: ignoring invalid metadata `cpp:view-type:Util::string_view'
+/Users/austin/Code/zeroc/ice/swift/test/Ice/optional/Test.ice:239: warning: ignoring invalid metadata `cpp:view-type:Util::string_view'
 /Users/austin/Code/zeroc/ice/swift/test/Ice/inheritance/Test.ice:74: warning: ignoring invalid metadata `cpp:virtual'
 /Users/austin/Code/zeroc/ice/swift/test/Ice/inheritance/Test.ice:85: warning: ignoring invalid metadata `cpp:virtual'
 /Users/austin/Code/zeroc/ice/swift/test/Ice/inheritance/Test.ice:89: warning: ignoring invalid metadata `cpp:virtual'

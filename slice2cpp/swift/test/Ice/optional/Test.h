@@ -351,15 +351,15 @@ public:
     void _iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::string>, ::std::optional<::std::string>>>>&, const ::std::optional<::std::string_view>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::optional<::std::string> opCustomString(const ::std::optional<::std::Util::string_view_view>& p1, ::std::optional<::std::string>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<::std::string> opCustomString(const ::std::optional<::std::string_view>& p1, ::std::optional<::std::string>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<::std::string>, ::std::optional<::std::string>>> opCustomStringAsync(const ::std::optional<::std::Util::string_view_view>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<::std::optional<::std::string>, ::std::optional<::std::string>>> opCustomStringAsync(const ::std::optional<::std::string_view>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opCustomStringAsync(const ::std::optional<::std::Util::string_view_view>& p1, ::std::function<void(::std::optional<::std::string>, ::std::optional<::std::string>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opCustomStringAsync(const ::std::optional<::std::string_view>& p1, ::std::function<void(::std::optional<::std::string>, ::std::optional<::std::string>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opCustomString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::string>, ::std::optional<::std::string>>>>&, const ::std::optional<::std::Util::string_view_view>&, const ::Ice::Context&) const;
+    void _iceI_opCustomString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::string>, ::std::optional<::std::string>>>>&, const ::std::optional<::std::string_view>&, const ::Ice::Context&) const;
     /// \endcond
 
     ::std::optional<MyEnum> opMyEnum(const ::std::optional<MyEnum>& p1, ::std::optional<MyEnum>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;

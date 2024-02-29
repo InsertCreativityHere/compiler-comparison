@@ -659,7 +659,7 @@ Test::InitialPrx::_iceI_opString(const ::std::shared_ptr<::IceInternal::Outgoing
 }
 
 ::std::optional<::std::string>
-Test::InitialPrx::opCustomString(const ::std::optional<::std::Util::string_view_view>& iceP_p1, ::std::optional<::std::string>& iceP_p3, const ::Ice::Context& context) const
+Test::InitialPrx::opCustomString(const ::std::optional<::std::string_view>& iceP_p1, ::std::optional<::std::string>& iceP_p3, const ::Ice::Context& context) const
 {
     auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<::std::string>, ::std::optional<::std::string>>>(true, this, &InitialPrx::_iceI_opCustomString, iceP_p1, context).get();
     iceP_p3 = ::std::move(::std::get<1>(result));
@@ -667,13 +667,13 @@ Test::InitialPrx::opCustomString(const ::std::optional<::std::Util::string_view_
 }
 
 ::std::future<::std::tuple<::std::optional<::std::string>, ::std::optional<::std::string>>>
-Test::InitialPrx::opCustomStringAsync(const ::std::optional<::std::Util::string_view_view>& iceP_p1, const ::Ice::Context& context) const
+Test::InitialPrx::opCustomStringAsync(const ::std::optional<::std::string_view>& iceP_p1, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<::std::string>, ::std::optional<::std::string>>>(false, this, &InitialPrx::_iceI_opCustomString, iceP_p1, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::opCustomStringAsync(const ::std::optional<::std::Util::string_view_view>& iceP_p1, ::std::function<void(::std::optional<::std::string>, ::std::optional<::std::string>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::InitialPrx::opCustomStringAsync(const ::std::optional<::std::string_view>& iceP_p1, ::std::function<void(::std::optional<::std::string>, ::std::optional<::std::string>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<::std::string>, ::std::optional<::std::string>>&& result)
     {
@@ -683,7 +683,7 @@ Test::InitialPrx::opCustomStringAsync(const ::std::optional<::std::Util::string_
 }
 
 void
-Test::InitialPrx::_iceI_opCustomString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::string>, ::std::optional<::std::string>>>>& outAsync, const ::std::optional<::std::Util::string_view_view>& iceP_p1, const ::Ice::Context& context) const
+Test::InitialPrx::_iceI_opCustomString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::string>, ::std::optional<::std::string>>>>& outAsync, const ::std::optional<::std::string_view>& iceP_p1, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "opCustomString";
 
