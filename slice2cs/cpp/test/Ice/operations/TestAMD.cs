@@ -13342,11 +13342,11 @@ namespace Test
 
         #region Inherited Slice operations
 
-        public abstract global::System.Threading.Tasks.Task shutdownAsync(global::Ice.Current current = null);
-
         public abstract global::System.Threading.Tasks.Task<bool> supportsCompressAsync(global::Ice.Current current = null);
 
         public abstract global::System.Threading.Tasks.Task opVoidAsync(global::Ice.Current current = null);
+
+        public abstract global::System.Threading.Tasks.Task shutdownAsync(global::Ice.Current current = null);
 
         public abstract global::System.Threading.Tasks.Task<MyClass_OpByteResult> opByteAsync(byte p1, byte p2, global::Ice.Current current = null);
 

@@ -17352,8 +17352,6 @@ namespace Test
 
         #region Inherited Slice operations
 
-        public abstract void shutdown(global::Ice.Current current = null);
-
         public abstract bool supportsCompress(global::Ice.Current current = null);
 
         public abstract void opVoid(global::Ice.Current current = null);
@@ -17395,6 +17393,8 @@ namespace Test
         public abstract string[][] opStringSS(string[][] p1, string[][] p2, out string[][] p3, global::Ice.Current current = null);
 
         public abstract string[][][] opStringSSS(string[][][] p1, string[][][] p2, out string[][][] p3, global::Ice.Current current = null);
+
+        public abstract void shutdown(global::Ice.Current current = null);
 
         public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD(global::System.Collections.Generic.Dictionary<byte, bool> p1, global::System.Collections.Generic.Dictionary<byte, bool> p2, out global::System.Collections.Generic.Dictionary<byte, bool> p3, global::Ice.Current current = null);
 
@@ -18170,8 +18170,6 @@ namespace Test2
     {
         #region Inherited Slice operations
 
-        public abstract void shutdown(global::Ice.Current current = null);
-
         public abstract bool supportsCompress(global::Ice.Current current = null);
 
         public abstract void opVoid(global::Ice.Current current = null);
@@ -18213,6 +18211,8 @@ namespace Test2
         public abstract string[][] opStringSS(string[][] p1, string[][] p2, out string[][] p3, global::Ice.Current current = null);
 
         public abstract string[][][] opStringSSS(string[][][] p1, string[][][] p2, out string[][][] p3, global::Ice.Current current = null);
+
+        public abstract void shutdown(global::Ice.Current current = null);
 
         public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD(global::System.Collections.Generic.Dictionary<byte, bool> p1, global::System.Collections.Generic.Dictionary<byte, bool> p2, out global::System.Collections.Generic.Dictionary<byte, bool> p3, global::Ice.Current current = null);
 
