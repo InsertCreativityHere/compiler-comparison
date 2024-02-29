@@ -277,26 +277,26 @@ class optionalParamsPrx : public ::Ice::Proxy<optionalParamsPrx, ::Ice::ObjectPr
 {
 public:
 
-    ::std::optional<_cpp_break> _cpp_for(const ::std::optional<as>& _cpp_goto, const ::std::optional<explicitPrx>& _cpp_if, const ::std::optional<_cpp_while>& internal, const ::std::optional<::std::string>& _cpp_namespace, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<_cpp_break> _cpp_for(const ::std::optional<as>& _cpp_goto, const ::std::optional<explicitPrx>& _cpp_if, const ::std::optional<_cpp_while>& internal, const ::std::optional<::std::string_view>& _cpp_namespace, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::optional<_cpp_break>> forAsync(const ::std::optional<as>& _cpp_goto, const ::std::optional<explicitPrx>& _cpp_if, const ::std::optional<_cpp_while>& internal, const ::std::optional<::std::string>& _cpp_namespace, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::optional<_cpp_break>> forAsync(const ::std::optional<as>& _cpp_goto, const ::std::optional<explicitPrx>& _cpp_if, const ::std::optional<_cpp_while>& internal, const ::std::optional<::std::string_view>& _cpp_namespace, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    forAsync(const ::std::optional<as>& _cpp_goto, const ::std::optional<explicitPrx>& _cpp_if, const ::std::optional<_cpp_while>& internal, const ::std::optional<::std::string>& _cpp_namespace, ::std::function<void(::std::optional<::abstract::_cpp_break>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    forAsync(const ::std::optional<as>& _cpp_goto, const ::std::optional<explicitPrx>& _cpp_if, const ::std::optional<_cpp_while>& internal, const ::std::optional<::std::string_view>& _cpp_namespace, ::std::function<void(::std::optional<::abstract::_cpp_break>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_for(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<_cpp_break>>>&, const ::std::optional<as>&, const ::std::optional<explicitPrx>&, const ::std::optional<_cpp_while>&, const ::std::optional<::std::string>&, const ::Ice::Context&) const;
+    void _iceI_for(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<_cpp_break>>>&, const ::std::optional<as>&, const ::std::optional<explicitPrx>&, const ::std::optional<_cpp_while>&, const ::std::optional<::std::string_view>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::optional<_cpp_break> _cpp_continue(const ::std::optional<as>& _cpp_goto, const ::std::optional<explicitPrx>& _cpp_if, const ::std::optional<_cpp_while>& internal, const ::std::optional<::std::string>& _cpp_namespace, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<_cpp_break> _cpp_continue(const ::std::optional<as>& _cpp_goto, const ::std::optional<explicitPrx>& _cpp_if, const ::std::optional<_cpp_while>& internal, const ::std::optional<::std::string_view>& _cpp_namespace, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::optional<_cpp_break>> continueAsync(const ::std::optional<as>& _cpp_goto, const ::std::optional<explicitPrx>& _cpp_if, const ::std::optional<_cpp_while>& internal, const ::std::optional<::std::string>& _cpp_namespace, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::optional<_cpp_break>> continueAsync(const ::std::optional<as>& _cpp_goto, const ::std::optional<explicitPrx>& _cpp_if, const ::std::optional<_cpp_while>& internal, const ::std::optional<::std::string_view>& _cpp_namespace, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    continueAsync(const ::std::optional<as>& _cpp_goto, const ::std::optional<explicitPrx>& _cpp_if, const ::std::optional<_cpp_while>& internal, const ::std::optional<::std::string>& _cpp_namespace, ::std::function<void(::std::optional<::abstract::_cpp_break>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    continueAsync(const ::std::optional<as>& _cpp_goto, const ::std::optional<explicitPrx>& _cpp_if, const ::std::optional<_cpp_while>& internal, const ::std::optional<::std::string_view>& _cpp_namespace, ::std::function<void(::std::optional<::abstract::_cpp_break>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_continue(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<_cpp_break>>>&, const ::std::optional<as>&, const ::std::optional<explicitPrx>&, const ::std::optional<_cpp_while>&, const ::std::optional<::std::string>&, const ::Ice::Context&) const;
+    void _iceI_continue(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<_cpp_break>>>&, const ::std::optional<as>&, const ::std::optional<explicitPrx>&, const ::std::optional<_cpp_while>&, const ::std::optional<::std::string_view>&, const ::Ice::Context&) const;
     /// \endcond
 
     ::std::optional<_cpp_break> in(::std::optional<as>& _cpp_goto, ::std::optional<explicitPrx>& _cpp_if, ::std::optional<_cpp_while>& internal, ::std::optional<::std::string>& _cpp_namespace, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -650,7 +650,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    optionalMembers(const ::std::optional<::abstract::_cpp_break>& _cpp_for, const ::std::optional<::abstract::as>& _cpp_goto, const ::std::optional<::abstract::explicitPrx>& _cpp_if, const ::std::optional<::abstract::_cpp_while>& internal, const ::std::optional<::std::string>& _cpp_namespace) :
+    optionalMembers(const ::std::optional<::abstract::_cpp_break>& _cpp_for, const ::std::optional<::abstract::as>& _cpp_goto, const ::std::optional<::abstract::explicitPrx>& _cpp_if, const ::std::optional<::abstract::_cpp_while>& internal, const ::std::optional<::std::string_view>& _cpp_namespace) :
         _cpp_for(_cpp_for),
         _cpp_goto(_cpp_goto),
         _cpp_if(_cpp_if),
@@ -983,7 +983,7 @@ public:
     bool _iceD_in(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void foreachAsync(::std::function<void(const ::std::optional<_cpp_break>& returnValue, const ::std::optional<as>& _cpp_goto, const ::std::optional<explicitPrx>& _cpp_if, const ::std::optional<_cpp_while>& internal, const ::std::optional<::std::string>& _cpp_namespace)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void foreachAsync(::std::function<void(const ::std::optional<_cpp_break>& returnValue, const ::std::optional<as>& _cpp_goto, const ::std::optional<explicitPrx>& _cpp_if, const ::std::optional<_cpp_while>& internal, const ::std::optional<::std::string_view>& _cpp_namespace)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_foreach(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond

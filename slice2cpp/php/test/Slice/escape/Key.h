@@ -323,15 +323,15 @@ class forPrx : public ::Ice::Proxy<forPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    array foreach(const ::std::optional<breakPrx>& _cpp_if, const ::std::shared_ptr<echo>& global, const ::std::optional<functionPrx>& include, const ::std::optional<diePrx>& _cpp_return, const ::std::optional<enddeclarePrx>& list, ::std::int32_t _cpp_new, ::std::int32_t _cpp_static, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    array foreach(const ::std::optional<breakPrx>& _cpp_if, const ::std::shared_ptr<::and::echo>& global, const ::std::optional<functionPrx>& include, const ::std::optional<diePrx>& _cpp_return, const ::std::optional<enddeclarePrx>& list, ::std::int32_t _cpp_new, ::std::int32_t _cpp_static, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<array> foreachAsync(const ::std::optional<breakPrx>& _cpp_if, const ::std::shared_ptr<echo>& global, const ::std::optional<functionPrx>& include, const ::std::optional<diePrx>& _cpp_return, const ::std::optional<enddeclarePrx>& list, ::std::int32_t _cpp_new, ::std::int32_t _cpp_static, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<array> foreachAsync(const ::std::optional<breakPrx>& _cpp_if, const ::std::shared_ptr<::and::echo>& global, const ::std::optional<functionPrx>& include, const ::std::optional<diePrx>& _cpp_return, const ::std::optional<enddeclarePrx>& list, ::std::int32_t _cpp_new, ::std::int32_t _cpp_static, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    foreachAsync(const ::std::optional<breakPrx>& _cpp_if, const ::std::shared_ptr<echo>& global, const ::std::optional<functionPrx>& include, const ::std::optional<diePrx>& _cpp_return, const ::std::optional<enddeclarePrx>& list, ::std::int32_t _cpp_new, ::std::int32_t _cpp_static, ::std::function<void(::_cpp_and::array)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    foreachAsync(const ::std::optional<breakPrx>& _cpp_if, const ::std::shared_ptr<::and::echo>& global, const ::std::optional<functionPrx>& include, const ::std::optional<diePrx>& _cpp_return, const ::std::optional<enddeclarePrx>& list, ::std::int32_t _cpp_new, ::std::int32_t _cpp_static, ::std::function<void(::_cpp_and::array)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_foreach(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<array>>&, const ::std::optional<breakPrx>&, const ::std::shared_ptr<echo>&, const ::std::optional<functionPrx>&, const ::std::optional<diePrx>&, const ::std::optional<enddeclarePrx>&, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
+    void _iceI_foreach(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<array>>&, const ::std::optional<breakPrx>&, const ::std::shared_ptr<::and::echo>&, const ::std::optional<functionPrx>&, const ::std::optional<diePrx>&, const ::std::optional<enddeclarePrx>&, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**

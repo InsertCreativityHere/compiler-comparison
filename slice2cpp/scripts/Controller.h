@@ -584,7 +584,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Config(const ::std::optional<::std::string>& protocol, const ::std::optional<bool>& mx, const ::std::optional<bool>& serialize, const ::std::optional<bool>& compress, const ::std::optional<bool>& ipv6, const ::std::optional<::Test::Common::StringSeq>& cprops, const ::std::optional<::Test::Common::StringSeq>& sprops) :
+    Config(const ::std::optional<::std::string_view>& protocol, const ::std::optional<bool>& mx, const ::std::optional<bool>& serialize, const ::std::optional<bool>& compress, const ::std::optional<bool>& ipv6, const ::std::optional<::Test::Common::StringSeq>& cprops, const ::std::optional<::Test::Common::StringSeq>& sprops) :
         protocol(protocol),
         mx(mx),
         serialize(serialize),

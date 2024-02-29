@@ -69,5 +69,5 @@ public class PatchException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -74642144793349832L;
+    public static final long serialVersionUID = -74635664295422608L;
 }

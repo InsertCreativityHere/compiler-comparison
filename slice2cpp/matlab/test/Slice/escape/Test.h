@@ -369,7 +369,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    properties(::std::int32_t _cpp_while, ::std::int32_t _cpp_delete, ::std::int32_t _cpp_if, const ::std::shared_ptr<::classdef::_cpp_break::_cpp_xor>& _cpp_catch, const ::classdef::_cpp_break::parfor& spmd, const ::classdef::_cpp_break::_cpp_switch& otherwise) :
+    properties(::std::int32_t _cpp_while, ::std::int32_t _cpp_delete, ::std::int32_t _cpp_if, const ::std::shared_ptr<::classdef::break::xor>& _cpp_catch, const ::classdef::_cpp_break::parfor& spmd, const ::classdef::_cpp_break::_cpp_switch& otherwise) :
         Ice::ValueHelper<properties, _cpp_try>(_cpp_while, _cpp_delete),
         _cpp_if(_cpp_if),
         _cpp_catch(_cpp_catch),
@@ -412,7 +412,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    persistent(::std::string_view identifier, ::std::string_view message, ::std::string_view stack, ::std::string_view cause, ::std::string_view type, const ::std::shared_ptr<logical>& end) :
+    persistent(::std::string_view identifier, ::std::string_view message, ::std::string_view stack, ::std::string_view cause, ::std::string_view type, const ::std::shared_ptr<::classdef::break::logical>& end) :
         identifier(identifier),
         message(message),
         stack(stack),
@@ -462,7 +462,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    global(::std::string_view identifier, ::std::string_view message, ::std::string_view stack, ::std::string_view cause, ::std::string_view type, const ::std::shared_ptr<logical>& end, ::std::int32_t enumeration) :
+    global(::std::string_view identifier, ::std::string_view message, ::std::string_view stack, ::std::string_view cause, ::std::string_view type, const ::std::shared_ptr<::classdef::break::logical>& end, ::std::int32_t enumeration) :
         ::Ice::UserExceptionHelper<global, persistent>(identifier, message, stack, cause, type, end),
         enumeration(enumeration)
     {

@@ -162,25 +162,25 @@ _cpp_and::enddeclarePrx::ice_staticId()
 }
 
 ::_cpp_and::array
-_cpp_and::forPrx::foreach(const ::std::optional<breakPrx>& iceP_if, const ::std::shared_ptr<echo>& iceP_global, const ::std::optional<functionPrx>& iceP_include, const ::std::optional<diePrx>& iceP_return, const ::std::optional<enddeclarePrx>& iceP_list, ::std::int32_t iceP_new, ::std::int32_t iceP_static, const ::Ice::Context& context) const
+_cpp_and::forPrx::foreach(const ::std::optional<breakPrx>& iceP_if, const ::std::shared_ptr<::and::echo>& iceP_global, const ::std::optional<functionPrx>& iceP_include, const ::std::optional<diePrx>& iceP_return, const ::std::optional<enddeclarePrx>& iceP_list, ::std::int32_t iceP_new, ::std::int32_t iceP_static, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<array>(true, this, &forPrx::_iceI_foreach, iceP_if, iceP_global, iceP_include, iceP_return, iceP_list, iceP_new, iceP_static, context).get();
 }
 
 ::std::future<::_cpp_and::array>
-_cpp_and::forPrx::foreachAsync(const ::std::optional<breakPrx>& iceP_if, const ::std::shared_ptr<echo>& iceP_global, const ::std::optional<functionPrx>& iceP_include, const ::std::optional<diePrx>& iceP_return, const ::std::optional<enddeclarePrx>& iceP_list, ::std::int32_t iceP_new, ::std::int32_t iceP_static, const ::Ice::Context& context) const
+_cpp_and::forPrx::foreachAsync(const ::std::optional<breakPrx>& iceP_if, const ::std::shared_ptr<::and::echo>& iceP_global, const ::std::optional<functionPrx>& iceP_include, const ::std::optional<diePrx>& iceP_return, const ::std::optional<enddeclarePrx>& iceP_list, ::std::int32_t iceP_new, ::std::int32_t iceP_static, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<array>(false, this, &forPrx::_iceI_foreach, iceP_if, iceP_global, iceP_include, iceP_return, iceP_list, iceP_new, iceP_static, context);
 }
 
 ::std::function<void()>
-_cpp_and::forPrx::foreachAsync(const ::std::optional<breakPrx>& iceP_if, const ::std::shared_ptr<echo>& iceP_global, const ::std::optional<functionPrx>& iceP_include, const ::std::optional<diePrx>& iceP_return, const ::std::optional<enddeclarePrx>& iceP_list, ::std::int32_t iceP_new, ::std::int32_t iceP_static, ::std::function<void(::_cpp_and::array)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+_cpp_and::forPrx::foreachAsync(const ::std::optional<breakPrx>& iceP_if, const ::std::shared_ptr<::and::echo>& iceP_global, const ::std::optional<functionPrx>& iceP_include, const ::std::optional<diePrx>& iceP_return, const ::std::optional<enddeclarePrx>& iceP_list, ::std::int32_t iceP_new, ::std::int32_t iceP_static, ::std::function<void(::_cpp_and::array)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<array>(std::move(response), std::move(ex), std::move(sent), this, &_cpp_and::forPrx::_iceI_foreach, iceP_if, iceP_global, iceP_include, iceP_return, iceP_list, iceP_new, iceP_static, context);
 }
 
 void
-_cpp_and::forPrx::_iceI_foreach(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<array>>& outAsync, const ::std::optional<breakPrx>& iceP_if, const ::std::shared_ptr<echo>& iceP_global, const ::std::optional<functionPrx>& iceP_include, const ::std::optional<diePrx>& iceP_return, const ::std::optional<enddeclarePrx>& iceP_list, ::std::int32_t iceP_new, ::std::int32_t iceP_static, const ::Ice::Context& context) const
+_cpp_and::forPrx::_iceI_foreach(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<array>>& outAsync, const ::std::optional<breakPrx>& iceP_if, const ::std::shared_ptr<::and::echo>& iceP_global, const ::std::optional<functionPrx>& iceP_include, const ::std::optional<diePrx>& iceP_return, const ::std::optional<enddeclarePrx>& iceP_list, ::std::int32_t iceP_new, ::std::int32_t iceP_static, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "foreach";
 

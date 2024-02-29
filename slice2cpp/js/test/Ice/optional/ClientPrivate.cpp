@@ -70,25 +70,25 @@ Test::Initial2Prx::_iceI_opClassAndUnknownOptional(const ::std::shared_ptr<::Ice
 }
 
 void
-Test::Initial2Prx::opVoid(const ::std::optional<::std::int32_t>& iceP_a, const ::std::optional<::std::string>& iceP_v, const ::Ice::Context& context) const
+Test::Initial2Prx::opVoid(const ::std::optional<::std::int32_t>& iceP_a, const ::std::optional<::std::string_view>& iceP_v, const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &Initial2Prx::_iceI_opVoid, iceP_a, iceP_v, context).get();
 }
 
 ::std::future<void>
-Test::Initial2Prx::opVoidAsync(const ::std::optional<::std::int32_t>& iceP_a, const ::std::optional<::std::string>& iceP_v, const ::Ice::Context& context) const
+Test::Initial2Prx::opVoidAsync(const ::std::optional<::std::int32_t>& iceP_a, const ::std::optional<::std::string_view>& iceP_v, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &Initial2Prx::_iceI_opVoid, iceP_a, iceP_v, context);
 }
 
 ::std::function<void()>
-Test::Initial2Prx::opVoidAsync(const ::std::optional<::std::int32_t>& iceP_a, const ::std::optional<::std::string>& iceP_v, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::Initial2Prx::opVoidAsync(const ::std::optional<::std::int32_t>& iceP_a, const ::std::optional<::std::string_view>& iceP_v, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::Initial2Prx::_iceI_opVoid, iceP_a, iceP_v, context);
 }
 
 void
-Test::Initial2Prx::_iceI_opVoid(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<::std::int32_t>& iceP_a, const ::std::optional<::std::string>& iceP_v, const ::Ice::Context& context) const
+Test::Initial2Prx::_iceI_opVoid(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<::std::int32_t>& iceP_a, const ::std::optional<::std::string_view>& iceP_v, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "opVoid";
 

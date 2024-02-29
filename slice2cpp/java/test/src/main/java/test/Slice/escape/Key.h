@@ -275,15 +275,15 @@ class newPrx : public ::Ice::Proxy<newPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    assert notify(const _cpp_break& notifyAll, const ::std::shared_ptr<_cpp_else>& null, const ::std::optional<finalizePrx>& package, const ::std::optional<catchPrx>& _cpp_public, const ::std::optional<defaultPrx>& _cpp_return, ::std::int32_t _cpp_static, ::std::int32_t strictfp, ::std::int32_t super, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    assert notify(const _cpp_break& notifyAll, const ::std::shared_ptr<else>& null, const ::std::optional<finalizePrx>& package, const ::std::optional<catchPrx>& _cpp_public, const ::std::optional<defaultPrx>& _cpp_return, ::std::int32_t _cpp_static, ::std::int32_t strictfp, ::std::int32_t super, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<assert> notifyAsync(const _cpp_break& notifyAll, const ::std::shared_ptr<_cpp_else>& null, const ::std::optional<finalizePrx>& package, const ::std::optional<catchPrx>& _cpp_public, const ::std::optional<defaultPrx>& _cpp_return, ::std::int32_t _cpp_static, ::std::int32_t strictfp, ::std::int32_t super, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<assert> notifyAsync(const _cpp_break& notifyAll, const ::std::shared_ptr<else>& null, const ::std::optional<finalizePrx>& package, const ::std::optional<catchPrx>& _cpp_public, const ::std::optional<defaultPrx>& _cpp_return, ::std::int32_t _cpp_static, ::std::int32_t strictfp, ::std::int32_t super, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    notifyAsync(const _cpp_break& notifyAll, const ::std::shared_ptr<_cpp_else>& null, const ::std::optional<finalizePrx>& package, const ::std::optional<catchPrx>& _cpp_public, const ::std::optional<defaultPrx>& _cpp_return, ::std::int32_t _cpp_static, ::std::int32_t strictfp, ::std::int32_t super, ::std::function<void(::abstract::assert)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    notifyAsync(const _cpp_break& notifyAll, const ::std::shared_ptr<else>& null, const ::std::optional<finalizePrx>& package, const ::std::optional<catchPrx>& _cpp_public, const ::std::optional<defaultPrx>& _cpp_return, ::std::int32_t _cpp_static, ::std::int32_t strictfp, ::std::int32_t super, ::std::function<void(::abstract::assert)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_notify(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<assert>>&, const _cpp_break&, const ::std::shared_ptr<_cpp_else>&, const ::std::optional<finalizePrx>&, const ::std::optional<catchPrx>&, const ::std::optional<defaultPrx>&, ::std::int32_t, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
+    void _iceI_notify(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<assert>>&, const _cpp_break&, const ::std::shared_ptr<else>&, const ::std::optional<finalizePrx>&, const ::std::optional<catchPrx>&, const ::std::optional<defaultPrx>&, ::std::int32_t, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**

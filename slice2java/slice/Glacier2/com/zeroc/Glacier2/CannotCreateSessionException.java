@@ -99,5 +99,5 @@ public class CannotCreateSessionException extends com.zeroc.Ice.UserException
     protected com.zeroc.Ice.SlicedData _slicedData;
 
     /** @hidden */
-    public static final long serialVersionUID = 8990438791481714651L;
+    public static final long serialVersionUID = 8990436621760140644L;
 }
