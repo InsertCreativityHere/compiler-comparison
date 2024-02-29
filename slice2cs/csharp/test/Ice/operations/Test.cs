@@ -17089,6 +17089,8 @@ namespace Ice.operations
 
             public abstract global::System.Collections.Generic.Dictionary<string, float[]> opStringFloatSD(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, out global::System.Collections.Generic.Dictionary<string, float[]> p3, global::Ice.Current current = null);
 
+            public abstract global::System.Collections.Generic.Dictionary<string, double[]> opStringDoubleSD(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, out global::System.Collections.Generic.Dictionary<string, double[]> p3, global::Ice.Current current = null);
+
             public abstract global::System.Collections.Generic.Dictionary<string, string[]> opStringStringSD(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, out global::System.Collections.Generic.Dictionary<string, string[]> p3, global::Ice.Current current = null);
 
             public abstract global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> opMyEnumMyEnumSD(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p2, out global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p3, global::Ice.Current current = null);
@@ -17119,6 +17121,10 @@ namespace Ice.operations
 
             public abstract double opDouble1(double opDouble1, global::Ice.Current current = null);
 
+            public abstract string opString1(string opString1, global::Ice.Current current = null);
+
+            public abstract string[] opStringS1(string[] opStringS1, global::Ice.Current current = null);
+
             public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::Ice.Current current = null);
 
             public abstract string[] opStringS2(string[] stringS, global::Ice.Current current = null);
@@ -17140,12 +17146,6 @@ namespace Ice.operations
             public abstract MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current = null);
 
             public abstract MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
-
-            public abstract global::System.Collections.Generic.Dictionary<string, double[]> opStringDoubleSD(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, out global::System.Collections.Generic.Dictionary<string, double[]> p3, global::Ice.Current current = null);
-
-            public abstract string opString1(string opString1, global::Ice.Current current = null);
-
-            public abstract string[] opStringS1(string[] opStringS1, global::Ice.Current current = null);
 
             #endregion
 
@@ -18154,6 +18154,8 @@ namespace Test2
 
         public abstract global::System.Collections.Generic.Dictionary<string, float[]> opStringFloatSD(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, out global::System.Collections.Generic.Dictionary<string, float[]> p3, global::Ice.Current current = null);
 
+        public abstract global::System.Collections.Generic.Dictionary<string, double[]> opStringDoubleSD(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, out global::System.Collections.Generic.Dictionary<string, double[]> p3, global::Ice.Current current = null);
+
         public abstract global::System.Collections.Generic.Dictionary<string, string[]> opStringStringSD(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, out global::System.Collections.Generic.Dictionary<string, string[]> p3, global::Ice.Current current = null);
 
         public abstract global::System.Collections.Generic.Dictionary<global::Ice.operations.Test.MyEnum, global::Ice.operations.Test.MyEnum[]> opMyEnumMyEnumSD(global::System.Collections.Generic.Dictionary<global::Ice.operations.Test.MyEnum, global::Ice.operations.Test.MyEnum[]> p1, global::System.Collections.Generic.Dictionary<global::Ice.operations.Test.MyEnum, global::Ice.operations.Test.MyEnum[]> p2, out global::System.Collections.Generic.Dictionary<global::Ice.operations.Test.MyEnum, global::Ice.operations.Test.MyEnum[]> p3, global::Ice.Current current = null);
@@ -18184,6 +18186,10 @@ namespace Test2
 
         public abstract double opDouble1(double opDouble1, global::Ice.Current current = null);
 
+        public abstract string opString1(string opString1, global::Ice.Current current = null);
+
+        public abstract string[] opStringS1(string[] opStringS1, global::Ice.Current current = null);
+
         public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1(global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD1, global::Ice.Current current = null);
 
         public abstract string[] opStringS2(string[] stringS, global::Ice.Current current = null);
@@ -18205,12 +18211,6 @@ namespace Test2
         public abstract global::Ice.operations.Test.MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current = null);
 
         public abstract global::Ice.operations.Test.MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<string, double[]> opStringDoubleSD(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, out global::System.Collections.Generic.Dictionary<string, double[]> p3, global::Ice.Current current = null);
-
-        public abstract string opString1(string opString1, global::Ice.Current current = null);
-
-        public abstract string[] opStringS1(string[] opStringS1, global::Ice.Current current = null);
 
         #endregion
 
