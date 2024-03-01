@@ -156,15 +156,15 @@ public:
     void _iceI_obj(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void op(::std::string_view context, ::std::string_view current, ::std::string_view response, ::std::string_view ex, ::std::string_view sent, ::std::string_view cookie, ::std::string_view sync, ::std::string_view result, ::std::string_view istr, ::std::string_view ostr, const ::std::optional<::std::string_view>& proxy, const ::std::optional<::std::int32_t>& obj, const ::Ice::Context& context_ = ::Ice::noExplicitContext) const;
+    void op(::std::string_view context, ::std::string_view current, ::std::string_view response, ::std::string_view ex, ::std::string_view sent, ::std::string_view cookie, ::std::string_view sync, ::std::string_view result, ::std::string_view istr, ::std::string_view ostr, ::std::optional<::std::string_view> proxy, ::std::optional<::std::int32_t> obj, const ::Ice::Context& context_ = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opAsync(::std::string_view context, ::std::string_view current, ::std::string_view response, ::std::string_view ex, ::std::string_view sent, ::std::string_view cookie, ::std::string_view sync, ::std::string_view result, ::std::string_view istr, ::std::string_view ostr, const ::std::optional<::std::string_view>& proxy, const ::std::optional<::std::int32_t>& obj, const ::Ice::Context& context_ = ::Ice::noExplicitContext) const;
+    ::std::future<void> opAsync(::std::string_view context, ::std::string_view current, ::std::string_view response, ::std::string_view ex, ::std::string_view sent, ::std::string_view cookie, ::std::string_view sync, ::std::string_view result, ::std::string_view istr, ::std::string_view ostr, ::std::optional<::std::string_view> proxy, ::std::optional<::std::int32_t> obj, const ::Ice::Context& context_ = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opAsync(::std::string_view context, ::std::string_view current, ::std::string_view response, ::std::string_view ex, ::std::string_view sent, ::std::string_view cookie, ::std::string_view sync, ::std::string_view result, ::std::string_view istr, ::std::string_view ostr, const ::std::optional<::std::string_view>& proxy, const ::std::optional<::std::int32_t>& obj, ::std::function<void()> response_, ::std::function<void(::std::exception_ptr)> ex_ = nullptr, ::std::function<void(bool)> sent_ = nullptr, const ::Ice::Context& context_ = ::Ice::noExplicitContext) const;
+    opAsync(::std::string_view context, ::std::string_view current, ::std::string_view response, ::std::string_view ex, ::std::string_view sent, ::std::string_view cookie, ::std::string_view sync, ::std::string_view result, ::std::string_view istr, ::std::string_view ostr, ::std::optional<::std::string_view> proxy, ::std::optional<::std::int32_t> obj, ::std::function<void()> response_, ::std::function<void(::std::exception_ptr)> ex_ = nullptr, ::std::function<void(bool)> sent_ = nullptr, const ::Ice::Context& context_ = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, ::std::string_view, ::std::string_view, ::std::string_view, ::std::string_view, ::std::string_view, ::std::string_view, ::std::string_view, ::std::string_view, ::std::string_view, const ::std::optional<::std::string_view>&, const ::std::optional<::std::int32_t>&, const ::Ice::Context&) const;
+    void _iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, ::std::string_view, ::std::string_view, ::std::string_view, ::std::string_view, ::std::string_view, ::std::string_view, ::std::string_view, ::std::string_view, ::std::string_view, ::std::optional<::std::string_view>, ::std::optional<::std::int32_t>, const ::Ice::Context&) const;
     /// \endcond
 
     void opOut(::std::string& context, ::std::string& current, ::std::string& response, ::std::string& ex, ::std::string& sent, ::std::string& cookie, ::std::string& sync, ::std::string& result, ::std::string& istr, ::std::string& ostr, ::std::optional<::std::string>& proxy, ::std::optional<::std::int32_t>& obj, const ::Ice::Context& context_ = ::Ice::noExplicitContext) const;
@@ -247,7 +247,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Cls(const ::std::optional<::Clash::IntfPrx>& s, ::std::string_view context, ::std::int32_t current, ::std::int16_t response, ::std::int32_t typeId, ::std::int16_t del, const ::std::optional<::std::int16_t>& cookie, ::std::string_view ex, ::std::int32_t result, ::std::string_view istr, ::std::string_view ostr, ::std::string_view inS, ::std::string_view in, ::std::string_view proxy, ::std::int32_t obj, ::std::int32_t getCookie, ::std::string_view clone) :
+    Cls(const ::std::optional<::Clash::IntfPrx>& s, ::std::string_view context, ::std::int32_t current, ::std::int16_t response, ::std::int32_t typeId, ::std::int16_t del, ::std::optional<::std::int16_t> cookie, ::std::string_view ex, ::std::int32_t result, ::std::string_view istr, ::std::string_view ostr, ::std::string_view inS, ::std::string_view in, ::std::string_view proxy, ::std::int32_t obj, ::std::int32_t getCookie, ::std::string_view clone) :
         s(s),
         context(context),
         current(current),

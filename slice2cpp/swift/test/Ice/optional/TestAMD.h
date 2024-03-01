@@ -228,136 +228,136 @@ public:
     void _iceI_pingPong(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::Value>>>&, const ::std::shared_ptr<::Ice::Value>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void opOptionalException(const ::std::optional<::std::int32_t>& a, const ::std::optional<::std::string_view>& b, const ::std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void opOptionalException(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> b, const ::std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opOptionalExceptionAsync(const ::std::optional<::std::int32_t>& a, const ::std::optional<::std::string_view>& b, const ::std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> opOptionalExceptionAsync(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> b, const ::std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opOptionalExceptionAsync(const ::std::optional<::std::int32_t>& a, const ::std::optional<::std::string_view>& b, const ::std::optional<::std::shared_ptr<OneOptional>>& o, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opOptionalExceptionAsync(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> b, const ::std::optional<::std::shared_ptr<OneOptional>>& o, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opOptionalException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::string_view>&, const ::std::optional<::std::shared_ptr<OneOptional>>&, const ::Ice::Context&) const;
+    void _iceI_opOptionalException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::optional<::std::int32_t>, ::std::optional<::std::string_view>, const ::std::optional<::std::shared_ptr<OneOptional>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void opDerivedException(const ::std::optional<::std::int32_t>& a, const ::std::optional<::std::string_view>& b, const ::std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void opDerivedException(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> b, const ::std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opDerivedExceptionAsync(const ::std::optional<::std::int32_t>& a, const ::std::optional<::std::string_view>& b, const ::std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> opDerivedExceptionAsync(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> b, const ::std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opDerivedExceptionAsync(const ::std::optional<::std::int32_t>& a, const ::std::optional<::std::string_view>& b, const ::std::optional<::std::shared_ptr<OneOptional>>& o, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opDerivedExceptionAsync(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> b, const ::std::optional<::std::shared_ptr<OneOptional>>& o, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opDerivedException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::string_view>&, const ::std::optional<::std::shared_ptr<OneOptional>>&, const ::Ice::Context&) const;
+    void _iceI_opDerivedException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::optional<::std::int32_t>, ::std::optional<::std::string_view>, const ::std::optional<::std::shared_ptr<OneOptional>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void opRequiredException(const ::std::optional<::std::int32_t>& a, const ::std::optional<::std::string_view>& b, const ::std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void opRequiredException(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> b, const ::std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opRequiredExceptionAsync(const ::std::optional<::std::int32_t>& a, const ::std::optional<::std::string_view>& b, const ::std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> opRequiredExceptionAsync(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> b, const ::std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opRequiredExceptionAsync(const ::std::optional<::std::int32_t>& a, const ::std::optional<::std::string_view>& b, const ::std::optional<::std::shared_ptr<OneOptional>>& o, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opRequiredExceptionAsync(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> b, const ::std::optional<::std::shared_ptr<OneOptional>>& o, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opRequiredException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::string_view>&, const ::std::optional<::std::shared_ptr<OneOptional>>&, const ::Ice::Context&) const;
+    void _iceI_opRequiredException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::optional<::std::int32_t>, ::std::optional<::std::string_view>, const ::std::optional<::std::shared_ptr<OneOptional>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::optional<::std::uint8_t> opByte(const ::std::optional<::std::uint8_t>& p1, ::std::optional<::std::uint8_t>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<::std::uint8_t> opByte(::std::optional<::std::uint8_t> p1, ::std::optional<::std::uint8_t>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<::std::uint8_t>, ::std::optional<::std::uint8_t>>> opByteAsync(const ::std::optional<::std::uint8_t>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<::std::optional<::std::uint8_t>, ::std::optional<::std::uint8_t>>> opByteAsync(::std::optional<::std::uint8_t> p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opByteAsync(const ::std::optional<::std::uint8_t>& p1, ::std::function<void(::std::optional<::std::uint8_t>, ::std::optional<::std::uint8_t>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opByteAsync(::std::optional<::std::uint8_t> p1, ::std::function<void(::std::optional<::std::uint8_t>, ::std::optional<::std::uint8_t>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opByte(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::uint8_t>, ::std::optional<::std::uint8_t>>>>&, const ::std::optional<::std::uint8_t>&, const ::Ice::Context&) const;
+    void _iceI_opByte(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::uint8_t>, ::std::optional<::std::uint8_t>>>>&, ::std::optional<::std::uint8_t>, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::optional<bool> opBool(const ::std::optional<bool>& p1, ::std::optional<bool>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<bool> opBool(::std::optional<bool> p1, ::std::optional<bool>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<bool>, ::std::optional<bool>>> opBoolAsync(const ::std::optional<bool>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<::std::optional<bool>, ::std::optional<bool>>> opBoolAsync(::std::optional<bool> p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opBoolAsync(const ::std::optional<bool>& p1, ::std::function<void(::std::optional<bool>, ::std::optional<bool>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opBoolAsync(::std::optional<bool> p1, ::std::function<void(::std::optional<bool>, ::std::optional<bool>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opBool(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<bool>, ::std::optional<bool>>>>&, const ::std::optional<bool>&, const ::Ice::Context&) const;
+    void _iceI_opBool(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<bool>, ::std::optional<bool>>>>&, ::std::optional<bool>, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::optional<::std::int16_t> opShort(const ::std::optional<::std::int16_t>& p1, ::std::optional<::std::int16_t>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<::std::int16_t> opShort(::std::optional<::std::int16_t> p1, ::std::optional<::std::int16_t>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<::std::int16_t>, ::std::optional<::std::int16_t>>> opShortAsync(const ::std::optional<::std::int16_t>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<::std::optional<::std::int16_t>, ::std::optional<::std::int16_t>>> opShortAsync(::std::optional<::std::int16_t> p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opShortAsync(const ::std::optional<::std::int16_t>& p1, ::std::function<void(::std::optional<::std::int16_t>, ::std::optional<::std::int16_t>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opShortAsync(::std::optional<::std::int16_t> p1, ::std::function<void(::std::optional<::std::int16_t>, ::std::optional<::std::int16_t>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opShort(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::int16_t>, ::std::optional<::std::int16_t>>>>&, const ::std::optional<::std::int16_t>&, const ::Ice::Context&) const;
+    void _iceI_opShort(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::int16_t>, ::std::optional<::std::int16_t>>>>&, ::std::optional<::std::int16_t>, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::optional<::std::int32_t> opInt(const ::std::optional<::std::int32_t>& p1, ::std::optional<::std::int32_t>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<::std::int32_t> opInt(::std::optional<::std::int32_t> p1, ::std::optional<::std::int32_t>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<::std::int32_t>, ::std::optional<::std::int32_t>>> opIntAsync(const ::std::optional<::std::int32_t>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<::std::optional<::std::int32_t>, ::std::optional<::std::int32_t>>> opIntAsync(::std::optional<::std::int32_t> p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opIntAsync(const ::std::optional<::std::int32_t>& p1, ::std::function<void(::std::optional<::std::int32_t>, ::std::optional<::std::int32_t>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opIntAsync(::std::optional<::std::int32_t> p1, ::std::function<void(::std::optional<::std::int32_t>, ::std::optional<::std::int32_t>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opInt(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::int32_t>, ::std::optional<::std::int32_t>>>>&, const ::std::optional<::std::int32_t>&, const ::Ice::Context&) const;
+    void _iceI_opInt(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::int32_t>, ::std::optional<::std::int32_t>>>>&, ::std::optional<::std::int32_t>, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::optional<::std::int64_t> opLong(const ::std::optional<::std::int64_t>& p1, ::std::optional<::std::int64_t>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<::std::int64_t> opLong(::std::optional<::std::int64_t> p1, ::std::optional<::std::int64_t>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<::std::int64_t>, ::std::optional<::std::int64_t>>> opLongAsync(const ::std::optional<::std::int64_t>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<::std::optional<::std::int64_t>, ::std::optional<::std::int64_t>>> opLongAsync(::std::optional<::std::int64_t> p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opLongAsync(const ::std::optional<::std::int64_t>& p1, ::std::function<void(::std::optional<::std::int64_t>, ::std::optional<::std::int64_t>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opLongAsync(::std::optional<::std::int64_t> p1, ::std::function<void(::std::optional<::std::int64_t>, ::std::optional<::std::int64_t>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opLong(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::int64_t>, ::std::optional<::std::int64_t>>>>&, const ::std::optional<::std::int64_t>&, const ::Ice::Context&) const;
+    void _iceI_opLong(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::int64_t>, ::std::optional<::std::int64_t>>>>&, ::std::optional<::std::int64_t>, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::optional<float> opFloat(const ::std::optional<float>& p1, ::std::optional<float>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<float> opFloat(::std::optional<float> p1, ::std::optional<float>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<float>, ::std::optional<float>>> opFloatAsync(const ::std::optional<float>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<::std::optional<float>, ::std::optional<float>>> opFloatAsync(::std::optional<float> p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opFloatAsync(const ::std::optional<float>& p1, ::std::function<void(::std::optional<float>, ::std::optional<float>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opFloatAsync(::std::optional<float> p1, ::std::function<void(::std::optional<float>, ::std::optional<float>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opFloat(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<float>, ::std::optional<float>>>>&, const ::std::optional<float>&, const ::Ice::Context&) const;
+    void _iceI_opFloat(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<float>, ::std::optional<float>>>>&, ::std::optional<float>, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::optional<double> opDouble(const ::std::optional<double>& p1, ::std::optional<double>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<double> opDouble(::std::optional<double> p1, ::std::optional<double>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<double>, ::std::optional<double>>> opDoubleAsync(const ::std::optional<double>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<::std::optional<double>, ::std::optional<double>>> opDoubleAsync(::std::optional<double> p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opDoubleAsync(const ::std::optional<double>& p1, ::std::function<void(::std::optional<double>, ::std::optional<double>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opDoubleAsync(::std::optional<double> p1, ::std::function<void(::std::optional<double>, ::std::optional<double>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opDouble(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<double>, ::std::optional<double>>>>&, const ::std::optional<double>&, const ::Ice::Context&) const;
+    void _iceI_opDouble(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<double>, ::std::optional<double>>>>&, ::std::optional<double>, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::optional<::std::string> opString(const ::std::optional<::std::string_view>& p1, ::std::optional<::std::string>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<::std::string> opString(::std::optional<::std::string_view> p1, ::std::optional<::std::string>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<::std::string>, ::std::optional<::std::string>>> opStringAsync(const ::std::optional<::std::string_view>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<::std::optional<::std::string>, ::std::optional<::std::string>>> opStringAsync(::std::optional<::std::string_view> p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opStringAsync(const ::std::optional<::std::string_view>& p1, ::std::function<void(::std::optional<::std::string>, ::std::optional<::std::string>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opStringAsync(::std::optional<::std::string_view> p1, ::std::function<void(::std::optional<::std::string>, ::std::optional<::std::string>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::string>, ::std::optional<::std::string>>>>&, const ::std::optional<::std::string_view>&, const ::Ice::Context&) const;
+    void _iceI_opString(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::string>, ::std::optional<::std::string>>>>&, ::std::optional<::std::string_view>, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::optional<MyEnum> opMyEnum(const ::std::optional<MyEnum>& p1, ::std::optional<MyEnum>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<MyEnum> opMyEnum(::std::optional<MyEnum> p1, ::std::optional<MyEnum>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<MyEnum>, ::std::optional<MyEnum>>> opMyEnumAsync(const ::std::optional<MyEnum>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<::std::optional<MyEnum>, ::std::optional<MyEnum>>> opMyEnumAsync(::std::optional<MyEnum> p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opMyEnumAsync(const ::std::optional<MyEnum>& p1, ::std::function<void(::std::optional<::Test::MyEnum>, ::std::optional<::Test::MyEnum>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opMyEnumAsync(::std::optional<MyEnum> p1, ::std::function<void(::std::optional<::Test::MyEnum>, ::std::optional<::Test::MyEnum>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opMyEnum(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<MyEnum>, ::std::optional<MyEnum>>>>&, const ::std::optional<MyEnum>&, const ::Ice::Context&) const;
+    void _iceI_opMyEnum(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<MyEnum>, ::std::optional<MyEnum>>>>&, ::std::optional<MyEnum>, const ::Ice::Context&) const;
     /// \endcond
 
     ::std::optional<SmallStruct> opSmallStruct(const ::std::optional<SmallStruct>& p1, ::std::optional<SmallStruct>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -858,7 +858,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit OneOptional(const ::std::optional<::std::int32_t>& a) :
+    explicit OneOptional(::std::optional<::std::int32_t> a) :
         a(a)
     {
     }
@@ -957,7 +957,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    MultiOptional(const ::std::optional<::std::uint8_t>& a, const ::std::optional<bool>& b, const ::std::optional<::std::int16_t>& c, const ::std::optional<::std::int32_t>& d, const ::std::optional<::std::int64_t>& e, const ::std::optional<float>& f, const ::std::optional<double>& g, const ::std::optional<::std::string_view>& h, const ::std::optional<::Test::MyEnum>& i, const ::std::optional<::Test::MyInterfacePrx>& j, const ::std::optional<::std::shared_ptr<::Test::MultiOptional>>& k, const ::std::optional<::Test::ByteSeq>& bs, const ::std::optional<::Test::StringSeq>& ss, const ::std::optional<::Test::IntIntDict>& iid, const ::std::optional<::Test::StringIntDict>& sid, const ::std::optional<::Test::FixedStruct>& fs, const ::std::optional<::Test::VarStruct>& vs, const ::std::optional<::Test::ShortSeq>& shs, const ::std::optional<::Test::MyEnumSeq>& es, const ::std::optional<::Test::FixedStructSeq>& fss, const ::std::optional<::Test::VarStructSeq>& vss, const ::std::optional<::Test::OneOptionalSeq>& oos, const ::std::optional<::Test::MyInterfacePrxSeq>& mips, const ::std::optional<::Test::IntEnumDict>& ied, const ::std::optional<::Test::IntFixedStructDict>& ifsd, const ::std::optional<::Test::IntVarStructDict>& ivsd, const ::std::optional<::Test::IntOneOptionalDict>& iood, const ::std::optional<::Test::IntMyInterfacePrxDict>& imipd, const ::std::optional<::Test::BoolSeq>& bos, const ::std::optional<::Test::Serializable>& ser) :
+    MultiOptional(::std::optional<::std::uint8_t> a, ::std::optional<bool> b, ::std::optional<::std::int16_t> c, ::std::optional<::std::int32_t> d, ::std::optional<::std::int64_t> e, ::std::optional<float> f, ::std::optional<double> g, ::std::optional<::std::string_view> h, ::std::optional<::Test::MyEnum> i, const ::std::optional<::Test::MyInterfacePrx>& j, const ::std::optional<::std::shared_ptr<::Test::MultiOptional>>& k, const ::std::optional<::Test::ByteSeq>& bs, const ::std::optional<::Test::StringSeq>& ss, const ::std::optional<::Test::IntIntDict>& iid, const ::std::optional<::Test::StringIntDict>& sid, const ::std::optional<::Test::FixedStruct>& fs, const ::std::optional<::Test::VarStruct>& vs, const ::std::optional<::Test::ShortSeq>& shs, const ::std::optional<::Test::MyEnumSeq>& es, const ::std::optional<::Test::FixedStructSeq>& fss, const ::std::optional<::Test::VarStructSeq>& vss, const ::std::optional<::Test::OneOptionalSeq>& oos, const ::std::optional<::Test::MyInterfacePrxSeq>& mips, const ::std::optional<::Test::IntEnumDict>& ied, const ::std::optional<::Test::IntFixedStructDict>& ifsd, const ::std::optional<::Test::IntVarStructDict>& ivsd, const ::std::optional<::Test::IntOneOptionalDict>& iood, const ::std::optional<::Test::IntMyInterfacePrxDict>& imipd, const ::std::optional<::Test::BoolSeq>& bos, const ::std::optional<::Test::Serializable>& ser) :
         a(a),
         b(b),
         c(c),
@@ -1054,7 +1054,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    A(::std::int32_t requiredA, const ::std::optional<::std::int32_t>& ma, const ::std::optional<::std::int32_t>& mb, const ::std::optional<::std::int32_t>& mc) :
+    A(::std::int32_t requiredA, ::std::optional<::std::int32_t> ma, ::std::optional<::std::int32_t> mb, ::std::optional<::std::int32_t> mc) :
         requiredA(requiredA),
         ma(ma),
         mb(mb),
@@ -1099,7 +1099,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    B(::std::int32_t requiredA, const ::std::optional<::std::int32_t>& ma, const ::std::optional<::std::int32_t>& mb, const ::std::optional<::std::int32_t>& mc, ::std::int32_t requiredB, const ::std::optional<::std::int32_t>& md) :
+    B(::std::int32_t requiredA, ::std::optional<::std::int32_t> ma, ::std::optional<::std::int32_t> mb, ::std::optional<::std::int32_t> mc, ::std::int32_t requiredB, ::std::optional<::std::int32_t> md) :
         Ice::ValueHelper<B, A>(requiredA, ma, mb, mc),
         requiredB(requiredB),
         md(md)
@@ -1160,7 +1160,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    C(::std::int32_t requiredA, const ::std::optional<::std::int32_t>& ma, const ::std::optional<::std::int32_t>& mb, const ::std::optional<::std::int32_t>& mc, ::std::int32_t requiredB, const ::std::optional<::std::int32_t>& md, ::std::string_view ss, const ::std::optional<::std::string_view>& ms) :
+    C(::std::int32_t requiredA, ::std::optional<::std::int32_t> ma, ::std::optional<::std::int32_t> mb, ::std::optional<::std::int32_t> mc, ::std::int32_t requiredB, ::std::optional<::std::int32_t> md, ::std::string_view ss, ::std::optional<::std::string_view> ms) :
         Ice::ValueHelper<C, B>(requiredA, ma, mb, mc, requiredB, md),
         ss(ss),
         ms(ms)
@@ -1202,7 +1202,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    WD(const ::std::optional<::std::int32_t>& a, const ::std::optional<::std::string_view>& s) :
+    WD(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> s) :
         a(a),
         s(s)
     {
@@ -1240,7 +1240,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    OptionalException(bool req, const ::std::optional<::std::int32_t>& a, const ::std::optional<::std::string_view>& b, const ::std::optional<::std::shared_ptr<OneOptional>>& o) :
+    OptionalException(bool req, ::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> b, const ::std::optional<::std::shared_ptr<OneOptional>>& o) :
         req(req),
         a(a),
         b(b),
@@ -1282,7 +1282,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    DerivedException(bool req, const ::std::optional<::std::int32_t>& a, const ::std::optional<::std::string_view>& b, const ::std::optional<::std::shared_ptr<OneOptional>>& o, ::std::string_view d1, const ::std::optional<::std::string_view>& ss, const ::std::optional<::std::shared_ptr<OneOptional>>& o2, ::std::string_view d2) :
+    DerivedException(bool req, ::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> b, const ::std::optional<::std::shared_ptr<OneOptional>>& o, ::std::string_view d1, ::std::optional<::std::string_view> ss, const ::std::optional<::std::shared_ptr<OneOptional>>& o2, ::std::string_view d2) :
         ::Ice::UserExceptionHelper<DerivedException, OptionalException>(req, a, b, o),
         d1(d1),
         ss(ss),
@@ -1325,7 +1325,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    RequiredException(bool req, const ::std::optional<::std::int32_t>& a, const ::std::optional<::std::string_view>& b, const ::std::optional<::std::shared_ptr<OneOptional>>& o, ::std::string_view ss, const ::std::shared_ptr<OneOptional>& o2) :
+    RequiredException(bool req, ::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> b, const ::std::optional<::std::shared_ptr<OneOptional>>& o, ::std::string_view ss, const ::std::shared_ptr<OneOptional>& o2) :
         ::Ice::UserExceptionHelper<RequiredException, OptionalException>(req, a, b, o),
         ss(ss),
         o2(o2)
@@ -1753,47 +1753,47 @@ public:
     bool _iceD_opRequiredException(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void opByteAsync(::std::optional<::std::uint8_t> p1, ::std::function<void(const ::std::optional<::std::uint8_t>& returnValue, const ::std::optional<::std::uint8_t>& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void opByteAsync(::std::optional<::std::uint8_t> p1, ::std::function<void(::std::optional<::std::uint8_t> returnValue, ::std::optional<::std::uint8_t> p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opByte(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void opBoolAsync(::std::optional<bool> p1, ::std::function<void(const ::std::optional<bool>& returnValue, const ::std::optional<bool>& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void opBoolAsync(::std::optional<bool> p1, ::std::function<void(::std::optional<bool> returnValue, ::std::optional<bool> p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opBool(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void opShortAsync(::std::optional<::std::int16_t> p1, ::std::function<void(const ::std::optional<::std::int16_t>& returnValue, const ::std::optional<::std::int16_t>& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void opShortAsync(::std::optional<::std::int16_t> p1, ::std::function<void(::std::optional<::std::int16_t> returnValue, ::std::optional<::std::int16_t> p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opShort(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void opIntAsync(::std::optional<::std::int32_t> p1, ::std::function<void(const ::std::optional<::std::int32_t>& returnValue, const ::std::optional<::std::int32_t>& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void opIntAsync(::std::optional<::std::int32_t> p1, ::std::function<void(::std::optional<::std::int32_t> returnValue, ::std::optional<::std::int32_t> p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opInt(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void opLongAsync(::std::optional<::std::int64_t> p1, ::std::function<void(const ::std::optional<::std::int64_t>& returnValue, const ::std::optional<::std::int64_t>& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void opLongAsync(::std::optional<::std::int64_t> p1, ::std::function<void(::std::optional<::std::int64_t> returnValue, ::std::optional<::std::int64_t> p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opLong(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void opFloatAsync(::std::optional<float> p1, ::std::function<void(const ::std::optional<float>& returnValue, const ::std::optional<float>& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void opFloatAsync(::std::optional<float> p1, ::std::function<void(::std::optional<float> returnValue, ::std::optional<float> p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opFloat(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void opDoubleAsync(::std::optional<double> p1, ::std::function<void(const ::std::optional<double>& returnValue, const ::std::optional<double>& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void opDoubleAsync(::std::optional<double> p1, ::std::function<void(::std::optional<double> returnValue, ::std::optional<double> p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opDouble(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void opStringAsync(::std::optional<::std::string> p1, ::std::function<void(const ::std::optional<::std::string_view>& returnValue, const ::std::optional<::std::string_view>& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void opStringAsync(::std::optional<::std::string> p1, ::std::function<void(::std::optional<::std::string_view> returnValue, ::std::optional<::std::string_view> p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opString(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual void opMyEnumAsync(::std::optional<MyEnum> p1, ::std::function<void(const ::std::optional<MyEnum>& returnValue, const ::std::optional<MyEnum>& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void opMyEnumAsync(::std::optional<MyEnum> p1, ::std::function<void(::std::optional<MyEnum> returnValue, ::std::optional<MyEnum> p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opMyEnum(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond

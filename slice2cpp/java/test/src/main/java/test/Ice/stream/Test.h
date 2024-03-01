@@ -206,7 +206,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    OptionalClass(bool bo, ::std::uint8_t by, const ::std::optional<::std::int16_t>& sh, const ::std::optional<::std::int32_t>& i, const ::std::optional<::Test::SmallStruct>& sm, const ::std::optional<::Test::MyEnumS>& enumS4, const ::std::optional<::Test::MyClassS>& myClassS5, const ::std::optional<::Test::ByteBoolD>& byteBoolD6, const ::std::optional<::Test::ShortIntD>& shortIntD7, const ::std::optional<::Test::MyEnum>& enum8, const ::std::optional<::std::shared_ptr<::Test::MyClass>>& class9, const ::std::optional<::Test::StringMyClassD>& stringMyClassD10, const ::std::optional<::Ice::IntSeq>& intSeq12, const ::std::optional<::Ice::ByteSeq>& byteSeq13, const ::std::optional<::Ice::StringSeq>& stringSeq14, const ::std::optional<::Test::Point>& p15) :
+    OptionalClass(bool bo, ::std::uint8_t by, ::std::optional<::std::int16_t> sh, ::std::optional<::std::int32_t> i, const ::std::optional<::Test::SmallStruct>& sm, const ::std::optional<::Test::MyEnumS>& enumS4, const ::std::optional<::Test::MyClassS>& myClassS5, const ::std::optional<::Test::ByteBoolD>& byteBoolD6, const ::std::optional<::Test::ShortIntD>& shortIntD7, ::std::optional<::Test::MyEnum> enum8, const ::std::optional<::std::shared_ptr<::Test::MyClass>>& class9, const ::std::optional<::Test::StringMyClassD>& stringMyClassD10, const ::std::optional<::Ice::IntSeq>& intSeq12, const ::std::optional<::Ice::ByteSeq>& byteSeq13, const ::std::optional<::Ice::StringSeq>& stringSeq14, const ::std::optional<::Test::Point>& p15) :
         bo(bo),
         by(by),
         sh(sh),

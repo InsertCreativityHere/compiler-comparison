@@ -57,15 +57,15 @@ public:
     void _iceI_opClassAndUnknownOptional(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<A>&, const ::std::optional<::std::shared_ptr<::Ice::Value>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void opVoid(const ::std::optional<::std::int32_t>& a, const ::std::optional<::std::string_view>& v, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void opVoid(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> v, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opVoidAsync(const ::std::optional<::std::int32_t>& a, const ::std::optional<::std::string_view>& v, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> opVoidAsync(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> v, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opVoidAsync(const ::std::optional<::std::int32_t>& a, const ::std::optional<::std::string_view>& v, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opVoidAsync(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> v, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opVoid(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::string_view>&, const ::Ice::Context&) const;
+    void _iceI_opVoid(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::optional<::std::int32_t>, ::std::optional<::std::string_view>, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -137,7 +137,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    D(::std::int32_t requiredA, const ::std::optional<::std::int32_t>& ma, const ::std::optional<::std::int32_t>& mb, const ::std::optional<::std::int32_t>& mc, ::std::int32_t requiredB, const ::std::optional<::std::int32_t>& md, ::std::string_view ds, const ::std::optional<::Test::StringSeq>& seq, const ::std::optional<::std::shared_ptr<::Test::A>>& ao) :
+    D(::std::int32_t requiredA, ::std::optional<::std::int32_t> ma, ::std::optional<::std::int32_t> mb, ::std::optional<::std::int32_t> mc, ::std::int32_t requiredB, ::std::optional<::std::int32_t> md, ::std::string_view ds, const ::std::optional<::Test::StringSeq>& seq, const ::std::optional<::std::shared_ptr<::Test::A>>& ao) :
         Ice::ValueHelper<D, B>(requiredA, ma, mb, mc, requiredB, md),
         ds(ds),
         seq(seq),
