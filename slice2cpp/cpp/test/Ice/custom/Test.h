@@ -39,67 +39,67 @@ using BoolSeq = ::std::vector<bool>;
 
 using BoolList = std::list<bool>;
 
-using BoolListList = std::list< ::Test::BoolList>;
+using BoolListList = std::list<::Test::BoolList>;
 
 using BoolListSeq = ::std::vector<BoolList>;
 
-using BoolSeqList = std::list< ::Test::BoolSeq>;
+using BoolSeqList = std::list<::Test::BoolSeq>;
 
-using BoolDequeList = std::list<std::deque<bool> >;
+using BoolDequeList = std::list<::std::deque<bool>>;
 
 using ByteSeq = ::std::vector<::std::uint8_t>;
 
-using ByteList = std::list<std::uint8_t>;
+using ByteList = std::list<::std::uint8_t>;
 
-using ByteListList = std::list< ::Test::ByteList>;
+using ByteListList = std::list<::Test::ByteList>;
 
 using ByteListSeq = ::std::vector<ByteList>;
 
-using ByteSeqList = std::list< ::Test::ByteSeq>;
+using ByteSeqList = std::list<::Test::ByteSeq>;
 
 using StringSeq = ::std::vector<::std::string>;
 
-using StringList = std::list<std::string>;
+using StringList = std::list<::std::string>;
 
-using StringListList = std::list< ::Test::StringList>;
+using StringListList = std::list<::Test::StringList>;
 
 using StringListSeq = ::std::vector<StringList>;
 
-using StringSeqList = std::list< ::Test::StringSeq>;
+using StringSeqList = std::list<::Test::StringSeq>;
 struct Fixed;
 
 using FixedSeq = ::std::vector<Fixed>;
 
-using FixedList = std::list< ::Test::Fixed>;
+using FixedList = std::list<::Test::Fixed>;
 
-using FixedListList = std::list< ::Test::FixedList>;
+using FixedListList = std::list<::Test::FixedList>;
 
 using FixedListSeq = ::std::vector<FixedList>;
 
-using FixedSeqList = std::list< ::Test::FixedSeq>;
+using FixedSeqList = std::list<::Test::FixedSeq>;
 struct Variable;
 
 using VariableSeq = ::std::vector<Variable>;
 
-using VariableList = std::list< ::Test::Variable>;
+using VariableList = std::list<::Test::Variable>;
 
-using VariableListList = std::list< ::Test::VariableList>;
+using VariableListList = std::list<::Test::VariableList>;
 
 using VariableListSeq = ::std::vector<VariableList>;
 
-using VariableSeqList = std::list< ::Test::VariableSeq>;
+using VariableSeqList = std::list<::Test::VariableSeq>;
 
 using StringStringDict = ::std::map<::std::string, ::std::string>;
 
 using StringStringDictSeq = ::std::vector<StringStringDict>;
 
-using StringStringDictList = std::list< ::Test::StringStringDict>;
+using StringStringDictList = std::list<::Test::StringStringDict>;
 
-using StringStringDictListList = std::list< ::Test::StringStringDictList>;
+using StringStringDictListList = std::list<::Test::StringStringDictList>;
 
 using StringStringDictListSeq = ::std::vector<StringStringDictList>;
 
-using StringStringDictSeqList = std::list< ::Test::StringStringDictSeq>;
+using StringStringDictSeqList = std::list<::Test::StringStringDictSeq>;
 
 enum class E : unsigned char
 {
@@ -110,43 +110,43 @@ enum class E : unsigned char
 
 using ESeq = ::std::vector<E>;
 
-using EList = std::list< ::Test::E>;
+using EList = std::list<::Test::E>;
 
-using EListList = std::list< ::Test::EList>;
+using EListList = std::list<::Test::EList>;
 
 using EListSeq = ::std::vector<EList>;
 
-using ESeqList = std::list< ::Test::ESeq>;
+using ESeqList = std::list<::Test::ESeq>;
 class C;
 
 using CPtr = ::std::shared_ptr<C>;
 
 using CSeq = ::std::vector<::std::shared_ptr<C>>;
 
-using CList = std::list<std::shared_ptr<::Test::C>>;
+using CList = std::list<::std::shared_ptr<::Test::C>>;
 
-using CListList = std::list< ::Test::CList>;
+using CListList = std::list<::Test::CList>;
 
 using CListSeq = ::std::vector<CList>;
 
-using CSeqList = std::list< ::Test::CSeq>;
+using CSeqList = std::list<::Test::CSeq>;
 class DPrx;
 
 using DPrxPtr = ::std::optional<DPrx>;
 
 using DPrxSeq = ::std::vector<::std::optional<DPrx>>;
 
-using DPrxList = std::list<DPrxPtr>;
+using DPrxList = std::list<::std::optional<::Test::DPrx>>;
 
-using DPrxListList = std::list< ::Test::DPrxList>;
+using DPrxListList = std::list<::Test::DPrxList>;
 
 using DPrxListSeq = ::std::vector<DPrxList>;
 
-using DPrxSeqList = std::list< ::Test::DPrxSeq>;
+using DPrxSeqList = std::list<::Test::DPrxSeq>;
 
 using DoubleSeq = ::std::vector<double>;
 
-using IntStringDict = Test::CustomMap<std::int32_t, std::string>;
+using IntStringDict = Test::CustomMap<::std::int32_t, std::string>;
 
 using LongLongDict = ::std::map<::std::int64_t, ::std::int64_t>;
 
@@ -157,9 +157,9 @@ using DictClassPtr = ::std::shared_ptr<DictClass>;
 
 using BoolBuffer = Test::CustomBuffer<bool>;
 
-using ShortBuffer = Test::CustomBuffer<std::int16_t>;
+using ShortBuffer = Test::CustomBuffer<::std::int16_t>;
 
-using IntBuffer = Test::CustomBuffer<std::int32_t>;
+using IntBuffer = Test::CustomBuffer<::std::int32_t>;
 
 using LongBuffer = Test::CustomBuffer<int64_t>;
 
@@ -167,7 +167,7 @@ using FloatBuffer = Test::CustomBuffer<float>;
 
 using DoubleBuffer = Test::CustomBuffer<double>;
 
-using ByteBuffer = Test::CustomBuffer<std::uint8_t>;
+using ByteBuffer = Test::CustomBuffer<::std::uint8_t>;
 struct BufferStruct;
 class TestIntfPrx;
 
@@ -342,15 +342,15 @@ public:
     void _iceIL_opBoolDequeListArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::pair<const std::deque<bool>*, const std::deque<bool>*>, ::std::pair<const std::deque<bool>*, const std::deque<bool>*>>>>&, const ::std::pair<const std::deque<bool>*, const std::deque<bool>*>&, const ::Ice::Context&) const;
     /// \endcond
 
-    std::deque<std::uint8_t> opByteSeq(const std::deque<std::uint8_t>& inSeq, std::deque<std::uint8_t>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    std::deque<::std::uint8_t> opByteSeq(const std::deque<::std::uint8_t>& inSeq, std::deque<::std::uint8_t>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::deque<std::uint8_t>, std::deque<std::uint8_t>>> opByteSeqAsync(const std::deque<std::uint8_t>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<std::deque<::std::uint8_t>, std::deque<::std::uint8_t>>> opByteSeqAsync(const std::deque<::std::uint8_t>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opByteSeqAsync(const std::deque<std::uint8_t>& inSeq, ::std::function<void(std::deque<std::uint8_t>, std::deque<std::uint8_t>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opByteSeqAsync(const std::deque<::std::uint8_t>& inSeq, ::std::function<void(std::deque<::std::uint8_t>, std::deque<::std::uint8_t>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::deque<std::uint8_t>, std::deque<std::uint8_t>>>>&, const std::deque<std::uint8_t>&, const ::Ice::Context&) const;
+    void _iceI_opByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::deque<::std::uint8_t>, std::deque<::std::uint8_t>>>>&, const std::deque<::std::uint8_t>&, const ::Ice::Context&) const;
     /// \endcond
 
     ByteList opByteList(const ByteList& inSeq, ByteList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -375,15 +375,15 @@ public:
     void _iceI_opMyByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<MyByteSeq, MyByteSeq>>>&, const MyByteSeq&, const ::Ice::Context&) const;
     /// \endcond
 
-    std::deque<std::string> opStringSeq(const std::deque<std::string>& inSeq, std::deque<std::string>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    std::deque<::std::string> opStringSeq(const std::deque<::std::string>& inSeq, std::deque<::std::string>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::deque<std::string>, std::deque<std::string>>> opStringSeqAsync(const std::deque<std::string>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<std::deque<::std::string>, std::deque<::std::string>>> opStringSeqAsync(const std::deque<::std::string>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opStringSeqAsync(const std::deque<std::string>& inSeq, ::std::function<void(std::deque<std::string>, std::deque<std::string>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opStringSeqAsync(const std::deque<::std::string>& inSeq, ::std::function<void(std::deque<::std::string>, std::deque<::std::string>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opStringSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::deque<std::string>, std::deque<std::string>>>>&, const std::deque<std::string>&, const ::Ice::Context&) const;
+    void _iceI_opStringSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::deque<::std::string>, std::deque<::std::string>>>>&, const std::deque<::std::string>&, const ::Ice::Context&) const;
     /// \endcond
 
     StringList opStringList(const StringList& inSeq, StringList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -397,15 +397,15 @@ public:
     void _iceI_opStringList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<StringList, StringList>>>&, const StringList&, const ::Ice::Context&) const;
     /// \endcond
 
-    std::deque< ::Test::Fixed> opFixedSeq(const std::deque< ::Test::Fixed>& inSeq, std::deque< ::Test::Fixed>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    std::deque<::Test::Fixed> opFixedSeq(const std::deque<::Test::Fixed>& inSeq, std::deque<::Test::Fixed>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::deque< ::Test::Fixed>, std::deque< ::Test::Fixed>>> opFixedSeqAsync(const std::deque< ::Test::Fixed>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<std::deque<::Test::Fixed>, std::deque<::Test::Fixed>>> opFixedSeqAsync(const std::deque<::Test::Fixed>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opFixedSeqAsync(const std::deque< ::Test::Fixed>& inSeq, ::std::function<void(std::deque< ::Test::Fixed>, std::deque< ::Test::Fixed>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opFixedSeqAsync(const std::deque<::Test::Fixed>& inSeq, ::std::function<void(std::deque<::Test::Fixed>, std::deque<::Test::Fixed>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opFixedSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::deque< ::Test::Fixed>, std::deque< ::Test::Fixed>>>>&, const std::deque< ::Test::Fixed>&, const ::Ice::Context&) const;
+    void _iceI_opFixedSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::deque<::Test::Fixed>, std::deque<::Test::Fixed>>>>&, const std::deque<::Test::Fixed>&, const ::Ice::Context&) const;
     /// \endcond
 
     FixedList opFixedList(const FixedList& inSeq, FixedList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -419,15 +419,15 @@ public:
     void _iceI_opFixedList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<FixedList, FixedList>>>&, const FixedList&, const ::Ice::Context&) const;
     /// \endcond
 
-    std::deque< ::Test::Variable> opVariableSeq(const std::deque< ::Test::Variable>& inSeq, std::deque< ::Test::Variable>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    std::deque<::Test::Variable> opVariableSeq(const std::deque<::Test::Variable>& inSeq, std::deque<::Test::Variable>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::deque< ::Test::Variable>, std::deque< ::Test::Variable>>> opVariableSeqAsync(const std::deque< ::Test::Variable>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<std::deque<::Test::Variable>, std::deque<::Test::Variable>>> opVariableSeqAsync(const std::deque<::Test::Variable>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opVariableSeqAsync(const std::deque< ::Test::Variable>& inSeq, ::std::function<void(std::deque< ::Test::Variable>, std::deque< ::Test::Variable>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opVariableSeqAsync(const std::deque<::Test::Variable>& inSeq, ::std::function<void(std::deque<::Test::Variable>, std::deque<::Test::Variable>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opVariableSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::deque< ::Test::Variable>, std::deque< ::Test::Variable>>>>&, const std::deque< ::Test::Variable>&, const ::Ice::Context&) const;
+    void _iceI_opVariableSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::deque<::Test::Variable>, std::deque<::Test::Variable>>>>&, const std::deque<::Test::Variable>&, const ::Ice::Context&) const;
     /// \endcond
 
     VariableList opVariableList(const VariableList& inSeq, VariableList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -441,15 +441,15 @@ public:
     void _iceI_opVariableList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<VariableList, VariableList>>>&, const VariableList&, const ::Ice::Context&) const;
     /// \endcond
 
-    std::deque< ::Test::StringStringDict> opStringStringDictSeq(const std::deque< ::Test::StringStringDict>& inSeq, std::deque< ::Test::StringStringDict>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    std::deque<::Test::StringStringDict> opStringStringDictSeq(const std::deque<::Test::StringStringDict>& inSeq, std::deque<::Test::StringStringDict>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::deque< ::Test::StringStringDict>, std::deque< ::Test::StringStringDict>>> opStringStringDictSeqAsync(const std::deque< ::Test::StringStringDict>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<std::deque<::Test::StringStringDict>, std::deque<::Test::StringStringDict>>> opStringStringDictSeqAsync(const std::deque<::Test::StringStringDict>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opStringStringDictSeqAsync(const std::deque< ::Test::StringStringDict>& inSeq, ::std::function<void(std::deque< ::Test::StringStringDict>, std::deque< ::Test::StringStringDict>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opStringStringDictSeqAsync(const std::deque<::Test::StringStringDict>& inSeq, ::std::function<void(std::deque<::Test::StringStringDict>, std::deque<::Test::StringStringDict>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opStringStringDictSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::deque< ::Test::StringStringDict>, std::deque< ::Test::StringStringDict>>>>&, const std::deque< ::Test::StringStringDict>&, const ::Ice::Context&) const;
+    void _iceI_opStringStringDictSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::deque<::Test::StringStringDict>, std::deque<::Test::StringStringDict>>>>&, const std::deque<::Test::StringStringDict>&, const ::Ice::Context&) const;
     /// \endcond
 
     StringStringDictList opStringStringDictList(const StringStringDictList& inSeq, StringStringDictList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -463,15 +463,15 @@ public:
     void _iceI_opStringStringDictList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<StringStringDictList, StringStringDictList>>>&, const StringStringDictList&, const ::Ice::Context&) const;
     /// \endcond
 
-    std::deque< ::Test::E> opESeq(const std::deque< ::Test::E>& inSeq, std::deque< ::Test::E>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    std::deque<::Test::E> opESeq(const std::deque<::Test::E>& inSeq, std::deque<::Test::E>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::deque< ::Test::E>, std::deque< ::Test::E>>> opESeqAsync(const std::deque< ::Test::E>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<std::deque<::Test::E>, std::deque<::Test::E>>> opESeqAsync(const std::deque<::Test::E>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opESeqAsync(const std::deque< ::Test::E>& inSeq, ::std::function<void(std::deque< ::Test::E>, std::deque< ::Test::E>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opESeqAsync(const std::deque<::Test::E>& inSeq, ::std::function<void(std::deque<::Test::E>, std::deque<::Test::E>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opESeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::deque< ::Test::E>, std::deque< ::Test::E>>>>&, const std::deque< ::Test::E>&, const ::Ice::Context&) const;
+    void _iceI_opESeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::deque<::Test::E>, std::deque<::Test::E>>>>&, const std::deque<::Test::E>&, const ::Ice::Context&) const;
     /// \endcond
 
     EList opEList(const EList& inSeq, EList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -485,15 +485,15 @@ public:
     void _iceI_opEList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<EList, EList>>>&, const EList&, const ::Ice::Context&) const;
     /// \endcond
 
-    std::deque<::Test::DPrxPtr> opDPrxSeq(const std::deque<::Test::DPrxPtr>& inSeq, std::deque<::Test::DPrxPtr>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    std::deque<::std::optional<::Test::DPrx>> opDPrxSeq(const std::deque<::std::optional<::Test::DPrx>>& inSeq, std::deque<::std::optional<::Test::DPrx>>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::deque<::Test::DPrxPtr>, std::deque<::Test::DPrxPtr>>> opDPrxSeqAsync(const std::deque<::Test::DPrxPtr>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<std::deque<::std::optional<::Test::DPrx>>, std::deque<::std::optional<::Test::DPrx>>>> opDPrxSeqAsync(const std::deque<::std::optional<::Test::DPrx>>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opDPrxSeqAsync(const std::deque<::Test::DPrxPtr>& inSeq, ::std::function<void(std::deque<::Test::DPrxPtr>, std::deque<::Test::DPrxPtr>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opDPrxSeqAsync(const std::deque<::std::optional<::Test::DPrx>>& inSeq, ::std::function<void(std::deque<::std::optional<::Test::DPrx>>, std::deque<::std::optional<::Test::DPrx>>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opDPrxSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::deque<::Test::DPrxPtr>, std::deque<::Test::DPrxPtr>>>>&, const std::deque<::Test::DPrxPtr>&, const ::Ice::Context&) const;
+    void _iceI_opDPrxSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::deque<::std::optional<::Test::DPrx>>, std::deque<::std::optional<::Test::DPrx>>>>>&, const std::deque<::std::optional<::Test::DPrx>>&, const ::Ice::Context&) const;
     /// \endcond
 
     DPrxList opDPrxList(const DPrxList& inSeq, DPrxList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -507,15 +507,15 @@ public:
     void _iceI_opDPrxList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<DPrxList, DPrxList>>>&, const DPrxList&, const ::Ice::Context&) const;
     /// \endcond
 
-    std::deque<std::shared_ptr<Test::C>> opCSeq(const std::deque<std::shared_ptr<Test::C>>& inSeq, std::deque<std::shared_ptr<Test::C>>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    std::deque<::std::shared_ptr<Test::C>> opCSeq(const std::deque<::std::shared_ptr<Test::C>>& inSeq, std::deque<::std::shared_ptr<Test::C>>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<std::deque<std::shared_ptr<Test::C>>, std::deque<std::shared_ptr<Test::C>>>> opCSeqAsync(const std::deque<std::shared_ptr<Test::C>>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<std::deque<::std::shared_ptr<Test::C>>, std::deque<::std::shared_ptr<Test::C>>>> opCSeqAsync(const std::deque<::std::shared_ptr<Test::C>>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opCSeqAsync(const std::deque<std::shared_ptr<Test::C>>& inSeq, ::std::function<void(std::deque<std::shared_ptr<Test::C>>, std::deque<std::shared_ptr<Test::C>>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opCSeqAsync(const std::deque<::std::shared_ptr<Test::C>>& inSeq, ::std::function<void(std::deque<::std::shared_ptr<Test::C>>, std::deque<::std::shared_ptr<Test::C>>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opCSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::deque<std::shared_ptr<Test::C>>, std::deque<std::shared_ptr<Test::C>>>>>&, const std::deque<std::shared_ptr<Test::C>>&, const ::Ice::Context&) const;
+    void _iceI_opCSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<std::deque<::std::shared_ptr<Test::C>>, std::deque<::std::shared_ptr<Test::C>>>>>&, const std::deque<::std::shared_ptr<Test::C>>&, const ::Ice::Context&) const;
     /// \endcond
 
     CList opCList(const CList& inSeq, CList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -555,15 +555,15 @@ public:
     void _iceI_opIntStringDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<IntStringDict, IntStringDict>>>&, const IntStringDict&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::Test::CustomMap< int64_t, int64_t> opVarDict(const ::Test::CustomMap<std::string, std::int32_t>& idict, ::Test::CustomMap<std::string, std::int32_t>& odict, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::Test::CustomMap< int64_t, int64_t> opVarDict(const ::Test::CustomMap<::std::string, std::int32_t>& idict, ::Test::CustomMap<::std::string, std::int32_t>& odict, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<std::string, std::int32_t>>> opVarDictAsync(const ::Test::CustomMap<std::string, std::int32_t>& idict, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<::std::string, std::int32_t>>> opVarDictAsync(const ::Test::CustomMap<::std::string, std::int32_t>& idict, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opVarDictAsync(const ::Test::CustomMap<std::string, std::int32_t>& idict, ::std::function<void(::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<std::string, std::int32_t>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opVarDictAsync(const ::Test::CustomMap<::std::string, std::int32_t>& idict, ::std::function<void(::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<::std::string, std::int32_t>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opVarDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<std::string, std::int32_t>>>>&, const ::Test::CustomMap<std::string, std::int32_t>&, const ::Ice::Context&) const;
+    void _iceI_opVarDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::CustomMap< int64_t, int64_t>, ::Test::CustomMap<::std::string, std::int32_t>>>>&, const ::Test::CustomMap<::std::string, std::int32_t>&, const ::Ice::Context&) const;
     /// \endcond
 
     ShortBuffer opShortBuffer(const ShortBuffer& inS, ShortBuffer& outS, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -681,13 +681,13 @@ struct Variable
 {
     ::std::string s;
     ::Test::BoolList bl;
-    std::list<std::string> ss;
+    std::list<::std::string> ss;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::string&, const ::Test::BoolList&, const std::list<std::string>&> ice_tuple() const
+    std::tuple<const ::std::string&, const ::Test::BoolList&, const std::list<::std::string>&> ice_tuple() const
     {
         return std::tie(s, bl, ss);
     }
@@ -892,7 +892,7 @@ public:
     bool _iceD_opBoolDequeListArray(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual std::deque<std::uint8_t> opByteSeq(std::deque<std::uint8_t> inSeq, std::deque<std::uint8_t>& outSeq, const ::Ice::Current& current) = 0;
+    virtual std::deque<::std::uint8_t> opByteSeq(std::deque<::std::uint8_t> inSeq, std::deque<::std::uint8_t>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opByteSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -907,7 +907,7 @@ public:
     bool _iceD_opMyByteSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual std::deque<std::string> opStringSeq(std::deque<std::string> inSeq, std::deque<std::string>& outSeq, const ::Ice::Current& current) = 0;
+    virtual std::deque<::std::string> opStringSeq(std::deque<::std::string> inSeq, std::deque<::std::string>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opStringSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -917,7 +917,7 @@ public:
     bool _iceD_opStringList(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual std::deque< ::Test::Fixed> opFixedSeq(std::deque< ::Test::Fixed> inSeq, std::deque< ::Test::Fixed>& outSeq, const ::Ice::Current& current) = 0;
+    virtual std::deque<::Test::Fixed> opFixedSeq(std::deque<::Test::Fixed> inSeq, std::deque<::Test::Fixed>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opFixedSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -927,7 +927,7 @@ public:
     bool _iceD_opFixedList(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual std::deque< ::Test::Variable> opVariableSeq(std::deque< ::Test::Variable> inSeq, std::deque< ::Test::Variable>& outSeq, const ::Ice::Current& current) = 0;
+    virtual std::deque<::Test::Variable> opVariableSeq(std::deque<::Test::Variable> inSeq, std::deque<::Test::Variable>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opVariableSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -937,7 +937,7 @@ public:
     bool _iceD_opVariableList(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual std::deque< ::Test::StringStringDict> opStringStringDictSeq(std::deque< ::Test::StringStringDict> inSeq, std::deque< ::Test::StringStringDict>& outSeq, const ::Ice::Current& current) = 0;
+    virtual std::deque<::Test::StringStringDict> opStringStringDictSeq(std::deque<::Test::StringStringDict> inSeq, std::deque<::Test::StringStringDict>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opStringStringDictSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -947,7 +947,7 @@ public:
     bool _iceD_opStringStringDictList(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual std::deque< ::Test::E> opESeq(std::deque< ::Test::E> inSeq, std::deque< ::Test::E>& outSeq, const ::Ice::Current& current) = 0;
+    virtual std::deque<::Test::E> opESeq(std::deque<::Test::E> inSeq, std::deque<::Test::E>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opESeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -957,7 +957,7 @@ public:
     bool _iceD_opEList(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual std::deque<::Test::DPrxPtr> opDPrxSeq(std::deque<::Test::DPrxPtr> inSeq, std::deque<::Test::DPrxPtr>& outSeq, const ::Ice::Current& current) = 0;
+    virtual std::deque<::std::optional<::Test::DPrx>> opDPrxSeq(std::deque<::std::optional<::Test::DPrx>> inSeq, std::deque<::std::optional<::Test::DPrx>>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opDPrxSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -967,7 +967,7 @@ public:
     bool _iceD_opDPrxList(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual std::deque<std::shared_ptr<Test::C>> opCSeq(std::deque<std::shared_ptr<Test::C>> inSeq, std::deque<std::shared_ptr<Test::C>>& outSeq, const ::Ice::Current& current) = 0;
+    virtual std::deque<::std::shared_ptr<Test::C>> opCSeq(std::deque<::std::shared_ptr<Test::C>> inSeq, std::deque<::std::shared_ptr<Test::C>>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opCSeq(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
@@ -987,7 +987,7 @@ public:
     bool _iceD_opIntStringDict(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
 
-    virtual ::Test::CustomMap< int64_t, int64_t> opVarDict(::Test::CustomMap<std::string, std::int32_t> idict, ::Test::CustomMap<std::string, std::int32_t>& odict, const ::Ice::Current& current) = 0;
+    virtual ::Test::CustomMap< int64_t, int64_t> opVarDict(::Test::CustomMap<::std::string, std::int32_t> idict, ::Test::CustomMap<::std::string, std::int32_t>& odict, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opVarDict(::IceInternal::Incoming&, const ::Ice::Current&);
     /// \endcond
