@@ -209,10 +209,6 @@ public struct FileServerTraits: Ice.SliceTraits {
 ///
 /// FileServerPrx Methods:
 ///
-///  - getFileInfoSeq: Return file information for the specified partition.
-///
-///  - getFileInfoSeqAsync: Return file information for the specified partition.
-///
 ///  - getLargeFileInfoSeq: Returns file information for the specified partition.
 ///
 ///  - getLargeFileInfoSeqAsync: Returns file information for the specified partition.
@@ -224,10 +220,6 @@ public struct FileServerTraits: Ice.SliceTraits {
 ///  - getChecksum: Return the master checksum for all partitions.
 ///
 ///  - getChecksumAsync: Return the master checksum for all partitions.
-///
-///  - getFileCompressed: Read the specified file.
-///
-///  - getFileCompressedAsync: Read the specified file.
 ///
 ///  - getLargeFileCompressed: Read the specified file.
 ///
@@ -311,10 +303,6 @@ public extension Ice.InputStream {
 ///
 /// FileServerPrx Methods:
 ///
-///  - getFileInfoSeq: Return file information for the specified partition.
-///
-///  - getFileInfoSeqAsync: Return file information for the specified partition.
-///
 ///  - getLargeFileInfoSeq: Returns file information for the specified partition.
 ///
 ///  - getLargeFileInfoSeqAsync: Returns file information for the specified partition.
@@ -327,97 +315,10 @@ public extension Ice.InputStream {
 ///
 ///  - getChecksumAsync: Return the master checksum for all partitions.
 ///
-///  - getFileCompressed: Read the specified file.
-///
-///  - getFileCompressedAsync: Read the specified file.
-///
 ///  - getLargeFileCompressed: Read the specified file.
 ///
 ///  - getLargeFileCompressedAsync: Read the specified file.
 public extension FileServerPrx {
-    /// Return file information for the specified partition.  This operation is deprecated and
-    /// only present for compatibility with old Ice clients (older than version 3.6).
-    ///
-    ///  ## Deprecated
-    /// getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.
-    ///
-    /// - parameter _: `Swift.Int32` The partition number in the range 0-255.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `FileInfoSeq` - A sequence containing information about the files in the specified partition.
-    ///
-    /// - throws:
-    ///
-    ///   - FileSizeRangeException - If a file is larger than 2.1GB.
-    ///
-    ///   - PartitionOutOfRangeException - If the partition number is out of range.
-    func getFileInfoSeq(_ iceP_partition: Swift.Int32, context: Ice.Context? = nil) throws -> FileInfoSeq {
-        return try _impl._invoke(operation: "getFileInfoSeq",
-                                 mode: .Nonmutating,
-                                 write: { ostr in
-                                     ostr.write(iceP_partition)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: FileInfoSeq = try FileInfoSeqHelper.read(from: istr)
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as PartitionOutOfRangeException {
-                                         throw error
-                                     } catch let error as FileSizeRangeException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Return file information for the specified partition.  This operation is deprecated and
-    /// only present for compatibility with old Ice clients (older than version 3.6).
-    ///
-    ///  ## Deprecated
-    /// getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.
-    ///
-    /// - parameter _: `Swift.Int32` The partition number in the range 0-255.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<FileInfoSeq>` - The result of the operation
-    func getFileInfoSeqAsync(_ iceP_partition: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<FileInfoSeq> {
-        return _impl._invokeAsync(operation: "getFileInfoSeq",
-                                  mode: .Nonmutating,
-                                  write: { ostr in
-                                      ostr.write(iceP_partition)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: FileInfoSeq = try FileInfoSeqHelper.read(from: istr)
-                                      return iceP_returnValue
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as PartitionOutOfRangeException {
-                                          throw error
-                                      } catch let error as FileSizeRangeException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
     /// Returns file information for the specified partition.
     ///
     /// - parameter _: `Swift.Int32` The partition number in the range 0-255.
@@ -573,103 +474,6 @@ public extension FileServerPrx {
                                   sent: sent)
     }
 
-    /// Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
-    /// condition.  This operation is deprecated and only present for compatibility with old Ice
-    /// clients (older than version 3.6).
-    ///
-    ///  ## Deprecated
-    /// getFileCompressed() is deprecated, use getLargeFileCompressed() instead.
-    ///
-    /// - parameter path: `Swift.String` The pathname (relative to the data directory) for the file to be read.
-    ///
-    /// - parameter pos: `Swift.Int32` The file offset at which to begin reading.
-    ///
-    /// - parameter num: `Swift.Int32` The number of bytes to be read.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - returns: `Ice.ByteSeq` - A sequence containing the compressed file contents.
-    ///
-    /// - throws:
-    ///
-    ///   - FileAccessException - If an error occurred while trying to read the file.
-    ///
-    ///   - FileSizeRangeException - If a file is larger than 2.1GB.
-    func getFileCompressed(path iceP_path: Swift.String, pos iceP_pos: Swift.Int32, num iceP_num: Swift.Int32, context: Ice.Context? = nil) throws -> Ice.ByteSeq {
-        return try _impl._invoke(operation: "getFileCompressed",
-                                 mode: .Nonmutating,
-                                 write: { ostr in
-                                     ostr.write(iceP_path)
-                                     ostr.write(iceP_pos)
-                                     ostr.write(iceP_num)
-                                 },
-                                 read: { istr in
-                                     let iceP_returnValue: Ice.ByteSeq = try istr.read()
-                                     return iceP_returnValue
-                                 },
-                                 userException:{ ex in
-                                     do  {
-                                         throw ex
-                                     } catch let error as FileAccessException {
-                                         throw error
-                                     } catch let error as FileSizeRangeException {
-                                         throw error
-                                     } catch is Ice.UserException {}
-                                 },
-                                 context: context)
-    }
-
-    /// Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
-    /// condition.  This operation is deprecated and only present for compatibility with old Ice
-    /// clients (older than version 3.6).
-    ///
-    ///  ## Deprecated
-    /// getFileCompressed() is deprecated, use getLargeFileCompressed() instead.
-    ///
-    /// - parameter path: `Swift.String` The pathname (relative to the data directory) for the file to be read.
-    ///
-    /// - parameter pos: `Swift.Int32` The file offset at which to begin reading.
-    ///
-    /// - parameter num: `Swift.Int32` The number of bytes to be read.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<Ice.ByteSeq>` - The result of the operation
-    func getFileCompressedAsync(path iceP_path: Swift.String, pos iceP_pos: Swift.Int32, num iceP_num: Swift.Int32, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Ice.ByteSeq> {
-        return _impl._invokeAsync(operation: "getFileCompressed",
-                                  mode: .Nonmutating,
-                                  write: { ostr in
-                                      ostr.write(iceP_path)
-                                      ostr.write(iceP_pos)
-                                      ostr.write(iceP_num)
-                                  },
-                                  read: { istr in
-                                      let iceP_returnValue: Ice.ByteSeq = try istr.read()
-                                      return iceP_returnValue
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as FileAccessException {
-                                          throw error
-                                      } catch let error as FileSizeRangeException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
     /// Read the specified file. This operation may only return fewer bytes than requested in case there was an
     /// end-of-file condition.
     ///
@@ -771,10 +575,6 @@ public struct FileServerDisp: Ice.Disp {
             return try servant._iceD_getChecksum(incoming: request, current: current)
         case "getChecksumSeq":
             return try servant._iceD_getChecksumSeq(incoming: request, current: current)
-        case "getFileCompressed":
-            return try servant._iceD_getFileCompressed(incoming: request, current: current)
-        case "getFileInfoSeq":
-            return try servant._iceD_getFileInfoSeq(incoming: request, current: current)
         case "getLargeFileCompressed":
             return try servant._iceD_getLargeFileCompressed(incoming: request, current: current)
         case "getLargeFileInfoSeq":
@@ -795,25 +595,6 @@ public struct FileServerDisp: Ice.Disp {
 
 /// The interface that provides access to files.
 public protocol FileServer {
-    /// Return file information for the specified partition.  This operation is deprecated and
-    /// only present for compatibility with old Ice clients (older than version 3.6).
-    ///
-    ///  ## Deprecated
-    /// getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.
-    ///
-    /// - parameter partition: `Swift.Int32` The partition number in the range 0-255.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `FileInfoSeq` - A sequence containing information about the files in the specified partition.
-    ///
-    /// - throws:
-    ///
-    ///   - FileSizeRangeException - If a file is larger than 2.1GB.
-    ///
-    ///   - PartitionOutOfRangeException - If the partition number is out of range.
-    func getFileInfoSeq(partition: Swift.Int32, current: Ice.Current) throws -> FileInfoSeq
-
     /// Returns file information for the specified partition.
     ///
     /// - parameter partition: `Swift.Int32` The partition number in the range 0-255.
@@ -844,24 +625,6 @@ public protocol FileServer {
     /// - returns: `Ice.ByteSeq` - The master checksum for the file set.
     func getChecksum(current: Ice.Current) throws -> Ice.ByteSeq
 
-    /// Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
-    /// condition.  This operation is deprecated and only present for compatibility with old Ice
-    /// clients (older than version 3.6).
-    ///
-    ///  ## Deprecated
-    /// getFileCompressed() is deprecated, use getLargeFileCompressed() instead.
-    ///
-    /// - parameter path: `Swift.String` The pathname (relative to the data directory) for the file to be read.
-    ///
-    /// - parameter pos: `Swift.Int32` The file offset at which to begin reading.
-    ///
-    /// - parameter num: `Swift.Int32` The number of bytes to be read.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `PromiseKit.Promise<Ice.ByteSeq>` - The result of the operation
-    func getFileCompressedAsync(path: Swift.String, pos: Swift.Int32, num: Swift.Int32, current: Ice.Current) -> PromiseKit.Promise<Ice.ByteSeq>
-
     /// Read the specified file. This operation may only return fewer bytes than requested in case there was an
     /// end-of-file condition.
     ///
@@ -881,31 +644,14 @@ public protocol FileServer {
 ///
 /// FileServer Methods:
 ///
-///  - getFileInfoSeq: Return file information for the specified partition.
-///
 ///  - getLargeFileInfoSeq: Returns file information for the specified partition.
 ///
 ///  - getChecksumSeq: Return the checksums for all partitions.
 ///
 ///  - getChecksum: Return the master checksum for all partitions.
 ///
-///  - getFileCompressed: Read the specified file.
-///
 ///  - getLargeFileCompressed: Read the specified file.
 public extension FileServer {
-    func _iceD_getFileInfoSeq(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_partition: Swift.Int32 = try inS.read { istr in
-            let iceP_partition: Swift.Int32 = try istr.read()
-            return iceP_partition
-        }
-
-        let iceP_returnValue = try self.getFileInfoSeq(partition: iceP_partition, current: current)
-
-        return inS.setResult{ ostr in
-            FileInfoSeqHelper.write(to: ostr, value: iceP_returnValue)
-        }
-    }
-
     func _iceD_getLargeFileInfoSeq(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
         let iceP_partition: Swift.Int32 = try inS.read { istr in
             let iceP_partition: Swift.Int32 = try istr.read()
@@ -935,20 +681,6 @@ public extension FileServer {
         let iceP_returnValue = try self.getChecksum(current: current)
 
         return inS.setResult{ ostr in
-            ostr.write(iceP_returnValue)
-        }
-    }
-
-    func _iceD_getFileCompressed(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_path, iceP_pos, iceP_num): (Swift.String, Swift.Int32, Swift.Int32) = try inS.read { istr in
-            let iceP_path: Swift.String = try istr.read()
-            let iceP_pos: Swift.Int32 = try istr.read()
-            let iceP_num: Swift.Int32 = try istr.read()
-            return (iceP_path, iceP_pos, iceP_num)
-        }
-
-        return inS.setResultPromise(getFileCompressedAsync(path: iceP_path, pos: iceP_pos, num: iceP_num, current: current)) { (ostr, retVals) in
-            let iceP_returnValue = retVals
             ostr.write(iceP_returnValue)
         }
     }

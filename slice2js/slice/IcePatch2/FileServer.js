@@ -144,22 +144,12 @@ IcePatch2.FileServerPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(IcePatch2.FileServer, IcePatch2.FileServerPrx, iceC_IcePatch2_FileServer_ids, "::IcePatch2::FileServer",
 {
-    "getFileInfoSeq": [, 2, 1, , ["IcePatch2.FileInfoSeqHelper"], [[3]], ,
-    [
-        IcePatch2.PartitionOutOfRangeException,
-        IcePatch2.FileSizeRangeException
-    ], , ],
     "getLargeFileInfoSeq": [, 2, 1, , ["IcePatch2.LargeFileInfoSeqHelper"], [[3]], ,
     [
         IcePatch2.PartitionOutOfRangeException
     ], , ],
     "getChecksumSeq": [, 2, 1, , ["IcePatch2.ByteSeqSeqHelper"], , , , , ],
     "getChecksum": [, 2, 1, , ["Ice.ByteSeqHelper"], , , , , ],
-    "getFileCompressed": [, 2, 1, , ["Ice.ByteSeqHelper"], [[7], [3], [3]], ,
-    [
-        IcePatch2.FileSizeRangeException,
-        IcePatch2.FileAccessException
-    ], , ],
     "getLargeFileCompressed": [, 2, 1, , ["Ice.ByteSeqHelper"], [[7], [4], [3]], ,
     [
         IcePatch2.FileAccessException

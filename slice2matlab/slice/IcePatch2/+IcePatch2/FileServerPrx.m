@@ -3,16 +3,12 @@
 % The interface that provides access to files.
 %
 % FileServerPrx Methods:
-%   getFileInfoSeq - Return file information for the specified partition.
-%   getFileInfoSeqAsync - Return file information for the specified partition.
 %   getLargeFileInfoSeq - Returns file information for the specified partition.
 %   getLargeFileInfoSeqAsync - Returns file information for the specified partition.
 %   getChecksumSeq - Return the checksums for all partitions.
 %   getChecksumSeqAsync - Return the checksums for all partitions.
 %   getChecksum - Return the master checksum for all partitions.
 %   getChecksumAsync - Return the master checksum for all partitions.
-%   getFileCompressed - Read the specified file.
-%   getFileCompressedAsync - Read the specified file.
 %   getLargeFileCompressed - Read the specified file.
 %   getLargeFileCompressedAsync - Read the specified file.
 %   checkedCast - Contacts the remote server to verify that the object implements this type.
@@ -23,57 +19,6 @@
 
 classdef FileServerPrx < Ice.ObjectPrx
     methods
-        function result = getFileInfoSeq(obj, partition, varargin)
-            % getFileInfoSeq   Return file information for the specified partition.  This operation is deprecated and
-            % only present for compatibility with old Ice clients (older than version 3.6).
-            %
-            % Parameters:
-            %   partition (int32) - The partition number in the range 0-255.
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (IcePatch2.FileInfoSeq) - A sequence containing information about the files in the specified partition.
-            %
-            % Exceptions:
-            %   IcePatch2.FileSizeRangeException - If a file is larger than 2.1GB.
-            %   IcePatch2.PartitionOutOfRangeException - If the partition number is out of range.
-            %
-            % Deprecated: getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeInt(partition);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('getFileInfoSeq', 1, true, os_, true, IcePatch2.FileServerPrx.getFileInfoSeq_ex_, varargin{:});
-            is_.startEncapsulation();
-            result = IcePatch2.FileInfoSeq.read(is_);
-            is_.endEncapsulation();
-        end
-        function r_ = getFileInfoSeqAsync(obj, partition, varargin)
-            % getFileInfoSeqAsync   Return file information for the specified partition.  This operation is deprecated and
-            % only present for compatibility with old Ice clients (older than version 3.6).
-            %
-            % Parameters:
-            %   partition (int32) - The partition number in the range 0-255.
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            %
-            % Exceptions:
-            %   IcePatch2.FileSizeRangeException - If a file is larger than 2.1GB.
-            %   IcePatch2.PartitionOutOfRangeException - If the partition number is out of range.
-            %
-            % Deprecated: getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeInt(partition);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = IcePatch2.FileInfoSeq.read(is_);
-                is_.endEncapsulation();
-                varargout{1} = result;
-            end
-            r_ = obj.iceInvokeAsync('getFileInfoSeq', 1, true, os_, 1, @unmarshal, IcePatch2.FileServerPrx.getFileInfoSeq_ex_, varargin{:});
-        end
         function result = getLargeFileInfoSeq(obj, partition, varargin)
             % getLargeFileInfoSeq   Returns file information for the specified partition.
             %
@@ -179,67 +124,6 @@ classdef FileServerPrx < Ice.ObjectPrx
             end
             r_ = obj.iceInvokeAsync('getChecksum', 1, true, [], 1, @unmarshal, {}, varargin{:});
         end
-        function result = getFileCompressed(obj, path, pos, num, varargin)
-            % getFileCompressed   Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
-            % condition.  This operation is deprecated and only present for compatibility with old Ice
-            % clients (older than version 3.6).
-            %
-            % Parameters:
-            %   path (char) - The pathname (relative to the data directory) for the file to be read.
-            %   pos (int32) - The file offset at which to begin reading.
-            %   num (int32) - The number of bytes to be read.
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.ByteSeq) - A sequence containing the compressed file contents.
-            %
-            % Exceptions:
-            %   IcePatch2.FileAccessException - If an error occurred while trying to read the file.
-            %   IcePatch2.FileSizeRangeException - If a file is larger than 2.1GB.
-            %
-            % Deprecated: getFileCompressed() is deprecated, use getLargeFileCompressed() instead.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeString(path);
-            os_.writeInt(pos);
-            os_.writeInt(num);
-            obj.iceEndWriteParams(os_);
-            is_ = obj.iceInvoke('getFileCompressed', 1, true, os_, true, IcePatch2.FileServerPrx.getFileCompressed_ex_, varargin{:});
-            is_.startEncapsulation();
-            result = is_.readByteSeq();
-            is_.endEncapsulation();
-        end
-        function r_ = getFileCompressedAsync(obj, path, pos, num, varargin)
-            % getFileCompressedAsync   Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
-            % condition.  This operation is deprecated and only present for compatibility with old Ice
-            % clients (older than version 3.6).
-            %
-            % Parameters:
-            %   path (char) - The pathname (relative to the data directory) for the file to be read.
-            %   pos (int32) - The file offset at which to begin reading.
-            %   num (int32) - The number of bytes to be read.
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            %
-            % Exceptions:
-            %   IcePatch2.FileAccessException - If an error occurred while trying to read the file.
-            %   IcePatch2.FileSizeRangeException - If a file is larger than 2.1GB.
-            %
-            % Deprecated: getFileCompressed() is deprecated, use getLargeFileCompressed() instead.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeString(path);
-            os_.writeInt(pos);
-            os_.writeInt(num);
-            obj.iceEndWriteParams(os_);
-            function varargout = unmarshal(is_)
-                is_.startEncapsulation();
-                result = is_.readByteSeq();
-                is_.endEncapsulation();
-                varargout{1} = result;
-            end
-            r_ = obj.iceInvokeAsync('getFileCompressed', 1, true, os_, 1, @unmarshal, IcePatch2.FileServerPrx.getFileCompressed_ex_, varargin{:});
-        end
         function result = getLargeFileCompressed(obj, path, pos, num, varargin)
             % getLargeFileCompressed   Read the specified file. This operation may only return fewer bytes than requested in case there was an
             % end-of-file condition.
@@ -332,9 +216,7 @@ classdef FileServerPrx < Ice.ObjectPrx
         end
     end
     properties(Constant,Access=private)
-        getFileInfoSeq_ex_ = { 'IcePatch2.PartitionOutOfRangeException', 'IcePatch2.FileSizeRangeException' }
         getLargeFileInfoSeq_ex_ = { 'IcePatch2.PartitionOutOfRangeException' }
-        getFileCompressed_ex_ = { 'IcePatch2.FileSizeRangeException', 'IcePatch2.FileAccessException' }
         getLargeFileCompressed_ex_ = { 'IcePatch2.FileAccessException' }
     end
 end

@@ -109,31 +109,6 @@ if 'FileServerPrx' not in _M_IcePatch2.__dict__:
     class FileServerPrx(Ice.ObjectPrx):
 
         """
-         Return file information for the specified partition.  This operation is deprecated and
-         only present for compatibility with old Ice clients (older than version 3.6).
-        Arguments:
-        partition -- The partition number in the range 0-255.
-        context -- The request context for the invocation.
-        Returns: A sequence containing information about the files in the specified partition.
-        Throws:
-        FileSizeRangeException -- If a file is larger than 2.1GB.
-        PartitionOutOfRangeException -- If the partition number is out of range.
-        """
-        def getFileInfoSeq(self, partition, context=None):
-            return _M_IcePatch2.FileServer._op_getFileInfoSeq.invoke(self, ((partition, ), context))
-
-        """
-         Return file information for the specified partition.  This operation is deprecated and
-         only present for compatibility with old Ice clients (older than version 3.6).
-        Arguments:
-        partition -- The partition number in the range 0-255.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
-        def getFileInfoSeqAsync(self, partition, context=None):
-            return _M_IcePatch2.FileServer._op_getFileInfoSeq.invokeAsync(self, ((partition, ), context))
-
-        """
          Returns file information for the specified partition.
         Arguments:
         partition -- The partition number in the range 0-255.
@@ -194,37 +169,6 @@ if 'FileServerPrx' not in _M_IcePatch2.__dict__:
             return _M_IcePatch2.FileServer._op_getChecksum.invokeAsync(self, ((), context))
 
         """
-         Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
-         condition.  This operation is deprecated and only present for compatibility with old Ice
-         clients (older than version 3.6).
-        Arguments:
-        path -- The pathname (relative to the data directory) for the file to be read.
-        pos -- The file offset at which to begin reading.
-        num -- The number of bytes to be read.
-        context -- The request context for the invocation.
-        Returns: A sequence containing the compressed file contents.
-        Throws:
-        FileAccessException -- If an error occurred while trying to read the file.
-        FileSizeRangeException -- If a file is larger than 2.1GB.
-        """
-        def getFileCompressed(self, path, pos, num, context=None):
-            return _M_IcePatch2.FileServer._op_getFileCompressed.invoke(self, ((path, pos, num), context))
-
-        """
-         Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
-         condition.  This operation is deprecated and only present for compatibility with old Ice
-         clients (older than version 3.6).
-        Arguments:
-        path -- The pathname (relative to the data directory) for the file to be read.
-        pos -- The file offset at which to begin reading.
-        num -- The number of bytes to be read.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
-        def getFileCompressedAsync(self, path, pos, num, context=None):
-            return _M_IcePatch2.FileServer._op_getFileCompressed.invokeAsync(self, ((path, pos, num), context))
-
-        """
          Read the specified file. This operation may only return fewer bytes than requested in case there was an
          end-of-file condition.
         Arguments:
@@ -281,20 +225,6 @@ if 'FileServerPrx' not in _M_IcePatch2.__dict__:
         def ice_staticId():
             return '::IcePatch2::FileServer'
 
-        def getFileInfoSeq(self, partition, current=None):
-            """
-             Return file information for the specified partition.  This operation is deprecated and
-             only present for compatibility with old Ice clients (older than version 3.6).
-            Arguments:
-            partition -- The partition number in the range 0-255.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            Throws:
-            FileSizeRangeException -- If a file is larger than 2.1GB.
-            PartitionOutOfRangeException -- If the partition number is out of range.
-            """
-            raise NotImplementedError("servant method 'getFileInfoSeq' not implemented")
-
         def getLargeFileInfoSeq(self, partition, current=None):
             """
              Returns file information for the specified partition.
@@ -326,23 +256,6 @@ if 'FileServerPrx' not in _M_IcePatch2.__dict__:
             """
             raise NotImplementedError("servant method 'getChecksum' not implemented")
 
-        def getFileCompressed(self, path, pos, num, current=None):
-            """
-             Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
-             condition.  This operation is deprecated and only present for compatibility with old Ice
-             clients (older than version 3.6).
-            Arguments:
-            path -- The pathname (relative to the data directory) for the file to be read.
-            pos -- The file offset at which to begin reading.
-            num -- The number of bytes to be read.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            Throws:
-            FileAccessException -- If an error occurred while trying to read the file.
-            FileSizeRangeException -- If a file is larger than 2.1GB.
-            """
-            raise NotImplementedError("servant method 'getFileCompressed' not implemented")
-
         def getLargeFileCompressed(self, path, pos, num, current=None):
             """
              Read the specified file. This operation may only return fewer bytes than requested in case there was an
@@ -366,13 +279,9 @@ if 'FileServerPrx' not in _M_IcePatch2.__dict__:
     _M_IcePatch2._t_FileServerDisp = IcePy.defineClass('::IcePatch2::FileServer', FileServer, (), None, ())
     FileServer._ice_type = _M_IcePatch2._t_FileServerDisp
 
-    FileServer._op_getFileInfoSeq = IcePy.Operation('getFileInfoSeq', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (((), IcePy._t_int, False, 0),), (), ((), _M_IcePatch2._t_FileInfoSeq, False, 0), (_M_IcePatch2._t_PartitionOutOfRangeException, _M_IcePatch2._t_FileSizeRangeException))
-    FileServer._op_getFileInfoSeq.deprecate("getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.")
     FileServer._op_getLargeFileInfoSeq = IcePy.Operation('getLargeFileInfoSeq', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (((), IcePy._t_int, False, 0),), (), ((), _M_IcePatch2._t_LargeFileInfoSeq, False, 0), (_M_IcePatch2._t_PartitionOutOfRangeException,))
     FileServer._op_getChecksumSeq = IcePy.Operation('getChecksumSeq', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), _M_IcePatch2._t_ByteSeqSeq, False, 0), ())
     FileServer._op_getChecksum = IcePy.Operation('getChecksum', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), _M_Ice._t_ByteSeq, False, 0), ())
-    FileServer._op_getFileCompressed = IcePy.Operation('getFileCompressed', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, True, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), (), ((), _M_Ice._t_ByteSeq, False, 0), (_M_IcePatch2._t_FileAccessException, _M_IcePatch2._t_FileSizeRangeException))
-    FileServer._op_getFileCompressed.deprecate("getFileCompressed() is deprecated, use getLargeFileCompressed() instead.")
     FileServer._op_getLargeFileCompressed = IcePy.Operation('getLargeFileCompressed', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, True, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_long, False, 0), ((), IcePy._t_int, False, 0)), (), ((), _M_Ice._t_ByteSeq, False, 0), (_M_IcePatch2._t_FileAccessException,))
 
     _M_IcePatch2.FileServer = FileServer

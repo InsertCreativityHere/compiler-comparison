@@ -136,17 +136,14 @@ namespace IcePatch2
     $IcePatch2__t_FileServerPrx = IcePHP_defineProxy('::IcePatch2::FileServer', $Ice__t_ObjectPrx, null);
 
     global $IcePHP__t_int;
-    global $IcePatch2__t_FileInfoSeq;
     global $IcePatch2__t_LargeFileInfoSeq;
     global $IcePatch2__t_ByteSeqSeq;
     global $Ice__t_ByteSeq;
     global $IcePHP__t_string;
     global $IcePHP__t_long;
-    IcePHP_defineOperation($IcePatch2__t_FileServerPrx, 'getFileInfoSeq', 2, 1, 0, array(array($IcePHP__t_int)), null, array($IcePatch2__t_FileInfoSeq), array($IcePatch2__t_PartitionOutOfRangeException, $IcePatch2__t_FileSizeRangeException));
     IcePHP_defineOperation($IcePatch2__t_FileServerPrx, 'getLargeFileInfoSeq', 2, 1, 0, array(array($IcePHP__t_int)), null, array($IcePatch2__t_LargeFileInfoSeq), array($IcePatch2__t_PartitionOutOfRangeException));
     IcePHP_defineOperation($IcePatch2__t_FileServerPrx, 'getChecksumSeq', 2, 1, 0, null, null, array($IcePatch2__t_ByteSeqSeq), null);
     IcePHP_defineOperation($IcePatch2__t_FileServerPrx, 'getChecksum', 2, 1, 0, null, null, array($Ice__t_ByteSeq), null);
-    IcePHP_defineOperation($IcePatch2__t_FileServerPrx, 'getFileCompressed', 2, 1, 0, array(array($IcePHP__t_string), array($IcePHP__t_int), array($IcePHP__t_int)), null, array($Ice__t_ByteSeq), array($IcePatch2__t_FileAccessException, $IcePatch2__t_FileSizeRangeException));
     IcePHP_defineOperation($IcePatch2__t_FileServerPrx, 'getLargeFileCompressed', 2, 1, 0, array(array($IcePHP__t_string), array($IcePHP__t_long), array($IcePHP__t_int)), null, array($Ice__t_ByteSeq), array($IcePatch2__t_FileAccessException));
 }
 ?>

@@ -63,49 +63,6 @@ class ICEPATCH2_API FileServerPrx : public ::Ice::Proxy<FileServerPrx, ::Ice::Ob
 public:
 
     /**
-     * Return file information for the specified partition. <p class="Deprecated"> This operation is deprecated and
-     * only present for compatibility with old Ice clients (older than version 3.6).
-     * @param partition The partition number in the range 0-255.
-     * @param context The Context map to send with the invocation.
-     * @return A sequence containing information about the files in the specified partition.
-     * @throws IcePatch2::FileSizeRangeException If a file is larger than 2.1GB.
-     * @throws IcePatch2::PartitionOutOfRangeException If the partition number is out of range.
-     *
-     * @deprecated getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.
-     */
-    ICE_DEPRECATED_API("getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.") FileInfoSeq getFileInfoSeq(::std::int32_t partition, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /**
-     * Return file information for the specified partition. <p class="Deprecated"> This operation is deprecated and
-     * only present for compatibility with old Ice clients (older than version 3.6).
-     * @param partition The partition number in the range 0-255.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     *
-     * @deprecated getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.
-     */
-    ICE_DEPRECATED_API("getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.") ::std::future<FileInfoSeq> getFileInfoSeqAsync(::std::int32_t partition, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /**
-     * Return file information for the specified partition. <p class="Deprecated"> This operation is deprecated and
-     * only present for compatibility with old Ice clients (older than version 3.6).
-     * @param partition The partition number in the range 0-255.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     *
-     * @deprecated getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.
-     */
-    ICE_DEPRECATED_API("getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.") ::std::function<void()>
-    getFileInfoSeqAsync(::std::int32_t partition, ::std::function<void(::IcePatch2::FileInfoSeq)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_getFileInfoSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<FileInfoSeq>>&, ::std::int32_t, const ::Ice::Context&) const;
-    /// \endcond
-
-    /**
      * Returns file information for the specified partition.
      * @param partition The partition number in the range 0-255.
      * @param context The Context map to send with the invocation.
@@ -199,62 +156,6 @@ public:
 
     /// \cond INTERNAL
     void _iceI_getChecksum(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::ByteSeq>>&, const ::Ice::Context&) const;
-    /// \endcond
-
-    /**
-     * Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
-     * condition. <p class="Deprecated"> This operation is deprecated and only present for compatibility with old Ice
-     * clients (older than version 3.6).
-     * @param path The pathname (relative to the data directory) for the file to be read.
-     * @param pos The file offset at which to begin reading.
-     * @param num The number of bytes to be read.
-     * @param context The Context map to send with the invocation.
-     * @return A sequence containing the compressed file contents.
-     * @throws IcePatch2::FileAccessException If an error occurred while trying to read the file.
-     * @throws IcePatch2::FileSizeRangeException If a file is larger than 2.1GB.
-     *
-     * @deprecated getFileCompressed() is deprecated, use getLargeFileCompressed() instead.
-     */
-    ICE_DEPRECATED_API("getFileCompressed() is deprecated, use getLargeFileCompressed() instead.") ::Ice::ByteSeq getFileCompressed(::std::string_view path, ::std::int32_t pos, ::std::int32_t num, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /**
-     * Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
-     * condition. <p class="Deprecated"> This operation is deprecated and only present for compatibility with old Ice
-     * clients (older than version 3.6).
-     * @param path The pathname (relative to the data directory) for the file to be read.
-     * @param pos The file offset at which to begin reading.
-     * @param num The number of bytes to be read.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     *
-     * @deprecated getFileCompressed() is deprecated, use getLargeFileCompressed() instead.
-     */
-    ICE_DEPRECATED_API("getFileCompressed() is deprecated, use getLargeFileCompressed() instead.") ::std::future<::Ice::ByteSeq> getFileCompressedAsync(::std::string_view path, ::std::int32_t pos, ::std::int32_t num, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /**
-     * Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
-     * condition. <p class="Deprecated"> This operation is deprecated and only present for compatibility with old Ice
-     * clients (older than version 3.6).
-     * @param path The pathname (relative to the data directory) for the file to be read.
-     * @param pos The file offset at which to begin reading.
-     * @param num The number of bytes to be read.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     *
-     * @deprecated getFileCompressed() is deprecated, use getLargeFileCompressed() instead.
-     */
-    ICE_DEPRECATED_API("getFileCompressed() is deprecated, use getLargeFileCompressed() instead.") ::std::function<void()>
-    getFileCompressedAsync(::std::string_view path, ::std::int32_t pos, ::std::int32_t num, ::std::function<void(::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_getFileCompressed(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::ByteSeq>>&, ::std::string_view, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
-    /// \endcond
-
-    /// \cond INTERNAL
-    void _iceIL_getFileCompressed(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>>>&, ::std::string_view, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -509,22 +410,6 @@ public:
     static ::std::string_view ice_staticId();
 
     /**
-     * Return file information for the specified partition. <p class="Deprecated"> This operation is deprecated and
-     * only present for compatibility with old Ice clients (older than version 3.6).
-     * @param partition The partition number in the range 0-255.
-     * @param current The Current object for the invocation.
-     * @return A sequence containing information about the files in the specified partition.
-     * @throws IcePatch2::FileSizeRangeException If a file is larger than 2.1GB.
-     * @throws IcePatch2::PartitionOutOfRangeException If the partition number is out of range.
-     *
-     * @deprecated getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.
-     */
-    ICE_DEPRECATED_API("getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.") virtual FileInfoSeq getFileInfoSeq(::std::int32_t partition, const ::Ice::Current& current) const = 0;
-    /// \cond INTERNAL
-    bool _iceD_getFileInfoSeq(::IceInternal::Incoming&, const ::Ice::Current&) const;
-    /// \endcond
-
-    /**
      * Returns file information for the specified partition.
      * @param partition The partition number in the range 0-255.
      * @param current The Current object for the invocation.
@@ -557,26 +442,6 @@ public:
     virtual ::Ice::ByteSeq getChecksum(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     bool _iceD_getChecksum(::IceInternal::Incoming&, const ::Ice::Current&) const;
-    /// \endcond
-
-    /**
-     * Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
-     * condition. <p class="Deprecated"> This operation is deprecated and only present for compatibility with old Ice
-     * clients (older than version 3.6).
-     * @param path The pathname (relative to the data directory) for the file to be read.
-     * @param pos The file offset at which to begin reading.
-     * @param num The number of bytes to be read.
-     * @param response The response callback.
-     * @param exception The exception callback.
-     * @param current The Current object for the invocation.
-     * @throws IcePatch2::FileAccessException If an error occurred while trying to read the file.
-     * @throws IcePatch2::FileSizeRangeException If a file is larger than 2.1GB.
-     *
-     * @deprecated getFileCompressed() is deprecated, use getLargeFileCompressed() instead.
-     */
-    ICE_DEPRECATED_API("getFileCompressed() is deprecated, use getLargeFileCompressed() instead.") virtual void getFileCompressedAsync(::std::string path, ::std::int32_t pos, ::std::int32_t num, ::std::function<void(const ::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) const = 0;
-    /// \cond INTERNAL
-    bool _iceD_getFileCompressed(::IceInternal::Incoming&, const ::Ice::Current&) const;
     /// \endcond
 
     /**

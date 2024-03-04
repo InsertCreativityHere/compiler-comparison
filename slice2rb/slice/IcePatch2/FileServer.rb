@@ -72,10 +72,6 @@ module ::IcePatch2
         end
         module FileServerPrx_mixin
 
-            def getFileInfoSeq(partition, context=nil)
-                FileServerPrx_mixin::OP_getFileInfoSeq.invoke(self, [partition], context)
-            end
-
             def getLargeFileInfoSeq(partition, context=nil)
                 FileServerPrx_mixin::OP_getLargeFileInfoSeq.invoke(self, [partition], context)
             end
@@ -86,10 +82,6 @@ module ::IcePatch2
 
             def getChecksum(context=nil)
                 FileServerPrx_mixin::OP_getChecksum.invoke(self, [], context)
-            end
-
-            def getFileCompressed(path, pos, num, context=nil)
-                FileServerPrx_mixin::OP_getFileCompressed.invoke(self, [path, pos, num], context)
             end
 
             def getLargeFileCompressed(path, pos, num, context=nil)
@@ -109,13 +101,9 @@ module ::IcePatch2
 
         T_FileServerPrx.defineProxy(FileServerPrx, nil, [])
 
-        FileServerPrx_mixin::OP_getFileInfoSeq = ::Ice::__defineOperation('getFileInfoSeq', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_int, false, 0]], [], [::IcePatch2::T_FileInfoSeq, false, 0], [::IcePatch2::T_PartitionOutOfRangeException, ::IcePatch2::T_FileSizeRangeException])
-        FileServerPrx_mixin::OP_getFileInfoSeq.deprecate("getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.")
         FileServerPrx_mixin::OP_getLargeFileInfoSeq = ::Ice::__defineOperation('getLargeFileInfoSeq', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_int, false, 0]], [], [::IcePatch2::T_LargeFileInfoSeq, false, 0], [::IcePatch2::T_PartitionOutOfRangeException])
         FileServerPrx_mixin::OP_getChecksumSeq = ::Ice::__defineOperation('getChecksumSeq', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::IcePatch2::T_ByteSeqSeq, false, 0], [])
         FileServerPrx_mixin::OP_getChecksum = ::Ice::__defineOperation('getChecksum', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::Ice::T_ByteSeq, false, 0], [])
-        FileServerPrx_mixin::OP_getFileCompressed = ::Ice::__defineOperation('getFileCompressed', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, true, nil, [[::Ice::T_string, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [], [::Ice::T_ByteSeq, false, 0], [::IcePatch2::T_FileAccessException, ::IcePatch2::T_FileSizeRangeException])
-        FileServerPrx_mixin::OP_getFileCompressed.deprecate("getFileCompressed() is deprecated, use getLargeFileCompressed() instead.")
         FileServerPrx_mixin::OP_getLargeFileCompressed = ::Ice::__defineOperation('getLargeFileCompressed', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, true, nil, [[::Ice::T_string, false, 0], [::Ice::T_long, false, 0], [::Ice::T_int, false, 0]], [], [::Ice::T_ByteSeq, false, 0], [::IcePatch2::T_FileAccessException])
     end
 end

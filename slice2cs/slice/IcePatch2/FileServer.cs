@@ -259,9 +259,6 @@ namespace IcePatch2
 namespace IcePatch2
 {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_FileServer_getFileInfoSeq(FileInfo[] ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public delegate void Callback_FileServer_getLargeFileInfoSeq(LargeFileInfo[] ret);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -269,9 +266,6 @@ namespace IcePatch2
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public delegate void Callback_FileServer_getChecksum(byte[] ret);
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_FileServer_getFileCompressed(byte[] ret);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public delegate void Callback_FileServer_getLargeFileCompressed(byte[] ret);
@@ -286,40 +280,6 @@ namespace IcePatch2
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface FileServerPrx : global::Ice.ObjectPrx
     {
-        /// <summary>
-        /// Return file information for the specified partition.
-        ///
-        /// <para>getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.</para>
-        ///
-        /// &lt;p class="Deprecated"&gt; This operation is deprecated and
-        ///  only present for compatibility with old Ice clients (older than version 3.6).
-        /// </summary>
-        ///  <param name="partition">The partition number in the range 0-255.
-        ///  </param>
-        /// <returns>A sequence containing information about the files in the specified partition.
-        ///  </returns>
-        /// <exception name="PartitionOutOfRangeException">If the partition number is out of range.
-        ///  </exception>
-        /// <exception name="FileSizeRangeException">If a file is larger than 2.1GB.</exception>
-        /// <param name="context">The Context map to send with the invocation.</param>
-
-        [global::System.Obsolete("getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.")]
-        FileInfo[] getFileInfoSeq(int partition, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Return file information for the specified partition.
-        /// &lt;p class="Deprecated"&gt; This operation is deprecated and
-        /// </summary>
-        ///  <param name="partition">The partition number in the range 0-255.
-        ///  </param>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
-        /// <para>getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.</para>
-        [global::System.Obsolete("getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.")]
-        global::System.Threading.Tasks.Task<FileInfo[]> getFileInfoSeqAsync(int partition, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
         /// <summary>
         /// Returns file information for the specified partition.
         /// </summary>
@@ -384,49 +344,6 @@ namespace IcePatch2
 
         /// <summary>
         /// Read the specified file.
-        ///
-        /// <para>getFileCompressed() is deprecated, use getLargeFileCompressed() instead.</para>
-        ///
-        /// This operation may only return fewer bytes than requested in case there was an end-of-file
-        ///  condition. &lt;p class="Deprecated"&gt; This operation is deprecated and only present for compatibility with old Ice
-        ///  clients (older than version 3.6).
-        /// </summary>
-        ///  <param name="path">The pathname (relative to the data directory) for the file to be read.
-        ///  </param>
-        /// <param name="pos">The file offset at which to begin reading.
-        ///  </param>
-        /// <param name="num">The number of bytes to be read.
-        ///  </param>
-        /// <returns>A sequence containing the compressed file contents.
-        ///  </returns>
-        /// <exception name="FileAccessException">If an error occurred while trying to read the file.
-        ///  </exception>
-        /// <exception name="FileSizeRangeException">If a file is larger than 2.1GB.</exception>
-        /// <param name="context">The Context map to send with the invocation.</param>
-
-        [global::System.Obsolete("getFileCompressed() is deprecated, use getLargeFileCompressed() instead.")]
-        byte[] getFileCompressed(string path, int pos, int num, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Read the specified file.
-        /// This operation may only return fewer bytes than requested in case there was an end-of-file
-        /// </summary>
-        ///  <param name="path">The pathname (relative to the data directory) for the file to be read.
-        ///  </param>
-        /// <param name="pos">The file offset at which to begin reading.
-        ///  </param>
-        /// <param name="num">The number of bytes to be read.
-        ///  </param>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
-        /// <para>getFileCompressed() is deprecated, use getLargeFileCompressed() instead.</para>
-        [global::System.Obsolete("getFileCompressed() is deprecated, use getLargeFileCompressed() instead.")]
-        global::System.Threading.Tasks.Task<byte[]> getFileCompressedAsync(string path, int pos, int num, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Read the specified file.
         /// This operation may only return fewer bytes than requested in case there was an
         ///  end-of-file condition.
         /// </summary>
@@ -471,27 +388,6 @@ namespace IcePatch2
     public interface FileServerOperations_
     {
         /// <summary>
-        /// Return file information for the specified partition.
-        ///
-        /// <para>getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.</para>
-        ///
-        /// &lt;p class="Deprecated"&gt; This operation is deprecated and
-        ///  only present for compatibility with old Ice clients (older than version 3.6).
-        /// </summary>
-        ///  <param name="partition">The partition number in the range 0-255.
-        ///  </param>
-        /// <returns>A sequence containing information about the files in the specified partition.
-        ///  </returns>
-        /// <exception name="PartitionOutOfRangeException">If the partition number is out of range.
-        ///  </exception>
-        /// <exception name="FileSizeRangeException">If a file is larger than 2.1GB.</exception>
-        /// <param name="current">The Current object for the invocation.</param>
-
-        [global::System.Obsolete("getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.")]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        FileInfo[] getFileInfoSeq(int partition, global::Ice.Current current = null);
-
-        /// <summary>
         /// Returns file information for the specified partition.
         /// </summary>
         /// <param name="partition">The partition number in the range 0-255.
@@ -525,23 +421,6 @@ namespace IcePatch2
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         byte[] getChecksum(global::Ice.Current current = null);
-
-        /// <summary>
-        /// Read the specified file.
-        /// This operation may only return fewer bytes than requested in case there was an end-of-file
-        /// </summary>
-        ///  <param name="path">The pathname (relative to the data directory) for the file to be read.
-        ///  </param>
-        /// <param name="pos">The file offset at which to begin reading.
-        ///  </param>
-        /// <param name="num">The number of bytes to be read.
-        ///  </param>
-        /// <param name="current">The Current object for the invocation.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
-        /// <para>getFileCompressed() is deprecated, use getLargeFileCompressed() instead.</para>
-        [global::System.Obsolete("getFileCompressed() is deprecated, use getLargeFileCompressed() instead.")]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task<byte[]> getFileCompressedAsync(string path, int pos, int num, global::Ice.Current current = null);
 
         /// <summary>
         /// Read the specified file.
@@ -606,18 +485,6 @@ namespace IcePatch2
 
         #region Synchronous operations
 
-        public FileInfo[] getFileInfoSeq(int partition, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            try
-            {
-                return _iceI_getFileInfoSeqAsync(partition, context, null, global::System.Threading.CancellationToken.None, true).Result;
-            }
-            catch(global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException;
-            }
-        }
-
         public LargeFileInfo[] getLargeFileInfoSeq(int partition, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
             try
@@ -654,18 +521,6 @@ namespace IcePatch2
             }
         }
 
-        public byte[] getFileCompressed(string path, int pos, int num, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            try
-            {
-                return _iceI_getFileCompressedAsync(path, pos, num, context, null, global::System.Threading.CancellationToken.None, true).Result;
-            }
-            catch(global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException;
-            }
-        }
-
         public byte[] getLargeFileCompressed(string path, long pos, int num, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
             try
@@ -681,60 +536,6 @@ namespace IcePatch2
         #endregion
 
         #region Async Task operations
-
-        public global::System.Threading.Tasks.Task<FileInfo[]> getFileInfoSeqAsync(int partition, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-        {
-            return _iceI_getFileInfoSeqAsync(partition, context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task<FileInfo[]> _iceI_getFileInfoSeqAsync(int iceP_partition, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            iceCheckTwowayOnly(_getFileInfoSeq_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<FileInfo[]>(progress, cancel);
-            _iceI_getFileInfoSeq(iceP_partition, context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _getFileInfoSeq_name = "getFileInfoSeq";
-
-        private void _iceI_getFileInfoSeq(int iceP_partition, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<FileInfo[]>(completed);
-            outAsync.invoke(
-                _getFileInfoSeq_name,
-                global::Ice.OperationMode.Nonmutating,
-                global::Ice.FormatType.DefaultFormat,
-                context,
-                synchronous,
-                write: (global::Ice.OutputStream ostr) =>
-                {
-                    ostr.writeInt(iceP_partition);
-                },
-                userException: (global::Ice.UserException ex) =>
-                {
-                    try
-                    {
-                        throw ex;
-                    }
-                    catch(PartitionOutOfRangeException)
-                    {
-                        throw;
-                    }
-                    catch(FileSizeRangeException)
-                    {
-                        throw;
-                    }
-                    catch(global::Ice.UserException)
-                    {
-                    }
-                },
-                read: (global::Ice.InputStream istr) =>
-                {
-                    FileInfo[] ret;
-                    ret = FileInfoSeqHelper.read(istr);
-                    return ret;
-                });
-        }
 
         public global::System.Threading.Tasks.Task<LargeFileInfo[]> getLargeFileInfoSeqAsync(int partition, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
         {
@@ -842,62 +643,6 @@ namespace IcePatch2
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
-                read: (global::Ice.InputStream istr) =>
-                {
-                    byte[] ret;
-                    ret = global::Ice.ByteSeqHelper.read(istr);
-                    return ret;
-                });
-        }
-
-        public global::System.Threading.Tasks.Task<byte[]> getFileCompressedAsync(string path, int pos, int num, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-        {
-            return _iceI_getFileCompressedAsync(path, pos, num, context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task<byte[]> _iceI_getFileCompressedAsync(string iceP_path, int iceP_pos, int iceP_num, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            iceCheckTwowayOnly(_getFileCompressed_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<byte[]>(progress, cancel);
-            _iceI_getFileCompressed(iceP_path, iceP_pos, iceP_num, context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _getFileCompressed_name = "getFileCompressed";
-
-        private void _iceI_getFileCompressed(string iceP_path, int iceP_pos, int iceP_num, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<byte[]>(completed);
-            outAsync.invoke(
-                _getFileCompressed_name,
-                global::Ice.OperationMode.Nonmutating,
-                global::Ice.FormatType.DefaultFormat,
-                context,
-                synchronous,
-                write: (global::Ice.OutputStream ostr) =>
-                {
-                    ostr.writeString(iceP_path);
-                    ostr.writeInt(iceP_pos);
-                    ostr.writeInt(iceP_num);
-                },
-                userException: (global::Ice.UserException ex) =>
-                {
-                    try
-                    {
-                        throw ex;
-                    }
-                    catch(FileSizeRangeException)
-                    {
-                        throw;
-                    }
-                    catch(FileAccessException)
-                    {
-                        throw;
-                    }
-                    catch(global::Ice.UserException)
-                    {
-                    }
-                },
                 read: (global::Ice.InputStream istr) =>
                 {
                     byte[] ret;
@@ -1107,15 +852,11 @@ namespace IcePatch2
     {
         #region Slice operations
 
-        public abstract FileInfo[] getFileInfoSeq(int partition, global::Ice.Current current = null);
-
         public abstract LargeFileInfo[] getLargeFileInfoSeq(int partition, global::Ice.Current current = null);
 
         public abstract byte[][] getChecksumSeq(global::Ice.Current current = null);
 
         public abstract byte[] getChecksum(global::Ice.Current current = null);
-
-        public abstract global::System.Threading.Tasks.Task<byte[]> getFileCompressedAsync(string path, int pos, int num, global::Ice.Current current = null);
 
         public abstract global::System.Threading.Tasks.Task<byte[]> getLargeFileCompressedAsync(string path, long pos, int num, global::Ice.Current current = null);
 
@@ -1152,22 +893,6 @@ namespace IcePatch2
         #endregion
 
         #region Operation dispatch
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_getFileInfoSeq(FileServer obj, global::IceInternal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
-            var istr = inS.startReadParams();
-            int iceP_partition;
-            iceP_partition = istr.readInt();
-            inS.endReadParams();
-            var ret = obj.getFileInfoSeq(iceP_partition, current);
-            var ostr = inS.startWriteParams();
-            FileInfoSeqHelper.write(ostr, ret);
-            inS.endWriteParams(ostr);
-            return inS.setResult(ostr);
-        }
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
@@ -1213,26 +938,6 @@ namespace IcePatch2
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_getFileCompressed(FileServer obj, global::IceInternal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
-            var istr = inS.startReadParams();
-            string iceP_path;
-            int iceP_pos;
-            int iceP_num;
-            iceP_path = istr.readString();
-            iceP_pos = istr.readInt();
-            iceP_num = istr.readInt();
-            inS.endReadParams();
-            return inS.setResultTask<byte[]>(obj.getFileCompressedAsync(iceP_path, iceP_pos, iceP_num, current),
-                (ostr, ret) =>
-                {
-                    global::Ice.ByteSeqHelper.write(ostr, ret);
-                });
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
         iceD_getLargeFileCompressed(FileServer obj, global::IceInternal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
@@ -1255,8 +960,6 @@ namespace IcePatch2
         {
             "getChecksum",
             "getChecksumSeq",
-            "getFileCompressed",
-            "getFileInfoSeq",
             "getLargeFileCompressed",
             "getLargeFileInfoSeq",
             "ice_id",
@@ -1286,33 +989,25 @@ namespace IcePatch2
                 }
                 case 2:
                 {
-                    return iceD_getFileCompressed(this, inS, current);
+                    return iceD_getLargeFileCompressed(this, inS, current);
                 }
                 case 3:
                 {
-                    return iceD_getFileInfoSeq(this, inS, current);
+                    return iceD_getLargeFileInfoSeq(this, inS, current);
                 }
                 case 4:
                 {
-                    return iceD_getLargeFileCompressed(this, inS, current);
+                    return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
                 }
                 case 5:
                 {
-                    return iceD_getLargeFileInfoSeq(this, inS, current);
+                    return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
                 }
                 case 6:
                 {
-                    return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
-                }
-                case 7:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
-                }
-                case 8:
-                {
                     return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
                 }
-                case 9:
+                case 7:
                 {
                     return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
                 }

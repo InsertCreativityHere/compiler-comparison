@@ -21,21 +21,6 @@ package com.zeroc.IcePatch2;
 public interface FileServer extends com.zeroc.Ice.Object
 {
     /**
-     * Return file information for the specified partition. <p class="Deprecated"> This operation is deprecated and
-     * only present for compatibility with old Ice clients (older than version 3.6).
-     * @param partition The partition number in the range 0-255.
-     * @param current The Current object for the invocation.
-     * @return A sequence containing information about the files in the specified partition.
-     * @throws FileSizeRangeException If a file is larger than 2.1GB.
-     * @throws PartitionOutOfRangeException If the partition number is out of range.
-     * @deprecated getFileInfoSeq() is deprecated, use getLargeFileInfoSeq() instead.
-     **/
-    @Deprecated
-    FileInfo[] getFileInfoSeq(int partition, com.zeroc.Ice.Current current)
-        throws PartitionOutOfRangeException,
-               FileSizeRangeException;
-
-    /**
      * Returns file information for the specified partition.
      * @param partition The partition number in the range 0-255.
      * @param current The Current object for the invocation.
@@ -61,24 +46,6 @@ public interface FileServer extends com.zeroc.Ice.Object
      * @return The master checksum for the file set.
      **/
     byte[] getChecksum(com.zeroc.Ice.Current current);
-
-    /**
-     * Read the specified file. This operation may only return fewer bytes than requested in case there was an end-of-file
-     * condition. <p class="Deprecated"> This operation is deprecated and only present for compatibility with old Ice
-     * clients (older than version 3.6).
-     * @param path The pathname (relative to the data directory) for the file to be read.
-     * @param pos The file offset at which to begin reading.
-     * @param num The number of bytes to be read.
-     * @param current The Current object for the invocation.
-     * @return A sequence containing the compressed file contents.
-     * @throws FileAccessException If an error occurred while trying to read the file.
-     * @throws FileSizeRangeException If a file is larger than 2.1GB.
-     * @deprecated getFileCompressed() is deprecated, use getLargeFileCompressed() instead.
-     **/
-    @Deprecated
-    java.util.concurrent.CompletionStage<byte[]> getFileCompressedAsync(String path, int pos, int num, com.zeroc.Ice.Current current)
-        throws FileAccessException,
-               FileSizeRangeException;
 
     /**
      * Read the specified file. This operation may only return fewer bytes than requested in case there was an
@@ -115,30 +82,6 @@ public interface FileServer extends com.zeroc.Ice.Object
     static String ice_staticId()
     {
         return "::IcePatch2::FileServer";
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws com.zeroc.Ice.UserException -
-    **/
-    @Deprecated
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_getFileInfoSeq(FileServer obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-        throws com.zeroc.Ice.UserException
-    {
-        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        int iceP_partition;
-        iceP_partition = istr.readInt();
-        inS.endReadParams();
-        FileInfo[] ret = obj.getFileInfoSeq(iceP_partition, current);
-        com.zeroc.Ice.OutputStream ostr = inS.startWriteParams();
-        FileInfoSeqHelper.write(ostr, ret);
-        inS.endWriteParams(ostr);
-        return inS.setResult(ostr);
     }
 
     /**
@@ -208,33 +151,6 @@ public interface FileServer extends com.zeroc.Ice.Object
      * @return -
      * @throws com.zeroc.Ice.UserException -
     **/
-    @Deprecated
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_getFileCompressed(FileServer obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-        throws com.zeroc.Ice.UserException
-    {
-        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        String iceP_path;
-        int iceP_pos;
-        int iceP_num;
-        iceP_path = istr.readString();
-        iceP_pos = istr.readInt();
-        iceP_num = istr.readInt();
-        inS.endReadParams();
-        return inS.setResultFuture(obj.getFileCompressedAsync(iceP_path, iceP_pos, iceP_num, current), (ostr, ret) ->
-            {
-                ostr.writeByteSeq(ret);
-            });
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws com.zeroc.Ice.UserException -
-    **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_getLargeFileCompressed(FileServer obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
         throws com.zeroc.Ice.UserException
     {
@@ -258,8 +174,6 @@ public interface FileServer extends com.zeroc.Ice.Object
     {
         "getChecksum",
         "getChecksumSeq",
-        "getFileCompressed",
-        "getFileInfoSeq",
         "getLargeFileCompressed",
         "getLargeFileInfoSeq",
         "ice_id",
@@ -269,7 +183,6 @@ public interface FileServer extends com.zeroc.Ice.Object
     };
 
     /** @hidden */
-    @SuppressWarnings("deprecation")
     @Override
     default java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceDispatch(com.zeroc.IceInternal.Incoming in, com.zeroc.Ice.Current current)
         throws com.zeroc.Ice.UserException
@@ -292,33 +205,25 @@ public interface FileServer extends com.zeroc.Ice.Object
             }
             case 2:
             {
-                return _iceD_getFileCompressed(this, in, current);
+                return _iceD_getLargeFileCompressed(this, in, current);
             }
             case 3:
             {
-                return _iceD_getFileInfoSeq(this, in, current);
+                return _iceD_getLargeFileInfoSeq(this, in, current);
             }
             case 4:
             {
-                return _iceD_getLargeFileCompressed(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
             }
             case 5:
             {
-                return _iceD_getLargeFileInfoSeq(this, in, current);
+                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
             }
             case 6:
             {
-                return com.zeroc.Ice.Object._iceD_ice_id(this, in, current);
-            }
-            case 7:
-            {
-                return com.zeroc.Ice.Object._iceD_ice_ids(this, in, current);
-            }
-            case 8:
-            {
                 return com.zeroc.Ice.Object._iceD_ice_isA(this, in, current);
             }
-            case 9:
+            case 7:
             {
                 return com.zeroc.Ice.Object._iceD_ice_ping(this, in, current);
             }
