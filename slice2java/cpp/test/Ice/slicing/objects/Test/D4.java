@@ -50,7 +50,7 @@ public class D4 extends B
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 3003944778943826675L;
+    public static final long serialVersionUID = -2440956461283014669L;
 
     /** @hidden */
     @Override
