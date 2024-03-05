@@ -96,7 +96,7 @@ public class SessionMetrics extends Metrics
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -7442796358143860747L;
+    public static final long serialVersionUID = 3494841924221378466L;
 
     /** @hidden */
     @Override
