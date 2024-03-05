@@ -415,7 +415,7 @@ if 'SessionControlPrx' not in _M_Glacier2.__dict__:
          Access the object that manages the allowable categories for object identities for this session.
         Arguments:
         context -- The request context for the invocation.
-        Returns: A StringSet object.
+        Returns: A StringSet object. The returned proxy is never null.
         """
         def categories(self, context=None):
             return _M_Glacier2.SessionControl._op_categories.invoke(self, ((), context))
@@ -433,7 +433,7 @@ if 'SessionControlPrx' not in _M_Glacier2.__dict__:
          Access the object that manages the allowable adapter identities for objects for this session.
         Arguments:
         context -- The request context for the invocation.
-        Returns: A StringSet object.
+        Returns: A StringSet object. The returned proxy is never null.
         """
         def adapterIds(self, context=None):
             return _M_Glacier2.SessionControl._op_adapterIds.invoke(self, ((), context))
@@ -451,7 +451,7 @@ if 'SessionControlPrx' not in _M_Glacier2.__dict__:
          Access the object that manages the allowable object identities for this session.
         Arguments:
         context -- The request context for the invocation.
-        Returns: An IdentitySet object.
+        Returns: An IdentitySet object. The returned proxy is never null.
         """
         def identities(self, context=None):
             return _M_Glacier2.SessionControl._op_identities.invoke(self, ((), context))
@@ -598,10 +598,11 @@ if 'SessionManagerPrx' not in _M_Glacier2.__dict__:
     class SessionManagerPrx(Ice.ObjectPrx):
 
         """
-         Create a new session.
+         Create a new session. The implementation must return a non-null proxy or raise
+         CannotCreateSessionException if the session cannot be created.
         Arguments:
         userId -- The user id for the session.
-        control -- A proxy to the session control object.
+        control -- A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints are not configured.
         context -- The request context for the invocation.
         Returns: A proxy to the newly created session.
         Throws:
@@ -611,10 +612,11 @@ if 'SessionManagerPrx' not in _M_Glacier2.__dict__:
             return _M_Glacier2.SessionManager._op_create.invoke(self, ((userId, control), context))
 
         """
-         Create a new session.
+         Create a new session. The implementation must return a non-null proxy or raise
+         CannotCreateSessionException if the session cannot be created.
         Arguments:
         userId -- The user id for the session.
-        control -- A proxy to the session control object.
+        control -- A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints are not configured.
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
@@ -652,10 +654,11 @@ if 'SessionManagerPrx' not in _M_Glacier2.__dict__:
 
         def create(self, userId, control, current=None):
             """
-             Create a new session.
+             Create a new session. The implementation must return a non-null proxy or raise
+             CannotCreateSessionException if the session cannot be created.
             Arguments:
             userId -- The user id for the session.
-            control -- A proxy to the session control object.
+            control -- A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints are not configured.
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
             Throws:

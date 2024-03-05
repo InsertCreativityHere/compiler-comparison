@@ -29,7 +29,7 @@ classdef SessionControlPrx < Ice.ObjectPrx
             % Parameters:
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (Glacier2.StringSetPrx) - A StringSet object.
+            % Returns (Glacier2.StringSetPrx) - A StringSet object. The returned proxy is never null.
             
             is_ = obj.iceInvoke('categories', 0, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
@@ -58,7 +58,7 @@ classdef SessionControlPrx < Ice.ObjectPrx
             % Parameters:
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (Glacier2.StringSetPrx) - A StringSet object.
+            % Returns (Glacier2.StringSetPrx) - A StringSet object. The returned proxy is never null.
             
             is_ = obj.iceInvoke('adapterIds', 0, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
@@ -87,7 +87,7 @@ classdef SessionControlPrx < Ice.ObjectPrx
             % Parameters:
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (Glacier2.IdentitySetPrx) - An IdentitySet object.
+            % Returns (Glacier2.IdentitySetPrx) - An IdentitySet object. The returned proxy is never null.
             
             is_ = obj.iceInvoke('identities', 0, true, [], true, {}, varargin{:});
             is_.startEncapsulation();

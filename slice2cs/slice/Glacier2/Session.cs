@@ -444,7 +444,7 @@ namespace Glacier2
         /// <summary>
         /// Access the object that manages the allowable categories for object identities for this session.
         /// </summary>
-        /// <returns>A StringSet object.</returns>
+        /// <returns>A StringSet object. The returned proxy is never null.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         StringSetPrx categories(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -461,7 +461,7 @@ namespace Glacier2
         /// <summary>
         /// Access the object that manages the allowable adapter identities for objects for this session.
         /// </summary>
-        /// <returns>A StringSet object.</returns>
+        /// <returns>A StringSet object. The returned proxy is never null.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         StringSetPrx adapterIds(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -478,7 +478,7 @@ namespace Glacier2
         /// <summary>
         /// Access the object that manages the allowable object identities for this session.
         /// </summary>
-        /// <returns>An IdentitySet object.</returns>
+        /// <returns>An IdentitySet object. The returned proxy is never null.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         IdentitySetPrx identities(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -539,10 +539,13 @@ namespace Glacier2
     {
         /// <summary>
         /// Create a new session.
+        /// The implementation must return a non-null proxy or raise
+        ///  CannotCreateSessionException if the session cannot be created.
         /// </summary>
-        /// <param name="userId">The user id for the session.
+        ///  <param name="userId">The user id for the session.
         ///  </param>
-        /// <param name="control">A proxy to the session control object.
+        /// <param name="control">A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints
+        ///  are not configured.
         ///  </param>
         /// <returns>A proxy to the newly created session.
         ///  </returns>
@@ -553,10 +556,12 @@ namespace Glacier2
 
         /// <summary>
         /// Create a new session.
+        /// The implementation must return a non-null proxy or raise
         /// </summary>
-        /// <param name="userId">The user id for the session.
+        ///  <param name="userId">The user id for the session.
         ///  </param>
-        /// <param name="control">A proxy to the session control object.
+        /// <param name="control">A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints
+        ///  are not configured.
         ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -711,7 +716,7 @@ namespace Glacier2
         /// <summary>
         /// Access the object that manages the allowable categories for object identities for this session.
         /// </summary>
-        /// <returns>A StringSet object.</returns>
+        /// <returns>A StringSet object. The returned proxy is never null.</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -720,7 +725,7 @@ namespace Glacier2
         /// <summary>
         /// Access the object that manages the allowable adapter identities for objects for this session.
         /// </summary>
-        /// <returns>A StringSet object.</returns>
+        /// <returns>A StringSet object. The returned proxy is never null.</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -729,7 +734,7 @@ namespace Glacier2
         /// <summary>
         /// Access the object that manages the allowable object identities for this session.
         /// </summary>
-        /// <returns>An IdentitySet object.</returns>
+        /// <returns>An IdentitySet object. The returned proxy is never null.</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -766,10 +771,13 @@ namespace Glacier2
     {
         /// <summary>
         /// Create a new session.
+        /// The implementation must return a non-null proxy or raise
+        ///  CannotCreateSessionException if the session cannot be created.
         /// </summary>
-        /// <param name="userId">The user id for the session.
+        ///  <param name="userId">The user id for the session.
         ///  </param>
-        /// <param name="control">A proxy to the session control object.
+        /// <param name="control">A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints
+        ///  are not configured.
         ///  </param>
         /// <returns>A proxy to the newly created session.
         ///  </returns>

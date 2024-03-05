@@ -24,7 +24,7 @@ public interface LocatorFinder extends Object
 {
     /**
      * Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
-     * replicas.
+     * replicas. This proxy is never null.
      * @param current The Current object for the invocation.
      * @return The locator proxy.
      **/

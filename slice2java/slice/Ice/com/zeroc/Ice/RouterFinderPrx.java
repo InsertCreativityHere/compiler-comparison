@@ -24,7 +24,7 @@ public interface RouterFinderPrx extends ObjectPrx
 {
     /**
      * Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
-     * replicas.
+     * replicas. This proxy is never null.
      * @return The router proxy.
      **/
     default RouterPrx getRouter()
@@ -34,7 +34,7 @@ public interface RouterFinderPrx extends ObjectPrx
 
     /**
      * Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
-     * replicas.
+     * replicas. This proxy is never null.
      * @param context The Context map to send with the invocation.
      * @return The router proxy.
      **/
@@ -45,7 +45,7 @@ public interface RouterFinderPrx extends ObjectPrx
 
     /**
      * Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
-     * replicas.
+     * replicas. This proxy is never null.
      * @return The router proxy.
      **/
     default java.util.concurrent.CompletableFuture<RouterPrx> getRouterAsync()
@@ -55,7 +55,7 @@ public interface RouterFinderPrx extends ObjectPrx
 
     /**
      * Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
-     * replicas.
+     * replicas. This proxy is never null.
      * @param context The Context map to send with the invocation.
      * @return The router proxy.
      **/

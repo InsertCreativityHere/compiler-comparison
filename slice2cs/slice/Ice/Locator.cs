@@ -570,7 +570,7 @@ namespace Ice
         /// <summary>
         /// Get the locator proxy implemented by the process hosting this finder object.
         /// The proxy might point to several
-        ///  replicas.
+        ///  replicas. This proxy is never null.
         /// </summary>
         ///  <returns>The locator proxy.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -697,7 +697,7 @@ namespace Ice
         /// <summary>
         /// Get the locator proxy implemented by the process hosting this finder object.
         /// The proxy might point to several
-        ///  replicas.
+        ///  replicas. This proxy is never null.
         /// </summary>
         ///  <returns>The locator proxy.</returns>
         /// <param name="current">The Current object for the invocation.</param>

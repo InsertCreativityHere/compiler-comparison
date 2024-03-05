@@ -17,7 +17,7 @@ classdef RouterFinderPrx < Ice.ObjectPrx
     methods
         function result = getRouter(obj, varargin)
             % getRouter   Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
-            % replicas.
+            % replicas. This proxy is never null.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -31,7 +31,7 @@ classdef RouterFinderPrx < Ice.ObjectPrx
         end
         function r_ = getRouterAsync(obj, varargin)
             % getRouterAsync   Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
-            % replicas.
+            % replicas. This proxy is never null.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.

@@ -469,7 +469,7 @@ public:
     /**
      * Access the object that manages the allowable categories for object identities for this session.
      * @param context The Context map to send with the invocation.
-     * @return A StringSet object.
+     * @return A StringSet object. The returned proxy is never null.
      */
     ::std::optional<StringSetPrx> categories(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -498,7 +498,7 @@ public:
     /**
      * Access the object that manages the allowable adapter identities for objects for this session.
      * @param context The Context map to send with the invocation.
-     * @return A StringSet object.
+     * @return A StringSet object. The returned proxy is never null.
      */
     ::std::optional<StringSetPrx> adapterIds(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -527,7 +527,7 @@ public:
     /**
      * Access the object that manages the allowable object identities for this session.
      * @param context The Context map to send with the invocation.
-     * @return An IdentitySet object.
+     * @return An IdentitySet object. The returned proxy is never null.
      */
     ::std::optional<IdentitySetPrx> identities(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -671,9 +671,11 @@ class GLACIER2_API SessionManagerPrx : public ::Ice::Proxy<SessionManagerPrx, ::
 public:
 
     /**
-     * Create a new session.
+     * Create a new session. The implementation must return a non-null proxy or raise
+     * {@link CannotCreateSessionException} if the session cannot be created.
      * @param userId The user id for the session.
-     * @param control A proxy to the session control object.
+     * @param control A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints
+     * are not configured.
      * @param context The Context map to send with the invocation.
      * @return A proxy to the newly created session.
      * @throws Glacier2::CannotCreateSessionException Raised if the session cannot be created.
@@ -681,18 +683,22 @@ public:
     ::std::optional<SessionPrx> create(::std::string_view userId, const ::std::optional<SessionControlPrx>& control, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * Create a new session.
+     * Create a new session. The implementation must return a non-null proxy or raise
+     * {@link CannotCreateSessionException} if the session cannot be created.
      * @param userId The user id for the session.
-     * @param control A proxy to the session control object.
+     * @param control A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints
+     * are not configured.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
     ::std::future<::std::optional<SessionPrx>> createAsync(::std::string_view userId, const ::std::optional<SessionControlPrx>& control, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * Create a new session.
+     * Create a new session. The implementation must return a non-null proxy or raise
+     * {@link CannotCreateSessionException} if the session cannot be created.
      * @param userId The user id for the session.
-     * @param control A proxy to the session control object.
+     * @param control A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints
+     * are not configured.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -1142,7 +1148,7 @@ public:
     /**
      * Access the object that manages the allowable categories for object identities for this session.
      * @param current The Current object for the invocation.
-     * @return A StringSet object.
+     * @return A StringSet object. The returned proxy is never null.
      */
     virtual ::std::optional<StringSetPrx> categories(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -1152,7 +1158,7 @@ public:
     /**
      * Access the object that manages the allowable adapter identities for objects for this session.
      * @param current The Current object for the invocation.
-     * @return A StringSet object.
+     * @return A StringSet object. The returned proxy is never null.
      */
     virtual ::std::optional<StringSetPrx> adapterIds(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -1162,7 +1168,7 @@ public:
     /**
      * Access the object that manages the allowable object identities for this session.
      * @param current The Current object for the invocation.
-     * @return An IdentitySet object.
+     * @return An IdentitySet object. The returned proxy is never null.
      */
     virtual ::std::optional<IdentitySetPrx> identities(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -1230,9 +1236,11 @@ public:
     static ::std::string_view ice_staticId();
 
     /**
-     * Create a new session.
+     * Create a new session. The implementation must return a non-null proxy or raise
+     * {@link CannotCreateSessionException} if the session cannot be created.
      * @param userId The user id for the session.
-     * @param control A proxy to the session control object.
+     * @param control A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints
+     * are not configured.
      * @param current The Current object for the invocation.
      * @return A proxy to the newly created session.
      * @throws Glacier2::CannotCreateSessionException Raised if the session cannot be created.

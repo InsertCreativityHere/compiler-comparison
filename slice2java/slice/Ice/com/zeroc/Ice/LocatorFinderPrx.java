@@ -24,7 +24,7 @@ public interface LocatorFinderPrx extends ObjectPrx
 {
     /**
      * Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
-     * replicas.
+     * replicas. This proxy is never null.
      * @return The locator proxy.
      **/
     default LocatorPrx getLocator()
@@ -34,7 +34,7 @@ public interface LocatorFinderPrx extends ObjectPrx
 
     /**
      * Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
-     * replicas.
+     * replicas. This proxy is never null.
      * @param context The Context map to send with the invocation.
      * @return The locator proxy.
      **/
@@ -45,7 +45,7 @@ public interface LocatorFinderPrx extends ObjectPrx
 
     /**
      * Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
-     * replicas.
+     * replicas. This proxy is never null.
      * @return The locator proxy.
      **/
     default java.util.concurrent.CompletableFuture<LocatorPrx> getLocatorAsync()
@@ -55,7 +55,7 @@ public interface LocatorFinderPrx extends ObjectPrx
 
     /**
      * Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
-     * replicas.
+     * replicas. This proxy is never null.
      * @param context The Context map to send with the invocation.
      * @return The locator proxy.
      **/

@@ -137,8 +137,8 @@ public interface RouterPrx extends ObjectPrx
 
     /**
      * Add new proxy information to the router's routing table.
-     * @param proxies The proxies to add.
-     * @return Proxies discarded by the router.
+     * @param proxies The proxies to add. Adding a null proxy is an error.
+     * @return Proxies discarded by the router. These proxies are all non-null.
      **/
     default ObjectPrx[] addProxies(ObjectPrx[] proxies)
     {
@@ -147,9 +147,9 @@ public interface RouterPrx extends ObjectPrx
 
     /**
      * Add new proxy information to the router's routing table.
-     * @param proxies The proxies to add.
+     * @param proxies The proxies to add. Adding a null proxy is an error.
      * @param context The Context map to send with the invocation.
-     * @return Proxies discarded by the router.
+     * @return Proxies discarded by the router. These proxies are all non-null.
      **/
     default ObjectPrx[] addProxies(ObjectPrx[] proxies, java.util.Map<String, String> context)
     {
@@ -158,8 +158,8 @@ public interface RouterPrx extends ObjectPrx
 
     /**
      * Add new proxy information to the router's routing table.
-     * @param proxies The proxies to add.
-     * @return Proxies discarded by the router.
+     * @param proxies The proxies to add. Adding a null proxy is an error.
+     * @return Proxies discarded by the router. These proxies are all non-null.
      **/
     default java.util.concurrent.CompletableFuture<ObjectPrx[]> addProxiesAsync(ObjectPrx[] proxies)
     {
@@ -168,9 +168,9 @@ public interface RouterPrx extends ObjectPrx
 
     /**
      * Add new proxy information to the router's routing table.
-     * @param proxies The proxies to add.
+     * @param proxies The proxies to add. Adding a null proxy is an error.
      * @param context The Context map to send with the invocation.
-     * @return Proxies discarded by the router.
+     * @return Proxies discarded by the router. These proxies are all non-null.
      **/
     default java.util.concurrent.CompletableFuture<ObjectPrx[]> addProxiesAsync(ObjectPrx[] proxies, java.util.Map<String, String> context)
     {

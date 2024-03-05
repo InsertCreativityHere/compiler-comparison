@@ -103,9 +103,9 @@ public interface Router extends Object
 
     /**
      * Add new proxy information to the router's routing table.
-     * @param proxies The proxies to add.
+     * @param proxies The proxies to add. Adding a null proxy is an error.
      * @param current The Current object for the invocation.
-     * @return Proxies discarded by the router.
+     * @return Proxies discarded by the router. These proxies are all non-null.
      **/
     ObjectPrx[] addProxies(ObjectPrx[] proxies, Current current);
 

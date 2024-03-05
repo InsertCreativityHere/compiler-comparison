@@ -65,5 +65,5 @@ public class Ex extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 1842230225416627562L;
+    public static final long serialVersionUID = 1842241926111682824L;
 }

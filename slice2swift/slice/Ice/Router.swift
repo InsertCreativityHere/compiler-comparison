@@ -231,11 +231,11 @@ public extension RouterPrx {
 
     /// Add new proxy information to the router's routing table.
     ///
-    /// - parameter _: `ObjectProxySeq` The proxies to add.
+    /// - parameter _: `ObjectProxySeq` The proxies to add. Adding a null proxy is an error.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `ObjectProxySeq` - Proxies discarded by the router.
+    /// - returns: `ObjectProxySeq` - Proxies discarded by the router. These proxies are all non-null.
     func addProxies(_ iceP_proxies: ObjectProxySeq, context: Context? = nil) throws -> ObjectProxySeq {
         return try _impl._invoke(operation: "addProxies",
                                  mode: .Idempotent,
@@ -251,7 +251,7 @@ public extension RouterPrx {
 
     /// Add new proxy information to the router's routing table.
     ///
-    /// - parameter _: `ObjectProxySeq` The proxies to add.
+    /// - parameter _: `ObjectProxySeq` The proxies to add. Adding a null proxy is an error.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -376,7 +376,7 @@ public extension InputStream {
 ///  - getRouterAsync: Get the router proxy implemented by the process hosting this finder object.
 public extension RouterFinderPrx {
     /// Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
-    /// replicas.
+    /// replicas. This proxy is never null.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -392,7 +392,7 @@ public extension RouterFinderPrx {
     }
 
     /// Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
-    /// replicas.
+    /// replicas. This proxy is never null.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -479,11 +479,11 @@ public protocol Router {
 
     /// Add new proxy information to the router's routing table.
     ///
-    /// - parameter proxies: `ObjectProxySeq` The proxies to add.
+    /// - parameter proxies: `ObjectProxySeq` The proxies to add. Adding a null proxy is an error.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `ObjectProxySeq` - Proxies discarded by the router.
+    /// - returns: `ObjectProxySeq` - Proxies discarded by the router. These proxies are all non-null.
     func addProxies(proxies: ObjectProxySeq, current: Current) throws -> ObjectProxySeq
 }
 
@@ -521,7 +521,7 @@ public struct RouterFinderDisp: Disp {
 /// just the endpoint information of the service.
 public protocol RouterFinder {
     /// Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
-    /// replicas.
+    /// replicas. This proxy is never null.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///

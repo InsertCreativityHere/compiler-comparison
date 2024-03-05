@@ -90,10 +90,10 @@ classdef RouterPrx < Ice.ObjectPrx
             % addProxies   Add new proxy information to the router's routing table.
             %
             % Parameters:
-            %   proxies (Ice.ObjectProxySeq) - The proxies to add.
+            %   proxies (Ice.ObjectProxySeq) - The proxies to add. Adding a null proxy is an error.
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (Ice.ObjectProxySeq) - Proxies discarded by the router.
+            % Returns (Ice.ObjectProxySeq) - Proxies discarded by the router. These proxies are all non-null.
             
             os_ = obj.iceStartWriteParams([]);
             Ice.ObjectProxySeq.write(os_, proxies);
@@ -107,7 +107,7 @@ classdef RouterPrx < Ice.ObjectPrx
             % addProxiesAsync   Add new proxy information to the router's routing table.
             %
             % Parameters:
-            %   proxies (Ice.ObjectProxySeq) - The proxies to add.
+            %   proxies (Ice.ObjectProxySeq) - The proxies to add. Adding a null proxy is an error.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.

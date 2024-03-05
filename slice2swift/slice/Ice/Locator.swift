@@ -935,7 +935,7 @@ public extension InputStream {
 ///  - getLocatorAsync: Get the locator proxy implemented by the process hosting this finder object.
 public extension LocatorFinderPrx {
     /// Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
-    /// replicas.
+    /// replicas. This proxy is never null.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -951,7 +951,7 @@ public extension LocatorFinderPrx {
     }
 
     /// Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
-    /// replicas.
+    /// replicas. This proxy is never null.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -1152,7 +1152,7 @@ public struct LocatorFinderDisp: Disp {
 /// retrieve the locator proxy with just the endpoint information of the service.
 public protocol LocatorFinder {
     /// Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
-    /// replicas.
+    /// replicas. This proxy is never null.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///

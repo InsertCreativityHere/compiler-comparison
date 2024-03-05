@@ -25,21 +25,21 @@ public interface SessionControl extends com.zeroc.Ice.Object
     /**
      * Access the object that manages the allowable categories for object identities for this session.
      * @param current The Current object for the invocation.
-     * @return A StringSet object.
+     * @return A StringSet object. The returned proxy is never null.
      **/
     StringSetPrx categories(com.zeroc.Ice.Current current);
 
     /**
      * Access the object that manages the allowable adapter identities for objects for this session.
      * @param current The Current object for the invocation.
-     * @return A StringSet object.
+     * @return A StringSet object. The returned proxy is never null.
      **/
     StringSetPrx adapterIds(com.zeroc.Ice.Current current);
 
     /**
      * Access the object that manages the allowable object identities for this session.
      * @param current The Current object for the invocation.
-     * @return An IdentitySet object.
+     * @return An IdentitySet object. The returned proxy is never null.
      **/
     IdentitySetPrx identities(com.zeroc.Ice.Current current);
 

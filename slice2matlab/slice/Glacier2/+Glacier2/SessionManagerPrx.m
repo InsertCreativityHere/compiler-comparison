@@ -19,11 +19,13 @@
 classdef SessionManagerPrx < Ice.ObjectPrx
     methods
         function result = create(obj, userId, control, varargin)
-            % create   Create a new session.
+            % create   Create a new session. The implementation must return a non-null proxy or raise
+            % CannotCreateSessionException if the session cannot be created.
             %
             % Parameters:
             %   userId (char) - The user id for the session.
-            %   control (Glacier2.SessionControlPrx) - A proxy to the session control object.
+            %   control (Glacier2.SessionControlPrx) - A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints
+            %     are not configured.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Glacier2.SessionPrx) - A proxy to the newly created session.
@@ -41,11 +43,13 @@ classdef SessionManagerPrx < Ice.ObjectPrx
             is_.endEncapsulation();
         end
         function r_ = createAsync(obj, userId, control, varargin)
-            % createAsync   Create a new session.
+            % createAsync   Create a new session. The implementation must return a non-null proxy or raise
+            % CannotCreateSessionException if the session cannot be created.
             %
             % Parameters:
             %   userId (char) - The user id for the session.
-            %   control (Glacier2.SessionControlPrx) - A proxy to the session control object.
+            %   control (Glacier2.SessionControlPrx) - A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints
+            %     are not configured.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.

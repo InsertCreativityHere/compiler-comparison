@@ -127,15 +127,15 @@ public:
 
     /**
      * Add new proxy information to the router's routing table.
-     * @param proxies The proxies to add.
+     * @param proxies The proxies to add. Adding a null proxy is an error.
      * @param context The Context map to send with the invocation.
-     * @return Proxies discarded by the router.
+     * @return Proxies discarded by the router. These proxies are all non-null.
      */
     ObjectProxySeq addProxies(const ObjectProxySeq& proxies, const Context& context = noExplicitContext) const;
 
     /**
      * Add new proxy information to the router's routing table.
-     * @param proxies The proxies to add.
+     * @param proxies The proxies to add. Adding a null proxy is an error.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -143,7 +143,7 @@ public:
 
     /**
      * Add new proxy information to the router's routing table.
-     * @param proxies The proxies to add.
+     * @param proxies The proxies to add. Adding a null proxy is an error.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -216,7 +216,7 @@ public:
 
     /**
      * Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
-     * replicas.
+     * replicas. This proxy is never null.
      * @param context The Context map to send with the invocation.
      * @return The router proxy.
      */
@@ -224,7 +224,7 @@ public:
 
     /**
      * Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
-     * replicas.
+     * replicas. This proxy is never null.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -232,7 +232,7 @@ public:
 
     /**
      * Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
-     * replicas.
+     * replicas. This proxy is never null.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -356,9 +356,9 @@ public:
 
     /**
      * Add new proxy information to the router's routing table.
-     * @param proxies The proxies to add.
+     * @param proxies The proxies to add. Adding a null proxy is an error.
      * @param current The Current object for the invocation.
-     * @return Proxies discarded by the router.
+     * @return Proxies discarded by the router. These proxies are all non-null.
      */
     virtual ObjectProxySeq addProxies(ObjectProxySeq proxies, const Current& current) = 0;
     /// \cond INTERNAL
@@ -405,7 +405,7 @@ public:
 
     /**
      * Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
-     * replicas.
+     * replicas. This proxy is never null.
      * @param current The Current object for the invocation.
      * @return The router proxy.
      */

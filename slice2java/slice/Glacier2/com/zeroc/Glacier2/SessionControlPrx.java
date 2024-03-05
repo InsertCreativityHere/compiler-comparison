@@ -24,7 +24,7 @@ public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
 {
     /**
      * Access the object that manages the allowable categories for object identities for this session.
-     * @return A StringSet object.
+     * @return A StringSet object. The returned proxy is never null.
      **/
     default StringSetPrx categories()
     {
@@ -34,7 +34,7 @@ public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Access the object that manages the allowable categories for object identities for this session.
      * @param context The Context map to send with the invocation.
-     * @return A StringSet object.
+     * @return A StringSet object. The returned proxy is never null.
      **/
     default StringSetPrx categories(java.util.Map<String, String> context)
     {
@@ -43,7 +43,7 @@ public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Access the object that manages the allowable categories for object identities for this session.
-     * @return A StringSet object.
+     * @return A StringSet object. The returned proxy is never null.
      **/
     default java.util.concurrent.CompletableFuture<StringSetPrx> categoriesAsync()
     {
@@ -53,7 +53,7 @@ public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Access the object that manages the allowable categories for object identities for this session.
      * @param context The Context map to send with the invocation.
-     * @return A StringSet object.
+     * @return A StringSet object. The returned proxy is never null.
      **/
     default java.util.concurrent.CompletableFuture<StringSetPrx> categoriesAsync(java.util.Map<String, String> context)
     {
@@ -79,7 +79,7 @@ public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Access the object that manages the allowable adapter identities for objects for this session.
-     * @return A StringSet object.
+     * @return A StringSet object. The returned proxy is never null.
      **/
     default StringSetPrx adapterIds()
     {
@@ -89,7 +89,7 @@ public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Access the object that manages the allowable adapter identities for objects for this session.
      * @param context The Context map to send with the invocation.
-     * @return A StringSet object.
+     * @return A StringSet object. The returned proxy is never null.
      **/
     default StringSetPrx adapterIds(java.util.Map<String, String> context)
     {
@@ -98,7 +98,7 @@ public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Access the object that manages the allowable adapter identities for objects for this session.
-     * @return A StringSet object.
+     * @return A StringSet object. The returned proxy is never null.
      **/
     default java.util.concurrent.CompletableFuture<StringSetPrx> adapterIdsAsync()
     {
@@ -108,7 +108,7 @@ public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Access the object that manages the allowable adapter identities for objects for this session.
      * @param context The Context map to send with the invocation.
-     * @return A StringSet object.
+     * @return A StringSet object. The returned proxy is never null.
      **/
     default java.util.concurrent.CompletableFuture<StringSetPrx> adapterIdsAsync(java.util.Map<String, String> context)
     {
@@ -134,7 +134,7 @@ public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Access the object that manages the allowable object identities for this session.
-     * @return An IdentitySet object.
+     * @return An IdentitySet object. The returned proxy is never null.
      **/
     default IdentitySetPrx identities()
     {
@@ -144,7 +144,7 @@ public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Access the object that manages the allowable object identities for this session.
      * @param context The Context map to send with the invocation.
-     * @return An IdentitySet object.
+     * @return An IdentitySet object. The returned proxy is never null.
      **/
     default IdentitySetPrx identities(java.util.Map<String, String> context)
     {
@@ -153,7 +153,7 @@ public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Access the object that manages the allowable object identities for this session.
-     * @return An IdentitySet object.
+     * @return An IdentitySet object. The returned proxy is never null.
      **/
     default java.util.concurrent.CompletableFuture<IdentitySetPrx> identitiesAsync()
     {
@@ -163,7 +163,7 @@ public interface SessionControlPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Access the object that manages the allowable object identities for this session.
      * @param context The Context map to send with the invocation.
-     * @return An IdentitySet object.
+     * @return An IdentitySet object. The returned proxy is never null.
      **/
     default java.util.concurrent.CompletableFuture<IdentitySetPrx> identitiesAsync(java.util.Map<String, String> context)
     {

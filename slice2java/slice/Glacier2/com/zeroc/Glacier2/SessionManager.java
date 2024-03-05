@@ -27,9 +27,11 @@ package com.zeroc.Glacier2;
 public interface SessionManager extends com.zeroc.Ice.Object
 {
     /**
-     * Create a new session.
+     * Create a new session. The implementation must return a non-null proxy or raise
+     * {@link CannotCreateSessionException} if the session cannot be created.
      * @param userId The user id for the session.
-     * @param control A proxy to the session control object.
+     * @param control A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints
+     * are not configured.
      * @param current The Current object for the invocation.
      * @return A proxy to the newly created session.
      * @throws CannotCreateSessionException Raised if the session cannot be created.

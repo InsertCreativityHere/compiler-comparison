@@ -72,9 +72,9 @@ if 'RouterPrx' not in _M_Ice.__dict__:
         """
          Add new proxy information to the router's routing table.
         Arguments:
-        proxies -- The proxies to add.
+        proxies -- The proxies to add. Adding a null proxy is an error.
         context -- The request context for the invocation.
-        Returns: Proxies discarded by the router.
+        Returns: Proxies discarded by the router. These proxies are all non-null.
         """
         def addProxies(self, proxies, context=None):
             return _M_Ice.Router._op_addProxies.invoke(self, ((proxies, ), context))
@@ -82,7 +82,7 @@ if 'RouterPrx' not in _M_Ice.__dict__:
         """
          Add new proxy information to the router's routing table.
         Arguments:
-        proxies -- The proxies to add.
+        proxies -- The proxies to add. Adding a null proxy is an error.
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
@@ -141,7 +141,7 @@ if 'RouterPrx' not in _M_Ice.__dict__:
             """
              Add new proxy information to the router's routing table.
             Arguments:
-            proxies -- The proxies to add.
+            proxies -- The proxies to add. Adding a null proxy is an error.
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
             """
@@ -170,7 +170,7 @@ if 'RouterFinderPrx' not in _M_Ice.__dict__:
 
         """
          Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
-         replicas.
+         replicas. This proxy is never null.
         Arguments:
         context -- The request context for the invocation.
         Returns: The router proxy.
@@ -180,7 +180,7 @@ if 'RouterFinderPrx' not in _M_Ice.__dict__:
 
         """
          Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
-         replicas.
+         replicas. This proxy is never null.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -220,7 +220,7 @@ if 'RouterFinderPrx' not in _M_Ice.__dict__:
         def getRouter(self, current=None):
             """
              Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
-             replicas.
+             replicas. This proxy is never null.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.

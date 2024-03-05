@@ -24,7 +24,7 @@ public interface RouterFinder extends Object
 {
     /**
      * Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
-     * replicas.
+     * replicas. This proxy is never null.
      * @param current The Current object for the invocation.
      * @return The router proxy.
      **/

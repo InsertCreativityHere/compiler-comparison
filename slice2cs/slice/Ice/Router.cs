@@ -136,9 +136,9 @@ namespace Ice
         /// <summary>
         /// Add new proxy information to the router's routing table.
         /// </summary>
-        /// <param name="proxies">The proxies to add.
+        /// <param name="proxies">The proxies to add. Adding a null proxy is an error.
         ///  </param>
-        /// <returns>Proxies discarded by the router.</returns>
+        /// <returns>Proxies discarded by the router. These proxies are all non-null.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         ObjectPrx[] addProxies(ObjectPrx[] proxies, OptionalContext context = new OptionalContext());
@@ -146,7 +146,7 @@ namespace Ice
         /// <summary>
         /// Add new proxy information to the router's routing table.
         /// </summary>
-        /// <param name="proxies">The proxies to add.
+        /// <param name="proxies">The proxies to add. Adding a null proxy is an error.
         ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -168,7 +168,7 @@ namespace Ice
         /// <summary>
         /// Get the router proxy implemented by the process hosting this finder object.
         /// The proxy might point to several
-        ///  replicas.
+        ///  replicas. This proxy is never null.
         /// </summary>
         ///  <returns>The router proxy.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -225,9 +225,9 @@ namespace Ice
         /// <summary>
         /// Add new proxy information to the router's routing table.
         /// </summary>
-        /// <param name="proxies">The proxies to add.
+        /// <param name="proxies">The proxies to add. Adding a null proxy is an error.
         ///  </param>
-        /// <returns>Proxies discarded by the router.</returns>
+        /// <returns>Proxies discarded by the router. These proxies are all non-null.</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -247,7 +247,7 @@ namespace Ice
         /// <summary>
         /// Get the router proxy implemented by the process hosting this finder object.
         /// The proxy might point to several
-        ///  replicas.
+        ///  replicas. This proxy is never null.
         /// </summary>
         ///  <returns>The router proxy.</returns>
         /// <param name="current">The Current object for the invocation.</param>

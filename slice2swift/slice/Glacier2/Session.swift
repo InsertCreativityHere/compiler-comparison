@@ -834,7 +834,7 @@ public extension SessionControlPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `StringSetPrx?` - A StringSet object.
+    /// - returns: `StringSetPrx?` - A StringSet object. The returned proxy is never null.
     func categories(context: Ice.Context? = nil) throws -> StringSetPrx? {
         return try _impl._invoke(operation: "categories",
                                  mode: .Normal,
@@ -875,7 +875,7 @@ public extension SessionControlPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `StringSetPrx?` - A StringSet object.
+    /// - returns: `StringSetPrx?` - A StringSet object. The returned proxy is never null.
     func adapterIds(context: Ice.Context? = nil) throws -> StringSetPrx? {
         return try _impl._invoke(operation: "adapterIds",
                                  mode: .Normal,
@@ -916,7 +916,7 @@ public extension SessionControlPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `IdentitySetPrx?` - An IdentitySet object.
+    /// - returns: `IdentitySetPrx?` - An IdentitySet object. The returned proxy is never null.
     func identities(context: Ice.Context? = nil) throws -> IdentitySetPrx? {
         return try _impl._invoke(operation: "identities",
                                  mode: .Normal,
@@ -1122,11 +1122,13 @@ public extension Ice.InputStream {
 ///
 ///  - createAsync: Create a new session.
 public extension SessionManagerPrx {
-    /// Create a new session.
+    /// Create a new session. The implementation must return a non-null proxy or raise
+    /// CannotCreateSessionException if the session cannot be created.
     ///
     /// - parameter userId: `Swift.String` The user id for the session.
     ///
-    /// - parameter control: `SessionControlPrx?` A proxy to the session control object.
+    /// - parameter control: `SessionControlPrx?` A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints
+    /// are not configured.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -1157,11 +1159,13 @@ public extension SessionManagerPrx {
                                  context: context)
     }
 
-    /// Create a new session.
+    /// Create a new session. The implementation must return a non-null proxy or raise
+    /// CannotCreateSessionException if the session cannot be created.
     ///
     /// - parameter userId: `Swift.String` The user id for the session.
     ///
-    /// - parameter control: `SessionControlPrx?` A proxy to the session control object.
+    /// - parameter control: `SessionControlPrx?` A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints
+    /// are not configured.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -1570,21 +1574,21 @@ public protocol SessionControl {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `StringSetPrx?` - A StringSet object.
+    /// - returns: `StringSetPrx?` - A StringSet object. The returned proxy is never null.
     func categories(current: Ice.Current) throws -> StringSetPrx?
 
     /// Access the object that manages the allowable adapter identities for objects for this session.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `StringSetPrx?` - A StringSet object.
+    /// - returns: `StringSetPrx?` - A StringSet object. The returned proxy is never null.
     func adapterIds(current: Ice.Current) throws -> StringSetPrx?
 
     /// Access the object that manages the allowable object identities for this session.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `IdentitySetPrx?` - An IdentitySet object.
+    /// - returns: `IdentitySetPrx?` - An IdentitySet object. The returned proxy is never null.
     func identities(current: Ice.Current) throws -> IdentitySetPrx?
 
     /// Get the session timeout.
@@ -1634,11 +1638,13 @@ public struct SessionManagerDisp: Ice.Disp {
 /// session manager. If no session manager is provided by the application, no client-visible sessions are passed to
 /// the client.
 public protocol SessionManager {
-    /// Create a new session.
+    /// Create a new session. The implementation must return a non-null proxy or raise
+    /// CannotCreateSessionException if the session cannot be created.
     ///
     /// - parameter userId: `Swift.String` The user id for the session.
     ///
-    /// - parameter control: `SessionControlPrx?` A proxy to the session control object.
+    /// - parameter control: `SessionControlPrx?` A proxy to the session control object. The control proxy is null if Glacier2.Server.Endpoints
+    /// are not configured.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///

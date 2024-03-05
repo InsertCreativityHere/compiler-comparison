@@ -17,7 +17,7 @@ classdef LocatorFinderPrx < Ice.ObjectPrx
     methods
         function result = getLocator(obj, varargin)
             % getLocator   Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
-            % replicas.
+            % replicas. This proxy is never null.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -31,7 +31,7 @@ classdef LocatorFinderPrx < Ice.ObjectPrx
         end
         function r_ = getLocatorAsync(obj, varargin)
             % getLocatorAsync   Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
-            % replicas.
+            % replicas. This proxy is never null.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.

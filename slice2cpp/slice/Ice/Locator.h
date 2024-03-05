@@ -402,7 +402,7 @@ public:
 
     /**
      * Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
-     * replicas.
+     * replicas. This proxy is never null.
      * @param context The Context map to send with the invocation.
      * @return The locator proxy.
      */
@@ -410,7 +410,7 @@ public:
 
     /**
      * Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
-     * replicas.
+     * replicas. This proxy is never null.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -418,7 +418,7 @@ public:
 
     /**
      * Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
-     * replicas.
+     * replicas. This proxy is never null.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -842,7 +842,7 @@ public:
 
     /**
      * Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
-     * replicas.
+     * replicas. This proxy is never null.
      * @param current The Current object for the invocation.
      * @return The locator proxy.
      */
