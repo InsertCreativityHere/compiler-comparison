@@ -13193,17 +13193,9 @@ namespace Ice.operations.AMD
 
             public abstract global::System.Threading.Tasks.Task<MyClass_OpByteSResult> opByteSAsync(byte[] p1, byte[] p2, global::Ice.Current current = null);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpBoolSResult> opBoolSAsync(bool[] p1, bool[] p2, global::Ice.Current current = null);
-
             public abstract global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSResult> opShortIntLongSAsync(short[] p1, int[] p2, long[] p3, global::Ice.Current current = null);
 
             public abstract global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSResult> opFloatDoubleSAsync(float[] p1, double[] p2, global::Ice.Current current = null);
-
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpStringSResult> opStringSAsync(string[] p1, string[] p2, global::Ice.Current current = null);
-
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpByteSSResult> opByteSSAsync(byte[][] p1, byte[][] p2, global::Ice.Current current = null);
-
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpBoolSSResult> opBoolSSAsync(bool[][] p1, bool[][] p2, global::Ice.Current current = null);
 
             public abstract global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSSResult> opShortIntLongSSAsync(short[][] p1, int[][] p2, long[][] p3, global::Ice.Current current = null);
 
@@ -13310,6 +13302,14 @@ namespace Ice.operations.AMD
             public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict1MarshaledResult> opMDict1Async(global::Ice.Current current = null);
 
             public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict2MarshaledResult> opMDict2Async(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
+
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpBoolSResult> opBoolSAsync(bool[] p1, bool[] p2, global::Ice.Current current = null);
+
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpStringSResult> opStringSAsync(string[] p1, string[] p2, global::Ice.Current current = null);
+
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpByteSSResult> opByteSSAsync(byte[][] p1, byte[][] p2, global::Ice.Current current = null);
+
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpBoolSSResult> opBoolSSAsync(bool[][] p1, bool[][] p2, global::Ice.Current current = null);
 
             #endregion
 
