@@ -1966,11 +1966,11 @@ namespace IceStorm
 
         #region Inherited Slice operations
 
-        public abstract string getName(global::Ice.Current current = null);
-
         public abstract global::Ice.ObjectPrx getPublisher(global::Ice.Current current = null);
 
         public abstract global::Ice.ObjectPrx getNonReplicatedPublisher(global::Ice.Current current = null);
+
+        public abstract string getName(global::Ice.Current current = null);
 
         public abstract global::Ice.ObjectPrx subscribeAndGetPublisher(global::System.Collections.Generic.Dictionary<string, string> theQoS, global::Ice.ObjectPrx subscriber, global::Ice.Current current = null);
 
