@@ -344,16 +344,16 @@ public:
 
     virtual void check(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_check(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_check(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -394,16 +394,16 @@ public:
 
     virtual void step(::std::optional<::Glacier2::SessionPrx> currentSession, TestToken currentState, TestToken& newState, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_step(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_step(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -437,11 +437,11 @@ public:
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

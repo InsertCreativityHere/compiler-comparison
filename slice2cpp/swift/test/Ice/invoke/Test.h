@@ -202,26 +202,26 @@ public:
 
     virtual void opOneway(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOneway(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opOneway(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::string opString(::std::string s1, ::std::string& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opString(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opString(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opException(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opException(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opException(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

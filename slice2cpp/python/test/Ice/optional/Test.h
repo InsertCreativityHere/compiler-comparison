@@ -1714,11 +1714,11 @@ public:
 
     virtual void op(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_op(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_op(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -1752,217 +1752,217 @@ public:
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::shared_ptr<::Ice::Value> pingPong(::std::shared_ptr<::Ice::Value> o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_pingPong(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_pingPong(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opOptionalException(::std::optional<::std::int32_t> a, ::std::optional<::std::string> b, ::std::optional<::std::shared_ptr<OneOptional>> o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptionalException(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opOptionalException(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opDerivedException(::std::optional<::std::int32_t> a, ::std::optional<::std::string> b, ::std::optional<::std::shared_ptr<OneOptional>> o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opDerivedException(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opDerivedException(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opRequiredException(::std::optional<::std::int32_t> a, ::std::optional<::std::string> b, ::std::optional<::std::shared_ptr<OneOptional>> o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opRequiredException(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opRequiredException(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<::std::uint8_t> opByte(::std::optional<::std::uint8_t> p1, ::std::optional<::std::uint8_t>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByte(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opByte(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<bool> opBool(::std::optional<bool> p1, ::std::optional<bool>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBool(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opBool(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<::std::int16_t> opShort(::std::optional<::std::int16_t> p1, ::std::optional<::std::int16_t>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opShort(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opShort(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<::std::int32_t> opInt(::std::optional<::std::int32_t> p1, ::std::optional<::std::int32_t>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opInt(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opInt(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<::std::int64_t> opLong(::std::optional<::std::int64_t> p1, ::std::optional<::std::int64_t>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLong(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opLong(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<float> opFloat(::std::optional<float> p1, ::std::optional<float>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opFloat(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opFloat(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<double> opDouble(::std::optional<double> p1, ::std::optional<double>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opDouble(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opDouble(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<::std::string> opString(::std::optional<::std::string> p1, ::std::optional<::std::string>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opString(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opString(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<MyEnum> opMyEnum(::std::optional<MyEnum> p1, ::std::optional<MyEnum>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMyEnum(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opMyEnum(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<SmallStruct> opSmallStruct(::std::optional<SmallStruct> p1, ::std::optional<SmallStruct>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSmallStruct(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opSmallStruct(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<FixedStruct> opFixedStruct(::std::optional<FixedStruct> p1, ::std::optional<FixedStruct>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opFixedStruct(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opFixedStruct(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<VarStruct> opVarStruct(::std::optional<VarStruct> p1, ::std::optional<VarStruct>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opVarStruct(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opVarStruct(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<::std::shared_ptr<OneOptional>> opOneOptional(::std::optional<::std::shared_ptr<OneOptional>> p1, ::std::optional<::std::shared_ptr<OneOptional>>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOneOptional(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opOneOptional(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<MyInterfacePrx> opMyInterfaceProxy(::std::optional<MyInterfacePrx> p1, ::std::optional<MyInterfacePrx>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMyInterfaceProxy(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opMyInterfaceProxy(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<ByteSeq> opByteSeq(::std::optional<ByteSeq> p1, ::std::optional<ByteSeq>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opByteSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<BoolSeq> opBoolSeq(::std::optional<BoolSeq> p1, ::std::optional<BoolSeq>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBoolSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opBoolSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<ShortSeq> opShortSeq(::std::optional<ShortSeq> p1, ::std::optional<ShortSeq>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opShortSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opShortSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<IntSeq> opIntSeq(::std::optional<IntSeq> p1, ::std::optional<IntSeq>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opIntSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opIntSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<LongSeq> opLongSeq(::std::optional<LongSeq> p1, ::std::optional<LongSeq>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLongSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opLongSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<FloatSeq> opFloatSeq(::std::optional<FloatSeq> p1, ::std::optional<FloatSeq>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opFloatSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opFloatSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<DoubleSeq> opDoubleSeq(::std::optional<DoubleSeq> p1, ::std::optional<DoubleSeq>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opDoubleSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opDoubleSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<StringSeq> opStringSeq(::std::optional<StringSeq> p1, ::std::optional<StringSeq>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opStringSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<SmallStructSeq> opSmallStructSeq(::std::optional<SmallStructSeq> p1, ::std::optional<SmallStructSeq>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSmallStructSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opSmallStructSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<SmallStructList> opSmallStructList(::std::optional<SmallStructList> p1, ::std::optional<SmallStructList>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSmallStructList(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opSmallStructList(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<FixedStructSeq> opFixedStructSeq(::std::optional<FixedStructSeq> p1, ::std::optional<FixedStructSeq>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opFixedStructSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opFixedStructSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<FixedStructList> opFixedStructList(::std::optional<FixedStructList> p1, ::std::optional<FixedStructList>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opFixedStructList(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opFixedStructList(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<VarStructSeq> opVarStructSeq(::std::optional<VarStructSeq> p1, ::std::optional<VarStructSeq>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opVarStructSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opVarStructSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<Serializable> opSerializable(::std::optional<Serializable> p1, ::std::optional<Serializable>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSerializable(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opSerializable(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<IntIntDict> opIntIntDict(::std::optional<IntIntDict> p1, ::std::optional<IntIntDict>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opIntIntDict(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opIntIntDict(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<StringIntDict> opStringIntDict(::std::optional<StringIntDict> p1, ::std::optional<StringIntDict>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringIntDict(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opStringIntDict(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<IntOneOptionalDict> opIntOneOptionalDict(::std::optional<IntOneOptionalDict> p1, ::std::optional<IntOneOptionalDict>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opIntOneOptionalDict(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opIntOneOptionalDict(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opClassAndUnknownOptional(::std::shared_ptr<A> p, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opClassAndUnknownOptional(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opClassAndUnknownOptional(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opRequiredAfterOptional(::std::int32_t p1, ::std::optional<::std::int32_t> p2, ::std::int32_t p3, ::std::int32_t& p4, ::std::optional<::std::int32_t>& p5, ::std::int32_t& p6, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opRequiredAfterOptional(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opRequiredAfterOptional(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opOptionalAfterRequired(::std::int32_t p1, ::std::optional<::std::int32_t> p2, ::std::optional<::std::int32_t> p3, ::std::int32_t& p4, ::std::optional<::std::int32_t>& p5, ::std::optional<::std::int32_t>& p6, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptionalAfterRequired(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opOptionalAfterRequired(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void sendOptionalClass(bool req, ::std::optional<::std::shared_ptr<OneOptional>> o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_sendOptionalClass(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_sendOptionalClass(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void returnOptionalClass(bool req, ::std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_returnOptionalClass(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_returnOptionalClass(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::shared_ptr<G> opG(::std::shared_ptr<G> g, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opG(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opG(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opVoid(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opVoid(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opVoid(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -1980,7 +1980,7 @@ public:
 
     virtual OpMStruct1MarshaledResult opMStruct1(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMStruct1(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opMStruct1(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -1998,7 +1998,7 @@ public:
 
     virtual OpMStruct2MarshaledResult opMStruct2(::std::optional<SmallStruct> p1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMStruct2(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opMStruct2(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -2016,7 +2016,7 @@ public:
 
     virtual OpMSeq1MarshaledResult opMSeq1(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMSeq1(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opMSeq1(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -2034,7 +2034,7 @@ public:
 
     virtual OpMSeq2MarshaledResult opMSeq2(::std::optional<StringSeq> p1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMSeq2(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opMSeq2(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -2052,7 +2052,7 @@ public:
 
     virtual OpMDict1MarshaledResult opMDict1(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMDict1(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opMDict1(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -2070,7 +2070,7 @@ public:
 
     virtual OpMDict2MarshaledResult opMDict2(::std::optional<StringIntDict> p1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMDict2(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opMDict2(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -2088,7 +2088,7 @@ public:
 
     virtual OpMG1MarshaledResult opMG1(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMG1(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opMG1(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -2106,31 +2106,31 @@ public:
 
     virtual OpMG2MarshaledResult opMG2(::std::optional<::std::shared_ptr<G>> p1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMG2(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opMG2(::IceInternal::Incoming&);
     /// \endcond
 
     virtual bool supportsRequiredParams(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_supportsRequiredParams(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_supportsRequiredParams(::IceInternal::Incoming&);
     /// \endcond
 
     virtual bool supportsJavaSerializable(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_supportsJavaSerializable(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_supportsJavaSerializable(::IceInternal::Incoming&);
     /// \endcond
 
     virtual bool supportsCsharpSerializable(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_supportsCsharpSerializable(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_supportsCsharpSerializable(::IceInternal::Incoming&);
     /// \endcond
 
     virtual bool supportsNullOptional(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_supportsNullOptional(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_supportsNullOptional(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

@@ -1300,177 +1300,177 @@ public:
 
     virtual ::std::shared_ptr<::Ice::Value> SBaseAsObject(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_SBaseAsObject(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_SBaseAsObject(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::shared_ptr<SBase> SBaseAsSBase(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_SBaseAsSBase(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_SBaseAsSBase(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::shared_ptr<SBase> SBSKnownDerivedAsSBase(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_SBSKnownDerivedAsSBase(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_SBSKnownDerivedAsSBase(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::shared_ptr<SBSKnownDerived> SBSKnownDerivedAsSBSKnownDerived(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_SBSKnownDerivedAsSBSKnownDerived(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_SBSKnownDerivedAsSBSKnownDerived(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::shared_ptr<SBase> SBSUnknownDerivedAsSBase(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_SBSUnknownDerivedAsSBase(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_SBSUnknownDerivedAsSBase(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::shared_ptr<SBase> SBSUnknownDerivedAsSBaseCompact(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_SBSUnknownDerivedAsSBaseCompact(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_SBSUnknownDerivedAsSBaseCompact(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::shared_ptr<::Ice::Value> SUnknownAsObject(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_SUnknownAsObject(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_SUnknownAsObject(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void checkSUnknown(::std::shared_ptr<::Ice::Value> o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_checkSUnknown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_checkSUnknown(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::shared_ptr<B> oneElementCycle(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_oneElementCycle(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_oneElementCycle(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::shared_ptr<B> twoElementCycle(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_twoElementCycle(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_twoElementCycle(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::shared_ptr<B> D1AsB(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_D1AsB(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_D1AsB(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::shared_ptr<D1> D1AsD1(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_D1AsD1(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_D1AsD1(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::shared_ptr<B> D2AsB(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_D2AsB(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_D2AsB(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void paramTest1(::std::shared_ptr<B>& p1, ::std::shared_ptr<B>& p2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_paramTest1(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_paramTest1(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void paramTest2(::std::shared_ptr<B>& p2, ::std::shared_ptr<B>& p1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_paramTest2(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_paramTest2(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::shared_ptr<B> paramTest3(::std::shared_ptr<B>& p1, ::std::shared_ptr<B>& p2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_paramTest3(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_paramTest3(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::shared_ptr<B> paramTest4(::std::shared_ptr<B>& p, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_paramTest4(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_paramTest4(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::shared_ptr<B> returnTest1(::std::shared_ptr<B>& p1, ::std::shared_ptr<B>& p2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_returnTest1(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_returnTest1(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::shared_ptr<B> returnTest2(::std::shared_ptr<B>& p2, ::std::shared_ptr<B>& p1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_returnTest2(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_returnTest2(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::shared_ptr<B> returnTest3(::std::shared_ptr<B> p1, ::std::shared_ptr<B> p2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_returnTest3(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_returnTest3(::IceInternal::Incoming&);
     /// \endcond
 
     virtual SS3 sequenceTest(::std::shared_ptr<SS1> p1, ::std::shared_ptr<SS2> p2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_sequenceTest(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_sequenceTest(::IceInternal::Incoming&);
     /// \endcond
 
     virtual BDict dictionaryTest(BDict bin, BDict& bout, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_dictionaryTest(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_dictionaryTest(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::shared_ptr<PBase> exchangePBase(::std::shared_ptr<PBase> pb, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_exchangePBase(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_exchangePBase(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::shared_ptr<Preserved> PBSUnknownAsPreserved(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_PBSUnknownAsPreserved(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_PBSUnknownAsPreserved(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void checkPBSUnknown(::std::shared_ptr<Preserved> p, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_checkPBSUnknown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_checkPBSUnknown(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void PBSUnknownAsPreservedWithGraphAsync(::std::function<void(const ::std::shared_ptr<Preserved>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_PBSUnknownAsPreservedWithGraph(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_PBSUnknownAsPreservedWithGraph(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void checkPBSUnknownWithGraph(::std::shared_ptr<Preserved> p, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_checkPBSUnknownWithGraph(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_checkPBSUnknownWithGraph(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void PBSUnknown2AsPreservedWithGraphAsync(::std::function<void(const ::std::shared_ptr<Preserved>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_PBSUnknown2AsPreservedWithGraph(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_PBSUnknown2AsPreservedWithGraph(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void checkPBSUnknown2WithGraph(::std::shared_ptr<Preserved> p, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_checkPBSUnknown2WithGraph(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_checkPBSUnknown2WithGraph(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::shared_ptr<PNode> exchangePNode(::std::shared_ptr<PNode> pn, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_exchangePNode(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_exchangePNode(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwBaseAsBase(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwBaseAsBase(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwBaseAsBase(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwDerivedAsBase(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwDerivedAsBase(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwDerivedAsBase(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwDerivedAsDerived(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwDerivedAsDerived(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwDerivedAsDerived(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwUnknownDerivedAsBase(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwUnknownDerivedAsBase(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwUnknownDerivedAsBase(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwPreservedExceptionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwPreservedException(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwPreservedException(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -1479,16 +1479,16 @@ public:
      */
     virtual void useForward(::std::shared_ptr<Forward>& f, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_useForward(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_useForward(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

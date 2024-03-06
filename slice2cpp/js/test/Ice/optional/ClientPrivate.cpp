@@ -16,6 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <ClientPrivate.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -129,44 +130,45 @@ Test::Initial2::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::Initial2::_iceD_opClassAndUnknownOptional(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial2::_iceD_opClassAndUnknownOptional(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::shared_ptr<A> iceP_p;
     ::std::optional<::std::shared_ptr<::Ice::Value>> iceP_o;
     istr->readAll(iceP_p);
     istr->readAll({1}, iceP_o);
     istr->readPendingValues();
-    inS.endReadParams();
-    this->opClassAndUnknownOptional(::std::move(iceP_p), ::std::move(iceP_o), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->opClassAndUnknownOptional(::std::move(iceP_p), ::std::move(iceP_o), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial2::_iceD_opVoid(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial2::_iceD_opVoid(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<::std::int32_t> iceP_a;
     ::std::optional<::std::string> iceP_v;
     istr->readAll({1, 2}, iceP_a, iceP_v);
-    inS.endReadParams();
-    this->opVoid(iceP_a, ::std::move(iceP_v), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->opVoid(iceP_a, ::std::move(iceP_v), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial2::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::Initial2::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "opClassAndUnknownOptional", "opVoid" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
@@ -177,27 +179,27 @@ Test::Initial2::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
     {
         case 0:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 1:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 2:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 4:
         {
-            return _iceD_opClassAndUnknownOptional(in, current);
+            return _iceD_opClassAndUnknownOptional(incoming);
         }
         case 5:
         {
-            return _iceD_opVoid(in, current);
+            return _iceD_opVoid(incoming);
         }
         default:
         {

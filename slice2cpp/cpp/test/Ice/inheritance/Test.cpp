@@ -16,6 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -677,27 +678,28 @@ Test::MA::IA::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::MA::IA::_iceD_iaop(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MA::IA::_iceD_iaop(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<IAPrx> iceP_p;
     istr->readAll(iceP_p);
-    inS.endReadParams();
-    ::std::optional<IAPrx> ret = this->iaop(::std::move(iceP_p), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::optional<IAPrx> ret = this->iaop(::std::move(iceP_p), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MA::IA::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::MA::IA::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "iaop", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
@@ -708,23 +710,23 @@ Test::MA::IA::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& cu
     {
         case 0:
         {
-            return _iceD_iaop(in, current);
+            return _iceD_iaop(incoming);
         }
         case 1:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 2:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 3:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 4:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         default:
         {
@@ -757,27 +759,28 @@ Test::MB::IB1::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::MB::IB1::_iceD_ib1op(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MB::IB1::_iceD_ib1op(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<IB1Prx> iceP_p;
     istr->readAll(iceP_p);
-    inS.endReadParams();
-    ::std::optional<IB1Prx> ret = this->ib1op(::std::move(iceP_p), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::optional<IB1Prx> ret = this->ib1op(::std::move(iceP_p), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MB::IB1::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::MB::IB1::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "iaop", "ib1op", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
@@ -788,27 +791,27 @@ Test::MB::IB1::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
     {
         case 0:
         {
-            return _iceD_iaop(in, current);
+            return _iceD_iaop(incoming);
         }
         case 1:
         {
-            return _iceD_ib1op(in, current);
+            return _iceD_ib1op(incoming);
         }
         case 2:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 4:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 5:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         default:
         {
@@ -841,27 +844,28 @@ Test::MB::IB2::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::MB::IB2::_iceD_ib2op(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MB::IB2::_iceD_ib2op(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<IB2Prx> iceP_p;
     istr->readAll(iceP_p);
-    inS.endReadParams();
-    ::std::optional<IB2Prx> ret = this->ib2op(::std::move(iceP_p), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::optional<IB2Prx> ret = this->ib2op(::std::move(iceP_p), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MB::IB2::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::MB::IB2::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "iaop", "ib2op", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
@@ -872,27 +876,27 @@ Test::MB::IB2::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
     {
         case 0:
         {
-            return _iceD_iaop(in, current);
+            return _iceD_iaop(incoming);
         }
         case 1:
         {
-            return _iceD_ib2op(in, current);
+            return _iceD_ib2op(incoming);
         }
         case 2:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 4:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 5:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         default:
         {
@@ -925,27 +929,28 @@ Test::MA::IC::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::MA::IC::_iceD_icop(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MA::IC::_iceD_icop(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<ICPrx> iceP_p;
     istr->readAll(iceP_p);
-    inS.endReadParams();
-    ::std::optional<ICPrx> ret = this->icop(::std::move(iceP_p), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::optional<ICPrx> ret = this->icop(::std::move(iceP_p), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MA::IC::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::MA::IC::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "iaop", "ib1op", "ib2op", "ice_id", "ice_ids", "ice_isA", "ice_ping", "icop" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
@@ -956,35 +961,35 @@ Test::MA::IC::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& cu
     {
         case 0:
         {
-            return _iceD_iaop(in, current);
+            return _iceD_iaop(incoming);
         }
         case 1:
         {
-            return _iceD_ib1op(in, current);
+            return _iceD_ib1op(incoming);
         }
         case 2:
         {
-            return _iceD_ib2op(in, current);
+            return _iceD_ib2op(incoming);
         }
         case 3:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 4:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 5:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 6:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 7:
         {
-            return _iceD_icop(in, current);
+            return _iceD_icop(incoming);
         }
         default:
         {
@@ -1017,78 +1022,79 @@ Test::Initial::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_shutdown(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->shutdown(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->shutdown(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_iaop(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_iaop(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::optional<::Test::MA::IAPrx> ret = this->iaop(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::optional<::Test::MA::IAPrx> ret = this->iaop(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_ib1op(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_ib1op(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::optional<::Test::MB::IB1Prx> ret = this->ib1op(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::optional<::Test::MB::IB1Prx> ret = this->ib1op(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_ib2op(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_ib2op(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::optional<::Test::MB::IB2Prx> ret = this->ib2op(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::optional<::Test::MB::IB2Prx> ret = this->ib2op(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_icop(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_icop(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::optional<::Test::MA::ICPrx> ret = this->icop(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::optional<::Test::MA::ICPrx> ret = this->icop(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::Initial::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "iaop", "ib1op", "ib2op", "ice_id", "ice_ids", "ice_isA", "ice_ping", "icop", "shutdown" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 9, current.operation);
     if(r.first == r.second)
     {
@@ -1099,39 +1105,39 @@ Test::Initial::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
     {
         case 0:
         {
-            return _iceD_iaop(in, current);
+            return _iceD_iaop(incoming);
         }
         case 1:
         {
-            return _iceD_ib1op(in, current);
+            return _iceD_ib1op(incoming);
         }
         case 2:
         {
-            return _iceD_ib2op(in, current);
+            return _iceD_ib2op(incoming);
         }
         case 3:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 4:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 5:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 6:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 7:
         {
-            return _iceD_icop(in, current);
+            return _iceD_icop(incoming);
         }
         case 8:
         {
-            return _iceD_shutdown(in, current);
+            return _iceD_shutdown(incoming);
         }
         default:
         {

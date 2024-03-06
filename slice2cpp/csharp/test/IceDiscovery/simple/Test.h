@@ -244,11 +244,11 @@ public:
 
     virtual ::std::string getAdapterId(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getAdapterId(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_getAdapterId(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -282,31 +282,31 @@ public:
 
     virtual void activateObjectAdapter(::std::string name, ::std::string adapterId, ::std::string replicaGroupId, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_activateObjectAdapter(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_activateObjectAdapter(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void deactivateObjectAdapter(::std::string name, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_deactivateObjectAdapter(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_deactivateObjectAdapter(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void addObject(::std::string oaName, ::std::string id, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_addObject(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_addObject(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void removeObject(::std::string oaName, ::std::string id, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_removeObject(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_removeObject(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

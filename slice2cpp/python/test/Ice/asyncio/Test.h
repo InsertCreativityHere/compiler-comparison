@@ -246,46 +246,46 @@ public:
 
     virtual ::std::int32_t op(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_op(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_op(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::int32_t callOpOn(::std::optional<TestIntfPrx> proxy, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_callOpOn(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_callOpOn(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwUserException1(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwUserException1(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwUserException1(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwUserException2(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwUserException2(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwUserException2(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwUnhandledException1(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwUnhandledException1(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwUnhandledException1(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwUnhandledException2(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwUnhandledException2(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwUnhandledException2(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void sleep(::std::int32_t ms, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_sleep(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_sleep(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

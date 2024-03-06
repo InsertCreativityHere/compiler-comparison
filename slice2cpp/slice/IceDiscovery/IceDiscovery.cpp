@@ -16,6 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <IceDiscovery.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -196,43 +197,44 @@ IceDiscovery::LookupReply::ice_staticId()
 
 /// \cond INTERNAL
 bool
-IceDiscovery::LookupReply::_iceD_foundObjectById(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceDiscovery::LookupReply::_iceD_foundObjectById(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::Ice::Identity iceP_id;
     ::std::optional<::Ice::ObjectPrx> iceP_prx;
     istr->readAll(iceP_id, iceP_prx);
-    inS.endReadParams();
-    this->foundObjectById(::std::move(iceP_id), ::std::move(iceP_prx), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->foundObjectById(::std::move(iceP_id), ::std::move(iceP_prx), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceDiscovery::LookupReply::_iceD_foundAdapterById(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceDiscovery::LookupReply::_iceD_foundAdapterById(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_id;
     ::std::optional<::Ice::ObjectPrx> iceP_prx;
     bool iceP_isReplicaGroup;
     istr->readAll(iceP_id, iceP_prx, iceP_isReplicaGroup);
-    inS.endReadParams();
-    this->foundAdapterById(::std::move(iceP_id), ::std::move(iceP_prx), iceP_isReplicaGroup, current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->foundAdapterById(::std::move(iceP_id), ::std::move(iceP_prx), iceP_isReplicaGroup, incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceDiscovery::LookupReply::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+IceDiscovery::LookupReply::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "foundAdapterById", "foundObjectById", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
@@ -243,27 +245,27 @@ IceDiscovery::LookupReply::_iceDispatch(::IceInternal::Incoming& in, const ::Ice
     {
         case 0:
         {
-            return _iceD_foundAdapterById(in, current);
+            return _iceD_foundAdapterById(incoming);
         }
         case 1:
         {
-            return _iceD_foundObjectById(in, current);
+            return _iceD_foundObjectById(incoming);
         }
         case 2:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 4:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 5:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         default:
         {
@@ -296,44 +298,45 @@ IceDiscovery::Lookup::ice_staticId()
 
 /// \cond INTERNAL
 bool
-IceDiscovery::Lookup::_iceD_findObjectById(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceDiscovery::Lookup::_iceD_findObjectById(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_domainId;
     ::Ice::Identity iceP_id;
     ::std::optional<LookupReplyPrx> iceP_reply;
     istr->readAll(iceP_domainId, iceP_id, iceP_reply);
-    inS.endReadParams();
-    this->findObjectById(::std::move(iceP_domainId), ::std::move(iceP_id), ::std::move(iceP_reply), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->findObjectById(::std::move(iceP_domainId), ::std::move(iceP_id), ::std::move(iceP_reply), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceDiscovery::Lookup::_iceD_findAdapterById(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceDiscovery::Lookup::_iceD_findAdapterById(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_domainId;
     ::std::string iceP_id;
     ::std::optional<LookupReplyPrx> iceP_reply;
     istr->readAll(iceP_domainId, iceP_id, iceP_reply);
-    inS.endReadParams();
-    this->findAdapterById(::std::move(iceP_domainId), ::std::move(iceP_id), ::std::move(iceP_reply), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->findAdapterById(::std::move(iceP_domainId), ::std::move(iceP_id), ::std::move(iceP_reply), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceDiscovery::Lookup::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+IceDiscovery::Lookup::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "findAdapterById", "findObjectById", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
@@ -344,27 +347,27 @@ IceDiscovery::Lookup::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cur
     {
         case 0:
         {
-            return _iceD_findAdapterById(in, current);
+            return _iceD_findAdapterById(incoming);
         }
         case 1:
         {
-            return _iceD_findObjectById(in, current);
+            return _iceD_findObjectById(incoming);
         }
         case 2:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 4:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 5:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         default:
         {

@@ -16,6 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -2972,1162 +2973,1162 @@ Test::MyClass::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_shutdown(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->shutdown(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->shutdown(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_supportsCompress(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_supportsCompress(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    bool ret = this->supportsCompress(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    bool ret = this->supportsCompress(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opVoid(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opVoid(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->opVoid(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->opVoid(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opByte(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opByte(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::uint8_t iceP_p1;
     ::std::uint8_t iceP_p2;
     istr->readAll(iceP_p1, iceP_p2);
-    inS.endReadParams();
+    incoming.endReadParams();
     ::std::uint8_t iceP_p3;
-    ::std::uint8_t ret = this->opByte(iceP_p1, iceP_p2, iceP_p3, current);
-    auto ostr = inS.startWriteParams();
+    ::std::uint8_t ret = this->opByte(iceP_p1, iceP_p2, iceP_p3, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p3, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opBool(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opBool(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     bool iceP_p1;
     bool iceP_p2;
     istr->readAll(iceP_p1, iceP_p2);
-    inS.endReadParams();
+    incoming.endReadParams();
     bool iceP_p3;
-    bool ret = this->opBool(iceP_p1, iceP_p2, iceP_p3, current);
-    auto ostr = inS.startWriteParams();
+    bool ret = this->opBool(iceP_p1, iceP_p2, iceP_p3, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p3, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opShortIntLong(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opShortIntLong(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int16_t iceP_p1;
     ::std::int32_t iceP_p2;
     ::std::int64_t iceP_p3;
     istr->readAll(iceP_p1, iceP_p2, iceP_p3);
-    inS.endReadParams();
+    incoming.endReadParams();
     ::std::int16_t iceP_p4;
     ::std::int32_t iceP_p5;
     ::std::int64_t iceP_p6;
-    ::std::int64_t ret = this->opShortIntLong(iceP_p1, iceP_p2, iceP_p3, iceP_p4, iceP_p5, iceP_p6, current);
-    auto ostr = inS.startWriteParams();
+    ::std::int64_t ret = this->opShortIntLong(iceP_p1, iceP_p2, iceP_p3, iceP_p4, iceP_p5, iceP_p6, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p4, iceP_p5, iceP_p6, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opFloatDouble(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opFloatDouble(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     float iceP_p1;
     double iceP_p2;
     istr->readAll(iceP_p1, iceP_p2);
-    inS.endReadParams();
+    incoming.endReadParams();
     float iceP_p3;
     double iceP_p4;
-    double ret = this->opFloatDouble(iceP_p1, iceP_p2, iceP_p3, iceP_p4, current);
-    auto ostr = inS.startWriteParams();
+    double ret = this->opFloatDouble(iceP_p1, iceP_p2, iceP_p3, iceP_p4, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p3, iceP_p4, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opString(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opString(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_p1;
     ::std::string iceP_p2;
     istr->readAll(iceP_p1, iceP_p2);
-    inS.endReadParams();
+    incoming.endReadParams();
     ::std::string iceP_p3;
-    ::std::string ret = this->opString(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, current);
-    auto ostr = inS.startWriteParams();
+    ::std::string ret = this->opString(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p3, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opMyEnum(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opMyEnum(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     MyEnum iceP_p1;
     istr->readAll(iceP_p1);
-    inS.endReadParams();
+    incoming.endReadParams();
     MyEnum iceP_p2;
-    MyEnum ret = this->opMyEnum(iceP_p1, iceP_p2, current);
-    auto ostr = inS.startWriteParams();
+    MyEnum ret = this->opMyEnum(iceP_p1, iceP_p2, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p2, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opMyClass(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opMyClass(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<MyClassPrx> iceP_p1;
     istr->readAll(iceP_p1);
-    inS.endReadParams();
+    incoming.endReadParams();
     ::std::optional<MyClassPrx> iceP_p2;
     ::std::optional<MyClassPrx> iceP_p3;
-    ::std::optional<MyClassPrx> ret = this->opMyClass(::std::move(iceP_p1), iceP_p2, iceP_p3, current);
-    auto ostr = inS.startWriteParams();
+    ::std::optional<MyClassPrx> ret = this->opMyClass(::std::move(iceP_p1), iceP_p2, iceP_p3, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p2, iceP_p3, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opStruct(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opStruct(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     Structure iceP_p1;
     Structure iceP_p2;
     istr->readAll(iceP_p1, iceP_p2);
-    inS.endReadParams();
+    incoming.endReadParams();
     Structure iceP_p3;
-    Structure ret = this->opStruct(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, current);
-    auto ostr = inS.startWriteParams();
+    Structure ret = this->opStruct(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p3, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opByteS(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opByteS(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ByteS iceP_p1;
     ByteS iceP_p2;
     istr->readAll(iceP_p1, iceP_p2);
-    inS.endReadParams();
+    incoming.endReadParams();
     ByteS iceP_p3;
-    ByteS ret = this->opByteS(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, current);
-    auto ostr = inS.startWriteParams();
+    ByteS ret = this->opByteS(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p3, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opBoolS(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opBoolS(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     BoolS iceP_p1;
     BoolS iceP_p2;
     istr->readAll(iceP_p1, iceP_p2);
-    inS.endReadParams();
+    incoming.endReadParams();
     BoolS iceP_p3;
-    BoolS ret = this->opBoolS(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, current);
-    auto ostr = inS.startWriteParams();
+    BoolS ret = this->opBoolS(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p3, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opShortIntLongS(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opShortIntLongS(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ShortS iceP_p1;
     IntS iceP_p2;
     LongS iceP_p3;
     istr->readAll(iceP_p1, iceP_p2, iceP_p3);
-    inS.endReadParams();
+    incoming.endReadParams();
     ShortS iceP_p4;
     IntS iceP_p5;
     LongS iceP_p6;
-    LongS ret = this->opShortIntLongS(::std::move(iceP_p1), ::std::move(iceP_p2), ::std::move(iceP_p3), iceP_p4, iceP_p5, iceP_p6, current);
-    auto ostr = inS.startWriteParams();
+    LongS ret = this->opShortIntLongS(::std::move(iceP_p1), ::std::move(iceP_p2), ::std::move(iceP_p3), iceP_p4, iceP_p5, iceP_p6, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p4, iceP_p5, iceP_p6, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opFloatDoubleS(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opFloatDoubleS(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     FloatS iceP_p1;
     DoubleS iceP_p2;
     istr->readAll(iceP_p1, iceP_p2);
-    inS.endReadParams();
+    incoming.endReadParams();
     FloatS iceP_p3;
     DoubleS iceP_p4;
-    DoubleS ret = this->opFloatDoubleS(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, iceP_p4, current);
-    auto ostr = inS.startWriteParams();
+    DoubleS ret = this->opFloatDoubleS(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, iceP_p4, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p3, iceP_p4, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opStringS(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opStringS(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     StringS iceP_p1;
     StringS iceP_p2;
     istr->readAll(iceP_p1, iceP_p2);
-    inS.endReadParams();
+    incoming.endReadParams();
     StringS iceP_p3;
-    StringS ret = this->opStringS(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, current);
-    auto ostr = inS.startWriteParams();
+    StringS ret = this->opStringS(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p3, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opByteSS(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opByteSS(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ByteSS iceP_p1;
     ByteSS iceP_p2;
     istr->readAll(iceP_p1, iceP_p2);
-    inS.endReadParams();
+    incoming.endReadParams();
     ByteSS iceP_p3;
-    ByteSS ret = this->opByteSS(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, current);
-    auto ostr = inS.startWriteParams();
+    ByteSS ret = this->opByteSS(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p3, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opBoolSS(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opBoolSS(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     BoolSS iceP_p1;
     BoolSS iceP_p2;
     istr->readAll(iceP_p1, iceP_p2);
-    inS.endReadParams();
+    incoming.endReadParams();
     BoolSS iceP_p3;
-    BoolSS ret = this->opBoolSS(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, current);
-    auto ostr = inS.startWriteParams();
+    BoolSS ret = this->opBoolSS(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p3, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opShortIntLongSS(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opShortIntLongSS(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ShortSS iceP_p1;
     IntSS iceP_p2;
     LongSS iceP_p3;
     istr->readAll(iceP_p1, iceP_p2, iceP_p3);
-    inS.endReadParams();
+    incoming.endReadParams();
     ShortSS iceP_p4;
     IntSS iceP_p5;
     LongSS iceP_p6;
-    LongSS ret = this->opShortIntLongSS(::std::move(iceP_p1), ::std::move(iceP_p2), ::std::move(iceP_p3), iceP_p4, iceP_p5, iceP_p6, current);
-    auto ostr = inS.startWriteParams();
+    LongSS ret = this->opShortIntLongSS(::std::move(iceP_p1), ::std::move(iceP_p2), ::std::move(iceP_p3), iceP_p4, iceP_p5, iceP_p6, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p4, iceP_p5, iceP_p6, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opFloatDoubleSS(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opFloatDoubleSS(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     FloatSS iceP_p1;
     DoubleSS iceP_p2;
     istr->readAll(iceP_p1, iceP_p2);
-    inS.endReadParams();
+    incoming.endReadParams();
     FloatSS iceP_p3;
     DoubleSS iceP_p4;
-    DoubleSS ret = this->opFloatDoubleSS(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, iceP_p4, current);
-    auto ostr = inS.startWriteParams();
+    DoubleSS ret = this->opFloatDoubleSS(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, iceP_p4, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p3, iceP_p4, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opStringSS(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opStringSS(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     StringSS iceP_p1;
     StringSS iceP_p2;
     istr->readAll(iceP_p1, iceP_p2);
-    inS.endReadParams();
+    incoming.endReadParams();
     StringSS iceP_p3;
-    StringSS ret = this->opStringSS(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, current);
-    auto ostr = inS.startWriteParams();
+    StringSS ret = this->opStringSS(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p3, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opStringSSS(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opStringSSS(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     StringSSS iceP_p1;
     StringSSS iceP_p2;
     istr->readAll(iceP_p1, iceP_p2);
-    inS.endReadParams();
+    incoming.endReadParams();
     StringSSS iceP_p3;
-    StringSSS ret = this->opStringSSS(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, current);
-    auto ostr = inS.startWriteParams();
+    StringSSS ret = this->opStringSSS(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p3, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opByteBoolD(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opByteBoolD(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ByteBoolD iceP_p1;
     ByteBoolD iceP_p2;
     istr->readAll(iceP_p1, iceP_p2);
-    inS.endReadParams();
+    incoming.endReadParams();
     ByteBoolD iceP_p3;
-    ByteBoolD ret = this->opByteBoolD(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, current);
-    auto ostr = inS.startWriteParams();
+    ByteBoolD ret = this->opByteBoolD(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p3, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opShortIntD(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opShortIntD(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ShortIntD iceP_p1;
     ShortIntD iceP_p2;
     istr->readAll(iceP_p1, iceP_p2);
-    inS.endReadParams();
+    incoming.endReadParams();
     ShortIntD iceP_p3;
-    ShortIntD ret = this->opShortIntD(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, current);
-    auto ostr = inS.startWriteParams();
+    ShortIntD ret = this->opShortIntD(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p3, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opLongFloatD(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opLongFloatD(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     LongFloatD iceP_p1;
     LongFloatD iceP_p2;
     istr->readAll(iceP_p1, iceP_p2);
-    inS.endReadParams();
+    incoming.endReadParams();
     LongFloatD iceP_p3;
-    LongFloatD ret = this->opLongFloatD(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, current);
-    auto ostr = inS.startWriteParams();
+    LongFloatD ret = this->opLongFloatD(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p3, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opStringStringD(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opStringStringD(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     StringStringD iceP_p1;
     StringStringD iceP_p2;
     istr->readAll(iceP_p1, iceP_p2);
-    inS.endReadParams();
+    incoming.endReadParams();
     StringStringD iceP_p3;
-    StringStringD ret = this->opStringStringD(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, current);
-    auto ostr = inS.startWriteParams();
+    StringStringD ret = this->opStringStringD(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p3, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opStringMyEnumD(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opStringMyEnumD(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     StringMyEnumD iceP_p1;
     StringMyEnumD iceP_p2;
     istr->readAll(iceP_p1, iceP_p2);
-    inS.endReadParams();
+    incoming.endReadParams();
     StringMyEnumD iceP_p3;
-    StringMyEnumD ret = this->opStringMyEnumD(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, current);
-    auto ostr = inS.startWriteParams();
+    StringMyEnumD ret = this->opStringMyEnumD(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p3, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opMyEnumStringD(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opMyEnumStringD(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     MyEnumStringD iceP_p1;
     MyEnumStringD iceP_p2;
     istr->readAll(iceP_p1, iceP_p2);
-    inS.endReadParams();
+    incoming.endReadParams();
     MyEnumStringD iceP_p3;
-    MyEnumStringD ret = this->opMyEnumStringD(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, current);
-    auto ostr = inS.startWriteParams();
+    MyEnumStringD ret = this->opMyEnumStringD(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p3, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opMyStructMyEnumD(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opMyStructMyEnumD(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     MyStructMyEnumD iceP_p1;
     MyStructMyEnumD iceP_p2;
     istr->readAll(iceP_p1, iceP_p2);
-    inS.endReadParams();
+    incoming.endReadParams();
     MyStructMyEnumD iceP_p3;
-    MyStructMyEnumD ret = this->opMyStructMyEnumD(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, current);
-    auto ostr = inS.startWriteParams();
+    MyStructMyEnumD ret = this->opMyStructMyEnumD(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p3, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opByteBoolDS(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opByteBoolDS(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ByteBoolDS iceP_p1;
     ByteBoolDS iceP_p2;
     istr->readAll(iceP_p1, iceP_p2);
-    inS.endReadParams();
+    incoming.endReadParams();
     ByteBoolDS iceP_p3;
-    ByteBoolDS ret = this->opByteBoolDS(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, current);
-    auto ostr = inS.startWriteParams();
+    ByteBoolDS ret = this->opByteBoolDS(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p3, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opShortIntDS(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opShortIntDS(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ShortIntDS iceP_p1;
     ShortIntDS iceP_p2;
     istr->readAll(iceP_p1, iceP_p2);
-    inS.endReadParams();
+    incoming.endReadParams();
     ShortIntDS iceP_p3;
-    ShortIntDS ret = this->opShortIntDS(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, current);
-    auto ostr = inS.startWriteParams();
+    ShortIntDS ret = this->opShortIntDS(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p3, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opLongFloatDS(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opLongFloatDS(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     LongFloatDS iceP_p1;
     LongFloatDS iceP_p2;
     istr->readAll(iceP_p1, iceP_p2);
-    inS.endReadParams();
+    incoming.endReadParams();
     LongFloatDS iceP_p3;
-    LongFloatDS ret = this->opLongFloatDS(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, current);
-    auto ostr = inS.startWriteParams();
+    LongFloatDS ret = this->opLongFloatDS(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p3, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opStringStringDS(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opStringStringDS(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     StringStringDS iceP_p1;
     StringStringDS iceP_p2;
     istr->readAll(iceP_p1, iceP_p2);
-    inS.endReadParams();
+    incoming.endReadParams();
     StringStringDS iceP_p3;
-    StringStringDS ret = this->opStringStringDS(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, current);
-    auto ostr = inS.startWriteParams();
+    StringStringDS ret = this->opStringStringDS(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p3, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opStringMyEnumDS(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opStringMyEnumDS(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     StringMyEnumDS iceP_p1;
     StringMyEnumDS iceP_p2;
     istr->readAll(iceP_p1, iceP_p2);
-    inS.endReadParams();
+    incoming.endReadParams();
     StringMyEnumDS iceP_p3;
-    StringMyEnumDS ret = this->opStringMyEnumDS(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, current);
-    auto ostr = inS.startWriteParams();
+    StringMyEnumDS ret = this->opStringMyEnumDS(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p3, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opMyEnumStringDS(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opMyEnumStringDS(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     MyEnumStringDS iceP_p1;
     MyEnumStringDS iceP_p2;
     istr->readAll(iceP_p1, iceP_p2);
-    inS.endReadParams();
+    incoming.endReadParams();
     MyEnumStringDS iceP_p3;
-    MyEnumStringDS ret = this->opMyEnumStringDS(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, current);
-    auto ostr = inS.startWriteParams();
+    MyEnumStringDS ret = this->opMyEnumStringDS(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p3, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opMyStructMyEnumDS(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opMyStructMyEnumDS(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     MyStructMyEnumDS iceP_p1;
     MyStructMyEnumDS iceP_p2;
     istr->readAll(iceP_p1, iceP_p2);
-    inS.endReadParams();
+    incoming.endReadParams();
     MyStructMyEnumDS iceP_p3;
-    MyStructMyEnumDS ret = this->opMyStructMyEnumDS(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, current);
-    auto ostr = inS.startWriteParams();
+    MyStructMyEnumDS ret = this->opMyStructMyEnumDS(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p3, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opByteByteSD(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opByteByteSD(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ByteByteSD iceP_p1;
     ByteByteSD iceP_p2;
     istr->readAll(iceP_p1, iceP_p2);
-    inS.endReadParams();
+    incoming.endReadParams();
     ByteByteSD iceP_p3;
-    ByteByteSD ret = this->opByteByteSD(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, current);
-    auto ostr = inS.startWriteParams();
+    ByteByteSD ret = this->opByteByteSD(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p3, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opBoolBoolSD(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opBoolBoolSD(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     BoolBoolSD iceP_p1;
     BoolBoolSD iceP_p2;
     istr->readAll(iceP_p1, iceP_p2);
-    inS.endReadParams();
+    incoming.endReadParams();
     BoolBoolSD iceP_p3;
-    BoolBoolSD ret = this->opBoolBoolSD(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, current);
-    auto ostr = inS.startWriteParams();
+    BoolBoolSD ret = this->opBoolBoolSD(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p3, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opShortShortSD(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opShortShortSD(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ShortShortSD iceP_p1;
     ShortShortSD iceP_p2;
     istr->readAll(iceP_p1, iceP_p2);
-    inS.endReadParams();
+    incoming.endReadParams();
     ShortShortSD iceP_p3;
-    ShortShortSD ret = this->opShortShortSD(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, current);
-    auto ostr = inS.startWriteParams();
+    ShortShortSD ret = this->opShortShortSD(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p3, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opIntIntSD(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opIntIntSD(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     IntIntSD iceP_p1;
     IntIntSD iceP_p2;
     istr->readAll(iceP_p1, iceP_p2);
-    inS.endReadParams();
+    incoming.endReadParams();
     IntIntSD iceP_p3;
-    IntIntSD ret = this->opIntIntSD(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, current);
-    auto ostr = inS.startWriteParams();
+    IntIntSD ret = this->opIntIntSD(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p3, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opLongLongSD(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opLongLongSD(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     LongLongSD iceP_p1;
     LongLongSD iceP_p2;
     istr->readAll(iceP_p1, iceP_p2);
-    inS.endReadParams();
+    incoming.endReadParams();
     LongLongSD iceP_p3;
-    LongLongSD ret = this->opLongLongSD(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, current);
-    auto ostr = inS.startWriteParams();
+    LongLongSD ret = this->opLongLongSD(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p3, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opStringFloatSD(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opStringFloatSD(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     StringFloatSD iceP_p1;
     StringFloatSD iceP_p2;
     istr->readAll(iceP_p1, iceP_p2);
-    inS.endReadParams();
+    incoming.endReadParams();
     StringFloatSD iceP_p3;
-    StringFloatSD ret = this->opStringFloatSD(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, current);
-    auto ostr = inS.startWriteParams();
+    StringFloatSD ret = this->opStringFloatSD(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p3, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opStringDoubleSD(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opStringDoubleSD(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     StringDoubleSD iceP_p1;
     StringDoubleSD iceP_p2;
     istr->readAll(iceP_p1, iceP_p2);
-    inS.endReadParams();
+    incoming.endReadParams();
     StringDoubleSD iceP_p3;
-    StringDoubleSD ret = this->opStringDoubleSD(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, current);
-    auto ostr = inS.startWriteParams();
+    StringDoubleSD ret = this->opStringDoubleSD(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p3, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opStringStringSD(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opStringStringSD(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     StringStringSD iceP_p1;
     StringStringSD iceP_p2;
     istr->readAll(iceP_p1, iceP_p2);
-    inS.endReadParams();
+    incoming.endReadParams();
     StringStringSD iceP_p3;
-    StringStringSD ret = this->opStringStringSD(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, current);
-    auto ostr = inS.startWriteParams();
+    StringStringSD ret = this->opStringStringSD(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p3, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opMyEnumMyEnumSD(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opMyEnumMyEnumSD(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     MyEnumMyEnumSD iceP_p1;
     MyEnumMyEnumSD iceP_p2;
     istr->readAll(iceP_p1, iceP_p2);
-    inS.endReadParams();
+    incoming.endReadParams();
     MyEnumMyEnumSD iceP_p3;
-    MyEnumMyEnumSD ret = this->opMyEnumMyEnumSD(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, current);
-    auto ostr = inS.startWriteParams();
+    MyEnumMyEnumSD ret = this->opMyEnumMyEnumSD(::std::move(iceP_p1), ::std::move(iceP_p2), iceP_p3, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_p3, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opIntS(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opIntS(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     IntS iceP_s;
     istr->readAll(iceP_s);
-    inS.endReadParams();
-    IntS ret = this->opIntS(::std::move(iceP_s), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    IntS ret = this->opIntS(::std::move(iceP_s), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opByteSOneway(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opByteSOneway(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ByteS iceP_s;
     istr->readAll(iceP_s);
-    inS.endReadParams();
-    this->opByteSOneway(::std::move(iceP_s), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->opByteSOneway(::std::move(iceP_s), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opByteSOnewayCallCount(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opByteSOnewayCallCount(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::int32_t ret = this->opByteSOnewayCallCount(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::int32_t ret = this->opByteSOnewayCallCount(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opContext(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opContext(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::Ice::Context ret = this->opContext(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::Ice::Context ret = this->opContext(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opDoubleMarshaling(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opDoubleMarshaling(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     double iceP_p1;
     DoubleS iceP_p2;
     istr->readAll(iceP_p1, iceP_p2);
-    inS.endReadParams();
-    this->opDoubleMarshaling(iceP_p1, ::std::move(iceP_p2), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->opDoubleMarshaling(iceP_p1, ::std::move(iceP_p2), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opIdempotent(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opIdempotent(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    inS.readEmptyParams();
-    this->opIdempotent(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->opIdempotent(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opNonmutating(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opNonmutating(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    inS.readEmptyParams();
-    this->opNonmutating(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->opNonmutating(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opByte1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opByte1(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::uint8_t iceP_opByte1;
     istr->readAll(iceP_opByte1);
-    inS.endReadParams();
-    ::std::uint8_t ret = this->opByte1(iceP_opByte1, current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::uint8_t ret = this->opByte1(iceP_opByte1, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opShort1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opShort1(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int16_t iceP_opShort1;
     istr->readAll(iceP_opShort1);
-    inS.endReadParams();
-    ::std::int16_t ret = this->opShort1(iceP_opShort1, current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::int16_t ret = this->opShort1(iceP_opShort1, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opInt1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opInt1(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int32_t iceP_opInt1;
     istr->readAll(iceP_opInt1);
-    inS.endReadParams();
-    ::std::int32_t ret = this->opInt1(iceP_opInt1, current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::int32_t ret = this->opInt1(iceP_opInt1, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opLong1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opLong1(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int64_t iceP_opLong1;
     istr->readAll(iceP_opLong1);
-    inS.endReadParams();
-    ::std::int64_t ret = this->opLong1(iceP_opLong1, current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::int64_t ret = this->opLong1(iceP_opLong1, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opFloat1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opFloat1(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     float iceP_opFloat1;
     istr->readAll(iceP_opFloat1);
-    inS.endReadParams();
-    float ret = this->opFloat1(iceP_opFloat1, current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    float ret = this->opFloat1(iceP_opFloat1, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opDouble1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opDouble1(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     double iceP_opDouble1;
     istr->readAll(iceP_opDouble1);
-    inS.endReadParams();
-    double ret = this->opDouble1(iceP_opDouble1, current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    double ret = this->opDouble1(iceP_opDouble1, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opString1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opString1(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_opString1;
     istr->readAll(iceP_opString1);
-    inS.endReadParams();
-    ::std::string ret = this->opString1(::std::move(iceP_opString1), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::string ret = this->opString1(::std::move(iceP_opString1), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opStringS1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opStringS1(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     StringS iceP_opStringS1;
     istr->readAll(iceP_opStringS1);
-    inS.endReadParams();
-    StringS ret = this->opStringS1(::std::move(iceP_opStringS1), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    StringS ret = this->opStringS1(::std::move(iceP_opStringS1), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opByteBoolD1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opByteBoolD1(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ByteBoolD iceP_opByteBoolD1;
     istr->readAll(iceP_opByteBoolD1);
-    inS.endReadParams();
-    ByteBoolD ret = this->opByteBoolD1(::std::move(iceP_opByteBoolD1), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ByteBoolD ret = this->opByteBoolD1(::std::move(iceP_opByteBoolD1), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opStringS2(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opStringS2(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     StringS iceP_stringS;
     istr->readAll(iceP_stringS);
-    inS.endReadParams();
-    StringS ret = this->opStringS2(::std::move(iceP_stringS), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    StringS ret = this->opStringS2(::std::move(iceP_stringS), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opByteBoolD2(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opByteBoolD2(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ByteBoolD iceP_byteBoolD;
     istr->readAll(iceP_byteBoolD);
-    inS.endReadParams();
-    ByteBoolD ret = this->opByteBoolD2(::std::move(iceP_byteBoolD), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ByteBoolD ret = this->opByteBoolD2(::std::move(iceP_byteBoolD), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opStringLiterals(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opStringLiterals(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    StringS ret = this->opStringLiterals(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    StringS ret = this->opStringLiterals(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opWStringLiterals(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opWStringLiterals(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    StringS ret = this->opWStringLiterals(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    StringS ret = this->opWStringLiterals(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
@@ -4142,11 +4143,11 @@ Test::MyClass::OpMStruct1MarshaledResult::OpMStruct1MarshaledResult(const Struct
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opMStruct1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opMStruct1(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setMarshaledResult(this->opMStruct1(current));
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    incoming.setMarshaledResult(this->opMStruct1(incoming.current()));
     return true;
 }
 /// \endcond
@@ -4161,14 +4162,14 @@ Test::MyClass::OpMStruct2MarshaledResult::OpMStruct2MarshaledResult(const Struct
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opMStruct2(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opMStruct2(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     Structure iceP_p1;
     istr->readAll(iceP_p1);
-    inS.endReadParams();
-    inS.setMarshaledResult(this->opMStruct2(::std::move(iceP_p1), current));
+    incoming.endReadParams();
+    incoming.setMarshaledResult(this->opMStruct2(::std::move(iceP_p1), incoming.current()));
     return true;
 }
 /// \endcond
@@ -4183,11 +4184,11 @@ Test::MyClass::OpMSeq1MarshaledResult::OpMSeq1MarshaledResult(const StringS& ret
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opMSeq1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opMSeq1(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setMarshaledResult(this->opMSeq1(current));
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    incoming.setMarshaledResult(this->opMSeq1(incoming.current()));
     return true;
 }
 /// \endcond
@@ -4202,14 +4203,14 @@ Test::MyClass::OpMSeq2MarshaledResult::OpMSeq2MarshaledResult(const StringS& ret
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opMSeq2(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opMSeq2(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     StringS iceP_p1;
     istr->readAll(iceP_p1);
-    inS.endReadParams();
-    inS.setMarshaledResult(this->opMSeq2(::std::move(iceP_p1), current));
+    incoming.endReadParams();
+    incoming.setMarshaledResult(this->opMSeq2(::std::move(iceP_p1), incoming.current()));
     return true;
 }
 /// \endcond
@@ -4224,11 +4225,11 @@ Test::MyClass::OpMDict1MarshaledResult::OpMDict1MarshaledResult(const StringStri
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opMDict1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opMDict1(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setMarshaledResult(this->opMDict1(current));
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    incoming.setMarshaledResult(this->opMDict1(incoming.current()));
     return true;
 }
 /// \endcond
@@ -4243,24 +4244,25 @@ Test::MyClass::OpMDict2MarshaledResult::OpMDict2MarshaledResult(const StringStri
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opMDict2(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opMDict2(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     StringStringD iceP_p1;
     istr->readAll(iceP_p1);
-    inS.endReadParams();
-    inS.setMarshaledResult(this->opMDict2(::std::move(iceP_p1), current));
+    incoming.endReadParams();
+    incoming.setMarshaledResult(this->opMDict2(::std::move(iceP_p1), incoming.current()));
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::MyClass::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "opBool", "opBoolBoolSD", "opBoolS", "opBoolSS", "opByte", "opByte1", "opByteBoolD", "opByteBoolD1", "opByteBoolD2", "opByteBoolDS", "opByteByteSD", "opByteS", "opByteSOneway", "opByteSOnewayCallCount", "opByteSS", "opContext", "opDouble1", "opDoubleMarshaling", "opFloat1", "opFloatDouble", "opFloatDoubleS", "opFloatDoubleSS", "opIdempotent", "opInt1", "opIntIntSD", "opIntS", "opLong1", "opLongFloatD", "opLongFloatDS", "opLongLongSD", "opMDict1", "opMDict2", "opMSeq1", "opMSeq2", "opMStruct1", "opMStruct2", "opMyClass", "opMyEnum", "opMyEnumMyEnumSD", "opMyEnumStringD", "opMyEnumStringDS", "opMyStructMyEnumD", "opMyStructMyEnumDS", "opNonmutating", "opShort1", "opShortIntD", "opShortIntDS", "opShortIntLong", "opShortIntLongS", "opShortIntLongSS", "opShortShortSD", "opString", "opString1", "opStringDoubleSD", "opStringFloatSD", "opStringLiterals", "opStringMyEnumD", "opStringMyEnumDS", "opStringS", "opStringS1", "opStringS2", "opStringSS", "opStringSSS", "opStringStringD", "opStringStringDS", "opStringStringSD", "opStruct", "opVoid", "opWStringLiterals", "shutdown", "supportsCompress" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 75, current.operation);
     if(r.first == r.second)
     {
@@ -4271,303 +4273,303 @@ Test::MyClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
     {
         case 0:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 1:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 2:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 4:
         {
-            return _iceD_opBool(in, current);
+            return _iceD_opBool(incoming);
         }
         case 5:
         {
-            return _iceD_opBoolBoolSD(in, current);
+            return _iceD_opBoolBoolSD(incoming);
         }
         case 6:
         {
-            return _iceD_opBoolS(in, current);
+            return _iceD_opBoolS(incoming);
         }
         case 7:
         {
-            return _iceD_opBoolSS(in, current);
+            return _iceD_opBoolSS(incoming);
         }
         case 8:
         {
-            return _iceD_opByte(in, current);
+            return _iceD_opByte(incoming);
         }
         case 9:
         {
-            return _iceD_opByte1(in, current);
+            return _iceD_opByte1(incoming);
         }
         case 10:
         {
-            return _iceD_opByteBoolD(in, current);
+            return _iceD_opByteBoolD(incoming);
         }
         case 11:
         {
-            return _iceD_opByteBoolD1(in, current);
+            return _iceD_opByteBoolD1(incoming);
         }
         case 12:
         {
-            return _iceD_opByteBoolD2(in, current);
+            return _iceD_opByteBoolD2(incoming);
         }
         case 13:
         {
-            return _iceD_opByteBoolDS(in, current);
+            return _iceD_opByteBoolDS(incoming);
         }
         case 14:
         {
-            return _iceD_opByteByteSD(in, current);
+            return _iceD_opByteByteSD(incoming);
         }
         case 15:
         {
-            return _iceD_opByteS(in, current);
+            return _iceD_opByteS(incoming);
         }
         case 16:
         {
-            return _iceD_opByteSOneway(in, current);
+            return _iceD_opByteSOneway(incoming);
         }
         case 17:
         {
-            return _iceD_opByteSOnewayCallCount(in, current);
+            return _iceD_opByteSOnewayCallCount(incoming);
         }
         case 18:
         {
-            return _iceD_opByteSS(in, current);
+            return _iceD_opByteSS(incoming);
         }
         case 19:
         {
-            return _iceD_opContext(in, current);
+            return _iceD_opContext(incoming);
         }
         case 20:
         {
-            return _iceD_opDouble1(in, current);
+            return _iceD_opDouble1(incoming);
         }
         case 21:
         {
-            return _iceD_opDoubleMarshaling(in, current);
+            return _iceD_opDoubleMarshaling(incoming);
         }
         case 22:
         {
-            return _iceD_opFloat1(in, current);
+            return _iceD_opFloat1(incoming);
         }
         case 23:
         {
-            return _iceD_opFloatDouble(in, current);
+            return _iceD_opFloatDouble(incoming);
         }
         case 24:
         {
-            return _iceD_opFloatDoubleS(in, current);
+            return _iceD_opFloatDoubleS(incoming);
         }
         case 25:
         {
-            return _iceD_opFloatDoubleSS(in, current);
+            return _iceD_opFloatDoubleSS(incoming);
         }
         case 26:
         {
-            return _iceD_opIdempotent(in, current);
+            return _iceD_opIdempotent(incoming);
         }
         case 27:
         {
-            return _iceD_opInt1(in, current);
+            return _iceD_opInt1(incoming);
         }
         case 28:
         {
-            return _iceD_opIntIntSD(in, current);
+            return _iceD_opIntIntSD(incoming);
         }
         case 29:
         {
-            return _iceD_opIntS(in, current);
+            return _iceD_opIntS(incoming);
         }
         case 30:
         {
-            return _iceD_opLong1(in, current);
+            return _iceD_opLong1(incoming);
         }
         case 31:
         {
-            return _iceD_opLongFloatD(in, current);
+            return _iceD_opLongFloatD(incoming);
         }
         case 32:
         {
-            return _iceD_opLongFloatDS(in, current);
+            return _iceD_opLongFloatDS(incoming);
         }
         case 33:
         {
-            return _iceD_opLongLongSD(in, current);
+            return _iceD_opLongLongSD(incoming);
         }
         case 34:
         {
-            return _iceD_opMDict1(in, current);
+            return _iceD_opMDict1(incoming);
         }
         case 35:
         {
-            return _iceD_opMDict2(in, current);
+            return _iceD_opMDict2(incoming);
         }
         case 36:
         {
-            return _iceD_opMSeq1(in, current);
+            return _iceD_opMSeq1(incoming);
         }
         case 37:
         {
-            return _iceD_opMSeq2(in, current);
+            return _iceD_opMSeq2(incoming);
         }
         case 38:
         {
-            return _iceD_opMStruct1(in, current);
+            return _iceD_opMStruct1(incoming);
         }
         case 39:
         {
-            return _iceD_opMStruct2(in, current);
+            return _iceD_opMStruct2(incoming);
         }
         case 40:
         {
-            return _iceD_opMyClass(in, current);
+            return _iceD_opMyClass(incoming);
         }
         case 41:
         {
-            return _iceD_opMyEnum(in, current);
+            return _iceD_opMyEnum(incoming);
         }
         case 42:
         {
-            return _iceD_opMyEnumMyEnumSD(in, current);
+            return _iceD_opMyEnumMyEnumSD(incoming);
         }
         case 43:
         {
-            return _iceD_opMyEnumStringD(in, current);
+            return _iceD_opMyEnumStringD(incoming);
         }
         case 44:
         {
-            return _iceD_opMyEnumStringDS(in, current);
+            return _iceD_opMyEnumStringDS(incoming);
         }
         case 45:
         {
-            return _iceD_opMyStructMyEnumD(in, current);
+            return _iceD_opMyStructMyEnumD(incoming);
         }
         case 46:
         {
-            return _iceD_opMyStructMyEnumDS(in, current);
+            return _iceD_opMyStructMyEnumDS(incoming);
         }
         case 47:
         {
-            return _iceD_opNonmutating(in, current);
+            return _iceD_opNonmutating(incoming);
         }
         case 48:
         {
-            return _iceD_opShort1(in, current);
+            return _iceD_opShort1(incoming);
         }
         case 49:
         {
-            return _iceD_opShortIntD(in, current);
+            return _iceD_opShortIntD(incoming);
         }
         case 50:
         {
-            return _iceD_opShortIntDS(in, current);
+            return _iceD_opShortIntDS(incoming);
         }
         case 51:
         {
-            return _iceD_opShortIntLong(in, current);
+            return _iceD_opShortIntLong(incoming);
         }
         case 52:
         {
-            return _iceD_opShortIntLongS(in, current);
+            return _iceD_opShortIntLongS(incoming);
         }
         case 53:
         {
-            return _iceD_opShortIntLongSS(in, current);
+            return _iceD_opShortIntLongSS(incoming);
         }
         case 54:
         {
-            return _iceD_opShortShortSD(in, current);
+            return _iceD_opShortShortSD(incoming);
         }
         case 55:
         {
-            return _iceD_opString(in, current);
+            return _iceD_opString(incoming);
         }
         case 56:
         {
-            return _iceD_opString1(in, current);
+            return _iceD_opString1(incoming);
         }
         case 57:
         {
-            return _iceD_opStringDoubleSD(in, current);
+            return _iceD_opStringDoubleSD(incoming);
         }
         case 58:
         {
-            return _iceD_opStringFloatSD(in, current);
+            return _iceD_opStringFloatSD(incoming);
         }
         case 59:
         {
-            return _iceD_opStringLiterals(in, current);
+            return _iceD_opStringLiterals(incoming);
         }
         case 60:
         {
-            return _iceD_opStringMyEnumD(in, current);
+            return _iceD_opStringMyEnumD(incoming);
         }
         case 61:
         {
-            return _iceD_opStringMyEnumDS(in, current);
+            return _iceD_opStringMyEnumDS(incoming);
         }
         case 62:
         {
-            return _iceD_opStringS(in, current);
+            return _iceD_opStringS(incoming);
         }
         case 63:
         {
-            return _iceD_opStringS1(in, current);
+            return _iceD_opStringS1(incoming);
         }
         case 64:
         {
-            return _iceD_opStringS2(in, current);
+            return _iceD_opStringS2(incoming);
         }
         case 65:
         {
-            return _iceD_opStringSS(in, current);
+            return _iceD_opStringSS(incoming);
         }
         case 66:
         {
-            return _iceD_opStringSSS(in, current);
+            return _iceD_opStringSSS(incoming);
         }
         case 67:
         {
-            return _iceD_opStringStringD(in, current);
+            return _iceD_opStringStringD(incoming);
         }
         case 68:
         {
-            return _iceD_opStringStringDS(in, current);
+            return _iceD_opStringStringDS(incoming);
         }
         case 69:
         {
-            return _iceD_opStringStringSD(in, current);
+            return _iceD_opStringStringSD(incoming);
         }
         case 70:
         {
-            return _iceD_opStruct(in, current);
+            return _iceD_opStruct(incoming);
         }
         case 71:
         {
-            return _iceD_opVoid(in, current);
+            return _iceD_opVoid(incoming);
         }
         case 72:
         {
-            return _iceD_opWStringLiterals(in, current);
+            return _iceD_opWStringLiterals(incoming);
         }
         case 73:
         {
-            return _iceD_shutdown(in, current);
+            return _iceD_shutdown(incoming);
         }
         case 74:
         {
-            return _iceD_supportsCompress(in, current);
+            return _iceD_supportsCompress(incoming);
         }
         default:
         {
@@ -4600,58 +4602,59 @@ Test::MyDerivedClass::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::MyDerivedClass::_iceD_opDerived(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyDerivedClass::_iceD_opDerived(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->opDerived(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->opDerived(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyDerivedClass::_iceD_opMyClass1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyDerivedClass::_iceD_opMyClass1(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::shared_ptr<MyClass1> iceP_opMyClass1;
     istr->readAll(iceP_opMyClass1);
     istr->readPendingValues();
-    inS.endReadParams();
-    ::std::shared_ptr<MyClass1> ret = this->opMyClass1(::std::move(iceP_opMyClass1), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::shared_ptr<MyClass1> ret = this->opMyClass1(::std::move(iceP_opMyClass1), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
     ostr->writePendingValues();
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyDerivedClass::_iceD_opMyStruct1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyDerivedClass::_iceD_opMyStruct1(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     MyStruct1 iceP_opMyStruct1;
     istr->readAll(iceP_opMyStruct1);
-    inS.endReadParams();
-    MyStruct1 ret = this->opMyStruct1(::std::move(iceP_opMyStruct1), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    MyStruct1 ret = this->opMyStruct1(::std::move(iceP_opMyStruct1), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyDerivedClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::MyDerivedClass::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "opBool", "opBoolBoolSD", "opBoolS", "opBoolSS", "opByte", "opByte1", "opByteBoolD", "opByteBoolD1", "opByteBoolD2", "opByteBoolDS", "opByteByteSD", "opByteS", "opByteSOneway", "opByteSOnewayCallCount", "opByteSS", "opContext", "opDerived", "opDouble1", "opDoubleMarshaling", "opFloat1", "opFloatDouble", "opFloatDoubleS", "opFloatDoubleSS", "opIdempotent", "opInt1", "opIntIntSD", "opIntS", "opLong1", "opLongFloatD", "opLongFloatDS", "opLongLongSD", "opMDict1", "opMDict2", "opMSeq1", "opMSeq2", "opMStruct1", "opMStruct2", "opMyClass", "opMyClass1", "opMyEnum", "opMyEnumMyEnumSD", "opMyEnumStringD", "opMyEnumStringDS", "opMyStruct1", "opMyStructMyEnumD", "opMyStructMyEnumDS", "opNonmutating", "opShort1", "opShortIntD", "opShortIntDS", "opShortIntLong", "opShortIntLongS", "opShortIntLongSS", "opShortShortSD", "opString", "opString1", "opStringDoubleSD", "opStringFloatSD", "opStringLiterals", "opStringMyEnumD", "opStringMyEnumDS", "opStringS", "opStringS1", "opStringS2", "opStringSS", "opStringSSS", "opStringStringD", "opStringStringDS", "opStringStringSD", "opStruct", "opVoid", "opWStringLiterals", "shutdown", "supportsCompress" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 78, current.operation);
     if(r.first == r.second)
     {
@@ -4662,315 +4665,315 @@ Test::MyDerivedClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cur
     {
         case 0:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 1:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 2:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 4:
         {
-            return _iceD_opBool(in, current);
+            return _iceD_opBool(incoming);
         }
         case 5:
         {
-            return _iceD_opBoolBoolSD(in, current);
+            return _iceD_opBoolBoolSD(incoming);
         }
         case 6:
         {
-            return _iceD_opBoolS(in, current);
+            return _iceD_opBoolS(incoming);
         }
         case 7:
         {
-            return _iceD_opBoolSS(in, current);
+            return _iceD_opBoolSS(incoming);
         }
         case 8:
         {
-            return _iceD_opByte(in, current);
+            return _iceD_opByte(incoming);
         }
         case 9:
         {
-            return _iceD_opByte1(in, current);
+            return _iceD_opByte1(incoming);
         }
         case 10:
         {
-            return _iceD_opByteBoolD(in, current);
+            return _iceD_opByteBoolD(incoming);
         }
         case 11:
         {
-            return _iceD_opByteBoolD1(in, current);
+            return _iceD_opByteBoolD1(incoming);
         }
         case 12:
         {
-            return _iceD_opByteBoolD2(in, current);
+            return _iceD_opByteBoolD2(incoming);
         }
         case 13:
         {
-            return _iceD_opByteBoolDS(in, current);
+            return _iceD_opByteBoolDS(incoming);
         }
         case 14:
         {
-            return _iceD_opByteByteSD(in, current);
+            return _iceD_opByteByteSD(incoming);
         }
         case 15:
         {
-            return _iceD_opByteS(in, current);
+            return _iceD_opByteS(incoming);
         }
         case 16:
         {
-            return _iceD_opByteSOneway(in, current);
+            return _iceD_opByteSOneway(incoming);
         }
         case 17:
         {
-            return _iceD_opByteSOnewayCallCount(in, current);
+            return _iceD_opByteSOnewayCallCount(incoming);
         }
         case 18:
         {
-            return _iceD_opByteSS(in, current);
+            return _iceD_opByteSS(incoming);
         }
         case 19:
         {
-            return _iceD_opContext(in, current);
+            return _iceD_opContext(incoming);
         }
         case 20:
         {
-            return _iceD_opDerived(in, current);
+            return _iceD_opDerived(incoming);
         }
         case 21:
         {
-            return _iceD_opDouble1(in, current);
+            return _iceD_opDouble1(incoming);
         }
         case 22:
         {
-            return _iceD_opDoubleMarshaling(in, current);
+            return _iceD_opDoubleMarshaling(incoming);
         }
         case 23:
         {
-            return _iceD_opFloat1(in, current);
+            return _iceD_opFloat1(incoming);
         }
         case 24:
         {
-            return _iceD_opFloatDouble(in, current);
+            return _iceD_opFloatDouble(incoming);
         }
         case 25:
         {
-            return _iceD_opFloatDoubleS(in, current);
+            return _iceD_opFloatDoubleS(incoming);
         }
         case 26:
         {
-            return _iceD_opFloatDoubleSS(in, current);
+            return _iceD_opFloatDoubleSS(incoming);
         }
         case 27:
         {
-            return _iceD_opIdempotent(in, current);
+            return _iceD_opIdempotent(incoming);
         }
         case 28:
         {
-            return _iceD_opInt1(in, current);
+            return _iceD_opInt1(incoming);
         }
         case 29:
         {
-            return _iceD_opIntIntSD(in, current);
+            return _iceD_opIntIntSD(incoming);
         }
         case 30:
         {
-            return _iceD_opIntS(in, current);
+            return _iceD_opIntS(incoming);
         }
         case 31:
         {
-            return _iceD_opLong1(in, current);
+            return _iceD_opLong1(incoming);
         }
         case 32:
         {
-            return _iceD_opLongFloatD(in, current);
+            return _iceD_opLongFloatD(incoming);
         }
         case 33:
         {
-            return _iceD_opLongFloatDS(in, current);
+            return _iceD_opLongFloatDS(incoming);
         }
         case 34:
         {
-            return _iceD_opLongLongSD(in, current);
+            return _iceD_opLongLongSD(incoming);
         }
         case 35:
         {
-            return _iceD_opMDict1(in, current);
+            return _iceD_opMDict1(incoming);
         }
         case 36:
         {
-            return _iceD_opMDict2(in, current);
+            return _iceD_opMDict2(incoming);
         }
         case 37:
         {
-            return _iceD_opMSeq1(in, current);
+            return _iceD_opMSeq1(incoming);
         }
         case 38:
         {
-            return _iceD_opMSeq2(in, current);
+            return _iceD_opMSeq2(incoming);
         }
         case 39:
         {
-            return _iceD_opMStruct1(in, current);
+            return _iceD_opMStruct1(incoming);
         }
         case 40:
         {
-            return _iceD_opMStruct2(in, current);
+            return _iceD_opMStruct2(incoming);
         }
         case 41:
         {
-            return _iceD_opMyClass(in, current);
+            return _iceD_opMyClass(incoming);
         }
         case 42:
         {
-            return _iceD_opMyClass1(in, current);
+            return _iceD_opMyClass1(incoming);
         }
         case 43:
         {
-            return _iceD_opMyEnum(in, current);
+            return _iceD_opMyEnum(incoming);
         }
         case 44:
         {
-            return _iceD_opMyEnumMyEnumSD(in, current);
+            return _iceD_opMyEnumMyEnumSD(incoming);
         }
         case 45:
         {
-            return _iceD_opMyEnumStringD(in, current);
+            return _iceD_opMyEnumStringD(incoming);
         }
         case 46:
         {
-            return _iceD_opMyEnumStringDS(in, current);
+            return _iceD_opMyEnumStringDS(incoming);
         }
         case 47:
         {
-            return _iceD_opMyStruct1(in, current);
+            return _iceD_opMyStruct1(incoming);
         }
         case 48:
         {
-            return _iceD_opMyStructMyEnumD(in, current);
+            return _iceD_opMyStructMyEnumD(incoming);
         }
         case 49:
         {
-            return _iceD_opMyStructMyEnumDS(in, current);
+            return _iceD_opMyStructMyEnumDS(incoming);
         }
         case 50:
         {
-            return _iceD_opNonmutating(in, current);
+            return _iceD_opNonmutating(incoming);
         }
         case 51:
         {
-            return _iceD_opShort1(in, current);
+            return _iceD_opShort1(incoming);
         }
         case 52:
         {
-            return _iceD_opShortIntD(in, current);
+            return _iceD_opShortIntD(incoming);
         }
         case 53:
         {
-            return _iceD_opShortIntDS(in, current);
+            return _iceD_opShortIntDS(incoming);
         }
         case 54:
         {
-            return _iceD_opShortIntLong(in, current);
+            return _iceD_opShortIntLong(incoming);
         }
         case 55:
         {
-            return _iceD_opShortIntLongS(in, current);
+            return _iceD_opShortIntLongS(incoming);
         }
         case 56:
         {
-            return _iceD_opShortIntLongSS(in, current);
+            return _iceD_opShortIntLongSS(incoming);
         }
         case 57:
         {
-            return _iceD_opShortShortSD(in, current);
+            return _iceD_opShortShortSD(incoming);
         }
         case 58:
         {
-            return _iceD_opString(in, current);
+            return _iceD_opString(incoming);
         }
         case 59:
         {
-            return _iceD_opString1(in, current);
+            return _iceD_opString1(incoming);
         }
         case 60:
         {
-            return _iceD_opStringDoubleSD(in, current);
+            return _iceD_opStringDoubleSD(incoming);
         }
         case 61:
         {
-            return _iceD_opStringFloatSD(in, current);
+            return _iceD_opStringFloatSD(incoming);
         }
         case 62:
         {
-            return _iceD_opStringLiterals(in, current);
+            return _iceD_opStringLiterals(incoming);
         }
         case 63:
         {
-            return _iceD_opStringMyEnumD(in, current);
+            return _iceD_opStringMyEnumD(incoming);
         }
         case 64:
         {
-            return _iceD_opStringMyEnumDS(in, current);
+            return _iceD_opStringMyEnumDS(incoming);
         }
         case 65:
         {
-            return _iceD_opStringS(in, current);
+            return _iceD_opStringS(incoming);
         }
         case 66:
         {
-            return _iceD_opStringS1(in, current);
+            return _iceD_opStringS1(incoming);
         }
         case 67:
         {
-            return _iceD_opStringS2(in, current);
+            return _iceD_opStringS2(incoming);
         }
         case 68:
         {
-            return _iceD_opStringSS(in, current);
+            return _iceD_opStringSS(incoming);
         }
         case 69:
         {
-            return _iceD_opStringSSS(in, current);
+            return _iceD_opStringSSS(incoming);
         }
         case 70:
         {
-            return _iceD_opStringStringD(in, current);
+            return _iceD_opStringStringD(incoming);
         }
         case 71:
         {
-            return _iceD_opStringStringDS(in, current);
+            return _iceD_opStringStringDS(incoming);
         }
         case 72:
         {
-            return _iceD_opStringStringSD(in, current);
+            return _iceD_opStringStringSD(incoming);
         }
         case 73:
         {
-            return _iceD_opStruct(in, current);
+            return _iceD_opStruct(incoming);
         }
         case 74:
         {
-            return _iceD_opVoid(in, current);
+            return _iceD_opVoid(incoming);
         }
         case 75:
         {
-            return _iceD_opWStringLiterals(in, current);
+            return _iceD_opWStringLiterals(incoming);
         }
         case 76:
         {
-            return _iceD_shutdown(in, current);
+            return _iceD_shutdown(incoming);
         }
         case 77:
         {
-            return _iceD_supportsCompress(in, current);
+            return _iceD_supportsCompress(incoming);
         }
         default:
         {
@@ -5003,10 +5006,11 @@ Test2::MyDerivedClass::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test2::MyDerivedClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test2::MyDerivedClass::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "opBool", "opBoolBoolSD", "opBoolS", "opBoolSS", "opByte", "opByte1", "opByteBoolD", "opByteBoolD1", "opByteBoolD2", "opByteBoolDS", "opByteByteSD", "opByteS", "opByteSOneway", "opByteSOnewayCallCount", "opByteSS", "opContext", "opDouble1", "opDoubleMarshaling", "opFloat1", "opFloatDouble", "opFloatDoubleS", "opFloatDoubleSS", "opIdempotent", "opInt1", "opIntIntSD", "opIntS", "opLong1", "opLongFloatD", "opLongFloatDS", "opLongLongSD", "opMDict1", "opMDict2", "opMSeq1", "opMSeq2", "opMStruct1", "opMStruct2", "opMyClass", "opMyEnum", "opMyEnumMyEnumSD", "opMyEnumStringD", "opMyEnumStringDS", "opMyStructMyEnumD", "opMyStructMyEnumDS", "opNonmutating", "opShort1", "opShortIntD", "opShortIntDS", "opShortIntLong", "opShortIntLongS", "opShortIntLongSS", "opShortShortSD", "opString", "opString1", "opStringDoubleSD", "opStringFloatSD", "opStringLiterals", "opStringMyEnumD", "opStringMyEnumDS", "opStringS", "opStringS1", "opStringS2", "opStringSS", "opStringSSS", "opStringStringD", "opStringStringDS", "opStringStringSD", "opStruct", "opVoid", "opWStringLiterals", "shutdown", "supportsCompress" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 75, current.operation);
     if(r.first == r.second)
     {
@@ -5017,303 +5021,303 @@ Test2::MyDerivedClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cu
     {
         case 0:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 1:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 2:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 4:
         {
-            return _iceD_opBool(in, current);
+            return _iceD_opBool(incoming);
         }
         case 5:
         {
-            return _iceD_opBoolBoolSD(in, current);
+            return _iceD_opBoolBoolSD(incoming);
         }
         case 6:
         {
-            return _iceD_opBoolS(in, current);
+            return _iceD_opBoolS(incoming);
         }
         case 7:
         {
-            return _iceD_opBoolSS(in, current);
+            return _iceD_opBoolSS(incoming);
         }
         case 8:
         {
-            return _iceD_opByte(in, current);
+            return _iceD_opByte(incoming);
         }
         case 9:
         {
-            return _iceD_opByte1(in, current);
+            return _iceD_opByte1(incoming);
         }
         case 10:
         {
-            return _iceD_opByteBoolD(in, current);
+            return _iceD_opByteBoolD(incoming);
         }
         case 11:
         {
-            return _iceD_opByteBoolD1(in, current);
+            return _iceD_opByteBoolD1(incoming);
         }
         case 12:
         {
-            return _iceD_opByteBoolD2(in, current);
+            return _iceD_opByteBoolD2(incoming);
         }
         case 13:
         {
-            return _iceD_opByteBoolDS(in, current);
+            return _iceD_opByteBoolDS(incoming);
         }
         case 14:
         {
-            return _iceD_opByteByteSD(in, current);
+            return _iceD_opByteByteSD(incoming);
         }
         case 15:
         {
-            return _iceD_opByteS(in, current);
+            return _iceD_opByteS(incoming);
         }
         case 16:
         {
-            return _iceD_opByteSOneway(in, current);
+            return _iceD_opByteSOneway(incoming);
         }
         case 17:
         {
-            return _iceD_opByteSOnewayCallCount(in, current);
+            return _iceD_opByteSOnewayCallCount(incoming);
         }
         case 18:
         {
-            return _iceD_opByteSS(in, current);
+            return _iceD_opByteSS(incoming);
         }
         case 19:
         {
-            return _iceD_opContext(in, current);
+            return _iceD_opContext(incoming);
         }
         case 20:
         {
-            return _iceD_opDouble1(in, current);
+            return _iceD_opDouble1(incoming);
         }
         case 21:
         {
-            return _iceD_opDoubleMarshaling(in, current);
+            return _iceD_opDoubleMarshaling(incoming);
         }
         case 22:
         {
-            return _iceD_opFloat1(in, current);
+            return _iceD_opFloat1(incoming);
         }
         case 23:
         {
-            return _iceD_opFloatDouble(in, current);
+            return _iceD_opFloatDouble(incoming);
         }
         case 24:
         {
-            return _iceD_opFloatDoubleS(in, current);
+            return _iceD_opFloatDoubleS(incoming);
         }
         case 25:
         {
-            return _iceD_opFloatDoubleSS(in, current);
+            return _iceD_opFloatDoubleSS(incoming);
         }
         case 26:
         {
-            return _iceD_opIdempotent(in, current);
+            return _iceD_opIdempotent(incoming);
         }
         case 27:
         {
-            return _iceD_opInt1(in, current);
+            return _iceD_opInt1(incoming);
         }
         case 28:
         {
-            return _iceD_opIntIntSD(in, current);
+            return _iceD_opIntIntSD(incoming);
         }
         case 29:
         {
-            return _iceD_opIntS(in, current);
+            return _iceD_opIntS(incoming);
         }
         case 30:
         {
-            return _iceD_opLong1(in, current);
+            return _iceD_opLong1(incoming);
         }
         case 31:
         {
-            return _iceD_opLongFloatD(in, current);
+            return _iceD_opLongFloatD(incoming);
         }
         case 32:
         {
-            return _iceD_opLongFloatDS(in, current);
+            return _iceD_opLongFloatDS(incoming);
         }
         case 33:
         {
-            return _iceD_opLongLongSD(in, current);
+            return _iceD_opLongLongSD(incoming);
         }
         case 34:
         {
-            return _iceD_opMDict1(in, current);
+            return _iceD_opMDict1(incoming);
         }
         case 35:
         {
-            return _iceD_opMDict2(in, current);
+            return _iceD_opMDict2(incoming);
         }
         case 36:
         {
-            return _iceD_opMSeq1(in, current);
+            return _iceD_opMSeq1(incoming);
         }
         case 37:
         {
-            return _iceD_opMSeq2(in, current);
+            return _iceD_opMSeq2(incoming);
         }
         case 38:
         {
-            return _iceD_opMStruct1(in, current);
+            return _iceD_opMStruct1(incoming);
         }
         case 39:
         {
-            return _iceD_opMStruct2(in, current);
+            return _iceD_opMStruct2(incoming);
         }
         case 40:
         {
-            return _iceD_opMyClass(in, current);
+            return _iceD_opMyClass(incoming);
         }
         case 41:
         {
-            return _iceD_opMyEnum(in, current);
+            return _iceD_opMyEnum(incoming);
         }
         case 42:
         {
-            return _iceD_opMyEnumMyEnumSD(in, current);
+            return _iceD_opMyEnumMyEnumSD(incoming);
         }
         case 43:
         {
-            return _iceD_opMyEnumStringD(in, current);
+            return _iceD_opMyEnumStringD(incoming);
         }
         case 44:
         {
-            return _iceD_opMyEnumStringDS(in, current);
+            return _iceD_opMyEnumStringDS(incoming);
         }
         case 45:
         {
-            return _iceD_opMyStructMyEnumD(in, current);
+            return _iceD_opMyStructMyEnumD(incoming);
         }
         case 46:
         {
-            return _iceD_opMyStructMyEnumDS(in, current);
+            return _iceD_opMyStructMyEnumDS(incoming);
         }
         case 47:
         {
-            return _iceD_opNonmutating(in, current);
+            return _iceD_opNonmutating(incoming);
         }
         case 48:
         {
-            return _iceD_opShort1(in, current);
+            return _iceD_opShort1(incoming);
         }
         case 49:
         {
-            return _iceD_opShortIntD(in, current);
+            return _iceD_opShortIntD(incoming);
         }
         case 50:
         {
-            return _iceD_opShortIntDS(in, current);
+            return _iceD_opShortIntDS(incoming);
         }
         case 51:
         {
-            return _iceD_opShortIntLong(in, current);
+            return _iceD_opShortIntLong(incoming);
         }
         case 52:
         {
-            return _iceD_opShortIntLongS(in, current);
+            return _iceD_opShortIntLongS(incoming);
         }
         case 53:
         {
-            return _iceD_opShortIntLongSS(in, current);
+            return _iceD_opShortIntLongSS(incoming);
         }
         case 54:
         {
-            return _iceD_opShortShortSD(in, current);
+            return _iceD_opShortShortSD(incoming);
         }
         case 55:
         {
-            return _iceD_opString(in, current);
+            return _iceD_opString(incoming);
         }
         case 56:
         {
-            return _iceD_opString1(in, current);
+            return _iceD_opString1(incoming);
         }
         case 57:
         {
-            return _iceD_opStringDoubleSD(in, current);
+            return _iceD_opStringDoubleSD(incoming);
         }
         case 58:
         {
-            return _iceD_opStringFloatSD(in, current);
+            return _iceD_opStringFloatSD(incoming);
         }
         case 59:
         {
-            return _iceD_opStringLiterals(in, current);
+            return _iceD_opStringLiterals(incoming);
         }
         case 60:
         {
-            return _iceD_opStringMyEnumD(in, current);
+            return _iceD_opStringMyEnumD(incoming);
         }
         case 61:
         {
-            return _iceD_opStringMyEnumDS(in, current);
+            return _iceD_opStringMyEnumDS(incoming);
         }
         case 62:
         {
-            return _iceD_opStringS(in, current);
+            return _iceD_opStringS(incoming);
         }
         case 63:
         {
-            return _iceD_opStringS1(in, current);
+            return _iceD_opStringS1(incoming);
         }
         case 64:
         {
-            return _iceD_opStringS2(in, current);
+            return _iceD_opStringS2(incoming);
         }
         case 65:
         {
-            return _iceD_opStringSS(in, current);
+            return _iceD_opStringSS(incoming);
         }
         case 66:
         {
-            return _iceD_opStringSSS(in, current);
+            return _iceD_opStringSSS(incoming);
         }
         case 67:
         {
-            return _iceD_opStringStringD(in, current);
+            return _iceD_opStringStringD(incoming);
         }
         case 68:
         {
-            return _iceD_opStringStringDS(in, current);
+            return _iceD_opStringStringDS(incoming);
         }
         case 69:
         {
-            return _iceD_opStringStringSD(in, current);
+            return _iceD_opStringStringSD(incoming);
         }
         case 70:
         {
-            return _iceD_opStruct(in, current);
+            return _iceD_opStruct(incoming);
         }
         case 71:
         {
-            return _iceD_opVoid(in, current);
+            return _iceD_opVoid(incoming);
         }
         case 72:
         {
-            return _iceD_opWStringLiterals(in, current);
+            return _iceD_opWStringLiterals(incoming);
         }
         case 73:
         {
-            return _iceD_shutdown(in, current);
+            return _iceD_shutdown(incoming);
         }
         case 74:
         {
-            return _iceD_supportsCompress(in, current);
+            return _iceD_supportsCompress(incoming);
         }
         default:
         {

@@ -16,6 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -263,58 +264,59 @@ classdef::_cpp_break::elseif::ice_staticId()
 
 /// \cond INTERNAL
 bool
-classdef::_cpp_break::elseif::_iceD_events(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+classdef::_cpp_break::elseif::_iceD_events(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->events(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->events(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-classdef::_cpp_break::elseif::_iceD_function(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+classdef::_cpp_break::elseif::_iceD_function(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->function(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->function(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-classdef::_cpp_break::elseif::_iceD_delete(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+classdef::_cpp_break::elseif::_iceD_delete(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->_cpp_delete(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->_cpp_delete(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-classdef::_cpp_break::elseif::_iceD_checkedCast(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+classdef::_cpp_break::elseif::_iceD_checkedCast(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->checkedCast(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->checkedCast(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-classdef::_cpp_break::elseif::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+classdef::_cpp_break::elseif::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "checkedCast", "delete", "events", "function", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
@@ -325,35 +327,35 @@ classdef::_cpp_break::elseif::_iceDispatch(::IceInternal::Incoming& in, const ::
     {
         case 0:
         {
-            return _iceD_checkedCast(in, current);
+            return _iceD_checkedCast(incoming);
         }
         case 1:
         {
-            return _iceD_delete(in, current);
+            return _iceD_delete(incoming);
         }
         case 2:
         {
-            return _iceD_events(in, current);
+            return _iceD_events(incoming);
         }
         case 3:
         {
-            return _iceD_function(in, current);
+            return _iceD_function(incoming);
         }
         case 4:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 5:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 6:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 7:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         default:
         {

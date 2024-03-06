@@ -16,6 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Key.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -231,32 +232,40 @@ _cpp_and::del::ice_staticId()
 
 /// \cond INTERNAL
 bool
-_cpp_and::del::_iceD_elif(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+_cpp_and::del::_iceD_elif(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int32_t iceP_else;
     istr->readAll(iceP_else);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](::std::int32_t iceP_except)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](::std::int32_t iceP_except)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll(iceP_except);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->elifAsync(iceP_else, responseCB, inA->exception(), current);
+    try
+    {
+        this->elifAsync(iceP_else, responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-_cpp_and::del::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+_cpp_and::del::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "elif", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
@@ -267,23 +276,23 @@ _cpp_and::del::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
     {
         case 0:
         {
-            return _iceD_elif(in, current);
+            return _iceD_elif(incoming);
         }
         case 1:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 2:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 3:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 4:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         default:
         {
@@ -316,22 +325,23 @@ _cpp_and::exec::ice_staticId()
 
 /// \cond INTERNAL
 bool
-_cpp_and::exec::_iceD_finally(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+_cpp_and::exec::_iceD_finally(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->finally(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->finally(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-_cpp_and::exec::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+_cpp_and::exec::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "finally", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
@@ -342,23 +352,23 @@ _cpp_and::exec::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
     {
         case 0:
         {
-            return _iceD_finally(in, current);
+            return _iceD_finally(incoming);
         }
         case 1:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 2:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 3:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 4:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         default:
         {
@@ -391,10 +401,11 @@ _cpp_and::_cpp_if::ice_staticId()
 
 /// \cond INTERNAL
 bool
-_cpp_and::_cpp_if::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+_cpp_and::_cpp_if::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "elif", "finally", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
@@ -405,27 +416,27 @@ _cpp_and::_cpp_if::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curren
     {
         case 0:
         {
-            return _iceD_elif(in, current);
+            return _iceD_elif(incoming);
         }
         case 1:
         {
-            return _iceD_finally(in, current);
+            return _iceD_finally(incoming);
         }
         case 2:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 4:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 5:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         default:
         {
@@ -458,10 +469,10 @@ _cpp_and::print::ice_staticId()
 
 /// \cond INTERNAL
 bool
-_cpp_and::print::_iceD_raise(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+_cpp_and::print::_iceD_raise(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     _cpp_continue iceP_else;
     ::std::shared_ptr<::and::for> iceP_return;
     ::std::optional<delPrx> iceP_while;
@@ -470,21 +481,22 @@ _cpp_and::print::_iceD_raise(::IceInternal::Incoming& inS, const ::Ice::Current&
     ::std::int32_t iceP_global;
     istr->readAll(iceP_else, iceP_return, iceP_while, iceP_yield, iceP_or, iceP_global);
     istr->readPendingValues();
-    inS.endReadParams();
-    assert ret = this->raise(::std::move(iceP_else), ::std::move(iceP_return), ::std::move(iceP_while), ::std::move(iceP_yield), ::std::move(iceP_or), iceP_global, current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    assert ret = this->raise(::std::move(iceP_else), ::std::move(iceP_return), ::std::move(iceP_while), ::std::move(iceP_yield), ::std::move(iceP_or), iceP_global, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-_cpp_and::print::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+_cpp_and::print::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "raise" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
@@ -495,23 +507,23 @@ _cpp_and::print::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current&
     {
         case 0:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 1:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 2:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 4:
         {
-            return _iceD_raise(in, current);
+            return _iceD_raise(incoming);
         }
         default:
         {

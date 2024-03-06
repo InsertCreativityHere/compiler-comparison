@@ -741,7 +741,7 @@ public:
      */
     virtual ::std::optional<::Ice::ObjectPrx> findObjectById(::Ice::Identity id, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_findObjectById(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    bool _iceD_findObjectById(::IceInternal::Incoming&) const;
     /// \endcond
 
     /**
@@ -753,7 +753,7 @@ public:
      */
     virtual ::std::optional<::Ice::ObjectPrx> findObjectByType(::std::string type, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_findObjectByType(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    bool _iceD_findObjectByType(::IceInternal::Incoming&) const;
     /// \endcond
 
     /**
@@ -767,7 +767,7 @@ public:
      */
     virtual ::std::optional<::Ice::ObjectPrx> findObjectByTypeOnLeastLoadedNode(::std::string type, LoadSample sample, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_findObjectByTypeOnLeastLoadedNode(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    bool _iceD_findObjectByTypeOnLeastLoadedNode(::IceInternal::Incoming&) const;
     /// \endcond
 
     /**
@@ -778,7 +778,7 @@ public:
      */
     virtual ::Ice::ObjectProxySeq findAllObjectsByType(::std::string type, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_findAllObjectsByType(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    bool _iceD_findAllObjectsByType(::IceInternal::Incoming&) const;
     /// \endcond
 
     /**
@@ -791,11 +791,11 @@ public:
      */
     virtual ::Ice::ObjectProxySeq findAllReplicas(::std::optional<::Ice::ObjectPrx> proxy, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_findAllReplicas(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    bool _iceD_findAllReplicas(::IceInternal::Incoming&) const;
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -843,7 +843,7 @@ public:
      */
     virtual ::std::optional<SessionPrx> createSession(::std::string userId, ::std::string password, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_createSession(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_createSession(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -857,7 +857,7 @@ public:
      */
     virtual ::std::optional<AdminSessionPrx> createAdminSession(::std::string userId, ::std::string password, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_createAdminSession(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_createAdminSession(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -869,7 +869,7 @@ public:
      */
     virtual ::std::optional<SessionPrx> createSessionFromSecureConnection(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_createSessionFromSecureConnection(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_createSessionFromSecureConnection(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -881,7 +881,7 @@ public:
      */
     virtual ::std::optional<AdminSessionPrx> createAdminSessionFromSecureConnection(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_createAdminSessionFromSecureConnection(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_createAdminSessionFromSecureConnection(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -894,7 +894,7 @@ public:
      */
     virtual ::std::int32_t getSessionTimeout(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getSessionTimeout(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    bool _iceD_getSessionTimeout(::IceInternal::Incoming&) const;
     /// \endcond
 
     /**
@@ -905,11 +905,11 @@ public:
      */
     virtual ::std::int32_t getACMTimeout(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getACMTimeout(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    bool _iceD_getACMTimeout(::IceInternal::Incoming&) const;
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -954,7 +954,7 @@ public:
      */
     virtual ::std::optional<RegistryPrx> getLocalRegistry(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getLocalRegistry(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    bool _iceD_getLocalRegistry(::IceInternal::Incoming&) const;
     /// \endcond
 
     /**
@@ -964,11 +964,11 @@ public:
      */
     virtual ::std::optional<QueryPrx> getLocalQuery(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getLocalQuery(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    bool _iceD_getLocalQuery(::IceInternal::Incoming&) const;
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

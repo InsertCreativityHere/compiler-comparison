@@ -19,6 +19,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <IceStorm.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -668,156 +669,157 @@ IceStorm::Topic::ice_staticId()
 
 /// \cond INTERNAL
 bool
-IceStorm::Topic::_iceD_getName(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceStorm::Topic::_iceD_getName(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    inS.readEmptyParams();
-    ::std::string ret = this->getName(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::string ret = this->getName(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceStorm::Topic::_iceD_getPublisher(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceStorm::Topic::_iceD_getPublisher(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    inS.readEmptyParams();
-    ::std::optional<::Ice::ObjectPrx> ret = this->getPublisher(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::optional<::Ice::ObjectPrx> ret = this->getPublisher(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceStorm::Topic::_iceD_getNonReplicatedPublisher(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceStorm::Topic::_iceD_getNonReplicatedPublisher(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    inS.readEmptyParams();
-    ::std::optional<::Ice::ObjectPrx> ret = this->getNonReplicatedPublisher(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::optional<::Ice::ObjectPrx> ret = this->getNonReplicatedPublisher(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceStorm::Topic::_iceD_subscribeAndGetPublisher(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceStorm::Topic::_iceD_subscribeAndGetPublisher(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     QoS iceP_theQoS;
     ::std::optional<::Ice::ObjectPrx> iceP_subscriber;
     istr->readAll(iceP_theQoS, iceP_subscriber);
-    inS.endReadParams();
-    ::std::optional<::Ice::ObjectPrx> ret = this->subscribeAndGetPublisher(::std::move(iceP_theQoS), ::std::move(iceP_subscriber), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::optional<::Ice::ObjectPrx> ret = this->subscribeAndGetPublisher(::std::move(iceP_theQoS), ::std::move(iceP_subscriber), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceStorm::Topic::_iceD_unsubscribe(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceStorm::Topic::_iceD_unsubscribe(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<::Ice::ObjectPrx> iceP_subscriber;
     istr->readAll(iceP_subscriber);
-    inS.endReadParams();
-    this->unsubscribe(::std::move(iceP_subscriber), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->unsubscribe(::std::move(iceP_subscriber), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceStorm::Topic::_iceD_link(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceStorm::Topic::_iceD_link(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<TopicPrx> iceP_linkTo;
     ::std::int32_t iceP_cost;
     istr->readAll(iceP_linkTo, iceP_cost);
-    inS.endReadParams();
-    this->link(::std::move(iceP_linkTo), iceP_cost, current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->link(::std::move(iceP_linkTo), iceP_cost, incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceStorm::Topic::_iceD_unlink(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceStorm::Topic::_iceD_unlink(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<TopicPrx> iceP_linkTo;
     istr->readAll(iceP_linkTo);
-    inS.endReadParams();
-    this->unlink(::std::move(iceP_linkTo), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->unlink(::std::move(iceP_linkTo), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceStorm::Topic::_iceD_getLinkInfoSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceStorm::Topic::_iceD_getLinkInfoSeq(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    inS.readEmptyParams();
-    LinkInfoSeq ret = this->getLinkInfoSeq(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    incoming.readEmptyParams();
+    LinkInfoSeq ret = this->getLinkInfoSeq(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceStorm::Topic::_iceD_getSubscribers(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceStorm::Topic::_iceD_getSubscribers(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::Ice::IdentitySeq ret = this->getSubscribers(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::Ice::IdentitySeq ret = this->getSubscribers(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceStorm::Topic::_iceD_destroy(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceStorm::Topic::_iceD_destroy(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->destroy(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->destroy(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceStorm::Topic::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+IceStorm::Topic::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "destroy", "getLinkInfoSeq", "getName", "getNonReplicatedPublisher", "getPublisher", "getSubscribers", "ice_id", "ice_ids", "ice_isA", "ice_ping", "link", "subscribeAndGetPublisher", "unlink", "unsubscribe" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 14, current.operation);
     if(r.first == r.second)
     {
@@ -828,59 +830,59 @@ IceStorm::Topic::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current&
     {
         case 0:
         {
-            return _iceD_destroy(in, current);
+            return _iceD_destroy(incoming);
         }
         case 1:
         {
-            return _iceD_getLinkInfoSeq(in, current);
+            return _iceD_getLinkInfoSeq(incoming);
         }
         case 2:
         {
-            return _iceD_getName(in, current);
+            return _iceD_getName(incoming);
         }
         case 3:
         {
-            return _iceD_getNonReplicatedPublisher(in, current);
+            return _iceD_getNonReplicatedPublisher(incoming);
         }
         case 4:
         {
-            return _iceD_getPublisher(in, current);
+            return _iceD_getPublisher(incoming);
         }
         case 5:
         {
-            return _iceD_getSubscribers(in, current);
+            return _iceD_getSubscribers(incoming);
         }
         case 6:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 7:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 8:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 9:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 10:
         {
-            return _iceD_link(in, current);
+            return _iceD_link(incoming);
         }
         case 11:
         {
-            return _iceD_subscribeAndGetPublisher(in, current);
+            return _iceD_subscribeAndGetPublisher(incoming);
         }
         case 12:
         {
-            return _iceD_unlink(in, current);
+            return _iceD_unlink(incoming);
         }
         case 13:
         {
-            return _iceD_unsubscribe(in, current);
+            return _iceD_unsubscribe(incoming);
         }
         default:
         {
@@ -913,58 +915,59 @@ IceStorm::TopicManager::ice_staticId()
 
 /// \cond INTERNAL
 bool
-IceStorm::TopicManager::_iceD_create(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceStorm::TopicManager::_iceD_create(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_name;
     istr->readAll(iceP_name);
-    inS.endReadParams();
-    ::std::optional<TopicPrx> ret = this->create(::std::move(iceP_name), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::optional<TopicPrx> ret = this->create(::std::move(iceP_name), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceStorm::TopicManager::_iceD_retrieve(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceStorm::TopicManager::_iceD_retrieve(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_name;
     istr->readAll(iceP_name);
-    inS.endReadParams();
-    ::std::optional<TopicPrx> ret = this->retrieve(::std::move(iceP_name), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::optional<TopicPrx> ret = this->retrieve(::std::move(iceP_name), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceStorm::TopicManager::_iceD_retrieveAll(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceStorm::TopicManager::_iceD_retrieveAll(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    inS.readEmptyParams();
-    TopicDict ret = this->retrieveAll(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    incoming.readEmptyParams();
+    TopicDict ret = this->retrieveAll(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceStorm::TopicManager::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+IceStorm::TopicManager::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "create", "ice_id", "ice_ids", "ice_isA", "ice_ping", "retrieve", "retrieveAll" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
@@ -975,31 +978,31 @@ IceStorm::TopicManager::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::C
     {
         case 0:
         {
-            return _iceD_create(in, current);
+            return _iceD_create(incoming);
         }
         case 1:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 2:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 3:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 4:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 5:
         {
-            return _iceD_retrieve(in, current);
+            return _iceD_retrieve(incoming);
         }
         case 6:
         {
-            return _iceD_retrieveAll(in, current);
+            return _iceD_retrieveAll(incoming);
         }
         default:
         {
@@ -1032,24 +1035,25 @@ IceStorm::Finder::ice_staticId()
 
 /// \cond INTERNAL
 bool
-IceStorm::Finder::_iceD_getTopicManager(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceStorm::Finder::_iceD_getTopicManager(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::optional<TopicManagerPrx> ret = this->getTopicManager(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::optional<TopicManagerPrx> ret = this->getTopicManager(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceStorm::Finder::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+IceStorm::Finder::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "getTopicManager", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
@@ -1060,23 +1064,23 @@ IceStorm::Finder::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current
     {
         case 0:
         {
-            return _iceD_getTopicManager(in, current);
+            return _iceD_getTopicManager(incoming);
         }
         case 1:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 2:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 3:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 4:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         default:
         {

@@ -240,11 +240,11 @@ public:
      */
     virtual ApplicationDescriptor parse(::std::string xmlFile, ::std::optional<AdminPrx> adminProxy, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_parse(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_parse(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

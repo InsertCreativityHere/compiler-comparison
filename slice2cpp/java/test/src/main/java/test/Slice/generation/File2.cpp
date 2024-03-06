@@ -16,6 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <File2.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -93,22 +94,23 @@ Test::Interface2::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::Interface2::_iceD_method(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Interface2::_iceD_method(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->method(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->method(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Interface2::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::Interface2::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "method" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
@@ -119,23 +121,23 @@ Test::Interface2::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current
     {
         case 0:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 1:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 2:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 4:
         {
-            return _iceD_method(in, current);
+            return _iceD_method(incoming);
         }
         default:
         {

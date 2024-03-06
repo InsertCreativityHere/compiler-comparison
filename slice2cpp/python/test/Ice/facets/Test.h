@@ -736,11 +736,11 @@ public:
 
     virtual ::std::string callA(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_callA(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_callA(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -774,11 +774,11 @@ public:
 
     virtual ::std::string callB(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_callB(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_callB(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -812,11 +812,11 @@ public:
 
     virtual ::std::string callC(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_callC(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_callC(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -851,11 +851,11 @@ public:
 
     virtual ::std::string callD(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_callD(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_callD(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -889,11 +889,11 @@ public:
 
     virtual ::std::string callE(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_callE(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_callE(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -927,11 +927,11 @@ public:
 
     virtual ::std::string callF(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_callF(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_callF(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -965,16 +965,16 @@ public:
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::string callG(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_callG(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_callG(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -1008,11 +1008,11 @@ public:
 
     virtual ::std::string callH(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_callH(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_callH(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

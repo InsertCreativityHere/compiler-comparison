@@ -16,6 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Controller.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -733,76 +734,77 @@ Test::Common::TestCase::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::Common::TestCase::_iceD_startServerSide(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Common::TestCase::_iceD_startServerSide(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::shared_ptr<Config> iceP_config;
     istr->readAll(iceP_config);
     istr->readPendingValues();
-    inS.endReadParams();
-    ::std::string ret = this->startServerSide(::std::move(iceP_config), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::string ret = this->startServerSide(::std::move(iceP_config), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Common::TestCase::_iceD_stopServerSide(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Common::TestCase::_iceD_stopServerSide(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     bool iceP_success;
     istr->readAll(iceP_success);
-    inS.endReadParams();
-    ::std::string ret = this->stopServerSide(iceP_success, current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::string ret = this->stopServerSide(iceP_success, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Common::TestCase::_iceD_runClientSide(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Common::TestCase::_iceD_runClientSide(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_host;
     ::std::shared_ptr<Config> iceP_config;
     istr->readAll(iceP_host, iceP_config);
     istr->readPendingValues();
-    inS.endReadParams();
-    ::std::string ret = this->runClientSide(::std::move(iceP_host), ::std::move(iceP_config), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::string ret = this->runClientSide(::std::move(iceP_host), ::std::move(iceP_config), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Common::TestCase::_iceD_destroy(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Common::TestCase::_iceD_destroy(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->destroy(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->destroy(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Common::TestCase::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::Common::TestCase::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "destroy", "ice_id", "ice_ids", "ice_isA", "ice_ping", "runClientSide", "startServerSide", "stopServerSide" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
@@ -813,35 +815,35 @@ Test::Common::TestCase::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::C
     {
         case 0:
         {
-            return _iceD_destroy(in, current);
+            return _iceD_destroy(incoming);
         }
         case 1:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 2:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 3:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 4:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 5:
         {
-            return _iceD_runClientSide(in, current);
+            return _iceD_runClientSide(incoming);
         }
         case 6:
         {
-            return _iceD_startServerSide(in, current);
+            return _iceD_startServerSide(incoming);
         }
         case 7:
         {
-            return _iceD_stopServerSide(in, current);
+            return _iceD_stopServerSide(incoming);
         }
         default:
         {
@@ -874,80 +876,81 @@ Test::Common::Controller::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::Common::Controller::_iceD_runTestCase(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Common::Controller::_iceD_runTestCase(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_mapping;
     ::std::string iceP_testsuite;
     ::std::string iceP_testcase;
     ::std::string iceP_cross;
     istr->readAll(iceP_mapping, iceP_testsuite, iceP_testcase, iceP_cross);
-    inS.endReadParams();
-    ::std::optional<TestCasePrx> ret = this->runTestCase(::std::move(iceP_mapping), ::std::move(iceP_testsuite), ::std::move(iceP_testcase), ::std::move(iceP_cross), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::optional<TestCasePrx> ret = this->runTestCase(::std::move(iceP_mapping), ::std::move(iceP_testsuite), ::std::move(iceP_testcase), ::std::move(iceP_cross), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Common::Controller::_iceD_getOptionOverrides(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Common::Controller::_iceD_getOptionOverrides(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::shared_ptr<OptionOverrides> ret = this->getOptionOverrides(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::shared_ptr<OptionOverrides> ret = this->getOptionOverrides(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
     ostr->writePendingValues();
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Common::Controller::_iceD_getTestSuites(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Common::Controller::_iceD_getTestSuites(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_mapping;
     istr->readAll(iceP_mapping);
-    inS.endReadParams();
-    StringSeq ret = this->getTestSuites(::std::move(iceP_mapping), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    StringSeq ret = this->getTestSuites(::std::move(iceP_mapping), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Common::Controller::_iceD_getHost(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Common::Controller::_iceD_getHost(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_protocol;
     bool iceP_ipv6;
     istr->readAll(iceP_protocol, iceP_ipv6);
-    inS.endReadParams();
-    ::std::string ret = this->getHost(::std::move(iceP_protocol), iceP_ipv6, current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::string ret = this->getHost(::std::move(iceP_protocol), iceP_ipv6, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Common::Controller::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::Common::Controller::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "getHost", "getOptionOverrides", "getTestSuites", "ice_id", "ice_ids", "ice_isA", "ice_ping", "runTestCase" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
@@ -958,35 +961,35 @@ Test::Common::Controller::_iceDispatch(::IceInternal::Incoming& in, const ::Ice:
     {
         case 0:
         {
-            return _iceD_getHost(in, current);
+            return _iceD_getHost(incoming);
         }
         case 1:
         {
-            return _iceD_getOptionOverrides(in, current);
+            return _iceD_getOptionOverrides(incoming);
         }
         case 2:
         {
-            return _iceD_getTestSuites(in, current);
+            return _iceD_getTestSuites(incoming);
         }
         case 3:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 4:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 5:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 6:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 7:
         {
-            return _iceD_runTestCase(in, current);
+            return _iceD_runTestCase(incoming);
         }
         default:
         {
@@ -1019,56 +1022,57 @@ Test::Common::Process::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::Common::Process::_iceD_waitReady(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Common::Process::_iceD_waitReady(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int32_t iceP_timeout;
     istr->readAll(iceP_timeout);
-    inS.endReadParams();
-    this->waitReady(iceP_timeout, current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->waitReady(iceP_timeout, incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Common::Process::_iceD_waitSuccess(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Common::Process::_iceD_waitSuccess(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int32_t iceP_timeout;
     istr->readAll(iceP_timeout);
-    inS.endReadParams();
-    ::std::int32_t ret = this->waitSuccess(iceP_timeout, current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::int32_t ret = this->waitSuccess(iceP_timeout, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Common::Process::_iceD_terminate(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Common::Process::_iceD_terminate(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::string ret = this->terminate(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::string ret = this->terminate(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Common::Process::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::Common::Process::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "terminate", "waitReady", "waitSuccess" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
@@ -1079,31 +1083,31 @@ Test::Common::Process::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cu
     {
         case 0:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 1:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 2:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 4:
         {
-            return _iceD_terminate(in, current);
+            return _iceD_terminate(incoming);
         }
         case 5:
         {
-            return _iceD_waitReady(in, current);
+            return _iceD_waitReady(incoming);
         }
         case 6:
         {
-            return _iceD_waitSuccess(in, current);
+            return _iceD_waitSuccess(incoming);
         }
         default:
         {
@@ -1136,47 +1140,48 @@ Test::Common::ProcessController::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::Common::ProcessController::_iceD_start(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Common::ProcessController::_iceD_start(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_testsuite;
     ::std::string iceP_exe;
     StringSeq iceP_args;
     istr->readAll(iceP_testsuite, iceP_exe, iceP_args);
-    inS.endReadParams();
-    ::std::optional<ProcessPrx> ret = this->start(::std::move(iceP_testsuite), ::std::move(iceP_exe), ::std::move(iceP_args), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::optional<ProcessPrx> ret = this->start(::std::move(iceP_testsuite), ::std::move(iceP_exe), ::std::move(iceP_args), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Common::ProcessController::_iceD_getHost(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Common::ProcessController::_iceD_getHost(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_protocol;
     bool iceP_ipv6;
     istr->readAll(iceP_protocol, iceP_ipv6);
-    inS.endReadParams();
-    ::std::string ret = this->getHost(::std::move(iceP_protocol), iceP_ipv6, current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::string ret = this->getHost(::std::move(iceP_protocol), iceP_ipv6, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Common::ProcessController::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::Common::ProcessController::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "getHost", "ice_id", "ice_ids", "ice_isA", "ice_ping", "start" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
@@ -1187,27 +1192,27 @@ Test::Common::ProcessController::_iceDispatch(::IceInternal::Incoming& in, const
     {
         case 0:
         {
-            return _iceD_getHost(in, current);
+            return _iceD_getHost(incoming);
         }
         case 1:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 2:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 3:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 4:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 5:
         {
-            return _iceD_start(in, current);
+            return _iceD_start(incoming);
         }
         default:
         {
@@ -1240,25 +1245,26 @@ Test::Common::BrowserProcessController::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::Common::BrowserProcessController::_iceD_redirect(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Common::BrowserProcessController::_iceD_redirect(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_url;
     istr->readAll(iceP_url);
-    inS.endReadParams();
-    this->redirect(::std::move(iceP_url), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->redirect(::std::move(iceP_url), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Common::BrowserProcessController::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::Common::BrowserProcessController::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "getHost", "ice_id", "ice_ids", "ice_isA", "ice_ping", "redirect", "start" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
@@ -1269,31 +1275,31 @@ Test::Common::BrowserProcessController::_iceDispatch(::IceInternal::Incoming& in
     {
         case 0:
         {
-            return _iceD_getHost(in, current);
+            return _iceD_getHost(incoming);
         }
         case 1:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 2:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 3:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 4:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 5:
         {
-            return _iceD_redirect(in, current);
+            return _iceD_redirect(incoming);
         }
         case 6:
         {
-            return _iceD_start(in, current);
+            return _iceD_start(incoming);
         }
         default:
         {
@@ -1326,25 +1332,26 @@ Test::Common::ProcessControllerRegistry::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::Common::ProcessControllerRegistry::_iceD_setProcessController(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Common::ProcessControllerRegistry::_iceD_setProcessController(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<ProcessControllerPrx> iceP_controller;
     istr->readAll(iceP_controller);
-    inS.endReadParams();
-    this->setProcessController(::std::move(iceP_controller), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->setProcessController(::std::move(iceP_controller), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Common::ProcessControllerRegistry::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::Common::ProcessControllerRegistry::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "setProcessController" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
@@ -1355,23 +1362,23 @@ Test::Common::ProcessControllerRegistry::_iceDispatch(::IceInternal::Incoming& i
     {
         case 0:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 1:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 2:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 4:
         {
-            return _iceD_setProcessController(in, current);
+            return _iceD_setProcessController(incoming);
         }
         default:
         {

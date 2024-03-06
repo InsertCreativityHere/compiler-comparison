@@ -19,6 +19,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Registry.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -532,96 +533,97 @@ IceGrid::Query::ice_staticId()
 
 /// \cond INTERNAL
 bool
-IceGrid::Query::_iceD_findObjectById(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceGrid::Query::_iceD_findObjectById(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::Ice::Identity iceP_id;
     istr->readAll(iceP_id);
-    inS.endReadParams();
-    ::std::optional<::Ice::ObjectPrx> ret = this->findObjectById(::std::move(iceP_id), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::optional<::Ice::ObjectPrx> ret = this->findObjectById(::std::move(iceP_id), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Query::_iceD_findObjectByType(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceGrid::Query::_iceD_findObjectByType(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_type;
     istr->readAll(iceP_type);
-    inS.endReadParams();
-    ::std::optional<::Ice::ObjectPrx> ret = this->findObjectByType(::std::move(iceP_type), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::optional<::Ice::ObjectPrx> ret = this->findObjectByType(::std::move(iceP_type), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Query::_iceD_findObjectByTypeOnLeastLoadedNode(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceGrid::Query::_iceD_findObjectByTypeOnLeastLoadedNode(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_type;
     LoadSample iceP_sample;
     istr->readAll(iceP_type, iceP_sample);
-    inS.endReadParams();
-    ::std::optional<::Ice::ObjectPrx> ret = this->findObjectByTypeOnLeastLoadedNode(::std::move(iceP_type), iceP_sample, current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::optional<::Ice::ObjectPrx> ret = this->findObjectByTypeOnLeastLoadedNode(::std::move(iceP_type), iceP_sample, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Query::_iceD_findAllObjectsByType(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceGrid::Query::_iceD_findAllObjectsByType(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_type;
     istr->readAll(iceP_type);
-    inS.endReadParams();
-    ::Ice::ObjectProxySeq ret = this->findAllObjectsByType(::std::move(iceP_type), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::Ice::ObjectProxySeq ret = this->findAllObjectsByType(::std::move(iceP_type), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Query::_iceD_findAllReplicas(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceGrid::Query::_iceD_findAllReplicas(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<::Ice::ObjectPrx> iceP_proxy;
     istr->readAll(iceP_proxy);
-    inS.endReadParams();
-    ::Ice::ObjectProxySeq ret = this->findAllReplicas(::std::move(iceP_proxy), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::Ice::ObjectProxySeq ret = this->findAllReplicas(::std::move(iceP_proxy), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Query::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+IceGrid::Query::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "findAllObjectsByType", "findAllReplicas", "findObjectById", "findObjectByType", "findObjectByTypeOnLeastLoadedNode", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 9, current.operation);
     if(r.first == r.second)
     {
@@ -632,39 +634,39 @@ IceGrid::Query::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
     {
         case 0:
         {
-            return _iceD_findAllObjectsByType(in, current);
+            return _iceD_findAllObjectsByType(incoming);
         }
         case 1:
         {
-            return _iceD_findAllReplicas(in, current);
+            return _iceD_findAllReplicas(incoming);
         }
         case 2:
         {
-            return _iceD_findObjectById(in, current);
+            return _iceD_findObjectById(incoming);
         }
         case 3:
         {
-            return _iceD_findObjectByType(in, current);
+            return _iceD_findObjectByType(incoming);
         }
         case 4:
         {
-            return _iceD_findObjectByTypeOnLeastLoadedNode(in, current);
+            return _iceD_findObjectByTypeOnLeastLoadedNode(incoming);
         }
         case 5:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 6:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 7:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 8:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         default:
         {
@@ -697,102 +699,103 @@ IceGrid::Registry::ice_staticId()
 
 /// \cond INTERNAL
 bool
-IceGrid::Registry::_iceD_createSession(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::Registry::_iceD_createSession(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_userId;
     ::std::string iceP_password;
     istr->readAll(iceP_userId, iceP_password);
-    inS.endReadParams();
-    ::std::optional<SessionPrx> ret = this->createSession(::std::move(iceP_userId), ::std::move(iceP_password), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::optional<SessionPrx> ret = this->createSession(::std::move(iceP_userId), ::std::move(iceP_password), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Registry::_iceD_createAdminSession(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::Registry::_iceD_createAdminSession(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_userId;
     ::std::string iceP_password;
     istr->readAll(iceP_userId, iceP_password);
-    inS.endReadParams();
-    ::std::optional<AdminSessionPrx> ret = this->createAdminSession(::std::move(iceP_userId), ::std::move(iceP_password), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::optional<AdminSessionPrx> ret = this->createAdminSession(::std::move(iceP_userId), ::std::move(iceP_password), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Registry::_iceD_createSessionFromSecureConnection(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::Registry::_iceD_createSessionFromSecureConnection(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::optional<SessionPrx> ret = this->createSessionFromSecureConnection(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::optional<SessionPrx> ret = this->createSessionFromSecureConnection(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Registry::_iceD_createAdminSessionFromSecureConnection(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::Registry::_iceD_createAdminSessionFromSecureConnection(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::optional<AdminSessionPrx> ret = this->createAdminSessionFromSecureConnection(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::optional<AdminSessionPrx> ret = this->createAdminSessionFromSecureConnection(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Registry::_iceD_getSessionTimeout(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceGrid::Registry::_iceD_getSessionTimeout(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    inS.readEmptyParams();
-    ::std::int32_t ret = this->getSessionTimeout(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::int32_t ret = this->getSessionTimeout(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Registry::_iceD_getACMTimeout(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceGrid::Registry::_iceD_getACMTimeout(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    inS.readEmptyParams();
-    ::std::int32_t ret = this->getACMTimeout(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::int32_t ret = this->getACMTimeout(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Registry::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+IceGrid::Registry::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "createAdminSession", "createAdminSessionFromSecureConnection", "createSession", "createSessionFromSecureConnection", "getACMTimeout", "getSessionTimeout", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 10, current.operation);
     if(r.first == r.second)
     {
@@ -803,43 +806,43 @@ IceGrid::Registry::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curren
     {
         case 0:
         {
-            return _iceD_createAdminSession(in, current);
+            return _iceD_createAdminSession(incoming);
         }
         case 1:
         {
-            return _iceD_createAdminSessionFromSecureConnection(in, current);
+            return _iceD_createAdminSessionFromSecureConnection(incoming);
         }
         case 2:
         {
-            return _iceD_createSession(in, current);
+            return _iceD_createSession(incoming);
         }
         case 3:
         {
-            return _iceD_createSessionFromSecureConnection(in, current);
+            return _iceD_createSessionFromSecureConnection(incoming);
         }
         case 4:
         {
-            return _iceD_getACMTimeout(in, current);
+            return _iceD_getACMTimeout(incoming);
         }
         case 5:
         {
-            return _iceD_getSessionTimeout(in, current);
+            return _iceD_getSessionTimeout(incoming);
         }
         case 6:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 7:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 8:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 9:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         default:
         {
@@ -872,38 +875,39 @@ IceGrid::Locator::ice_staticId()
 
 /// \cond INTERNAL
 bool
-IceGrid::Locator::_iceD_getLocalRegistry(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceGrid::Locator::_iceD_getLocalRegistry(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    inS.readEmptyParams();
-    ::std::optional<RegistryPrx> ret = this->getLocalRegistry(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::optional<RegistryPrx> ret = this->getLocalRegistry(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Locator::_iceD_getLocalQuery(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceGrid::Locator::_iceD_getLocalQuery(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    inS.readEmptyParams();
-    ::std::optional<QueryPrx> ret = this->getLocalQuery(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::optional<QueryPrx> ret = this->getLocalQuery(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Locator::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+IceGrid::Locator::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "findAdapterById", "findObjectById", "getLocalQuery", "getLocalRegistry", "getRegistry", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 9, current.operation);
     if(r.first == r.second)
     {
@@ -914,39 +918,39 @@ IceGrid::Locator::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current
     {
         case 0:
         {
-            return _iceD_findAdapterById(in, current);
+            return _iceD_findAdapterById(incoming);
         }
         case 1:
         {
-            return _iceD_findObjectById(in, current);
+            return _iceD_findObjectById(incoming);
         }
         case 2:
         {
-            return _iceD_getLocalQuery(in, current);
+            return _iceD_getLocalQuery(incoming);
         }
         case 3:
         {
-            return _iceD_getLocalRegistry(in, current);
+            return _iceD_getLocalRegistry(incoming);
         }
         case 4:
         {
-            return _iceD_getRegistry(in, current);
+            return _iceD_getRegistry(incoming);
         }
         case 5:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 6:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 7:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 8:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         default:
         {

@@ -16,6 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -269,94 +270,95 @@ Test::TestIntf::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_opByte(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::TestIntf::_iceD_opByte(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ByteEnum iceP_b1;
     istr->readAll(iceP_b1);
-    inS.endReadParams();
+    incoming.endReadParams();
     ByteEnum iceP_b2;
-    ByteEnum ret = this->opByte(iceP_b1, iceP_b2, current);
-    auto ostr = inS.startWriteParams();
+    ByteEnum ret = this->opByte(iceP_b1, iceP_b2, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_b2, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_opShort(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::TestIntf::_iceD_opShort(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ShortEnum iceP_s1;
     istr->readAll(iceP_s1);
-    inS.endReadParams();
+    incoming.endReadParams();
     ShortEnum iceP_s2;
-    ShortEnum ret = this->opShort(iceP_s1, iceP_s2, current);
-    auto ostr = inS.startWriteParams();
+    ShortEnum ret = this->opShort(iceP_s1, iceP_s2, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_s2, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_opInt(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::TestIntf::_iceD_opInt(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     IntEnum iceP_i1;
     istr->readAll(iceP_i1);
-    inS.endReadParams();
+    incoming.endReadParams();
     IntEnum iceP_i2;
-    IntEnum ret = this->opInt(iceP_i1, iceP_i2, current);
-    auto ostr = inS.startWriteParams();
+    IntEnum ret = this->opInt(iceP_i1, iceP_i2, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_i2, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_opSimple(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::TestIntf::_iceD_opSimple(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     SimpleEnum iceP_s1;
     istr->readAll(iceP_s1);
-    inS.endReadParams();
+    incoming.endReadParams();
     SimpleEnum iceP_s2;
-    SimpleEnum ret = this->opSimple(iceP_s1, iceP_s2, current);
-    auto ostr = inS.startWriteParams();
+    SimpleEnum ret = this->opSimple(iceP_s1, iceP_s2, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_s2, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::TestIntf::_iceD_shutdown(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->shutdown(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->shutdown(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::TestIntf::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "opByte", "opInt", "opShort", "opSimple", "shutdown" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 9, current.operation);
     if(r.first == r.second)
     {
@@ -367,39 +369,39 @@ Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
     {
         case 0:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 1:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 2:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 4:
         {
-            return _iceD_opByte(in, current);
+            return _iceD_opByte(incoming);
         }
         case 5:
         {
-            return _iceD_opInt(in, current);
+            return _iceD_opInt(incoming);
         }
         case 6:
         {
-            return _iceD_opShort(in, current);
+            return _iceD_opShort(incoming);
         }
         case 7:
         {
-            return _iceD_opSimple(in, current);
+            return _iceD_opSimple(incoming);
         }
         case 8:
         {
-            return _iceD_shutdown(in, current);
+            return _iceD_shutdown(incoming);
         }
         default:
         {

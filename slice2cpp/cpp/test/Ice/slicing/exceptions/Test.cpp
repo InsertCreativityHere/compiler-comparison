@@ -16,6 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -1343,62 +1344,63 @@ Test::Relay::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::Relay::_iceD_knownPreservedAsBase(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Relay::_iceD_knownPreservedAsBase(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::FormatType::SlicedFormat);
-    this->knownPreservedAsBase(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    incoming.setFormat(::Ice::FormatType::SlicedFormat);
+    this->knownPreservedAsBase(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Relay::_iceD_knownPreservedAsKnownPreserved(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Relay::_iceD_knownPreservedAsKnownPreserved(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::FormatType::SlicedFormat);
-    this->knownPreservedAsKnownPreserved(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    incoming.setFormat(::Ice::FormatType::SlicedFormat);
+    this->knownPreservedAsKnownPreserved(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Relay::_iceD_unknownPreservedAsBase(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Relay::_iceD_unknownPreservedAsBase(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::FormatType::SlicedFormat);
-    this->unknownPreservedAsBase(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    incoming.setFormat(::Ice::FormatType::SlicedFormat);
+    this->unknownPreservedAsBase(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Relay::_iceD_unknownPreservedAsKnownPreserved(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Relay::_iceD_unknownPreservedAsKnownPreserved(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::FormatType::SlicedFormat);
-    this->unknownPreservedAsKnownPreserved(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    incoming.setFormat(::Ice::FormatType::SlicedFormat);
+    this->unknownPreservedAsKnownPreserved(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Relay::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::Relay::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "knownPreservedAsBase", "knownPreservedAsKnownPreserved", "unknownPreservedAsBase", "unknownPreservedAsKnownPreserved" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
@@ -1409,35 +1411,35 @@ Test::Relay::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& cur
     {
         case 0:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 1:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 2:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 4:
         {
-            return _iceD_knownPreservedAsBase(in, current);
+            return _iceD_knownPreservedAsBase(incoming);
         }
         case 5:
         {
-            return _iceD_knownPreservedAsKnownPreserved(in, current);
+            return _iceD_knownPreservedAsKnownPreserved(incoming);
         }
         case 6:
         {
-            return _iceD_unknownPreservedAsBase(in, current);
+            return _iceD_unknownPreservedAsBase(incoming);
         }
         case 7:
         {
-            return _iceD_unknownPreservedAsKnownPreserved(in, current);
+            return _iceD_unknownPreservedAsKnownPreserved(incoming);
         }
         default:
         {
@@ -1470,321 +1472,322 @@ Test::TestIntf::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_baseAsBase(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::TestIntf::_iceD_baseAsBase(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::FormatType::SlicedFormat);
-    this->baseAsBase(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    incoming.setFormat(::Ice::FormatType::SlicedFormat);
+    this->baseAsBase(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_unknownDerivedAsBase(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::TestIntf::_iceD_unknownDerivedAsBase(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::FormatType::SlicedFormat);
-    this->unknownDerivedAsBase(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    incoming.setFormat(::Ice::FormatType::SlicedFormat);
+    this->unknownDerivedAsBase(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_knownDerivedAsBase(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::TestIntf::_iceD_knownDerivedAsBase(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::FormatType::SlicedFormat);
-    this->knownDerivedAsBase(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    incoming.setFormat(::Ice::FormatType::SlicedFormat);
+    this->knownDerivedAsBase(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_knownDerivedAsKnownDerived(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::TestIntf::_iceD_knownDerivedAsKnownDerived(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::FormatType::SlicedFormat);
-    this->knownDerivedAsKnownDerived(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    incoming.setFormat(::Ice::FormatType::SlicedFormat);
+    this->knownDerivedAsKnownDerived(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_unknownIntermediateAsBase(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::TestIntf::_iceD_unknownIntermediateAsBase(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::FormatType::SlicedFormat);
-    this->unknownIntermediateAsBase(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    incoming.setFormat(::Ice::FormatType::SlicedFormat);
+    this->unknownIntermediateAsBase(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_knownIntermediateAsBase(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::TestIntf::_iceD_knownIntermediateAsBase(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::FormatType::SlicedFormat);
-    this->knownIntermediateAsBase(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    incoming.setFormat(::Ice::FormatType::SlicedFormat);
+    this->knownIntermediateAsBase(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_knownMostDerivedAsBase(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::TestIntf::_iceD_knownMostDerivedAsBase(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::FormatType::SlicedFormat);
-    this->knownMostDerivedAsBase(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    incoming.setFormat(::Ice::FormatType::SlicedFormat);
+    this->knownMostDerivedAsBase(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_knownIntermediateAsKnownIntermediate(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::TestIntf::_iceD_knownIntermediateAsKnownIntermediate(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::FormatType::SlicedFormat);
-    this->knownIntermediateAsKnownIntermediate(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    incoming.setFormat(::Ice::FormatType::SlicedFormat);
+    this->knownIntermediateAsKnownIntermediate(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_knownMostDerivedAsKnownIntermediate(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::TestIntf::_iceD_knownMostDerivedAsKnownIntermediate(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::FormatType::SlicedFormat);
-    this->knownMostDerivedAsKnownIntermediate(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    incoming.setFormat(::Ice::FormatType::SlicedFormat);
+    this->knownMostDerivedAsKnownIntermediate(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_knownMostDerivedAsKnownMostDerived(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::TestIntf::_iceD_knownMostDerivedAsKnownMostDerived(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::FormatType::SlicedFormat);
-    this->knownMostDerivedAsKnownMostDerived(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    incoming.setFormat(::Ice::FormatType::SlicedFormat);
+    this->knownMostDerivedAsKnownMostDerived(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_unknownMostDerived1AsBase(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::TestIntf::_iceD_unknownMostDerived1AsBase(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::FormatType::SlicedFormat);
-    this->unknownMostDerived1AsBase(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    incoming.setFormat(::Ice::FormatType::SlicedFormat);
+    this->unknownMostDerived1AsBase(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_unknownMostDerived1AsKnownIntermediate(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::TestIntf::_iceD_unknownMostDerived1AsKnownIntermediate(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::FormatType::SlicedFormat);
-    this->unknownMostDerived1AsKnownIntermediate(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    incoming.setFormat(::Ice::FormatType::SlicedFormat);
+    this->unknownMostDerived1AsKnownIntermediate(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_unknownMostDerived2AsBase(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::TestIntf::_iceD_unknownMostDerived2AsBase(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::FormatType::SlicedFormat);
-    this->unknownMostDerived2AsBase(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    incoming.setFormat(::Ice::FormatType::SlicedFormat);
+    this->unknownMostDerived2AsBase(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_unknownMostDerived2AsBaseCompact(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::TestIntf::_iceD_unknownMostDerived2AsBaseCompact(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::FormatType::CompactFormat);
-    this->unknownMostDerived2AsBaseCompact(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    incoming.setFormat(::Ice::FormatType::CompactFormat);
+    this->unknownMostDerived2AsBaseCompact(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_knownPreservedAsBase(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::TestIntf::_iceD_knownPreservedAsBase(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::FormatType::SlicedFormat);
-    this->knownPreservedAsBase(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    incoming.setFormat(::Ice::FormatType::SlicedFormat);
+    this->knownPreservedAsBase(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_knownPreservedAsKnownPreserved(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::TestIntf::_iceD_knownPreservedAsKnownPreserved(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::FormatType::SlicedFormat);
-    this->knownPreservedAsKnownPreserved(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    incoming.setFormat(::Ice::FormatType::SlicedFormat);
+    this->knownPreservedAsKnownPreserved(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_relayKnownPreservedAsBase(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::TestIntf::_iceD_relayKnownPreservedAsBase(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<RelayPrx> iceP_r;
     istr->readAll(iceP_r);
-    inS.endReadParams();
-    inS.setFormat(::Ice::FormatType::SlicedFormat);
-    this->relayKnownPreservedAsBase(::std::move(iceP_r), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    incoming.setFormat(::Ice::FormatType::SlicedFormat);
+    this->relayKnownPreservedAsBase(::std::move(iceP_r), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_relayKnownPreservedAsKnownPreserved(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::TestIntf::_iceD_relayKnownPreservedAsKnownPreserved(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<RelayPrx> iceP_r;
     istr->readAll(iceP_r);
-    inS.endReadParams();
-    inS.setFormat(::Ice::FormatType::SlicedFormat);
-    this->relayKnownPreservedAsKnownPreserved(::std::move(iceP_r), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    incoming.setFormat(::Ice::FormatType::SlicedFormat);
+    this->relayKnownPreservedAsKnownPreserved(::std::move(iceP_r), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_unknownPreservedAsBase(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::TestIntf::_iceD_unknownPreservedAsBase(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::FormatType::SlicedFormat);
-    this->unknownPreservedAsBase(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    incoming.setFormat(::Ice::FormatType::SlicedFormat);
+    this->unknownPreservedAsBase(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_unknownPreservedAsKnownPreserved(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::TestIntf::_iceD_unknownPreservedAsKnownPreserved(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::FormatType::SlicedFormat);
-    this->unknownPreservedAsKnownPreserved(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    incoming.setFormat(::Ice::FormatType::SlicedFormat);
+    this->unknownPreservedAsKnownPreserved(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_relayUnknownPreservedAsBase(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::TestIntf::_iceD_relayUnknownPreservedAsBase(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<RelayPrx> iceP_r;
     istr->readAll(iceP_r);
-    inS.endReadParams();
-    inS.setFormat(::Ice::FormatType::SlicedFormat);
-    this->relayUnknownPreservedAsBase(::std::move(iceP_r), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    incoming.setFormat(::Ice::FormatType::SlicedFormat);
+    this->relayUnknownPreservedAsBase(::std::move(iceP_r), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_relayUnknownPreservedAsKnownPreserved(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::TestIntf::_iceD_relayUnknownPreservedAsKnownPreserved(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<RelayPrx> iceP_r;
     istr->readAll(iceP_r);
-    inS.endReadParams();
-    inS.setFormat(::Ice::FormatType::SlicedFormat);
-    this->relayUnknownPreservedAsKnownPreserved(::std::move(iceP_r), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    incoming.setFormat(::Ice::FormatType::SlicedFormat);
+    this->relayUnknownPreservedAsKnownPreserved(::std::move(iceP_r), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::TestIntf::_iceD_shutdown(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::FormatType::SlicedFormat);
-    this->shutdown(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    incoming.setFormat(::Ice::FormatType::SlicedFormat);
+    this->shutdown(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::TestIntf::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "baseAsBase", "ice_id", "ice_ids", "ice_isA", "ice_ping", "knownDerivedAsBase", "knownDerivedAsKnownDerived", "knownIntermediateAsBase", "knownIntermediateAsKnownIntermediate", "knownMostDerivedAsBase", "knownMostDerivedAsKnownIntermediate", "knownMostDerivedAsKnownMostDerived", "knownPreservedAsBase", "knownPreservedAsKnownPreserved", "relayKnownPreservedAsBase", "relayKnownPreservedAsKnownPreserved", "relayUnknownPreservedAsBase", "relayUnknownPreservedAsKnownPreserved", "shutdown", "unknownDerivedAsBase", "unknownIntermediateAsBase", "unknownMostDerived1AsBase", "unknownMostDerived1AsKnownIntermediate", "unknownMostDerived2AsBase", "unknownMostDerived2AsBaseCompact", "unknownPreservedAsBase", "unknownPreservedAsKnownPreserved" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 27, current.operation);
     if(r.first == r.second)
     {
@@ -1795,111 +1798,111 @@ Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
     {
         case 0:
         {
-            return _iceD_baseAsBase(in, current);
+            return _iceD_baseAsBase(incoming);
         }
         case 1:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 2:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 3:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 4:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 5:
         {
-            return _iceD_knownDerivedAsBase(in, current);
+            return _iceD_knownDerivedAsBase(incoming);
         }
         case 6:
         {
-            return _iceD_knownDerivedAsKnownDerived(in, current);
+            return _iceD_knownDerivedAsKnownDerived(incoming);
         }
         case 7:
         {
-            return _iceD_knownIntermediateAsBase(in, current);
+            return _iceD_knownIntermediateAsBase(incoming);
         }
         case 8:
         {
-            return _iceD_knownIntermediateAsKnownIntermediate(in, current);
+            return _iceD_knownIntermediateAsKnownIntermediate(incoming);
         }
         case 9:
         {
-            return _iceD_knownMostDerivedAsBase(in, current);
+            return _iceD_knownMostDerivedAsBase(incoming);
         }
         case 10:
         {
-            return _iceD_knownMostDerivedAsKnownIntermediate(in, current);
+            return _iceD_knownMostDerivedAsKnownIntermediate(incoming);
         }
         case 11:
         {
-            return _iceD_knownMostDerivedAsKnownMostDerived(in, current);
+            return _iceD_knownMostDerivedAsKnownMostDerived(incoming);
         }
         case 12:
         {
-            return _iceD_knownPreservedAsBase(in, current);
+            return _iceD_knownPreservedAsBase(incoming);
         }
         case 13:
         {
-            return _iceD_knownPreservedAsKnownPreserved(in, current);
+            return _iceD_knownPreservedAsKnownPreserved(incoming);
         }
         case 14:
         {
-            return _iceD_relayKnownPreservedAsBase(in, current);
+            return _iceD_relayKnownPreservedAsBase(incoming);
         }
         case 15:
         {
-            return _iceD_relayKnownPreservedAsKnownPreserved(in, current);
+            return _iceD_relayKnownPreservedAsKnownPreserved(incoming);
         }
         case 16:
         {
-            return _iceD_relayUnknownPreservedAsBase(in, current);
+            return _iceD_relayUnknownPreservedAsBase(incoming);
         }
         case 17:
         {
-            return _iceD_relayUnknownPreservedAsKnownPreserved(in, current);
+            return _iceD_relayUnknownPreservedAsKnownPreserved(incoming);
         }
         case 18:
         {
-            return _iceD_shutdown(in, current);
+            return _iceD_shutdown(incoming);
         }
         case 19:
         {
-            return _iceD_unknownDerivedAsBase(in, current);
+            return _iceD_unknownDerivedAsBase(incoming);
         }
         case 20:
         {
-            return _iceD_unknownIntermediateAsBase(in, current);
+            return _iceD_unknownIntermediateAsBase(incoming);
         }
         case 21:
         {
-            return _iceD_unknownMostDerived1AsBase(in, current);
+            return _iceD_unknownMostDerived1AsBase(incoming);
         }
         case 22:
         {
-            return _iceD_unknownMostDerived1AsKnownIntermediate(in, current);
+            return _iceD_unknownMostDerived1AsKnownIntermediate(incoming);
         }
         case 23:
         {
-            return _iceD_unknownMostDerived2AsBase(in, current);
+            return _iceD_unknownMostDerived2AsBase(incoming);
         }
         case 24:
         {
-            return _iceD_unknownMostDerived2AsBaseCompact(in, current);
+            return _iceD_unknownMostDerived2AsBaseCompact(incoming);
         }
         case 25:
         {
-            return _iceD_unknownPreservedAsBase(in, current);
+            return _iceD_unknownPreservedAsBase(incoming);
         }
         case 26:
         {
-            return _iceD_unknownPreservedAsKnownPreserved(in, current);
+            return _iceD_unknownPreservedAsKnownPreserved(incoming);
         }
         default:
         {

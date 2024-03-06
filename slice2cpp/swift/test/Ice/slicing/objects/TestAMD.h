@@ -1257,177 +1257,177 @@ public:
 
     virtual void SBaseAsObjectAsync(::std::function<void(const ::std::shared_ptr<::Ice::Value>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_SBaseAsObject(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_SBaseAsObject(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void SBaseAsSBaseAsync(::std::function<void(const ::std::shared_ptr<SBase>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_SBaseAsSBase(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_SBaseAsSBase(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void SBSKnownDerivedAsSBaseAsync(::std::function<void(const ::std::shared_ptr<SBase>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_SBSKnownDerivedAsSBase(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_SBSKnownDerivedAsSBase(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void SBSKnownDerivedAsSBSKnownDerivedAsync(::std::function<void(const ::std::shared_ptr<SBSKnownDerived>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_SBSKnownDerivedAsSBSKnownDerived(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_SBSKnownDerivedAsSBSKnownDerived(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void SBSUnknownDerivedAsSBaseAsync(::std::function<void(const ::std::shared_ptr<SBase>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_SBSUnknownDerivedAsSBase(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_SBSUnknownDerivedAsSBase(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void SBSUnknownDerivedAsSBaseCompactAsync(::std::function<void(const ::std::shared_ptr<SBase>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_SBSUnknownDerivedAsSBaseCompact(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_SBSUnknownDerivedAsSBaseCompact(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void SUnknownAsObjectAsync(::std::function<void(const ::std::shared_ptr<::Ice::Value>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_SUnknownAsObject(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_SUnknownAsObject(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void checkSUnknownAsync(::std::shared_ptr<::Ice::Value> o, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_checkSUnknown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_checkSUnknown(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void oneElementCycleAsync(::std::function<void(const ::std::shared_ptr<B>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_oneElementCycle(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_oneElementCycle(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void twoElementCycleAsync(::std::function<void(const ::std::shared_ptr<B>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_twoElementCycle(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_twoElementCycle(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void D1AsBAsync(::std::function<void(const ::std::shared_ptr<B>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_D1AsB(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_D1AsB(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void D1AsD1Async(::std::function<void(const ::std::shared_ptr<D1>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_D1AsD1(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_D1AsD1(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void D2AsBAsync(::std::function<void(const ::std::shared_ptr<B>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_D2AsB(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_D2AsB(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void paramTest1Async(::std::function<void(const ::std::shared_ptr<B>& p1, const ::std::shared_ptr<B>& p2)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_paramTest1(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_paramTest1(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void paramTest2Async(::std::function<void(const ::std::shared_ptr<B>& p2, const ::std::shared_ptr<B>& p1)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_paramTest2(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_paramTest2(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void paramTest3Async(::std::function<void(const ::std::shared_ptr<B>& returnValue, const ::std::shared_ptr<B>& p1, const ::std::shared_ptr<B>& p2)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_paramTest3(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_paramTest3(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void paramTest4Async(::std::function<void(const ::std::shared_ptr<B>& returnValue, const ::std::shared_ptr<B>& p)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_paramTest4(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_paramTest4(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void returnTest1Async(::std::function<void(const ::std::shared_ptr<B>& returnValue, const ::std::shared_ptr<B>& p1, const ::std::shared_ptr<B>& p2)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_returnTest1(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_returnTest1(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void returnTest2Async(::std::function<void(const ::std::shared_ptr<B>& returnValue, const ::std::shared_ptr<B>& p2, const ::std::shared_ptr<B>& p1)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_returnTest2(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_returnTest2(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void returnTest3Async(::std::shared_ptr<B> p1, ::std::shared_ptr<B> p2, ::std::function<void(const ::std::shared_ptr<B>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_returnTest3(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_returnTest3(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void sequenceTestAsync(::std::shared_ptr<SS1> p1, ::std::shared_ptr<SS2> p2, ::std::function<void(const SS3& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_sequenceTest(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_sequenceTest(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void dictionaryTestAsync(BDict bin, ::std::function<void(const BDict& returnValue, const BDict& bout)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_dictionaryTest(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_dictionaryTest(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void exchangePBaseAsync(::std::shared_ptr<PBase> pb, ::std::function<void(const ::std::shared_ptr<PBase>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_exchangePBase(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_exchangePBase(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void PBSUnknownAsPreservedAsync(::std::function<void(const ::std::shared_ptr<Preserved>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_PBSUnknownAsPreserved(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_PBSUnknownAsPreserved(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void checkPBSUnknownAsync(::std::shared_ptr<Preserved> p, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_checkPBSUnknown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_checkPBSUnknown(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void PBSUnknownAsPreservedWithGraphAsync(::std::function<void(const ::std::shared_ptr<Preserved>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_PBSUnknownAsPreservedWithGraph(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_PBSUnknownAsPreservedWithGraph(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void checkPBSUnknownWithGraphAsync(::std::shared_ptr<Preserved> p, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_checkPBSUnknownWithGraph(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_checkPBSUnknownWithGraph(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void PBSUnknown2AsPreservedWithGraphAsync(::std::function<void(const ::std::shared_ptr<Preserved>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_PBSUnknown2AsPreservedWithGraph(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_PBSUnknown2AsPreservedWithGraph(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void checkPBSUnknown2WithGraphAsync(::std::shared_ptr<Preserved> p, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_checkPBSUnknown2WithGraph(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_checkPBSUnknown2WithGraph(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void exchangePNodeAsync(::std::shared_ptr<PNode> pn, ::std::function<void(const ::std::shared_ptr<PNode>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_exchangePNode(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_exchangePNode(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwBaseAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwBaseAsBase(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwBaseAsBase(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwDerivedAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwDerivedAsBase(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwDerivedAsBase(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwDerivedAsDerivedAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwDerivedAsDerived(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwDerivedAsDerived(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwUnknownDerivedAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwUnknownDerivedAsBase(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwUnknownDerivedAsBase(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwPreservedExceptionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwPreservedException(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwPreservedException(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -1438,16 +1438,16 @@ public:
      */
     virtual void useForwardAsync(::std::function<void(const ::std::shared_ptr<Forward>& f)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_useForward(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_useForward(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

@@ -276,51 +276,51 @@ public:
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     virtual NV opNV(NV i, NV& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opNV(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opNV(::IceInternal::Incoming&);
     /// \endcond
 
     virtual NR opNR(NR i, NR& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opNR(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opNR(::IceInternal::Incoming&);
     /// \endcond
 
     virtual NDV opNDV(NDV i, NDV& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opNDV(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opNDV(::IceInternal::Incoming&);
     /// \endcond
 
     virtual NDR opNDR(NDR i, NDR& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opNDR(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opNDR(::IceInternal::Incoming&);
     /// \endcond
 
     virtual NDAIS opNDAIS(NDAIS i, NDAIS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opNDAIS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opNDAIS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual NDGIS opNDGIS(NDGIS i, NDGIS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opNDGIS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opNDGIS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual NDASS opNDASS(NDASS i, NDASS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opNDASS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opNDASS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual NDGSS opNDGSS(NDGSS i, NDGSS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opNDGSS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opNDGSS(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

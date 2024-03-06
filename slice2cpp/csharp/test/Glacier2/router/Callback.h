@@ -280,16 +280,16 @@ public:
 
     virtual void callback(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_callback(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_callback(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void callbackEx(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_callbackEx(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_callbackEx(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -323,21 +323,21 @@ public:
 
     virtual void initiateCallback(::std::optional<CallbackReceiverPrx> proxy, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_initiateCallback(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_initiateCallback(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void initiateCallbackEx(::std::optional<CallbackReceiverPrx> proxy, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_initiateCallbackEx(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_initiateCallbackEx(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

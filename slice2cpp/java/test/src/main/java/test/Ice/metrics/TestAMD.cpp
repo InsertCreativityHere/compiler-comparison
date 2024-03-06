@@ -16,6 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <TestAMD.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -411,123 +412,173 @@ Test::Metrics::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::Metrics::_iceD_op(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Metrics::_iceD_op(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    this->opAsync(inA->response(), inA->exception(), current);
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    try
+    {
+        this->opAsync([incomingPtr] { incomingPtr->response(); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Metrics::_iceD_fail(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Metrics::_iceD_fail(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    inS.readEmptyParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    this->failAsync(inA->response(), inA->exception(), current);
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    incoming.readEmptyParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    try
+    {
+        this->failAsync([incomingPtr] { incomingPtr->response(); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Metrics::_iceD_opWithUserException(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Metrics::_iceD_opWithUserException(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    this->opWithUserExceptionAsync(inA->response(), inA->exception(), current);
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    try
+    {
+        this->opWithUserExceptionAsync([incomingPtr] { incomingPtr->response(); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Metrics::_iceD_opWithRequestFailedException(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Metrics::_iceD_opWithRequestFailedException(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    this->opWithRequestFailedExceptionAsync(inA->response(), inA->exception(), current);
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    try
+    {
+        this->opWithRequestFailedExceptionAsync([incomingPtr] { incomingPtr->response(); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Metrics::_iceD_opWithLocalException(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Metrics::_iceD_opWithLocalException(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    this->opWithLocalExceptionAsync(inA->response(), inA->exception(), current);
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    try
+    {
+        this->opWithLocalExceptionAsync([incomingPtr] { incomingPtr->response(); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Metrics::_iceD_opWithUnknownException(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Metrics::_iceD_opWithUnknownException(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    this->opWithUnknownExceptionAsync(inA->response(), inA->exception(), current);
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    try
+    {
+        this->opWithUnknownExceptionAsync([incomingPtr] { incomingPtr->response(); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Metrics::_iceD_opByteS(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Metrics::_iceD_opByteS(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ByteSeq iceP_bs;
     istr->readAll(iceP_bs);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    this->opByteSAsync(::std::move(iceP_bs), inA->response(), inA->exception(), current);
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    try
+    {
+        this->opByteSAsync(::std::move(iceP_bs), [incomingPtr] { incomingPtr->response(); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Metrics::_iceD_getAdmin(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Metrics::_iceD_getAdmin(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::optional<::Ice::ObjectPrx> ret = this->getAdmin(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::optional<::Ice::ObjectPrx> ret = this->getAdmin(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Metrics::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Metrics::_iceD_shutdown(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->shutdown(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->shutdown(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Metrics::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::Metrics::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "fail", "getAdmin", "ice_id", "ice_ids", "ice_isA", "ice_ping", "op", "opByteS", "opWithLocalException", "opWithRequestFailedException", "opWithUnknownException", "opWithUserException", "shutdown" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 13, current.operation);
     if(r.first == r.second)
     {
@@ -538,55 +589,55 @@ Test::Metrics::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
     {
         case 0:
         {
-            return _iceD_fail(in, current);
+            return _iceD_fail(incoming);
         }
         case 1:
         {
-            return _iceD_getAdmin(in, current);
+            return _iceD_getAdmin(incoming);
         }
         case 2:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 4:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 5:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 6:
         {
-            return _iceD_op(in, current);
+            return _iceD_op(incoming);
         }
         case 7:
         {
-            return _iceD_opByteS(in, current);
+            return _iceD_opByteS(incoming);
         }
         case 8:
         {
-            return _iceD_opWithLocalException(in, current);
+            return _iceD_opWithLocalException(incoming);
         }
         case 9:
         {
-            return _iceD_opWithRequestFailedException(in, current);
+            return _iceD_opWithRequestFailedException(incoming);
         }
         case 10:
         {
-            return _iceD_opWithUnknownException(in, current);
+            return _iceD_opWithUnknownException(incoming);
         }
         case 11:
         {
-            return _iceD_opWithUserException(in, current);
+            return _iceD_opWithUserException(incoming);
         }
         case 12:
         {
-            return _iceD_shutdown(in, current);
+            return _iceD_shutdown(incoming);
         }
         default:
         {
@@ -619,34 +670,35 @@ Test::Controller::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::Controller::_iceD_hold(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Controller::_iceD_hold(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->hold(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->hold(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Controller::_iceD_resume(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Controller::_iceD_resume(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->resume(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->resume(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Controller::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::Controller::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "hold", "ice_id", "ice_ids", "ice_isA", "ice_ping", "resume" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
@@ -657,27 +709,27 @@ Test::Controller::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current
     {
         case 0:
         {
-            return _iceD_hold(in, current);
+            return _iceD_hold(incoming);
         }
         case 1:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 2:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 3:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 4:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 5:
         {
-            return _iceD_resume(in, current);
+            return _iceD_resume(incoming);
         }
         default:
         {

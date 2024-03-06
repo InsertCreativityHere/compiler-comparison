@@ -807,121 +807,121 @@ public:
 
     virtual void shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void supportsUndeclaredExceptionsAsync(::std::function<void(bool returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_supportsUndeclaredExceptions(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_supportsUndeclaredExceptions(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void supportsAssertExceptionAsync(::std::function<void(bool returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_supportsAssertException(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_supportsAssertException(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwAasAAsync(::std::int32_t a, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwAasA(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwAasA(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwAorDasAorDAsync(::std::int32_t a, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwAorDasAorD(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwAorDasAorD(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwBasAAsync(::std::int32_t a, ::std::int32_t b, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwBasA(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwBasA(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwCasAAsync(::std::int32_t a, ::std::int32_t b, ::std::int32_t c, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwCasA(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwCasA(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwBasBAsync(::std::int32_t a, ::std::int32_t b, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwBasB(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwBasB(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwCasBAsync(::std::int32_t a, ::std::int32_t b, ::std::int32_t c, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwCasB(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwCasB(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwCasCAsync(::std::int32_t a, ::std::int32_t b, ::std::int32_t c, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwCasC(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwCasC(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwModAAsync(::std::int32_t a, ::std::int32_t a2, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwModA(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwModA(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwUndeclaredAAsync(::std::int32_t a, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwUndeclaredA(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwUndeclaredA(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwUndeclaredBAsync(::std::int32_t a, ::std::int32_t b, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwUndeclaredB(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwUndeclaredB(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwUndeclaredCAsync(::std::int32_t a, ::std::int32_t b, ::std::int32_t c, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwUndeclaredC(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwUndeclaredC(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwLocalExceptionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwLocalException(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwLocalException(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwNonIceExceptionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwNonIceException(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwNonIceException(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwAssertExceptionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwAssertException(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwAssertException(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwMemoryLimitExceptionAsync(::Ice::ByteSeq seq, ::std::function<void(const ::Ice::ByteSeq& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwMemoryLimitException(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwMemoryLimitException(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwLocalExceptionIdempotentAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwLocalExceptionIdempotent(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwLocalExceptionIdempotent(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwAfterResponseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwAfterResponse(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwAfterResponse(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwAfterExceptionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwAfterException(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwAfterException(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwEAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwE(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwE(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwFAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwF(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwF(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -955,11 +955,11 @@ public:
 
     virtual void noSuchOperationAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_noSuchOperation(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_noSuchOperation(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

@@ -19,6 +19,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Metrics.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -464,117 +465,118 @@ IceMX::MetricsAdmin::ice_staticId()
 
 /// \cond INTERNAL
 bool
-IceMX::MetricsAdmin::_iceD_getMetricsViewNames(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceMX::MetricsAdmin::_iceD_getMetricsViewNames(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::FormatType::SlicedFormat);
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    incoming.setFormat(::Ice::FormatType::SlicedFormat);
     ::Ice::StringSeq iceP_disabledViews;
-    ::Ice::StringSeq ret = this->getMetricsViewNames(iceP_disabledViews, current);
-    auto ostr = inS.startWriteParams();
+    ::Ice::StringSeq ret = this->getMetricsViewNames(iceP_disabledViews, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_disabledViews, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceMX::MetricsAdmin::_iceD_enableMetricsView(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceMX::MetricsAdmin::_iceD_enableMetricsView(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_name;
     istr->readAll(iceP_name);
-    inS.endReadParams();
-    inS.setFormat(::Ice::FormatType::SlicedFormat);
-    this->enableMetricsView(::std::move(iceP_name), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    incoming.setFormat(::Ice::FormatType::SlicedFormat);
+    this->enableMetricsView(::std::move(iceP_name), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceMX::MetricsAdmin::_iceD_disableMetricsView(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceMX::MetricsAdmin::_iceD_disableMetricsView(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_name;
     istr->readAll(iceP_name);
-    inS.endReadParams();
-    inS.setFormat(::Ice::FormatType::SlicedFormat);
-    this->disableMetricsView(::std::move(iceP_name), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    incoming.setFormat(::Ice::FormatType::SlicedFormat);
+    this->disableMetricsView(::std::move(iceP_name), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceMX::MetricsAdmin::_iceD_getMetricsView(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceMX::MetricsAdmin::_iceD_getMetricsView(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_view;
     istr->readAll(iceP_view);
-    inS.endReadParams();
-    inS.setFormat(::Ice::FormatType::SlicedFormat);
+    incoming.endReadParams();
+    incoming.setFormat(::Ice::FormatType::SlicedFormat);
     ::std::int64_t iceP_timestamp;
-    MetricsView ret = this->getMetricsView(::std::move(iceP_view), iceP_timestamp, current);
-    auto ostr = inS.startWriteParams();
+    MetricsView ret = this->getMetricsView(::std::move(iceP_view), iceP_timestamp, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_timestamp, ret);
     ostr->writePendingValues();
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceMX::MetricsAdmin::_iceD_getMapMetricsFailures(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceMX::MetricsAdmin::_iceD_getMapMetricsFailures(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_view;
     ::std::string iceP_map;
     istr->readAll(iceP_view, iceP_map);
-    inS.endReadParams();
-    inS.setFormat(::Ice::FormatType::SlicedFormat);
-    MetricsFailuresSeq ret = this->getMapMetricsFailures(::std::move(iceP_view), ::std::move(iceP_map), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    incoming.setFormat(::Ice::FormatType::SlicedFormat);
+    MetricsFailuresSeq ret = this->getMapMetricsFailures(::std::move(iceP_view), ::std::move(iceP_map), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceMX::MetricsAdmin::_iceD_getMetricsFailures(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceMX::MetricsAdmin::_iceD_getMetricsFailures(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_view;
     ::std::string iceP_map;
     ::std::string iceP_id;
     istr->readAll(iceP_view, iceP_map, iceP_id);
-    inS.endReadParams();
-    inS.setFormat(::Ice::FormatType::SlicedFormat);
-    MetricsFailures ret = this->getMetricsFailures(::std::move(iceP_view), ::std::move(iceP_map), ::std::move(iceP_id), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    incoming.setFormat(::Ice::FormatType::SlicedFormat);
+    MetricsFailures ret = this->getMetricsFailures(::std::move(iceP_view), ::std::move(iceP_map), ::std::move(iceP_id), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceMX::MetricsAdmin::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+IceMX::MetricsAdmin::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "disableMetricsView", "enableMetricsView", "getMapMetricsFailures", "getMetricsFailures", "getMetricsView", "getMetricsViewNames", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 10, current.operation);
     if(r.first == r.second)
     {
@@ -585,43 +587,43 @@ IceMX::MetricsAdmin::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curr
     {
         case 0:
         {
-            return _iceD_disableMetricsView(in, current);
+            return _iceD_disableMetricsView(incoming);
         }
         case 1:
         {
-            return _iceD_enableMetricsView(in, current);
+            return _iceD_enableMetricsView(incoming);
         }
         case 2:
         {
-            return _iceD_getMapMetricsFailures(in, current);
+            return _iceD_getMapMetricsFailures(incoming);
         }
         case 3:
         {
-            return _iceD_getMetricsFailures(in, current);
+            return _iceD_getMetricsFailures(incoming);
         }
         case 4:
         {
-            return _iceD_getMetricsView(in, current);
+            return _iceD_getMetricsView(incoming);
         }
         case 5:
         {
-            return _iceD_getMetricsViewNames(in, current);
+            return _iceD_getMetricsViewNames(incoming);
         }
         case 6:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 7:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 8:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 9:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         default:
         {

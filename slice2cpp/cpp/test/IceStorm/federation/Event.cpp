@@ -16,6 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Event.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -96,25 +97,26 @@ Test::Event::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::Event::_iceD_pub(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Event::_iceD_pub(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_data;
     istr->readAll(iceP_data);
-    inS.endReadParams();
-    this->pub(::std::move(iceP_data), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->pub(::std::move(iceP_data), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Event::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::Event::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "pub" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
@@ -125,23 +127,23 @@ Test::Event::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& cur
     {
         case 0:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 1:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 2:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 4:
         {
-            return _iceD_pub(in, current);
+            return _iceD_pub(incoming);
         }
         default:
         {

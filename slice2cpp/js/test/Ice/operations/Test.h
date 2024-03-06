@@ -1499,327 +1499,327 @@ public:
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     virtual bool supportsCompress(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_supportsCompress(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_supportsCompress(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opVoid(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opVoid(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opVoid(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::uint8_t opByte(::std::uint8_t p1, ::std::uint8_t p2, ::std::uint8_t& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByte(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opByte(::IceInternal::Incoming&);
     /// \endcond
 
     virtual bool opBool(bool p1, bool p2, bool& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBool(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opBool(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::int64_t opShortIntLong(::std::int16_t p1, ::std::int32_t p2, ::std::int64_t p3, ::std::int16_t& p4, ::std::int32_t& p5, ::std::int64_t& p6, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opShortIntLong(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opShortIntLong(::IceInternal::Incoming&);
     /// \endcond
 
     virtual double opFloatDouble(float p1, double p2, float& p3, double& p4, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opFloatDouble(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opFloatDouble(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::string opString(::std::string p1, ::std::string p2, ::std::string& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opString(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opString(::IceInternal::Incoming&);
     /// \endcond
 
     virtual MyEnum opMyEnum(MyEnum p1, MyEnum& p2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMyEnum(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opMyEnum(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<MyClassPrx> opMyClass(::std::optional<MyClassPrx> p1, ::std::optional<MyClassPrx>& p2, ::std::optional<MyClassPrx>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMyClass(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opMyClass(::IceInternal::Incoming&);
     /// \endcond
 
     virtual Structure opStruct(Structure p1, Structure p2, Structure& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStruct(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opStruct(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ByteS opByteS(ByteS p1, ByteS p2, ByteS& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opByteS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual BoolS opBoolS(BoolS p1, BoolS p2, BoolS& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBoolS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opBoolS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual LongS opShortIntLongS(ShortS p1, IntS p2, LongS p3, ShortS& p4, IntS& p5, LongS& p6, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opShortIntLongS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opShortIntLongS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual DoubleS opFloatDoubleS(FloatS p1, DoubleS p2, FloatS& p3, DoubleS& p4, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opFloatDoubleS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opFloatDoubleS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual StringS opStringS(StringS p1, StringS p2, StringS& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opStringS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ByteSS opByteSS(ByteSS p1, ByteSS p2, ByteSS& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteSS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opByteSS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual BoolSS opBoolSS(BoolSS p1, BoolSS p2, BoolSS& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBoolSS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opBoolSS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual LongSS opShortIntLongSS(ShortSS p1, IntSS p2, LongSS p3, ShortSS& p4, IntSS& p5, LongSS& p6, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opShortIntLongSS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opShortIntLongSS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual DoubleSS opFloatDoubleSS(FloatSS p1, DoubleSS p2, FloatSS& p3, DoubleSS& p4, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opFloatDoubleSS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opFloatDoubleSS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual StringSS opStringSS(StringSS p1, StringSS p2, StringSS& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringSS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opStringSS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual StringSSS opStringSSS(StringSSS p1, StringSSS p2, StringSSS& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringSSS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opStringSSS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ByteBoolD opByteBoolD(ByteBoolD p1, ByteBoolD p2, ByteBoolD& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteBoolD(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opByteBoolD(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ShortIntD opShortIntD(ShortIntD p1, ShortIntD p2, ShortIntD& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opShortIntD(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opShortIntD(::IceInternal::Incoming&);
     /// \endcond
 
     virtual LongFloatD opLongFloatD(LongFloatD p1, LongFloatD p2, LongFloatD& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLongFloatD(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opLongFloatD(::IceInternal::Incoming&);
     /// \endcond
 
     virtual StringStringD opStringStringD(StringStringD p1, StringStringD p2, StringStringD& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringStringD(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opStringStringD(::IceInternal::Incoming&);
     /// \endcond
 
     virtual StringMyEnumD opStringMyEnumD(StringMyEnumD p1, StringMyEnumD p2, StringMyEnumD& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringMyEnumD(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opStringMyEnumD(::IceInternal::Incoming&);
     /// \endcond
 
     virtual MyEnumStringD opMyEnumStringD(MyEnumStringD p1, MyEnumStringD p2, MyEnumStringD& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMyEnumStringD(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opMyEnumStringD(::IceInternal::Incoming&);
     /// \endcond
 
     virtual MyStructMyEnumD opMyStructMyEnumD(MyStructMyEnumD p1, MyStructMyEnumD p2, MyStructMyEnumD& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMyStructMyEnumD(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opMyStructMyEnumD(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ByteBoolDS opByteBoolDS(ByteBoolDS p1, ByteBoolDS p2, ByteBoolDS& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteBoolDS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opByteBoolDS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ShortIntDS opShortIntDS(ShortIntDS p1, ShortIntDS p2, ShortIntDS& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opShortIntDS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opShortIntDS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual LongFloatDS opLongFloatDS(LongFloatDS p1, LongFloatDS p2, LongFloatDS& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLongFloatDS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opLongFloatDS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual StringStringDS opStringStringDS(StringStringDS p1, StringStringDS p2, StringStringDS& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringStringDS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opStringStringDS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual StringMyEnumDS opStringMyEnumDS(StringMyEnumDS p1, StringMyEnumDS p2, StringMyEnumDS& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringMyEnumDS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opStringMyEnumDS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual MyEnumStringDS opMyEnumStringDS(MyEnumStringDS p1, MyEnumStringDS p2, MyEnumStringDS& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMyEnumStringDS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opMyEnumStringDS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual MyStructMyEnumDS opMyStructMyEnumDS(MyStructMyEnumDS p1, MyStructMyEnumDS p2, MyStructMyEnumDS& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMyStructMyEnumDS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opMyStructMyEnumDS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ByteByteSD opByteByteSD(ByteByteSD p1, ByteByteSD p2, ByteByteSD& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteByteSD(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opByteByteSD(::IceInternal::Incoming&);
     /// \endcond
 
     virtual BoolBoolSD opBoolBoolSD(BoolBoolSD p1, BoolBoolSD p2, BoolBoolSD& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBoolBoolSD(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opBoolBoolSD(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ShortShortSD opShortShortSD(ShortShortSD p1, ShortShortSD p2, ShortShortSD& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opShortShortSD(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opShortShortSD(::IceInternal::Incoming&);
     /// \endcond
 
     virtual IntIntSD opIntIntSD(IntIntSD p1, IntIntSD p2, IntIntSD& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opIntIntSD(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opIntIntSD(::IceInternal::Incoming&);
     /// \endcond
 
     virtual LongLongSD opLongLongSD(LongLongSD p1, LongLongSD p2, LongLongSD& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLongLongSD(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opLongLongSD(::IceInternal::Incoming&);
     /// \endcond
 
     virtual StringFloatSD opStringFloatSD(StringFloatSD p1, StringFloatSD p2, StringFloatSD& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringFloatSD(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opStringFloatSD(::IceInternal::Incoming&);
     /// \endcond
 
     virtual StringDoubleSD opStringDoubleSD(StringDoubleSD p1, StringDoubleSD p2, StringDoubleSD& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringDoubleSD(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opStringDoubleSD(::IceInternal::Incoming&);
     /// \endcond
 
     virtual StringStringSD opStringStringSD(StringStringSD p1, StringStringSD p2, StringStringSD& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringStringSD(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opStringStringSD(::IceInternal::Incoming&);
     /// \endcond
 
     virtual MyEnumMyEnumSD opMyEnumMyEnumSD(MyEnumMyEnumSD p1, MyEnumMyEnumSD p2, MyEnumMyEnumSD& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMyEnumMyEnumSD(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opMyEnumMyEnumSD(::IceInternal::Incoming&);
     /// \endcond
 
     virtual IntS opIntS(IntS s, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opIntS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opIntS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opByteSOneway(ByteS s, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteSOneway(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opByteSOneway(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::int32_t opByteSOnewayCallCount(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteSOnewayCallCount(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opByteSOnewayCallCount(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::Ice::Context opContext(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opContext(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opContext(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opDoubleMarshaling(double p1, DoubleS p2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opDoubleMarshaling(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opDoubleMarshaling(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opIdempotent(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opIdempotent(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opIdempotent(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opNonmutating(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opNonmutating(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opNonmutating(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::uint8_t opByte1(::std::uint8_t opByte1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByte1(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opByte1(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::int16_t opShort1(::std::int16_t opShort1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opShort1(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opShort1(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::int32_t opInt1(::std::int32_t opInt1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opInt1(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opInt1(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::int64_t opLong1(::std::int64_t opLong1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLong1(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opLong1(::IceInternal::Incoming&);
     /// \endcond
 
     virtual float opFloat1(float opFloat1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opFloat1(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opFloat1(::IceInternal::Incoming&);
     /// \endcond
 
     virtual double opDouble1(double opDouble1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opDouble1(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opDouble1(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::string opString1(::std::string opString1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opString1(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opString1(::IceInternal::Incoming&);
     /// \endcond
 
     virtual StringS opStringS1(StringS opStringS1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringS1(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opStringS1(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ByteBoolD opByteBoolD1(ByteBoolD opByteBoolD1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteBoolD1(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opByteBoolD1(::IceInternal::Incoming&);
     /// \endcond
 
     virtual StringS opStringS2(StringS stringS, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringS2(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opStringS2(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ByteBoolD opByteBoolD2(ByteBoolD byteBoolD, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteBoolD2(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opByteBoolD2(::IceInternal::Incoming&);
     /// \endcond
 
     virtual StringS opStringLiterals(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringLiterals(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opStringLiterals(::IceInternal::Incoming&);
     /// \endcond
 
     virtual WStringS opWStringLiterals(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opWStringLiterals(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opWStringLiterals(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -1837,7 +1837,7 @@ public:
 
     virtual OpMStruct1MarshaledResult opMStruct1(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMStruct1(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opMStruct1(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -1855,7 +1855,7 @@ public:
 
     virtual OpMStruct2MarshaledResult opMStruct2(Structure p1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMStruct2(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opMStruct2(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -1873,7 +1873,7 @@ public:
 
     virtual OpMSeq1MarshaledResult opMSeq1(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMSeq1(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opMSeq1(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -1891,7 +1891,7 @@ public:
 
     virtual OpMSeq2MarshaledResult opMSeq2(StringS p1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMSeq2(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opMSeq2(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -1909,7 +1909,7 @@ public:
 
     virtual OpMDict1MarshaledResult opMDict1(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMDict1(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opMDict1(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -1927,11 +1927,11 @@ public:
 
     virtual OpMDict2MarshaledResult opMDict2(StringStringD p1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMDict2(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opMDict2(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -1965,21 +1965,21 @@ public:
 
     virtual void opDerived(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opDerived(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opDerived(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::shared_ptr<MyClass1> opMyClass1(::std::shared_ptr<MyClass1> opMyClass1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMyClass1(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opMyClass1(::IceInternal::Incoming&);
     /// \endcond
 
     virtual MyStruct1 opMyStruct1(MyStruct1 opMyStruct1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMyStruct1(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opMyStruct1(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -2013,31 +2013,31 @@ public:
 
     virtual void setConnection(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_setConnection(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_setConnection(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void startBatch(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_startBatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_startBatch(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void flushBatch(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_flushBatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_flushBatch(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     virtual bool supportsCompress(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_supportsCompress(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_supportsCompress(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -2079,7 +2079,7 @@ public:
     static ::std::string_view ice_staticId();
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

@@ -322,21 +322,21 @@ public:
 
     virtual void op(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_op(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_op(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opWithPayload(::Ice::ByteSeq seq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opWithPayload(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opWithPayload(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -370,56 +370,56 @@ public:
 
     virtual void pauseCall(::std::string call, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_pauseCall(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_pauseCall(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void resumeCall(::std::string call, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_resumeCall(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_resumeCall(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void holdAdapter(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_holdAdapter(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_holdAdapter(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void resumeAdapter(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_resumeAdapter(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_resumeAdapter(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void initializeException(bool enable, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_initializeException(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_initializeException(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void readReady(bool enable, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_readReady(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_readReady(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void readException(bool enable, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_readException(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_readException(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void writeReady(bool enable, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_writeReady(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_writeReady(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void writeException(bool enable, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_writeException(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_writeException(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void buffered(bool enable, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_buffered(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_buffered(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

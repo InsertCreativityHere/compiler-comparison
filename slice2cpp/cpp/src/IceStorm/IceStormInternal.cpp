@@ -16,6 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <IceStormInternal.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -226,25 +227,26 @@ IceStorm::TopicLink::ice_staticId()
 
 /// \cond INTERNAL
 bool
-IceStorm::TopicLink::_iceD_forward(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceStorm::TopicLink::_iceD_forward(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     EventDataSeq iceP_events;
     istr->readAll(iceP_events);
-    inS.endReadParams();
-    this->forward(::std::move(iceP_events), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->forward(::std::move(iceP_events), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceStorm::TopicLink::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+IceStorm::TopicLink::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "forward", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
@@ -255,23 +257,23 @@ IceStorm::TopicLink::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curr
     {
         case 0:
         {
-            return _iceD_forward(in, current);
+            return _iceD_forward(incoming);
         }
         case 1:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 2:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 3:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 4:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         default:
         {
@@ -304,39 +306,40 @@ IceStorm::TopicInternal::ice_staticId()
 
 /// \cond INTERNAL
 bool
-IceStorm::TopicInternal::_iceD_getLinkProxy(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceStorm::TopicInternal::_iceD_getLinkProxy(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    inS.readEmptyParams();
-    ::std::optional<TopicLinkPrx> ret = this->getLinkProxy(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::optional<TopicLinkPrx> ret = this->getLinkProxy(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceStorm::TopicInternal::_iceD_reap(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceStorm::TopicInternal::_iceD_reap(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::Ice::IdentitySeq iceP_id;
     istr->readAll(iceP_id);
-    inS.endReadParams();
-    this->reap(::std::move(iceP_id), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->reap(::std::move(iceP_id), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceStorm::TopicInternal::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+IceStorm::TopicInternal::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "destroy", "getLinkInfoSeq", "getLinkProxy", "getName", "getNonReplicatedPublisher", "getPublisher", "getSubscribers", "ice_id", "ice_ids", "ice_isA", "ice_ping", "link", "reap", "subscribeAndGetPublisher", "unlink", "unsubscribe" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 16, current.operation);
     if(r.first == r.second)
     {
@@ -347,67 +350,67 @@ IceStorm::TopicInternal::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::
     {
         case 0:
         {
-            return _iceD_destroy(in, current);
+            return _iceD_destroy(incoming);
         }
         case 1:
         {
-            return _iceD_getLinkInfoSeq(in, current);
+            return _iceD_getLinkInfoSeq(incoming);
         }
         case 2:
         {
-            return _iceD_getLinkProxy(in, current);
+            return _iceD_getLinkProxy(incoming);
         }
         case 3:
         {
-            return _iceD_getName(in, current);
+            return _iceD_getName(incoming);
         }
         case 4:
         {
-            return _iceD_getNonReplicatedPublisher(in, current);
+            return _iceD_getNonReplicatedPublisher(incoming);
         }
         case 5:
         {
-            return _iceD_getPublisher(in, current);
+            return _iceD_getPublisher(incoming);
         }
         case 6:
         {
-            return _iceD_getSubscribers(in, current);
+            return _iceD_getSubscribers(incoming);
         }
         case 7:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 8:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 9:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 10:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 11:
         {
-            return _iceD_link(in, current);
+            return _iceD_link(incoming);
         }
         case 12:
         {
-            return _iceD_reap(in, current);
+            return _iceD_reap(incoming);
         }
         case 13:
         {
-            return _iceD_subscribeAndGetPublisher(in, current);
+            return _iceD_subscribeAndGetPublisher(incoming);
         }
         case 14:
         {
-            return _iceD_unlink(in, current);
+            return _iceD_unlink(incoming);
         }
         case 15:
         {
-            return _iceD_unsubscribe(in, current);
+            return _iceD_unsubscribe(incoming);
         }
         default:
         {
@@ -440,24 +443,25 @@ IceStorm::TopicManagerInternal::ice_staticId()
 
 /// \cond INTERNAL
 bool
-IceStorm::TopicManagerInternal::_iceD_getReplicaNode(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceStorm::TopicManagerInternal::_iceD_getReplicaNode(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    inS.readEmptyParams();
-    ::std::optional<::IceStormElection::NodePrx> ret = this->getReplicaNode(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::optional<::IceStormElection::NodePrx> ret = this->getReplicaNode(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceStorm::TopicManagerInternal::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+IceStorm::TopicManagerInternal::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "create", "getReplicaNode", "ice_id", "ice_ids", "ice_isA", "ice_ping", "retrieve", "retrieveAll" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
@@ -468,35 +472,35 @@ IceStorm::TopicManagerInternal::_iceDispatch(::IceInternal::Incoming& in, const 
     {
         case 0:
         {
-            return _iceD_create(in, current);
+            return _iceD_create(incoming);
         }
         case 1:
         {
-            return _iceD_getReplicaNode(in, current);
+            return _iceD_getReplicaNode(incoming);
         }
         case 2:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 4:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 5:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 6:
         {
-            return _iceD_retrieve(in, current);
+            return _iceD_retrieve(incoming);
         }
         case 7:
         {
-            return _iceD_retrieveAll(in, current);
+            return _iceD_retrieveAll(incoming);
         }
         default:
         {

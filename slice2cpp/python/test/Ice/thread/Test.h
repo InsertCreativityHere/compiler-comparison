@@ -311,11 +311,11 @@ public:
 
     virtual void sleep(::std::int32_t ms, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_sleep(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_sleep(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -349,26 +349,26 @@ public:
 
     virtual ::std::optional<TestIntfPrx> getObject(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getObject(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_getObject(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::int32_t getThreadStartCount(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getThreadStartCount(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_getThreadStartCount(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::int32_t getThreadStopCount(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getThreadStopCount(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_getThreadStopCount(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void destroy(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_destroy(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_destroy(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -402,16 +402,16 @@ public:
 
     virtual ::std::optional<RemoteCommunicatorPrx> createCommunicator(::Ice::PropertyDict props, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_createCommunicator(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_createCommunicator(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

@@ -393,21 +393,21 @@ public:
 
     virtual void opStringAsync(::std::wstring s1, ::std::function<void(::std::wstring_view returnValue, ::std::wstring_view s2)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opString(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opString(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opStructAsync(WstringStruct s1, ::std::function<void(const WstringStruct& returnValue, const WstringStruct& s2)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStruct(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opStruct(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwExceptAsync(::std::wstring reason, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwExcept(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwExcept(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -446,21 +446,21 @@ public:
 
     virtual void opStringAsync(::std::wstring s1, ::std::function<void(::std::wstring_view returnValue, ::std::wstring_view s2)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opString(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opString(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opStructAsync(WstringStruct s1, ::std::function<void(const WstringStruct& returnValue, const WstringStruct& s2)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStruct(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opStruct(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwExceptAsync(::std::wstring reason, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwExcept(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwExcept(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

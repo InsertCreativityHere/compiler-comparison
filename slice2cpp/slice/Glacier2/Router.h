@@ -475,7 +475,7 @@ public:
      */
     virtual ::std::string getCategoryForClient(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getCategoryForClient(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    bool _iceD_getCategoryForClient(::IceInternal::Incoming&) const;
     /// \endcond
 
     /**
@@ -499,7 +499,7 @@ public:
      */
     virtual void createSessionAsync(::std::string userId, ::std::string password, ::std::function<void(const ::std::optional<SessionPrx>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_createSession(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_createSession(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -522,7 +522,7 @@ public:
      */
     virtual void createSessionFromSecureConnectionAsync(::std::function<void(const ::std::optional<SessionPrx>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_createSessionFromSecureConnection(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_createSessionFromSecureConnection(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -534,7 +534,7 @@ public:
      */
     virtual void refreshSessionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_refreshSession(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_refreshSession(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -544,7 +544,7 @@ public:
      */
     virtual void destroySession(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_destroySession(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_destroySession(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -554,7 +554,7 @@ public:
      */
     virtual ::std::int64_t getSessionTimeout(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getSessionTimeout(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    bool _iceD_getSessionTimeout(::IceInternal::Incoming&) const;
     /// \endcond
 
     /**
@@ -565,11 +565,11 @@ public:
      */
     virtual ::std::int32_t getACMTimeout(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getACMTimeout(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    bool _iceD_getACMTimeout(::IceInternal::Incoming&) const;
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

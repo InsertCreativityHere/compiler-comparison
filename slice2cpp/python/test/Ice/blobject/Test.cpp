@@ -16,6 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -211,67 +212,68 @@ Test::Hello::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::Hello::_iceD_sayHello(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Hello::_iceD_sayHello(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int32_t iceP_delay;
     istr->readAll(iceP_delay);
-    inS.endReadParams();
-    this->sayHello(iceP_delay, current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->sayHello(iceP_delay, incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Hello::_iceD_add(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Hello::_iceD_add(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int32_t iceP_s1;
     ::std::int32_t iceP_s2;
     istr->readAll(iceP_s1, iceP_s2);
-    inS.endReadParams();
-    ::std::int32_t ret = this->add(iceP_s1, iceP_s2, current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::int32_t ret = this->add(iceP_s1, iceP_s2, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Hello::_iceD_raiseUE(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Hello::_iceD_raiseUE(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->raiseUE(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->raiseUE(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Hello::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Hello::_iceD_shutdown(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->shutdown(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->shutdown(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Hello::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::Hello::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "add", "ice_id", "ice_ids", "ice_isA", "ice_ping", "raiseUE", "sayHello", "shutdown" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
@@ -282,35 +284,35 @@ Test::Hello::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& cur
     {
         case 0:
         {
-            return _iceD_add(in, current);
+            return _iceD_add(incoming);
         }
         case 1:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 2:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 3:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 4:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 5:
         {
-            return _iceD_raiseUE(in, current);
+            return _iceD_raiseUE(incoming);
         }
         case 6:
         {
-            return _iceD_sayHello(in, current);
+            return _iceD_sayHello(incoming);
         }
         case 7:
         {
-            return _iceD_shutdown(in, current);
+            return _iceD_shutdown(incoming);
         }
         default:
         {

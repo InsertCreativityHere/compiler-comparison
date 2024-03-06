@@ -234,16 +234,16 @@ public:
 
     virtual void callback(::std::int32_t token, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_callback(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_callback(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void callbackWithPayload(::Ice::ByteSeq payload, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_callbackWithPayload(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_callbackWithPayload(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -277,21 +277,21 @@ public:
 
     virtual void initiateCallbackAsync(::std::optional<CallbackReceiverPrx> proxy, ::std::int32_t token, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_initiateCallback(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_initiateCallback(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void initiateCallbackWithPayloadAsync(::std::optional<CallbackReceiverPrx> proxy, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_initiateCallbackWithPayload(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_initiateCallbackWithPayload(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

@@ -16,6 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <TestAMD.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -2729,22 +2730,23 @@ Test::MyInterface::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::MyInterface::_iceD_op(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyInterface::_iceD_op(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->op(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->op(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyInterface::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::MyInterface::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "op" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
@@ -2755,23 +2757,23 @@ Test::MyInterface::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curren
     {
         case 0:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 1:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 2:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 4:
         {
-            return _iceD_op(in, current);
+            return _iceD_op(incoming);
         }
         default:
         {
@@ -2804,860 +2806,1147 @@ Test::Initial::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_shutdown(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    this->shutdownAsync(inA->response(), inA->exception(), current);
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    try
+    {
+        this->shutdownAsync([incomingPtr] { incomingPtr->response(); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_pingPong(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_pingPong(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::shared_ptr<::Ice::Value> iceP_o;
     istr->readAll(iceP_o);
     istr->readPendingValues();
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ::std::shared_ptr<::Ice::Value>& ret)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](const ::std::shared_ptr<::Ice::Value>& ret)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll(ret);
         ostr->writePendingValues();
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->pingPongAsync(::std::move(iceP_o), responseCB, inA->exception(), current);
+    try
+    {
+        this->pingPongAsync(::std::move(iceP_o), responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opOptionalException(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opOptionalException(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<::std::int32_t> iceP_a;
     ::std::optional<::std::string> iceP_b;
     ::std::optional<::std::shared_ptr<OneOptional>> iceP_o;
     istr->readAll({1, 2, 3}, iceP_a, iceP_b, iceP_o);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    this->opOptionalExceptionAsync(iceP_a, ::std::move(iceP_b), ::std::move(iceP_o), inA->response(), inA->exception(), current);
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    try
+    {
+        this->opOptionalExceptionAsync(iceP_a, ::std::move(iceP_b), ::std::move(iceP_o), [incomingPtr] { incomingPtr->response(); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opDerivedException(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opDerivedException(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<::std::int32_t> iceP_a;
     ::std::optional<::std::string> iceP_b;
     ::std::optional<::std::shared_ptr<OneOptional>> iceP_o;
     istr->readAll({1, 2, 3}, iceP_a, iceP_b, iceP_o);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    this->opDerivedExceptionAsync(iceP_a, ::std::move(iceP_b), ::std::move(iceP_o), inA->response(), inA->exception(), current);
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    try
+    {
+        this->opDerivedExceptionAsync(iceP_a, ::std::move(iceP_b), ::std::move(iceP_o), [incomingPtr] { incomingPtr->response(); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opRequiredException(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opRequiredException(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<::std::int32_t> iceP_a;
     ::std::optional<::std::string> iceP_b;
     ::std::optional<::std::shared_ptr<OneOptional>> iceP_o;
     istr->readAll({1, 2, 3}, iceP_a, iceP_b, iceP_o);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    this->opRequiredExceptionAsync(iceP_a, ::std::move(iceP_b), ::std::move(iceP_o), inA->response(), inA->exception(), current);
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    try
+    {
+        this->opRequiredExceptionAsync(iceP_a, ::std::move(iceP_b), ::std::move(iceP_o), [incomingPtr] { incomingPtr->response(); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opByte(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opByte(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<::std::uint8_t> iceP_p1;
     istr->readAll({2}, iceP_p1);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](::std::optional<::std::uint8_t> ret, ::std::optional<::std::uint8_t> iceP_p3)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](::std::optional<::std::uint8_t> ret, ::std::optional<::std::uint8_t> iceP_p3)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->opByteAsync(iceP_p1, responseCB, inA->exception(), current);
+    try
+    {
+        this->opByteAsync(iceP_p1, responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opBool(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opBool(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<bool> iceP_p1;
     istr->readAll({2}, iceP_p1);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](::std::optional<bool> ret, ::std::optional<bool> iceP_p3)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](::std::optional<bool> ret, ::std::optional<bool> iceP_p3)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->opBoolAsync(iceP_p1, responseCB, inA->exception(), current);
+    try
+    {
+        this->opBoolAsync(iceP_p1, responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opShort(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opShort(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<::std::int16_t> iceP_p1;
     istr->readAll({2}, iceP_p1);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](::std::optional<::std::int16_t> ret, ::std::optional<::std::int16_t> iceP_p3)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](::std::optional<::std::int16_t> ret, ::std::optional<::std::int16_t> iceP_p3)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->opShortAsync(iceP_p1, responseCB, inA->exception(), current);
+    try
+    {
+        this->opShortAsync(iceP_p1, responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opInt(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opInt(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<::std::int32_t> iceP_p1;
     istr->readAll({2}, iceP_p1);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](::std::optional<::std::int32_t> ret, ::std::optional<::std::int32_t> iceP_p3)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](::std::optional<::std::int32_t> ret, ::std::optional<::std::int32_t> iceP_p3)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->opIntAsync(iceP_p1, responseCB, inA->exception(), current);
+    try
+    {
+        this->opIntAsync(iceP_p1, responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opLong(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opLong(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<::std::int64_t> iceP_p1;
     istr->readAll({1}, iceP_p1);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](::std::optional<::std::int64_t> ret, ::std::optional<::std::int64_t> iceP_p3)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](::std::optional<::std::int64_t> ret, ::std::optional<::std::int64_t> iceP_p3)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll({2, 3}, iceP_p3, ret);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->opLongAsync(iceP_p1, responseCB, inA->exception(), current);
+    try
+    {
+        this->opLongAsync(iceP_p1, responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opFloat(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opFloat(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<float> iceP_p1;
     istr->readAll({2}, iceP_p1);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](::std::optional<float> ret, ::std::optional<float> iceP_p3)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](::std::optional<float> ret, ::std::optional<float> iceP_p3)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->opFloatAsync(iceP_p1, responseCB, inA->exception(), current);
+    try
+    {
+        this->opFloatAsync(iceP_p1, responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opDouble(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opDouble(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<double> iceP_p1;
     istr->readAll({2}, iceP_p1);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](::std::optional<double> ret, ::std::optional<double> iceP_p3)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](::std::optional<double> ret, ::std::optional<double> iceP_p3)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->opDoubleAsync(iceP_p1, responseCB, inA->exception(), current);
+    try
+    {
+        this->opDoubleAsync(iceP_p1, responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opString(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opString(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<::std::string> iceP_p1;
     istr->readAll({2}, iceP_p1);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](::std::optional<::std::string_view> ret, ::std::optional<::std::string_view> iceP_p3)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](::std::optional<::std::string_view> ret, ::std::optional<::std::string_view> iceP_p3)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->opStringAsync(::std::move(iceP_p1), responseCB, inA->exception(), current);
+    try
+    {
+        this->opStringAsync(::std::move(iceP_p1), responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opMyEnum(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opMyEnum(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<MyEnum> iceP_p1;
     istr->readAll({2}, iceP_p1);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](::std::optional<MyEnum> ret, ::std::optional<MyEnum> iceP_p3)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](::std::optional<MyEnum> ret, ::std::optional<MyEnum> iceP_p3)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->opMyEnumAsync(iceP_p1, responseCB, inA->exception(), current);
+    try
+    {
+        this->opMyEnumAsync(iceP_p1, responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opSmallStruct(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opSmallStruct(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<SmallStruct> iceP_p1;
     istr->readAll({2}, iceP_p1);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ::std::optional<SmallStruct>& ret, const ::std::optional<SmallStruct>& iceP_p3)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](const ::std::optional<SmallStruct>& ret, const ::std::optional<SmallStruct>& iceP_p3)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->opSmallStructAsync(::std::move(iceP_p1), responseCB, inA->exception(), current);
+    try
+    {
+        this->opSmallStructAsync(::std::move(iceP_p1), responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opFixedStruct(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opFixedStruct(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<FixedStruct> iceP_p1;
     istr->readAll({2}, iceP_p1);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ::std::optional<FixedStruct>& ret, const ::std::optional<FixedStruct>& iceP_p3)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](const ::std::optional<FixedStruct>& ret, const ::std::optional<FixedStruct>& iceP_p3)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->opFixedStructAsync(::std::move(iceP_p1), responseCB, inA->exception(), current);
+    try
+    {
+        this->opFixedStructAsync(::std::move(iceP_p1), responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opVarStruct(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opVarStruct(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<VarStruct> iceP_p1;
     istr->readAll({2}, iceP_p1);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ::std::optional<VarStruct>& ret, const ::std::optional<VarStruct>& iceP_p3)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](const ::std::optional<VarStruct>& ret, const ::std::optional<VarStruct>& iceP_p3)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->opVarStructAsync(::std::move(iceP_p1), responseCB, inA->exception(), current);
+    try
+    {
+        this->opVarStructAsync(::std::move(iceP_p1), responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opOneOptional(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opOneOptional(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<::std::shared_ptr<OneOptional>> iceP_p1;
     istr->readAll({2}, iceP_p1);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ::std::optional<::std::shared_ptr<OneOptional>>& ret, const ::std::optional<::std::shared_ptr<OneOptional>>& iceP_p3)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](const ::std::optional<::std::shared_ptr<OneOptional>>& ret, const ::std::optional<::std::shared_ptr<OneOptional>>& iceP_p3)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->opOneOptionalAsync(::std::move(iceP_p1), responseCB, inA->exception(), current);
+    try
+    {
+        this->opOneOptionalAsync(::std::move(iceP_p1), responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opMyInterfaceProxy(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opMyInterfaceProxy(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<MyInterfacePrx> iceP_p1;
     istr->readAll({2}, iceP_p1);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ::std::optional<MyInterfacePrx>& ret, const ::std::optional<MyInterfacePrx>& iceP_p3)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](const ::std::optional<MyInterfacePrx>& ret, const ::std::optional<MyInterfacePrx>& iceP_p3)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->opMyInterfaceProxyAsync(::std::move(iceP_p1), responseCB, inA->exception(), current);
+    try
+    {
+        this->opMyInterfaceProxyAsync(::std::move(iceP_p1), responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opByteSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opByteSeq(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>> iceP_p1;
     istr->readAll({2}, iceP_p1);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ::std::optional<::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>>& ret, const ::std::optional<::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>>& iceP_p3)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](const ::std::optional<::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>>& ret, const ::std::optional<::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>>& iceP_p3)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->opByteSeqAsync(::std::move(iceP_p1), responseCB, inA->exception(), current);
+    try
+    {
+        this->opByteSeqAsync(::std::move(iceP_p1), responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opBoolSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opBoolSeq(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<::std::pair<const bool*, const bool*>> iceP_p1;
     istr->readAll({2}, iceP_p1);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ::std::optional<::std::pair<const bool*, const bool*>>& ret, const ::std::optional<::std::pair<const bool*, const bool*>>& iceP_p3)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](const ::std::optional<::std::pair<const bool*, const bool*>>& ret, const ::std::optional<::std::pair<const bool*, const bool*>>& iceP_p3)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->opBoolSeqAsync(::std::move(iceP_p1), responseCB, inA->exception(), current);
+    try
+    {
+        this->opBoolSeqAsync(::std::move(iceP_p1), responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opShortSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opShortSeq(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<::std::pair<const ::std::int16_t*, const ::std::int16_t*>> iceP_p1;
     istr->readAll({2}, iceP_p1);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ::std::optional<::std::pair<const ::std::int16_t*, const ::std::int16_t*>>& ret, const ::std::optional<::std::pair<const ::std::int16_t*, const ::std::int16_t*>>& iceP_p3)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](const ::std::optional<::std::pair<const ::std::int16_t*, const ::std::int16_t*>>& ret, const ::std::optional<::std::pair<const ::std::int16_t*, const ::std::int16_t*>>& iceP_p3)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->opShortSeqAsync(::std::move(iceP_p1), responseCB, inA->exception(), current);
+    try
+    {
+        this->opShortSeqAsync(::std::move(iceP_p1), responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opIntSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opIntSeq(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<::std::pair<const ::std::int32_t*, const ::std::int32_t*>> iceP_p1;
     istr->readAll({2}, iceP_p1);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ::std::optional<::std::pair<const ::std::int32_t*, const ::std::int32_t*>>& ret, const ::std::optional<::std::pair<const ::std::int32_t*, const ::std::int32_t*>>& iceP_p3)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](const ::std::optional<::std::pair<const ::std::int32_t*, const ::std::int32_t*>>& ret, const ::std::optional<::std::pair<const ::std::int32_t*, const ::std::int32_t*>>& iceP_p3)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->opIntSeqAsync(::std::move(iceP_p1), responseCB, inA->exception(), current);
+    try
+    {
+        this->opIntSeqAsync(::std::move(iceP_p1), responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opLongSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opLongSeq(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<::std::pair<const ::std::int64_t*, const ::std::int64_t*>> iceP_p1;
     istr->readAll({2}, iceP_p1);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ::std::optional<::std::pair<const ::std::int64_t*, const ::std::int64_t*>>& ret, const ::std::optional<::std::pair<const ::std::int64_t*, const ::std::int64_t*>>& iceP_p3)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](const ::std::optional<::std::pair<const ::std::int64_t*, const ::std::int64_t*>>& ret, const ::std::optional<::std::pair<const ::std::int64_t*, const ::std::int64_t*>>& iceP_p3)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->opLongSeqAsync(::std::move(iceP_p1), responseCB, inA->exception(), current);
+    try
+    {
+        this->opLongSeqAsync(::std::move(iceP_p1), responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opFloatSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opFloatSeq(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<::std::pair<const float*, const float*>> iceP_p1;
     istr->readAll({2}, iceP_p1);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ::std::optional<::std::pair<const float*, const float*>>& ret, const ::std::optional<::std::pair<const float*, const float*>>& iceP_p3)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](const ::std::optional<::std::pair<const float*, const float*>>& ret, const ::std::optional<::std::pair<const float*, const float*>>& iceP_p3)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->opFloatSeqAsync(::std::move(iceP_p1), responseCB, inA->exception(), current);
+    try
+    {
+        this->opFloatSeqAsync(::std::move(iceP_p1), responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opDoubleSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opDoubleSeq(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<::std::pair<const double*, const double*>> iceP_p1;
     istr->readAll({2}, iceP_p1);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ::std::optional<::std::pair<const double*, const double*>>& ret, const ::std::optional<::std::pair<const double*, const double*>>& iceP_p3)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](const ::std::optional<::std::pair<const double*, const double*>>& ret, const ::std::optional<::std::pair<const double*, const double*>>& iceP_p3)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->opDoubleSeqAsync(::std::move(iceP_p1), responseCB, inA->exception(), current);
+    try
+    {
+        this->opDoubleSeqAsync(::std::move(iceP_p1), responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opStringSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opStringSeq(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<StringSeq> iceP_p1;
     istr->readAll({2}, iceP_p1);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ::std::optional<StringSeq>& ret, const ::std::optional<StringSeq>& iceP_p3)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](const ::std::optional<StringSeq>& ret, const ::std::optional<StringSeq>& iceP_p3)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->opStringSeqAsync(::std::move(iceP_p1), responseCB, inA->exception(), current);
+    try
+    {
+        this->opStringSeqAsync(::std::move(iceP_p1), responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opSmallStructSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opSmallStructSeq(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>> iceP_p1;
     istr->readAll({2}, iceP_p1);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>>& ret, const ::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>>& iceP_p3)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](const ::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>>& ret, const ::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>>& iceP_p3)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->opSmallStructSeqAsync(::std::move(iceP_p1), responseCB, inA->exception(), current);
+    try
+    {
+        this->opSmallStructSeqAsync(::std::move(iceP_p1), responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opSmallStructList(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opSmallStructList(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>> iceP_p1;
     istr->readAll({2}, iceP_p1);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>>& ret, const ::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>>& iceP_p3)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](const ::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>>& ret, const ::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>>& iceP_p3)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->opSmallStructListAsync(::std::move(iceP_p1), responseCB, inA->exception(), current);
+    try
+    {
+        this->opSmallStructListAsync(::std::move(iceP_p1), responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opFixedStructSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opFixedStructSeq(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>> iceP_p1;
     istr->readAll({2}, iceP_p1);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>>& ret, const ::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>>& iceP_p3)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](const ::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>>& ret, const ::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>>& iceP_p3)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->opFixedStructSeqAsync(::std::move(iceP_p1), responseCB, inA->exception(), current);
+    try
+    {
+        this->opFixedStructSeqAsync(::std::move(iceP_p1), responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opFixedStructList(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opFixedStructList(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>> iceP_p1;
     istr->readAll({2}, iceP_p1);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>>& ret, const ::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>>& iceP_p3)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](const ::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>>& ret, const ::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>>& iceP_p3)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->opFixedStructListAsync(::std::move(iceP_p1), responseCB, inA->exception(), current);
+    try
+    {
+        this->opFixedStructListAsync(::std::move(iceP_p1), responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opVarStructSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opVarStructSeq(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<VarStructSeq> iceP_p1;
     istr->readAll({2}, iceP_p1);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ::std::optional<VarStructSeq>& ret, const ::std::optional<VarStructSeq>& iceP_p3)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](const ::std::optional<VarStructSeq>& ret, const ::std::optional<VarStructSeq>& iceP_p3)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->opVarStructSeqAsync(::std::move(iceP_p1), responseCB, inA->exception(), current);
+    try
+    {
+        this->opVarStructSeqAsync(::std::move(iceP_p1), responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opSerializable(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opSerializable(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<Serializable> iceP_p1;
     istr->readAll({2}, iceP_p1);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ::std::optional<Serializable>& ret, const ::std::optional<Serializable>& iceP_p3)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](const ::std::optional<Serializable>& ret, const ::std::optional<Serializable>& iceP_p3)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->opSerializableAsync(::std::move(iceP_p1), responseCB, inA->exception(), current);
+    try
+    {
+        this->opSerializableAsync(::std::move(iceP_p1), responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opIntIntDict(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opIntIntDict(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<IntIntDict> iceP_p1;
     istr->readAll({2}, iceP_p1);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ::std::optional<IntIntDict>& ret, const ::std::optional<IntIntDict>& iceP_p3)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](const ::std::optional<IntIntDict>& ret, const ::std::optional<IntIntDict>& iceP_p3)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->opIntIntDictAsync(::std::move(iceP_p1), responseCB, inA->exception(), current);
+    try
+    {
+        this->opIntIntDictAsync(::std::move(iceP_p1), responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opStringIntDict(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opStringIntDict(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<StringIntDict> iceP_p1;
     istr->readAll({2}, iceP_p1);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ::std::optional<StringIntDict>& ret, const ::std::optional<StringIntDict>& iceP_p3)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](const ::std::optional<StringIntDict>& ret, const ::std::optional<StringIntDict>& iceP_p3)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->opStringIntDictAsync(::std::move(iceP_p1), responseCB, inA->exception(), current);
+    try
+    {
+        this->opStringIntDictAsync(::std::move(iceP_p1), responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opIntOneOptionalDict(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opIntOneOptionalDict(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<IntOneOptionalDict> iceP_p1;
     istr->readAll({2}, iceP_p1);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ::std::optional<IntOneOptionalDict>& ret, const ::std::optional<IntOneOptionalDict>& iceP_p3)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](const ::std::optional<IntOneOptionalDict>& ret, const ::std::optional<IntOneOptionalDict>& iceP_p3)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll({1, 3}, ret, iceP_p3);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->opIntOneOptionalDictAsync(::std::move(iceP_p1), responseCB, inA->exception(), current);
+    try
+    {
+        this->opIntOneOptionalDictAsync(::std::move(iceP_p1), responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opClassAndUnknownOptional(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opClassAndUnknownOptional(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::shared_ptr<A> iceP_p;
     istr->readAll(iceP_p);
     istr->readPendingValues();
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    this->opClassAndUnknownOptionalAsync(::std::move(iceP_p), inA->response(), inA->exception(), current);
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    try
+    {
+        this->opClassAndUnknownOptionalAsync(::std::move(iceP_p), [incomingPtr] { incomingPtr->response(); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_sendOptionalClass(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_sendOptionalClass(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     bool iceP_req;
     ::std::optional<::std::shared_ptr<OneOptional>> iceP_o;
     istr->readAll(iceP_req);
     istr->readAll({1}, iceP_o);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    this->sendOptionalClassAsync(iceP_req, ::std::move(iceP_o), inA->response(), inA->exception(), current);
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    try
+    {
+        this->sendOptionalClassAsync(iceP_req, ::std::move(iceP_o), [incomingPtr] { incomingPtr->response(); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_returnOptionalClass(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_returnOptionalClass(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     bool iceP_req;
     istr->readAll(iceP_req);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ::std::optional<::std::shared_ptr<OneOptional>>& iceP_o)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](const ::std::optional<::std::shared_ptr<OneOptional>>& iceP_o)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll({1}, iceP_o);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->returnOptionalClassAsync(iceP_req, responseCB, inA->exception(), current);
+    try
+    {
+        this->returnOptionalClassAsync(iceP_req, responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opG(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opG(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::shared_ptr<G> iceP_g;
     istr->readAll(iceP_g);
     istr->readPendingValues();
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ::std::shared_ptr<G>& ret)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](const ::std::shared_ptr<G>& ret)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll(ret);
         ostr->writePendingValues();
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->opGAsync(::std::move(iceP_g), responseCB, inA->exception(), current);
+    try
+    {
+        this->opGAsync(::std::move(iceP_g), responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opVoid(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opVoid(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    this->opVoidAsync(inA->response(), inA->exception(), current);
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    try
+    {
+        this->opVoidAsync([incomingPtr] { incomingPtr->response(); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
@@ -3672,12 +3961,19 @@ Test::Initial::OpMStruct1MarshaledResult::OpMStruct1MarshaledResult(const ::std:
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opMStruct1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opMStruct1(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    this->opMStruct1Async(inA->response<OpMStruct1MarshaledResult>(), inA->exception(), current);
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    try
+    {
+        this->opMStruct1Async([incomingPtr](const OpMStruct1MarshaledResult& marshaledResult) { incomingPtr->response(marshaledResult); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
@@ -3692,15 +3988,22 @@ Test::Initial::OpMStruct2MarshaledResult::OpMStruct2MarshaledResult(const ::std:
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opMStruct2(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opMStruct2(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<SmallStruct> iceP_p1;
     istr->readAll({2}, iceP_p1);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    this->opMStruct2Async(::std::move(iceP_p1), inA->response<OpMStruct2MarshaledResult>(), inA->exception(), current);
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    try
+    {
+        this->opMStruct2Async(::std::move(iceP_p1), [incomingPtr](const OpMStruct2MarshaledResult& marshaledResult) { incomingPtr->response(marshaledResult); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
@@ -3715,12 +4018,19 @@ Test::Initial::OpMSeq1MarshaledResult::OpMSeq1MarshaledResult(const ::std::optio
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opMSeq1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opMSeq1(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    this->opMSeq1Async(inA->response<OpMSeq1MarshaledResult>(), inA->exception(), current);
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    try
+    {
+        this->opMSeq1Async([incomingPtr](const OpMSeq1MarshaledResult& marshaledResult) { incomingPtr->response(marshaledResult); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
@@ -3735,15 +4045,22 @@ Test::Initial::OpMSeq2MarshaledResult::OpMSeq2MarshaledResult(const ::std::optio
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opMSeq2(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opMSeq2(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<StringSeq> iceP_p1;
     istr->readAll({2}, iceP_p1);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    this->opMSeq2Async(::std::move(iceP_p1), inA->response<OpMSeq2MarshaledResult>(), inA->exception(), current);
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    try
+    {
+        this->opMSeq2Async(::std::move(iceP_p1), [incomingPtr](const OpMSeq2MarshaledResult& marshaledResult) { incomingPtr->response(marshaledResult); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
@@ -3758,12 +4075,19 @@ Test::Initial::OpMDict1MarshaledResult::OpMDict1MarshaledResult(const ::std::opt
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opMDict1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opMDict1(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    this->opMDict1Async(inA->response<OpMDict1MarshaledResult>(), inA->exception(), current);
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    try
+    {
+        this->opMDict1Async([incomingPtr](const OpMDict1MarshaledResult& marshaledResult) { incomingPtr->response(marshaledResult); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
@@ -3778,15 +4102,22 @@ Test::Initial::OpMDict2MarshaledResult::OpMDict2MarshaledResult(const ::std::opt
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opMDict2(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opMDict2(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<StringIntDict> iceP_p1;
     istr->readAll({2}, iceP_p1);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    this->opMDict2Async(::std::move(iceP_p1), inA->response<OpMDict2MarshaledResult>(), inA->exception(), current);
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    try
+    {
+        this->opMDict2Async(::std::move(iceP_p1), [incomingPtr](const OpMDict2MarshaledResult& marshaledResult) { incomingPtr->response(marshaledResult); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
@@ -3801,12 +4132,19 @@ Test::Initial::OpMG1MarshaledResult::OpMG1MarshaledResult(const ::std::optional<
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opMG1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opMG1(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    this->opMG1Async(inA->response<OpMG1MarshaledResult>(), inA->exception(), current);
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    try
+    {
+        this->opMG1Async([incomingPtr](const OpMG1MarshaledResult& marshaledResult) { incomingPtr->response(marshaledResult); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
@@ -3821,101 +4159,137 @@ Test::Initial::OpMG2MarshaledResult::OpMG2MarshaledResult(const ::std::optional<
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opMG2(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opMG2(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<::std::shared_ptr<G>> iceP_p1;
     istr->readAll({2}, iceP_p1);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    this->opMG2Async(::std::move(iceP_p1), inA->response<OpMG2MarshaledResult>(), inA->exception(), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_supportsRequiredParams(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](bool ret)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    try
     {
-        auto ostr = inA->startWriteParams();
-        ostr->writeAll(ret);
-        inA->endWriteParams();
-        inA->completed();
-    };
-    this->supportsRequiredParamsAsync(responseCB, inA->exception(), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::Initial::_iceD_supportsJavaSerializable(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](bool ret)
+        this->opMG2Async(::std::move(iceP_p1), [incomingPtr](const OpMG2MarshaledResult& marshaledResult) { incomingPtr->response(marshaledResult); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
     {
-        auto ostr = inA->startWriteParams();
-        ostr->writeAll(ret);
-        inA->endWriteParams();
-        inA->completed();
-    };
-    this->supportsJavaSerializableAsync(responseCB, inA->exception(), current);
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_supportsCsharpSerializable(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_supportsRequiredParams(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](bool ret)
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](bool ret)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll(ret);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->supportsCsharpSerializableAsync(responseCB, inA->exception(), current);
+    try
+    {
+        this->supportsRequiredParamsAsync(responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_supportsNullOptional(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_supportsJavaSerializable(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](bool ret)
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](bool ret)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll(ret);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->supportsNullOptionalAsync(responseCB, inA->exception(), current);
+    try
+    {
+        this->supportsJavaSerializableAsync(responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::Initial::_iceD_supportsCsharpSerializable(::IceInternal::Incoming& incoming)
+{
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](bool ret)
+    {
+        auto ostr = incomingPtr->startWriteParams();
+        ostr->writeAll(ret);
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
+    };
+    try
+    {
+        this->supportsCsharpSerializableAsync(responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
+    return false;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceD_supportsNullOptional(::IceInternal::Incoming& incoming)
+{
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](bool ret)
+    {
+        auto ostr = incomingPtr->startWriteParams();
+        ostr->writeAll(ret);
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
+    };
+    try
+    {
+        this->supportsNullOptionalAsync(responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
+    return false;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::Initial::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "opBool", "opBoolSeq", "opByte", "opByteSeq", "opClassAndUnknownOptional", "opDerivedException", "opDouble", "opDoubleSeq", "opFixedStruct", "opFixedStructList", "opFixedStructSeq", "opFloat", "opFloatSeq", "opG", "opInt", "opIntIntDict", "opIntOneOptionalDict", "opIntSeq", "opLong", "opLongSeq", "opMDict1", "opMDict2", "opMG1", "opMG2", "opMSeq1", "opMSeq2", "opMStruct1", "opMStruct2", "opMyEnum", "opMyInterfaceProxy", "opOneOptional", "opOptionalException", "opRequiredException", "opSerializable", "opShort", "opShortSeq", "opSmallStruct", "opSmallStructList", "opSmallStructSeq", "opString", "opStringIntDict", "opStringSeq", "opVarStruct", "opVarStructSeq", "opVoid", "pingPong", "returnOptionalClass", "sendOptionalClass", "shutdown", "supportsCsharpSerializable", "supportsJavaSerializable", "supportsNullOptional", "supportsRequiredParams" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 57, current.operation);
     if(r.first == r.second)
     {
@@ -3926,231 +4300,231 @@ Test::Initial::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
     {
         case 0:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 1:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 2:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 4:
         {
-            return _iceD_opBool(in, current);
+            return _iceD_opBool(incoming);
         }
         case 5:
         {
-            return _iceD_opBoolSeq(in, current);
+            return _iceD_opBoolSeq(incoming);
         }
         case 6:
         {
-            return _iceD_opByte(in, current);
+            return _iceD_opByte(incoming);
         }
         case 7:
         {
-            return _iceD_opByteSeq(in, current);
+            return _iceD_opByteSeq(incoming);
         }
         case 8:
         {
-            return _iceD_opClassAndUnknownOptional(in, current);
+            return _iceD_opClassAndUnknownOptional(incoming);
         }
         case 9:
         {
-            return _iceD_opDerivedException(in, current);
+            return _iceD_opDerivedException(incoming);
         }
         case 10:
         {
-            return _iceD_opDouble(in, current);
+            return _iceD_opDouble(incoming);
         }
         case 11:
         {
-            return _iceD_opDoubleSeq(in, current);
+            return _iceD_opDoubleSeq(incoming);
         }
         case 12:
         {
-            return _iceD_opFixedStruct(in, current);
+            return _iceD_opFixedStruct(incoming);
         }
         case 13:
         {
-            return _iceD_opFixedStructList(in, current);
+            return _iceD_opFixedStructList(incoming);
         }
         case 14:
         {
-            return _iceD_opFixedStructSeq(in, current);
+            return _iceD_opFixedStructSeq(incoming);
         }
         case 15:
         {
-            return _iceD_opFloat(in, current);
+            return _iceD_opFloat(incoming);
         }
         case 16:
         {
-            return _iceD_opFloatSeq(in, current);
+            return _iceD_opFloatSeq(incoming);
         }
         case 17:
         {
-            return _iceD_opG(in, current);
+            return _iceD_opG(incoming);
         }
         case 18:
         {
-            return _iceD_opInt(in, current);
+            return _iceD_opInt(incoming);
         }
         case 19:
         {
-            return _iceD_opIntIntDict(in, current);
+            return _iceD_opIntIntDict(incoming);
         }
         case 20:
         {
-            return _iceD_opIntOneOptionalDict(in, current);
+            return _iceD_opIntOneOptionalDict(incoming);
         }
         case 21:
         {
-            return _iceD_opIntSeq(in, current);
+            return _iceD_opIntSeq(incoming);
         }
         case 22:
         {
-            return _iceD_opLong(in, current);
+            return _iceD_opLong(incoming);
         }
         case 23:
         {
-            return _iceD_opLongSeq(in, current);
+            return _iceD_opLongSeq(incoming);
         }
         case 24:
         {
-            return _iceD_opMDict1(in, current);
+            return _iceD_opMDict1(incoming);
         }
         case 25:
         {
-            return _iceD_opMDict2(in, current);
+            return _iceD_opMDict2(incoming);
         }
         case 26:
         {
-            return _iceD_opMG1(in, current);
+            return _iceD_opMG1(incoming);
         }
         case 27:
         {
-            return _iceD_opMG2(in, current);
+            return _iceD_opMG2(incoming);
         }
         case 28:
         {
-            return _iceD_opMSeq1(in, current);
+            return _iceD_opMSeq1(incoming);
         }
         case 29:
         {
-            return _iceD_opMSeq2(in, current);
+            return _iceD_opMSeq2(incoming);
         }
         case 30:
         {
-            return _iceD_opMStruct1(in, current);
+            return _iceD_opMStruct1(incoming);
         }
         case 31:
         {
-            return _iceD_opMStruct2(in, current);
+            return _iceD_opMStruct2(incoming);
         }
         case 32:
         {
-            return _iceD_opMyEnum(in, current);
+            return _iceD_opMyEnum(incoming);
         }
         case 33:
         {
-            return _iceD_opMyInterfaceProxy(in, current);
+            return _iceD_opMyInterfaceProxy(incoming);
         }
         case 34:
         {
-            return _iceD_opOneOptional(in, current);
+            return _iceD_opOneOptional(incoming);
         }
         case 35:
         {
-            return _iceD_opOptionalException(in, current);
+            return _iceD_opOptionalException(incoming);
         }
         case 36:
         {
-            return _iceD_opRequiredException(in, current);
+            return _iceD_opRequiredException(incoming);
         }
         case 37:
         {
-            return _iceD_opSerializable(in, current);
+            return _iceD_opSerializable(incoming);
         }
         case 38:
         {
-            return _iceD_opShort(in, current);
+            return _iceD_opShort(incoming);
         }
         case 39:
         {
-            return _iceD_opShortSeq(in, current);
+            return _iceD_opShortSeq(incoming);
         }
         case 40:
         {
-            return _iceD_opSmallStruct(in, current);
+            return _iceD_opSmallStruct(incoming);
         }
         case 41:
         {
-            return _iceD_opSmallStructList(in, current);
+            return _iceD_opSmallStructList(incoming);
         }
         case 42:
         {
-            return _iceD_opSmallStructSeq(in, current);
+            return _iceD_opSmallStructSeq(incoming);
         }
         case 43:
         {
-            return _iceD_opString(in, current);
+            return _iceD_opString(incoming);
         }
         case 44:
         {
-            return _iceD_opStringIntDict(in, current);
+            return _iceD_opStringIntDict(incoming);
         }
         case 45:
         {
-            return _iceD_opStringSeq(in, current);
+            return _iceD_opStringSeq(incoming);
         }
         case 46:
         {
-            return _iceD_opVarStruct(in, current);
+            return _iceD_opVarStruct(incoming);
         }
         case 47:
         {
-            return _iceD_opVarStructSeq(in, current);
+            return _iceD_opVarStructSeq(incoming);
         }
         case 48:
         {
-            return _iceD_opVoid(in, current);
+            return _iceD_opVoid(incoming);
         }
         case 49:
         {
-            return _iceD_pingPong(in, current);
+            return _iceD_pingPong(incoming);
         }
         case 50:
         {
-            return _iceD_returnOptionalClass(in, current);
+            return _iceD_returnOptionalClass(incoming);
         }
         case 51:
         {
-            return _iceD_sendOptionalClass(in, current);
+            return _iceD_sendOptionalClass(incoming);
         }
         case 52:
         {
-            return _iceD_shutdown(in, current);
+            return _iceD_shutdown(incoming);
         }
         case 53:
         {
-            return _iceD_supportsCsharpSerializable(in, current);
+            return _iceD_supportsCsharpSerializable(incoming);
         }
         case 54:
         {
-            return _iceD_supportsJavaSerializable(in, current);
+            return _iceD_supportsJavaSerializable(incoming);
         }
         case 55:
         {
-            return _iceD_supportsNullOptional(in, current);
+            return _iceD_supportsNullOptional(incoming);
         }
         case 56:
         {
-            return _iceD_supportsRequiredParams(in, current);
+            return _iceD_supportsRequiredParams(incoming);
         }
         default:
         {

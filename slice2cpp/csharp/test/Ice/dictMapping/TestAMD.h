@@ -246,51 +246,51 @@ public:
 
     virtual void shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opNVAsync(NV i, ::std::function<void(const NV& returnValue, const NV& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opNV(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opNV(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opNRAsync(NR i, ::std::function<void(const NR& returnValue, const NR& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opNR(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opNR(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opNDVAsync(NDV i, ::std::function<void(const NDV& returnValue, const NDV& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opNDV(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opNDV(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opNDRAsync(NDR i, ::std::function<void(const NDR& returnValue, const NDR& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opNDR(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opNDR(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opNDAISAsync(NDAIS i, ::std::function<void(const NDAIS& returnValue, const NDAIS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opNDAIS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opNDAIS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opNDGISAsync(NDGIS i, ::std::function<void(const NDGIS& returnValue, const NDGIS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opNDGIS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opNDGIS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opNDASSAsync(NDASS i, ::std::function<void(const NDASS& returnValue, const NDASS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opNDASS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opNDASS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opNDGSSAsync(NDGSS i, ::std::function<void(const NDGSS& returnValue, const NDGSS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opNDGSS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opNDGSS(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

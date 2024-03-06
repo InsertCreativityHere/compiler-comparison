@@ -146,16 +146,16 @@ public:
 
     virtual ::std::string getProperty(::std::string name, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getProperty(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_getProperty(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::Ice::StringSeq getArgs(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getArgs(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_getArgs(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

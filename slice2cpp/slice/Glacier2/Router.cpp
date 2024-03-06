@@ -19,6 +19,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Router.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -105,11 +106,11 @@ Glacier2::RouterPrx::_iceI_createSession(const ::std::shared_ptr<::IceInternal::
             {
                 ex.ice_throw();
             }
-            catch(const PermissionDeniedException&)
+            catch(const CannotCreateSessionException&)
             {
                 throw;
             }
-            catch(const CannotCreateSessionException&)
+            catch(const PermissionDeniedException&)
             {
                 throw;
             }
@@ -151,11 +152,11 @@ Glacier2::RouterPrx::_iceI_createSessionFromSecureConnection(const ::std::shared
             {
                 ex.ice_throw();
             }
-            catch(const PermissionDeniedException&)
+            catch(const CannotCreateSessionException&)
             {
                 throw;
             }
-            catch(const CannotCreateSessionException&)
+            catch(const PermissionDeniedException&)
             {
                 throw;
             }
@@ -347,120 +348,142 @@ Glacier2::Router::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Glacier2::Router::_iceD_getCategoryForClient(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+Glacier2::Router::_iceD_getCategoryForClient(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    inS.readEmptyParams();
-    ::std::string ret = this->getCategoryForClient(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::string ret = this->getCategoryForClient(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Glacier2::Router::_iceD_createSession(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Glacier2::Router::_iceD_createSession(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_userId;
     ::std::string iceP_password;
     istr->readAll(iceP_userId, iceP_password);
-    inS.endReadParams();
-    inS.setFormat(::Ice::FormatType::SlicedFormat);
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ::std::optional<SessionPrx>& ret)
+    incoming.endReadParams();
+    incoming.setFormat(::Ice::FormatType::SlicedFormat);
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](const ::std::optional<SessionPrx>& ret)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll(ret);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->createSessionAsync(::std::move(iceP_userId), ::std::move(iceP_password), responseCB, inA->exception(), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Glacier2::Router::_iceD_createSessionFromSecureConnection(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setFormat(::Ice::FormatType::SlicedFormat);
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ::std::optional<SessionPrx>& ret)
+    try
     {
-        auto ostr = inA->startWriteParams();
+        this->createSessionAsync(::std::move(iceP_userId), ::std::move(iceP_password), responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
+    return false;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Glacier2::Router::_iceD_createSessionFromSecureConnection(::IceInternal::Incoming& incoming)
+{
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    incoming.setFormat(::Ice::FormatType::SlicedFormat);
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](const ::std::optional<SessionPrx>& ret)
+    {
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll(ret);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->createSessionFromSecureConnectionAsync(responseCB, inA->exception(), current);
+    try
+    {
+        this->createSessionFromSecureConnectionAsync(responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Glacier2::Router::_iceD_refreshSession(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Glacier2::Router::_iceD_refreshSession(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    this->refreshSessionAsync(inA->response(), inA->exception(), current);
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    try
+    {
+        this->refreshSessionAsync([incomingPtr] { incomingPtr->response(); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Glacier2::Router::_iceD_destroySession(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Glacier2::Router::_iceD_destroySession(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->destroySession(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->destroySession(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Glacier2::Router::_iceD_getSessionTimeout(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+Glacier2::Router::_iceD_getSessionTimeout(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    inS.readEmptyParams();
-    ::std::int64_t ret = this->getSessionTimeout(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::int64_t ret = this->getSessionTimeout(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Glacier2::Router::_iceD_getACMTimeout(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+Glacier2::Router::_iceD_getACMTimeout(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    inS.readEmptyParams();
-    ::std::int32_t ret = this->getACMTimeout(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::int32_t ret = this->getACMTimeout(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Glacier2::Router::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Glacier2::Router::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "addProxies", "createSession", "createSessionFromSecureConnection", "destroySession", "getACMTimeout", "getCategoryForClient", "getClientProxy", "getServerProxy", "getSessionTimeout", "ice_id", "ice_ids", "ice_isA", "ice_ping", "refreshSession" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 14, current.operation);
     if(r.first == r.second)
     {
@@ -471,59 +494,59 @@ Glacier2::Router::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current
     {
         case 0:
         {
-            return _iceD_addProxies(in, current);
+            return _iceD_addProxies(incoming);
         }
         case 1:
         {
-            return _iceD_createSession(in, current);
+            return _iceD_createSession(incoming);
         }
         case 2:
         {
-            return _iceD_createSessionFromSecureConnection(in, current);
+            return _iceD_createSessionFromSecureConnection(incoming);
         }
         case 3:
         {
-            return _iceD_destroySession(in, current);
+            return _iceD_destroySession(incoming);
         }
         case 4:
         {
-            return _iceD_getACMTimeout(in, current);
+            return _iceD_getACMTimeout(incoming);
         }
         case 5:
         {
-            return _iceD_getCategoryForClient(in, current);
+            return _iceD_getCategoryForClient(incoming);
         }
         case 6:
         {
-            return _iceD_getClientProxy(in, current);
+            return _iceD_getClientProxy(incoming);
         }
         case 7:
         {
-            return _iceD_getServerProxy(in, current);
+            return _iceD_getServerProxy(incoming);
         }
         case 8:
         {
-            return _iceD_getSessionTimeout(in, current);
+            return _iceD_getSessionTimeout(incoming);
         }
         case 9:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 10:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 11:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 12:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 13:
         {
-            return _iceD_refreshSession(in, current);
+            return _iceD_refreshSession(incoming);
         }
         default:
         {

@@ -336,51 +336,51 @@ public:
 
     virtual void opAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_op(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_op(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void failAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_fail(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_fail(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opWithUserExceptionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opWithUserException(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opWithUserException(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opWithRequestFailedExceptionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opWithRequestFailedException(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opWithRequestFailedException(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opWithLocalExceptionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opWithLocalException(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opWithLocalException(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opWithUnknownExceptionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opWithUnknownException(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opWithUnknownException(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opByteSAsync(ByteSeq bs, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opByteS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<::Ice::ObjectPrx> getAdmin(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getAdmin(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_getAdmin(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -414,16 +414,16 @@ public:
 
     virtual void hold(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_hold(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_hold(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void resume(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_resume(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_resume(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

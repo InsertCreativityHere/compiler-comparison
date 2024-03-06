@@ -16,6 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -221,22 +222,23 @@ Test::PingReply::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::PingReply::_iceD_reply(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::PingReply::_iceD_reply(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->reply(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->reply(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::PingReply::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::PingReply::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "reply" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
@@ -247,23 +249,23 @@ Test::PingReply::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current&
     {
         case 0:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 1:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 2:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 4:
         {
-            return _iceD_reply(in, current);
+            return _iceD_reply(incoming);
         }
         default:
         {
@@ -296,68 +298,69 @@ Test::TestIntf::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_ping(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::TestIntf::_iceD_ping(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<PingReplyPrx> iceP_reply;
     istr->readAll(iceP_reply);
-    inS.endReadParams();
-    this->ping(::std::move(iceP_reply), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->ping(::std::move(iceP_reply), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_sendByteSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::TestIntf::_iceD_sendByteSeq(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ByteSeq iceP_seq;
     ::std::optional<PingReplyPrx> iceP_reply;
     istr->readAll(iceP_seq, iceP_reply);
-    inS.endReadParams();
-    this->sendByteSeq(::std::move(iceP_seq), ::std::move(iceP_reply), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->sendByteSeq(::std::move(iceP_seq), ::std::move(iceP_reply), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_pingBiDir(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::TestIntf::_iceD_pingBiDir(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::Ice::Identity iceP_id;
     istr->readAll(iceP_id);
-    inS.endReadParams();
-    this->pingBiDir(::std::move(iceP_id), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->pingBiDir(::std::move(iceP_id), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::TestIntf::_iceD_shutdown(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->shutdown(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->shutdown(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::TestIntf::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "ping", "pingBiDir", "sendByteSeq", "shutdown" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
@@ -368,35 +371,35 @@ Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
     {
         case 0:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 1:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 2:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 4:
         {
-            return _iceD_ping(in, current);
+            return _iceD_ping(incoming);
         }
         case 5:
         {
-            return _iceD_pingBiDir(in, current);
+            return _iceD_pingBiDir(incoming);
         }
         case 6:
         {
-            return _iceD_sendByteSeq(in, current);
+            return _iceD_sendByteSeq(incoming);
         }
         case 7:
         {
-            return _iceD_shutdown(in, current);
+            return _iceD_shutdown(incoming);
         }
         default:
         {

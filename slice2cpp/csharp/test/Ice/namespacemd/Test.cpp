@@ -16,6 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -447,142 +448,143 @@ Test::Initial::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_getNoNamespaceC2AsC1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_getNoNamespaceC2AsC1(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::shared_ptr<::NoNamespace::C1> ret = this->getNoNamespaceC2AsC1(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::shared_ptr<::NoNamespace::C1> ret = this->getNoNamespaceC2AsC1(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
     ostr->writePendingValues();
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_getNoNamespaceC2AsC2(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_getNoNamespaceC2AsC2(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::shared_ptr<::NoNamespace::C2> ret = this->getNoNamespaceC2AsC2(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::shared_ptr<::NoNamespace::C2> ret = this->getNoNamespaceC2AsC2(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
     ostr->writePendingValues();
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_throwNoNamespaceE2AsE1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_throwNoNamespaceE2AsE1(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->throwNoNamespaceE2AsE1(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->throwNoNamespaceE2AsE1(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_throwNoNamespaceE2AsE2(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_throwNoNamespaceE2AsE2(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->throwNoNamespaceE2AsE2(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->throwNoNamespaceE2AsE2(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_throwNoNamespaceNotify(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_throwNoNamespaceNotify(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->throwNoNamespaceNotify(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->throwNoNamespaceNotify(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_getWithNamespaceC2AsC1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_getWithNamespaceC2AsC1(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::shared_ptr<::WithNamespace::C1> ret = this->getWithNamespaceC2AsC1(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::shared_ptr<::WithNamespace::C1> ret = this->getWithNamespaceC2AsC1(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
     ostr->writePendingValues();
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_getWithNamespaceC2AsC2(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_getWithNamespaceC2AsC2(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::shared_ptr<::WithNamespace::C2> ret = this->getWithNamespaceC2AsC2(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::shared_ptr<::WithNamespace::C2> ret = this->getWithNamespaceC2AsC2(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
     ostr->writePendingValues();
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_throwWithNamespaceE2AsE1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_throwWithNamespaceE2AsE1(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->throwWithNamespaceE2AsE1(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->throwWithNamespaceE2AsE1(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_throwWithNamespaceE2AsE2(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_throwWithNamespaceE2AsE2(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->throwWithNamespaceE2AsE2(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->throwWithNamespaceE2AsE2(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_shutdown(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->shutdown(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->shutdown(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::Initial::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "getNoNamespaceC2AsC1", "getNoNamespaceC2AsC2", "getWithNamespaceC2AsC1", "getWithNamespaceC2AsC2", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown", "throwNoNamespaceE2AsE1", "throwNoNamespaceE2AsE2", "throwNoNamespaceNotify", "throwWithNamespaceE2AsE1", "throwWithNamespaceE2AsE2" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 14, current.operation);
     if(r.first == r.second)
     {
@@ -593,59 +595,59 @@ Test::Initial::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
     {
         case 0:
         {
-            return _iceD_getNoNamespaceC2AsC1(in, current);
+            return _iceD_getNoNamespaceC2AsC1(incoming);
         }
         case 1:
         {
-            return _iceD_getNoNamespaceC2AsC2(in, current);
+            return _iceD_getNoNamespaceC2AsC2(incoming);
         }
         case 2:
         {
-            return _iceD_getWithNamespaceC2AsC1(in, current);
+            return _iceD_getWithNamespaceC2AsC1(incoming);
         }
         case 3:
         {
-            return _iceD_getWithNamespaceC2AsC2(in, current);
+            return _iceD_getWithNamespaceC2AsC2(incoming);
         }
         case 4:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 5:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 6:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 7:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 8:
         {
-            return _iceD_shutdown(in, current);
+            return _iceD_shutdown(incoming);
         }
         case 9:
         {
-            return _iceD_throwNoNamespaceE2AsE1(in, current);
+            return _iceD_throwNoNamespaceE2AsE1(incoming);
         }
         case 10:
         {
-            return _iceD_throwNoNamespaceE2AsE2(in, current);
+            return _iceD_throwNoNamespaceE2AsE2(incoming);
         }
         case 11:
         {
-            return _iceD_throwNoNamespaceNotify(in, current);
+            return _iceD_throwNoNamespaceNotify(incoming);
         }
         case 12:
         {
-            return _iceD_throwWithNamespaceE2AsE1(in, current);
+            return _iceD_throwWithNamespaceE2AsE1(incoming);
         }
         case 13:
         {
-            return _iceD_throwWithNamespaceE2AsE2(in, current);
+            return _iceD_throwWithNamespaceE2AsE2(incoming);
         }
         default:
         {

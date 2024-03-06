@@ -19,6 +19,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <ServiceManager.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -333,40 +334,41 @@ IceBox::ServiceObserver::ice_staticId()
 
 /// \cond INTERNAL
 bool
-IceBox::ServiceObserver::_iceD_servicesStarted(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceBox::ServiceObserver::_iceD_servicesStarted(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::Ice::StringSeq iceP_services;
     istr->readAll(iceP_services);
-    inS.endReadParams();
-    this->servicesStarted(::std::move(iceP_services), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->servicesStarted(::std::move(iceP_services), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceBox::ServiceObserver::_iceD_servicesStopped(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceBox::ServiceObserver::_iceD_servicesStopped(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::Ice::StringSeq iceP_services;
     istr->readAll(iceP_services);
-    inS.endReadParams();
-    this->servicesStopped(::std::move(iceP_services), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->servicesStopped(::std::move(iceP_services), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceBox::ServiceObserver::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+IceBox::ServiceObserver::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "servicesStarted", "servicesStopped" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
@@ -377,27 +379,27 @@ IceBox::ServiceObserver::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::
     {
         case 0:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 1:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 2:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 4:
         {
-            return _iceD_servicesStarted(in, current);
+            return _iceD_servicesStarted(incoming);
         }
         case 5:
         {
-            return _iceD_servicesStopped(in, current);
+            return _iceD_servicesStopped(incoming);
         }
         default:
         {
@@ -430,67 +432,68 @@ IceBox::ServiceManager::ice_staticId()
 
 /// \cond INTERNAL
 bool
-IceBox::ServiceManager::_iceD_startService(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceBox::ServiceManager::_iceD_startService(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_service;
     istr->readAll(iceP_service);
-    inS.endReadParams();
-    this->startService(::std::move(iceP_service), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->startService(::std::move(iceP_service), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceBox::ServiceManager::_iceD_stopService(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceBox::ServiceManager::_iceD_stopService(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_service;
     istr->readAll(iceP_service);
-    inS.endReadParams();
-    this->stopService(::std::move(iceP_service), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->stopService(::std::move(iceP_service), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceBox::ServiceManager::_iceD_addObserver(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceBox::ServiceManager::_iceD_addObserver(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<ServiceObserverPrx> iceP_observer;
     istr->readAll(iceP_observer);
-    inS.endReadParams();
-    this->addObserver(::std::move(iceP_observer), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->addObserver(::std::move(iceP_observer), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceBox::ServiceManager::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceBox::ServiceManager::_iceD_shutdown(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->shutdown(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->shutdown(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceBox::ServiceManager::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+IceBox::ServiceManager::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "addObserver", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown", "startService", "stopService" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
@@ -501,35 +504,35 @@ IceBox::ServiceManager::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::C
     {
         case 0:
         {
-            return _iceD_addObserver(in, current);
+            return _iceD_addObserver(incoming);
         }
         case 1:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 2:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 3:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 4:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 5:
         {
-            return _iceD_shutdown(in, current);
+            return _iceD_shutdown(incoming);
         }
         case 6:
         {
-            return _iceD_startService(in, current);
+            return _iceD_startService(incoming);
         }
         case 7:
         {
-            return _iceD_stopService(in, current);
+            return _iceD_stopService(incoming);
         }
         default:
         {

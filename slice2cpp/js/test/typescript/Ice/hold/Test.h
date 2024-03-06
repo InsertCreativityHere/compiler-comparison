@@ -178,31 +178,31 @@ public:
 
     virtual void putOnHold(::std::int32_t seconds, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_putOnHold(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_putOnHold(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void waitForHold(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_waitForHold(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_waitForHold(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void setOneway(::std::int32_t value, ::std::int32_t expected, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_setOneway(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_setOneway(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::int32_t set(::std::int32_t value, ::std::int32_t delay, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_set(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_set(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

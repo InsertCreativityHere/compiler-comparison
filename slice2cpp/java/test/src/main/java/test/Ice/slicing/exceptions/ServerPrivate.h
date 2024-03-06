@@ -1050,26 +1050,26 @@ public:
 
     virtual void knownPreservedAsBase(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_knownPreservedAsBase(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_knownPreservedAsBase(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void knownPreservedAsKnownPreserved(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_knownPreservedAsKnownPreserved(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_knownPreservedAsKnownPreserved(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void unknownPreservedAsBase(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_unknownPreservedAsBase(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_unknownPreservedAsBase(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void unknownPreservedAsKnownPreserved(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_unknownPreservedAsKnownPreserved(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_unknownPreservedAsKnownPreserved(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -1103,121 +1103,121 @@ public:
 
     virtual void baseAsBase(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_baseAsBase(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_baseAsBase(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void unknownDerivedAsBase(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_unknownDerivedAsBase(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_unknownDerivedAsBase(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void knownDerivedAsBase(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_knownDerivedAsBase(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_knownDerivedAsBase(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void knownDerivedAsKnownDerived(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_knownDerivedAsKnownDerived(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_knownDerivedAsKnownDerived(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void unknownIntermediateAsBase(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_unknownIntermediateAsBase(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_unknownIntermediateAsBase(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void knownIntermediateAsBase(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_knownIntermediateAsBase(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_knownIntermediateAsBase(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void knownMostDerivedAsBase(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_knownMostDerivedAsBase(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_knownMostDerivedAsBase(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void knownIntermediateAsKnownIntermediate(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_knownIntermediateAsKnownIntermediate(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_knownIntermediateAsKnownIntermediate(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void knownMostDerivedAsKnownIntermediate(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_knownMostDerivedAsKnownIntermediate(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_knownMostDerivedAsKnownIntermediate(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void knownMostDerivedAsKnownMostDerived(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_knownMostDerivedAsKnownMostDerived(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_knownMostDerivedAsKnownMostDerived(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void unknownMostDerived1AsBase(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_unknownMostDerived1AsBase(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_unknownMostDerived1AsBase(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void unknownMostDerived1AsKnownIntermediate(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_unknownMostDerived1AsKnownIntermediate(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_unknownMostDerived1AsKnownIntermediate(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void unknownMostDerived2AsBase(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_unknownMostDerived2AsBase(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_unknownMostDerived2AsBase(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void unknownMostDerived2AsBaseCompact(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_unknownMostDerived2AsBaseCompact(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_unknownMostDerived2AsBaseCompact(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void knownPreservedAsBase(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_knownPreservedAsBase(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_knownPreservedAsBase(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void knownPreservedAsKnownPreserved(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_knownPreservedAsKnownPreserved(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_knownPreservedAsKnownPreserved(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void relayKnownPreservedAsBase(::std::optional<RelayPrx> r, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_relayKnownPreservedAsBase(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_relayKnownPreservedAsBase(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void relayKnownPreservedAsKnownPreserved(::std::optional<RelayPrx> r, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_relayKnownPreservedAsKnownPreserved(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_relayKnownPreservedAsKnownPreserved(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void unknownPreservedAsBase(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_unknownPreservedAsBase(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_unknownPreservedAsBase(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void unknownPreservedAsKnownPreserved(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_unknownPreservedAsKnownPreserved(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_unknownPreservedAsKnownPreserved(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void relayUnknownPreservedAsBase(::std::optional<RelayPrx> r, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_relayUnknownPreservedAsBase(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_relayUnknownPreservedAsBase(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void relayUnknownPreservedAsKnownPreserved(::std::optional<RelayPrx> r, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_relayUnknownPreservedAsKnownPreserved(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_relayUnknownPreservedAsKnownPreserved(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

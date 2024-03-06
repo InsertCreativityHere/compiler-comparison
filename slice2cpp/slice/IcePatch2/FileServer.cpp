@@ -19,6 +19,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <FileServer.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -282,79 +283,87 @@ IcePatch2::FileServer::ice_staticId()
 
 /// \cond INTERNAL
 bool
-IcePatch2::FileServer::_iceD_getLargeFileInfoSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IcePatch2::FileServer::_iceD_getLargeFileInfoSeq(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int32_t iceP_partition;
     istr->readAll(iceP_partition);
-    inS.endReadParams();
-    LargeFileInfoSeq ret = this->getLargeFileInfoSeq(iceP_partition, current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    LargeFileInfoSeq ret = this->getLargeFileInfoSeq(iceP_partition, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IcePatch2::FileServer::_iceD_getChecksumSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IcePatch2::FileServer::_iceD_getChecksumSeq(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    inS.readEmptyParams();
-    ByteSeqSeq ret = this->getChecksumSeq(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    incoming.readEmptyParams();
+    ByteSeqSeq ret = this->getChecksumSeq(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IcePatch2::FileServer::_iceD_getChecksum(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IcePatch2::FileServer::_iceD_getChecksum(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    inS.readEmptyParams();
-    ::Ice::ByteSeq ret = this->getChecksum(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::Ice::ByteSeq ret = this->getChecksum(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IcePatch2::FileServer::_iceD_getLargeFileCompressed(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IcePatch2::FileServer::_iceD_getLargeFileCompressed(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_path;
     ::std::int64_t iceP_pos;
     ::std::int32_t iceP_num;
     istr->readAll(iceP_path, iceP_pos, iceP_num);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>& ret)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](const ::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>& ret)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll(ret);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->getLargeFileCompressedAsync(::std::move(iceP_path), iceP_pos, iceP_num, responseCB, inA->exception(), current);
+    try
+    {
+        this->getLargeFileCompressedAsync(::std::move(iceP_path), iceP_pos, iceP_num, responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IcePatch2::FileServer::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+IcePatch2::FileServer::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "getChecksum", "getChecksumSeq", "getLargeFileCompressed", "getLargeFileInfoSeq", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
@@ -365,35 +374,35 @@ IcePatch2::FileServer::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cu
     {
         case 0:
         {
-            return _iceD_getChecksum(in, current);
+            return _iceD_getChecksum(incoming);
         }
         case 1:
         {
-            return _iceD_getChecksumSeq(in, current);
+            return _iceD_getChecksumSeq(incoming);
         }
         case 2:
         {
-            return _iceD_getLargeFileCompressed(in, current);
+            return _iceD_getLargeFileCompressed(incoming);
         }
         case 3:
         {
-            return _iceD_getLargeFileInfoSeq(in, current);
+            return _iceD_getLargeFileInfoSeq(incoming);
         }
         case 4:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 5:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 6:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 7:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         default:
         {

@@ -299,11 +299,11 @@ public:
 
     virtual ::std::string getAdapterName(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getAdapterName(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_getAdapterName(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -337,16 +337,16 @@ public:
 
     virtual ::std::optional<TestIntfPrx> getTestIntf(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getTestIntf(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_getTestIntf(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void deactivate(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_deactivate(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_deactivate(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -380,21 +380,21 @@ public:
 
     virtual ::std::optional<RemoteObjectAdapterPrx> createObjectAdapter(::std::string name, ::std::string endpoints, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_createObjectAdapter(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_createObjectAdapter(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void deactivateObjectAdapter(::std::optional<RemoteObjectAdapterPrx> adapter, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_deactivateObjectAdapter(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_deactivateObjectAdapter(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

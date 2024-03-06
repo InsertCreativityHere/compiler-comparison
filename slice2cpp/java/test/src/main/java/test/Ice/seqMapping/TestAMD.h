@@ -295,26 +295,26 @@ public:
 
     virtual void shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opSerialSmallJavaAsync(SerialSmall i, ::std::function<void(const SerialSmall& returnValue, const SerialSmall& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSerialSmallJava(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opSerialSmallJava(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opSerialLargeJavaAsync(SerialLarge i, ::std::function<void(const SerialLarge& returnValue, const SerialLarge& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSerialLargeJava(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opSerialLargeJava(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opSerialStructJavaAsync(SerialStruct i, ::std::function<void(const SerialStruct& returnValue, const SerialStruct& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSerialStructJava(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opSerialStructJava(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

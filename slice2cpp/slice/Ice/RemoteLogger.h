@@ -527,7 +527,7 @@ public:
      */
     virtual void init(::std::string prefix, LogMessageSeq logMessages, const Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_init(::IceInternal::Incoming&, const Current&);
+    bool _iceD_init(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -537,11 +537,11 @@ public:
      */
     virtual void log(LogMessage message, const Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_log(::IceInternal::Incoming&, const Current&);
+    bool _iceD_log(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -594,7 +594,7 @@ public:
      */
     virtual void attachRemoteLogger(::std::optional<RemoteLoggerPrx> prx, LogMessageTypeSeq messageTypes, StringSeq traceCategories, ::std::int32_t messageMax, const Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_attachRemoteLogger(::IceInternal::Incoming&, const Current&);
+    bool _iceD_attachRemoteLogger(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -605,7 +605,7 @@ public:
      */
     virtual bool detachRemoteLogger(::std::optional<RemoteLoggerPrx> prx, const Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_detachRemoteLogger(::IceInternal::Incoming&, const Current&);
+    bool _iceD_detachRemoteLogger(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -623,11 +623,11 @@ public:
      */
     virtual LogMessageSeq getLog(LogMessageTypeSeq messageTypes, StringSeq traceCategories, ::std::int32_t messageMax, ::std::string& prefix, const Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getLog(::IceInternal::Incoming&, const Current&);
+    bool _iceD_getLog(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

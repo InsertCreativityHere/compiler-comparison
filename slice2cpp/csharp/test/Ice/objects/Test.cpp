@@ -16,6 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -1849,162 +1850,162 @@ Test::Initial::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_shutdown(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->shutdown(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->shutdown(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_getB1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_getB1(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::shared_ptr<B> ret = this->getB1(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::shared_ptr<B> ret = this->getB1(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
     ostr->writePendingValues();
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_getB2(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_getB2(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::shared_ptr<B> ret = this->getB2(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::shared_ptr<B> ret = this->getB2(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
     ostr->writePendingValues();
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_getC(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_getC(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::shared_ptr<C> ret = this->getC(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::shared_ptr<C> ret = this->getC(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
     ostr->writePendingValues();
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_getD(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_getD(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::shared_ptr<D> ret = this->getD(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::shared_ptr<D> ret = this->getD(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
     ostr->writePendingValues();
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_getE(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_getE(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::shared_ptr<E> ret = this->getE(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::shared_ptr<E> ret = this->getE(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
     ostr->writePendingValues();
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_getF(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_getF(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::shared_ptr<F> ret = this->getF(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::shared_ptr<F> ret = this->getF(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
     ostr->writePendingValues();
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_setRecursive(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_setRecursive(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::shared_ptr<Recursive> iceP_p;
     istr->readAll(iceP_p);
     istr->readPendingValues();
-    inS.endReadParams();
-    this->setRecursive(::std::move(iceP_p), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->setRecursive(::std::move(iceP_p), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_supportsClassGraphDepthMax(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_supportsClassGraphDepthMax(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    bool ret = this->supportsClassGraphDepthMax(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    bool ret = this->supportsClassGraphDepthMax(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_setCycle(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_setCycle(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::shared_ptr<Recursive> iceP_r;
     istr->readAll(iceP_r);
     istr->readPendingValues();
-    inS.endReadParams();
-    this->setCycle(::std::move(iceP_r), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->setCycle(::std::move(iceP_r), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_acceptsClassCycles(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_acceptsClassCycles(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    bool ret = this->acceptsClassCycles(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    bool ret = this->acceptsClassCycles(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
@@ -2020,11 +2021,11 @@ Test::Initial::GetMBMarshaledResult::GetMBMarshaledResult(const ::std::shared_pt
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_getMB(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_getMB(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    inS.setMarshaledResult(this->getMB(current));
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    incoming.setMarshaledResult(this->getMB(incoming.current()));
     return true;
 }
 /// \endcond
@@ -2040,344 +2041,352 @@ Test::Initial::GetAMDMBMarshaledResult::GetAMDMBMarshaledResult(const ::std::sha
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_getAMDMB(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_getAMDMB(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    this->getAMDMBAsync(inA->response<GetAMDMBMarshaledResult>(), inA->exception(), current);
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    try
+    {
+        this->getAMDMBAsync([incomingPtr](const GetAMDMBMarshaledResult& marshaledResult) { incomingPtr->response(marshaledResult); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_getAll(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_getAll(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
     ::std::shared_ptr<B> iceP_b1;
     ::std::shared_ptr<B> iceP_b2;
     ::std::shared_ptr<C> iceP_theC;
     ::std::shared_ptr<D> iceP_theD;
-    this->getAll(iceP_b1, iceP_b2, iceP_theC, iceP_theD, current);
-    auto ostr = inS.startWriteParams();
+    this->getAll(iceP_b1, iceP_b2, iceP_theC, iceP_theD, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_b1, iceP_b2, iceP_theC, iceP_theD);
     ostr->writePendingValues();
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_getK(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_getK(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::shared_ptr<K> ret = this->getK(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::shared_ptr<K> ret = this->getK(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
     ostr->writePendingValues();
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opValue(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opValue(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::shared_ptr<::Ice::Value> iceP_v1;
     istr->readAll(iceP_v1);
     istr->readPendingValues();
-    inS.endReadParams();
+    incoming.endReadParams();
     ::std::shared_ptr<::Ice::Value> iceP_v2;
-    ::std::shared_ptr<::Ice::Value> ret = this->opValue(::std::move(iceP_v1), iceP_v2, current);
-    auto ostr = inS.startWriteParams();
+    ::std::shared_ptr<::Ice::Value> ret = this->opValue(::std::move(iceP_v1), iceP_v2, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_v2, ret);
     ostr->writePendingValues();
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opValueSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opValueSeq(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ValueSeq iceP_v1;
     istr->readAll(iceP_v1);
     istr->readPendingValues();
-    inS.endReadParams();
+    incoming.endReadParams();
     ValueSeq iceP_v2;
-    ValueSeq ret = this->opValueSeq(::std::move(iceP_v1), iceP_v2, current);
-    auto ostr = inS.startWriteParams();
+    ValueSeq ret = this->opValueSeq(::std::move(iceP_v1), iceP_v2, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_v2, ret);
     ostr->writePendingValues();
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opValueMap(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opValueMap(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ValueMap iceP_v1;
     istr->readAll(iceP_v1);
     istr->readPendingValues();
-    inS.endReadParams();
+    incoming.endReadParams();
     ValueMap iceP_v2;
-    ValueMap ret = this->opValueMap(::std::move(iceP_v1), iceP_v2, current);
-    auto ostr = inS.startWriteParams();
+    ValueMap ret = this->opValueMap(::std::move(iceP_v1), iceP_v2, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_v2, ret);
     ostr->writePendingValues();
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_getD1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_getD1(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::shared_ptr<D1> iceP_d1;
     istr->readAll(iceP_d1);
     istr->readPendingValues();
-    inS.endReadParams();
-    ::std::shared_ptr<D1> ret = this->getD1(::std::move(iceP_d1), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::shared_ptr<D1> ret = this->getD1(::std::move(iceP_d1), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
     ostr->writePendingValues();
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_throwEDerived(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_throwEDerived(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->throwEDerived(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->throwEDerived(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_setG(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_setG(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::shared_ptr<G> iceP_theG;
     istr->readAll(iceP_theG);
     istr->readPendingValues();
-    inS.endReadParams();
-    this->setG(::std::move(iceP_theG), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->setG(::std::move(iceP_theG), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opBaseSeq(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opBaseSeq(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     BaseSeq iceP_inSeq;
     istr->readAll(iceP_inSeq);
     istr->readPendingValues();
-    inS.endReadParams();
+    incoming.endReadParams();
     BaseSeq iceP_outSeq;
-    BaseSeq ret = this->opBaseSeq(::std::move(iceP_inSeq), iceP_outSeq, current);
-    auto ostr = inS.startWriteParams();
+    BaseSeq ret = this->opBaseSeq(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_outSeq, ret);
     ostr->writePendingValues();
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_getCompact(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_getCompact(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::shared_ptr<Compact> ret = this->getCompact(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::shared_ptr<Compact> ret = this->getCompact(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
     ostr->writePendingValues();
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_getInnerA(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_getInnerA(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::shared_ptr<::Test::Inner::A> ret = this->getInnerA(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::shared_ptr<::Test::Inner::A> ret = this->getInnerA(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
     ostr->writePendingValues();
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_getInnerSubA(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_getInnerSubA(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::shared_ptr<::Test::Inner::Sub::A> ret = this->getInnerSubA(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::shared_ptr<::Test::Inner::Sub::A> ret = this->getInnerSubA(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
     ostr->writePendingValues();
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_throwInnerEx(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_throwInnerEx(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->throwInnerEx(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->throwInnerEx(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_throwInnerSubEx(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_throwInnerSubEx(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->throwInnerSubEx(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->throwInnerSubEx(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opM(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opM(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::shared_ptr<M> iceP_v1;
     istr->readAll(iceP_v1);
     istr->readPendingValues();
-    inS.endReadParams();
+    incoming.endReadParams();
     ::std::shared_ptr<M> iceP_v2;
-    ::std::shared_ptr<M> ret = this->opM(::std::move(iceP_v1), iceP_v2, current);
-    auto ostr = inS.startWriteParams();
+    ::std::shared_ptr<M> ret = this->opM(::std::move(iceP_v1), iceP_v2, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_v2, ret);
     ostr->writePendingValues();
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opF1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opF1(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::shared_ptr<F1> iceP_f11;
     istr->readAll(iceP_f11);
     istr->readPendingValues();
-    inS.endReadParams();
+    incoming.endReadParams();
     ::std::shared_ptr<F1> iceP_f12;
-    ::std::shared_ptr<F1> ret = this->opF1(::std::move(iceP_f11), iceP_f12, current);
-    auto ostr = inS.startWriteParams();
+    ::std::shared_ptr<F1> ret = this->opF1(::std::move(iceP_f11), iceP_f12, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_f12, ret);
     ostr->writePendingValues();
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opF2(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opF2(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<F2Prx> iceP_f21;
     istr->readAll(iceP_f21);
-    inS.endReadParams();
+    incoming.endReadParams();
     ::std::optional<F2Prx> iceP_f22;
-    ::std::optional<F2Prx> ret = this->opF2(::std::move(iceP_f21), iceP_f22, current);
-    auto ostr = inS.startWriteParams();
+    ::std::optional<F2Prx> ret = this->opF2(::std::move(iceP_f21), iceP_f22, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_f22, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_opF3(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_opF3(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::shared_ptr<F3> iceP_f31;
     istr->readAll(iceP_f31);
     istr->readPendingValues();
-    inS.endReadParams();
+    incoming.endReadParams();
     ::std::shared_ptr<F3> iceP_f32;
-    ::std::shared_ptr<F3> ret = this->opF3(::std::move(iceP_f31), iceP_f32, current);
-    auto ostr = inS.startWriteParams();
+    ::std::shared_ptr<F3> ret = this->opF3(::std::move(iceP_f31), iceP_f32, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_f32, ret);
     ostr->writePendingValues();
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_hasF3(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_hasF3(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    bool ret = this->hasF3(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    bool ret = this->hasF3(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::Initial::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "acceptsClassCycles", "getAMDMB", "getAll", "getB1", "getB2", "getC", "getCompact", "getD", "getD1", "getE", "getF", "getInnerA", "getInnerSubA", "getK", "getMB", "hasF3", "ice_id", "ice_ids", "ice_isA", "ice_ping", "opBaseSeq", "opF1", "opF2", "opF3", "opM", "opValue", "opValueMap", "opValueSeq", "setCycle", "setG", "setRecursive", "shutdown", "supportsClassGraphDepthMax", "throwEDerived", "throwInnerEx", "throwInnerSubEx" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 36, current.operation);
     if(r.first == r.second)
     {
@@ -2388,147 +2397,147 @@ Test::Initial::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
     {
         case 0:
         {
-            return _iceD_acceptsClassCycles(in, current);
+            return _iceD_acceptsClassCycles(incoming);
         }
         case 1:
         {
-            return _iceD_getAMDMB(in, current);
+            return _iceD_getAMDMB(incoming);
         }
         case 2:
         {
-            return _iceD_getAll(in, current);
+            return _iceD_getAll(incoming);
         }
         case 3:
         {
-            return _iceD_getB1(in, current);
+            return _iceD_getB1(incoming);
         }
         case 4:
         {
-            return _iceD_getB2(in, current);
+            return _iceD_getB2(incoming);
         }
         case 5:
         {
-            return _iceD_getC(in, current);
+            return _iceD_getC(incoming);
         }
         case 6:
         {
-            return _iceD_getCompact(in, current);
+            return _iceD_getCompact(incoming);
         }
         case 7:
         {
-            return _iceD_getD(in, current);
+            return _iceD_getD(incoming);
         }
         case 8:
         {
-            return _iceD_getD1(in, current);
+            return _iceD_getD1(incoming);
         }
         case 9:
         {
-            return _iceD_getE(in, current);
+            return _iceD_getE(incoming);
         }
         case 10:
         {
-            return _iceD_getF(in, current);
+            return _iceD_getF(incoming);
         }
         case 11:
         {
-            return _iceD_getInnerA(in, current);
+            return _iceD_getInnerA(incoming);
         }
         case 12:
         {
-            return _iceD_getInnerSubA(in, current);
+            return _iceD_getInnerSubA(incoming);
         }
         case 13:
         {
-            return _iceD_getK(in, current);
+            return _iceD_getK(incoming);
         }
         case 14:
         {
-            return _iceD_getMB(in, current);
+            return _iceD_getMB(incoming);
         }
         case 15:
         {
-            return _iceD_hasF3(in, current);
+            return _iceD_hasF3(incoming);
         }
         case 16:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 17:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 18:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 19:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 20:
         {
-            return _iceD_opBaseSeq(in, current);
+            return _iceD_opBaseSeq(incoming);
         }
         case 21:
         {
-            return _iceD_opF1(in, current);
+            return _iceD_opF1(incoming);
         }
         case 22:
         {
-            return _iceD_opF2(in, current);
+            return _iceD_opF2(incoming);
         }
         case 23:
         {
-            return _iceD_opF3(in, current);
+            return _iceD_opF3(incoming);
         }
         case 24:
         {
-            return _iceD_opM(in, current);
+            return _iceD_opM(incoming);
         }
         case 25:
         {
-            return _iceD_opValue(in, current);
+            return _iceD_opValue(incoming);
         }
         case 26:
         {
-            return _iceD_opValueMap(in, current);
+            return _iceD_opValueMap(incoming);
         }
         case 27:
         {
-            return _iceD_opValueSeq(in, current);
+            return _iceD_opValueSeq(incoming);
         }
         case 28:
         {
-            return _iceD_setCycle(in, current);
+            return _iceD_setCycle(incoming);
         }
         case 29:
         {
-            return _iceD_setG(in, current);
+            return _iceD_setG(incoming);
         }
         case 30:
         {
-            return _iceD_setRecursive(in, current);
+            return _iceD_setRecursive(incoming);
         }
         case 31:
         {
-            return _iceD_shutdown(in, current);
+            return _iceD_shutdown(incoming);
         }
         case 32:
         {
-            return _iceD_supportsClassGraphDepthMax(in, current);
+            return _iceD_supportsClassGraphDepthMax(incoming);
         }
         case 33:
         {
-            return _iceD_throwEDerived(in, current);
+            return _iceD_throwEDerived(incoming);
         }
         case 34:
         {
-            return _iceD_throwInnerEx(in, current);
+            return _iceD_throwInnerEx(incoming);
         }
         case 35:
         {
-            return _iceD_throwInnerSubEx(in, current);
+            return _iceD_throwInnerSubEx(incoming);
         }
         default:
         {
@@ -2561,25 +2570,26 @@ Test::UnexpectedObjectExceptionTest::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::UnexpectedObjectExceptionTest::_iceD_op(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::UnexpectedObjectExceptionTest::_iceD_op(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::shared_ptr<Empty> ret = this->op(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::shared_ptr<Empty> ret = this->op(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
     ostr->writePendingValues();
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::UnexpectedObjectExceptionTest::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::UnexpectedObjectExceptionTest::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "op" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
@@ -2590,23 +2600,23 @@ Test::UnexpectedObjectExceptionTest::_iceDispatch(::IceInternal::Incoming& in, c
     {
         case 0:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 1:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 2:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 4:
         {
-            return _iceD_op(in, current);
+            return _iceD_op(incoming);
         }
         default:
         {

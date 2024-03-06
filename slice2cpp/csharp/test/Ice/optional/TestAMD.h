@@ -1666,11 +1666,11 @@ public:
 
     virtual void op(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_op(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_op(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -1704,202 +1704,202 @@ public:
 
     virtual void shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void pingPongAsync(::std::shared_ptr<::Ice::Value> o, ::std::function<void(const ::std::shared_ptr<::Ice::Value>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_pingPong(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_pingPong(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opOptionalExceptionAsync(::std::optional<::std::int32_t> a, ::std::optional<::std::string> b, ::std::optional<::std::shared_ptr<OneOptional>> o, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptionalException(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opOptionalException(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opDerivedExceptionAsync(::std::optional<::std::int32_t> a, ::std::optional<::std::string> b, ::std::optional<::std::shared_ptr<OneOptional>> o, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opDerivedException(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opDerivedException(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opRequiredExceptionAsync(::std::optional<::std::int32_t> a, ::std::optional<::std::string> b, ::std::optional<::std::shared_ptr<OneOptional>> o, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opRequiredException(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opRequiredException(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opByteAsync(::std::optional<::std::uint8_t> p1, ::std::function<void(::std::optional<::std::uint8_t> returnValue, ::std::optional<::std::uint8_t> p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByte(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opByte(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opBoolAsync(::std::optional<bool> p1, ::std::function<void(::std::optional<bool> returnValue, ::std::optional<bool> p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBool(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opBool(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opShortAsync(::std::optional<::std::int16_t> p1, ::std::function<void(::std::optional<::std::int16_t> returnValue, ::std::optional<::std::int16_t> p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opShort(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opShort(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opIntAsync(::std::optional<::std::int32_t> p1, ::std::function<void(::std::optional<::std::int32_t> returnValue, ::std::optional<::std::int32_t> p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opInt(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opInt(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opLongAsync(::std::optional<::std::int64_t> p1, ::std::function<void(::std::optional<::std::int64_t> returnValue, ::std::optional<::std::int64_t> p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLong(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opLong(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opFloatAsync(::std::optional<float> p1, ::std::function<void(::std::optional<float> returnValue, ::std::optional<float> p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opFloat(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opFloat(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opDoubleAsync(::std::optional<double> p1, ::std::function<void(::std::optional<double> returnValue, ::std::optional<double> p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opDouble(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opDouble(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opStringAsync(::std::optional<::std::string> p1, ::std::function<void(::std::optional<::std::string_view> returnValue, ::std::optional<::std::string_view> p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opString(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opString(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opMyEnumAsync(::std::optional<MyEnum> p1, ::std::function<void(::std::optional<MyEnum> returnValue, ::std::optional<MyEnum> p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMyEnum(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opMyEnum(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opSmallStructAsync(::std::optional<SmallStruct> p1, ::std::function<void(const ::std::optional<SmallStruct>& returnValue, const ::std::optional<SmallStruct>& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSmallStruct(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opSmallStruct(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opFixedStructAsync(::std::optional<FixedStruct> p1, ::std::function<void(const ::std::optional<FixedStruct>& returnValue, const ::std::optional<FixedStruct>& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opFixedStruct(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opFixedStruct(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opVarStructAsync(::std::optional<VarStruct> p1, ::std::function<void(const ::std::optional<VarStruct>& returnValue, const ::std::optional<VarStruct>& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opVarStruct(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opVarStruct(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opOneOptionalAsync(::std::optional<::std::shared_ptr<OneOptional>> p1, ::std::function<void(const ::std::optional<::std::shared_ptr<OneOptional>>& returnValue, const ::std::optional<::std::shared_ptr<OneOptional>>& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOneOptional(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opOneOptional(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opMyInterfaceProxyAsync(::std::optional<MyInterfacePrx> p1, ::std::function<void(const ::std::optional<MyInterfacePrx>& returnValue, const ::std::optional<MyInterfacePrx>& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMyInterfaceProxy(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opMyInterfaceProxy(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opByteSeqAsync(::std::optional<ByteSeq> p1, ::std::function<void(const ::std::optional<ByteSeq>& returnValue, const ::std::optional<ByteSeq>& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opByteSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opBoolSeqAsync(::std::optional<BoolSeq> p1, ::std::function<void(const ::std::optional<BoolSeq>& returnValue, const ::std::optional<BoolSeq>& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBoolSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opBoolSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opShortSeqAsync(::std::optional<ShortSeq> p1, ::std::function<void(const ::std::optional<ShortSeq>& returnValue, const ::std::optional<ShortSeq>& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opShortSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opShortSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opIntSeqAsync(::std::optional<IntSeq> p1, ::std::function<void(const ::std::optional<IntSeq>& returnValue, const ::std::optional<IntSeq>& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opIntSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opIntSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opLongSeqAsync(::std::optional<LongSeq> p1, ::std::function<void(const ::std::optional<LongSeq>& returnValue, const ::std::optional<LongSeq>& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLongSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opLongSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opFloatSeqAsync(::std::optional<FloatSeq> p1, ::std::function<void(const ::std::optional<FloatSeq>& returnValue, const ::std::optional<FloatSeq>& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opFloatSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opFloatSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opDoubleSeqAsync(::std::optional<DoubleSeq> p1, ::std::function<void(const ::std::optional<DoubleSeq>& returnValue, const ::std::optional<DoubleSeq>& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opDoubleSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opDoubleSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opStringSeqAsync(::std::optional<StringSeq> p1, ::std::function<void(const ::std::optional<StringSeq>& returnValue, const ::std::optional<StringSeq>& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opStringSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opSmallStructSeqAsync(::std::optional<SmallStructSeq> p1, ::std::function<void(const ::std::optional<SmallStructSeq>& returnValue, const ::std::optional<SmallStructSeq>& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSmallStructSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opSmallStructSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opSmallStructListAsync(::std::optional<SmallStructList> p1, ::std::function<void(const ::std::optional<SmallStructList>& returnValue, const ::std::optional<SmallStructList>& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSmallStructList(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opSmallStructList(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opFixedStructSeqAsync(::std::optional<FixedStructSeq> p1, ::std::function<void(const ::std::optional<FixedStructSeq>& returnValue, const ::std::optional<FixedStructSeq>& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opFixedStructSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opFixedStructSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opFixedStructListAsync(::std::optional<FixedStructList> p1, ::std::function<void(const ::std::optional<FixedStructList>& returnValue, const ::std::optional<FixedStructList>& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opFixedStructList(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opFixedStructList(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opVarStructSeqAsync(::std::optional<VarStructSeq> p1, ::std::function<void(const ::std::optional<VarStructSeq>& returnValue, const ::std::optional<VarStructSeq>& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opVarStructSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opVarStructSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opIntIntDictAsync(::std::optional<IntIntDict> p1, ::std::function<void(const ::std::optional<IntIntDict>& returnValue, const ::std::optional<IntIntDict>& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opIntIntDict(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opIntIntDict(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opStringIntDictAsync(::std::optional<StringIntDict> p1, ::std::function<void(const ::std::optional<StringIntDict>& returnValue, const ::std::optional<StringIntDict>& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringIntDict(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opStringIntDict(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opIntOneOptionalDictAsync(::std::optional<IntOneOptionalDict> p1, ::std::function<void(const ::std::optional<IntOneOptionalDict>& returnValue, const ::std::optional<IntOneOptionalDict>& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opIntOneOptionalDict(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opIntOneOptionalDict(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opClassAndUnknownOptionalAsync(::std::shared_ptr<A> p, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opClassAndUnknownOptional(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opClassAndUnknownOptional(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void sendOptionalClassAsync(bool req, ::std::optional<::std::shared_ptr<OneOptional>> o, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_sendOptionalClass(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_sendOptionalClass(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void returnOptionalClassAsync(bool req, ::std::function<void(const ::std::optional<::std::shared_ptr<OneOptional>>& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_returnOptionalClass(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_returnOptionalClass(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opGAsync(::std::shared_ptr<G> g, ::std::function<void(const ::std::shared_ptr<G>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opG(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opG(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opVoidAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opVoid(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opVoid(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -1917,7 +1917,7 @@ public:
 
     virtual void opMStruct1Async(::std::function<void(const OpMStruct1MarshaledResult&)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMStruct1(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opMStruct1(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -1935,7 +1935,7 @@ public:
 
     virtual void opMStruct2Async(::std::optional<SmallStruct> p1, ::std::function<void(const OpMStruct2MarshaledResult&)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMStruct2(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opMStruct2(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -1953,7 +1953,7 @@ public:
 
     virtual void opMSeq1Async(::std::function<void(const OpMSeq1MarshaledResult&)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMSeq1(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opMSeq1(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -1971,7 +1971,7 @@ public:
 
     virtual void opMSeq2Async(::std::optional<StringSeq> p1, ::std::function<void(const OpMSeq2MarshaledResult&)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMSeq2(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opMSeq2(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -1989,7 +1989,7 @@ public:
 
     virtual void opMDict1Async(::std::function<void(const OpMDict1MarshaledResult&)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMDict1(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opMDict1(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -2007,7 +2007,7 @@ public:
 
     virtual void opMDict2Async(::std::optional<StringIntDict> p1, ::std::function<void(const OpMDict2MarshaledResult&)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMDict2(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opMDict2(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -2025,7 +2025,7 @@ public:
 
     virtual void opMG1Async(::std::function<void(const OpMG1MarshaledResult&)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMG1(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opMG1(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -2043,26 +2043,26 @@ public:
 
     virtual void opMG2Async(::std::optional<::std::shared_ptr<G>> p1, ::std::function<void(const OpMG2MarshaledResult&)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMG2(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opMG2(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void supportsRequiredParamsAsync(::std::function<void(bool returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_supportsRequiredParams(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_supportsRequiredParams(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void supportsJavaSerializableAsync(::std::function<void(bool returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_supportsJavaSerializable(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_supportsJavaSerializable(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void supportsNullOptionalAsync(::std::function<void(bool returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_supportsNullOptional(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_supportsNullOptional(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

@@ -464,11 +464,11 @@ public:
 
     virtual void caseAsync(::std::int32_t _cpp_catch, ::std::function<void(::std::int32_t _cpp_try)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_case(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_case(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -502,11 +502,11 @@ public:
 
     virtual void _cpp_public(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_public(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_public(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -540,7 +540,7 @@ public:
     static ::std::string_view ice_staticId();
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

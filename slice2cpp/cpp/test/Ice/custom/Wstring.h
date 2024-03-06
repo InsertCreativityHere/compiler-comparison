@@ -393,21 +393,21 @@ public:
 
     virtual ::std::wstring opString(::std::wstring s1, ::std::wstring& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opString(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opString(::IceInternal::Incoming&);
     /// \endcond
 
     virtual WstringStruct opStruct(WstringStruct s1, WstringStruct& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStruct(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opStruct(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwExcept(::std::wstring reason, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwExcept(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwExcept(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -446,21 +446,21 @@ public:
 
     virtual ::std::wstring opString(::std::wstring s1, ::std::wstring& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opString(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opString(::IceInternal::Incoming&);
     /// \endcond
 
     virtual WstringStruct opStruct(WstringStruct s1, WstringStruct& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStruct(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opStruct(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwExcept(::std::wstring reason, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwExcept(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwExcept(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

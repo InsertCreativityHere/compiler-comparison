@@ -1705,11 +1705,11 @@ public:
 
     virtual ::std::optional<IAPrx> iaop(::std::optional<IAPrx> p, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_iaop(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_iaop(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -1748,11 +1748,11 @@ public:
 
     virtual ::std::optional<IB1Prx> ib1op(::std::optional<IB1Prx> p, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_ib1op(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_ib1op(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -1786,11 +1786,11 @@ public:
 
     virtual ::std::optional<IB2Prx> ib2op(::std::optional<IB2Prx> p, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_ib2op(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_ib2op(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -1830,11 +1830,11 @@ public:
 
     virtual ::std::optional<ICPrx> icop(::std::optional<ICPrx> p, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_icop(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_icop(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -1870,31 +1870,31 @@ public:
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<::Test::MA::IAPrx> iaop(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_iaop(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_iaop(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<::Test::MB::IB1Prx> ib1op(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_ib1op(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_ib1op(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<::Test::MB::IB2Prx> ib2op(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_ib2op(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_ib2op(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<::Test::MA::ICPrx> icop(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_icop(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_icop(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -1928,26 +1928,26 @@ public:
 
     virtual void setConnection(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_setConnection(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_setConnection(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void startBatch(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_startBatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_startBatch(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void flushBatch(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_flushBatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_flushBatch(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

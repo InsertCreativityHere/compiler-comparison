@@ -498,11 +498,11 @@ public:
 
     virtual void elifAsync(::std::int32_t _cpp_else, ::std::function<void(::std::int32_t except)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_elif(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_elif(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -536,11 +536,11 @@ public:
 
     virtual void finally(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_finally(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_finally(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -574,7 +574,7 @@ public:
     static ::std::string_view ice_staticId();
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -608,11 +608,11 @@ public:
 
     virtual assert raise(_cpp_continue _cpp_else, ::std::shared_ptr<::and::for> _cpp_return, ::std::optional<delPrx> _cpp_while, ::std::optional<execPrx> yield, ::std::optional<ifPrx> _cpp_or, ::std::int32_t global, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_raise(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_raise(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

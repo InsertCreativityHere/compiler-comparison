@@ -16,6 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -489,159 +490,160 @@ Test::RemoteCommunicator::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::RemoteCommunicator::_iceD_getAdmin(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::RemoteCommunicator::_iceD_getAdmin(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::optional<::Ice::ObjectPrx> ret = this->getAdmin(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::optional<::Ice::ObjectPrx> ret = this->getAdmin(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::RemoteCommunicator::_iceD_getChanges(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::RemoteCommunicator::_iceD_getChanges(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::Ice::PropertyDict ret = this->getChanges(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::Ice::PropertyDict ret = this->getChanges(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::RemoteCommunicator::_iceD_addUpdateCallback(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::RemoteCommunicator::_iceD_addUpdateCallback(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->addUpdateCallback(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->addUpdateCallback(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::RemoteCommunicator::_iceD_removeUpdateCallback(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::RemoteCommunicator::_iceD_removeUpdateCallback(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->removeUpdateCallback(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->removeUpdateCallback(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::RemoteCommunicator::_iceD_print(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::RemoteCommunicator::_iceD_print(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_message;
     istr->readAll(iceP_message);
-    inS.endReadParams();
-    this->print(::std::move(iceP_message), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->print(::std::move(iceP_message), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::RemoteCommunicator::_iceD_trace(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::RemoteCommunicator::_iceD_trace(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_category;
     ::std::string iceP_message;
     istr->readAll(iceP_category, iceP_message);
-    inS.endReadParams();
-    this->trace(::std::move(iceP_category), ::std::move(iceP_message), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->trace(::std::move(iceP_category), ::std::move(iceP_message), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::RemoteCommunicator::_iceD_warning(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::RemoteCommunicator::_iceD_warning(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_message;
     istr->readAll(iceP_message);
-    inS.endReadParams();
-    this->warning(::std::move(iceP_message), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->warning(::std::move(iceP_message), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::RemoteCommunicator::_iceD_error(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::RemoteCommunicator::_iceD_error(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_message;
     istr->readAll(iceP_message);
-    inS.endReadParams();
-    this->error(::std::move(iceP_message), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->error(::std::move(iceP_message), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::RemoteCommunicator::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::RemoteCommunicator::_iceD_shutdown(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->shutdown(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->shutdown(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::RemoteCommunicator::_iceD_waitForShutdown(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::RemoteCommunicator::_iceD_waitForShutdown(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->waitForShutdown(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->waitForShutdown(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::RemoteCommunicator::_iceD_destroy(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::RemoteCommunicator::_iceD_destroy(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->destroy(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->destroy(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::RemoteCommunicator::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::RemoteCommunicator::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "addUpdateCallback", "destroy", "error", "getAdmin", "getChanges", "ice_id", "ice_ids", "ice_isA", "ice_ping", "print", "removeUpdateCallback", "shutdown", "trace", "waitForShutdown", "warning" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 15, current.operation);
     if(r.first == r.second)
     {
@@ -652,63 +654,63 @@ Test::RemoteCommunicator::_iceDispatch(::IceInternal::Incoming& in, const ::Ice:
     {
         case 0:
         {
-            return _iceD_addUpdateCallback(in, current);
+            return _iceD_addUpdateCallback(incoming);
         }
         case 1:
         {
-            return _iceD_destroy(in, current);
+            return _iceD_destroy(incoming);
         }
         case 2:
         {
-            return _iceD_error(in, current);
+            return _iceD_error(incoming);
         }
         case 3:
         {
-            return _iceD_getAdmin(in, current);
+            return _iceD_getAdmin(incoming);
         }
         case 4:
         {
-            return _iceD_getChanges(in, current);
+            return _iceD_getChanges(incoming);
         }
         case 5:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 6:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 7:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 8:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 9:
         {
-            return _iceD_print(in, current);
+            return _iceD_print(incoming);
         }
         case 10:
         {
-            return _iceD_removeUpdateCallback(in, current);
+            return _iceD_removeUpdateCallback(incoming);
         }
         case 11:
         {
-            return _iceD_shutdown(in, current);
+            return _iceD_shutdown(incoming);
         }
         case 12:
         {
-            return _iceD_trace(in, current);
+            return _iceD_trace(incoming);
         }
         case 13:
         {
-            return _iceD_waitForShutdown(in, current);
+            return _iceD_waitForShutdown(incoming);
         }
         case 14:
         {
-            return _iceD_warning(in, current);
+            return _iceD_warning(incoming);
         }
         default:
         {
@@ -741,39 +743,40 @@ Test::RemoteCommunicatorFactory::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::RemoteCommunicatorFactory::_iceD_createCommunicator(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::RemoteCommunicatorFactory::_iceD_createCommunicator(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::Ice::PropertyDict iceP_props;
     istr->readAll(iceP_props);
-    inS.endReadParams();
-    ::std::optional<RemoteCommunicatorPrx> ret = this->createCommunicator(::std::move(iceP_props), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::optional<RemoteCommunicatorPrx> ret = this->createCommunicator(::std::move(iceP_props), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::RemoteCommunicatorFactory::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::RemoteCommunicatorFactory::_iceD_shutdown(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->shutdown(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->shutdown(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::RemoteCommunicatorFactory::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::RemoteCommunicatorFactory::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "createCommunicator", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
@@ -784,27 +787,27 @@ Test::RemoteCommunicatorFactory::_iceDispatch(::IceInternal::Incoming& in, const
     {
         case 0:
         {
-            return _iceD_createCommunicator(in, current);
+            return _iceD_createCommunicator(incoming);
         }
         case 1:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 2:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 3:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 4:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 5:
         {
-            return _iceD_shutdown(in, current);
+            return _iceD_shutdown(incoming);
         }
         default:
         {
@@ -837,22 +840,23 @@ Test::TestFacet::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::TestFacet::_iceD_op(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::TestFacet::_iceD_op(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->op(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->op(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::TestFacet::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::TestFacet::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "op" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
@@ -863,23 +867,23 @@ Test::TestFacet::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current&
     {
         case 0:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 1:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 2:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 4:
         {
-            return _iceD_op(in, current);
+            return _iceD_op(incoming);
         }
         default:
         {

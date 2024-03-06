@@ -957,7 +957,7 @@ public:
      */
     virtual void init(LogUpdate llu, TopicContentSeq content, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_init(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_init(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -970,7 +970,7 @@ public:
      */
     virtual void createTopic(LogUpdate llu, ::std::string name, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_createTopic(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_createTopic(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -983,7 +983,7 @@ public:
      */
     virtual void destroyTopic(LogUpdate llu, ::std::string name, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_destroyTopic(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_destroyTopic(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -997,7 +997,7 @@ public:
      */
     virtual void addSubscriber(LogUpdate llu, ::std::string topic, ::IceStorm::SubscriberRecord record, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_addSubscriber(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_addSubscriber(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -1009,11 +1009,11 @@ public:
      */
     virtual void removeSubscriber(LogUpdate llu, ::std::string topic, ::Ice::IdentitySeq subscribers, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_removeSubscriber(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_removeSubscriber(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -1056,11 +1056,11 @@ public:
      */
     virtual void getContent(LogUpdate& llu, TopicContentSeq& content, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getContent(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_getContent(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -1103,7 +1103,7 @@ public:
      */
     virtual void invitation(::std::int32_t j, ::std::string gn, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_invitation(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_invitation(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -1117,7 +1117,7 @@ public:
      */
     virtual void ready(::std::int32_t j, ::std::string gn, ::std::optional<::Ice::ObjectPrx> coordinator, ::std::int32_t max, ::std::int64_t generation, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_ready(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_ready(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -1132,7 +1132,7 @@ public:
      */
     virtual void accept(::std::int32_t j, ::std::string gn, ::Ice::IntSeq forwardedInvites, ::std::optional<::Ice::ObjectPrx> observer, LogUpdate llu, ::std::int32_t max, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_accept(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_accept(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -1142,7 +1142,7 @@ public:
      */
     virtual bool areYouCoordinator(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_areYouCoordinator(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    bool _iceD_areYouCoordinator(::IceInternal::Incoming&) const;
     /// \endcond
 
     /**
@@ -1154,7 +1154,7 @@ public:
      */
     virtual bool areYouThere(::std::string gn, ::std::int32_t j, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_areYouThere(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    bool _iceD_areYouThere(::IceInternal::Incoming&) const;
     /// \endcond
 
     /**
@@ -1164,7 +1164,7 @@ public:
      */
     virtual ::std::optional<::Ice::ObjectPrx> sync(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_sync(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    bool _iceD_sync(::IceInternal::Incoming&) const;
     /// \endcond
 
     /**
@@ -1174,7 +1174,7 @@ public:
      */
     virtual NodeInfoSeq nodes(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_nodes(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    bool _iceD_nodes(::IceInternal::Incoming&) const;
     /// \endcond
 
     /**
@@ -1184,11 +1184,11 @@ public:
      */
     virtual QueryInfo query(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_query(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    bool _iceD_query(::IceInternal::Incoming&) const;
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

@@ -20,6 +20,7 @@
 #include <Locator.h>
 #include <Ice/Process.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -443,68 +444,83 @@ Ice::Locator::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Ice::Locator::_iceD_findObjectById(::IceInternal::Incoming& inS, const Current& current) const
+Ice::Locator::_iceD_findObjectById(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     Identity iceP_id;
     istr->readAll(iceP_id);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ::std::optional<::Ice::ObjectPrx>& ret)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](const ::std::optional<::Ice::ObjectPrx>& ret)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll(ret);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->findObjectByIdAsync(::std::move(iceP_id), responseCB, inA->exception(), current);
+    try
+    {
+        this->findObjectByIdAsync(::std::move(iceP_id), responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Ice::Locator::_iceD_findAdapterById(::IceInternal::Incoming& inS, const Current& current) const
+Ice::Locator::_iceD_findAdapterById(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_id;
     istr->readAll(iceP_id);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](const ::std::optional<::Ice::ObjectPrx>& ret)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](const ::std::optional<::Ice::ObjectPrx>& ret)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll(ret);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->findAdapterByIdAsync(::std::move(iceP_id), responseCB, inA->exception(), current);
+    try
+    {
+        this->findAdapterByIdAsync(::std::move(iceP_id), responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Ice::Locator::_iceD_getRegistry(::IceInternal::Incoming& inS, const Current& current) const
+Ice::Locator::_iceD_getRegistry(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    inS.readEmptyParams();
-    ::std::optional<LocatorRegistryPrx> ret = this->getRegistry(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::optional<LocatorRegistryPrx> ret = this->getRegistry(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Ice::Locator::_iceDispatch(::IceInternal::Incoming& in, const Current& current)
+Ice::Locator::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "findAdapterById", "findObjectById", "getRegistry", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
@@ -515,31 +531,31 @@ Ice::Locator::_iceDispatch(::IceInternal::Incoming& in, const Current& current)
     {
         case 0:
         {
-            return _iceD_findAdapterById(in, current);
+            return _iceD_findAdapterById(incoming);
         }
         case 1:
         {
-            return _iceD_findObjectById(in, current);
+            return _iceD_findObjectById(incoming);
         }
         case 2:
         {
-            return _iceD_getRegistry(in, current);
+            return _iceD_getRegistry(incoming);
         }
         case 3:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 4:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 5:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 6:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         default:
         {
@@ -572,59 +588,81 @@ Ice::LocatorRegistry::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Ice::LocatorRegistry::_iceD_setAdapterDirectProxy(::IceInternal::Incoming& inS, const Current& current)
+Ice::LocatorRegistry::_iceD_setAdapterDirectProxy(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_id;
     ::std::optional<::Ice::ObjectPrx> iceP_proxy;
     istr->readAll(iceP_id, iceP_proxy);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    this->setAdapterDirectProxyAsync(::std::move(iceP_id), ::std::move(iceP_proxy), inA->response(), inA->exception(), current);
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    try
+    {
+        this->setAdapterDirectProxyAsync(::std::move(iceP_id), ::std::move(iceP_proxy), [incomingPtr] { incomingPtr->response(); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Ice::LocatorRegistry::_iceD_setReplicatedAdapterDirectProxy(::IceInternal::Incoming& inS, const Current& current)
+Ice::LocatorRegistry::_iceD_setReplicatedAdapterDirectProxy(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_adapterId;
     ::std::string iceP_replicaGroupId;
     ::std::optional<::Ice::ObjectPrx> iceP_p;
     istr->readAll(iceP_adapterId, iceP_replicaGroupId, iceP_p);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    this->setReplicatedAdapterDirectProxyAsync(::std::move(iceP_adapterId), ::std::move(iceP_replicaGroupId), ::std::move(iceP_p), inA->response(), inA->exception(), current);
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    try
+    {
+        this->setReplicatedAdapterDirectProxyAsync(::std::move(iceP_adapterId), ::std::move(iceP_replicaGroupId), ::std::move(iceP_p), [incomingPtr] { incomingPtr->response(); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Ice::LocatorRegistry::_iceD_setServerProcessProxy(::IceInternal::Incoming& inS, const Current& current)
+Ice::LocatorRegistry::_iceD_setServerProcessProxy(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_id;
     ::std::optional<ProcessPrx> iceP_proxy;
     istr->readAll(iceP_id, iceP_proxy);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    this->setServerProcessProxyAsync(::std::move(iceP_id), ::std::move(iceP_proxy), inA->response(), inA->exception(), current);
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    try
+    {
+        this->setServerProcessProxyAsync(::std::move(iceP_id), ::std::move(iceP_proxy), [incomingPtr] { incomingPtr->response(); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Ice::LocatorRegistry::_iceDispatch(::IceInternal::Incoming& in, const Current& current)
+Ice::LocatorRegistry::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "setAdapterDirectProxy", "setReplicatedAdapterDirectProxy", "setServerProcessProxy" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
@@ -635,31 +673,31 @@ Ice::LocatorRegistry::_iceDispatch(::IceInternal::Incoming& in, const Current& c
     {
         case 0:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 1:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 2:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 4:
         {
-            return _iceD_setAdapterDirectProxy(in, current);
+            return _iceD_setAdapterDirectProxy(incoming);
         }
         case 5:
         {
-            return _iceD_setReplicatedAdapterDirectProxy(in, current);
+            return _iceD_setReplicatedAdapterDirectProxy(incoming);
         }
         case 6:
         {
-            return _iceD_setServerProcessProxy(in, current);
+            return _iceD_setServerProcessProxy(incoming);
         }
         default:
         {
@@ -692,24 +730,25 @@ Ice::LocatorFinder::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Ice::LocatorFinder::_iceD_getLocator(::IceInternal::Incoming& inS, const Current& current)
+Ice::LocatorFinder::_iceD_getLocator(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::optional<LocatorPrx> ret = this->getLocator(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::optional<LocatorPrx> ret = this->getLocator(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Ice::LocatorFinder::_iceDispatch(::IceInternal::Incoming& in, const Current& current)
+Ice::LocatorFinder::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "getLocator", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
@@ -720,23 +759,23 @@ Ice::LocatorFinder::_iceDispatch(::IceInternal::Incoming& in, const Current& cur
     {
         case 0:
         {
-            return _iceD_getLocator(in, current);
+            return _iceD_getLocator(incoming);
         }
         case 1:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 2:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 3:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 4:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         default:
         {

@@ -19,6 +19,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Admin.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -3692,758 +3693,787 @@ IceGrid::Admin::ice_staticId()
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_addApplication(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::Admin::_iceD_addApplication(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ApplicationDescriptor iceP_descriptor;
     istr->readAll(iceP_descriptor);
     istr->readPendingValues();
-    inS.endReadParams();
-    this->addApplication(::std::move(iceP_descriptor), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->addApplication(::std::move(iceP_descriptor), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_syncApplication(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::Admin::_iceD_syncApplication(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ApplicationDescriptor iceP_descriptor;
     istr->readAll(iceP_descriptor);
     istr->readPendingValues();
-    inS.endReadParams();
-    this->syncApplication(::std::move(iceP_descriptor), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->syncApplication(::std::move(iceP_descriptor), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_updateApplication(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::Admin::_iceD_updateApplication(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ApplicationUpdateDescriptor iceP_descriptor;
     istr->readAll(iceP_descriptor);
     istr->readPendingValues();
-    inS.endReadParams();
-    this->updateApplication(::std::move(iceP_descriptor), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->updateApplication(::std::move(iceP_descriptor), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_syncApplicationWithoutRestart(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::Admin::_iceD_syncApplicationWithoutRestart(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ApplicationDescriptor iceP_descriptor;
     istr->readAll(iceP_descriptor);
     istr->readPendingValues();
-    inS.endReadParams();
-    this->syncApplicationWithoutRestart(::std::move(iceP_descriptor), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->syncApplicationWithoutRestart(::std::move(iceP_descriptor), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_updateApplicationWithoutRestart(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::Admin::_iceD_updateApplicationWithoutRestart(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ApplicationUpdateDescriptor iceP_descriptor;
     istr->readAll(iceP_descriptor);
     istr->readPendingValues();
-    inS.endReadParams();
-    this->updateApplicationWithoutRestart(::std::move(iceP_descriptor), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->updateApplicationWithoutRestart(::std::move(iceP_descriptor), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_removeApplication(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::Admin::_iceD_removeApplication(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_name;
     istr->readAll(iceP_name);
-    inS.endReadParams();
-    this->removeApplication(::std::move(iceP_name), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->removeApplication(::std::move(iceP_name), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_instantiateServer(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::Admin::_iceD_instantiateServer(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_application;
     ::std::string iceP_node;
     ServerInstanceDescriptor iceP_desc;
     istr->readAll(iceP_application, iceP_node, iceP_desc);
-    inS.endReadParams();
-    this->instantiateServer(::std::move(iceP_application), ::std::move(iceP_node), ::std::move(iceP_desc), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->instantiateServer(::std::move(iceP_application), ::std::move(iceP_node), ::std::move(iceP_desc), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_patchApplication(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::Admin::_iceD_patchApplication(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_name;
     bool iceP_shutdown;
     istr->readAll(iceP_name, iceP_shutdown);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    this->patchApplicationAsync(::std::move(iceP_name), iceP_shutdown, inA->response(), inA->exception(), current);
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    try
+    {
+        this->patchApplicationAsync(::std::move(iceP_name), iceP_shutdown, [incomingPtr] { incomingPtr->response(); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_getApplicationInfo(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceGrid::Admin::_iceD_getApplicationInfo(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_name;
     istr->readAll(iceP_name);
-    inS.endReadParams();
-    ApplicationInfo ret = this->getApplicationInfo(::std::move(iceP_name), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ApplicationInfo ret = this->getApplicationInfo(::std::move(iceP_name), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
     ostr->writePendingValues();
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_getDefaultApplicationDescriptor(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceGrid::Admin::_iceD_getDefaultApplicationDescriptor(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    inS.readEmptyParams();
-    ApplicationDescriptor ret = this->getDefaultApplicationDescriptor(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    incoming.readEmptyParams();
+    ApplicationDescriptor ret = this->getDefaultApplicationDescriptor(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
     ostr->writePendingValues();
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_getAllApplicationNames(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceGrid::Admin::_iceD_getAllApplicationNames(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    inS.readEmptyParams();
-    ::Ice::StringSeq ret = this->getAllApplicationNames(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::Ice::StringSeq ret = this->getAllApplicationNames(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_getServerInfo(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceGrid::Admin::_iceD_getServerInfo(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_id;
     istr->readAll(iceP_id);
-    inS.endReadParams();
-    ServerInfo ret = this->getServerInfo(::std::move(iceP_id), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ServerInfo ret = this->getServerInfo(::std::move(iceP_id), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
     ostr->writePendingValues();
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_getServerState(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceGrid::Admin::_iceD_getServerState(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_id;
     istr->readAll(iceP_id);
-    inS.endReadParams();
-    ServerState ret = this->getServerState(::std::move(iceP_id), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ServerState ret = this->getServerState(::std::move(iceP_id), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_getServerPid(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceGrid::Admin::_iceD_getServerPid(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_id;
     istr->readAll(iceP_id);
-    inS.endReadParams();
-    ::std::int32_t ret = this->getServerPid(::std::move(iceP_id), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::int32_t ret = this->getServerPid(::std::move(iceP_id), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_getServerAdminCategory(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceGrid::Admin::_iceD_getServerAdminCategory(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    inS.readEmptyParams();
-    ::std::string ret = this->getServerAdminCategory(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::string ret = this->getServerAdminCategory(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_getServerAdmin(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceGrid::Admin::_iceD_getServerAdmin(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_id;
     istr->readAll(iceP_id);
-    inS.endReadParams();
-    ::std::optional<::Ice::ObjectPrx> ret = this->getServerAdmin(::std::move(iceP_id), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::optional<::Ice::ObjectPrx> ret = this->getServerAdmin(::std::move(iceP_id), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_enableServer(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::Admin::_iceD_enableServer(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_id;
     bool iceP_enabled;
     istr->readAll(iceP_id, iceP_enabled);
-    inS.endReadParams();
-    this->enableServer(::std::move(iceP_id), iceP_enabled, current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->enableServer(::std::move(iceP_id), iceP_enabled, incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_isServerEnabled(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceGrid::Admin::_iceD_isServerEnabled(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_id;
     istr->readAll(iceP_id);
-    inS.endReadParams();
-    bool ret = this->isServerEnabled(::std::move(iceP_id), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    bool ret = this->isServerEnabled(::std::move(iceP_id), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_startServer(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::Admin::_iceD_startServer(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_id;
     istr->readAll(iceP_id);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    this->startServerAsync(::std::move(iceP_id), inA->response(), inA->exception(), current);
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    try
+    {
+        this->startServerAsync(::std::move(iceP_id), [incomingPtr] { incomingPtr->response(); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_stopServer(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::Admin::_iceD_stopServer(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_id;
     istr->readAll(iceP_id);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    this->stopServerAsync(::std::move(iceP_id), inA->response(), inA->exception(), current);
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    try
+    {
+        this->stopServerAsync(::std::move(iceP_id), [incomingPtr] { incomingPtr->response(); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_patchServer(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::Admin::_iceD_patchServer(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_id;
     bool iceP_shutdown;
     istr->readAll(iceP_id, iceP_shutdown);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    this->patchServerAsync(::std::move(iceP_id), iceP_shutdown, inA->response(), inA->exception(), current);
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    try
+    {
+        this->patchServerAsync(::std::move(iceP_id), iceP_shutdown, [incomingPtr] { incomingPtr->response(); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_sendSignal(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::Admin::_iceD_sendSignal(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_id;
     ::std::string iceP_signal;
     istr->readAll(iceP_id, iceP_signal);
-    inS.endReadParams();
-    this->sendSignal(::std::move(iceP_id), ::std::move(iceP_signal), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->sendSignal(::std::move(iceP_id), ::std::move(iceP_signal), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_getAllServerIds(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceGrid::Admin::_iceD_getAllServerIds(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    inS.readEmptyParams();
-    ::Ice::StringSeq ret = this->getAllServerIds(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::Ice::StringSeq ret = this->getAllServerIds(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_getAdapterInfo(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceGrid::Admin::_iceD_getAdapterInfo(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_id;
     istr->readAll(iceP_id);
-    inS.endReadParams();
-    AdapterInfoSeq ret = this->getAdapterInfo(::std::move(iceP_id), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    AdapterInfoSeq ret = this->getAdapterInfo(::std::move(iceP_id), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_removeAdapter(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::Admin::_iceD_removeAdapter(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_id;
     istr->readAll(iceP_id);
-    inS.endReadParams();
-    this->removeAdapter(::std::move(iceP_id), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->removeAdapter(::std::move(iceP_id), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_getAllAdapterIds(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceGrid::Admin::_iceD_getAllAdapterIds(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    inS.readEmptyParams();
-    ::Ice::StringSeq ret = this->getAllAdapterIds(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::Ice::StringSeq ret = this->getAllAdapterIds(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_addObject(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::Admin::_iceD_addObject(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<::Ice::ObjectPrx> iceP_obj;
     istr->readAll(iceP_obj);
-    inS.endReadParams();
-    this->addObject(::std::move(iceP_obj), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->addObject(::std::move(iceP_obj), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_updateObject(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::Admin::_iceD_updateObject(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<::Ice::ObjectPrx> iceP_obj;
     istr->readAll(iceP_obj);
-    inS.endReadParams();
-    this->updateObject(::std::move(iceP_obj), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->updateObject(::std::move(iceP_obj), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_addObjectWithType(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::Admin::_iceD_addObjectWithType(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<::Ice::ObjectPrx> iceP_obj;
     ::std::string iceP_type;
     istr->readAll(iceP_obj, iceP_type);
-    inS.endReadParams();
-    this->addObjectWithType(::std::move(iceP_obj), ::std::move(iceP_type), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->addObjectWithType(::std::move(iceP_obj), ::std::move(iceP_type), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_removeObject(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::Admin::_iceD_removeObject(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::Ice::Identity iceP_id;
     istr->readAll(iceP_id);
-    inS.endReadParams();
-    this->removeObject(::std::move(iceP_id), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->removeObject(::std::move(iceP_id), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_getObjectInfo(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceGrid::Admin::_iceD_getObjectInfo(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::Ice::Identity iceP_id;
     istr->readAll(iceP_id);
-    inS.endReadParams();
-    ObjectInfo ret = this->getObjectInfo(::std::move(iceP_id), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ObjectInfo ret = this->getObjectInfo(::std::move(iceP_id), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_getObjectInfosByType(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceGrid::Admin::_iceD_getObjectInfosByType(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_type;
     istr->readAll(iceP_type);
-    inS.endReadParams();
-    ObjectInfoSeq ret = this->getObjectInfosByType(::std::move(iceP_type), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ObjectInfoSeq ret = this->getObjectInfosByType(::std::move(iceP_type), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_getAllObjectInfos(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceGrid::Admin::_iceD_getAllObjectInfos(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_expr;
     istr->readAll(iceP_expr);
-    inS.endReadParams();
-    ObjectInfoSeq ret = this->getAllObjectInfos(::std::move(iceP_expr), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ObjectInfoSeq ret = this->getAllObjectInfos(::std::move(iceP_expr), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_pingNode(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceGrid::Admin::_iceD_pingNode(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_name;
     istr->readAll(iceP_name);
-    inS.endReadParams();
-    bool ret = this->pingNode(::std::move(iceP_name), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    bool ret = this->pingNode(::std::move(iceP_name), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_getNodeLoad(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceGrid::Admin::_iceD_getNodeLoad(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_name;
     istr->readAll(iceP_name);
-    inS.endReadParams();
-    LoadInfo ret = this->getNodeLoad(::std::move(iceP_name), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    LoadInfo ret = this->getNodeLoad(::std::move(iceP_name), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_getNodeInfo(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceGrid::Admin::_iceD_getNodeInfo(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_name;
     istr->readAll(iceP_name);
-    inS.endReadParams();
-    NodeInfo ret = this->getNodeInfo(::std::move(iceP_name), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    NodeInfo ret = this->getNodeInfo(::std::move(iceP_name), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_getNodeAdmin(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceGrid::Admin::_iceD_getNodeAdmin(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_name;
     istr->readAll(iceP_name);
-    inS.endReadParams();
-    ::std::optional<::Ice::ObjectPrx> ret = this->getNodeAdmin(::std::move(iceP_name), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::optional<::Ice::ObjectPrx> ret = this->getNodeAdmin(::std::move(iceP_name), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_getNodeProcessorSocketCount(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceGrid::Admin::_iceD_getNodeProcessorSocketCount(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_name;
     istr->readAll(iceP_name);
-    inS.endReadParams();
-    ::std::int32_t ret = this->getNodeProcessorSocketCount(::std::move(iceP_name), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::int32_t ret = this->getNodeProcessorSocketCount(::std::move(iceP_name), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_shutdownNode(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::Admin::_iceD_shutdownNode(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_name;
     istr->readAll(iceP_name);
-    inS.endReadParams();
-    this->shutdownNode(::std::move(iceP_name), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->shutdownNode(::std::move(iceP_name), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_getNodeHostname(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceGrid::Admin::_iceD_getNodeHostname(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_name;
     istr->readAll(iceP_name);
-    inS.endReadParams();
-    ::std::string ret = this->getNodeHostname(::std::move(iceP_name), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::string ret = this->getNodeHostname(::std::move(iceP_name), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_getAllNodeNames(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceGrid::Admin::_iceD_getAllNodeNames(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    inS.readEmptyParams();
-    ::Ice::StringSeq ret = this->getAllNodeNames(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::Ice::StringSeq ret = this->getAllNodeNames(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_pingRegistry(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceGrid::Admin::_iceD_pingRegistry(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_name;
     istr->readAll(iceP_name);
-    inS.endReadParams();
-    bool ret = this->pingRegistry(::std::move(iceP_name), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    bool ret = this->pingRegistry(::std::move(iceP_name), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_getRegistryInfo(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceGrid::Admin::_iceD_getRegistryInfo(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_name;
     istr->readAll(iceP_name);
-    inS.endReadParams();
-    RegistryInfo ret = this->getRegistryInfo(::std::move(iceP_name), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    RegistryInfo ret = this->getRegistryInfo(::std::move(iceP_name), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_getRegistryAdmin(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceGrid::Admin::_iceD_getRegistryAdmin(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_name;
     istr->readAll(iceP_name);
-    inS.endReadParams();
-    ::std::optional<::Ice::ObjectPrx> ret = this->getRegistryAdmin(::std::move(iceP_name), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::optional<::Ice::ObjectPrx> ret = this->getRegistryAdmin(::std::move(iceP_name), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_shutdownRegistry(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::Admin::_iceD_shutdownRegistry(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_name;
     istr->readAll(iceP_name);
-    inS.endReadParams();
-    this->shutdownRegistry(::std::move(iceP_name), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->shutdownRegistry(::std::move(iceP_name), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_getAllRegistryNames(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceGrid::Admin::_iceD_getAllRegistryNames(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    inS.readEmptyParams();
-    ::Ice::StringSeq ret = this->getAllRegistryNames(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::Ice::StringSeq ret = this->getAllRegistryNames(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::Admin::_iceD_shutdown(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->shutdown(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->shutdown(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::Admin::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+IceGrid::Admin::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "addApplication", "addObject", "addObjectWithType", "enableServer", "getAdapterInfo", "getAllAdapterIds", "getAllApplicationNames", "getAllNodeNames", "getAllObjectInfos", "getAllRegistryNames", "getAllServerIds", "getApplicationInfo", "getDefaultApplicationDescriptor", "getNodeAdmin", "getNodeHostname", "getNodeInfo", "getNodeLoad", "getNodeProcessorSocketCount", "getObjectInfo", "getObjectInfosByType", "getRegistryAdmin", "getRegistryInfo", "getServerAdmin", "getServerAdminCategory", "getServerInfo", "getServerPid", "getServerState", "ice_id", "ice_ids", "ice_isA", "ice_ping", "instantiateServer", "isServerEnabled", "patchApplication", "patchServer", "pingNode", "pingRegistry", "removeAdapter", "removeApplication", "removeObject", "sendSignal", "shutdown", "shutdownNode", "shutdownRegistry", "startServer", "stopServer", "syncApplication", "syncApplicationWithoutRestart", "updateApplication", "updateApplicationWithoutRestart", "updateObject" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 51, current.operation);
     if(r.first == r.second)
     {
@@ -4454,207 +4484,207 @@ IceGrid::Admin::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
     {
         case 0:
         {
-            return _iceD_addApplication(in, current);
+            return _iceD_addApplication(incoming);
         }
         case 1:
         {
-            return _iceD_addObject(in, current);
+            return _iceD_addObject(incoming);
         }
         case 2:
         {
-            return _iceD_addObjectWithType(in, current);
+            return _iceD_addObjectWithType(incoming);
         }
         case 3:
         {
-            return _iceD_enableServer(in, current);
+            return _iceD_enableServer(incoming);
         }
         case 4:
         {
-            return _iceD_getAdapterInfo(in, current);
+            return _iceD_getAdapterInfo(incoming);
         }
         case 5:
         {
-            return _iceD_getAllAdapterIds(in, current);
+            return _iceD_getAllAdapterIds(incoming);
         }
         case 6:
         {
-            return _iceD_getAllApplicationNames(in, current);
+            return _iceD_getAllApplicationNames(incoming);
         }
         case 7:
         {
-            return _iceD_getAllNodeNames(in, current);
+            return _iceD_getAllNodeNames(incoming);
         }
         case 8:
         {
-            return _iceD_getAllObjectInfos(in, current);
+            return _iceD_getAllObjectInfos(incoming);
         }
         case 9:
         {
-            return _iceD_getAllRegistryNames(in, current);
+            return _iceD_getAllRegistryNames(incoming);
         }
         case 10:
         {
-            return _iceD_getAllServerIds(in, current);
+            return _iceD_getAllServerIds(incoming);
         }
         case 11:
         {
-            return _iceD_getApplicationInfo(in, current);
+            return _iceD_getApplicationInfo(incoming);
         }
         case 12:
         {
-            return _iceD_getDefaultApplicationDescriptor(in, current);
+            return _iceD_getDefaultApplicationDescriptor(incoming);
         }
         case 13:
         {
-            return _iceD_getNodeAdmin(in, current);
+            return _iceD_getNodeAdmin(incoming);
         }
         case 14:
         {
-            return _iceD_getNodeHostname(in, current);
+            return _iceD_getNodeHostname(incoming);
         }
         case 15:
         {
-            return _iceD_getNodeInfo(in, current);
+            return _iceD_getNodeInfo(incoming);
         }
         case 16:
         {
-            return _iceD_getNodeLoad(in, current);
+            return _iceD_getNodeLoad(incoming);
         }
         case 17:
         {
-            return _iceD_getNodeProcessorSocketCount(in, current);
+            return _iceD_getNodeProcessorSocketCount(incoming);
         }
         case 18:
         {
-            return _iceD_getObjectInfo(in, current);
+            return _iceD_getObjectInfo(incoming);
         }
         case 19:
         {
-            return _iceD_getObjectInfosByType(in, current);
+            return _iceD_getObjectInfosByType(incoming);
         }
         case 20:
         {
-            return _iceD_getRegistryAdmin(in, current);
+            return _iceD_getRegistryAdmin(incoming);
         }
         case 21:
         {
-            return _iceD_getRegistryInfo(in, current);
+            return _iceD_getRegistryInfo(incoming);
         }
         case 22:
         {
-            return _iceD_getServerAdmin(in, current);
+            return _iceD_getServerAdmin(incoming);
         }
         case 23:
         {
-            return _iceD_getServerAdminCategory(in, current);
+            return _iceD_getServerAdminCategory(incoming);
         }
         case 24:
         {
-            return _iceD_getServerInfo(in, current);
+            return _iceD_getServerInfo(incoming);
         }
         case 25:
         {
-            return _iceD_getServerPid(in, current);
+            return _iceD_getServerPid(incoming);
         }
         case 26:
         {
-            return _iceD_getServerState(in, current);
+            return _iceD_getServerState(incoming);
         }
         case 27:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 28:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 29:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 30:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 31:
         {
-            return _iceD_instantiateServer(in, current);
+            return _iceD_instantiateServer(incoming);
         }
         case 32:
         {
-            return _iceD_isServerEnabled(in, current);
+            return _iceD_isServerEnabled(incoming);
         }
         case 33:
         {
-            return _iceD_patchApplication(in, current);
+            return _iceD_patchApplication(incoming);
         }
         case 34:
         {
-            return _iceD_patchServer(in, current);
+            return _iceD_patchServer(incoming);
         }
         case 35:
         {
-            return _iceD_pingNode(in, current);
+            return _iceD_pingNode(incoming);
         }
         case 36:
         {
-            return _iceD_pingRegistry(in, current);
+            return _iceD_pingRegistry(incoming);
         }
         case 37:
         {
-            return _iceD_removeAdapter(in, current);
+            return _iceD_removeAdapter(incoming);
         }
         case 38:
         {
-            return _iceD_removeApplication(in, current);
+            return _iceD_removeApplication(incoming);
         }
         case 39:
         {
-            return _iceD_removeObject(in, current);
+            return _iceD_removeObject(incoming);
         }
         case 40:
         {
-            return _iceD_sendSignal(in, current);
+            return _iceD_sendSignal(incoming);
         }
         case 41:
         {
-            return _iceD_shutdown(in, current);
+            return _iceD_shutdown(incoming);
         }
         case 42:
         {
-            return _iceD_shutdownNode(in, current);
+            return _iceD_shutdownNode(incoming);
         }
         case 43:
         {
-            return _iceD_shutdownRegistry(in, current);
+            return _iceD_shutdownRegistry(incoming);
         }
         case 44:
         {
-            return _iceD_startServer(in, current);
+            return _iceD_startServer(incoming);
         }
         case 45:
         {
-            return _iceD_stopServer(in, current);
+            return _iceD_stopServer(incoming);
         }
         case 46:
         {
-            return _iceD_syncApplication(in, current);
+            return _iceD_syncApplication(incoming);
         }
         case 47:
         {
-            return _iceD_syncApplicationWithoutRestart(in, current);
+            return _iceD_syncApplicationWithoutRestart(incoming);
         }
         case 48:
         {
-            return _iceD_updateApplication(in, current);
+            return _iceD_updateApplication(incoming);
         }
         case 49:
         {
-            return _iceD_updateApplicationWithoutRestart(in, current);
+            return _iceD_updateApplicationWithoutRestart(incoming);
         }
         case 50:
         {
-            return _iceD_updateObject(in, current);
+            return _iceD_updateObject(incoming);
         }
         default:
         {
@@ -4687,40 +4717,41 @@ IceGrid::FileIterator::ice_staticId()
 
 /// \cond INTERNAL
 bool
-IceGrid::FileIterator::_iceD_read(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::FileIterator::_iceD_read(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int32_t iceP_size;
     istr->readAll(iceP_size);
-    inS.endReadParams();
+    incoming.endReadParams();
     ::Ice::StringSeq iceP_lines;
-    bool ret = this->read(iceP_size, iceP_lines, current);
-    auto ostr = inS.startWriteParams();
+    bool ret = this->read(iceP_size, iceP_lines, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_lines, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::FileIterator::_iceD_destroy(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::FileIterator::_iceD_destroy(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->destroy(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->destroy(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::FileIterator::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+IceGrid::FileIterator::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "destroy", "ice_id", "ice_ids", "ice_isA", "ice_ping", "read" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
@@ -4731,27 +4762,27 @@ IceGrid::FileIterator::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cu
     {
         case 0:
         {
-            return _iceD_destroy(in, current);
+            return _iceD_destroy(incoming);
         }
         case 1:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 2:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 3:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 4:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 5:
         {
-            return _iceD_read(in, current);
+            return _iceD_read(incoming);
         }
         default:
         {
@@ -4784,55 +4815,56 @@ IceGrid::RegistryObserver::ice_staticId()
 
 /// \cond INTERNAL
 bool
-IceGrid::RegistryObserver::_iceD_registryInit(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::RegistryObserver::_iceD_registryInit(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     RegistryInfoSeq iceP_registries;
     istr->readAll(iceP_registries);
-    inS.endReadParams();
-    this->registryInit(::std::move(iceP_registries), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->registryInit(::std::move(iceP_registries), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::RegistryObserver::_iceD_registryUp(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::RegistryObserver::_iceD_registryUp(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     RegistryInfo iceP_node;
     istr->readAll(iceP_node);
-    inS.endReadParams();
-    this->registryUp(::std::move(iceP_node), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->registryUp(::std::move(iceP_node), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::RegistryObserver::_iceD_registryDown(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::RegistryObserver::_iceD_registryDown(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_name;
     istr->readAll(iceP_name);
-    inS.endReadParams();
-    this->registryDown(::std::move(iceP_name), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->registryDown(::std::move(iceP_name), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::RegistryObserver::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+IceGrid::RegistryObserver::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "registryDown", "registryInit", "registryUp" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
@@ -4843,31 +4875,31 @@ IceGrid::RegistryObserver::_iceDispatch(::IceInternal::Incoming& in, const ::Ice
     {
         case 0:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 1:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 2:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 4:
         {
-            return _iceD_registryDown(in, current);
+            return _iceD_registryDown(incoming);
         }
         case 5:
         {
-            return _iceD_registryInit(in, current);
+            return _iceD_registryInit(incoming);
         }
         case 6:
         {
-            return _iceD_registryUp(in, current);
+            return _iceD_registryUp(incoming);
         }
         default:
         {
@@ -4900,87 +4932,88 @@ IceGrid::NodeObserver::ice_staticId()
 
 /// \cond INTERNAL
 bool
-IceGrid::NodeObserver::_iceD_nodeInit(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::NodeObserver::_iceD_nodeInit(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     NodeDynamicInfoSeq iceP_nodes;
     istr->readAll(iceP_nodes);
-    inS.endReadParams();
-    this->nodeInit(::std::move(iceP_nodes), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->nodeInit(::std::move(iceP_nodes), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::NodeObserver::_iceD_nodeUp(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::NodeObserver::_iceD_nodeUp(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     NodeDynamicInfo iceP_node;
     istr->readAll(iceP_node);
-    inS.endReadParams();
-    this->nodeUp(::std::move(iceP_node), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->nodeUp(::std::move(iceP_node), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::NodeObserver::_iceD_nodeDown(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::NodeObserver::_iceD_nodeDown(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_name;
     istr->readAll(iceP_name);
-    inS.endReadParams();
-    this->nodeDown(::std::move(iceP_name), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->nodeDown(::std::move(iceP_name), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::NodeObserver::_iceD_updateServer(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::NodeObserver::_iceD_updateServer(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_node;
     ServerDynamicInfo iceP_updatedInfo;
     istr->readAll(iceP_node, iceP_updatedInfo);
-    inS.endReadParams();
-    this->updateServer(::std::move(iceP_node), ::std::move(iceP_updatedInfo), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->updateServer(::std::move(iceP_node), ::std::move(iceP_updatedInfo), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::NodeObserver::_iceD_updateAdapter(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::NodeObserver::_iceD_updateAdapter(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_node;
     AdapterDynamicInfo iceP_updatedInfo;
     istr->readAll(iceP_node, iceP_updatedInfo);
-    inS.endReadParams();
-    this->updateAdapter(::std::move(iceP_node), ::std::move(iceP_updatedInfo), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->updateAdapter(::std::move(iceP_node), ::std::move(iceP_updatedInfo), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::NodeObserver::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+IceGrid::NodeObserver::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "nodeDown", "nodeInit", "nodeUp", "updateAdapter", "updateServer" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 9, current.operation);
     if(r.first == r.second)
     {
@@ -4991,39 +5024,39 @@ IceGrid::NodeObserver::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cu
     {
         case 0:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 1:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 2:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 4:
         {
-            return _iceD_nodeDown(in, current);
+            return _iceD_nodeDown(incoming);
         }
         case 5:
         {
-            return _iceD_nodeInit(in, current);
+            return _iceD_nodeInit(incoming);
         }
         case 6:
         {
-            return _iceD_nodeUp(in, current);
+            return _iceD_nodeUp(incoming);
         }
         case 7:
         {
-            return _iceD_updateAdapter(in, current);
+            return _iceD_updateAdapter(incoming);
         }
         case 8:
         {
-            return _iceD_updateServer(in, current);
+            return _iceD_updateServer(incoming);
         }
         default:
         {
@@ -5056,77 +5089,78 @@ IceGrid::ApplicationObserver::ice_staticId()
 
 /// \cond INTERNAL
 bool
-IceGrid::ApplicationObserver::_iceD_applicationInit(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::ApplicationObserver::_iceD_applicationInit(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int32_t iceP_serial;
     ApplicationInfoSeq iceP_applications;
     istr->readAll(iceP_serial, iceP_applications);
     istr->readPendingValues();
-    inS.endReadParams();
-    this->applicationInit(iceP_serial, ::std::move(iceP_applications), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->applicationInit(iceP_serial, ::std::move(iceP_applications), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::ApplicationObserver::_iceD_applicationAdded(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::ApplicationObserver::_iceD_applicationAdded(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int32_t iceP_serial;
     ApplicationInfo iceP_desc;
     istr->readAll(iceP_serial, iceP_desc);
     istr->readPendingValues();
-    inS.endReadParams();
-    this->applicationAdded(iceP_serial, ::std::move(iceP_desc), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->applicationAdded(iceP_serial, ::std::move(iceP_desc), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::ApplicationObserver::_iceD_applicationRemoved(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::ApplicationObserver::_iceD_applicationRemoved(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int32_t iceP_serial;
     ::std::string iceP_name;
     istr->readAll(iceP_serial, iceP_name);
-    inS.endReadParams();
-    this->applicationRemoved(iceP_serial, ::std::move(iceP_name), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->applicationRemoved(iceP_serial, ::std::move(iceP_name), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::ApplicationObserver::_iceD_applicationUpdated(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::ApplicationObserver::_iceD_applicationUpdated(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int32_t iceP_serial;
     ApplicationUpdateInfo iceP_desc;
     istr->readAll(iceP_serial, iceP_desc);
     istr->readPendingValues();
-    inS.endReadParams();
-    this->applicationUpdated(iceP_serial, ::std::move(iceP_desc), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->applicationUpdated(iceP_serial, ::std::move(iceP_desc), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::ApplicationObserver::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+IceGrid::ApplicationObserver::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "applicationAdded", "applicationInit", "applicationRemoved", "applicationUpdated", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
@@ -5137,35 +5171,35 @@ IceGrid::ApplicationObserver::_iceDispatch(::IceInternal::Incoming& in, const ::
     {
         case 0:
         {
-            return _iceD_applicationAdded(in, current);
+            return _iceD_applicationAdded(incoming);
         }
         case 1:
         {
-            return _iceD_applicationInit(in, current);
+            return _iceD_applicationInit(incoming);
         }
         case 2:
         {
-            return _iceD_applicationRemoved(in, current);
+            return _iceD_applicationRemoved(incoming);
         }
         case 3:
         {
-            return _iceD_applicationUpdated(in, current);
+            return _iceD_applicationUpdated(incoming);
         }
         case 4:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 5:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 6:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 7:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         default:
         {
@@ -5198,70 +5232,71 @@ IceGrid::AdapterObserver::ice_staticId()
 
 /// \cond INTERNAL
 bool
-IceGrid::AdapterObserver::_iceD_adapterInit(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::AdapterObserver::_iceD_adapterInit(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     AdapterInfoSeq iceP_adpts;
     istr->readAll(iceP_adpts);
-    inS.endReadParams();
-    this->adapterInit(::std::move(iceP_adpts), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->adapterInit(::std::move(iceP_adpts), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::AdapterObserver::_iceD_adapterAdded(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::AdapterObserver::_iceD_adapterAdded(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     AdapterInfo iceP_info;
     istr->readAll(iceP_info);
-    inS.endReadParams();
-    this->adapterAdded(::std::move(iceP_info), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->adapterAdded(::std::move(iceP_info), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::AdapterObserver::_iceD_adapterUpdated(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::AdapterObserver::_iceD_adapterUpdated(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     AdapterInfo iceP_info;
     istr->readAll(iceP_info);
-    inS.endReadParams();
-    this->adapterUpdated(::std::move(iceP_info), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->adapterUpdated(::std::move(iceP_info), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::AdapterObserver::_iceD_adapterRemoved(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::AdapterObserver::_iceD_adapterRemoved(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_id;
     istr->readAll(iceP_id);
-    inS.endReadParams();
-    this->adapterRemoved(::std::move(iceP_id), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->adapterRemoved(::std::move(iceP_id), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::AdapterObserver::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+IceGrid::AdapterObserver::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "adapterAdded", "adapterInit", "adapterRemoved", "adapterUpdated", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
@@ -5272,35 +5307,35 @@ IceGrid::AdapterObserver::_iceDispatch(::IceInternal::Incoming& in, const ::Ice:
     {
         case 0:
         {
-            return _iceD_adapterAdded(in, current);
+            return _iceD_adapterAdded(incoming);
         }
         case 1:
         {
-            return _iceD_adapterInit(in, current);
+            return _iceD_adapterInit(incoming);
         }
         case 2:
         {
-            return _iceD_adapterRemoved(in, current);
+            return _iceD_adapterRemoved(incoming);
         }
         case 3:
         {
-            return _iceD_adapterUpdated(in, current);
+            return _iceD_adapterUpdated(incoming);
         }
         case 4:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 5:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 6:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 7:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         default:
         {
@@ -5333,70 +5368,71 @@ IceGrid::ObjectObserver::ice_staticId()
 
 /// \cond INTERNAL
 bool
-IceGrid::ObjectObserver::_iceD_objectInit(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::ObjectObserver::_iceD_objectInit(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ObjectInfoSeq iceP_objects;
     istr->readAll(iceP_objects);
-    inS.endReadParams();
-    this->objectInit(::std::move(iceP_objects), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->objectInit(::std::move(iceP_objects), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::ObjectObserver::_iceD_objectAdded(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::ObjectObserver::_iceD_objectAdded(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ObjectInfo iceP_info;
     istr->readAll(iceP_info);
-    inS.endReadParams();
-    this->objectAdded(::std::move(iceP_info), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->objectAdded(::std::move(iceP_info), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::ObjectObserver::_iceD_objectUpdated(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::ObjectObserver::_iceD_objectUpdated(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ObjectInfo iceP_info;
     istr->readAll(iceP_info);
-    inS.endReadParams();
-    this->objectUpdated(::std::move(iceP_info), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->objectUpdated(::std::move(iceP_info), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::ObjectObserver::_iceD_objectRemoved(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::ObjectObserver::_iceD_objectRemoved(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::Ice::Identity iceP_id;
     istr->readAll(iceP_id);
-    inS.endReadParams();
-    this->objectRemoved(::std::move(iceP_id), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->objectRemoved(::std::move(iceP_id), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::ObjectObserver::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+IceGrid::ObjectObserver::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "objectAdded", "objectInit", "objectRemoved", "objectUpdated" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
@@ -5407,35 +5443,35 @@ IceGrid::ObjectObserver::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::
     {
         case 0:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 1:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 2:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 4:
         {
-            return _iceD_objectAdded(in, current);
+            return _iceD_objectAdded(incoming);
         }
         case 5:
         {
-            return _iceD_objectInit(in, current);
+            return _iceD_objectInit(incoming);
         }
         case 6:
         {
-            return _iceD_objectRemoved(in, current);
+            return _iceD_objectRemoved(incoming);
         }
         case 7:
         {
-            return _iceD_objectUpdated(in, current);
+            return _iceD_objectUpdated(incoming);
         }
         default:
         {
@@ -5468,255 +5504,256 @@ IceGrid::AdminSession::ice_staticId()
 
 /// \cond INTERNAL
 bool
-IceGrid::AdminSession::_iceD_keepAlive(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::AdminSession::_iceD_keepAlive(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    inS.readEmptyParams();
-    this->keepAlive(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->keepAlive(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::AdminSession::_iceD_getAdmin(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceGrid::AdminSession::_iceD_getAdmin(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    inS.readEmptyParams();
-    ::std::optional<AdminPrx> ret = this->getAdmin(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::optional<AdminPrx> ret = this->getAdmin(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::AdminSession::_iceD_getAdminCallbackTemplate(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceGrid::AdminSession::_iceD_getAdminCallbackTemplate(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    inS.readEmptyParams();
-    ::std::optional<::Ice::ObjectPrx> ret = this->getAdminCallbackTemplate(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::optional<::Ice::ObjectPrx> ret = this->getAdminCallbackTemplate(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::AdminSession::_iceD_setObservers(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::AdminSession::_iceD_setObservers(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<RegistryObserverPrx> iceP_registryObs;
     ::std::optional<NodeObserverPrx> iceP_nodeObs;
     ::std::optional<ApplicationObserverPrx> iceP_appObs;
     ::std::optional<AdapterObserverPrx> iceP_adptObs;
     ::std::optional<ObjectObserverPrx> iceP_objObs;
     istr->readAll(iceP_registryObs, iceP_nodeObs, iceP_appObs, iceP_adptObs, iceP_objObs);
-    inS.endReadParams();
-    this->setObservers(::std::move(iceP_registryObs), ::std::move(iceP_nodeObs), ::std::move(iceP_appObs), ::std::move(iceP_adptObs), ::std::move(iceP_objObs), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->setObservers(::std::move(iceP_registryObs), ::std::move(iceP_nodeObs), ::std::move(iceP_appObs), ::std::move(iceP_adptObs), ::std::move(iceP_objObs), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::AdminSession::_iceD_setObserversByIdentity(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::AdminSession::_iceD_setObserversByIdentity(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::Ice::Identity iceP_registryObs;
     ::Ice::Identity iceP_nodeObs;
     ::Ice::Identity iceP_appObs;
     ::Ice::Identity iceP_adptObs;
     ::Ice::Identity iceP_objObs;
     istr->readAll(iceP_registryObs, iceP_nodeObs, iceP_appObs, iceP_adptObs, iceP_objObs);
-    inS.endReadParams();
-    this->setObserversByIdentity(::std::move(iceP_registryObs), ::std::move(iceP_nodeObs), ::std::move(iceP_appObs), ::std::move(iceP_adptObs), ::std::move(iceP_objObs), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->setObserversByIdentity(::std::move(iceP_registryObs), ::std::move(iceP_nodeObs), ::std::move(iceP_appObs), ::std::move(iceP_adptObs), ::std::move(iceP_objObs), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::AdminSession::_iceD_startUpdate(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::AdminSession::_iceD_startUpdate(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::int32_t ret = this->startUpdate(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::int32_t ret = this->startUpdate(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::AdminSession::_iceD_finishUpdate(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::AdminSession::_iceD_finishUpdate(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->finishUpdate(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->finishUpdate(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::AdminSession::_iceD_getReplicaName(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+IceGrid::AdminSession::_iceD_getReplicaName(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    inS.readEmptyParams();
-    ::std::string ret = this->getReplicaName(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::string ret = this->getReplicaName(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::AdminSession::_iceD_openServerLog(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::AdminSession::_iceD_openServerLog(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_id;
     ::std::string iceP_path;
     ::std::int32_t iceP_count;
     istr->readAll(iceP_id, iceP_path, iceP_count);
-    inS.endReadParams();
-    ::std::optional<FileIteratorPrx> ret = this->openServerLog(::std::move(iceP_id), ::std::move(iceP_path), iceP_count, current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::optional<FileIteratorPrx> ret = this->openServerLog(::std::move(iceP_id), ::std::move(iceP_path), iceP_count, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::AdminSession::_iceD_openServerStdErr(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::AdminSession::_iceD_openServerStdErr(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_id;
     ::std::int32_t iceP_count;
     istr->readAll(iceP_id, iceP_count);
-    inS.endReadParams();
-    ::std::optional<FileIteratorPrx> ret = this->openServerStdErr(::std::move(iceP_id), iceP_count, current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::optional<FileIteratorPrx> ret = this->openServerStdErr(::std::move(iceP_id), iceP_count, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::AdminSession::_iceD_openServerStdOut(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::AdminSession::_iceD_openServerStdOut(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_id;
     ::std::int32_t iceP_count;
     istr->readAll(iceP_id, iceP_count);
-    inS.endReadParams();
-    ::std::optional<FileIteratorPrx> ret = this->openServerStdOut(::std::move(iceP_id), iceP_count, current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::optional<FileIteratorPrx> ret = this->openServerStdOut(::std::move(iceP_id), iceP_count, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::AdminSession::_iceD_openNodeStdErr(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::AdminSession::_iceD_openNodeStdErr(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_name;
     ::std::int32_t iceP_count;
     istr->readAll(iceP_name, iceP_count);
-    inS.endReadParams();
-    ::std::optional<FileIteratorPrx> ret = this->openNodeStdErr(::std::move(iceP_name), iceP_count, current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::optional<FileIteratorPrx> ret = this->openNodeStdErr(::std::move(iceP_name), iceP_count, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::AdminSession::_iceD_openNodeStdOut(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::AdminSession::_iceD_openNodeStdOut(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_name;
     ::std::int32_t iceP_count;
     istr->readAll(iceP_name, iceP_count);
-    inS.endReadParams();
-    ::std::optional<FileIteratorPrx> ret = this->openNodeStdOut(::std::move(iceP_name), iceP_count, current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::optional<FileIteratorPrx> ret = this->openNodeStdOut(::std::move(iceP_name), iceP_count, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::AdminSession::_iceD_openRegistryStdErr(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::AdminSession::_iceD_openRegistryStdErr(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_name;
     ::std::int32_t iceP_count;
     istr->readAll(iceP_name, iceP_count);
-    inS.endReadParams();
-    ::std::optional<FileIteratorPrx> ret = this->openRegistryStdErr(::std::move(iceP_name), iceP_count, current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::optional<FileIteratorPrx> ret = this->openRegistryStdErr(::std::move(iceP_name), iceP_count, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::AdminSession::_iceD_openRegistryStdOut(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::AdminSession::_iceD_openRegistryStdOut(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_name;
     ::std::int32_t iceP_count;
     istr->readAll(iceP_name, iceP_count);
-    inS.endReadParams();
-    ::std::optional<FileIteratorPrx> ret = this->openRegistryStdOut(::std::move(iceP_name), iceP_count, current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::optional<FileIteratorPrx> ret = this->openRegistryStdOut(::std::move(iceP_name), iceP_count, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::AdminSession::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+IceGrid::AdminSession::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "destroy", "finishUpdate", "getAdmin", "getAdminCallbackTemplate", "getReplicaName", "ice_id", "ice_ids", "ice_isA", "ice_ping", "keepAlive", "openNodeStdErr", "openNodeStdOut", "openRegistryStdErr", "openRegistryStdOut", "openServerLog", "openServerStdErr", "openServerStdOut", "setObservers", "setObserversByIdentity", "startUpdate" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 20, current.operation);
     if(r.first == r.second)
     {
@@ -5727,83 +5764,83 @@ IceGrid::AdminSession::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cu
     {
         case 0:
         {
-            return _iceD_destroy(in, current);
+            return _iceD_destroy(incoming);
         }
         case 1:
         {
-            return _iceD_finishUpdate(in, current);
+            return _iceD_finishUpdate(incoming);
         }
         case 2:
         {
-            return _iceD_getAdmin(in, current);
+            return _iceD_getAdmin(incoming);
         }
         case 3:
         {
-            return _iceD_getAdminCallbackTemplate(in, current);
+            return _iceD_getAdminCallbackTemplate(incoming);
         }
         case 4:
         {
-            return _iceD_getReplicaName(in, current);
+            return _iceD_getReplicaName(incoming);
         }
         case 5:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 6:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 7:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 8:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 9:
         {
-            return _iceD_keepAlive(in, current);
+            return _iceD_keepAlive(incoming);
         }
         case 10:
         {
-            return _iceD_openNodeStdErr(in, current);
+            return _iceD_openNodeStdErr(incoming);
         }
         case 11:
         {
-            return _iceD_openNodeStdOut(in, current);
+            return _iceD_openNodeStdOut(incoming);
         }
         case 12:
         {
-            return _iceD_openRegistryStdErr(in, current);
+            return _iceD_openRegistryStdErr(incoming);
         }
         case 13:
         {
-            return _iceD_openRegistryStdOut(in, current);
+            return _iceD_openRegistryStdOut(incoming);
         }
         case 14:
         {
-            return _iceD_openServerLog(in, current);
+            return _iceD_openServerLog(incoming);
         }
         case 15:
         {
-            return _iceD_openServerStdErr(in, current);
+            return _iceD_openServerStdErr(incoming);
         }
         case 16:
         {
-            return _iceD_openServerStdOut(in, current);
+            return _iceD_openServerStdOut(incoming);
         }
         case 17:
         {
-            return _iceD_setObservers(in, current);
+            return _iceD_setObservers(incoming);
         }
         case 18:
         {
-            return _iceD_setObserversByIdentity(in, current);
+            return _iceD_setObserversByIdentity(incoming);
         }
         case 19:
         {
-            return _iceD_startUpdate(in, current);
+            return _iceD_startUpdate(incoming);
         }
         default:
         {

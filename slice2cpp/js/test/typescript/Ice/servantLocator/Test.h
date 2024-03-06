@@ -492,71 +492,71 @@ public:
 
     virtual void requestFailedException(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_requestFailedException(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_requestFailedException(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void unknownUserException(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_unknownUserException(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_unknownUserException(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void unknownLocalException(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_unknownLocalException(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_unknownLocalException(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void unknownException(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_unknownException(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_unknownException(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void localException(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_localException(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_localException(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void userException(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_userException(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_userException(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void jsException(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_jsException(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_jsException(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void unknownExceptionWithServantException(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_unknownExceptionWithServantException(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_unknownExceptionWithServantException(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::string impossibleException(bool _cpp_throw, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_impossibleException(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_impossibleException(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::string intfUserException(bool _cpp_throw, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_intfUserException(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_intfUserException(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void asyncResponse(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_asyncResponse(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_asyncResponse(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void asyncException(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_asyncException(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_asyncException(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -590,11 +590,11 @@ public:
 
     virtual void activateServantLocator(bool activate, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_activateServantLocator(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_activateServantLocator(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -628,26 +628,26 @@ public:
 
     virtual void setConnection(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_setConnection(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_setConnection(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void startBatch(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_startBatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_startBatch(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void flushBatch(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_flushBatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_flushBatch(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

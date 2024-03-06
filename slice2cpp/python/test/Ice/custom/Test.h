@@ -588,131 +588,131 @@ public:
 
     virtual ByteString opByteString1(ByteString b1, ByteString& b2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteString1(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opByteString1(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ByteString opByteString2(ByteString b1, ByteString& b2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteString2(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opByteString2(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ByteList opByteList1(ByteList b1, ByteList& b2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteList1(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opByteList1(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ByteList opByteList2(ByteList b1, ByteList& b2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteList2(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opByteList2(::IceInternal::Incoming&);
     /// \endcond
 
     virtual StringList opStringList1(StringList s1, StringList& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringList1(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opStringList1(::IceInternal::Incoming&);
     /// \endcond
 
     virtual StringList opStringList2(StringList s1, StringList& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringList2(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opStringList2(::IceInternal::Incoming&);
     /// \endcond
 
     virtual StringTuple opStringTuple1(StringTuple s1, StringTuple& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringTuple1(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opStringTuple1(::IceInternal::Incoming&);
     /// \endcond
 
     virtual StringTuple opStringTuple2(StringTuple s1, StringTuple& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringTuple2(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opStringTuple2(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void sendS(S val, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_sendS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_sendS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void sendC(::std::shared_ptr<C> val, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_sendC(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_sendC(::IceInternal::Incoming&);
     /// \endcond
 
     virtual BoolSeq1 opBoolSeq(BoolSeq1 v1, BoolSeq2& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBoolSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opBoolSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ByteSeq1 opByteSeq(ByteSeq1 v1, ByteSeq2& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opByteSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ShortSeq1 opShortSeq(ShortSeq1 v1, ShortSeq2& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opShortSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opShortSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual IntSeq1 opIntSeq(IntSeq1 v1, IntSeq2& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opIntSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opIntSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual LongSeq1 opLongSeq(LongSeq1 v1, LongSeq2& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLongSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opLongSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual FloatSeq1 opFloatSeq(FloatSeq1 v1, FloatSeq2& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opFloatSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opFloatSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual DoubleSeq1 opDoubleSeq(DoubleSeq1 v1, DoubleSeq2& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opDoubleSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opDoubleSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual BoolSeq1 opBogusArrayNotExistsFactory(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBogusArrayNotExistsFactory(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opBogusArrayNotExistsFactory(::IceInternal::Incoming&);
     /// \endcond
 
     virtual BoolSeq1 opBogusArrayThrowFactory(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBogusArrayThrowFactory(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opBogusArrayThrowFactory(::IceInternal::Incoming&);
     /// \endcond
 
     virtual BoolSeq1 opBogusArrayType(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBogusArrayType(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opBogusArrayType(::IceInternal::Incoming&);
     /// \endcond
 
     virtual BoolSeq1 opBogusArrayNoneFactory(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBogusArrayNoneFactory(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opBogusArrayNoneFactory(::IceInternal::Incoming&);
     /// \endcond
 
     virtual BoolSeq1 opBogusArraySignatureFactory(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBogusArraySignatureFactory(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opBogusArraySignatureFactory(::IceInternal::Incoming&);
     /// \endcond
 
     virtual BoolSeq1 opBogusArrayNoCallableFactory(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBogusArrayNoCallableFactory(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opBogusArrayNoCallableFactory(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::shared_ptr<D> opD(::std::shared_ptr<D> d, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opD(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opD(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

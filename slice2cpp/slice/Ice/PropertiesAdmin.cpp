@@ -19,6 +19,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <PropertiesAdmin.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -163,59 +164,60 @@ Ice::PropertiesAdmin::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Ice::PropertiesAdmin::_iceD_getProperty(::IceInternal::Incoming& inS, const Current& current)
+Ice::PropertiesAdmin::_iceD_getProperty(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_key;
     istr->readAll(iceP_key);
-    inS.endReadParams();
-    ::std::string ret = this->getProperty(::std::move(iceP_key), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::string ret = this->getProperty(::std::move(iceP_key), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Ice::PropertiesAdmin::_iceD_getPropertiesForPrefix(::IceInternal::Incoming& inS, const Current& current)
+Ice::PropertiesAdmin::_iceD_getPropertiesForPrefix(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_prefix;
     istr->readAll(iceP_prefix);
-    inS.endReadParams();
-    PropertyDict ret = this->getPropertiesForPrefix(::std::move(iceP_prefix), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    PropertyDict ret = this->getPropertiesForPrefix(::std::move(iceP_prefix), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Ice::PropertiesAdmin::_iceD_setProperties(::IceInternal::Incoming& inS, const Current& current)
+Ice::PropertiesAdmin::_iceD_setProperties(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     PropertyDict iceP_newProperties;
     istr->readAll(iceP_newProperties);
-    inS.endReadParams();
-    this->setProperties(::std::move(iceP_newProperties), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->setProperties(::std::move(iceP_newProperties), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Ice::PropertiesAdmin::_iceDispatch(::IceInternal::Incoming& in, const Current& current)
+Ice::PropertiesAdmin::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "getPropertiesForPrefix", "getProperty", "ice_id", "ice_ids", "ice_isA", "ice_ping", "setProperties" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
@@ -226,31 +228,31 @@ Ice::PropertiesAdmin::_iceDispatch(::IceInternal::Incoming& in, const Current& c
     {
         case 0:
         {
-            return _iceD_getPropertiesForPrefix(in, current);
+            return _iceD_getPropertiesForPrefix(incoming);
         }
         case 1:
         {
-            return _iceD_getProperty(in, current);
+            return _iceD_getProperty(incoming);
         }
         case 2:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 4:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 5:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 6:
         {
-            return _iceD_setProperties(in, current);
+            return _iceD_setProperties(incoming);
         }
         default:
         {

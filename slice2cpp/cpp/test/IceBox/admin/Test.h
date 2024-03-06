@@ -135,11 +135,11 @@ public:
 
     virtual ::Ice::PropertyDict getChanges(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getChanges(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_getChanges(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

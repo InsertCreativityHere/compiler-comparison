@@ -375,11 +375,11 @@ public:
 
     virtual void addObject(::std::optional<::Ice::ObjectPrx> obj, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_addObject(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_addObject(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -413,16 +413,16 @@ public:
 
     virtual void startServer(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_startServer(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_startServer(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -456,11 +456,11 @@ public:
 
     virtual void sayHello(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_sayHello(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_sayHello(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -494,21 +494,21 @@ public:
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<HelloPrx> getHello(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getHello(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_getHello(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void migrateHello(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_migrateHello(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_migrateHello(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

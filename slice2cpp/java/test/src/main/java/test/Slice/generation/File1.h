@@ -181,11 +181,11 @@ public:
 
     virtual void method(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_method(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_method(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

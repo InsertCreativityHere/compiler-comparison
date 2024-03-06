@@ -854,166 +854,166 @@ public:
 
     virtual DoubleSeq opDoubleArray(::std::pair<const double*, const double*> inSeq, DoubleSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opDoubleArray(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opDoubleArray(::IceInternal::Incoming&);
     /// \endcond
 
     virtual BoolSeq opBoolArray(::std::pair<const bool*, const bool*> inSeq, BoolSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBoolArray(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opBoolArray(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ByteList opByteArray(::std::pair<const ::std::uint8_t*, const ::std::uint8_t*> inSeq, ByteList& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteArray(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opByteArray(::IceInternal::Incoming&);
     /// \endcond
 
     virtual VariableList opVariableArray(::std::pair<const Variable*, const Variable*> inSeq, VariableList& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opVariableArray(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opVariableArray(::IceInternal::Incoming&);
     /// \endcond
 
     virtual std::deque<bool> opBoolSeq(std::deque<bool> inSeq, std::deque<bool>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBoolSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opBoolSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual BoolList opBoolList(BoolList inSeq, BoolList& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBoolList(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opBoolList(::IceInternal::Incoming&);
     /// \endcond
 
     virtual BoolDequeList opBoolDequeList(BoolDequeList inSeq, BoolDequeList& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBoolDequeList(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opBoolDequeList(::IceInternal::Incoming&);
     /// \endcond
 
     virtual BoolDequeList opBoolDequeListArray(::std::pair<const std::deque<bool>*, const std::deque<bool>*> inSeq, BoolDequeList& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBoolDequeListArray(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opBoolDequeListArray(::IceInternal::Incoming&);
     /// \endcond
 
     virtual std::deque<::std::uint8_t> opByteSeq(std::deque<::std::uint8_t> inSeq, std::deque<::std::uint8_t>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opByteSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ByteList opByteList(ByteList inSeq, ByteList& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteList(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opByteList(::IceInternal::Incoming&);
     /// \endcond
 
     virtual MyByteSeq opMyByteSeq(MyByteSeq inSeq, MyByteSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMyByteSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opMyByteSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual std::deque<::std::string> opStringSeq(std::deque<::std::string> inSeq, std::deque<::std::string>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opStringSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual StringList opStringList(StringList inSeq, StringList& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringList(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opStringList(::IceInternal::Incoming&);
     /// \endcond
 
     virtual std::deque<::Test::Fixed> opFixedSeq(std::deque<::Test::Fixed> inSeq, std::deque<::Test::Fixed>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opFixedSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opFixedSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual FixedList opFixedList(FixedList inSeq, FixedList& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opFixedList(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opFixedList(::IceInternal::Incoming&);
     /// \endcond
 
     virtual std::deque<::Test::Variable> opVariableSeq(std::deque<::Test::Variable> inSeq, std::deque<::Test::Variable>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opVariableSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opVariableSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual VariableList opVariableList(VariableList inSeq, VariableList& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opVariableList(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opVariableList(::IceInternal::Incoming&);
     /// \endcond
 
     virtual std::deque<::Test::StringStringDict> opStringStringDictSeq(std::deque<::Test::StringStringDict> inSeq, std::deque<::Test::StringStringDict>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringStringDictSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opStringStringDictSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual StringStringDictList opStringStringDictList(StringStringDictList inSeq, StringStringDictList& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringStringDictList(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opStringStringDictList(::IceInternal::Incoming&);
     /// \endcond
 
     virtual std::deque<::Test::E> opESeq(std::deque<::Test::E> inSeq, std::deque<::Test::E>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opESeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opESeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual EList opEList(EList inSeq, EList& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opEList(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opEList(::IceInternal::Incoming&);
     /// \endcond
 
     virtual std::deque<::std::optional<::Test::DPrx>> opDPrxSeq(std::deque<::std::optional<::Test::DPrx>> inSeq, std::deque<::std::optional<::Test::DPrx>>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opDPrxSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opDPrxSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual DPrxList opDPrxList(DPrxList inSeq, DPrxList& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opDPrxList(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opDPrxList(::IceInternal::Incoming&);
     /// \endcond
 
     virtual std::deque<::std::shared_ptr<Test::C>> opCSeq(std::deque<::std::shared_ptr<Test::C>> inSeq, std::deque<::std::shared_ptr<Test::C>>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opCSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opCSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual CList opCList(CList inSeq, CList& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opCList(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opCList(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opOutArrayByteSeq(ByteSeq org, ByteSeq& copy, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOutArrayByteSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opOutArrayByteSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual IntStringDict opIntStringDict(IntStringDict idict, IntStringDict& odict, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opIntStringDict(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opIntStringDict(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::Test::CustomMap< int64_t, int64_t> opVarDict(::Test::CustomMap<::std::string, std::int32_t> idict, ::Test::CustomMap<::std::string, std::int32_t>& odict, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opVarDict(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opVarDict(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ShortBuffer opShortBuffer(ShortBuffer inS, ShortBuffer& outS, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opShortBuffer(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opShortBuffer(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::Test::CustomBuffer<bool> opBoolBuffer(::Test::CustomBuffer<bool> inS, ::Test::CustomBuffer<bool>& outS, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBoolBuffer(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opBoolBuffer(::IceInternal::Incoming&);
     /// \endcond
 
     virtual BufferStruct opBufferStruct(BufferStruct s, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBufferStruct(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opBufferStruct(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

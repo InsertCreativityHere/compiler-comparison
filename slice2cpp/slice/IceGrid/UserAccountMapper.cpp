@@ -19,6 +19,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <UserAccountMapper.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -126,27 +127,28 @@ IceGrid::UserAccountMapper::ice_staticId()
 
 /// \cond INTERNAL
 bool
-IceGrid::UserAccountMapper::_iceD_getUserAccount(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceGrid::UserAccountMapper::_iceD_getUserAccount(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_user;
     istr->readAll(iceP_user);
-    inS.endReadParams();
-    ::std::string ret = this->getUserAccount(::std::move(iceP_user), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::string ret = this->getUserAccount(::std::move(iceP_user), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceGrid::UserAccountMapper::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+IceGrid::UserAccountMapper::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "getUserAccount", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
@@ -157,23 +159,23 @@ IceGrid::UserAccountMapper::_iceDispatch(::IceInternal::Incoming& in, const ::Ic
     {
         case 0:
         {
-            return _iceD_getUserAccount(in, current);
+            return _iceD_getUserAccount(incoming);
         }
         case 1:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 2:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 3:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 4:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         default:
         {

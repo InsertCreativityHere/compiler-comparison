@@ -16,6 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -360,174 +361,203 @@ Test::MyObject::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::MyObject::_iceD_add(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyObject::_iceD_add(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int32_t iceP_x;
     ::std::int32_t iceP_y;
     istr->readAll(iceP_x, iceP_y);
-    inS.endReadParams();
-    ::std::int32_t ret = this->add(iceP_x, iceP_y, current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::int32_t ret = this->add(iceP_x, iceP_y, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyObject::_iceD_addWithRetry(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyObject::_iceD_addWithRetry(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int32_t iceP_x;
     ::std::int32_t iceP_y;
     istr->readAll(iceP_x, iceP_y);
-    inS.endReadParams();
-    ::std::int32_t ret = this->addWithRetry(iceP_x, iceP_y, current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::int32_t ret = this->addWithRetry(iceP_x, iceP_y, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyObject::_iceD_badAdd(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyObject::_iceD_badAdd(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int32_t iceP_x;
     ::std::int32_t iceP_y;
     istr->readAll(iceP_x, iceP_y);
-    inS.endReadParams();
-    ::std::int32_t ret = this->badAdd(iceP_x, iceP_y, current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::int32_t ret = this->badAdd(iceP_x, iceP_y, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyObject::_iceD_notExistAdd(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyObject::_iceD_notExistAdd(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int32_t iceP_x;
     ::std::int32_t iceP_y;
     istr->readAll(iceP_x, iceP_y);
-    inS.endReadParams();
-    ::std::int32_t ret = this->notExistAdd(iceP_x, iceP_y, current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::int32_t ret = this->notExistAdd(iceP_x, iceP_y, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyObject::_iceD_amdAdd(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyObject::_iceD_amdAdd(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int32_t iceP_x;
     ::std::int32_t iceP_y;
     istr->readAll(iceP_x, iceP_y);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](::std::int32_t ret)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](::std::int32_t ret)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll(ret);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->amdAddAsync(iceP_x, iceP_y, responseCB, inA->exception(), current);
+    try
+    {
+        this->amdAddAsync(iceP_x, iceP_y, responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyObject::_iceD_amdAddWithRetry(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyObject::_iceD_amdAddWithRetry(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int32_t iceP_x;
     ::std::int32_t iceP_y;
     istr->readAll(iceP_x, iceP_y);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](::std::int32_t ret)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](::std::int32_t ret)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll(ret);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->amdAddWithRetryAsync(iceP_x, iceP_y, responseCB, inA->exception(), current);
+    try
+    {
+        this->amdAddWithRetryAsync(iceP_x, iceP_y, responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyObject::_iceD_amdBadAdd(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyObject::_iceD_amdBadAdd(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int32_t iceP_x;
     ::std::int32_t iceP_y;
     istr->readAll(iceP_x, iceP_y);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](::std::int32_t ret)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](::std::int32_t ret)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll(ret);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->amdBadAddAsync(iceP_x, iceP_y, responseCB, inA->exception(), current);
+    try
+    {
+        this->amdBadAddAsync(iceP_x, iceP_y, responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyObject::_iceD_amdNotExistAdd(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyObject::_iceD_amdNotExistAdd(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int32_t iceP_x;
     ::std::int32_t iceP_y;
     istr->readAll(iceP_x, iceP_y);
-    inS.endReadParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](::std::int32_t ret)
+    incoming.endReadParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](::std::int32_t ret)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll(ret);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->amdNotExistAddAsync(iceP_x, iceP_y, responseCB, inA->exception(), current);
+    try
+    {
+        this->amdNotExistAddAsync(iceP_x, iceP_y, responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyObject::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::MyObject::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "add", "addWithRetry", "amdAdd", "amdAddWithRetry", "amdBadAdd", "amdNotExistAdd", "badAdd", "ice_id", "ice_ids", "ice_isA", "ice_ping", "notExistAdd" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 12, current.operation);
     if(r.first == r.second)
     {
@@ -538,51 +568,51 @@ Test::MyObject::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
     {
         case 0:
         {
-            return _iceD_add(in, current);
+            return _iceD_add(incoming);
         }
         case 1:
         {
-            return _iceD_addWithRetry(in, current);
+            return _iceD_addWithRetry(incoming);
         }
         case 2:
         {
-            return _iceD_amdAdd(in, current);
+            return _iceD_amdAdd(incoming);
         }
         case 3:
         {
-            return _iceD_amdAddWithRetry(in, current);
+            return _iceD_amdAddWithRetry(incoming);
         }
         case 4:
         {
-            return _iceD_amdBadAdd(in, current);
+            return _iceD_amdBadAdd(incoming);
         }
         case 5:
         {
-            return _iceD_amdNotExistAdd(in, current);
+            return _iceD_amdNotExistAdd(incoming);
         }
         case 6:
         {
-            return _iceD_badAdd(in, current);
+            return _iceD_badAdd(incoming);
         }
         case 7:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 8:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 9:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 10:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 11:
         {
-            return _iceD_notExistAdd(in, current);
+            return _iceD_notExistAdd(incoming);
         }
         default:
         {

@@ -640,11 +640,11 @@ public:
 
     virtual void reply(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_reply(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_reply(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -678,116 +678,116 @@ public:
 
     virtual void op(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_op(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_op(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opWithPayload(::Ice::ByteSeq seq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opWithPayload(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opWithPayload(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::int32_t opWithResult(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opWithResult(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opWithResult(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opWithUE(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opWithUE(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opWithUE(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opBatch(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opBatch(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::int32_t opBatchCount(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBatchCount(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opBatchCount(::IceInternal::Incoming&);
     /// \endcond
 
     virtual bool waitForBatch(::std::int32_t count, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_waitForBatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_waitForBatch(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void close(CloseMode mode, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_close(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_close(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void sleep(::std::int32_t ms, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_sleep(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_sleep(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void startDispatchAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_startDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_startDispatch(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void finishDispatch(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_finishDispatch(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_finishDispatch(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     virtual bool supportsAMD(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_supportsAMD(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_supportsAMD(::IceInternal::Incoming&);
     /// \endcond
 
     virtual bool supportsFunctionalTests(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_supportsFunctionalTests(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_supportsFunctionalTests(::IceInternal::Incoming&);
     /// \endcond
 
     virtual bool opBool(bool b, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBool(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opBool(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::uint8_t opByte(::std::uint8_t b, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByte(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opByte(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::int16_t opShort(::std::int16_t s, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opShort(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opShort(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::int32_t opInt(::std::int32_t i, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opInt(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opInt(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::int64_t opLong(::std::int64_t l, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLong(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opLong(::IceInternal::Incoming&);
     /// \endcond
 
     virtual float opFloat(float f, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opFloat(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opFloat(::IceInternal::Incoming&);
     /// \endcond
 
     virtual double opDouble(double d, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opDouble(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opDouble(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void pingBiDir(::std::optional<PingReplyPrx> reply, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_pingBiDir(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_pingBiDir(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -821,16 +821,16 @@ public:
 
     virtual void holdAdapter(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_holdAdapter(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_holdAdapter(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void resumeAdapter(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_resumeAdapter(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_resumeAdapter(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -870,11 +870,11 @@ public:
 
     virtual ::std::int32_t op(::std::int32_t i, ::std::int32_t& j, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_op(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_op(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

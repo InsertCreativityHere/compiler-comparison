@@ -970,7 +970,7 @@ public:
      */
     virtual ::Ice::StringSeq getMetricsViewNames(::Ice::StringSeq& disabledViews, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getMetricsViewNames(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_getMetricsViewNames(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -981,7 +981,7 @@ public:
      */
     virtual void enableMetricsView(::std::string name, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_enableMetricsView(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_enableMetricsView(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -992,7 +992,7 @@ public:
      */
     virtual void disableMetricsView(::std::string name, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_disableMetricsView(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_disableMetricsView(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -1007,7 +1007,7 @@ public:
      */
     virtual MetricsView getMetricsView(::std::string view, ::std::int64_t& timestamp, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getMetricsView(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_getMetricsView(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -1020,7 +1020,7 @@ public:
      */
     virtual MetricsFailuresSeq getMapMetricsFailures(::std::string view, ::std::string map, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getMapMetricsFailures(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_getMapMetricsFailures(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -1034,11 +1034,11 @@ public:
      */
     virtual MetricsFailures getMetricsFailures(::std::string view, ::std::string map, ::std::string id, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getMetricsFailures(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_getMetricsFailures(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

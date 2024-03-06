@@ -295,26 +295,26 @@ public:
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     virtual SerialSmall opSerialSmallJava(SerialSmall i, SerialSmall& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSerialSmallJava(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opSerialSmallJava(::IceInternal::Incoming&);
     /// \endcond
 
     virtual SerialLarge opSerialLargeJava(SerialLarge i, SerialLarge& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSerialLargeJava(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opSerialLargeJava(::IceInternal::Incoming&);
     /// \endcond
 
     virtual SerialStruct opSerialStructJava(SerialStruct i, SerialStruct& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSerialStructJava(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opSerialStructJava(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

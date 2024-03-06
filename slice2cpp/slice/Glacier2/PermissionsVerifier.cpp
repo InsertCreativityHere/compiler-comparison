@@ -19,6 +19,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <PermissionsVerifier.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -226,30 +227,31 @@ Glacier2::PermissionsVerifier::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Glacier2::PermissionsVerifier::_iceD_checkPermissions(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+Glacier2::PermissionsVerifier::_iceD_checkPermissions(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_userId;
     ::std::string iceP_password;
     istr->readAll(iceP_userId, iceP_password);
-    inS.endReadParams();
-    inS.setFormat(::Ice::FormatType::SlicedFormat);
+    incoming.endReadParams();
+    incoming.setFormat(::Ice::FormatType::SlicedFormat);
     ::std::string iceP_reason;
-    bool ret = this->checkPermissions(::std::move(iceP_userId), ::std::move(iceP_password), iceP_reason, current);
-    auto ostr = inS.startWriteParams();
+    bool ret = this->checkPermissions(::std::move(iceP_userId), ::std::move(iceP_password), iceP_reason, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_reason, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Glacier2::PermissionsVerifier::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Glacier2::PermissionsVerifier::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "checkPermissions", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
@@ -260,23 +262,23 @@ Glacier2::PermissionsVerifier::_iceDispatch(::IceInternal::Incoming& in, const :
     {
         case 0:
         {
-            return _iceD_checkPermissions(in, current);
+            return _iceD_checkPermissions(incoming);
         }
         case 1:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 2:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 3:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 4:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         default:
         {
@@ -309,29 +311,30 @@ Glacier2::SSLPermissionsVerifier::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Glacier2::SSLPermissionsVerifier::_iceD_authorize(::IceInternal::Incoming& inS, const ::Ice::Current& current) const
+Glacier2::SSLPermissionsVerifier::_iceD_authorize(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     SSLInfo iceP_info;
     istr->readAll(iceP_info);
-    inS.endReadParams();
-    inS.setFormat(::Ice::FormatType::SlicedFormat);
+    incoming.endReadParams();
+    incoming.setFormat(::Ice::FormatType::SlicedFormat);
     ::std::string iceP_reason;
-    bool ret = this->authorize(::std::move(iceP_info), iceP_reason, current);
-    auto ostr = inS.startWriteParams();
+    bool ret = this->authorize(::std::move(iceP_info), iceP_reason, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_reason, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Glacier2::SSLPermissionsVerifier::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Glacier2::SSLPermissionsVerifier::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "authorize", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
@@ -342,23 +345,23 @@ Glacier2::SSLPermissionsVerifier::_iceDispatch(::IceInternal::Incoming& in, cons
     {
         case 0:
         {
-            return _iceD_authorize(in, current);
+            return _iceD_authorize(incoming);
         }
         case 1:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 2:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 3:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 4:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         default:
         {

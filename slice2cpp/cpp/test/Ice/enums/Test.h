@@ -299,51 +299,51 @@ public:
 
     virtual ByteEnum opByte(ByteEnum b1, ByteEnum& b2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByte(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opByte(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ShortEnum opShort(ShortEnum s1, ShortEnum& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opShort(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opShort(::IceInternal::Incoming&);
     /// \endcond
 
     virtual IntEnum opInt(IntEnum i1, IntEnum& i2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opInt(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opInt(::IceInternal::Incoming&);
     /// \endcond
 
     virtual SimpleEnum opSimple(SimpleEnum s1, SimpleEnum& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSimple(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opSimple(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ByteEnumSeq opByteSeq(ByteEnumSeq b1, ByteEnumSeq& b2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opByteSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ShortEnumSeq opShortSeq(ShortEnumSeq s1, ShortEnumSeq& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opShortSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opShortSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual IntEnumSeq opIntSeq(IntEnumSeq i1, IntEnumSeq& i2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opIntSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opIntSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual SimpleEnumSeq opSimpleSeq(SimpleEnumSeq s1, SimpleEnumSeq& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSimpleSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opSimpleSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

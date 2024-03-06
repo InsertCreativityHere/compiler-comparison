@@ -356,7 +356,7 @@ public:
      */
     virtual void keepAlive(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_keepAlive(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_keepAlive(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -374,7 +374,7 @@ public:
      */
     virtual void allocateObjectByIdAsync(::Ice::Identity id, ::std::function<void(const ::std::optional<::Ice::ObjectPrx>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_allocateObjectById(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_allocateObjectById(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -390,7 +390,7 @@ public:
      */
     virtual void allocateObjectByTypeAsync(::std::string type, ::std::function<void(const ::std::optional<::Ice::ObjectPrx>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_allocateObjectByType(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_allocateObjectByType(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -405,7 +405,7 @@ public:
      */
     virtual void releaseObject(::Ice::Identity id, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_releaseObject(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_releaseObject(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -417,11 +417,11 @@ public:
      */
     virtual void setAllocationTimeout(::std::int32_t timeout, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_setAllocationTimeout(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_setAllocationTimeout(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

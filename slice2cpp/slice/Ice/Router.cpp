@@ -19,6 +19,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Router.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -207,57 +208,58 @@ Ice::Router::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Ice::Router::_iceD_getClientProxy(::IceInternal::Incoming& inS, const Current& current) const
+Ice::Router::_iceD_getClientProxy(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    inS.readEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    incoming.readEmptyParams();
     ::std::optional<bool> iceP_hasRoutingTable;
-    ::std::optional<::Ice::ObjectPrx> ret = this->getClientProxy(iceP_hasRoutingTable, current);
-    auto ostr = inS.startWriteParams();
+    ::std::optional<::Ice::ObjectPrx> ret = this->getClientProxy(iceP_hasRoutingTable, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
     ostr->writeAll({1}, iceP_hasRoutingTable);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Ice::Router::_iceD_getServerProxy(::IceInternal::Incoming& inS, const Current& current) const
+Ice::Router::_iceD_getServerProxy(::IceInternal::Incoming& incoming) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    inS.readEmptyParams();
-    ::std::optional<::Ice::ObjectPrx> ret = this->getServerProxy(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::optional<::Ice::ObjectPrx> ret = this->getServerProxy(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Ice::Router::_iceD_addProxies(::IceInternal::Incoming& inS, const Current& current)
+Ice::Router::_iceD_addProxies(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ObjectProxySeq iceP_proxies;
     istr->readAll(iceP_proxies);
-    inS.endReadParams();
-    ObjectProxySeq ret = this->addProxies(::std::move(iceP_proxies), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ObjectProxySeq ret = this->addProxies(::std::move(iceP_proxies), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Ice::Router::_iceDispatch(::IceInternal::Incoming& in, const Current& current)
+Ice::Router::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "addProxies", "getClientProxy", "getServerProxy", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
@@ -268,31 +270,31 @@ Ice::Router::_iceDispatch(::IceInternal::Incoming& in, const Current& current)
     {
         case 0:
         {
-            return _iceD_addProxies(in, current);
+            return _iceD_addProxies(incoming);
         }
         case 1:
         {
-            return _iceD_getClientProxy(in, current);
+            return _iceD_getClientProxy(incoming);
         }
         case 2:
         {
-            return _iceD_getServerProxy(in, current);
+            return _iceD_getServerProxy(incoming);
         }
         case 3:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 4:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 5:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 6:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         default:
         {
@@ -325,24 +327,25 @@ Ice::RouterFinder::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Ice::RouterFinder::_iceD_getRouter(::IceInternal::Incoming& inS, const Current& current)
+Ice::RouterFinder::_iceD_getRouter(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::optional<RouterPrx> ret = this->getRouter(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::optional<RouterPrx> ret = this->getRouter(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Ice::RouterFinder::_iceDispatch(::IceInternal::Incoming& in, const Current& current)
+Ice::RouterFinder::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "getRouter", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
@@ -353,23 +356,23 @@ Ice::RouterFinder::_iceDispatch(::IceInternal::Incoming& in, const Current& curr
     {
         case 0:
         {
-            return _iceD_getRouter(in, current);
+            return _iceD_getRouter(incoming);
         }
         case 1:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 2:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 3:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 4:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         default:
         {

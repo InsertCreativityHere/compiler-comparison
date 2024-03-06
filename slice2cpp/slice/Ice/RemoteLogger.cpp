@@ -19,6 +19,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <RemoteLogger.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -271,41 +272,42 @@ Ice::RemoteLogger::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Ice::RemoteLogger::_iceD_init(::IceInternal::Incoming& inS, const Current& current)
+Ice::RemoteLogger::_iceD_init(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_prefix;
     LogMessageSeq iceP_logMessages;
     istr->readAll(iceP_prefix, iceP_logMessages);
-    inS.endReadParams();
-    this->init(::std::move(iceP_prefix), ::std::move(iceP_logMessages), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->init(::std::move(iceP_prefix), ::std::move(iceP_logMessages), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Ice::RemoteLogger::_iceD_log(::IceInternal::Incoming& inS, const Current& current)
+Ice::RemoteLogger::_iceD_log(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     LogMessage iceP_message;
     istr->readAll(iceP_message);
-    inS.endReadParams();
-    this->log(::std::move(iceP_message), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->log(::std::move(iceP_message), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Ice::RemoteLogger::_iceDispatch(::IceInternal::Incoming& in, const Current& current)
+Ice::RemoteLogger::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "init", "log" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
@@ -316,27 +318,27 @@ Ice::RemoteLogger::_iceDispatch(::IceInternal::Incoming& in, const Current& curr
     {
         case 0:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 1:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 2:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 4:
         {
-            return _iceD_init(in, current);
+            return _iceD_init(incoming);
         }
         case 5:
         {
-            return _iceD_log(in, current);
+            return _iceD_log(incoming);
         }
         default:
         {
@@ -369,65 +371,66 @@ Ice::LoggerAdmin::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Ice::LoggerAdmin::_iceD_attachRemoteLogger(::IceInternal::Incoming& inS, const Current& current)
+Ice::LoggerAdmin::_iceD_attachRemoteLogger(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<RemoteLoggerPrx> iceP_prx;
     LogMessageTypeSeq iceP_messageTypes;
     StringSeq iceP_traceCategories;
     ::std::int32_t iceP_messageMax;
     istr->readAll(iceP_prx, iceP_messageTypes, iceP_traceCategories, iceP_messageMax);
-    inS.endReadParams();
-    this->attachRemoteLogger(::std::move(iceP_prx), ::std::move(iceP_messageTypes), ::std::move(iceP_traceCategories), iceP_messageMax, current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->attachRemoteLogger(::std::move(iceP_prx), ::std::move(iceP_messageTypes), ::std::move(iceP_traceCategories), iceP_messageMax, incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Ice::LoggerAdmin::_iceD_detachRemoteLogger(::IceInternal::Incoming& inS, const Current& current)
+Ice::LoggerAdmin::_iceD_detachRemoteLogger(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<RemoteLoggerPrx> iceP_prx;
     istr->readAll(iceP_prx);
-    inS.endReadParams();
-    bool ret = this->detachRemoteLogger(::std::move(iceP_prx), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    bool ret = this->detachRemoteLogger(::std::move(iceP_prx), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Ice::LoggerAdmin::_iceD_getLog(::IceInternal::Incoming& inS, const Current& current)
+Ice::LoggerAdmin::_iceD_getLog(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     LogMessageTypeSeq iceP_messageTypes;
     StringSeq iceP_traceCategories;
     ::std::int32_t iceP_messageMax;
     istr->readAll(iceP_messageTypes, iceP_traceCategories, iceP_messageMax);
-    inS.endReadParams();
+    incoming.endReadParams();
     ::std::string iceP_prefix;
-    LogMessageSeq ret = this->getLog(::std::move(iceP_messageTypes), ::std::move(iceP_traceCategories), iceP_messageMax, iceP_prefix, current);
-    auto ostr = inS.startWriteParams();
+    LogMessageSeq ret = this->getLog(::std::move(iceP_messageTypes), ::std::move(iceP_traceCategories), iceP_messageMax, iceP_prefix, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_prefix, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Ice::LoggerAdmin::_iceDispatch(::IceInternal::Incoming& in, const Current& current)
+Ice::LoggerAdmin::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "attachRemoteLogger", "detachRemoteLogger", "getLog", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
@@ -438,31 +441,31 @@ Ice::LoggerAdmin::_iceDispatch(::IceInternal::Incoming& in, const Current& curre
     {
         case 0:
         {
-            return _iceD_attachRemoteLogger(in, current);
+            return _iceD_attachRemoteLogger(incoming);
         }
         case 1:
         {
-            return _iceD_detachRemoteLogger(in, current);
+            return _iceD_detachRemoteLogger(incoming);
         }
         case 2:
         {
-            return _iceD_getLog(in, current);
+            return _iceD_getLog(incoming);
         }
         case 3:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 4:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 5:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 6:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         default:
         {

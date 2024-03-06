@@ -16,6 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <IceLocatorDiscovery.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -134,25 +135,26 @@ IceLocatorDiscovery::LookupReply::ice_staticId()
 
 /// \cond INTERNAL
 bool
-IceLocatorDiscovery::LookupReply::_iceD_foundLocator(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceLocatorDiscovery::LookupReply::_iceD_foundLocator(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<::Ice::LocatorPrx> iceP_prx;
     istr->readAll(iceP_prx);
-    inS.endReadParams();
-    this->foundLocator(::std::move(iceP_prx), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->foundLocator(::std::move(iceP_prx), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceLocatorDiscovery::LookupReply::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+IceLocatorDiscovery::LookupReply::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "foundLocator", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
@@ -163,23 +165,23 @@ IceLocatorDiscovery::LookupReply::_iceDispatch(::IceInternal::Incoming& in, cons
     {
         case 0:
         {
-            return _iceD_foundLocator(in, current);
+            return _iceD_foundLocator(incoming);
         }
         case 1:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 2:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 3:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 4:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         default:
         {
@@ -212,26 +214,27 @@ IceLocatorDiscovery::Lookup::ice_staticId()
 
 /// \cond INTERNAL
 bool
-IceLocatorDiscovery::Lookup::_iceD_findLocator(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+IceLocatorDiscovery::Lookup::_iceD_findLocator(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_instanceName;
     ::std::optional<LookupReplyPrx> iceP_reply;
     istr->readAll(iceP_instanceName, iceP_reply);
-    inS.endReadParams();
-    this->findLocator(::std::move(iceP_instanceName), ::std::move(iceP_reply), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->findLocator(::std::move(iceP_instanceName), ::std::move(iceP_reply), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-IceLocatorDiscovery::Lookup::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+IceLocatorDiscovery::Lookup::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "findLocator", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
@@ -242,23 +245,23 @@ IceLocatorDiscovery::Lookup::_iceDispatch(::IceInternal::Incoming& in, const ::I
     {
         case 0:
         {
-            return _iceD_findLocator(in, current);
+            return _iceD_findLocator(incoming);
         }
         case 1:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 2:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 3:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 4:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         default:
         {

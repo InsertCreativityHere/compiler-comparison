@@ -538,26 +538,26 @@ public:
 
     virtual void events(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_events(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_events(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void function(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_function(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_function(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void _cpp_delete(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_delete(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_delete(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void checkedCast(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_checkedCast(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_checkedCast(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

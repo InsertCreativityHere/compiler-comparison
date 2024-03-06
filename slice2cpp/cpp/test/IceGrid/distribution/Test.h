@@ -145,16 +145,16 @@ public:
 
     virtual ::std::string getServerFile(::std::string path, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getServerFile(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_getServerFile(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::string getApplicationFile(::std::string path, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getApplicationFile(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_getApplicationFile(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

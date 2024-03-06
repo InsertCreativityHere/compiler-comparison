@@ -418,7 +418,7 @@ public:
      */
     virtual LargeFileInfoSeq getLargeFileInfoSeq(::std::int32_t partition, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getLargeFileInfoSeq(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    bool _iceD_getLargeFileInfoSeq(::IceInternal::Incoming&) const;
     /// \endcond
 
     /**
@@ -430,7 +430,7 @@ public:
      */
     virtual ByteSeqSeq getChecksumSeq(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getChecksumSeq(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    bool _iceD_getChecksumSeq(::IceInternal::Incoming&) const;
     /// \endcond
 
     /**
@@ -441,7 +441,7 @@ public:
      */
     virtual ::Ice::ByteSeq getChecksum(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getChecksum(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    bool _iceD_getChecksum(::IceInternal::Incoming&) const;
     /// \endcond
 
     /**
@@ -457,11 +457,11 @@ public:
      */
     virtual void getLargeFileCompressedAsync(::std::string path, ::std::int64_t pos, ::std::int32_t num, ::std::function<void(const ::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getLargeFileCompressed(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    bool _iceD_getLargeFileCompressed(::IceInternal::Incoming&) const;
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

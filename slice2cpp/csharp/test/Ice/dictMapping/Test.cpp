@@ -16,6 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -445,166 +446,167 @@ Test::MyClass::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_shutdown(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->shutdown(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->shutdown(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opNV(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opNV(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     NV iceP_i;
     istr->readAll(iceP_i);
-    inS.endReadParams();
+    incoming.endReadParams();
     NV iceP_o;
-    NV ret = this->opNV(::std::move(iceP_i), iceP_o, current);
-    auto ostr = inS.startWriteParams();
+    NV ret = this->opNV(::std::move(iceP_i), iceP_o, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_o, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opNR(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opNR(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     NR iceP_i;
     istr->readAll(iceP_i);
-    inS.endReadParams();
+    incoming.endReadParams();
     NR iceP_o;
-    NR ret = this->opNR(::std::move(iceP_i), iceP_o, current);
-    auto ostr = inS.startWriteParams();
+    NR ret = this->opNR(::std::move(iceP_i), iceP_o, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_o, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opNDV(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opNDV(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     NDV iceP_i;
     istr->readAll(iceP_i);
-    inS.endReadParams();
+    incoming.endReadParams();
     NDV iceP_o;
-    NDV ret = this->opNDV(::std::move(iceP_i), iceP_o, current);
-    auto ostr = inS.startWriteParams();
+    NDV ret = this->opNDV(::std::move(iceP_i), iceP_o, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_o, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opNDR(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opNDR(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     NDR iceP_i;
     istr->readAll(iceP_i);
-    inS.endReadParams();
+    incoming.endReadParams();
     NDR iceP_o;
-    NDR ret = this->opNDR(::std::move(iceP_i), iceP_o, current);
-    auto ostr = inS.startWriteParams();
+    NDR ret = this->opNDR(::std::move(iceP_i), iceP_o, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_o, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opNDAIS(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opNDAIS(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     NDAIS iceP_i;
     istr->readAll(iceP_i);
-    inS.endReadParams();
+    incoming.endReadParams();
     NDAIS iceP_o;
-    NDAIS ret = this->opNDAIS(::std::move(iceP_i), iceP_o, current);
-    auto ostr = inS.startWriteParams();
+    NDAIS ret = this->opNDAIS(::std::move(iceP_i), iceP_o, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_o, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opNDGIS(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opNDGIS(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     NDGIS iceP_i;
     istr->readAll(iceP_i);
-    inS.endReadParams();
+    incoming.endReadParams();
     NDGIS iceP_o;
-    NDGIS ret = this->opNDGIS(::std::move(iceP_i), iceP_o, current);
-    auto ostr = inS.startWriteParams();
+    NDGIS ret = this->opNDGIS(::std::move(iceP_i), iceP_o, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_o, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opNDASS(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opNDASS(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     NDASS iceP_i;
     istr->readAll(iceP_i);
-    inS.endReadParams();
+    incoming.endReadParams();
     NDASS iceP_o;
-    NDASS ret = this->opNDASS(::std::move(iceP_i), iceP_o, current);
-    auto ostr = inS.startWriteParams();
+    NDASS ret = this->opNDASS(::std::move(iceP_i), iceP_o, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_o, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opNDGSS(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opNDGSS(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     NDGSS iceP_i;
     istr->readAll(iceP_i);
-    inS.endReadParams();
+    incoming.endReadParams();
     NDGSS iceP_o;
-    NDGSS ret = this->opNDGSS(::std::move(iceP_i), iceP_o, current);
-    auto ostr = inS.startWriteParams();
+    NDGSS ret = this->opNDGSS(::std::move(iceP_i), iceP_o, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_o, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::MyClass::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "opNDAIS", "opNDASS", "opNDGIS", "opNDGSS", "opNDR", "opNDV", "opNR", "opNV", "shutdown" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 13, current.operation);
     if(r.first == r.second)
     {
@@ -615,55 +617,55 @@ Test::MyClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
     {
         case 0:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 1:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 2:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 4:
         {
-            return _iceD_opNDAIS(in, current);
+            return _iceD_opNDAIS(incoming);
         }
         case 5:
         {
-            return _iceD_opNDASS(in, current);
+            return _iceD_opNDASS(incoming);
         }
         case 6:
         {
-            return _iceD_opNDGIS(in, current);
+            return _iceD_opNDGIS(incoming);
         }
         case 7:
         {
-            return _iceD_opNDGSS(in, current);
+            return _iceD_opNDGSS(incoming);
         }
         case 8:
         {
-            return _iceD_opNDR(in, current);
+            return _iceD_opNDR(incoming);
         }
         case 9:
         {
-            return _iceD_opNDV(in, current);
+            return _iceD_opNDV(incoming);
         }
         case 10:
         {
-            return _iceD_opNR(in, current);
+            return _iceD_opNR(incoming);
         }
         case 11:
         {
-            return _iceD_opNV(in, current);
+            return _iceD_opNV(incoming);
         }
         case 12:
         {
-            return _iceD_shutdown(in, current);
+            return _iceD_shutdown(incoming);
         }
         default:
         {

@@ -649,106 +649,106 @@ public:
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     virtual bool supportsUndeclaredExceptions(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_supportsUndeclaredExceptions(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_supportsUndeclaredExceptions(::IceInternal::Incoming&);
     /// \endcond
 
     virtual bool supportsAssertException(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_supportsAssertException(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_supportsAssertException(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwAasA(::std::int32_t a, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwAasA(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwAasA(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwAorDasAorD(::std::int32_t a, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwAorDasAorD(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwAorDasAorD(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwBasA(::std::int32_t a, ::std::int32_t b, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwBasA(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwBasA(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwCasA(::std::int32_t a, ::std::int32_t b, ::std::int32_t c, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwCasA(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwCasA(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwBasB(::std::int32_t a, ::std::int32_t b, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwBasB(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwBasB(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwCasB(::std::int32_t a, ::std::int32_t b, ::std::int32_t c, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwCasB(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwCasB(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwCasC(::std::int32_t a, ::std::int32_t b, ::std::int32_t c, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwCasC(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwCasC(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwUndeclaredA(::std::int32_t a, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwUndeclaredA(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwUndeclaredA(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwUndeclaredB(::std::int32_t a, ::std::int32_t b, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwUndeclaredB(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwUndeclaredB(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwUndeclaredC(::std::int32_t a, ::std::int32_t b, ::std::int32_t c, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwUndeclaredC(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwUndeclaredC(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwLocalException(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwLocalException(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwLocalException(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwNonIceException(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwNonIceException(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwNonIceException(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwAssertException(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwAssertException(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwAssertException(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::Ice::ByteSeq throwMemoryLimitException(::Ice::ByteSeq seq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwMemoryLimitException(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwMemoryLimitException(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwLocalExceptionIdempotent(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwLocalExceptionIdempotent(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwLocalExceptionIdempotent(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwAfterResponse(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwAfterResponse(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwAfterResponse(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwAfterException(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwAfterException(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwAfterException(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -782,11 +782,11 @@ public:
 
     virtual void noSuchOperation(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_noSuchOperation(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_noSuchOperation(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

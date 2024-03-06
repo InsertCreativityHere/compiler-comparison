@@ -13169,21 +13169,15 @@ namespace Ice.operations.AMD
 
             #region Inherited Slice operations
 
-            public abstract global::System.Threading.Tasks.Task<string[]> opStringLiteralsAsync(global::Ice.Current current = null);
+            public abstract global::System.Threading.Tasks.Task shutdownAsync(global::Ice.Current current = null);
 
-            public abstract global::System.Threading.Tasks.Task<string[]> opWStringLiteralsAsync(global::Ice.Current current = null);
+            public abstract global::System.Threading.Tasks.Task<bool> supportsCompressAsync(global::Ice.Current current = null);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpMStruct1MarshaledResult> opMStruct1Async(global::Ice.Current current = null);
+            public abstract global::System.Threading.Tasks.Task opVoidAsync(global::Ice.Current current = null);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpMStruct2MarshaledResult> opMStruct2Async(Structure p1, global::Ice.Current current = null);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpByteResult> opByteAsync(byte p1, byte p2, global::Ice.Current current = null);
 
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpMSeq1MarshaledResult> opMSeq1Async(global::Ice.Current current = null);
-
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpMSeq2MarshaledResult> opMSeq2Async(string[] p1, global::Ice.Current current = null);
-
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict1MarshaledResult> opMDict1Async(global::Ice.Current current = null);
-
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict2MarshaledResult> opMDict2Async(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpBoolResult> opBoolAsync(bool p1, bool p2, global::Ice.Current current = null);
 
             public abstract global::System.Threading.Tasks.Task<MyClass_OpShortIntLongResult> opShortIntLongAsync(short p1, int p2, long p3, global::Ice.Current current = null);
 
@@ -13243,16 +13237,6 @@ namespace Ice.operations.AMD
 
             public abstract global::System.Threading.Tasks.Task<MyClass_OpStringMyEnumDSResult> opStringMyEnumDSAsync(global::System.Collections.Generic.Dictionary<string, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<string, MyEnum>[] p2, global::Ice.Current current = null);
 
-            public abstract global::System.Threading.Tasks.Task shutdownAsync(global::Ice.Current current = null);
-
-            public abstract global::System.Threading.Tasks.Task<bool> supportsCompressAsync(global::Ice.Current current = null);
-
-            public abstract global::System.Threading.Tasks.Task opVoidAsync(global::Ice.Current current = null);
-
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpByteResult> opByteAsync(byte p1, byte p2, global::Ice.Current current = null);
-
-            public abstract global::System.Threading.Tasks.Task<MyClass_OpBoolResult> opBoolAsync(bool p1, bool p2, global::Ice.Current current = null);
-
             public abstract global::System.Threading.Tasks.Task<MyClass_OpMyEnumStringDSResult> opMyEnumStringDSAsync(global::System.Collections.Generic.Dictionary<MyEnum, string>[] p1, global::System.Collections.Generic.Dictionary<MyEnum, string>[] p2, global::Ice.Current current = null);
 
             public abstract global::System.Threading.Tasks.Task<MyClass_OpMyStructMyEnumDSResult> opMyStructMyEnumDSAsync(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum>[] p2, global::Ice.Current current = null);
@@ -13310,6 +13294,22 @@ namespace Ice.operations.AMD
             public abstract global::System.Threading.Tasks.Task<string[]> opStringS2Async(string[] stringS, global::Ice.Current current = null);
 
             public abstract global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<byte, bool>> opByteBoolD2Async(global::System.Collections.Generic.Dictionary<byte, bool> byteBoolD, global::Ice.Current current = null);
+
+            public abstract global::System.Threading.Tasks.Task<string[]> opStringLiteralsAsync(global::Ice.Current current = null);
+
+            public abstract global::System.Threading.Tasks.Task<string[]> opWStringLiteralsAsync(global::Ice.Current current = null);
+
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpMStruct1MarshaledResult> opMStruct1Async(global::Ice.Current current = null);
+
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpMStruct2MarshaledResult> opMStruct2Async(Structure p1, global::Ice.Current current = null);
+
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpMSeq1MarshaledResult> opMSeq1Async(global::Ice.Current current = null);
+
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpMSeq2MarshaledResult> opMSeq2Async(string[] p1, global::Ice.Current current = null);
+
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict1MarshaledResult> opMDict1Async(global::Ice.Current current = null);
+
+            public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict2MarshaledResult> opMDict2Async(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
 
             #endregion
 

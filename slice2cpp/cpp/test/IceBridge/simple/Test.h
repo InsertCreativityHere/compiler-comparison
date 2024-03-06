@@ -376,26 +376,26 @@ public:
 
     virtual void ping(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_ping(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_ping(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::int32_t getCount(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getCount(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_getCount(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void datagram(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_datagram(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_datagram(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::int32_t getDatagramCount(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getDatagramCount(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_getDatagramCount(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -429,76 +429,76 @@ public:
 
     virtual void callCallbackAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_callCallback(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_callCallback(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void getCallbackCountAsync(::std::function<void(::std::int32_t returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getCallbackCount(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_getCallbackCount(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void incCounter(::std::int32_t expected, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_incCounter(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_incCounter(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void waitCounter(::std::int32_t value, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_waitCounter(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_waitCounter(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::int32_t getConnectionCount(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getConnectionCount(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_getConnectionCount(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::string getConnectionInfo(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getConnectionInfo(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_getConnectionInfo(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void closeConnection(bool force, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_closeConnection(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_closeConnection(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void datagram(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_datagram(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_datagram(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::int32_t getDatagramCount(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getDatagramCount(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_getDatagramCount(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void callDatagramCallback(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_callDatagramCallback(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_callDatagramCallback(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void getCallbackDatagramCountAsync(::std::function<void(::std::int32_t returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getCallbackDatagramCount(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_getCallbackDatagramCount(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::int32_t getHeartbeatCount(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getHeartbeatCount(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_getHeartbeatCount(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void enableHeartbeats(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_enableHeartbeats(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_enableHeartbeats(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

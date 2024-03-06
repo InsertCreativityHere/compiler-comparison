@@ -16,6 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Canvas.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -162,40 +163,41 @@ Demo::gx::Canvas::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Demo::gx::Canvas::_iceD_paintSquare(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Demo::gx::Canvas::_iceD_paintSquare(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     Square iceP_square;
     istr->readAll(iceP_square);
-    inS.endReadParams();
-    this->paintSquare(::std::move(iceP_square), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->paintSquare(::std::move(iceP_square), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Demo::gx::Canvas::_iceD_paintCircle(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Demo::gx::Canvas::_iceD_paintCircle(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     Circle iceP_circle;
     istr->readAll(iceP_circle);
-    inS.endReadParams();
-    this->paintCircle(::std::move(iceP_circle), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->paintCircle(::std::move(iceP_circle), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Demo::gx::Canvas::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Demo::gx::Canvas::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "paintCircle", "paintSquare" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
@@ -206,27 +208,27 @@ Demo::gx::Canvas::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current
     {
         case 0:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 1:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 2:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 4:
         {
-            return _iceD_paintCircle(in, current);
+            return _iceD_paintCircle(incoming);
         }
         case 5:
         {
-            return _iceD_paintSquare(in, current);
+            return _iceD_paintSquare(incoming);
         }
         default:
         {
@@ -259,22 +261,23 @@ Demo::gx::Session::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Demo::gx::Session::_iceD_destroySession(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Demo::gx::Session::_iceD_destroySession(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->destroySession(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->destroySession(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Demo::gx::Session::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Demo::gx::Session::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "destroy", "destroySession", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
@@ -285,27 +288,27 @@ Demo::gx::Session::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curren
     {
         case 0:
         {
-            return _iceD_destroy(in, current);
+            return _iceD_destroy(incoming);
         }
         case 1:
         {
-            return _iceD_destroySession(in, current);
+            return _iceD_destroySession(incoming);
         }
         case 2:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 4:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 5:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         default:
         {

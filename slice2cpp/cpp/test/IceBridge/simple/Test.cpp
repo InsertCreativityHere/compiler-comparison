@@ -16,6 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -593,62 +594,63 @@ Test::Callback::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::Callback::_iceD_ping(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Callback::_iceD_ping(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->ping(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->ping(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Callback::_iceD_getCount(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Callback::_iceD_getCount(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::int32_t ret = this->getCount(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::int32_t ret = this->getCount(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Callback::_iceD_datagram(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Callback::_iceD_datagram(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->datagram(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->datagram(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Callback::_iceD_getDatagramCount(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Callback::_iceD_getDatagramCount(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::int32_t ret = this->getDatagramCount(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::int32_t ret = this->getDatagramCount(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Callback::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::Callback::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "datagram", "getCount", "getDatagramCount", "ice_id", "ice_ids", "ice_isA", "ice_ping", "ping" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
@@ -659,35 +661,35 @@ Test::Callback::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
     {
         case 0:
         {
-            return _iceD_datagram(in, current);
+            return _iceD_datagram(incoming);
         }
         case 1:
         {
-            return _iceD_getCount(in, current);
+            return _iceD_getCount(incoming);
         }
         case 2:
         {
-            return _iceD_getDatagramCount(in, current);
+            return _iceD_getDatagramCount(incoming);
         }
         case 3:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 4:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 5:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 6:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 7:
         {
-            return _iceD_ping(in, current);
+            return _iceD_ping(incoming);
         }
         default:
         {
@@ -720,209 +722,231 @@ Test::MyClass::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_callCallback(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_callCallback(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    this->callCallbackAsync(inA->response(), inA->exception(), current);
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
-Test::MyClass::_iceD_getCallbackCount(::IceInternal::Incoming& inS, const ::Ice::Current& current)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](::std::int32_t ret)
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    try
     {
-        auto ostr = inA->startWriteParams();
-        ostr->writeAll(ret);
-        inA->endWriteParams();
-        inA->completed();
-    };
-    this->getCallbackCountAsync(responseCB, inA->exception(), current);
+        this->callCallbackAsync([incomingPtr] { incomingPtr->response(); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_incCounter(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_getCallbackCount(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](::std::int32_t ret)
+    {
+        auto ostr = incomingPtr->startWriteParams();
+        ostr->writeAll(ret);
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
+    };
+    try
+    {
+        this->getCallbackCountAsync(responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
+    return false;
+}
+/// \endcond
+
+/// \cond INTERNAL
+bool
+Test::MyClass::_iceD_incCounter(::IceInternal::Incoming& incoming)
+{
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int32_t iceP_expected;
     istr->readAll(iceP_expected);
-    inS.endReadParams();
-    this->incCounter(iceP_expected, current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->incCounter(iceP_expected, incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_waitCounter(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_waitCounter(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int32_t iceP_value;
     istr->readAll(iceP_value);
-    inS.endReadParams();
-    this->waitCounter(iceP_value, current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->waitCounter(iceP_value, incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_getConnectionCount(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_getConnectionCount(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::int32_t ret = this->getConnectionCount(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::int32_t ret = this->getConnectionCount(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_getConnectionInfo(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_getConnectionInfo(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::string ret = this->getConnectionInfo(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::string ret = this->getConnectionInfo(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_closeConnection(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_closeConnection(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     bool iceP_force;
     istr->readAll(iceP_force);
-    inS.endReadParams();
-    this->closeConnection(iceP_force, current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->closeConnection(iceP_force, incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_datagram(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_datagram(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->datagram(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->datagram(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_getDatagramCount(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_getDatagramCount(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::int32_t ret = this->getDatagramCount(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::int32_t ret = this->getDatagramCount(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_callDatagramCallback(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_callDatagramCallback(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->callDatagramCallback(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->callDatagramCallback(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_getCallbackDatagramCount(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_getCallbackDatagramCount(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    auto inA = ::IceInternal::IncomingAsync::create(inS);
-    auto responseCB = [inA](::std::int32_t ret)
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    auto responseCB = [incomingPtr](::std::int32_t ret)
     {
-        auto ostr = inA->startWriteParams();
+        auto ostr = incomingPtr->startWriteParams();
         ostr->writeAll(ret);
-        inA->endWriteParams();
-        inA->completed();
+        incomingPtr->endWriteParams();
+        incomingPtr->completed();
     };
-    this->getCallbackDatagramCountAsync(responseCB, inA->exception(), current);
+    try
+    {
+        this->getCallbackDatagramCountAsync(responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+    }
+    catch (...)
+    {
+        incomingPtr->failed(::std::current_exception());
+    }
     return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_getHeartbeatCount(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_getHeartbeatCount(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::int32_t ret = this->getHeartbeatCount(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::int32_t ret = this->getHeartbeatCount(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_enableHeartbeats(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_enableHeartbeats(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->enableHeartbeats(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->enableHeartbeats(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_shutdown(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->shutdown(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->shutdown(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::MyClass::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "callCallback", "callDatagramCallback", "closeConnection", "datagram", "enableHeartbeats", "getCallbackCount", "getCallbackDatagramCount", "getConnectionCount", "getConnectionInfo", "getDatagramCount", "getHeartbeatCount", "ice_id", "ice_ids", "ice_isA", "ice_ping", "incCounter", "shutdown", "waitCounter" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 18, current.operation);
     if(r.first == r.second)
     {
@@ -933,75 +957,75 @@ Test::MyClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
     {
         case 0:
         {
-            return _iceD_callCallback(in, current);
+            return _iceD_callCallback(incoming);
         }
         case 1:
         {
-            return _iceD_callDatagramCallback(in, current);
+            return _iceD_callDatagramCallback(incoming);
         }
         case 2:
         {
-            return _iceD_closeConnection(in, current);
+            return _iceD_closeConnection(incoming);
         }
         case 3:
         {
-            return _iceD_datagram(in, current);
+            return _iceD_datagram(incoming);
         }
         case 4:
         {
-            return _iceD_enableHeartbeats(in, current);
+            return _iceD_enableHeartbeats(incoming);
         }
         case 5:
         {
-            return _iceD_getCallbackCount(in, current);
+            return _iceD_getCallbackCount(incoming);
         }
         case 6:
         {
-            return _iceD_getCallbackDatagramCount(in, current);
+            return _iceD_getCallbackDatagramCount(incoming);
         }
         case 7:
         {
-            return _iceD_getConnectionCount(in, current);
+            return _iceD_getConnectionCount(incoming);
         }
         case 8:
         {
-            return _iceD_getConnectionInfo(in, current);
+            return _iceD_getConnectionInfo(incoming);
         }
         case 9:
         {
-            return _iceD_getDatagramCount(in, current);
+            return _iceD_getDatagramCount(incoming);
         }
         case 10:
         {
-            return _iceD_getHeartbeatCount(in, current);
+            return _iceD_getHeartbeatCount(incoming);
         }
         case 11:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 12:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 13:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 14:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 15:
         {
-            return _iceD_incCounter(in, current);
+            return _iceD_incCounter(incoming);
         }
         case 16:
         {
-            return _iceD_shutdown(in, current);
+            return _iceD_shutdown(incoming);
         }
         case 17:
         {
-            return _iceD_waitCounter(in, current);
+            return _iceD_waitCounter(incoming);
         }
         default:
         {

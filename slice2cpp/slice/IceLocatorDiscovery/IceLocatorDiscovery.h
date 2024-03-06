@@ -269,11 +269,11 @@ public:
      */
     virtual void foundLocator(::std::optional<::Ice::LocatorPrx> prx, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_foundLocator(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_foundLocator(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -321,11 +321,11 @@ public:
      */
     virtual void findLocator(::std::string instanceName, ::std::optional<LookupReplyPrx> reply, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_findLocator(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_findLocator(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

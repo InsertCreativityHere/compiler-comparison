@@ -233,26 +233,26 @@ public:
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void abort(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_abort(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_abort(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void idempotentAbort(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_idempotentAbort(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_idempotentAbort(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::int32_t pid(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_pid(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_pid(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -286,11 +286,11 @@ public:
 
     virtual void cleanup(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_cleanup(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_cleanup(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

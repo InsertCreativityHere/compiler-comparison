@@ -16,6 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -764,250 +765,251 @@ Test::Thrower::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::Thrower::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Thrower::_iceD_shutdown(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->shutdown(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->shutdown(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Thrower::_iceD_supportsUndeclaredExceptions(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Thrower::_iceD_supportsUndeclaredExceptions(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    bool ret = this->supportsUndeclaredExceptions(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    bool ret = this->supportsUndeclaredExceptions(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Thrower::_iceD_throwAasA(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Thrower::_iceD_throwAasA(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int32_t iceP_a;
     istr->readAll(iceP_a);
-    inS.endReadParams();
-    this->throwAasA(iceP_a, current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->throwAasA(iceP_a, incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Thrower::_iceD_throwAorDasAorD(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Thrower::_iceD_throwAorDasAorD(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int32_t iceP_a;
     istr->readAll(iceP_a);
-    inS.endReadParams();
-    this->throwAorDasAorD(iceP_a, current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->throwAorDasAorD(iceP_a, incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Thrower::_iceD_throwBasA(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Thrower::_iceD_throwBasA(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int32_t iceP_a;
     ::std::int32_t iceP_b;
     istr->readAll(iceP_a, iceP_b);
-    inS.endReadParams();
-    this->throwBasA(iceP_a, iceP_b, current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->throwBasA(iceP_a, iceP_b, incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Thrower::_iceD_throwCasA(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Thrower::_iceD_throwCasA(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int32_t iceP_a;
     ::std::int32_t iceP_b;
     ::std::int32_t iceP_c;
     istr->readAll(iceP_a, iceP_b, iceP_c);
-    inS.endReadParams();
-    this->throwCasA(iceP_a, iceP_b, iceP_c, current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->throwCasA(iceP_a, iceP_b, iceP_c, incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Thrower::_iceD_throwBasB(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Thrower::_iceD_throwBasB(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int32_t iceP_a;
     ::std::int32_t iceP_b;
     istr->readAll(iceP_a, iceP_b);
-    inS.endReadParams();
-    this->throwBasB(iceP_a, iceP_b, current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->throwBasB(iceP_a, iceP_b, incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Thrower::_iceD_throwCasB(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Thrower::_iceD_throwCasB(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int32_t iceP_a;
     ::std::int32_t iceP_b;
     ::std::int32_t iceP_c;
     istr->readAll(iceP_a, iceP_b, iceP_c);
-    inS.endReadParams();
-    this->throwCasB(iceP_a, iceP_b, iceP_c, current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->throwCasB(iceP_a, iceP_b, iceP_c, incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Thrower::_iceD_throwCasC(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Thrower::_iceD_throwCasC(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int32_t iceP_a;
     ::std::int32_t iceP_b;
     ::std::int32_t iceP_c;
     istr->readAll(iceP_a, iceP_b, iceP_c);
-    inS.endReadParams();
-    this->throwCasC(iceP_a, iceP_b, iceP_c, current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->throwCasC(iceP_a, iceP_b, iceP_c, incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Thrower::_iceD_throwUndeclaredA(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Thrower::_iceD_throwUndeclaredA(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int32_t iceP_a;
     istr->readAll(iceP_a);
-    inS.endReadParams();
-    this->throwUndeclaredA(iceP_a, current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->throwUndeclaredA(iceP_a, incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Thrower::_iceD_throwUndeclaredB(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Thrower::_iceD_throwUndeclaredB(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int32_t iceP_a;
     ::std::int32_t iceP_b;
     istr->readAll(iceP_a, iceP_b);
-    inS.endReadParams();
-    this->throwUndeclaredB(iceP_a, iceP_b, current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->throwUndeclaredB(iceP_a, iceP_b, incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Thrower::_iceD_throwUndeclaredC(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Thrower::_iceD_throwUndeclaredC(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int32_t iceP_a;
     ::std::int32_t iceP_b;
     ::std::int32_t iceP_c;
     istr->readAll(iceP_a, iceP_b, iceP_c);
-    inS.endReadParams();
-    this->throwUndeclaredC(iceP_a, iceP_b, iceP_c, current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->throwUndeclaredC(iceP_a, iceP_b, iceP_c, incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Thrower::_iceD_throwLocalException(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Thrower::_iceD_throwLocalException(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->throwLocalException(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->throwLocalException(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Thrower::_iceD_throwNonIceException(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Thrower::_iceD_throwNonIceException(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->throwNonIceException(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->throwNonIceException(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Thrower::_iceD_throwMemoryLimitException(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Thrower::_iceD_throwMemoryLimitException(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::Ice::ByteSeq iceP_seq;
     istr->readAll(iceP_seq);
-    inS.endReadParams();
-    ::Ice::ByteSeq ret = this->throwMemoryLimitException(::std::move(iceP_seq), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::Ice::ByteSeq ret = this->throwMemoryLimitException(::std::move(iceP_seq), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Thrower::_iceD_throwLocalExceptionIdempotent(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Thrower::_iceD_throwLocalExceptionIdempotent(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    inS.readEmptyParams();
-    this->throwLocalExceptionIdempotent(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->throwLocalExceptionIdempotent(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Thrower::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::Thrower::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown", "supportsUndeclaredExceptions", "throwAasA", "throwAorDasAorD", "throwBasA", "throwBasB", "throwCasA", "throwCasB", "throwCasC", "throwLocalException", "throwLocalExceptionIdempotent", "throwMemoryLimitException", "throwNonIceException", "throwUndeclaredA", "throwUndeclaredB", "throwUndeclaredC" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 20, current.operation);
     if(r.first == r.second)
     {
@@ -1018,83 +1020,83 @@ Test::Thrower::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
     {
         case 0:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 1:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 2:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 4:
         {
-            return _iceD_shutdown(in, current);
+            return _iceD_shutdown(incoming);
         }
         case 5:
         {
-            return _iceD_supportsUndeclaredExceptions(in, current);
+            return _iceD_supportsUndeclaredExceptions(incoming);
         }
         case 6:
         {
-            return _iceD_throwAasA(in, current);
+            return _iceD_throwAasA(incoming);
         }
         case 7:
         {
-            return _iceD_throwAorDasAorD(in, current);
+            return _iceD_throwAorDasAorD(incoming);
         }
         case 8:
         {
-            return _iceD_throwBasA(in, current);
+            return _iceD_throwBasA(incoming);
         }
         case 9:
         {
-            return _iceD_throwBasB(in, current);
+            return _iceD_throwBasB(incoming);
         }
         case 10:
         {
-            return _iceD_throwCasA(in, current);
+            return _iceD_throwCasA(incoming);
         }
         case 11:
         {
-            return _iceD_throwCasB(in, current);
+            return _iceD_throwCasB(incoming);
         }
         case 12:
         {
-            return _iceD_throwCasC(in, current);
+            return _iceD_throwCasC(incoming);
         }
         case 13:
         {
-            return _iceD_throwLocalException(in, current);
+            return _iceD_throwLocalException(incoming);
         }
         case 14:
         {
-            return _iceD_throwLocalExceptionIdempotent(in, current);
+            return _iceD_throwLocalExceptionIdempotent(incoming);
         }
         case 15:
         {
-            return _iceD_throwMemoryLimitException(in, current);
+            return _iceD_throwMemoryLimitException(incoming);
         }
         case 16:
         {
-            return _iceD_throwNonIceException(in, current);
+            return _iceD_throwNonIceException(incoming);
         }
         case 17:
         {
-            return _iceD_throwUndeclaredA(in, current);
+            return _iceD_throwUndeclaredA(incoming);
         }
         case 18:
         {
-            return _iceD_throwUndeclaredB(in, current);
+            return _iceD_throwUndeclaredB(incoming);
         }
         case 19:
         {
-            return _iceD_throwUndeclaredC(in, current);
+            return _iceD_throwUndeclaredC(incoming);
         }
         default:
         {
@@ -1127,22 +1129,23 @@ Test::WrongOperation::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::WrongOperation::_iceD_noSuchOperation(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::WrongOperation::_iceD_noSuchOperation(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->noSuchOperation(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->noSuchOperation(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::WrongOperation::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::WrongOperation::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "noSuchOperation" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
@@ -1153,23 +1156,23 @@ Test::WrongOperation::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cur
     {
         case 0:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 1:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 2:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 4:
         {
-            return _iceD_noSuchOperation(in, current);
+            return _iceD_noSuchOperation(incoming);
         }
         default:
         {

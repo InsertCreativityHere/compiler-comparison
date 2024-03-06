@@ -322,31 +322,31 @@ public:
 
     virtual ::std::optional<::Ice::ObjectPrx> getAdmin(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getAdmin(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_getAdmin(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::Ice::PropertyDict getChanges(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getChanges(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_getChanges(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void waitForShutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_waitForShutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_waitForShutdown(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void destroy(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_destroy(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_destroy(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -380,16 +380,16 @@ public:
 
     virtual ::std::optional<RemoteCommunicatorPrx> createCommunicator(::Ice::PropertyDict props, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_createCommunicator(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_createCommunicator(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -423,11 +423,11 @@ public:
 
     virtual void op(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_op(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_op(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

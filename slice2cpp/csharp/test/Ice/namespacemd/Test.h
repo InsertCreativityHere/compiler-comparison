@@ -235,56 +235,56 @@ public:
 
     virtual ::std::shared_ptr<::NoNamespace::C1> getNoNamespaceC2AsC1(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getNoNamespaceC2AsC1(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_getNoNamespaceC2AsC1(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::shared_ptr<::NoNamespace::C2> getNoNamespaceC2AsC2(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getNoNamespaceC2AsC2(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_getNoNamespaceC2AsC2(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwNoNamespaceE2AsE1(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwNoNamespaceE2AsE1(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwNoNamespaceE2AsE1(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwNoNamespaceE2AsE2(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwNoNamespaceE2AsE2(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwNoNamespaceE2AsE2(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwNoNamespaceNotify(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwNoNamespaceNotify(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwNoNamespaceNotify(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::shared_ptr<::WithNamespace::C1> getWithNamespaceC2AsC1(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getWithNamespaceC2AsC1(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_getWithNamespaceC2AsC1(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::shared_ptr<::WithNamespace::C2> getWithNamespaceC2AsC2(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getWithNamespaceC2AsC2(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_getWithNamespaceC2AsC2(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwWithNamespaceE2AsE1(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwWithNamespaceE2AsE1(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwWithNamespaceE2AsE1(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwWithNamespaceE2AsE2(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwWithNamespaceE2AsE2(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwWithNamespaceE2AsE2(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

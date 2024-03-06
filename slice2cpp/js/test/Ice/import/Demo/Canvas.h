@@ -237,16 +237,16 @@ public:
 
     virtual void paintSquare(Square square, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_paintSquare(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_paintSquare(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void paintCircle(Circle circle, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_paintCircle(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_paintCircle(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -280,11 +280,11 @@ public:
 
     virtual void destroySession(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_destroySession(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_destroySession(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

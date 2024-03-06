@@ -356,11 +356,11 @@ public:
      */
     virtual bool checkPermissions(::std::string userId, ::std::string password, ::std::string& reason, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_checkPermissions(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    bool _iceD_checkPermissions(::IceInternal::Incoming&) const;
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -408,11 +408,11 @@ public:
      */
     virtual bool authorize(SSLInfo info, ::std::string& reason, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_authorize(::IceInternal::Incoming&, const ::Ice::Current&) const;
+    bool _iceD_authorize(::IceInternal::Incoming&) const;
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

@@ -233,21 +233,21 @@ public:
 
     virtual ::std::shared_ptr<ConcreteClass> getConcreteClass(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getConcreteClass(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_getConcreteClass(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void throwException(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwException(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_throwException(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

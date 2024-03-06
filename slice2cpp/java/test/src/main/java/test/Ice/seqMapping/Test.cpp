@@ -16,6 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -251,76 +252,77 @@ Test::MyClass::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_shutdown(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->shutdown(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->shutdown(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opSerialSmallJava(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opSerialSmallJava(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     SerialSmall iceP_i;
     istr->readAll(iceP_i);
-    inS.endReadParams();
+    incoming.endReadParams();
     SerialSmall iceP_o;
-    SerialSmall ret = this->opSerialSmallJava(::std::move(iceP_i), iceP_o, current);
-    auto ostr = inS.startWriteParams();
+    SerialSmall ret = this->opSerialSmallJava(::std::move(iceP_i), iceP_o, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_o, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opSerialLargeJava(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opSerialLargeJava(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     SerialLarge iceP_i;
     istr->readAll(iceP_i);
-    inS.endReadParams();
+    incoming.endReadParams();
     SerialLarge iceP_o;
-    SerialLarge ret = this->opSerialLargeJava(::std::move(iceP_i), iceP_o, current);
-    auto ostr = inS.startWriteParams();
+    SerialLarge ret = this->opSerialLargeJava(::std::move(iceP_i), iceP_o, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_o, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceD_opSerialStructJava(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::MyClass::_iceD_opSerialStructJava(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     SerialStruct iceP_i;
     istr->readAll(iceP_i);
-    inS.endReadParams();
+    incoming.endReadParams();
     SerialStruct iceP_o;
-    SerialStruct ret = this->opSerialStructJava(::std::move(iceP_i), iceP_o, current);
-    auto ostr = inS.startWriteParams();
+    SerialStruct ret = this->opSerialStructJava(::std::move(iceP_i), iceP_o, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_o, ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::MyClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::MyClass::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "opSerialLargeJava", "opSerialSmallJava", "opSerialStructJava", "shutdown" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
@@ -331,35 +333,35 @@ Test::MyClass::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
     {
         case 0:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 1:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 2:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 4:
         {
-            return _iceD_opSerialLargeJava(in, current);
+            return _iceD_opSerialLargeJava(incoming);
         }
         case 5:
         {
-            return _iceD_opSerialSmallJava(in, current);
+            return _iceD_opSerialSmallJava(incoming);
         }
         case 6:
         {
-            return _iceD_opSerialStructJava(in, current);
+            return _iceD_opSerialStructJava(incoming);
         }
         case 7:
         {
-            return _iceD_shutdown(in, current);
+            return _iceD_shutdown(incoming);
         }
         default:
         {

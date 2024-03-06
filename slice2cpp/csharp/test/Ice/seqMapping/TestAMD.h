@@ -1330,386 +1330,386 @@ public:
 
     virtual void shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opAByteSAsync(AByteS i, ::std::function<void(const AByteS& returnValue, const AByteS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opAByteS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opAByteS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opLByteSAsync(LByteS i, ::std::function<void(const LByteS& returnValue, const LByteS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLByteS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opLByteS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opKByteSAsync(KByteS i, ::std::function<void(const KByteS& returnValue, const KByteS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opKByteS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opKByteS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opQByteSAsync(QByteS i, ::std::function<void(const QByteS& returnValue, const QByteS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opQByteS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opQByteS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opSByteSAsync(SByteS i, ::std::function<void(const SByteS& returnValue, const SByteS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSByteS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opSByteS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opABoolSAsync(ABoolS i, ::std::function<void(const ABoolS& returnValue, const ABoolS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opABoolS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opABoolS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opLBoolSAsync(LBoolS i, ::std::function<void(const LBoolS& returnValue, const LBoolS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLBoolS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opLBoolS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opKBoolSAsync(KBoolS i, ::std::function<void(const KBoolS& returnValue, const KBoolS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opKBoolS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opKBoolS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opQBoolSAsync(QBoolS i, ::std::function<void(const QBoolS& returnValue, const QBoolS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opQBoolS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opQBoolS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opSBoolSAsync(SBoolS i, ::std::function<void(const SBoolS& returnValue, const SBoolS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSBoolS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opSBoolS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opAShortSAsync(AShortS i, ::std::function<void(const AShortS& returnValue, const AShortS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opAShortS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opAShortS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opLShortSAsync(LShortS i, ::std::function<void(const LShortS& returnValue, const LShortS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLShortS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opLShortS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opKShortSAsync(KShortS i, ::std::function<void(const KShortS& returnValue, const KShortS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opKShortS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opKShortS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opQShortSAsync(QShortS i, ::std::function<void(const QShortS& returnValue, const QShortS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opQShortS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opQShortS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opSShortSAsync(SShortS i, ::std::function<void(const SShortS& returnValue, const SShortS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSShortS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opSShortS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opAIntSAsync(AIntS i, ::std::function<void(const AIntS& returnValue, const AIntS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opAIntS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opAIntS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opLIntSAsync(LIntS i, ::std::function<void(const LIntS& returnValue, const LIntS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLIntS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opLIntS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opKIntSAsync(KIntS i, ::std::function<void(const KIntS& returnValue, const KIntS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opKIntS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opKIntS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opQIntSAsync(QIntS i, ::std::function<void(const QIntS& returnValue, const QIntS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opQIntS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opQIntS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opSIntSAsync(SIntS i, ::std::function<void(const SIntS& returnValue, const SIntS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSIntS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opSIntS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opALongSAsync(ALongS i, ::std::function<void(const ALongS& returnValue, const ALongS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opALongS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opALongS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opLLongSAsync(LLongS i, ::std::function<void(const LLongS& returnValue, const LLongS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLLongS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opLLongS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opKLongSAsync(KLongS i, ::std::function<void(const KLongS& returnValue, const KLongS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opKLongS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opKLongS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opQLongSAsync(QLongS i, ::std::function<void(const QLongS& returnValue, const QLongS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opQLongS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opQLongS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opSLongSAsync(SLongS i, ::std::function<void(const SLongS& returnValue, const SLongS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSLongS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opSLongS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opAFloatSAsync(AFloatS i, ::std::function<void(const AFloatS& returnValue, const AFloatS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opAFloatS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opAFloatS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opLFloatSAsync(LFloatS i, ::std::function<void(const LFloatS& returnValue, const LFloatS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLFloatS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opLFloatS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opKFloatSAsync(KFloatS i, ::std::function<void(const KFloatS& returnValue, const KFloatS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opKFloatS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opKFloatS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opQFloatSAsync(QFloatS i, ::std::function<void(const QFloatS& returnValue, const QFloatS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opQFloatS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opQFloatS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opSFloatSAsync(SFloatS i, ::std::function<void(const SFloatS& returnValue, const SFloatS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSFloatS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opSFloatS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opADoubleSAsync(ADoubleS i, ::std::function<void(const ADoubleS& returnValue, const ADoubleS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opADoubleS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opADoubleS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opLDoubleSAsync(LDoubleS i, ::std::function<void(const LDoubleS& returnValue, const LDoubleS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLDoubleS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opLDoubleS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opKDoubleSAsync(KDoubleS i, ::std::function<void(const KDoubleS& returnValue, const KDoubleS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opKDoubleS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opKDoubleS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opQDoubleSAsync(QDoubleS i, ::std::function<void(const QDoubleS& returnValue, const QDoubleS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opQDoubleS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opQDoubleS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opSDoubleSAsync(SDoubleS i, ::std::function<void(const SDoubleS& returnValue, const SDoubleS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSDoubleS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opSDoubleS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opAStringSAsync(AStringS i, ::std::function<void(const AStringS& returnValue, const AStringS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opAStringS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opAStringS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opLStringSAsync(LStringS i, ::std::function<void(const LStringS& returnValue, const LStringS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLStringS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opLStringS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opKStringSAsync(KStringS i, ::std::function<void(const KStringS& returnValue, const KStringS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opKStringS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opKStringS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opQStringSAsync(QStringS i, ::std::function<void(const QStringS& returnValue, const QStringS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opQStringS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opQStringS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opSStringSAsync(SStringS i, ::std::function<void(const SStringS& returnValue, const SStringS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSStringS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opSStringS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opAObjectSAsync(AObjectS i, ::std::function<void(const AObjectS& returnValue, const AObjectS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opAObjectS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opAObjectS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opLObjectSAsync(LObjectS i, ::std::function<void(const LObjectS& returnValue, const LObjectS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLObjectS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opLObjectS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opAObjectPrxSAsync(AObjectPrxS i, ::std::function<void(const AObjectPrxS& returnValue, const AObjectPrxS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opAObjectPrxS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opAObjectPrxS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opLObjectPrxSAsync(LObjectPrxS i, ::std::function<void(const LObjectPrxS& returnValue, const LObjectPrxS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLObjectPrxS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opLObjectPrxS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opKObjectPrxSAsync(KObjectPrxS i, ::std::function<void(const KObjectPrxS& returnValue, const KObjectPrxS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opKObjectPrxS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opKObjectPrxS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opQObjectPrxSAsync(QObjectPrxS i, ::std::function<void(const QObjectPrxS& returnValue, const QObjectPrxS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opQObjectPrxS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opQObjectPrxS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opSObjectPrxSAsync(SObjectPrxS i, ::std::function<void(const SObjectPrxS& returnValue, const SObjectPrxS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSObjectPrxS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opSObjectPrxS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opAStructSAsync(AStructS i, ::std::function<void(const AStructS& returnValue, const AStructS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opAStructS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opAStructS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opLStructSAsync(LStructS i, ::std::function<void(const LStructS& returnValue, const LStructS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLStructS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opLStructS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opKStructSAsync(KStructS i, ::std::function<void(const KStructS& returnValue, const KStructS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opKStructS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opKStructS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opQStructSAsync(QStructS i, ::std::function<void(const QStructS& returnValue, const QStructS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opQStructS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opQStructS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opSStructSAsync(SStructS i, ::std::function<void(const SStructS& returnValue, const SStructS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSStructS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opSStructS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opAStructSDAsync(AStructSD i, ::std::function<void(const AStructSD& returnValue, const AStructSD& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opAStructSD(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opAStructSD(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opLStructSDAsync(LStructSD i, ::std::function<void(const LStructSD& returnValue, const LStructSD& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLStructSD(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opLStructSD(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opKStructSDAsync(KStructSD i, ::std::function<void(const KStructSD& returnValue, const KStructSD& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opKStructSD(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opKStructSD(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opQStructSDAsync(QStructSD i, ::std::function<void(const QStructSD& returnValue, const QStructSD& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opQStructSD(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opQStructSD(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opSStructSDAsync(SStructSD i, ::std::function<void(const SStructSD& returnValue, const SStructSD& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSStructSD(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opSStructSD(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opACVSAsync(ACVS i, ::std::function<void(const ACVS& returnValue, const ACVS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opACVS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opACVS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opLCVSAsync(LCVS i, ::std::function<void(const LCVS& returnValue, const LCVS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLCVS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opLCVS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opACRSAsync(ACRS i, ::std::function<void(const ACRS& returnValue, const ACRS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opACRS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opACRS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opLCRSAsync(LCRS i, ::std::function<void(const LCRS& returnValue, const LCRS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLCRS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opLCRS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opAEnSAsync(AEnS i, ::std::function<void(const AEnS& returnValue, const AEnS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opAEnS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opAEnS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opLEnSAsync(LEnS i, ::std::function<void(const LEnS& returnValue, const LEnS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLEnS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opLEnS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opKEnSAsync(KEnS i, ::std::function<void(const KEnS& returnValue, const KEnS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opKEnS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opKEnS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opQEnSAsync(QEnS i, ::std::function<void(const QEnS& returnValue, const QEnS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opQEnS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opQEnS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opSEnSAsync(SEnS i, ::std::function<void(const SEnS& returnValue, const SEnS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSEnS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opSEnS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opAIPrxSAsync(AIPrxS i, ::std::function<void(const AIPrxS& returnValue, const AIPrxS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opAIPrxS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opAIPrxS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opLIPrxSAsync(LIPrxS i, ::std::function<void(const LIPrxS& returnValue, const LIPrxS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLIPrxS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opLIPrxS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opKIPrxSAsync(KIPrxS i, ::std::function<void(const KIPrxS& returnValue, const KIPrxS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opKIPrxS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opKIPrxS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opQIPrxSAsync(QIPrxS i, ::std::function<void(const QIPrxS& returnValue, const QIPrxS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opQIPrxS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opQIPrxS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opSIPrxSAsync(SIPrxS i, ::std::function<void(const SIPrxS& returnValue, const SIPrxS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSIPrxS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opSIPrxS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opCustomIntSAsync(CustomIntS i, ::std::function<void(const CustomIntS& returnValue, const CustomIntS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opCustomIntS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opCustomIntS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opCustomCVSAsync(CustomCVS i, ::std::function<void(const CustomCVS& returnValue, const CustomCVS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opCustomCVS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opCustomCVS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opCustomIntSSAsync(CustomIntSS i, ::std::function<void(const CustomIntSS& returnValue, const CustomIntSS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opCustomIntSS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opCustomIntSS(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opCustomCVSSAsync(CustomCVSS i, ::std::function<void(const CustomCVSS& returnValue, const CustomCVSS& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opCustomCVSS(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opCustomCVSS(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

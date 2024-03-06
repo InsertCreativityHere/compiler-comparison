@@ -16,6 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -401,79 +402,80 @@ Test::TestIntf::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_sleep(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::TestIntf::_iceD_sleep(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int32_t iceP_seconds;
     istr->readAll(iceP_seconds);
-    inS.endReadParams();
-    this->sleep(iceP_seconds, current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->sleep(iceP_seconds, incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_sleepAndHold(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::TestIntf::_iceD_sleepAndHold(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int32_t iceP_seconds;
     istr->readAll(iceP_seconds);
-    inS.endReadParams();
-    this->sleepAndHold(iceP_seconds, current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->sleepAndHold(iceP_seconds, incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_interruptSleep(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::TestIntf::_iceD_interruptSleep(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->interruptSleep(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->interruptSleep(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_startHeartbeatCount(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::TestIntf::_iceD_startHeartbeatCount(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->startHeartbeatCount(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->startHeartbeatCount(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_waitForHeartbeatCount(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::TestIntf::_iceD_waitForHeartbeatCount(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int32_t iceP_count;
     istr->readAll(iceP_count);
-    inS.endReadParams();
-    this->waitForHeartbeatCount(iceP_count, current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->waitForHeartbeatCount(iceP_count, incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::TestIntf::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "interruptSleep", "sleep", "sleepAndHold", "startHeartbeatCount", "waitForHeartbeatCount" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 9, current.operation);
     if(r.first == r.second)
     {
@@ -484,39 +486,39 @@ Test::TestIntf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& 
     {
         case 0:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 1:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 2:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 4:
         {
-            return _iceD_interruptSleep(in, current);
+            return _iceD_interruptSleep(incoming);
         }
         case 5:
         {
-            return _iceD_sleep(in, current);
+            return _iceD_sleep(incoming);
         }
         case 6:
         {
-            return _iceD_sleepAndHold(in, current);
+            return _iceD_sleepAndHold(incoming);
         }
         case 7:
         {
-            return _iceD_startHeartbeatCount(in, current);
+            return _iceD_startHeartbeatCount(incoming);
         }
         case 8:
         {
-            return _iceD_waitForHeartbeatCount(in, current);
+            return _iceD_waitForHeartbeatCount(incoming);
         }
         default:
         {
@@ -549,60 +551,61 @@ Test::RemoteObjectAdapter::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::RemoteObjectAdapter::_iceD_getTestIntf(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::RemoteObjectAdapter::_iceD_getTestIntf(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::optional<TestIntfPrx> ret = this->getTestIntf(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::optional<TestIntfPrx> ret = this->getTestIntf(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::RemoteObjectAdapter::_iceD_activate(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::RemoteObjectAdapter::_iceD_activate(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->activate(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->activate(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::RemoteObjectAdapter::_iceD_hold(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::RemoteObjectAdapter::_iceD_hold(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->hold(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->hold(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::RemoteObjectAdapter::_iceD_deactivate(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::RemoteObjectAdapter::_iceD_deactivate(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->deactivate(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->deactivate(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::RemoteObjectAdapter::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::RemoteObjectAdapter::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "activate", "deactivate", "getTestIntf", "hold", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
@@ -613,35 +616,35 @@ Test::RemoteObjectAdapter::_iceDispatch(::IceInternal::Incoming& in, const ::Ice
     {
         case 0:
         {
-            return _iceD_activate(in, current);
+            return _iceD_activate(incoming);
         }
         case 1:
         {
-            return _iceD_deactivate(in, current);
+            return _iceD_deactivate(incoming);
         }
         case 2:
         {
-            return _iceD_getTestIntf(in, current);
+            return _iceD_getTestIntf(incoming);
         }
         case 3:
         {
-            return _iceD_hold(in, current);
+            return _iceD_hold(incoming);
         }
         case 4:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 5:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 6:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 7:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         default:
         {
@@ -674,41 +677,42 @@ Test::RemoteCommunicator::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::RemoteCommunicator::_iceD_createObjectAdapter(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::RemoteCommunicator::_iceD_createObjectAdapter(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int32_t iceP_acmTimeout;
     ::std::int32_t iceP_close;
     ::std::int32_t iceP_heartbeat;
     istr->readAll(iceP_acmTimeout, iceP_close, iceP_heartbeat);
-    inS.endReadParams();
-    ::std::optional<RemoteObjectAdapterPrx> ret = this->createObjectAdapter(iceP_acmTimeout, iceP_close, iceP_heartbeat, current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::optional<RemoteObjectAdapterPrx> ret = this->createObjectAdapter(iceP_acmTimeout, iceP_close, iceP_heartbeat, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::RemoteCommunicator::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::RemoteCommunicator::_iceD_shutdown(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->shutdown(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->shutdown(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::RemoteCommunicator::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::RemoteCommunicator::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "createObjectAdapter", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
@@ -719,27 +723,27 @@ Test::RemoteCommunicator::_iceDispatch(::IceInternal::Incoming& in, const ::Ice:
     {
         case 0:
         {
-            return _iceD_createObjectAdapter(in, current);
+            return _iceD_createObjectAdapter(incoming);
         }
         case 1:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 2:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 3:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 4:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 5:
         {
-            return _iceD_shutdown(in, current);
+            return _iceD_shutdown(incoming);
         }
         default:
         {

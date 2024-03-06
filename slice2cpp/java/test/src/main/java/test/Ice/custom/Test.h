@@ -711,221 +711,221 @@ public:
 
     virtual CSeq opCSeq(CSeq inSeq, CSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opCSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opCSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual CArray opCArray(CArray inSeq, CArray& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opCArray(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opCArray(::IceInternal::Incoming&);
     /// \endcond
 
     virtual CList opCList(CList inSeq, CList& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opCList(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opCList(::IceInternal::Incoming&);
     /// \endcond
 
     virtual BoolSeq opBoolSeq(BoolSeq inSeq, BoolSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBoolSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opBoolSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ByteSeq opByteSeq(ByteSeq inSeq, ByteSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opByteSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ShortSeq opShortSeq(ShortSeq inSeq, ShortSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opShortSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opShortSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual IntSeq opIntSeq(IntSeq inSeq, IntSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opIntSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opIntSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual LongSeq opLongSeq(LongSeq inSeq, LongSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLongSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opLongSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual FloatSeq opFloatSeq(FloatSeq inSeq, FloatSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opFloatSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opFloatSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual DoubleSeq opDoubleSeq(DoubleSeq inSeq, DoubleSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opDoubleSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opDoubleSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual StringSeq opStringSeq(StringSeq inSeq, StringSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opStringSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ESeq opESeq(ESeq inSeq, ESeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opESeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opESeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual SSeq opSSeq(SSeq inSeq, SSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opSSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual DSeq opDSeq(DSeq inSeq, DSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opDSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opDSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual StringSeqSeq opStringSeqSeq(StringSeqSeq inSeq, StringSeqSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringSeqSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opStringSeqSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ByteBuffer opByteBufferSeq(ByteBuffer inSeq, ByteBuffer& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteBufferSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opByteBufferSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ShortBuffer opShortBufferSeq(ShortBuffer inSeq, ShortBuffer& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opShortBufferSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opShortBufferSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual IntBuffer opIntBufferSeq(IntBuffer inSeq, IntBuffer& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opIntBufferSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opIntBufferSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual LongBuffer opLongBufferSeq(LongBuffer inSeq, LongBuffer& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLongBufferSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opLongBufferSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual FloatBuffer opFloatBufferSeq(FloatBuffer inSeq, FloatBuffer& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opFloatBufferSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opFloatBufferSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual DoubleBuffer opDoubleBufferSeq(DoubleBuffer inSeq, DoubleBuffer& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opDoubleBufferSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opDoubleBufferSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<CSeq> opOptCSeq(::std::optional<CSeq> inSeq, ::std::optional<CSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptCSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opOptCSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<CArray> opOptCArray(::std::optional<CArray> inSeq, ::std::optional<CArray>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptCArray(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opOptCArray(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<CList> opOptCList(::std::optional<CList> inSeq, ::std::optional<CList>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptCList(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opOptCList(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<BoolSeq> opOptBoolSeq(::std::optional<BoolSeq> inSeq, ::std::optional<BoolSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptBoolSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opOptBoolSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<ByteSeq> opOptByteSeq(::std::optional<ByteSeq> inSeq, ::std::optional<ByteSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptByteSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opOptByteSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<ShortSeq> opOptShortSeq(::std::optional<ShortSeq> inSeq, ::std::optional<ShortSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptShortSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opOptShortSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<IntSeq> opOptIntSeq(::std::optional<IntSeq> inSeq, ::std::optional<IntSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptIntSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opOptIntSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<LongSeq> opOptLongSeq(::std::optional<LongSeq> inSeq, ::std::optional<LongSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptLongSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opOptLongSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<FloatSeq> opOptFloatSeq(::std::optional<FloatSeq> inSeq, ::std::optional<FloatSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptFloatSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opOptFloatSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<DoubleSeq> opOptDoubleSeq(::std::optional<DoubleSeq> inSeq, ::std::optional<DoubleSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptDoubleSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opOptDoubleSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<StringSeq> opOptStringSeq(::std::optional<StringSeq> inSeq, ::std::optional<StringSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptStringSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opOptStringSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<ESeq> opOptESeq(::std::optional<ESeq> inSeq, ::std::optional<ESeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptESeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opOptESeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<SSeq> opOptSSeq(::std::optional<SSeq> inSeq, ::std::optional<SSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptSSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opOptSSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<DSeq> opOptDSeq(::std::optional<DSeq> inSeq, ::std::optional<DSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptDSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opOptDSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<StringSeqSeq> opOptStringSeqSeq(::std::optional<StringSeqSeq> inSeq, ::std::optional<StringSeqSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptStringSeqSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opOptStringSeqSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<ByteBuffer> opOptByteBufferSeq(::std::optional<ByteBuffer> inSeq, ::std::optional<ByteBuffer>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptByteBufferSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opOptByteBufferSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<ShortBuffer> opOptShortBufferSeq(::std::optional<ShortBuffer> inSeq, ::std::optional<ShortBuffer>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptShortBufferSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opOptShortBufferSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<IntBuffer> opOptIntBufferSeq(::std::optional<IntBuffer> inSeq, ::std::optional<IntBuffer>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptIntBufferSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opOptIntBufferSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<LongBuffer> opOptLongBufferSeq(::std::optional<LongBuffer> inSeq, ::std::optional<LongBuffer>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptLongBufferSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opOptLongBufferSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<FloatBuffer> opOptFloatBufferSeq(::std::optional<FloatBuffer> inSeq, ::std::optional<FloatBuffer>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptFloatBufferSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opOptFloatBufferSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::optional<DoubleBuffer> opOptDoubleBufferSeq(::std::optional<DoubleBuffer> inSeq, ::std::optional<DoubleBuffer>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptDoubleBufferSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opOptDoubleBufferSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

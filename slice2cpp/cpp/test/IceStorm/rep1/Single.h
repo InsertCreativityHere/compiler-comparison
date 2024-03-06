@@ -134,11 +134,11 @@ public:
 
     virtual void event(::std::int32_t i, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_event(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_event(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

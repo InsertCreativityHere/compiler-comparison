@@ -687,7 +687,7 @@ public:
      */
     virtual void findObjectByIdAsync(Identity id, ::std::function<void(const ::std::optional<::Ice::ObjectPrx>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_findObjectById(::IceInternal::Incoming&, const Current&) const;
+    bool _iceD_findObjectById(::IceInternal::Incoming&) const;
     /// \endcond
 
     /**
@@ -700,7 +700,7 @@ public:
      */
     virtual void findAdapterByIdAsync(::std::string id, ::std::function<void(const ::std::optional<::Ice::ObjectPrx>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_findAdapterById(::IceInternal::Incoming&, const Current&) const;
+    bool _iceD_findAdapterById(::IceInternal::Incoming&) const;
     /// \endcond
 
     /**
@@ -710,11 +710,11 @@ public:
      */
     virtual ::std::optional<LocatorRegistryPrx> getRegistry(const Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getRegistry(::IceInternal::Incoming&, const Current&) const;
+    bool _iceD_getRegistry(::IceInternal::Incoming&) const;
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -765,7 +765,7 @@ public:
      */
     virtual void setAdapterDirectProxyAsync(::std::string id, ::std::optional<::Ice::ObjectPrx> proxy, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_setAdapterDirectProxy(::IceInternal::Incoming&, const Current&);
+    bool _iceD_setAdapterDirectProxy(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -785,7 +785,7 @@ public:
      */
     virtual void setReplicatedAdapterDirectProxyAsync(::std::string adapterId, ::std::string replicaGroupId, ::std::optional<::Ice::ObjectPrx> p, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_setReplicatedAdapterDirectProxy(::IceInternal::Incoming&, const Current&);
+    bool _iceD_setReplicatedAdapterDirectProxy(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -799,11 +799,11 @@ public:
      */
     virtual void setServerProcessProxyAsync(::std::string id, ::std::optional<ProcessPrx> proxy, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_setServerProcessProxy(::IceInternal::Incoming&, const Current&);
+    bool _iceD_setServerProcessProxy(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
@@ -848,11 +848,11 @@ public:
      */
     virtual ::std::optional<LocatorPrx> getLocator(const Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getLocator(::IceInternal::Incoming&, const Current&);
+    bool _iceD_getLocator(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

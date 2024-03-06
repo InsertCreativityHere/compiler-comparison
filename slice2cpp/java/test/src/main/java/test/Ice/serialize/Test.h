@@ -377,26 +377,26 @@ public:
 
     virtual ByteS getStruct1(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getStruct1(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_getStruct1(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ByteS getBase(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getBase(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_getBase(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ByteS getEx(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getEx(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_getEx(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

@@ -16,6 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -215,83 +216,84 @@ Test::Hold::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::Hold::_iceD_putOnHold(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Hold::_iceD_putOnHold(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int32_t iceP_seconds;
     istr->readAll(iceP_seconds);
-    inS.endReadParams();
-    this->putOnHold(iceP_seconds, current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->putOnHold(iceP_seconds, incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Hold::_iceD_waitForHold(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Hold::_iceD_waitForHold(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->waitForHold(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->waitForHold(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Hold::_iceD_set(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Hold::_iceD_set(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int32_t iceP_value;
     ::std::int32_t iceP_delay;
     istr->readAll(iceP_value, iceP_delay);
-    inS.endReadParams();
-    ::std::int32_t ret = this->set(iceP_value, iceP_delay, current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::int32_t ret = this->set(iceP_value, iceP_delay, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Hold::_iceD_setOneway(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Hold::_iceD_setOneway(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::int32_t iceP_value;
     ::std::int32_t iceP_expected;
     istr->readAll(iceP_value, iceP_expected);
-    inS.endReadParams();
-    this->setOneway(iceP_value, iceP_expected, current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->setOneway(iceP_value, iceP_expected, incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Hold::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Hold::_iceD_shutdown(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->shutdown(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->shutdown(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Hold::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::Hold::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "putOnHold", "set", "setOneway", "shutdown", "waitForHold" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 9, current.operation);
     if(r.first == r.second)
     {
@@ -302,39 +304,39 @@ Test::Hold::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& curr
     {
         case 0:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 1:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 2:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 4:
         {
-            return _iceD_putOnHold(in, current);
+            return _iceD_putOnHold(incoming);
         }
         case 5:
         {
-            return _iceD_set(in, current);
+            return _iceD_set(incoming);
         }
         case 6:
         {
-            return _iceD_setOneway(in, current);
+            return _iceD_setOneway(incoming);
         }
         case 7:
         {
-            return _iceD_shutdown(in, current);
+            return _iceD_shutdown(incoming);
         }
         case 8:
         {
-            return _iceD_waitForHold(in, current);
+            return _iceD_waitForHold(incoming);
         }
         default:
         {

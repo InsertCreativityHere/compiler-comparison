@@ -16,6 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -603,196 +604,197 @@ Test::Initial::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_getTest1C2AsC1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_getTest1C2AsC1(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::shared_ptr<::Test1::C1> ret = this->getTest1C2AsC1(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::shared_ptr<::Test1::C1> ret = this->getTest1C2AsC1(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
     ostr->writePendingValues();
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_getTest1C2AsC2(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_getTest1C2AsC2(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::shared_ptr<::Test1::C2> ret = this->getTest1C2AsC2(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::shared_ptr<::Test1::C2> ret = this->getTest1C2AsC2(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
     ostr->writePendingValues();
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_throwTest1E2AsE1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_throwTest1E2AsE1(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->throwTest1E2AsE1(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->throwTest1E2AsE1(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_throwTest1E2AsE2(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_throwTest1E2AsE2(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->throwTest1E2AsE2(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->throwTest1E2AsE2(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_throwTest1Notify(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_throwTest1Notify(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->throwTest1Notify(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->throwTest1Notify(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_getTest2C2AsC1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_getTest2C2AsC1(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::shared_ptr<::Test2::C1> ret = this->getTest2C2AsC1(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::shared_ptr<::Test2::C1> ret = this->getTest2C2AsC1(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
     ostr->writePendingValues();
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_getTest2C2AsC2(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_getTest2C2AsC2(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::shared_ptr<::Test2::C2> ret = this->getTest2C2AsC2(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::shared_ptr<::Test2::C2> ret = this->getTest2C2AsC2(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
     ostr->writePendingValues();
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_throwTest2E2AsE1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_throwTest2E2AsE1(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->throwTest2E2AsE1(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->throwTest2E2AsE1(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_throwTest2E2AsE2(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_throwTest2E2AsE2(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->throwTest2E2AsE2(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->throwTest2E2AsE2(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_getTest3C2AsC1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_getTest3C2AsC1(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::shared_ptr<::Test3::C1> ret = this->getTest3C2AsC1(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::shared_ptr<::Test3::C1> ret = this->getTest3C2AsC1(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
     ostr->writePendingValues();
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_getTest3C2AsC2(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_getTest3C2AsC2(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::shared_ptr<::Test3::C2> ret = this->getTest3C2AsC2(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::shared_ptr<::Test3::C2> ret = this->getTest3C2AsC2(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
     ostr->writePendingValues();
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_throwTest3E2AsE1(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_throwTest3E2AsE1(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->throwTest3E2AsE1(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->throwTest3E2AsE1(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_throwTest3E2AsE2(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_throwTest3E2AsE2(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->throwTest3E2AsE2(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->throwTest3E2AsE2(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Initial::_iceD_shutdown(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->shutdown(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->shutdown(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Initial::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::Initial::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "getTest1C2AsC1", "getTest1C2AsC2", "getTest2C2AsC1", "getTest2C2AsC2", "getTest3C2AsC1", "getTest3C2AsC2", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown", "throwTest1E2AsE1", "throwTest1E2AsE2", "throwTest1Notify", "throwTest2E2AsE1", "throwTest2E2AsE2", "throwTest3E2AsE1", "throwTest3E2AsE2" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 18, current.operation);
     if(r.first == r.second)
     {
@@ -803,75 +805,75 @@ Test::Initial::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& c
     {
         case 0:
         {
-            return _iceD_getTest1C2AsC1(in, current);
+            return _iceD_getTest1C2AsC1(incoming);
         }
         case 1:
         {
-            return _iceD_getTest1C2AsC2(in, current);
+            return _iceD_getTest1C2AsC2(incoming);
         }
         case 2:
         {
-            return _iceD_getTest2C2AsC1(in, current);
+            return _iceD_getTest2C2AsC1(incoming);
         }
         case 3:
         {
-            return _iceD_getTest2C2AsC2(in, current);
+            return _iceD_getTest2C2AsC2(incoming);
         }
         case 4:
         {
-            return _iceD_getTest3C2AsC1(in, current);
+            return _iceD_getTest3C2AsC1(incoming);
         }
         case 5:
         {
-            return _iceD_getTest3C2AsC2(in, current);
+            return _iceD_getTest3C2AsC2(incoming);
         }
         case 6:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 7:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 8:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 9:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 10:
         {
-            return _iceD_shutdown(in, current);
+            return _iceD_shutdown(incoming);
         }
         case 11:
         {
-            return _iceD_throwTest1E2AsE1(in, current);
+            return _iceD_throwTest1E2AsE1(incoming);
         }
         case 12:
         {
-            return _iceD_throwTest1E2AsE2(in, current);
+            return _iceD_throwTest1E2AsE2(incoming);
         }
         case 13:
         {
-            return _iceD_throwTest1Notify(in, current);
+            return _iceD_throwTest1Notify(incoming);
         }
         case 14:
         {
-            return _iceD_throwTest2E2AsE1(in, current);
+            return _iceD_throwTest2E2AsE1(incoming);
         }
         case 15:
         {
-            return _iceD_throwTest2E2AsE2(in, current);
+            return _iceD_throwTest2E2AsE2(incoming);
         }
         case 16:
         {
-            return _iceD_throwTest3E2AsE1(in, current);
+            return _iceD_throwTest3E2AsE1(incoming);
         }
         case 17:
         {
-            return _iceD_throwTest3E2AsE2(in, current);
+            return _iceD_throwTest3E2AsE2(incoming);
         }
         default:
         {

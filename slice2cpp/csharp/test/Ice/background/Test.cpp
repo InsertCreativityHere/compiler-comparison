@@ -16,6 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -463,49 +464,50 @@ Test::Background::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::Background::_iceD_op(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Background::_iceD_op(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->op(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->op(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Background::_iceD_opWithPayload(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Background::_iceD_opWithPayload(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::Ice::ByteSeq iceP_seq;
     istr->readAll(iceP_seq);
-    inS.endReadParams();
-    this->opWithPayload(::std::move(iceP_seq), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->opWithPayload(::std::move(iceP_seq), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Background::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Background::_iceD_shutdown(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->shutdown(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->shutdown(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Background::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::Background::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "op", "opWithPayload", "shutdown" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
@@ -516,31 +518,31 @@ Test::Background::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current
     {
         case 0:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 1:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 2:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 4:
         {
-            return _iceD_op(in, current);
+            return _iceD_op(incoming);
         }
         case 5:
         {
-            return _iceD_opWithPayload(in, current);
+            return _iceD_opWithPayload(incoming);
         }
         case 6:
         {
-            return _iceD_shutdown(in, current);
+            return _iceD_shutdown(incoming);
         }
         default:
         {
@@ -573,154 +575,155 @@ Test::BackgroundController::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::BackgroundController::_iceD_pauseCall(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::BackgroundController::_iceD_pauseCall(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_call;
     istr->readAll(iceP_call);
-    inS.endReadParams();
-    this->pauseCall(::std::move(iceP_call), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->pauseCall(::std::move(iceP_call), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::BackgroundController::_iceD_resumeCall(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::BackgroundController::_iceD_resumeCall(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_call;
     istr->readAll(iceP_call);
-    inS.endReadParams();
-    this->resumeCall(::std::move(iceP_call), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->resumeCall(::std::move(iceP_call), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::BackgroundController::_iceD_holdAdapter(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::BackgroundController::_iceD_holdAdapter(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->holdAdapter(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->holdAdapter(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::BackgroundController::_iceD_resumeAdapter(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::BackgroundController::_iceD_resumeAdapter(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->resumeAdapter(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->resumeAdapter(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::BackgroundController::_iceD_initializeException(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::BackgroundController::_iceD_initializeException(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     bool iceP_enable;
     istr->readAll(iceP_enable);
-    inS.endReadParams();
-    this->initializeException(iceP_enable, current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->initializeException(iceP_enable, incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::BackgroundController::_iceD_readReady(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::BackgroundController::_iceD_readReady(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     bool iceP_enable;
     istr->readAll(iceP_enable);
-    inS.endReadParams();
-    this->readReady(iceP_enable, current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->readReady(iceP_enable, incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::BackgroundController::_iceD_readException(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::BackgroundController::_iceD_readException(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     bool iceP_enable;
     istr->readAll(iceP_enable);
-    inS.endReadParams();
-    this->readException(iceP_enable, current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->readException(iceP_enable, incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::BackgroundController::_iceD_writeReady(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::BackgroundController::_iceD_writeReady(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     bool iceP_enable;
     istr->readAll(iceP_enable);
-    inS.endReadParams();
-    this->writeReady(iceP_enable, current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->writeReady(iceP_enable, incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::BackgroundController::_iceD_writeException(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::BackgroundController::_iceD_writeException(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     bool iceP_enable;
     istr->readAll(iceP_enable);
-    inS.endReadParams();
-    this->writeException(iceP_enable, current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->writeException(iceP_enable, incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::BackgroundController::_iceD_buffered(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::BackgroundController::_iceD_buffered(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     bool iceP_enable;
     istr->readAll(iceP_enable);
-    inS.endReadParams();
-    this->buffered(iceP_enable, current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->buffered(iceP_enable, incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::BackgroundController::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::BackgroundController::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "buffered", "holdAdapter", "ice_id", "ice_ids", "ice_isA", "ice_ping", "initializeException", "pauseCall", "readException", "readReady", "resumeAdapter", "resumeCall", "writeException", "writeReady" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 14, current.operation);
     if(r.first == r.second)
     {
@@ -731,59 +734,59 @@ Test::BackgroundController::_iceDispatch(::IceInternal::Incoming& in, const ::Ic
     {
         case 0:
         {
-            return _iceD_buffered(in, current);
+            return _iceD_buffered(incoming);
         }
         case 1:
         {
-            return _iceD_holdAdapter(in, current);
+            return _iceD_holdAdapter(incoming);
         }
         case 2:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 4:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 5:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 6:
         {
-            return _iceD_initializeException(in, current);
+            return _iceD_initializeException(incoming);
         }
         case 7:
         {
-            return _iceD_pauseCall(in, current);
+            return _iceD_pauseCall(incoming);
         }
         case 8:
         {
-            return _iceD_readException(in, current);
+            return _iceD_readException(incoming);
         }
         case 9:
         {
-            return _iceD_readReady(in, current);
+            return _iceD_readReady(incoming);
         }
         case 10:
         {
-            return _iceD_resumeAdapter(in, current);
+            return _iceD_resumeAdapter(incoming);
         }
         case 11:
         {
-            return _iceD_resumeCall(in, current);
+            return _iceD_resumeCall(incoming);
         }
         case 12:
         {
-            return _iceD_writeException(in, current);
+            return _iceD_writeException(incoming);
         }
         case 13:
         {
-            return _iceD_writeReady(in, current);
+            return _iceD_writeReady(incoming);
         }
         default:
         {

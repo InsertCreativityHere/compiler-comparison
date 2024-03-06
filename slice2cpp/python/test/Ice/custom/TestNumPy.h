@@ -433,96 +433,96 @@ public:
 
     virtual BoolSeq1 opBoolSeq(BoolSeq1 v1, BoolSeq2& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBoolSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opBoolSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ByteSeq1 opByteSeq(ByteSeq1 v1, ByteSeq2& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opByteSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ShortSeq1 opShortSeq(ShortSeq1 v1, ShortSeq2& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opShortSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opShortSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual IntSeq1 opIntSeq(IntSeq1 v1, IntSeq2& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opIntSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opIntSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual LongSeq1 opLongSeq(LongSeq1 v1, LongSeq2& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLongSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opLongSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual FloatSeq1 opFloatSeq(FloatSeq1 v1, FloatSeq2& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opFloatSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opFloatSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual DoubleSeq1 opDoubleSeq(DoubleSeq1 v1, DoubleSeq2& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opDoubleSeq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opDoubleSeq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual Complex128Seq opComplex128Seq(Complex128Seq v1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opComplex128Seq(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opComplex128Seq(::IceInternal::Incoming&);
     /// \endcond
 
     virtual BoolSeq1 opBoolMatrix(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBoolMatrix(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opBoolMatrix(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ByteSeq1 opByteMatrix(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteMatrix(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opByteMatrix(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ShortSeq1 opShortMatrix(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opShortMatrix(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opShortMatrix(::IceInternal::Incoming&);
     /// \endcond
 
     virtual IntSeq1 opIntMatrix(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opIntMatrix(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opIntMatrix(::IceInternal::Incoming&);
     /// \endcond
 
     virtual LongSeq1 opLongMatrix(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLongMatrix(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opLongMatrix(::IceInternal::Incoming&);
     /// \endcond
 
     virtual FloatSeq1 opFloatMatrix(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opFloatMatrix(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opFloatMatrix(::IceInternal::Incoming&);
     /// \endcond
 
     virtual DoubleSeq1 opDoubleMatrix(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opDoubleMatrix(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opDoubleMatrix(::IceInternal::Incoming&);
     /// \endcond
 
     virtual BoolSeq1 opBogusNumpyArrayType(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBogusNumpyArrayType(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opBogusNumpyArrayType(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::shared_ptr<D> opD(::std::shared_ptr<D> d, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opD(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opD(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

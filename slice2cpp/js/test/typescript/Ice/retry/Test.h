@@ -178,31 +178,31 @@ public:
 
     virtual void op(bool kill, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_op(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_op(::IceInternal::Incoming&);
     /// \endcond
 
     virtual ::std::int32_t opIdempotent(::std::int32_t c, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opIdempotent(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opIdempotent(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opNotIdempotent(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opNotIdempotent(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opNotIdempotent(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void opSystemException(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSystemException(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_opSystemException(::IceInternal::Incoming&);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_shutdown(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

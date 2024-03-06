@@ -16,6 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -253,53 +254,54 @@ Test::Server::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::Server::_iceD_noCert(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Server::_iceD_noCert(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->noCert(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->noCert(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Server::_iceD_checkCert(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Server::_iceD_checkCert(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_subjectDN;
     ::std::string iceP_issuerDN;
     istr->readAll(iceP_subjectDN, iceP_issuerDN);
-    inS.endReadParams();
-    this->checkCert(::std::move(iceP_subjectDN), ::std::move(iceP_issuerDN), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->checkCert(::std::move(iceP_subjectDN), ::std::move(iceP_issuerDN), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Server::_iceD_checkCipher(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::Server::_iceD_checkCipher(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_cipher;
     istr->readAll(iceP_cipher);
-    inS.endReadParams();
-    this->checkCipher(::std::move(iceP_cipher), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->checkCipher(::std::move(iceP_cipher), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::Server::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::Server::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "checkCert", "checkCipher", "ice_id", "ice_ids", "ice_isA", "ice_ping", "noCert" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
@@ -310,31 +312,31 @@ Test::Server::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& cu
     {
         case 0:
         {
-            return _iceD_checkCert(in, current);
+            return _iceD_checkCert(incoming);
         }
         case 1:
         {
-            return _iceD_checkCipher(in, current);
+            return _iceD_checkCipher(incoming);
         }
         case 2:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 4:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 5:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 6:
         {
-            return _iceD_noCert(in, current);
+            return _iceD_noCert(incoming);
         }
         default:
         {
@@ -367,54 +369,55 @@ Test::ServerFactory::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Test::ServerFactory::_iceD_createServer(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::ServerFactory::_iceD_createServer(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     Properties iceP_props;
     istr->readAll(iceP_props);
-    inS.endReadParams();
-    ::std::optional<ServerPrx> ret = this->createServer(::std::move(iceP_props), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    ::std::optional<ServerPrx> ret = this->createServer(::std::move(iceP_props), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::ServerFactory::_iceD_destroyServer(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::ServerFactory::_iceD_destroyServer(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::optional<ServerPrx> iceP_srv;
     istr->readAll(iceP_srv);
-    inS.endReadParams();
-    this->destroyServer(::std::move(iceP_srv), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->destroyServer(::std::move(iceP_srv), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::ServerFactory::_iceD_shutdown(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Test::ServerFactory::_iceD_shutdown(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->shutdown(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->shutdown(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Test::ServerFactory::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Test::ServerFactory::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "createServer", "destroyServer", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
@@ -425,31 +428,31 @@ Test::ServerFactory::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curr
     {
         case 0:
         {
-            return _iceD_createServer(in, current);
+            return _iceD_createServer(incoming);
         }
         case 1:
         {
-            return _iceD_destroyServer(in, current);
+            return _iceD_destroyServer(incoming);
         }
         case 2:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 4:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 5:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 6:
         {
-            return _iceD_shutdown(in, current);
+            return _iceD_shutdown(incoming);
         }
         default:
         {

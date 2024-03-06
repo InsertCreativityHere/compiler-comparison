@@ -19,6 +19,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Session.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -584,22 +585,23 @@ Glacier2::Session::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Glacier2::Session::_iceD_destroy(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Glacier2::Session::_iceD_destroy(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->destroy(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->destroy(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Glacier2::Session::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Glacier2::Session::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "destroy", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
@@ -610,23 +612,23 @@ Glacier2::Session::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curren
     {
         case 0:
         {
-            return _iceD_destroy(in, current);
+            return _iceD_destroy(incoming);
         }
         case 1:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 2:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 3:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 4:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         default:
         {
@@ -659,54 +661,55 @@ Glacier2::StringSet::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Glacier2::StringSet::_iceD_add(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Glacier2::StringSet::_iceD_add(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::Ice::StringSeq iceP_additions;
     istr->readAll(iceP_additions);
-    inS.endReadParams();
-    this->add(::std::move(iceP_additions), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->add(::std::move(iceP_additions), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Glacier2::StringSet::_iceD_remove(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Glacier2::StringSet::_iceD_remove(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::Ice::StringSeq iceP_deletions;
     istr->readAll(iceP_deletions);
-    inS.endReadParams();
-    this->remove(::std::move(iceP_deletions), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->remove(::std::move(iceP_deletions), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Glacier2::StringSet::_iceD_get(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Glacier2::StringSet::_iceD_get(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    inS.readEmptyParams();
-    ::Ice::StringSeq ret = this->get(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::Ice::StringSeq ret = this->get(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Glacier2::StringSet::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Glacier2::StringSet::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "add", "get", "ice_id", "ice_ids", "ice_isA", "ice_ping", "remove" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
@@ -717,31 +720,31 @@ Glacier2::StringSet::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Curr
     {
         case 0:
         {
-            return _iceD_add(in, current);
+            return _iceD_add(incoming);
         }
         case 1:
         {
-            return _iceD_get(in, current);
+            return _iceD_get(incoming);
         }
         case 2:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 4:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 5:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 6:
         {
-            return _iceD_remove(in, current);
+            return _iceD_remove(incoming);
         }
         default:
         {
@@ -774,54 +777,55 @@ Glacier2::IdentitySet::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Glacier2::IdentitySet::_iceD_add(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Glacier2::IdentitySet::_iceD_add(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::Ice::IdentitySeq iceP_additions;
     istr->readAll(iceP_additions);
-    inS.endReadParams();
-    this->add(::std::move(iceP_additions), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->add(::std::move(iceP_additions), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Glacier2::IdentitySet::_iceD_remove(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Glacier2::IdentitySet::_iceD_remove(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::Ice::IdentitySeq iceP_deletions;
     istr->readAll(iceP_deletions);
-    inS.endReadParams();
-    this->remove(::std::move(iceP_deletions), current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->remove(::std::move(iceP_deletions), incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Glacier2::IdentitySet::_iceD_get(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Glacier2::IdentitySet::_iceD_get(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    inS.readEmptyParams();
-    ::Ice::IdentitySeq ret = this->get(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::Ice::IdentitySeq ret = this->get(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Glacier2::IdentitySet::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Glacier2::IdentitySet::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "add", "get", "ice_id", "ice_ids", "ice_isA", "ice_ping", "remove" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
@@ -832,31 +836,31 @@ Glacier2::IdentitySet::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Cu
     {
         case 0:
         {
-            return _iceD_add(in, current);
+            return _iceD_add(incoming);
         }
         case 1:
         {
-            return _iceD_get(in, current);
+            return _iceD_get(incoming);
         }
         case 2:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 3:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 4:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 5:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 6:
         {
-            return _iceD_remove(in, current);
+            return _iceD_remove(incoming);
         }
         default:
         {
@@ -889,78 +893,79 @@ Glacier2::SessionControl::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Glacier2::SessionControl::_iceD_categories(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Glacier2::SessionControl::_iceD_categories(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::optional<StringSetPrx> ret = this->categories(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::optional<StringSetPrx> ret = this->categories(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Glacier2::SessionControl::_iceD_adapterIds(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Glacier2::SessionControl::_iceD_adapterIds(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::optional<StringSetPrx> ret = this->adapterIds(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::optional<StringSetPrx> ret = this->adapterIds(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Glacier2::SessionControl::_iceD_identities(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Glacier2::SessionControl::_iceD_identities(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    ::std::optional<IdentitySetPrx> ret = this->identities(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::optional<IdentitySetPrx> ret = this->identities(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Glacier2::SessionControl::_iceD_getSessionTimeout(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Glacier2::SessionControl::_iceD_getSessionTimeout(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, current.mode);
-    inS.readEmptyParams();
-    ::std::int32_t ret = this->getSessionTimeout(current);
-    auto ostr = inS.startWriteParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
+    incoming.readEmptyParams();
+    ::std::int32_t ret = this->getSessionTimeout(incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Glacier2::SessionControl::_iceD_destroy(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Glacier2::SessionControl::_iceD_destroy(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->destroy(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->destroy(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Glacier2::SessionControl::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Glacier2::SessionControl::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "adapterIds", "categories", "destroy", "getSessionTimeout", "ice_id", "ice_ids", "ice_isA", "ice_ping", "identities" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 9, current.operation);
     if(r.first == r.second)
     {
@@ -971,39 +976,39 @@ Glacier2::SessionControl::_iceDispatch(::IceInternal::Incoming& in, const ::Ice:
     {
         case 0:
         {
-            return _iceD_adapterIds(in, current);
+            return _iceD_adapterIds(incoming);
         }
         case 1:
         {
-            return _iceD_categories(in, current);
+            return _iceD_categories(incoming);
         }
         case 2:
         {
-            return _iceD_destroy(in, current);
+            return _iceD_destroy(incoming);
         }
         case 3:
         {
-            return _iceD_getSessionTimeout(in, current);
+            return _iceD_getSessionTimeout(incoming);
         }
         case 4:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 5:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 6:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 7:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 8:
         {
-            return _iceD_identities(in, current);
+            return _iceD_identities(incoming);
         }
         default:
         {
@@ -1036,29 +1041,30 @@ Glacier2::SessionManager::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Glacier2::SessionManager::_iceD_create(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Glacier2::SessionManager::_iceD_create(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_userId;
     ::std::optional<SessionControlPrx> iceP_control;
     istr->readAll(iceP_userId, iceP_control);
-    inS.endReadParams();
-    inS.setFormat(::Ice::FormatType::SlicedFormat);
-    ::std::optional<SessionPrx> ret = this->create(::std::move(iceP_userId), ::std::move(iceP_control), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    incoming.setFormat(::Ice::FormatType::SlicedFormat);
+    ::std::optional<SessionPrx> ret = this->create(::std::move(iceP_userId), ::std::move(iceP_control), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Glacier2::SessionManager::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Glacier2::SessionManager::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "create", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
@@ -1069,23 +1075,23 @@ Glacier2::SessionManager::_iceDispatch(::IceInternal::Incoming& in, const ::Ice:
     {
         case 0:
         {
-            return _iceD_create(in, current);
+            return _iceD_create(incoming);
         }
         case 1:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 2:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 3:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 4:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         default:
         {
@@ -1118,29 +1124,30 @@ Glacier2::SSLSessionManager::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Glacier2::SSLSessionManager::_iceD_create(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Glacier2::SSLSessionManager::_iceD_create(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     SSLInfo iceP_info;
     ::std::optional<SessionControlPrx> iceP_control;
     istr->readAll(iceP_info, iceP_control);
-    inS.endReadParams();
-    inS.setFormat(::Ice::FormatType::SlicedFormat);
-    ::std::optional<SessionPrx> ret = this->create(::std::move(iceP_info), ::std::move(iceP_control), current);
-    auto ostr = inS.startWriteParams();
+    incoming.endReadParams();
+    incoming.setFormat(::Ice::FormatType::SlicedFormat);
+    ::std::optional<SessionPrx> ret = this->create(::std::move(iceP_info), ::std::move(iceP_control), incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(ret);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Glacier2::SSLSessionManager::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Glacier2::SSLSessionManager::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "create", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
@@ -1151,23 +1158,23 @@ Glacier2::SSLSessionManager::_iceDispatch(::IceInternal::Incoming& in, const ::I
     {
         case 0:
         {
-            return _iceD_create(in, current);
+            return _iceD_create(incoming);
         }
         case 1:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 2:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 3:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 4:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         default:
         {

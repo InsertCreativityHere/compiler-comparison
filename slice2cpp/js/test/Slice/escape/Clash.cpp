@@ -16,6 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Clash.h>
 #include <Ice/OutgoingAsync.h>
+#include <Ice/Incoming.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -455,130 +456,130 @@ Clash::Intf::ice_staticId()
 
 /// \cond INTERNAL
 bool
-Clash::Intf::_iceD_context(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Clash::Intf::_iceD_context(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->context(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->context(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Clash::Intf::_iceD_current(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Clash::Intf::_iceD_current(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->current(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->current(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Clash::Intf::_iceD_response(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Clash::Intf::_iceD_response(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->response(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->response(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Clash::Intf::_iceD_typeId(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Clash::Intf::_iceD_typeId(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->typeId(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->typeId(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Clash::Intf::_iceD_del(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Clash::Intf::_iceD_del(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->del(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->del(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Clash::Intf::_iceD_cookie(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Clash::Intf::_iceD_cookie(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->cookie(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->cookie(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Clash::Intf::_iceD_sync(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Clash::Intf::_iceD_sync(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->sync(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->sync(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Clash::Intf::_iceD_inS(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Clash::Intf::_iceD_inS(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->inS(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->inS(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Clash::Intf::_iceD_istr(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Clash::Intf::_iceD_istr(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->istr(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->istr(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Clash::Intf::_iceD_obj(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Clash::Intf::_iceD_obj(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
-    this->obj(current);
-    inS.writeEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
+    this->obj(incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Clash::Intf::_iceD_op(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Clash::Intf::_iceD_op(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    auto istr = inS.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    auto istr = incoming.startReadParams();
     ::std::string iceP_context;
     ::std::string iceP_current;
     ::std::string iceP_response;
@@ -593,19 +594,19 @@ Clash::Intf::_iceD_op(::IceInternal::Incoming& inS, const ::Ice::Current& curren
     ::std::optional<::std::int32_t> iceP_obj;
     istr->readAll(iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr);
     istr->readAll({1, 2}, iceP_proxy, iceP_obj);
-    inS.endReadParams();
-    this->op(::std::move(iceP_context), ::std::move(iceP_current), ::std::move(iceP_response), ::std::move(iceP_ex), ::std::move(iceP_sent), ::std::move(iceP_cookie), ::std::move(iceP_sync), ::std::move(iceP_result), ::std::move(iceP_istr), ::std::move(iceP_ostr), ::std::move(iceP_proxy), iceP_obj, current);
-    inS.writeEmptyParams();
+    incoming.endReadParams();
+    this->op(::std::move(iceP_context), ::std::move(iceP_current), ::std::move(iceP_response), ::std::move(iceP_ex), ::std::move(iceP_sent), ::std::move(iceP_cookie), ::std::move(iceP_sync), ::std::move(iceP_result), ::std::move(iceP_istr), ::std::move(iceP_ostr), ::std::move(iceP_proxy), iceP_obj, incoming.current());
+    incoming.writeEmptyParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Clash::Intf::_iceD_opOut(::IceInternal::Incoming& inS, const ::Ice::Current& current)
+Clash::Intf::_iceD_opOut(::IceInternal::Incoming& incoming)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, current.mode);
-    inS.readEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
+    incoming.readEmptyParams();
     ::std::string iceP_context;
     ::std::string iceP_current;
     ::std::string iceP_response;
@@ -618,21 +619,22 @@ Clash::Intf::_iceD_opOut(::IceInternal::Incoming& inS, const ::Ice::Current& cur
     ::std::string iceP_ostr;
     ::std::optional<::std::string> iceP_proxy;
     ::std::optional<::std::int32_t> iceP_obj;
-    this->opOut(iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr, iceP_proxy, iceP_obj, current);
-    auto ostr = inS.startWriteParams();
+    this->opOut(iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr, iceP_proxy, iceP_obj, incoming.current());
+    auto ostr = incoming.startWriteParams();
     ostr->writeAll(iceP_context, iceP_current, iceP_response, iceP_ex, iceP_sent, iceP_cookie, iceP_sync, iceP_result, iceP_istr, iceP_ostr);
     ostr->writeAll({1, 2}, iceP_proxy, iceP_obj);
-    inS.endWriteParams();
+    incoming.endWriteParams();
     return true;
 }
 /// \endcond
 
 /// \cond INTERNAL
 bool
-Clash::Intf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& current)
+Clash::Intf::_iceDispatch(::IceInternal::Incoming& incoming)
 {
     static constexpr ::std::string_view allOperations[] = { "context", "cookie", "current", "del", "ice_id", "ice_ids", "ice_isA", "ice_ping", "inS", "istr", "obj", "op", "opOut", "response", "sync", "typeId" };
 
+    const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 16, current.operation);
     if(r.first == r.second)
     {
@@ -643,67 +645,67 @@ Clash::Intf::_iceDispatch(::IceInternal::Incoming& in, const ::Ice::Current& cur
     {
         case 0:
         {
-            return _iceD_context(in, current);
+            return _iceD_context(incoming);
         }
         case 1:
         {
-            return _iceD_cookie(in, current);
+            return _iceD_cookie(incoming);
         }
         case 2:
         {
-            return _iceD_current(in, current);
+            return _iceD_current(incoming);
         }
         case 3:
         {
-            return _iceD_del(in, current);
+            return _iceD_del(incoming);
         }
         case 4:
         {
-            return _iceD_ice_id(in, current);
+            return _iceD_ice_id(incoming);
         }
         case 5:
         {
-            return _iceD_ice_ids(in, current);
+            return _iceD_ice_ids(incoming);
         }
         case 6:
         {
-            return _iceD_ice_isA(in, current);
+            return _iceD_ice_isA(incoming);
         }
         case 7:
         {
-            return _iceD_ice_ping(in, current);
+            return _iceD_ice_ping(incoming);
         }
         case 8:
         {
-            return _iceD_inS(in, current);
+            return _iceD_inS(incoming);
         }
         case 9:
         {
-            return _iceD_istr(in, current);
+            return _iceD_istr(incoming);
         }
         case 10:
         {
-            return _iceD_obj(in, current);
+            return _iceD_obj(incoming);
         }
         case 11:
         {
-            return _iceD_op(in, current);
+            return _iceD_op(incoming);
         }
         case 12:
         {
-            return _iceD_opOut(in, current);
+            return _iceD_opOut(incoming);
         }
         case 13:
         {
-            return _iceD_response(in, current);
+            return _iceD_response(incoming);
         }
         case 14:
         {
-            return _iceD_sync(in, current);
+            return _iceD_sync(incoming);
         }
         case 15:
         {
-            return _iceD_typeId(in, current);
+            return _iceD_typeId(incoming);
         }
         default:
         {

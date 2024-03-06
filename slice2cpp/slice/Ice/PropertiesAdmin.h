@@ -253,7 +253,7 @@ public:
      */
     virtual ::std::string getProperty(::std::string key, const Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getProperty(::IceInternal::Incoming&, const Current&);
+    bool _iceD_getProperty(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -265,7 +265,7 @@ public:
      */
     virtual PropertyDict getPropertiesForPrefix(::std::string prefix, const Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getPropertiesForPrefix(::IceInternal::Incoming&, const Current&);
+    bool _iceD_getPropertiesForPrefix(::IceInternal::Incoming&);
     /// \endcond
 
     /**
@@ -278,11 +278,11 @@ public:
      */
     virtual void setProperties(PropertyDict newProperties, const Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_setProperties(::IceInternal::Incoming&, const Current&);
+    bool _iceD_setProperties(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 

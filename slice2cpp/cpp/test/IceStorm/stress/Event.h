@@ -134,11 +134,11 @@ public:
 
     virtual void pub(::std::int32_t counter, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_pub(::IceInternal::Incoming&, const ::Ice::Current&);
+    bool _iceD_pub(::IceInternal::Incoming&);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&, const ::Ice::Current&) override;
+    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
     /// \endcond
 };
 
