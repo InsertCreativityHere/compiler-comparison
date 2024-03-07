@@ -68,7 +68,7 @@ module ::Test1
             attr_accessor :reason
         end
 
-        T_WstringException = ::Ice::__defineException('::Test1::WstringException', WstringException, false, nil, [["reason", ::Ice::T_string, false, 0]])
+        T_WstringException = ::Ice::__defineException('::Test1::WstringException', WstringException, nil, [["reason", ::Ice::T_string, false, 0]])
     end
 
     if not defined?(::Test1::WstringClass_Mixin)
@@ -160,7 +160,7 @@ module ::Test2
             attr_accessor :reason
         end
 
-        T_WstringException = ::Ice::__defineException('::Test2::WstringException', WstringException, false, nil, [["reason", ::Ice::T_string, false, 0]])
+        T_WstringException = ::Ice::__defineException('::Test2::WstringException', WstringException, nil, [["reason", ::Ice::T_string, false, 0]])
     end
 
     if not defined?(::Test2::WstringClass_Mixin)

@@ -185,7 +185,7 @@ namespace Test
     global $Test__t_SerialLarge;
     global $Test__t_SLS;
 
-    $Test__t_Bar = IcePHP_defineException('::Test::Bar', '\\Test\\Bar', false, null, array(
+    $Test__t_Bar = IcePHP_defineException('::Test::Bar', '\\Test\\Bar', null, array(
         array('SLmem', $Test__t_SerialLarge, false, 0),
         array('SLSmem', $Test__t_SLS, false, 0)));
 }
@@ -224,7 +224,7 @@ namespace Test
     global $Ice__t_Value;
     global $Test__t_SerialLarge;
     global $Test__t_SLS;
-    $Test__t_Baz = IcePHP_defineClass('::Test::Baz', '\\Test\\Baz', -1, false, false, $Ice__t_Value, array(
+    $Test__t_Baz = IcePHP_defineClass('::Test::Baz', '\\Test\\Baz', -1, false, $Ice__t_Value, array(
         array('SLmem', $Test__t_SerialLarge, false, 0),
         array('SLSmem', $Test__t_SLS, false, 0)));
 }

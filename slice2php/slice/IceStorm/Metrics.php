@@ -54,7 +54,7 @@ namespace IceMX
 
     global $IceMX__t_Metrics;
     global $IcePHP__t_long;
-    $IceMX__t_TopicMetrics = IcePHP_defineClass('::IceMX::TopicMetrics', '\\IceMX\\TopicMetrics', -1, false, false, $IceMX__t_Metrics, array(
+    $IceMX__t_TopicMetrics = IcePHP_defineClass('::IceMX::TopicMetrics', '\\IceMX\\TopicMetrics', -1, false, $IceMX__t_Metrics, array(
         array('published', $IcePHP__t_long, false, 0),
         array('forwarded', $IcePHP__t_long, false, 0)));
 }
@@ -96,7 +96,7 @@ namespace IceMX
     global $IceMX__t_Metrics;
     global $IcePHP__t_int;
     global $IcePHP__t_long;
-    $IceMX__t_SubscriberMetrics = IcePHP_defineClass('::IceMX::SubscriberMetrics', '\\IceMX\\SubscriberMetrics', -1, false, false, $IceMX__t_Metrics, array(
+    $IceMX__t_SubscriberMetrics = IcePHP_defineClass('::IceMX::SubscriberMetrics', '\\IceMX\\SubscriberMetrics', -1, false, $IceMX__t_Metrics, array(
         array('queued', $IcePHP__t_int, false, 0),
         array('outstanding', $IcePHP__t_int, false, 0),
         array('delivered', $IcePHP__t_long, false, 0)));

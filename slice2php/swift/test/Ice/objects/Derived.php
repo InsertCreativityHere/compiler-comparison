@@ -52,7 +52,7 @@ namespace Test
 
     global $Test__t_Base;
     global $IcePHP__t_string;
-    $Test__t_Derived = IcePHP_defineClass('::Test::Derived', '\\Test\\Derived', -1, false, false, $Test__t_Base, array(
+    $Test__t_Derived = IcePHP_defineClass('::Test::Derived', '\\Test\\Derived', -1, false, $Test__t_Base, array(
         array('b', $IcePHP__t_string, false, 0)));
 }
 ?>

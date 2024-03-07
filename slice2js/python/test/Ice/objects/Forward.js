@@ -43,7 +43,7 @@
         }
     };
 
-    Slice.defineValue(Test.F1, "::Test::F1", false);
+    Slice.defineValue(Test.F1, "::Test::F1");
 
     const iceC_Test_F2_ids = [
         "::Ice::Object",

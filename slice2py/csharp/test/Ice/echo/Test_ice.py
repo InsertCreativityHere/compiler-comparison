@@ -20,7 +20,7 @@ import Ice, IcePy
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
-_M_Test._t_Echo = IcePy.defineValue('::Test::Echo', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_Echo = IcePy.defineValue('::Test::Echo', Ice.Value, -1, (), True, None, ())
 
 if 'EchoPrx' not in _M_Test.__dict__:
     _M_Test.EchoPrx = Ice.createTempClass()

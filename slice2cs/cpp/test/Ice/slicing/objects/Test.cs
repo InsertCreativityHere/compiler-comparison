@@ -983,28 +983,6 @@ namespace Test
         #region Marshaling support
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override global::Ice.SlicedData ice_getSlicedData()
-        {
-            return iceSlicedData_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override void iceWrite(global::Ice.OutputStream ostr_)
-        {
-            ostr_.startValue(iceSlicedData_);
-            iceWriteImpl(ostr_);
-            ostr_.endValue();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override void iceRead(global::Ice.InputStream istr_)
-        {
-            istr_.startValue();
-            iceReadImpl(istr_);
-            iceSlicedData_ = istr_.endValue(true);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, false);
@@ -1021,8 +999,6 @@ namespace Test
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
-
-        protected global::Ice.SlicedData iceSlicedData_;
 
         #endregion
     }
@@ -1232,28 +1208,6 @@ namespace Test
         #region Marshaling support
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override global::Ice.SlicedData ice_getSlicedData()
-        {
-            return iceSlicedData_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override void iceWrite(global::Ice.OutputStream ostr_)
-        {
-            ostr_.startValue(iceSlicedData_);
-            iceWriteImpl(ostr_);
-            ostr_.endValue();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override void iceRead(global::Ice.InputStream istr_)
-        {
-            istr_.startValue();
-            iceReadImpl(istr_);
-            iceSlicedData_ = istr_.endValue(true);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, true);
@@ -1268,85 +1222,6 @@ namespace Test
             istr_.readValue((PNode v) => { this.next = v; });
             istr_.endSlice();
         }
-
-        protected global::Ice.SlicedData iceSlicedData_;
-
-        #endregion
-    }
-
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1032")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class PreservedException : global::Ice.UserException
-    {
-        #region Constructors
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PreservedException()
-        {
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public PreservedException(global::System.Exception ex) : base(ex)
-        {
-        }
-
-        #endregion
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return "::Test::PreservedException";
-        }
-
-        #region Marshaling support
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override global::Ice.SlicedData ice_getSlicedData()
-        {
-            return slicedData_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override void iceWrite(global::Ice.OutputStream ostr_)
-        {
-            ostr_.startException(slicedData_);
-            iceWriteImpl(ostr_);
-            ostr_.endException();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override void iceRead(global::Ice.InputStream istr_)
-        {
-            istr_.startException();
-            iceReadImpl(istr_);
-            slicedData_ = istr_.endException(true);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice("::Test::PreservedException", -1, true);
-            ostr_.endSlice();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            istr_.endSlice();
-        }
-
-        protected global::Ice.SlicedData slicedData_;
 
         #endregion
     }
@@ -1618,9 +1493,6 @@ namespace Test
     public delegate void Callback_TestIntf_throwUnknownDerivedAsBase();
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_TestIntf_throwPreservedException();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public delegate void Callback_TestIntf_useForward(Forward f);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1861,10 +1733,6 @@ namespace Test
 
         global::System.Threading.Tasks.Task throwUnknownDerivedAsBaseAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        void throwPreservedException(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::System.Threading.Tasks.Task throwPreservedExceptionAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
         /// <summary>
         /// Use of forward-declared class to verify that code is generated correctly.
         /// </summary>
@@ -1993,9 +1861,6 @@ namespace Test
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         void throwUnknownDerivedAsBase(global::Ice.Current current = null);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task throwPreservedExceptionAsync(global::Ice.Current current = null);
 
         /// <summary>
         /// Use of forward-declared class to verify that code is generated correctly.
@@ -2543,18 +2408,6 @@ namespace Test
             try
             {
                 _iceI_throwUnknownDerivedAsBaseAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
-            }
-            catch(global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException;
-            }
-        }
-
-        public void throwPreservedException(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            try
-            {
-                _iceI_throwPreservedExceptionAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch(global::System.AggregateException ex_)
             {
@@ -3765,46 +3618,6 @@ namespace Test
                 });
         }
 
-        public global::System.Threading.Tasks.Task throwPreservedExceptionAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-        {
-            return _iceI_throwPreservedExceptionAsync(context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task _iceI_throwPreservedExceptionAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            iceCheckTwowayOnly(_throwPreservedException_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_throwPreservedException(context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _throwPreservedException_name = "throwPreservedException";
-
-        private void _iceI_throwPreservedException(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<object>(completed);
-            outAsync.invoke(
-                _throwPreservedException_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.SlicedFormat,
-                context,
-                synchronous,
-                userException: (global::Ice.UserException ex) =>
-                {
-                    try
-                    {
-                        throw ex;
-                    }
-                    catch(PreservedException)
-                    {
-                        throw;
-                    }
-                    catch(global::Ice.UserException)
-                    {
-                    }
-                });
-        }
-
         public global::System.Threading.Tasks.Task<Forward> useForwardAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
         {
             return _iceI_useForwardAsync(context, progress, cancel, false);
@@ -4079,8 +3892,6 @@ namespace Test
         public abstract void throwDerivedAsDerived(global::Ice.Current current = null);
 
         public abstract void throwUnknownDerivedAsBase(global::Ice.Current current = null);
-
-        public abstract global::System.Threading.Tasks.Task throwPreservedExceptionAsync(global::Ice.Current current = null);
 
         public abstract void useForward(out Forward f, global::Ice.Current current = null);
 
@@ -4672,16 +4483,6 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_throwPreservedException(TestIntf obj, global::IceInternal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            inS.setFormat(global::Ice.FormatType.SlicedFormat);
-            return inS.setResultTask(obj.throwPreservedExceptionAsync(current));
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
         iceD_useForward(TestIntf obj, global::IceInternal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
@@ -4746,7 +4547,6 @@ namespace Test
             "throwBaseAsBase",
             "throwDerivedAsBase",
             "throwDerivedAsDerived",
-            "throwPreservedException",
             "throwUnknownDerivedAsBase",
             "twoElementCycle",
             "useForward"
@@ -4913,17 +4713,13 @@ namespace Test
                 }
                 case 37:
                 {
-                    return iceD_throwPreservedException(this, inS, current);
+                    return iceD_throwUnknownDerivedAsBase(this, inS, current);
                 }
                 case 38:
                 {
-                    return iceD_throwUnknownDerivedAsBase(this, inS, current);
-                }
-                case 39:
-                {
                     return iceD_twoElementCycle(this, inS, current);
                 }
-                case 40:
+                case 39:
                 {
                     return iceD_useForward(this, inS, current);
                 }

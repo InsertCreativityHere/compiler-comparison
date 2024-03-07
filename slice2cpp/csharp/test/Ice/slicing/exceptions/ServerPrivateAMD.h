@@ -30,9 +30,6 @@
 namespace Test
 {
 
-class SPreservedClass;
-
-using SPreservedClassPtr = ::std::shared_ptr<SPreservedClass>;
 
 }
 
@@ -191,124 +188,6 @@ public:
     ::std::string umd2;
 };
 
-class SPreservedClass : public ::Ice::ValueHelper<SPreservedClass, BaseClass>
-{
-public:
-
-    virtual ~SPreservedClass();
-
-    SPreservedClass() = default;
-
-    SPreservedClass(const SPreservedClass&) = default;
-    SPreservedClass(SPreservedClass&&) = default;
-    SPreservedClass& operator=(const SPreservedClass&) = default;
-    SPreservedClass& operator=(SPreservedClass&&) = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    SPreservedClass(::std::string_view bc, ::std::string_view spc) :
-        Ice::ValueHelper<SPreservedClass, BaseClass>(bc),
-        spc(spc)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::string&, const ::std::string&> ice_tuple() const
-    {
-        return std::tie(bc, spc);
-    }
-
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
-    static ::std::string_view ice_staticId();
-
-    ::std::string spc;
-};
-
-class SPreserved1 : public ::Ice::UserExceptionHelper<SPreserved1, KnownPreservedDerived>
-{
-public:
-
-    virtual ~SPreserved1();
-
-    SPreserved1(const SPreserved1&) = default;
-
-    SPreserved1() = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    SPreserved1(::std::string_view b, ::std::string_view kp, ::std::string_view kpd, const ::std::shared_ptr<BaseClass>& p1) :
-        ::Ice::UserExceptionHelper<SPreserved1, KnownPreservedDerived>(b, kp, kpd),
-        p1(p1)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::shared_ptr<::Test::BaseClass>&> ice_tuple() const
-    {
-        return std::tie(b, kp, kpd, p1);
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static ::std::string_view ice_staticId();
-
-    /// \cond STREAM
-    virtual bool _usesClasses() const override;
-    /// \endcond
-
-    ::std::shared_ptr<::Test::BaseClass> p1;
-};
-
-class SPreserved2 : public ::Ice::UserExceptionHelper<SPreserved2, SPreserved1>
-{
-public:
-
-    virtual ~SPreserved2();
-
-    SPreserved2(const SPreserved2&) = default;
-
-    SPreserved2() = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    SPreserved2(::std::string_view b, ::std::string_view kp, ::std::string_view kpd, const ::std::shared_ptr<BaseClass>& p1, const ::std::shared_ptr<BaseClass>& p2) :
-        ::Ice::UserExceptionHelper<SPreserved2, SPreserved1>(b, kp, kpd, p1),
-        p2(p2)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::shared_ptr<::Test::BaseClass>&, const ::std::shared_ptr<::Test::BaseClass>&> ice_tuple() const
-    {
-        return std::tie(b, kp, kpd, p1, p2);
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static ::std::string_view ice_staticId();
-
-    ::std::shared_ptr<::Test::BaseClass> p2;
-};
-
 }
 
 /// \cond STREAM
@@ -384,60 +263,6 @@ struct StreamReader<::Test::UnknownMostDerived2, S>
     static void read(S* istr, ::Test::UnknownMostDerived2& v)
     {
         istr->readAll(v.umd2);
-    }
-};
-
-template<typename S>
-struct StreamWriter<::Test::SPreservedClass, S>
-{
-    static void write(S* ostr, const ::Test::SPreservedClass& v)
-    {
-        ostr->writeAll(v.spc);
-    }
-};
-
-template<typename S>
-struct StreamReader<::Test::SPreservedClass, S>
-{
-    static void read(S* istr, ::Test::SPreservedClass& v)
-    {
-        istr->readAll(v.spc);
-    }
-};
-
-template<typename S>
-struct StreamWriter<::Test::SPreserved1, S>
-{
-    static void write(S* ostr, const ::Test::SPreserved1& v)
-    {
-        ostr->writeAll(v.p1);
-    }
-};
-
-template<typename S>
-struct StreamReader<::Test::SPreserved1, S>
-{
-    static void read(S* istr, ::Test::SPreserved1& v)
-    {
-        istr->readAll(v.p1);
-    }
-};
-
-template<typename S>
-struct StreamWriter<::Test::SPreserved2, S>
-{
-    static void write(S* ostr, const ::Test::SPreserved2& v)
-    {
-        ostr->writeAll(v.p2);
-    }
-};
-
-template<typename S>
-struct StreamReader<::Test::SPreserved2, S>
-{
-    static void read(S* istr, ::Test::SPreserved2& v)
-    {
-        istr->readAll(v.p2);
     }
 };
 

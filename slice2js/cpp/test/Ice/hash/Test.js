@@ -28,7 +28,7 @@
     {
     };
 
-    Slice.defineValue(Test.Point, "::Test::Point", false);
+    Slice.defineValue(Test.Point, "::Test::Point");
     exports.Test = Test;
 }
 (typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,

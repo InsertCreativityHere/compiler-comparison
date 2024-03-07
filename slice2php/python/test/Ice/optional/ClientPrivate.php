@@ -60,7 +60,7 @@ namespace Test
     global $IcePHP__t_string;
     global $Test__t_StringSeq;
     global $Test__t_A;
-    $Test__t_D = IcePHP_defineClass('::Test::D', '\\Test\\D', -1, true, false, $Test__t_B, array(
+    $Test__t_D = IcePHP_defineClass('::Test::D', '\\Test\\D', -1, false, $Test__t_B, array(
         array('ds', $IcePHP__t_string, false, 0),
         array('seq', $Test__t_StringSeq, true, 990),
         array('ao', $Test__t_A, true, 1000)));

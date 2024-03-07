@@ -52,7 +52,7 @@ namespace Ice
         }
     }
 
-    $Ice__t_AdapterNotFoundException = IcePHP_defineException('::Ice::AdapterNotFoundException', '\\Ice\\AdapterNotFoundException', false, null, null);
+    $Ice__t_AdapterNotFoundException = IcePHP_defineException('::Ice::AdapterNotFoundException', '\\Ice\\AdapterNotFoundException', null, null);
 }
 
 namespace Ice
@@ -76,7 +76,7 @@ namespace Ice
         }
     }
 
-    $Ice__t_InvalidReplicaGroupIdException = IcePHP_defineException('::Ice::InvalidReplicaGroupIdException', '\\Ice\\InvalidReplicaGroupIdException', false, null, null);
+    $Ice__t_InvalidReplicaGroupIdException = IcePHP_defineException('::Ice::InvalidReplicaGroupIdException', '\\Ice\\InvalidReplicaGroupIdException', null, null);
 }
 
 namespace Ice
@@ -100,7 +100,7 @@ namespace Ice
         }
     }
 
-    $Ice__t_AdapterAlreadyActiveException = IcePHP_defineException('::Ice::AdapterAlreadyActiveException', '\\Ice\\AdapterAlreadyActiveException', false, null, null);
+    $Ice__t_AdapterAlreadyActiveException = IcePHP_defineException('::Ice::AdapterAlreadyActiveException', '\\Ice\\AdapterAlreadyActiveException', null, null);
 }
 
 namespace Ice
@@ -124,7 +124,7 @@ namespace Ice
         }
     }
 
-    $Ice__t_ObjectNotFoundException = IcePHP_defineException('::Ice::ObjectNotFoundException', '\\Ice\\ObjectNotFoundException', false, null, null);
+    $Ice__t_ObjectNotFoundException = IcePHP_defineException('::Ice::ObjectNotFoundException', '\\Ice\\ObjectNotFoundException', null, null);
 }
 
 namespace Ice
@@ -148,7 +148,7 @@ namespace Ice
         }
     }
 
-    $Ice__t_ServerNotFoundException = IcePHP_defineException('::Ice::ServerNotFoundException', '\\Ice\\ServerNotFoundException', false, null, null);
+    $Ice__t_ServerNotFoundException = IcePHP_defineException('::Ice::ServerNotFoundException', '\\Ice\\ServerNotFoundException', null, null);
 }
 
 namespace Ice

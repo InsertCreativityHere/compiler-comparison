@@ -36,7 +36,7 @@ namespace Test
         }
     }
 
-    $Test__t_UE = IcePHP_defineException('::Test::UE', '\\Test\\UE', false, null, null);
+    $Test__t_UE = IcePHP_defineException('::Test::UE', '\\Test\\UE', null, null);
 }
 
 namespace Test

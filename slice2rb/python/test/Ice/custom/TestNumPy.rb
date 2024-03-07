@@ -103,7 +103,7 @@ module ::Test
                 T_D = ::Ice::__declareClass('::Test::NumPy::D')
             end
 
-            T_D.defineClass(D, -1, false, false, nil, [
+            T_D.defineClass(D, -1, false, nil, [
                 ['boolSeq', ::Test::NumPy::T_BoolSeq1, true, 1],
                 ['byteSeq', ::Test::NumPy::T_ByteSeq1, true, 2],
                 ['shortSeq', ::Test::NumPy::T_ShortSeq1, true, 3],

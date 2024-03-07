@@ -43,7 +43,7 @@ module ::IceMX
             T_SessionMetrics = ::Ice::__declareClass('::IceMX::SessionMetrics')
         end
 
-        T_SessionMetrics.defineClass(SessionMetrics, -1, false, false, ::IceMX::T_Metrics, [
+        T_SessionMetrics.defineClass(SessionMetrics, -1, false, ::IceMX::T_Metrics, [
             ['forwardedClient', ::Ice::T_int, false, 0],
             ['forwardedServer', ::Ice::T_int, false, 0],
             ['routingTableSize', ::Ice::T_int, false, 0],

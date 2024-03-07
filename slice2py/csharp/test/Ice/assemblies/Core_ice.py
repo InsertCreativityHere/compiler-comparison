@@ -33,7 +33,7 @@ if 'ArgumentException' not in _M_Core.__dict__:
 
         _ice_id = '::Core::ArgumentException'
 
-    _M_Core._t_ArgumentException = IcePy.defineException('::Core::ArgumentException', ArgumentException, (), False, None, ())
+    _M_Core._t_ArgumentException = IcePy.defineException('::Core::ArgumentException', ArgumentException, (), None, ())
     ArgumentException._ice_type = _M_Core._t_ArgumentException
 
     _M_Core.ArgumentException = ArgumentException

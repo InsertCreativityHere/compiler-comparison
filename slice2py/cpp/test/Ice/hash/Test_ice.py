@@ -38,7 +38,7 @@ if 'Point' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_Point = IcePy.defineValue('::Test::Point', Point, -1, (), False, False, None, ())
+    _M_Test._t_Point = IcePy.defineValue('::Test::Point', Point, -1, (), False, None, ())
     Point._ice_type = _M_Test._t_Point
 
     _M_Test.Point = Point

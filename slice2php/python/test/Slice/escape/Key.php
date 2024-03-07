@@ -145,7 +145,7 @@ namespace _and
     global $Ice__t_Value;
     global $IcePHP__t_int;
     global $and__t_execPrx;
-    $and__t_for = IcePHP_defineClass('::and::for', '\\_and\\_for', -1, false, false, $Ice__t_Value, array(
+    $and__t_for = IcePHP_defineClass('::and::for', '\\_and\\_for', -1, false, $Ice__t_Value, array(
         array('lambda', $IcePHP__t_int, false, 0),
         array('from', $and__t_execPrx, false, 0),
         array('_global', $IcePHP__t_int, false, 0)));
@@ -226,7 +226,7 @@ namespace _and
     }
     global $IcePHP__t_int;
 
-    $and__t_is = IcePHP_defineException('::and::is', '\\_and\\is', false, null, array(
+    $and__t_is = IcePHP_defineException('::and::is', '\\_and\\is', null, array(
         array('lambda', $IcePHP__t_int, false, 0)));
 }
 
@@ -258,7 +258,7 @@ namespace _and
     }
     global $IcePHP__t_int;
 
-    $and__t_not = IcePHP_defineException('::and::not', '\\_and\\not', false, $and__t_is, array(
+    $and__t_not = IcePHP_defineException('::and::not', '\\_and\\not', $and__t_is, array(
         array('_or', $IcePHP__t_int, false, 0),
         array('pass', $IcePHP__t_int, false, 0)));
 }

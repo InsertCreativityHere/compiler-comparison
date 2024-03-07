@@ -35,7 +35,7 @@ module ::Test
             T_SBase = ::Ice::__declareClass('::Test::SBase')
         end
 
-        T_SBase.defineClass(SBase, -1, false, false, nil, [['sb', ::Ice::T_string, false, 0]])
+        T_SBase.defineClass(SBase, -1, false, nil, [['sb', ::Ice::T_string, false, 0]])
     end
 
     if not defined?(::Test::SBSKnownDerived_Mixin)
@@ -56,7 +56,7 @@ module ::Test
             T_SBSKnownDerived = ::Ice::__declareClass('::Test::SBSKnownDerived')
         end
 
-        T_SBSKnownDerived.defineClass(SBSKnownDerived, -1, false, false, ::Test::T_SBase, [['sbskd', ::Ice::T_string, false, 0]])
+        T_SBSKnownDerived.defineClass(SBSKnownDerived, -1, false, ::Test::T_SBase, [['sbskd', ::Ice::T_string, false, 0]])
     end
 
     if not defined?(::Test::B_Mixin)
@@ -77,7 +77,7 @@ module ::Test
             T_B = ::Ice::__declareClass('::Test::B')
         end
 
-        T_B.defineClass(B, -1, false, false, nil, [
+        T_B.defineClass(B, -1, false, nil, [
             ['sb', ::Ice::T_string, false, 0],
             ['pb', ::Test::T_B, false, 0]
         ])
@@ -102,7 +102,7 @@ module ::Test
             T_D1 = ::Ice::__declareClass('::Test::D1')
         end
 
-        T_D1.defineClass(D1, -1, false, false, ::Test::T_B, [
+        T_D1.defineClass(D1, -1, false, ::Test::T_B, [
             ['sd1', ::Ice::T_string, false, 0],
             ['pd1', ::Test::T_B, false, 0]
         ])
@@ -129,7 +129,7 @@ module ::Test
             T_SS1 = ::Ice::__declareClass('::Test::SS1')
         end
 
-        T_SS1.defineClass(SS1, -1, false, false, nil, [['s', ::Test::T_BSeq, false, 0]])
+        T_SS1.defineClass(SS1, -1, false, nil, [['s', ::Test::T_BSeq, false, 0]])
     end
 
     if not defined?(::Test::SS2_Mixin)
@@ -149,7 +149,7 @@ module ::Test
             T_SS2 = ::Ice::__declareClass('::Test::SS2')
         end
 
-        T_SS2.defineClass(SS2, -1, false, false, nil, [['s', ::Test::T_BSeq, false, 0]])
+        T_SS2.defineClass(SS2, -1, false, nil, [['s', ::Test::T_BSeq, false, 0]])
     end
 
     if not defined?(::Test::SS3)
@@ -205,7 +205,7 @@ module ::Test
             attr_accessor :sbe, :pb
         end
 
-        T_BaseException = ::Ice::__defineException('::Test::BaseException', BaseException, false, nil, [
+        T_BaseException = ::Ice::__defineException('::Test::BaseException', BaseException, nil, [
             ["sbe", ::Ice::T_string, false, 0],
             ["pb", ::Test::T_B, false, 0]
         ])
@@ -226,7 +226,7 @@ module ::Test
             attr_accessor :sde, :pd1
         end
 
-        T_DerivedException = ::Ice::__defineException('::Test::DerivedException', DerivedException, false, ::Test::T_BaseException, [
+        T_DerivedException = ::Ice::__defineException('::Test::DerivedException', DerivedException, ::Test::T_BaseException, [
             ["sde", ::Ice::T_string, false, 0],
             ["pd1", ::Test::T_D1, false, 0]
         ])
@@ -253,7 +253,7 @@ module ::Test
             T_PBase = ::Ice::__declareClass('::Test::PBase')
         end
 
-        T_PBase.defineClass(PBase, -1, false, false, nil, [['pi', ::Ice::T_int, false, 0]])
+        T_PBase.defineClass(PBase, -1, false, nil, [['pi', ::Ice::T_int, false, 0]])
     end
 
     if not defined?(::Test::T_PBaseSeq)
@@ -278,7 +278,7 @@ module ::Test
             T_Preserved = ::Ice::__declareClass('::Test::Preserved')
         end
 
-        T_Preserved.defineClass(Preserved, -1, true, false, ::Test::T_PBase, [['ps', ::Ice::T_string, false, 0]])
+        T_Preserved.defineClass(Preserved, -1, false, ::Test::T_PBase, [['ps', ::Ice::T_string, false, 0]])
     end
 
     if not defined?(::Test::PDerived_Mixin)
@@ -299,7 +299,7 @@ module ::Test
             T_PDerived = ::Ice::__declareClass('::Test::PDerived')
         end
 
-        T_PDerived.defineClass(PDerived, -1, true, false, ::Test::T_Preserved, [['pb', ::Test::T_PBase, false, 0]])
+        T_PDerived.defineClass(PDerived, -1, false, ::Test::T_Preserved, [['pb', ::Test::T_PBase, false, 0]])
     end
 
     if not defined?(::Test::PNode_Mixin)
@@ -319,7 +319,7 @@ module ::Test
             T_PNode = ::Ice::__declareClass('::Test::PNode')
         end
 
-        T_PNode.defineClass(PNode, -1, true, false, nil, [['_next', ::Test::T_PNode, false, 0]])
+        T_PNode.defineClass(PNode, -1, false, nil, [['_next', ::Test::T_PNode, false, 0]])
     end
 
     if not defined?(::Test::PreservedException)
@@ -332,7 +332,7 @@ module ::Test
             end
         end
 
-        T_PreservedException = ::Ice::__defineException('::Test::PreservedException', PreservedException, true, nil, [])
+        T_PreservedException = ::Ice::__defineException('::Test::PreservedException', PreservedException, nil, [])
     end
 
     if not defined?(::Test::TestIntf_Mixin)
@@ -559,7 +559,7 @@ module ::Test
             T_SBSUnknownDerived = ::Ice::__declareClass('::Test::SBSUnknownDerived')
         end
 
-        T_SBSUnknownDerived.defineClass(SBSUnknownDerived, -1, false, false, ::Test::T_SBase, [['sbsud', ::Ice::T_string, false, 0]])
+        T_SBSUnknownDerived.defineClass(SBSUnknownDerived, -1, false, ::Test::T_SBase, [['sbsud', ::Ice::T_string, false, 0]])
     end
 
     if not defined?(::Test::SUnknown_Mixin)
@@ -580,7 +580,7 @@ module ::Test
             T_SUnknown = ::Ice::__declareClass('::Test::SUnknown')
         end
 
-        T_SUnknown.defineClass(SUnknown, -1, false, false, nil, [
+        T_SUnknown.defineClass(SUnknown, -1, false, nil, [
             ['su', ::Ice::T_string, false, 0],
             ['cycle', ::Test::T_SUnknown, false, 0]
         ])
@@ -605,7 +605,7 @@ module ::Test
             T_D2 = ::Ice::__declareClass('::Test::D2')
         end
 
-        T_D2.defineClass(D2, -1, false, false, ::Test::T_B, [
+        T_D2.defineClass(D2, -1, false, ::Test::T_B, [
             ['sd2', ::Ice::T_string, false, 0],
             ['pd2', ::Test::T_B, false, 0]
         ])
@@ -630,7 +630,7 @@ module ::Test
             T_D4 = ::Ice::__declareClass('::Test::D4')
         end
 
-        T_D4.defineClass(D4, -1, false, false, ::Test::T_B, [
+        T_D4.defineClass(D4, -1, false, ::Test::T_B, [
             ['p1', ::Test::T_B, false, 0],
             ['p2', ::Test::T_B, false, 0]
         ])
@@ -651,7 +651,7 @@ module ::Test
             attr_accessor :sude, :pd2
         end
 
-        T_UnknownDerivedException = ::Ice::__defineException('::Test::UnknownDerivedException', UnknownDerivedException, false, ::Test::T_BaseException, [
+        T_UnknownDerivedException = ::Ice::__defineException('::Test::UnknownDerivedException', UnknownDerivedException, ::Test::T_BaseException, [
             ["sude", ::Ice::T_string, false, 0],
             ["pd2", ::Test::T_D2, false, 0]
         ])
@@ -674,7 +674,7 @@ module ::Test
             T_MyClass = ::Ice::__declareClass('::Test::MyClass')
         end
 
-        T_MyClass.defineClass(MyClass, -1, false, false, nil, [['i', ::Ice::T_int, false, 0]])
+        T_MyClass.defineClass(MyClass, -1, false, nil, [['i', ::Ice::T_int, false, 0]])
     end
 
     if not defined?(::Test::PSUnknown_Mixin)
@@ -697,7 +697,7 @@ module ::Test
             T_PSUnknown = ::Ice::__declareClass('::Test::PSUnknown')
         end
 
-        T_PSUnknown.defineClass(PSUnknown, -1, true, false, ::Test::T_Preserved, [
+        T_PSUnknown.defineClass(PSUnknown, -1, false, ::Test::T_Preserved, [
             ['psu', ::Ice::T_string, false, 0],
             ['graph', ::Test::T_PNode, false, 0],
             ['cl', ::Test::T_MyClass, false, 0]
@@ -722,7 +722,7 @@ module ::Test
             T_PSUnknown2 = ::Ice::__declareClass('::Test::PSUnknown2')
         end
 
-        T_PSUnknown2.defineClass(PSUnknown2, -1, true, false, ::Test::T_Preserved, [['pb', ::Test::T_PBase, false, 0]])
+        T_PSUnknown2.defineClass(PSUnknown2, -1, false, ::Test::T_Preserved, [['pb', ::Test::T_PBase, false, 0]])
     end
 
     if not defined?(::Test::PSUnknownException)
@@ -738,7 +738,7 @@ module ::Test
             attr_accessor :p
         end
 
-        T_PSUnknownException = ::Ice::__defineException('::Test::PSUnknownException', PSUnknownException, true, ::Test::T_PreservedException, [["p", ::Test::T_PSUnknown2, false, 0]])
+        T_PSUnknownException = ::Ice::__defineException('::Test::PSUnknownException', PSUnknownException, ::Test::T_PreservedException, [["p", ::Test::T_PSUnknown2, false, 0]])
     end
 
     if not defined?(::Test::Hidden_Mixin)
@@ -758,7 +758,7 @@ module ::Test
             T_Hidden = ::Ice::__declareClass('::Test::Hidden')
         end
 
-        T_Hidden.defineClass(Hidden, -1, false, false, nil, [['f', ::Test::T_Forward, false, 0]])
+        T_Hidden.defineClass(Hidden, -1, false, nil, [['f', ::Test::T_Forward, false, 0]])
     end
 
     if not defined?(::Test::Forward_Mixin)
@@ -778,6 +778,6 @@ module ::Test
             T_Forward = ::Ice::__declareClass('::Test::Forward')
         end
 
-        T_Forward.defineClass(Forward, -1, false, false, nil, [['h', ::Test::T_Hidden, false, 0]])
+        T_Forward.defineClass(Forward, -1, false, nil, [['h', ::Test::T_Hidden, false, 0]])
     end
 end

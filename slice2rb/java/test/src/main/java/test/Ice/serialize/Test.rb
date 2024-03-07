@@ -202,7 +202,7 @@ module ::Test
             T_Base = ::Ice::__declareClass('::Test::Base')
         end
 
-        T_Base.defineClass(Base, -1, false, false, nil, [
+        T_Base.defineClass(Base, -1, false, nil, [
             ['b', ::Test::T_Base, false, 0],
             ['o', ::Ice::T_Value, false, 0],
             ['s', ::Test::T_Struct1, false, 0],
@@ -235,7 +235,7 @@ module ::Test
             T_Derived = ::Ice::__declareClass('::Test::Derived')
         end
 
-        T_Derived.defineClass(Derived, -1, false, false, ::Test::T_Base, [['p', ::Ice::T_ObjectPrx, false, 0]])
+        T_Derived.defineClass(Derived, -1, false, ::Test::T_Base, [['p', ::Ice::T_ObjectPrx, false, 0]])
     end
 
     if not defined?(::Test::Ex)
@@ -252,7 +252,7 @@ module ::Test
             attr_accessor :s, :b
         end
 
-        T_Ex = ::Ice::__defineException('::Test::Ex', Ex, false, nil, [
+        T_Ex = ::Ice::__defineException('::Test::Ex', Ex, nil, [
             ["s", ::Test::T_Struct1, false, 0],
             ["b", ::Test::T_Base, false, 0]
         ])

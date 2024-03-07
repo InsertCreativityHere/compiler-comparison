@@ -42,6 +42,6 @@ namespace Test
     }
 
     global $Ice__t_Value;
-    $Test__t_Point = IcePHP_defineClass('::Test::Point', '\\Test\\Point', -1, false, false, $Ice__t_Value, null);
+    $Test__t_Point = IcePHP_defineClass('::Test::Point', '\\Test\\Point', -1, false, $Ice__t_Value, null);
 }
 ?>

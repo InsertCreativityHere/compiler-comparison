@@ -46,7 +46,7 @@ namespace WithNamespace
 
     global $Ice__t_Value;
     global $IcePHP__t_int;
-    $WithNamespace__t_C1 = IcePHP_defineClass('::WithNamespace::C1', '\\WithNamespace\\C1', -1, false, false, $Ice__t_Value, array(
+    $WithNamespace__t_C1 = IcePHP_defineClass('::WithNamespace::C1', '\\WithNamespace\\C1', -1, false, $Ice__t_Value, array(
         array('i', $IcePHP__t_int, false, 0)));
 }
 
@@ -82,7 +82,7 @@ namespace WithNamespace
 
     global $WithNamespace__t_C1;
     global $IcePHP__t_long;
-    $WithNamespace__t_C2 = IcePHP_defineClass('::WithNamespace::C2', '\\WithNamespace\\C2', -1, false, false, $WithNamespace__t_C1, array(
+    $WithNamespace__t_C2 = IcePHP_defineClass('::WithNamespace::C2', '\\WithNamespace\\C2', -1, false, $WithNamespace__t_C1, array(
         array('l', $IcePHP__t_long, false, 0)));
 }
 
@@ -111,7 +111,7 @@ namespace WithNamespace
     }
     global $IcePHP__t_int;
 
-    $WithNamespace__t_E1 = IcePHP_defineException('::WithNamespace::E1', '\\WithNamespace\\E1', false, null, array(
+    $WithNamespace__t_E1 = IcePHP_defineException('::WithNamespace::E1', '\\WithNamespace\\E1', null, array(
         array('i', $IcePHP__t_int, false, 0)));
 }
 
@@ -141,7 +141,7 @@ namespace WithNamespace
     }
     global $IcePHP__t_long;
 
-    $WithNamespace__t_E2 = IcePHP_defineException('::WithNamespace::E2', '\\WithNamespace\\E2', false, $WithNamespace__t_E1, array(
+    $WithNamespace__t_E2 = IcePHP_defineException('::WithNamespace::E2', '\\WithNamespace\\E2', $WithNamespace__t_E1, array(
         array('l', $IcePHP__t_long, false, 0)));
 }
 ?>

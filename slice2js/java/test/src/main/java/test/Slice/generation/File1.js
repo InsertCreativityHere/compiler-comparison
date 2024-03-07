@@ -48,7 +48,7 @@
     {
     };
 
-    Slice.defineValue(Test2.Class1, "::Test2::Class1", false);
+    Slice.defineValue(Test2.Class1, "::Test2::Class1");
     exports.Test = Test;
     exports.Test2 = Test2;
 }

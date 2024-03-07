@@ -39,7 +39,7 @@ module ::Test
             T_D = ::Ice::__declareClass('::Test::D')
         end
 
-        T_D.defineClass(D, -1, true, false, ::Test::T_B, [
+        T_D.defineClass(D, -1, false, ::Test::T_B, [
             ['ds', ::Ice::T_string, false, 0],
             ['seq', ::Test::T_StringSeq, true, 990],
             ['ao', ::Test::T_A, true, 1000]

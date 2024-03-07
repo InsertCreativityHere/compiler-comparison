@@ -31,7 +31,7 @@ module ::Glacier2
             end
         end
 
-        T_SessionNotExistException = ::Ice::__defineException('::Glacier2::SessionNotExistException', SessionNotExistException, false, nil, [])
+        T_SessionNotExistException = ::Ice::__defineException('::Glacier2::SessionNotExistException', SessionNotExistException, nil, [])
     end
 
     if not defined?(::Glacier2::Router_Mixin)

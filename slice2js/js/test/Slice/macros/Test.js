@@ -46,7 +46,7 @@
         }
     };
 
-    Slice.defineValue(Test._Default, "::Test::Default", false);
+    Slice.defineValue(Test._Default, "::Test::Default");
 
     Test.NoDefault = class extends Ice.Value
     {
@@ -70,7 +70,7 @@
         }
     };
 
-    Slice.defineValue(Test.NoDefault, "::Test::NoDefault", false);
+    Slice.defineValue(Test.NoDefault, "::Test::NoDefault");
 
     Test.JsOnly = class extends Ice.Value
     {
@@ -94,7 +94,7 @@
         }
     };
 
-    Slice.defineValue(Test.JsOnly, "::Test::JsOnly", false);
+    Slice.defineValue(Test.JsOnly, "::Test::JsOnly");
     exports.Test = Test;
 }
 (typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,

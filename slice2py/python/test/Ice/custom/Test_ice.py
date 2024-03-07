@@ -273,7 +273,7 @@ if 'C' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_C = IcePy.defineValue('::Test::C', C, -1, (), False, False, None, (
+    _M_Test._t_C = IcePy.defineValue('::Test::C', C, -1, (), False, None, (
         ('b1', (), _M_Test._t_ByteString, False, 0),
         ('b2', ('python:seq:list',), _M_Test._t_ByteString, False, 0),
         ('b3', ('python:seq:default',), _M_Test._t_ByteList, False, 0),
@@ -312,7 +312,7 @@ if 'D' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_D = IcePy.defineValue('::Test::D', D, -1, (), False, False, None, (
+    _M_Test._t_D = IcePy.defineValue('::Test::D', D, -1, (), False, None, (
         ('boolSeq', (), _M_Test._t_BoolSeq1, True, 1),
         ('byteSeq', (), _M_Test._t_ByteSeq1, True, 2),
         ('shortSeq', (), _M_Test._t_ShortSeq1, True, 3),
@@ -326,7 +326,7 @@ if 'D' not in _M_Test.__dict__:
     _M_Test.D = D
     del D
 
-_M_Test._t_Custom = IcePy.defineValue('::Test::Custom', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_Custom = IcePy.defineValue('::Test::Custom', Ice.Value, -1, (), True, None, ())
 
 if 'CustomPrx' not in _M_Test.__dict__:
     _M_Test.CustomPrx = Ice.createTempClass()

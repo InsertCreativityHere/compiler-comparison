@@ -339,9 +339,6 @@ public interface TestIntf extends com.zeroc.Ice.Object
     void throwUnknownDerivedAsBase(com.zeroc.Ice.Current current)
         throws BaseException;
 
-    java.util.concurrent.CompletionStage<Void> throwPreservedExceptionAsync(com.zeroc.Ice.Current current)
-        throws PreservedException;
-
     /**
      * Use of forward-declared class to verify that code is generated correctly.
      * @param current The Current object for the invocation.
@@ -1084,23 +1081,6 @@ public interface TestIntf extends com.zeroc.Ice.Object
      * @param inS -
      * @param current -
      * @return -
-     * @throws com.zeroc.Ice.UserException -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_throwPreservedException(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-        throws com.zeroc.Ice.UserException
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.throwPreservedExceptionAsync(current));
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
     **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_useForward(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
@@ -1171,7 +1151,6 @@ public interface TestIntf extends com.zeroc.Ice.Object
         "throwBaseAsBase",
         "throwDerivedAsBase",
         "throwDerivedAsDerived",
-        "throwPreservedException",
         "throwUnknownDerivedAsBase",
         "twoElementCycle",
         "useForward"
@@ -1340,17 +1319,13 @@ public interface TestIntf extends com.zeroc.Ice.Object
             }
             case 37:
             {
-                return _iceD_throwPreservedException(this, in, current);
+                return _iceD_throwUnknownDerivedAsBase(this, in, current);
             }
             case 38:
             {
-                return _iceD_throwUnknownDerivedAsBase(this, in, current);
-            }
-            case 39:
-            {
                 return _iceD_twoElementCycle(this, in, current);
             }
-            case 40:
+            case 39:
             {
                 return _iceD_useForward(this, in, current);
             }

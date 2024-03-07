@@ -46,7 +46,7 @@
         }
     };
 
-    Slice.defineValue(IceGrid.InternalDbEnvDescriptor, "::IceGrid::InternalDbEnvDescriptor", false);
+    Slice.defineValue(IceGrid.InternalDbEnvDescriptor, "::IceGrid::InternalDbEnvDescriptor");
 
     Slice.defineSequence(IceGrid, "InternalDbEnvDescriptorSeqHelper", "Ice.ObjectHelper", false, "IceGrid.InternalDbEnvDescriptor");
 
@@ -72,7 +72,7 @@
         }
     };
 
-    Slice.defineValue(IceGrid.InternalAdapterDescriptor, "::IceGrid::InternalAdapterDescriptor", false);
+    Slice.defineValue(IceGrid.InternalAdapterDescriptor, "::IceGrid::InternalAdapterDescriptor");
 
     Slice.defineSequence(IceGrid, "InternalAdapterDescriptorSeqHelper", "Ice.ObjectHelper", false, "IceGrid.InternalAdapterDescriptor");
 
@@ -98,7 +98,7 @@
         }
     };
 
-    Slice.defineValue(IceGrid.InternalDistributionDescriptor, "::IceGrid::InternalDistributionDescriptor", false);
+    Slice.defineValue(IceGrid.InternalDistributionDescriptor, "::IceGrid::InternalDistributionDescriptor");
 
     Slice.defineDictionary(IceGrid, "PropertyDescriptorSeqDict", "PropertyDescriptorSeqDictHelper", "Ice.StringHelper", "IceGrid.PropertyDescriptorSeqHelper", false, undefined, undefined, Ice.ArrayUtil.equals);
 
@@ -181,7 +181,7 @@
         }
     };
 
-    Slice.defineValue(IceGrid.InternalServerDescriptor, "::IceGrid::InternalServerDescriptor", false);
+    Slice.defineValue(IceGrid.InternalServerDescriptor, "::IceGrid::InternalServerDescriptor");
 
     /**
      *  This exception is raised if an adapter is active.
@@ -623,8 +623,8 @@
         "registerWellKnownObjects": [, 2, 2, , , [["IceGrid.ObjectInfoSeqHelper"]], , , , ],
         "setAdapterDirectProxy": [, 2, 2, , , [[7], [7], [9]], ,
         [
-            IceGrid.AdapterExistsException,
-            IceGrid.AdapterNotExistException
+            IceGrid.AdapterNotExistException,
+            IceGrid.AdapterExistsException
         ], , ],
         "receivedUpdate": [, , , , , [[IceGrid.TopicName._helper], [3], [7]], , , , ],
         "destroy": [, , , , , , , , , ]
@@ -673,7 +673,7 @@
         }
     };
 
-    Slice.defineValue(IceGrid.InternalNodeInfo, "::IceGrid::InternalNodeInfo", false);
+    Slice.defineValue(IceGrid.InternalNodeInfo, "::IceGrid::InternalNodeInfo");
 
     /**
      *  Information about an IceGrid registry replica.
@@ -700,7 +700,7 @@
         }
     };
 
-    Slice.defineValue(IceGrid.InternalReplicaInfo, "::IceGrid::InternalReplicaInfo", false);
+    Slice.defineValue(IceGrid.InternalReplicaInfo, "::IceGrid::InternalReplicaInfo");
 
     const iceC_IceGrid_InternalRegistry_ids = [
         "::Ice::Object",
@@ -731,13 +731,13 @@
     {
         "registerNode": [, , , , ["IceGrid.NodeSessionPrx"], [["IceGrid.InternalNodeInfo", true], ["IceGrid.NodePrx"], [IceGrid.LoadInfo]], ,
         [
-            IceGrid.NodeActiveException,
-            IceGrid.PermissionDeniedException
+            IceGrid.PermissionDeniedException,
+            IceGrid.NodeActiveException
         ], true, ],
         "registerReplica": [, , , , ["IceGrid.ReplicaSessionPrx"], [["IceGrid.InternalReplicaInfo", true], ["IceGrid.InternalRegistryPrx"]], ,
         [
-            IceGrid.ReplicaActiveException,
-            IceGrid.PermissionDeniedException
+            IceGrid.PermissionDeniedException,
+            IceGrid.ReplicaActiveException
         ], true, ],
         "registerWithReplica": [, , , , , [["IceGrid.InternalRegistryPrx"]], , , , ],
         "getNodes": [, 2, 2, , ["IceGrid.NodePrxSeqHelper"], , , , , ],

@@ -120,7 +120,7 @@ if '_and' not in _M_BEGIN.__dict__:
     _M_BEGIN._and = _and
     del _and
 
-_M_BEGIN._t__break = IcePy.defineValue('::BEGIN::break', Ice.Value, -1, (), False, True, None, ())
+_M_BEGIN._t__break = IcePy.defineValue('::BEGIN::break', Ice.Value, -1, (), True, None, ())
 
 if 'breakPrx' not in _M_BEGIN.__dict__:
     _M_BEGIN.breakPrx = Ice.createTempClass()
@@ -228,7 +228,7 @@ if 'display' not in _M_BEGIN.__dict__:
 
         __repr__ = __str__
 
-    _M_BEGIN._t_display = IcePy.defineValue('::BEGIN::display', display, -1, (), False, False, None, (
+    _M_BEGIN._t_display = IcePy.defineValue('::BEGIN::display', display, -1, (), False, None, (
         ('when', (), IcePy._t_int, False, 0),
         ('do', (), IcePy._t_int, False, 0),
         ('dup', (), _M_BEGIN._t_breakPrx, False, 0),
@@ -239,7 +239,7 @@ if 'display' not in _M_BEGIN.__dict__:
     _M_BEGIN.display = display
     del display
 
-_M_BEGIN._t_elsif = IcePy.defineValue('::BEGIN::elsif', Ice.Value, -1, (), False, True, None, ())
+_M_BEGIN._t_elsif = IcePy.defineValue('::BEGIN::elsif', Ice.Value, -1, (), True, None, ())
 
 if 'elsifPrx' not in _M_BEGIN.__dict__:
     _M_BEGIN.elsifPrx = Ice.createTempClass()
@@ -304,7 +304,7 @@ if 'next' not in _M_BEGIN.__dict__:
 
         _ice_id = '::BEGIN::next'
 
-    _M_BEGIN._t_next = IcePy.defineException('::BEGIN::next', next, (), False, None, (('new', (), IcePy._t_int, False, 0),))
+    _M_BEGIN._t_next = IcePy.defineException('::BEGIN::next', next, (), None, (('new', (), IcePy._t_int, False, 0),))
     next._ice_type = _M_BEGIN._t_next
 
     _M_BEGIN.next = next
@@ -325,7 +325,7 @@ if 'nil' not in _M_BEGIN.__dict__:
 
         _ice_id = '::BEGIN::nil'
 
-    _M_BEGIN._t_nil = IcePy.defineException('::BEGIN::nil', nil, (), False, _M_BEGIN._t_next, (
+    _M_BEGIN._t_nil = IcePy.defineException('::BEGIN::nil', nil, (), _M_BEGIN._t_next, (
         ('_not', (), IcePy._t_int, False, 0),
         ('_or', (), IcePy._t_int, False, 0)
     ))
@@ -334,7 +334,7 @@ if 'nil' not in _M_BEGIN.__dict__:
     _M_BEGIN.nil = nil
     del nil
 
-_M_BEGIN._t_extend = IcePy.defineValue('::BEGIN::extend', Ice.Value, -1, (), False, True, None, ())
+_M_BEGIN._t_extend = IcePy.defineValue('::BEGIN::extend', Ice.Value, -1, (), True, None, ())
 
 if 'extendPrx' not in _M_BEGIN.__dict__:
     _M_BEGIN.extendPrx = Ice.createTempClass()

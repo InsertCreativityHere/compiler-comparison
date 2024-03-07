@@ -43,7 +43,7 @@ if 'AdapterNotFoundException' not in _M_Ice.__dict__:
 
         _ice_id = '::Ice::AdapterNotFoundException'
 
-    _M_Ice._t_AdapterNotFoundException = IcePy.defineException('::Ice::AdapterNotFoundException', AdapterNotFoundException, (), False, None, ())
+    _M_Ice._t_AdapterNotFoundException = IcePy.defineException('::Ice::AdapterNotFoundException', AdapterNotFoundException, (), None, ())
     AdapterNotFoundException._ice_type = _M_Ice._t_AdapterNotFoundException
 
     _M_Ice.AdapterNotFoundException = AdapterNotFoundException
@@ -65,7 +65,7 @@ if 'InvalidReplicaGroupIdException' not in _M_Ice.__dict__:
 
         _ice_id = '::Ice::InvalidReplicaGroupIdException'
 
-    _M_Ice._t_InvalidReplicaGroupIdException = IcePy.defineException('::Ice::InvalidReplicaGroupIdException', InvalidReplicaGroupIdException, (), False, None, ())
+    _M_Ice._t_InvalidReplicaGroupIdException = IcePy.defineException('::Ice::InvalidReplicaGroupIdException', InvalidReplicaGroupIdException, (), None, ())
     InvalidReplicaGroupIdException._ice_type = _M_Ice._t_InvalidReplicaGroupIdException
 
     _M_Ice.InvalidReplicaGroupIdException = InvalidReplicaGroupIdException
@@ -87,7 +87,7 @@ if 'AdapterAlreadyActiveException' not in _M_Ice.__dict__:
 
         _ice_id = '::Ice::AdapterAlreadyActiveException'
 
-    _M_Ice._t_AdapterAlreadyActiveException = IcePy.defineException('::Ice::AdapterAlreadyActiveException', AdapterAlreadyActiveException, (), False, None, ())
+    _M_Ice._t_AdapterAlreadyActiveException = IcePy.defineException('::Ice::AdapterAlreadyActiveException', AdapterAlreadyActiveException, (), None, ())
     AdapterAlreadyActiveException._ice_type = _M_Ice._t_AdapterAlreadyActiveException
 
     _M_Ice.AdapterAlreadyActiveException = AdapterAlreadyActiveException
@@ -109,7 +109,7 @@ if 'ObjectNotFoundException' not in _M_Ice.__dict__:
 
         _ice_id = '::Ice::ObjectNotFoundException'
 
-    _M_Ice._t_ObjectNotFoundException = IcePy.defineException('::Ice::ObjectNotFoundException', ObjectNotFoundException, (), False, None, ())
+    _M_Ice._t_ObjectNotFoundException = IcePy.defineException('::Ice::ObjectNotFoundException', ObjectNotFoundException, (), None, ())
     ObjectNotFoundException._ice_type = _M_Ice._t_ObjectNotFoundException
 
     _M_Ice.ObjectNotFoundException = ObjectNotFoundException
@@ -131,7 +131,7 @@ if 'ServerNotFoundException' not in _M_Ice.__dict__:
 
         _ice_id = '::Ice::ServerNotFoundException'
 
-    _M_Ice._t_ServerNotFoundException = IcePy.defineException('::Ice::ServerNotFoundException', ServerNotFoundException, (), False, None, ())
+    _M_Ice._t_ServerNotFoundException = IcePy.defineException('::Ice::ServerNotFoundException', ServerNotFoundException, (), None, ())
     ServerNotFoundException._ice_type = _M_Ice._t_ServerNotFoundException
 
     _M_Ice.ServerNotFoundException = ServerNotFoundException
@@ -141,7 +141,7 @@ if 'LocatorRegistry' not in _M_Ice.__dict__:
     _M_Ice._t_LocatorRegistryDisp = IcePy.declareClass('::Ice::LocatorRegistry')
     _M_Ice._t_LocatorRegistryPrx = IcePy.declareProxy('::Ice::LocatorRegistry')
 
-_M_Ice._t_Locator = IcePy.defineValue('::Ice::Locator', Ice.Value, -1, (), False, True, None, ())
+_M_Ice._t_Locator = IcePy.defineValue('::Ice::Locator', Ice.Value, -1, (), True, None, ())
 
 if 'LocatorPrx' not in _M_Ice.__dict__:
     _M_Ice.LocatorPrx = Ice.createTempClass()
@@ -289,7 +289,7 @@ if 'LocatorPrx' not in _M_Ice.__dict__:
     _M_Ice.Locator = Locator
     del Locator
 
-_M_Ice._t_LocatorRegistry = IcePy.defineValue('::Ice::LocatorRegistry', Ice.Value, -1, (), False, True, None, ())
+_M_Ice._t_LocatorRegistry = IcePy.defineValue('::Ice::LocatorRegistry', Ice.Value, -1, (), True, None, ())
 
 if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
     _M_Ice.LocatorRegistryPrx = Ice.createTempClass()
@@ -456,7 +456,7 @@ if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
     _M_Ice.LocatorRegistry = LocatorRegistry
     del LocatorRegistry
 
-_M_Ice._t_LocatorFinder = IcePy.defineValue('::Ice::LocatorFinder', Ice.Value, -1, (), False, True, None, ())
+_M_Ice._t_LocatorFinder = IcePy.defineValue('::Ice::LocatorFinder', Ice.Value, -1, (), True, None, ())
 
 if 'LocatorFinderPrx' not in _M_Ice.__dict__:
     _M_Ice.LocatorFinderPrx = Ice.createTempClass()

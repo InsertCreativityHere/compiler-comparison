@@ -45,7 +45,7 @@
         }
     };
 
-    Slice.defineValue(Test.D3, "::Test::D3", false);
+    Slice.defineValue(Test.D3, "::Test::D3");
 
     Test.PCUnknown = class extends Test.PBase
     {
@@ -66,7 +66,7 @@
         }
     };
 
-    Slice.defineValue(Test.PCUnknown, "::Test::PCUnknown", true);
+    Slice.defineValue(Test.PCUnknown, "::Test::PCUnknown");
 
     Test.PCDerived = class extends Test.PDerived
     {
@@ -87,7 +87,7 @@
         }
     };
 
-    Slice.defineValue(Test.PCDerived, "::Test::PCDerived", false);
+    Slice.defineValue(Test.PCDerived, "::Test::PCDerived");
 
     Test.PCDerived2 = class extends Test.PCDerived
     {
@@ -108,7 +108,7 @@
         }
     };
 
-    Slice.defineValue(Test.PCDerived2, "::Test::PCDerived2", false);
+    Slice.defineValue(Test.PCDerived2, "::Test::PCDerived2");
 
     Test.PCDerived3 = class extends Test.PCDerived2
     {
@@ -129,7 +129,7 @@
         }
     };
 
-    Slice.defineValue(Test.PCDerived3, "::Test::PCDerived3", false);
+    Slice.defineValue(Test.PCDerived3, "::Test::PCDerived3");
 
     Test.CompactPCDerived = class extends Test.CompactPDerived
     {
@@ -155,7 +155,7 @@
         }
     };
 
-    Slice.defineValue(Test.CompactPCDerived, "::Test::CompactPCDerived", false, 57);
+    Slice.defineValue(Test.CompactPCDerived, "::Test::CompactPCDerived", 57);
     exports.Test = Test;
 }
 (typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,

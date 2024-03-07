@@ -721,7 +721,7 @@ namespace Test
 
     global $Ice__t_Value;
     global $IcePHP__t_int;
-    $Test__t_CV = IcePHP_defineClass('::Test::CV', '\\Test\\CV', -1, false, false, $Ice__t_Value, array(
+    $Test__t_CV = IcePHP_defineClass('::Test::CV', '\\Test\\CV', -1, false, $Ice__t_Value, array(
         array('i', $IcePHP__t_int, false, 0)));
 }
 
@@ -862,7 +862,7 @@ namespace Test
 
     global $Ice__t_Value;
     global $Test__t_CV;
-    $Test__t_CR = IcePHP_defineClass('::Test::CR', '\\Test\\CR', -1, false, false, $Ice__t_Value, array(
+    $Test__t_CR = IcePHP_defineClass('::Test::CR', '\\Test\\CR', -1, false, $Ice__t_Value, array(
         array('v', $Test__t_CV, false, 0)));
 }
 

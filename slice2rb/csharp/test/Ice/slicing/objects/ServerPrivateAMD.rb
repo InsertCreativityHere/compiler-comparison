@@ -37,7 +37,7 @@ module ::Test
             T_SBSUnknownDerived = ::Ice::__declareClass('::Test::SBSUnknownDerived')
         end
 
-        T_SBSUnknownDerived.defineClass(SBSUnknownDerived, -1, false, false, ::Test::T_SBase, [['sbsud', ::Ice::T_string, false, 0]])
+        T_SBSUnknownDerived.defineClass(SBSUnknownDerived, -1, false, ::Test::T_SBase, [['sbsud', ::Ice::T_string, false, 0]])
     end
 
     if not defined?(::Test::SUnknown_Mixin)
@@ -58,7 +58,7 @@ module ::Test
             T_SUnknown = ::Ice::__declareClass('::Test::SUnknown')
         end
 
-        T_SUnknown.defineClass(SUnknown, -1, false, false, nil, [
+        T_SUnknown.defineClass(SUnknown, -1, false, nil, [
             ['su', ::Ice::T_string, false, 0],
             ['cycle', ::Test::T_SUnknown, false, 0]
         ])
@@ -83,7 +83,7 @@ module ::Test
             T_D2 = ::Ice::__declareClass('::Test::D2')
         end
 
-        T_D2.defineClass(D2, -1, false, false, ::Test::T_B, [
+        T_D2.defineClass(D2, -1, false, ::Test::T_B, [
             ['sd2', ::Ice::T_string, false, 0],
             ['pd2', ::Test::T_B, false, 0]
         ])
@@ -108,7 +108,7 @@ module ::Test
             T_D4 = ::Ice::__declareClass('::Test::D4')
         end
 
-        T_D4.defineClass(D4, -1, false, false, ::Test::T_B, [
+        T_D4.defineClass(D4, -1, false, ::Test::T_B, [
             ['p1', ::Test::T_B, false, 0],
             ['p2', ::Test::T_B, false, 0]
         ])
@@ -129,7 +129,7 @@ module ::Test
             attr_accessor :sude, :pd2
         end
 
-        T_UnknownDerivedException = ::Ice::__defineException('::Test::UnknownDerivedException', UnknownDerivedException, false, ::Test::T_BaseException, [
+        T_UnknownDerivedException = ::Ice::__defineException('::Test::UnknownDerivedException', UnknownDerivedException, ::Test::T_BaseException, [
             ["sude", ::Ice::T_string, false, 0],
             ["pd2", ::Test::T_D2, false, 0]
         ])
@@ -152,7 +152,7 @@ module ::Test
             T_MyClass = ::Ice::__declareClass('::Test::MyClass')
         end
 
-        T_MyClass.defineClass(MyClass, -1, false, false, nil, [['i', ::Ice::T_int, false, 0]])
+        T_MyClass.defineClass(MyClass, -1, false, nil, [['i', ::Ice::T_int, false, 0]])
     end
 
     if not defined?(::Test::PSUnknown_Mixin)
@@ -175,7 +175,7 @@ module ::Test
             T_PSUnknown = ::Ice::__declareClass('::Test::PSUnknown')
         end
 
-        T_PSUnknown.defineClass(PSUnknown, -1, true, false, ::Test::T_Preserved, [
+        T_PSUnknown.defineClass(PSUnknown, -1, false, ::Test::T_Preserved, [
             ['psu', ::Ice::T_string, false, 0],
             ['graph', ::Test::T_PNode, false, 0],
             ['cl', ::Test::T_MyClass, false, 0]
@@ -200,7 +200,7 @@ module ::Test
             T_PSUnknown2 = ::Ice::__declareClass('::Test::PSUnknown2')
         end
 
-        T_PSUnknown2.defineClass(PSUnknown2, -1, true, false, ::Test::T_Preserved, [['pb', ::Test::T_PBase, false, 0]])
+        T_PSUnknown2.defineClass(PSUnknown2, -1, false, ::Test::T_Preserved, [['pb', ::Test::T_PBase, false, 0]])
     end
 
     if not defined?(::Test::PSUnknownException)
@@ -216,6 +216,6 @@ module ::Test
             attr_accessor :p
         end
 
-        T_PSUnknownException = ::Ice::__defineException('::Test::PSUnknownException', PSUnknownException, true, ::Test::T_PreservedException, [["p", ::Test::T_PSUnknown2, false, 0]])
+        T_PSUnknownException = ::Ice::__defineException('::Test::PSUnknownException', PSUnknownException, ::Test::T_PreservedException, [["p", ::Test::T_PSUnknown2, false, 0]])
     end
 end

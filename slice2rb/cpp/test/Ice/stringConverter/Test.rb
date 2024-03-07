@@ -28,7 +28,7 @@ module ::Test
             end
         end
 
-        T_BadEncodingException = ::Ice::__defineException('::Test::BadEncodingException', BadEncodingException, false, nil, [])
+        T_BadEncodingException = ::Ice::__defineException('::Test::BadEncodingException', BadEncodingException, nil, [])
     end
 
     if not defined?(::Test::MyObject_Mixin)

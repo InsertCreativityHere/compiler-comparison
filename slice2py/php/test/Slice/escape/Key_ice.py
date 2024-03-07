@@ -210,7 +210,7 @@ if 'xor' not in _M__and.__dict__:
     _M__and.xor = xor
     del xor
 
-_M__and._t__break = IcePy.defineValue('::and::break', Ice.Value, -1, (), False, True, None, ())
+_M__and._t__break = IcePy.defineValue('::and::break', Ice.Value, -1, (), True, None, ())
 
 if 'breakPrx' not in _M__and.__dict__:
     _M__and.breakPrx = Ice.createTempClass()
@@ -267,7 +267,7 @@ if 'breakPrx' not in _M__and.__dict__:
     _M__and._break = _break
     del _break
 
-_M__and._t_function = IcePy.defineValue('::and::function', Ice.Value, -1, (), False, True, None, ())
+_M__and._t_function = IcePy.defineValue('::and::function', Ice.Value, -1, (), True, None, ())
 
 if 'functionPrx' not in _M__and.__dict__:
     _M__and.functionPrx = Ice.createTempClass()
@@ -324,7 +324,7 @@ if 'functionPrx' not in _M__and.__dict__:
     _M__and.function = function
     del function
 
-_M__and._t_die = IcePy.defineValue('::and::die', Ice.Value, -1, (), False, True, None, ())
+_M__and._t_die = IcePy.defineValue('::and::die', Ice.Value, -1, (), True, None, ())
 
 if 'diePrx' not in _M__and.__dict__:
     _M__and.diePrx = Ice.createTempClass()
@@ -402,7 +402,7 @@ if 'echo' not in _M__and.__dict__:
 
         __repr__ = __str__
 
-    _M__and._t_echo = IcePy.defineValue('::and::echo', echo, -1, (), False, False, None, (
+    _M__and._t_echo = IcePy.defineValue('::and::echo', echo, -1, (), False, None, (
         ('_if', (), IcePy._t_int, False, 0),
         ('_else', (), IcePy._t_int, False, 0),
         ('elseif', (), _M__and._t_diePrx, False, 0),
@@ -413,7 +413,7 @@ if 'echo' not in _M__and.__dict__:
     _M__and.echo = echo
     del echo
 
-_M__and._t_enddeclare = IcePy.defineValue('::and::enddeclare', Ice.Value, -1, (), False, True, None, ())
+_M__and._t_enddeclare = IcePy.defineValue('::and::enddeclare', Ice.Value, -1, (), True, None, ())
 
 if 'enddeclarePrx' not in _M__and.__dict__:
     _M__and.enddeclarePrx = Ice.createTempClass()
@@ -478,7 +478,7 @@ if 'endif' not in _M__and.__dict__:
 
         _ice_id = '::and::endif'
 
-    _M__and._t_endif = IcePy.defineException('::and::endif', endif, (), False, None, (('endswitch', (), IcePy._t_int, False, 0),))
+    _M__and._t_endif = IcePy.defineException('::and::endif', endif, (), None, (('endswitch', (), IcePy._t_int, False, 0),))
     endif._ice_type = _M__and._t_endif
 
     _M__and.endif = endif
@@ -499,7 +499,7 @@ if 'endwhile' not in _M__and.__dict__:
 
         _ice_id = '::and::endwhile'
 
-    _M__and._t_endwhile = IcePy.defineException('::and::endwhile', endwhile, (), False, _M__and._t_endif, (
+    _M__and._t_endwhile = IcePy.defineException('::and::endwhile', endwhile, (), _M__and._t_endif, (
         ('eval', (), IcePy._t_int, False, 0),
         ('exit', (), IcePy._t_int, False, 0)
     ))
@@ -508,7 +508,7 @@ if 'endwhile' not in _M__and.__dict__:
     _M__and.endwhile = endwhile
     del endwhile
 
-_M__and._t__for = IcePy.defineValue('::and::for', Ice.Value, -1, (), False, True, None, ())
+_M__and._t__for = IcePy.defineValue('::and::for', Ice.Value, -1, (), True, None, ())
 
 if 'forPrx' not in _M__and.__dict__:
     _M__and.forPrx = Ice.createTempClass()

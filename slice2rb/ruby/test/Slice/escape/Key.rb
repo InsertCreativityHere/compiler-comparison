@@ -156,7 +156,7 @@ module ::BEGIN_
             T_Display = ::Ice::__declareClass('::BEGIN::display')
         end
 
-        T_Display.defineClass(Display, -1, false, false, nil, [
+        T_Display.defineClass(Display, -1, false, nil, [
             ['_when', ::Ice::T_int, false, 0],
             ['_do', ::Ice::T_int, false, 0],
             ['_dup', ::BEGIN_::T_BreakPrx, false, 0],
@@ -206,7 +206,7 @@ module ::BEGIN_
             attr_accessor :_new
         end
 
-        T_Next = ::Ice::__defineException('::BEGIN::next', Next, false, nil, [["_new", ::Ice::T_int, false, 0]])
+        T_Next = ::Ice::__defineException('::BEGIN::next', Next, nil, [["_new", ::Ice::T_int, false, 0]])
     end
 
     if not defined?(::BEGIN_::Nil)
@@ -224,7 +224,7 @@ module ::BEGIN_
             attr_accessor :_not, :_or
         end
 
-        T_Nil = ::Ice::__defineException('::BEGIN::nil', Nil, false, ::BEGIN_::T_Next, [
+        T_Nil = ::Ice::__defineException('::BEGIN::nil', Nil, ::BEGIN_::T_Next, [
             ["_not", ::Ice::T_int, false, 0],
             ["_or", ::Ice::T_int, false, 0]
         ])

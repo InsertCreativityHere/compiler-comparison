@@ -32,7 +32,7 @@ module ::IceGrid
             attr_accessor :reason
         end
 
-        T_ParseException = ::Ice::__defineException('::IceGrid::ParseException', ParseException, false, nil, [["reason", ::Ice::T_string, false, 0]])
+        T_ParseException = ::Ice::__defineException('::IceGrid::ParseException', ParseException, nil, [["reason", ::Ice::T_string, false, 0]])
     end
 
     if not defined?(::IceGrid::FileParser_Mixin)

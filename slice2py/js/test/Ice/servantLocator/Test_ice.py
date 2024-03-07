@@ -33,7 +33,7 @@ if 'TestIntfUserException' not in _M_Test.__dict__:
 
         _ice_id = '::Test::TestIntfUserException'
 
-    _M_Test._t_TestIntfUserException = IcePy.defineException('::Test::TestIntfUserException', TestIntfUserException, (), False, None, ())
+    _M_Test._t_TestIntfUserException = IcePy.defineException('::Test::TestIntfUserException', TestIntfUserException, (), None, ())
     TestIntfUserException._ice_type = _M_Test._t_TestIntfUserException
 
     _M_Test.TestIntfUserException = TestIntfUserException
@@ -52,13 +52,13 @@ if 'TestImpossibleException' not in _M_Test.__dict__:
 
         _ice_id = '::Test::TestImpossibleException'
 
-    _M_Test._t_TestImpossibleException = IcePy.defineException('::Test::TestImpossibleException', TestImpossibleException, (), False, None, ())
+    _M_Test._t_TestImpossibleException = IcePy.defineException('::Test::TestImpossibleException', TestImpossibleException, (), None, ())
     TestImpossibleException._ice_type = _M_Test._t_TestImpossibleException
 
     _M_Test.TestImpossibleException = TestImpossibleException
     del TestImpossibleException
 
-_M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), True, None, ())
 
 if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntfPrx = Ice.createTempClass()
@@ -235,7 +235,7 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntf = TestIntf
     del TestIntf
 
-_M_Test._t_TestActivation = IcePy.defineValue('::Test::TestActivation', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_TestActivation = IcePy.defineValue('::Test::TestActivation', Ice.Value, -1, (), True, None, ())
 
 if 'TestActivationPrx' not in _M_Test.__dict__:
     _M_Test.TestActivationPrx = Ice.createTempClass()
@@ -292,7 +292,7 @@ if 'TestActivationPrx' not in _M_Test.__dict__:
     _M_Test.TestActivation = TestActivation
     del TestActivation
 
-_M_Test._t_Echo = IcePy.defineValue('::Test::Echo', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_Echo = IcePy.defineValue('::Test::Echo', Ice.Value, -1, (), True, None, ())
 
 if 'EchoPrx' not in _M_Test.__dict__:
     _M_Test.EchoPrx = Ice.createTempClass()

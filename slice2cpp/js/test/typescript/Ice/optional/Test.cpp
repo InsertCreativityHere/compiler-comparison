@@ -2436,30 +2436,6 @@ Test::B::~B()
 {
 }
 
-::std::shared_ptr<::Ice::SlicedData>
-Test::B::ice_getSlicedData() const
-{
-    return _iceSlicedData;
-}
-
-/// \cond STREAM
-void
-Test::B::_iceWrite(::Ice::OutputStream* ostr) const
-{
-    ostr->startValue(_iceSlicedData);
-    _iceWriteImpl(ostr);
-    ostr->endValue();
-}
-
-void
-Test::B::_iceRead(::Ice::InputStream* istr)
-{
-    istr->startValue();
-    _iceReadImpl(istr);
-    _iceSlicedData = istr->endValue(true);
-}
-/// \endcond
-
 ::std::string_view
 Test::B::ice_staticId()
 {

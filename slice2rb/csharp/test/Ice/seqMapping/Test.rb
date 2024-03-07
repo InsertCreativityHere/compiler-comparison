@@ -369,7 +369,7 @@ module ::Test
             T_CV = ::Ice::__declareClass('::Test::CV')
         end
 
-        T_CV.defineClass(CV, -1, false, false, nil, [['i', ::Ice::T_int, false, 0]])
+        T_CV.defineClass(CV, -1, false, nil, [['i', ::Ice::T_int, false, 0]])
     end
 
     if not defined?(::Test::T_ACVS)
@@ -441,7 +441,7 @@ module ::Test
             T_CR = ::Ice::__declareClass('::Test::CR')
         end
 
-        T_CR.defineClass(CR, -1, false, false, nil, [['v', ::Test::T_CV, false, 0]])
+        T_CR.defineClass(CR, -1, false, nil, [['v', ::Test::T_CV, false, 0]])
     end
 
     if not defined?(::Test::T_ACRS)

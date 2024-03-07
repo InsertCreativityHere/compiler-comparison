@@ -45,7 +45,7 @@ namespace IceGrid
     }
     global $IcePHP__t_string;
 
-    $IceGrid__t_ParseException = IcePHP_defineException('::IceGrid::ParseException', '\\IceGrid\\ParseException', false, null, array(
+    $IceGrid__t_ParseException = IcePHP_defineException('::IceGrid::ParseException', '\\IceGrid\\ParseException', null, array(
         array('reason', $IcePHP__t_string, false, 0)));
 }
 

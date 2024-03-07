@@ -172,7 +172,7 @@ if 'Base' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_Base = IcePy.defineValue('::Test::Base', Base, -1, (), False, False, None, (
+    _M_Test._t_Base = IcePy.defineValue('::Test::Base', Base, -1, (), False, None, (
         ('b', (), _M_Test._t_Base, False, 0),
         ('o', (), IcePy._t_Value, False, 0),
         ('s', (), _M_Test._t_Struct1, False, 0),
@@ -211,7 +211,7 @@ if 'Derived' not in _M_Test.__dict__:
 
     _M_Test._t_Derived = IcePy.declareValue('::Test::Derived')
 
-    _M_Test._t_Derived = IcePy.defineValue('::Test::Derived', Derived, -1, (), False, False, _M_Test._t_Base, (('p', (), IcePy._t_ObjectPrx, False, 0),))
+    _M_Test._t_Derived = IcePy.defineValue('::Test::Derived', Derived, -1, (), False, _M_Test._t_Base, (('p', (), IcePy._t_ObjectPrx, False, 0),))
     Derived._ice_type = _M_Test._t_Derived
 
     _M_Test.Derived = Derived
@@ -234,7 +234,7 @@ if 'Ex' not in _M_Test.__dict__:
 
         _ice_id = '::Test::Ex'
 
-    _M_Test._t_Ex = IcePy.defineException('::Test::Ex', Ex, (), False, None, (
+    _M_Test._t_Ex = IcePy.defineException('::Test::Ex', Ex, (), None, (
         ('s', (), _M_Test._t_Struct1, False, 0),
         ('b', (), _M_Test._t_Base, False, 0)
     ))
@@ -243,7 +243,7 @@ if 'Ex' not in _M_Test.__dict__:
     _M_Test.Ex = Ex
     del Ex
 
-_M_Test._t_Initial = IcePy.defineValue('::Test::Initial', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_Initial = IcePy.defineValue('::Test::Initial', Ice.Value, -1, (), True, None, ())
 
 if 'InitialPrx' not in _M_Test.__dict__:
     _M_Test.InitialPrx = Ice.createTempClass()

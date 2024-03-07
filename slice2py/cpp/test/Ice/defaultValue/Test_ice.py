@@ -484,7 +484,7 @@ if 'Base' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_Base = IcePy.defineValue('::Test::Base', Base, -1, (), False, False, None, (
+    _M_Test._t_Base = IcePy.defineValue('::Test::Base', Base, -1, (), False, None, (
         ('boolFalse', (), IcePy._t_bool, False, 0),
         ('boolTrue', (), IcePy._t_bool, False, 0),
         ('b', (), IcePy._t_byte, False, 0),
@@ -531,7 +531,7 @@ if 'Derived' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_Derived = IcePy.defineValue('::Test::Derived', Derived, -1, (), False, False, _M_Test._t_Base, (
+    _M_Test._t_Derived = IcePy.defineValue('::Test::Derived', Derived, -1, (), False, _M_Test._t_Base, (
         ('c1', (), _M_Test._t_Color, False, 0),
         ('c2', (), _M_Test._t_Color, False, 0),
         ('c3', (), _M_Test._t_Color, False, 0),
@@ -572,7 +572,7 @@ if 'BaseEx' not in _M_Test.__dict__:
 
         _ice_id = '::Test::BaseEx'
 
-    _M_Test._t_BaseEx = IcePy.defineException('::Test::BaseEx', BaseEx, (), False, None, (
+    _M_Test._t_BaseEx = IcePy.defineException('::Test::BaseEx', BaseEx, (), None, (
         ('boolFalse', (), IcePy._t_bool, False, 0),
         ('boolTrue', (), IcePy._t_bool, False, 0),
         ('b', (), IcePy._t_byte, False, 0),
@@ -614,7 +614,7 @@ if 'DerivedEx' not in _M_Test.__dict__:
 
         _ice_id = '::Test::DerivedEx'
 
-    _M_Test._t_DerivedEx = IcePy.defineException('::Test::DerivedEx', DerivedEx, (), False, _M_Test._t_BaseEx, (
+    _M_Test._t_DerivedEx = IcePy.defineException('::Test::DerivedEx', DerivedEx, (), _M_Test._t_BaseEx, (
         ('c1', (), _M_Test._t_Color, False, 0),
         ('c2', (), _M_Test._t_Color, False, 0),
         ('c3', (), _M_Test._t_Color, False, 0),

@@ -101,7 +101,7 @@
         }
     };
 
-    Slice.defineValue(BEGIN.display, "::BEGIN::display", false);
+    Slice.defineValue(BEGIN.display, "::BEGIN::display");
 
     const iceC_BEGIN_elsif_ids = [
         "::BEGIN::break",

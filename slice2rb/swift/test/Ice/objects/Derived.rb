@@ -37,6 +37,6 @@ module ::Test
             T_Derived = ::Ice::__declareClass('::Test::Derived')
         end
 
-        T_Derived.defineClass(Derived, -1, false, false, ::Test::T_Base, [['b', ::Ice::T_string, false, 0]])
+        T_Derived.defineClass(Derived, -1, false, ::Test::T_Base, [['b', ::Ice::T_string, false, 0]])
     end
 end

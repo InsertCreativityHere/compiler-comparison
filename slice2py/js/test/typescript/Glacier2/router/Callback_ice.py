@@ -34,7 +34,7 @@ if 'CallbackException' not in _M_Test.__dict__:
 
         _ice_id = '::Test::CallbackException'
 
-    _M_Test._t_CallbackException = IcePy.defineException('::Test::CallbackException', CallbackException, (), False, None, (
+    _M_Test._t_CallbackException = IcePy.defineException('::Test::CallbackException', CallbackException, (), None, (
         ('someValue', (), IcePy._t_double, False, 0),
         ('someString', (), IcePy._t_string, False, 0)
     ))
@@ -43,7 +43,7 @@ if 'CallbackException' not in _M_Test.__dict__:
     _M_Test.CallbackException = CallbackException
     del CallbackException
 
-_M_Test._t_CallbackReceiver = IcePy.defineValue('::Test::CallbackReceiver', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_CallbackReceiver = IcePy.defineValue('::Test::CallbackReceiver', Ice.Value, -1, (), True, None, ())
 
 if 'CallbackReceiverPrx' not in _M_Test.__dict__:
     _M_Test.CallbackReceiverPrx = Ice.createTempClass()
@@ -110,7 +110,7 @@ if 'CallbackReceiverPrx' not in _M_Test.__dict__:
     _M_Test.CallbackReceiver = CallbackReceiver
     del CallbackReceiver
 
-_M_Test._t_Callback = IcePy.defineValue('::Test::Callback', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_Callback = IcePy.defineValue('::Test::Callback', Ice.Value, -1, (), True, None, ())
 
 if 'CallbackPrx' not in _M_Test.__dict__:
     _M_Test.CallbackPrx = Ice.createTempClass()

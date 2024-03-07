@@ -28,13 +28,13 @@
     {
     };
 
-    Slice.defineValue(Test.Empty, "::Test::Empty", false);
+    Slice.defineValue(Test.Empty, "::Test::Empty");
 
     Test.AlsoEmpty = class extends Ice.Value
     {
     };
 
-    Slice.defineValue(Test.AlsoEmpty, "::Test::AlsoEmpty", false);
+    Slice.defineValue(Test.AlsoEmpty, "::Test::AlsoEmpty");
 
     const iceC_Test_UnexpectedObjectExceptionTest_ids = [
         "::Ice::Object",
@@ -73,7 +73,7 @@
         }
     };
 
-    Slice.defineValue(Test.COneMember, "::Test::COneMember", false);
+    Slice.defineValue(Test.COneMember, "::Test::COneMember");
 
     Test.CTwoMembers = class extends Ice.Value
     {
@@ -97,7 +97,7 @@
         }
     };
 
-    Slice.defineValue(Test.CTwoMembers, "::Test::CTwoMembers", false);
+    Slice.defineValue(Test.CTwoMembers, "::Test::CTwoMembers");
 
     Test.EOneMember = class extends Ice.UserException
     {

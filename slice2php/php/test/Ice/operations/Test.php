@@ -768,7 +768,7 @@ namespace Test
     global $Ice__t_Value;
     global $IcePHP__t_string;
     global $Test__t_MyClassPrx;
-    $Test__t_MyClass1 = IcePHP_defineClass('::Test::MyClass1', '\\Test\\MyClass1', -1, false, false, $Ice__t_Value, array(
+    $Test__t_MyClass1 = IcePHP_defineClass('::Test::MyClass1', '\\Test\\MyClass1', -1, false, $Ice__t_Value, array(
         array('tesT', $IcePHP__t_string, false, 0),
         array('myClass', $Test__t_MyClassPrx, false, 0),
         array('myClass1', $IcePHP__t_string, false, 0)));

@@ -33,7 +33,7 @@ if 'BaseException' not in _M_Test.__dict__:
 
         _ice_id = '::Test::BaseException'
 
-    _M_Test._t_BaseException = IcePy.defineException('::Test::BaseException', BaseException, (), False, None, ())
+    _M_Test._t_BaseException = IcePy.defineException('::Test::BaseException', BaseException, (), None, ())
     BaseException._ice_type = _M_Test._t_BaseException
 
     _M_Test.BaseException = BaseException
@@ -53,7 +53,7 @@ if 'InvalidPointException' not in _M_Test.__dict__:
 
         _ice_id = '::Test::InvalidPointException'
 
-    _M_Test._t_InvalidPointException = IcePy.defineException('::Test::InvalidPointException', InvalidPointException, (), False, _M_Test._t_BaseException, (('index', (), IcePy._t_int, False, 0),))
+    _M_Test._t_InvalidPointException = IcePy.defineException('::Test::InvalidPointException', InvalidPointException, (), _M_Test._t_BaseException, (('index', (), IcePy._t_int, False, 0),))
     InvalidPointException._ice_type = _M_Test._t_InvalidPointException
 
     _M_Test.InvalidPointException = InvalidPointException
@@ -73,7 +73,7 @@ if 'InvalidLengthException' not in _M_Test.__dict__:
 
         _ice_id = '::Test::InvalidLengthException'
 
-    _M_Test._t_InvalidLengthException = IcePy.defineException('::Test::InvalidLengthException', InvalidLengthException, (), False, _M_Test._t_BaseException, (('length', (), IcePy._t_int, False, 0),))
+    _M_Test._t_InvalidLengthException = IcePy.defineException('::Test::InvalidLengthException', InvalidLengthException, (), _M_Test._t_BaseException, (('length', (), IcePy._t_int, False, 0),))
     InvalidLengthException._ice_type = _M_Test._t_InvalidLengthException
 
     _M_Test.InvalidLengthException = InvalidLengthException
@@ -95,7 +95,7 @@ if 'OtherException' not in _M_Test.__dict__:
 
         _ice_id = '::Test::OtherException'
 
-    _M_Test._t_OtherException = IcePy.defineException('::Test::OtherException', OtherException, (), False, None, (
+    _M_Test._t_OtherException = IcePy.defineException('::Test::OtherException', OtherException, (), None, (
         ('x', (), IcePy._t_int, False, 0),
         ('y', (), IcePy._t_int, False, 0),
         ('z', (), IcePy._t_int, False, 0),
@@ -528,7 +528,7 @@ if 'Pen' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_Pen = IcePy.defineValue('::Test::Pen', Pen, -1, (), False, False, None, (
+    _M_Test._t_Pen = IcePy.defineValue('::Test::Pen', Pen, -1, (), False, None, (
         ('thickness', (), IcePy._t_int, False, 0),
         ('color', (), _M_Test._t_Color, False, 0)
     ))

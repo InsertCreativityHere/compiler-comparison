@@ -41,7 +41,7 @@ namespace Test
         }
     }
 
-    $Test__t_InterruptedException = IcePHP_defineException('::Test::InterruptedException', '\\Test\\InterruptedException', false, null, null);
+    $Test__t_InterruptedException = IcePHP_defineException('::Test::InterruptedException', '\\Test\\InterruptedException', null, null);
 }
 
 namespace Test
@@ -100,7 +100,7 @@ namespace Test
         }
     }
 
-    $Test__t_CannotInterruptException = IcePHP_defineException('::Test::CannotInterruptException', '\\Test\\CannotInterruptException', false, null, null);
+    $Test__t_CannotInterruptException = IcePHP_defineException('::Test::CannotInterruptException', '\\Test\\CannotInterruptException', null, null);
 }
 
 namespace Test

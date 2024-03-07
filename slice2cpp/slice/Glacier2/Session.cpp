@@ -539,30 +539,6 @@ Glacier2::CannotCreateSessionException::ice_staticId()
     return typeId;
 }
 
-::std::shared_ptr<::Ice::SlicedData>
-Glacier2::CannotCreateSessionException::ice_getSlicedData() const
-{
-    return _slicedData;
-}
-
-/// \cond STREAM
-void
-Glacier2::CannotCreateSessionException::_write(::Ice::OutputStream* ostr) const
-{
-    ostr->startException(_slicedData);
-    _writeImpl(ostr);
-    ostr->endException();
-}
-
-void
-Glacier2::CannotCreateSessionException::_read(::Ice::InputStream* istr)
-{
-    istr->startException();
-    _readImpl(istr);
-    _slicedData = istr->endException(true);
-}
-/// \endcond
-
 ::std::vector<::std::string>
 Glacier2::Session::ice_ids(const ::Ice::Current&) const
 {

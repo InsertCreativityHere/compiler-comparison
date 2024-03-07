@@ -36,13 +36,13 @@ if 'UserAccountNotFoundException' not in _M_IceGrid.__dict__:
 
         _ice_id = '::IceGrid::UserAccountNotFoundException'
 
-    _M_IceGrid._t_UserAccountNotFoundException = IcePy.defineException('::IceGrid::UserAccountNotFoundException', UserAccountNotFoundException, (), False, None, ())
+    _M_IceGrid._t_UserAccountNotFoundException = IcePy.defineException('::IceGrid::UserAccountNotFoundException', UserAccountNotFoundException, (), None, ())
     UserAccountNotFoundException._ice_type = _M_IceGrid._t_UserAccountNotFoundException
 
     _M_IceGrid.UserAccountNotFoundException = UserAccountNotFoundException
     del UserAccountNotFoundException
 
-_M_IceGrid._t_UserAccountMapper = IcePy.defineValue('::IceGrid::UserAccountMapper', Ice.Value, -1, (), False, True, None, ())
+_M_IceGrid._t_UserAccountMapper = IcePy.defineValue('::IceGrid::UserAccountMapper', Ice.Value, -1, (), True, None, ())
 
 if 'UserAccountMapperPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.UserAccountMapperPrx = Ice.createTempClass()

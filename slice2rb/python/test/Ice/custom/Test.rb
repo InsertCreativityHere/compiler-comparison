@@ -173,7 +173,7 @@ module ::Test
             T_C = ::Ice::__declareClass('::Test::C')
         end
 
-        T_C.defineClass(C, -1, false, false, nil, [
+        T_C.defineClass(C, -1, false, nil, [
             ['b1', ::Test::T_ByteString, false, 0],
             ['b2', ::Test::T_ByteString, false, 0],
             ['b3', ::Test::T_ByteList, false, 0],
@@ -208,7 +208,7 @@ module ::Test
             T_D = ::Ice::__declareClass('::Test::D')
         end
 
-        T_D.defineClass(D, -1, false, false, nil, [
+        T_D.defineClass(D, -1, false, nil, [
             ['boolSeq', ::Test::T_BoolSeq1, true, 1],
             ['byteSeq', ::Test::T_ByteSeq1, true, 2],
             ['shortSeq', ::Test::T_ShortSeq1, true, 3],

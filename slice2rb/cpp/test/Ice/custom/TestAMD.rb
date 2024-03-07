@@ -291,7 +291,7 @@ module ::Test
             T_C = ::Ice::__declareClass('::Test::C')
         end
 
-        T_C.defineClass(C, -1, false, false, nil, [])
+        T_C.defineClass(C, -1, false, nil, [])
     end
 
     if not defined?(::Test::T_CSeq)
@@ -387,7 +387,7 @@ module ::Test
             T_DictClass = ::Ice::__declareClass('::Test::DictClass')
         end
 
-        T_DictClass.defineClass(DictClass, -1, false, false, nil, [['isdict', ::Test::T_IntStringDict, false, 0]])
+        T_DictClass.defineClass(DictClass, -1, false, nil, [['isdict', ::Test::T_IntStringDict, false, 0]])
     end
 
     if not defined?(::Test::T_BoolBuffer)

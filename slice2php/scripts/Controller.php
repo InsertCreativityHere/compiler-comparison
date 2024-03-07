@@ -82,7 +82,7 @@ namespace Test\Common
     global $IcePHP__t_string;
     global $IcePHP__t_bool;
     global $Test_Common__t_StringSeq;
-    $Test_Common__t_Config = IcePHP_defineClass('::Test::Common::Config', '\\Test\\Common\\Config', -1, false, false, $Ice__t_Value, array(
+    $Test_Common__t_Config = IcePHP_defineClass('::Test::Common::Config', '\\Test\\Common\\Config', -1, false, $Ice__t_Value, array(
         array('protocol', $IcePHP__t_string, true, 1),
         array('mx', $IcePHP__t_bool, true, 2),
         array('serialize', $IcePHP__t_bool, true, 3),
@@ -132,7 +132,7 @@ namespace Test\Common
     global $Ice__t_Value;
     global $Test_Common__t_StringSeq;
     global $Test_Common__t_BoolSeq;
-    $Test_Common__t_OptionOverrides = IcePHP_defineClass('::Test::Common::OptionOverrides', '\\Test\\Common\\OptionOverrides', -1, false, false, $Ice__t_Value, array(
+    $Test_Common__t_OptionOverrides = IcePHP_defineClass('::Test::Common::OptionOverrides', '\\Test\\Common\\OptionOverrides', -1, false, $Ice__t_Value, array(
         array('protocol', $Test_Common__t_StringSeq, true, 1),
         array('mx', $Test_Common__t_BoolSeq, true, 2),
         array('serialize', $Test_Common__t_BoolSeq, true, 3),
@@ -165,7 +165,7 @@ namespace Test\Common
     }
     global $IcePHP__t_string;
 
-    $Test_Common__t_TestCaseNotExistException = IcePHP_defineException('::Test::Common::TestCaseNotExistException', '\\Test\\Common\\TestCaseNotExistException', false, null, array(
+    $Test_Common__t_TestCaseNotExistException = IcePHP_defineException('::Test::Common::TestCaseNotExistException', '\\Test\\Common\\TestCaseNotExistException', null, array(
         array('reason', $IcePHP__t_string, false, 0)));
 }
 
@@ -194,7 +194,7 @@ namespace Test\Common
     }
     global $IcePHP__t_string;
 
-    $Test_Common__t_TestCaseFailedException = IcePHP_defineException('::Test::Common::TestCaseFailedException', '\\Test\\Common\\TestCaseFailedException', false, null, array(
+    $Test_Common__t_TestCaseFailedException = IcePHP_defineException('::Test::Common::TestCaseFailedException', '\\Test\\Common\\TestCaseFailedException', null, array(
         array('output', $IcePHP__t_string, false, 0)));
 }
 
@@ -295,7 +295,7 @@ namespace Test\Common
     }
     global $IcePHP__t_string;
 
-    $Test_Common__t_ProcessFailedException = IcePHP_defineException('::Test::Common::ProcessFailedException', '\\Test\\Common\\ProcessFailedException', false, null, array(
+    $Test_Common__t_ProcessFailedException = IcePHP_defineException('::Test::Common::ProcessFailedException', '\\Test\\Common\\ProcessFailedException', null, array(
         array('reason', $IcePHP__t_string, false, 0)));
 }
 

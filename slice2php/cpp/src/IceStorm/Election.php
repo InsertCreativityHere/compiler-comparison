@@ -87,7 +87,7 @@ namespace IceStormElection
     }
     global $IcePHP__t_string;
 
-    $IceStormElection__t_ObserverInconsistencyException = IcePHP_defineException('::IceStormElection::ObserverInconsistencyException', '\\IceStormElection\\ObserverInconsistencyException', false, null, array(
+    $IceStormElection__t_ObserverInconsistencyException = IcePHP_defineException('::IceStormElection::ObserverInconsistencyException', '\\IceStormElection\\ObserverInconsistencyException', null, array(
         array('reason', $IcePHP__t_string, false, 0)));
 }
 

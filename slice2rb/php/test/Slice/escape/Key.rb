@@ -227,7 +227,7 @@ module ::And
             T_Echo = ::Ice::__declareClass('::and::echo')
         end
 
-        T_Echo.defineClass(Echo, -1, false, false, nil, [
+        T_Echo.defineClass(Echo, -1, false, nil, [
             ['_if', ::Ice::T_int, false, 0],
             ['_else', ::Ice::T_int, false, 0],
             ['elseif', ::And::T_DiePrx, false, 0],
@@ -278,7 +278,7 @@ module ::And
             attr_accessor :endswitch
         end
 
-        T_Endif = ::Ice::__defineException('::and::endif', Endif, false, nil, [["endswitch", ::Ice::T_int, false, 0]])
+        T_Endif = ::Ice::__defineException('::and::endif', Endif, nil, [["endswitch", ::Ice::T_int, false, 0]])
     end
 
     if not defined?(::And::Endwhile)
@@ -296,7 +296,7 @@ module ::And
             attr_accessor :eval, :exit
         end
 
-        T_Endwhile = ::Ice::__defineException('::and::endwhile', Endwhile, false, ::And::T_Endif, [
+        T_Endwhile = ::Ice::__defineException('::and::endwhile', Endwhile, ::And::T_Endif, [
             ["eval", ::Ice::T_int, false, 0],
             ["exit", ::Ice::T_int, false, 0]
         ])

@@ -20,7 +20,7 @@ import Ice, IcePy
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
-_M_Test._t_Interface2 = IcePy.defineValue('::Test::Interface2', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_Interface2 = IcePy.defineValue('::Test::Interface2', Ice.Value, -1, (), True, None, ())
 
 if 'Interface2Prx' not in _M_Test.__dict__:
     _M_Test.Interface2Prx = Ice.createTempClass()

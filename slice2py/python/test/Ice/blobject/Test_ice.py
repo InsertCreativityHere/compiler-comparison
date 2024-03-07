@@ -33,13 +33,13 @@ if 'UE' not in _M_Test.__dict__:
 
         _ice_id = '::Test::UE'
 
-    _M_Test._t_UE = IcePy.defineException('::Test::UE', UE, (), False, None, ())
+    _M_Test._t_UE = IcePy.defineException('::Test::UE', UE, (), None, ())
     UE._ice_type = _M_Test._t_UE
 
     _M_Test.UE = UE
     del UE
 
-_M_Test._t_Hello = IcePy.defineValue('::Test::Hello', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_Hello = IcePy.defineValue('::Test::Hello', Ice.Value, -1, (), True, None, ())
 
 if 'HelloPrx' not in _M_Test.__dict__:
     _M_Test.HelloPrx = Ice.createTempClass()

@@ -43,7 +43,7 @@
         }
     };
 
-    Slice.defineValue(LocalTest.C1, "::LocalTest::C1", false);
+    Slice.defineValue(LocalTest.C1, "::LocalTest::C1");
 
     LocalTest.S1 = class
     {
@@ -276,7 +276,7 @@
         }
     };
 
-    Slice.defineValue(LocalTest.CB1, "::LocalTest::CB1", false);
+    Slice.defineValue(LocalTest.CB1, "::LocalTest::CB1");
 
     LocalTest.CB2 = class extends Ice.Value
     {
@@ -297,7 +297,7 @@
         }
     };
 
-    Slice.defineValue(LocalTest.CB2, "::LocalTest::CB2", false);
+    Slice.defineValue(LocalTest.CB2, "::LocalTest::CB2");
 
     LocalTest.CB3 = class extends Ice.Value
     {
@@ -318,7 +318,7 @@
         }
     };
 
-    Slice.defineValue(LocalTest.CB3, "::LocalTest::CB3", false);
+    Slice.defineValue(LocalTest.CB3, "::LocalTest::CB3");
 
     LocalTest.CB4 = class extends Ice.Value
     {
@@ -339,7 +339,7 @@
         }
     };
 
-    Slice.defineValue(LocalTest.CB4, "::LocalTest::CB4", false);
+    Slice.defineValue(LocalTest.CB4, "::LocalTest::CB4");
 
     LocalTest.CB5 = class extends Ice.Value
     {
@@ -360,7 +360,7 @@
         }
     };
 
-    Slice.defineValue(LocalTest.CB5, "::LocalTest::CB5", false);
+    Slice.defineValue(LocalTest.CB5, "::LocalTest::CB5");
 
     LocalTest.CB6 = class extends Ice.Value
     {
@@ -381,7 +381,7 @@
         }
     };
 
-    Slice.defineValue(LocalTest.CB6, "::LocalTest::CB6", false);
+    Slice.defineValue(LocalTest.CB6, "::LocalTest::CB6");
 
     LocalTest.CB7 = class extends Ice.Value
     {
@@ -402,7 +402,7 @@
         }
     };
 
-    Slice.defineValue(LocalTest.CB7, "::LocalTest::CB7", false);
+    Slice.defineValue(LocalTest.CB7, "::LocalTest::CB7");
 
     LocalTest.CB8 = class extends Ice.Value
     {
@@ -429,7 +429,7 @@
         }
     };
 
-    Slice.defineValue(LocalTest.CB8, "::LocalTest::CB8", false);
+    Slice.defineValue(LocalTest.CB8, "::LocalTest::CB8");
 
     LocalTest.StructKey = class
     {
@@ -492,7 +492,7 @@
         }
     };
 
-    Slice.defineValue(LocalTest.Opt, "::LocalTest::Opt", false);
+    Slice.defineValue(LocalTest.Opt, "::LocalTest::Opt");
     exports.LocalTest = LocalTest;
 }
 (typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,

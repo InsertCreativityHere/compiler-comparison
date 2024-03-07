@@ -160,130 +160,6 @@
         }
     };
 
-    Test.KnownPreserved = class extends Test.Base
-    {
-        constructor(b, kp = "", _cause = "")
-        {
-            super(b, _cause);
-            this.kp = kp;
-        }
-
-        static get _parent()
-        {
-            return Test.Base;
-        }
-
-        static get _id()
-        {
-            return "::Test::KnownPreserved";
-        }
-
-        _mostDerivedType()
-        {
-            return Test.KnownPreserved;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeString(this.kp);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.kp = istr.readString();
-        }
-    };
-
-    Slice.PreservedUserException(Test.KnownPreserved);
-
-    Test.KnownPreservedDerived = class extends Test.KnownPreserved
-    {
-        constructor(b, kp, kpd = "", _cause = "")
-        {
-            super(b, kp, _cause);
-            this.kpd = kpd;
-        }
-
-        static get _parent()
-        {
-            return Test.KnownPreserved;
-        }
-
-        static get _id()
-        {
-            return "::Test::KnownPreservedDerived";
-        }
-
-        _mostDerivedType()
-        {
-            return Test.KnownPreservedDerived;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeString(this.kpd);
-        }
-
-        _readMemberImpl(istr)
-        {
-            this.kpd = istr.readString();
-        }
-    };
-
-    Test.BaseClass = class extends Ice.Value
-    {
-        constructor(bc = "")
-        {
-            super();
-            this.bc = bc;
-        }
-
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeString(this.bc);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.bc = istr.readString();
-        }
-    };
-
-    Slice.defineValue(Test.BaseClass, "::Test::BaseClass", true);
-
-    const iceC_Test_Relay_ids = [
-        "::Ice::Object",
-        "::Test::Relay"
-    ];
-
-    Test.Relay = class extends Ice.Object
-    {
-    };
-
-    Test.RelayPrx = class extends Ice.ObjectPrx
-    {
-    };
-
-    Slice.defineOperations(Test.Relay, Test.RelayPrx, iceC_Test_Relay_ids, "::Test::Relay",
-    {
-        "knownPreservedAsBase": [, , , 2, , , ,
-        [
-            Test.Base
-        ], , ],
-        "knownPreservedAsKnownPreserved": [, , , 2, , , ,
-        [
-            Test.KnownPreserved
-        ], , ],
-        "unknownPreservedAsBase": [, , , 2, , , ,
-        [
-            Test.Base
-        ], , ],
-        "unknownPreservedAsKnownPreserved": [, , , 2, , , ,
-        [
-            Test.KnownPreserved
-        ], , ]
-    });
-
     const iceC_Test_TestIntf_ids = [
         "::Ice::Object",
         "::Test::TestIntf"
@@ -303,7 +179,7 @@
         [
             Test.Base
         ], , ],
-        "unknownDerivedAsBase": [, , , 2, , , ,
+        "unknownDerivedAsBase": [, , , 1, , , ,
         [
             Test.Base
         ], , ],
@@ -350,42 +226,6 @@
         "unknownMostDerived2AsBase": [, , , 2, , , ,
         [
             Test.Base
-        ], , ],
-        "unknownMostDerived2AsBaseCompact": [, , , 1, , , ,
-        [
-            Test.Base
-        ], , ],
-        "knownPreservedAsBase": [, , , 2, , , ,
-        [
-            Test.Base
-        ], , ],
-        "knownPreservedAsKnownPreserved": [, , , 2, , , ,
-        [
-            Test.KnownPreserved
-        ], , ],
-        "relayKnownPreservedAsBase": [, , , 2, , [["Test.RelayPrx"]], ,
-        [
-            Test.Base
-        ], , ],
-        "relayKnownPreservedAsKnownPreserved": [, , , 2, , [["Test.RelayPrx"]], ,
-        [
-            Test.KnownPreserved
-        ], , ],
-        "unknownPreservedAsBase": [, , , 2, , , ,
-        [
-            Test.Base
-        ], , ],
-        "unknownPreservedAsKnownPreserved": [, , , 2, , , ,
-        [
-            Test.KnownPreserved
-        ], , ],
-        "relayUnknownPreservedAsBase": [, , , 2, , [["Test.RelayPrx"]], ,
-        [
-            Test.Base
-        ], , ],
-        "relayUnknownPreservedAsKnownPreserved": [, , , 2, , [["Test.RelayPrx"]], ,
-        [
-            Test.KnownPreserved
         ], , ],
         "shutdown": [, , , 2, , , , , , ]
     });
@@ -523,100 +363,6 @@
         _readMemberImpl(istr)
         {
             this.umd2 = istr.readString();
-        }
-    };
-
-    Test.SPreservedClass = class extends Test.BaseClass
-    {
-        constructor(bc, spc = "")
-        {
-            super(bc);
-            this.spc = spc;
-        }
-
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeString(this.spc);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.spc = istr.readString();
-        }
-    };
-
-    Slice.defineValue(Test.SPreservedClass, "::Test::SPreservedClass", false);
-
-    Test.SPreserved1 = class extends Test.KnownPreservedDerived
-    {
-        constructor(b, kp, kpd, p1 = null, _cause = "")
-        {
-            super(b, kp, kpd, _cause);
-            this.p1 = p1;
-        }
-
-        static get _parent()
-        {
-            return Test.KnownPreservedDerived;
-        }
-
-        static get _id()
-        {
-            return "::Test::SPreserved1";
-        }
-
-        _mostDerivedType()
-        {
-            return Test.SPreserved1;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeValue(this.p1);
-        }
-
-        _readMemberImpl(istr)
-        {
-            istr.readValue(obj => this.p1 = obj, Test.BaseClass);
-        }
-
-        _usesClasses()
-        {
-            return true;
-        }
-    };
-
-    Test.SPreserved2 = class extends Test.SPreserved1
-    {
-        constructor(b, kp, kpd, p1, p2 = null, _cause = "")
-        {
-            super(b, kp, kpd, p1, _cause);
-            this.p2 = p2;
-        }
-
-        static get _parent()
-        {
-            return Test.SPreserved1;
-        }
-
-        static get _id()
-        {
-            return "::Test::SPreserved2";
-        }
-
-        _mostDerivedType()
-        {
-            return Test.SPreserved2;
-        }
-
-        _writeMemberImpl(ostr)
-        {
-            ostr.writeValue(this.p2);
-        }
-
-        _readMemberImpl(istr)
-        {
-            istr.readValue(obj => this.p2 = obj, Test.BaseClass);
         }
     };
     exports.Test = Test;

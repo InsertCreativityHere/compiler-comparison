@@ -126,7 +126,7 @@ if 'C' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_C = IcePy.defineValue('::Test::C', C, -1, (), False, False, None, (('s', (), _M_Test._t_S, False, 0),))
+    _M_Test._t_C = IcePy.defineValue('::Test::C', C, -1, (), False, None, (('s', (), _M_Test._t_S, False, 0),))
     C._ice_type = _M_Test._t_C
 
     _M_Test.C = C
@@ -258,7 +258,7 @@ if 'C1' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_C1 = IcePy.defineValue('::Test::C1', C1, -1, (), False, False, None, (('s', (), IcePy._t_string, False, 0),))
+    _M_Test._t_C1 = IcePy.defineValue('::Test::C1', C1, -1, (), False, None, (('s', (), IcePy._t_string, False, 0),))
     C1._ice_type = _M_Test._t_C1
 
     _M_Test.C1 = C1
@@ -331,7 +331,7 @@ if 'C2' not in _M_Test.__dict__:
 
     _M_Test._t_C2 = IcePy.declareValue('::Test::C2')
 
-    _M_Test._t_C2 = IcePy.defineValue('::Test::C2', C2, -1, (), False, False, None, (
+    _M_Test._t_C2 = IcePy.defineValue('::Test::C2', C2, -1, (), False, None, (
         ('E1', (), _M_Test._t_E1, False, 0),
         ('S1', (), _M_Test._t_S1, False, 0),
         ('C1', (), _M_Test._t_C1, False, 0)
@@ -341,7 +341,7 @@ if 'C2' not in _M_Test.__dict__:
     _M_Test.C2 = C2
     del C2
 
-_M_Test._t_I = IcePy.defineValue('::Test::I', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_I = IcePy.defineValue('::Test::I', Ice.Value, -1, (), True, None, ())
 
 if 'IPrx' not in _M_Test.__dict__:
     _M_Test.IPrx = Ice.createTempClass()
@@ -687,7 +687,7 @@ if 'C' not in _M_Test.Inner.Inner2.__dict__:
 
         __repr__ = __str__
 
-    _M_Test.Inner.Inner2._t_C = IcePy.defineValue('::Test::Inner::Inner2::C', C, -1, (), False, False, None, (('s', (), _M_Test.Inner.Inner2._t_S, False, 0),))
+    _M_Test.Inner.Inner2._t_C = IcePy.defineValue('::Test::Inner::Inner2::C', C, -1, (), False, None, (('s', (), _M_Test.Inner.Inner2._t_S, False, 0),))
     C._ice_type = _M_Test.Inner.Inner2._t_C
 
     _M_Test.Inner.Inner2.C = C
@@ -699,7 +699,7 @@ if '_t_CMap' not in _M_Test.Inner.Inner2.__dict__:
 if '_t_CSeq' not in _M_Test.Inner.Inner2.__dict__:
     _M_Test.Inner.Inner2._t_CSeq = IcePy.defineSequence('::Test::Inner::Inner2::CSeq', (), _M_Test.Inner.Inner2._t_C)
 
-_M_Test.Inner.Inner2._t_I = IcePy.defineValue('::Test::Inner::Inner2::I', Ice.Value, -1, (), False, True, None, ())
+_M_Test.Inner.Inner2._t_I = IcePy.defineValue('::Test::Inner::Inner2::I', Ice.Value, -1, (), True, None, ())
 
 if 'IPrx' not in _M_Test.Inner.Inner2.__dict__:
     _M_Test.Inner.Inner2.IPrx = Ice.createTempClass()
@@ -847,7 +847,7 @@ if 'C' not in _M_Test.Inner.__dict__:
 
         __repr__ = __str__
 
-    _M_Test.Inner._t_C = IcePy.defineValue('::Test::Inner::C', C, -1, (), False, False, None, (('s', (), _M_Test.Inner._t_S, False, 0),))
+    _M_Test.Inner._t_C = IcePy.defineValue('::Test::Inner::C', C, -1, (), False, None, (('s', (), _M_Test.Inner._t_S, False, 0),))
     C._ice_type = _M_Test.Inner._t_C
 
     _M_Test.Inner.C = C
@@ -865,7 +865,7 @@ if '_t_CMap' not in _M_Test.Inner.__dict__:
 if '_t_CSeq' not in _M_Test.Inner.__dict__:
     _M_Test.Inner._t_CSeq = IcePy.defineSequence('::Test::Inner::CSeq', (), _M_Test.Inner.Inner2._t_C)
 
-_M_Test.Inner._t_I = IcePy.defineValue('::Test::Inner::I', Ice.Value, -1, (), False, True, None, ())
+_M_Test.Inner._t_I = IcePy.defineValue('::Test::Inner::I', Ice.Value, -1, (), True, None, ())
 
 if 'IPrx' not in _M_Test.Inner.__dict__:
     _M_Test.Inner.IPrx = Ice.createTempClass()
@@ -1006,7 +1006,7 @@ __name__ = 'Inner.Test'
 _M_Inner.Test.Inner2 = Ice.openModule('Inner.Test.Inner2')
 __name__ = 'Inner.Test.Inner2'
 
-_M_Inner.Test.Inner2._t_I = IcePy.defineValue('::Inner::Test::Inner2::I', Ice.Value, -1, (), False, True, None, ())
+_M_Inner.Test.Inner2._t_I = IcePy.defineValue('::Inner::Test::Inner2::I', Ice.Value, -1, (), True, None, ())
 
 if 'IPrx' not in _M_Inner.Test.Inner2.__dict__:
     _M_Inner.Test.Inner2.IPrx = Ice.createTempClass()

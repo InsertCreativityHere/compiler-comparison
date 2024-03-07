@@ -105,7 +105,7 @@ module ::IceStorm
             end
         end
 
-        T_ReapWouldBlock = ::Ice::__defineException('::IceStorm::ReapWouldBlock', ReapWouldBlock, false, nil, [])
+        T_ReapWouldBlock = ::Ice::__defineException('::IceStorm::ReapWouldBlock', ReapWouldBlock, nil, [])
     end
 
     if not defined?(::IceStorm::TopicInternal_Mixin)

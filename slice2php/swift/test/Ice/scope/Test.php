@@ -93,7 +93,7 @@ namespace Test
 
     global $Ice__t_Value;
     global $Test__t_S;
-    $Test__t_C = IcePHP_defineClass('::Test::C', '\\Test\\C', -1, false, false, $Ice__t_Value, array(
+    $Test__t_C = IcePHP_defineClass('::Test::C', '\\Test\\C', -1, false, $Ice__t_Value, array(
         array('s', $Test__t_S, false, 0)));
 }
 
@@ -211,7 +211,7 @@ namespace Test
 
     global $Ice__t_Value;
     global $IcePHP__t_string;
-    $Test__t_C1 = IcePHP_defineClass('::Test::C1', '\\Test\\C1', -1, false, false, $Ice__t_Value, array(
+    $Test__t_C1 = IcePHP_defineClass('::Test::C1', '\\Test\\C1', -1, false, $Ice__t_Value, array(
         array('s', $IcePHP__t_string, false, 0)));
 }
 
@@ -300,7 +300,7 @@ namespace Test
     global $Test__t_C1;
     global $Test__t_S1Seq;
     global $Test__t_S1Map;
-    $Test__t_C2 = IcePHP_defineClass('::Test::C2', '\\Test\\C2', -1, false, false, $Ice__t_Value, array(
+    $Test__t_C2 = IcePHP_defineClass('::Test::C2', '\\Test\\C2', -1, false, $Ice__t_Value, array(
         array('E1', $Test__t_E1, false, 0),
         array('S1', $Test__t_S1, false, 0),
         array('C1', $Test__t_C1, false, 0),
@@ -484,7 +484,7 @@ namespace Test\Inner\Inner2
 
     global $Ice__t_Value;
     global $Test_Inner_Inner2__t_S;
-    $Test_Inner_Inner2__t_C = IcePHP_defineClass('::Test::Inner::Inner2::C', '\\Test\\Inner\\Inner2\\C', -1, false, false, $Ice__t_Value, array(
+    $Test_Inner_Inner2__t_C = IcePHP_defineClass('::Test::Inner::Inner2::C', '\\Test\\Inner\\Inner2\\C', -1, false, $Ice__t_Value, array(
         array('s', $Test_Inner_Inner2__t_S, false, 0)));
 }
 
@@ -606,7 +606,7 @@ namespace Test\Inner
 
     global $Ice__t_Value;
     global $Test_Inner__t_S;
-    $Test_Inner__t_C = IcePHP_defineClass('::Test::Inner::C', '\\Test\\Inner\\C', -1, false, false, $Ice__t_Value, array(
+    $Test_Inner__t_C = IcePHP_defineClass('::Test::Inner::C', '\\Test\\Inner\\C', -1, false, $Ice__t_Value, array(
         array('s', $Test_Inner__t_S, false, 0)));
 }
 

@@ -43,7 +43,7 @@ namespace Glacier2
         }
     }
 
-    $Glacier2__t_SessionNotExistException = IcePHP_defineException('::Glacier2::SessionNotExistException', '\\Glacier2\\SessionNotExistException', false, null, null);
+    $Glacier2__t_SessionNotExistException = IcePHP_defineException('::Glacier2::SessionNotExistException', '\\Glacier2\\SessionNotExistException', null, null);
 }
 
 namespace Glacier2

@@ -30,7 +30,7 @@ module ::User
             T_UserInfo = ::Ice::__declareClass('::User::UserInfo')
         end
 
-        T_UserInfo.defineClass(UserInfo, -1, false, false, nil, [])
+        T_UserInfo.defineClass(UserInfo, -1, false, nil, [])
     end
 
     if not defined?(::User::Registry_Mixin)

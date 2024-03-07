@@ -42,7 +42,7 @@ namespace Test
     }
 
     global $Ice__t_Value;
-    $Test__t_Empty = IcePHP_defineClass('::Test::Empty', '\\Test\\_Empty', -1, false, false, $Ice__t_Value, null);
+    $Test__t_Empty = IcePHP_defineClass('::Test::Empty', '\\Test\\_Empty', -1, false, $Ice__t_Value, null);
 }
 
 namespace Test
@@ -72,7 +72,7 @@ namespace Test
     }
 
     global $Ice__t_Value;
-    $Test__t_AlsoEmpty = IcePHP_defineClass('::Test::AlsoEmpty', '\\Test\\AlsoEmpty', -1, false, false, $Ice__t_Value, null);
+    $Test__t_AlsoEmpty = IcePHP_defineClass('::Test::AlsoEmpty', '\\Test\\AlsoEmpty', -1, false, $Ice__t_Value, null);
 }
 
 namespace Test
@@ -138,7 +138,7 @@ namespace Test
 
     global $Ice__t_Value;
     global $Test__t_Empty;
-    $Test__t_COneMember = IcePHP_defineClass('::Test::COneMember', '\\Test\\COneMember', -1, false, false, $Ice__t_Value, array(
+    $Test__t_COneMember = IcePHP_defineClass('::Test::COneMember', '\\Test\\COneMember', -1, false, $Ice__t_Value, array(
         array('e', $Test__t_Empty, false, 0)));
 }
 
@@ -177,7 +177,7 @@ namespace Test
 
     global $Ice__t_Value;
     global $Test__t_Empty;
-    $Test__t_CTwoMembers = IcePHP_defineClass('::Test::CTwoMembers', '\\Test\\CTwoMembers', -1, false, false, $Ice__t_Value, array(
+    $Test__t_CTwoMembers = IcePHP_defineClass('::Test::CTwoMembers', '\\Test\\CTwoMembers', -1, false, $Ice__t_Value, array(
         array('e1', $Test__t_Empty, false, 0),
         array('e2', $Test__t_Empty, false, 0)));
 }
@@ -207,7 +207,7 @@ namespace Test
     }
     global $Test__t_Empty;
 
-    $Test__t_EOneMember = IcePHP_defineException('::Test::EOneMember', '\\Test\\EOneMember', false, null, array(
+    $Test__t_EOneMember = IcePHP_defineException('::Test::EOneMember', '\\Test\\EOneMember', null, array(
         array('e', $Test__t_Empty, false, 0)));
 }
 
@@ -238,7 +238,7 @@ namespace Test
     }
     global $Test__t_Empty;
 
-    $Test__t_ETwoMembers = IcePHP_defineException('::Test::ETwoMembers', '\\Test\\ETwoMembers', false, null, array(
+    $Test__t_ETwoMembers = IcePHP_defineException('::Test::ETwoMembers', '\\Test\\ETwoMembers', null, array(
         array('e1', $Test__t_Empty, false, 0),
         array('e2', $Test__t_Empty, false, 0)));
 }

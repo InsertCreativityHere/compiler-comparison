@@ -33,7 +33,7 @@ if 'UserEx' not in _M_Test.__dict__:
 
         _ice_id = '::Test::UserEx'
 
-    _M_Test._t_UserEx = IcePy.defineException('::Test::UserEx', UserEx, (), False, None, ())
+    _M_Test._t_UserEx = IcePy.defineException('::Test::UserEx', UserEx, (), None, ())
     UserEx._ice_type = _M_Test._t_UserEx
 
     _M_Test.UserEx = UserEx
@@ -42,7 +42,7 @@ if 'UserEx' not in _M_Test.__dict__:
 if '_t_ByteSeq' not in _M_Test.__dict__:
     _M_Test._t_ByteSeq = IcePy.defineSequence('::Test::ByteSeq', (), IcePy._t_byte)
 
-_M_Test._t_Metrics = IcePy.defineValue('::Test::Metrics', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_Metrics = IcePy.defineValue('::Test::Metrics', Ice.Value, -1, (), True, None, ())
 
 if 'MetricsPrx' not in _M_Test.__dict__:
     _M_Test.MetricsPrx = Ice.createTempClass()
@@ -179,7 +179,7 @@ if 'MetricsPrx' not in _M_Test.__dict__:
     _M_Test.Metrics = Metrics
     del Metrics
 
-_M_Test._t_Controller = IcePy.defineValue('::Test::Controller', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_Controller = IcePy.defineValue('::Test::Controller', Ice.Value, -1, (), True, None, ())
 
 if 'ControllerPrx' not in _M_Test.__dict__:
     _M_Test.ControllerPrx = Ice.createTempClass()

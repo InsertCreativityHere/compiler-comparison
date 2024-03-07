@@ -36,7 +36,7 @@ namespace Test
         }
     }
 
-    $Test__t_TestIntfUserException = IcePHP_defineException('::Test::TestIntfUserException', '\\Test\\TestIntfUserException', false, null, null);
+    $Test__t_TestIntfUserException = IcePHP_defineException('::Test::TestIntfUserException', '\\Test\\TestIntfUserException', null, null);
 }
 
 namespace Test
@@ -60,7 +60,7 @@ namespace Test
         }
     }
 
-    $Test__t_TestImpossibleException = IcePHP_defineException('::Test::TestImpossibleException', '\\Test\\TestImpossibleException', false, null, null);
+    $Test__t_TestImpossibleException = IcePHP_defineException('::Test::TestImpossibleException', '\\Test\\TestImpossibleException', null, null);
 }
 
 namespace Test

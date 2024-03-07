@@ -120,7 +120,7 @@ if '_break' not in _M__await.__dict__:
     _M__await._break = _break
     del _break
 
-_M__await._t__case = IcePy.defineValue('::await::case', Ice.Value, -1, (), False, True, None, ())
+_M__await._t__case = IcePy.defineValue('::await::case', Ice.Value, -1, (), True, None, ())
 
 if 'casePrx' not in _M__await.__dict__:
     _M__await.casePrx = Ice.createTempClass()
@@ -177,7 +177,7 @@ if 'casePrx' not in _M__await.__dict__:
     _M__await._case = _case
     del _case
 
-_M__await._t_typeof = IcePy.defineValue('::await::typeof', Ice.Value, -1, (), False, True, None, ())
+_M__await._t_typeof = IcePy.defineValue('::await::typeof', Ice.Value, -1, (), True, None, ())
 
 if 'typeofPrx' not in _M__await.__dict__:
     _M__await.typeofPrx = Ice.createTempClass()
@@ -254,7 +254,7 @@ if 'delete' not in _M__await.__dict__:
 
         __repr__ = __str__
 
-    _M__await._t_delete = IcePy.defineValue('::await::delete', delete, -1, (), False, False, None, (
+    _M__await._t_delete = IcePy.defineValue('::await::delete', delete, -1, (), False, None, (
         ('_if', (), IcePy._t_int, False, 0),
         ('_else', (), _M__await._t_casePrx, False, 0),
         ('export', (), IcePy._t_int, False, 0)
@@ -264,7 +264,7 @@ if 'delete' not in _M__await.__dict__:
     _M__await.delete = delete
     del delete
 
-_M__await._t_explicit = IcePy.defineValue('::await::explicit', Ice.Value, -1, (), False, True, None, ())
+_M__await._t_explicit = IcePy.defineValue('::await::explicit', Ice.Value, -1, (), True, None, ())
 
 if 'explicitPrx' not in _M__await.__dict__:
     _M__await.explicitPrx = Ice.createTempClass()
@@ -336,7 +336,7 @@ if 'package' not in _M__await.__dict__:
 
         __repr__ = __str__
 
-    _M__await._t_package = IcePy.defineValue('::await::package', package, -1, (), False, False, None, (
+    _M__await._t_package = IcePy.defineValue('::await::package', package, -1, (), False, None, (
         ('_for', (), _M__await._t__break, True, 1),
         ('goto', (), _M__await._t_var, True, 2),
         ('_if', (), _M__await._t_explicitPrx, True, 3),
@@ -349,7 +349,7 @@ if 'package' not in _M__await.__dict__:
     _M__await.package = package
     del package
 
-_M__await._t_optionalParams = IcePy.defineValue('::await::optionalParams', Ice.Value, -1, (), False, True, None, ())
+_M__await._t_optionalParams = IcePy.defineValue('::await::optionalParams', Ice.Value, -1, (), True, None, ())
 
 if 'optionalParamsPrx' not in _M__await.__dict__:
     _M__await.optionalParamsPrx = Ice.createTempClass()
@@ -449,7 +449,7 @@ if 'fixed' not in _M__await.__dict__:
 
         _ice_id = '::await::fixed'
 
-    _M__await._t_fixed = IcePy.defineException('::await::fixed', fixed, (), False, None, (('_for', (), IcePy._t_int, False, 0),))
+    _M__await._t_fixed = IcePy.defineException('::await::fixed', fixed, (), None, (('_for', (), IcePy._t_int, False, 0),))
     fixed._ice_type = _M__await._t_fixed
 
     _M__await.fixed = fixed
@@ -470,7 +470,7 @@ if 'foreach' not in _M__await.__dict__:
 
         _ice_id = '::await::foreach'
 
-    _M__await._t_foreach = IcePy.defineException('::await::foreach', foreach, (), False, _M__await._t_fixed, (
+    _M__await._t_foreach = IcePy.defineException('::await::foreach', foreach, (), _M__await._t_fixed, (
         ('goto', (), IcePy._t_int, False, 0),
         ('_if', (), IcePy._t_int, False, 0)
     ))
@@ -506,7 +506,7 @@ if 'BaseMethods' not in _M__await.__dict__:
 
         _ice_id = '::await::BaseMethods'
 
-    _M__await._t_BaseMethods = IcePy.defineException('::await::BaseMethods', BaseMethods, (), False, None, (
+    _M__await._t_BaseMethods = IcePy.defineException('::await::BaseMethods', BaseMethods, (), None, (
         ('Data', (), IcePy._t_int, False, 0),
         ('HelpLink', (), IcePy._t_int, False, 0),
         ('InnerException', (), IcePy._t_int, False, 0),
@@ -528,7 +528,7 @@ if 'BaseMethods' not in _M__await.__dict__:
     _M__await.BaseMethods = BaseMethods
     del BaseMethods
 
-_M__await._t_implicit = IcePy.defineValue('::await::implicit', Ice.Value, -1, (), False, True, None, ())
+_M__await._t_implicit = IcePy.defineValue('::await::implicit', Ice.Value, -1, (), True, None, ())
 
 if 'implicitPrx' not in _M__await.__dict__:
     _M__await.implicitPrx = Ice.createTempClass()
@@ -593,7 +593,7 @@ _M__await.public = 0
 _M__await.System = Ice.openModule('_await.System')
 __name__ = '_await.System'
 
-_M__await.System._t_Test = IcePy.defineValue('::await::System::Test', Ice.Value, -1, (), False, True, None, ())
+_M__await.System._t_Test = IcePy.defineValue('::await::System::Test', Ice.Value, -1, (), True, None, ())
 
 if 'TestPrx' not in _M__await.System.__dict__:
     _M__await.System.TestPrx = Ice.createTempClass()
@@ -660,7 +660,7 @@ __name__ = '_await'
 _M_System = Ice.openModule('System')
 __name__ = 'System'
 
-_M_System._t_Test = IcePy.defineValue('::System::Test', Ice.Value, -1, (), False, True, None, ())
+_M_System._t_Test = IcePy.defineValue('::System::Test', Ice.Value, -1, (), True, None, ())
 
 if 'TestPrx' not in _M_System.__dict__:
     _M_System.TestPrx = Ice.createTempClass()

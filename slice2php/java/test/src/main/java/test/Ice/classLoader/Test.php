@@ -46,7 +46,7 @@ namespace Test
 
     global $Ice__t_Value;
     global $IcePHP__t_int;
-    $Test__t_ConcreteClass = IcePHP_defineClass('::Test::ConcreteClass', '\\Test\\ConcreteClass', -1, false, false, $Ice__t_Value, array(
+    $Test__t_ConcreteClass = IcePHP_defineClass('::Test::ConcreteClass', '\\Test\\ConcreteClass', -1, false, $Ice__t_Value, array(
         array('i', $IcePHP__t_int, false, 0)));
 }
 
@@ -71,7 +71,7 @@ namespace Test
         }
     }
 
-    $Test__t_E = IcePHP_defineException('::Test::E', '\\Test\\E', false, null, null);
+    $Test__t_E = IcePHP_defineException('::Test::E', '\\Test\\E', null, null);
 }
 
 namespace Test

@@ -145,7 +145,7 @@ namespace _abstract
     global $Ice__t_Value;
     global $IcePHP__t_int;
     global $abstract__t_defaultPrx;
-    $abstract__t_else = IcePHP_defineClass('::abstract::else', '\\_abstract\\_else', -1, false, false, $Ice__t_Value, array(
+    $abstract__t_else = IcePHP_defineClass('::abstract::else', '\\_abstract\\_else', -1, false, $Ice__t_Value, array(
         array('_if', $IcePHP__t_int, false, 0),
         array('equals', $abstract__t_defaultPrx, false, 0),
         array('_final', $IcePHP__t_int, false, 0)));
@@ -226,7 +226,7 @@ namespace _abstract
     }
     global $IcePHP__t_int;
 
-    $abstract__t_hashCode = IcePHP_defineException('::abstract::hashCode', '\\_abstract\\hashCode', false, null, array(
+    $abstract__t_hashCode = IcePHP_defineException('::abstract::hashCode', '\\_abstract\\hashCode', null, array(
         array('_if', $IcePHP__t_int, false, 0)));
 }
 
@@ -258,7 +258,7 @@ namespace _abstract
     }
     global $IcePHP__t_int;
 
-    $abstract__t_import = IcePHP_defineException('::abstract::import', '\\_abstract\\import', false, $abstract__t_hashCode, array(
+    $abstract__t_import = IcePHP_defineException('::abstract::import', '\\_abstract\\import', $abstract__t_hashCode, array(
         array('_instanceof', $IcePHP__t_int, false, 0),
         array('native', $IcePHP__t_int, false, 0)));
 }

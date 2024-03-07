@@ -38,7 +38,7 @@ module ::IceMX
             T_TopicMetrics = ::Ice::__declareClass('::IceMX::TopicMetrics')
         end
 
-        T_TopicMetrics.defineClass(TopicMetrics, -1, false, false, ::IceMX::T_Metrics, [
+        T_TopicMetrics.defineClass(TopicMetrics, -1, false, ::IceMX::T_Metrics, [
             ['published', ::Ice::T_long, false, 0],
             ['forwarded', ::Ice::T_long, false, 0]
         ])
@@ -64,7 +64,7 @@ module ::IceMX
             T_SubscriberMetrics = ::Ice::__declareClass('::IceMX::SubscriberMetrics')
         end
 
-        T_SubscriberMetrics.defineClass(SubscriberMetrics, -1, false, false, ::IceMX::T_Metrics, [
+        T_SubscriberMetrics.defineClass(SubscriberMetrics, -1, false, ::IceMX::T_Metrics, [
             ['queued', ::Ice::T_int, false, 0],
             ['outstanding', ::Ice::T_int, false, 0],
             ['delivered', ::Ice::T_long, false, 0]

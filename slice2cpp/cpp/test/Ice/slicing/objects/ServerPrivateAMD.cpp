@@ -51,8 +51,6 @@ const ::IceInternal::DefaultValueFactoryInit<::Test::PSUnknown> iceC_Test_PSUnkn
 
 const ::IceInternal::DefaultValueFactoryInit<::Test::PSUnknown2> iceC_Test_PSUnknown2_init("::Test::PSUnknown2");
 
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::PSUnknownException> iceC_Test_PSUnknownException_init("::Test::PSUnknownException");
-
 }
 
 Test::SBSUnknownDerived::~SBSUnknownDerived()
@@ -142,22 +140,3 @@ Test::PSUnknown2::ice_staticId()
     static constexpr ::std::string_view typeId = "::Test::PSUnknown2";
     return typeId;
 }
-
-Test::PSUnknownException::~PSUnknownException()
-{
-}
-
-::std::string_view
-Test::PSUnknownException::ice_staticId()
-{
-    static constexpr ::std::string_view typeId = "::Test::PSUnknownException";
-    return typeId;
-}
-
-/// \cond STREAM
-bool
-Test::PSUnknownException::_usesClasses() const
-{
-    return true;
-}
-/// \endcond

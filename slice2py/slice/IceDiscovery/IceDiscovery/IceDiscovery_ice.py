@@ -24,7 +24,7 @@ _M_Ice = Ice.openModule('Ice')
 _M_IceDiscovery = Ice.openModule('IceDiscovery')
 __name__ = 'IceDiscovery'
 
-_M_IceDiscovery._t_LookupReply = IcePy.defineValue('::IceDiscovery::LookupReply', Ice.Value, -1, (), False, True, None, ())
+_M_IceDiscovery._t_LookupReply = IcePy.defineValue('::IceDiscovery::LookupReply', Ice.Value, -1, (), True, None, ())
 
 if 'LookupReplyPrx' not in _M_IceDiscovery.__dict__:
     _M_IceDiscovery.LookupReplyPrx = Ice.createTempClass()
@@ -140,7 +140,7 @@ if 'LookupReplyPrx' not in _M_IceDiscovery.__dict__:
     _M_IceDiscovery.LookupReply = LookupReply
     del LookupReply
 
-_M_IceDiscovery._t_Lookup = IcePy.defineValue('::IceDiscovery::Lookup', Ice.Value, -1, (), False, True, None, ())
+_M_IceDiscovery._t_Lookup = IcePy.defineValue('::IceDiscovery::Lookup', Ice.Value, -1, (), True, None, ())
 
 if 'LookupPrx' not in _M_IceDiscovery.__dict__:
     _M_IceDiscovery.LookupPrx = Ice.createTempClass()

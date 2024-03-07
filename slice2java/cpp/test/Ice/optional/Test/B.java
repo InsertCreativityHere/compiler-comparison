@@ -108,32 +108,7 @@ public class B extends A
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 41631785356781539L;
-
-    /** @hidden */
-    @Override
-    public com.zeroc.Ice.SlicedData ice_getSlicedData()
-    {
-        return _iceSlicedData;
-    }
-
-    /** @hidden */
-    @Override
-    public void _iceWrite(com.zeroc.Ice.OutputStream ostr)
-    {
-        ostr.startValue(_iceSlicedData);
-        _iceWriteImpl(ostr);
-        ostr.endValue();
-    }
-
-    /** @hidden */
-    @Override
-    public void _iceRead(com.zeroc.Ice.InputStream istr)
-    {
-        istr.startValue();
-        _iceReadImpl(istr);
-        _iceSlicedData = istr.endValue(true);
-    }
+    public static final long serialVersionUID = -6893940929632427421L;
 
     /** @hidden */
     @Override
@@ -162,7 +137,4 @@ public class B extends A
         istr_.endSlice();
         super._iceReadImpl(istr_);
     }
-
-    /** @hidden */
-    protected com.zeroc.Ice.SlicedData _iceSlicedData;
 }

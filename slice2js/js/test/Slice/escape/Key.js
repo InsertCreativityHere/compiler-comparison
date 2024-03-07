@@ -113,7 +113,7 @@
         }
     };
 
-    Slice.defineValue(_await._delete, "::await::delete", false);
+    Slice.defineValue(_await._delete, "::await::delete");
 
     const iceC__await_explicit_ids = [
         "::Ice::Object",
@@ -181,7 +181,7 @@
         }
     };
 
-    Slice.defineValue(_await._package, "::await::package", false);
+    Slice.defineValue(_await._package, "::await::package");
 
     const iceC__await_optionalParams_ids = [
         "::Ice::Object",

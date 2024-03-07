@@ -65,7 +65,7 @@ module ::Test
             T_Base = ::Ice::__declareClass('::Test::Base')
         end
 
-        T_Base.defineClass(Base, -1, false, false, nil, [
+        T_Base.defineClass(Base, -1, false, nil, [
             ['theS', ::Test::T_S, false, 0],
             ['str', ::Ice::T_string, false, 0]
         ])
@@ -84,7 +84,7 @@ module ::Test
             attr_accessor :reason
         end
 
-        T_BaseEx = ::Ice::__defineException('::Test::BaseEx', BaseEx, false, nil, [["reason", ::Ice::T_string, false, 0]])
+        T_BaseEx = ::Ice::__defineException('::Test::BaseEx', BaseEx, nil, [["reason", ::Ice::T_string, false, 0]])
     end
 
     if not defined?(::Test::T_B)
@@ -115,7 +115,7 @@ module ::Test
             T_A = ::Ice::__declareClass('::Test::A')
         end
 
-        T_A.defineClass(A, -1, false, false, nil, [
+        T_A.defineClass(A, -1, false, nil, [
             ['theB', ::Test::T_B, false, 0],
             ['theC', ::Test::T_C, false, 0],
             ['preMarshalInvoked', ::Ice::T_bool, false, 0],
@@ -141,7 +141,7 @@ module ::Test
             T_B = ::Ice::__declareClass('::Test::B')
         end
 
-        T_B.defineClass(B, -1, false, false, ::Test::T_A, [['theA', ::Test::T_A, false, 0]])
+        T_B.defineClass(B, -1, false, ::Test::T_A, [['theA', ::Test::T_A, false, 0]])
     end
 
     if not defined?(::Test::C_Mixin)
@@ -163,7 +163,7 @@ module ::Test
             T_C = ::Ice::__declareClass('::Test::C')
         end
 
-        T_C.defineClass(C, -1, false, false, nil, [
+        T_C.defineClass(C, -1, false, nil, [
             ['theB', ::Test::T_B, false, 0],
             ['preMarshalInvoked', ::Ice::T_bool, false, 0],
             ['postUnmarshalInvoked', ::Ice::T_bool, false, 0]
@@ -191,7 +191,7 @@ module ::Test
             T_D = ::Ice::__declareClass('::Test::D')
         end
 
-        T_D.defineClass(D, -1, false, false, nil, [
+        T_D.defineClass(D, -1, false, nil, [
             ['theA', ::Test::T_A, false, 0],
             ['theB', ::Test::T_B, false, 0],
             ['theC', ::Test::T_C, false, 0],
@@ -219,7 +219,7 @@ module ::Test
             T_E = ::Ice::__declareClass('::Test::E')
         end
 
-        T_E.defineClass(E, -1, false, false, nil, [
+        T_E.defineClass(E, -1, false, nil, [
             ['i', ::Ice::T_int, false, 0],
             ['s', ::Ice::T_string, false, 0]
         ])
@@ -244,7 +244,7 @@ module ::Test
             T_F = ::Ice::__declareClass('::Test::F')
         end
 
-        T_F.defineClass(F, -1, false, false, nil, [
+        T_F.defineClass(F, -1, false, nil, [
             ['e1', ::Test::T_E, false, 0],
             ['e2', ::Test::T_E, false, 0]
         ])
@@ -265,7 +265,7 @@ module ::Test
             T_G = ::Ice::__declareClass('::Test::G')
         end
 
-        T_G.defineClass(G, -1, false, false, ::Test::T_Base, [])
+        T_G.defineClass(G, -1, false, ::Test::T_Base, [])
     end
 
     if not defined?(::Test::I_Mixin)
@@ -328,7 +328,7 @@ module ::Test
             T_Compact = ::Ice::__declareClass('::Test::Compact')
         end
 
-        T_Compact.defineClass(Compact, 1, false, false, nil, [])
+        T_Compact.defineClass(Compact, 1, false, nil, [])
     end
 
     CompactExtId = 789
@@ -344,7 +344,7 @@ module ::Test
             T_CompactExt = ::Ice::__declareClass('::Test::CompactExt')
         end
 
-        T_CompactExt.defineClass(CompactExt, 789, false, false, ::Test::T_Compact, [])
+        T_CompactExt.defineClass(CompactExt, 789, false, ::Test::T_Compact, [])
     end
 
     module Inner
@@ -366,7 +366,7 @@ module ::Test
                 T_A = ::Ice::__declareClass('::Test::Inner::A')
             end
 
-            T_A.defineClass(A, -1, false, false, nil, [['theA', ::Test::T_A, false, 0]])
+            T_A.defineClass(A, -1, false, nil, [['theA', ::Test::T_A, false, 0]])
         end
 
         if not defined?(::Test::Inner::Ex)
@@ -382,7 +382,7 @@ module ::Test
                 attr_accessor :reason
             end
 
-            T_Ex = ::Ice::__defineException('::Test::Inner::Ex', Ex, false, nil, [["reason", ::Ice::T_string, false, 0]])
+            T_Ex = ::Ice::__defineException('::Test::Inner::Ex', Ex, nil, [["reason", ::Ice::T_string, false, 0]])
         end
 
         module Sub
@@ -404,7 +404,7 @@ module ::Test
                     T_A = ::Ice::__declareClass('::Test::Inner::Sub::A')
                 end
 
-                T_A.defineClass(A, -1, false, false, nil, [['theA', ::Test::Inner::T_A, false, 0]])
+                T_A.defineClass(A, -1, false, nil, [['theA', ::Test::Inner::T_A, false, 0]])
             end
 
             if not defined?(::Test::Inner::Sub::Ex)
@@ -420,7 +420,7 @@ module ::Test
                     attr_accessor :reason
                 end
 
-                T_Ex = ::Ice::__defineException('::Test::Inner::Sub::Ex', Ex, false, nil, [["reason", ::Ice::T_string, false, 0]])
+                T_Ex = ::Ice::__defineException('::Test::Inner::Sub::Ex', Ex, nil, [["reason", ::Ice::T_string, false, 0]])
             end
         end
     end
@@ -442,7 +442,7 @@ module ::Test
             T_A1 = ::Ice::__declareClass('::Test::A1')
         end
 
-        T_A1.defineClass(A1, -1, false, false, nil, [['name', ::Ice::T_string, false, 0]])
+        T_A1.defineClass(A1, -1, false, nil, [['name', ::Ice::T_string, false, 0]])
     end
 
     if not defined?(::Test::B1_Mixin)
@@ -463,7 +463,7 @@ module ::Test
             T_B1 = ::Ice::__declareClass('::Test::B1')
         end
 
-        T_B1.defineClass(B1, -1, false, false, nil, [
+        T_B1.defineClass(B1, -1, false, nil, [
             ['a1', ::Test::T_A1, false, 0],
             ['a2', ::Test::T_A1, false, 0]
         ])
@@ -488,7 +488,7 @@ module ::Test
             T_D1 = ::Ice::__declareClass('::Test::D1')
         end
 
-        T_D1.defineClass(D1, -1, false, false, ::Test::T_B1, [
+        T_D1.defineClass(D1, -1, false, ::Test::T_B1, [
             ['a3', ::Test::T_A1, false, 0],
             ['a4', ::Test::T_A1, false, 0]
         ])
@@ -508,7 +508,7 @@ module ::Test
             attr_accessor :a1, :a2
         end
 
-        T_EBase = ::Ice::__defineException('::Test::EBase', EBase, false, nil, [
+        T_EBase = ::Ice::__defineException('::Test::EBase', EBase, nil, [
             ["a1", ::Test::T_A1, false, 0],
             ["a2", ::Test::T_A1, false, 0]
         ])
@@ -529,7 +529,7 @@ module ::Test
             attr_accessor :a3, :a4
         end
 
-        T_EDerived = ::Ice::__defineException('::Test::EDerived', EDerived, false, ::Test::T_EBase, [
+        T_EDerived = ::Ice::__defineException('::Test::EDerived', EDerived, ::Test::T_EBase, [
             ["a3", ::Test::T_A1, false, 0],
             ["a4", ::Test::T_A1, false, 0]
         ])
@@ -552,7 +552,7 @@ module ::Test
             T_Recursive = ::Ice::__declareClass('::Test::Recursive')
         end
 
-        T_Recursive.defineClass(Recursive, -1, false, false, nil, [['v', ::Test::T_Recursive, false, 0]])
+        T_Recursive.defineClass(Recursive, -1, false, nil, [['v', ::Test::T_Recursive, false, 0]])
     end
 
     if not defined?(::Test::K_Mixin)
@@ -572,7 +572,7 @@ module ::Test
             T_K = ::Ice::__declareClass('::Test::K')
         end
 
-        T_K.defineClass(K, -1, false, false, nil, [['value', ::Ice::T_Value, false, 0]])
+        T_K.defineClass(K, -1, false, nil, [['value', ::Ice::T_Value, false, 0]])
     end
 
     if not defined?(::Test::L_Mixin)
@@ -592,7 +592,7 @@ module ::Test
             T_L = ::Ice::__declareClass('::Test::L')
         end
 
-        T_L.defineClass(L, -1, false, false, nil, [['data', ::Ice::T_string, false, 0]])
+        T_L.defineClass(L, -1, false, nil, [['data', ::Ice::T_string, false, 0]])
     end
 
     if not defined?(::Test::T_ValueSeq)
@@ -659,7 +659,7 @@ module ::Test
             T_M = ::Ice::__declareClass('::Test::M')
         end
 
-        T_M.defineClass(M, -1, false, false, nil, [['v', ::Test::T_LMap, false, 0]])
+        T_M.defineClass(M, -1, false, nil, [['v', ::Test::T_LMap, false, 0]])
     end
 
     if not defined?(::Test::T_F1)
@@ -688,7 +688,7 @@ module ::Test
             T_F3 = ::Ice::__declareClass('::Test::F3')
         end
 
-        T_F3.defineClass(F3, -1, false, false, nil, [
+        T_F3.defineClass(F3, -1, false, nil, [
             ['f1', ::Test::T_F1, false, 0],
             ['f2', ::Test::T_F2Prx, false, 0]
         ])
@@ -917,7 +917,7 @@ module ::Test
             T_Empty = ::Ice::__declareClass('::Test::Empty')
         end
 
-        T_Empty.defineClass(Empty, -1, false, false, nil, [])
+        T_Empty.defineClass(Empty, -1, false, nil, [])
     end
 
     if not defined?(::Test::AlsoEmpty_Mixin)
@@ -931,7 +931,7 @@ module ::Test
             T_AlsoEmpty = ::Ice::__declareClass('::Test::AlsoEmpty')
         end
 
-        T_AlsoEmpty.defineClass(AlsoEmpty, -1, false, false, nil, [])
+        T_AlsoEmpty.defineClass(AlsoEmpty, -1, false, nil, [])
     end
 
     if not defined?(::Test::UnexpectedObjectExceptionTest_Mixin)
@@ -977,7 +977,7 @@ module ::Test
             T_COneMember = ::Ice::__declareClass('::Test::COneMember')
         end
 
-        T_COneMember.defineClass(COneMember, -1, false, false, nil, [['e', ::Test::T_Empty, false, 0]])
+        T_COneMember.defineClass(COneMember, -1, false, nil, [['e', ::Test::T_Empty, false, 0]])
     end
 
     if not defined?(::Test::CTwoMembers_Mixin)
@@ -998,7 +998,7 @@ module ::Test
             T_CTwoMembers = ::Ice::__declareClass('::Test::CTwoMembers')
         end
 
-        T_CTwoMembers.defineClass(CTwoMembers, -1, false, false, nil, [
+        T_CTwoMembers.defineClass(CTwoMembers, -1, false, nil, [
             ['e1', ::Test::T_Empty, false, 0],
             ['e2', ::Test::T_Empty, false, 0]
         ])
@@ -1017,7 +1017,7 @@ module ::Test
             attr_accessor :e
         end
 
-        T_EOneMember = ::Ice::__defineException('::Test::EOneMember', EOneMember, false, nil, [["e", ::Test::T_Empty, false, 0]])
+        T_EOneMember = ::Ice::__defineException('::Test::EOneMember', EOneMember, nil, [["e", ::Test::T_Empty, false, 0]])
     end
 
     if not defined?(::Test::ETwoMembers)
@@ -1034,7 +1034,7 @@ module ::Test
             attr_accessor :e1, :e2
         end
 
-        T_ETwoMembers = ::Ice::__defineException('::Test::ETwoMembers', ETwoMembers, false, nil, [
+        T_ETwoMembers = ::Ice::__defineException('::Test::ETwoMembers', ETwoMembers, nil, [
             ["e1", ::Test::T_Empty, false, 0],
             ["e2", ::Test::T_Empty, false, 0]
         ])

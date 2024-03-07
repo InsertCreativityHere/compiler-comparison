@@ -75,7 +75,7 @@
         }
     };
 
-    Slice.defineValue(IceMX.SessionMetrics, "::IceMX::SessionMetrics", false);
+    Slice.defineValue(IceMX.SessionMetrics, "::IceMX::SessionMetrics");
 /* slice2js browser-bundle-skip */
     exports.IceMX = IceMX;
 /* slice2js browser-bundle-skip-end */

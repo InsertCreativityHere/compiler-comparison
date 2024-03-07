@@ -29,7 +29,7 @@ if '_t_SerialLarge' not in _M_Test.__dict__:
 if '_t_SerialStruct' not in _M_Test.__dict__:
     _M_Test._t_SerialStruct = IcePy.defineSequence('::Test::SerialStruct', (), IcePy._t_byte)
 
-_M_Test._t_MyClass = IcePy.defineValue('::Test::MyClass', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_MyClass = IcePy.defineValue('::Test::MyClass', Ice.Value, -1, (), True, None, ())
 
 if 'MyClassPrx' not in _M_Test.__dict__:
     _M_Test.MyClassPrx = Ice.createTempClass()
@@ -240,7 +240,7 @@ if 'Bar' not in _M_Test.__dict__:
 
         _ice_id = '::Test::Bar'
 
-    _M_Test._t_Bar = IcePy.defineException('::Test::Bar', Bar, (), False, None, (
+    _M_Test._t_Bar = IcePy.defineException('::Test::Bar', Bar, (), None, (
         ('SLmem', (), _M_Test._t_SerialLarge, False, 0),
         ('SLSmem', (), _M_Test._t_SLS, False, 0)
     ))
@@ -268,7 +268,7 @@ if 'Baz' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_Baz = IcePy.defineValue('::Test::Baz', Baz, -1, (), False, False, None, (
+    _M_Test._t_Baz = IcePy.defineValue('::Test::Baz', Baz, -1, (), False, None, (
         ('SLmem', (), _M_Test._t_SerialLarge, False, 0),
         ('SLSmem', (), _M_Test._t_SLS, False, 0)
     ))

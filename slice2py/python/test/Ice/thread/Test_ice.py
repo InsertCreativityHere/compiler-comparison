@@ -24,7 +24,7 @@ _M_Ice = Ice.openModule('Ice')
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
-_M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), True, None, ())
 
 if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntfPrx = Ice.createTempClass()
@@ -81,7 +81,7 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntf = TestIntf
     del TestIntf
 
-_M_Test._t_RemoteCommunicator = IcePy.defineValue('::Test::RemoteCommunicator', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_RemoteCommunicator = IcePy.defineValue('::Test::RemoteCommunicator', Ice.Value, -1, (), True, None, ())
 
 if 'RemoteCommunicatorPrx' not in _M_Test.__dict__:
     _M_Test.RemoteCommunicatorPrx = Ice.createTempClass()
@@ -168,7 +168,7 @@ if 'RemoteCommunicatorPrx' not in _M_Test.__dict__:
     _M_Test.RemoteCommunicator = RemoteCommunicator
     del RemoteCommunicator
 
-_M_Test._t_RemoteCommunicatorFactory = IcePy.defineValue('::Test::RemoteCommunicatorFactory', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_RemoteCommunicatorFactory = IcePy.defineValue('::Test::RemoteCommunicatorFactory', Ice.Value, -1, (), True, None, ())
 
 if 'RemoteCommunicatorFactoryPrx' not in _M_Test.__dict__:
     _M_Test.RemoteCommunicatorFactoryPrx = Ice.createTempClass()

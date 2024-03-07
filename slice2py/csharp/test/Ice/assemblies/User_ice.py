@@ -42,13 +42,13 @@ if 'UserInfo' not in _M_User.__dict__:
 
         __repr__ = __str__
 
-    _M_User._t_UserInfo = IcePy.defineValue('::User::UserInfo', UserInfo, -1, (), False, False, None, ())
+    _M_User._t_UserInfo = IcePy.defineValue('::User::UserInfo', UserInfo, -1, (), False, None, ())
     UserInfo._ice_type = _M_User._t_UserInfo
 
     _M_User.UserInfo = UserInfo
     del UserInfo
 
-_M_User._t_Registry = IcePy.defineValue('::User::Registry', Ice.Value, -1, (), False, True, None, ())
+_M_User._t_Registry = IcePy.defineValue('::User::Registry', Ice.Value, -1, (), True, None, ())
 
 if 'RegistryPrx' not in _M_User.__dict__:
     _M_User.RegistryPrx = Ice.createTempClass()

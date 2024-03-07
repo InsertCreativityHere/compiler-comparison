@@ -231,7 +231,7 @@
         }
     };
 
-    Slice.defineValue(Test.CV, "::Test::CV", false);
+    Slice.defineValue(Test.CV, "::Test::CV");
 
     Slice.defineSequence(Test, "ACVSHelper", "Ice.ObjectHelper", false, "Test.CV");
 
@@ -283,7 +283,7 @@
         }
     };
 
-    Slice.defineValue(Test.CR, "::Test::CR", false);
+    Slice.defineValue(Test.CR, "::Test::CR");
 
     Slice.defineSequence(Test, "ACRSHelper", "Ice.ObjectHelper", false, "Test.CR");
 

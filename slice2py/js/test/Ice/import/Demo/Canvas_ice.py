@@ -37,7 +37,7 @@ __name__ = 'Demo'
 # Start of module Demo.gx
 __name__ = 'Demo.gx'
 
-_M_Demo.gx._t_Canvas = IcePy.defineValue('::Demo::gx::Canvas', Ice.Value, -1, (), False, True, None, ())
+_M_Demo.gx._t_Canvas = IcePy.defineValue('::Demo::gx::Canvas', Ice.Value, -1, (), True, None, ())
 
 if 'CanvasPrx' not in _M_Demo.gx.__dict__:
     _M_Demo.gx.CanvasPrx = Ice.createTempClass()
@@ -104,7 +104,7 @@ if 'CanvasPrx' not in _M_Demo.gx.__dict__:
     _M_Demo.gx.Canvas = Canvas
     del Canvas
 
-_M_Demo.gx._t_Session = IcePy.defineValue('::Demo::gx::Session', Ice.Value, -1, (), False, True, None, ())
+_M_Demo.gx._t_Session = IcePy.defineValue('::Demo::gx::Session', Ice.Value, -1, (), True, None, ())
 
 if 'SessionPrx' not in _M_Demo.gx.__dict__:
     _M_Demo.gx.SessionPrx = Ice.createTempClass()

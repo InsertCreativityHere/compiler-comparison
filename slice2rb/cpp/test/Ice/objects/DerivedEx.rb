@@ -31,6 +31,6 @@ module ::Test
             end
         end
 
-        T_DerivedEx = ::Ice::__defineException('::Test::DerivedEx', DerivedEx, false, ::Test::T_BaseEx, [])
+        T_DerivedEx = ::Ice::__defineException('::Test::DerivedEx', DerivedEx, ::Test::T_BaseEx, [])
     end
 end

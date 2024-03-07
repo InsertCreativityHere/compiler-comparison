@@ -46,7 +46,7 @@ namespace Test
 
     global $Ice__t_Value;
     global $IcePHP__t_string;
-    $Test__t_SBase = IcePHP_defineClass('::Test::SBase', '\\Test\\SBase', -1, false, false, $Ice__t_Value, array(
+    $Test__t_SBase = IcePHP_defineClass('::Test::SBase', '\\Test\\SBase', -1, false, $Ice__t_Value, array(
         array('sb', $IcePHP__t_string, false, 0)));
 }
 
@@ -82,7 +82,7 @@ namespace Test
 
     global $Test__t_SBase;
     global $IcePHP__t_string;
-    $Test__t_SBSKnownDerived = IcePHP_defineClass('::Test::SBSKnownDerived', '\\Test\\SBSKnownDerived', -1, false, false, $Test__t_SBase, array(
+    $Test__t_SBSKnownDerived = IcePHP_defineClass('::Test::SBSKnownDerived', '\\Test\\SBSKnownDerived', -1, false, $Test__t_SBase, array(
         array('sbskd', $IcePHP__t_string, false, 0)));
 }
 
@@ -122,7 +122,7 @@ namespace Test
     global $Ice__t_Value;
     global $IcePHP__t_string;
     global $Test__t_B;
-    $Test__t_B = IcePHP_defineClass('::Test::B', '\\Test\\B', -1, false, false, $Ice__t_Value, array(
+    $Test__t_B = IcePHP_defineClass('::Test::B', '\\Test\\B', -1, false, $Ice__t_Value, array(
         array('sb', $IcePHP__t_string, false, 0),
         array('pb', $Test__t_B, false, 0)));
 }
@@ -163,7 +163,7 @@ namespace Test
 
     global $Test__t_B;
     global $IcePHP__t_string;
-    $Test__t_D1 = IcePHP_defineClass('::Test::D1', '\\Test\\D1', -1, false, false, $Test__t_B, array(
+    $Test__t_D1 = IcePHP_defineClass('::Test::D1', '\\Test\\D1', -1, false, $Test__t_B, array(
         array('sd1', $IcePHP__t_string, false, 0),
         array('pd1', $Test__t_B, false, 0)));
 }
@@ -212,7 +212,7 @@ namespace Test
 
     global $Ice__t_Value;
     global $Test__t_BSeq;
-    $Test__t_SS1 = IcePHP_defineClass('::Test::SS1', '\\Test\\SS1', -1, false, false, $Ice__t_Value, array(
+    $Test__t_SS1 = IcePHP_defineClass('::Test::SS1', '\\Test\\SS1', -1, false, $Ice__t_Value, array(
         array('s', $Test__t_BSeq, false, 0)));
 }
 
@@ -249,7 +249,7 @@ namespace Test
 
     global $Ice__t_Value;
     global $Test__t_BSeq;
-    $Test__t_SS2 = IcePHP_defineClass('::Test::SS2', '\\Test\\SS2', -1, false, false, $Ice__t_Value, array(
+    $Test__t_SS2 = IcePHP_defineClass('::Test::SS2', '\\Test\\SS2', -1, false, $Ice__t_Value, array(
         array('s', $Test__t_BSeq, false, 0)));
 }
 
@@ -321,7 +321,7 @@ namespace Test
     global $IcePHP__t_string;
     global $Test__t_B;
 
-    $Test__t_BaseException = IcePHP_defineException('::Test::BaseException', '\\Test\\BaseException', false, null, array(
+    $Test__t_BaseException = IcePHP_defineException('::Test::BaseException', '\\Test\\BaseException', null, array(
         array('sbe', $IcePHP__t_string, false, 0),
         array('pb', $Test__t_B, false, 0)));
 }
@@ -355,7 +355,7 @@ namespace Test
     global $IcePHP__t_string;
     global $Test__t_D1;
 
-    $Test__t_DerivedException = IcePHP_defineException('::Test::DerivedException', '\\Test\\DerivedException', false, $Test__t_BaseException, array(
+    $Test__t_DerivedException = IcePHP_defineException('::Test::DerivedException', '\\Test\\DerivedException', $Test__t_BaseException, array(
         array('sde', $IcePHP__t_string, false, 0),
         array('pd1', $Test__t_D1, false, 0)));
 }
@@ -400,7 +400,7 @@ namespace Test
 
     global $Ice__t_Value;
     global $IcePHP__t_int;
-    $Test__t_PBase = IcePHP_defineClass('::Test::PBase', '\\Test\\PBase', -1, false, false, $Ice__t_Value, array(
+    $Test__t_PBase = IcePHP_defineClass('::Test::PBase', '\\Test\\PBase', -1, false, $Ice__t_Value, array(
         array('pi', $IcePHP__t_int, false, 0)));
 }
 
@@ -447,7 +447,7 @@ namespace Test
 
     global $Test__t_PBase;
     global $IcePHP__t_string;
-    $Test__t_Preserved = IcePHP_defineClass('::Test::Preserved', '\\Test\\Preserved', -1, true, false, $Test__t_PBase, array(
+    $Test__t_Preserved = IcePHP_defineClass('::Test::Preserved', '\\Test\\Preserved', -1, false, $Test__t_PBase, array(
         array('ps', $IcePHP__t_string, false, 0)));
 }
 
@@ -485,7 +485,7 @@ namespace Test
 
     global $Test__t_Preserved;
     global $Test__t_PBase;
-    $Test__t_PDerived = IcePHP_defineClass('::Test::PDerived', '\\Test\\PDerived', -1, true, false, $Test__t_Preserved, array(
+    $Test__t_PDerived = IcePHP_defineClass('::Test::PDerived', '\\Test\\PDerived', -1, false, $Test__t_Preserved, array(
         array('pb', $Test__t_PBase, false, 0)));
 }
 
@@ -523,7 +523,7 @@ namespace Test
 
     global $Test__t_Preserved;
     global $Test__t_PBase;
-    $Test__t_CompactPDerived = IcePHP_defineClass('::Test::CompactPDerived', '\\Test\\CompactPDerived', 56, true, false, $Test__t_Preserved, array(
+    $Test__t_CompactPDerived = IcePHP_defineClass('::Test::CompactPDerived', '\\Test\\CompactPDerived', 56, false, $Test__t_Preserved, array(
         array('pb', $Test__t_PBase, false, 0)));
 }
 
@@ -560,7 +560,7 @@ namespace Test
 
     global $Ice__t_Value;
     global $Test__t_PNode;
-    $Test__t_PNode = IcePHP_defineClass('::Test::PNode', '\\Test\\PNode', -1, true, false, $Ice__t_Value, array(
+    $Test__t_PNode = IcePHP_defineClass('::Test::PNode', '\\Test\\PNode', -1, false, $Ice__t_Value, array(
         array('next', $Test__t_PNode, false, 0)));
 }
 
@@ -585,7 +585,7 @@ namespace Test
         }
     }
 
-    $Test__t_PreservedException = IcePHP_defineException('::Test::PreservedException', '\\Test\\PreservedException', true, null, null);
+    $Test__t_PreservedException = IcePHP_defineException('::Test::PreservedException', '\\Test\\PreservedException', null, null);
 }
 
 namespace Test
@@ -698,7 +698,7 @@ namespace Test
 
     global $Test__t_SBase;
     global $IcePHP__t_string;
-    $Test__t_SBSUnknownDerived = IcePHP_defineClass('::Test::SBSUnknownDerived', '\\Test\\SBSUnknownDerived', -1, false, false, $Test__t_SBase, array(
+    $Test__t_SBSUnknownDerived = IcePHP_defineClass('::Test::SBSUnknownDerived', '\\Test\\SBSUnknownDerived', -1, false, $Test__t_SBase, array(
         array('sbsud', $IcePHP__t_string, false, 0)));
 }
 
@@ -738,7 +738,7 @@ namespace Test
     global $Ice__t_Value;
     global $IcePHP__t_string;
     global $Test__t_SUnknown;
-    $Test__t_SUnknown = IcePHP_defineClass('::Test::SUnknown', '\\Test\\SUnknown', -1, false, false, $Ice__t_Value, array(
+    $Test__t_SUnknown = IcePHP_defineClass('::Test::SUnknown', '\\Test\\SUnknown', -1, false, $Ice__t_Value, array(
         array('su', $IcePHP__t_string, false, 0),
         array('cycle', $Test__t_SUnknown, false, 0)));
 }
@@ -779,7 +779,7 @@ namespace Test
 
     global $Test__t_B;
     global $IcePHP__t_string;
-    $Test__t_D2 = IcePHP_defineClass('::Test::D2', '\\Test\\D2', -1, false, false, $Test__t_B, array(
+    $Test__t_D2 = IcePHP_defineClass('::Test::D2', '\\Test\\D2', -1, false, $Test__t_B, array(
         array('sd2', $IcePHP__t_string, false, 0),
         array('pd2', $Test__t_B, false, 0)));
 }
@@ -819,7 +819,7 @@ namespace Test
     $Test__t_D4 = IcePHP_declareClass('::Test::D4');
 
     global $Test__t_B;
-    $Test__t_D4 = IcePHP_defineClass('::Test::D4', '\\Test\\D4', -1, false, false, $Test__t_B, array(
+    $Test__t_D4 = IcePHP_defineClass('::Test::D4', '\\Test\\D4', -1, false, $Test__t_B, array(
         array('p1', $Test__t_B, false, 0),
         array('p2', $Test__t_B, false, 0)));
 }
@@ -853,7 +853,7 @@ namespace Test
     global $IcePHP__t_string;
     global $Test__t_D2;
 
-    $Test__t_UnknownDerivedException = IcePHP_defineException('::Test::UnknownDerivedException', '\\Test\\UnknownDerivedException', false, $Test__t_BaseException, array(
+    $Test__t_UnknownDerivedException = IcePHP_defineException('::Test::UnknownDerivedException', '\\Test\\UnknownDerivedException', $Test__t_BaseException, array(
         array('sude', $IcePHP__t_string, false, 0),
         array('pd2', $Test__t_D2, false, 0)));
 }
@@ -889,7 +889,7 @@ namespace Test
 
     global $Ice__t_Value;
     global $IcePHP__t_int;
-    $Test__t_MyClass = IcePHP_defineClass('::Test::MyClass', '\\Test\\MyClass', -1, false, false, $Ice__t_Value, array(
+    $Test__t_MyClass = IcePHP_defineClass('::Test::MyClass', '\\Test\\MyClass', -1, false, $Ice__t_Value, array(
         array('i', $IcePHP__t_int, false, 0)));
 }
 
@@ -933,7 +933,7 @@ namespace Test
     global $IcePHP__t_string;
     global $Test__t_PNode;
     global $Test__t_MyClass;
-    $Test__t_PSUnknown = IcePHP_defineClass('::Test::PSUnknown', '\\Test\\PSUnknown', -1, true, false, $Test__t_Preserved, array(
+    $Test__t_PSUnknown = IcePHP_defineClass('::Test::PSUnknown', '\\Test\\PSUnknown', -1, false, $Test__t_Preserved, array(
         array('psu', $IcePHP__t_string, false, 0),
         array('graph', $Test__t_PNode, false, 0),
         array('cl', $Test__t_MyClass, false, 0)));
@@ -973,7 +973,7 @@ namespace Test
 
     global $Test__t_Preserved;
     global $Test__t_PBase;
-    $Test__t_PSUnknown2 = IcePHP_defineClass('::Test::PSUnknown2', '\\Test\\PSUnknown2', -1, true, false, $Test__t_Preserved, array(
+    $Test__t_PSUnknown2 = IcePHP_defineClass('::Test::PSUnknown2', '\\Test\\PSUnknown2', -1, false, $Test__t_Preserved, array(
         array('pb', $Test__t_PBase, false, 0)));
 }
 
@@ -1003,7 +1003,7 @@ namespace Test
     }
     global $Test__t_PSUnknown2;
 
-    $Test__t_PSUnknownException = IcePHP_defineException('::Test::PSUnknownException', '\\Test\\PSUnknownException', true, $Test__t_PreservedException, array(
+    $Test__t_PSUnknownException = IcePHP_defineException('::Test::PSUnknownException', '\\Test\\PSUnknownException', $Test__t_PreservedException, array(
         array('p', $Test__t_PSUnknown2, false, 0)));
 }
 
@@ -1040,7 +1040,7 @@ namespace Test
 
     global $Ice__t_Value;
     global $Test__t_Forward;
-    $Test__t_Hidden = IcePHP_defineClass('::Test::Hidden', '\\Test\\Hidden', -1, false, false, $Ice__t_Value, array(
+    $Test__t_Hidden = IcePHP_defineClass('::Test::Hidden', '\\Test\\Hidden', -1, false, $Ice__t_Value, array(
         array('f', $Test__t_Forward, false, 0)));
 }
 
@@ -1075,7 +1075,7 @@ namespace Test
 
     global $Ice__t_Value;
     global $Test__t_Hidden;
-    $Test__t_Forward = IcePHP_defineClass('::Test::Forward', '\\Test\\Forward', -1, false, false, $Ice__t_Value, array(
+    $Test__t_Forward = IcePHP_defineClass('::Test::Forward', '\\Test\\Forward', -1, false, $Ice__t_Value, array(
         array('h', $Test__t_Hidden, false, 0)));
 }
 ?>

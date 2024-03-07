@@ -362,7 +362,7 @@ module ::Test
             end
         end
 
-        T_SomeException = ::Ice::__defineException('::Test::SomeException', SomeException, false, nil, [])
+        T_SomeException = ::Ice::__defineException('::Test::SomeException', SomeException, nil, [])
     end
 
     if not defined?(::Test::MyClass_Mixin)
@@ -799,7 +799,7 @@ module ::Test
             T_MyClass1 = ::Ice::__declareClass('::Test::MyClass1')
         end
 
-        T_MyClass1.defineClass(MyClass1, -1, false, false, nil, [
+        T_MyClass1.defineClass(MyClass1, -1, false, nil, [
             ['tesT', ::Ice::T_string, false, 0],
             ['myClass', ::Test::T_MyClassPrx, false, 0],
             ['myClass1', ::Ice::T_string, false, 0]

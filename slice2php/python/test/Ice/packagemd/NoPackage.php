@@ -46,7 +46,7 @@ namespace Test1
 
     global $Ice__t_Value;
     global $IcePHP__t_int;
-    $Test1__t_C1 = IcePHP_defineClass('::Test1::C1', '\\Test1\\C1', -1, false, false, $Ice__t_Value, array(
+    $Test1__t_C1 = IcePHP_defineClass('::Test1::C1', '\\Test1\\C1', -1, false, $Ice__t_Value, array(
         array('i', $IcePHP__t_int, false, 0)));
 }
 
@@ -82,7 +82,7 @@ namespace Test1
 
     global $Test1__t_C1;
     global $IcePHP__t_long;
-    $Test1__t_C2 = IcePHP_defineClass('::Test1::C2', '\\Test1\\C2', -1, false, false, $Test1__t_C1, array(
+    $Test1__t_C2 = IcePHP_defineClass('::Test1::C2', '\\Test1\\C2', -1, false, $Test1__t_C1, array(
         array('l', $IcePHP__t_long, false, 0)));
 }
 
@@ -111,7 +111,7 @@ namespace Test1
     }
     global $IcePHP__t_int;
 
-    $Test1__t_E1 = IcePHP_defineException('::Test1::E1', '\\Test1\\E1', false, null, array(
+    $Test1__t_E1 = IcePHP_defineException('::Test1::E1', '\\Test1\\E1', null, array(
         array('i', $IcePHP__t_int, false, 0)));
 }
 
@@ -141,7 +141,7 @@ namespace Test1
     }
     global $IcePHP__t_long;
 
-    $Test1__t_E2 = IcePHP_defineException('::Test1::E2', '\\Test1\\E2', false, $Test1__t_E1, array(
+    $Test1__t_E2 = IcePHP_defineException('::Test1::E2', '\\Test1\\E2', $Test1__t_E1, array(
         array('l', $IcePHP__t_long, false, 0)));
 }
 
@@ -170,7 +170,7 @@ namespace Test1
     }
     global $IcePHP__t_int;
 
-    $Test1__t_def = IcePHP_defineException('::Test1::def', '\\Test1\\def', false, null, array(
+    $Test1__t_def = IcePHP_defineException('::Test1::def', '\\Test1\\def', null, array(
         array('i', $IcePHP__t_int, false, 0)));
 }
 ?>

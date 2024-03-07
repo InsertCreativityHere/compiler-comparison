@@ -213,7 +213,7 @@ if 'logical' not in _M_classdef._break.__dict__:
 
         __repr__ = __str__
 
-    _M_classdef._break._t_logical = IcePy.defineValue('::classdef::break::logical', logical, -1, (), False, False, None, (
+    _M_classdef._break._t_logical = IcePy.defineValue('::classdef::break::logical', logical, -1, (), False, None, (
         ('_else', (), _M_classdef._break._t_bitand, False, 0),
         ('_for', (), _M_classdef._break._t_bitor, False, 0),
         ('int64', (), IcePy._t_bool, False, 0)
@@ -242,7 +242,7 @@ if 'xor' not in _M_classdef._break.__dict__:
 
         __repr__ = __str__
 
-    _M_classdef._break._t_xor = IcePy.defineValue('::classdef::break::xor', xor, -1, (), False, False, _M_classdef._break._t_logical, (('_return', (), IcePy._t_int, False, 0),))
+    _M_classdef._break._t_xor = IcePy.defineValue('::classdef::break::xor', xor, -1, (), False, _M_classdef._break._t_logical, (('_return', (), IcePy._t_int, False, 0),))
     xor._ice_type = _M_classdef._break._t_xor
 
     _M_classdef._break.xor = xor
@@ -273,7 +273,7 @@ if '_try' not in _M_classdef._break.__dict__:
 
         __repr__ = __str__
 
-    _M_classdef._break._t__try = IcePy.defineValue('::classdef::break::try', _try, -1, (), False, False, None, (
+    _M_classdef._break._t__try = IcePy.defineValue('::classdef::break::try', _try, -1, (), False, None, (
         ('_while', (), IcePy._t_int, False, 0),
         ('delete', (), IcePy._t_int, False, 0)
     ))
@@ -306,7 +306,7 @@ if 'properties' not in _M_classdef._break.__dict__:
 
     _M_classdef._break._t_properties = IcePy.declareValue('::classdef::break::properties')
 
-    _M_classdef._break._t_properties = IcePy.defineValue('::classdef::break::properties', properties, -1, (), False, False, _M_classdef._break._t__try, (
+    _M_classdef._break._t_properties = IcePy.defineValue('::classdef::break::properties', properties, -1, (), False, _M_classdef._break._t__try, (
         ('_if', (), IcePy._t_int, False, 0),
         ('catch', (), _M_classdef._break._t_xor, False, 0),
         ('spmd', (), _M_classdef._break._t_parfor, False, 0),
@@ -335,7 +335,7 @@ if 'persistent' not in _M_classdef._break.__dict__:
 
         _ice_id = '::classdef::break::persistent'
 
-    _M_classdef._break._t_persistent = IcePy.defineException('::classdef::break::persistent', persistent, (), False, None, (
+    _M_classdef._break._t_persistent = IcePy.defineException('::classdef::break::persistent', persistent, (), None, (
         ('identifier', (), IcePy._t_string, False, 0),
         ('message', (), IcePy._t_string, False, 0),
         ('stack', (), IcePy._t_string, False, 0),
@@ -362,13 +362,13 @@ if '_global' not in _M_classdef._break.__dict__:
 
         _ice_id = '::classdef::break::global'
 
-    _M_classdef._break._t__global = IcePy.defineException('::classdef::break::global', _global, (), False, _M_classdef._break._t_persistent, (('enumeration', (), IcePy._t_int, False, 0),))
+    _M_classdef._break._t__global = IcePy.defineException('::classdef::break::global', _global, (), _M_classdef._break._t_persistent, (('enumeration', (), IcePy._t_int, False, 0),))
     _global._ice_type = _M_classdef._break._t__global
 
     _M_classdef._break._global = _global
     del _global
 
-_M_classdef._break._t_elseif = IcePy.defineValue('::classdef::break::elseif', Ice.Value, -1, (), False, True, None, ())
+_M_classdef._break._t_elseif = IcePy.defineValue('::classdef::break::elseif', Ice.Value, -1, (), True, None, ())
 
 if 'elseifPrx' not in _M_classdef._break.__dict__:
     _M_classdef._break.elseifPrx = Ice.createTempClass()

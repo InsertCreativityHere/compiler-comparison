@@ -229,7 +229,7 @@ namespace Test\NumPy
     global $Test_NumPy__t_LongSeq1;
     global $Test_NumPy__t_FloatSeq1;
     global $Test_NumPy__t_DoubleSeq1;
-    $Test_NumPy__t_D = IcePHP_defineClass('::Test::NumPy::D', '\\Test\\NumPy\\D', -1, false, false, $Ice__t_Value, array(
+    $Test_NumPy__t_D = IcePHP_defineClass('::Test::NumPy::D', '\\Test\\NumPy\\D', -1, false, $Ice__t_Value, array(
         array('boolSeq', $Test_NumPy__t_BoolSeq1, true, 1),
         array('byteSeq', $Test_NumPy__t_ByteSeq1, true, 2),
         array('shortSeq', $Test_NumPy__t_ShortSeq1, true, 3),

@@ -28,7 +28,7 @@ module ::Test
             end
         end
 
-        T_UE = ::Ice::__defineException('::Test::UE', UE, false, nil, [])
+        T_UE = ::Ice::__defineException('::Test::UE', UE, nil, [])
     end
 
     if not defined?(::Test::Hello_Mixin)

@@ -35,7 +35,7 @@ module ::Test
             T_F1 = ::Ice::__declareClass('::Test::F1')
         end
 
-        T_F1.defineClass(F1, -1, false, false, nil, [['name', ::Ice::T_string, false, 0]])
+        T_F1.defineClass(F1, -1, false, nil, [['name', ::Ice::T_string, false, 0]])
     end
 
     if not defined?(::Test::F2_Mixin)

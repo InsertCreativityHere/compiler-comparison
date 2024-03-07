@@ -20,7 +20,7 @@ import Ice, IcePy
 _M_Clash = Ice.openModule('Clash')
 __name__ = 'Clash'
 
-_M_Clash._t_Intf = IcePy.defineValue('::Clash::Intf', Ice.Value, -1, (), False, True, None, ())
+_M_Clash._t_Intf = IcePy.defineValue('::Clash::Intf', Ice.Value, -1, (), True, None, ())
 
 if 'IntfPrx' not in _M_Clash.__dict__:
     _M_Clash.IntfPrx = Ice.createTempClass()
@@ -219,7 +219,7 @@ if 'Cls' not in _M_Clash.__dict__:
 
         __repr__ = __str__
 
-    _M_Clash._t_Cls = IcePy.defineValue('::Clash::Cls', Cls, -1, (), False, False, None, (
+    _M_Clash._t_Cls = IcePy.defineValue('::Clash::Cls', Cls, -1, (), False, None, (
         ('s', (), _M_Clash._t_IntfPrx, False, 0),
         ('context', (), IcePy._t_string, False, 0),
         ('current', (), IcePy._t_int, False, 0),
@@ -380,7 +380,7 @@ if 'Ex' not in _M_Clash.__dict__:
 
         _ice_id = '::Clash::Ex'
 
-    _M_Clash._t_Ex = IcePy.defineException('::Clash::Ex', Ex, (), False, None, (
+    _M_Clash._t_Ex = IcePy.defineException('::Clash::Ex', Ex, (), None, (
         ('istr', (), IcePy._t_short, False, 0),
         ('ostr', (), IcePy._t_int, False, 0)
     ))

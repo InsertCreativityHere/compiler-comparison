@@ -136,7 +136,7 @@ module ::Test
             attr_accessor :SLmem, :SLSmem
         end
 
-        T_Bar = ::Ice::__defineException('::Test::Bar', Bar, false, nil, [
+        T_Bar = ::Ice::__defineException('::Test::Bar', Bar, nil, [
             ["SLmem", ::Test::T_SerialLarge, false, 0],
             ["SLSmem", ::Test::T_SLS, false, 0]
         ])
@@ -160,7 +160,7 @@ module ::Test
             T_Baz = ::Ice::__declareClass('::Test::Baz')
         end
 
-        T_Baz.defineClass(Baz, -1, false, false, nil, [
+        T_Baz.defineClass(Baz, -1, false, nil, [
             ['SLmem', ::Test::T_SerialLarge, false, 0],
             ['SLSmem', ::Test::T_SLS, false, 0]
         ])

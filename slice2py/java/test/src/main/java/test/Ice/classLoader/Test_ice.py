@@ -38,7 +38,7 @@ if 'ConcreteClass' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_ConcreteClass = IcePy.defineValue('::Test::ConcreteClass', ConcreteClass, -1, (), False, False, None, (('i', (), IcePy._t_int, False, 0),))
+    _M_Test._t_ConcreteClass = IcePy.defineValue('::Test::ConcreteClass', ConcreteClass, -1, (), False, None, (('i', (), IcePy._t_int, False, 0),))
     ConcreteClass._ice_type = _M_Test._t_ConcreteClass
 
     _M_Test.ConcreteClass = ConcreteClass
@@ -57,13 +57,13 @@ if 'E' not in _M_Test.__dict__:
 
         _ice_id = '::Test::E'
 
-    _M_Test._t_E = IcePy.defineException('::Test::E', E, (), False, None, ())
+    _M_Test._t_E = IcePy.defineException('::Test::E', E, (), None, ())
     E._ice_type = _M_Test._t_E
 
     _M_Test.E = E
     del E
 
-_M_Test._t_Initial = IcePy.defineValue('::Test::Initial', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_Initial = IcePy.defineValue('::Test::Initial', Ice.Value, -1, (), True, None, ())
 
 if 'InitialPrx' not in _M_Test.__dict__:
     _M_Test.InitialPrx = Ice.createTempClass()

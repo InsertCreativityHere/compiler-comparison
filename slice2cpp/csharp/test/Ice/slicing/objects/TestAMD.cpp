@@ -1588,30 +1588,6 @@ Test::Preserved::~Preserved()
 {
 }
 
-::std::shared_ptr<::Ice::SlicedData>
-Test::Preserved::ice_getSlicedData() const
-{
-    return _iceSlicedData;
-}
-
-/// \cond STREAM
-void
-Test::Preserved::_iceWrite(::Ice::OutputStream* ostr) const
-{
-    ostr->startValue(_iceSlicedData);
-    _iceWriteImpl(ostr);
-    ostr->endValue();
-}
-
-void
-Test::Preserved::_iceRead(::Ice::InputStream* istr)
-{
-    istr->startValue();
-    _iceReadImpl(istr);
-    _iceSlicedData = istr->endValue(true);
-}
-/// \endcond
-
 ::std::string_view
 Test::Preserved::ice_staticId()
 {
@@ -1634,30 +1610,6 @@ Test::PNode::~PNode()
 {
 }
 
-::std::shared_ptr<::Ice::SlicedData>
-Test::PNode::ice_getSlicedData() const
-{
-    return _iceSlicedData;
-}
-
-/// \cond STREAM
-void
-Test::PNode::_iceWrite(::Ice::OutputStream* ostr) const
-{
-    ostr->startValue(_iceSlicedData);
-    _iceWriteImpl(ostr);
-    ostr->endValue();
-}
-
-void
-Test::PNode::_iceRead(::Ice::InputStream* istr)
-{
-    istr->startValue();
-    _iceReadImpl(istr);
-    _iceSlicedData = istr->endValue(true);
-}
-/// \endcond
-
 ::std::string_view
 Test::PNode::ice_staticId()
 {
@@ -1675,30 +1627,6 @@ Test::PreservedException::ice_staticId()
     static constexpr ::std::string_view typeId = "::Test::PreservedException";
     return typeId;
 }
-
-::std::shared_ptr<::Ice::SlicedData>
-Test::PreservedException::ice_getSlicedData() const
-{
-    return _slicedData;
-}
-
-/// \cond STREAM
-void
-Test::PreservedException::_write(::Ice::OutputStream* ostr) const
-{
-    ostr->startException(_slicedData);
-    _writeImpl(ostr);
-    ostr->endException();
-}
-
-void
-Test::PreservedException::_read(::Ice::InputStream* istr)
-{
-    istr->startException();
-    _readImpl(istr);
-    _slicedData = istr->endException(true);
-}
-/// \endcond
 
 Test::Hidden::~Hidden()
 {

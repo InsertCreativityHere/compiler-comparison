@@ -71,8 +71,6 @@ Glacier2.PermissionDeniedException = class extends Ice.UserException
     }
 };
 
-Slice.PreservedUserException(Glacier2.PermissionDeniedException);
-
 const iceC_Glacier2_PermissionsVerifier_ids = [
     "::Glacier2::PermissionsVerifier",
     "::Ice::Object"

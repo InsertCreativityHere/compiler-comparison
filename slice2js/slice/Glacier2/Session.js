@@ -73,8 +73,6 @@ Glacier2.CannotCreateSessionException = class extends Ice.UserException
     }
 };
 
-Slice.PreservedUserException(Glacier2.CannotCreateSessionException);
-
 const iceC_Glacier2_Session_ids = [
     "::Glacier2::Session",
     "::Ice::Object"

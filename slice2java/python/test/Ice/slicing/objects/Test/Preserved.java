@@ -48,32 +48,7 @@ public class Preserved extends PBase
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 3651532628030344439L;
-
-    /** @hidden */
-    @Override
-    public com.zeroc.Ice.SlicedData ice_getSlicedData()
-    {
-        return _iceSlicedData;
-    }
-
-    /** @hidden */
-    @Override
-    public void _iceWrite(com.zeroc.Ice.OutputStream ostr)
-    {
-        ostr.startValue(_iceSlicedData);
-        _iceWriteImpl(ostr);
-        ostr.endValue();
-    }
-
-    /** @hidden */
-    @Override
-    public void _iceRead(com.zeroc.Ice.InputStream istr)
-    {
-        istr.startValue();
-        _iceReadImpl(istr);
-        _iceSlicedData = istr.endValue(true);
-    }
+    public static final long serialVersionUID = 3651536598018473446L;
 
     /** @hidden */
     @Override
@@ -94,7 +69,4 @@ public class Preserved extends PBase
         istr_.endSlice();
         super._iceReadImpl(istr_);
     }
-
-    /** @hidden */
-    protected com.zeroc.Ice.SlicedData _iceSlicedData;
 }

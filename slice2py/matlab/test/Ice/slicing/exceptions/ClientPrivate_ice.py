@@ -33,7 +33,7 @@ if 'Base' not in _M_Test.__dict__:
 
         _ice_id = '::Test::Base'
 
-    _M_Test._t_Base = IcePy.defineException('::Test::Base', Base, (), False, None, (('b', (), IcePy._t_string, False, 0),))
+    _M_Test._t_Base = IcePy.defineException('::Test::Base', Base, (), None, (('b', (), IcePy._t_string, False, 0),))
     Base._ice_type = _M_Test._t_Base
 
     _M_Test.Base = Base
@@ -53,7 +53,7 @@ if 'KnownDerived' not in _M_Test.__dict__:
 
         _ice_id = '::Test::KnownDerived'
 
-    _M_Test._t_KnownDerived = IcePy.defineException('::Test::KnownDerived', KnownDerived, (), False, _M_Test._t_Base, (('kd', (), IcePy._t_string, False, 0),))
+    _M_Test._t_KnownDerived = IcePy.defineException('::Test::KnownDerived', KnownDerived, (), _M_Test._t_Base, (('kd', (), IcePy._t_string, False, 0),))
     KnownDerived._ice_type = _M_Test._t_KnownDerived
 
     _M_Test.KnownDerived = KnownDerived
@@ -73,7 +73,7 @@ if 'KnownIntermediate' not in _M_Test.__dict__:
 
         _ice_id = '::Test::KnownIntermediate'
 
-    _M_Test._t_KnownIntermediate = IcePy.defineException('::Test::KnownIntermediate', KnownIntermediate, (), False, _M_Test._t_Base, (('ki', (), IcePy._t_string, False, 0),))
+    _M_Test._t_KnownIntermediate = IcePy.defineException('::Test::KnownIntermediate', KnownIntermediate, (), _M_Test._t_Base, (('ki', (), IcePy._t_string, False, 0),))
     KnownIntermediate._ice_type = _M_Test._t_KnownIntermediate
 
     _M_Test.KnownIntermediate = KnownIntermediate
@@ -93,7 +93,7 @@ if 'KnownMostDerived' not in _M_Test.__dict__:
 
         _ice_id = '::Test::KnownMostDerived'
 
-    _M_Test._t_KnownMostDerived = IcePy.defineException('::Test::KnownMostDerived', KnownMostDerived, (), False, _M_Test._t_KnownIntermediate, (('kmd', (), IcePy._t_string, False, 0),))
+    _M_Test._t_KnownMostDerived = IcePy.defineException('::Test::KnownMostDerived', KnownMostDerived, (), _M_Test._t_KnownIntermediate, (('kmd', (), IcePy._t_string, False, 0),))
     KnownMostDerived._ice_type = _M_Test._t_KnownMostDerived
 
     _M_Test.KnownMostDerived = KnownMostDerived
@@ -113,7 +113,7 @@ if 'KnownPreserved' not in _M_Test.__dict__:
 
         _ice_id = '::Test::KnownPreserved'
 
-    _M_Test._t_KnownPreserved = IcePy.defineException('::Test::KnownPreserved', KnownPreserved, (), True, _M_Test._t_Base, (('kp', (), IcePy._t_string, False, 0),))
+    _M_Test._t_KnownPreserved = IcePy.defineException('::Test::KnownPreserved', KnownPreserved, (), _M_Test._t_Base, (('kp', (), IcePy._t_string, False, 0),))
     KnownPreserved._ice_type = _M_Test._t_KnownPreserved
 
     _M_Test.KnownPreserved = KnownPreserved
@@ -133,7 +133,7 @@ if 'KnownPreservedDerived' not in _M_Test.__dict__:
 
         _ice_id = '::Test::KnownPreservedDerived'
 
-    _M_Test._t_KnownPreservedDerived = IcePy.defineException('::Test::KnownPreservedDerived', KnownPreservedDerived, (), True, _M_Test._t_KnownPreserved, (('kpd', (), IcePy._t_string, False, 0),))
+    _M_Test._t_KnownPreservedDerived = IcePy.defineException('::Test::KnownPreservedDerived', KnownPreservedDerived, (), _M_Test._t_KnownPreserved, (('kpd', (), IcePy._t_string, False, 0),))
     KnownPreservedDerived._ice_type = _M_Test._t_KnownPreservedDerived
 
     _M_Test.KnownPreservedDerived = KnownPreservedDerived
@@ -157,13 +157,13 @@ if 'BaseClass' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_BaseClass = IcePy.defineValue('::Test::BaseClass', BaseClass, -1, (), True, False, None, (('bc', (), IcePy._t_string, False, 0),))
+    _M_Test._t_BaseClass = IcePy.defineValue('::Test::BaseClass', BaseClass, -1, (), False, None, (('bc', (), IcePy._t_string, False, 0),))
     BaseClass._ice_type = _M_Test._t_BaseClass
 
     _M_Test.BaseClass = BaseClass
     del BaseClass
 
-_M_Test._t_Relay = IcePy.defineValue('::Test::Relay', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_Relay = IcePy.defineValue('::Test::Relay', Ice.Value, -1, (), True, None, ())
 
 if 'RelayPrx' not in _M_Test.__dict__:
     _M_Test.RelayPrx = Ice.createTempClass()
@@ -250,7 +250,7 @@ if 'RelayPrx' not in _M_Test.__dict__:
     _M_Test.Relay = Relay
     del Relay
 
-_M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), True, None, ())
 
 if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntfPrx = Ice.createTempClass()
@@ -546,7 +546,7 @@ if 'PreservedClass' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_PreservedClass = IcePy.defineValue('::Test::PreservedClass', PreservedClass, -1, (), True, False, _M_Test._t_BaseClass, (('pc', (), IcePy._t_string, False, 0),))
+    _M_Test._t_PreservedClass = IcePy.defineValue('::Test::PreservedClass', PreservedClass, -1, (), False, _M_Test._t_BaseClass, (('pc', (), IcePy._t_string, False, 0),))
     PreservedClass._ice_type = _M_Test._t_PreservedClass
 
     _M_Test.PreservedClass = PreservedClass
@@ -566,7 +566,7 @@ if 'Preserved1' not in _M_Test.__dict__:
 
         _ice_id = '::Test::Preserved1'
 
-    _M_Test._t_Preserved1 = IcePy.defineException('::Test::Preserved1', Preserved1, (), True, _M_Test._t_KnownPreservedDerived, (('p1', (), _M_Test._t_BaseClass, False, 0),))
+    _M_Test._t_Preserved1 = IcePy.defineException('::Test::Preserved1', Preserved1, (), _M_Test._t_KnownPreservedDerived, (('p1', (), _M_Test._t_BaseClass, False, 0),))
     Preserved1._ice_type = _M_Test._t_Preserved1
 
     _M_Test.Preserved1 = Preserved1
@@ -586,7 +586,7 @@ if 'Preserved2' not in _M_Test.__dict__:
 
         _ice_id = '::Test::Preserved2'
 
-    _M_Test._t_Preserved2 = IcePy.defineException('::Test::Preserved2', Preserved2, (), True, _M_Test._t_Preserved1, (('p2', (), _M_Test._t_BaseClass, False, 0),))
+    _M_Test._t_Preserved2 = IcePy.defineException('::Test::Preserved2', Preserved2, (), _M_Test._t_Preserved1, (('p2', (), _M_Test._t_BaseClass, False, 0),))
     Preserved2._ice_type = _M_Test._t_Preserved2
 
     _M_Test.Preserved2 = Preserved2

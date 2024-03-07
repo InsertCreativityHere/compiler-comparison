@@ -121,7 +121,7 @@ namespace IceStorm
         }
     }
 
-    $IceStorm__t_ReapWouldBlock = IcePHP_defineException('::IceStorm::ReapWouldBlock', '\\IceStorm\\ReapWouldBlock', false, null, null);
+    $IceStorm__t_ReapWouldBlock = IcePHP_defineException('::IceStorm::ReapWouldBlock', '\\IceStorm\\ReapWouldBlock', null, null);
 }
 
 namespace IceStorm

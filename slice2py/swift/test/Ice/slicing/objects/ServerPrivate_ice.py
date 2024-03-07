@@ -42,7 +42,7 @@ if 'SBSUnknownDerived' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_SBSUnknownDerived = IcePy.defineValue('::Test::SBSUnknownDerived', SBSUnknownDerived, -1, (), False, False, _M_Test._t_SBase, (('sbsud', (), IcePy._t_string, False, 0),))
+    _M_Test._t_SBSUnknownDerived = IcePy.defineValue('::Test::SBSUnknownDerived', SBSUnknownDerived, -1, (), False, _M_Test._t_SBase, (('sbsud', (), IcePy._t_string, False, 0),))
     SBSUnknownDerived._ice_type = _M_Test._t_SBSUnknownDerived
 
     _M_Test.SBSUnknownDerived = SBSUnknownDerived
@@ -69,7 +69,7 @@ if 'SUnknown' not in _M_Test.__dict__:
 
     _M_Test._t_SUnknown = IcePy.declareValue('::Test::SUnknown')
 
-    _M_Test._t_SUnknown = IcePy.defineValue('::Test::SUnknown', SUnknown, -1, (), False, False, None, (
+    _M_Test._t_SUnknown = IcePy.defineValue('::Test::SUnknown', SUnknown, -1, (), False, None, (
         ('su', (), IcePy._t_string, False, 0),
         ('cycle', (), _M_Test._t_SUnknown, False, 0)
     ))
@@ -100,7 +100,7 @@ if 'D2' not in _M_Test.__dict__:
 
     _M_Test._t_D2 = IcePy.declareValue('::Test::D2')
 
-    _M_Test._t_D2 = IcePy.defineValue('::Test::D2', D2, -1, (), False, False, _M_Test._t_B, (
+    _M_Test._t_D2 = IcePy.defineValue('::Test::D2', D2, -1, (), False, _M_Test._t_B, (
         ('sd2', (), IcePy._t_string, False, 0),
         ('pd2', (), _M_Test._t_B, False, 0)
     ))
@@ -131,7 +131,7 @@ if 'D4' not in _M_Test.__dict__:
 
     _M_Test._t_D4 = IcePy.declareValue('::Test::D4')
 
-    _M_Test._t_D4 = IcePy.defineValue('::Test::D4', D4, -1, (), False, False, _M_Test._t_B, (
+    _M_Test._t_D4 = IcePy.defineValue('::Test::D4', D4, -1, (), False, _M_Test._t_B, (
         ('p1', (), _M_Test._t_B, False, 0),
         ('p2', (), _M_Test._t_B, False, 0)
     ))
@@ -155,7 +155,7 @@ if 'UnknownDerivedException' not in _M_Test.__dict__:
 
         _ice_id = '::Test::UnknownDerivedException'
 
-    _M_Test._t_UnknownDerivedException = IcePy.defineException('::Test::UnknownDerivedException', UnknownDerivedException, (), False, _M_Test._t_BaseException, (
+    _M_Test._t_UnknownDerivedException = IcePy.defineException('::Test::UnknownDerivedException', UnknownDerivedException, (), _M_Test._t_BaseException, (
         ('sude', (), IcePy._t_string, False, 0),
         ('pd2', (), _M_Test._t_D2, False, 0)
     ))
@@ -182,7 +182,7 @@ if 'MyClass' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_MyClass = IcePy.defineValue('::Test::MyClass', MyClass, -1, (), False, False, None, (('i', (), IcePy._t_int, False, 0),))
+    _M_Test._t_MyClass = IcePy.defineValue('::Test::MyClass', MyClass, -1, (), False, None, (('i', (), IcePy._t_int, False, 0),))
     MyClass._ice_type = _M_Test._t_MyClass
 
     _M_Test.MyClass = MyClass
@@ -211,7 +211,7 @@ if 'PSUnknown' not in _M_Test.__dict__:
 
     _M_Test._t_PSUnknown = IcePy.declareValue('::Test::PSUnknown')
 
-    _M_Test._t_PSUnknown = IcePy.defineValue('::Test::PSUnknown', PSUnknown, -1, (), True, False, _M_Test._t_Preserved, (
+    _M_Test._t_PSUnknown = IcePy.defineValue('::Test::PSUnknown', PSUnknown, -1, (), False, _M_Test._t_Preserved, (
         ('psu', (), IcePy._t_string, False, 0),
         ('graph', (), _M_Test._t_PNode, False, 0),
         ('cl', (), _M_Test._t_MyClass, False, 0)
@@ -242,30 +242,10 @@ if 'PSUnknown2' not in _M_Test.__dict__:
 
     _M_Test._t_PSUnknown2 = IcePy.declareValue('::Test::PSUnknown2')
 
-    _M_Test._t_PSUnknown2 = IcePy.defineValue('::Test::PSUnknown2', PSUnknown2, -1, (), True, False, _M_Test._t_Preserved, (('pb', (), _M_Test._t_PBase, False, 0),))
+    _M_Test._t_PSUnknown2 = IcePy.defineValue('::Test::PSUnknown2', PSUnknown2, -1, (), False, _M_Test._t_Preserved, (('pb', (), _M_Test._t_PBase, False, 0),))
     PSUnknown2._ice_type = _M_Test._t_PSUnknown2
 
     _M_Test.PSUnknown2 = PSUnknown2
     del PSUnknown2
-
-if 'PSUnknownException' not in _M_Test.__dict__:
-    _M_Test.PSUnknownException = Ice.createTempClass()
-    class PSUnknownException(_M_Test.PreservedException):
-        def __init__(self, p=None):
-            _M_Test.PreservedException.__init__(self)
-            self.p = p
-
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::Test::PSUnknownException'
-
-    _M_Test._t_PSUnknownException = IcePy.defineException('::Test::PSUnknownException', PSUnknownException, (), True, _M_Test._t_PreservedException, (('p', (), _M_Test._t_PSUnknown2, False, 0),))
-    PSUnknownException._ice_type = _M_Test._t_PSUnknownException
-
-    _M_Test.PSUnknownException = PSUnknownException
-    del PSUnknownException
 
 # End of module Test

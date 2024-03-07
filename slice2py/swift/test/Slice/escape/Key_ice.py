@@ -200,7 +200,7 @@ if 'defer' not in _M__and.__dict__:
     _M__and.defer = defer
     del defer
 
-_M__and._t__break = IcePy.defineValue('::and::break', Ice.Value, -1, (), False, True, None, ())
+_M__and._t__break = IcePy.defineValue('::and::break', Ice.Value, -1, (), True, None, ())
 
 if 'breakPrx' not in _M__and.__dict__:
     _M__and.breakPrx = Ice.createTempClass()
@@ -257,7 +257,7 @@ if 'breakPrx' not in _M__and.__dict__:
     _M__and._break = _break
     del _break
 
-_M__and._t_func = IcePy.defineValue('::and::func', Ice.Value, -1, (), False, True, None, ())
+_M__and._t_func = IcePy.defineValue('::and::func', Ice.Value, -1, (), True, None, ())
 
 if 'funcPrx' not in _M__and.__dict__:
     _M__and.funcPrx = Ice.createTempClass()
@@ -334,7 +334,7 @@ if 'switch' not in _M__and.__dict__:
 
         __repr__ = __str__
 
-    _M__and._t_switch = IcePy.defineValue('::and::switch', switch, -1, (), False, False, None, (
+    _M__and._t_switch = IcePy.defineValue('::and::switch', switch, -1, (), False, None, (
         ('_if', (), IcePy._t_int, False, 0),
         ('export', (), _M__and._t_funcPrx, False, 0),
         ('volatile', (), IcePy._t_int, False, 0)
@@ -344,7 +344,7 @@ if 'switch' not in _M__and.__dict__:
     _M__and.switch = switch
     del switch
 
-_M__and._t_do = IcePy.defineValue('::and::do', Ice.Value, -1, (), False, True, None, ())
+_M__and._t_do = IcePy.defineValue('::and::do', Ice.Value, -1, (), True, None, ())
 
 if 'doPrx' not in _M__and.__dict__:
     _M__and.doPrx = Ice.createTempClass()
@@ -409,7 +409,7 @@ if '_return' not in _M__and.__dict__:
 
         _ice_id = '::and::return'
 
-    _M__and._t__return = IcePy.defineException('::and::return', _return, (), False, None, (('Int32', (), IcePy._t_int, False, 0),))
+    _M__and._t__return = IcePy.defineException('::and::return', _return, (), None, (('Int32', (), IcePy._t_int, False, 0),))
     _return._ice_type = _M__and._t__return
 
     _M__and._return = _return
@@ -430,7 +430,7 @@ if '_as' not in _M__and.__dict__:
 
         _ice_id = '::and::as'
 
-    _M__and._t__as = IcePy.defineException('::and::as', _as, (), False, _M__and._t__return, (
+    _M__and._t__as = IcePy.defineException('::and::as', _as, (), _M__and._t__return, (
         ('static', (), IcePy._t_int, False, 0),
         ('switch', (), IcePy._t_int, False, 0)
     ))

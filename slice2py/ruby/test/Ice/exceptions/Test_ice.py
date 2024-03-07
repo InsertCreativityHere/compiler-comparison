@@ -24,7 +24,7 @@ _M_Ice = Ice.openModule('Ice')
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
-_M_Test._t_Empty = IcePy.defineValue('::Test::Empty', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_Empty = IcePy.defineValue('::Test::Empty', Ice.Value, -1, (), True, None, ())
 
 if 'EmptyPrx' not in _M_Test.__dict__:
     _M_Test.EmptyPrx = Ice.createTempClass()
@@ -87,7 +87,7 @@ if 'A' not in _M_Test.__dict__:
 
         _ice_id = '::Test::A'
 
-    _M_Test._t_A = IcePy.defineException('::Test::A', A, (), False, None, (('aMem', (), IcePy._t_int, False, 0),))
+    _M_Test._t_A = IcePy.defineException('::Test::A', A, (), None, (('aMem', (), IcePy._t_int, False, 0),))
     A._ice_type = _M_Test._t_A
 
     _M_Test.A = A
@@ -107,7 +107,7 @@ if 'B' not in _M_Test.__dict__:
 
         _ice_id = '::Test::B'
 
-    _M_Test._t_B = IcePy.defineException('::Test::B', B, (), False, _M_Test._t_A, (('bMem', (), IcePy._t_int, False, 0),))
+    _M_Test._t_B = IcePy.defineException('::Test::B', B, (), _M_Test._t_A, (('bMem', (), IcePy._t_int, False, 0),))
     B._ice_type = _M_Test._t_B
 
     _M_Test.B = B
@@ -127,7 +127,7 @@ if 'C' not in _M_Test.__dict__:
 
         _ice_id = '::Test::C'
 
-    _M_Test._t_C = IcePy.defineException('::Test::C', C, (), False, _M_Test._t_B, (('cMem', (), IcePy._t_int, False, 0),))
+    _M_Test._t_C = IcePy.defineException('::Test::C', C, (), _M_Test._t_B, (('cMem', (), IcePy._t_int, False, 0),))
     C._ice_type = _M_Test._t_C
 
     _M_Test.C = C
@@ -146,7 +146,7 @@ if 'D' not in _M_Test.__dict__:
 
         _ice_id = '::Test::D'
 
-    _M_Test._t_D = IcePy.defineException('::Test::D', D, (), False, None, (('dMem', (), IcePy._t_int, False, 0),))
+    _M_Test._t_D = IcePy.defineException('::Test::D', D, (), None, (('dMem', (), IcePy._t_int, False, 0),))
     D._ice_type = _M_Test._t_D
 
     _M_Test.D = D
@@ -170,7 +170,7 @@ if 'A' not in _M_Test.Mod.__dict__:
 
         _ice_id = '::Test::Mod::A'
 
-    _M_Test.Mod._t_A = IcePy.defineException('::Test::Mod::A', A, (), False, _M_Test._t_A, (('a2Mem', (), IcePy._t_int, False, 0),))
+    _M_Test.Mod._t_A = IcePy.defineException('::Test::Mod::A', A, (), _M_Test._t_A, (('a2Mem', (), IcePy._t_int, False, 0),))
     A._ice_type = _M_Test.Mod._t_A
 
     _M_Test.Mod.A = A
@@ -180,7 +180,7 @@ if 'A' not in _M_Test.Mod.__dict__:
 
 __name__ = 'Test'
 
-_M_Test._t_Thrower = IcePy.defineValue('::Test::Thrower', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_Thrower = IcePy.defineValue('::Test::Thrower', Ice.Value, -1, (), True, None, ())
 
 if 'ThrowerPrx' not in _M_Test.__dict__:
     _M_Test.ThrowerPrx = Ice.createTempClass()
@@ -417,7 +417,7 @@ if 'ThrowerPrx' not in _M_Test.__dict__:
     _M_Test.Thrower = Thrower
     del Thrower
 
-_M_Test._t_WrongOperation = IcePy.defineValue('::Test::WrongOperation', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_WrongOperation = IcePy.defineValue('::Test::WrongOperation', Ice.Value, -1, (), True, None, ())
 
 if 'WrongOperationPrx' not in _M_Test.__dict__:
     _M_Test.WrongOperationPrx = Ice.createTempClass()

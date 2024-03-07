@@ -42,7 +42,7 @@ if 'C' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_C = IcePy.defineValue('::Test::C', C, -1, (), False, False, None, ())
+    _M_Test._t_C = IcePy.defineValue('::Test::C', C, -1, (), False, None, ())
     C._ice_type = _M_Test._t_C
 
     _M_Test.C = C
@@ -216,7 +216,7 @@ if '_t_DSeq' not in _M_Test.__dict__:
 if '_t_StringSeqSeq' not in _M_Test.__dict__:
     _M_Test._t_StringSeqSeq = IcePy.defineSequence('::Test::StringSeqSeq', (), _M_Test._t_StringSeq)
 
-_M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), True, None, ())
 
 if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntfPrx = Ice.createTempClass()

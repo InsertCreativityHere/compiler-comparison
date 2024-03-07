@@ -166,7 +166,7 @@ module ::Await
             T_Delete = ::Ice::__declareClass('::await::delete')
         end
 
-        T_Delete.defineClass(Delete, -1, false, false, nil, [
+        T_Delete.defineClass(Delete, -1, false, nil, [
             ['_if', ::Ice::T_int, false, 0],
             ['_else', ::Await::T_CasePrx, false, 0],
             ['export', ::Ice::T_int, false, 0]
@@ -221,7 +221,7 @@ module ::Await
             T_Package = ::Ice::__declareClass('::await::package')
         end
 
-        T_Package.defineClass(Package, -1, false, false, nil, [
+        T_Package.defineClass(Package, -1, false, nil, [
             ['_for', ::Await::T_Break, true, 1],
             ['goto', ::Await::T_Var, true, 2],
             ['_if', ::Await::T_ExplicitPrx, true, 3],
@@ -285,7 +285,7 @@ module ::Await
             attr_accessor :_for
         end
 
-        T_Fixed = ::Ice::__defineException('::await::fixed', Fixed, false, nil, [["_for", ::Ice::T_int, false, 0]])
+        T_Fixed = ::Ice::__defineException('::await::fixed', Fixed, nil, [["_for", ::Ice::T_int, false, 0]])
     end
 
     if not defined?(::Await::Foreach)
@@ -303,7 +303,7 @@ module ::Await
             attr_accessor :goto, :_if
         end
 
-        T_Foreach = ::Ice::__defineException('::await::foreach', Foreach, false, ::Await::T_Fixed, [
+        T_Foreach = ::Ice::__defineException('::await::foreach', Foreach, ::Await::T_Fixed, [
             ["goto", ::Ice::T_int, false, 0],
             ["_if", ::Ice::T_int, false, 0]
         ])
@@ -336,7 +336,7 @@ module ::Await
             attr_accessor :Data, :HelpLink, :InnerException, :Message, :Source, :StackTrace, :TargetSite, :HResult, :Equals, :GetBaseException, :GetHashCode, :GetObjectData, :GetType, :ReferenceEquals, :ToString
         end
 
-        T_BaseMethods = ::Ice::__defineException('::await::BaseMethods', BaseMethods, false, nil, [
+        T_BaseMethods = ::Ice::__defineException('::await::BaseMethods', BaseMethods, nil, [
             ["Data", ::Ice::T_int, false, 0],
             ["HelpLink", ::Ice::T_int, false, 0],
             ["InnerException", ::Ice::T_int, false, 0],

@@ -34,7 +34,7 @@ module ::Glacier2
             attr_accessor :reason
         end
 
-        T_CannotCreateSessionException = ::Ice::__defineException('::Glacier2::CannotCreateSessionException', CannotCreateSessionException, true, nil, [["reason", ::Ice::T_string, false, 0]])
+        T_CannotCreateSessionException = ::Ice::__defineException('::Glacier2::CannotCreateSessionException', CannotCreateSessionException, nil, [["reason", ::Ice::T_string, false, 0]])
     end
 
     if not defined?(::Glacier2::Session_Mixin)

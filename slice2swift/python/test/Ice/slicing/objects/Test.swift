@@ -456,62 +456,6 @@ public struct PNodeTraits: Ice.SliceTraits {
     public static let staticId = "::Test::PNode"
 }
 
-/// :nodoc:
-public class PreservedException_TypeResolver: Ice.UserExceptionTypeResolver {
-    public override func type() -> Ice.UserException.Type {
-        return PreservedException.self
-    }
-}
-
-public extension Ice.ClassResolver {
-    @objc static func Test_PreservedException() -> Ice.UserExceptionTypeResolver {
-        return PreservedException_TypeResolver()
-    }
-}
-
-open class PreservedException: Ice.UserException {
-    var _slicedData: Ice.SlicedData?
-
-    public required init() {}
-
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Test::PreservedException"
-    }
-
-    open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: PreservedException.ice_staticId(), compactId: -1, last: true)
-        ostr.endSlice()
-    }
-
-    open override func _iceReadImpl(from istr: Ice.InputStream) throws {
-        _ = try istr.startSlice()
-        try istr.endSlice()
-    }
-
-    /// Returns the sliced data if the exception has a preserved-slice base class and has been
-    /// sliced during un-marshaling, nil is returned otherwise.
-    ///
-    /// - returns: `Ice.SlicedData` - The sliced data.
-    open override func ice_getSlicedData() -> Ice.SlicedData? {
-        return _slicedData
-    }
-
-    open override func _iceRead(from istr: Ice.InputStream) throws {
-        istr.startException()
-        try _iceReadImpl(from: istr)
-        _slicedData = try istr.endException(preserve: true)
-    }
-
-    open override func _iceWrite(to ostr: Ice.OutputStream) {
-        ostr.startException(data: _slicedData)
-        _iceWriteImpl(to: ostr)
-        ostr.endException()
-    }
-}
-
 /// Traits for Slice interface`TestIntf`.
 public struct TestIntfTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::TestIntf"]
@@ -669,10 +613,6 @@ public struct ForwardTraits: Ice.SliceTraits {
 ///  - throwUnknownDerivedAsBase: 
 ///
 ///  - throwUnknownDerivedAsBaseAsync: 
-///
-///  - throwPreservedException: 
-///
-///  - throwPreservedExceptionAsync: 
 ///
 ///  - useForward: Use of forward-declared class to verify that code is generated correctly.
 ///
@@ -895,10 +835,6 @@ public extension Ice.InputStream {
 ///  - throwUnknownDerivedAsBase: 
 ///
 ///  - throwUnknownDerivedAsBaseAsync: 
-///
-///  - throwPreservedException: 
-///
-///  - throwPreservedExceptionAsync: 
 ///
 ///  - useForward: Use of forward-declared class to verify that code is generated correctly.
 ///
@@ -2570,51 +2506,6 @@ public extension TestIntfPrx {
                                   sent: sent)
     }
 
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func throwPreservedException(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "throwPreservedException",
-                          mode: .Normal,
-                          format: .SlicedFormat,
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as PreservedException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func throwPreservedExceptionAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "throwPreservedException",
-                                  mode: .Normal,
-                                  format: .SlicedFormat,
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as PreservedException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
     /// Use of forward-declared class to verify that code is generated correctly.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
@@ -3070,7 +2961,6 @@ public extension Ice.ClassResolver {
 
 open class Preserved: PBase {
     public var ps: Swift.String = ""
-    var _slicedData: Ice.SlicedData?
 
     public required init() {
         super.init()
@@ -3107,26 +2997,6 @@ open class Preserved: PBase {
         ostr.write(self.ps)
         ostr.endSlice()
         super._iceWriteImpl(to: ostr);
-    }
-
-    /// Returns the sliced data if the value has a preserved-slice base class and has been sliced
-    /// during un-marshaling of the value, nil is returned otherwise.
-    ///
-    /// returns: `Ice.SlicedData?` - The sliced data or nil
-    open override func ice_getSlicedData() -> Ice.SlicedData? {
-        return _slicedData
-    }
-
-    open override func _iceRead(from istr: Ice.InputStream) throws {
-        istr.startValue()
-        try _iceReadImpl(from: istr)
-        _slicedData = try istr.endValue(preserve: true)
-    }
-
-    open override func _iceWrite(to ostr: Ice.OutputStream) {
-        ostr.startValue(data: _slicedData)
-        _iceWriteImpl(to: ostr)
-        ostr.endValue()
     }
 }
 
@@ -3259,7 +3129,6 @@ public extension Ice.ClassResolver {
 
 open class PNode: Ice.Value {
     public var next: PNode? = nil
-    var _slicedData: Ice.SlicedData?
 
     public required init() {}
 
@@ -3291,26 +3160,6 @@ open class PNode: Ice.Value {
         ostr.startSlice(typeId: PNodeTraits.staticId, compactId: -1, last: true)
         ostr.write(self.next)
         ostr.endSlice()
-    }
-
-    /// Returns the sliced data if the value has a preserved-slice base class and has been sliced
-    /// during un-marshaling of the value, nil is returned otherwise.
-    ///
-    /// returns: `Ice.SlicedData?` - The sliced data or nil
-    open override func ice_getSlicedData() -> Ice.SlicedData? {
-        return _slicedData
-    }
-
-    open override func _iceRead(from istr: Ice.InputStream) throws {
-        istr.startValue()
-        try _iceReadImpl(from: istr)
-        _slicedData = try istr.endValue(preserve: true)
-    }
-
-    open override func _iceWrite(to ostr: Ice.OutputStream) {
-        ostr.startValue(data: _slicedData)
-        _iceWriteImpl(to: ostr)
-        ostr.endValue()
     }
 }
 
@@ -3499,8 +3348,6 @@ public struct TestIntfDisp: Ice.Disp {
             return try servant._iceD_throwDerivedAsBase(incoming: request, current: current)
         case "throwDerivedAsDerived":
             return try servant._iceD_throwDerivedAsDerived(incoming: request, current: current)
-        case "throwPreservedException":
-            return try servant._iceD_throwPreservedException(incoming: request, current: current)
         case "throwUnknownDerivedAsBase":
             return try servant._iceD_throwUnknownDerivedAsBase(incoming: request, current: current)
         case "twoElementCycle":
@@ -3758,12 +3605,6 @@ public protocol TestIntf {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func throwUnknownDerivedAsBase(current: Ice.Current) throws
 
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func throwPreservedExceptionAsync(current: Ice.Current) -> PromiseKit.Promise<Swift.Void>
-
     /// Use of forward-declared class to verify that code is generated correctly.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
@@ -3847,8 +3688,6 @@ public protocol TestIntf {
 ///  - throwDerivedAsDerived: 
 ///
 ///  - throwUnknownDerivedAsBase: 
-///
-///  - throwPreservedException: 
 ///
 ///  - useForward: Use of forward-declared class to verify that code is generated correctly.
 ///
@@ -4292,13 +4131,6 @@ public extension TestIntf {
         try self.throwUnknownDerivedAsBase(current: current)
 
         return inS.setResult()
-    }
-
-    func _iceD_throwPreservedException(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-        inS.setFormat(.SlicedFormat)
-
-        return inS.setResultPromise(throwPreservedExceptionAsync(current: current))
     }
 
     func _iceD_useForward(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {

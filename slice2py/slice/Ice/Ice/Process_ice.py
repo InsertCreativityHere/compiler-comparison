@@ -20,7 +20,7 @@ import Ice, IcePy
 _M_Ice = Ice.openModule('Ice')
 __name__ = 'Ice'
 
-_M_Ice._t_Process = IcePy.defineValue('::Ice::Process', Ice.Value, -1, (), False, True, None, ())
+_M_Ice._t_Process = IcePy.defineValue('::Ice::Process', Ice.Value, -1, (), True, None, ())
 
 if 'ProcessPrx' not in _M_Ice.__dict__:
     _M_Ice.ProcessPrx = Ice.createTempClass()

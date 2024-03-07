@@ -69,7 +69,7 @@ namespace Test
 
     global $Ice__t_Value;
     global $IcePHP__t_int;
-    $Test__t_C = IcePHP_defineClass('::Test::C', '\\Test\\C', -1, false, false, $Ice__t_Value, array(
+    $Test__t_C = IcePHP_defineClass('::Test::C', '\\Test\\C', -1, false, $Ice__t_Value, array(
         array('i', $IcePHP__t_int, false, 0)));
 }
 

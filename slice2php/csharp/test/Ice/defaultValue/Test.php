@@ -633,7 +633,7 @@ namespace Test
     global $IcePHP__t_float;
     global $IcePHP__t_double;
     global $IcePHP__t_string;
-    $Test__t_Base = IcePHP_defineClass('::Test::Base', '\\Test\\Base', -1, false, false, $Ice__t_Value, array(
+    $Test__t_Base = IcePHP_defineClass('::Test::Base', '\\Test\\Base', -1, false, $Ice__t_Value, array(
         array('boolFalse', $IcePHP__t_bool, false, 0),
         array('boolTrue', $IcePHP__t_bool, false, 0),
         array('b', $IcePHP__t_byte, false, 0),
@@ -695,7 +695,7 @@ namespace Test
     global $Test__t_Base;
     global $Test__t_Color;
     global $Test_Nested__t_Color;
-    $Test__t_Derived = IcePHP_defineClass('::Test::Derived', '\\Test\\Derived', -1, false, false, $Test__t_Base, array(
+    $Test__t_Derived = IcePHP_defineClass('::Test::Derived', '\\Test\\Derived', -1, false, $Test__t_Base, array(
         array('c1', $Test__t_Color, false, 0),
         array('c2', $Test__t_Color, false, 0),
         array('c3', $Test__t_Color, false, 0),
@@ -766,7 +766,7 @@ namespace Test
     global $IcePHP__t_double;
     global $IcePHP__t_string;
 
-    $Test__t_BaseEx = IcePHP_defineException('::Test::BaseEx', '\\Test\\BaseEx', false, null, array(
+    $Test__t_BaseEx = IcePHP_defineException('::Test::BaseEx', '\\Test\\BaseEx', null, array(
         array('boolFalse', $IcePHP__t_bool, false, 0),
         array('boolTrue', $IcePHP__t_bool, false, 0),
         array('b', $IcePHP__t_byte, false, 0),
@@ -822,7 +822,7 @@ namespace Test
     global $Test__t_Color;
     global $Test_Nested__t_Color;
 
-    $Test__t_DerivedEx = IcePHP_defineException('::Test::DerivedEx', '\\Test\\DerivedEx', false, $Test__t_BaseEx, array(
+    $Test__t_DerivedEx = IcePHP_defineException('::Test::DerivedEx', '\\Test\\DerivedEx', $Test__t_BaseEx, array(
         array('c1', $Test__t_Color, false, 0),
         array('c2', $Test__t_Color, false, 0),
         array('c3', $Test__t_Color, false, 0),
@@ -899,7 +899,7 @@ namespace Test
     global $IcePHP__t_float;
     global $IcePHP__t_double;
     global $IcePHP__t_string;
-    $Test__t_ClassProperty = IcePHP_defineClass('::Test::ClassProperty', '\\Test\\ClassProperty', -1, false, false, $Ice__t_Value, array(
+    $Test__t_ClassProperty = IcePHP_defineClass('::Test::ClassProperty', '\\Test\\ClassProperty', -1, false, $Ice__t_Value, array(
         array('boolFalse', $IcePHP__t_bool, false, 0),
         array('boolTrue', $IcePHP__t_bool, false, 0),
         array('b', $IcePHP__t_byte, false, 0),
@@ -1056,7 +1056,7 @@ namespace Test
     global $IcePHP__t_double;
     global $IcePHP__t_string;
 
-    $Test__t_ExceptionProperty = IcePHP_defineException('::Test::ExceptionProperty', '\\Test\\ExceptionProperty', false, null, array(
+    $Test__t_ExceptionProperty = IcePHP_defineException('::Test::ExceptionProperty', '\\Test\\ExceptionProperty', null, array(
         array('boolFalse', $IcePHP__t_bool, false, 0),
         array('boolTrue', $IcePHP__t_bool, false, 0),
         array('b', $IcePHP__t_byte, false, 0),
@@ -1264,7 +1264,7 @@ namespace Test
     global $Test__t_Color;
     global $Test__t_ByteSeq;
 
-    $Test__t_ExceptionNoDefaultsBase = IcePHP_defineException('::Test::ExceptionNoDefaultsBase', '\\Test\\ExceptionNoDefaultsBase', false, null, array(
+    $Test__t_ExceptionNoDefaultsBase = IcePHP_defineException('::Test::ExceptionNoDefaultsBase', '\\Test\\ExceptionNoDefaultsBase', null, array(
         array('str', $IcePHP__t_string, false, 0),
         array('c1', $Test__t_Color, false, 0),
         array('bs', $Test__t_ByteSeq, false, 0)));
@@ -1302,7 +1302,7 @@ namespace Test
     global $Test__t_InnerStruct2;
     global $Test__t_IntStringDict;
 
-    $Test__t_ExceptionNoDefaults = IcePHP_defineException('::Test::ExceptionNoDefaults', '\\Test\\ExceptionNoDefaults', false, $Test__t_ExceptionNoDefaultsBase, array(
+    $Test__t_ExceptionNoDefaults = IcePHP_defineException('::Test::ExceptionNoDefaults', '\\Test\\ExceptionNoDefaults', $Test__t_ExceptionNoDefaultsBase, array(
         array('st', $Test__t_InnerStruct, false, 0),
         array('st2', $Test__t_InnerStruct2, false, 0),
         array('dict', $Test__t_IntStringDict, false, 0)));
@@ -1345,7 +1345,7 @@ namespace Test
     global $IcePHP__t_string;
     global $Test__t_Color;
     global $Test__t_ByteSeq;
-    $Test__t_ClassNoDefaultsBase = IcePHP_defineClass('::Test::ClassNoDefaultsBase', '\\Test\\ClassNoDefaultsBase', -1, false, false, $Ice__t_Value, array(
+    $Test__t_ClassNoDefaultsBase = IcePHP_defineClass('::Test::ClassNoDefaultsBase', '\\Test\\ClassNoDefaultsBase', -1, false, $Ice__t_Value, array(
         array('str', $IcePHP__t_string, false, 0),
         array('c1', $Test__t_Color, false, 0),
         array('bs', $Test__t_ByteSeq, false, 0)));
@@ -1389,7 +1389,7 @@ namespace Test
     global $Test__t_InnerStruct;
     global $Test__t_InnerStruct2;
     global $Test__t_IntStringDict;
-    $Test__t_ClassNoDefaults = IcePHP_defineClass('::Test::ClassNoDefaults', '\\Test\\ClassNoDefaults', -1, false, false, $Test__t_ClassNoDefaultsBase, array(
+    $Test__t_ClassNoDefaults = IcePHP_defineClass('::Test::ClassNoDefaults', '\\Test\\ClassNoDefaults', -1, false, $Test__t_ClassNoDefaultsBase, array(
         array('st', $Test__t_InnerStruct, false, 0),
         array('st2', $Test__t_InnerStruct2, false, 0),
         array('dict', $Test__t_IntStringDict, false, 0)));

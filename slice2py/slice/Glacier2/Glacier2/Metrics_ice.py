@@ -62,7 +62,7 @@ if 'SessionMetrics' not in _M_IceMX.__dict__:
 
         __repr__ = __str__
 
-    _M_IceMX._t_SessionMetrics = IcePy.defineValue('::IceMX::SessionMetrics', SessionMetrics, -1, (), False, False, _M_IceMX._t_Metrics, (
+    _M_IceMX._t_SessionMetrics = IcePy.defineValue('::IceMX::SessionMetrics', SessionMetrics, -1, (), False, _M_IceMX._t_Metrics, (
         ('forwardedClient', (), IcePy._t_int, False, 0),
         ('forwardedServer', (), IcePy._t_int, False, 0),
         ('routingTableSize', (), IcePy._t_int, False, 0),

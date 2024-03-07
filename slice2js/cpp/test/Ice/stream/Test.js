@@ -132,7 +132,7 @@
         }
     };
 
-    Slice.defineValue(Test.OptionalClass, "::Test::OptionalClass", false);
+    Slice.defineValue(Test.OptionalClass, "::Test::OptionalClass");
 
     Slice.defineSequence(Test, "MyEnumSHelper", "Test.MyEnum._helper", false);
 
@@ -230,7 +230,7 @@
         }
     };
 
-    Slice.defineValue(Test.MyClass, "::Test::MyClass", false);
+    Slice.defineValue(Test.MyClass, "::Test::MyClass");
 
     const iceC_Test_MyInterface_ids = [
         "::Ice::Object",

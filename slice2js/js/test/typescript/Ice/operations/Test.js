@@ -343,7 +343,7 @@ Test.MyClass1 = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.MyClass1, "::Test::MyClass1", false);
+Slice.defineValue(Test.MyClass1, "::Test::MyClass1");
 
 const iceC_Test_MyDerivedClass_ids = [
     "::Ice::Object",

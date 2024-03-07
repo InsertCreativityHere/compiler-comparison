@@ -83,7 +83,7 @@ namespace Test
     }
     global $IcePHP__t_int;
 
-    $Test__t_A = IcePHP_defineException('::Test::A', '\\Test\\A', false, null, array(
+    $Test__t_A = IcePHP_defineException('::Test::A', '\\Test\\A', null, array(
         array('aMem', $IcePHP__t_int, false, 0)));
 }
 
@@ -113,7 +113,7 @@ namespace Test
     }
     global $IcePHP__t_int;
 
-    $Test__t_B = IcePHP_defineException('::Test::B', '\\Test\\B', false, $Test__t_A, array(
+    $Test__t_B = IcePHP_defineException('::Test::B', '\\Test\\B', $Test__t_A, array(
         array('bMem', $IcePHP__t_int, false, 0)));
 }
 
@@ -143,7 +143,7 @@ namespace Test
     }
     global $IcePHP__t_int;
 
-    $Test__t_C = IcePHP_defineException('::Test::C', '\\Test\\C', false, $Test__t_B, array(
+    $Test__t_C = IcePHP_defineException('::Test::C', '\\Test\\C', $Test__t_B, array(
         array('cMem', $IcePHP__t_int, false, 0)));
 }
 
@@ -172,7 +172,7 @@ namespace Test
     }
     global $IcePHP__t_int;
 
-    $Test__t_D = IcePHP_defineException('::Test::D', '\\Test\\D', false, null, array(
+    $Test__t_D = IcePHP_defineException('::Test::D', '\\Test\\D', null, array(
         array('dMem', $IcePHP__t_int, false, 0)));
 }
 
@@ -201,7 +201,7 @@ namespace Test
     }
     global $IcePHP__t_string;
 
-    $Test__t_E = IcePHP_defineException('::Test::E', '\\Test\\E', false, null, array(
+    $Test__t_E = IcePHP_defineException('::Test::E', '\\Test\\E', null, array(
         array('data', $IcePHP__t_string, false, 0)));
 }
 
@@ -230,7 +230,7 @@ namespace Test
     }
     global $IcePHP__t_string;
 
-    $Test__t_F = IcePHP_defineException('::Test::F', '\\Test\\F', false, null, array(
+    $Test__t_F = IcePHP_defineException('::Test::F', '\\Test\\F', null, array(
         array('data', $IcePHP__t_string, false, 0)));
 }
 
@@ -260,7 +260,7 @@ namespace Test\Mod
     }
     global $IcePHP__t_int;
 
-    $Test_Mod__t_A = IcePHP_defineException('::Test::Mod::A', '\\Test\\Mod\\A', false, $Test__t_A, array(
+    $Test_Mod__t_A = IcePHP_defineException('::Test::Mod::A', '\\Test\\Mod\\A', $Test__t_A, array(
         array('a2Mem', $IcePHP__t_int, false, 0)));
 }
 

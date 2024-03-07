@@ -51,7 +51,7 @@ module ::Test
                 T_Config = ::Ice::__declareClass('::Test::Common::Config')
             end
 
-            T_Config.defineClass(Config, -1, false, false, nil, [
+            T_Config.defineClass(Config, -1, false, nil, [
                 ['protocol', ::Ice::T_string, true, 1],
                 ['mx', ::Ice::T_bool, true, 2],
                 ['serialize', ::Ice::T_bool, true, 3],
@@ -83,7 +83,7 @@ module ::Test
                 T_OptionOverrides = ::Ice::__declareClass('::Test::Common::OptionOverrides')
             end
 
-            T_OptionOverrides.defineClass(OptionOverrides, -1, false, false, nil, [
+            T_OptionOverrides.defineClass(OptionOverrides, -1, false, nil, [
                 ['protocol', ::Test::Common::T_StringSeq, true, 1],
                 ['mx', ::Test::Common::T_BoolSeq, true, 2],
                 ['serialize', ::Test::Common::T_BoolSeq, true, 3],
@@ -105,7 +105,7 @@ module ::Test
                 attr_accessor :reason
             end
 
-            T_TestCaseNotExistException = ::Ice::__defineException('::Test::Common::TestCaseNotExistException', TestCaseNotExistException, false, nil, [["reason", ::Ice::T_string, false, 0]])
+            T_TestCaseNotExistException = ::Ice::__defineException('::Test::Common::TestCaseNotExistException', TestCaseNotExistException, nil, [["reason", ::Ice::T_string, false, 0]])
         end
 
         if not defined?(::Test::Common::TestCaseFailedException)
@@ -121,7 +121,7 @@ module ::Test
                 attr_accessor :output
             end
 
-            T_TestCaseFailedException = ::Ice::__defineException('::Test::Common::TestCaseFailedException', TestCaseFailedException, false, nil, [["output", ::Ice::T_string, false, 0]])
+            T_TestCaseFailedException = ::Ice::__defineException('::Test::Common::TestCaseFailedException', TestCaseFailedException, nil, [["output", ::Ice::T_string, false, 0]])
         end
 
         if not defined?(::Test::Common::TestCase_Mixin)
@@ -219,7 +219,7 @@ module ::Test
                 attr_accessor :reason
             end
 
-            T_ProcessFailedException = ::Ice::__defineException('::Test::Common::ProcessFailedException', ProcessFailedException, false, nil, [["reason", ::Ice::T_string, false, 0]])
+            T_ProcessFailedException = ::Ice::__defineException('::Test::Common::ProcessFailedException', ProcessFailedException, nil, [["reason", ::Ice::T_string, false, 0]])
         end
 
         if not defined?(::Test::Common::Process_Mixin)

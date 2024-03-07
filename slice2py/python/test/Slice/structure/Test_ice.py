@@ -286,7 +286,7 @@ if 'C' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_C = IcePy.defineValue('::Test::C', C, -1, (), False, False, None, (('name', (), IcePy._t_string, False, 0),))
+    _M_Test._t_C = IcePy.defineValue('::Test::C', C, -1, (), False, None, (('name', (), IcePy._t_string, False, 0),))
     C._ice_type = _M_Test._t_C
 
     _M_Test.C = C

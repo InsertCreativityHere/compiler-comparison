@@ -33,7 +33,7 @@ module ::Ice
             end
         end
 
-        T_AdapterNotFoundException = ::Ice::__defineException('::Ice::AdapterNotFoundException', AdapterNotFoundException, false, nil, [])
+        T_AdapterNotFoundException = ::Ice::__defineException('::Ice::AdapterNotFoundException', AdapterNotFoundException, nil, [])
     end
 
     if not defined?(::Ice::InvalidReplicaGroupIdException)
@@ -46,7 +46,7 @@ module ::Ice
             end
         end
 
-        T_InvalidReplicaGroupIdException = ::Ice::__defineException('::Ice::InvalidReplicaGroupIdException', InvalidReplicaGroupIdException, false, nil, [])
+        T_InvalidReplicaGroupIdException = ::Ice::__defineException('::Ice::InvalidReplicaGroupIdException', InvalidReplicaGroupIdException, nil, [])
     end
 
     if not defined?(::Ice::AdapterAlreadyActiveException)
@@ -59,7 +59,7 @@ module ::Ice
             end
         end
 
-        T_AdapterAlreadyActiveException = ::Ice::__defineException('::Ice::AdapterAlreadyActiveException', AdapterAlreadyActiveException, false, nil, [])
+        T_AdapterAlreadyActiveException = ::Ice::__defineException('::Ice::AdapterAlreadyActiveException', AdapterAlreadyActiveException, nil, [])
     end
 
     if not defined?(::Ice::ObjectNotFoundException)
@@ -72,7 +72,7 @@ module ::Ice
             end
         end
 
-        T_ObjectNotFoundException = ::Ice::__defineException('::Ice::ObjectNotFoundException', ObjectNotFoundException, false, nil, [])
+        T_ObjectNotFoundException = ::Ice::__defineException('::Ice::ObjectNotFoundException', ObjectNotFoundException, nil, [])
     end
 
     if not defined?(::Ice::ServerNotFoundException)
@@ -85,7 +85,7 @@ module ::Ice
             end
         end
 
-        T_ServerNotFoundException = ::Ice::__defineException('::Ice::ServerNotFoundException', ServerNotFoundException, false, nil, [])
+        T_ServerNotFoundException = ::Ice::__defineException('::Ice::ServerNotFoundException', ServerNotFoundException, nil, [])
     end
 
     if not defined?(::Ice::T_LocatorRegistry)

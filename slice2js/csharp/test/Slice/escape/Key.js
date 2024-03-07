@@ -113,7 +113,7 @@
         }
     };
 
-    Slice.defineValue(abstract.delegate, "::abstract::delegate", false);
+    Slice.defineValue(abstract.delegate, "::abstract::delegate");
 
     const iceC_abstract_explicit_ids = [
         "::Ice::Object",
@@ -178,7 +178,7 @@
         }
     };
 
-    Slice.defineValue(abstract.optionalMembers, "::abstract::optionalMembers", false);
+    Slice.defineValue(abstract.optionalMembers, "::abstract::optionalMembers");
 
     const iceC_abstract_optionalParams_ids = [
         "::Ice::Object",

@@ -118,7 +118,7 @@ namespace Clash
     global $IcePHP__t_string;
     global $IcePHP__t_int;
     global $IcePHP__t_short;
-    $Clash__t_Cls = IcePHP_defineClass('::Clash::Cls', '\\Clash\\Cls', -1, false, false, $Ice__t_Value, array(
+    $Clash__t_Cls = IcePHP_defineClass('::Clash::Cls', '\\Clash\\Cls', -1, false, $Ice__t_Value, array(
         array('s', $Clash__t_IntfPrx, false, 0),
         array('context', $IcePHP__t_string, false, 0),
         array('current', $IcePHP__t_int, false, 0),
@@ -202,7 +202,7 @@ namespace Clash
     global $IcePHP__t_short;
     global $IcePHP__t_int;
 
-    $Clash__t_Ex = IcePHP_defineException('::Clash::Ex', '\\Clash\\Ex', false, null, array(
+    $Clash__t_Ex = IcePHP_defineException('::Clash::Ex', '\\Clash\\Ex', null, array(
         array('istr', $IcePHP__t_short, false, 0),
         array('ostr', $IcePHP__t_int, false, 0)));
 }

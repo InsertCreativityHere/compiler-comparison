@@ -38,7 +38,7 @@ if 'TestIntfException' not in _M_Test.__dict__:
 
         _ice_id = '::Test::TestIntfException'
 
-    _M_Test._t_TestIntfException = IcePy.defineException('::Test::TestIntfException', TestIntfException, (), False, None, ())
+    _M_Test._t_TestIntfException = IcePy.defineException('::Test::TestIntfException', TestIntfException, (), None, ())
     TestIntfException._ice_type = _M_Test._t_TestIntfException
 
     _M_Test.TestIntfException = TestIntfException
@@ -67,7 +67,7 @@ if 'CloseMode' not in _M_Test.__dict__:
     _M_Test.CloseMode = CloseMode
     del CloseMode
 
-_M_Test._t_PingReply = IcePy.defineValue('::Test::PingReply', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_PingReply = IcePy.defineValue('::Test::PingReply', Ice.Value, -1, (), True, None, ())
 
 if 'PingReplyPrx' not in _M_Test.__dict__:
     _M_Test.PingReplyPrx = Ice.createTempClass()
@@ -124,7 +124,7 @@ if 'PingReplyPrx' not in _M_Test.__dict__:
     _M_Test.PingReply = PingReply
     del PingReply
 
-_M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), True, None, ())
 
 if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntfPrx = Ice.createTempClass()
@@ -341,7 +341,7 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntf = TestIntf
     del TestIntf
 
-_M_Test._t_TestIntfController = IcePy.defineValue('::Test::TestIntfController', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_TestIntfController = IcePy.defineValue('::Test::TestIntfController', Ice.Value, -1, (), True, None, ())
 
 if 'TestIntfControllerPrx' not in _M_Test.__dict__:
     _M_Test.TestIntfControllerPrx = Ice.createTempClass()
@@ -416,7 +416,7 @@ __name__ = 'Test.Outer'
 _M_Test.Outer.Inner = Ice.openModule('Test.Outer.Inner')
 __name__ = 'Test.Outer.Inner'
 
-_M_Test.Outer.Inner._t_TestIntf = IcePy.defineValue('::Test::Outer::Inner::TestIntf', Ice.Value, -1, (), False, True, None, ())
+_M_Test.Outer.Inner._t_TestIntf = IcePy.defineValue('::Test::Outer::Inner::TestIntf', Ice.Value, -1, (), True, None, ())
 
 if 'TestIntfPrx' not in _M_Test.Outer.Inner.__dict__:
     _M_Test.Outer.Inner.TestIntfPrx = Ice.createTempClass()

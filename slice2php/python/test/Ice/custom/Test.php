@@ -309,7 +309,7 @@ namespace Test
     global $Test__t_ByteList;
     global $Test__t_StringList;
     global $Test__t_StringTuple;
-    $Test__t_C = IcePHP_defineClass('::Test::C', '\\Test\\C', -1, false, false, $Ice__t_Value, array(
+    $Test__t_C = IcePHP_defineClass('::Test::C', '\\Test\\C', -1, false, $Ice__t_Value, array(
         array('b1', $Test__t_ByteString, false, 0),
         array('b2', $Test__t_ByteString, false, 0),
         array('b3', $Test__t_ByteList, false, 0),
@@ -369,7 +369,7 @@ namespace Test
     global $Test__t_LongSeq1;
     global $Test__t_FloatSeq1;
     global $Test__t_DoubleSeq1;
-    $Test__t_D = IcePHP_defineClass('::Test::D', '\\Test\\D', -1, false, false, $Ice__t_Value, array(
+    $Test__t_D = IcePHP_defineClass('::Test::D', '\\Test\\D', -1, false, $Ice__t_Value, array(
         array('boolSeq', $Test__t_BoolSeq1, true, 1),
         array('byteSeq', $Test__t_ByteSeq1, true, 2),
         array('shortSeq', $Test__t_ShortSeq1, true, 3),

@@ -67,7 +67,7 @@
         }
     };
 
-    Slice.defineValue(Test.Common.Config, "::Test::Common::Config", false);
+    Slice.defineValue(Test.Common.Config, "::Test::Common::Config");
 
     Test.Common.OptionOverrides = class extends Ice.Value
     {
@@ -100,7 +100,7 @@
         }
     };
 
-    Slice.defineValue(Test.Common.OptionOverrides, "::Test::Common::OptionOverrides", false);
+    Slice.defineValue(Test.Common.OptionOverrides, "::Test::Common::OptionOverrides");
 
     Test.Common.TestCaseNotExistException = class extends Ice.UserException
     {

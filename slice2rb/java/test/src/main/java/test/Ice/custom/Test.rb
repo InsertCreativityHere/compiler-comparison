@@ -30,7 +30,7 @@ module ::Test
             T_C = ::Ice::__declareClass('::Test::C')
         end
 
-        T_C.defineClass(C, -1, false, false, nil, [])
+        T_C.defineClass(C, -1, false, nil, [])
     end
 
     if not defined?(::Test::T_CSeq)

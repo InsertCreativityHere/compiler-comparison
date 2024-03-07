@@ -28,7 +28,7 @@ module ::Test
             end
         end
 
-        T_UserEx = ::Ice::__defineException('::Test::UserEx', UserEx, false, nil, [])
+        T_UserEx = ::Ice::__defineException('::Test::UserEx', UserEx, nil, [])
     end
 
     if not defined?(::Test::T_ByteSeq)

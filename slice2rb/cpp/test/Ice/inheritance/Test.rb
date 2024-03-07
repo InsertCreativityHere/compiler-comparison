@@ -200,7 +200,7 @@ module ::Test
                 T_A = ::Ice::__declareClass('::Test::MC::A')
             end
 
-            T_A.defineClass(A, -1, false, false, nil, [['aA', ::Ice::T_int, false, 0]])
+            T_A.defineClass(A, -1, false, nil, [['aA', ::Ice::T_int, false, 0]])
         end
 
         if not defined?(::Test::MC::B_Mixin)
@@ -221,7 +221,7 @@ module ::Test
                 T_B = ::Ice::__declareClass('::Test::MC::B')
             end
 
-            T_B.defineClass(B, -1, false, false, ::Test::MC::T_A, [['bB', ::Ice::T_int, false, 0]])
+            T_B.defineClass(B, -1, false, ::Test::MC::T_A, [['bB', ::Ice::T_int, false, 0]])
         end
 
         if not defined?(::Test::MC::C_Mixin)
@@ -242,7 +242,7 @@ module ::Test
                 T_C = ::Ice::__declareClass('::Test::MC::C')
             end
 
-            T_C.defineClass(C, -1, false, false, ::Test::MC::T_B, [['cC', ::Ice::T_int, false, 0]])
+            T_C.defineClass(C, -1, false, ::Test::MC::T_B, [['cC', ::Ice::T_int, false, 0]])
         end
 
         if not defined?(::Test::MC::D_Mixin)
@@ -263,7 +263,7 @@ module ::Test
                 T_D = ::Ice::__declareClass('::Test::MC::D')
             end
 
-            T_D.defineClass(D, -1, false, false, ::Test::MC::T_C, [['dD', ::Ice::T_int, false, 0]])
+            T_D.defineClass(D, -1, false, ::Test::MC::T_C, [['dD', ::Ice::T_int, false, 0]])
         end
     end
 
@@ -286,7 +286,7 @@ module ::Test
                 T_A = ::Ice::__declareClass('::Test::MD::A')
             end
 
-            T_A.defineClass(A, -1, false, false, nil, [['aA', ::Ice::T_int, false, 0]])
+            T_A.defineClass(A, -1, false, nil, [['aA', ::Ice::T_int, false, 0]])
         end
 
         if not defined?(::Test::MD::B_Mixin)
@@ -307,7 +307,7 @@ module ::Test
                 T_B = ::Ice::__declareClass('::Test::MD::B')
             end
 
-            T_B.defineClass(B, -1, false, false, ::Test::MD::T_A, [['bB', ::Ice::T_int, false, 0]])
+            T_B.defineClass(B, -1, false, ::Test::MD::T_A, [['bB', ::Ice::T_int, false, 0]])
         end
 
         if not defined?(::Test::MD::C_Mixin)
@@ -328,7 +328,7 @@ module ::Test
                 T_C = ::Ice::__declareClass('::Test::MD::C')
             end
 
-            T_C.defineClass(C, -1, false, false, ::Test::MD::T_B, [['cC', ::Ice::T_int, false, 0]])
+            T_C.defineClass(C, -1, false, ::Test::MD::T_B, [['cC', ::Ice::T_int, false, 0]])
         end
 
         if not defined?(::Test::MD::D_Mixin)
@@ -349,7 +349,7 @@ module ::Test
                 T_D = ::Ice::__declareClass('::Test::MD::D')
             end
 
-            T_D.defineClass(D, -1, false, false, ::Test::MD::T_C, [['dD', ::Ice::T_int, false, 0]])
+            T_D.defineClass(D, -1, false, ::Test::MD::T_C, [['dD', ::Ice::T_int, false, 0]])
         end
     end
 
@@ -372,7 +372,7 @@ module ::Test
                 T_A = ::Ice::__declareClass('::Test::ME::A')
             end
 
-            T_A.defineClass(A, -1, false, false, nil, [['aA', ::Ice::T_int, false, 0]])
+            T_A.defineClass(A, -1, false, nil, [['aA', ::Ice::T_int, false, 0]])
         end
 
         if not defined?(::Test::ME::B_Mixin)
@@ -393,7 +393,7 @@ module ::Test
                 T_B = ::Ice::__declareClass('::Test::ME::B')
             end
 
-            T_B.defineClass(B, -1, false, false, ::Test::ME::T_A, [['bB', ::Ice::T_int, false, 0]])
+            T_B.defineClass(B, -1, false, ::Test::ME::T_A, [['bB', ::Ice::T_int, false, 0]])
         end
 
         if not defined?(::Test::ME::C_Mixin)
@@ -414,7 +414,7 @@ module ::Test
                 T_C = ::Ice::__declareClass('::Test::ME::C')
             end
 
-            T_C.defineClass(C, -1, false, false, ::Test::ME::T_B, [['cC', ::Ice::T_int, false, 0]])
+            T_C.defineClass(C, -1, false, ::Test::ME::T_B, [['cC', ::Ice::T_int, false, 0]])
         end
 
         if not defined?(::Test::ME::D_Mixin)
@@ -435,7 +435,7 @@ module ::Test
                 T_D = ::Ice::__declareClass('::Test::ME::D')
             end
 
-            T_D.defineClass(D, -1, false, false, ::Test::ME::T_C, [['dD', ::Ice::T_int, false, 0]])
+            T_D.defineClass(D, -1, false, ::Test::ME::T_C, [['dD', ::Ice::T_int, false, 0]])
         end
     end
 
@@ -458,7 +458,7 @@ module ::Test
                 T_A = ::Ice::__declareClass('::Test::MF::A')
             end
 
-            T_A.defineClass(A, -1, false, false, nil, [['aA', ::Ice::T_int, false, 0]])
+            T_A.defineClass(A, -1, false, nil, [['aA', ::Ice::T_int, false, 0]])
         end
 
         if not defined?(::Test::MF::B_Mixin)
@@ -479,7 +479,7 @@ module ::Test
                 T_B = ::Ice::__declareClass('::Test::MF::B')
             end
 
-            T_B.defineClass(B, -1, false, false, ::Test::MF::T_A, [['bB', ::Ice::T_int, false, 0]])
+            T_B.defineClass(B, -1, false, ::Test::MF::T_A, [['bB', ::Ice::T_int, false, 0]])
         end
 
         if not defined?(::Test::MF::C_Mixin)
@@ -500,7 +500,7 @@ module ::Test
                 T_C = ::Ice::__declareClass('::Test::MF::C')
             end
 
-            T_C.defineClass(C, -1, false, false, ::Test::MF::T_B, [['cC', ::Ice::T_int, false, 0]])
+            T_C.defineClass(C, -1, false, ::Test::MF::T_B, [['cC', ::Ice::T_int, false, 0]])
         end
 
         if not defined?(::Test::MF::D_Mixin)
@@ -521,7 +521,7 @@ module ::Test
                 T_D = ::Ice::__declareClass('::Test::MF::D')
             end
 
-            T_D.defineClass(D, -1, false, false, ::Test::MF::T_C, [['dD', ::Ice::T_int, false, 0]])
+            T_D.defineClass(D, -1, false, ::Test::MF::T_C, [['dD', ::Ice::T_int, false, 0]])
         end
     end
 
@@ -544,7 +544,7 @@ module ::Test
                 T_A = ::Ice::__declareClass('::Test::MG::A')
             end
 
-            T_A.defineClass(A, -1, false, false, nil, [['aA', ::Ice::T_int, false, 0]])
+            T_A.defineClass(A, -1, false, nil, [['aA', ::Ice::T_int, false, 0]])
         end
 
         if not defined?(::Test::MG::B_Mixin)
@@ -565,7 +565,7 @@ module ::Test
                 T_B = ::Ice::__declareClass('::Test::MG::B')
             end
 
-            T_B.defineClass(B, -1, false, false, ::Test::MG::T_A, [['bB', ::Ice::T_int, false, 0]])
+            T_B.defineClass(B, -1, false, ::Test::MG::T_A, [['bB', ::Ice::T_int, false, 0]])
         end
 
         if not defined?(::Test::MG::C_Mixin)
@@ -586,7 +586,7 @@ module ::Test
                 T_C = ::Ice::__declareClass('::Test::MG::C')
             end
 
-            T_C.defineClass(C, -1, false, false, ::Test::MG::T_B, [['cC', ::Ice::T_int, false, 0]])
+            T_C.defineClass(C, -1, false, ::Test::MG::T_B, [['cC', ::Ice::T_int, false, 0]])
         end
 
         if not defined?(::Test::MG::D_Mixin)
@@ -607,7 +607,7 @@ module ::Test
                 T_D = ::Ice::__declareClass('::Test::MG::D')
             end
 
-            T_D.defineClass(D, -1, false, false, ::Test::MG::T_C, [['dD', ::Ice::T_int, false, 0]])
+            T_D.defineClass(D, -1, false, ::Test::MG::T_C, [['dD', ::Ice::T_int, false, 0]])
         end
     end
 
@@ -630,7 +630,7 @@ module ::Test
                 T_A = ::Ice::__declareClass('::Test::MH::A')
             end
 
-            T_A.defineClass(A, -1, false, false, nil, [['aA', ::Ice::T_int, false, 0]])
+            T_A.defineClass(A, -1, false, nil, [['aA', ::Ice::T_int, false, 0]])
         end
 
         if not defined?(::Test::MH::B_Mixin)
@@ -651,7 +651,7 @@ module ::Test
                 T_B = ::Ice::__declareClass('::Test::MH::B')
             end
 
-            T_B.defineClass(B, -1, false, false, ::Test::MH::T_A, [['bB', ::Ice::T_int, false, 0]])
+            T_B.defineClass(B, -1, false, ::Test::MH::T_A, [['bB', ::Ice::T_int, false, 0]])
         end
 
         if not defined?(::Test::MH::C_Mixin)
@@ -672,7 +672,7 @@ module ::Test
                 T_C = ::Ice::__declareClass('::Test::MH::C')
             end
 
-            T_C.defineClass(C, -1, false, false, ::Test::MH::T_B, [['cC', ::Ice::T_int, false, 0]])
+            T_C.defineClass(C, -1, false, ::Test::MH::T_B, [['cC', ::Ice::T_int, false, 0]])
         end
 
         if not defined?(::Test::MH::D_Mixin)
@@ -693,7 +693,7 @@ module ::Test
                 T_D = ::Ice::__declareClass('::Test::MH::D')
             end
 
-            T_D.defineClass(D, -1, false, false, ::Test::MH::T_C, [['dD', ::Ice::T_int, false, 0]])
+            T_D.defineClass(D, -1, false, ::Test::MH::T_C, [['dD', ::Ice::T_int, false, 0]])
         end
     end
 end

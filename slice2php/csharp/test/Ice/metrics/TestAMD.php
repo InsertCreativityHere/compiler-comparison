@@ -36,7 +36,7 @@ namespace Test
         }
     }
 
-    $Test__t_UserEx = IcePHP_defineException('::Test::UserEx', '\\Test\\UserEx', false, null, null);
+    $Test__t_UserEx = IcePHP_defineException('::Test::UserEx', '\\Test\\UserEx', null, null);
 }
 
 namespace Test

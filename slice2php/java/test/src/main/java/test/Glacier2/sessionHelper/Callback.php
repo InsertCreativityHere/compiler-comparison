@@ -43,7 +43,7 @@ namespace Test
     global $IcePHP__t_double;
     global $IcePHP__t_string;
 
-    $Test__t_CallbackException = IcePHP_defineException('::Test::CallbackException', '\\Test\\CallbackException', false, null, array(
+    $Test__t_CallbackException = IcePHP_defineException('::Test::CallbackException', '\\Test\\CallbackException', null, array(
         array('someValue', $IcePHP__t_double, false, 0),
         array('someString', $IcePHP__t_string, false, 0)));
 }

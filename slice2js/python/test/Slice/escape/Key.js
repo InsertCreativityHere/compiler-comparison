@@ -113,7 +113,7 @@
         }
     };
 
-    Slice.defineValue(and._for, "::and::for", false);
+    Slice.defineValue(and._for, "::and::for");
 
     const iceC_and__if_ids = [
         "::Ice::Object",

@@ -56,33 +56,6 @@ public interface TestIntf extends com.zeroc.Ice.Object
     java.util.concurrent.CompletionStage<Void> unknownMostDerived2AsBaseAsync(com.zeroc.Ice.Current current)
         throws Base;
 
-    java.util.concurrent.CompletionStage<Void> unknownMostDerived2AsBaseCompactAsync(com.zeroc.Ice.Current current)
-        throws Base;
-
-    java.util.concurrent.CompletionStage<Void> knownPreservedAsBaseAsync(com.zeroc.Ice.Current current)
-        throws Base;
-
-    java.util.concurrent.CompletionStage<Void> knownPreservedAsKnownPreservedAsync(com.zeroc.Ice.Current current)
-        throws KnownPreserved;
-
-    java.util.concurrent.CompletionStage<Void> relayKnownPreservedAsBaseAsync(RelayPrx r, com.zeroc.Ice.Current current)
-        throws Base;
-
-    java.util.concurrent.CompletionStage<Void> relayKnownPreservedAsKnownPreservedAsync(RelayPrx r, com.zeroc.Ice.Current current)
-        throws KnownPreserved;
-
-    java.util.concurrent.CompletionStage<Void> unknownPreservedAsBaseAsync(com.zeroc.Ice.Current current)
-        throws Base;
-
-    java.util.concurrent.CompletionStage<Void> unknownPreservedAsKnownPreservedAsync(com.zeroc.Ice.Current current)
-        throws KnownPreserved;
-
-    java.util.concurrent.CompletionStage<Void> relayUnknownPreservedAsBaseAsync(RelayPrx r, com.zeroc.Ice.Current current)
-        throws Base;
-
-    java.util.concurrent.CompletionStage<Void> relayUnknownPreservedAsKnownPreservedAsync(RelayPrx r, com.zeroc.Ice.Current current)
-        throws KnownPreserved;
-
     java.util.concurrent.CompletionStage<Void> shutdownAsync(com.zeroc.Ice.Current current);
 
     /** @hidden */
@@ -139,7 +112,7 @@ public interface TestIntf extends com.zeroc.Ice.Object
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
         inS.readEmptyParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
+        inS.setFormat(com.zeroc.Ice.FormatType.CompactFormat);
         return inS.setResultFuture(obj.unknownDerivedAsBaseAsync(current));
     }
 
@@ -336,171 +309,6 @@ public interface TestIntf extends com.zeroc.Ice.Object
      * @param inS -
      * @param current -
      * @return -
-     * @throws com.zeroc.Ice.UserException -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_unknownMostDerived2AsBaseCompact(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-        throws com.zeroc.Ice.UserException
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.CompactFormat);
-        return inS.setResultFuture(obj.unknownMostDerived2AsBaseCompactAsync(current));
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws com.zeroc.Ice.UserException -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_knownPreservedAsBase(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-        throws com.zeroc.Ice.UserException
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.knownPreservedAsBaseAsync(current));
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws com.zeroc.Ice.UserException -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_knownPreservedAsKnownPreserved(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-        throws com.zeroc.Ice.UserException
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.knownPreservedAsKnownPreservedAsync(current));
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws com.zeroc.Ice.UserException -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_relayKnownPreservedAsBase(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-        throws com.zeroc.Ice.UserException
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        RelayPrx iceP_r;
-        iceP_r = RelayPrx.uncheckedCast(istr.readProxy());
-        inS.endReadParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.relayKnownPreservedAsBaseAsync(iceP_r, current));
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws com.zeroc.Ice.UserException -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_relayKnownPreservedAsKnownPreserved(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-        throws com.zeroc.Ice.UserException
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        RelayPrx iceP_r;
-        iceP_r = RelayPrx.uncheckedCast(istr.readProxy());
-        inS.endReadParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.relayKnownPreservedAsKnownPreservedAsync(iceP_r, current));
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws com.zeroc.Ice.UserException -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_unknownPreservedAsBase(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-        throws com.zeroc.Ice.UserException
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.unknownPreservedAsBaseAsync(current));
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws com.zeroc.Ice.UserException -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_unknownPreservedAsKnownPreserved(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-        throws com.zeroc.Ice.UserException
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        inS.readEmptyParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.unknownPreservedAsKnownPreservedAsync(current));
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws com.zeroc.Ice.UserException -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_relayUnknownPreservedAsBase(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-        throws com.zeroc.Ice.UserException
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        RelayPrx iceP_r;
-        iceP_r = RelayPrx.uncheckedCast(istr.readProxy());
-        inS.endReadParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.relayUnknownPreservedAsBaseAsync(iceP_r, current));
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws com.zeroc.Ice.UserException -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_relayUnknownPreservedAsKnownPreserved(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-        throws com.zeroc.Ice.UserException
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        RelayPrx iceP_r;
-        iceP_r = RelayPrx.uncheckedCast(istr.readProxy());
-        inS.endReadParams();
-        inS.setFormat(com.zeroc.Ice.FormatType.SlicedFormat);
-        return inS.setResultFuture(obj.relayUnknownPreservedAsKnownPreservedAsync(iceP_r, current));
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
     **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_shutdown(TestIntf obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
@@ -525,21 +333,12 @@ public interface TestIntf extends com.zeroc.Ice.Object
         "knownMostDerivedAsBase",
         "knownMostDerivedAsKnownIntermediate",
         "knownMostDerivedAsKnownMostDerived",
-        "knownPreservedAsBase",
-        "knownPreservedAsKnownPreserved",
-        "relayKnownPreservedAsBase",
-        "relayKnownPreservedAsKnownPreserved",
-        "relayUnknownPreservedAsBase",
-        "relayUnknownPreservedAsKnownPreserved",
         "shutdown",
         "unknownDerivedAsBase",
         "unknownIntermediateAsBase",
         "unknownMostDerived1AsBase",
         "unknownMostDerived1AsKnownIntermediate",
-        "unknownMostDerived2AsBase",
-        "unknownMostDerived2AsBaseCompact",
-        "unknownPreservedAsBase",
-        "unknownPreservedAsKnownPreserved"
+        "unknownMostDerived2AsBase"
     };
 
     /** @hidden */
@@ -605,63 +404,27 @@ public interface TestIntf extends com.zeroc.Ice.Object
             }
             case 12:
             {
-                return _iceD_knownPreservedAsBase(this, in, current);
+                return _iceD_shutdown(this, in, current);
             }
             case 13:
             {
-                return _iceD_knownPreservedAsKnownPreserved(this, in, current);
+                return _iceD_unknownDerivedAsBase(this, in, current);
             }
             case 14:
             {
-                return _iceD_relayKnownPreservedAsBase(this, in, current);
+                return _iceD_unknownIntermediateAsBase(this, in, current);
             }
             case 15:
             {
-                return _iceD_relayKnownPreservedAsKnownPreserved(this, in, current);
+                return _iceD_unknownMostDerived1AsBase(this, in, current);
             }
             case 16:
             {
-                return _iceD_relayUnknownPreservedAsBase(this, in, current);
+                return _iceD_unknownMostDerived1AsKnownIntermediate(this, in, current);
             }
             case 17:
             {
-                return _iceD_relayUnknownPreservedAsKnownPreserved(this, in, current);
-            }
-            case 18:
-            {
-                return _iceD_shutdown(this, in, current);
-            }
-            case 19:
-            {
-                return _iceD_unknownDerivedAsBase(this, in, current);
-            }
-            case 20:
-            {
-                return _iceD_unknownIntermediateAsBase(this, in, current);
-            }
-            case 21:
-            {
-                return _iceD_unknownMostDerived1AsBase(this, in, current);
-            }
-            case 22:
-            {
-                return _iceD_unknownMostDerived1AsKnownIntermediate(this, in, current);
-            }
-            case 23:
-            {
                 return _iceD_unknownMostDerived2AsBase(this, in, current);
-            }
-            case 24:
-            {
-                return _iceD_unknownMostDerived2AsBaseCompact(this, in, current);
-            }
-            case 25:
-            {
-                return _iceD_unknownPreservedAsBase(this, in, current);
-            }
-            case 26:
-            {
-                return _iceD_unknownPreservedAsKnownPreserved(this, in, current);
             }
         }
 

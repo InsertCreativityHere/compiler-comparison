@@ -36,7 +36,7 @@ namespace IceGrid
         }
     }
 
-    $IceGrid__t_UserAccountNotFoundException = IcePHP_defineException('::IceGrid::UserAccountNotFoundException', '\\IceGrid\\UserAccountNotFoundException', false, null, null);
+    $IceGrid__t_UserAccountNotFoundException = IcePHP_defineException('::IceGrid::UserAccountNotFoundException', '\\IceGrid\\UserAccountNotFoundException', null, null);
 }
 
 namespace IceGrid

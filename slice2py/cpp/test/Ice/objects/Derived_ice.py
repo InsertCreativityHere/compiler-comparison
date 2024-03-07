@@ -49,7 +49,7 @@ if 'Derived' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_Derived = IcePy.defineValue('::Test::Derived', Derived, -1, (), False, False, _M_Test._t_Base, (('b', (), IcePy._t_string, False, 0),))
+    _M_Test._t_Derived = IcePy.defineValue('::Test::Derived', Derived, -1, (), False, _M_Test._t_Base, (('b', (), IcePy._t_string, False, 0),))
     Derived._ice_type = _M_Test._t_Derived
 
     _M_Test.Derived = Derived

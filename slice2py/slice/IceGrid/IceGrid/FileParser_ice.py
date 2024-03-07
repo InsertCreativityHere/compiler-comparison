@@ -47,13 +47,13 @@ if 'ParseException' not in _M_IceGrid.__dict__:
 
         _ice_id = '::IceGrid::ParseException'
 
-    _M_IceGrid._t_ParseException = IcePy.defineException('::IceGrid::ParseException', ParseException, (), False, None, (('reason', (), IcePy._t_string, False, 0),))
+    _M_IceGrid._t_ParseException = IcePy.defineException('::IceGrid::ParseException', ParseException, (), None, (('reason', (), IcePy._t_string, False, 0),))
     ParseException._ice_type = _M_IceGrid._t_ParseException
 
     _M_IceGrid.ParseException = ParseException
     del ParseException
 
-_M_IceGrid._t_FileParser = IcePy.defineValue('::IceGrid::FileParser', Ice.Value, -1, (), False, True, None, ())
+_M_IceGrid._t_FileParser = IcePy.defineValue('::IceGrid::FileParser', Ice.Value, -1, (), True, None, ())
 
 if 'FileParserPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.FileParserPrx = Ice.createTempClass()

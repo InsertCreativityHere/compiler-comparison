@@ -201,7 +201,7 @@ namespace _and
     global $Ice__t_Value;
     global $IcePHP__t_int;
     global $and__t_diePrx;
-    $and__t_echo = IcePHP_defineClass('::and::echo', '\\_and\\_echo', -1, false, false, $Ice__t_Value, array(
+    $and__t_echo = IcePHP_defineClass('::and::echo', '\\_and\\_echo', -1, false, $Ice__t_Value, array(
         array('_if', $IcePHP__t_int, false, 0),
         array('_else', $IcePHP__t_int, false, 0),
         array('_elseif', $and__t_diePrx, false, 0),
@@ -283,7 +283,7 @@ namespace _and
     }
     global $IcePHP__t_int;
 
-    $and__t_endif = IcePHP_defineException('::and::endif', '\\_and\\_endif', false, null, array(
+    $and__t_endif = IcePHP_defineException('::and::endif', '\\_and\\_endif', null, array(
         array('_endswitch', $IcePHP__t_int, false, 0)));
 }
 
@@ -315,7 +315,7 @@ namespace _and
     }
     global $IcePHP__t_int;
 
-    $and__t_endwhile = IcePHP_defineException('::and::endwhile', '\\_and\\_endwhile', false, $and__t_endif, array(
+    $and__t_endwhile = IcePHP_defineException('::and::endwhile', '\\_and\\_endwhile', $and__t_endif, array(
         array('_eval', $IcePHP__t_int, false, 0),
         array('_exit', $IcePHP__t_int, false, 0)));
 }

@@ -43,7 +43,7 @@
         }
     };
 
-    Slice.defineValue(WithNamespace.C1, "::WithNamespace::C1", false);
+    Slice.defineValue(WithNamespace.C1, "::WithNamespace::C1");
 
     WithNamespace.C2 = class extends WithNamespace.C1
     {
@@ -64,7 +64,7 @@
         }
     };
 
-    Slice.defineValue(WithNamespace.C2, "::WithNamespace::C2", false);
+    Slice.defineValue(WithNamespace.C2, "::WithNamespace::C2");
 
     WithNamespace.E1 = class extends Ice.UserException
     {

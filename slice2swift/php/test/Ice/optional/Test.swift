@@ -5200,7 +5200,6 @@ public extension Ice.ClassResolver {
 open class B: A {
     public var requiredB: Swift.Int32 = 0
     public var md: Swift.Int32? = nil
-    var _slicedData: Ice.SlicedData?
 
     public required init() {
         super.init()
@@ -5240,26 +5239,6 @@ open class B: A {
         ostr.write(tag: 10, value: self.md)
         ostr.endSlice()
         super._iceWriteImpl(to: ostr);
-    }
-
-    /// Returns the sliced data if the value has a preserved-slice base class and has been sliced
-    /// during un-marshaling of the value, nil is returned otherwise.
-    ///
-    /// returns: `Ice.SlicedData?` - The sliced data or nil
-    open override func ice_getSlicedData() -> Ice.SlicedData? {
-        return _slicedData
-    }
-
-    open override func _iceRead(from istr: Ice.InputStream) throws {
-        istr.startValue()
-        try _iceReadImpl(from: istr)
-        _slicedData = try istr.endValue(preserve: true)
-    }
-
-    open override func _iceWrite(to ostr: Ice.OutputStream) {
-        ostr.startValue(data: _slicedData)
-        _iceWriteImpl(to: ostr)
-        ostr.endValue()
     }
 }
 

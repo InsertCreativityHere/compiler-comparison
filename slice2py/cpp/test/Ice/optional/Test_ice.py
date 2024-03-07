@@ -38,13 +38,13 @@ if 'OneOptional' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_OneOptional = IcePy.defineValue('::Test::OneOptional', OneOptional, -1, (), False, False, None, (('a', (), IcePy._t_int, True, 1),))
+    _M_Test._t_OneOptional = IcePy.defineValue('::Test::OneOptional', OneOptional, -1, (), False, None, (('a', (), IcePy._t_int, True, 1),))
     OneOptional._ice_type = _M_Test._t_OneOptional
 
     _M_Test.OneOptional = OneOptional
     del OneOptional
 
-_M_Test._t_MyInterface = IcePy.defineValue('::Test::MyInterface', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_MyInterface = IcePy.defineValue('::Test::MyInterface', Ice.Value, -1, (), True, None, ())
 
 if 'MyInterfacePrx' not in _M_Test.__dict__:
     _M_Test.MyInterfacePrx = Ice.createTempClass()
@@ -483,7 +483,7 @@ if 'MultiOptional' not in _M_Test.__dict__:
 
     _M_Test._t_MultiOptional = IcePy.declareValue('::Test::MultiOptional')
 
-    _M_Test._t_MultiOptional = IcePy.defineValue('::Test::MultiOptional', MultiOptional, -1, (), False, False, None, (
+    _M_Test._t_MultiOptional = IcePy.defineValue('::Test::MultiOptional', MultiOptional, -1, (), False, None, (
         ('a', (), IcePy._t_byte, True, 1),
         ('b', (), IcePy._t_bool, True, 2),
         ('c', (), IcePy._t_short, True, 3),
@@ -541,7 +541,7 @@ if 'A' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_A = IcePy.defineValue('::Test::A', A, -1, (), False, False, None, (
+    _M_Test._t_A = IcePy.defineValue('::Test::A', A, -1, (), False, None, (
         ('requiredA', (), IcePy._t_int, False, 0),
         ('ma', (), IcePy._t_int, True, 1),
         ('mb', (), IcePy._t_int, True, 50),
@@ -572,7 +572,7 @@ if 'B' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_B = IcePy.defineValue('::Test::B', B, -1, (), True, False, _M_Test._t_A, (
+    _M_Test._t_B = IcePy.defineValue('::Test::B', B, -1, (), False, _M_Test._t_A, (
         ('requiredB', (), IcePy._t_int, False, 0),
         ('md', (), IcePy._t_int, True, 10)
     ))
@@ -601,7 +601,7 @@ if 'C' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_C = IcePy.defineValue('::Test::C', C, -1, (), True, False, _M_Test._t_B, (
+    _M_Test._t_C = IcePy.defineValue('::Test::C', C, -1, (), False, _M_Test._t_B, (
         ('ss', (), IcePy._t_string, False, 0),
         ('ms', (), IcePy._t_string, True, 890)
     ))
@@ -629,7 +629,7 @@ if 'WD' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_WD = IcePy.defineValue('::Test::WD', WD, -1, (), False, False, None, (
+    _M_Test._t_WD = IcePy.defineValue('::Test::WD', WD, -1, (), False, None, (
         ('a', (), IcePy._t_int, True, 1),
         ('s', (), IcePy._t_string, True, 2)
     ))
@@ -654,7 +654,7 @@ if 'OptionalException' not in _M_Test.__dict__:
 
         _ice_id = '::Test::OptionalException'
 
-    _M_Test._t_OptionalException = IcePy.defineException('::Test::OptionalException', OptionalException, (), False, None, (
+    _M_Test._t_OptionalException = IcePy.defineException('::Test::OptionalException', OptionalException, (), None, (
         ('req', (), IcePy._t_bool, False, 0),
         ('a', (), IcePy._t_int, True, 1),
         ('b', (), IcePy._t_string, True, 2),
@@ -682,7 +682,7 @@ if 'DerivedException' not in _M_Test.__dict__:
 
         _ice_id = '::Test::DerivedException'
 
-    _M_Test._t_DerivedException = IcePy.defineException('::Test::DerivedException', DerivedException, (), False, _M_Test._t_OptionalException, (
+    _M_Test._t_DerivedException = IcePy.defineException('::Test::DerivedException', DerivedException, (), _M_Test._t_OptionalException, (
         ('d1', (), IcePy._t_string, False, 0),
         ('ss', (), IcePy._t_string, True, 600),
         ('o2', (), _M_Test._t_OneOptional, True, 601),
@@ -708,7 +708,7 @@ if 'RequiredException' not in _M_Test.__dict__:
 
         _ice_id = '::Test::RequiredException'
 
-    _M_Test._t_RequiredException = IcePy.defineException('::Test::RequiredException', RequiredException, (), False, _M_Test._t_OptionalException, (
+    _M_Test._t_RequiredException = IcePy.defineException('::Test::RequiredException', RequiredException, (), _M_Test._t_OptionalException, (
         ('ss', (), IcePy._t_string, False, 0),
         ('o2', (), _M_Test._t_OneOptional, False, 0)
     ))
@@ -736,7 +736,7 @@ if 'OptionalWithCustom' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_OptionalWithCustom = IcePy.defineValue('::Test::OptionalWithCustom', OptionalWithCustom, -1, (), False, False, None, (
+    _M_Test._t_OptionalWithCustom = IcePy.defineValue('::Test::OptionalWithCustom', OptionalWithCustom, -1, (), False, None, (
         ('l', (), _M_Test._t_SmallStructList, True, 1),
         ('_lp', (), _M_Test._t_SmallStructList, True, 2)
     ))
@@ -765,7 +765,7 @@ if 'E' not in _M_Test.__dict__:
 
     _M_Test._t_E = IcePy.declareValue('::Test::E')
 
-    _M_Test._t_E = IcePy.defineValue('::Test::E', E, -1, (), False, False, None, (('ae', (), _M_Test._t_A, False, 0),))
+    _M_Test._t_E = IcePy.defineValue('::Test::E', E, -1, (), False, None, (('ae', (), _M_Test._t_A, False, 0),))
     E._ice_type = _M_Test._t_E
 
     _M_Test.E = E
@@ -792,7 +792,7 @@ if 'F' not in _M_Test.__dict__:
 
     _M_Test._t_F = IcePy.declareValue('::Test::F')
 
-    _M_Test._t_F = IcePy.defineValue('::Test::F', F, -1, (), False, False, _M_Test._t_E, (('af', (), _M_Test._t_A, True, 1),))
+    _M_Test._t_F = IcePy.defineValue('::Test::F', F, -1, (), False, _M_Test._t_E, (('af', (), _M_Test._t_A, True, 1),))
     F._ice_type = _M_Test._t_F
 
     _M_Test.F = F
@@ -816,7 +816,7 @@ if 'G1' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_G1 = IcePy.defineValue('::Test::G1', G1, -1, (), False, False, None, (('a', (), IcePy._t_string, False, 0),))
+    _M_Test._t_G1 = IcePy.defineValue('::Test::G1', G1, -1, (), False, None, (('a', (), IcePy._t_string, False, 0),))
     G1._ice_type = _M_Test._t_G1
 
     _M_Test.G1 = G1
@@ -840,7 +840,7 @@ if 'G2' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_G2 = IcePy.defineValue('::Test::G2', G2, -1, (), False, False, None, (('a', (), IcePy._t_long, False, 0),))
+    _M_Test._t_G2 = IcePy.defineValue('::Test::G2', G2, -1, (), False, None, (('a', (), IcePy._t_long, False, 0),))
     G2._ice_type = _M_Test._t_G2
 
     _M_Test.G2 = G2
@@ -869,7 +869,7 @@ if 'G' not in _M_Test.__dict__:
 
     _M_Test._t_G = IcePy.declareValue('::Test::G')
 
-    _M_Test._t_G = IcePy.defineValue('::Test::G', G, -1, (), False, False, None, (
+    _M_Test._t_G = IcePy.defineValue('::Test::G', G, -1, (), False, None, (
         ('gg1Opt', (), _M_Test._t_G1, True, 1),
         ('gg2', (), _M_Test._t_G2, False, 0),
         ('gg2Opt', (), _M_Test._t_G2, True, 0),
@@ -904,13 +904,13 @@ if 'Recursive' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_Recursive = IcePy.defineValue('::Test::Recursive', Recursive, -1, (), False, False, None, (('value', (), _M_Test._t_RecursiveSeq, True, 0),))
+    _M_Test._t_Recursive = IcePy.defineValue('::Test::Recursive', Recursive, -1, (), False, None, (('value', (), _M_Test._t_RecursiveSeq, True, 0),))
     Recursive._ice_type = _M_Test._t_Recursive
 
     _M_Test.Recursive = Recursive
     del Recursive
 
-_M_Test._t_Initial = IcePy.defineValue('::Test::Initial', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_Initial = IcePy.defineValue('::Test::Initial', Ice.Value, -1, (), True, None, ())
 
 if 'InitialPrx' not in _M_Test.__dict__:
     _M_Test.InitialPrx = Ice.createTempClass()

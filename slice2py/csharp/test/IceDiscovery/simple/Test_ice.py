@@ -20,7 +20,7 @@ import Ice, IcePy
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
-_M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), True, None, ())
 
 if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntfPrx = Ice.createTempClass()
@@ -77,7 +77,7 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntf = TestIntf
     del TestIntf
 
-_M_Test._t_Controller = IcePy.defineValue('::Test::Controller', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_Controller = IcePy.defineValue('::Test::Controller', Ice.Value, -1, (), True, None, ())
 
 if 'ControllerPrx' not in _M_Test.__dict__:
     _M_Test.ControllerPrx = Ice.createTempClass()

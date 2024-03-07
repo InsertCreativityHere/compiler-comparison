@@ -56,7 +56,7 @@ module ::Test
             attr_accessor :aMem
         end
 
-        T_A = ::Ice::__defineException('::Test::A', A, false, nil, [["aMem", ::Ice::T_int, false, 0]])
+        T_A = ::Ice::__defineException('::Test::A', A, nil, [["aMem", ::Ice::T_int, false, 0]])
     end
 
     if not defined?(::Test::B)
@@ -73,7 +73,7 @@ module ::Test
             attr_accessor :bMem
         end
 
-        T_B = ::Ice::__defineException('::Test::B', B, false, ::Test::T_A, [["bMem", ::Ice::T_int, false, 0]])
+        T_B = ::Ice::__defineException('::Test::B', B, ::Test::T_A, [["bMem", ::Ice::T_int, false, 0]])
     end
 
     if not defined?(::Test::C)
@@ -90,7 +90,7 @@ module ::Test
             attr_accessor :cMem
         end
 
-        T_C = ::Ice::__defineException('::Test::C', C, false, ::Test::T_B, [["cMem", ::Ice::T_int, false, 0]])
+        T_C = ::Ice::__defineException('::Test::C', C, ::Test::T_B, [["cMem", ::Ice::T_int, false, 0]])
     end
 
     if not defined?(::Test::D)
@@ -106,7 +106,7 @@ module ::Test
             attr_accessor :dMem
         end
 
-        T_D = ::Ice::__defineException('::Test::D', D, false, nil, [["dMem", ::Ice::T_int, false, 0]])
+        T_D = ::Ice::__defineException('::Test::D', D, nil, [["dMem", ::Ice::T_int, false, 0]])
     end
 
     if not defined?(::Test::Thrower_Mixin)

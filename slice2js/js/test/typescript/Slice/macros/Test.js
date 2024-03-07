@@ -44,7 +44,7 @@ Test._Default = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test._Default, "::Test::Default", false);
+Slice.defineValue(Test._Default, "::Test::Default");
 
 Test.NoDefault = class extends Ice.Value
 {
@@ -68,7 +68,7 @@ Test.NoDefault = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.NoDefault, "::Test::NoDefault", false);
+Slice.defineValue(Test.NoDefault, "::Test::NoDefault");
 
 Test.JsOnly = class extends Ice.Value
 {
@@ -92,5 +92,5 @@ Test.JsOnly = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.JsOnly, "::Test::JsOnly", false);
+Slice.defineValue(Test.JsOnly, "::Test::JsOnly");
 export { Test };

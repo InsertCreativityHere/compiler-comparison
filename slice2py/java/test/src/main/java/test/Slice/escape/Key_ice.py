@@ -120,7 +120,7 @@ if '_break' not in _M_abstract.__dict__:
     _M_abstract._break = _break
     del _break
 
-_M_abstract._t_catch = IcePy.defineValue('::abstract::catch', Ice.Value, -1, (), False, True, None, ())
+_M_abstract._t_catch = IcePy.defineValue('::abstract::catch', Ice.Value, -1, (), True, None, ())
 
 if 'catchPrx' not in _M_abstract.__dict__:
     _M_abstract.catchPrx = Ice.createTempClass()
@@ -177,7 +177,7 @@ if 'catchPrx' not in _M_abstract.__dict__:
     _M_abstract.catch = catch
     del catch
 
-_M_abstract._t_default = IcePy.defineValue('::abstract::default', Ice.Value, -1, (), False, True, None, ())
+_M_abstract._t_default = IcePy.defineValue('::abstract::default', Ice.Value, -1, (), True, None, ())
 
 if 'defaultPrx' not in _M_abstract.__dict__:
     _M_abstract.defaultPrx = Ice.createTempClass()
@@ -254,7 +254,7 @@ if '_else' not in _M_abstract.__dict__:
 
         __repr__ = __str__
 
-    _M_abstract._t__else = IcePy.defineValue('::abstract::else', _else, -1, (), False, False, None, (
+    _M_abstract._t__else = IcePy.defineValue('::abstract::else', _else, -1, (), False, None, (
         ('_if', (), IcePy._t_int, False, 0),
         ('equals', (), _M_abstract._t_defaultPrx, False, 0),
         ('final', (), IcePy._t_int, False, 0)
@@ -264,7 +264,7 @@ if '_else' not in _M_abstract.__dict__:
     _M_abstract._else = _else
     del _else
 
-_M_abstract._t_finalize = IcePy.defineValue('::abstract::finalize', Ice.Value, -1, (), False, True, None, ())
+_M_abstract._t_finalize = IcePy.defineValue('::abstract::finalize', Ice.Value, -1, (), True, None, ())
 
 if 'finalizePrx' not in _M_abstract.__dict__:
     _M_abstract.finalizePrx = Ice.createTempClass()
@@ -329,7 +329,7 @@ if 'hashCode' not in _M_abstract.__dict__:
 
         _ice_id = '::abstract::hashCode'
 
-    _M_abstract._t_hashCode = IcePy.defineException('::abstract::hashCode', hashCode, (), False, None, (('_if', (), IcePy._t_int, False, 0),))
+    _M_abstract._t_hashCode = IcePy.defineException('::abstract::hashCode', hashCode, (), None, (('_if', (), IcePy._t_int, False, 0),))
     hashCode._ice_type = _M_abstract._t_hashCode
 
     _M_abstract.hashCode = hashCode
@@ -350,7 +350,7 @@ if '_import' not in _M_abstract.__dict__:
 
         _ice_id = '::abstract::import'
 
-    _M_abstract._t__import = IcePy.defineException('::abstract::import', _import, (), False, _M_abstract._t_hashCode, (
+    _M_abstract._t__import = IcePy.defineException('::abstract::import', _import, (), _M_abstract._t_hashCode, (
         ('instanceof', (), IcePy._t_int, False, 0),
         ('native', (), IcePy._t_int, False, 0)
     ))
@@ -359,7 +359,7 @@ if '_import' not in _M_abstract.__dict__:
     _M_abstract._import = _import
     del _import
 
-_M_abstract._t_new = IcePy.defineValue('::abstract::new', Ice.Value, -1, (), False, True, None, ())
+_M_abstract._t_new = IcePy.defineValue('::abstract::new', Ice.Value, -1, (), True, None, ())
 
 if 'newPrx' not in _M_abstract.__dict__:
     _M_abstract.newPrx = Ice.createTempClass()

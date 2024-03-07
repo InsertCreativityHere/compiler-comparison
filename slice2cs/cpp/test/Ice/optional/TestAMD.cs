@@ -1210,28 +1210,6 @@ namespace Test
         #region Marshaling support
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override global::Ice.SlicedData ice_getSlicedData()
-        {
-            return iceSlicedData_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override void iceWrite(global::Ice.OutputStream ostr_)
-        {
-            ostr_.startValue(iceSlicedData_);
-            iceWriteImpl(ostr_);
-            ostr_.endValue();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override void iceRead(global::Ice.InputStream istr_)
-        {
-            istr_.startValue();
-            iceReadImpl(istr_);
-            iceSlicedData_ = istr_.endValue(true);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, false);
@@ -1250,8 +1228,6 @@ namespace Test
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
-
-        protected global::Ice.SlicedData iceSlicedData_;
 
         #endregion
     }

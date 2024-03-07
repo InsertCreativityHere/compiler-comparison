@@ -162,7 +162,7 @@ module ::Ice
             end
         end
 
-        T_RemoteLoggerAlreadyAttachedException = ::Ice::__defineException('::Ice::RemoteLoggerAlreadyAttachedException', RemoteLoggerAlreadyAttachedException, false, nil, [])
+        T_RemoteLoggerAlreadyAttachedException = ::Ice::__defineException('::Ice::RemoteLoggerAlreadyAttachedException', RemoteLoggerAlreadyAttachedException, nil, [])
     end
 
     if not defined?(::Ice::LoggerAdmin_Mixin)

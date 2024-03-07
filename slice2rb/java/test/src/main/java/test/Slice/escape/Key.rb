@@ -166,7 +166,7 @@ module ::Abstract
             T_Else = ::Ice::__declareClass('::abstract::else')
         end
 
-        T_Else.defineClass(Else, -1, false, false, nil, [
+        T_Else.defineClass(Else, -1, false, nil, [
             ['_if', ::Ice::T_int, false, 0],
             ['equals', ::Abstract::T_DefaultPrx, false, 0],
             ['final', ::Ice::T_int, false, 0]
@@ -216,7 +216,7 @@ module ::Abstract
             attr_accessor :_if
         end
 
-        T_HashCode = ::Ice::__defineException('::abstract::hashCode', HashCode, false, nil, [["_if", ::Ice::T_int, false, 0]])
+        T_HashCode = ::Ice::__defineException('::abstract::hashCode', HashCode, nil, [["_if", ::Ice::T_int, false, 0]])
     end
 
     if not defined?(::Abstract::Import)
@@ -234,7 +234,7 @@ module ::Abstract
             attr_accessor :instanceof, :native
         end
 
-        T_Import = ::Ice::__defineException('::abstract::import', Import, false, ::Abstract::T_HashCode, [
+        T_Import = ::Ice::__defineException('::abstract::import', Import, ::Abstract::T_HashCode, [
             ["instanceof", ::Ice::T_int, false, 0],
             ["native", ::Ice::T_int, false, 0]
         ])

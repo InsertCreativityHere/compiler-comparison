@@ -43,7 +43,7 @@ if 'ApplicationNotExistException' not in _M_IceGrid.__dict__:
 
         _ice_id = '::IceGrid::ApplicationNotExistException'
 
-    _M_IceGrid._t_ApplicationNotExistException = IcePy.defineException('::IceGrid::ApplicationNotExistException', ApplicationNotExistException, (), False, None, (('name', (), IcePy._t_string, False, 0),))
+    _M_IceGrid._t_ApplicationNotExistException = IcePy.defineException('::IceGrid::ApplicationNotExistException', ApplicationNotExistException, (), None, (('name', (), IcePy._t_string, False, 0),))
     ApplicationNotExistException._ice_type = _M_IceGrid._t_ApplicationNotExistException
 
     _M_IceGrid.ApplicationNotExistException = ApplicationNotExistException
@@ -67,7 +67,7 @@ if 'ServerNotExistException' not in _M_IceGrid.__dict__:
 
         _ice_id = '::IceGrid::ServerNotExistException'
 
-    _M_IceGrid._t_ServerNotExistException = IcePy.defineException('::IceGrid::ServerNotExistException', ServerNotExistException, (), False, None, (('id', (), IcePy._t_string, False, 0),))
+    _M_IceGrid._t_ServerNotExistException = IcePy.defineException('::IceGrid::ServerNotExistException', ServerNotExistException, (), None, (('id', (), IcePy._t_string, False, 0),))
     ServerNotExistException._ice_type = _M_IceGrid._t_ServerNotExistException
 
     _M_IceGrid.ServerNotExistException = ServerNotExistException
@@ -93,7 +93,7 @@ if 'ServerStartException' not in _M_IceGrid.__dict__:
 
         _ice_id = '::IceGrid::ServerStartException'
 
-    _M_IceGrid._t_ServerStartException = IcePy.defineException('::IceGrid::ServerStartException', ServerStartException, (), False, None, (
+    _M_IceGrid._t_ServerStartException = IcePy.defineException('::IceGrid::ServerStartException', ServerStartException, (), None, (
         ('id', (), IcePy._t_string, False, 0),
         ('reason', (), IcePy._t_string, False, 0)
     ))
@@ -122,7 +122,7 @@ if 'ServerStopException' not in _M_IceGrid.__dict__:
 
         _ice_id = '::IceGrid::ServerStopException'
 
-    _M_IceGrid._t_ServerStopException = IcePy.defineException('::IceGrid::ServerStopException', ServerStopException, (), False, None, (
+    _M_IceGrid._t_ServerStopException = IcePy.defineException('::IceGrid::ServerStopException', ServerStopException, (), None, (
         ('id', (), IcePy._t_string, False, 0),
         ('reason', (), IcePy._t_string, False, 0)
     ))
@@ -149,7 +149,7 @@ if 'AdapterNotExistException' not in _M_IceGrid.__dict__:
 
         _ice_id = '::IceGrid::AdapterNotExistException'
 
-    _M_IceGrid._t_AdapterNotExistException = IcePy.defineException('::IceGrid::AdapterNotExistException', AdapterNotExistException, (), False, None, (('id', (), IcePy._t_string, False, 0),))
+    _M_IceGrid._t_AdapterNotExistException = IcePy.defineException('::IceGrid::AdapterNotExistException', AdapterNotExistException, (), None, (('id', (), IcePy._t_string, False, 0),))
     AdapterNotExistException._ice_type = _M_IceGrid._t_AdapterNotExistException
 
     _M_IceGrid.AdapterNotExistException = AdapterNotExistException
@@ -176,7 +176,7 @@ if 'ObjectExistsException' not in _M_IceGrid.__dict__:
 
         _ice_id = '::IceGrid::ObjectExistsException'
 
-    _M_IceGrid._t_ObjectExistsException = IcePy.defineException('::IceGrid::ObjectExistsException', ObjectExistsException, (), False, None, (('id', (), _M_Ice._t_Identity, False, 0),))
+    _M_IceGrid._t_ObjectExistsException = IcePy.defineException('::IceGrid::ObjectExistsException', ObjectExistsException, (), None, (('id', (), _M_Ice._t_Identity, False, 0),))
     ObjectExistsException._ice_type = _M_IceGrid._t_ObjectExistsException
 
     _M_IceGrid.ObjectExistsException = ObjectExistsException
@@ -203,7 +203,7 @@ if 'ObjectNotRegisteredException' not in _M_IceGrid.__dict__:
 
         _ice_id = '::IceGrid::ObjectNotRegisteredException'
 
-    _M_IceGrid._t_ObjectNotRegisteredException = IcePy.defineException('::IceGrid::ObjectNotRegisteredException', ObjectNotRegisteredException, (), False, None, (('id', (), _M_Ice._t_Identity, False, 0),))
+    _M_IceGrid._t_ObjectNotRegisteredException = IcePy.defineException('::IceGrid::ObjectNotRegisteredException', ObjectNotRegisteredException, (), None, (('id', (), _M_Ice._t_Identity, False, 0),))
     ObjectNotRegisteredException._ice_type = _M_IceGrid._t_ObjectNotRegisteredException
 
     _M_IceGrid.ObjectNotRegisteredException = ObjectNotRegisteredException
@@ -227,7 +227,7 @@ if 'NodeNotExistException' not in _M_IceGrid.__dict__:
 
         _ice_id = '::IceGrid::NodeNotExistException'
 
-    _M_IceGrid._t_NodeNotExistException = IcePy.defineException('::IceGrid::NodeNotExistException', NodeNotExistException, (), False, None, (('name', (), IcePy._t_string, False, 0),))
+    _M_IceGrid._t_NodeNotExistException = IcePy.defineException('::IceGrid::NodeNotExistException', NodeNotExistException, (), None, (('name', (), IcePy._t_string, False, 0),))
     NodeNotExistException._ice_type = _M_IceGrid._t_NodeNotExistException
 
     _M_IceGrid.NodeNotExistException = NodeNotExistException
@@ -251,7 +251,7 @@ if 'RegistryNotExistException' not in _M_IceGrid.__dict__:
 
         _ice_id = '::IceGrid::RegistryNotExistException'
 
-    _M_IceGrid._t_RegistryNotExistException = IcePy.defineException('::IceGrid::RegistryNotExistException', RegistryNotExistException, (), False, None, (('name', (), IcePy._t_string, False, 0),))
+    _M_IceGrid._t_RegistryNotExistException = IcePy.defineException('::IceGrid::RegistryNotExistException', RegistryNotExistException, (), None, (('name', (), IcePy._t_string, False, 0),))
     RegistryNotExistException._ice_type = _M_IceGrid._t_RegistryNotExistException
 
     _M_IceGrid.RegistryNotExistException = RegistryNotExistException
@@ -275,7 +275,7 @@ if 'DeploymentException' not in _M_IceGrid.__dict__:
 
         _ice_id = '::IceGrid::DeploymentException'
 
-    _M_IceGrid._t_DeploymentException = IcePy.defineException('::IceGrid::DeploymentException', DeploymentException, (), False, None, (('reason', (), IcePy._t_string, False, 0),))
+    _M_IceGrid._t_DeploymentException = IcePy.defineException('::IceGrid::DeploymentException', DeploymentException, (), None, (('reason', (), IcePy._t_string, False, 0),))
     DeploymentException._ice_type = _M_IceGrid._t_DeploymentException
 
     _M_IceGrid.DeploymentException = DeploymentException
@@ -301,7 +301,7 @@ if 'NodeUnreachableException' not in _M_IceGrid.__dict__:
 
         _ice_id = '::IceGrid::NodeUnreachableException'
 
-    _M_IceGrid._t_NodeUnreachableException = IcePy.defineException('::IceGrid::NodeUnreachableException', NodeUnreachableException, (), False, None, (
+    _M_IceGrid._t_NodeUnreachableException = IcePy.defineException('::IceGrid::NodeUnreachableException', NodeUnreachableException, (), None, (
         ('name', (), IcePy._t_string, False, 0),
         ('reason', (), IcePy._t_string, False, 0)
     ))
@@ -330,7 +330,7 @@ if 'ServerUnreachableException' not in _M_IceGrid.__dict__:
 
         _ice_id = '::IceGrid::ServerUnreachableException'
 
-    _M_IceGrid._t_ServerUnreachableException = IcePy.defineException('::IceGrid::ServerUnreachableException', ServerUnreachableException, (), False, None, (
+    _M_IceGrid._t_ServerUnreachableException = IcePy.defineException('::IceGrid::ServerUnreachableException', ServerUnreachableException, (), None, (
         ('name', (), IcePy._t_string, False, 0),
         ('reason', (), IcePy._t_string, False, 0)
     ))
@@ -359,7 +359,7 @@ if 'RegistryUnreachableException' not in _M_IceGrid.__dict__:
 
         _ice_id = '::IceGrid::RegistryUnreachableException'
 
-    _M_IceGrid._t_RegistryUnreachableException = IcePy.defineException('::IceGrid::RegistryUnreachableException', RegistryUnreachableException, (), False, None, (
+    _M_IceGrid._t_RegistryUnreachableException = IcePy.defineException('::IceGrid::RegistryUnreachableException', RegistryUnreachableException, (), None, (
         ('name', (), IcePy._t_string, False, 0),
         ('reason', (), IcePy._t_string, False, 0)
     ))
@@ -386,7 +386,7 @@ if 'BadSignalException' not in _M_IceGrid.__dict__:
 
         _ice_id = '::IceGrid::BadSignalException'
 
-    _M_IceGrid._t_BadSignalException = IcePy.defineException('::IceGrid::BadSignalException', BadSignalException, (), False, None, (('reason', (), IcePy._t_string, False, 0),))
+    _M_IceGrid._t_BadSignalException = IcePy.defineException('::IceGrid::BadSignalException', BadSignalException, (), None, (('reason', (), IcePy._t_string, False, 0),))
     BadSignalException._ice_type = _M_IceGrid._t_BadSignalException
 
     _M_IceGrid.BadSignalException = BadSignalException
@@ -410,7 +410,7 @@ if 'PatchException' not in _M_IceGrid.__dict__:
 
         _ice_id = '::IceGrid::PatchException'
 
-    _M_IceGrid._t_PatchException = IcePy.defineException('::IceGrid::PatchException', PatchException, (), False, None, (('reasons', (), _M_Ice._t_StringSeq, False, 0),))
+    _M_IceGrid._t_PatchException = IcePy.defineException('::IceGrid::PatchException', PatchException, (), None, (('reasons', (), _M_Ice._t_StringSeq, False, 0),))
     PatchException._ice_type = _M_IceGrid._t_PatchException
 
     _M_IceGrid.PatchException = PatchException
@@ -434,7 +434,7 @@ if 'AccessDeniedException' not in _M_IceGrid.__dict__:
 
         _ice_id = '::IceGrid::AccessDeniedException'
 
-    _M_IceGrid._t_AccessDeniedException = IcePy.defineException('::IceGrid::AccessDeniedException', AccessDeniedException, (), False, None, (('lockUserId', (), IcePy._t_string, False, 0),))
+    _M_IceGrid._t_AccessDeniedException = IcePy.defineException('::IceGrid::AccessDeniedException', AccessDeniedException, (), None, (('lockUserId', (), IcePy._t_string, False, 0),))
     AccessDeniedException._ice_type = _M_IceGrid._t_AccessDeniedException
 
     _M_IceGrid.AccessDeniedException = AccessDeniedException
@@ -458,7 +458,7 @@ if 'AllocationException' not in _M_IceGrid.__dict__:
 
         _ice_id = '::IceGrid::AllocationException'
 
-    _M_IceGrid._t_AllocationException = IcePy.defineException('::IceGrid::AllocationException', AllocationException, (), False, None, (('reason', (), IcePy._t_string, False, 0),))
+    _M_IceGrid._t_AllocationException = IcePy.defineException('::IceGrid::AllocationException', AllocationException, (), None, (('reason', (), IcePy._t_string, False, 0),))
     AllocationException._ice_type = _M_IceGrid._t_AllocationException
 
     _M_IceGrid.AllocationException = AllocationException
@@ -480,7 +480,7 @@ if 'AllocationTimeoutException' not in _M_IceGrid.__dict__:
 
         _ice_id = '::IceGrid::AllocationTimeoutException'
 
-    _M_IceGrid._t_AllocationTimeoutException = IcePy.defineException('::IceGrid::AllocationTimeoutException', AllocationTimeoutException, (), False, _M_IceGrid._t_AllocationException, ())
+    _M_IceGrid._t_AllocationTimeoutException = IcePy.defineException('::IceGrid::AllocationTimeoutException', AllocationTimeoutException, (), _M_IceGrid._t_AllocationException, ())
     AllocationTimeoutException._ice_type = _M_IceGrid._t_AllocationTimeoutException
 
     _M_IceGrid.AllocationTimeoutException = AllocationTimeoutException
@@ -504,7 +504,7 @@ if 'PermissionDeniedException' not in _M_IceGrid.__dict__:
 
         _ice_id = '::IceGrid::PermissionDeniedException'
 
-    _M_IceGrid._t_PermissionDeniedException = IcePy.defineException('::IceGrid::PermissionDeniedException', PermissionDeniedException, (), False, None, (('reason', (), IcePy._t_string, False, 0),))
+    _M_IceGrid._t_PermissionDeniedException = IcePy.defineException('::IceGrid::PermissionDeniedException', PermissionDeniedException, (), None, (('reason', (), IcePy._t_string, False, 0),))
     PermissionDeniedException._ice_type = _M_IceGrid._t_PermissionDeniedException
 
     _M_IceGrid.PermissionDeniedException = PermissionDeniedException
@@ -531,7 +531,7 @@ if 'ObserverAlreadyRegisteredException' not in _M_IceGrid.__dict__:
 
         _ice_id = '::IceGrid::ObserverAlreadyRegisteredException'
 
-    _M_IceGrid._t_ObserverAlreadyRegisteredException = IcePy.defineException('::IceGrid::ObserverAlreadyRegisteredException', ObserverAlreadyRegisteredException, (), False, None, (('id', (), _M_Ice._t_Identity, False, 0),))
+    _M_IceGrid._t_ObserverAlreadyRegisteredException = IcePy.defineException('::IceGrid::ObserverAlreadyRegisteredException', ObserverAlreadyRegisteredException, (), None, (('id', (), _M_Ice._t_Identity, False, 0),))
     ObserverAlreadyRegisteredException._ice_type = _M_IceGrid._t_ObserverAlreadyRegisteredException
 
     _M_IceGrid.ObserverAlreadyRegisteredException = ObserverAlreadyRegisteredException
@@ -555,7 +555,7 @@ if 'FileNotAvailableException' not in _M_IceGrid.__dict__:
 
         _ice_id = '::IceGrid::FileNotAvailableException'
 
-    _M_IceGrid._t_FileNotAvailableException = IcePy.defineException('::IceGrid::FileNotAvailableException', FileNotAvailableException, (), False, None, (('reason', (), IcePy._t_string, False, 0),))
+    _M_IceGrid._t_FileNotAvailableException = IcePy.defineException('::IceGrid::FileNotAvailableException', FileNotAvailableException, (), None, (('reason', (), IcePy._t_string, False, 0),))
     FileNotAvailableException._ice_type = _M_IceGrid._t_FileNotAvailableException
 
     _M_IceGrid.FileNotAvailableException = FileNotAvailableException

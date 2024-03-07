@@ -93,7 +93,7 @@
         }
     };
 
-    Slice.defineValue(Test.NumPy.D, "::Test::NumPy::D", false);
+    Slice.defineValue(Test.NumPy.D, "::Test::NumPy::D");
 
     const iceC_Test_NumPy_Custom_ids = [
         "::Ice::Object",

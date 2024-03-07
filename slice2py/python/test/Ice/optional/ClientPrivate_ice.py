@@ -46,7 +46,7 @@ if 'D' not in _M_Test.__dict__:
 
     _M_Test._t_D = IcePy.declareValue('::Test::D')
 
-    _M_Test._t_D = IcePy.defineValue('::Test::D', D, -1, (), True, False, _M_Test._t_B, (
+    _M_Test._t_D = IcePy.defineValue('::Test::D', D, -1, (), False, _M_Test._t_B, (
         ('ds', (), IcePy._t_string, False, 0),
         ('seq', (), _M_Test._t_StringSeq, True, 990),
         ('ao', (), _M_Test._t_A, True, 1000)
@@ -56,7 +56,7 @@ if 'D' not in _M_Test.__dict__:
     _M_Test.D = D
     del D
 
-_M_Test._t_Initial2 = IcePy.defineValue('::Test::Initial2', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_Initial2 = IcePy.defineValue('::Test::Initial2', Ice.Value, -1, (), True, None, ())
 
 if 'Initial2Prx' not in _M_Test.__dict__:
     _M_Test.Initial2Prx = Ice.createTempClass()

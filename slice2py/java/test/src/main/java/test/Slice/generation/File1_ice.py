@@ -20,7 +20,7 @@ import Ice, IcePy
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
-_M_Test._t_Interface1 = IcePy.defineValue('::Test::Interface1', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_Interface1 = IcePy.defineValue('::Test::Interface1', Ice.Value, -1, (), True, None, ())
 
 if 'Interface1Prx' not in _M_Test.__dict__:
     _M_Test.Interface1Prx = Ice.createTempClass()
@@ -101,7 +101,7 @@ if 'Class1' not in _M_Test2.__dict__:
 
         __repr__ = __str__
 
-    _M_Test2._t_Class1 = IcePy.defineValue('::Test2::Class1', Class1, -1, (), False, False, None, ())
+    _M_Test2._t_Class1 = IcePy.defineValue('::Test2::Class1', Class1, -1, (), False, None, ())
     Class1._ice_type = _M_Test2._t_Class1
 
     _M_Test2.Class1 = Class1

@@ -47,7 +47,7 @@ namespace User
     }
 
     global $Ice__t_Value;
-    $User__t_UserInfo = IcePHP_defineClass('::User::UserInfo', '\\User\\UserInfo', -1, false, false, $Ice__t_Value, null);
+    $User__t_UserInfo = IcePHP_defineClass('::User::UserInfo', '\\User\\UserInfo', -1, false, $Ice__t_Value, null);
 }
 
 namespace User

@@ -44,13 +44,13 @@ if 'PermissionDeniedException' not in _M_Glacier2.__dict__:
 
         _ice_id = '::Glacier2::PermissionDeniedException'
 
-    _M_Glacier2._t_PermissionDeniedException = IcePy.defineException('::Glacier2::PermissionDeniedException', PermissionDeniedException, (), True, None, (('reason', (), IcePy._t_string, False, 0),))
+    _M_Glacier2._t_PermissionDeniedException = IcePy.defineException('::Glacier2::PermissionDeniedException', PermissionDeniedException, (), None, (('reason', (), IcePy._t_string, False, 0),))
     PermissionDeniedException._ice_type = _M_Glacier2._t_PermissionDeniedException
 
     _M_Glacier2.PermissionDeniedException = PermissionDeniedException
     del PermissionDeniedException
 
-_M_Glacier2._t_PermissionsVerifier = IcePy.defineValue('::Glacier2::PermissionsVerifier', Ice.Value, -1, (), False, True, None, ())
+_M_Glacier2._t_PermissionsVerifier = IcePy.defineValue('::Glacier2::PermissionsVerifier', Ice.Value, -1, (), True, None, ())
 
 if 'PermissionsVerifierPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2.PermissionsVerifierPrx = Ice.createTempClass()
@@ -137,7 +137,7 @@ if 'PermissionsVerifierPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2.PermissionsVerifier = PermissionsVerifier
     del PermissionsVerifier
 
-_M_Glacier2._t_SSLPermissionsVerifier = IcePy.defineValue('::Glacier2::SSLPermissionsVerifier', Ice.Value, -1, (), False, True, None, ())
+_M_Glacier2._t_SSLPermissionsVerifier = IcePy.defineValue('::Glacier2::SSLPermissionsVerifier', Ice.Value, -1, (), True, None, ())
 
 if 'SSLPermissionsVerifierPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2.SSLPermissionsVerifierPrx = Ice.createTempClass()

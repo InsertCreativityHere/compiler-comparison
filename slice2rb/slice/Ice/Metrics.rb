@@ -44,7 +44,7 @@ module ::IceMX
             T_Metrics = ::Ice::__declareClass('::IceMX::Metrics')
         end
 
-        T_Metrics.defineClass(Metrics, -1, false, false, nil, [
+        T_Metrics.defineClass(Metrics, -1, false, nil, [
             ['id', ::Ice::T_string, false, 0],
             ['total', ::Ice::T_long, false, 0],
             ['current', ::Ice::T_int, false, 0],
@@ -110,7 +110,7 @@ module ::IceMX
             end
         end
 
-        T_UnknownMetricsView = ::Ice::__defineException('::IceMX::UnknownMetricsView', UnknownMetricsView, false, nil, [])
+        T_UnknownMetricsView = ::Ice::__defineException('::IceMX::UnknownMetricsView', UnknownMetricsView, nil, [])
     end
 
     if not defined?(::IceMX::MetricsAdmin_Mixin)
@@ -184,7 +184,7 @@ module ::IceMX
             T_ThreadMetrics = ::Ice::__declareClass('::IceMX::ThreadMetrics')
         end
 
-        T_ThreadMetrics.defineClass(ThreadMetrics, -1, false, false, ::IceMX::T_Metrics, [
+        T_ThreadMetrics.defineClass(ThreadMetrics, -1, false, ::IceMX::T_Metrics, [
             ['inUseForIO', ::Ice::T_int, false, 0],
             ['inUseForUser', ::Ice::T_int, false, 0],
             ['inUseForOther', ::Ice::T_int, false, 0]
@@ -211,7 +211,7 @@ module ::IceMX
             T_DispatchMetrics = ::Ice::__declareClass('::IceMX::DispatchMetrics')
         end
 
-        T_DispatchMetrics.defineClass(DispatchMetrics, -1, false, false, ::IceMX::T_Metrics, [
+        T_DispatchMetrics.defineClass(DispatchMetrics, -1, false, ::IceMX::T_Metrics, [
             ['userException', ::Ice::T_int, false, 0],
             ['size', ::Ice::T_long, false, 0],
             ['replySize', ::Ice::T_long, false, 0]
@@ -237,7 +237,7 @@ module ::IceMX
             T_ChildInvocationMetrics = ::Ice::__declareClass('::IceMX::ChildInvocationMetrics')
         end
 
-        T_ChildInvocationMetrics.defineClass(ChildInvocationMetrics, -1, false, false, ::IceMX::T_Metrics, [
+        T_ChildInvocationMetrics.defineClass(ChildInvocationMetrics, -1, false, ::IceMX::T_Metrics, [
             ['size', ::Ice::T_long, false, 0],
             ['replySize', ::Ice::T_long, false, 0]
         ])
@@ -258,7 +258,7 @@ module ::IceMX
             T_CollocatedMetrics = ::Ice::__declareClass('::IceMX::CollocatedMetrics')
         end
 
-        T_CollocatedMetrics.defineClass(CollocatedMetrics, -1, false, false, ::IceMX::T_ChildInvocationMetrics, [])
+        T_CollocatedMetrics.defineClass(CollocatedMetrics, -1, false, ::IceMX::T_ChildInvocationMetrics, [])
     end
 
     if not defined?(::IceMX::RemoteMetrics_Mixin)
@@ -276,7 +276,7 @@ module ::IceMX
             T_RemoteMetrics = ::Ice::__declareClass('::IceMX::RemoteMetrics')
         end
 
-        T_RemoteMetrics.defineClass(RemoteMetrics, -1, false, false, ::IceMX::T_ChildInvocationMetrics, [])
+        T_RemoteMetrics.defineClass(RemoteMetrics, -1, false, ::IceMX::T_ChildInvocationMetrics, [])
     end
 
     if not defined?(::IceMX::InvocationMetrics_Mixin)
@@ -300,7 +300,7 @@ module ::IceMX
             T_InvocationMetrics = ::Ice::__declareClass('::IceMX::InvocationMetrics')
         end
 
-        T_InvocationMetrics.defineClass(InvocationMetrics, -1, false, false, ::IceMX::T_Metrics, [
+        T_InvocationMetrics.defineClass(InvocationMetrics, -1, false, ::IceMX::T_Metrics, [
             ['_retry', ::Ice::T_int, false, 0],
             ['userException', ::Ice::T_int, false, 0],
             ['remotes', ::IceMX::T_MetricsMap, false, 0],
@@ -327,7 +327,7 @@ module ::IceMX
             T_ConnectionMetrics = ::Ice::__declareClass('::IceMX::ConnectionMetrics')
         end
 
-        T_ConnectionMetrics.defineClass(ConnectionMetrics, -1, false, false, ::IceMX::T_Metrics, [
+        T_ConnectionMetrics.defineClass(ConnectionMetrics, -1, false, ::IceMX::T_Metrics, [
             ['receivedBytes', ::Ice::T_long, false, 0],
             ['sentBytes', ::Ice::T_long, false, 0]
         ])

@@ -50,13 +50,13 @@ if 'SessionNotExistException' not in _M_Glacier2.__dict__:
 
         _ice_id = '::Glacier2::SessionNotExistException'
 
-    _M_Glacier2._t_SessionNotExistException = IcePy.defineException('::Glacier2::SessionNotExistException', SessionNotExistException, (), False, None, ())
+    _M_Glacier2._t_SessionNotExistException = IcePy.defineException('::Glacier2::SessionNotExistException', SessionNotExistException, (), None, ())
     SessionNotExistException._ice_type = _M_Glacier2._t_SessionNotExistException
 
     _M_Glacier2.SessionNotExistException = SessionNotExistException
     del SessionNotExistException
 
-_M_Glacier2._t_Router = IcePy.defineValue('::Glacier2::Router', Ice.Value, -1, (), False, True, None, ())
+_M_Glacier2._t_Router = IcePy.defineValue('::Glacier2::Router', Ice.Value, -1, (), True, None, ())
 
 if 'RouterPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2.RouterPrx = Ice.createTempClass()

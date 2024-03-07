@@ -40,7 +40,7 @@ namespace Test
     }
     global $IcePHP__t_string;
 
-    $Test__t_InvalidInputException = IcePHP_defineException('::Test::InvalidInputException', '\\Test\\InvalidInputException', false, null, array(
+    $Test__t_InvalidInputException = IcePHP_defineException('::Test::InvalidInputException', '\\Test\\InvalidInputException', null, array(
         array('message', $IcePHP__t_string, false, 0)));
 }
 

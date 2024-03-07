@@ -42,7 +42,7 @@ if 'DerivedEx' not in _M_Test.__dict__:
 
         _ice_id = '::Test::DerivedEx'
 
-    _M_Test._t_DerivedEx = IcePy.defineException('::Test::DerivedEx', DerivedEx, (), False, _M_Test._t_BaseEx, ())
+    _M_Test._t_DerivedEx = IcePy.defineException('::Test::DerivedEx', DerivedEx, (), _M_Test._t_BaseEx, ())
     DerivedEx._ice_type = _M_Test._t_DerivedEx
 
     _M_Test.DerivedEx = DerivedEx

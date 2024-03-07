@@ -52,7 +52,7 @@ if 'TopicMetrics' not in _M_IceMX.__dict__:
 
         __repr__ = __str__
 
-    _M_IceMX._t_TopicMetrics = IcePy.defineValue('::IceMX::TopicMetrics', TopicMetrics, -1, (), False, False, _M_IceMX._t_Metrics, (
+    _M_IceMX._t_TopicMetrics = IcePy.defineValue('::IceMX::TopicMetrics', TopicMetrics, -1, (), False, _M_IceMX._t_Metrics, (
         ('published', (), IcePy._t_long, False, 0),
         ('forwarded', (), IcePy._t_long, False, 0)
     ))
@@ -89,7 +89,7 @@ if 'SubscriberMetrics' not in _M_IceMX.__dict__:
 
         __repr__ = __str__
 
-    _M_IceMX._t_SubscriberMetrics = IcePy.defineValue('::IceMX::SubscriberMetrics', SubscriberMetrics, -1, (), False, False, _M_IceMX._t_Metrics, (
+    _M_IceMX._t_SubscriberMetrics = IcePy.defineValue('::IceMX::SubscriberMetrics', SubscriberMetrics, -1, (), False, _M_IceMX._t_Metrics, (
         ('queued', (), IcePy._t_int, False, 0),
         ('outstanding', (), IcePy._t_int, False, 0),
         ('delivered', (), IcePy._t_long, False, 0)

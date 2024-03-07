@@ -41,7 +41,7 @@ namespace IceBox
         }
     }
 
-    $IceBox__t_AlreadyStartedException = IcePHP_defineException('::IceBox::AlreadyStartedException', '\\IceBox\\AlreadyStartedException', false, null, null);
+    $IceBox__t_AlreadyStartedException = IcePHP_defineException('::IceBox::AlreadyStartedException', '\\IceBox\\AlreadyStartedException', null, null);
 }
 
 namespace IceBox
@@ -65,7 +65,7 @@ namespace IceBox
         }
     }
 
-    $IceBox__t_AlreadyStoppedException = IcePHP_defineException('::IceBox::AlreadyStoppedException', '\\IceBox\\AlreadyStoppedException', false, null, null);
+    $IceBox__t_AlreadyStoppedException = IcePHP_defineException('::IceBox::AlreadyStoppedException', '\\IceBox\\AlreadyStoppedException', null, null);
 }
 
 namespace IceBox
@@ -89,7 +89,7 @@ namespace IceBox
         }
     }
 
-    $IceBox__t_NoSuchServiceException = IcePHP_defineException('::IceBox::NoSuchServiceException', '\\IceBox\\NoSuchServiceException', false, null, null);
+    $IceBox__t_NoSuchServiceException = IcePHP_defineException('::IceBox::NoSuchServiceException', '\\IceBox\\NoSuchServiceException', null, null);
 }
 
 namespace IceBox

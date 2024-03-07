@@ -166,7 +166,7 @@ module ::Abstract
             T_Delegate = ::Ice::__declareClass('::abstract::delegate')
         end
 
-        T_Delegate.defineClass(Delegate, -1, false, false, nil, [
+        T_Delegate.defineClass(Delegate, -1, false, nil, [
             ['_if', ::Ice::T_int, false, 0],
             ['_else', ::Abstract::T_CasePrx, false, 0],
             ['event', ::Ice::T_int, false, 0]
@@ -220,7 +220,7 @@ module ::Abstract
             T_OptionalMembers = ::Ice::__declareClass('::abstract::optionalMembers')
         end
 
-        T_OptionalMembers.defineClass(OptionalMembers, -1, false, false, nil, [
+        T_OptionalMembers.defineClass(OptionalMembers, -1, false, nil, [
             ['_for', ::Abstract::T_Break, true, 1],
             ['goto', ::Abstract::T_As, true, 2],
             ['_if', ::Abstract::T_ExplicitPrx, true, 3],
@@ -283,7 +283,7 @@ module ::Abstract
             attr_accessor :_for
         end
 
-        T_Fixed = ::Ice::__defineException('::abstract::fixed', Fixed, false, nil, [["_for", ::Ice::T_int, false, 0]])
+        T_Fixed = ::Ice::__defineException('::abstract::fixed', Fixed, nil, [["_for", ::Ice::T_int, false, 0]])
     end
 
     if not defined?(::Abstract::Foreach)
@@ -301,7 +301,7 @@ module ::Abstract
             attr_accessor :goto, :_if
         end
 
-        T_Foreach = ::Ice::__defineException('::abstract::foreach', Foreach, false, ::Abstract::T_Fixed, [
+        T_Foreach = ::Ice::__defineException('::abstract::foreach', Foreach, ::Abstract::T_Fixed, [
             ["goto", ::Ice::T_int, false, 0],
             ["_if", ::Ice::T_int, false, 0]
         ])
@@ -334,7 +334,7 @@ module ::Abstract
             attr_accessor :Data, :HelpLink, :InnerException, :Message, :Source, :StackTrace, :TargetSite, :HResult, :Equals, :GetBaseException, :GetHashCode, :GetObjectData, :GetType, :ReferenceEquals, :ToString
         end
 
-        T_BaseMethods = ::Ice::__defineException('::abstract::BaseMethods', BaseMethods, false, nil, [
+        T_BaseMethods = ::Ice::__defineException('::abstract::BaseMethods', BaseMethods, nil, [
             ["Data", ::Ice::T_int, false, 0],
             ["HelpLink", ::Ice::T_int, false, 0],
             ["InnerException", ::Ice::T_int, false, 0],

@@ -75,7 +75,7 @@ IceMX.Metrics = class extends Ice.Value
     }
 };
 
-Slice.defineValue(IceMX.Metrics, "::IceMX::Metrics", false);
+Slice.defineValue(IceMX.Metrics, "::IceMX::Metrics");
 
 /**
  *  A structure to keep track of failures associated with a given metrics.
@@ -210,7 +210,7 @@ IceMX.ThreadMetrics = class extends IceMX.Metrics
     }
 };
 
-Slice.defineValue(IceMX.ThreadMetrics, "::IceMX::ThreadMetrics", false);
+Slice.defineValue(IceMX.ThreadMetrics, "::IceMX::ThreadMetrics");
 
 /**
  *  Provides information on servant dispatch.
@@ -240,7 +240,7 @@ IceMX.DispatchMetrics = class extends IceMX.Metrics
     }
 };
 
-Slice.defineValue(IceMX.DispatchMetrics, "::IceMX::DispatchMetrics", false);
+Slice.defineValue(IceMX.DispatchMetrics, "::IceMX::DispatchMetrics");
 
 /**
  *  Provides information on child invocations. A child invocation is either remote (sent over an Ice connection) or
@@ -269,7 +269,7 @@ IceMX.ChildInvocationMetrics = class extends IceMX.Metrics
     }
 };
 
-Slice.defineValue(IceMX.ChildInvocationMetrics, "::IceMX::ChildInvocationMetrics", false);
+Slice.defineValue(IceMX.ChildInvocationMetrics, "::IceMX::ChildInvocationMetrics");
 
 /**
  *  Provides information on invocations that are collocated. Collocated metrics are embedded within
@@ -283,7 +283,7 @@ IceMX.CollocatedMetrics = class extends IceMX.ChildInvocationMetrics
     }
 };
 
-Slice.defineValue(IceMX.CollocatedMetrics, "::IceMX::CollocatedMetrics", false);
+Slice.defineValue(IceMX.CollocatedMetrics, "::IceMX::CollocatedMetrics");
 
 /**
  *  Provides information on invocations that are specifically sent over Ice connections. Remote metrics are embedded
@@ -297,7 +297,7 @@ IceMX.RemoteMetrics = class extends IceMX.ChildInvocationMetrics
     }
 };
 
-Slice.defineValue(IceMX.RemoteMetrics, "::IceMX::RemoteMetrics", false);
+Slice.defineValue(IceMX.RemoteMetrics, "::IceMX::RemoteMetrics");
 
 /**
  *  Provide measurements for proxy invocations. Proxy invocations can either be sent over the wire or be collocated.
@@ -330,7 +330,7 @@ IceMX.InvocationMetrics = class extends IceMX.Metrics
     }
 };
 
-Slice.defineValue(IceMX.InvocationMetrics, "::IceMX::InvocationMetrics", false);
+Slice.defineValue(IceMX.InvocationMetrics, "::IceMX::InvocationMetrics");
 
 /**
  *  Provides information on the data sent and received over Ice connections.
@@ -357,7 +357,7 @@ IceMX.ConnectionMetrics = class extends IceMX.Metrics
     }
 };
 
-Slice.defineValue(IceMX.ConnectionMetrics, "::IceMX::ConnectionMetrics", false);
+Slice.defineValue(IceMX.ConnectionMetrics, "::IceMX::ConnectionMetrics");
 /* slice2js browser-bundle-skip */
 exports.IceMX = IceMX;
 /* slice2js browser-bundle-skip-end */

@@ -94,7 +94,7 @@
         }
     };
 
-    Slice.defineValue(classdef._break.logical, "::classdef::break::logical", false);
+    Slice.defineValue(classdef._break.logical, "::classdef::break::logical");
 
     classdef._break.xor = class extends classdef._break.logical
     {
@@ -115,7 +115,7 @@
         }
     };
 
-    Slice.defineValue(classdef._break.xor, "::classdef::break::xor", false);
+    Slice.defineValue(classdef._break.xor, "::classdef::break::xor");
 
     Slice.defineSequence(classdef._break, "parforHelper", "classdef._break.bitor", false);
 
@@ -143,7 +143,7 @@
         }
     };
 
-    Slice.defineValue(classdef._break._try, "::classdef::break::try", false);
+    Slice.defineValue(classdef._break._try, "::classdef::break::try");
 
     classdef._break.properties = class extends classdef._break._try
     {
@@ -173,7 +173,7 @@
         }
     };
 
-    Slice.defineValue(classdef._break.properties, "::classdef::break::properties", false);
+    Slice.defineValue(classdef._break.properties, "::classdef::break::properties");
 
     classdef._break.persistent = class extends Ice.UserException
     {

@@ -69,8 +69,6 @@
 %   throwDerivedAsDerivedAsync
 %   throwUnknownDerivedAsBase
 %   throwUnknownDerivedAsBaseAsync
-%   throwPreservedException
-%   throwPreservedExceptionAsync
 %   useForward - Use of forward-declared class to verify that code is generated correctly.
 %   useForwardAsync - Use of forward-declared class to verify that code is generated correctly.
 %   shutdown
@@ -1280,24 +1278,6 @@ classdef TestIntfPrx < Ice.ObjectPrx
             
             r_ = obj.iceInvokeAsync('throwUnknownDerivedAsBase', 0, true, [], 0, [], Test.TestIntfPrx.throwUnknownDerivedAsBase_ex_, varargin{:});
         end
-        function throwPreservedException(obj, varargin)
-            % throwPreservedException
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
-            obj.iceInvoke('throwPreservedException', 0, true, [], false, Test.TestIntfPrx.throwPreservedException_ex_, varargin{:});
-        end
-        function r_ = throwPreservedExceptionAsync(obj, varargin)
-            % throwPreservedExceptionAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            r_ = obj.iceInvokeAsync('throwPreservedException', 0, true, [], 0, [], Test.TestIntfPrx.throwPreservedException_ex_, varargin{:});
-        end
         function f = useForward(obj, varargin)
             % useForward   Use of forward-declared class to verify that code is generated correctly.
             %
@@ -1393,6 +1373,5 @@ classdef TestIntfPrx < Ice.ObjectPrx
         throwDerivedAsBase_ex_ = { 'Test.BaseException' }
         throwDerivedAsDerived_ex_ = { 'Test.DerivedException' }
         throwUnknownDerivedAsBase_ex_ = { 'Test.BaseException' }
-        throwPreservedException_ex_ = { 'Test.PreservedException' }
     end
 end

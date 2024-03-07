@@ -58,6 +58,6 @@ module ::Test2
             T_Class1 = ::Ice::__declareClass('::Test2::Class1')
         end
 
-        T_Class1.defineClass(Class1, -1, false, false, nil, [])
+        T_Class1.defineClass(Class1, -1, false, nil, [])
     end
 end

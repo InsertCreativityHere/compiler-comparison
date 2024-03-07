@@ -72,7 +72,7 @@ module ::Test
             T_C = ::Ice::__declareClass('::Test::C')
         end
 
-        T_C.defineClass(C, -1, false, false, nil, [['s', ::Test::T_S, false, 0]])
+        T_C.defineClass(C, -1, false, nil, [['s', ::Test::T_S, false, 0]])
     end
 
     if not defined?(::Test::T_CMap)
@@ -187,7 +187,7 @@ module ::Test
             T_C1 = ::Ice::__declareClass('::Test::C1')
         end
 
-        T_C1.defineClass(C1, -1, false, false, nil, [['s', ::Ice::T_string, false, 0]])
+        T_C1.defineClass(C1, -1, false, nil, [['s', ::Ice::T_string, false, 0]])
     end
 
     if not defined?(::Test::S2)
@@ -258,7 +258,7 @@ module ::Test
             T_C2 = ::Ice::__declareClass('::Test::C2')
         end
 
-        T_C2.defineClass(C2, -1, false, false, nil, [
+        T_C2.defineClass(C2, -1, false, nil, [
             ['E1', ::Test::T_E1, false, 0],
             ['S1', ::Test::T_S1, false, 0],
             ['C1', ::Test::T_C1, false, 0],
@@ -443,7 +443,7 @@ module ::Test
                     T_C = ::Ice::__declareClass('::Test::Inner::Inner2::C')
                 end
 
-                T_C.defineClass(C, -1, false, false, nil, [['s', ::Test::Inner::Inner2::T_S, false, 0]])
+                T_C.defineClass(C, -1, false, nil, [['s', ::Test::Inner::Inner2::T_S, false, 0]])
             end
 
             if not defined?(::Test::Inner::Inner2::T_CMap)
@@ -536,7 +536,7 @@ module ::Test
                 T_C = ::Ice::__declareClass('::Test::Inner::C')
             end
 
-            T_C.defineClass(C, -1, false, false, nil, [['s', ::Test::Inner::T_S, false, 0]])
+            T_C.defineClass(C, -1, false, nil, [['s', ::Test::Inner::T_S, false, 0]])
         end
 
         if not defined?(::Test::Inner::T_SSeq)

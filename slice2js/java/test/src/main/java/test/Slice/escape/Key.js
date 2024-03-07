@@ -113,7 +113,7 @@
         }
     };
 
-    Slice.defineValue(abstract._else, "::abstract::else", false);
+    Slice.defineValue(abstract._else, "::abstract::else");
 
     const iceC_abstract_finalize_ids = [
         "::Ice::Object",

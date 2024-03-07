@@ -73,7 +73,7 @@ namespace Test
     global $Ice__t_Value;
     global $Test__t_S;
     global $IcePHP__t_string;
-    $Test__t_Base = IcePHP_defineClass('::Test::Base', '\\Test\\Base', -1, false, false, $Ice__t_Value, array(
+    $Test__t_Base = IcePHP_defineClass('::Test::Base', '\\Test\\Base', -1, false, $Ice__t_Value, array(
         array('theS', $Test__t_S, false, 0),
         array('str', $IcePHP__t_string, false, 0)));
 }
@@ -137,7 +137,7 @@ namespace Test
     global $Test__t_B;
     global $Test__t_C;
     global $IcePHP__t_bool;
-    $Test__t_A = IcePHP_defineClass('::Test::A', '\\Test\\A', -1, false, false, $Ice__t_Value, array(
+    $Test__t_A = IcePHP_defineClass('::Test::A', '\\Test\\A', -1, false, $Ice__t_Value, array(
         array('theB', $Test__t_B, false, 0),
         array('theC', $Test__t_C, false, 0),
         array('preMarshalInvoked', $IcePHP__t_bool, false, 0),
@@ -175,7 +175,7 @@ namespace Test
     }
 
     global $Test__t_A;
-    $Test__t_B = IcePHP_defineClass('::Test::B', '\\Test\\B', -1, false, false, $Test__t_A, array(
+    $Test__t_B = IcePHP_defineClass('::Test::B', '\\Test\\B', -1, false, $Test__t_A, array(
         array('theA', $Test__t_A, false, 0)));
 }
 
@@ -215,7 +215,7 @@ namespace Test
     global $Ice__t_Value;
     global $Test__t_B;
     global $IcePHP__t_bool;
-    $Test__t_C = IcePHP_defineClass('::Test::C', '\\Test\\C', -1, false, false, $Ice__t_Value, array(
+    $Test__t_C = IcePHP_defineClass('::Test::C', '\\Test\\C', -1, false, $Ice__t_Value, array(
         array('theB', $Test__t_B, false, 0),
         array('preMarshalInvoked', $IcePHP__t_bool, false, 0),
         array('postUnmarshalInvoked', $IcePHP__t_bool, false, 0)));
@@ -265,7 +265,7 @@ namespace Test
     global $Test__t_B;
     global $Test__t_C;
     global $IcePHP__t_bool;
-    $Test__t_D = IcePHP_defineClass('::Test::D', '\\Test\\D', -1, false, false, $Ice__t_Value, array(
+    $Test__t_D = IcePHP_defineClass('::Test::D', '\\Test\\D', -1, false, $Ice__t_Value, array(
         array('theA', $Test__t_A, false, 0),
         array('theB', $Test__t_B, false, 0),
         array('theC', $Test__t_C, false, 0),
@@ -307,7 +307,7 @@ namespace Test
     global $Ice__t_Value;
     global $IcePHP__t_int;
     global $IcePHP__t_string;
-    $Test__t_E = IcePHP_defineClass('::Test::E', '\\Test\\E', -1, false, false, $Ice__t_Value, array(
+    $Test__t_E = IcePHP_defineClass('::Test::E', '\\Test\\E', -1, false, $Ice__t_Value, array(
         array('i', $IcePHP__t_int, false, 0),
         array('s', $IcePHP__t_string, false, 0)));
 }
@@ -347,7 +347,7 @@ namespace Test
 
     global $Ice__t_Value;
     global $Test__t_E;
-    $Test__t_F = IcePHP_defineClass('::Test::F', '\\Test\\F', -1, false, false, $Ice__t_Value, array(
+    $Test__t_F = IcePHP_defineClass('::Test::F', '\\Test\\F', -1, false, $Ice__t_Value, array(
         array('e1', $Test__t_E, false, 0),
         array('e2', $Test__t_E, false, 0)));
 }
@@ -380,7 +380,7 @@ namespace Test
     }
 
     global $Test__t_Base;
-    $Test__t_G = IcePHP_defineClass('::Test::G', '\\Test\\G', -1, false, false, $Test__t_Base, null);
+    $Test__t_G = IcePHP_defineClass('::Test::G', '\\Test\\G', -1, false, $Test__t_Base, null);
 }
 
 namespace Test
@@ -484,7 +484,7 @@ namespace Test
     }
 
     global $Ice__t_Value;
-    $Test__t_Compact = IcePHP_defineClass('::Test::Compact', '\\Test\\Compact', 1, false, false, $Ice__t_Value, null);
+    $Test__t_Compact = IcePHP_defineClass('::Test::Compact', '\\Test\\Compact', 1, false, $Ice__t_Value, null);
 }
 
 namespace Test
@@ -523,7 +523,7 @@ namespace Test
     }
 
     global $Test__t_Compact;
-    $Test__t_CompactExt = IcePHP_defineClass('::Test::CompactExt', '\\Test\\CompactExt', 789, false, false, $Test__t_Compact, null);
+    $Test__t_CompactExt = IcePHP_defineClass('::Test::CompactExt', '\\Test\\CompactExt', 789, false, $Test__t_Compact, null);
 }
 
 namespace Test
@@ -557,7 +557,7 @@ namespace Test
 
     global $Ice__t_Value;
     global $IcePHP__t_string;
-    $Test__t_A1 = IcePHP_defineClass('::Test::A1', '\\Test\\A1', -1, false, false, $Ice__t_Value, array(
+    $Test__t_A1 = IcePHP_defineClass('::Test::A1', '\\Test\\A1', -1, false, $Ice__t_Value, array(
         array('name', $IcePHP__t_string, false, 0)));
 }
 
@@ -596,7 +596,7 @@ namespace Test
 
     global $Ice__t_Value;
     global $Test__t_A1;
-    $Test__t_B1 = IcePHP_defineClass('::Test::B1', '\\Test\\B1', -1, false, false, $Ice__t_Value, array(
+    $Test__t_B1 = IcePHP_defineClass('::Test::B1', '\\Test\\B1', -1, false, $Ice__t_Value, array(
         array('a1', $Test__t_A1, false, 0),
         array('a2', $Test__t_A1, false, 0)));
 }
@@ -637,7 +637,7 @@ namespace Test
 
     global $Test__t_B1;
     global $Test__t_A1;
-    $Test__t_D1 = IcePHP_defineClass('::Test::D1', '\\Test\\D1', -1, false, false, $Test__t_B1, array(
+    $Test__t_D1 = IcePHP_defineClass('::Test::D1', '\\Test\\D1', -1, false, $Test__t_B1, array(
         array('a3', $Test__t_A1, false, 0),
         array('a4', $Test__t_A1, false, 0)));
 }
@@ -669,7 +669,7 @@ namespace Test
     }
     global $Test__t_A1;
 
-    $Test__t_EBase = IcePHP_defineException('::Test::EBase', '\\Test\\EBase', false, null, array(
+    $Test__t_EBase = IcePHP_defineException('::Test::EBase', '\\Test\\EBase', null, array(
         array('a1', $Test__t_A1, false, 0),
         array('a2', $Test__t_A1, false, 0)));
 }
@@ -702,7 +702,7 @@ namespace Test
     }
     global $Test__t_A1;
 
-    $Test__t_EDerived = IcePHP_defineException('::Test::EDerived', '\\Test\\EDerived', false, $Test__t_EBase, array(
+    $Test__t_EDerived = IcePHP_defineException('::Test::EDerived', '\\Test\\EDerived', $Test__t_EBase, array(
         array('a3', $Test__t_A1, false, 0),
         array('a4', $Test__t_A1, false, 0)));
 }
@@ -740,7 +740,7 @@ namespace Test
 
     global $Ice__t_Value;
     global $Test__t_Recursive;
-    $Test__t_Recursive = IcePHP_defineClass('::Test::Recursive', '\\Test\\Recursive', -1, false, false, $Ice__t_Value, array(
+    $Test__t_Recursive = IcePHP_defineClass('::Test::Recursive', '\\Test\\Recursive', -1, false, $Ice__t_Value, array(
         array('v', $Test__t_Recursive, false, 0)));
 }
 
@@ -776,7 +776,7 @@ namespace Test
     $Test__t_K = IcePHP_declareClass('::Test::K');
 
     global $Ice__t_Value;
-    $Test__t_K = IcePHP_defineClass('::Test::K', '\\Test\\K', -1, false, false, $Ice__t_Value, array(
+    $Test__t_K = IcePHP_defineClass('::Test::K', '\\Test\\K', -1, false, $Ice__t_Value, array(
         array('value', $Ice__t_Value, false, 0)));
 }
 
@@ -811,7 +811,7 @@ namespace Test
 
     global $Ice__t_Value;
     global $IcePHP__t_string;
-    $Test__t_L = IcePHP_defineClass('::Test::L', '\\Test\\L', -1, false, false, $Ice__t_Value, array(
+    $Test__t_L = IcePHP_defineClass('::Test::L', '\\Test\\L', -1, false, $Ice__t_Value, array(
         array('data', $IcePHP__t_string, false, 0)));
 }
 
@@ -911,7 +911,7 @@ namespace Test
 
     global $Ice__t_Value;
     global $Test__t_LMap;
-    $Test__t_M = IcePHP_defineClass('::Test::M', '\\Test\\M', -1, false, false, $Ice__t_Value, array(
+    $Test__t_M = IcePHP_defineClass('::Test::M', '\\Test\\M', -1, false, $Ice__t_Value, array(
         array('v', $Test__t_LMap, false, 0)));
 }
 
@@ -971,7 +971,7 @@ namespace Test
     global $Ice__t_Value;
     global $Test__t_F1;
     global $Test__t_F2Prx;
-    $Test__t_F3 = IcePHP_defineClass('::Test::F3', '\\Test\\F3', -1, false, false, $Ice__t_Value, array(
+    $Test__t_F3 = IcePHP_defineClass('::Test::F3', '\\Test\\F3', -1, false, $Ice__t_Value, array(
         array('f1', $Test__t_F1, false, 0),
         array('f2', $Test__t_F2Prx, false, 0)));
 }

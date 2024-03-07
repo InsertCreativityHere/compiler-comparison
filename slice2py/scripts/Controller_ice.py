@@ -54,7 +54,7 @@ if 'Config' not in _M_Test.Common.__dict__:
 
         __repr__ = __str__
 
-    _M_Test.Common._t_Config = IcePy.defineValue('::Test::Common::Config', Config, -1, (), False, False, None, (
+    _M_Test.Common._t_Config = IcePy.defineValue('::Test::Common::Config', Config, -1, (), False, None, (
         ('protocol', (), IcePy._t_string, True, 1),
         ('mx', (), IcePy._t_bool, True, 2),
         ('serialize', (), IcePy._t_bool, True, 3),
@@ -90,7 +90,7 @@ if 'OptionOverrides' not in _M_Test.Common.__dict__:
 
         __repr__ = __str__
 
-    _M_Test.Common._t_OptionOverrides = IcePy.defineValue('::Test::Common::OptionOverrides', OptionOverrides, -1, (), False, False, None, (
+    _M_Test.Common._t_OptionOverrides = IcePy.defineValue('::Test::Common::OptionOverrides', OptionOverrides, -1, (), False, None, (
         ('protocol', (), _M_Test.Common._t_StringSeq, True, 1),
         ('mx', (), _M_Test.Common._t_BoolSeq, True, 2),
         ('serialize', (), _M_Test.Common._t_BoolSeq, True, 3),
@@ -115,7 +115,7 @@ if 'TestCaseNotExistException' not in _M_Test.Common.__dict__:
 
         _ice_id = '::Test::Common::TestCaseNotExistException'
 
-    _M_Test.Common._t_TestCaseNotExistException = IcePy.defineException('::Test::Common::TestCaseNotExistException', TestCaseNotExistException, (), False, None, (('reason', (), IcePy._t_string, False, 0),))
+    _M_Test.Common._t_TestCaseNotExistException = IcePy.defineException('::Test::Common::TestCaseNotExistException', TestCaseNotExistException, (), None, (('reason', (), IcePy._t_string, False, 0),))
     TestCaseNotExistException._ice_type = _M_Test.Common._t_TestCaseNotExistException
 
     _M_Test.Common.TestCaseNotExistException = TestCaseNotExistException
@@ -134,13 +134,13 @@ if 'TestCaseFailedException' not in _M_Test.Common.__dict__:
 
         _ice_id = '::Test::Common::TestCaseFailedException'
 
-    _M_Test.Common._t_TestCaseFailedException = IcePy.defineException('::Test::Common::TestCaseFailedException', TestCaseFailedException, (), False, None, (('output', (), IcePy._t_string, False, 0),))
+    _M_Test.Common._t_TestCaseFailedException = IcePy.defineException('::Test::Common::TestCaseFailedException', TestCaseFailedException, (), None, (('output', (), IcePy._t_string, False, 0),))
     TestCaseFailedException._ice_type = _M_Test.Common._t_TestCaseFailedException
 
     _M_Test.Common.TestCaseFailedException = TestCaseFailedException
     del TestCaseFailedException
 
-_M_Test.Common._t_TestCase = IcePy.defineValue('::Test::Common::TestCase', Ice.Value, -1, (), False, True, None, ())
+_M_Test.Common._t_TestCase = IcePy.defineValue('::Test::Common::TestCase', Ice.Value, -1, (), True, None, ())
 
 if 'TestCasePrx' not in _M_Test.Common.__dict__:
     _M_Test.Common.TestCasePrx = Ice.createTempClass()
@@ -227,7 +227,7 @@ if 'TestCasePrx' not in _M_Test.Common.__dict__:
     _M_Test.Common.TestCase = TestCase
     del TestCase
 
-_M_Test.Common._t_Controller = IcePy.defineValue('::Test::Common::Controller', Ice.Value, -1, (), False, True, None, ())
+_M_Test.Common._t_Controller = IcePy.defineValue('::Test::Common::Controller', Ice.Value, -1, (), True, None, ())
 
 if 'ControllerPrx' not in _M_Test.Common.__dict__:
     _M_Test.Common.ControllerPrx = Ice.createTempClass()
@@ -327,13 +327,13 @@ if 'ProcessFailedException' not in _M_Test.Common.__dict__:
 
         _ice_id = '::Test::Common::ProcessFailedException'
 
-    _M_Test.Common._t_ProcessFailedException = IcePy.defineException('::Test::Common::ProcessFailedException', ProcessFailedException, (), False, None, (('reason', (), IcePy._t_string, False, 0),))
+    _M_Test.Common._t_ProcessFailedException = IcePy.defineException('::Test::Common::ProcessFailedException', ProcessFailedException, (), None, (('reason', (), IcePy._t_string, False, 0),))
     ProcessFailedException._ice_type = _M_Test.Common._t_ProcessFailedException
 
     _M_Test.Common.ProcessFailedException = ProcessFailedException
     del ProcessFailedException
 
-_M_Test.Common._t_Process = IcePy.defineValue('::Test::Common::Process', Ice.Value, -1, (), False, True, None, ())
+_M_Test.Common._t_Process = IcePy.defineValue('::Test::Common::Process', Ice.Value, -1, (), True, None, ())
 
 if 'ProcessPrx' not in _M_Test.Common.__dict__:
     _M_Test.Common.ProcessPrx = Ice.createTempClass()
@@ -410,7 +410,7 @@ if 'ProcessPrx' not in _M_Test.Common.__dict__:
     _M_Test.Common.Process = Process
     del Process
 
-_M_Test.Common._t_ProcessController = IcePy.defineValue('::Test::Common::ProcessController', Ice.Value, -1, (), False, True, None, ())
+_M_Test.Common._t_ProcessController = IcePy.defineValue('::Test::Common::ProcessController', Ice.Value, -1, (), True, None, ())
 
 if 'ProcessControllerPrx' not in _M_Test.Common.__dict__:
     _M_Test.Common.ProcessControllerPrx = Ice.createTempClass()
@@ -477,7 +477,7 @@ if 'ProcessControllerPrx' not in _M_Test.Common.__dict__:
     _M_Test.Common.ProcessController = ProcessController
     del ProcessController
 
-_M_Test.Common._t_BrowserProcessController = IcePy.defineValue('::Test::Common::BrowserProcessController', Ice.Value, -1, (), False, True, None, ())
+_M_Test.Common._t_BrowserProcessController = IcePy.defineValue('::Test::Common::BrowserProcessController', Ice.Value, -1, (), True, None, ())
 
 if 'BrowserProcessControllerPrx' not in _M_Test.Common.__dict__:
     _M_Test.Common.BrowserProcessControllerPrx = Ice.createTempClass()
@@ -534,7 +534,7 @@ if 'BrowserProcessControllerPrx' not in _M_Test.Common.__dict__:
     _M_Test.Common.BrowserProcessController = BrowserProcessController
     del BrowserProcessController
 
-_M_Test.Common._t_ProcessControllerRegistry = IcePy.defineValue('::Test::Common::ProcessControllerRegistry', Ice.Value, -1, (), False, True, None, ())
+_M_Test.Common._t_ProcessControllerRegistry = IcePy.defineValue('::Test::Common::ProcessControllerRegistry', Ice.Value, -1, (), True, None, ())
 
 if 'ProcessControllerRegistryPrx' not in _M_Test.Common.__dict__:
     _M_Test.Common.ProcessControllerRegistryPrx = Ice.createTempClass()

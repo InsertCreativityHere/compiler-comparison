@@ -1385,58 +1385,6 @@ public interface TestIntfPrx extends com.zeroc.Ice.ObjectPrx
         BaseException.class
     };
 
-    default void throwPreservedException()
-        throws PreservedException
-    {
-        throwPreservedException(com.zeroc.Ice.ObjectPrx.noExplicitContext);
-    }
-
-    default void throwPreservedException(java.util.Map<String, String> context)
-        throws PreservedException
-    {
-        try
-        {
-            _iceI_throwPreservedExceptionAsync(context, true).waitForResponseOrUserEx();
-        }
-        catch(PreservedException ex)
-        {
-            throw ex;
-        }
-        catch(com.zeroc.Ice.UserException ex)
-        {
-            throw new com.zeroc.Ice.UnknownUserException(ex.ice_id(), ex);
-        }
-    }
-
-    default java.util.concurrent.CompletableFuture<Void> throwPreservedExceptionAsync()
-    {
-        return _iceI_throwPreservedExceptionAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
-    }
-
-    default java.util.concurrent.CompletableFuture<Void> throwPreservedExceptionAsync(java.util.Map<String, String> context)
-    {
-        return _iceI_throwPreservedExceptionAsync(context, false);
-    }
-
-    /**
-     * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
-     **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_throwPreservedExceptionAsync(java.util.Map<String, String> context, boolean sync)
-    {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "throwPreservedException", null, sync, _iceE_throwPreservedException);
-        f.invoke(true, context, com.zeroc.Ice.FormatType.SlicedFormat, null, null);
-        return f;
-    }
-
-    /** @hidden */
-    static final Class<?>[] _iceE_throwPreservedException =
-    {
-        PreservedException.class
-    };
-
     /**
      * Use of forward-declared class to verify that code is generated correctly.
      **/

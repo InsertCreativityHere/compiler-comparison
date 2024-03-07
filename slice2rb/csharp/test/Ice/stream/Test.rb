@@ -164,7 +164,7 @@ module ::Test
             T_OptionalClass = ::Ice::__declareClass('::Test::OptionalClass')
         end
 
-        T_OptionalClass.defineClass(OptionalClass, -1, false, false, nil, [
+        T_OptionalClass.defineClass(OptionalClass, -1, false, nil, [
             ['bo', ::Ice::T_bool, false, 0],
             ['by', ::Ice::T_byte, false, 0],
             ['sh', ::Ice::T_short, true, 1],
@@ -358,7 +358,7 @@ module ::Test
             T_MyClass = ::Ice::__declareClass('::Test::MyClass')
         end
 
-        T_MyClass.defineClass(MyClass, -1, false, false, nil, [
+        T_MyClass.defineClass(MyClass, -1, false, nil, [
             ['c', ::Test::T_MyClass, false, 0],
             ['o', ::Ice::T_Value, false, 0],
             ['s', ::Test::T_SmallStruct, false, 0],
@@ -389,7 +389,7 @@ module ::Test
             attr_accessor :c
         end
 
-        T_MyException = ::Ice::__defineException('::Test::MyException', MyException, false, nil, [["c", ::Test::T_MyClass, false, 0]])
+        T_MyException = ::Ice::__defineException('::Test::MyException', MyException, nil, [["c", ::Test::T_MyClass, false, 0]])
     end
 
     if not defined?(::Test::MyInterface_Mixin)

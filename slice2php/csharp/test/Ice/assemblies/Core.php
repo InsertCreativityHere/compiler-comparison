@@ -36,6 +36,6 @@ namespace Core
         }
     }
 
-    $Core__t_ArgumentException = IcePHP_defineException('::Core::ArgumentException', '\\Core\\ArgumentException', false, null, null);
+    $Core__t_ArgumentException = IcePHP_defineException('::Core::ArgumentException', '\\Core\\ArgumentException', null, null);
 }
 ?>

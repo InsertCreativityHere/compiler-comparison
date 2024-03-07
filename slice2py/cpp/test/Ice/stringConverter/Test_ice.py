@@ -33,13 +33,13 @@ if 'BadEncodingException' not in _M_Test.__dict__:
 
         _ice_id = '::Test::BadEncodingException'
 
-    _M_Test._t_BadEncodingException = IcePy.defineException('::Test::BadEncodingException', BadEncodingException, (), False, None, ())
+    _M_Test._t_BadEncodingException = IcePy.defineException('::Test::BadEncodingException', BadEncodingException, (), None, ())
     BadEncodingException._ice_type = _M_Test._t_BadEncodingException
 
     _M_Test.BadEncodingException = BadEncodingException
     del BadEncodingException
 
-_M_Test._t_MyObject = IcePy.defineValue('::Test::MyObject', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_MyObject = IcePy.defineValue('::Test::MyObject', Ice.Value, -1, (), True, None, ())
 
 if 'MyObjectPrx' not in _M_Test.__dict__:
     _M_Test.MyObjectPrx = Ice.createTempClass()

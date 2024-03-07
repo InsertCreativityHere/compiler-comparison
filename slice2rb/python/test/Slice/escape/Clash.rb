@@ -130,7 +130,7 @@ module ::Clash
             T_Cls = ::Ice::__declareClass('::Clash::Cls')
         end
 
-        T_Cls.defineClass(Cls, -1, false, false, nil, [
+        T_Cls.defineClass(Cls, -1, false, nil, [
             ['s', ::Clash::T_IntfPrx, false, 0],
             ['context', ::Ice::T_string, false, 0],
             ['current', ::Ice::T_int, false, 0],
@@ -210,7 +210,7 @@ module ::Clash
             attr_accessor :istr, :ostr
         end
 
-        T_Ex = ::Ice::__defineException('::Clash::Ex', Ex, false, nil, [
+        T_Ex = ::Ice::__defineException('::Clash::Ex', Ex, nil, [
             ["istr", ::Ice::T_short, false, 0],
             ["ostr", ::Ice::T_int, false, 0]
         ])

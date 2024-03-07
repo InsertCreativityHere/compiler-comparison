@@ -28,7 +28,7 @@ module ::Test
             end
         end
 
-        T_TestIntfUserException = ::Ice::__defineException('::Test::TestIntfUserException', TestIntfUserException, false, nil, [])
+        T_TestIntfUserException = ::Ice::__defineException('::Test::TestIntfUserException', TestIntfUserException, nil, [])
     end
 
     if not defined?(::Test::TestImpossibleException)
@@ -41,7 +41,7 @@ module ::Test
             end
         end
 
-        T_TestImpossibleException = ::Ice::__defineException('::Test::TestImpossibleException', TestImpossibleException, false, nil, [])
+        T_TestImpossibleException = ::Ice::__defineException('::Test::TestImpossibleException', TestImpossibleException, nil, [])
     end
 
     if not defined?(::Test::TestIntf_Mixin)

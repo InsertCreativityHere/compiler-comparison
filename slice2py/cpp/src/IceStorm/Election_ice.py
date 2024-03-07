@@ -100,13 +100,13 @@ if 'ObserverInconsistencyException' not in _M_IceStormElection.__dict__:
 
         _ice_id = '::IceStormElection::ObserverInconsistencyException'
 
-    _M_IceStormElection._t_ObserverInconsistencyException = IcePy.defineException('::IceStormElection::ObserverInconsistencyException', ObserverInconsistencyException, (), False, None, (('reason', (), IcePy._t_string, False, 0),))
+    _M_IceStormElection._t_ObserverInconsistencyException = IcePy.defineException('::IceStormElection::ObserverInconsistencyException', ObserverInconsistencyException, (), None, (('reason', (), IcePy._t_string, False, 0),))
     ObserverInconsistencyException._ice_type = _M_IceStormElection._t_ObserverInconsistencyException
 
     _M_IceStormElection.ObserverInconsistencyException = ObserverInconsistencyException
     del ObserverInconsistencyException
 
-_M_IceStormElection._t_ReplicaObserver = IcePy.defineValue('::IceStormElection::ReplicaObserver', Ice.Value, -1, (), False, True, None, ())
+_M_IceStormElection._t_ReplicaObserver = IcePy.defineValue('::IceStormElection::ReplicaObserver', Ice.Value, -1, (), True, None, ())
 
 if 'ReplicaObserverPrx' not in _M_IceStormElection.__dict__:
     _M_IceStormElection.ReplicaObserverPrx = Ice.createTempClass()
@@ -344,7 +344,7 @@ if 'ReplicaObserverPrx' not in _M_IceStormElection.__dict__:
     _M_IceStormElection.ReplicaObserver = ReplicaObserver
     del ReplicaObserver
 
-_M_IceStormElection._t_TopicManagerSync = IcePy.defineValue('::IceStormElection::TopicManagerSync', Ice.Value, -1, (), False, True, None, ())
+_M_IceStormElection._t_TopicManagerSync = IcePy.defineValue('::IceStormElection::TopicManagerSync', Ice.Value, -1, (), True, None, ())
 
 if 'TopicManagerSyncPrx' not in _M_IceStormElection.__dict__:
     _M_IceStormElection.TopicManagerSyncPrx = Ice.createTempClass()
@@ -660,7 +660,7 @@ if 'QueryInfo' not in _M_IceStormElection.__dict__:
     _M_IceStormElection.QueryInfo = QueryInfo
     del QueryInfo
 
-_M_IceStormElection._t_Node = IcePy.defineValue('::IceStormElection::Node', Ice.Value, -1, (), False, True, None, ())
+_M_IceStormElection._t_Node = IcePy.defineValue('::IceStormElection::Node', Ice.Value, -1, (), True, None, ())
 
 if 'NodePrx' not in _M_IceStormElection.__dict__:
     _M_IceStormElection.NodePrx = Ice.createTempClass()

@@ -120,7 +120,7 @@
         }
     };
 
-    Slice.defineValue(Clash.Cls, "::Clash::Cls", false);
+    Slice.defineValue(Clash.Cls, "::Clash::Cls");
 
     Clash.St = class
     {

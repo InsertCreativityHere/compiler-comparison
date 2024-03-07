@@ -288,21 +288,6 @@ public:
      * The reason why permission was denied.
      */
     ::std::string reason;
-
-    /**
-     * Obtains the SlicedData object created when an unknown exception type was marshaled
-     * in the sliced format and the Ice run time sliced it to a known type.
-     * @return The SlicedData object, or nil if the exception was not sliced or was not
-     * marshaled in the sliced format.
-     */
-    ICE_MEMBER(GLACIER2_API) virtual ::std::shared_ptr<::Ice::SlicedData> ice_getSlicedData() const override;
-
-    /// \cond STREAM
-    ICE_MEMBER(GLACIER2_API) virtual void _write(::Ice::OutputStream*) const override;
-    ICE_MEMBER(GLACIER2_API) virtual void _read(::Ice::InputStream*) override;
-
-    ::std::shared_ptr<::Ice::SlicedData> _slicedData;
-    /// \endcond
 };
 
 /// \cond INTERNAL

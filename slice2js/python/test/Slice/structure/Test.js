@@ -118,7 +118,7 @@
         }
     };
 
-    Slice.defineValue(Test.C, "::Test::C", false);
+    Slice.defineValue(Test.C, "::Test::C");
 
     Test.S3 = class
     {

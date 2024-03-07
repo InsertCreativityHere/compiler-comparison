@@ -42,7 +42,7 @@ module ::IceGrid
             T_InternalDbEnvDescriptor = ::Ice::__declareClass('::IceGrid::InternalDbEnvDescriptor')
         end
 
-        T_InternalDbEnvDescriptor.defineClass(InternalDbEnvDescriptor, -1, false, false, nil, [
+        T_InternalDbEnvDescriptor.defineClass(InternalDbEnvDescriptor, -1, false, nil, [
             ['name', ::Ice::T_string, false, 0],
             ['properties', ::IceGrid::T_PropertyDescriptorSeq, false, 0]
         ])
@@ -70,7 +70,7 @@ module ::IceGrid
             T_InternalAdapterDescriptor = ::Ice::__declareClass('::IceGrid::InternalAdapterDescriptor')
         end
 
-        T_InternalAdapterDescriptor.defineClass(InternalAdapterDescriptor, -1, false, false, nil, [
+        T_InternalAdapterDescriptor.defineClass(InternalAdapterDescriptor, -1, false, nil, [
             ['id', ::Ice::T_string, false, 0],
             ['serverLifetime', ::Ice::T_bool, false, 0]
         ])
@@ -98,7 +98,7 @@ module ::IceGrid
             T_InternalDistributionDescriptor = ::Ice::__declareClass('::IceGrid::InternalDistributionDescriptor')
         end
 
-        T_InternalDistributionDescriptor.defineClass(InternalDistributionDescriptor, -1, false, false, nil, [
+        T_InternalDistributionDescriptor.defineClass(InternalDistributionDescriptor, -1, false, nil, [
             ['icepatch', ::Ice::T_string, false, 0],
             ['directories', ::Ice::T_StringSeq, false, 0]
         ])
@@ -145,7 +145,7 @@ module ::IceGrid
             T_InternalServerDescriptor = ::Ice::__declareClass('::IceGrid::InternalServerDescriptor')
         end
 
-        T_InternalServerDescriptor.defineClass(InternalServerDescriptor, -1, false, false, nil, [
+        T_InternalServerDescriptor.defineClass(InternalServerDescriptor, -1, false, nil, [
             ['id', ::Ice::T_string, false, 0],
             ['application', ::Ice::T_string, false, 0],
             ['uuid', ::Ice::T_string, false, 0],
@@ -180,7 +180,7 @@ module ::IceGrid
             end
         end
 
-        T_AdapterActiveException = ::Ice::__defineException('::IceGrid::AdapterActiveException', AdapterActiveException, false, nil, [])
+        T_AdapterActiveException = ::Ice::__defineException('::IceGrid::AdapterActiveException', AdapterActiveException, nil, [])
     end
 
     if not defined?(::IceGrid::AdapterNotActiveException)
@@ -196,7 +196,7 @@ module ::IceGrid
             attr_accessor :activatable
         end
 
-        T_AdapterNotActiveException = ::Ice::__defineException('::IceGrid::AdapterNotActiveException', AdapterNotActiveException, false, nil, [["activatable", ::Ice::T_bool, false, 0]])
+        T_AdapterNotActiveException = ::Ice::__defineException('::IceGrid::AdapterNotActiveException', AdapterNotActiveException, nil, [["activatable", ::Ice::T_bool, false, 0]])
     end
 
     if not defined?(::IceGrid::Adapter_Mixin)
@@ -248,7 +248,7 @@ module ::IceGrid
             attr_accessor :id
         end
 
-        T_AdapterExistsException = ::Ice::__defineException('::IceGrid::AdapterExistsException', AdapterExistsException, false, nil, [["id", ::Ice::T_string, false, 0]])
+        T_AdapterExistsException = ::Ice::__defineException('::IceGrid::AdapterExistsException', AdapterExistsException, nil, [["id", ::Ice::T_string, false, 0]])
     end
 
     if not defined?(::IceGrid::T_AdapterPrxDict)
@@ -525,7 +525,7 @@ module ::IceGrid
             end
         end
 
-        T_NodeActiveException = ::Ice::__defineException('::IceGrid::NodeActiveException', NodeActiveException, false, nil, [])
+        T_NodeActiveException = ::Ice::__defineException('::IceGrid::NodeActiveException', NodeActiveException, nil, [])
     end
 
     if not defined?(::IceGrid::NodeSession_Mixin)
@@ -599,7 +599,7 @@ module ::IceGrid
             end
         end
 
-        T_ReplicaActiveException = ::Ice::__defineException('::IceGrid::ReplicaActiveException', ReplicaActiveException, false, nil, [])
+        T_ReplicaActiveException = ::Ice::__defineException('::IceGrid::ReplicaActiveException', ReplicaActiveException, nil, [])
     end
 
     if not defined?(::IceGrid::TopicName)
@@ -766,7 +766,7 @@ module ::IceGrid
             T_InternalNodeInfo = ::Ice::__declareClass('::IceGrid::InternalNodeInfo')
         end
 
-        T_InternalNodeInfo.defineClass(InternalNodeInfo, -1, false, false, nil, [
+        T_InternalNodeInfo.defineClass(InternalNodeInfo, -1, false, nil, [
             ['name', ::Ice::T_string, false, 0],
             ['os', ::Ice::T_string, false, 0],
             ['hostname', ::Ice::T_string, false, 0],
@@ -796,7 +796,7 @@ module ::IceGrid
             T_InternalReplicaInfo = ::Ice::__declareClass('::IceGrid::InternalReplicaInfo')
         end
 
-        T_InternalReplicaInfo.defineClass(InternalReplicaInfo, -1, false, false, nil, [
+        T_InternalReplicaInfo.defineClass(InternalReplicaInfo, -1, false, nil, [
             ['name', ::Ice::T_string, false, 0],
             ['hostname', ::Ice::T_string, false, 0]
         ])

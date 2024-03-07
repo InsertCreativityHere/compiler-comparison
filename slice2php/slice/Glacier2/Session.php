@@ -47,7 +47,7 @@ namespace Glacier2
     }
     global $IcePHP__t_string;
 
-    $Glacier2__t_CannotCreateSessionException = IcePHP_defineException('::Glacier2::CannotCreateSessionException', '\\Glacier2\\CannotCreateSessionException', true, null, array(
+    $Glacier2__t_CannotCreateSessionException = IcePHP_defineException('::Glacier2::CannotCreateSessionException', '\\Glacier2\\CannotCreateSessionException', null, array(
         array('reason', $IcePHP__t_string, false, 0)));
 }
 

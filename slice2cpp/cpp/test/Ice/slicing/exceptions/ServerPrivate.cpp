@@ -43,12 +43,6 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::UnknownMostDerived1
 
 const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::UnknownMostDerived2> iceC_Test_UnknownMostDerived2_init("::Test::UnknownMostDerived2");
 
-const ::IceInternal::DefaultValueFactoryInit<::Test::SPreservedClass> iceC_Test_SPreservedClass_init("::Test::SPreservedClass");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::SPreserved1> iceC_Test_SPreserved1_init("::Test::SPreserved1");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::SPreserved2> iceC_Test_SPreserved2_init("::Test::SPreserved2");
-
 }
 
 Test::UnknownDerived::~UnknownDerived()
@@ -92,46 +86,5 @@ Test::UnknownMostDerived2::~UnknownMostDerived2()
 Test::UnknownMostDerived2::ice_staticId()
 {
     static constexpr ::std::string_view typeId = "::Test::UnknownMostDerived2";
-    return typeId;
-}
-
-Test::SPreservedClass::~SPreservedClass()
-{
-}
-
-::std::string_view
-Test::SPreservedClass::ice_staticId()
-{
-    static constexpr ::std::string_view typeId = "::Test::SPreservedClass";
-    return typeId;
-}
-
-Test::SPreserved1::~SPreserved1()
-{
-}
-
-::std::string_view
-Test::SPreserved1::ice_staticId()
-{
-    static constexpr ::std::string_view typeId = "::Test::SPreserved1";
-    return typeId;
-}
-
-/// \cond STREAM
-bool
-Test::SPreserved1::_usesClasses() const
-{
-    return true;
-}
-/// \endcond
-
-Test::SPreserved2::~SPreserved2()
-{
-}
-
-::std::string_view
-Test::SPreserved2::ice_staticId()
-{
-    static constexpr ::std::string_view typeId = "::Test::SPreserved2";
     return typeId;
 }

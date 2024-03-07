@@ -36,21 +36,6 @@ classdef B < Test.A
         function id = ice_id(obj)
             id = obj.ice_staticId();
         end
-        function r = ice_getSlicedData(obj)
-            r = obj.iceSlicedData_;
-        end
-    end
-    methods(Hidden=true)
-        function iceWrite(obj, os)
-            os.startValue(obj.iceSlicedData_);
-            obj.iceWriteImpl(os);
-            os.endValue();
-        end
-        function iceRead(obj, is)
-            is.startValue();
-            obj.iceReadImpl(is);
-            obj.iceSlicedData_ = is.endValue(true);
-        end
     end
     methods(Access=protected)
         function iceWriteImpl(obj, os)
@@ -72,8 +57,5 @@ classdef B < Test.A
         function id = ice_staticId()
             id = '::Test::B';
         end
-    end
-    properties(Access=protected)
-        iceSlicedData_
     end
 end

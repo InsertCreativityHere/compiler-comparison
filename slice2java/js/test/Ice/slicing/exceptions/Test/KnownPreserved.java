@@ -50,31 +50,6 @@ public class KnownPreserved extends Base
 
     /** @hidden */
     @Override
-    public com.zeroc.Ice.SlicedData ice_getSlicedData()
-    {
-        return _slicedData;
-    }
-
-    /** @hidden */
-    @Override
-    public void _write(com.zeroc.Ice.OutputStream ostr)
-    {
-        ostr.startException(_slicedData);
-        _writeImpl(ostr);
-        ostr.endException();
-    }
-
-    /** @hidden */
-    @Override
-    public void _read(com.zeroc.Ice.InputStream istr)
-    {
-        istr.startException();
-        _readImpl(istr);
-        _slicedData = istr.endException(true);
-    }
-
-    /** @hidden */
-    @Override
     protected void _writeImpl(com.zeroc.Ice.OutputStream ostr_)
     {
         ostr_.startSlice("::Test::KnownPreserved", -1, false);
@@ -94,8 +69,5 @@ public class KnownPreserved extends Base
     }
 
     /** @hidden */
-    protected com.zeroc.Ice.SlicedData _slicedData;
-
-    /** @hidden */
-    public static final long serialVersionUID = -2733702157382532884L;
+    public static final long serialVersionUID = -2733709380650493685L;
 }

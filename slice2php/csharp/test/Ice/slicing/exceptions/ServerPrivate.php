@@ -46,7 +46,7 @@ namespace Test
     }
     global $IcePHP__t_string;
 
-    $Test__t_UnknownDerived = IcePHP_defineException('::Test::UnknownDerived', '\\Test\\UnknownDerived', false, $Test__t_Base, array(
+    $Test__t_UnknownDerived = IcePHP_defineException('::Test::UnknownDerived', '\\Test\\UnknownDerived', $Test__t_Base, array(
         array('ud', $IcePHP__t_string, false, 0)));
 }
 
@@ -76,7 +76,7 @@ namespace Test
     }
     global $IcePHP__t_string;
 
-    $Test__t_UnknownIntermediate = IcePHP_defineException('::Test::UnknownIntermediate', '\\Test\\UnknownIntermediate', false, $Test__t_Base, array(
+    $Test__t_UnknownIntermediate = IcePHP_defineException('::Test::UnknownIntermediate', '\\Test\\UnknownIntermediate', $Test__t_Base, array(
         array('ui', $IcePHP__t_string, false, 0)));
 }
 
@@ -106,7 +106,7 @@ namespace Test
     }
     global $IcePHP__t_string;
 
-    $Test__t_UnknownMostDerived1 = IcePHP_defineException('::Test::UnknownMostDerived1', '\\Test\\UnknownMostDerived1', false, $Test__t_KnownIntermediate, array(
+    $Test__t_UnknownMostDerived1 = IcePHP_defineException('::Test::UnknownMostDerived1', '\\Test\\UnknownMostDerived1', $Test__t_KnownIntermediate, array(
         array('umd1', $IcePHP__t_string, false, 0)));
 }
 
@@ -136,103 +136,7 @@ namespace Test
     }
     global $IcePHP__t_string;
 
-    $Test__t_UnknownMostDerived2 = IcePHP_defineException('::Test::UnknownMostDerived2', '\\Test\\UnknownMostDerived2', false, $Test__t_UnknownIntermediate, array(
+    $Test__t_UnknownMostDerived2 = IcePHP_defineException('::Test::UnknownMostDerived2', '\\Test\\UnknownMostDerived2', $Test__t_UnknownIntermediate, array(
         array('umd2', $IcePHP__t_string, false, 0)));
-}
-
-namespace Test
-{
-    global $Test__t_SPreservedClass;
-    class SPreservedClass extends \Test\BaseClass
-    {
-        public function __construct($bc='', $spc='')
-        {
-            parent::__construct($bc);
-            $this->spc = $spc;
-        }
-
-        public function ice_id()
-        {
-            return '::Test::SPreservedClass';
-        }
-
-        public static function ice_staticId()
-        {
-            return '::Test::SPreservedClass';
-        }
-
-        public function __toString(): string
-        {
-            global $Test__t_SPreservedClass;
-            return IcePHP_stringify($this, $Test__t_SPreservedClass);
-        }
-
-        public $spc;
-    }
-
-    global $Test__t_BaseClass;
-    global $IcePHP__t_string;
-    $Test__t_SPreservedClass = IcePHP_defineClass('::Test::SPreservedClass', '\\Test\\SPreservedClass', -1, true, false, $Test__t_BaseClass, array(
-        array('spc', $IcePHP__t_string, false, 0)));
-}
-
-namespace Test
-{
-    global $Test__t_SPreserved1;
-    class SPreserved1 extends \Test\KnownPreservedDerived
-    {
-        public function __construct($b='', $kp='', $kpd='', $p1=null)
-        {
-            parent::__construct($b, $kp, $kpd);
-            $this->p1 = $p1;
-        }
-
-        public function ice_id()
-        {
-            return '::Test::SPreserved1';
-        }
-
-        public function __toString(): string
-        {
-            global $Test__t_SPreserved1;
-            return IcePHP_stringifyException($this, $Test__t_SPreserved1);
-        }
-
-        public $p1;
-    }
-    global $Test__t_BaseClass;
-
-    $Test__t_SPreserved1 = IcePHP_defineException('::Test::SPreserved1', '\\Test\\SPreserved1', true, $Test__t_KnownPreservedDerived, array(
-        array('p1', $Test__t_BaseClass, false, 0)));
-}
-
-namespace Test
-{
-    global $Test__t_SPreserved2;
-    class SPreserved2 extends \Test\SPreserved1
-    {
-        public function __construct($b='', $kp='', $kpd='', $p1=null, $p2=null)
-        {
-            parent::__construct($b, $kp, $kpd, $p1);
-            $this->p2 = $p2;
-        }
-
-        public function ice_id()
-        {
-            return '::Test::SPreserved2';
-        }
-
-        public function __toString(): string
-        {
-            global $Test__t_SPreserved2;
-            return IcePHP_stringifyException($this, $Test__t_SPreserved2);
-        }
-
-        public $p2;
-    }
-    global $Test__t_BaseClass;
-
-    $Test__t_SPreserved2 = IcePHP_defineException('::Test::SPreserved2', '\\Test\\SPreserved2', true, $Test__t_SPreserved1, array(
-        array('p2', $Test__t_BaseClass, false, 0)));
 }
 ?>

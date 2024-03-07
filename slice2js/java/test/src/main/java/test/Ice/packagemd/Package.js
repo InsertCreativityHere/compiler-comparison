@@ -43,7 +43,7 @@
         }
     };
 
-    Slice.defineValue(Test2.C1, "::Test2::C1", false);
+    Slice.defineValue(Test2.C1, "::Test2::C1");
 
     Test2.C2 = class extends Test2.C1
     {
@@ -64,7 +64,7 @@
         }
     };
 
-    Slice.defineValue(Test2.C2, "::Test2::C2", false);
+    Slice.defineValue(Test2.C2, "::Test2::C2");
 
     Test2.E1 = class extends Ice.UserException
     {
@@ -155,7 +155,7 @@
         }
     };
 
-    Slice.defineValue(Test3.C1, "::Test3::C1", false);
+    Slice.defineValue(Test3.C1, "::Test3::C1");
 
     Test3.C2 = class extends Test3.C1
     {
@@ -176,7 +176,7 @@
         }
     };
 
-    Slice.defineValue(Test3.C2, "::Test3::C2", false);
+    Slice.defineValue(Test3.C2, "::Test3::C2");
 
     Test3.E1 = class extends Ice.UserException
     {

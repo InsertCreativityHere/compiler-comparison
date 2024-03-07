@@ -470,8 +470,6 @@ public extension Ice.ClassResolver {
 }
 
 open class PreservedException: Ice.UserException {
-    var _slicedData: Ice.SlicedData?
-
     public required init() {}
 
     /// Returns the Slice type ID of this exception.
@@ -489,26 +487,6 @@ open class PreservedException: Ice.UserException {
     open override func _iceReadImpl(from istr: Ice.InputStream) throws {
         _ = try istr.startSlice()
         try istr.endSlice()
-    }
-
-    /// Returns the sliced data if the exception has a preserved-slice base class and has been
-    /// sliced during un-marshaling, nil is returned otherwise.
-    ///
-    /// - returns: `Ice.SlicedData` - The sliced data.
-    open override func ice_getSlicedData() -> Ice.SlicedData? {
-        return _slicedData
-    }
-
-    open override func _iceRead(from istr: Ice.InputStream) throws {
-        istr.startException()
-        try _iceReadImpl(from: istr)
-        _slicedData = try istr.endException(preserve: true)
-    }
-
-    open override func _iceWrite(to ostr: Ice.OutputStream) {
-        ostr.startException(data: _slicedData)
-        _iceWriteImpl(to: ostr)
-        ostr.endException()
     }
 }
 
@@ -3070,7 +3048,6 @@ public extension Ice.ClassResolver {
 
 open class Preserved: PBase {
     public var ps: Swift.String = ""
-    var _slicedData: Ice.SlicedData?
 
     public required init() {
         super.init()
@@ -3107,26 +3084,6 @@ open class Preserved: PBase {
         ostr.write(self.ps)
         ostr.endSlice()
         super._iceWriteImpl(to: ostr);
-    }
-
-    /// Returns the sliced data if the value has a preserved-slice base class and has been sliced
-    /// during un-marshaling of the value, nil is returned otherwise.
-    ///
-    /// returns: `Ice.SlicedData?` - The sliced data or nil
-    open override func ice_getSlicedData() -> Ice.SlicedData? {
-        return _slicedData
-    }
-
-    open override func _iceRead(from istr: Ice.InputStream) throws {
-        istr.startValue()
-        try _iceReadImpl(from: istr)
-        _slicedData = try istr.endValue(preserve: true)
-    }
-
-    open override func _iceWrite(to ostr: Ice.OutputStream) {
-        ostr.startValue(data: _slicedData)
-        _iceWriteImpl(to: ostr)
-        ostr.endValue()
     }
 }
 
@@ -3259,7 +3216,6 @@ public extension Ice.ClassResolver {
 
 open class PNode: Ice.Value {
     public var next: PNode? = nil
-    var _slicedData: Ice.SlicedData?
 
     public required init() {}
 
@@ -3291,26 +3247,6 @@ open class PNode: Ice.Value {
         ostr.startSlice(typeId: PNodeTraits.staticId, compactId: -1, last: true)
         ostr.write(self.next)
         ostr.endSlice()
-    }
-
-    /// Returns the sliced data if the value has a preserved-slice base class and has been sliced
-    /// during un-marshaling of the value, nil is returned otherwise.
-    ///
-    /// returns: `Ice.SlicedData?` - The sliced data or nil
-    open override func ice_getSlicedData() -> Ice.SlicedData? {
-        return _slicedData
-    }
-
-    open override func _iceRead(from istr: Ice.InputStream) throws {
-        istr.startValue()
-        try _iceReadImpl(from: istr)
-        _slicedData = try istr.endValue(preserve: true)
-    }
-
-    open override func _iceWrite(to ostr: Ice.OutputStream) {
-        ostr.startValue(data: _slicedData)
-        _iceWriteImpl(to: ostr)
-        ostr.endValue()
     }
 }
 

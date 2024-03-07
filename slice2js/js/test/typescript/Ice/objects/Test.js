@@ -69,7 +69,7 @@ Test.Base = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.Base, "::Test::Base", false);
+Slice.defineValue(Test.Base, "::Test::Base");
 
 Test.A = class extends Ice.Value
 {
@@ -99,7 +99,7 @@ Test.A = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.A, "::Test::A", false);
+Slice.defineValue(Test.A, "::Test::A");
 
 Test.B = class extends Test.A
 {
@@ -120,7 +120,7 @@ Test.B = class extends Test.A
     }
 };
 
-Slice.defineValue(Test.B, "::Test::B", false);
+Slice.defineValue(Test.B, "::Test::B");
 
 Test.C = class extends Ice.Value
 {
@@ -147,7 +147,7 @@ Test.C = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.C, "::Test::C", false);
+Slice.defineValue(Test.C, "::Test::C");
 
 Test.D = class extends Ice.Value
 {
@@ -180,7 +180,7 @@ Test.D = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.D, "::Test::D", false);
+Slice.defineValue(Test.D, "::Test::D");
 
 Test.E = class extends Ice.Value
 {
@@ -204,7 +204,7 @@ Test.E = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.E, "::Test::E", false);
+Slice.defineValue(Test.E, "::Test::E");
 
 Test.F = class extends Ice.Value
 {
@@ -228,7 +228,7 @@ Test.F = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.F, "::Test::F", false);
+Slice.defineValue(Test.F, "::Test::F");
 
 Test.G = class extends Test.Base
 {
@@ -238,7 +238,7 @@ Test.G = class extends Test.Base
     }
 };
 
-Slice.defineValue(Test.G, "::Test::G", false);
+Slice.defineValue(Test.G, "::Test::G");
 
 const iceC_Test_I_ids = [
     "::Ice::Object",
@@ -294,7 +294,7 @@ Test.Compact = class extends Ice.Value
 {
 };
 
-Slice.defineValue(Test.Compact, "::Test::Compact", false, 1);
+Slice.defineValue(Test.Compact, "::Test::Compact", 1);
 
 Object.defineProperty(Test, 'CompactExtId', {
     value: 789
@@ -304,7 +304,7 @@ Test.CompactExt = class extends Test.Compact
 {
 };
 
-Slice.defineValue(Test.CompactExt, "::Test::CompactExt", false, 789);
+Slice.defineValue(Test.CompactExt, "::Test::CompactExt", 789);
 
 Test.A1 = class extends Ice.Value
 {
@@ -325,7 +325,7 @@ Test.A1 = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.A1, "::Test::A1", false);
+Slice.defineValue(Test.A1, "::Test::A1");
 
 Test.B1 = class extends Ice.Value
 {
@@ -349,7 +349,7 @@ Test.B1 = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.B1, "::Test::B1", false);
+Slice.defineValue(Test.B1, "::Test::B1");
 
 Test.D1 = class extends Test.B1
 {
@@ -373,7 +373,7 @@ Test.D1 = class extends Test.B1
     }
 };
 
-Slice.defineValue(Test.D1, "::Test::D1", false);
+Slice.defineValue(Test.D1, "::Test::D1");
 
 Test.EBase = class extends Ice.UserException
 {
@@ -475,7 +475,7 @@ Test.Inner.A = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.Inner.A, "::Test::Inner::A", false);
+Slice.defineValue(Test.Inner.A, "::Test::Inner::A");
 
 Test.Inner.Ex = class extends Ice.UserException
 {
@@ -532,7 +532,7 @@ Test.Inner.Sub.A = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.Inner.Sub.A, "::Test::Inner::Sub::A", false);
+Slice.defineValue(Test.Inner.Sub.A, "::Test::Inner::Sub::A");
 
 Test.Inner.Sub.Ex = class extends Ice.UserException
 {
@@ -587,7 +587,7 @@ Test.Recursive = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.Recursive, "::Test::Recursive", false);
+Slice.defineValue(Test.Recursive, "::Test::Recursive");
 
 Test.K = class extends Ice.Value
 {
@@ -608,7 +608,7 @@ Test.K = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.K, "::Test::K", false);
+Slice.defineValue(Test.K, "::Test::K");
 
 Test.L = class extends Ice.Value
 {
@@ -629,7 +629,7 @@ Test.L = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.L, "::Test::L", false);
+Slice.defineValue(Test.L, "::Test::L");
 
 Slice.defineSequence(Test, "ValueSeqHelper", "Ice.ObjectHelper", false, "Ice.Value");
 
@@ -684,7 +684,7 @@ Test.M = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.M, "::Test::M", false);
+Slice.defineValue(Test.M, "::Test::M");
 
 Test.F3 = class extends Ice.Value
 {
@@ -708,7 +708,7 @@ Test.F3 = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.F3, "::Test::F3", false);
+Slice.defineValue(Test.F3, "::Test::F3");
 
 const iceC_Test_Initial_ids = [
     "::Ice::Object",
@@ -770,13 +770,13 @@ Test.Empty = class extends Ice.Value
 {
 };
 
-Slice.defineValue(Test.Empty, "::Test::Empty", false);
+Slice.defineValue(Test.Empty, "::Test::Empty");
 
 Test.AlsoEmpty = class extends Ice.Value
 {
 };
 
-Slice.defineValue(Test.AlsoEmpty, "::Test::AlsoEmpty", false);
+Slice.defineValue(Test.AlsoEmpty, "::Test::AlsoEmpty");
 
 const iceC_Test_UnexpectedObjectExceptionTest_ids = [
     "::Ice::Object",
@@ -815,7 +815,7 @@ Test.COneMember = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.COneMember, "::Test::COneMember", false);
+Slice.defineValue(Test.COneMember, "::Test::COneMember");
 
 Test.CTwoMembers = class extends Ice.Value
 {
@@ -839,7 +839,7 @@ Test.CTwoMembers = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.CTwoMembers, "::Test::CTwoMembers", false);
+Slice.defineValue(Test.CTwoMembers, "::Test::CTwoMembers");
 
 Test.EOneMember = class extends Ice.UserException
 {

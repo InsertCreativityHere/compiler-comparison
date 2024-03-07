@@ -43,7 +43,7 @@
         }
     };
 
-    Slice.defineValue(Test.ConcreteClass, "::Test::ConcreteClass", false);
+    Slice.defineValue(Test.ConcreteClass, "::Test::ConcreteClass");
 
     Test.E = class extends Ice.UserException
     {

@@ -1258,30 +1258,6 @@ Test::KnownPreserved::ice_staticId()
     return typeId;
 }
 
-::std::shared_ptr<::Ice::SlicedData>
-Test::KnownPreserved::ice_getSlicedData() const
-{
-    return _slicedData;
-}
-
-/// \cond STREAM
-void
-Test::KnownPreserved::_write(::Ice::OutputStream* ostr) const
-{
-    ostr->startException(_slicedData);
-    _writeImpl(ostr);
-    ostr->endException();
-}
-
-void
-Test::KnownPreserved::_read(::Ice::InputStream* istr)
-{
-    istr->startException();
-    _readImpl(istr);
-    _slicedData = istr->endException(true);
-}
-/// \endcond
-
 Test::KnownPreservedDerived::~KnownPreservedDerived()
 {
 }
@@ -1296,30 +1272,6 @@ Test::KnownPreservedDerived::ice_staticId()
 Test::BaseClass::~BaseClass()
 {
 }
-
-::std::shared_ptr<::Ice::SlicedData>
-Test::BaseClass::ice_getSlicedData() const
-{
-    return _iceSlicedData;
-}
-
-/// \cond STREAM
-void
-Test::BaseClass::_iceWrite(::Ice::OutputStream* ostr) const
-{
-    ostr->startValue(_iceSlicedData);
-    _iceWriteImpl(ostr);
-    ostr->endValue();
-}
-
-void
-Test::BaseClass::_iceRead(::Ice::InputStream* istr)
-{
-    istr->startValue();
-    _iceReadImpl(istr);
-    _iceSlicedData = istr->endValue(true);
-}
-/// \endcond
 
 ::std::string_view
 Test::BaseClass::ice_staticId()

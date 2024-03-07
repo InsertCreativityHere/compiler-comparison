@@ -138,7 +138,7 @@
         }
     };
 
-    Slice.defineValue(and._switch, "::and::switch", false);
+    Slice.defineValue(and._switch, "::and::switch");
 
     const iceC_and__do_ids = [
         "::Ice::Object",

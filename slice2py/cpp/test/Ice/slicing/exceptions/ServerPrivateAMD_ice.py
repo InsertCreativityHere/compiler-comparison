@@ -37,7 +37,7 @@ if 'UnknownDerived' not in _M_Test.__dict__:
 
         _ice_id = '::Test::UnknownDerived'
 
-    _M_Test._t_UnknownDerived = IcePy.defineException('::Test::UnknownDerived', UnknownDerived, (), False, _M_Test._t_Base, (('ud', (), IcePy._t_string, False, 0),))
+    _M_Test._t_UnknownDerived = IcePy.defineException('::Test::UnknownDerived', UnknownDerived, (), _M_Test._t_Base, (('ud', (), IcePy._t_string, False, 0),))
     UnknownDerived._ice_type = _M_Test._t_UnknownDerived
 
     _M_Test.UnknownDerived = UnknownDerived
@@ -57,7 +57,7 @@ if 'UnknownIntermediate' not in _M_Test.__dict__:
 
         _ice_id = '::Test::UnknownIntermediate'
 
-    _M_Test._t_UnknownIntermediate = IcePy.defineException('::Test::UnknownIntermediate', UnknownIntermediate, (), False, _M_Test._t_Base, (('ui', (), IcePy._t_string, False, 0),))
+    _M_Test._t_UnknownIntermediate = IcePy.defineException('::Test::UnknownIntermediate', UnknownIntermediate, (), _M_Test._t_Base, (('ui', (), IcePy._t_string, False, 0),))
     UnknownIntermediate._ice_type = _M_Test._t_UnknownIntermediate
 
     _M_Test.UnknownIntermediate = UnknownIntermediate
@@ -77,7 +77,7 @@ if 'UnknownMostDerived1' not in _M_Test.__dict__:
 
         _ice_id = '::Test::UnknownMostDerived1'
 
-    _M_Test._t_UnknownMostDerived1 = IcePy.defineException('::Test::UnknownMostDerived1', UnknownMostDerived1, (), False, _M_Test._t_KnownIntermediate, (('umd1', (), IcePy._t_string, False, 0),))
+    _M_Test._t_UnknownMostDerived1 = IcePy.defineException('::Test::UnknownMostDerived1', UnknownMostDerived1, (), _M_Test._t_KnownIntermediate, (('umd1', (), IcePy._t_string, False, 0),))
     UnknownMostDerived1._ice_type = _M_Test._t_UnknownMostDerived1
 
     _M_Test.UnknownMostDerived1 = UnknownMostDerived1
@@ -97,75 +97,10 @@ if 'UnknownMostDerived2' not in _M_Test.__dict__:
 
         _ice_id = '::Test::UnknownMostDerived2'
 
-    _M_Test._t_UnknownMostDerived2 = IcePy.defineException('::Test::UnknownMostDerived2', UnknownMostDerived2, (), False, _M_Test._t_UnknownIntermediate, (('umd2', (), IcePy._t_string, False, 0),))
+    _M_Test._t_UnknownMostDerived2 = IcePy.defineException('::Test::UnknownMostDerived2', UnknownMostDerived2, (), _M_Test._t_UnknownIntermediate, (('umd2', (), IcePy._t_string, False, 0),))
     UnknownMostDerived2._ice_type = _M_Test._t_UnknownMostDerived2
 
     _M_Test.UnknownMostDerived2 = UnknownMostDerived2
     del UnknownMostDerived2
-
-if 'SPreservedClass' not in _M_Test.__dict__:
-    _M_Test.SPreservedClass = Ice.createTempClass()
-    class SPreservedClass(_M_Test.BaseClass):
-        def __init__(self, bc='', spc=''):
-            _M_Test.BaseClass.__init__(self, bc)
-            self.spc = spc
-
-        def ice_id(self):
-            return '::Test::SPreservedClass'
-
-        @staticmethod
-        def ice_staticId():
-            return '::Test::SPreservedClass'
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_SPreservedClass)
-
-        __repr__ = __str__
-
-    _M_Test._t_SPreservedClass = IcePy.defineValue('::Test::SPreservedClass', SPreservedClass, -1, (), True, False, _M_Test._t_BaseClass, (('spc', (), IcePy._t_string, False, 0),))
-    SPreservedClass._ice_type = _M_Test._t_SPreservedClass
-
-    _M_Test.SPreservedClass = SPreservedClass
-    del SPreservedClass
-
-if 'SPreserved1' not in _M_Test.__dict__:
-    _M_Test.SPreserved1 = Ice.createTempClass()
-    class SPreserved1(_M_Test.KnownPreservedDerived):
-        def __init__(self, b='', kp='', kpd='', p1=None):
-            _M_Test.KnownPreservedDerived.__init__(self, b, kp, kpd)
-            self.p1 = p1
-
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::Test::SPreserved1'
-
-    _M_Test._t_SPreserved1 = IcePy.defineException('::Test::SPreserved1', SPreserved1, (), True, _M_Test._t_KnownPreservedDerived, (('p1', (), _M_Test._t_BaseClass, False, 0),))
-    SPreserved1._ice_type = _M_Test._t_SPreserved1
-
-    _M_Test.SPreserved1 = SPreserved1
-    del SPreserved1
-
-if 'SPreserved2' not in _M_Test.__dict__:
-    _M_Test.SPreserved2 = Ice.createTempClass()
-    class SPreserved2(_M_Test.SPreserved1):
-        def __init__(self, b='', kp='', kpd='', p1=None, p2=None):
-            _M_Test.SPreserved1.__init__(self, b, kp, kpd, p1)
-            self.p2 = p2
-
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::Test::SPreserved2'
-
-    _M_Test._t_SPreserved2 = IcePy.defineException('::Test::SPreserved2', SPreserved2, (), True, _M_Test._t_SPreserved1, (('p2', (), _M_Test._t_BaseClass, False, 0),))
-    SPreserved2._ice_type = _M_Test._t_SPreserved2
-
-    _M_Test.SPreserved2 = SPreserved2
-    del SPreserved2
 
 # End of module Test

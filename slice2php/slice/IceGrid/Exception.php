@@ -46,7 +46,7 @@ namespace IceGrid
     }
     global $IcePHP__t_string;
 
-    $IceGrid__t_ApplicationNotExistException = IcePHP_defineException('::IceGrid::ApplicationNotExistException', '\\IceGrid\\ApplicationNotExistException', false, null, array(
+    $IceGrid__t_ApplicationNotExistException = IcePHP_defineException('::IceGrid::ApplicationNotExistException', '\\IceGrid\\ApplicationNotExistException', null, array(
         array('name', $IcePHP__t_string, false, 0)));
 }
 
@@ -75,7 +75,7 @@ namespace IceGrid
     }
     global $IcePHP__t_string;
 
-    $IceGrid__t_ServerNotExistException = IcePHP_defineException('::IceGrid::ServerNotExistException', '\\IceGrid\\ServerNotExistException', false, null, array(
+    $IceGrid__t_ServerNotExistException = IcePHP_defineException('::IceGrid::ServerNotExistException', '\\IceGrid\\ServerNotExistException', null, array(
         array('id', $IcePHP__t_string, false, 0)));
 }
 
@@ -106,7 +106,7 @@ namespace IceGrid
     }
     global $IcePHP__t_string;
 
-    $IceGrid__t_ServerStartException = IcePHP_defineException('::IceGrid::ServerStartException', '\\IceGrid\\ServerStartException', false, null, array(
+    $IceGrid__t_ServerStartException = IcePHP_defineException('::IceGrid::ServerStartException', '\\IceGrid\\ServerStartException', null, array(
         array('id', $IcePHP__t_string, false, 0),
         array('reason', $IcePHP__t_string, false, 0)));
 }
@@ -138,7 +138,7 @@ namespace IceGrid
     }
     global $IcePHP__t_string;
 
-    $IceGrid__t_ServerStopException = IcePHP_defineException('::IceGrid::ServerStopException', '\\IceGrid\\ServerStopException', false, null, array(
+    $IceGrid__t_ServerStopException = IcePHP_defineException('::IceGrid::ServerStopException', '\\IceGrid\\ServerStopException', null, array(
         array('id', $IcePHP__t_string, false, 0),
         array('reason', $IcePHP__t_string, false, 0)));
 }
@@ -168,7 +168,7 @@ namespace IceGrid
     }
     global $IcePHP__t_string;
 
-    $IceGrid__t_AdapterNotExistException = IcePHP_defineException('::IceGrid::AdapterNotExistException', '\\IceGrid\\AdapterNotExistException', false, null, array(
+    $IceGrid__t_AdapterNotExistException = IcePHP_defineException('::IceGrid::AdapterNotExistException', '\\IceGrid\\AdapterNotExistException', null, array(
         array('id', $IcePHP__t_string, false, 0)));
 }
 
@@ -197,7 +197,7 @@ namespace IceGrid
     }
     global $Ice__t_Identity;
 
-    $IceGrid__t_ObjectExistsException = IcePHP_defineException('::IceGrid::ObjectExistsException', '\\IceGrid\\ObjectExistsException', false, null, array(
+    $IceGrid__t_ObjectExistsException = IcePHP_defineException('::IceGrid::ObjectExistsException', '\\IceGrid\\ObjectExistsException', null, array(
         array('id', $Ice__t_Identity, false, 0)));
 }
 
@@ -226,7 +226,7 @@ namespace IceGrid
     }
     global $Ice__t_Identity;
 
-    $IceGrid__t_ObjectNotRegisteredException = IcePHP_defineException('::IceGrid::ObjectNotRegisteredException', '\\IceGrid\\ObjectNotRegisteredException', false, null, array(
+    $IceGrid__t_ObjectNotRegisteredException = IcePHP_defineException('::IceGrid::ObjectNotRegisteredException', '\\IceGrid\\ObjectNotRegisteredException', null, array(
         array('id', $Ice__t_Identity, false, 0)));
 }
 
@@ -255,7 +255,7 @@ namespace IceGrid
     }
     global $IcePHP__t_string;
 
-    $IceGrid__t_NodeNotExistException = IcePHP_defineException('::IceGrid::NodeNotExistException', '\\IceGrid\\NodeNotExistException', false, null, array(
+    $IceGrid__t_NodeNotExistException = IcePHP_defineException('::IceGrid::NodeNotExistException', '\\IceGrid\\NodeNotExistException', null, array(
         array('name', $IcePHP__t_string, false, 0)));
 }
 
@@ -284,7 +284,7 @@ namespace IceGrid
     }
     global $IcePHP__t_string;
 
-    $IceGrid__t_RegistryNotExistException = IcePHP_defineException('::IceGrid::RegistryNotExistException', '\\IceGrid\\RegistryNotExistException', false, null, array(
+    $IceGrid__t_RegistryNotExistException = IcePHP_defineException('::IceGrid::RegistryNotExistException', '\\IceGrid\\RegistryNotExistException', null, array(
         array('name', $IcePHP__t_string, false, 0)));
 }
 
@@ -313,7 +313,7 @@ namespace IceGrid
     }
     global $IcePHP__t_string;
 
-    $IceGrid__t_DeploymentException = IcePHP_defineException('::IceGrid::DeploymentException', '\\IceGrid\\DeploymentException', false, null, array(
+    $IceGrid__t_DeploymentException = IcePHP_defineException('::IceGrid::DeploymentException', '\\IceGrid\\DeploymentException', null, array(
         array('reason', $IcePHP__t_string, false, 0)));
 }
 
@@ -344,7 +344,7 @@ namespace IceGrid
     }
     global $IcePHP__t_string;
 
-    $IceGrid__t_NodeUnreachableException = IcePHP_defineException('::IceGrid::NodeUnreachableException', '\\IceGrid\\NodeUnreachableException', false, null, array(
+    $IceGrid__t_NodeUnreachableException = IcePHP_defineException('::IceGrid::NodeUnreachableException', '\\IceGrid\\NodeUnreachableException', null, array(
         array('name', $IcePHP__t_string, false, 0),
         array('reason', $IcePHP__t_string, false, 0)));
 }
@@ -376,7 +376,7 @@ namespace IceGrid
     }
     global $IcePHP__t_string;
 
-    $IceGrid__t_ServerUnreachableException = IcePHP_defineException('::IceGrid::ServerUnreachableException', '\\IceGrid\\ServerUnreachableException', false, null, array(
+    $IceGrid__t_ServerUnreachableException = IcePHP_defineException('::IceGrid::ServerUnreachableException', '\\IceGrid\\ServerUnreachableException', null, array(
         array('name', $IcePHP__t_string, false, 0),
         array('reason', $IcePHP__t_string, false, 0)));
 }
@@ -408,7 +408,7 @@ namespace IceGrid
     }
     global $IcePHP__t_string;
 
-    $IceGrid__t_RegistryUnreachableException = IcePHP_defineException('::IceGrid::RegistryUnreachableException', '\\IceGrid\\RegistryUnreachableException', false, null, array(
+    $IceGrid__t_RegistryUnreachableException = IcePHP_defineException('::IceGrid::RegistryUnreachableException', '\\IceGrid\\RegistryUnreachableException', null, array(
         array('name', $IcePHP__t_string, false, 0),
         array('reason', $IcePHP__t_string, false, 0)));
 }
@@ -438,7 +438,7 @@ namespace IceGrid
     }
     global $IcePHP__t_string;
 
-    $IceGrid__t_BadSignalException = IcePHP_defineException('::IceGrid::BadSignalException', '\\IceGrid\\BadSignalException', false, null, array(
+    $IceGrid__t_BadSignalException = IcePHP_defineException('::IceGrid::BadSignalException', '\\IceGrid\\BadSignalException', null, array(
         array('reason', $IcePHP__t_string, false, 0)));
 }
 
@@ -467,7 +467,7 @@ namespace IceGrid
     }
     global $Ice__t_StringSeq;
 
-    $IceGrid__t_PatchException = IcePHP_defineException('::IceGrid::PatchException', '\\IceGrid\\PatchException', false, null, array(
+    $IceGrid__t_PatchException = IcePHP_defineException('::IceGrid::PatchException', '\\IceGrid\\PatchException', null, array(
         array('reasons', $Ice__t_StringSeq, false, 0)));
 }
 
@@ -496,7 +496,7 @@ namespace IceGrid
     }
     global $IcePHP__t_string;
 
-    $IceGrid__t_AccessDeniedException = IcePHP_defineException('::IceGrid::AccessDeniedException', '\\IceGrid\\AccessDeniedException', false, null, array(
+    $IceGrid__t_AccessDeniedException = IcePHP_defineException('::IceGrid::AccessDeniedException', '\\IceGrid\\AccessDeniedException', null, array(
         array('lockUserId', $IcePHP__t_string, false, 0)));
 }
 
@@ -525,7 +525,7 @@ namespace IceGrid
     }
     global $IcePHP__t_string;
 
-    $IceGrid__t_AllocationException = IcePHP_defineException('::IceGrid::AllocationException', '\\IceGrid\\AllocationException', false, null, array(
+    $IceGrid__t_AllocationException = IcePHP_defineException('::IceGrid::AllocationException', '\\IceGrid\\AllocationException', null, array(
         array('reason', $IcePHP__t_string, false, 0)));
 }
 
@@ -551,7 +551,7 @@ namespace IceGrid
         }
     }
 
-    $IceGrid__t_AllocationTimeoutException = IcePHP_defineException('::IceGrid::AllocationTimeoutException', '\\IceGrid\\AllocationTimeoutException', false, $IceGrid__t_AllocationException, null);
+    $IceGrid__t_AllocationTimeoutException = IcePHP_defineException('::IceGrid::AllocationTimeoutException', '\\IceGrid\\AllocationTimeoutException', $IceGrid__t_AllocationException, null);
 }
 
 namespace IceGrid
@@ -579,7 +579,7 @@ namespace IceGrid
     }
     global $IcePHP__t_string;
 
-    $IceGrid__t_PermissionDeniedException = IcePHP_defineException('::IceGrid::PermissionDeniedException', '\\IceGrid\\PermissionDeniedException', false, null, array(
+    $IceGrid__t_PermissionDeniedException = IcePHP_defineException('::IceGrid::PermissionDeniedException', '\\IceGrid\\PermissionDeniedException', null, array(
         array('reason', $IcePHP__t_string, false, 0)));
 }
 
@@ -608,7 +608,7 @@ namespace IceGrid
     }
     global $Ice__t_Identity;
 
-    $IceGrid__t_ObserverAlreadyRegisteredException = IcePHP_defineException('::IceGrid::ObserverAlreadyRegisteredException', '\\IceGrid\\ObserverAlreadyRegisteredException', false, null, array(
+    $IceGrid__t_ObserverAlreadyRegisteredException = IcePHP_defineException('::IceGrid::ObserverAlreadyRegisteredException', '\\IceGrid\\ObserverAlreadyRegisteredException', null, array(
         array('id', $Ice__t_Identity, false, 0)));
 }
 
@@ -637,7 +637,7 @@ namespace IceGrid
     }
     global $IcePHP__t_string;
 
-    $IceGrid__t_FileNotAvailableException = IcePHP_defineException('::IceGrid::FileNotAvailableException', '\\IceGrid\\FileNotAvailableException', false, null, array(
+    $IceGrid__t_FileNotAvailableException = IcePHP_defineException('::IceGrid::FileNotAvailableException', '\\IceGrid\\FileNotAvailableException', null, array(
         array('reason', $IcePHP__t_string, false, 0)));
 }
 ?>

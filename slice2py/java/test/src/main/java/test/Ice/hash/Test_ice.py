@@ -442,7 +442,7 @@ if 'Pen' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_Pen = IcePy.defineValue('::Test::Pen', Pen, -1, (), False, False, None, (
+    _M_Test._t_Pen = IcePy.defineValue('::Test::Pen', Pen, -1, (), False, None, (
         ('thickness', (), IcePy._t_int, False, 0),
         ('color', (), _M_Test._t_Color, False, 0)
     ))

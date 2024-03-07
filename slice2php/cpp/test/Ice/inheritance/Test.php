@@ -203,7 +203,7 @@ namespace Test\MC
 
     global $Ice__t_Value;
     global $IcePHP__t_int;
-    $Test_MC__t_A = IcePHP_defineClass('::Test::MC::A', '\\Test\\MC\\A', -1, false, false, $Ice__t_Value, array(
+    $Test_MC__t_A = IcePHP_defineClass('::Test::MC::A', '\\Test\\MC\\A', -1, false, $Ice__t_Value, array(
         array('aA', $IcePHP__t_int, false, 0)));
 }
 
@@ -239,7 +239,7 @@ namespace Test\MC
 
     global $Test_MC__t_A;
     global $IcePHP__t_int;
-    $Test_MC__t_B = IcePHP_defineClass('::Test::MC::B', '\\Test\\MC\\B', -1, false, false, $Test_MC__t_A, array(
+    $Test_MC__t_B = IcePHP_defineClass('::Test::MC::B', '\\Test\\MC\\B', -1, false, $Test_MC__t_A, array(
         array('bB', $IcePHP__t_int, false, 0)));
 }
 
@@ -275,7 +275,7 @@ namespace Test\MC
 
     global $Test_MC__t_B;
     global $IcePHP__t_int;
-    $Test_MC__t_C = IcePHP_defineClass('::Test::MC::C', '\\Test\\MC\\C', -1, false, false, $Test_MC__t_B, array(
+    $Test_MC__t_C = IcePHP_defineClass('::Test::MC::C', '\\Test\\MC\\C', -1, false, $Test_MC__t_B, array(
         array('cC', $IcePHP__t_int, false, 0)));
 }
 
@@ -311,7 +311,7 @@ namespace Test\MC
 
     global $Test_MC__t_C;
     global $IcePHP__t_int;
-    $Test_MC__t_D = IcePHP_defineClass('::Test::MC::D', '\\Test\\MC\\D', -1, false, false, $Test_MC__t_C, array(
+    $Test_MC__t_D = IcePHP_defineClass('::Test::MC::D', '\\Test\\MC\\D', -1, false, $Test_MC__t_C, array(
         array('dD', $IcePHP__t_int, false, 0)));
 }
 
@@ -346,7 +346,7 @@ namespace Test\MD
 
     global $Ice__t_Value;
     global $IcePHP__t_int;
-    $Test_MD__t_A = IcePHP_defineClass('::Test::MD::A', '\\Test\\MD\\A', -1, false, false, $Ice__t_Value, array(
+    $Test_MD__t_A = IcePHP_defineClass('::Test::MD::A', '\\Test\\MD\\A', -1, false, $Ice__t_Value, array(
         array('aA', $IcePHP__t_int, false, 0)));
 }
 
@@ -382,7 +382,7 @@ namespace Test\MD
 
     global $Test_MD__t_A;
     global $IcePHP__t_int;
-    $Test_MD__t_B = IcePHP_defineClass('::Test::MD::B', '\\Test\\MD\\B', -1, false, false, $Test_MD__t_A, array(
+    $Test_MD__t_B = IcePHP_defineClass('::Test::MD::B', '\\Test\\MD\\B', -1, false, $Test_MD__t_A, array(
         array('bB', $IcePHP__t_int, false, 0)));
 }
 
@@ -418,7 +418,7 @@ namespace Test\MD
 
     global $Test_MD__t_B;
     global $IcePHP__t_int;
-    $Test_MD__t_C = IcePHP_defineClass('::Test::MD::C', '\\Test\\MD\\C', -1, false, false, $Test_MD__t_B, array(
+    $Test_MD__t_C = IcePHP_defineClass('::Test::MD::C', '\\Test\\MD\\C', -1, false, $Test_MD__t_B, array(
         array('cC', $IcePHP__t_int, false, 0)));
 }
 
@@ -454,7 +454,7 @@ namespace Test\MD
 
     global $Test_MD__t_C;
     global $IcePHP__t_int;
-    $Test_MD__t_D = IcePHP_defineClass('::Test::MD::D', '\\Test\\MD\\D', -1, false, false, $Test_MD__t_C, array(
+    $Test_MD__t_D = IcePHP_defineClass('::Test::MD::D', '\\Test\\MD\\D', -1, false, $Test_MD__t_C, array(
         array('dD', $IcePHP__t_int, false, 0)));
 }
 
@@ -489,7 +489,7 @@ namespace Test\ME
 
     global $Ice__t_Value;
     global $IcePHP__t_int;
-    $Test_ME__t_A = IcePHP_defineClass('::Test::ME::A', '\\Test\\ME\\A', -1, false, false, $Ice__t_Value, array(
+    $Test_ME__t_A = IcePHP_defineClass('::Test::ME::A', '\\Test\\ME\\A', -1, false, $Ice__t_Value, array(
         array('aA', $IcePHP__t_int, false, 0)));
 }
 
@@ -525,7 +525,7 @@ namespace Test\ME
 
     global $Test_ME__t_A;
     global $IcePHP__t_int;
-    $Test_ME__t_B = IcePHP_defineClass('::Test::ME::B', '\\Test\\ME\\B', -1, false, false, $Test_ME__t_A, array(
+    $Test_ME__t_B = IcePHP_defineClass('::Test::ME::B', '\\Test\\ME\\B', -1, false, $Test_ME__t_A, array(
         array('bB', $IcePHP__t_int, false, 0)));
 }
 
@@ -561,7 +561,7 @@ namespace Test\ME
 
     global $Test_ME__t_B;
     global $IcePHP__t_int;
-    $Test_ME__t_C = IcePHP_defineClass('::Test::ME::C', '\\Test\\ME\\C', -1, false, false, $Test_ME__t_B, array(
+    $Test_ME__t_C = IcePHP_defineClass('::Test::ME::C', '\\Test\\ME\\C', -1, false, $Test_ME__t_B, array(
         array('cC', $IcePHP__t_int, false, 0)));
 }
 
@@ -597,7 +597,7 @@ namespace Test\ME
 
     global $Test_ME__t_C;
     global $IcePHP__t_int;
-    $Test_ME__t_D = IcePHP_defineClass('::Test::ME::D', '\\Test\\ME\\D', -1, false, false, $Test_ME__t_C, array(
+    $Test_ME__t_D = IcePHP_defineClass('::Test::ME::D', '\\Test\\ME\\D', -1, false, $Test_ME__t_C, array(
         array('dD', $IcePHP__t_int, false, 0)));
 }
 
@@ -632,7 +632,7 @@ namespace Test\MF
 
     global $Ice__t_Value;
     global $IcePHP__t_int;
-    $Test_MF__t_A = IcePHP_defineClass('::Test::MF::A', '\\Test\\MF\\A', -1, false, false, $Ice__t_Value, array(
+    $Test_MF__t_A = IcePHP_defineClass('::Test::MF::A', '\\Test\\MF\\A', -1, false, $Ice__t_Value, array(
         array('aA', $IcePHP__t_int, false, 0)));
 }
 
@@ -668,7 +668,7 @@ namespace Test\MF
 
     global $Test_MF__t_A;
     global $IcePHP__t_int;
-    $Test_MF__t_B = IcePHP_defineClass('::Test::MF::B', '\\Test\\MF\\B', -1, false, false, $Test_MF__t_A, array(
+    $Test_MF__t_B = IcePHP_defineClass('::Test::MF::B', '\\Test\\MF\\B', -1, false, $Test_MF__t_A, array(
         array('bB', $IcePHP__t_int, false, 0)));
 }
 
@@ -704,7 +704,7 @@ namespace Test\MF
 
     global $Test_MF__t_B;
     global $IcePHP__t_int;
-    $Test_MF__t_C = IcePHP_defineClass('::Test::MF::C', '\\Test\\MF\\C', -1, false, false, $Test_MF__t_B, array(
+    $Test_MF__t_C = IcePHP_defineClass('::Test::MF::C', '\\Test\\MF\\C', -1, false, $Test_MF__t_B, array(
         array('cC', $IcePHP__t_int, false, 0)));
 }
 
@@ -740,7 +740,7 @@ namespace Test\MF
 
     global $Test_MF__t_C;
     global $IcePHP__t_int;
-    $Test_MF__t_D = IcePHP_defineClass('::Test::MF::D', '\\Test\\MF\\D', -1, false, false, $Test_MF__t_C, array(
+    $Test_MF__t_D = IcePHP_defineClass('::Test::MF::D', '\\Test\\MF\\D', -1, false, $Test_MF__t_C, array(
         array('dD', $IcePHP__t_int, false, 0)));
 }
 
@@ -775,7 +775,7 @@ namespace Test\MG
 
     global $Ice__t_Value;
     global $IcePHP__t_int;
-    $Test_MG__t_A = IcePHP_defineClass('::Test::MG::A', '\\Test\\MG\\A', -1, false, false, $Ice__t_Value, array(
+    $Test_MG__t_A = IcePHP_defineClass('::Test::MG::A', '\\Test\\MG\\A', -1, false, $Ice__t_Value, array(
         array('aA', $IcePHP__t_int, false, 0)));
 }
 
@@ -811,7 +811,7 @@ namespace Test\MG
 
     global $Test_MG__t_A;
     global $IcePHP__t_int;
-    $Test_MG__t_B = IcePHP_defineClass('::Test::MG::B', '\\Test\\MG\\B', -1, false, false, $Test_MG__t_A, array(
+    $Test_MG__t_B = IcePHP_defineClass('::Test::MG::B', '\\Test\\MG\\B', -1, false, $Test_MG__t_A, array(
         array('bB', $IcePHP__t_int, false, 0)));
 }
 
@@ -847,7 +847,7 @@ namespace Test\MG
 
     global $Test_MG__t_B;
     global $IcePHP__t_int;
-    $Test_MG__t_C = IcePHP_defineClass('::Test::MG::C', '\\Test\\MG\\C', -1, false, false, $Test_MG__t_B, array(
+    $Test_MG__t_C = IcePHP_defineClass('::Test::MG::C', '\\Test\\MG\\C', -1, false, $Test_MG__t_B, array(
         array('cC', $IcePHP__t_int, false, 0)));
 }
 
@@ -883,7 +883,7 @@ namespace Test\MG
 
     global $Test_MG__t_C;
     global $IcePHP__t_int;
-    $Test_MG__t_D = IcePHP_defineClass('::Test::MG::D', '\\Test\\MG\\D', -1, false, false, $Test_MG__t_C, array(
+    $Test_MG__t_D = IcePHP_defineClass('::Test::MG::D', '\\Test\\MG\\D', -1, false, $Test_MG__t_C, array(
         array('dD', $IcePHP__t_int, false, 0)));
 }
 
@@ -918,7 +918,7 @@ namespace Test\MH
 
     global $Ice__t_Value;
     global $IcePHP__t_int;
-    $Test_MH__t_A = IcePHP_defineClass('::Test::MH::A', '\\Test\\MH\\A', -1, false, false, $Ice__t_Value, array(
+    $Test_MH__t_A = IcePHP_defineClass('::Test::MH::A', '\\Test\\MH\\A', -1, false, $Ice__t_Value, array(
         array('aA', $IcePHP__t_int, false, 0)));
 }
 
@@ -954,7 +954,7 @@ namespace Test\MH
 
     global $Test_MH__t_A;
     global $IcePHP__t_int;
-    $Test_MH__t_B = IcePHP_defineClass('::Test::MH::B', '\\Test\\MH\\B', -1, false, false, $Test_MH__t_A, array(
+    $Test_MH__t_B = IcePHP_defineClass('::Test::MH::B', '\\Test\\MH\\B', -1, false, $Test_MH__t_A, array(
         array('bB', $IcePHP__t_int, false, 0)));
 }
 
@@ -990,7 +990,7 @@ namespace Test\MH
 
     global $Test_MH__t_B;
     global $IcePHP__t_int;
-    $Test_MH__t_C = IcePHP_defineClass('::Test::MH::C', '\\Test\\MH\\C', -1, false, false, $Test_MH__t_B, array(
+    $Test_MH__t_C = IcePHP_defineClass('::Test::MH::C', '\\Test\\MH\\C', -1, false, $Test_MH__t_B, array(
         array('cC', $IcePHP__t_int, false, 0)));
 }
 
@@ -1026,7 +1026,7 @@ namespace Test\MH
 
     global $Test_MH__t_C;
     global $IcePHP__t_int;
-    $Test_MH__t_D = IcePHP_defineClass('::Test::MH::D', '\\Test\\MH\\D', -1, false, false, $Test_MH__t_C, array(
+    $Test_MH__t_D = IcePHP_defineClass('::Test::MH::D', '\\Test\\MH\\D', -1, false, $Test_MH__t_C, array(
         array('dD', $IcePHP__t_int, false, 0)));
 }
 ?>

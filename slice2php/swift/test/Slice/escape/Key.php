@@ -170,7 +170,7 @@ namespace _and
     global $Ice__t_Value;
     global $IcePHP__t_int;
     global $and__t_funcPrx;
-    $and__t_switch = IcePHP_defineClass('::and::switch', '\\_and\\_switch', -1, false, false, $Ice__t_Value, array(
+    $and__t_switch = IcePHP_defineClass('::and::switch', '\\_and\\_switch', -1, false, $Ice__t_Value, array(
         array('_if', $IcePHP__t_int, false, 0),
         array('export', $and__t_funcPrx, false, 0),
         array('volatile', $IcePHP__t_int, false, 0)));
@@ -251,7 +251,7 @@ namespace _and
     }
     global $IcePHP__t_int;
 
-    $and__t_return = IcePHP_defineException('::and::return', '\\_and\\_return', false, null, array(
+    $and__t_return = IcePHP_defineException('::and::return', '\\_and\\_return', null, array(
         array('Int32', $IcePHP__t_int, false, 0)));
 }
 
@@ -283,7 +283,7 @@ namespace _and
     }
     global $IcePHP__t_int;
 
-    $and__t_as = IcePHP_defineException('::and::as', '\\_and\\_as', false, $and__t_return, array(
+    $and__t_as = IcePHP_defineException('::and::as', '\\_and\\_as', $and__t_return, array(
         array('_static', $IcePHP__t_int, false, 0),
         array('_switch', $IcePHP__t_int, false, 0)));
 }

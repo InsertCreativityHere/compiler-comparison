@@ -194,8 +194,6 @@
         }
     };
 
-    Slice.PreservedUserException(Test.KnownPreserved);
-
     Test.KnownPreservedDerived = class extends Test.KnownPreserved
     {
         constructor(b, kp, kpd = "", _cause = "")
@@ -230,60 +228,6 @@
         }
     };
 
-    Test.BaseClass = class extends Ice.Value
-    {
-        constructor(bc = "")
-        {
-            super();
-            this.bc = bc;
-        }
-
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeString(this.bc);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.bc = istr.readString();
-        }
-    };
-
-    Slice.defineValue(Test.BaseClass, "::Test::BaseClass", true);
-
-    const iceC_Test_Relay_ids = [
-        "::Ice::Object",
-        "::Test::Relay"
-    ];
-
-    Test.Relay = class extends Ice.Object
-    {
-    };
-
-    Test.RelayPrx = class extends Ice.ObjectPrx
-    {
-    };
-
-    Slice.defineOperations(Test.Relay, Test.RelayPrx, iceC_Test_Relay_ids, "::Test::Relay",
-    {
-        "knownPreservedAsBase": [, , , 2, , , ,
-        [
-            Test.Base
-        ], , ],
-        "knownPreservedAsKnownPreserved": [, , , 2, , , ,
-        [
-            Test.KnownPreserved
-        ], , ],
-        "unknownPreservedAsBase": [, , , 2, , , ,
-        [
-            Test.Base
-        ], , ],
-        "unknownPreservedAsKnownPreserved": [, , , 2, , , ,
-        [
-            Test.KnownPreserved
-        ], , ]
-    });
-
     const iceC_Test_TestIntf_ids = [
         "::Ice::Object",
         "::Test::TestIntf"
@@ -303,7 +247,7 @@
         [
             Test.Base
         ], , ],
-        "unknownDerivedAsBase": [, , , 2, , , ,
+        "unknownDerivedAsBase": [, , , 1, , , ,
         [
             Test.Base
         ], , ],
@@ -350,42 +294,6 @@
         "unknownMostDerived2AsBase": [, , , 2, , , ,
         [
             Test.Base
-        ], , ],
-        "unknownMostDerived2AsBaseCompact": [, , , 1, , , ,
-        [
-            Test.Base
-        ], , ],
-        "knownPreservedAsBase": [, , , 2, , , ,
-        [
-            Test.Base
-        ], , ],
-        "knownPreservedAsKnownPreserved": [, , , 2, , , ,
-        [
-            Test.KnownPreserved
-        ], , ],
-        "relayKnownPreservedAsBase": [, , , 2, , [["Test.RelayPrx"]], ,
-        [
-            Test.Base
-        ], , ],
-        "relayKnownPreservedAsKnownPreserved": [, , , 2, , [["Test.RelayPrx"]], ,
-        [
-            Test.KnownPreserved
-        ], , ],
-        "unknownPreservedAsBase": [, , , 2, , , ,
-        [
-            Test.Base
-        ], , ],
-        "unknownPreservedAsKnownPreserved": [, , , 2, , , ,
-        [
-            Test.KnownPreserved
-        ], , ],
-        "relayUnknownPreservedAsBase": [, , , 2, , [["Test.RelayPrx"]], ,
-        [
-            Test.Base
-        ], , ],
-        "relayUnknownPreservedAsKnownPreserved": [, , , 2, , [["Test.RelayPrx"]], ,
-        [
-            Test.KnownPreserved
         ], , ],
         "shutdown": [, , , 2, , , , , , ]
     });

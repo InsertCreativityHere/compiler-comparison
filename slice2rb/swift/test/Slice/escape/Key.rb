@@ -196,7 +196,7 @@ module ::And
             T_Switch = ::Ice::__declareClass('::and::switch')
         end
 
-        T_Switch.defineClass(Switch, -1, false, false, nil, [
+        T_Switch.defineClass(Switch, -1, false, nil, [
             ['_if', ::Ice::T_int, false, 0],
             ['export', ::And::T_FuncPrx, false, 0],
             ['volatile', ::Ice::T_int, false, 0]
@@ -246,7 +246,7 @@ module ::And
             attr_accessor :Int32
         end
 
-        T_Return = ::Ice::__defineException('::and::return', Return, false, nil, [["Int32", ::Ice::T_int, false, 0]])
+        T_Return = ::Ice::__defineException('::and::return', Return, nil, [["Int32", ::Ice::T_int, false, 0]])
     end
 
     if not defined?(::And::As)
@@ -264,7 +264,7 @@ module ::And
             attr_accessor :static, :switch
         end
 
-        T_As = ::Ice::__defineException('::and::as', As, false, ::And::T_Return, [
+        T_As = ::Ice::__defineException('::and::as', As, ::And::T_Return, [
             ["static", ::Ice::T_int, false, 0],
             ["switch", ::Ice::T_int, false, 0]
         ])

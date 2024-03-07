@@ -49,7 +49,7 @@ if 'PartitionOutOfRangeException' not in _M_IcePatch2.__dict__:
 
         _ice_id = '::IcePatch2::PartitionOutOfRangeException'
 
-    _M_IcePatch2._t_PartitionOutOfRangeException = IcePy.defineException('::IcePatch2::PartitionOutOfRangeException', PartitionOutOfRangeException, (), False, None, ())
+    _M_IcePatch2._t_PartitionOutOfRangeException = IcePy.defineException('::IcePatch2::PartitionOutOfRangeException', PartitionOutOfRangeException, (), None, ())
     PartitionOutOfRangeException._ice_type = _M_IcePatch2._t_PartitionOutOfRangeException
 
     _M_IcePatch2.PartitionOutOfRangeException = PartitionOutOfRangeException
@@ -73,7 +73,7 @@ if 'FileAccessException' not in _M_IcePatch2.__dict__:
 
         _ice_id = '::IcePatch2::FileAccessException'
 
-    _M_IcePatch2._t_FileAccessException = IcePy.defineException('::IcePatch2::FileAccessException', FileAccessException, (), False, None, (('reason', (), IcePy._t_string, False, 0),))
+    _M_IcePatch2._t_FileAccessException = IcePy.defineException('::IcePatch2::FileAccessException', FileAccessException, (), None, (('reason', (), IcePy._t_string, False, 0),))
     FileAccessException._ice_type = _M_IcePatch2._t_FileAccessException
 
     _M_IcePatch2.FileAccessException = FileAccessException
@@ -96,13 +96,13 @@ if 'FileSizeRangeException' not in _M_IcePatch2.__dict__:
 
         _ice_id = '::IcePatch2::FileSizeRangeException'
 
-    _M_IcePatch2._t_FileSizeRangeException = IcePy.defineException('::IcePatch2::FileSizeRangeException', FileSizeRangeException, (), False, _M_IcePatch2._t_FileAccessException, ())
+    _M_IcePatch2._t_FileSizeRangeException = IcePy.defineException('::IcePatch2::FileSizeRangeException', FileSizeRangeException, (), _M_IcePatch2._t_FileAccessException, ())
     FileSizeRangeException._ice_type = _M_IcePatch2._t_FileSizeRangeException
 
     _M_IcePatch2.FileSizeRangeException = FileSizeRangeException
     del FileSizeRangeException
 
-_M_IcePatch2._t_FileServer = IcePy.defineValue('::IcePatch2::FileServer', Ice.Value, -1, (), False, True, None, ())
+_M_IcePatch2._t_FileServer = IcePy.defineValue('::IcePatch2::FileServer', Ice.Value, -1, (), True, None, ())
 
 if 'FileServerPrx' not in _M_IcePatch2.__dict__:
     _M_IcePatch2.FileServerPrx = Ice.createTempClass()

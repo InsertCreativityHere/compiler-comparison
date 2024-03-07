@@ -42,7 +42,7 @@ namespace Test
         }
     }
 
-    $Test__t_TestIntfException = IcePHP_defineException('::Test::TestIntfException', '\\Test\\TestIntfException', false, null, null);
+    $Test__t_TestIntfException = IcePHP_defineException('::Test::TestIntfException', '\\Test\\TestIntfException', null, null);
 }
 
 namespace Test

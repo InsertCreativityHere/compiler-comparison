@@ -194,8 +194,6 @@
         }
     };
 
-    Slice.PreservedUserException(Test.KnownPreserved);
-
     Test.KnownPreservedDerived = class extends Test.KnownPreserved
     {
         constructor(b, kp, kpd = "", _cause = "")
@@ -249,7 +247,7 @@
         }
     };
 
-    Slice.defineValue(Test.BaseClass, "::Test::BaseClass", true);
+    Slice.defineValue(Test.BaseClass, "::Test::BaseClass");
 
     const iceC_Test_Relay_ids = [
         "::Ice::Object",
@@ -409,7 +407,7 @@
         }
     };
 
-    Slice.defineValue(Test.PreservedClass, "::Test::PreservedClass", false);
+    Slice.defineValue(Test.PreservedClass, "::Test::PreservedClass");
 
     Test.Preserved1 = class extends Test.KnownPreservedDerived
     {

@@ -36,7 +36,7 @@ namespace Test
         }
     }
 
-    $Test__t_BaseException = IcePHP_defineException('::Test::BaseException', '\\Test\\BaseException', false, null, null);
+    $Test__t_BaseException = IcePHP_defineException('::Test::BaseException', '\\Test\\BaseException', null, null);
 }
 
 namespace Test
@@ -65,7 +65,7 @@ namespace Test
     }
     global $IcePHP__t_int;
 
-    $Test__t_InvalidPointException = IcePHP_defineException('::Test::InvalidPointException', '\\Test\\InvalidPointException', false, $Test__t_BaseException, array(
+    $Test__t_InvalidPointException = IcePHP_defineException('::Test::InvalidPointException', '\\Test\\InvalidPointException', $Test__t_BaseException, array(
         array('index', $IcePHP__t_int, false, 0)));
 }
 
@@ -95,7 +95,7 @@ namespace Test
     }
     global $IcePHP__t_int;
 
-    $Test__t_InvalidLengthException = IcePHP_defineException('::Test::InvalidLengthException', '\\Test\\InvalidLengthException', false, $Test__t_BaseException, array(
+    $Test__t_InvalidLengthException = IcePHP_defineException('::Test::InvalidLengthException', '\\Test\\InvalidLengthException', $Test__t_BaseException, array(
         array('length', $IcePHP__t_int, false, 0)));
 }
 
@@ -131,7 +131,7 @@ namespace Test
     global $IcePHP__t_int;
     global $IcePHP__t_bool;
 
-    $Test__t_OtherException = IcePHP_defineException('::Test::OtherException', '\\Test\\OtherException', false, null, array(
+    $Test__t_OtherException = IcePHP_defineException('::Test::OtherException', '\\Test\\OtherException', null, array(
         array('x', $IcePHP__t_int, false, 0),
         array('y', $IcePHP__t_int, false, 0),
         array('z', $IcePHP__t_int, false, 0),
@@ -363,7 +363,7 @@ namespace Test
     global $Ice__t_Value;
     global $IcePHP__t_int;
     global $Test__t_Color;
-    $Test__t_Pen = IcePHP_defineClass('::Test::Pen', '\\Test\\Pen', -1, false, false, $Ice__t_Value, array(
+    $Test__t_Pen = IcePHP_defineClass('::Test::Pen', '\\Test\\Pen', -1, false, $Ice__t_Value, array(
         array('thickness', $IcePHP__t_int, false, 0),
         array('color', $Test__t_Color, false, 0)));
 }

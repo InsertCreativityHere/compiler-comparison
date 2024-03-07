@@ -27,7 +27,7 @@ _M_Glacier2 = Ice.openModule('Glacier2')
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
-_M_Test._t_Backend = IcePy.defineValue('::Test::Backend', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_Backend = IcePy.defineValue('::Test::Backend', Ice.Value, -1, (), True, None, ())
 
 if 'BackendPrx' not in _M_Test.__dict__:
     _M_Test.BackendPrx = Ice.createTempClass()
@@ -253,7 +253,7 @@ if 'TestToken' not in _M_Test.__dict__:
     _M_Test.TestToken = TestToken
     del TestToken
 
-_M_Test._t_TestController = IcePy.defineValue('::Test::TestController', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_TestController = IcePy.defineValue('::Test::TestController', Ice.Value, -1, (), True, None, ())
 
 if 'TestControllerPrx' not in _M_Test.__dict__:
     _M_Test.TestControllerPrx = Ice.createTempClass()
@@ -320,7 +320,7 @@ if 'TestControllerPrx' not in _M_Test.__dict__:
     _M_Test.TestController = TestController
     del TestController
 
-_M_Test._t_TestSession = IcePy.defineValue('::Test::TestSession', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_TestSession = IcePy.defineValue('::Test::TestSession', Ice.Value, -1, (), True, None, ())
 
 if 'TestSessionPrx' not in _M_Test.__dict__:
     _M_Test.TestSessionPrx = Ice.createTempClass()

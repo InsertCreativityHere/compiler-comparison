@@ -295,7 +295,7 @@ namespace Test
     global $Ice__t_ByteSeq;
     global $Ice__t_StringSeq;
     global $Test__t_Point;
-    $Test__t_OptionalClass = IcePHP_defineClass('::Test::OptionalClass', '\\Test\\OptionalClass', -1, false, false, $Ice__t_Value, array(
+    $Test__t_OptionalClass = IcePHP_defineClass('::Test::OptionalClass', '\\Test\\OptionalClass', -1, false, $Ice__t_Value, array(
         array('bo', $IcePHP__t_bool, false, 0),
         array('by', $IcePHP__t_byte, false, 0),
         array('sh', $IcePHP__t_short, true, 1),
@@ -529,7 +529,7 @@ namespace Test
     global $Test__t_MyEnumS;
     global $Test__t_MyClassS;
     global $Test__t_StringMyClassD;
-    $Test__t_MyClass = IcePHP_defineClass('::Test::MyClass', '\\Test\\MyClass', -1, false, false, $Ice__t_Value, array(
+    $Test__t_MyClass = IcePHP_defineClass('::Test::MyClass', '\\Test\\MyClass', -1, false, $Ice__t_Value, array(
         array('c', $Test__t_MyClass, false, 0),
         array('prx', $Test__t_MyInterfacePrx, false, 0),
         array('o', $Ice__t_Value, false, 0),
@@ -572,7 +572,7 @@ namespace Test
     }
     global $Test__t_MyClass;
 
-    $Test__t_MyException = IcePHP_defineException('::Test::MyException', '\\Test\\MyException', false, null, array(
+    $Test__t_MyException = IcePHP_defineException('::Test::MyException', '\\Test\\MyException', null, array(
         array('c', $Test__t_MyClass, false, 0)));
 }
 

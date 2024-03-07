@@ -30,7 +30,7 @@ module ::Test
             end
         end
 
-        T_TestIntfException = ::Ice::__defineException('::Test::TestIntfException', TestIntfException, false, nil, [])
+        T_TestIntfException = ::Ice::__defineException('::Test::TestIntfException', TestIntfException, nil, [])
     end
 
     if not defined?(::Test::CloseMode)

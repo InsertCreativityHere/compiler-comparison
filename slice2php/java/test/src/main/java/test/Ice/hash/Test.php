@@ -240,7 +240,7 @@ namespace Test
     global $Ice__t_Value;
     global $IcePHP__t_int;
     global $Test__t_Color;
-    $Test__t_Pen = IcePHP_defineClass('::Test::Pen', '\\Test\\Pen', -1, false, false, $Ice__t_Value, array(
+    $Test__t_Pen = IcePHP_defineClass('::Test::Pen', '\\Test\\Pen', -1, false, $Ice__t_Value, array(
         array('thickness', $IcePHP__t_int, false, 0),
         array('color', $Test__t_Color, false, 0)));
 }

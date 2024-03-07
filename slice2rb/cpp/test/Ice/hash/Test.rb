@@ -29,6 +29,6 @@ module ::Test
             T_Point = ::Ice::__declareClass('::Test::Point')
         end
 
-        T_Point.defineClass(Point, -1, false, false, nil, [])
+        T_Point.defineClass(Point, -1, false, nil, [])
     end
 end

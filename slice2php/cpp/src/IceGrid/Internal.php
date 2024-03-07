@@ -59,7 +59,7 @@ namespace IceGrid
     global $Ice__t_Value;
     global $IcePHP__t_string;
     global $IceGrid__t_PropertyDescriptorSeq;
-    $IceGrid__t_InternalDbEnvDescriptor = IcePHP_defineClass('::IceGrid::InternalDbEnvDescriptor', '\\IceGrid\\InternalDbEnvDescriptor', -1, false, false, $Ice__t_Value, array(
+    $IceGrid__t_InternalDbEnvDescriptor = IcePHP_defineClass('::IceGrid::InternalDbEnvDescriptor', '\\IceGrid\\InternalDbEnvDescriptor', -1, false, $Ice__t_Value, array(
         array('name', $IcePHP__t_string, false, 0),
         array('properties', $IceGrid__t_PropertyDescriptorSeq, false, 0)));
 }
@@ -109,7 +109,7 @@ namespace IceGrid
     global $Ice__t_Value;
     global $IcePHP__t_string;
     global $IcePHP__t_bool;
-    $IceGrid__t_InternalAdapterDescriptor = IcePHP_defineClass('::IceGrid::InternalAdapterDescriptor', '\\IceGrid\\InternalAdapterDescriptor', -1, false, false, $Ice__t_Value, array(
+    $IceGrid__t_InternalAdapterDescriptor = IcePHP_defineClass('::IceGrid::InternalAdapterDescriptor', '\\IceGrid\\InternalAdapterDescriptor', -1, false, $Ice__t_Value, array(
         array('id', $IcePHP__t_string, false, 0),
         array('serverLifetime', $IcePHP__t_bool, false, 0)));
 }
@@ -159,7 +159,7 @@ namespace IceGrid
     global $Ice__t_Value;
     global $IcePHP__t_string;
     global $Ice__t_StringSeq;
-    $IceGrid__t_InternalDistributionDescriptor = IcePHP_defineClass('::IceGrid::InternalDistributionDescriptor', '\\IceGrid\\InternalDistributionDescriptor', -1, false, false, $Ice__t_Value, array(
+    $IceGrid__t_InternalDistributionDescriptor = IcePHP_defineClass('::IceGrid::InternalDistributionDescriptor', '\\IceGrid\\InternalDistributionDescriptor', -1, false, $Ice__t_Value, array(
         array('icepatch', $IcePHP__t_string, false, 0),
         array('directories', $Ice__t_StringSeq, false, 0)));
 }
@@ -256,7 +256,7 @@ namespace IceGrid
     global $IceGrid__t_InternalAdapterDescriptorSeq;
     global $IceGrid__t_InternalDbEnvDescriptorSeq;
     global $IceGrid__t_PropertyDescriptorSeqDict;
-    $IceGrid__t_InternalServerDescriptor = IcePHP_defineClass('::IceGrid::InternalServerDescriptor', '\\IceGrid\\InternalServerDescriptor', -1, false, false, $Ice__t_Value, array(
+    $IceGrid__t_InternalServerDescriptor = IcePHP_defineClass('::IceGrid::InternalServerDescriptor', '\\IceGrid\\InternalServerDescriptor', -1, false, $Ice__t_Value, array(
         array('id', $IcePHP__t_string, false, 0),
         array('application', $IcePHP__t_string, false, 0),
         array('uuid', $IcePHP__t_string, false, 0),
@@ -301,7 +301,7 @@ namespace IceGrid
         }
     }
 
-    $IceGrid__t_AdapterActiveException = IcePHP_defineException('::IceGrid::AdapterActiveException', '\\IceGrid\\AdapterActiveException', false, null, null);
+    $IceGrid__t_AdapterActiveException = IcePHP_defineException('::IceGrid::AdapterActiveException', '\\IceGrid\\AdapterActiveException', null, null);
 }
 
 namespace IceGrid
@@ -329,7 +329,7 @@ namespace IceGrid
     }
     global $IcePHP__t_bool;
 
-    $IceGrid__t_AdapterNotActiveException = IcePHP_defineException('::IceGrid::AdapterNotActiveException', '\\IceGrid\\AdapterNotActiveException', false, null, array(
+    $IceGrid__t_AdapterNotActiveException = IcePHP_defineException('::IceGrid::AdapterNotActiveException', '\\IceGrid\\AdapterNotActiveException', null, array(
         array('activatable', $IcePHP__t_bool, false, 0)));
 }
 
@@ -390,7 +390,7 @@ namespace IceGrid
     }
     global $IcePHP__t_string;
 
-    $IceGrid__t_AdapterExistsException = IcePHP_defineException('::IceGrid::AdapterExistsException', '\\IceGrid\\AdapterExistsException', false, null, array(
+    $IceGrid__t_AdapterExistsException = IcePHP_defineException('::IceGrid::AdapterExistsException', '\\IceGrid\\AdapterExistsException', null, array(
         array('id', $IcePHP__t_string, false, 0)));
 }
 
@@ -652,7 +652,7 @@ namespace IceGrid
         }
     }
 
-    $IceGrid__t_NodeActiveException = IcePHP_defineException('::IceGrid::NodeActiveException', '\\IceGrid\\NodeActiveException', false, null, null);
+    $IceGrid__t_NodeActiveException = IcePHP_defineException('::IceGrid::NodeActiveException', '\\IceGrid\\NodeActiveException', null, null);
 }
 
 namespace IceGrid
@@ -718,7 +718,7 @@ namespace IceGrid
         }
     }
 
-    $IceGrid__t_ReplicaActiveException = IcePHP_defineException('::IceGrid::ReplicaActiveException', '\\IceGrid\\ReplicaActiveException', false, null, null);
+    $IceGrid__t_ReplicaActiveException = IcePHP_defineException('::IceGrid::ReplicaActiveException', '\\IceGrid\\ReplicaActiveException', null, null);
 }
 
 namespace IceGrid
@@ -865,7 +865,7 @@ namespace IceGrid
     global $Ice__t_Value;
     global $IcePHP__t_string;
     global $IcePHP__t_int;
-    $IceGrid__t_InternalNodeInfo = IcePHP_defineClass('::IceGrid::InternalNodeInfo', '\\IceGrid\\InternalNodeInfo', -1, false, false, $Ice__t_Value, array(
+    $IceGrid__t_InternalNodeInfo = IcePHP_defineClass('::IceGrid::InternalNodeInfo', '\\IceGrid\\InternalNodeInfo', -1, false, $Ice__t_Value, array(
         array('name', $IcePHP__t_string, false, 0),
         array('os', $IcePHP__t_string, false, 0),
         array('hostname', $IcePHP__t_string, false, 0),
@@ -909,7 +909,7 @@ namespace IceGrid
 
     global $Ice__t_Value;
     global $IcePHP__t_string;
-    $IceGrid__t_InternalReplicaInfo = IcePHP_defineClass('::IceGrid::InternalReplicaInfo', '\\IceGrid\\InternalReplicaInfo', -1, false, false, $Ice__t_Value, array(
+    $IceGrid__t_InternalReplicaInfo = IcePHP_defineClass('::IceGrid::InternalReplicaInfo', '\\IceGrid\\InternalReplicaInfo', -1, false, $Ice__t_Value, array(
         array('name', $IcePHP__t_string, false, 0),
         array('hostname', $IcePHP__t_string, false, 0)));
 }

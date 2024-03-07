@@ -44,7 +44,7 @@ if 'AlreadyStartedException' not in _M_IceBox.__dict__:
 
         _ice_id = '::IceBox::AlreadyStartedException'
 
-    _M_IceBox._t_AlreadyStartedException = IcePy.defineException('::IceBox::AlreadyStartedException', AlreadyStartedException, (), False, None, ())
+    _M_IceBox._t_AlreadyStartedException = IcePy.defineException('::IceBox::AlreadyStartedException', AlreadyStartedException, (), None, ())
     AlreadyStartedException._ice_type = _M_IceBox._t_AlreadyStartedException
 
     _M_IceBox.AlreadyStartedException = AlreadyStartedException
@@ -66,7 +66,7 @@ if 'AlreadyStoppedException' not in _M_IceBox.__dict__:
 
         _ice_id = '::IceBox::AlreadyStoppedException'
 
-    _M_IceBox._t_AlreadyStoppedException = IcePy.defineException('::IceBox::AlreadyStoppedException', AlreadyStoppedException, (), False, None, ())
+    _M_IceBox._t_AlreadyStoppedException = IcePy.defineException('::IceBox::AlreadyStoppedException', AlreadyStoppedException, (), None, ())
     AlreadyStoppedException._ice_type = _M_IceBox._t_AlreadyStoppedException
 
     _M_IceBox.AlreadyStoppedException = AlreadyStoppedException
@@ -88,13 +88,13 @@ if 'NoSuchServiceException' not in _M_IceBox.__dict__:
 
         _ice_id = '::IceBox::NoSuchServiceException'
 
-    _M_IceBox._t_NoSuchServiceException = IcePy.defineException('::IceBox::NoSuchServiceException', NoSuchServiceException, (), False, None, ())
+    _M_IceBox._t_NoSuchServiceException = IcePy.defineException('::IceBox::NoSuchServiceException', NoSuchServiceException, (), None, ())
     NoSuchServiceException._ice_type = _M_IceBox._t_NoSuchServiceException
 
     _M_IceBox.NoSuchServiceException = NoSuchServiceException
     del NoSuchServiceException
 
-_M_IceBox._t_ServiceObserver = IcePy.defineValue('::IceBox::ServiceObserver', Ice.Value, -1, (), False, True, None, ())
+_M_IceBox._t_ServiceObserver = IcePy.defineValue('::IceBox::ServiceObserver', Ice.Value, -1, (), True, None, ())
 
 if 'ServiceObserverPrx' not in _M_IceBox.__dict__:
     _M_IceBox.ServiceObserverPrx = Ice.createTempClass()
@@ -201,7 +201,7 @@ if 'ServiceObserverPrx' not in _M_IceBox.__dict__:
     _M_IceBox.ServiceObserver = ServiceObserver
     del ServiceObserver
 
-_M_IceBox._t_ServiceManager = IcePy.defineValue('::IceBox::ServiceManager', Ice.Value, -1, (), False, True, None, ())
+_M_IceBox._t_ServiceManager = IcePy.defineValue('::IceBox::ServiceManager', Ice.Value, -1, (), True, None, ())
 
 if 'ServiceManagerPrx' not in _M_IceBox.__dict__:
     _M_IceBox.ServiceManagerPrx = Ice.createTempClass()

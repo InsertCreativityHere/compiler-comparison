@@ -35,7 +35,7 @@ module ::Test
             T_ConcreteClass = ::Ice::__declareClass('::Test::ConcreteClass')
         end
 
-        T_ConcreteClass.defineClass(ConcreteClass, -1, false, false, nil, [['i', ::Ice::T_int, false, 0]])
+        T_ConcreteClass.defineClass(ConcreteClass, -1, false, nil, [['i', ::Ice::T_int, false, 0]])
     end
 
     if not defined?(::Test::E)
@@ -48,7 +48,7 @@ module ::Test
             end
         end
 
-        T_E = ::Ice::__defineException('::Test::E', E, false, nil, [])
+        T_E = ::Ice::__defineException('::Test::E', E, nil, [])
     end
 
     if not defined?(::Test::Initial_Mixin)

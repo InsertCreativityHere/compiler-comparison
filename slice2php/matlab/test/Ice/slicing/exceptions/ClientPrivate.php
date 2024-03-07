@@ -40,7 +40,7 @@ namespace Test
     }
     global $IcePHP__t_string;
 
-    $Test__t_Base = IcePHP_defineException('::Test::Base', '\\Test\\Base', false, null, array(
+    $Test__t_Base = IcePHP_defineException('::Test::Base', '\\Test\\Base', null, array(
         array('b', $IcePHP__t_string, false, 0)));
 }
 
@@ -70,7 +70,7 @@ namespace Test
     }
     global $IcePHP__t_string;
 
-    $Test__t_KnownDerived = IcePHP_defineException('::Test::KnownDerived', '\\Test\\KnownDerived', false, $Test__t_Base, array(
+    $Test__t_KnownDerived = IcePHP_defineException('::Test::KnownDerived', '\\Test\\KnownDerived', $Test__t_Base, array(
         array('kd', $IcePHP__t_string, false, 0)));
 }
 
@@ -100,7 +100,7 @@ namespace Test
     }
     global $IcePHP__t_string;
 
-    $Test__t_KnownIntermediate = IcePHP_defineException('::Test::KnownIntermediate', '\\Test\\KnownIntermediate', false, $Test__t_Base, array(
+    $Test__t_KnownIntermediate = IcePHP_defineException('::Test::KnownIntermediate', '\\Test\\KnownIntermediate', $Test__t_Base, array(
         array('ki', $IcePHP__t_string, false, 0)));
 }
 
@@ -130,7 +130,7 @@ namespace Test
     }
     global $IcePHP__t_string;
 
-    $Test__t_KnownMostDerived = IcePHP_defineException('::Test::KnownMostDerived', '\\Test\\KnownMostDerived', false, $Test__t_KnownIntermediate, array(
+    $Test__t_KnownMostDerived = IcePHP_defineException('::Test::KnownMostDerived', '\\Test\\KnownMostDerived', $Test__t_KnownIntermediate, array(
         array('kmd', $IcePHP__t_string, false, 0)));
 }
 
@@ -160,7 +160,7 @@ namespace Test
     }
     global $IcePHP__t_string;
 
-    $Test__t_KnownPreserved = IcePHP_defineException('::Test::KnownPreserved', '\\Test\\KnownPreserved', true, $Test__t_Base, array(
+    $Test__t_KnownPreserved = IcePHP_defineException('::Test::KnownPreserved', '\\Test\\KnownPreserved', $Test__t_Base, array(
         array('kp', $IcePHP__t_string, false, 0)));
 }
 
@@ -190,7 +190,7 @@ namespace Test
     }
     global $IcePHP__t_string;
 
-    $Test__t_KnownPreservedDerived = IcePHP_defineException('::Test::KnownPreservedDerived', '\\Test\\KnownPreservedDerived', true, $Test__t_KnownPreserved, array(
+    $Test__t_KnownPreservedDerived = IcePHP_defineException('::Test::KnownPreservedDerived', '\\Test\\KnownPreservedDerived', $Test__t_KnownPreserved, array(
         array('kpd', $IcePHP__t_string, false, 0)));
 }
 
@@ -225,7 +225,7 @@ namespace Test
 
     global $Ice__t_Value;
     global $IcePHP__t_string;
-    $Test__t_BaseClass = IcePHP_defineClass('::Test::BaseClass', '\\Test\\BaseClass', -1, true, false, $Ice__t_Value, array(
+    $Test__t_BaseClass = IcePHP_defineClass('::Test::BaseClass', '\\Test\\BaseClass', -1, false, $Ice__t_Value, array(
         array('bc', $IcePHP__t_string, false, 0)));
 }
 
@@ -345,7 +345,7 @@ namespace Test
 
     global $Test__t_BaseClass;
     global $IcePHP__t_string;
-    $Test__t_PreservedClass = IcePHP_defineClass('::Test::PreservedClass', '\\Test\\PreservedClass', -1, true, false, $Test__t_BaseClass, array(
+    $Test__t_PreservedClass = IcePHP_defineClass('::Test::PreservedClass', '\\Test\\PreservedClass', -1, false, $Test__t_BaseClass, array(
         array('pc', $IcePHP__t_string, false, 0)));
 }
 
@@ -375,7 +375,7 @@ namespace Test
     }
     global $Test__t_BaseClass;
 
-    $Test__t_Preserved1 = IcePHP_defineException('::Test::Preserved1', '\\Test\\Preserved1', true, $Test__t_KnownPreservedDerived, array(
+    $Test__t_Preserved1 = IcePHP_defineException('::Test::Preserved1', '\\Test\\Preserved1', $Test__t_KnownPreservedDerived, array(
         array('p1', $Test__t_BaseClass, false, 0)));
 }
 
@@ -405,7 +405,7 @@ namespace Test
     }
     global $Test__t_BaseClass;
 
-    $Test__t_Preserved2 = IcePHP_defineException('::Test::Preserved2', '\\Test\\Preserved2', true, $Test__t_Preserved1, array(
+    $Test__t_Preserved2 = IcePHP_defineException('::Test::Preserved2', '\\Test\\Preserved2', $Test__t_Preserved1, array(
         array('p2', $Test__t_BaseClass, false, 0)));
 }
 ?>

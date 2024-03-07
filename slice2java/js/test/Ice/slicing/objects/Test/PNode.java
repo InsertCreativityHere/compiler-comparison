@@ -45,32 +45,7 @@ public class PNode extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -2438003451609423630L;
-
-    /** @hidden */
-    @Override
-    public com.zeroc.Ice.SlicedData ice_getSlicedData()
-    {
-        return _iceSlicedData;
-    }
-
-    /** @hidden */
-    @Override
-    public void _iceWrite(com.zeroc.Ice.OutputStream ostr)
-    {
-        ostr.startValue(_iceSlicedData);
-        _iceWriteImpl(ostr);
-        ostr.endValue();
-    }
-
-    /** @hidden */
-    @Override
-    public void _iceRead(com.zeroc.Ice.InputStream istr)
-    {
-        istr.startValue();
-        _iceReadImpl(istr);
-        _iceSlicedData = istr.endValue(true);
-    }
+    public static final long serialVersionUID = -2438003389525370978L;
 
     /** @hidden */
     @Override
@@ -89,7 +64,4 @@ public class PNode extends com.zeroc.Ice.Value
         istr_.readValue(v -> next = v, PNode.class);
         istr_.endSlice();
     }
-
-    /** @hidden */
-    protected com.zeroc.Ice.SlicedData _iceSlicedData;
 }

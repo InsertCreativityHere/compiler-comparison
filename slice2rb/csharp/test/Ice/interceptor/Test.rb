@@ -31,7 +31,7 @@ module ::Test
             attr_accessor :message
         end
 
-        T_InvalidInputException = ::Ice::__defineException('::Test::InvalidInputException', InvalidInputException, false, nil, [["message", ::Ice::T_string, false, 0]])
+        T_InvalidInputException = ::Ice::__defineException('::Test::InvalidInputException', InvalidInputException, nil, [["message", ::Ice::T_string, false, 0]])
     end
 
     if not defined?(::Test::MyObject_Mixin)

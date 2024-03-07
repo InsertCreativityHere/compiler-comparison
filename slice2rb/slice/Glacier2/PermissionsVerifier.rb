@@ -32,7 +32,7 @@ module ::Glacier2
             attr_accessor :reason
         end
 
-        T_PermissionDeniedException = ::Ice::__defineException('::Glacier2::PermissionDeniedException', PermissionDeniedException, true, nil, [["reason", ::Ice::T_string, false, 0]])
+        T_PermissionDeniedException = ::Ice::__defineException('::Glacier2::PermissionDeniedException', PermissionDeniedException, nil, [["reason", ::Ice::T_string, false, 0]])
     end
 
     if not defined?(::Glacier2::PermissionsVerifier_Mixin)

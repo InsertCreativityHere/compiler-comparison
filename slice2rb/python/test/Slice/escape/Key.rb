@@ -166,7 +166,7 @@ module ::And
             T_For = ::Ice::__declareClass('::and::for')
         end
 
-        T_For.defineClass(For, -1, false, false, nil, [
+        T_For.defineClass(For, -1, false, nil, [
             ['lambda', ::Ice::T_int, false, 0],
             ['from', ::And::T_ExecPrx, false, 0],
             ['global', ::Ice::T_int, false, 0]
@@ -216,7 +216,7 @@ module ::And
             attr_accessor :lambda
         end
 
-        T_Is = ::Ice::__defineException('::and::is', Is, false, nil, [["lambda", ::Ice::T_int, false, 0]])
+        T_Is = ::Ice::__defineException('::and::is', Is, nil, [["lambda", ::Ice::T_int, false, 0]])
     end
 
     if not defined?(::And::Not)
@@ -234,7 +234,7 @@ module ::And
             attr_accessor :_or, :pass
         end
 
-        T_Not = ::Ice::__defineException('::and::not', Not, false, ::And::T_Is, [
+        T_Not = ::Ice::__defineException('::and::not', Not, ::And::T_Is, [
             ["_or", ::Ice::T_int, false, 0],
             ["pass", ::Ice::T_int, false, 0]
         ])

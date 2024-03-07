@@ -32,7 +32,7 @@ module ::Test
             attr_accessor :someValue, :someString
         end
 
-        T_CallbackException = ::Ice::__defineException('::Test::CallbackException', CallbackException, false, nil, [
+        T_CallbackException = ::Ice::__defineException('::Test::CallbackException', CallbackException, nil, [
             ["someValue", ::Ice::T_double, false, 0],
             ["someString", ::Ice::T_string, false, 0]
         ])

@@ -46,13 +46,13 @@ if 'CannotCreateSessionException' not in _M_Glacier2.__dict__:
 
         _ice_id = '::Glacier2::CannotCreateSessionException'
 
-    _M_Glacier2._t_CannotCreateSessionException = IcePy.defineException('::Glacier2::CannotCreateSessionException', CannotCreateSessionException, (), True, None, (('reason', (), IcePy._t_string, False, 0),))
+    _M_Glacier2._t_CannotCreateSessionException = IcePy.defineException('::Glacier2::CannotCreateSessionException', CannotCreateSessionException, (), None, (('reason', (), IcePy._t_string, False, 0),))
     CannotCreateSessionException._ice_type = _M_Glacier2._t_CannotCreateSessionException
 
     _M_Glacier2.CannotCreateSessionException = CannotCreateSessionException
     del CannotCreateSessionException
 
-_M_Glacier2._t_Session = IcePy.defineValue('::Glacier2::Session', Ice.Value, -1, (), False, True, None, ())
+_M_Glacier2._t_Session = IcePy.defineValue('::Glacier2::Session', Ice.Value, -1, (), True, None, ())
 
 if 'SessionPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2.SessionPrx = Ice.createTempClass()
@@ -126,7 +126,7 @@ if 'SessionPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2.Session = Session
     del Session
 
-_M_Glacier2._t_StringSet = IcePy.defineValue('::Glacier2::StringSet', Ice.Value, -1, (), False, True, None, ())
+_M_Glacier2._t_StringSet = IcePy.defineValue('::Glacier2::StringSet', Ice.Value, -1, (), True, None, ())
 
 if 'StringSetPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2.StringSetPrx = Ice.createTempClass()
@@ -264,7 +264,7 @@ if 'StringSetPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2.StringSet = StringSet
     del StringSet
 
-_M_Glacier2._t_IdentitySet = IcePy.defineValue('::Glacier2::IdentitySet', Ice.Value, -1, (), False, True, None, ())
+_M_Glacier2._t_IdentitySet = IcePy.defineValue('::Glacier2::IdentitySet', Ice.Value, -1, (), True, None, ())
 
 if 'IdentitySetPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2.IdentitySetPrx = Ice.createTempClass()
@@ -405,7 +405,7 @@ if 'IdentitySetPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2.IdentitySet = IdentitySet
     del IdentitySet
 
-_M_Glacier2._t_SessionControl = IcePy.defineValue('::Glacier2::SessionControl', Ice.Value, -1, (), False, True, None, ())
+_M_Glacier2._t_SessionControl = IcePy.defineValue('::Glacier2::SessionControl', Ice.Value, -1, (), True, None, ())
 
 if 'SessionControlPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2.SessionControlPrx = Ice.createTempClass()
@@ -591,7 +591,7 @@ if 'SessionControlPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2.SessionControl = SessionControl
     del SessionControl
 
-_M_Glacier2._t_SessionManager = IcePy.defineValue('::Glacier2::SessionManager', Ice.Value, -1, (), False, True, None, ())
+_M_Glacier2._t_SessionManager = IcePy.defineValue('::Glacier2::SessionManager', Ice.Value, -1, (), True, None, ())
 
 if 'SessionManagerPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2.SessionManagerPrx = Ice.createTempClass()
@@ -679,7 +679,7 @@ if 'SessionManagerPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2.SessionManager = SessionManager
     del SessionManager
 
-_M_Glacier2._t_SSLSessionManager = IcePy.defineValue('::Glacier2::SSLSessionManager', Ice.Value, -1, (), False, True, None, ())
+_M_Glacier2._t_SSLSessionManager = IcePy.defineValue('::Glacier2::SSLSessionManager', Ice.Value, -1, (), True, None, ())
 
 if 'SSLSessionManagerPrx' not in _M_Glacier2.__dict__:
     _M_Glacier2.SSLSessionManagerPrx = Ice.createTempClass()

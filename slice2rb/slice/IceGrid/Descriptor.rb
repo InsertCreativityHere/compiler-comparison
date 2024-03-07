@@ -232,7 +232,7 @@ module ::IceGrid
             T_CommunicatorDescriptor = ::Ice::__declareClass('::IceGrid::CommunicatorDescriptor')
         end
 
-        T_CommunicatorDescriptor.defineClass(CommunicatorDescriptor, -1, false, false, nil, [
+        T_CommunicatorDescriptor.defineClass(CommunicatorDescriptor, -1, false, nil, [
             ['adapters', ::IceGrid::T_AdapterDescriptorSeq, false, 0],
             ['propertySet', ::IceGrid::T_PropertySetDescriptor, false, 0],
             ['logs', ::Ice::T_StringSeq, false, 0],
@@ -305,7 +305,7 @@ module ::IceGrid
             T_ServerDescriptor = ::Ice::__declareClass('::IceGrid::ServerDescriptor')
         end
 
-        T_ServerDescriptor.defineClass(ServerDescriptor, -1, false, false, ::IceGrid::T_CommunicatorDescriptor, [
+        T_ServerDescriptor.defineClass(ServerDescriptor, -1, false, ::IceGrid::T_CommunicatorDescriptor, [
             ['id', ::Ice::T_string, false, 0],
             ['exe', ::Ice::T_string, false, 0],
             ['iceVersion', ::Ice::T_string, false, 0],
@@ -345,7 +345,7 @@ module ::IceGrid
             T_ServiceDescriptor = ::Ice::__declareClass('::IceGrid::ServiceDescriptor')
         end
 
-        T_ServiceDescriptor.defineClass(ServiceDescriptor, -1, false, false, ::IceGrid::T_CommunicatorDescriptor, [
+        T_ServiceDescriptor.defineClass(ServiceDescriptor, -1, false, ::IceGrid::T_CommunicatorDescriptor, [
             ['name', ::Ice::T_string, false, 0],
             ['entry', ::Ice::T_string, false, 0]
         ])
@@ -510,7 +510,7 @@ module ::IceGrid
             T_IceBoxDescriptor = ::Ice::__declareClass('::IceGrid::IceBoxDescriptor')
         end
 
-        T_IceBoxDescriptor.defineClass(IceBoxDescriptor, -1, false, false, ::IceGrid::T_ServerDescriptor, [['services', ::IceGrid::T_ServiceInstanceDescriptorSeq, false, 0]])
+        T_IceBoxDescriptor.defineClass(IceBoxDescriptor, -1, false, ::IceGrid::T_ServerDescriptor, [['services', ::IceGrid::T_ServiceInstanceDescriptorSeq, false, 0]])
     end
 
     if not defined?(::IceGrid::NodeDescriptor)
@@ -585,7 +585,7 @@ module ::IceGrid
             T_LoadBalancingPolicy = ::Ice::__declareClass('::IceGrid::LoadBalancingPolicy')
         end
 
-        T_LoadBalancingPolicy.defineClass(LoadBalancingPolicy, -1, false, false, nil, [['nReplicas', ::Ice::T_string, false, 0]])
+        T_LoadBalancingPolicy.defineClass(LoadBalancingPolicy, -1, false, nil, [['nReplicas', ::Ice::T_string, false, 0]])
     end
 
     if not defined?(::IceGrid::RandomLoadBalancingPolicy_Mixin)
@@ -603,7 +603,7 @@ module ::IceGrid
             T_RandomLoadBalancingPolicy = ::Ice::__declareClass('::IceGrid::RandomLoadBalancingPolicy')
         end
 
-        T_RandomLoadBalancingPolicy.defineClass(RandomLoadBalancingPolicy, -1, false, false, ::IceGrid::T_LoadBalancingPolicy, [])
+        T_RandomLoadBalancingPolicy.defineClass(RandomLoadBalancingPolicy, -1, false, ::IceGrid::T_LoadBalancingPolicy, [])
     end
 
     if not defined?(::IceGrid::OrderedLoadBalancingPolicy_Mixin)
@@ -621,7 +621,7 @@ module ::IceGrid
             T_OrderedLoadBalancingPolicy = ::Ice::__declareClass('::IceGrid::OrderedLoadBalancingPolicy')
         end
 
-        T_OrderedLoadBalancingPolicy.defineClass(OrderedLoadBalancingPolicy, -1, false, false, ::IceGrid::T_LoadBalancingPolicy, [])
+        T_OrderedLoadBalancingPolicy.defineClass(OrderedLoadBalancingPolicy, -1, false, ::IceGrid::T_LoadBalancingPolicy, [])
     end
 
     if not defined?(::IceGrid::RoundRobinLoadBalancingPolicy_Mixin)
@@ -639,7 +639,7 @@ module ::IceGrid
             T_RoundRobinLoadBalancingPolicy = ::Ice::__declareClass('::IceGrid::RoundRobinLoadBalancingPolicy')
         end
 
-        T_RoundRobinLoadBalancingPolicy.defineClass(RoundRobinLoadBalancingPolicy, -1, false, false, ::IceGrid::T_LoadBalancingPolicy, [])
+        T_RoundRobinLoadBalancingPolicy.defineClass(RoundRobinLoadBalancingPolicy, -1, false, ::IceGrid::T_LoadBalancingPolicy, [])
     end
 
     if not defined?(::IceGrid::AdaptiveLoadBalancingPolicy_Mixin)
@@ -660,7 +660,7 @@ module ::IceGrid
             T_AdaptiveLoadBalancingPolicy = ::Ice::__declareClass('::IceGrid::AdaptiveLoadBalancingPolicy')
         end
 
-        T_AdaptiveLoadBalancingPolicy.defineClass(AdaptiveLoadBalancingPolicy, -1, false, false, ::IceGrid::T_LoadBalancingPolicy, [['loadSample', ::Ice::T_string, false, 0]])
+        T_AdaptiveLoadBalancingPolicy.defineClass(AdaptiveLoadBalancingPolicy, -1, false, ::IceGrid::T_LoadBalancingPolicy, [['loadSample', ::Ice::T_string, false, 0]])
     end
 
     if not defined?(::IceGrid::ReplicaGroupDescriptor)
@@ -802,7 +802,7 @@ module ::IceGrid
             T_BoxedString = ::Ice::__declareClass('::IceGrid::BoxedString')
         end
 
-        T_BoxedString.defineClass(BoxedString, -1, false, false, nil, [['value', ::Ice::T_string, false, 0]])
+        T_BoxedString.defineClass(BoxedString, -1, false, nil, [['value', ::Ice::T_string, false, 0]])
     end
 
     if not defined?(::IceGrid::NodeUpdateDescriptor)
@@ -893,7 +893,7 @@ module ::IceGrid
             T_BoxedDistributionDescriptor = ::Ice::__declareClass('::IceGrid::BoxedDistributionDescriptor')
         end
 
-        T_BoxedDistributionDescriptor.defineClass(BoxedDistributionDescriptor, -1, false, false, nil, [['value', ::IceGrid::T_DistributionDescriptor, false, 0]])
+        T_BoxedDistributionDescriptor.defineClass(BoxedDistributionDescriptor, -1, false, nil, [['value', ::IceGrid::T_DistributionDescriptor, false, 0]])
     end
 
     if not defined?(::IceGrid::ApplicationUpdateDescriptor)

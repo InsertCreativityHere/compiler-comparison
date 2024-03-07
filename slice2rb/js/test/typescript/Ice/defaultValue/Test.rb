@@ -530,7 +530,7 @@ module ::Test
             T_Base = ::Ice::__declareClass('::Test::Base')
         end
 
-        T_Base.defineClass(Base, -1, false, false, nil, [
+        T_Base.defineClass(Base, -1, false, nil, [
             ['boolFalse', ::Ice::T_bool, false, 0],
             ['boolTrue', ::Ice::T_bool, false, 0],
             ['b', ::Ice::T_byte, false, 0],
@@ -573,7 +573,7 @@ module ::Test
             T_Derived = ::Ice::__declareClass('::Test::Derived')
         end
 
-        T_Derived.defineClass(Derived, -1, false, false, ::Test::T_Base, [
+        T_Derived.defineClass(Derived, -1, false, ::Test::T_Base, [
             ['c1', ::Test::T_Color, false, 0],
             ['c2', ::Test::T_Color, false, 0],
             ['c3', ::Test::T_Color, false, 0],
@@ -611,7 +611,7 @@ module ::Test
             attr_accessor :boolFalse, :boolTrue, :b, :s, :i, :l, :f, :d, :str, :noDefault, :zeroI, :zeroL, :zeroF, :zeroDotF, :zeroD, :zeroDotD
         end
 
-        T_BaseEx = ::Ice::__defineException('::Test::BaseEx', BaseEx, false, nil, [
+        T_BaseEx = ::Ice::__defineException('::Test::BaseEx', BaseEx, nil, [
             ["boolFalse", ::Ice::T_bool, false, 0],
             ["boolTrue", ::Ice::T_bool, false, 0],
             ["b", ::Ice::T_byte, false, 0],
@@ -650,7 +650,7 @@ module ::Test
             attr_accessor :c1, :c2, :c3, :nc1, :nc2, :nc3
         end
 
-        T_DerivedEx = ::Ice::__defineException('::Test::DerivedEx', DerivedEx, false, ::Test::T_BaseEx, [
+        T_DerivedEx = ::Ice::__defineException('::Test::DerivedEx', DerivedEx, ::Test::T_BaseEx, [
             ["c1", ::Test::T_Color, false, 0],
             ["c2", ::Test::T_Color, false, 0],
             ["c3", ::Test::T_Color, false, 0],
@@ -795,7 +795,7 @@ module ::Test
             attr_accessor :str, :c1, :bs
         end
 
-        T_ExceptionNoDefaultsBase = ::Ice::__defineException('::Test::ExceptionNoDefaultsBase', ExceptionNoDefaultsBase, false, nil, [
+        T_ExceptionNoDefaultsBase = ::Ice::__defineException('::Test::ExceptionNoDefaultsBase', ExceptionNoDefaultsBase, nil, [
             ["str", ::Ice::T_string, false, 0],
             ["c1", ::Test::T_Color, false, 0],
             ["bs", ::Test::T_ByteSeq, false, 0]
@@ -817,7 +817,7 @@ module ::Test
             attr_accessor :st, :dict
         end
 
-        T_ExceptionNoDefaults = ::Ice::__defineException('::Test::ExceptionNoDefaults', ExceptionNoDefaults, false, ::Test::T_ExceptionNoDefaultsBase, [
+        T_ExceptionNoDefaults = ::Ice::__defineException('::Test::ExceptionNoDefaults', ExceptionNoDefaults, ::Test::T_ExceptionNoDefaultsBase, [
             ["st", ::Test::T_InnerStruct, false, 0],
             ["dict", ::Test::T_IntStringDict, false, 0]
         ])
@@ -842,7 +842,7 @@ module ::Test
             T_ClassNoDefaultsBase = ::Ice::__declareClass('::Test::ClassNoDefaultsBase')
         end
 
-        T_ClassNoDefaultsBase.defineClass(ClassNoDefaultsBase, -1, false, false, nil, [
+        T_ClassNoDefaultsBase.defineClass(ClassNoDefaultsBase, -1, false, nil, [
             ['str', ::Ice::T_string, false, 0],
             ['c1', ::Test::T_Color, false, 0],
             ['bs', ::Test::T_ByteSeq, false, 0]
@@ -868,7 +868,7 @@ module ::Test
             T_ClassNoDefaults = ::Ice::__declareClass('::Test::ClassNoDefaults')
         end
 
-        T_ClassNoDefaults.defineClass(ClassNoDefaults, -1, false, false, ::Test::T_ClassNoDefaultsBase, [
+        T_ClassNoDefaults.defineClass(ClassNoDefaults, -1, false, ::Test::T_ClassNoDefaultsBase, [
             ['st', ::Test::T_InnerStruct, false, 0],
             ['dict', ::Test::T_IntStringDict, false, 0]
         ])

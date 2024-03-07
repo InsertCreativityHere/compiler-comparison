@@ -29,7 +29,7 @@ module ::IceBox
             end
         end
 
-        T_AlreadyStartedException = ::Ice::__defineException('::IceBox::AlreadyStartedException', AlreadyStartedException, false, nil, [])
+        T_AlreadyStartedException = ::Ice::__defineException('::IceBox::AlreadyStartedException', AlreadyStartedException, nil, [])
     end
 
     if not defined?(::IceBox::AlreadyStoppedException)
@@ -42,7 +42,7 @@ module ::IceBox
             end
         end
 
-        T_AlreadyStoppedException = ::Ice::__defineException('::IceBox::AlreadyStoppedException', AlreadyStoppedException, false, nil, [])
+        T_AlreadyStoppedException = ::Ice::__defineException('::IceBox::AlreadyStoppedException', AlreadyStoppedException, nil, [])
     end
 
     if not defined?(::IceBox::NoSuchServiceException)
@@ -55,7 +55,7 @@ module ::IceBox
             end
         end
 
-        T_NoSuchServiceException = ::Ice::__defineException('::IceBox::NoSuchServiceException', NoSuchServiceException, false, nil, [])
+        T_NoSuchServiceException = ::Ice::__defineException('::IceBox::NoSuchServiceException', NoSuchServiceException, nil, [])
     end
 
     if not defined?(::IceBox::ServiceObserver_Mixin)

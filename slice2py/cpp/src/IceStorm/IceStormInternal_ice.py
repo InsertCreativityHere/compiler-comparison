@@ -89,7 +89,7 @@ if 'EventData' not in _M_IceStorm.__dict__:
 if '_t_EventDataSeq' not in _M_IceStorm.__dict__:
     _M_IceStorm._t_EventDataSeq = IcePy.defineSequence('::IceStorm::EventDataSeq', (), _M_IceStorm._t_EventData)
 
-_M_IceStorm._t_TopicLink = IcePy.defineValue('::IceStorm::TopicLink', Ice.Value, -1, (), False, True, None, ())
+_M_IceStorm._t_TopicLink = IcePy.defineValue('::IceStorm::TopicLink', Ice.Value, -1, (), True, None, ())
 
 if 'TopicLinkPrx' not in _M_IceStorm.__dict__:
     _M_IceStorm.TopicLinkPrx = Ice.createTempClass()
@@ -182,13 +182,13 @@ if 'ReapWouldBlock' not in _M_IceStorm.__dict__:
 
         _ice_id = '::IceStorm::ReapWouldBlock'
 
-    _M_IceStorm._t_ReapWouldBlock = IcePy.defineException('::IceStorm::ReapWouldBlock', ReapWouldBlock, (), False, None, ())
+    _M_IceStorm._t_ReapWouldBlock = IcePy.defineException('::IceStorm::ReapWouldBlock', ReapWouldBlock, (), None, ())
     ReapWouldBlock._ice_type = _M_IceStorm._t_ReapWouldBlock
 
     _M_IceStorm.ReapWouldBlock = ReapWouldBlock
     del ReapWouldBlock
 
-_M_IceStorm._t_TopicInternal = IcePy.defineValue('::IceStorm::TopicInternal', Ice.Value, -1, (), False, True, None, ())
+_M_IceStorm._t_TopicInternal = IcePy.defineValue('::IceStorm::TopicInternal', Ice.Value, -1, (), True, None, ())
 
 if 'TopicInternalPrx' not in _M_IceStorm.__dict__:
     _M_IceStorm.TopicInternalPrx = Ice.createTempClass()
@@ -297,7 +297,7 @@ if 'TopicInternalPrx' not in _M_IceStorm.__dict__:
     _M_IceStorm.TopicInternal = TopicInternal
     del TopicInternal
 
-_M_IceStorm._t_TopicManagerInternal = IcePy.defineValue('::IceStorm::TopicManagerInternal', Ice.Value, -1, (), False, True, None, ())
+_M_IceStorm._t_TopicManagerInternal = IcePy.defineValue('::IceStorm::TopicManagerInternal', Ice.Value, -1, (), True, None, ())
 
 if 'TopicManagerInternalPrx' not in _M_IceStorm.__dict__:
     _M_IceStorm.TopicManagerInternalPrx = Ice.createTempClass()

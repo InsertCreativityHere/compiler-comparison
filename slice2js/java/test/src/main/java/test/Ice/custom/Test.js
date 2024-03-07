@@ -28,7 +28,7 @@
     {
     };
 
-    Slice.defineValue(Test.C, "::Test::C", false);
+    Slice.defineValue(Test.C, "::Test::C");
 
     Slice.defineSequence(Test, "CSeqHelper", "Ice.ObjectHelper", false, "Test.C");
 

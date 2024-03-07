@@ -31,7 +31,7 @@ module ::Test
             attr_accessor :message
         end
 
-        T_UserError = ::Ice::__defineException('::Test::UserError', UserError, false, nil, [["message", ::Ice::T_string, false, 0]])
+        T_UserError = ::Ice::__defineException('::Test::UserError', UserError, nil, [["message", ::Ice::T_string, false, 0]])
     end
 
     if not defined?(::Test::MyInterface_Mixin)

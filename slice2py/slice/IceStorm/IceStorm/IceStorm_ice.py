@@ -107,7 +107,7 @@ if 'LinkExists' not in _M_IceStorm.__dict__:
 
         _ice_id = '::IceStorm::LinkExists'
 
-    _M_IceStorm._t_LinkExists = IcePy.defineException('::IceStorm::LinkExists', LinkExists, (), False, None, (('name', (), IcePy._t_string, False, 0),))
+    _M_IceStorm._t_LinkExists = IcePy.defineException('::IceStorm::LinkExists', LinkExists, (), None, (('name', (), IcePy._t_string, False, 0),))
     LinkExists._ice_type = _M_IceStorm._t_LinkExists
 
     _M_IceStorm.LinkExists = LinkExists
@@ -131,7 +131,7 @@ if 'NoSuchLink' not in _M_IceStorm.__dict__:
 
         _ice_id = '::IceStorm::NoSuchLink'
 
-    _M_IceStorm._t_NoSuchLink = IcePy.defineException('::IceStorm::NoSuchLink', NoSuchLink, (), False, None, (('name', (), IcePy._t_string, False, 0),))
+    _M_IceStorm._t_NoSuchLink = IcePy.defineException('::IceStorm::NoSuchLink', NoSuchLink, (), None, (('name', (), IcePy._t_string, False, 0),))
     NoSuchLink._ice_type = _M_IceStorm._t_NoSuchLink
 
     _M_IceStorm.NoSuchLink = NoSuchLink
@@ -153,7 +153,7 @@ if 'AlreadySubscribed' not in _M_IceStorm.__dict__:
 
         _ice_id = '::IceStorm::AlreadySubscribed'
 
-    _M_IceStorm._t_AlreadySubscribed = IcePy.defineException('::IceStorm::AlreadySubscribed', AlreadySubscribed, (), False, None, ())
+    _M_IceStorm._t_AlreadySubscribed = IcePy.defineException('::IceStorm::AlreadySubscribed', AlreadySubscribed, (), None, ())
     AlreadySubscribed._ice_type = _M_IceStorm._t_AlreadySubscribed
 
     _M_IceStorm.AlreadySubscribed = AlreadySubscribed
@@ -177,7 +177,7 @@ if 'InvalidSubscriber' not in _M_IceStorm.__dict__:
 
         _ice_id = '::IceStorm::InvalidSubscriber'
 
-    _M_IceStorm._t_InvalidSubscriber = IcePy.defineException('::IceStorm::InvalidSubscriber', InvalidSubscriber, (), False, None, (('reason', (), IcePy._t_string, False, 0),))
+    _M_IceStorm._t_InvalidSubscriber = IcePy.defineException('::IceStorm::InvalidSubscriber', InvalidSubscriber, (), None, (('reason', (), IcePy._t_string, False, 0),))
     InvalidSubscriber._ice_type = _M_IceStorm._t_InvalidSubscriber
 
     _M_IceStorm.InvalidSubscriber = InvalidSubscriber
@@ -201,13 +201,13 @@ if 'BadQoS' not in _M_IceStorm.__dict__:
 
         _ice_id = '::IceStorm::BadQoS'
 
-    _M_IceStorm._t_BadQoS = IcePy.defineException('::IceStorm::BadQoS', BadQoS, (), False, None, (('reason', (), IcePy._t_string, False, 0),))
+    _M_IceStorm._t_BadQoS = IcePy.defineException('::IceStorm::BadQoS', BadQoS, (), None, (('reason', (), IcePy._t_string, False, 0),))
     BadQoS._ice_type = _M_IceStorm._t_BadQoS
 
     _M_IceStorm.BadQoS = BadQoS
     del BadQoS
 
-_M_IceStorm._t_Topic = IcePy.defineValue('::IceStorm::Topic', Ice.Value, -1, (), False, True, None, ())
+_M_IceStorm._t_Topic = IcePy.defineValue('::IceStorm::Topic', Ice.Value, -1, (), True, None, ())
 
 if 'TopicPrx' not in _M_IceStorm.__dict__:
     _M_IceStorm.TopicPrx = Ice.createTempClass()
@@ -597,7 +597,7 @@ if 'TopicExists' not in _M_IceStorm.__dict__:
 
         _ice_id = '::IceStorm::TopicExists'
 
-    _M_IceStorm._t_TopicExists = IcePy.defineException('::IceStorm::TopicExists', TopicExists, (), False, None, (('name', (), IcePy._t_string, False, 0),))
+    _M_IceStorm._t_TopicExists = IcePy.defineException('::IceStorm::TopicExists', TopicExists, (), None, (('name', (), IcePy._t_string, False, 0),))
     TopicExists._ice_type = _M_IceStorm._t_TopicExists
 
     _M_IceStorm.TopicExists = TopicExists
@@ -621,13 +621,13 @@ if 'NoSuchTopic' not in _M_IceStorm.__dict__:
 
         _ice_id = '::IceStorm::NoSuchTopic'
 
-    _M_IceStorm._t_NoSuchTopic = IcePy.defineException('::IceStorm::NoSuchTopic', NoSuchTopic, (), False, None, (('name', (), IcePy._t_string, False, 0),))
+    _M_IceStorm._t_NoSuchTopic = IcePy.defineException('::IceStorm::NoSuchTopic', NoSuchTopic, (), None, (('name', (), IcePy._t_string, False, 0),))
     NoSuchTopic._ice_type = _M_IceStorm._t_NoSuchTopic
 
     _M_IceStorm.NoSuchTopic = NoSuchTopic
     del NoSuchTopic
 
-_M_IceStorm._t_TopicManager = IcePy.defineValue('::IceStorm::TopicManager', Ice.Value, -1, (), False, True, None, ())
+_M_IceStorm._t_TopicManager = IcePy.defineValue('::IceStorm::TopicManager', Ice.Value, -1, (), True, None, ())
 
 if 'TopicManagerPrx' not in _M_IceStorm.__dict__:
     _M_IceStorm.TopicManagerPrx = Ice.createTempClass()
@@ -772,7 +772,7 @@ if 'TopicManagerPrx' not in _M_IceStorm.__dict__:
     _M_IceStorm.TopicManager = TopicManager
     del TopicManager
 
-_M_IceStorm._t_Finder = IcePy.defineValue('::IceStorm::Finder', Ice.Value, -1, (), False, True, None, ())
+_M_IceStorm._t_Finder = IcePy.defineValue('::IceStorm::Finder', Ice.Value, -1, (), True, None, ())
 
 if 'FinderPrx' not in _M_IceStorm.__dict__:
     _M_IceStorm.FinderPrx = Ice.createTempClass()

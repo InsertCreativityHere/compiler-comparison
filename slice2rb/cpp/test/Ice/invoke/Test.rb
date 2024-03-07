@@ -28,7 +28,7 @@ module ::Test
             end
         end
 
-        T_MyException = ::Ice::__defineException('::Test::MyException', MyException, false, nil, [])
+        T_MyException = ::Ice::__defineException('::Test::MyException', MyException, nil, [])
     end
 
     if not defined?(::Test::MyClass_Mixin)

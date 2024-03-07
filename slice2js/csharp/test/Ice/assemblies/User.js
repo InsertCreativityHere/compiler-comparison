@@ -29,7 +29,7 @@
     {
     };
 
-    Slice.defineValue(User.UserInfo, "::User::UserInfo", false);
+    Slice.defineValue(User.UserInfo, "::User::UserInfo");
 
     const iceC_User_Registry_ids = [
         "::Ice::Object",

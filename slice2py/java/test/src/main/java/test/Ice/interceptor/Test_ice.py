@@ -33,13 +33,13 @@ if 'InvalidInputException' not in _M_Test.__dict__:
 
         _ice_id = '::Test::InvalidInputException'
 
-    _M_Test._t_InvalidInputException = IcePy.defineException('::Test::InvalidInputException', InvalidInputException, (), False, None, (('message', (), IcePy._t_string, False, 0),))
+    _M_Test._t_InvalidInputException = IcePy.defineException('::Test::InvalidInputException', InvalidInputException, (), None, (('message', (), IcePy._t_string, False, 0),))
     InvalidInputException._ice_type = _M_Test._t_InvalidInputException
 
     _M_Test.InvalidInputException = InvalidInputException
     del InvalidInputException
 
-_M_Test._t_MyObject = IcePy.defineValue('::Test::MyObject', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_MyObject = IcePy.defineValue('::Test::MyObject', Ice.Value, -1, (), True, None, ())
 
 if 'MyObjectPrx' not in _M_Test.__dict__:
     _M_Test.MyObjectPrx = Ice.createTempClass()

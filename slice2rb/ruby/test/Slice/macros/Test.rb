@@ -36,7 +36,7 @@ module ::Test
             T_Default = ::Ice::__declareClass('::Test::Default')
         end
 
-        T_Default.defineClass(Default, -1, false, false, nil, [
+        T_Default.defineClass(Default, -1, false, nil, [
             ['x', ::Ice::T_int, false, 0],
             ['y', ::Ice::T_int, false, 0]
         ])
@@ -60,7 +60,7 @@ module ::Test
             T_NoDefault = ::Ice::__declareClass('::Test::NoDefault')
         end
 
-        T_NoDefault.defineClass(NoDefault, -1, false, false, nil, [
+        T_NoDefault.defineClass(NoDefault, -1, false, nil, [
             ['x', ::Ice::T_int, false, 0],
             ['y', ::Ice::T_int, false, 0]
         ])
@@ -84,7 +84,7 @@ module ::Test
             T_RubyOnly = ::Ice::__declareClass('::Test::RubyOnly')
         end
 
-        T_RubyOnly.defineClass(RubyOnly, -1, false, false, nil, [
+        T_RubyOnly.defineClass(RubyOnly, -1, false, nil, [
             ['lang', ::Ice::T_string, false, 0],
             ['version', ::Ice::T_int, false, 0]
         ])

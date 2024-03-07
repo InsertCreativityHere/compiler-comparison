@@ -260,7 +260,7 @@ namespace Test
     global $Test__t_ShortIntD;
     global $Test__t_StringMyEnumD;
     global $Test__t_StringBaseD;
-    $Test__t_Base = IcePHP_defineClass('::Test::Base', '\\Test\\Base', -1, false, false, $Ice__t_Value, array(
+    $Test__t_Base = IcePHP_defineClass('::Test::Base', '\\Test\\Base', -1, false, $Ice__t_Value, array(
         array('b', $Test__t_Base, false, 0),
         array('o', $Ice__t_Value, false, 0),
         array('s', $Test__t_Struct1, false, 0),
@@ -308,7 +308,7 @@ namespace Test
 
     global $Test__t_Base;
     global $Ice__t_ObjectPrx;
-    $Test__t_Derived = IcePHP_defineClass('::Test::Derived', '\\Test\\Derived', -1, false, false, $Test__t_Base, array(
+    $Test__t_Derived = IcePHP_defineClass('::Test::Derived', '\\Test\\Derived', -1, false, $Test__t_Base, array(
         array('p', $Ice__t_ObjectPrx, false, 0)));
 }
 
@@ -340,7 +340,7 @@ namespace Test
     global $Test__t_Struct1;
     global $Test__t_Base;
 
-    $Test__t_Ex = IcePHP_defineException('::Test::Ex', '\\Test\\Ex', false, null, array(
+    $Test__t_Ex = IcePHP_defineException('::Test::Ex', '\\Test\\Ex', null, array(
         array('s', $Test__t_Struct1, false, 0),
         array('b', $Test__t_Base, false, 0)));
 }

@@ -64,7 +64,7 @@ namespace IceMX
 
     global $IceMX__t_Metrics;
     global $IcePHP__t_int;
-    $IceMX__t_SessionMetrics = IcePHP_defineClass('::IceMX::SessionMetrics', '\\IceMX\\SessionMetrics', -1, false, false, $IceMX__t_Metrics, array(
+    $IceMX__t_SessionMetrics = IcePHP_defineClass('::IceMX::SessionMetrics', '\\IceMX\\SessionMetrics', -1, false, $IceMX__t_Metrics, array(
         array('forwardedClient', $IcePHP__t_int, false, 0),
         array('forwardedServer', $IcePHP__t_int, false, 0),
         array('routingTableSize', $IcePHP__t_int, false, 0),

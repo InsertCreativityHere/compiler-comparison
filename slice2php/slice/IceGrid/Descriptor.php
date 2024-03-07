@@ -254,7 +254,7 @@ namespace IceGrid
     global $IceGrid__t_PropertySetDescriptor;
     global $Ice__t_StringSeq;
     global $IcePHP__t_string;
-    $IceGrid__t_CommunicatorDescriptor = IcePHP_defineClass('::IceGrid::CommunicatorDescriptor', '\\IceGrid\\CommunicatorDescriptor', -1, false, false, $Ice__t_Value, array(
+    $IceGrid__t_CommunicatorDescriptor = IcePHP_defineClass('::IceGrid::CommunicatorDescriptor', '\\IceGrid\\CommunicatorDescriptor', -1, false, $Ice__t_Value, array(
         array('adapters', $IceGrid__t_AdapterDescriptorSeq, false, 0),
         array('propertySet', $IceGrid__t_PropertySetDescriptor, false, 0),
         array('logs', $Ice__t_StringSeq, false, 0),
@@ -348,7 +348,7 @@ namespace IceGrid
     global $Ice__t_StringSeq;
     global $IcePHP__t_bool;
     global $IceGrid__t_DistributionDescriptor;
-    $IceGrid__t_ServerDescriptor = IcePHP_defineClass('::IceGrid::ServerDescriptor', '\\IceGrid\\ServerDescriptor', -1, false, false, $IceGrid__t_CommunicatorDescriptor, array(
+    $IceGrid__t_ServerDescriptor = IcePHP_defineClass('::IceGrid::ServerDescriptor', '\\IceGrid\\ServerDescriptor', -1, false, $IceGrid__t_CommunicatorDescriptor, array(
         array('id', $IcePHP__t_string, false, 0),
         array('exe', $IcePHP__t_string, false, 0),
         array('iceVersion', $IcePHP__t_string, false, 0),
@@ -409,7 +409,7 @@ namespace IceGrid
 
     global $IceGrid__t_CommunicatorDescriptor;
     global $IcePHP__t_string;
-    $IceGrid__t_ServiceDescriptor = IcePHP_defineClass('::IceGrid::ServiceDescriptor', '\\IceGrid\\ServiceDescriptor', -1, false, false, $IceGrid__t_CommunicatorDescriptor, array(
+    $IceGrid__t_ServiceDescriptor = IcePHP_defineClass('::IceGrid::ServiceDescriptor', '\\IceGrid\\ServiceDescriptor', -1, false, $IceGrid__t_CommunicatorDescriptor, array(
         array('name', $IcePHP__t_string, false, 0),
         array('entry', $IcePHP__t_string, false, 0)));
 }
@@ -597,7 +597,7 @@ namespace IceGrid
 
     global $IceGrid__t_ServerDescriptor;
     global $IceGrid__t_ServiceInstanceDescriptorSeq;
-    $IceGrid__t_IceBoxDescriptor = IcePHP_defineClass('::IceGrid::IceBoxDescriptor', '\\IceGrid\\IceBoxDescriptor', -1, false, false, $IceGrid__t_ServerDescriptor, array(
+    $IceGrid__t_IceBoxDescriptor = IcePHP_defineClass('::IceGrid::IceBoxDescriptor', '\\IceGrid\\IceBoxDescriptor', -1, false, $IceGrid__t_ServerDescriptor, array(
         array('services', $IceGrid__t_ServiceInstanceDescriptorSeq, false, 0)));
 }
 
@@ -687,7 +687,7 @@ namespace IceGrid
 
     global $Ice__t_Value;
     global $IcePHP__t_string;
-    $IceGrid__t_LoadBalancingPolicy = IcePHP_defineClass('::IceGrid::LoadBalancingPolicy', '\\IceGrid\\LoadBalancingPolicy', -1, false, false, $Ice__t_Value, array(
+    $IceGrid__t_LoadBalancingPolicy = IcePHP_defineClass('::IceGrid::LoadBalancingPolicy', '\\IceGrid\\LoadBalancingPolicy', -1, false, $Ice__t_Value, array(
         array('nReplicas', $IcePHP__t_string, false, 0)));
 }
 
@@ -719,7 +719,7 @@ namespace IceGrid
     }
 
     global $IceGrid__t_LoadBalancingPolicy;
-    $IceGrid__t_RandomLoadBalancingPolicy = IcePHP_defineClass('::IceGrid::RandomLoadBalancingPolicy', '\\IceGrid\\RandomLoadBalancingPolicy', -1, false, false, $IceGrid__t_LoadBalancingPolicy, null);
+    $IceGrid__t_RandomLoadBalancingPolicy = IcePHP_defineClass('::IceGrid::RandomLoadBalancingPolicy', '\\IceGrid\\RandomLoadBalancingPolicy', -1, false, $IceGrid__t_LoadBalancingPolicy, null);
 }
 
 namespace IceGrid
@@ -750,7 +750,7 @@ namespace IceGrid
     }
 
     global $IceGrid__t_LoadBalancingPolicy;
-    $IceGrid__t_OrderedLoadBalancingPolicy = IcePHP_defineClass('::IceGrid::OrderedLoadBalancingPolicy', '\\IceGrid\\OrderedLoadBalancingPolicy', -1, false, false, $IceGrid__t_LoadBalancingPolicy, null);
+    $IceGrid__t_OrderedLoadBalancingPolicy = IcePHP_defineClass('::IceGrid::OrderedLoadBalancingPolicy', '\\IceGrid\\OrderedLoadBalancingPolicy', -1, false, $IceGrid__t_LoadBalancingPolicy, null);
 }
 
 namespace IceGrid
@@ -781,7 +781,7 @@ namespace IceGrid
     }
 
     global $IceGrid__t_LoadBalancingPolicy;
-    $IceGrid__t_RoundRobinLoadBalancingPolicy = IcePHP_defineClass('::IceGrid::RoundRobinLoadBalancingPolicy', '\\IceGrid\\RoundRobinLoadBalancingPolicy', -1, false, false, $IceGrid__t_LoadBalancingPolicy, null);
+    $IceGrid__t_RoundRobinLoadBalancingPolicy = IcePHP_defineClass('::IceGrid::RoundRobinLoadBalancingPolicy', '\\IceGrid\\RoundRobinLoadBalancingPolicy', -1, false, $IceGrid__t_LoadBalancingPolicy, null);
 }
 
 namespace IceGrid
@@ -816,7 +816,7 @@ namespace IceGrid
 
     global $IceGrid__t_LoadBalancingPolicy;
     global $IcePHP__t_string;
-    $IceGrid__t_AdaptiveLoadBalancingPolicy = IcePHP_defineClass('::IceGrid::AdaptiveLoadBalancingPolicy', '\\IceGrid\\AdaptiveLoadBalancingPolicy', -1, false, false, $IceGrid__t_LoadBalancingPolicy, array(
+    $IceGrid__t_AdaptiveLoadBalancingPolicy = IcePHP_defineClass('::IceGrid::AdaptiveLoadBalancingPolicy', '\\IceGrid\\AdaptiveLoadBalancingPolicy', -1, false, $IceGrid__t_LoadBalancingPolicy, array(
         array('loadSample', $IcePHP__t_string, false, 0)));
 }
 
@@ -968,7 +968,7 @@ namespace IceGrid
 
     global $Ice__t_Value;
     global $IcePHP__t_string;
-    $IceGrid__t_BoxedString = IcePHP_defineClass('::IceGrid::BoxedString', '\\IceGrid\\BoxedString', -1, false, false, $Ice__t_Value, array(
+    $IceGrid__t_BoxedString = IcePHP_defineClass('::IceGrid::BoxedString', '\\IceGrid\\BoxedString', -1, false, $Ice__t_Value, array(
         array('value', $IcePHP__t_string, false, 0)));
 }
 
@@ -1071,7 +1071,7 @@ namespace IceGrid
 
     global $Ice__t_Value;
     global $IceGrid__t_DistributionDescriptor;
-    $IceGrid__t_BoxedDistributionDescriptor = IcePHP_defineClass('::IceGrid::BoxedDistributionDescriptor', '\\IceGrid\\BoxedDistributionDescriptor', -1, false, false, $Ice__t_Value, array(
+    $IceGrid__t_BoxedDistributionDescriptor = IcePHP_defineClass('::IceGrid::BoxedDistributionDescriptor', '\\IceGrid\\BoxedDistributionDescriptor', -1, false, $Ice__t_Value, array(
         array('value', $IceGrid__t_DistributionDescriptor, false, 0)));
 }
 

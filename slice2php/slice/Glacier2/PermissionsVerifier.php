@@ -45,7 +45,7 @@ namespace Glacier2
     }
     global $IcePHP__t_string;
 
-    $Glacier2__t_PermissionDeniedException = IcePHP_defineException('::Glacier2::PermissionDeniedException', '\\Glacier2\\PermissionDeniedException', true, null, array(
+    $Glacier2__t_PermissionDeniedException = IcePHP_defineException('::Glacier2::PermissionDeniedException', '\\Glacier2\\PermissionDeniedException', null, array(
         array('reason', $IcePHP__t_string, false, 0)));
 }
 

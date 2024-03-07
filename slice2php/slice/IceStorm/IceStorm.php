@@ -112,7 +112,7 @@ namespace IceStorm
     }
     global $IcePHP__t_string;
 
-    $IceStorm__t_LinkExists = IcePHP_defineException('::IceStorm::LinkExists', '\\IceStorm\\LinkExists', false, null, array(
+    $IceStorm__t_LinkExists = IcePHP_defineException('::IceStorm::LinkExists', '\\IceStorm\\LinkExists', null, array(
         array('name', $IcePHP__t_string, false, 0)));
 }
 
@@ -141,7 +141,7 @@ namespace IceStorm
     }
     global $IcePHP__t_string;
 
-    $IceStorm__t_NoSuchLink = IcePHP_defineException('::IceStorm::NoSuchLink', '\\IceStorm\\NoSuchLink', false, null, array(
+    $IceStorm__t_NoSuchLink = IcePHP_defineException('::IceStorm::NoSuchLink', '\\IceStorm\\NoSuchLink', null, array(
         array('name', $IcePHP__t_string, false, 0)));
 }
 
@@ -166,7 +166,7 @@ namespace IceStorm
         }
     }
 
-    $IceStorm__t_AlreadySubscribed = IcePHP_defineException('::IceStorm::AlreadySubscribed', '\\IceStorm\\AlreadySubscribed', false, null, null);
+    $IceStorm__t_AlreadySubscribed = IcePHP_defineException('::IceStorm::AlreadySubscribed', '\\IceStorm\\AlreadySubscribed', null, null);
 }
 
 namespace IceStorm
@@ -194,7 +194,7 @@ namespace IceStorm
     }
     global $IcePHP__t_string;
 
-    $IceStorm__t_InvalidSubscriber = IcePHP_defineException('::IceStorm::InvalidSubscriber', '\\IceStorm\\InvalidSubscriber', false, null, array(
+    $IceStorm__t_InvalidSubscriber = IcePHP_defineException('::IceStorm::InvalidSubscriber', '\\IceStorm\\InvalidSubscriber', null, array(
         array('reason', $IcePHP__t_string, false, 0)));
 }
 
@@ -223,7 +223,7 @@ namespace IceStorm
     }
     global $IcePHP__t_string;
 
-    $IceStorm__t_BadQoS = IcePHP_defineException('::IceStorm::BadQoS', '\\IceStorm\\BadQoS', false, null, array(
+    $IceStorm__t_BadQoS = IcePHP_defineException('::IceStorm::BadQoS', '\\IceStorm\\BadQoS', null, array(
         array('reason', $IcePHP__t_string, false, 0)));
 }
 
@@ -309,7 +309,7 @@ namespace IceStorm
     }
     global $IcePHP__t_string;
 
-    $IceStorm__t_TopicExists = IcePHP_defineException('::IceStorm::TopicExists', '\\IceStorm\\TopicExists', false, null, array(
+    $IceStorm__t_TopicExists = IcePHP_defineException('::IceStorm::TopicExists', '\\IceStorm\\TopicExists', null, array(
         array('name', $IcePHP__t_string, false, 0)));
 }
 
@@ -338,7 +338,7 @@ namespace IceStorm
     }
     global $IcePHP__t_string;
 
-    $IceStorm__t_NoSuchTopic = IcePHP_defineException('::IceStorm::NoSuchTopic', '\\IceStorm\\NoSuchTopic', false, null, array(
+    $IceStorm__t_NoSuchTopic = IcePHP_defineException('::IceStorm::NoSuchTopic', '\\IceStorm\\NoSuchTopic', null, array(
         array('name', $IcePHP__t_string, false, 0)));
 }
 

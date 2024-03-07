@@ -36,7 +36,7 @@ namespace Test
         }
     }
 
-    $Test__t_MyException = IcePHP_defineException('::Test::MyException', '\\Test\\MyException', false, null, null);
+    $Test__t_MyException = IcePHP_defineException('::Test::MyException', '\\Test\\MyException', null, null);
 }
 
 namespace Test

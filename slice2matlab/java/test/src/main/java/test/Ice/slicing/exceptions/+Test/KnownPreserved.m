@@ -4,7 +4,7 @@
 %   kp
 
 % Copyright (c) ZeroC, Inc. All rights reserved.
-% Generated from ServerPrivate.ice by slice2matlab version 3.8.0-alpha.0
+% Generated from Test.ice by slice2matlab version 3.8.0-alpha.0
 
 classdef KnownPreserved < Test.Base
     properties
@@ -28,16 +28,6 @@ classdef KnownPreserved < Test.Base
         function id = ice_id(~)
             id = '::Test::KnownPreserved';
         end
-        function r = ice_getSlicedData(obj)
-            r = obj.iceSlicedData_;
-        end
-    end
-    methods(Hidden=true)
-        function obj = iceRead(obj, is)
-            is.startException();
-            obj = obj.iceReadImpl(is);
-            obj.iceSlicedData_ = is.endException(true);
-        end
     end
     methods(Access=protected)
         function obj = iceReadImpl(obj, is)
@@ -46,8 +36,5 @@ classdef KnownPreserved < Test.Base
             is.endSlice();
             obj = iceReadImpl@Test.Base(obj, is);
         end
-    end
-    properties(Access=protected)
-        iceSlicedData_
     end
 end

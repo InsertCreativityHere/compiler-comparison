@@ -33,7 +33,7 @@ module ::IcePatch2
             end
         end
 
-        T_PartitionOutOfRangeException = ::Ice::__defineException('::IcePatch2::PartitionOutOfRangeException', PartitionOutOfRangeException, false, nil, [])
+        T_PartitionOutOfRangeException = ::Ice::__defineException('::IcePatch2::PartitionOutOfRangeException', PartitionOutOfRangeException, nil, [])
     end
 
     if not defined?(::IcePatch2::FileAccessException)
@@ -49,7 +49,7 @@ module ::IcePatch2
             attr_accessor :reason
         end
 
-        T_FileAccessException = ::Ice::__defineException('::IcePatch2::FileAccessException', FileAccessException, false, nil, [["reason", ::Ice::T_string, false, 0]])
+        T_FileAccessException = ::Ice::__defineException('::IcePatch2::FileAccessException', FileAccessException, nil, [["reason", ::Ice::T_string, false, 0]])
     end
 
     if not defined?(::IcePatch2::FileSizeRangeException)
@@ -63,7 +63,7 @@ module ::IcePatch2
             end
         end
 
-        T_FileSizeRangeException = ::Ice::__defineException('::IcePatch2::FileSizeRangeException', FileSizeRangeException, false, ::IcePatch2::T_FileAccessException, [])
+        T_FileSizeRangeException = ::Ice::__defineException('::IcePatch2::FileSizeRangeException', FileSizeRangeException, ::IcePatch2::T_FileAccessException, [])
     end
 
     if not defined?(::IcePatch2::FileServer_Mixin)

@@ -38,13 +38,13 @@ if 'F1' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_F1 = IcePy.defineValue('::Test::F1', F1, -1, (), False, False, None, (('name', (), IcePy._t_string, False, 0),))
+    _M_Test._t_F1 = IcePy.defineValue('::Test::F1', F1, -1, (), False, None, (('name', (), IcePy._t_string, False, 0),))
     F1._ice_type = _M_Test._t_F1
 
     _M_Test.F1 = F1
     del F1
 
-_M_Test._t_F2 = IcePy.defineValue('::Test::F2', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_F2 = IcePy.defineValue('::Test::F2', Ice.Value, -1, (), True, None, ())
 
 if 'F2Prx' not in _M_Test.__dict__:
     _M_Test.F2Prx = Ice.createTempClass()

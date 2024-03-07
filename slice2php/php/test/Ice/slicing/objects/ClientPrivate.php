@@ -56,7 +56,7 @@ namespace Test
 
     global $Test__t_B;
     global $IcePHP__t_string;
-    $Test__t_D3 = IcePHP_defineClass('::Test::D3', '\\Test\\D3', -1, false, false, $Test__t_B, array(
+    $Test__t_D3 = IcePHP_defineClass('::Test::D3', '\\Test\\D3', -1, false, $Test__t_B, array(
         array('sd3', $IcePHP__t_string, false, 0),
         array('pd3', $Test__t_B, false, 0)));
 }
@@ -93,7 +93,7 @@ namespace Test
 
     global $Test__t_PBase;
     global $IcePHP__t_string;
-    $Test__t_PCUnknown = IcePHP_defineClass('::Test::PCUnknown', '\\Test\\PCUnknown', -1, true, false, $Test__t_PBase, array(
+    $Test__t_PCUnknown = IcePHP_defineClass('::Test::PCUnknown', '\\Test\\PCUnknown', -1, false, $Test__t_PBase, array(
         array('pu', $IcePHP__t_string, false, 0)));
 }
 
@@ -131,7 +131,7 @@ namespace Test
 
     global $Test__t_PDerived;
     global $Test__t_PBaseSeq;
-    $Test__t_PCDerived = IcePHP_defineClass('::Test::PCDerived', '\\Test\\PCDerived', -1, true, false, $Test__t_PDerived, array(
+    $Test__t_PCDerived = IcePHP_defineClass('::Test::PCDerived', '\\Test\\PCDerived', -1, false, $Test__t_PDerived, array(
         array('pbs', $Test__t_PBaseSeq, false, 0)));
 }
 
@@ -169,7 +169,7 @@ namespace Test
 
     global $Test__t_PCDerived;
     global $IcePHP__t_int;
-    $Test__t_PCDerived2 = IcePHP_defineClass('::Test::PCDerived2', '\\Test\\PCDerived2', -1, true, false, $Test__t_PCDerived, array(
+    $Test__t_PCDerived2 = IcePHP_defineClass('::Test::PCDerived2', '\\Test\\PCDerived2', -1, false, $Test__t_PCDerived, array(
         array('pcd2', $IcePHP__t_int, false, 0)));
 }
 
@@ -207,7 +207,7 @@ namespace Test
 
     global $Test__t_PCDerived2;
     global $Ice__t_Value;
-    $Test__t_PCDerived3 = IcePHP_defineClass('::Test::PCDerived3', '\\Test\\PCDerived3', -1, true, false, $Test__t_PCDerived2, array(
+    $Test__t_PCDerived3 = IcePHP_defineClass('::Test::PCDerived3', '\\Test\\PCDerived3', -1, false, $Test__t_PCDerived2, array(
         array('pcd3', $Ice__t_Value, false, 0)));
 }
 
@@ -245,7 +245,7 @@ namespace Test
 
     global $Test__t_CompactPDerived;
     global $Test__t_PBaseSeq;
-    $Test__t_CompactPCDerived = IcePHP_defineClass('::Test::CompactPCDerived', '\\Test\\CompactPCDerived', 57, true, false, $Test__t_CompactPDerived, array(
+    $Test__t_CompactPCDerived = IcePHP_defineClass('::Test::CompactPCDerived', '\\Test\\CompactPCDerived', 57, false, $Test__t_CompactPDerived, array(
         array('pbs', $Test__t_PBaseSeq, false, 0)));
 }
 ?>

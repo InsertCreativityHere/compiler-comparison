@@ -508,7 +508,7 @@ namespace Test
     }
 
     global $Ice__t_Value;
-    $Test__t_C = IcePHP_defineClass('::Test::C', '\\Test\\C', -1, false, false, $Ice__t_Value, null);
+    $Test__t_C = IcePHP_defineClass('::Test::C', '\\Test\\C', -1, false, $Ice__t_Value, null);
 }
 
 namespace Test
@@ -726,7 +726,7 @@ namespace Test
 
     global $Ice__t_Value;
     global $Test__t_IntStringDict;
-    $Test__t_DictClass = IcePHP_defineClass('::Test::DictClass', '\\Test\\DictClass', -1, false, false, $Ice__t_Value, array(
+    $Test__t_DictClass = IcePHP_defineClass('::Test::DictClass', '\\Test\\DictClass', -1, false, $Ice__t_Value, array(
         array('isdict', $Test__t_IntStringDict, false, 0)));
 }
 

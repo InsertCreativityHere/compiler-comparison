@@ -41,7 +41,7 @@ Test.OneOptional = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.OneOptional, "::Test::OneOptional", false);
+Slice.defineValue(Test.OneOptional, "::Test::OneOptional");
 
 const iceC_Test_MyInterface_ids = [
     "::Ice::Object",
@@ -318,7 +318,7 @@ Test.MultiOptional = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.MultiOptional, "::Test::MultiOptional", false);
+Slice.defineValue(Test.MultiOptional, "::Test::MultiOptional");
 
 Test.A = class extends Ice.Value
 {
@@ -348,7 +348,7 @@ Test.A = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.A, "::Test::A", false);
+Slice.defineValue(Test.A, "::Test::A");
 
 Test.B = class extends Test.A
 {
@@ -372,7 +372,7 @@ Test.B = class extends Test.A
     }
 };
 
-Slice.defineValue(Test.B, "::Test::B", true);
+Slice.defineValue(Test.B, "::Test::B");
 
 Test.C = class extends Test.B
 {
@@ -396,7 +396,7 @@ Test.C = class extends Test.B
     }
 };
 
-Slice.defineValue(Test.C, "::Test::C", false);
+Slice.defineValue(Test.C, "::Test::C");
 
 Test.WD = class extends Ice.Value
 {
@@ -420,7 +420,7 @@ Test.WD = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.WD, "::Test::WD", false);
+Slice.defineValue(Test.WD, "::Test::WD");
 
 Test.OptionalException = class extends Ice.UserException
 {
@@ -575,7 +575,7 @@ Test.OptionalWithCustom = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.OptionalWithCustom, "::Test::OptionalWithCustom", false);
+Slice.defineValue(Test.OptionalWithCustom, "::Test::OptionalWithCustom");
 
 Test.E = class extends Ice.Value
 {
@@ -596,7 +596,7 @@ Test.E = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.E, "::Test::E", false);
+Slice.defineValue(Test.E, "::Test::E");
 
 Test.F = class extends Test.E
 {
@@ -617,7 +617,7 @@ Test.F = class extends Test.E
     }
 };
 
-Slice.defineValue(Test.F, "::Test::F", false);
+Slice.defineValue(Test.F, "::Test::F");
 
 Test.G1 = class extends Ice.Value
 {
@@ -638,7 +638,7 @@ Test.G1 = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.G1, "::Test::G1", false);
+Slice.defineValue(Test.G1, "::Test::G1");
 
 Test.G2 = class extends Ice.Value
 {
@@ -659,7 +659,7 @@ Test.G2 = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.G2, "::Test::G2", false);
+Slice.defineValue(Test.G2, "::Test::G2");
 
 Test.G = class extends Ice.Value
 {
@@ -689,7 +689,7 @@ Test.G = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.G, "::Test::G", false);
+Slice.defineValue(Test.G, "::Test::G");
 
 Slice.defineSequence(Test, "RecursiveSeqHelper", "Ice.ObjectHelper", false, "Test.Recursive");
 
@@ -712,7 +712,7 @@ Test.Recursive = class extends Ice.Value
     }
 };
 
-Slice.defineValue(Test.Recursive, "::Test::Recursive", false);
+Slice.defineValue(Test.Recursive, "::Test::Recursive");
 
 const iceC_Test_Initial_ids = [
     "::Ice::Object",

@@ -40,7 +40,7 @@ namespace Test
     }
     global $IcePHP__t_string;
 
-    $Test__t_UserError = IcePHP_defineException('::Test::UserError', '\\Test\\UserError', false, null, array(
+    $Test__t_UserError = IcePHP_defineException('::Test::UserError', '\\Test\\UserError', null, array(
         array('message', $IcePHP__t_string, false, 0)));
 }
 

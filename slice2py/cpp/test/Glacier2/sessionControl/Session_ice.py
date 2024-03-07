@@ -27,7 +27,7 @@ _M_Glacier2 = Ice.openModule('Glacier2')
 _M_Test = Ice.openModule('Test')
 __name__ = 'Test'
 
-_M_Test._t_Session = IcePy.defineValue('::Test::Session', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_Session = IcePy.defineValue('::Test::Session', Ice.Value, -1, (), True, None, ())
 
 if 'SessionPrx' not in _M_Test.__dict__:
     _M_Test.SessionPrx = Ice.createTempClass()

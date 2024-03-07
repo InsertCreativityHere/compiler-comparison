@@ -110,57 +110,6 @@ public struct PSUnknown2Traits: Ice.SliceTraits {
 }
 
 /// :nodoc:
-public class PSUnknownException_TypeResolver: Ice.UserExceptionTypeResolver {
-    public override func type() -> Ice.UserException.Type {
-        return PSUnknownException.self
-    }
-}
-
-public extension Ice.ClassResolver {
-    @objc static func Test_PSUnknownException() -> Ice.UserExceptionTypeResolver {
-        return PSUnknownException_TypeResolver()
-    }
-}
-
-open class PSUnknownException: PreservedException {
-    public var p: PSUnknown2? = nil
-
-    public required init() {
-        super.init()
-    }
-
-    public init(p: PSUnknown2?) {
-        self.p = p
-        super.init()
-    }
-
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::Test::PSUnknownException"
-    }
-
-    open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: PSUnknownException.ice_staticId(), compactId: -1, last: false)
-        ostr.write(self.p)
-        ostr.endSlice()
-        super._iceWriteImpl(to: ostr);
-    }
-
-    open override func _iceReadImpl(from istr: Ice.InputStream) throws {
-        _ = try istr.startSlice()
-        try istr.read(PSUnknown2.self) { self.p = $0 }
-        try istr.endSlice()
-        try super._iceReadImpl(from: istr);
-    }
-
-    open override func _usesClasses() -> Swift.Bool {
-        return true
-    }
-}
-
-/// :nodoc:
 public class SBSUnknownDerived_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return SBSUnknownDerived.self

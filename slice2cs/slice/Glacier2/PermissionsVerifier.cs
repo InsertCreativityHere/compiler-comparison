@@ -94,28 +94,6 @@ namespace Glacier2
         #region Marshaling support
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override global::Ice.SlicedData ice_getSlicedData()
-        {
-            return slicedData_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override void iceWrite(global::Ice.OutputStream ostr_)
-        {
-            ostr_.startException(slicedData_);
-            iceWriteImpl(ostr_);
-            ostr_.endException();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override void iceRead(global::Ice.InputStream istr_)
-        {
-            istr_.startException();
-            iceReadImpl(istr_);
-            slicedData_ = istr_.endException(true);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
         {
             ostr_.startSlice("::Glacier2::PermissionDeniedException", -1, true);
@@ -130,8 +108,6 @@ namespace Glacier2
             reason = istr_.readString();
             istr_.endSlice();
         }
-
-        protected global::Ice.SlicedData slicedData_;
 
         #endregion
     }

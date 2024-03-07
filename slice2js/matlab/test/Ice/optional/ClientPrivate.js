@@ -48,7 +48,7 @@
         }
     };
 
-    Slice.defineValue(Test.D, "::Test::D", false);
+    Slice.defineValue(Test.D, "::Test::D");
 
     const iceC_Test_Initial2_ids = [
         "::Ice::Object",

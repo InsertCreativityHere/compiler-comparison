@@ -120,7 +120,7 @@ if '_break' not in _M_abstract.__dict__:
     _M_abstract._break = _break
     del _break
 
-_M_abstract._t__case = IcePy.defineValue('::abstract::case', Ice.Value, -1, (), False, True, None, ())
+_M_abstract._t__case = IcePy.defineValue('::abstract::case', Ice.Value, -1, (), True, None, ())
 
 if 'casePrx' not in _M_abstract.__dict__:
     _M_abstract.casePrx = Ice.createTempClass()
@@ -177,7 +177,7 @@ if 'casePrx' not in _M_abstract.__dict__:
     _M_abstract._case = _case
     del _case
 
-_M_abstract._t_decimal = IcePy.defineValue('::abstract::decimal', Ice.Value, -1, (), False, True, None, ())
+_M_abstract._t_decimal = IcePy.defineValue('::abstract::decimal', Ice.Value, -1, (), True, None, ())
 
 if 'decimalPrx' not in _M_abstract.__dict__:
     _M_abstract.decimalPrx = Ice.createTempClass()
@@ -254,7 +254,7 @@ if 'delegate' not in _M_abstract.__dict__:
 
         __repr__ = __str__
 
-    _M_abstract._t_delegate = IcePy.defineValue('::abstract::delegate', delegate, -1, (), False, False, None, (
+    _M_abstract._t_delegate = IcePy.defineValue('::abstract::delegate', delegate, -1, (), False, None, (
         ('_if', (), IcePy._t_int, False, 0),
         ('_else', (), _M_abstract._t_casePrx, False, 0),
         ('event', (), IcePy._t_int, False, 0)
@@ -264,7 +264,7 @@ if 'delegate' not in _M_abstract.__dict__:
     _M_abstract.delegate = delegate
     del delegate
 
-_M_abstract._t_explicit = IcePy.defineValue('::abstract::explicit', Ice.Value, -1, (), False, True, None, ())
+_M_abstract._t_explicit = IcePy.defineValue('::abstract::explicit', Ice.Value, -1, (), True, None, ())
 
 if 'explicitPrx' not in _M_abstract.__dict__:
     _M_abstract.explicitPrx = Ice.createTempClass()
@@ -335,7 +335,7 @@ if 'optionalMembers' not in _M_abstract.__dict__:
 
         __repr__ = __str__
 
-    _M_abstract._t_optionalMembers = IcePy.defineValue('::abstract::optionalMembers', optionalMembers, -1, (), False, False, None, (
+    _M_abstract._t_optionalMembers = IcePy.defineValue('::abstract::optionalMembers', optionalMembers, -1, (), False, None, (
         ('_for', (), _M_abstract._t__break, True, 1),
         ('goto', (), _M_abstract._t__as, True, 2),
         ('_if', (), _M_abstract._t_explicitPrx, True, 3),
@@ -347,7 +347,7 @@ if 'optionalMembers' not in _M_abstract.__dict__:
     _M_abstract.optionalMembers = optionalMembers
     del optionalMembers
 
-_M_abstract._t_optionalParams = IcePy.defineValue('::abstract::optionalParams', Ice.Value, -1, (), False, True, None, ())
+_M_abstract._t_optionalParams = IcePy.defineValue('::abstract::optionalParams', Ice.Value, -1, (), True, None, ())
 
 if 'optionalParamsPrx' not in _M_abstract.__dict__:
     _M_abstract.optionalParamsPrx = Ice.createTempClass()
@@ -447,7 +447,7 @@ if 'fixed' not in _M_abstract.__dict__:
 
         _ice_id = '::abstract::fixed'
 
-    _M_abstract._t_fixed = IcePy.defineException('::abstract::fixed', fixed, (), False, None, (('_for', (), IcePy._t_int, False, 0),))
+    _M_abstract._t_fixed = IcePy.defineException('::abstract::fixed', fixed, (), None, (('_for', (), IcePy._t_int, False, 0),))
     fixed._ice_type = _M_abstract._t_fixed
 
     _M_abstract.fixed = fixed
@@ -468,7 +468,7 @@ if 'foreach' not in _M_abstract.__dict__:
 
         _ice_id = '::abstract::foreach'
 
-    _M_abstract._t_foreach = IcePy.defineException('::abstract::foreach', foreach, (), False, _M_abstract._t_fixed, (
+    _M_abstract._t_foreach = IcePy.defineException('::abstract::foreach', foreach, (), _M_abstract._t_fixed, (
         ('goto', (), IcePy._t_int, False, 0),
         ('_if', (), IcePy._t_int, False, 0)
     ))
@@ -504,7 +504,7 @@ if 'BaseMethods' not in _M_abstract.__dict__:
 
         _ice_id = '::abstract::BaseMethods'
 
-    _M_abstract._t_BaseMethods = IcePy.defineException('::abstract::BaseMethods', BaseMethods, (), False, None, (
+    _M_abstract._t_BaseMethods = IcePy.defineException('::abstract::BaseMethods', BaseMethods, (), None, (
         ('Data', (), IcePy._t_int, False, 0),
         ('HelpLink', (), IcePy._t_int, False, 0),
         ('InnerException', (), IcePy._t_int, False, 0),
@@ -526,7 +526,7 @@ if 'BaseMethods' not in _M_abstract.__dict__:
     _M_abstract.BaseMethods = BaseMethods
     del BaseMethods
 
-_M_abstract._t_implicit = IcePy.defineValue('::abstract::implicit', Ice.Value, -1, (), False, True, None, ())
+_M_abstract._t_implicit = IcePy.defineValue('::abstract::implicit', Ice.Value, -1, (), True, None, ())
 
 if 'implicitPrx' not in _M_abstract.__dict__:
     _M_abstract.implicitPrx = Ice.createTempClass()
@@ -591,7 +591,7 @@ _M_abstract.public = 0
 _M_abstract.System = Ice.openModule('abstract.System')
 __name__ = 'abstract.System'
 
-_M_abstract.System._t_Test = IcePy.defineValue('::abstract::System::Test', Ice.Value, -1, (), False, True, None, ())
+_M_abstract.System._t_Test = IcePy.defineValue('::abstract::System::Test', Ice.Value, -1, (), True, None, ())
 
 if 'TestPrx' not in _M_abstract.System.__dict__:
     _M_abstract.System.TestPrx = Ice.createTempClass()
@@ -658,7 +658,7 @@ __name__ = 'abstract'
 _M_System = Ice.openModule('System')
 __name__ = 'System'
 
-_M_System._t_Test = IcePy.defineValue('::System::Test', Ice.Value, -1, (), False, True, None, ())
+_M_System._t_Test = IcePy.defineValue('::System::Test', Ice.Value, -1, (), True, None, ())
 
 if 'TestPrx' not in _M_System.__dict__:
     _M_System.TestPrx = Ice.createTempClass()

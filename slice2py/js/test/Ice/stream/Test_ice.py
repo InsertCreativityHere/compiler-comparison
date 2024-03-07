@@ -142,7 +142,7 @@ if 'OptionalClass' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_OptionalClass = IcePy.defineValue('::Test::OptionalClass', OptionalClass, -1, (), False, False, None, (
+    _M_Test._t_OptionalClass = IcePy.defineValue('::Test::OptionalClass', OptionalClass, -1, (), False, None, (
         ('bo', (), IcePy._t_bool, False, 0),
         ('by', (), IcePy._t_byte, False, 0),
         ('sh', (), IcePy._t_short, True, 1),
@@ -238,7 +238,7 @@ if 'MyClass' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_MyClass = IcePy.defineValue('::Test::MyClass', MyClass, -1, (), False, False, None, (
+    _M_Test._t_MyClass = IcePy.defineValue('::Test::MyClass', MyClass, -1, (), False, None, (
         ('c', (), _M_Test._t_MyClass, False, 0),
         ('o', (), IcePy._t_Value, False, 0),
         ('s', (), _M_Test._t_SmallStruct, False, 0),
@@ -272,13 +272,13 @@ if 'MyException' not in _M_Test.__dict__:
 
         _ice_id = '::Test::MyException'
 
-    _M_Test._t_MyException = IcePy.defineException('::Test::MyException', MyException, (), False, None, (('c', (), _M_Test._t_MyClass, False, 0),))
+    _M_Test._t_MyException = IcePy.defineException('::Test::MyException', MyException, (), None, (('c', (), _M_Test._t_MyClass, False, 0),))
     MyException._ice_type = _M_Test._t_MyException
 
     _M_Test.MyException = MyException
     del MyException
 
-_M_Test._t_MyInterface = IcePy.defineValue('::Test::MyInterface', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_MyInterface = IcePy.defineValue('::Test::MyInterface', Ice.Value, -1, (), True, None, ())
 
 if 'MyInterfacePrx' not in _M_Test.__dict__:
     _M_Test.MyInterfacePrx = Ice.createTempClass()

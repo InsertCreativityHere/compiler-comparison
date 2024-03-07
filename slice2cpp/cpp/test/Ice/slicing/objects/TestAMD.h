@@ -459,17 +459,6 @@ public:
     void _iceI_throwUnknownDerivedAsBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void throwPreservedException(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::future<void> throwPreservedExceptionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::function<void()>
-    throwPreservedExceptionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_throwPreservedException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
-    /// \endcond
-
     /**
      * Use of forward-declared class to verify that code is generated correctly.
      * @param context The Context map to send with the invocation.
@@ -978,26 +967,7 @@ public:
      */
     static ::std::string_view ice_staticId();
 
-    /**
-     * Obtains the SlicedData object created when an unknown value type was marshaled
-     * in the sliced format and the Ice run time sliced it to a known type.
-     * @return The SlicedData object, or nil if the value was not sliced or was not
-     * marshaled in the sliced format.
-     */
-    virtual ::std::shared_ptr<::Ice::SlicedData> ice_getSlicedData() const override;
-
-    /// \cond STREAM
-    virtual void _iceWrite(::Ice::OutputStream*) const override;
-    virtual void _iceRead(::Ice::InputStream*) override;
-    /// \endcond
-
     ::std::string ps;
-
-protected:
-
-    /// \cond STREAM
-    ::std::shared_ptr<::Ice::SlicedData> _iceSlicedData;
-    /// \endcond
 };
 
 class PDerived : public ::Ice::ValueHelper<PDerived, Preserved>
@@ -1076,67 +1046,7 @@ public:
      */
     static ::std::string_view ice_staticId();
 
-    /**
-     * Obtains the SlicedData object created when an unknown value type was marshaled
-     * in the sliced format and the Ice run time sliced it to a known type.
-     * @return The SlicedData object, or nil if the value was not sliced or was not
-     * marshaled in the sliced format.
-     */
-    virtual ::std::shared_ptr<::Ice::SlicedData> ice_getSlicedData() const override;
-
-    /// \cond STREAM
-    virtual void _iceWrite(::Ice::OutputStream*) const override;
-    virtual void _iceRead(::Ice::InputStream*) override;
-    /// \endcond
-
     ::std::shared_ptr<::Test::PNode> next;
-
-protected:
-
-    /// \cond STREAM
-    ::std::shared_ptr<::Ice::SlicedData> _iceSlicedData;
-    /// \endcond
-};
-
-class PreservedException : public ::Ice::UserExceptionHelper<PreservedException, ::Ice::UserException>
-{
-public:
-
-    virtual ~PreservedException();
-
-    PreservedException(const PreservedException&) = default;
-
-    PreservedException() = default;
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<> ice_tuple() const
-    {
-        return std::tie();
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static ::std::string_view ice_staticId();
-
-    /**
-     * Obtains the SlicedData object created when an unknown exception type was marshaled
-     * in the sliced format and the Ice run time sliced it to a known type.
-     * @return The SlicedData object, or nil if the exception was not sliced or was not
-     * marshaled in the sliced format.
-     */
-    virtual ::std::shared_ptr<::Ice::SlicedData> ice_getSlicedData() const override;
-
-    /// \cond STREAM
-    virtual void _write(::Ice::OutputStream*) const override;
-    virtual void _read(::Ice::InputStream*) override;
-
-    ::std::shared_ptr<::Ice::SlicedData> _slicedData;
-    /// \endcond
 };
 
 class Hidden : public ::Ice::ValueHelper<Hidden, ::Ice::Value>
@@ -1423,11 +1333,6 @@ public:
     virtual void throwUnknownDerivedAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_throwUnknownDerivedAsBase(::IceInternal::Incoming&);
-    /// \endcond
-
-    virtual void throwPreservedExceptionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    bool _iceD_throwPreservedException(::IceInternal::Incoming&);
     /// \endcond
 
     /**

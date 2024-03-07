@@ -52,7 +52,7 @@ namespace IcePatch2
         }
     }
 
-    $IcePatch2__t_PartitionOutOfRangeException = IcePHP_defineException('::IcePatch2::PartitionOutOfRangeException', '\\IcePatch2\\PartitionOutOfRangeException', false, null, null);
+    $IcePatch2__t_PartitionOutOfRangeException = IcePHP_defineException('::IcePatch2::PartitionOutOfRangeException', '\\IcePatch2\\PartitionOutOfRangeException', null, null);
 }
 
 namespace IcePatch2
@@ -80,7 +80,7 @@ namespace IcePatch2
     }
     global $IcePHP__t_string;
 
-    $IcePatch2__t_FileAccessException = IcePHP_defineException('::IcePatch2::FileAccessException', '\\IcePatch2\\FileAccessException', false, null, array(
+    $IcePatch2__t_FileAccessException = IcePHP_defineException('::IcePatch2::FileAccessException', '\\IcePatch2\\FileAccessException', null, array(
         array('reason', $IcePHP__t_string, false, 0)));
 }
 
@@ -106,7 +106,7 @@ namespace IcePatch2
         }
     }
 
-    $IcePatch2__t_FileSizeRangeException = IcePHP_defineException('::IcePatch2::FileSizeRangeException', '\\IcePatch2\\FileSizeRangeException', false, $IcePatch2__t_FileAccessException, null);
+    $IcePatch2__t_FileSizeRangeException = IcePHP_defineException('::IcePatch2::FileSizeRangeException', '\\IcePatch2\\FileSizeRangeException', $IcePatch2__t_FileAccessException, null);
 }
 
 namespace IcePatch2

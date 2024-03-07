@@ -71,6 +71,6 @@ namespace Test2
     }
 
     global $Ice__t_Value;
-    $Test2__t_Class1 = IcePHP_defineClass('::Test2::Class1', '\\Test2\\Class1', -1, false, false, $Ice__t_Value, null);
+    $Test2__t_Class1 = IcePHP_defineClass('::Test2::Class1', '\\Test2\\Class1', -1, false, $Ice__t_Value, null);
 }
 ?>

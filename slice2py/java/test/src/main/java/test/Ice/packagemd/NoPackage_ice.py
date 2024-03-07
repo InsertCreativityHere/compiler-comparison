@@ -38,7 +38,7 @@ if 'C1' not in _M_Test1.__dict__:
 
         __repr__ = __str__
 
-    _M_Test1._t_C1 = IcePy.defineValue('::Test1::C1', C1, -1, (), False, False, None, (('i', (), IcePy._t_int, False, 0),))
+    _M_Test1._t_C1 = IcePy.defineValue('::Test1::C1', C1, -1, (), False, None, (('i', (), IcePy._t_int, False, 0),))
     C1._ice_type = _M_Test1._t_C1
 
     _M_Test1.C1 = C1
@@ -63,7 +63,7 @@ if 'C2' not in _M_Test1.__dict__:
 
         __repr__ = __str__
 
-    _M_Test1._t_C2 = IcePy.defineValue('::Test1::C2', C2, -1, (), False, False, _M_Test1._t_C1, (('l', (), IcePy._t_long, False, 0),))
+    _M_Test1._t_C2 = IcePy.defineValue('::Test1::C2', C2, -1, (), False, _M_Test1._t_C1, (('l', (), IcePy._t_long, False, 0),))
     C2._ice_type = _M_Test1._t_C2
 
     _M_Test1.C2 = C2
@@ -82,7 +82,7 @@ if 'E1' not in _M_Test1.__dict__:
 
         _ice_id = '::Test1::E1'
 
-    _M_Test1._t_E1 = IcePy.defineException('::Test1::E1', E1, (), False, None, (('i', (), IcePy._t_int, False, 0),))
+    _M_Test1._t_E1 = IcePy.defineException('::Test1::E1', E1, (), None, (('i', (), IcePy._t_int, False, 0),))
     E1._ice_type = _M_Test1._t_E1
 
     _M_Test1.E1 = E1
@@ -102,7 +102,7 @@ if 'E2' not in _M_Test1.__dict__:
 
         _ice_id = '::Test1::E2'
 
-    _M_Test1._t_E2 = IcePy.defineException('::Test1::E2', E2, (), False, _M_Test1._t_E1, (('l', (), IcePy._t_long, False, 0),))
+    _M_Test1._t_E2 = IcePy.defineException('::Test1::E2', E2, (), _M_Test1._t_E1, (('l', (), IcePy._t_long, False, 0),))
     E2._ice_type = _M_Test1._t_E2
 
     _M_Test1.E2 = E2
@@ -124,7 +124,7 @@ if 'notify' not in _M_Test1.__dict__:
 
         _ice_id = '::Test1::notify'
 
-    _M_Test1._t_notify = IcePy.defineException('::Test1::notify', notify, (), False, None, (('i', (), IcePy._t_int, False, 0),))
+    _M_Test1._t_notify = IcePy.defineException('::Test1::notify', notify, (), None, (('i', (), IcePy._t_int, False, 0),))
     notify._ice_type = _M_Test1._t_notify
 
     _M_Test1.notify = notify

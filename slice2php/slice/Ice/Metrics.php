@@ -73,7 +73,7 @@ namespace IceMX
     global $IcePHP__t_string;
     global $IcePHP__t_long;
     global $IcePHP__t_int;
-    $IceMX__t_Metrics = IcePHP_defineClass('::IceMX::Metrics', '\\IceMX\\Metrics', -1, false, false, $Ice__t_Value, array(
+    $IceMX__t_Metrics = IcePHP_defineClass('::IceMX::Metrics', '\\IceMX\\Metrics', -1, false, $Ice__t_Value, array(
         array('id', $IcePHP__t_string, false, 0),
         array('total', $IcePHP__t_long, false, 0),
         array('current', $IcePHP__t_int, false, 0),
@@ -164,7 +164,7 @@ namespace IceMX
         }
     }
 
-    $IceMX__t_UnknownMetricsView = IcePHP_defineException('::IceMX::UnknownMetricsView', '\\IceMX\\UnknownMetricsView', false, null, null);
+    $IceMX__t_UnknownMetricsView = IcePHP_defineException('::IceMX::UnknownMetricsView', '\\IceMX\\UnknownMetricsView', null, null);
 }
 
 namespace IceMX
@@ -243,7 +243,7 @@ namespace IceMX
 
     global $IceMX__t_Metrics;
     global $IcePHP__t_int;
-    $IceMX__t_ThreadMetrics = IcePHP_defineClass('::IceMX::ThreadMetrics', '\\IceMX\\ThreadMetrics', -1, false, false, $IceMX__t_Metrics, array(
+    $IceMX__t_ThreadMetrics = IcePHP_defineClass('::IceMX::ThreadMetrics', '\\IceMX\\ThreadMetrics', -1, false, $IceMX__t_Metrics, array(
         array('inUseForIO', $IcePHP__t_int, false, 0),
         array('inUseForUser', $IcePHP__t_int, false, 0),
         array('inUseForOther', $IcePHP__t_int, false, 0)));
@@ -286,7 +286,7 @@ namespace IceMX
     global $IceMX__t_Metrics;
     global $IcePHP__t_int;
     global $IcePHP__t_long;
-    $IceMX__t_DispatchMetrics = IcePHP_defineClass('::IceMX::DispatchMetrics', '\\IceMX\\DispatchMetrics', -1, false, false, $IceMX__t_Metrics, array(
+    $IceMX__t_DispatchMetrics = IcePHP_defineClass('::IceMX::DispatchMetrics', '\\IceMX\\DispatchMetrics', -1, false, $IceMX__t_Metrics, array(
         array('userException', $IcePHP__t_int, false, 0),
         array('size', $IcePHP__t_long, false, 0),
         array('replySize', $IcePHP__t_long, false, 0)));
@@ -326,7 +326,7 @@ namespace IceMX
 
     global $IceMX__t_Metrics;
     global $IcePHP__t_long;
-    $IceMX__t_ChildInvocationMetrics = IcePHP_defineClass('::IceMX::ChildInvocationMetrics', '\\IceMX\\ChildInvocationMetrics', -1, false, false, $IceMX__t_Metrics, array(
+    $IceMX__t_ChildInvocationMetrics = IcePHP_defineClass('::IceMX::ChildInvocationMetrics', '\\IceMX\\ChildInvocationMetrics', -1, false, $IceMX__t_Metrics, array(
         array('size', $IcePHP__t_long, false, 0),
         array('replySize', $IcePHP__t_long, false, 0)));
 }
@@ -359,7 +359,7 @@ namespace IceMX
     }
 
     global $IceMX__t_ChildInvocationMetrics;
-    $IceMX__t_CollocatedMetrics = IcePHP_defineClass('::IceMX::CollocatedMetrics', '\\IceMX\\CollocatedMetrics', -1, false, false, $IceMX__t_ChildInvocationMetrics, null);
+    $IceMX__t_CollocatedMetrics = IcePHP_defineClass('::IceMX::CollocatedMetrics', '\\IceMX\\CollocatedMetrics', -1, false, $IceMX__t_ChildInvocationMetrics, null);
 }
 
 namespace IceMX
@@ -390,7 +390,7 @@ namespace IceMX
     }
 
     global $IceMX__t_ChildInvocationMetrics;
-    $IceMX__t_RemoteMetrics = IcePHP_defineClass('::IceMX::RemoteMetrics', '\\IceMX\\RemoteMetrics', -1, false, false, $IceMX__t_ChildInvocationMetrics, null);
+    $IceMX__t_RemoteMetrics = IcePHP_defineClass('::IceMX::RemoteMetrics', '\\IceMX\\RemoteMetrics', -1, false, $IceMX__t_ChildInvocationMetrics, null);
 }
 
 namespace IceMX
@@ -434,7 +434,7 @@ namespace IceMX
     global $IceMX__t_Metrics;
     global $IcePHP__t_int;
     global $IceMX__t_MetricsMap;
-    $IceMX__t_InvocationMetrics = IcePHP_defineClass('::IceMX::InvocationMetrics', '\\IceMX\\InvocationMetrics', -1, false, false, $IceMX__t_Metrics, array(
+    $IceMX__t_InvocationMetrics = IcePHP_defineClass('::IceMX::InvocationMetrics', '\\IceMX\\InvocationMetrics', -1, false, $IceMX__t_Metrics, array(
         array('retry', $IcePHP__t_int, false, 0),
         array('userException', $IcePHP__t_int, false, 0),
         array('remotes', $IceMX__t_MetricsMap, false, 0),
@@ -475,7 +475,7 @@ namespace IceMX
 
     global $IceMX__t_Metrics;
     global $IcePHP__t_long;
-    $IceMX__t_ConnectionMetrics = IcePHP_defineClass('::IceMX::ConnectionMetrics', '\\IceMX\\ConnectionMetrics', -1, false, false, $IceMX__t_Metrics, array(
+    $IceMX__t_ConnectionMetrics = IcePHP_defineClass('::IceMX::ConnectionMetrics', '\\IceMX\\ConnectionMetrics', -1, false, $IceMX__t_Metrics, array(
         array('receivedBytes', $IcePHP__t_long, false, 0),
         array('sentBytes', $IcePHP__t_long, false, 0)));
 }

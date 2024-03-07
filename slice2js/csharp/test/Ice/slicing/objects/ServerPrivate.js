@@ -42,7 +42,7 @@
         }
     };
 
-    Slice.defineValue(Test.SBSUnknownDerived, "::Test::SBSUnknownDerived", false);
+    Slice.defineValue(Test.SBSUnknownDerived, "::Test::SBSUnknownDerived");
 
     Test.SUnknown = class extends Ice.Value
     {
@@ -66,7 +66,7 @@
         }
     };
 
-    Slice.defineValue(Test.SUnknown, "::Test::SUnknown", false);
+    Slice.defineValue(Test.SUnknown, "::Test::SUnknown");
 
     Test.D2 = class extends Test.B
     {
@@ -90,7 +90,7 @@
         }
     };
 
-    Slice.defineValue(Test.D2, "::Test::D2", false);
+    Slice.defineValue(Test.D2, "::Test::D2");
 
     Test.D4 = class extends Test.B
     {
@@ -114,7 +114,7 @@
         }
     };
 
-    Slice.defineValue(Test.D4, "::Test::D4", false);
+    Slice.defineValue(Test.D4, "::Test::D4");
 
     Test.UnknownDerivedException = class extends Test.BaseException
     {
@@ -172,7 +172,7 @@
         }
     };
 
-    Slice.defineValue(Test.MyClass, "::Test::MyClass", false);
+    Slice.defineValue(Test.MyClass, "::Test::MyClass");
 
     Test.PSUnknown = class extends Test.Preserved
     {
@@ -199,7 +199,7 @@
         }
     };
 
-    Slice.defineValue(Test.PSUnknown, "::Test::PSUnknown", false);
+    Slice.defineValue(Test.PSUnknown, "::Test::PSUnknown");
 
     Test.PSUnknown2 = class extends Test.Preserved
     {
@@ -220,7 +220,7 @@
         }
     };
 
-    Slice.defineValue(Test.PSUnknown2, "::Test::PSUnknown2", false);
+    Slice.defineValue(Test.PSUnknown2, "::Test::PSUnknown2");
 
     Test.PSUnknownException = class extends Test.PreservedException
     {

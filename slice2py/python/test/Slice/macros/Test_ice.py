@@ -39,7 +39,7 @@ if 'Default' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_Default = IcePy.defineValue('::Test::Default', Default, -1, (), False, False, None, (
+    _M_Test._t_Default = IcePy.defineValue('::Test::Default', Default, -1, (), False, None, (
         ('x', (), IcePy._t_int, False, 0),
         ('y', (), IcePy._t_int, False, 0)
     ))
@@ -67,7 +67,7 @@ if 'NoDefault' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_NoDefault = IcePy.defineValue('::Test::NoDefault', NoDefault, -1, (), False, False, None, (
+    _M_Test._t_NoDefault = IcePy.defineValue('::Test::NoDefault', NoDefault, -1, (), False, None, (
         ('x', (), IcePy._t_int, False, 0),
         ('y', (), IcePy._t_int, False, 0)
     ))
@@ -95,7 +95,7 @@ if 'PythonOnly' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_PythonOnly = IcePy.defineValue('::Test::PythonOnly', PythonOnly, -1, (), False, False, None, (
+    _M_Test._t_PythonOnly = IcePy.defineValue('::Test::PythonOnly', PythonOnly, -1, (), False, None, (
         ('lang', (), IcePy._t_string, False, 0),
         ('version', (), IcePy._t_int, False, 0)
     ))

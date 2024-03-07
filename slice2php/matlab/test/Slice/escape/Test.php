@@ -128,7 +128,7 @@ namespace classdef\break
     global $classdef_break__t_bitand;
     global $classdef_break__t_bitor;
     global $IcePHP__t_bool;
-    $classdef_break__t_logical = IcePHP_defineClass('::classdef::break::logical', '\\classdef\\_break\\logical', -1, false, false, $Ice__t_Value, array(
+    $classdef_break__t_logical = IcePHP_defineClass('::classdef::break::logical', '\\classdef\\_break\\logical', -1, false, $Ice__t_Value, array(
         array('_else', $classdef_break__t_bitand, false, 0),
         array('_for', $classdef_break__t_bitor, false, 0),
         array('int64', $IcePHP__t_bool, false, 0)));
@@ -166,7 +166,7 @@ namespace classdef\break
 
     global $classdef_break__t_logical;
     global $IcePHP__t_int;
-    $classdef_break__t_xor = IcePHP_defineClass('::classdef::break::xor', '\\classdef\\_break\\_xor', -1, false, false, $classdef_break__t_logical, array(
+    $classdef_break__t_xor = IcePHP_defineClass('::classdef::break::xor', '\\classdef\\_break\\_xor', -1, false, $classdef_break__t_logical, array(
         array('_return', $IcePHP__t_int, false, 0)));
 }
 
@@ -226,7 +226,7 @@ namespace classdef\break
 
     global $Ice__t_Value;
     global $IcePHP__t_int;
-    $classdef_break__t_try = IcePHP_defineClass('::classdef::break::try', '\\classdef\\_break\\_try', -1, false, false, $Ice__t_Value, array(
+    $classdef_break__t_try = IcePHP_defineClass('::classdef::break::try', '\\classdef\\_break\\_try', -1, false, $Ice__t_Value, array(
         array('_while', $IcePHP__t_int, false, 0),
         array('delete', $IcePHP__t_int, false, 0)));
 }
@@ -274,7 +274,7 @@ namespace classdef\break
     global $classdef_break__t_xor;
     global $classdef_break__t_parfor;
     global $classdef_break__t_switch;
-    $classdef_break__t_properties = IcePHP_defineClass('::classdef::break::properties', '\\classdef\\_break\\properties', -1, false, false, $classdef_break__t_try, array(
+    $classdef_break__t_properties = IcePHP_defineClass('::classdef::break::properties', '\\classdef\\_break\\properties', -1, false, $classdef_break__t_try, array(
         array('_if', $IcePHP__t_int, false, 0),
         array('_catch', $classdef_break__t_xor, false, 0),
         array('spmd', $classdef_break__t_parfor, false, 0),
@@ -317,7 +317,7 @@ namespace classdef\break
     global $IcePHP__t_string;
     global $classdef_break__t_logical;
 
-    $classdef_break__t_persistent = IcePHP_defineException('::classdef::break::persistent', '\\classdef\\_break\\persistent', false, null, array(
+    $classdef_break__t_persistent = IcePHP_defineException('::classdef::break::persistent', '\\classdef\\_break\\persistent', null, array(
         array('identifier', $IcePHP__t_string, false, 0),
         array('message', $IcePHP__t_string, false, 0),
         array('stack', $IcePHP__t_string, false, 0),
@@ -352,7 +352,7 @@ namespace classdef\break
     }
     global $IcePHP__t_int;
 
-    $classdef_break__t_global = IcePHP_defineException('::classdef::break::global', '\\classdef\\_break\\_global', false, $classdef_break__t_persistent, array(
+    $classdef_break__t_global = IcePHP_defineException('::classdef::break::global', '\\classdef\\_break\\_global', $classdef_break__t_persistent, array(
         array('enumeration', $IcePHP__t_int, false, 0)));
 }
 

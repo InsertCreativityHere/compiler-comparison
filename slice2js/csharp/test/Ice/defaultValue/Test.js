@@ -510,7 +510,7 @@
         }
     };
 
-    Slice.defineValue(Test.Base, "::Test::Base", false);
+    Slice.defineValue(Test.Base, "::Test::Base");
 
     Test.Derived = class extends Test.Base
     {
@@ -546,7 +546,7 @@
         }
     };
 
-    Slice.defineValue(Test.Derived, "::Test::Derived", false);
+    Slice.defineValue(Test.Derived, "::Test::Derived");
 
     Test.BaseEx = class extends Ice.UserException
     {
@@ -740,7 +740,7 @@
         }
     };
 
-    Slice.defineValue(Test.ClassProperty, "::Test::ClassProperty", false);
+    Slice.defineValue(Test.ClassProperty, "::Test::ClassProperty");
 
     Test.StructProperty = class
     {
@@ -1116,7 +1116,7 @@
         }
     };
 
-    Slice.defineValue(Test.ClassNoDefaultsBase, "::Test::ClassNoDefaultsBase", false);
+    Slice.defineValue(Test.ClassNoDefaultsBase, "::Test::ClassNoDefaultsBase");
 
     Test.ClassNoDefaults = class extends Test.ClassNoDefaultsBase
     {
@@ -1143,7 +1143,7 @@
         }
     };
 
-    Slice.defineValue(Test.ClassNoDefaults, "::Test::ClassNoDefaults", false);
+    Slice.defineValue(Test.ClassNoDefaults, "::Test::ClassNoDefaults");
     exports.Test = Test;
 }
 (typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,

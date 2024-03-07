@@ -144,7 +144,7 @@
         }
     };
 
-    Slice.defineValue(Test.Base, "::Test::Base", false);
+    Slice.defineValue(Test.Base, "::Test::Base");
 
     Test.Derived = class extends Test.Base
     {
@@ -165,7 +165,7 @@
         }
     };
 
-    Slice.defineValue(Test.Derived, "::Test::Derived", false);
+    Slice.defineValue(Test.Derived, "::Test::Derived");
 
     Test.Ex = class extends Ice.UserException
     {

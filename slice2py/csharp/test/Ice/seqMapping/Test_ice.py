@@ -403,7 +403,7 @@ if 'CV' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_CV = IcePy.defineValue('::Test::CV', CV, -1, (), False, False, None, (('i', (), IcePy._t_int, False, 0),))
+    _M_Test._t_CV = IcePy.defineValue('::Test::CV', CV, -1, (), False, None, (('i', (), IcePy._t_int, False, 0),))
     CV._ice_type = _M_Test._t_CV
 
     _M_Test.CV = CV
@@ -415,7 +415,7 @@ if '_t_ACVS' not in _M_Test.__dict__:
 if '_t_LCVS' not in _M_Test.__dict__:
     _M_Test._t_LCVS = IcePy.defineSequence('::Test::LCVS', (), _M_Test._t_CV)
 
-_M_Test._t_I = IcePy.defineValue('::Test::I', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_I = IcePy.defineValue('::Test::I', Ice.Value, -1, (), True, None, ())
 
 if 'IPrx' not in _M_Test.__dict__:
     _M_Test.IPrx = Ice.createTempClass()
@@ -499,7 +499,7 @@ if 'CR' not in _M_Test.__dict__:
 
     _M_Test._t_CR = IcePy.declareValue('::Test::CR')
 
-    _M_Test._t_CR = IcePy.defineValue('::Test::CR', CR, -1, (), False, False, None, (('v', (), _M_Test._t_CV, False, 0),))
+    _M_Test._t_CR = IcePy.defineValue('::Test::CR', CR, -1, (), False, None, (('v', (), _M_Test._t_CV, False, 0),))
     CR._ice_type = _M_Test._t_CR
 
     _M_Test.CR = CR
@@ -567,7 +567,7 @@ if '_t_CustomIntSS' not in _M_Test.__dict__:
 if '_t_CustomCVSS' not in _M_Test.__dict__:
     _M_Test._t_CustomCVSS = IcePy.defineSequence('::Test::CustomCVSS', (), _M_Test._t_CustomCVS)
 
-_M_Test._t_MyClass = IcePy.defineValue('::Test::MyClass', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_MyClass = IcePy.defineValue('::Test::MyClass', Ice.Value, -1, (), True, None, ())
 
 if 'MyClassPrx' not in _M_Test.__dict__:
     _M_Test.MyClassPrx = Ice.createTempClass()

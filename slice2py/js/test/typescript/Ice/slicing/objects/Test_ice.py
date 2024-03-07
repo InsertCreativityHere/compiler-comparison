@@ -38,7 +38,7 @@ if 'SBase' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_SBase = IcePy.defineValue('::Test::SBase', SBase, -1, (), False, False, None, (('sb', (), IcePy._t_string, False, 0),))
+    _M_Test._t_SBase = IcePy.defineValue('::Test::SBase', SBase, -1, (), False, None, (('sb', (), IcePy._t_string, False, 0),))
     SBase._ice_type = _M_Test._t_SBase
 
     _M_Test.SBase = SBase
@@ -63,7 +63,7 @@ if 'SBSKnownDerived' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_SBSKnownDerived = IcePy.defineValue('::Test::SBSKnownDerived', SBSKnownDerived, -1, (), False, False, _M_Test._t_SBase, (('sbskd', (), IcePy._t_string, False, 0),))
+    _M_Test._t_SBSKnownDerived = IcePy.defineValue('::Test::SBSKnownDerived', SBSKnownDerived, -1, (), False, _M_Test._t_SBase, (('sbskd', (), IcePy._t_string, False, 0),))
     SBSKnownDerived._ice_type = _M_Test._t_SBSKnownDerived
 
     _M_Test.SBSKnownDerived = SBSKnownDerived
@@ -90,7 +90,7 @@ if 'B' not in _M_Test.__dict__:
 
     _M_Test._t_B = IcePy.declareValue('::Test::B')
 
-    _M_Test._t_B = IcePy.defineValue('::Test::B', B, -1, (), False, False, None, (
+    _M_Test._t_B = IcePy.defineValue('::Test::B', B, -1, (), False, None, (
         ('sb', (), IcePy._t_string, False, 0),
         ('pb', (), _M_Test._t_B, False, 0)
     ))
@@ -121,7 +121,7 @@ if 'D1' not in _M_Test.__dict__:
 
     _M_Test._t_D1 = IcePy.declareValue('::Test::D1')
 
-    _M_Test._t_D1 = IcePy.defineValue('::Test::D1', D1, -1, (), False, False, _M_Test._t_B, (
+    _M_Test._t_D1 = IcePy.defineValue('::Test::D1', D1, -1, (), False, _M_Test._t_B, (
         ('sd1', (), IcePy._t_string, False, 0),
         ('pd1', (), _M_Test._t_B, False, 0)
     ))
@@ -153,7 +153,7 @@ if 'SS1' not in _M_Test.__dict__:
 
     _M_Test._t_SS1 = IcePy.declareValue('::Test::SS1')
 
-    _M_Test._t_SS1 = IcePy.defineValue('::Test::SS1', SS1, -1, (), False, False, None, (('s', (), _M_Test._t_BSeq, False, 0),))
+    _M_Test._t_SS1 = IcePy.defineValue('::Test::SS1', SS1, -1, (), False, None, (('s', (), _M_Test._t_BSeq, False, 0),))
     SS1._ice_type = _M_Test._t_SS1
 
     _M_Test.SS1 = SS1
@@ -179,7 +179,7 @@ if 'SS2' not in _M_Test.__dict__:
 
     _M_Test._t_SS2 = IcePy.declareValue('::Test::SS2')
 
-    _M_Test._t_SS2 = IcePy.defineValue('::Test::SS2', SS2, -1, (), False, False, None, (('s', (), _M_Test._t_BSeq, False, 0),))
+    _M_Test._t_SS2 = IcePy.defineValue('::Test::SS2', SS2, -1, (), False, None, (('s', (), _M_Test._t_BSeq, False, 0),))
     SS2._ice_type = _M_Test._t_SS2
 
     _M_Test.SS2 = SS2
@@ -237,7 +237,7 @@ if 'BaseException' not in _M_Test.__dict__:
 
         _ice_id = '::Test::BaseException'
 
-    _M_Test._t_BaseException = IcePy.defineException('::Test::BaseException', BaseException, (), False, None, (
+    _M_Test._t_BaseException = IcePy.defineException('::Test::BaseException', BaseException, (), None, (
         ('sbe', (), IcePy._t_string, False, 0),
         ('pb', (), _M_Test._t_B, False, 0)
     ))
@@ -261,7 +261,7 @@ if 'DerivedException' not in _M_Test.__dict__:
 
         _ice_id = '::Test::DerivedException'
 
-    _M_Test._t_DerivedException = IcePy.defineException('::Test::DerivedException', DerivedException, (), False, _M_Test._t_BaseException, (
+    _M_Test._t_DerivedException = IcePy.defineException('::Test::DerivedException', DerivedException, (), _M_Test._t_BaseException, (
         ('sde', (), IcePy._t_string, False, 0),
         ('pd1', (), _M_Test._t_D1, False, 0)
     ))
@@ -291,7 +291,7 @@ if 'PBase' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_PBase = IcePy.defineValue('::Test::PBase', PBase, -1, (), False, False, None, (('pi', (), IcePy._t_int, False, 0),))
+    _M_Test._t_PBase = IcePy.defineValue('::Test::PBase', PBase, -1, (), False, None, (('pi', (), IcePy._t_int, False, 0),))
     PBase._ice_type = _M_Test._t_PBase
 
     _M_Test.PBase = PBase
@@ -319,7 +319,7 @@ if 'Preserved' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_Preserved = IcePy.defineValue('::Test::Preserved', Preserved, -1, (), True, False, _M_Test._t_PBase, (('ps', (), IcePy._t_string, False, 0),))
+    _M_Test._t_Preserved = IcePy.defineValue('::Test::Preserved', Preserved, -1, (), False, _M_Test._t_PBase, (('ps', (), IcePy._t_string, False, 0),))
     Preserved._ice_type = _M_Test._t_Preserved
 
     _M_Test.Preserved = Preserved
@@ -346,7 +346,7 @@ if 'PDerived' not in _M_Test.__dict__:
 
     _M_Test._t_PDerived = IcePy.declareValue('::Test::PDerived')
 
-    _M_Test._t_PDerived = IcePy.defineValue('::Test::PDerived', PDerived, -1, (), True, False, _M_Test._t_Preserved, (('pb', (), _M_Test._t_PBase, False, 0),))
+    _M_Test._t_PDerived = IcePy.defineValue('::Test::PDerived', PDerived, -1, (), False, _M_Test._t_Preserved, (('pb', (), _M_Test._t_PBase, False, 0),))
     PDerived._ice_type = _M_Test._t_PDerived
 
     _M_Test.PDerived = PDerived
@@ -373,7 +373,7 @@ if 'CompactPDerived' not in _M_Test.__dict__:
 
     _M_Test._t_CompactPDerived = IcePy.declareValue('::Test::CompactPDerived')
 
-    _M_Test._t_CompactPDerived = IcePy.defineValue('::Test::CompactPDerived', CompactPDerived, 56, (), True, False, _M_Test._t_Preserved, (('pb', (), _M_Test._t_PBase, False, 0),))
+    _M_Test._t_CompactPDerived = IcePy.defineValue('::Test::CompactPDerived', CompactPDerived, 56, (), False, _M_Test._t_Preserved, (('pb', (), _M_Test._t_PBase, False, 0),))
     CompactPDerived._ice_type = _M_Test._t_CompactPDerived
 
     _M_Test.CompactPDerived = CompactPDerived
@@ -399,7 +399,7 @@ if 'PNode' not in _M_Test.__dict__:
 
     _M_Test._t_PNode = IcePy.declareValue('::Test::PNode')
 
-    _M_Test._t_PNode = IcePy.defineValue('::Test::PNode', PNode, -1, (), True, False, None, (('next', (), _M_Test._t_PNode, False, 0),))
+    _M_Test._t_PNode = IcePy.defineValue('::Test::PNode', PNode, -1, (), False, None, (('next', (), _M_Test._t_PNode, False, 0),))
     PNode._ice_type = _M_Test._t_PNode
 
     _M_Test.PNode = PNode
@@ -418,13 +418,13 @@ if 'PreservedException' not in _M_Test.__dict__:
 
         _ice_id = '::Test::PreservedException'
 
-    _M_Test._t_PreservedException = IcePy.defineException('::Test::PreservedException', PreservedException, (), True, None, ())
+    _M_Test._t_PreservedException = IcePy.defineException('::Test::PreservedException', PreservedException, (), None, ())
     PreservedException._ice_type = _M_Test._t_PreservedException
 
     _M_Test.PreservedException = PreservedException
     del PreservedException
 
-_M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), True, None, ())
 
 if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntfPrx = Ice.createTempClass()
@@ -882,7 +882,7 @@ if 'D3' not in _M_Test.__dict__:
 
     _M_Test._t_D3 = IcePy.declareValue('::Test::D3')
 
-    _M_Test._t_D3 = IcePy.defineValue('::Test::D3', D3, -1, (), False, False, _M_Test._t_B, (
+    _M_Test._t_D3 = IcePy.defineValue('::Test::D3', D3, -1, (), False, _M_Test._t_B, (
         ('sd3', (), IcePy._t_string, False, 0),
         ('pd3', (), _M_Test._t_B, False, 0)
     ))
@@ -910,7 +910,7 @@ if 'PCUnknown' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_PCUnknown = IcePy.defineValue('::Test::PCUnknown', PCUnknown, -1, (), True, False, _M_Test._t_PBase, (('pu', (), IcePy._t_string, False, 0),))
+    _M_Test._t_PCUnknown = IcePy.defineValue('::Test::PCUnknown', PCUnknown, -1, (), False, _M_Test._t_PBase, (('pu', (), IcePy._t_string, False, 0),))
     PCUnknown._ice_type = _M_Test._t_PCUnknown
 
     _M_Test.PCUnknown = PCUnknown
@@ -937,7 +937,7 @@ if 'PCDerived' not in _M_Test.__dict__:
 
     _M_Test._t_PCDerived = IcePy.declareValue('::Test::PCDerived')
 
-    _M_Test._t_PCDerived = IcePy.defineValue('::Test::PCDerived', PCDerived, -1, (), True, False, _M_Test._t_PDerived, (('pbs', (), _M_Test._t_PBaseSeq, False, 0),))
+    _M_Test._t_PCDerived = IcePy.defineValue('::Test::PCDerived', PCDerived, -1, (), False, _M_Test._t_PDerived, (('pbs', (), _M_Test._t_PBaseSeq, False, 0),))
     PCDerived._ice_type = _M_Test._t_PCDerived
 
     _M_Test.PCDerived = PCDerived
@@ -964,7 +964,7 @@ if 'PCDerived2' not in _M_Test.__dict__:
 
     _M_Test._t_PCDerived2 = IcePy.declareValue('::Test::PCDerived2')
 
-    _M_Test._t_PCDerived2 = IcePy.defineValue('::Test::PCDerived2', PCDerived2, -1, (), True, False, _M_Test._t_PCDerived, (('pcd2', (), IcePy._t_int, False, 0),))
+    _M_Test._t_PCDerived2 = IcePy.defineValue('::Test::PCDerived2', PCDerived2, -1, (), False, _M_Test._t_PCDerived, (('pcd2', (), IcePy._t_int, False, 0),))
     PCDerived2._ice_type = _M_Test._t_PCDerived2
 
     _M_Test.PCDerived2 = PCDerived2
@@ -991,7 +991,7 @@ if 'PCDerived3' not in _M_Test.__dict__:
 
     _M_Test._t_PCDerived3 = IcePy.declareValue('::Test::PCDerived3')
 
-    _M_Test._t_PCDerived3 = IcePy.defineValue('::Test::PCDerived3', PCDerived3, -1, (), True, False, _M_Test._t_PCDerived2, (('pcd3', (), IcePy._t_Value, False, 0),))
+    _M_Test._t_PCDerived3 = IcePy.defineValue('::Test::PCDerived3', PCDerived3, -1, (), False, _M_Test._t_PCDerived2, (('pcd3', (), IcePy._t_Value, False, 0),))
     PCDerived3._ice_type = _M_Test._t_PCDerived3
 
     _M_Test.PCDerived3 = PCDerived3
@@ -1018,7 +1018,7 @@ if 'CompactPCDerived' not in _M_Test.__dict__:
 
     _M_Test._t_CompactPCDerived = IcePy.declareValue('::Test::CompactPCDerived')
 
-    _M_Test._t_CompactPCDerived = IcePy.defineValue('::Test::CompactPCDerived', CompactPCDerived, 57, (), True, False, _M_Test._t_CompactPDerived, (('pbs', (), _M_Test._t_PBaseSeq, False, 0),))
+    _M_Test._t_CompactPCDerived = IcePy.defineValue('::Test::CompactPCDerived', CompactPCDerived, 57, (), False, _M_Test._t_CompactPDerived, (('pbs', (), _M_Test._t_PBaseSeq, False, 0),))
     CompactPCDerived._ice_type = _M_Test._t_CompactPCDerived
 
     _M_Test.CompactPCDerived = CompactPCDerived
@@ -1044,7 +1044,7 @@ if 'Hidden' not in _M_Test.__dict__:
 
     _M_Test._t_Hidden = IcePy.declareValue('::Test::Hidden')
 
-    _M_Test._t_Hidden = IcePy.defineValue('::Test::Hidden', Hidden, -1, (), False, False, None, (('f', (), _M_Test._t_Forward, False, 0),))
+    _M_Test._t_Hidden = IcePy.defineValue('::Test::Hidden', Hidden, -1, (), False, None, (('f', (), _M_Test._t_Forward, False, 0),))
     Hidden._ice_type = _M_Test._t_Hidden
 
     _M_Test.Hidden = Hidden
@@ -1068,7 +1068,7 @@ if 'Forward' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_Forward = IcePy.defineValue('::Test::Forward', Forward, -1, (), False, False, None, (('h', (), _M_Test._t_Hidden, False, 0),))
+    _M_Test._t_Forward = IcePy.defineValue('::Test::Forward', Forward, -1, (), False, None, (('h', (), _M_Test._t_Hidden, False, 0),))
     Forward._ice_type = _M_Test._t_Forward
 
     _M_Test.Forward = Forward

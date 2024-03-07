@@ -118,13 +118,13 @@ if 'WstringException' not in _M_Test1.__dict__:
 
         _ice_id = '::Test1::WstringException'
 
-    _M_Test1._t_WstringException = IcePy.defineException('::Test1::WstringException', WstringException, (), False, None, (('reason', (), IcePy._t_string, False, 0),))
+    _M_Test1._t_WstringException = IcePy.defineException('::Test1::WstringException', WstringException, (), None, (('reason', (), IcePy._t_string, False, 0),))
     WstringException._ice_type = _M_Test1._t_WstringException
 
     _M_Test1.WstringException = WstringException
     del WstringException
 
-_M_Test1._t_WstringClass = IcePy.defineValue('::Test1::WstringClass', Ice.Value, -1, (), False, True, None, ())
+_M_Test1._t_WstringClass = IcePy.defineValue('::Test1::WstringClass', Ice.Value, -1, (), True, None, ())
 
 if 'WstringClassPrx' not in _M_Test1.__dict__:
     _M_Test1.WstringClassPrx = Ice.createTempClass()
@@ -305,13 +305,13 @@ if 'WstringException' not in _M_Test2.__dict__:
 
         _ice_id = '::Test2::WstringException'
 
-    _M_Test2._t_WstringException = IcePy.defineException('::Test2::WstringException', WstringException, (), False, None, (('reason', (), IcePy._t_string, False, 0),))
+    _M_Test2._t_WstringException = IcePy.defineException('::Test2::WstringException', WstringException, (), None, (('reason', (), IcePy._t_string, False, 0),))
     WstringException._ice_type = _M_Test2._t_WstringException
 
     _M_Test2.WstringException = WstringException
     del WstringException
 
-_M_Test2._t_WstringClass = IcePy.defineValue('::Test2::WstringClass', Ice.Value, -1, (), False, True, None, ())
+_M_Test2._t_WstringClass = IcePy.defineValue('::Test2::WstringClass', Ice.Value, -1, (), True, None, ())
 
 if 'WstringClassPrx' not in _M_Test2.__dict__:
     _M_Test2.WstringClassPrx = Ice.createTempClass()

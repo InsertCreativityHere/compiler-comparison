@@ -158,7 +158,7 @@
         }
     };
 
-    Slice.defineValue(and.echo, "::and::echo", false);
+    Slice.defineValue(and.echo, "::and::echo");
 
     const iceC_and_enddeclare_ids = [
         "::Ice::Object",

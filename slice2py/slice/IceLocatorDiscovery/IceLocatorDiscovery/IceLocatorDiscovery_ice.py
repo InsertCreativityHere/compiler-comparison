@@ -27,7 +27,7 @@ _M_IceLocatorDiscovery.__doc__ = """
  IceLocatorDiscovery is an Ice plug-in that enables the discovery of IceGrid and custom locators via UDP multicast.
 """
 
-_M_IceLocatorDiscovery._t_LookupReply = IcePy.defineValue('::IceLocatorDiscovery::LookupReply', Ice.Value, -1, (), False, True, None, ())
+_M_IceLocatorDiscovery._t_LookupReply = IcePy.defineValue('::IceLocatorDiscovery::LookupReply', Ice.Value, -1, (), True, None, ())
 
 if 'LookupReplyPrx' not in _M_IceLocatorDiscovery.__dict__:
     _M_IceLocatorDiscovery.LookupReplyPrx = Ice.createTempClass()
@@ -104,7 +104,7 @@ if 'LookupReplyPrx' not in _M_IceLocatorDiscovery.__dict__:
     _M_IceLocatorDiscovery.LookupReply = LookupReply
     del LookupReply
 
-_M_IceLocatorDiscovery._t_Lookup = IcePy.defineValue('::IceLocatorDiscovery::Lookup', Ice.Value, -1, (), False, True, None, ())
+_M_IceLocatorDiscovery._t_Lookup = IcePy.defineValue('::IceLocatorDiscovery::Lookup', Ice.Value, -1, (), True, None, ())
 
 if 'LookupPrx' not in _M_IceLocatorDiscovery.__dict__:
     _M_IceLocatorDiscovery.LookupPrx = Ice.createTempClass()

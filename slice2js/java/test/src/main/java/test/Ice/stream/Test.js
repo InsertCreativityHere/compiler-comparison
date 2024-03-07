@@ -189,7 +189,7 @@
         }
     };
 
-    Slice.defineValue(Test.OptionalClass, "::Test::OptionalClass", false);
+    Slice.defineValue(Test.OptionalClass, "::Test::OptionalClass");
 
     Slice.defineSequence(Test, "BoolSSHelper", "Ice.BoolSeqHelper", false);
 
@@ -276,7 +276,7 @@
         }
     };
 
-    Slice.defineValue(Test.MyClass, "::Test::MyClass", false);
+    Slice.defineValue(Test.MyClass, "::Test::MyClass");
 
     Test.MyException = class extends Ice.UserException
     {

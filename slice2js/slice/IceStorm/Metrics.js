@@ -56,7 +56,7 @@ IceMX.TopicMetrics = class extends IceMX.Metrics
     }
 };
 
-Slice.defineValue(IceMX.TopicMetrics, "::IceMX::TopicMetrics", false);
+Slice.defineValue(IceMX.TopicMetrics, "::IceMX::TopicMetrics");
 
 /**
  *  Provides information on IceStorm subscribers.
@@ -86,7 +86,7 @@ IceMX.SubscriberMetrics = class extends IceMX.Metrics
     }
 };
 
-Slice.defineValue(IceMX.SubscriberMetrics, "::IceMX::SubscriberMetrics", false);
+Slice.defineValue(IceMX.SubscriberMetrics, "::IceMX::SubscriberMetrics");
 /* slice2js browser-bundle-skip */
 exports.IceMX = IceMX;
 /* slice2js browser-bundle-skip-end */

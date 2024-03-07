@@ -46,7 +46,7 @@ namespace Test
 
     global $Ice__t_Value;
     global $IcePHP__t_string;
-    $Test__t_F1 = IcePHP_defineClass('::Test::F1', '\\Test\\F1', -1, false, false, $Ice__t_Value, array(
+    $Test__t_F1 = IcePHP_defineClass('::Test::F1', '\\Test\\F1', -1, false, $Ice__t_Value, array(
         array('name', $IcePHP__t_string, false, 0)));
 }
 

@@ -183,7 +183,7 @@
         }
     };
 
-    Slice.defineValue(Test.MC.A, "::Test::MC::A", false);
+    Slice.defineValue(Test.MC.A, "::Test::MC::A");
 
     Test.MC.B = class extends Test.MC.A
     {
@@ -204,7 +204,7 @@
         }
     };
 
-    Slice.defineValue(Test.MC.B, "::Test::MC::B", false);
+    Slice.defineValue(Test.MC.B, "::Test::MC::B");
 
     Test.MC.C = class extends Test.MC.B
     {
@@ -225,7 +225,7 @@
         }
     };
 
-    Slice.defineValue(Test.MC.C, "::Test::MC::C", false);
+    Slice.defineValue(Test.MC.C, "::Test::MC::C");
 
     Test.MC.D = class extends Test.MC.C
     {
@@ -246,7 +246,7 @@
         }
     };
 
-    Slice.defineValue(Test.MC.D, "::Test::MC::D", false);
+    Slice.defineValue(Test.MC.D, "::Test::MC::D");
 
     Test.MD = _ModuleRegistry.module("Test.MD");
 
@@ -269,7 +269,7 @@
         }
     };
 
-    Slice.defineValue(Test.MD.A, "::Test::MD::A", false);
+    Slice.defineValue(Test.MD.A, "::Test::MD::A");
 
     Test.MD.B = class extends Test.MD.A
     {
@@ -290,7 +290,7 @@
         }
     };
 
-    Slice.defineValue(Test.MD.B, "::Test::MD::B", false);
+    Slice.defineValue(Test.MD.B, "::Test::MD::B");
 
     Test.MD.C = class extends Test.MD.B
     {
@@ -311,7 +311,7 @@
         }
     };
 
-    Slice.defineValue(Test.MD.C, "::Test::MD::C", false);
+    Slice.defineValue(Test.MD.C, "::Test::MD::C");
 
     Test.MD.D = class extends Test.MD.C
     {
@@ -332,7 +332,7 @@
         }
     };
 
-    Slice.defineValue(Test.MD.D, "::Test::MD::D", false);
+    Slice.defineValue(Test.MD.D, "::Test::MD::D");
 
     Test.ME = _ModuleRegistry.module("Test.ME");
 
@@ -355,7 +355,7 @@
         }
     };
 
-    Slice.defineValue(Test.ME.A, "::Test::ME::A", false);
+    Slice.defineValue(Test.ME.A, "::Test::ME::A");
 
     Test.ME.B = class extends Test.ME.A
     {
@@ -376,7 +376,7 @@
         }
     };
 
-    Slice.defineValue(Test.ME.B, "::Test::ME::B", false);
+    Slice.defineValue(Test.ME.B, "::Test::ME::B");
 
     Test.ME.C = class extends Test.ME.B
     {
@@ -397,7 +397,7 @@
         }
     };
 
-    Slice.defineValue(Test.ME.C, "::Test::ME::C", false);
+    Slice.defineValue(Test.ME.C, "::Test::ME::C");
 
     Test.ME.D = class extends Test.ME.C
     {
@@ -418,7 +418,7 @@
         }
     };
 
-    Slice.defineValue(Test.ME.D, "::Test::ME::D", false);
+    Slice.defineValue(Test.ME.D, "::Test::ME::D");
 
     Test.MF = _ModuleRegistry.module("Test.MF");
 
@@ -441,7 +441,7 @@
         }
     };
 
-    Slice.defineValue(Test.MF.A, "::Test::MF::A", false);
+    Slice.defineValue(Test.MF.A, "::Test::MF::A");
 
     Test.MF.B = class extends Test.MF.A
     {
@@ -462,7 +462,7 @@
         }
     };
 
-    Slice.defineValue(Test.MF.B, "::Test::MF::B", false);
+    Slice.defineValue(Test.MF.B, "::Test::MF::B");
 
     Test.MF.C = class extends Test.MF.B
     {
@@ -483,7 +483,7 @@
         }
     };
 
-    Slice.defineValue(Test.MF.C, "::Test::MF::C", false);
+    Slice.defineValue(Test.MF.C, "::Test::MF::C");
 
     Test.MF.D = class extends Test.MF.C
     {
@@ -504,7 +504,7 @@
         }
     };
 
-    Slice.defineValue(Test.MF.D, "::Test::MF::D", false);
+    Slice.defineValue(Test.MF.D, "::Test::MF::D");
 
     Test.MG = _ModuleRegistry.module("Test.MG");
 
@@ -527,7 +527,7 @@
         }
     };
 
-    Slice.defineValue(Test.MG.A, "::Test::MG::A", false);
+    Slice.defineValue(Test.MG.A, "::Test::MG::A");
 
     Test.MG.B = class extends Test.MG.A
     {
@@ -548,7 +548,7 @@
         }
     };
 
-    Slice.defineValue(Test.MG.B, "::Test::MG::B", false);
+    Slice.defineValue(Test.MG.B, "::Test::MG::B");
 
     Test.MG.C = class extends Test.MG.B
     {
@@ -569,7 +569,7 @@
         }
     };
 
-    Slice.defineValue(Test.MG.C, "::Test::MG::C", false);
+    Slice.defineValue(Test.MG.C, "::Test::MG::C");
 
     Test.MG.D = class extends Test.MG.C
     {
@@ -590,7 +590,7 @@
         }
     };
 
-    Slice.defineValue(Test.MG.D, "::Test::MG::D", false);
+    Slice.defineValue(Test.MG.D, "::Test::MG::D");
 
     Test.MH = _ModuleRegistry.module("Test.MH");
 
@@ -613,7 +613,7 @@
         }
     };
 
-    Slice.defineValue(Test.MH.A, "::Test::MH::A", false);
+    Slice.defineValue(Test.MH.A, "::Test::MH::A");
 
     Test.MH.B = class extends Test.MH.A
     {
@@ -634,7 +634,7 @@
         }
     };
 
-    Slice.defineValue(Test.MH.B, "::Test::MH::B", false);
+    Slice.defineValue(Test.MH.B, "::Test::MH::B");
 
     Test.MH.C = class extends Test.MH.B
     {
@@ -655,7 +655,7 @@
         }
     };
 
-    Slice.defineValue(Test.MH.C, "::Test::MH::C", false);
+    Slice.defineValue(Test.MH.C, "::Test::MH::C");
 
     Test.MH.D = class extends Test.MH.C
     {
@@ -676,7 +676,7 @@
         }
     };
 
-    Slice.defineValue(Test.MH.D, "::Test::MH::D", false);
+    Slice.defineValue(Test.MH.D, "::Test::MH::D");
 
     const iceC_Test_Echo_ids = [
         "::Ice::Object",

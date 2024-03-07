@@ -37,13 +37,13 @@ if 'InterruptedException' not in _M_Test.__dict__:
 
         _ice_id = '::Test::InterruptedException'
 
-    _M_Test._t_InterruptedException = IcePy.defineException('::Test::InterruptedException', InterruptedException, (), False, None, ())
+    _M_Test._t_InterruptedException = IcePy.defineException('::Test::InterruptedException', InterruptedException, (), None, ())
     InterruptedException._ice_type = _M_Test._t_InterruptedException
 
     _M_Test.InterruptedException = InterruptedException
     del InterruptedException
 
-_M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), True, None, ())
 
 if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntfPrx = Ice.createTempClass()
@@ -153,13 +153,13 @@ if 'CannotInterruptException' not in _M_Test.__dict__:
 
         _ice_id = '::Test::CannotInterruptException'
 
-    _M_Test._t_CannotInterruptException = IcePy.defineException('::Test::CannotInterruptException', CannotInterruptException, (), False, None, ())
+    _M_Test._t_CannotInterruptException = IcePy.defineException('::Test::CannotInterruptException', CannotInterruptException, (), None, ())
     CannotInterruptException._ice_type = _M_Test._t_CannotInterruptException
 
     _M_Test.CannotInterruptException = CannotInterruptException
     del CannotInterruptException
 
-_M_Test._t_TestIntfController = IcePy.defineValue('::Test::TestIntfController', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_TestIntfController = IcePy.defineValue('::Test::TestIntfController', Ice.Value, -1, (), True, None, ())
 
 if 'TestIntfControllerPrx' not in _M_Test.__dict__:
     _M_Test.TestIntfControllerPrx = Ice.createTempClass()

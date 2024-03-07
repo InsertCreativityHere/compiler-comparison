@@ -24,7 +24,7 @@ __name__ = 'Test'
 _M_Test.MA = Ice.openModule('Test.MA')
 __name__ = 'Test.MA'
 
-_M_Test.MA._t_IA = IcePy.defineValue('::Test::MA::IA', Ice.Value, -1, (), False, True, None, ())
+_M_Test.MA._t_IA = IcePy.defineValue('::Test::MA::IA', Ice.Value, -1, (), True, None, ())
 
 if 'IAPrx' not in _M_Test.MA.__dict__:
     _M_Test.MA.IAPrx = Ice.createTempClass()
@@ -89,7 +89,7 @@ __name__ = 'Test'
 _M_Test.MB = Ice.openModule('Test.MB')
 __name__ = 'Test.MB'
 
-_M_Test.MB._t_IB1 = IcePy.defineValue('::Test::MB::IB1', Ice.Value, -1, (), False, True, None, ())
+_M_Test.MB._t_IB1 = IcePy.defineValue('::Test::MB::IB1', Ice.Value, -1, (), True, None, ())
 
 if 'IB1Prx' not in _M_Test.MB.__dict__:
     _M_Test.MB.IB1Prx = Ice.createTempClass()
@@ -146,7 +146,7 @@ if 'IB1Prx' not in _M_Test.MB.__dict__:
     _M_Test.MB.IB1 = IB1
     del IB1
 
-_M_Test.MB._t_IB2 = IcePy.defineValue('::Test::MB::IB2', Ice.Value, -1, (), False, True, None, ())
+_M_Test.MB._t_IB2 = IcePy.defineValue('::Test::MB::IB2', Ice.Value, -1, (), True, None, ())
 
 if 'IB2Prx' not in _M_Test.MB.__dict__:
     _M_Test.MB.IB2Prx = Ice.createTempClass()
@@ -210,7 +210,7 @@ __name__ = 'Test'
 # Start of module Test.MA
 __name__ = 'Test.MA'
 
-_M_Test.MA._t_IC = IcePy.defineValue('::Test::MA::IC', Ice.Value, -1, (), False, True, None, ())
+_M_Test.MA._t_IC = IcePy.defineValue('::Test::MA::IC', Ice.Value, -1, (), True, None, ())
 
 if 'ICPrx' not in _M_Test.MA.__dict__:
     _M_Test.MA.ICPrx = Ice.createTempClass()
@@ -271,7 +271,7 @@ if 'ICPrx' not in _M_Test.MA.__dict__:
 
 __name__ = 'Test'
 
-_M_Test._t_Initial = IcePy.defineValue('::Test::Initial', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_Initial = IcePy.defineValue('::Test::Initial', Ice.Value, -1, (), True, None, ())
 
 if 'InitialPrx' not in _M_Test.__dict__:
     _M_Test.InitialPrx = Ice.createTempClass()
@@ -390,7 +390,7 @@ if 'A' not in _M_Test.MC.__dict__:
 
         __repr__ = __str__
 
-    _M_Test.MC._t_A = IcePy.defineValue('::Test::MC::A', A, -1, (), False, False, None, (('aA', (), IcePy._t_int, False, 0),))
+    _M_Test.MC._t_A = IcePy.defineValue('::Test::MC::A', A, -1, (), False, None, (('aA', (), IcePy._t_int, False, 0),))
     A._ice_type = _M_Test.MC._t_A
 
     _M_Test.MC.A = A
@@ -415,7 +415,7 @@ if 'B' not in _M_Test.MC.__dict__:
 
         __repr__ = __str__
 
-    _M_Test.MC._t_B = IcePy.defineValue('::Test::MC::B', B, -1, (), False, False, _M_Test.MC._t_A, (('bB', (), IcePy._t_int, False, 0),))
+    _M_Test.MC._t_B = IcePy.defineValue('::Test::MC::B', B, -1, (), False, _M_Test.MC._t_A, (('bB', (), IcePy._t_int, False, 0),))
     B._ice_type = _M_Test.MC._t_B
 
     _M_Test.MC.B = B
@@ -440,7 +440,7 @@ if 'C' not in _M_Test.MC.__dict__:
 
         __repr__ = __str__
 
-    _M_Test.MC._t_C = IcePy.defineValue('::Test::MC::C', C, -1, (), False, False, _M_Test.MC._t_B, (('cC', (), IcePy._t_int, False, 0),))
+    _M_Test.MC._t_C = IcePy.defineValue('::Test::MC::C', C, -1, (), False, _M_Test.MC._t_B, (('cC', (), IcePy._t_int, False, 0),))
     C._ice_type = _M_Test.MC._t_C
 
     _M_Test.MC.C = C
@@ -465,7 +465,7 @@ if 'D' not in _M_Test.MC.__dict__:
 
         __repr__ = __str__
 
-    _M_Test.MC._t_D = IcePy.defineValue('::Test::MC::D', D, -1, (), False, False, _M_Test.MC._t_C, (('dD', (), IcePy._t_int, False, 0),))
+    _M_Test.MC._t_D = IcePy.defineValue('::Test::MC::D', D, -1, (), False, _M_Test.MC._t_C, (('dD', (), IcePy._t_int, False, 0),))
     D._ice_type = _M_Test.MC._t_D
 
     _M_Test.MC.D = D
@@ -497,7 +497,7 @@ if 'A' not in _M_Test.MD.__dict__:
 
         __repr__ = __str__
 
-    _M_Test.MD._t_A = IcePy.defineValue('::Test::MD::A', A, -1, (), False, False, None, (('aA', (), IcePy._t_int, False, 0),))
+    _M_Test.MD._t_A = IcePy.defineValue('::Test::MD::A', A, -1, (), False, None, (('aA', (), IcePy._t_int, False, 0),))
     A._ice_type = _M_Test.MD._t_A
 
     _M_Test.MD.A = A
@@ -522,7 +522,7 @@ if 'B' not in _M_Test.MD.__dict__:
 
         __repr__ = __str__
 
-    _M_Test.MD._t_B = IcePy.defineValue('::Test::MD::B', B, -1, (), False, False, _M_Test.MD._t_A, (('bB', (), IcePy._t_int, False, 0),))
+    _M_Test.MD._t_B = IcePy.defineValue('::Test::MD::B', B, -1, (), False, _M_Test.MD._t_A, (('bB', (), IcePy._t_int, False, 0),))
     B._ice_type = _M_Test.MD._t_B
 
     _M_Test.MD.B = B
@@ -547,7 +547,7 @@ if 'C' not in _M_Test.MD.__dict__:
 
         __repr__ = __str__
 
-    _M_Test.MD._t_C = IcePy.defineValue('::Test::MD::C', C, -1, (), False, False, _M_Test.MD._t_B, (('cC', (), IcePy._t_int, False, 0),))
+    _M_Test.MD._t_C = IcePy.defineValue('::Test::MD::C', C, -1, (), False, _M_Test.MD._t_B, (('cC', (), IcePy._t_int, False, 0),))
     C._ice_type = _M_Test.MD._t_C
 
     _M_Test.MD.C = C
@@ -572,7 +572,7 @@ if 'D' not in _M_Test.MD.__dict__:
 
         __repr__ = __str__
 
-    _M_Test.MD._t_D = IcePy.defineValue('::Test::MD::D', D, -1, (), False, False, _M_Test.MD._t_C, (('dD', (), IcePy._t_int, False, 0),))
+    _M_Test.MD._t_D = IcePy.defineValue('::Test::MD::D', D, -1, (), False, _M_Test.MD._t_C, (('dD', (), IcePy._t_int, False, 0),))
     D._ice_type = _M_Test.MD._t_D
 
     _M_Test.MD.D = D
@@ -604,7 +604,7 @@ if 'A' not in _M_Test.ME.__dict__:
 
         __repr__ = __str__
 
-    _M_Test.ME._t_A = IcePy.defineValue('::Test::ME::A', A, -1, (), False, False, None, (('aA', (), IcePy._t_int, False, 0),))
+    _M_Test.ME._t_A = IcePy.defineValue('::Test::ME::A', A, -1, (), False, None, (('aA', (), IcePy._t_int, False, 0),))
     A._ice_type = _M_Test.ME._t_A
 
     _M_Test.ME.A = A
@@ -629,7 +629,7 @@ if 'B' not in _M_Test.ME.__dict__:
 
         __repr__ = __str__
 
-    _M_Test.ME._t_B = IcePy.defineValue('::Test::ME::B', B, -1, (), False, False, _M_Test.ME._t_A, (('bB', (), IcePy._t_int, False, 0),))
+    _M_Test.ME._t_B = IcePy.defineValue('::Test::ME::B', B, -1, (), False, _M_Test.ME._t_A, (('bB', (), IcePy._t_int, False, 0),))
     B._ice_type = _M_Test.ME._t_B
 
     _M_Test.ME.B = B
@@ -654,7 +654,7 @@ if 'C' not in _M_Test.ME.__dict__:
 
         __repr__ = __str__
 
-    _M_Test.ME._t_C = IcePy.defineValue('::Test::ME::C', C, -1, (), False, False, _M_Test.ME._t_B, (('cC', (), IcePy._t_int, False, 0),))
+    _M_Test.ME._t_C = IcePy.defineValue('::Test::ME::C', C, -1, (), False, _M_Test.ME._t_B, (('cC', (), IcePy._t_int, False, 0),))
     C._ice_type = _M_Test.ME._t_C
 
     _M_Test.ME.C = C
@@ -679,7 +679,7 @@ if 'D' not in _M_Test.ME.__dict__:
 
         __repr__ = __str__
 
-    _M_Test.ME._t_D = IcePy.defineValue('::Test::ME::D', D, -1, (), False, False, _M_Test.ME._t_C, (('dD', (), IcePy._t_int, False, 0),))
+    _M_Test.ME._t_D = IcePy.defineValue('::Test::ME::D', D, -1, (), False, _M_Test.ME._t_C, (('dD', (), IcePy._t_int, False, 0),))
     D._ice_type = _M_Test.ME._t_D
 
     _M_Test.ME.D = D
@@ -711,7 +711,7 @@ if 'A' not in _M_Test.MF.__dict__:
 
         __repr__ = __str__
 
-    _M_Test.MF._t_A = IcePy.defineValue('::Test::MF::A', A, -1, (), False, False, None, (('aA', (), IcePy._t_int, False, 0),))
+    _M_Test.MF._t_A = IcePy.defineValue('::Test::MF::A', A, -1, (), False, None, (('aA', (), IcePy._t_int, False, 0),))
     A._ice_type = _M_Test.MF._t_A
 
     _M_Test.MF.A = A
@@ -736,7 +736,7 @@ if 'B' not in _M_Test.MF.__dict__:
 
         __repr__ = __str__
 
-    _M_Test.MF._t_B = IcePy.defineValue('::Test::MF::B', B, -1, (), False, False, _M_Test.MF._t_A, (('bB', (), IcePy._t_int, False, 0),))
+    _M_Test.MF._t_B = IcePy.defineValue('::Test::MF::B', B, -1, (), False, _M_Test.MF._t_A, (('bB', (), IcePy._t_int, False, 0),))
     B._ice_type = _M_Test.MF._t_B
 
     _M_Test.MF.B = B
@@ -761,7 +761,7 @@ if 'C' not in _M_Test.MF.__dict__:
 
         __repr__ = __str__
 
-    _M_Test.MF._t_C = IcePy.defineValue('::Test::MF::C', C, -1, (), False, False, _M_Test.MF._t_B, (('cC', (), IcePy._t_int, False, 0),))
+    _M_Test.MF._t_C = IcePy.defineValue('::Test::MF::C', C, -1, (), False, _M_Test.MF._t_B, (('cC', (), IcePy._t_int, False, 0),))
     C._ice_type = _M_Test.MF._t_C
 
     _M_Test.MF.C = C
@@ -786,7 +786,7 @@ if 'D' not in _M_Test.MF.__dict__:
 
         __repr__ = __str__
 
-    _M_Test.MF._t_D = IcePy.defineValue('::Test::MF::D', D, -1, (), False, False, _M_Test.MF._t_C, (('dD', (), IcePy._t_int, False, 0),))
+    _M_Test.MF._t_D = IcePy.defineValue('::Test::MF::D', D, -1, (), False, _M_Test.MF._t_C, (('dD', (), IcePy._t_int, False, 0),))
     D._ice_type = _M_Test.MF._t_D
 
     _M_Test.MF.D = D
@@ -818,7 +818,7 @@ if 'A' not in _M_Test.MG.__dict__:
 
         __repr__ = __str__
 
-    _M_Test.MG._t_A = IcePy.defineValue('::Test::MG::A', A, -1, (), False, False, None, (('aA', (), IcePy._t_int, False, 0),))
+    _M_Test.MG._t_A = IcePy.defineValue('::Test::MG::A', A, -1, (), False, None, (('aA', (), IcePy._t_int, False, 0),))
     A._ice_type = _M_Test.MG._t_A
 
     _M_Test.MG.A = A
@@ -843,7 +843,7 @@ if 'B' not in _M_Test.MG.__dict__:
 
         __repr__ = __str__
 
-    _M_Test.MG._t_B = IcePy.defineValue('::Test::MG::B', B, -1, (), False, False, _M_Test.MG._t_A, (('bB', (), IcePy._t_int, False, 0),))
+    _M_Test.MG._t_B = IcePy.defineValue('::Test::MG::B', B, -1, (), False, _M_Test.MG._t_A, (('bB', (), IcePy._t_int, False, 0),))
     B._ice_type = _M_Test.MG._t_B
 
     _M_Test.MG.B = B
@@ -868,7 +868,7 @@ if 'C' not in _M_Test.MG.__dict__:
 
         __repr__ = __str__
 
-    _M_Test.MG._t_C = IcePy.defineValue('::Test::MG::C', C, -1, (), False, False, _M_Test.MG._t_B, (('cC', (), IcePy._t_int, False, 0),))
+    _M_Test.MG._t_C = IcePy.defineValue('::Test::MG::C', C, -1, (), False, _M_Test.MG._t_B, (('cC', (), IcePy._t_int, False, 0),))
     C._ice_type = _M_Test.MG._t_C
 
     _M_Test.MG.C = C
@@ -893,7 +893,7 @@ if 'D' not in _M_Test.MG.__dict__:
 
         __repr__ = __str__
 
-    _M_Test.MG._t_D = IcePy.defineValue('::Test::MG::D', D, -1, (), False, False, _M_Test.MG._t_C, (('dD', (), IcePy._t_int, False, 0),))
+    _M_Test.MG._t_D = IcePy.defineValue('::Test::MG::D', D, -1, (), False, _M_Test.MG._t_C, (('dD', (), IcePy._t_int, False, 0),))
     D._ice_type = _M_Test.MG._t_D
 
     _M_Test.MG.D = D
@@ -925,7 +925,7 @@ if 'A' not in _M_Test.MH.__dict__:
 
         __repr__ = __str__
 
-    _M_Test.MH._t_A = IcePy.defineValue('::Test::MH::A', A, -1, (), False, False, None, (('aA', (), IcePy._t_int, False, 0),))
+    _M_Test.MH._t_A = IcePy.defineValue('::Test::MH::A', A, -1, (), False, None, (('aA', (), IcePy._t_int, False, 0),))
     A._ice_type = _M_Test.MH._t_A
 
     _M_Test.MH.A = A
@@ -950,7 +950,7 @@ if 'B' not in _M_Test.MH.__dict__:
 
         __repr__ = __str__
 
-    _M_Test.MH._t_B = IcePy.defineValue('::Test::MH::B', B, -1, (), False, False, _M_Test.MH._t_A, (('bB', (), IcePy._t_int, False, 0),))
+    _M_Test.MH._t_B = IcePy.defineValue('::Test::MH::B', B, -1, (), False, _M_Test.MH._t_A, (('bB', (), IcePy._t_int, False, 0),))
     B._ice_type = _M_Test.MH._t_B
 
     _M_Test.MH.B = B
@@ -975,7 +975,7 @@ if 'C' not in _M_Test.MH.__dict__:
 
         __repr__ = __str__
 
-    _M_Test.MH._t_C = IcePy.defineValue('::Test::MH::C', C, -1, (), False, False, _M_Test.MH._t_B, (('cC', (), IcePy._t_int, False, 0),))
+    _M_Test.MH._t_C = IcePy.defineValue('::Test::MH::C', C, -1, (), False, _M_Test.MH._t_B, (('cC', (), IcePy._t_int, False, 0),))
     C._ice_type = _M_Test.MH._t_C
 
     _M_Test.MH.C = C
@@ -1000,7 +1000,7 @@ if 'D' not in _M_Test.MH.__dict__:
 
         __repr__ = __str__
 
-    _M_Test.MH._t_D = IcePy.defineValue('::Test::MH::D', D, -1, (), False, False, _M_Test.MH._t_C, (('dD', (), IcePy._t_int, False, 0),))
+    _M_Test.MH._t_D = IcePy.defineValue('::Test::MH::D', D, -1, (), False, _M_Test.MH._t_C, (('dD', (), IcePy._t_int, False, 0),))
     D._ice_type = _M_Test.MH._t_D
 
     _M_Test.MH.D = D

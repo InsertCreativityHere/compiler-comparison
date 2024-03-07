@@ -146,7 +146,7 @@
         }
     };
 
-    Slice.defineValue(Test.Baz, "::Test::Baz", false);
+    Slice.defineValue(Test.Baz, "::Test::Baz");
     exports.Test = Test;
 }
 (typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,

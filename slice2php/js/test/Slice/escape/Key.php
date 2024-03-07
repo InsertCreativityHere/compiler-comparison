@@ -145,7 +145,7 @@ namespace await
     global $Ice__t_Value;
     global $IcePHP__t_int;
     global $await__t_casePrx;
-    $await__t_delete = IcePHP_defineClass('::await::delete', '\\await\\delete', -1, false, false, $Ice__t_Value, array(
+    $await__t_delete = IcePHP_defineClass('::await::delete', '\\await\\delete', -1, false, $Ice__t_Value, array(
         array('_if', $IcePHP__t_int, false, 0),
         array('_else', $await__t_casePrx, false, 0),
         array('export', $IcePHP__t_int, false, 0)));
@@ -235,7 +235,7 @@ namespace await
     global $await__t_explicitPrx;
     global $await__t_while;
     global $IcePHP__t_string;
-    $await__t_package = IcePHP_defineClass('::await::package', '\\await\\package', -1, false, false, $Ice__t_Value, array(
+    $await__t_package = IcePHP_defineClass('::await::package', '\\await\\package', -1, false, $Ice__t_Value, array(
         array('_for', $await__t_break, true, 1),
         array('_goto', $await__t_var, true, 2),
         array('_if', $await__t_explicitPrx, true, 3),
@@ -306,7 +306,7 @@ namespace await
     }
     global $IcePHP__t_int;
 
-    $await__t_fixed = IcePHP_defineException('::await::fixed', '\\await\\fixed', false, null, array(
+    $await__t_fixed = IcePHP_defineException('::await::fixed', '\\await\\fixed', null, array(
         array('_for', $IcePHP__t_int, false, 0)));
 }
 
@@ -338,7 +338,7 @@ namespace await
     }
     global $IcePHP__t_int;
 
-    $await__t_foreach = IcePHP_defineException('::await::foreach', '\\await\\_foreach', false, $await__t_fixed, array(
+    $await__t_foreach = IcePHP_defineException('::await::foreach', '\\await\\_foreach', $await__t_fixed, array(
         array('_goto', $IcePHP__t_int, false, 0),
         array('_if', $IcePHP__t_int, false, 0)));
 }
@@ -396,7 +396,7 @@ namespace await
     }
     global $IcePHP__t_int;
 
-    $await__t_BaseMethods = IcePHP_defineException('::await::BaseMethods', '\\await\\BaseMethods', false, null, array(
+    $await__t_BaseMethods = IcePHP_defineException('::await::BaseMethods', '\\await\\BaseMethods', null, array(
         array('Data', $IcePHP__t_int, false, 0),
         array('HelpLink', $IcePHP__t_int, false, 0),
         array('InnerException', $IcePHP__t_int, false, 0),

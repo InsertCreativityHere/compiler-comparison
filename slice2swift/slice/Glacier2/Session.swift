@@ -34,7 +34,6 @@ public extension Ice.ClassResolver {
 open class CannotCreateSessionException: Ice.UserException {
     /// The reason why session creation has failed.
     public var reason: Swift.String = ""
-    var _slicedData: Ice.SlicedData?
 
     public required init() {}
 
@@ -59,26 +58,6 @@ open class CannotCreateSessionException: Ice.UserException {
         _ = try istr.startSlice()
         self.reason = try istr.read()
         try istr.endSlice()
-    }
-
-    /// Returns the sliced data if the exception has a preserved-slice base class and has been
-    /// sliced during un-marshaling, nil is returned otherwise.
-    ///
-    /// - returns: `Ice.SlicedData` - The sliced data.
-    open override func ice_getSlicedData() -> Ice.SlicedData? {
-        return _slicedData
-    }
-
-    open override func _iceRead(from istr: Ice.InputStream) throws {
-        istr.startException()
-        try _iceReadImpl(from: istr)
-        _slicedData = try istr.endException(preserve: true)
-    }
-
-    open override func _iceWrite(to ostr: Ice.OutputStream) {
-        ostr.startException(data: _slicedData)
-        _iceWriteImpl(to: ostr)
-        ostr.endException()
     }
 }
 

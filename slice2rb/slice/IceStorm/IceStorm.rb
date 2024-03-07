@@ -84,7 +84,7 @@ module ::IceStorm
             attr_accessor :name
         end
 
-        T_LinkExists = ::Ice::__defineException('::IceStorm::LinkExists', LinkExists, false, nil, [["name", ::Ice::T_string, false, 0]])
+        T_LinkExists = ::Ice::__defineException('::IceStorm::LinkExists', LinkExists, nil, [["name", ::Ice::T_string, false, 0]])
     end
 
     if not defined?(::IceStorm::NoSuchLink)
@@ -100,7 +100,7 @@ module ::IceStorm
             attr_accessor :name
         end
 
-        T_NoSuchLink = ::Ice::__defineException('::IceStorm::NoSuchLink', NoSuchLink, false, nil, [["name", ::Ice::T_string, false, 0]])
+        T_NoSuchLink = ::Ice::__defineException('::IceStorm::NoSuchLink', NoSuchLink, nil, [["name", ::Ice::T_string, false, 0]])
     end
 
     if not defined?(::IceStorm::AlreadySubscribed)
@@ -113,7 +113,7 @@ module ::IceStorm
             end
         end
 
-        T_AlreadySubscribed = ::Ice::__defineException('::IceStorm::AlreadySubscribed', AlreadySubscribed, false, nil, [])
+        T_AlreadySubscribed = ::Ice::__defineException('::IceStorm::AlreadySubscribed', AlreadySubscribed, nil, [])
     end
 
     if not defined?(::IceStorm::InvalidSubscriber)
@@ -129,7 +129,7 @@ module ::IceStorm
             attr_accessor :reason
         end
 
-        T_InvalidSubscriber = ::Ice::__defineException('::IceStorm::InvalidSubscriber', InvalidSubscriber, false, nil, [["reason", ::Ice::T_string, false, 0]])
+        T_InvalidSubscriber = ::Ice::__defineException('::IceStorm::InvalidSubscriber', InvalidSubscriber, nil, [["reason", ::Ice::T_string, false, 0]])
     end
 
     if not defined?(::IceStorm::BadQoS)
@@ -145,7 +145,7 @@ module ::IceStorm
             attr_accessor :reason
         end
 
-        T_BadQoS = ::Ice::__defineException('::IceStorm::BadQoS', BadQoS, false, nil, [["reason", ::Ice::T_string, false, 0]])
+        T_BadQoS = ::Ice::__defineException('::IceStorm::BadQoS', BadQoS, nil, [["reason", ::Ice::T_string, false, 0]])
     end
 
     if not defined?(::IceStorm::Topic_Mixin)
@@ -236,7 +236,7 @@ module ::IceStorm
             attr_accessor :name
         end
 
-        T_TopicExists = ::Ice::__defineException('::IceStorm::TopicExists', TopicExists, false, nil, [["name", ::Ice::T_string, false, 0]])
+        T_TopicExists = ::Ice::__defineException('::IceStorm::TopicExists', TopicExists, nil, [["name", ::Ice::T_string, false, 0]])
     end
 
     if not defined?(::IceStorm::NoSuchTopic)
@@ -252,7 +252,7 @@ module ::IceStorm
             attr_accessor :name
         end
 
-        T_NoSuchTopic = ::Ice::__defineException('::IceStorm::NoSuchTopic', NoSuchTopic, false, nil, [["name", ::Ice::T_string, false, 0]])
+        T_NoSuchTopic = ::Ice::__defineException('::IceStorm::NoSuchTopic', NoSuchTopic, nil, [["name", ::Ice::T_string, false, 0]])
     end
 
     if not defined?(::IceStorm::TopicManager_Mixin)

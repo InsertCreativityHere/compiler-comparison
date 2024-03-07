@@ -42,6 +42,6 @@ namespace Test
         }
     }
 
-    $Test__t_DerivedEx = IcePHP_defineException('::Test::DerivedEx', '\\Test\\DerivedEx', false, $Test__t_BaseEx, null);
+    $Test__t_DerivedEx = IcePHP_defineException('::Test::DerivedEx', '\\Test\\DerivedEx', $Test__t_BaseEx, null);
 }
 ?>

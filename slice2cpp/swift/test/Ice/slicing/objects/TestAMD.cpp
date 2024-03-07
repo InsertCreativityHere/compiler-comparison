@@ -59,8 +59,6 @@ const ::IceInternal::DefaultValueFactoryInit<::Test::PDerived> iceC_Test_PDerive
 
 const ::IceInternal::DefaultValueFactoryInit<::Test::PNode> iceC_Test_PNode_init("::Test::PNode");
 
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::PreservedException> iceC_Test_PreservedException_init("::Test::PreservedException");
-
 const ::IceInternal::DefaultValueFactoryInit<::Test::Hidden> iceC_Test_Hidden_init("::Test::Hidden");
 
 const ::IceInternal::DefaultValueFactoryInit<::Test::Forward> iceC_Test_Forward_init("::Test::Forward");
@@ -1365,48 +1363,6 @@ Test::TestIntfPrx::_iceI_throwUnknownDerivedAsBase(const ::std::shared_ptr<::Ice
 }
 
 void
-Test::TestIntfPrx::throwPreservedException(const ::Ice::Context& context) const
-{
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_throwPreservedException, context).get();
-}
-
-::std::future<void>
-Test::TestIntfPrx::throwPreservedExceptionAsync(const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_throwPreservedException, context);
-}
-
-::std::function<void()>
-Test::TestIntfPrx::throwPreservedExceptionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_throwPreservedException, context);
-}
-
-void
-Test::TestIntfPrx::_iceI_throwPreservedException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
-{
-    static constexpr ::std::string_view operationName = "throwPreservedException";
-
-    _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::SlicedFormat, context,
-        nullptr,
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const PreservedException&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-
-void
 Test::TestIntfPrx::useForward(::std::shared_ptr<Forward>& iceP_f, const ::Ice::Context& context) const
 {
     iceP_f = ::IceInternal::makePromiseOutgoing<::std::shared_ptr<Forward>>(true, this, &TestIntfPrx::_iceI_useForward, context).get();
@@ -1588,30 +1544,6 @@ Test::Preserved::~Preserved()
 {
 }
 
-::std::shared_ptr<::Ice::SlicedData>
-Test::Preserved::ice_getSlicedData() const
-{
-    return _iceSlicedData;
-}
-
-/// \cond STREAM
-void
-Test::Preserved::_iceWrite(::Ice::OutputStream* ostr) const
-{
-    ostr->startValue(_iceSlicedData);
-    _iceWriteImpl(ostr);
-    ostr->endValue();
-}
-
-void
-Test::Preserved::_iceRead(::Ice::InputStream* istr)
-{
-    istr->startValue();
-    _iceReadImpl(istr);
-    _iceSlicedData = istr->endValue(true);
-}
-/// \endcond
-
 ::std::string_view
 Test::Preserved::ice_staticId()
 {
@@ -1634,71 +1566,12 @@ Test::PNode::~PNode()
 {
 }
 
-::std::shared_ptr<::Ice::SlicedData>
-Test::PNode::ice_getSlicedData() const
-{
-    return _iceSlicedData;
-}
-
-/// \cond STREAM
-void
-Test::PNode::_iceWrite(::Ice::OutputStream* ostr) const
-{
-    ostr->startValue(_iceSlicedData);
-    _iceWriteImpl(ostr);
-    ostr->endValue();
-}
-
-void
-Test::PNode::_iceRead(::Ice::InputStream* istr)
-{
-    istr->startValue();
-    _iceReadImpl(istr);
-    _iceSlicedData = istr->endValue(true);
-}
-/// \endcond
-
 ::std::string_view
 Test::PNode::ice_staticId()
 {
     static constexpr ::std::string_view typeId = "::Test::PNode";
     return typeId;
 }
-
-Test::PreservedException::~PreservedException()
-{
-}
-
-::std::string_view
-Test::PreservedException::ice_staticId()
-{
-    static constexpr ::std::string_view typeId = "::Test::PreservedException";
-    return typeId;
-}
-
-::std::shared_ptr<::Ice::SlicedData>
-Test::PreservedException::ice_getSlicedData() const
-{
-    return _slicedData;
-}
-
-/// \cond STREAM
-void
-Test::PreservedException::_write(::Ice::OutputStream* ostr) const
-{
-    ostr->startException(_slicedData);
-    _writeImpl(ostr);
-    ostr->endException();
-}
-
-void
-Test::PreservedException::_read(::Ice::InputStream* istr)
-{
-    istr->startException();
-    _readImpl(istr);
-    _slicedData = istr->endException(true);
-}
-/// \endcond
 
 Test::Hidden::~Hidden()
 {
@@ -2670,26 +2543,6 @@ Test::TestIntf::_iceD_throwUnknownDerivedAsBase(::IceInternal::Incoming& incomin
 
 /// \cond INTERNAL
 bool
-Test::TestIntf::_iceD_throwPreservedException(::IceInternal::Incoming& incoming)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    incoming.setFormat(::Ice::FormatType::SlicedFormat);
-    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
-    try
-    {
-        this->throwPreservedExceptionAsync([incomingPtr] { incomingPtr->response(); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
-    }
-    catch (...)
-    {
-        incomingPtr->failed(::std::current_exception());
-    }
-    return false;
-}
-/// \endcond
-
-/// \cond INTERNAL
-bool
 Test::TestIntf::_iceD_useForward(::IceInternal::Incoming& incoming)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
@@ -2740,10 +2593,10 @@ Test::TestIntf::_iceD_shutdown(::IceInternal::Incoming& incoming)
 bool
 Test::TestIntf::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "D1AsB", "D1AsD1", "D2AsB", "PBSUnknown2AsPreservedWithGraph", "PBSUnknownAsPreserved", "PBSUnknownAsPreservedWithGraph", "SBSKnownDerivedAsSBSKnownDerived", "SBSKnownDerivedAsSBase", "SBSUnknownDerivedAsSBase", "SBSUnknownDerivedAsSBaseCompact", "SBaseAsObject", "SBaseAsSBase", "SUnknownAsObject", "checkPBSUnknown", "checkPBSUnknown2WithGraph", "checkPBSUnknownWithGraph", "checkSUnknown", "dictionaryTest", "exchangePBase", "exchangePNode", "ice_id", "ice_ids", "ice_isA", "ice_ping", "oneElementCycle", "paramTest1", "paramTest2", "paramTest3", "paramTest4", "returnTest1", "returnTest2", "returnTest3", "sequenceTest", "shutdown", "throwBaseAsBase", "throwDerivedAsBase", "throwDerivedAsDerived", "throwPreservedException", "throwUnknownDerivedAsBase", "twoElementCycle", "useForward" };
+    static constexpr ::std::string_view allOperations[] = { "D1AsB", "D1AsD1", "D2AsB", "PBSUnknown2AsPreservedWithGraph", "PBSUnknownAsPreserved", "PBSUnknownAsPreservedWithGraph", "SBSKnownDerivedAsSBSKnownDerived", "SBSKnownDerivedAsSBase", "SBSUnknownDerivedAsSBase", "SBSUnknownDerivedAsSBaseCompact", "SBaseAsObject", "SBaseAsSBase", "SUnknownAsObject", "checkPBSUnknown", "checkPBSUnknown2WithGraph", "checkPBSUnknownWithGraph", "checkSUnknown", "dictionaryTest", "exchangePBase", "exchangePNode", "ice_id", "ice_ids", "ice_isA", "ice_ping", "oneElementCycle", "paramTest1", "paramTest2", "paramTest3", "paramTest4", "returnTest1", "returnTest2", "returnTest3", "sequenceTest", "shutdown", "throwBaseAsBase", "throwDerivedAsBase", "throwDerivedAsDerived", "throwUnknownDerivedAsBase", "twoElementCycle", "useForward" };
 
     const ::Ice::Current& current = incoming.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 41, current.operation);
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 40, current.operation);
     if(r.first == r.second)
     {
         throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
@@ -2901,17 +2754,13 @@ Test::TestIntf::_iceDispatch(::IceInternal::Incoming& incoming)
         }
         case 37:
         {
-            return _iceD_throwPreservedException(incoming);
+            return _iceD_throwUnknownDerivedAsBase(incoming);
         }
         case 38:
         {
-            return _iceD_throwUnknownDerivedAsBase(incoming);
-        }
-        case 39:
-        {
             return _iceD_twoElementCycle(incoming);
         }
-        case 40:
+        case 39:
         {
             return _iceD_useForward(incoming);
         }

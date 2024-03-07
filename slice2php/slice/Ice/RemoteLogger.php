@@ -145,7 +145,7 @@ namespace Ice
         }
     }
 
-    $Ice__t_RemoteLoggerAlreadyAttachedException = IcePHP_defineException('::Ice::RemoteLoggerAlreadyAttachedException', '\\Ice\\RemoteLoggerAlreadyAttachedException', false, null, null);
+    $Ice__t_RemoteLoggerAlreadyAttachedException = IcePHP_defineException('::Ice::RemoteLoggerAlreadyAttachedException', '\\Ice\\RemoteLoggerAlreadyAttachedException', null, null);
 }
 
 namespace Ice

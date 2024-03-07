@@ -38,7 +38,7 @@ module ::Test
             T_D3 = ::Ice::__declareClass('::Test::D3')
         end
 
-        T_D3.defineClass(D3, -1, false, false, ::Test::T_B, [
+        T_D3.defineClass(D3, -1, false, ::Test::T_B, [
             ['sd3', ::Ice::T_string, false, 0],
             ['pd3', ::Test::T_B, false, 0]
         ])
@@ -62,7 +62,7 @@ module ::Test
             T_PCUnknown = ::Ice::__declareClass('::Test::PCUnknown')
         end
 
-        T_PCUnknown.defineClass(PCUnknown, -1, true, false, ::Test::T_PBase, [['pu', ::Ice::T_string, false, 0]])
+        T_PCUnknown.defineClass(PCUnknown, -1, false, ::Test::T_PBase, [['pu', ::Ice::T_string, false, 0]])
     end
 
     if not defined?(::Test::PCDerived_Mixin)
@@ -83,7 +83,7 @@ module ::Test
             T_PCDerived = ::Ice::__declareClass('::Test::PCDerived')
         end
 
-        T_PCDerived.defineClass(PCDerived, -1, true, false, ::Test::T_PDerived, [['pbs', ::Test::T_PBaseSeq, false, 0]])
+        T_PCDerived.defineClass(PCDerived, -1, false, ::Test::T_PDerived, [['pbs', ::Test::T_PBaseSeq, false, 0]])
     end
 
     if not defined?(::Test::PCDerived2_Mixin)
@@ -104,7 +104,7 @@ module ::Test
             T_PCDerived2 = ::Ice::__declareClass('::Test::PCDerived2')
         end
 
-        T_PCDerived2.defineClass(PCDerived2, -1, true, false, ::Test::T_PCDerived, [['pcd2', ::Ice::T_int, false, 0]])
+        T_PCDerived2.defineClass(PCDerived2, -1, false, ::Test::T_PCDerived, [['pcd2', ::Ice::T_int, false, 0]])
     end
 
     if not defined?(::Test::PCDerived3_Mixin)
@@ -125,7 +125,7 @@ module ::Test
             T_PCDerived3 = ::Ice::__declareClass('::Test::PCDerived3')
         end
 
-        T_PCDerived3.defineClass(PCDerived3, -1, true, false, ::Test::T_PCDerived2, [['pcd3', ::Ice::T_Value, false, 0]])
+        T_PCDerived3.defineClass(PCDerived3, -1, false, ::Test::T_PCDerived2, [['pcd3', ::Ice::T_Value, false, 0]])
     end
 
     if not defined?(::Test::CompactPCDerived_Mixin)
@@ -146,6 +146,6 @@ module ::Test
             T_CompactPCDerived = ::Ice::__declareClass('::Test::CompactPCDerived')
         end
 
-        T_CompactPCDerived.defineClass(CompactPCDerived, 57, true, false, ::Test::T_CompactPDerived, [['pbs', ::Test::T_PBaseSeq, false, 0]])
+        T_CompactPCDerived.defineClass(CompactPCDerived, 57, false, ::Test::T_CompactPDerived, [['pbs', ::Test::T_PBaseSeq, false, 0]])
     end
 end

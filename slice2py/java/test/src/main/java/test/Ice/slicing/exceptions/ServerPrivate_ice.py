@@ -33,7 +33,7 @@ if 'Base' not in _M_Test.__dict__:
 
         _ice_id = '::Test::Base'
 
-    _M_Test._t_Base = IcePy.defineException('::Test::Base', Base, (), False, None, (('b', (), IcePy._t_string, False, 0),))
+    _M_Test._t_Base = IcePy.defineException('::Test::Base', Base, (), None, (('b', (), IcePy._t_string, False, 0),))
     Base._ice_type = _M_Test._t_Base
 
     _M_Test.Base = Base
@@ -53,7 +53,7 @@ if 'KnownDerived' not in _M_Test.__dict__:
 
         _ice_id = '::Test::KnownDerived'
 
-    _M_Test._t_KnownDerived = IcePy.defineException('::Test::KnownDerived', KnownDerived, (), False, _M_Test._t_Base, (('kd', (), IcePy._t_string, False, 0),))
+    _M_Test._t_KnownDerived = IcePy.defineException('::Test::KnownDerived', KnownDerived, (), _M_Test._t_Base, (('kd', (), IcePy._t_string, False, 0),))
     KnownDerived._ice_type = _M_Test._t_KnownDerived
 
     _M_Test.KnownDerived = KnownDerived
@@ -73,7 +73,7 @@ if 'KnownIntermediate' not in _M_Test.__dict__:
 
         _ice_id = '::Test::KnownIntermediate'
 
-    _M_Test._t_KnownIntermediate = IcePy.defineException('::Test::KnownIntermediate', KnownIntermediate, (), False, _M_Test._t_Base, (('ki', (), IcePy._t_string, False, 0),))
+    _M_Test._t_KnownIntermediate = IcePy.defineException('::Test::KnownIntermediate', KnownIntermediate, (), _M_Test._t_Base, (('ki', (), IcePy._t_string, False, 0),))
     KnownIntermediate._ice_type = _M_Test._t_KnownIntermediate
 
     _M_Test.KnownIntermediate = KnownIntermediate
@@ -93,164 +93,13 @@ if 'KnownMostDerived' not in _M_Test.__dict__:
 
         _ice_id = '::Test::KnownMostDerived'
 
-    _M_Test._t_KnownMostDerived = IcePy.defineException('::Test::KnownMostDerived', KnownMostDerived, (), False, _M_Test._t_KnownIntermediate, (('kmd', (), IcePy._t_string, False, 0),))
+    _M_Test._t_KnownMostDerived = IcePy.defineException('::Test::KnownMostDerived', KnownMostDerived, (), _M_Test._t_KnownIntermediate, (('kmd', (), IcePy._t_string, False, 0),))
     KnownMostDerived._ice_type = _M_Test._t_KnownMostDerived
 
     _M_Test.KnownMostDerived = KnownMostDerived
     del KnownMostDerived
 
-if 'KnownPreserved' not in _M_Test.__dict__:
-    _M_Test.KnownPreserved = Ice.createTempClass()
-    class KnownPreserved(_M_Test.Base):
-        def __init__(self, b='', kp=''):
-            _M_Test.Base.__init__(self, b)
-            self.kp = kp
-
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::Test::KnownPreserved'
-
-    _M_Test._t_KnownPreserved = IcePy.defineException('::Test::KnownPreserved', KnownPreserved, (), True, _M_Test._t_Base, (('kp', (), IcePy._t_string, False, 0),))
-    KnownPreserved._ice_type = _M_Test._t_KnownPreserved
-
-    _M_Test.KnownPreserved = KnownPreserved
-    del KnownPreserved
-
-if 'KnownPreservedDerived' not in _M_Test.__dict__:
-    _M_Test.KnownPreservedDerived = Ice.createTempClass()
-    class KnownPreservedDerived(_M_Test.KnownPreserved):
-        def __init__(self, b='', kp='', kpd=''):
-            _M_Test.KnownPreserved.__init__(self, b, kp)
-            self.kpd = kpd
-
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::Test::KnownPreservedDerived'
-
-    _M_Test._t_KnownPreservedDerived = IcePy.defineException('::Test::KnownPreservedDerived', KnownPreservedDerived, (), True, _M_Test._t_KnownPreserved, (('kpd', (), IcePy._t_string, False, 0),))
-    KnownPreservedDerived._ice_type = _M_Test._t_KnownPreservedDerived
-
-    _M_Test.KnownPreservedDerived = KnownPreservedDerived
-    del KnownPreservedDerived
-
-if 'BaseClass' not in _M_Test.__dict__:
-    _M_Test.BaseClass = Ice.createTempClass()
-    class BaseClass(Ice.Value):
-        def __init__(self, bc=''):
-            self.bc = bc
-
-        def ice_id(self):
-            return '::Test::BaseClass'
-
-        @staticmethod
-        def ice_staticId():
-            return '::Test::BaseClass'
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_BaseClass)
-
-        __repr__ = __str__
-
-    _M_Test._t_BaseClass = IcePy.defineValue('::Test::BaseClass', BaseClass, -1, (), True, False, None, (('bc', (), IcePy._t_string, False, 0),))
-    BaseClass._ice_type = _M_Test._t_BaseClass
-
-    _M_Test.BaseClass = BaseClass
-    del BaseClass
-
-_M_Test._t_Relay = IcePy.defineValue('::Test::Relay', Ice.Value, -1, (), False, True, None, ())
-
-if 'RelayPrx' not in _M_Test.__dict__:
-    _M_Test.RelayPrx = Ice.createTempClass()
-    class RelayPrx(Ice.ObjectPrx):
-
-        def knownPreservedAsBase(self, context=None):
-            return _M_Test.Relay._op_knownPreservedAsBase.invoke(self, ((), context))
-
-        def knownPreservedAsBaseAsync(self, context=None):
-            return _M_Test.Relay._op_knownPreservedAsBase.invokeAsync(self, ((), context))
-
-        def knownPreservedAsKnownPreserved(self, context=None):
-            return _M_Test.Relay._op_knownPreservedAsKnownPreserved.invoke(self, ((), context))
-
-        def knownPreservedAsKnownPreservedAsync(self, context=None):
-            return _M_Test.Relay._op_knownPreservedAsKnownPreserved.invokeAsync(self, ((), context))
-
-        def unknownPreservedAsBase(self, context=None):
-            return _M_Test.Relay._op_unknownPreservedAsBase.invoke(self, ((), context))
-
-        def unknownPreservedAsBaseAsync(self, context=None):
-            return _M_Test.Relay._op_unknownPreservedAsBase.invokeAsync(self, ((), context))
-
-        def unknownPreservedAsKnownPreserved(self, context=None):
-            return _M_Test.Relay._op_unknownPreservedAsKnownPreserved.invoke(self, ((), context))
-
-        def unknownPreservedAsKnownPreservedAsync(self, context=None):
-            return _M_Test.Relay._op_unknownPreservedAsKnownPreserved.invokeAsync(self, ((), context))
-
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_Test.RelayPrx.ice_checkedCast(proxy, '::Test::Relay', facetOrContext, context)
-
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_Test.RelayPrx.ice_uncheckedCast(proxy, facet)
-
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Relay'
-    _M_Test._t_RelayPrx = IcePy.defineProxy('::Test::Relay', RelayPrx)
-
-    _M_Test.RelayPrx = RelayPrx
-    del RelayPrx
-
-    _M_Test.Relay = Ice.createTempClass()
-    class Relay(Ice.Object):
-
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::Test::Relay')
-
-        def ice_id(self, current=None):
-            return '::Test::Relay'
-
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Relay'
-
-        def knownPreservedAsBase(self, current=None):
-            raise NotImplementedError("servant method 'knownPreservedAsBase' not implemented")
-
-        def knownPreservedAsKnownPreserved(self, current=None):
-            raise NotImplementedError("servant method 'knownPreservedAsKnownPreserved' not implemented")
-
-        def unknownPreservedAsBase(self, current=None):
-            raise NotImplementedError("servant method 'unknownPreservedAsBase' not implemented")
-
-        def unknownPreservedAsKnownPreserved(self, current=None):
-            raise NotImplementedError("servant method 'unknownPreservedAsKnownPreserved' not implemented")
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_RelayDisp)
-
-        __repr__ = __str__
-
-    _M_Test._t_RelayDisp = IcePy.defineClass('::Test::Relay', Relay, (), None, ())
-    Relay._ice_type = _M_Test._t_RelayDisp
-
-    Relay._op_knownPreservedAsBase = IcePy.Operation('knownPreservedAsBase', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, Ice.FormatType.SlicedFormat, (), (), (), None, (_M_Test._t_Base,))
-    Relay._op_knownPreservedAsKnownPreserved = IcePy.Operation('knownPreservedAsKnownPreserved', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, Ice.FormatType.SlicedFormat, (), (), (), None, (_M_Test._t_KnownPreserved,))
-    Relay._op_unknownPreservedAsBase = IcePy.Operation('unknownPreservedAsBase', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, Ice.FormatType.SlicedFormat, (), (), (), None, (_M_Test._t_Base,))
-    Relay._op_unknownPreservedAsKnownPreserved = IcePy.Operation('unknownPreservedAsKnownPreserved', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, Ice.FormatType.SlicedFormat, (), (), (), None, (_M_Test._t_KnownPreserved,))
-
-    _M_Test.Relay = Relay
-    del Relay
-
-_M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), True, None, ())
 
 if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntfPrx = Ice.createTempClass()
@@ -334,60 +183,6 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def unknownMostDerived2AsBaseAsync(self, context=None):
             return _M_Test.TestIntf._op_unknownMostDerived2AsBase.invokeAsync(self, ((), context))
 
-        def unknownMostDerived2AsBaseCompact(self, context=None):
-            return _M_Test.TestIntf._op_unknownMostDerived2AsBaseCompact.invoke(self, ((), context))
-
-        def unknownMostDerived2AsBaseCompactAsync(self, context=None):
-            return _M_Test.TestIntf._op_unknownMostDerived2AsBaseCompact.invokeAsync(self, ((), context))
-
-        def knownPreservedAsBase(self, context=None):
-            return _M_Test.TestIntf._op_knownPreservedAsBase.invoke(self, ((), context))
-
-        def knownPreservedAsBaseAsync(self, context=None):
-            return _M_Test.TestIntf._op_knownPreservedAsBase.invokeAsync(self, ((), context))
-
-        def knownPreservedAsKnownPreserved(self, context=None):
-            return _M_Test.TestIntf._op_knownPreservedAsKnownPreserved.invoke(self, ((), context))
-
-        def knownPreservedAsKnownPreservedAsync(self, context=None):
-            return _M_Test.TestIntf._op_knownPreservedAsKnownPreserved.invokeAsync(self, ((), context))
-
-        def relayKnownPreservedAsBase(self, r, context=None):
-            return _M_Test.TestIntf._op_relayKnownPreservedAsBase.invoke(self, ((r, ), context))
-
-        def relayKnownPreservedAsBaseAsync(self, r, context=None):
-            return _M_Test.TestIntf._op_relayKnownPreservedAsBase.invokeAsync(self, ((r, ), context))
-
-        def relayKnownPreservedAsKnownPreserved(self, r, context=None):
-            return _M_Test.TestIntf._op_relayKnownPreservedAsKnownPreserved.invoke(self, ((r, ), context))
-
-        def relayKnownPreservedAsKnownPreservedAsync(self, r, context=None):
-            return _M_Test.TestIntf._op_relayKnownPreservedAsKnownPreserved.invokeAsync(self, ((r, ), context))
-
-        def unknownPreservedAsBase(self, context=None):
-            return _M_Test.TestIntf._op_unknownPreservedAsBase.invoke(self, ((), context))
-
-        def unknownPreservedAsBaseAsync(self, context=None):
-            return _M_Test.TestIntf._op_unknownPreservedAsBase.invokeAsync(self, ((), context))
-
-        def unknownPreservedAsKnownPreserved(self, context=None):
-            return _M_Test.TestIntf._op_unknownPreservedAsKnownPreserved.invoke(self, ((), context))
-
-        def unknownPreservedAsKnownPreservedAsync(self, context=None):
-            return _M_Test.TestIntf._op_unknownPreservedAsKnownPreserved.invokeAsync(self, ((), context))
-
-        def relayUnknownPreservedAsBase(self, r, context=None):
-            return _M_Test.TestIntf._op_relayUnknownPreservedAsBase.invoke(self, ((r, ), context))
-
-        def relayUnknownPreservedAsBaseAsync(self, r, context=None):
-            return _M_Test.TestIntf._op_relayUnknownPreservedAsBase.invokeAsync(self, ((r, ), context))
-
-        def relayUnknownPreservedAsKnownPreserved(self, r, context=None):
-            return _M_Test.TestIntf._op_relayUnknownPreservedAsKnownPreserved.invoke(self, ((r, ), context))
-
-        def relayUnknownPreservedAsKnownPreservedAsync(self, r, context=None):
-            return _M_Test.TestIntf._op_relayUnknownPreservedAsKnownPreserved.invokeAsync(self, ((r, ), context))
-
         def shutdown(self, context=None):
             return _M_Test.TestIntf._op_shutdown.invoke(self, ((), context))
 
@@ -462,33 +257,6 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
         def unknownMostDerived2AsBase(self, current=None):
             raise NotImplementedError("servant method 'unknownMostDerived2AsBase' not implemented")
 
-        def unknownMostDerived2AsBaseCompact(self, current=None):
-            raise NotImplementedError("servant method 'unknownMostDerived2AsBaseCompact' not implemented")
-
-        def knownPreservedAsBase(self, current=None):
-            raise NotImplementedError("servant method 'knownPreservedAsBase' not implemented")
-
-        def knownPreservedAsKnownPreserved(self, current=None):
-            raise NotImplementedError("servant method 'knownPreservedAsKnownPreserved' not implemented")
-
-        def relayKnownPreservedAsBase(self, r, current=None):
-            raise NotImplementedError("servant method 'relayKnownPreservedAsBase' not implemented")
-
-        def relayKnownPreservedAsKnownPreserved(self, r, current=None):
-            raise NotImplementedError("servant method 'relayKnownPreservedAsKnownPreserved' not implemented")
-
-        def unknownPreservedAsBase(self, current=None):
-            raise NotImplementedError("servant method 'unknownPreservedAsBase' not implemented")
-
-        def unknownPreservedAsKnownPreserved(self, current=None):
-            raise NotImplementedError("servant method 'unknownPreservedAsKnownPreserved' not implemented")
-
-        def relayUnknownPreservedAsBase(self, r, current=None):
-            raise NotImplementedError("servant method 'relayUnknownPreservedAsBase' not implemented")
-
-        def relayUnknownPreservedAsKnownPreserved(self, r, current=None):
-            raise NotImplementedError("servant method 'relayUnknownPreservedAsKnownPreserved' not implemented")
-
         def shutdown(self, current=None):
             raise NotImplementedError("servant method 'shutdown' not implemented")
 
@@ -501,7 +269,7 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
     TestIntf._ice_type = _M_Test._t_TestIntfDisp
 
     TestIntf._op_baseAsBase = IcePy.Operation('baseAsBase', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, Ice.FormatType.SlicedFormat, (), (), (), None, (_M_Test._t_Base,))
-    TestIntf._op_unknownDerivedAsBase = IcePy.Operation('unknownDerivedAsBase', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, Ice.FormatType.SlicedFormat, (), (), (), None, (_M_Test._t_Base,))
+    TestIntf._op_unknownDerivedAsBase = IcePy.Operation('unknownDerivedAsBase', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, Ice.FormatType.CompactFormat, (), (), (), None, (_M_Test._t_Base,))
     TestIntf._op_knownDerivedAsBase = IcePy.Operation('knownDerivedAsBase', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, Ice.FormatType.SlicedFormat, (), (), (), None, (_M_Test._t_Base,))
     TestIntf._op_knownDerivedAsKnownDerived = IcePy.Operation('knownDerivedAsKnownDerived', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, Ice.FormatType.SlicedFormat, (), (), (), None, (_M_Test._t_KnownDerived,))
     TestIntf._op_unknownIntermediateAsBase = IcePy.Operation('unknownIntermediateAsBase', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, Ice.FormatType.SlicedFormat, (), (), (), None, (_M_Test._t_Base,))
@@ -513,15 +281,6 @@ if 'TestIntfPrx' not in _M_Test.__dict__:
     TestIntf._op_unknownMostDerived1AsBase = IcePy.Operation('unknownMostDerived1AsBase', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, Ice.FormatType.SlicedFormat, (), (), (), None, (_M_Test._t_Base,))
     TestIntf._op_unknownMostDerived1AsKnownIntermediate = IcePy.Operation('unknownMostDerived1AsKnownIntermediate', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, Ice.FormatType.SlicedFormat, (), (), (), None, (_M_Test._t_KnownIntermediate,))
     TestIntf._op_unknownMostDerived2AsBase = IcePy.Operation('unknownMostDerived2AsBase', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, Ice.FormatType.SlicedFormat, (), (), (), None, (_M_Test._t_Base,))
-    TestIntf._op_unknownMostDerived2AsBaseCompact = IcePy.Operation('unknownMostDerived2AsBaseCompact', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, Ice.FormatType.CompactFormat, (), (), (), None, (_M_Test._t_Base,))
-    TestIntf._op_knownPreservedAsBase = IcePy.Operation('knownPreservedAsBase', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, Ice.FormatType.SlicedFormat, (), (), (), None, (_M_Test._t_Base,))
-    TestIntf._op_knownPreservedAsKnownPreserved = IcePy.Operation('knownPreservedAsKnownPreserved', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, Ice.FormatType.SlicedFormat, (), (), (), None, (_M_Test._t_KnownPreserved,))
-    TestIntf._op_relayKnownPreservedAsBase = IcePy.Operation('relayKnownPreservedAsBase', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, Ice.FormatType.SlicedFormat, (), (((), _M_Test._t_RelayPrx, False, 0),), (), None, (_M_Test._t_Base,))
-    TestIntf._op_relayKnownPreservedAsKnownPreserved = IcePy.Operation('relayKnownPreservedAsKnownPreserved', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, Ice.FormatType.SlicedFormat, (), (((), _M_Test._t_RelayPrx, False, 0),), (), None, (_M_Test._t_KnownPreserved,))
-    TestIntf._op_unknownPreservedAsBase = IcePy.Operation('unknownPreservedAsBase', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, Ice.FormatType.SlicedFormat, (), (), (), None, (_M_Test._t_Base,))
-    TestIntf._op_unknownPreservedAsKnownPreserved = IcePy.Operation('unknownPreservedAsKnownPreserved', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, Ice.FormatType.SlicedFormat, (), (), (), None, (_M_Test._t_KnownPreserved,))
-    TestIntf._op_relayUnknownPreservedAsBase = IcePy.Operation('relayUnknownPreservedAsBase', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, Ice.FormatType.SlicedFormat, (), (((), _M_Test._t_RelayPrx, False, 0),), (), None, (_M_Test._t_Base,))
-    TestIntf._op_relayUnknownPreservedAsKnownPreserved = IcePy.Operation('relayUnknownPreservedAsKnownPreserved', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, Ice.FormatType.SlicedFormat, (), (((), _M_Test._t_RelayPrx, False, 0),), (), None, (_M_Test._t_KnownPreserved,))
     TestIntf._op_shutdown = IcePy.Operation('shutdown', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, Ice.FormatType.SlicedFormat, (), (), (), None, ())
 
     _M_Test.TestIntf = TestIntf
@@ -541,7 +300,7 @@ if 'UnknownDerived' not in _M_Test.__dict__:
 
         _ice_id = '::Test::UnknownDerived'
 
-    _M_Test._t_UnknownDerived = IcePy.defineException('::Test::UnknownDerived', UnknownDerived, (), False, _M_Test._t_Base, (('ud', (), IcePy._t_string, False, 0),))
+    _M_Test._t_UnknownDerived = IcePy.defineException('::Test::UnknownDerived', UnknownDerived, (), _M_Test._t_Base, (('ud', (), IcePy._t_string, False, 0),))
     UnknownDerived._ice_type = _M_Test._t_UnknownDerived
 
     _M_Test.UnknownDerived = UnknownDerived
@@ -561,7 +320,7 @@ if 'UnknownIntermediate' not in _M_Test.__dict__:
 
         _ice_id = '::Test::UnknownIntermediate'
 
-    _M_Test._t_UnknownIntermediate = IcePy.defineException('::Test::UnknownIntermediate', UnknownIntermediate, (), False, _M_Test._t_Base, (('ui', (), IcePy._t_string, False, 0),))
+    _M_Test._t_UnknownIntermediate = IcePy.defineException('::Test::UnknownIntermediate', UnknownIntermediate, (), _M_Test._t_Base, (('ui', (), IcePy._t_string, False, 0),))
     UnknownIntermediate._ice_type = _M_Test._t_UnknownIntermediate
 
     _M_Test.UnknownIntermediate = UnknownIntermediate
@@ -581,7 +340,7 @@ if 'UnknownMostDerived1' not in _M_Test.__dict__:
 
         _ice_id = '::Test::UnknownMostDerived1'
 
-    _M_Test._t_UnknownMostDerived1 = IcePy.defineException('::Test::UnknownMostDerived1', UnknownMostDerived1, (), False, _M_Test._t_KnownIntermediate, (('umd1', (), IcePy._t_string, False, 0),))
+    _M_Test._t_UnknownMostDerived1 = IcePy.defineException('::Test::UnknownMostDerived1', UnknownMostDerived1, (), _M_Test._t_KnownIntermediate, (('umd1', (), IcePy._t_string, False, 0),))
     UnknownMostDerived1._ice_type = _M_Test._t_UnknownMostDerived1
 
     _M_Test.UnknownMostDerived1 = UnknownMostDerived1
@@ -601,75 +360,10 @@ if 'UnknownMostDerived2' not in _M_Test.__dict__:
 
         _ice_id = '::Test::UnknownMostDerived2'
 
-    _M_Test._t_UnknownMostDerived2 = IcePy.defineException('::Test::UnknownMostDerived2', UnknownMostDerived2, (), False, _M_Test._t_UnknownIntermediate, (('umd2', (), IcePy._t_string, False, 0),))
+    _M_Test._t_UnknownMostDerived2 = IcePy.defineException('::Test::UnknownMostDerived2', UnknownMostDerived2, (), _M_Test._t_UnknownIntermediate, (('umd2', (), IcePy._t_string, False, 0),))
     UnknownMostDerived2._ice_type = _M_Test._t_UnknownMostDerived2
 
     _M_Test.UnknownMostDerived2 = UnknownMostDerived2
     del UnknownMostDerived2
-
-if 'SPreservedClass' not in _M_Test.__dict__:
-    _M_Test.SPreservedClass = Ice.createTempClass()
-    class SPreservedClass(_M_Test.BaseClass):
-        def __init__(self, bc='', spc=''):
-            _M_Test.BaseClass.__init__(self, bc)
-            self.spc = spc
-
-        def ice_id(self):
-            return '::Test::SPreservedClass'
-
-        @staticmethod
-        def ice_staticId():
-            return '::Test::SPreservedClass'
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_SPreservedClass)
-
-        __repr__ = __str__
-
-    _M_Test._t_SPreservedClass = IcePy.defineValue('::Test::SPreservedClass', SPreservedClass, -1, (), True, False, _M_Test._t_BaseClass, (('spc', (), IcePy._t_string, False, 0),))
-    SPreservedClass._ice_type = _M_Test._t_SPreservedClass
-
-    _M_Test.SPreservedClass = SPreservedClass
-    del SPreservedClass
-
-if 'SPreserved1' not in _M_Test.__dict__:
-    _M_Test.SPreserved1 = Ice.createTempClass()
-    class SPreserved1(_M_Test.KnownPreservedDerived):
-        def __init__(self, b='', kp='', kpd='', p1=None):
-            _M_Test.KnownPreservedDerived.__init__(self, b, kp, kpd)
-            self.p1 = p1
-
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::Test::SPreserved1'
-
-    _M_Test._t_SPreserved1 = IcePy.defineException('::Test::SPreserved1', SPreserved1, (), True, _M_Test._t_KnownPreservedDerived, (('p1', (), _M_Test._t_BaseClass, False, 0),))
-    SPreserved1._ice_type = _M_Test._t_SPreserved1
-
-    _M_Test.SPreserved1 = SPreserved1
-    del SPreserved1
-
-if 'SPreserved2' not in _M_Test.__dict__:
-    _M_Test.SPreserved2 = Ice.createTempClass()
-    class SPreserved2(_M_Test.SPreserved1):
-        def __init__(self, b='', kp='', kpd='', p1=None, p2=None):
-            _M_Test.SPreserved1.__init__(self, b, kp, kpd, p1)
-            self.p2 = p2
-
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::Test::SPreserved2'
-
-    _M_Test._t_SPreserved2 = IcePy.defineException('::Test::SPreserved2', SPreserved2, (), True, _M_Test._t_SPreserved1, (('p2', (), _M_Test._t_BaseClass, False, 0),))
-    SPreserved2._ice_type = _M_Test._t_SPreserved2
-
-    _M_Test.SPreserved2 = SPreserved2
-    del SPreserved2
 
 # End of module Test

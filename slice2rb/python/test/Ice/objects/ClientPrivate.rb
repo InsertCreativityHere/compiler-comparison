@@ -29,7 +29,7 @@ module ::Test
             T_Empty = ::Ice::__declareClass('::Test::Empty')
         end
 
-        T_Empty.defineClass(Empty, -1, false, false, nil, [])
+        T_Empty.defineClass(Empty, -1, false, nil, [])
     end
 
     if not defined?(::Test::AlsoEmpty_Mixin)
@@ -43,7 +43,7 @@ module ::Test
             T_AlsoEmpty = ::Ice::__declareClass('::Test::AlsoEmpty')
         end
 
-        T_AlsoEmpty.defineClass(AlsoEmpty, -1, false, false, nil, [])
+        T_AlsoEmpty.defineClass(AlsoEmpty, -1, false, nil, [])
     end
 
     if not defined?(::Test::UnexpectedObjectExceptionTest_Mixin)
@@ -89,7 +89,7 @@ module ::Test
             T_COneMember = ::Ice::__declareClass('::Test::COneMember')
         end
 
-        T_COneMember.defineClass(COneMember, -1, false, false, nil, [['e', ::Test::T_Empty, false, 0]])
+        T_COneMember.defineClass(COneMember, -1, false, nil, [['e', ::Test::T_Empty, false, 0]])
     end
 
     if not defined?(::Test::CTwoMembers_Mixin)
@@ -110,7 +110,7 @@ module ::Test
             T_CTwoMembers = ::Ice::__declareClass('::Test::CTwoMembers')
         end
 
-        T_CTwoMembers.defineClass(CTwoMembers, -1, false, false, nil, [
+        T_CTwoMembers.defineClass(CTwoMembers, -1, false, nil, [
             ['e1', ::Test::T_Empty, false, 0],
             ['e2', ::Test::T_Empty, false, 0]
         ])
@@ -129,7 +129,7 @@ module ::Test
             attr_accessor :e
         end
 
-        T_EOneMember = ::Ice::__defineException('::Test::EOneMember', EOneMember, false, nil, [["e", ::Test::T_Empty, false, 0]])
+        T_EOneMember = ::Ice::__defineException('::Test::EOneMember', EOneMember, nil, [["e", ::Test::T_Empty, false, 0]])
     end
 
     if not defined?(::Test::ETwoMembers)
@@ -146,7 +146,7 @@ module ::Test
             attr_accessor :e1, :e2
         end
 
-        T_ETwoMembers = ::Ice::__defineException('::Test::ETwoMembers', ETwoMembers, false, nil, [
+        T_ETwoMembers = ::Ice::__defineException('::Test::ETwoMembers', ETwoMembers, nil, [
             ["e1", ::Test::T_Empty, false, 0],
             ["e2", ::Test::T_Empty, false, 0]
         ])

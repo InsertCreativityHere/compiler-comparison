@@ -45,7 +45,7 @@
         }
     };
 
-    Slice.defineValue(Test.Derived, "::Test::Derived", false);
+    Slice.defineValue(Test.Derived, "::Test::Derived");
     exports.Test = Test;
 }
 (typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,

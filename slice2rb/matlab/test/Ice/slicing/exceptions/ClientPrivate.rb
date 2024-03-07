@@ -31,7 +31,7 @@ module ::Test
             attr_accessor :b
         end
 
-        T_Base = ::Ice::__defineException('::Test::Base', Base, false, nil, [["b", ::Ice::T_string, false, 0]])
+        T_Base = ::Ice::__defineException('::Test::Base', Base, nil, [["b", ::Ice::T_string, false, 0]])
     end
 
     if not defined?(::Test::KnownDerived)
@@ -48,7 +48,7 @@ module ::Test
             attr_accessor :kd
         end
 
-        T_KnownDerived = ::Ice::__defineException('::Test::KnownDerived', KnownDerived, false, ::Test::T_Base, [["kd", ::Ice::T_string, false, 0]])
+        T_KnownDerived = ::Ice::__defineException('::Test::KnownDerived', KnownDerived, ::Test::T_Base, [["kd", ::Ice::T_string, false, 0]])
     end
 
     if not defined?(::Test::KnownIntermediate)
@@ -65,7 +65,7 @@ module ::Test
             attr_accessor :ki
         end
 
-        T_KnownIntermediate = ::Ice::__defineException('::Test::KnownIntermediate', KnownIntermediate, false, ::Test::T_Base, [["ki", ::Ice::T_string, false, 0]])
+        T_KnownIntermediate = ::Ice::__defineException('::Test::KnownIntermediate', KnownIntermediate, ::Test::T_Base, [["ki", ::Ice::T_string, false, 0]])
     end
 
     if not defined?(::Test::KnownMostDerived)
@@ -82,7 +82,7 @@ module ::Test
             attr_accessor :kmd
         end
 
-        T_KnownMostDerived = ::Ice::__defineException('::Test::KnownMostDerived', KnownMostDerived, false, ::Test::T_KnownIntermediate, [["kmd", ::Ice::T_string, false, 0]])
+        T_KnownMostDerived = ::Ice::__defineException('::Test::KnownMostDerived', KnownMostDerived, ::Test::T_KnownIntermediate, [["kmd", ::Ice::T_string, false, 0]])
     end
 
     if not defined?(::Test::KnownPreserved)
@@ -99,7 +99,7 @@ module ::Test
             attr_accessor :kp
         end
 
-        T_KnownPreserved = ::Ice::__defineException('::Test::KnownPreserved', KnownPreserved, true, ::Test::T_Base, [["kp", ::Ice::T_string, false, 0]])
+        T_KnownPreserved = ::Ice::__defineException('::Test::KnownPreserved', KnownPreserved, ::Test::T_Base, [["kp", ::Ice::T_string, false, 0]])
     end
 
     if not defined?(::Test::KnownPreservedDerived)
@@ -116,7 +116,7 @@ module ::Test
             attr_accessor :kpd
         end
 
-        T_KnownPreservedDerived = ::Ice::__defineException('::Test::KnownPreservedDerived', KnownPreservedDerived, true, ::Test::T_KnownPreserved, [["kpd", ::Ice::T_string, false, 0]])
+        T_KnownPreservedDerived = ::Ice::__defineException('::Test::KnownPreservedDerived', KnownPreservedDerived, ::Test::T_KnownPreserved, [["kpd", ::Ice::T_string, false, 0]])
     end
 
     if not defined?(::Test::BaseClass_Mixin)
@@ -136,7 +136,7 @@ module ::Test
             T_BaseClass = ::Ice::__declareClass('::Test::BaseClass')
         end
 
-        T_BaseClass.defineClass(BaseClass, -1, true, false, nil, [['bc', ::Ice::T_string, false, 0]])
+        T_BaseClass.defineClass(BaseClass, -1, false, nil, [['bc', ::Ice::T_string, false, 0]])
     end
 
     if not defined?(::Test::Relay_Mixin)
@@ -334,7 +334,7 @@ module ::Test
             T_PreservedClass = ::Ice::__declareClass('::Test::PreservedClass')
         end
 
-        T_PreservedClass.defineClass(PreservedClass, -1, true, false, ::Test::T_BaseClass, [['pc', ::Ice::T_string, false, 0]])
+        T_PreservedClass.defineClass(PreservedClass, -1, false, ::Test::T_BaseClass, [['pc', ::Ice::T_string, false, 0]])
     end
 
     if not defined?(::Test::Preserved1)
@@ -351,7 +351,7 @@ module ::Test
             attr_accessor :p1
         end
 
-        T_Preserved1 = ::Ice::__defineException('::Test::Preserved1', Preserved1, true, ::Test::T_KnownPreservedDerived, [["p1", ::Test::T_BaseClass, false, 0]])
+        T_Preserved1 = ::Ice::__defineException('::Test::Preserved1', Preserved1, ::Test::T_KnownPreservedDerived, [["p1", ::Test::T_BaseClass, false, 0]])
     end
 
     if not defined?(::Test::Preserved2)
@@ -368,6 +368,6 @@ module ::Test
             attr_accessor :p2
         end
 
-        T_Preserved2 = ::Ice::__defineException('::Test::Preserved2', Preserved2, true, ::Test::T_Preserved1, [["p2", ::Test::T_BaseClass, false, 0]])
+        T_Preserved2 = ::Ice::__defineException('::Test::Preserved2', Preserved2, ::Test::T_Preserved1, [["p2", ::Test::T_BaseClass, false, 0]])
     end
 end

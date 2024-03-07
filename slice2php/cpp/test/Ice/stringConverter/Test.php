@@ -36,7 +36,7 @@ namespace Test
         }
     }
 
-    $Test__t_BadEncodingException = IcePHP_defineException('::Test::BadEncodingException', '\\Test\\BadEncodingException', false, null, null);
+    $Test__t_BadEncodingException = IcePHP_defineException('::Test::BadEncodingException', '\\Test\\BadEncodingException', null, null);
 }
 
 namespace Test

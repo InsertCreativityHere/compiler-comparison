@@ -87,7 +87,7 @@ namespace Test1
     }
     global $IcePHP__t_string;
 
-    $Test1__t_WstringException = IcePHP_defineException('::Test1::WstringException', '\\Test1\\WstringException', false, null, array(
+    $Test1__t_WstringException = IcePHP_defineException('::Test1::WstringException', '\\Test1\\WstringException', null, array(
         array('reason', $IcePHP__t_string, false, 0)));
 }
 
@@ -196,7 +196,7 @@ namespace Test2
     }
     global $IcePHP__t_string;
 
-    $Test2__t_WstringException = IcePHP_defineException('::Test2::WstringException', '\\Test2\\WstringException', false, null, array(
+    $Test2__t_WstringException = IcePHP_defineException('::Test2::WstringException', '\\Test2\\WstringException', null, array(
         array('reason', $IcePHP__t_string, false, 0)));
 }
 

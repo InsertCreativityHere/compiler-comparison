@@ -93,7 +93,7 @@ if 'D' not in _M_Test.NumPy.__dict__:
 
         __repr__ = __str__
 
-    _M_Test.NumPy._t_D = IcePy.defineValue('::Test::NumPy::D', D, -1, (), False, False, None, (
+    _M_Test.NumPy._t_D = IcePy.defineValue('::Test::NumPy::D', D, -1, (), False, None, (
         ('boolSeq', (), _M_Test.NumPy._t_BoolSeq1, True, 1),
         ('byteSeq', (), _M_Test.NumPy._t_ByteSeq1, True, 2),
         ('shortSeq', (), _M_Test.NumPy._t_ShortSeq1, True, 3),
@@ -107,7 +107,7 @@ if 'D' not in _M_Test.NumPy.__dict__:
     _M_Test.NumPy.D = D
     del D
 
-_M_Test.NumPy._t_Custom = IcePy.defineValue('::Test::NumPy::Custom', Ice.Value, -1, (), False, True, None, ())
+_M_Test.NumPy._t_Custom = IcePy.defineValue('::Test::NumPy::Custom', Ice.Value, -1, (), True, None, ())
 
 if 'CustomPrx' not in _M_Test.NumPy.__dict__:
     _M_Test.NumPy.CustomPrx = Ice.createTempClass()

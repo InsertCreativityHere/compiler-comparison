@@ -121,7 +121,7 @@ namespace BEGIN
     global $Ice__t_Value;
     global $IcePHP__t_int;
     global $BEGIN__t_breakPrx;
-    $BEGIN__t_display = IcePHP_defineClass('::BEGIN::display', '\\BEGIN\\display', -1, false, false, $Ice__t_Value, array(
+    $BEGIN__t_display = IcePHP_defineClass('::BEGIN::display', '\\BEGIN\\display', -1, false, $Ice__t_Value, array(
         array('when', $IcePHP__t_int, false, 0),
         array('_do', $IcePHP__t_int, false, 0),
         array('dup', $BEGIN__t_breakPrx, false, 0),
@@ -203,7 +203,7 @@ namespace BEGIN
     }
     global $IcePHP__t_int;
 
-    $BEGIN__t_next = IcePHP_defineException('::BEGIN::next', '\\BEGIN\\next', false, null, array(
+    $BEGIN__t_next = IcePHP_defineException('::BEGIN::next', '\\BEGIN\\next', null, array(
         array('_new', $IcePHP__t_int, false, 0)));
 }
 
@@ -235,7 +235,7 @@ namespace BEGIN
     }
     global $IcePHP__t_int;
 
-    $BEGIN__t_nil = IcePHP_defineException('::BEGIN::nil', '\\BEGIN\\nil', false, $BEGIN__t_next, array(
+    $BEGIN__t_nil = IcePHP_defineException('::BEGIN::nil', '\\BEGIN\\nil', $BEGIN__t_next, array(
         array('not', $IcePHP__t_int, false, 0),
         array('_or', $IcePHP__t_int, false, 0)));
 }

@@ -74,7 +74,7 @@ module ::IceStormElection
             attr_accessor :reason
         end
 
-        T_ObserverInconsistencyException = ::Ice::__defineException('::IceStormElection::ObserverInconsistencyException', ObserverInconsistencyException, false, nil, [["reason", ::Ice::T_string, false, 0]])
+        T_ObserverInconsistencyException = ::Ice::__defineException('::IceStormElection::ObserverInconsistencyException', ObserverInconsistencyException, nil, [["reason", ::Ice::T_string, false, 0]])
     end
 
     if not defined?(::IceStormElection::ReplicaObserver_Mixin)

@@ -28,7 +28,7 @@ module ::Test
             end
         end
 
-        T_BaseException = ::Ice::__defineException('::Test::BaseException', BaseException, false, nil, [])
+        T_BaseException = ::Ice::__defineException('::Test::BaseException', BaseException, nil, [])
     end
 
     if not defined?(::Test::InvalidPointException)
@@ -44,7 +44,7 @@ module ::Test
             attr_accessor :index
         end
 
-        T_InvalidPointException = ::Ice::__defineException('::Test::InvalidPointException', InvalidPointException, false, ::Test::T_BaseException, [["index", ::Ice::T_int, false, 0]])
+        T_InvalidPointException = ::Ice::__defineException('::Test::InvalidPointException', InvalidPointException, ::Test::T_BaseException, [["index", ::Ice::T_int, false, 0]])
     end
 
     if not defined?(::Test::InvalidLengthException)
@@ -60,7 +60,7 @@ module ::Test
             attr_accessor :length
         end
 
-        T_InvalidLengthException = ::Ice::__defineException('::Test::InvalidLengthException', InvalidLengthException, false, ::Test::T_BaseException, [["length", ::Ice::T_int, false, 0]])
+        T_InvalidLengthException = ::Ice::__defineException('::Test::InvalidLengthException', InvalidLengthException, ::Test::T_BaseException, [["length", ::Ice::T_int, false, 0]])
     end
 
     if not defined?(::Test::OtherException)
@@ -79,7 +79,7 @@ module ::Test
             attr_accessor :x, :y, :z, :b
         end
 
-        T_OtherException = ::Ice::__defineException('::Test::OtherException', OtherException, false, nil, [
+        T_OtherException = ::Ice::__defineException('::Test::OtherException', OtherException, nil, [
             ["x", ::Ice::T_int, false, 0],
             ["y", ::Ice::T_int, false, 0],
             ["z", ::Ice::T_int, false, 0],
@@ -327,7 +327,7 @@ module ::Test
             T_Pen = ::Ice::__declareClass('::Test::Pen')
         end
 
-        T_Pen.defineClass(Pen, -1, false, false, nil, [
+        T_Pen.defineClass(Pen, -1, false, nil, [
             ['thickness', ::Ice::T_int, false, 0],
             ['color', ::Test::T_Color, false, 0]
         ])

@@ -1121,27 +1121,8 @@ public:
      */
     static ::std::string_view ice_staticId();
 
-    /**
-     * Obtains the SlicedData object created when an unknown value type was marshaled
-     * in the sliced format and the Ice run time sliced it to a known type.
-     * @return The SlicedData object, or nil if the value was not sliced or was not
-     * marshaled in the sliced format.
-     */
-    virtual ::std::shared_ptr<::Ice::SlicedData> ice_getSlicedData() const override;
-
-    /// \cond STREAM
-    virtual void _iceWrite(::Ice::OutputStream*) const override;
-    virtual void _iceRead(::Ice::InputStream*) override;
-    /// \endcond
-
     ::std::int32_t requiredB;
     ::std::optional<::std::int32_t> md;
-
-protected:
-
-    /// \cond STREAM
-    ::std::shared_ptr<::Ice::SlicedData> _iceSlicedData;
-    /// \endcond
 };
 
 class C : public ::Ice::ValueHelper<C, B>

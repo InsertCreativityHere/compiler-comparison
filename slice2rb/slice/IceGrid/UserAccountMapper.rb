@@ -28,7 +28,7 @@ module ::IceGrid
             end
         end
 
-        T_UserAccountNotFoundException = ::Ice::__defineException('::IceGrid::UserAccountNotFoundException', UserAccountNotFoundException, false, nil, [])
+        T_UserAccountNotFoundException = ::Ice::__defineException('::IceGrid::UserAccountNotFoundException', UserAccountNotFoundException, nil, [])
     end
 
     if not defined?(::IceGrid::UserAccountMapper_Mixin)

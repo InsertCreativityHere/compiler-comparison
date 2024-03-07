@@ -43,7 +43,7 @@ module ::Test
             T_C = ::Ice::__declareClass('::Test::C')
         end
 
-        T_C.defineClass(C, -1, false, false, nil, [['i', ::Ice::T_int, false, 0]])
+        T_C.defineClass(C, -1, false, nil, [['i', ::Ice::T_int, false, 0]])
     end
 
     if not defined?(::Test::S1)

@@ -145,7 +145,7 @@ namespace _abstract
     global $Ice__t_Value;
     global $IcePHP__t_int;
     global $abstract__t_casePrx;
-    $abstract__t_delegate = IcePHP_defineClass('::abstract::delegate', '\\_abstract\\delegate', -1, false, false, $Ice__t_Value, array(
+    $abstract__t_delegate = IcePHP_defineClass('::abstract::delegate', '\\_abstract\\delegate', -1, false, $Ice__t_Value, array(
         array('_if', $IcePHP__t_int, false, 0),
         array('_else', $abstract__t_casePrx, false, 0),
         array('event', $IcePHP__t_int, false, 0)));
@@ -233,7 +233,7 @@ namespace _abstract
     global $abstract__t_explicitPrx;
     global $abstract__t_while;
     global $IcePHP__t_string;
-    $abstract__t_optionalMembers = IcePHP_defineClass('::abstract::optionalMembers', '\\_abstract\\optionalMembers', -1, false, false, $Ice__t_Value, array(
+    $abstract__t_optionalMembers = IcePHP_defineClass('::abstract::optionalMembers', '\\_abstract\\optionalMembers', -1, false, $Ice__t_Value, array(
         array('_for', $abstract__t_break, true, 1),
         array('_goto', $abstract__t_as, true, 2),
         array('_if', $abstract__t_explicitPrx, true, 3),
@@ -303,7 +303,7 @@ namespace _abstract
     }
     global $IcePHP__t_int;
 
-    $abstract__t_fixed = IcePHP_defineException('::abstract::fixed', '\\_abstract\\fixed', false, null, array(
+    $abstract__t_fixed = IcePHP_defineException('::abstract::fixed', '\\_abstract\\fixed', null, array(
         array('_for', $IcePHP__t_int, false, 0)));
 }
 
@@ -335,7 +335,7 @@ namespace _abstract
     }
     global $IcePHP__t_int;
 
-    $abstract__t_foreach = IcePHP_defineException('::abstract::foreach', '\\_abstract\\_foreach', false, $abstract__t_fixed, array(
+    $abstract__t_foreach = IcePHP_defineException('::abstract::foreach', '\\_abstract\\_foreach', $abstract__t_fixed, array(
         array('_goto', $IcePHP__t_int, false, 0),
         array('_if', $IcePHP__t_int, false, 0)));
 }
@@ -393,7 +393,7 @@ namespace _abstract
     }
     global $IcePHP__t_int;
 
-    $abstract__t_BaseMethods = IcePHP_defineException('::abstract::BaseMethods', '\\_abstract\\BaseMethods', false, null, array(
+    $abstract__t_BaseMethods = IcePHP_defineException('::abstract::BaseMethods', '\\_abstract\\BaseMethods', null, array(
         array('Data', $IcePHP__t_int, false, 0),
         array('HelpLink', $IcePHP__t_int, false, 0),
         array('InnerException', $IcePHP__t_int, false, 0),

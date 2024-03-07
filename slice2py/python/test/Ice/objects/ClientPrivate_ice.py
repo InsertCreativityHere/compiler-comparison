@@ -38,7 +38,7 @@ if 'Empty' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_Empty = IcePy.defineValue('::Test::Empty', Empty, -1, (), False, False, None, ())
+    _M_Test._t_Empty = IcePy.defineValue('::Test::Empty', Empty, -1, (), False, None, ())
     Empty._ice_type = _M_Test._t_Empty
 
     _M_Test.Empty = Empty
@@ -62,13 +62,13 @@ if 'AlsoEmpty' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_AlsoEmpty = IcePy.defineValue('::Test::AlsoEmpty', AlsoEmpty, -1, (), False, False, None, ())
+    _M_Test._t_AlsoEmpty = IcePy.defineValue('::Test::AlsoEmpty', AlsoEmpty, -1, (), False, None, ())
     AlsoEmpty._ice_type = _M_Test._t_AlsoEmpty
 
     _M_Test.AlsoEmpty = AlsoEmpty
     del AlsoEmpty
 
-_M_Test._t_UnexpectedObjectExceptionTest = IcePy.defineValue('::Test::UnexpectedObjectExceptionTest', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_UnexpectedObjectExceptionTest = IcePy.defineValue('::Test::UnexpectedObjectExceptionTest', Ice.Value, -1, (), True, None, ())
 
 if 'UnexpectedObjectExceptionTestPrx' not in _M_Test.__dict__:
     _M_Test.UnexpectedObjectExceptionTestPrx = Ice.createTempClass()
@@ -145,7 +145,7 @@ if 'COneMember' not in _M_Test.__dict__:
 
     _M_Test._t_COneMember = IcePy.declareValue('::Test::COneMember')
 
-    _M_Test._t_COneMember = IcePy.defineValue('::Test::COneMember', COneMember, -1, (), False, False, None, (('e', (), _M_Test._t_Empty, False, 0),))
+    _M_Test._t_COneMember = IcePy.defineValue('::Test::COneMember', COneMember, -1, (), False, None, (('e', (), _M_Test._t_Empty, False, 0),))
     COneMember._ice_type = _M_Test._t_COneMember
 
     _M_Test.COneMember = COneMember
@@ -172,7 +172,7 @@ if 'CTwoMembers' not in _M_Test.__dict__:
 
     _M_Test._t_CTwoMembers = IcePy.declareValue('::Test::CTwoMembers')
 
-    _M_Test._t_CTwoMembers = IcePy.defineValue('::Test::CTwoMembers', CTwoMembers, -1, (), False, False, None, (
+    _M_Test._t_CTwoMembers = IcePy.defineValue('::Test::CTwoMembers', CTwoMembers, -1, (), False, None, (
         ('e1', (), _M_Test._t_Empty, False, 0),
         ('e2', (), _M_Test._t_Empty, False, 0)
     ))
@@ -194,7 +194,7 @@ if 'EOneMember' not in _M_Test.__dict__:
 
         _ice_id = '::Test::EOneMember'
 
-    _M_Test._t_EOneMember = IcePy.defineException('::Test::EOneMember', EOneMember, (), False, None, (('e', (), _M_Test._t_Empty, False, 0),))
+    _M_Test._t_EOneMember = IcePy.defineException('::Test::EOneMember', EOneMember, (), None, (('e', (), _M_Test._t_Empty, False, 0),))
     EOneMember._ice_type = _M_Test._t_EOneMember
 
     _M_Test.EOneMember = EOneMember
@@ -214,7 +214,7 @@ if 'ETwoMembers' not in _M_Test.__dict__:
 
         _ice_id = '::Test::ETwoMembers'
 
-    _M_Test._t_ETwoMembers = IcePy.defineException('::Test::ETwoMembers', ETwoMembers, (), False, None, (
+    _M_Test._t_ETwoMembers = IcePy.defineException('::Test::ETwoMembers', ETwoMembers, (), None, (
         ('e1', (), _M_Test._t_Empty, False, 0),
         ('e2', (), _M_Test._t_Empty, False, 0)
     ))

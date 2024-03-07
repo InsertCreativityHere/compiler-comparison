@@ -983,28 +983,6 @@ namespace Test
         #region Marshaling support
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override global::Ice.SlicedData ice_getSlicedData()
-        {
-            return iceSlicedData_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override void iceWrite(global::Ice.OutputStream ostr_)
-        {
-            ostr_.startValue(iceSlicedData_);
-            iceWriteImpl(ostr_);
-            ostr_.endValue();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override void iceRead(global::Ice.InputStream istr_)
-        {
-            istr_.startValue();
-            iceReadImpl(istr_);
-            iceSlicedData_ = istr_.endValue(true);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, false);
@@ -1021,8 +999,6 @@ namespace Test
             istr_.endSlice();
             base.iceReadImpl(istr_);
         }
-
-        protected global::Ice.SlicedData iceSlicedData_;
 
         #endregion
     }
@@ -1232,28 +1208,6 @@ namespace Test
         #region Marshaling support
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override global::Ice.SlicedData ice_getSlicedData()
-        {
-            return iceSlicedData_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override void iceWrite(global::Ice.OutputStream ostr_)
-        {
-            ostr_.startValue(iceSlicedData_);
-            iceWriteImpl(ostr_);
-            ostr_.endValue();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override void iceRead(global::Ice.InputStream istr_)
-        {
-            istr_.startValue();
-            iceReadImpl(istr_);
-            iceSlicedData_ = istr_.endValue(true);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
         {
             ostr_.startSlice(ice_staticId(), -1, true);
@@ -1268,8 +1222,6 @@ namespace Test
             istr_.readValue((PNode v) => { this.next = v; });
             istr_.endSlice();
         }
-
-        protected global::Ice.SlicedData iceSlicedData_;
 
         #endregion
     }
@@ -1311,28 +1263,6 @@ namespace Test
         #region Marshaling support
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override global::Ice.SlicedData ice_getSlicedData()
-        {
-            return slicedData_;
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override void iceWrite(global::Ice.OutputStream ostr_)
-        {
-            ostr_.startException(slicedData_);
-            iceWriteImpl(ostr_);
-            ostr_.endException();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override void iceRead(global::Ice.InputStream istr_)
-        {
-            istr_.startException();
-            iceReadImpl(istr_);
-            slicedData_ = istr_.endException(true);
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
         {
             ostr_.startSlice("::Test::PreservedException", -1, true);
@@ -1345,8 +1275,6 @@ namespace Test
             istr_.startSlice();
             istr_.endSlice();
         }
-
-        protected global::Ice.SlicedData slicedData_;
 
         #endregion
     }

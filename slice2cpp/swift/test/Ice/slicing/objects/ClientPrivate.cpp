@@ -65,30 +65,6 @@ Test::PCUnknown::~PCUnknown()
 {
 }
 
-::std::shared_ptr<::Ice::SlicedData>
-Test::PCUnknown::ice_getSlicedData() const
-{
-    return _iceSlicedData;
-}
-
-/// \cond STREAM
-void
-Test::PCUnknown::_iceWrite(::Ice::OutputStream* ostr) const
-{
-    ostr->startValue(_iceSlicedData);
-    _iceWriteImpl(ostr);
-    ostr->endValue();
-}
-
-void
-Test::PCUnknown::_iceRead(::Ice::InputStream* istr)
-{
-    istr->startValue();
-    _iceReadImpl(istr);
-    _iceSlicedData = istr->endValue(true);
-}
-/// \endcond
-
 ::std::string_view
 Test::PCUnknown::ice_staticId()
 {

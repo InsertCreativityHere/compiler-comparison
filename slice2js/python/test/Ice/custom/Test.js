@@ -146,7 +146,7 @@
         }
     };
 
-    Slice.defineValue(Test.C, "::Test::C", false);
+    Slice.defineValue(Test.C, "::Test::C");
 
     Test.D = class extends Ice.Value
     {
@@ -185,7 +185,7 @@
         }
     };
 
-    Slice.defineValue(Test.D, "::Test::D", false);
+    Slice.defineValue(Test.D, "::Test::D");
 
     const iceC_Test_Custom_ids = [
         "::Ice::Object",

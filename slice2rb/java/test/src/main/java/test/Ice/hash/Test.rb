@@ -258,7 +258,7 @@ module ::Test
             T_Pen = ::Ice::__declareClass('::Test::Pen')
         end
 
-        T_Pen.defineClass(Pen, -1, false, false, nil, [
+        T_Pen.defineClass(Pen, -1, false, nil, [
             ['thickness', ::Ice::T_int, false, 0],
             ['color', ::Test::T_Color, false, 0]
         ])

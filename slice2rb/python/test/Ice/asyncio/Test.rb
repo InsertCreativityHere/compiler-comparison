@@ -28,7 +28,7 @@ module ::Test
             end
         end
 
-        T_TestException = ::Ice::__defineException('::Test::TestException', TestException, false, nil, [])
+        T_TestException = ::Ice::__defineException('::Test::TestException', TestException, nil, [])
     end
 
     if not defined?(::Test::TestIntf_Mixin)

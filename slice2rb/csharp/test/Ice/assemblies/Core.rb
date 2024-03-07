@@ -28,6 +28,6 @@ module ::Core
             end
         end
 
-        T_ArgumentException = ::Ice::__defineException('::Core::ArgumentException', ArgumentException, false, nil, [])
+        T_ArgumentException = ::Ice::__defineException('::Core::ArgumentException', ArgumentException, nil, [])
     end
 end

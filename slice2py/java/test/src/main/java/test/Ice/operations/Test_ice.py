@@ -396,7 +396,7 @@ if '_t_StringStringSD' not in _M_Test.__dict__:
 if '_t_MyEnumMyEnumSD' not in _M_Test.__dict__:
     _M_Test._t_MyEnumMyEnumSD = IcePy.defineDictionary('::Test::MyEnumMyEnumSD', (), _M_Test._t_MyEnum, _M_Test._t_MyEnumS)
 
-_M_Test._t_MyClass = IcePy.defineValue('::Test::MyClass', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_MyClass = IcePy.defineValue('::Test::MyClass', Ice.Value, -1, (), True, None, ())
 
 if 'MyClassPrx' not in _M_Test.__dict__:
     _M_Test.MyClassPrx = Ice.createTempClass()
@@ -1290,7 +1290,7 @@ if 'MyClass1' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_MyClass1 = IcePy.defineValue('::Test::MyClass1', MyClass1, -1, (), False, False, None, (
+    _M_Test._t_MyClass1 = IcePy.defineValue('::Test::MyClass1', MyClass1, -1, (), False, None, (
         ('tesT', (), IcePy._t_string, False, 0),
         ('myClass', (), _M_Test._t_MyClassPrx, False, 0),
         ('myClass1', (), IcePy._t_string, False, 0)
@@ -1300,7 +1300,7 @@ if 'MyClass1' not in _M_Test.__dict__:
     _M_Test.MyClass1 = MyClass1
     del MyClass1
 
-_M_Test._t_MyDerivedClass = IcePy.defineValue('::Test::MyDerivedClass', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_MyDerivedClass = IcePy.defineValue('::Test::MyDerivedClass', Ice.Value, -1, (), True, None, ())
 
 if 'MyDerivedClassPrx' not in _M_Test.__dict__:
     _M_Test.MyDerivedClassPrx = Ice.createTempClass()
@@ -1445,7 +1445,7 @@ _M_Test.su2 = "\U00000128\U00000178\U000000FF\U00000100\U00001F00\U00010194\U000
 _M_Test2 = Ice.openModule('Test2')
 __name__ = 'Test2'
 
-_M_Test2._t_MyDerivedClass = IcePy.defineValue('::Test2::MyDerivedClass', Ice.Value, -1, (), False, True, None, ())
+_M_Test2._t_MyDerivedClass = IcePy.defineValue('::Test2::MyDerivedClass', Ice.Value, -1, (), True, None, ())
 
 if 'MyDerivedClassPrx' not in _M_Test2.__dict__:
     _M_Test2.MyDerivedClassPrx = Ice.createTempClass()

@@ -29,7 +29,7 @@ module ::Test
             end
         end
 
-        T_InterruptedException = ::Ice::__defineException('::Test::InterruptedException', InterruptedException, false, nil, [])
+        T_InterruptedException = ::Ice::__defineException('::Test::InterruptedException', InterruptedException, nil, [])
     end
 
     if not defined?(::Test::TestIntf_Mixin)
@@ -88,7 +88,7 @@ module ::Test
             end
         end
 
-        T_CannotInterruptException = ::Ice::__defineException('::Test::CannotInterruptException', CannotInterruptException, false, nil, [])
+        T_CannotInterruptException = ::Ice::__defineException('::Test::CannotInterruptException', CannotInterruptException, nil, [])
     end
 
     if not defined?(::Test::TestIntfController_Mixin)

@@ -224,7 +224,7 @@
         }
     };
 
-    Slice.defineValue(Test.Pen, "::Test::Pen", false);
+    Slice.defineValue(Test.Pen, "::Test::Pen");
 
     Test.Draw = class
     {

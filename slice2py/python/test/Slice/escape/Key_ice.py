@@ -120,7 +120,7 @@ if '_continue' not in _M__and.__dict__:
     _M__and._continue = _continue
     del _continue
 
-_M__and._t__del = IcePy.defineValue('::and::del', Ice.Value, -1, (), False, True, None, ())
+_M__and._t__del = IcePy.defineValue('::and::del', Ice.Value, -1, (), True, None, ())
 
 if 'delPrx' not in _M__and.__dict__:
     _M__and.delPrx = Ice.createTempClass()
@@ -177,7 +177,7 @@ if 'delPrx' not in _M__and.__dict__:
     _M__and._del = _del
     del _del
 
-_M__and._t__exec = IcePy.defineValue('::and::exec', Ice.Value, -1, (), False, True, None, ())
+_M__and._t__exec = IcePy.defineValue('::and::exec', Ice.Value, -1, (), True, None, ())
 
 if 'execPrx' not in _M__and.__dict__:
     _M__and.execPrx = Ice.createTempClass()
@@ -254,7 +254,7 @@ if '_for' not in _M__and.__dict__:
 
         __repr__ = __str__
 
-    _M__and._t__for = IcePy.defineValue('::and::for', _for, -1, (), False, False, None, (
+    _M__and._t__for = IcePy.defineValue('::and::for', _for, -1, (), False, None, (
         ('_lambda', (), IcePy._t_int, False, 0),
         ('_from', (), _M__and._t_execPrx, False, 0),
         ('_global', (), IcePy._t_int, False, 0)
@@ -264,7 +264,7 @@ if '_for' not in _M__and.__dict__:
     _M__and._for = _for
     del _for
 
-_M__and._t__if = IcePy.defineValue('::and::if', Ice.Value, -1, (), False, True, None, ())
+_M__and._t__if = IcePy.defineValue('::and::if', Ice.Value, -1, (), True, None, ())
 
 if 'ifPrx' not in _M__and.__dict__:
     _M__and.ifPrx = Ice.createTempClass()
@@ -329,7 +329,7 @@ if '_is' not in _M__and.__dict__:
 
         _ice_id = '::and::is'
 
-    _M__and._t__is = IcePy.defineException('::and::is', _is, (), False, None, (('_lambda', (), IcePy._t_int, False, 0),))
+    _M__and._t__is = IcePy.defineException('::and::is', _is, (), None, (('_lambda', (), IcePy._t_int, False, 0),))
     _is._ice_type = _M__and._t__is
 
     _M__and._is = _is
@@ -350,7 +350,7 @@ if '_not' not in _M__and.__dict__:
 
         _ice_id = '::and::not'
 
-    _M__and._t__not = IcePy.defineException('::and::not', _not, (), False, _M__and._t__is, (
+    _M__and._t__not = IcePy.defineException('::and::not', _not, (), _M__and._t__is, (
         ('_or', (), IcePy._t_int, False, 0),
         ('_pass', (), IcePy._t_int, False, 0)
     ))
@@ -359,7 +359,7 @@ if '_not' not in _M__and.__dict__:
     _M__and._not = _not
     del _not
 
-_M__and._t__print = IcePy.defineValue('::and::print', Ice.Value, -1, (), False, True, None, ())
+_M__and._t__print = IcePy.defineValue('::and::print', Ice.Value, -1, (), True, None, ())
 
 if 'printPrx' not in _M__and.__dict__:
     _M__and.printPrx = Ice.createTempClass()

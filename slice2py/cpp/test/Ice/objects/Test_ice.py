@@ -121,7 +121,7 @@ if 'Base' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_Base = IcePy.defineValue('::Test::Base', Base, -1, (), False, False, None, (
+    _M_Test._t_Base = IcePy.defineValue('::Test::Base', Base, -1, (), False, None, (
         ('theS', (), _M_Test._t_S, False, 0),
         ('str', (), IcePy._t_string, False, 0)
     ))
@@ -143,7 +143,7 @@ if 'BaseEx' not in _M_Test.__dict__:
 
         _ice_id = '::Test::BaseEx'
 
-    _M_Test._t_BaseEx = IcePy.defineException('::Test::BaseEx', BaseEx, (), False, None, (('reason', (), IcePy._t_string, False, 0),))
+    _M_Test._t_BaseEx = IcePy.defineException('::Test::BaseEx', BaseEx, (), None, (('reason', (), IcePy._t_string, False, 0),))
     BaseEx._ice_type = _M_Test._t_BaseEx
 
     _M_Test.BaseEx = BaseEx
@@ -178,7 +178,7 @@ if 'A' not in _M_Test.__dict__:
 
     _M_Test._t_A = IcePy.declareValue('::Test::A')
 
-    _M_Test._t_A = IcePy.defineValue('::Test::A', A, -1, (), False, False, None, (
+    _M_Test._t_A = IcePy.defineValue('::Test::A', A, -1, (), False, None, (
         ('theB', (), _M_Test._t_B, False, 0),
         ('theC', (), _M_Test._t_C, False, 0),
         ('preMarshalInvoked', (), IcePy._t_bool, False, 0),
@@ -208,7 +208,7 @@ if 'B' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_B = IcePy.defineValue('::Test::B', B, -1, (), False, False, _M_Test._t_A, (('theA', (), _M_Test._t_A, False, 0),))
+    _M_Test._t_B = IcePy.defineValue('::Test::B', B, -1, (), False, _M_Test._t_A, (('theA', (), _M_Test._t_A, False, 0),))
     B._ice_type = _M_Test._t_B
 
     _M_Test.B = B
@@ -234,7 +234,7 @@ if 'C' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_C = IcePy.defineValue('::Test::C', C, -1, (), False, False, None, (
+    _M_Test._t_C = IcePy.defineValue('::Test::C', C, -1, (), False, None, (
         ('theB', (), _M_Test._t_B, False, 0),
         ('preMarshalInvoked', (), IcePy._t_bool, False, 0),
         ('postUnmarshalInvoked', (), IcePy._t_bool, False, 0)
@@ -268,7 +268,7 @@ if 'D' not in _M_Test.__dict__:
 
     _M_Test._t_D = IcePy.declareValue('::Test::D')
 
-    _M_Test._t_D = IcePy.defineValue('::Test::D', D, -1, (), False, False, None, (
+    _M_Test._t_D = IcePy.defineValue('::Test::D', D, -1, (), False, None, (
         ('theA', (), _M_Test._t_A, False, 0),
         ('theB', (), _M_Test._t_B, False, 0),
         ('theC', (), _M_Test._t_C, False, 0),
@@ -299,7 +299,7 @@ if 'E' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_E = IcePy.defineValue('::Test::E', E, -1, (), False, False, None, (
+    _M_Test._t_E = IcePy.defineValue('::Test::E', E, -1, (), False, None, (
         ('_i', (), IcePy._t_int, False, 0),
         ('_s', (), IcePy._t_string, False, 0)
     ))
@@ -329,7 +329,7 @@ if 'F' not in _M_Test.__dict__:
 
     _M_Test._t_F = IcePy.declareValue('::Test::F')
 
-    _M_Test._t_F = IcePy.defineValue('::Test::F', F, -1, (), False, False, None, (
+    _M_Test._t_F = IcePy.defineValue('::Test::F', F, -1, (), False, None, (
         ('_e1', (), _M_Test._t_E, False, 0),
         ('e2', (), _M_Test._t_E, False, 0)
     ))
@@ -356,13 +356,13 @@ if 'G' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_G = IcePy.defineValue('::Test::G', G, -1, (), False, False, _M_Test._t_Base, ())
+    _M_Test._t_G = IcePy.defineValue('::Test::G', G, -1, (), False, _M_Test._t_Base, ())
     G._ice_type = _M_Test._t_G
 
     _M_Test.G = G
     del G
 
-_M_Test._t_I = IcePy.defineValue('::Test::I', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_I = IcePy.defineValue('::Test::I', Ice.Value, -1, (), True, None, ())
 
 if 'IPrx' not in _M_Test.__dict__:
     _M_Test.IPrx = Ice.createTempClass()
@@ -408,7 +408,7 @@ if 'IPrx' not in _M_Test.__dict__:
     _M_Test.I = I
     del I
 
-_M_Test._t_J = IcePy.defineValue('::Test::J', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_J = IcePy.defineValue('::Test::J', Ice.Value, -1, (), True, None, ())
 
 if 'JPrx' not in _M_Test.__dict__:
     _M_Test.JPrx = Ice.createTempClass()
@@ -478,7 +478,7 @@ if 'Compact' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_Compact = IcePy.defineValue('::Test::Compact', Compact, 1, (), False, False, None, ())
+    _M_Test._t_Compact = IcePy.defineValue('::Test::Compact', Compact, 1, (), False, None, ())
     Compact._ice_type = _M_Test._t_Compact
 
     _M_Test.Compact = Compact
@@ -504,7 +504,7 @@ if 'CompactExt' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_CompactExt = IcePy.defineValue('::Test::CompactExt', CompactExt, 789, (), False, False, _M_Test._t_Compact, ())
+    _M_Test._t_CompactExt = IcePy.defineValue('::Test::CompactExt', CompactExt, 789, (), False, _M_Test._t_Compact, ())
     CompactExt._ice_type = _M_Test._t_CompactExt
 
     _M_Test.CompactExt = CompactExt
@@ -534,7 +534,7 @@ if 'A' not in _M_Test.Inner.__dict__:
 
     _M_Test.Inner._t_A = IcePy.declareValue('::Test::Inner::A')
 
-    _M_Test.Inner._t_A = IcePy.defineValue('::Test::Inner::A', A, -1, (), False, False, None, (('theA', (), _M_Test._t_A, False, 0),))
+    _M_Test.Inner._t_A = IcePy.defineValue('::Test::Inner::A', A, -1, (), False, None, (('theA', (), _M_Test._t_A, False, 0),))
     A._ice_type = _M_Test.Inner._t_A
 
     _M_Test.Inner.A = A
@@ -553,7 +553,7 @@ if 'Ex' not in _M_Test.Inner.__dict__:
 
         _ice_id = '::Test::Inner::Ex'
 
-    _M_Test.Inner._t_Ex = IcePy.defineException('::Test::Inner::Ex', Ex, (), False, None, (('reason', (), IcePy._t_string, False, 0),))
+    _M_Test.Inner._t_Ex = IcePy.defineException('::Test::Inner::Ex', Ex, (), None, (('reason', (), IcePy._t_string, False, 0),))
     Ex._ice_type = _M_Test.Inner._t_Ex
 
     _M_Test.Inner.Ex = Ex
@@ -583,7 +583,7 @@ if 'A' not in _M_Test.Inner.Sub.__dict__:
 
     _M_Test.Inner.Sub._t_A = IcePy.declareValue('::Test::Inner::Sub::A')
 
-    _M_Test.Inner.Sub._t_A = IcePy.defineValue('::Test::Inner::Sub::A', A, -1, (), False, False, None, (('theA', (), _M_Test.Inner._t_A, False, 0),))
+    _M_Test.Inner.Sub._t_A = IcePy.defineValue('::Test::Inner::Sub::A', A, -1, (), False, None, (('theA', (), _M_Test.Inner._t_A, False, 0),))
     A._ice_type = _M_Test.Inner.Sub._t_A
 
     _M_Test.Inner.Sub.A = A
@@ -602,7 +602,7 @@ if 'Ex' not in _M_Test.Inner.Sub.__dict__:
 
         _ice_id = '::Test::Inner::Sub::Ex'
 
-    _M_Test.Inner.Sub._t_Ex = IcePy.defineException('::Test::Inner::Sub::Ex', Ex, (), False, None, (('reason', (), IcePy._t_string, False, 0),))
+    _M_Test.Inner.Sub._t_Ex = IcePy.defineException('::Test::Inner::Sub::Ex', Ex, (), None, (('reason', (), IcePy._t_string, False, 0),))
     Ex._ice_type = _M_Test.Inner.Sub._t_Ex
 
     _M_Test.Inner.Sub.Ex = Ex
@@ -634,7 +634,7 @@ if 'A1' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_A1 = IcePy.defineValue('::Test::A1', A1, -1, (), False, False, None, (('name', (), IcePy._t_string, False, 0),))
+    _M_Test._t_A1 = IcePy.defineValue('::Test::A1', A1, -1, (), False, None, (('name', (), IcePy._t_string, False, 0),))
     A1._ice_type = _M_Test._t_A1
 
     _M_Test.A1 = A1
@@ -661,7 +661,7 @@ if 'B1' not in _M_Test.__dict__:
 
     _M_Test._t_B1 = IcePy.declareValue('::Test::B1')
 
-    _M_Test._t_B1 = IcePy.defineValue('::Test::B1', B1, -1, (), False, False, None, (
+    _M_Test._t_B1 = IcePy.defineValue('::Test::B1', B1, -1, (), False, None, (
         ('a1', (), _M_Test._t_A1, False, 0),
         ('a2', (), _M_Test._t_A1, False, 0)
     ))
@@ -692,7 +692,7 @@ if 'D1' not in _M_Test.__dict__:
 
     _M_Test._t_D1 = IcePy.declareValue('::Test::D1')
 
-    _M_Test._t_D1 = IcePy.defineValue('::Test::D1', D1, -1, (), False, False, _M_Test._t_B1, (
+    _M_Test._t_D1 = IcePy.defineValue('::Test::D1', D1, -1, (), False, _M_Test._t_B1, (
         ('a3', (), _M_Test._t_A1, False, 0),
         ('a4', (), _M_Test._t_A1, False, 0)
     ))
@@ -715,7 +715,7 @@ if 'EBase' not in _M_Test.__dict__:
 
         _ice_id = '::Test::EBase'
 
-    _M_Test._t_EBase = IcePy.defineException('::Test::EBase', EBase, (), False, None, (
+    _M_Test._t_EBase = IcePy.defineException('::Test::EBase', EBase, (), None, (
         ('a1', (), _M_Test._t_A1, False, 0),
         ('a2', (), _M_Test._t_A1, False, 0)
     ))
@@ -739,7 +739,7 @@ if 'EDerived' not in _M_Test.__dict__:
 
         _ice_id = '::Test::EDerived'
 
-    _M_Test._t_EDerived = IcePy.defineException('::Test::EDerived', EDerived, (), False, _M_Test._t_EBase, (
+    _M_Test._t_EDerived = IcePy.defineException('::Test::EDerived', EDerived, (), _M_Test._t_EBase, (
         ('a3', (), _M_Test._t_A1, False, 0),
         ('a4', (), _M_Test._t_A1, False, 0)
     ))
@@ -768,7 +768,7 @@ if 'Recursive' not in _M_Test.__dict__:
 
     _M_Test._t_Recursive = IcePy.declareValue('::Test::Recursive')
 
-    _M_Test._t_Recursive = IcePy.defineValue('::Test::Recursive', Recursive, -1, (), False, False, None, (('v', (), _M_Test._t_Recursive, False, 0),))
+    _M_Test._t_Recursive = IcePy.defineValue('::Test::Recursive', Recursive, -1, (), False, None, (('v', (), _M_Test._t_Recursive, False, 0),))
     Recursive._ice_type = _M_Test._t_Recursive
 
     _M_Test.Recursive = Recursive
@@ -794,7 +794,7 @@ if 'K' not in _M_Test.__dict__:
 
     _M_Test._t_K = IcePy.declareValue('::Test::K')
 
-    _M_Test._t_K = IcePy.defineValue('::Test::K', K, -1, (), False, False, None, (('value', (), IcePy._t_Value, False, 0),))
+    _M_Test._t_K = IcePy.defineValue('::Test::K', K, -1, (), False, None, (('value', (), IcePy._t_Value, False, 0),))
     K._ice_type = _M_Test._t_K
 
     _M_Test.K = K
@@ -818,7 +818,7 @@ if 'L' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_L = IcePy.defineValue('::Test::L', L, -1, (), False, False, None, (('data', (), IcePy._t_string, False, 0),))
+    _M_Test._t_L = IcePy.defineValue('::Test::L', L, -1, (), False, None, (('data', (), IcePy._t_string, False, 0),))
     L._ice_type = _M_Test._t_L
 
     _M_Test.L = L
@@ -945,7 +945,7 @@ if 'M' not in _M_Test.__dict__:
 
     _M_Test._t_M = IcePy.declareValue('::Test::M')
 
-    _M_Test._t_M = IcePy.defineValue('::Test::M', M, -1, (), False, False, None, (('v', (), _M_Test._t_LMap, False, 0),))
+    _M_Test._t_M = IcePy.defineValue('::Test::M', M, -1, (), False, None, (('v', (), _M_Test._t_LMap, False, 0),))
     M._ice_type = _M_Test._t_M
 
     _M_Test.M = M
@@ -979,7 +979,7 @@ if 'F3' not in _M_Test.__dict__:
 
     _M_Test._t_F3 = IcePy.declareValue('::Test::F3')
 
-    _M_Test._t_F3 = IcePy.defineValue('::Test::F3', F3, -1, (), False, False, None, (
+    _M_Test._t_F3 = IcePy.defineValue('::Test::F3', F3, -1, (), False, None, (
         ('f1', (), _M_Test._t_F1, False, 0),
         ('f2', (), _M_Test._t_F2Prx, False, 0)
     ))
@@ -988,7 +988,7 @@ if 'F3' not in _M_Test.__dict__:
     _M_Test.F3 = F3
     del F3
 
-_M_Test._t_Initial = IcePy.defineValue('::Test::Initial', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_Initial = IcePy.defineValue('::Test::Initial', Ice.Value, -1, (), True, None, ())
 
 if 'InitialPrx' not in _M_Test.__dict__:
     _M_Test.InitialPrx = Ice.createTempClass()
@@ -1381,7 +1381,7 @@ if 'InitialPrx' not in _M_Test.__dict__:
     _M_Test.Initial = Initial
     del Initial
 
-_M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), True, None, ())
 
 if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntfPrx = Ice.createTempClass()
@@ -1466,7 +1466,7 @@ if 'Empty' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_Empty = IcePy.defineValue('::Test::Empty', Empty, -1, (), False, False, None, ())
+    _M_Test._t_Empty = IcePy.defineValue('::Test::Empty', Empty, -1, (), False, None, ())
     Empty._ice_type = _M_Test._t_Empty
 
     _M_Test.Empty = Empty
@@ -1490,13 +1490,13 @@ if 'AlsoEmpty' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_AlsoEmpty = IcePy.defineValue('::Test::AlsoEmpty', AlsoEmpty, -1, (), False, False, None, ())
+    _M_Test._t_AlsoEmpty = IcePy.defineValue('::Test::AlsoEmpty', AlsoEmpty, -1, (), False, None, ())
     AlsoEmpty._ice_type = _M_Test._t_AlsoEmpty
 
     _M_Test.AlsoEmpty = AlsoEmpty
     del AlsoEmpty
 
-_M_Test._t_UnexpectedObjectExceptionTest = IcePy.defineValue('::Test::UnexpectedObjectExceptionTest', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_UnexpectedObjectExceptionTest = IcePy.defineValue('::Test::UnexpectedObjectExceptionTest', Ice.Value, -1, (), True, None, ())
 
 if 'UnexpectedObjectExceptionTestPrx' not in _M_Test.__dict__:
     _M_Test.UnexpectedObjectExceptionTestPrx = Ice.createTempClass()
@@ -1573,7 +1573,7 @@ if 'COneMember' not in _M_Test.__dict__:
 
     _M_Test._t_COneMember = IcePy.declareValue('::Test::COneMember')
 
-    _M_Test._t_COneMember = IcePy.defineValue('::Test::COneMember', COneMember, -1, (), False, False, None, (('e', (), _M_Test._t_Empty, False, 0),))
+    _M_Test._t_COneMember = IcePy.defineValue('::Test::COneMember', COneMember, -1, (), False, None, (('e', (), _M_Test._t_Empty, False, 0),))
     COneMember._ice_type = _M_Test._t_COneMember
 
     _M_Test.COneMember = COneMember
@@ -1600,7 +1600,7 @@ if 'CTwoMembers' not in _M_Test.__dict__:
 
     _M_Test._t_CTwoMembers = IcePy.declareValue('::Test::CTwoMembers')
 
-    _M_Test._t_CTwoMembers = IcePy.defineValue('::Test::CTwoMembers', CTwoMembers, -1, (), False, False, None, (
+    _M_Test._t_CTwoMembers = IcePy.defineValue('::Test::CTwoMembers', CTwoMembers, -1, (), False, None, (
         ('e1', (), _M_Test._t_Empty, False, 0),
         ('e2', (), _M_Test._t_Empty, False, 0)
     ))
@@ -1622,7 +1622,7 @@ if 'EOneMember' not in _M_Test.__dict__:
 
         _ice_id = '::Test::EOneMember'
 
-    _M_Test._t_EOneMember = IcePy.defineException('::Test::EOneMember', EOneMember, (), False, None, (('e', (), _M_Test._t_Empty, False, 0),))
+    _M_Test._t_EOneMember = IcePy.defineException('::Test::EOneMember', EOneMember, (), None, (('e', (), _M_Test._t_Empty, False, 0),))
     EOneMember._ice_type = _M_Test._t_EOneMember
 
     _M_Test.EOneMember = EOneMember
@@ -1642,7 +1642,7 @@ if 'ETwoMembers' not in _M_Test.__dict__:
 
         _ice_id = '::Test::ETwoMembers'
 
-    _M_Test._t_ETwoMembers = IcePy.defineException('::Test::ETwoMembers', ETwoMembers, (), False, None, (
+    _M_Test._t_ETwoMembers = IcePy.defineException('::Test::ETwoMembers', ETwoMembers, (), None, (
         ('e1', (), _M_Test._t_Empty, False, 0),
         ('e2', (), _M_Test._t_Empty, False, 0)
     ))

@@ -17,24 +17,11 @@ classdef PreservedException < Ice.UserException
         function id = ice_id(~)
             id = '::Test::PreservedException';
         end
-        function r = ice_getSlicedData(obj)
-            r = obj.iceSlicedData_;
-        end
-    end
-    methods(Hidden=true)
-        function obj = iceRead(obj, is)
-            is.startException();
-            obj = obj.iceReadImpl(is);
-            obj.iceSlicedData_ = is.endException(true);
-        end
     end
     methods(Access=protected)
         function obj = iceReadImpl(obj, is)
             is.startSlice();
             is.endSlice();
         end
-    end
-    properties(Access=protected)
-        iceSlicedData_
     end
 end

@@ -388,47 +388,6 @@ public:
     ::std::shared_ptr<::Test::PBase> pb;
 };
 
-class PSUnknownException : public ::Ice::UserExceptionHelper<PSUnknownException, PreservedException>
-{
-public:
-
-    virtual ~PSUnknownException();
-
-    PSUnknownException(const PSUnknownException&) = default;
-
-    PSUnknownException() = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    PSUnknownException(const ::std::shared_ptr<PSUnknown2>& p) :
-        ::Ice::UserExceptionHelper<PSUnknownException, PreservedException>(),
-        p(p)
-    {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::shared_ptr<::Test::PSUnknown2>&> ice_tuple() const
-    {
-        return std::tie(p);
-    }
-
-    /**
-     * Obtains the Slice type ID of this exception.
-     * @return The fully-scoped type ID.
-     */
-    static ::std::string_view ice_staticId();
-
-    /// \cond STREAM
-    virtual bool _usesClasses() const override;
-    /// \endcond
-
-    ::std::shared_ptr<::Test::PSUnknown2> p;
-};
-
 }
 
 /// \cond STREAM
@@ -558,15 +517,6 @@ struct StreamReader<::Test::PSUnknown2, S>
     static void read(S* istr, ::Test::PSUnknown2& v)
     {
         istr->readAll(v.pb);
-    }
-};
-
-template<typename S>
-struct StreamReader<::Test::PSUnknownException, S>
-{
-    static void read(S* istr, ::Test::PSUnknownException& v)
-    {
-        istr->readAll(v.p);
     }
 };
 

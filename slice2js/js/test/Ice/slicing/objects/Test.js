@@ -43,7 +43,7 @@
         }
     };
 
-    Slice.defineValue(Test.SBase, "::Test::SBase", false);
+    Slice.defineValue(Test.SBase, "::Test::SBase");
 
     Test.SBSKnownDerived = class extends Test.SBase
     {
@@ -64,7 +64,7 @@
         }
     };
 
-    Slice.defineValue(Test.SBSKnownDerived, "::Test::SBSKnownDerived", false);
+    Slice.defineValue(Test.SBSKnownDerived, "::Test::SBSKnownDerived");
 
     Test.B = class extends Ice.Value
     {
@@ -88,7 +88,7 @@
         }
     };
 
-    Slice.defineValue(Test.B, "::Test::B", false);
+    Slice.defineValue(Test.B, "::Test::B");
 
     Test.D1 = class extends Test.B
     {
@@ -112,7 +112,7 @@
         }
     };
 
-    Slice.defineValue(Test.D1, "::Test::D1", false);
+    Slice.defineValue(Test.D1, "::Test::D1");
 
     Slice.defineSequence(Test, "BSeqHelper", "Ice.ObjectHelper", false, "Test.B");
 
@@ -135,7 +135,7 @@
         }
     };
 
-    Slice.defineValue(Test.SS1, "::Test::SS1", false);
+    Slice.defineValue(Test.SS1, "::Test::SS1");
 
     Test.SS2 = class extends Ice.Value
     {
@@ -156,7 +156,7 @@
         }
     };
 
-    Slice.defineValue(Test.SS2, "::Test::SS2", false);
+    Slice.defineValue(Test.SS2, "::Test::SS2");
 
     Test.SS3 = class
     {
@@ -286,7 +286,7 @@
         }
     };
 
-    Slice.defineValue(Test.PBase, "::Test::PBase", false);
+    Slice.defineValue(Test.PBase, "::Test::PBase");
 
     Slice.defineSequence(Test, "PBaseSeqHelper", "Ice.ObjectHelper", false, "Test.PBase");
 
@@ -309,7 +309,7 @@
         }
     };
 
-    Slice.defineValue(Test.Preserved, "::Test::Preserved", true);
+    Slice.defineValue(Test.Preserved, "::Test::Preserved");
 
     Test.PDerived = class extends Test.Preserved
     {
@@ -330,7 +330,7 @@
         }
     };
 
-    Slice.defineValue(Test.PDerived, "::Test::PDerived", false);
+    Slice.defineValue(Test.PDerived, "::Test::PDerived");
 
     Test.CompactPDerived = class extends Test.Preserved
     {
@@ -356,7 +356,7 @@
         }
     };
 
-    Slice.defineValue(Test.CompactPDerived, "::Test::CompactPDerived", false, 56);
+    Slice.defineValue(Test.CompactPDerived, "::Test::CompactPDerived", 56);
 
     Test.PNode = class extends Ice.Value
     {
@@ -377,7 +377,7 @@
         }
     };
 
-    Slice.defineValue(Test.PNode, "::Test::PNode", true);
+    Slice.defineValue(Test.PNode, "::Test::PNode");
 
     Test.PreservedException = class extends Ice.UserException
     {
@@ -401,8 +401,6 @@
             return Test.PreservedException;
         }
     };
-
-    Slice.PreservedUserException(Test.PreservedException);
 
     const iceC_Test_TestIntf_ids = [
         "::Ice::Object",
@@ -495,7 +493,7 @@
         }
     };
 
-    Slice.defineValue(Test.D3, "::Test::D3", false);
+    Slice.defineValue(Test.D3, "::Test::D3");
 
     Test.PCUnknown = class extends Test.PBase
     {
@@ -516,7 +514,7 @@
         }
     };
 
-    Slice.defineValue(Test.PCUnknown, "::Test::PCUnknown", true);
+    Slice.defineValue(Test.PCUnknown, "::Test::PCUnknown");
 
     Test.PCDerived = class extends Test.PDerived
     {
@@ -537,7 +535,7 @@
         }
     };
 
-    Slice.defineValue(Test.PCDerived, "::Test::PCDerived", false);
+    Slice.defineValue(Test.PCDerived, "::Test::PCDerived");
 
     Test.PCDerived2 = class extends Test.PCDerived
     {
@@ -558,7 +556,7 @@
         }
     };
 
-    Slice.defineValue(Test.PCDerived2, "::Test::PCDerived2", false);
+    Slice.defineValue(Test.PCDerived2, "::Test::PCDerived2");
 
     Test.PCDerived3 = class extends Test.PCDerived2
     {
@@ -579,7 +577,7 @@
         }
     };
 
-    Slice.defineValue(Test.PCDerived3, "::Test::PCDerived3", false);
+    Slice.defineValue(Test.PCDerived3, "::Test::PCDerived3");
 
     Test.CompactPCDerived = class extends Test.CompactPDerived
     {
@@ -605,7 +603,7 @@
         }
     };
 
-    Slice.defineValue(Test.CompactPCDerived, "::Test::CompactPCDerived", false, 57);
+    Slice.defineValue(Test.CompactPCDerived, "::Test::CompactPCDerived", 57);
 
     Test.Hidden = class extends Ice.Value
     {
@@ -626,7 +624,7 @@
         }
     };
 
-    Slice.defineValue(Test.Hidden, "::Test::Hidden", false);
+    Slice.defineValue(Test.Hidden, "::Test::Hidden");
 
     Test.Forward = class extends Ice.Value
     {
@@ -647,7 +645,7 @@
         }
     };
 
-    Slice.defineValue(Test.Forward, "::Test::Forward", false);
+    Slice.defineValue(Test.Forward, "::Test::Forward");
     exports.Test = Test;
 }
 (typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,

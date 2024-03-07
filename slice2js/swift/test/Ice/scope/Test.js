@@ -72,7 +72,7 @@
         }
     };
 
-    Slice.defineValue(Test.C, "::Test::C", false);
+    Slice.defineValue(Test.C, "::Test::C");
 
     Slice.defineDictionary(Test, "CMap", "CMapHelper", "Ice.StringHelper", "Ice.ObjectHelper", false, undefined, "Test.C");
 
@@ -129,7 +129,7 @@
         }
     };
 
-    Slice.defineValue(Test.C1, "::Test::C1", false);
+    Slice.defineValue(Test.C1, "::Test::C1");
 
     Test.S2 = class
     {
@@ -199,7 +199,7 @@
         }
     };
 
-    Slice.defineValue(Test.C2, "::Test::C2", false);
+    Slice.defineValue(Test.C2, "::Test::C2");
 
     const iceC_Test_I_ids = [
         "::Ice::Object",
@@ -311,7 +311,7 @@
         }
     };
 
-    Slice.defineValue(Test.Inner.Inner2.C, "::Test::Inner::Inner2::C", false);
+    Slice.defineValue(Test.Inner.Inner2.C, "::Test::Inner::Inner2::C");
 
     Slice.defineDictionary(Test.Inner.Inner2, "CMap", "CMapHelper", "Ice.StringHelper", "Ice.ObjectHelper", false, undefined, "Test.Inner.Inner2.C");
 
@@ -364,7 +364,7 @@
         }
     };
 
-    Slice.defineValue(Test.Inner.C, "::Test::Inner::C", false);
+    Slice.defineValue(Test.Inner.C, "::Test::Inner::C");
 
     Slice.defineSequence(Test.Inner, "SSeqHelper", "Test.Inner.Inner2.S", true);
 

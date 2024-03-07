@@ -358,7 +358,7 @@ if 'C' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_C = IcePy.defineValue('::Test::C', C, -1, (), False, False, None, ())
+    _M_Test._t_C = IcePy.defineValue('::Test::C', C, -1, (), False, None, ())
     C._ice_type = _M_Test._t_C
 
     _M_Test.C = C
@@ -379,7 +379,7 @@ if '_t_CListSeq' not in _M_Test.__dict__:
 if '_t_CSeqList' not in _M_Test.__dict__:
     _M_Test._t_CSeqList = IcePy.defineSequence('::Test::CSeqList', (), _M_Test._t_CSeq)
 
-_M_Test._t_D = IcePy.defineValue('::Test::D', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_D = IcePy.defineValue('::Test::D', Ice.Value, -1, (), True, None, ())
 
 if 'DPrx' not in _M_Test.__dict__:
     _M_Test.DPrx = Ice.createTempClass()
@@ -470,7 +470,7 @@ if 'DictClass' not in _M_Test.__dict__:
 
         __repr__ = __str__
 
-    _M_Test._t_DictClass = IcePy.defineValue('::Test::DictClass', DictClass, -1, (), False, False, None, (('isdict', (), _M_Test._t_IntStringDict, False, 0),))
+    _M_Test._t_DictClass = IcePy.defineValue('::Test::DictClass', DictClass, -1, (), False, None, (('isdict', (), _M_Test._t_IntStringDict, False, 0),))
     DictClass._ice_type = _M_Test._t_DictClass
 
     _M_Test.DictClass = DictClass
@@ -552,7 +552,7 @@ if 'BufferStruct' not in _M_Test.__dict__:
     _M_Test.BufferStruct = BufferStruct
     del BufferStruct
 
-_M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), False, True, None, ())
+_M_Test._t_TestIntf = IcePy.defineValue('::Test::TestIntf', Ice.Value, -1, (), True, None, ())
 
 if 'TestIntfPrx' not in _M_Test.__dict__:
     _M_Test.TestIntfPrx = Ice.createTempClass()
