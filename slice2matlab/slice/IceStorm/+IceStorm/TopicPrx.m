@@ -68,8 +68,8 @@ classdef TopicPrx < Ice.ObjectPrx
         end
         function result = getPublisher(obj, varargin)
             % getPublisher   Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
-            % and then casts to the topic type. An unchecked cast must be used on this proxy. If a replicated IceStorm
-            % deployment is used this call may return a replicated proxy.
+            % and then creates a proxy with the publisher type from this proxy. If a replicated IceStorm
+            % deployment is used this call may return a replicated proxy. The returned proxy is never null.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -83,8 +83,8 @@ classdef TopicPrx < Ice.ObjectPrx
         end
         function r_ = getPublisherAsync(obj, varargin)
             % getPublisherAsync   Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
-            % and then casts to the topic type. An unchecked cast must be used on this proxy. If a replicated IceStorm
-            % deployment is used this call may return a replicated proxy.
+            % and then creates a proxy with the publisher type from this proxy. If a replicated IceStorm
+            % deployment is used this call may return a replicated proxy. The returned proxy is never null.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -101,7 +101,8 @@ classdef TopicPrx < Ice.ObjectPrx
         end
         function result = getNonReplicatedPublisher(obj, varargin)
             % getNonReplicatedPublisher   Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
-            % calls getPublisher and then casts to the topic type. An unchecked cast must be used on this proxy.
+            % calls getPublisher and then creates a proxy with the publisher type from this proxy. The returned proxy is
+            % never null.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -115,7 +116,8 @@ classdef TopicPrx < Ice.ObjectPrx
         end
         function r_ = getNonReplicatedPublisherAsync(obj, varargin)
             % getNonReplicatedPublisherAsync   Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
-            % calls getPublisher and then casts to the topic type. An unchecked cast must be used on this proxy.
+            % calls getPublisher and then creates a proxy with the publisher type from this proxy. The returned proxy is
+            % never null.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -135,10 +137,10 @@ classdef TopicPrx < Ice.ObjectPrx
             %
             % Parameters:
             %   theQoS (containers.Map) - The quality of service parameters for this subscription.
-            %   subscriber (Ice.ObjectPrx) - The subscriber's proxy.
+            %   subscriber (Ice.ObjectPrx) - The subscriber's proxy. This proxy is never null.
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (Ice.ObjectPrx) - The per-subscriber publisher object.
+            % Returns (Ice.ObjectPrx) - The per-subscriber publisher object. The returned object is never null.
             %
             % Exceptions:
             %   IceStorm.AlreadySubscribed - Raised if the subscriber object is already subscribed.
@@ -161,7 +163,7 @@ classdef TopicPrx < Ice.ObjectPrx
             %
             % Parameters:
             %   theQoS (containers.Map) - The quality of service parameters for this subscription.
-            %   subscriber (Ice.ObjectPrx) - The subscriber's proxy.
+            %   subscriber (Ice.ObjectPrx) - The subscriber's proxy. This proxy is never null.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
@@ -189,7 +191,7 @@ classdef TopicPrx < Ice.ObjectPrx
             % unsubscribe   Unsubscribe the given subscriber.
             %
             % Parameters:
-            %   subscriber (Ice.ObjectPrx) - The proxy of an existing subscriber.
+            %   subscriber (Ice.ObjectPrx) - The proxy of an existing subscriber. This proxy is never null.
             %   context (containers.Map) - Optional request context.
             %
             % See also subscribeAndGetPublisher
@@ -203,7 +205,7 @@ classdef TopicPrx < Ice.ObjectPrx
             % unsubscribeAsync   Unsubscribe the given subscriber.
             %
             % Parameters:
-            %   subscriber (Ice.ObjectPrx) - The proxy of an existing subscriber.
+            %   subscriber (Ice.ObjectPrx) - The proxy of an existing subscriber. This proxy is never null.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
@@ -220,7 +222,7 @@ classdef TopicPrx < Ice.ObjectPrx
             % linkTo.
             %
             % Parameters:
-            %   linkTo (IceStorm.TopicPrx) - The topic to link to.
+            %   linkTo (IceStorm.TopicPrx) - The topic to link to. This proxy is never null.
             %   cost (int32) - The cost to the linked topic.
             %   context (containers.Map) - Optional request context.
             %
@@ -238,7 +240,7 @@ classdef TopicPrx < Ice.ObjectPrx
             % linkTo.
             %
             % Parameters:
-            %   linkTo (IceStorm.TopicPrx) - The topic to link to.
+            %   linkTo (IceStorm.TopicPrx) - The topic to link to. This proxy is never null.
             %   cost (int32) - The cost to the linked topic.
             %   context (containers.Map) - Optional request context.
             %
@@ -257,7 +259,7 @@ classdef TopicPrx < Ice.ObjectPrx
             % unlink   Destroy the link from this topic to the given topic linkTo.
             %
             % Parameters:
-            %   linkTo (IceStorm.TopicPrx) - The topic to destroy the link to.
+            %   linkTo (IceStorm.TopicPrx) - The topic to destroy the link to. This proxy is never null.
             %   context (containers.Map) - Optional request context.
             %
             % Exceptions:
@@ -272,7 +274,7 @@ classdef TopicPrx < Ice.ObjectPrx
             % unlinkAsync   Destroy the link from this topic to the given topic linkTo.
             %
             % Parameters:
-            %   linkTo (IceStorm.TopicPrx) - The topic to destroy the link to.
+            %   linkTo (IceStorm.TopicPrx) - The topic to destroy the link to. This proxy is never null.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.

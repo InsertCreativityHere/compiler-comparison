@@ -934,8 +934,8 @@ namespace IceStorm
         /// <summary>
         /// Get a proxy to a publisher object for this topic.
         /// To publish data to a topic, the publisher calls getPublisher
-        ///  and then casts to the topic type. An unchecked cast must be used on this proxy. If a replicated IceStorm
-        ///  deployment is used this call may return a replicated proxy.
+        ///  and then creates a proxy with the publisher type from this proxy. If a replicated IceStorm
+        ///  deployment is used this call may return a replicated proxy. The returned proxy is never null.
         /// </summary>
         ///  <returns>A proxy to publish data on this topic.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -955,7 +955,8 @@ namespace IceStorm
         /// <summary>
         /// Get a non-replicated proxy to a publisher object for this topic.
         /// To publish data to a topic, the publisher
-        ///  calls getPublisher and then casts to the topic type. An unchecked cast must be used on this proxy.
+        ///  calls getPublisher and then creates a proxy with the publisher type from this proxy. The returned proxy is
+        ///  never null.
         /// </summary>
         ///  <returns>A proxy to publish data on this topic.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -978,9 +979,9 @@ namespace IceStorm
         /// </summary>
         ///  <param name="theQoS">The quality of service parameters for this subscription.
         ///  </param>
-        /// <param name="subscriber">The subscriber's proxy.
+        /// <param name="subscriber">The subscriber's proxy. This proxy is never null.
         ///  </param>
-        /// <returns>The per-subscriber publisher object.
+        /// <returns>The per-subscriber publisher object. The returned object is never null.
         ///  </returns>
         /// <exception name="AlreadySubscribed">Raised if the subscriber object is already subscribed.
         ///  </exception>
@@ -998,7 +999,7 @@ namespace IceStorm
         /// </summary>
         ///  <param name="theQoS">The quality of service parameters for this subscription.
         ///  </param>
-        /// <param name="subscriber">The subscriber's proxy.
+        /// <param name="subscriber">The subscriber's proxy. This proxy is never null.
         ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -1009,7 +1010,7 @@ namespace IceStorm
         /// <summary>
         /// Unsubscribe the given subscriber.
         /// </summary>
-        /// <param name="subscriber">The proxy of an existing subscriber.
+        /// <param name="subscriber">The proxy of an existing subscriber. This proxy is never null.
         ///  </param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
@@ -1018,7 +1019,7 @@ namespace IceStorm
         /// <summary>
         /// Unsubscribe the given subscriber.
         /// </summary>
-        /// <param name="subscriber">The proxy of an existing subscriber.
+        /// <param name="subscriber">The proxy of an existing subscriber. This proxy is never null.
         ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -1031,7 +1032,7 @@ namespace IceStorm
         /// All events originating on this topic will also be sent to
         ///  linkTo.
         /// </summary>
-        ///  <param name="linkTo">The topic to link to.
+        ///  <param name="linkTo">The topic to link to. This proxy is never null.
         ///  </param>
         /// <param name="cost">The cost to the linked topic.
         ///  </param>
@@ -1044,7 +1045,7 @@ namespace IceStorm
         /// Create a link to the given topic.
         /// All events originating on this topic will also be sent to
         /// </summary>
-        ///  <param name="linkTo">The topic to link to.
+        ///  <param name="linkTo">The topic to link to. This proxy is never null.
         ///  </param>
         /// <param name="cost">The cost to the linked topic.
         ///  </param>
@@ -1057,7 +1058,7 @@ namespace IceStorm
         /// <summary>
         /// Destroy the link from this topic to the given topic linkTo.
         /// </summary>
-        /// <param name="linkTo">The topic to destroy the link to.
+        /// <param name="linkTo">The topic to destroy the link to. This proxy is never null.
         ///  </param>
         /// <exception name="NoSuchLink">Raised if a link to the topic does not exist.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -1067,7 +1068,7 @@ namespace IceStorm
         /// <summary>
         /// Destroy the link from this topic to the given topic linkTo.
         /// </summary>
-        /// <param name="linkTo">The topic to destroy the link to.
+        /// <param name="linkTo">The topic to destroy the link to. This proxy is never null.
         ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -1139,7 +1140,7 @@ namespace IceStorm
         /// </summary>
         ///  <param name="name">The name of the topic.
         ///  </param>
-        /// <returns>A proxy to the topic instance.
+        /// <returns>A proxy to the topic instance. The returned proxy is never null.
         ///  </returns>
         /// <exception name="TopicExists">Raised if a topic with the same name already exists.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -1163,7 +1164,7 @@ namespace IceStorm
         /// </summary>
         /// <param name="name">The name of the topic.
         ///  </param>
-        /// <returns>A proxy to the topic instance.
+        /// <returns>A proxy to the topic instance. The returned proxy is never null.
         ///  </returns>
         /// <exception name="NoSuchTopic">Raised if the topic does not exist.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -1211,7 +1212,7 @@ namespace IceStorm
         /// Get the topic manager proxy.
         /// The proxy might point to several replicas.
         /// </summary>
-        ///  <returns>The topic manager proxy.</returns>
+        ///  <returns>The topic manager proxy. The returned proxy is never null.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         TopicManagerPrx getTopicManager(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -1251,8 +1252,8 @@ namespace IceStorm
         /// <summary>
         /// Get a proxy to a publisher object for this topic.
         /// To publish data to a topic, the publisher calls getPublisher
-        ///  and then casts to the topic type. An unchecked cast must be used on this proxy. If a replicated IceStorm
-        ///  deployment is used this call may return a replicated proxy.
+        ///  and then creates a proxy with the publisher type from this proxy. If a replicated IceStorm
+        ///  deployment is used this call may return a replicated proxy. The returned proxy is never null.
         /// </summary>
         ///  <returns>A proxy to publish data on this topic.</returns>
         /// <param name="current">The Current object for the invocation.</param>
@@ -1263,7 +1264,8 @@ namespace IceStorm
         /// <summary>
         /// Get a non-replicated proxy to a publisher object for this topic.
         /// To publish data to a topic, the publisher
-        ///  calls getPublisher and then casts to the topic type. An unchecked cast must be used on this proxy.
+        ///  calls getPublisher and then creates a proxy with the publisher type from this proxy. The returned proxy is
+        ///  never null.
         /// </summary>
         ///  <returns>A proxy to publish data on this topic.</returns>
         /// <param name="current">The Current object for the invocation.</param>
@@ -1277,9 +1279,9 @@ namespace IceStorm
         /// </summary>
         ///  <param name="theQoS">The quality of service parameters for this subscription.
         ///  </param>
-        /// <param name="subscriber">The subscriber's proxy.
+        /// <param name="subscriber">The subscriber's proxy. This proxy is never null.
         ///  </param>
-        /// <returns>The per-subscriber publisher object.
+        /// <returns>The per-subscriber publisher object. The returned object is never null.
         ///  </returns>
         /// <exception name="AlreadySubscribed">Raised if the subscriber object is already subscribed.
         ///  </exception>
@@ -1295,7 +1297,7 @@ namespace IceStorm
         /// <summary>
         /// Unsubscribe the given subscriber.
         /// </summary>
-        /// <param name="subscriber">The proxy of an existing subscriber.
+        /// <param name="subscriber">The proxy of an existing subscriber. This proxy is never null.
         ///  </param>
         /// <param name="current">The Current object for the invocation.</param>
 
@@ -1307,7 +1309,7 @@ namespace IceStorm
         /// All events originating on this topic will also be sent to
         ///  linkTo.
         /// </summary>
-        ///  <param name="linkTo">The topic to link to.
+        ///  <param name="linkTo">The topic to link to. This proxy is never null.
         ///  </param>
         /// <param name="cost">The cost to the linked topic.
         ///  </param>
@@ -1320,7 +1322,7 @@ namespace IceStorm
         /// <summary>
         /// Destroy the link from this topic to the given topic linkTo.
         /// </summary>
-        /// <param name="linkTo">The topic to destroy the link to.
+        /// <param name="linkTo">The topic to destroy the link to. This proxy is never null.
         ///  </param>
         /// <exception name="NoSuchLink">Raised if a link to the topic does not exist.</exception>
         /// <param name="current">The Current object for the invocation.</param>
@@ -1368,7 +1370,7 @@ namespace IceStorm
         /// </summary>
         ///  <param name="name">The name of the topic.
         ///  </param>
-        /// <returns>A proxy to the topic instance.
+        /// <returns>A proxy to the topic instance. The returned proxy is never null.
         ///  </returns>
         /// <exception name="TopicExists">Raised if a topic with the same name already exists.</exception>
         /// <param name="current">The Current object for the invocation.</param>
@@ -1381,7 +1383,7 @@ namespace IceStorm
         /// </summary>
         /// <param name="name">The name of the topic.
         ///  </param>
-        /// <returns>A proxy to the topic instance.
+        /// <returns>A proxy to the topic instance. The returned proxy is never null.
         ///  </returns>
         /// <exception name="NoSuchTopic">Raised if the topic does not exist.</exception>
         /// <param name="current">The Current object for the invocation.</param>
@@ -1411,7 +1413,7 @@ namespace IceStorm
         /// Get the topic manager proxy.
         /// The proxy might point to several replicas.
         /// </summary>
-        ///  <returns>The topic manager proxy.</returns>
+        ///  <returns>The topic manager proxy. The returned proxy is never null.</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]

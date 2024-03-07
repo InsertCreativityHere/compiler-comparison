@@ -23,7 +23,7 @@ public interface FinderPrx extends com.zeroc.Ice.ObjectPrx
 {
     /**
      * Get the topic manager proxy. The proxy might point to several replicas.
-     * @return The topic manager proxy.
+     * @return The topic manager proxy. The returned proxy is never null.
      **/
     default TopicManagerPrx getTopicManager()
     {
@@ -33,7 +33,7 @@ public interface FinderPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Get the topic manager proxy. The proxy might point to several replicas.
      * @param context The Context map to send with the invocation.
-     * @return The topic manager proxy.
+     * @return The topic manager proxy. The returned proxy is never null.
      **/
     default TopicManagerPrx getTopicManager(java.util.Map<String, String> context)
     {
@@ -42,7 +42,7 @@ public interface FinderPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Get the topic manager proxy. The proxy might point to several replicas.
-     * @return The topic manager proxy.
+     * @return The topic manager proxy. The returned proxy is never null.
      **/
     default java.util.concurrent.CompletableFuture<TopicManagerPrx> getTopicManagerAsync()
     {
@@ -52,7 +52,7 @@ public interface FinderPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Get the topic manager proxy. The proxy might point to several replicas.
      * @param context The Context map to send with the invocation.
-     * @return The topic manager proxy.
+     * @return The topic manager proxy. The returned proxy is never null.
      **/
     default java.util.concurrent.CompletableFuture<TopicManagerPrx> getTopicManagerAsync(java.util.Map<String, String> context)
     {

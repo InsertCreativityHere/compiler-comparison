@@ -116,8 +116,8 @@ public:
 
     /**
      * Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
-     * and then casts to the topic type. An unchecked cast must be used on this proxy. If a replicated IceStorm
-     * deployment is used this call may return a replicated proxy.
+     * and then creates a proxy with the publisher type from this proxy. If a replicated IceStorm
+     * deployment is used this call may return a replicated proxy. The returned proxy is never null.
      * @param context The Context map to send with the invocation.
      * @return A proxy to publish data on this topic.
      */
@@ -125,8 +125,8 @@ public:
 
     /**
      * Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
-     * and then casts to the topic type. An unchecked cast must be used on this proxy. If a replicated IceStorm
-     * deployment is used this call may return a replicated proxy.
+     * and then creates a proxy with the publisher type from this proxy. If a replicated IceStorm
+     * deployment is used this call may return a replicated proxy. The returned proxy is never null.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -134,8 +134,8 @@ public:
 
     /**
      * Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
-     * and then casts to the topic type. An unchecked cast must be used on this proxy. If a replicated IceStorm
-     * deployment is used this call may return a replicated proxy.
+     * and then creates a proxy with the publisher type from this proxy. If a replicated IceStorm
+     * deployment is used this call may return a replicated proxy. The returned proxy is never null.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -151,7 +151,8 @@ public:
 
     /**
      * Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
-     * calls getPublisher and then casts to the topic type. An unchecked cast must be used on this proxy.
+     * calls getPublisher and then creates a proxy with the publisher type from this proxy. The returned proxy is
+     * never null.
      * @param context The Context map to send with the invocation.
      * @return A proxy to publish data on this topic.
      */
@@ -159,7 +160,8 @@ public:
 
     /**
      * Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
-     * calls getPublisher and then casts to the topic type. An unchecked cast must be used on this proxy.
+     * calls getPublisher and then creates a proxy with the publisher type from this proxy. The returned proxy is
+     * never null.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -167,7 +169,8 @@ public:
 
     /**
      * Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
-     * calls getPublisher and then casts to the topic type. An unchecked cast must be used on this proxy.
+     * calls getPublisher and then creates a proxy with the publisher type from this proxy. The returned proxy is
+     * never null.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -184,9 +187,9 @@ public:
     /**
      * Subscribe with the given <code>qos</code> to this topic.  A per-subscriber publisher object is returned.
      * @param theQoS The quality of service parameters for this subscription.
-     * @param subscriber The subscriber's proxy.
+     * @param subscriber The subscriber's proxy. This proxy is never null.
      * @param context The Context map to send with the invocation.
-     * @return The per-subscriber publisher object.
+     * @return The per-subscriber publisher object. The returned object is never null.
      * @throws IceStorm::AlreadySubscribed Raised if the subscriber object is already subscribed.
      * @throws IceStorm::BadQoS Raised if the requested quality of service is unavailable or invalid.
      * @throws IceStorm::InvalidSubscriber Raised if the subscriber object is null.
@@ -197,7 +200,7 @@ public:
     /**
      * Subscribe with the given <code>qos</code> to this topic.  A per-subscriber publisher object is returned.
      * @param theQoS The quality of service parameters for this subscription.
-     * @param subscriber The subscriber's proxy.
+     * @param subscriber The subscriber's proxy. This proxy is never null.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      * @see #unsubscribe
@@ -207,7 +210,7 @@ public:
     /**
      * Subscribe with the given <code>qos</code> to this topic.  A per-subscriber publisher object is returned.
      * @param theQoS The quality of service parameters for this subscription.
-     * @param subscriber The subscriber's proxy.
+     * @param subscriber The subscriber's proxy. This proxy is never null.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -224,7 +227,7 @@ public:
 
     /**
      * Unsubscribe the given <code>subscriber</code>.
-     * @param subscriber The proxy of an existing subscriber.
+     * @param subscriber The proxy of an existing subscriber. This proxy is never null.
      * @param context The Context map to send with the invocation.
      * @see #subscribeAndGetPublisher
      */
@@ -232,7 +235,7 @@ public:
 
     /**
      * Unsubscribe the given <code>subscriber</code>.
-     * @param subscriber The proxy of an existing subscriber.
+     * @param subscriber The proxy of an existing subscriber. This proxy is never null.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      * @see #subscribeAndGetPublisher
@@ -241,7 +244,7 @@ public:
 
     /**
      * Unsubscribe the given <code>subscriber</code>.
-     * @param subscriber The proxy of an existing subscriber.
+     * @param subscriber The proxy of an existing subscriber. This proxy is never null.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -259,7 +262,7 @@ public:
     /**
      * Create a link to the given topic. All events originating on this topic will also be sent to
      * <code>linkTo</code>.
-     * @param linkTo The topic to link to.
+     * @param linkTo The topic to link to. This proxy is never null.
      * @param cost The cost to the linked topic.
      * @param context The Context map to send with the invocation.
      * @throws IceStorm::LinkExists Raised if a link to the same topic already exists.
@@ -269,7 +272,7 @@ public:
     /**
      * Create a link to the given topic. All events originating on this topic will also be sent to
      * <code>linkTo</code>.
-     * @param linkTo The topic to link to.
+     * @param linkTo The topic to link to. This proxy is never null.
      * @param cost The cost to the linked topic.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -279,7 +282,7 @@ public:
     /**
      * Create a link to the given topic. All events originating on this topic will also be sent to
      * <code>linkTo</code>.
-     * @param linkTo The topic to link to.
+     * @param linkTo The topic to link to. This proxy is never null.
      * @param cost The cost to the linked topic.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -296,7 +299,7 @@ public:
 
     /**
      * Destroy the link from this topic to the given topic <code>linkTo</code>.
-     * @param linkTo The topic to destroy the link to.
+     * @param linkTo The topic to destroy the link to. This proxy is never null.
      * @param context The Context map to send with the invocation.
      * @throws IceStorm::NoSuchLink Raised if a link to the topic does not exist.
      */
@@ -304,7 +307,7 @@ public:
 
     /**
      * Destroy the link from this topic to the given topic <code>linkTo</code>.
-     * @param linkTo The topic to destroy the link to.
+     * @param linkTo The topic to destroy the link to. This proxy is never null.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -312,7 +315,7 @@ public:
 
     /**
      * Destroy the link from this topic to the given topic <code>linkTo</code>.
-     * @param linkTo The topic to destroy the link to.
+     * @param linkTo The topic to destroy the link to. This proxy is never null.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -472,7 +475,7 @@ public:
      * Create a new topic. The topic name must be unique.
      * @param name The name of the topic.
      * @param context The Context map to send with the invocation.
-     * @return A proxy to the topic instance.
+     * @return A proxy to the topic instance. The returned proxy is never null.
      * @throws IceStorm::TopicExists Raised if a topic with the same name already exists.
      */
     ::std::optional<TopicPrx> create(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -505,7 +508,7 @@ public:
      * Retrieve a topic by name.
      * @param name The name of the topic.
      * @param context The Context map to send with the invocation.
-     * @return A proxy to the topic instance.
+     * @return A proxy to the topic instance. The returned proxy is never null.
      * @throws IceStorm::NoSuchTopic Raised if the topic does not exist.
      */
     ::std::optional<TopicPrx> retrieve(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -622,7 +625,7 @@ public:
     /**
      * Get the topic manager proxy. The proxy might point to several replicas.
      * @param context The Context map to send with the invocation.
-     * @return The topic manager proxy.
+     * @return The topic manager proxy. The returned proxy is never null.
      */
     ::std::optional<TopicManagerPrx> getTopicManager(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -708,7 +711,7 @@ namespace IceStorm
 struct LinkInfo
 {
     /**
-     * The linked topic.
+     * The linked topic. It is never null.
      */
     ::std::optional<::IceStorm::TopicPrx> theTopic;
     /**
@@ -1083,8 +1086,8 @@ public:
 
     /**
      * Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
-     * and then casts to the topic type. An unchecked cast must be used on this proxy. If a replicated IceStorm
-     * deployment is used this call may return a replicated proxy.
+     * and then creates a proxy with the publisher type from this proxy. If a replicated IceStorm
+     * deployment is used this call may return a replicated proxy. The returned proxy is never null.
      * @param current The Current object for the invocation.
      * @return A proxy to publish data on this topic.
      */
@@ -1095,7 +1098,8 @@ public:
 
     /**
      * Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
-     * calls getPublisher and then casts to the topic type. An unchecked cast must be used on this proxy.
+     * calls getPublisher and then creates a proxy with the publisher type from this proxy. The returned proxy is
+     * never null.
      * @param current The Current object for the invocation.
      * @return A proxy to publish data on this topic.
      */
@@ -1107,9 +1111,9 @@ public:
     /**
      * Subscribe with the given <code>qos</code> to this topic.  A per-subscriber publisher object is returned.
      * @param theQoS The quality of service parameters for this subscription.
-     * @param subscriber The subscriber's proxy.
+     * @param subscriber The subscriber's proxy. This proxy is never null.
      * @param current The Current object for the invocation.
-     * @return The per-subscriber publisher object.
+     * @return The per-subscriber publisher object. The returned object is never null.
      * @throws IceStorm::AlreadySubscribed Raised if the subscriber object is already subscribed.
      * @throws IceStorm::BadQoS Raised if the requested quality of service is unavailable or invalid.
      * @throws IceStorm::InvalidSubscriber Raised if the subscriber object is null.
@@ -1122,7 +1126,7 @@ public:
 
     /**
      * Unsubscribe the given <code>subscriber</code>.
-     * @param subscriber The proxy of an existing subscriber.
+     * @param subscriber The proxy of an existing subscriber. This proxy is never null.
      * @param current The Current object for the invocation.
      * @see #subscribeAndGetPublisher
      */
@@ -1134,7 +1138,7 @@ public:
     /**
      * Create a link to the given topic. All events originating on this topic will also be sent to
      * <code>linkTo</code>.
-     * @param linkTo The topic to link to.
+     * @param linkTo The topic to link to. This proxy is never null.
      * @param cost The cost to the linked topic.
      * @param current The Current object for the invocation.
      * @throws IceStorm::LinkExists Raised if a link to the same topic already exists.
@@ -1146,7 +1150,7 @@ public:
 
     /**
      * Destroy the link from this topic to the given topic <code>linkTo</code>.
-     * @param linkTo The topic to destroy the link to.
+     * @param linkTo The topic to destroy the link to. This proxy is never null.
      * @param current The Current object for the invocation.
      * @throws IceStorm::NoSuchLink Raised if a link to the topic does not exist.
      */
@@ -1225,7 +1229,7 @@ public:
      * Create a new topic. The topic name must be unique.
      * @param name The name of the topic.
      * @param current The Current object for the invocation.
-     * @return A proxy to the topic instance.
+     * @return A proxy to the topic instance. The returned proxy is never null.
      * @throws IceStorm::TopicExists Raised if a topic with the same name already exists.
      */
     virtual ::std::optional<TopicPrx> create(::std::string name, const ::Ice::Current& current) = 0;
@@ -1237,7 +1241,7 @@ public:
      * Retrieve a topic by name.
      * @param name The name of the topic.
      * @param current The Current object for the invocation.
-     * @return A proxy to the topic instance.
+     * @return A proxy to the topic instance. The returned proxy is never null.
      * @throws IceStorm::NoSuchTopic Raised if the topic does not exist.
      */
     virtual ::std::optional<TopicPrx> retrieve(::std::string name, const ::Ice::Current& current) = 0;
@@ -1295,7 +1299,7 @@ public:
     /**
      * Get the topic manager proxy. The proxy might point to several replicas.
      * @param current The Current object for the invocation.
-     * @return The topic manager proxy.
+     * @return The topic manager proxy. The returned proxy is never null.
      */
     virtual ::std::optional<TopicManagerPrx> getTopicManager(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

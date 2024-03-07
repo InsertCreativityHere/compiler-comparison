@@ -43,7 +43,7 @@ if 'LinkInfo' not in _M_IceStorm.__dict__:
         """
           Information on the topic links.
         Members:
-        theTopic --  The linked topic.
+        theTopic --  The linked topic. It is never null.
         name --  The name of the linked topic.
         cost --  The cost of traversing this link.
         """
@@ -233,8 +233,8 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
 
         """
          Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
-         and then casts to the topic type. An unchecked cast must be used on this proxy. If a replicated IceStorm
-         deployment is used this call may return a replicated proxy.
+         and then creates a proxy with the publisher type from this proxy. If a replicated IceStorm
+         deployment is used this call may return a replicated proxy. The returned proxy is never null.
         Arguments:
         context -- The request context for the invocation.
         Returns: A proxy to publish data on this topic.
@@ -244,8 +244,8 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
 
         """
          Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
-         and then casts to the topic type. An unchecked cast must be used on this proxy. If a replicated IceStorm
-         deployment is used this call may return a replicated proxy.
+         and then creates a proxy with the publisher type from this proxy. If a replicated IceStorm
+         deployment is used this call may return a replicated proxy. The returned proxy is never null.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -255,7 +255,8 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
 
         """
          Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
-         calls getPublisher and then casts to the topic type. An unchecked cast must be used on this proxy.
+         calls getPublisher and then creates a proxy with the publisher type from this proxy. The returned proxy is
+         never null.
         Arguments:
         context -- The request context for the invocation.
         Returns: A proxy to publish data on this topic.
@@ -265,7 +266,8 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
 
         """
          Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
-         calls getPublisher and then casts to the topic type. An unchecked cast must be used on this proxy.
+         calls getPublisher and then creates a proxy with the publisher type from this proxy. The returned proxy is
+         never null.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -277,9 +279,9 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
          Subscribe with the given qos to this topic.  A per-subscriber publisher object is returned.
         Arguments:
         theQoS -- The quality of service parameters for this subscription.
-        subscriber -- The subscriber's proxy.
+        subscriber -- The subscriber's proxy. This proxy is never null.
         context -- The request context for the invocation.
-        Returns: The per-subscriber publisher object.
+        Returns: The per-subscriber publisher object. The returned object is never null.
         Throws:
         AlreadySubscribed -- Raised if the subscriber object is already subscribed.
         BadQoS -- Raised if the requested quality of service is unavailable or invalid.
@@ -292,7 +294,7 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
          Subscribe with the given qos to this topic.  A per-subscriber publisher object is returned.
         Arguments:
         theQoS -- The quality of service parameters for this subscription.
-        subscriber -- The subscriber's proxy.
+        subscriber -- The subscriber's proxy. This proxy is never null.
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
@@ -302,7 +304,7 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
         """
          Unsubscribe the given subscriber.
         Arguments:
-        subscriber -- The proxy of an existing subscriber.
+        subscriber -- The proxy of an existing subscriber. This proxy is never null.
         context -- The request context for the invocation.
         """
         def unsubscribe(self, subscriber, context=None):
@@ -311,7 +313,7 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
         """
          Unsubscribe the given subscriber.
         Arguments:
-        subscriber -- The proxy of an existing subscriber.
+        subscriber -- The proxy of an existing subscriber. This proxy is never null.
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
@@ -322,7 +324,7 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
          Create a link to the given topic. All events originating on this topic will also be sent to
          linkTo.
         Arguments:
-        linkTo -- The topic to link to.
+        linkTo -- The topic to link to. This proxy is never null.
         cost -- The cost to the linked topic.
         context -- The request context for the invocation.
         Throws:
@@ -335,7 +337,7 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
          Create a link to the given topic. All events originating on this topic will also be sent to
          linkTo.
         Arguments:
-        linkTo -- The topic to link to.
+        linkTo -- The topic to link to. This proxy is never null.
         cost -- The cost to the linked topic.
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -346,7 +348,7 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
         """
          Destroy the link from this topic to the given topic linkTo.
         Arguments:
-        linkTo -- The topic to destroy the link to.
+        linkTo -- The topic to destroy the link to. This proxy is never null.
         context -- The request context for the invocation.
         Throws:
         NoSuchLink -- Raised if a link to the topic does not exist.
@@ -357,7 +359,7 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
         """
          Destroy the link from this topic to the given topic linkTo.
         Arguments:
-        linkTo -- The topic to destroy the link to.
+        linkTo -- The topic to destroy the link to. This proxy is never null.
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
@@ -458,8 +460,8 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
         def getPublisher(self, current=None):
             """
              Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
-             and then casts to the topic type. An unchecked cast must be used on this proxy. If a replicated IceStorm
-             deployment is used this call may return a replicated proxy.
+             and then creates a proxy with the publisher type from this proxy. If a replicated IceStorm
+             deployment is used this call may return a replicated proxy. The returned proxy is never null.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -469,7 +471,8 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
         def getNonReplicatedPublisher(self, current=None):
             """
              Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
-             calls getPublisher and then casts to the topic type. An unchecked cast must be used on this proxy.
+             calls getPublisher and then creates a proxy with the publisher type from this proxy. The returned proxy is
+             never null.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -481,7 +484,7 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
              Subscribe with the given qos to this topic.  A per-subscriber publisher object is returned.
             Arguments:
             theQoS -- The quality of service parameters for this subscription.
-            subscriber -- The subscriber's proxy.
+            subscriber -- The subscriber's proxy. This proxy is never null.
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
             Throws:
@@ -495,7 +498,7 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
             """
              Unsubscribe the given subscriber.
             Arguments:
-            subscriber -- The proxy of an existing subscriber.
+            subscriber -- The proxy of an existing subscriber. This proxy is never null.
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
             """
@@ -506,7 +509,7 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
              Create a link to the given topic. All events originating on this topic will also be sent to
              linkTo.
             Arguments:
-            linkTo -- The topic to link to.
+            linkTo -- The topic to link to. This proxy is never null.
             cost -- The cost to the linked topic.
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -519,7 +522,7 @@ if 'TopicPrx' not in _M_IceStorm.__dict__:
             """
              Destroy the link from this topic to the given topic linkTo.
             Arguments:
-            linkTo -- The topic to destroy the link to.
+            linkTo -- The topic to destroy the link to. This proxy is never null.
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
             Throws:
@@ -638,7 +641,7 @@ if 'TopicManagerPrx' not in _M_IceStorm.__dict__:
         Arguments:
         name -- The name of the topic.
         context -- The request context for the invocation.
-        Returns: A proxy to the topic instance.
+        Returns: A proxy to the topic instance. The returned proxy is never null.
         Throws:
         TopicExists -- Raised if a topic with the same name already exists.
         """
@@ -660,7 +663,7 @@ if 'TopicManagerPrx' not in _M_IceStorm.__dict__:
         Arguments:
         name -- The name of the topic.
         context -- The request context for the invocation.
-        Returns: A proxy to the topic instance.
+        Returns: A proxy to the topic instance. The returned proxy is never null.
         Throws:
         NoSuchTopic -- Raised if the topic does not exist.
         """
@@ -782,7 +785,7 @@ if 'FinderPrx' not in _M_IceStorm.__dict__:
          Get the topic manager proxy. The proxy might point to several replicas.
         Arguments:
         context -- The request context for the invocation.
-        Returns: The topic manager proxy.
+        Returns: The topic manager proxy. The returned proxy is never null.
         """
         def getTopicManager(self, context=None):
             return _M_IceStorm.Finder._op_getTopicManager.invoke(self, ((), context))

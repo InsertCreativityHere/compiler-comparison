@@ -19,7 +19,7 @@ import PromiseKit
 
 /// Information on the topic links.
 public struct LinkInfo {
-    /// The linked topic.
+    /// The linked topic. It is never null.
     public var theTopic: TopicPrx? = nil
     /// The name of the linked topic.
     public var name: Swift.String = ""
@@ -813,8 +813,8 @@ public extension TopicPrx {
     }
 
     /// Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
-    /// and then casts to the topic type. An unchecked cast must be used on this proxy. If a replicated IceStorm
-    /// deployment is used this call may return a replicated proxy.
+    /// and then creates a proxy with the publisher type from this proxy. If a replicated IceStorm
+    /// deployment is used this call may return a replicated proxy. The returned proxy is never null.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -830,8 +830,8 @@ public extension TopicPrx {
     }
 
     /// Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
-    /// and then casts to the topic type. An unchecked cast must be used on this proxy. If a replicated IceStorm
-    /// deployment is used this call may return a replicated proxy.
+    /// and then creates a proxy with the publisher type from this proxy. If a replicated IceStorm
+    /// deployment is used this call may return a replicated proxy. The returned proxy is never null.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -858,7 +858,8 @@ public extension TopicPrx {
     }
 
     /// Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
-    /// calls getPublisher and then casts to the topic type. An unchecked cast must be used on this proxy.
+    /// calls getPublisher and then creates a proxy with the publisher type from this proxy. The returned proxy is
+    /// never null.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -874,7 +875,8 @@ public extension TopicPrx {
     }
 
     /// Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
-    /// calls getPublisher and then casts to the topic type. An unchecked cast must be used on this proxy.
+    /// calls getPublisher and then creates a proxy with the publisher type from this proxy. The returned proxy is
+    /// never null.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -904,11 +906,11 @@ public extension TopicPrx {
     ///
     /// - parameter theQoS: `QoS` The quality of service parameters for this subscription.
     ///
-    /// - parameter subscriber: `Ice.ObjectPrx?` The subscriber's proxy.
+    /// - parameter subscriber: `Ice.ObjectPrx?` The subscriber's proxy. This proxy is never null.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `Ice.ObjectPrx?` - The per-subscriber publisher object.
+    /// - returns: `Ice.ObjectPrx?` - The per-subscriber publisher object. The returned object is never null.
     ///
     /// - throws:
     ///
@@ -946,7 +948,7 @@ public extension TopicPrx {
     ///
     /// - parameter theQoS: `QoS` The quality of service parameters for this subscription.
     ///
-    /// - parameter subscriber: `Ice.ObjectPrx?` The subscriber's proxy.
+    /// - parameter subscriber: `Ice.ObjectPrx?` The subscriber's proxy. This proxy is never null.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -989,7 +991,7 @@ public extension TopicPrx {
 
     /// Unsubscribe the given subscriber.
     ///
-    /// - parameter _: `Ice.ObjectPrx?` The proxy of an existing subscriber.
+    /// - parameter _: `Ice.ObjectPrx?` The proxy of an existing subscriber. This proxy is never null.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     func unsubscribe(_ iceP_subscriber: Ice.ObjectPrx?, context: Ice.Context? = nil) throws {
@@ -1003,7 +1005,7 @@ public extension TopicPrx {
 
     /// Unsubscribe the given subscriber.
     ///
-    /// - parameter _: `Ice.ObjectPrx?` The proxy of an existing subscriber.
+    /// - parameter _: `Ice.ObjectPrx?` The proxy of an existing subscriber. This proxy is never null.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -1031,7 +1033,7 @@ public extension TopicPrx {
     /// Create a link to the given topic. All events originating on this topic will also be sent to
     /// linkTo.
     ///
-    /// - parameter linkTo: `TopicPrx?` The topic to link to.
+    /// - parameter linkTo: `TopicPrx?` The topic to link to. This proxy is never null.
     ///
     /// - parameter cost: `Swift.Int32` The cost to the linked topic.
     ///
@@ -1060,7 +1062,7 @@ public extension TopicPrx {
     /// Create a link to the given topic. All events originating on this topic will also be sent to
     /// linkTo.
     ///
-    /// - parameter linkTo: `TopicPrx?` The topic to link to.
+    /// - parameter linkTo: `TopicPrx?` The topic to link to. This proxy is never null.
     ///
     /// - parameter cost: `Swift.Int32` The cost to the linked topic.
     ///
@@ -1097,7 +1099,7 @@ public extension TopicPrx {
 
     /// Destroy the link from this topic to the given topic linkTo.
     ///
-    /// - parameter _: `TopicPrx?` The topic to destroy the link to.
+    /// - parameter _: `TopicPrx?` The topic to destroy the link to. This proxy is never null.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -1122,7 +1124,7 @@ public extension TopicPrx {
 
     /// Destroy the link from this topic to the given topic linkTo.
     ///
-    /// - parameter _: `TopicPrx?` The topic to destroy the link to.
+    /// - parameter _: `TopicPrx?` The topic to destroy the link to. This proxy is never null.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -1380,7 +1382,7 @@ public extension TopicManagerPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `TopicPrx?` - A proxy to the topic instance.
+    /// - returns: `TopicPrx?` - A proxy to the topic instance. The returned proxy is never null.
     ///
     /// - throws:
     ///
@@ -1449,7 +1451,7 @@ public extension TopicManagerPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `TopicPrx?` - A proxy to the topic instance.
+    /// - returns: `TopicPrx?` - A proxy to the topic instance. The returned proxy is never null.
     ///
     /// - throws:
     ///
@@ -1650,7 +1652,7 @@ public extension FinderPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `TopicManagerPrx?` - The topic manager proxy.
+    /// - returns: `TopicManagerPrx?` - The topic manager proxy. The returned proxy is never null.
     func getTopicManager(context: Ice.Context? = nil) throws -> TopicManagerPrx? {
         return try _impl._invoke(operation: "getTopicManager",
                                  mode: .Normal,
@@ -1745,8 +1747,8 @@ public protocol Topic {
     func getName(current: Ice.Current) throws -> Swift.String
 
     /// Get a proxy to a publisher object for this topic. To publish data to a topic, the publisher calls getPublisher
-    /// and then casts to the topic type. An unchecked cast must be used on this proxy. If a replicated IceStorm
-    /// deployment is used this call may return a replicated proxy.
+    /// and then creates a proxy with the publisher type from this proxy. If a replicated IceStorm
+    /// deployment is used this call may return a replicated proxy. The returned proxy is never null.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
@@ -1754,7 +1756,8 @@ public protocol Topic {
     func getPublisher(current: Ice.Current) throws -> Ice.ObjectPrx?
 
     /// Get a non-replicated proxy to a publisher object for this topic. To publish data to a topic, the publisher
-    /// calls getPublisher and then casts to the topic type. An unchecked cast must be used on this proxy.
+    /// calls getPublisher and then creates a proxy with the publisher type from this proxy. The returned proxy is
+    /// never null.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
@@ -1765,11 +1768,11 @@ public protocol Topic {
     ///
     /// - parameter theQoS: `QoS` The quality of service parameters for this subscription.
     ///
-    /// - parameter subscriber: `Ice.ObjectPrx?` The subscriber's proxy.
+    /// - parameter subscriber: `Ice.ObjectPrx?` The subscriber's proxy. This proxy is never null.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.ObjectPrx?` - The per-subscriber publisher object.
+    /// - returns: `Ice.ObjectPrx?` - The per-subscriber publisher object. The returned object is never null.
     ///
     /// - throws:
     ///
@@ -1782,7 +1785,7 @@ public protocol Topic {
 
     /// Unsubscribe the given subscriber.
     ///
-    /// - parameter subscriber: `Ice.ObjectPrx?` The proxy of an existing subscriber.
+    /// - parameter subscriber: `Ice.ObjectPrx?` The proxy of an existing subscriber. This proxy is never null.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func unsubscribe(subscriber: Ice.ObjectPrx?, current: Ice.Current) throws
@@ -1790,7 +1793,7 @@ public protocol Topic {
     /// Create a link to the given topic. All events originating on this topic will also be sent to
     /// linkTo.
     ///
-    /// - parameter linkTo: `TopicPrx?` The topic to link to.
+    /// - parameter linkTo: `TopicPrx?` The topic to link to. This proxy is never null.
     ///
     /// - parameter cost: `Swift.Int32` The cost to the linked topic.
     ///
@@ -1803,7 +1806,7 @@ public protocol Topic {
 
     /// Destroy the link from this topic to the given topic linkTo.
     ///
-    /// - parameter linkTo: `TopicPrx?` The topic to destroy the link to.
+    /// - parameter linkTo: `TopicPrx?` The topic to destroy the link to. This proxy is never null.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
@@ -1873,7 +1876,7 @@ public protocol TopicManager {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `TopicPrx?` - A proxy to the topic instance.
+    /// - returns: `TopicPrx?` - A proxy to the topic instance. The returned proxy is never null.
     ///
     /// - throws:
     ///
@@ -1886,7 +1889,7 @@ public protocol TopicManager {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `TopicPrx?` - A proxy to the topic instance.
+    /// - returns: `TopicPrx?` - A proxy to the topic instance. The returned proxy is never null.
     ///
     /// - throws:
     ///
@@ -1937,7 +1940,7 @@ public protocol Finder {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `TopicManagerPrx?` - The topic manager proxy.
+    /// - returns: `TopicManagerPrx?` - The topic manager proxy. The returned proxy is never null.
     func getTopicManager(current: Ice.Current) throws -> TopicManagerPrx?
 }
 

@@ -26,7 +26,7 @@ public interface TopicManager extends com.zeroc.Ice.Object
      * Create a new topic. The topic name must be unique.
      * @param name The name of the topic.
      * @param current The Current object for the invocation.
-     * @return A proxy to the topic instance.
+     * @return A proxy to the topic instance. The returned proxy is never null.
      * @throws TopicExists Raised if a topic with the same name already exists.
      **/
     TopicPrx create(String name, com.zeroc.Ice.Current current)
@@ -36,7 +36,7 @@ public interface TopicManager extends com.zeroc.Ice.Object
      * Retrieve a topic by name.
      * @param name The name of the topic.
      * @param current The Current object for the invocation.
-     * @return A proxy to the topic instance.
+     * @return A proxy to the topic instance. The returned proxy is never null.
      * @throws NoSuchTopic Raised if the topic does not exist.
      **/
     TopicPrx retrieve(String name, com.zeroc.Ice.Current current)

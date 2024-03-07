@@ -24,7 +24,7 @@ public interface Finder extends com.zeroc.Ice.Object
     /**
      * Get the topic manager proxy. The proxy might point to several replicas.
      * @param current The Current object for the invocation.
-     * @return The topic manager proxy.
+     * @return The topic manager proxy. The returned proxy is never null.
      **/
     TopicManagerPrx getTopicManager(com.zeroc.Ice.Current current);
 

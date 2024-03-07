@@ -22,7 +22,7 @@ public class LinkInfo implements java.lang.Cloneable,
                                  java.io.Serializable
 {
     /**
-     * The linked topic.
+     * The linked topic. It is never null.
      **/
     public TopicPrx theTopic;
 
@@ -178,5 +178,5 @@ public class LinkInfo implements java.lang.Cloneable,
     private static final LinkInfo _nullMarshalValue = new LinkInfo();
 
     /** @hidden */
-    public static final long serialVersionUID = -5939677422379522982L;
+    public static final long serialVersionUID = -3622093108461144875L;
 }

@@ -12,7 +12,7 @@
 
 classdef LinkInfo
     properties
-        % theTopic - The linked topic.
+        % theTopic - The linked topic. It is never null.
         theTopic
         % name - The name of the linked topic.
         name char

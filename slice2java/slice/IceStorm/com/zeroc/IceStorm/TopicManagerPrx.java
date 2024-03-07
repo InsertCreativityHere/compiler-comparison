@@ -25,7 +25,7 @@ public interface TopicManagerPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Create a new topic. The topic name must be unique.
      * @param name The name of the topic.
-     * @return A proxy to the topic instance.
+     * @return A proxy to the topic instance. The returned proxy is never null.
      * @throws TopicExists Raised if a topic with the same name already exists.
      **/
     default TopicPrx create(String name)
@@ -38,7 +38,7 @@ public interface TopicManagerPrx extends com.zeroc.Ice.ObjectPrx
      * Create a new topic. The topic name must be unique.
      * @param name The name of the topic.
      * @param context The Context map to send with the invocation.
-     * @return A proxy to the topic instance.
+     * @return A proxy to the topic instance. The returned proxy is never null.
      * @throws TopicExists Raised if a topic with the same name already exists.
      **/
     default TopicPrx create(String name, java.util.Map<String, String> context)
@@ -61,7 +61,7 @@ public interface TopicManagerPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Create a new topic. The topic name must be unique.
      * @param name The name of the topic.
-     * @return A proxy to the topic instance.
+     * @return A proxy to the topic instance. The returned proxy is never null.
      **/
     default java.util.concurrent.CompletableFuture<TopicPrx> createAsync(String name)
     {
@@ -72,7 +72,7 @@ public interface TopicManagerPrx extends com.zeroc.Ice.ObjectPrx
      * Create a new topic. The topic name must be unique.
      * @param name The name of the topic.
      * @param context The Context map to send with the invocation.
-     * @return A proxy to the topic instance.
+     * @return A proxy to the topic instance. The returned proxy is never null.
      **/
     default java.util.concurrent.CompletableFuture<TopicPrx> createAsync(String name, java.util.Map<String, String> context)
     {
@@ -108,7 +108,7 @@ public interface TopicManagerPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Retrieve a topic by name.
      * @param name The name of the topic.
-     * @return A proxy to the topic instance.
+     * @return A proxy to the topic instance. The returned proxy is never null.
      * @throws NoSuchTopic Raised if the topic does not exist.
      **/
     default TopicPrx retrieve(String name)
@@ -121,7 +121,7 @@ public interface TopicManagerPrx extends com.zeroc.Ice.ObjectPrx
      * Retrieve a topic by name.
      * @param name The name of the topic.
      * @param context The Context map to send with the invocation.
-     * @return A proxy to the topic instance.
+     * @return A proxy to the topic instance. The returned proxy is never null.
      * @throws NoSuchTopic Raised if the topic does not exist.
      **/
     default TopicPrx retrieve(String name, java.util.Map<String, String> context)
@@ -144,7 +144,7 @@ public interface TopicManagerPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Retrieve a topic by name.
      * @param name The name of the topic.
-     * @return A proxy to the topic instance.
+     * @return A proxy to the topic instance. The returned proxy is never null.
      **/
     default java.util.concurrent.CompletableFuture<TopicPrx> retrieveAsync(String name)
     {
@@ -155,7 +155,7 @@ public interface TopicManagerPrx extends com.zeroc.Ice.ObjectPrx
      * Retrieve a topic by name.
      * @param name The name of the topic.
      * @param context The Context map to send with the invocation.
-     * @return A proxy to the topic instance.
+     * @return A proxy to the topic instance. The returned proxy is never null.
      **/
     default java.util.concurrent.CompletableFuture<TopicPrx> retrieveAsync(String name, java.util.Map<String, String> context)
     {

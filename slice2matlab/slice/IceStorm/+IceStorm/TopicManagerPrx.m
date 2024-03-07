@@ -26,7 +26,7 @@ classdef TopicManagerPrx < Ice.ObjectPrx
             %   name (char) - The name of the topic.
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (IceStorm.TopicPrx) - A proxy to the topic instance.
+            % Returns (IceStorm.TopicPrx) - A proxy to the topic instance. The returned proxy is never null.
             %
             % Exceptions:
             %   IceStorm.TopicExists - Raised if a topic with the same name already exists.
@@ -69,7 +69,7 @@ classdef TopicManagerPrx < Ice.ObjectPrx
             %   name (char) - The name of the topic.
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (IceStorm.TopicPrx) - A proxy to the topic instance.
+            % Returns (IceStorm.TopicPrx) - A proxy to the topic instance. The returned proxy is never null.
             %
             % Exceptions:
             %   IceStorm.NoSuchTopic - Raised if the topic does not exist.

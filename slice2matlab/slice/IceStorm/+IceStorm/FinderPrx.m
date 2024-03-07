@@ -20,7 +20,7 @@ classdef FinderPrx < Ice.ObjectPrx
             % Parameters:
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (IceStorm.TopicManagerPrx) - The topic manager proxy.
+            % Returns (IceStorm.TopicManagerPrx) - The topic manager proxy. The returned proxy is never null.
             
             is_ = obj.iceInvoke('getTopicManager', 0, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
