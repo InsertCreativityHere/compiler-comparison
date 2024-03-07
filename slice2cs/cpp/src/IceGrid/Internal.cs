@@ -7451,11 +7451,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(ObserverAlreadyRegisteredException)
+                    catch(DeploymentException)
                     {
                         throw;
                     }
-                    catch(DeploymentException)
+                    catch(ObserverAlreadyRegisteredException)
                     {
                         throw;
                     }
