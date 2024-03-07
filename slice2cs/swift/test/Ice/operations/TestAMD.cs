@@ -13226,6 +13226,12 @@ namespace Test
 
         public abstract global::System.Threading.Tasks.Task<MyClass_OpStringDoubleSDResult> opStringDoubleSDAsync(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, global::Ice.Current current = null);
 
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpStringStringSDResult> opStringStringSDAsync(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, global::Ice.Current current = null);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpMyEnumMyEnumSDResult> opMyEnumMyEnumSDAsync(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p2, global::Ice.Current current = null);
+
+        public abstract global::System.Threading.Tasks.Task<int[]> opIntSAsync(int[] s, global::Ice.Current current = null);
+
         public abstract global::System.Threading.Tasks.Task opByteSOnewayAsync(byte[] s, global::Ice.Current current = null);
 
         public abstract global::System.Threading.Tasks.Task<int> opByteSOnewayCallCountAsync(global::Ice.Current current = null);
@@ -13275,12 +13281,6 @@ namespace Test
         public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict1MarshaledResult> opMDict1Async(global::Ice.Current current = null);
 
         public abstract global::System.Threading.Tasks.Task<MyClass_OpMDict2MarshaledResult> opMDict2Async(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpStringStringSDResult> opStringStringSDAsync(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, global::Ice.Current current = null);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpMyEnumMyEnumSDResult> opMyEnumMyEnumSDAsync(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p2, global::Ice.Current current = null);
-
-        public abstract global::System.Threading.Tasks.Task<int[]> opIntSAsync(int[] s, global::Ice.Current current = null);
 
         #endregion
 
