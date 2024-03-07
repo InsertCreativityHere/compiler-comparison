@@ -1883,7 +1883,7 @@ public:
         GetAMDMBMarshaledResult(const ::std::shared_ptr<B>& returnValue, const ::Ice::Current& current);
     };
 
-    virtual void getAMDMBAsync(::std::function<void(const GetAMDMBMarshaledResult&)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void getAMDMBAsync(::std::function<void(GetAMDMBMarshaledResult)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_getAMDMB(::IceInternal::Incoming&);
     /// \endcond

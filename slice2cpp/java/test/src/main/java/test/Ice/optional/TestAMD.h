@@ -2423,7 +2423,7 @@ public:
         OpMStruct1MarshaledResult(const ::std::optional<SmallStruct>& returnValue, const ::Ice::Current& current);
     };
 
-    virtual void opMStruct1Async(::std::function<void(const OpMStruct1MarshaledResult&)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void opMStruct1Async(::std::function<void(OpMStruct1MarshaledResult)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opMStruct1(::IceInternal::Incoming&);
     /// \endcond
@@ -2441,7 +2441,7 @@ public:
         OpMStruct2MarshaledResult(const ::std::optional<SmallStruct>& returnValue, const ::std::optional<SmallStruct>& p2, const ::Ice::Current& current);
     };
 
-    virtual void opMStruct2Async(::std::optional<SmallStruct> p1, ::std::function<void(const OpMStruct2MarshaledResult&)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void opMStruct2Async(::std::optional<SmallStruct> p1, ::std::function<void(OpMStruct2MarshaledResult)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opMStruct2(::IceInternal::Incoming&);
     /// \endcond
@@ -2459,7 +2459,7 @@ public:
         OpMSeq1MarshaledResult(const ::std::optional<StringSeq>& returnValue, const ::Ice::Current& current);
     };
 
-    virtual void opMSeq1Async(::std::function<void(const OpMSeq1MarshaledResult&)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void opMSeq1Async(::std::function<void(OpMSeq1MarshaledResult)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opMSeq1(::IceInternal::Incoming&);
     /// \endcond
@@ -2477,7 +2477,7 @@ public:
         OpMSeq2MarshaledResult(const ::std::optional<StringSeq>& returnValue, const ::std::optional<StringSeq>& p2, const ::Ice::Current& current);
     };
 
-    virtual void opMSeq2Async(::std::optional<StringSeq> p1, ::std::function<void(const OpMSeq2MarshaledResult&)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void opMSeq2Async(::std::optional<StringSeq> p1, ::std::function<void(OpMSeq2MarshaledResult)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opMSeq2(::IceInternal::Incoming&);
     /// \endcond
@@ -2495,7 +2495,7 @@ public:
         OpMDict1MarshaledResult(const ::std::optional<StringIntDict>& returnValue, const ::Ice::Current& current);
     };
 
-    virtual void opMDict1Async(::std::function<void(const OpMDict1MarshaledResult&)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void opMDict1Async(::std::function<void(OpMDict1MarshaledResult)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opMDict1(::IceInternal::Incoming&);
     /// \endcond
@@ -2513,7 +2513,7 @@ public:
         OpMDict2MarshaledResult(const ::std::optional<StringIntDict>& returnValue, const ::std::optional<StringIntDict>& p2, const ::Ice::Current& current);
     };
 
-    virtual void opMDict2Async(::std::optional<StringIntDict> p1, ::std::function<void(const OpMDict2MarshaledResult&)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void opMDict2Async(::std::optional<StringIntDict> p1, ::std::function<void(OpMDict2MarshaledResult)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opMDict2(::IceInternal::Incoming&);
     /// \endcond
@@ -2531,7 +2531,7 @@ public:
         OpMG1MarshaledResult(const ::std::optional<::std::shared_ptr<G>>& returnValue, const ::Ice::Current& current);
     };
 
-    virtual void opMG1Async(::std::function<void(const OpMG1MarshaledResult&)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void opMG1Async(::std::function<void(OpMG1MarshaledResult)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opMG1(::IceInternal::Incoming&);
     /// \endcond
@@ -2549,7 +2549,7 @@ public:
         OpMG2MarshaledResult(const ::std::optional<::std::shared_ptr<G>>& returnValue, const ::std::optional<::std::shared_ptr<G>>& p2, const ::Ice::Current& current);
     };
 
-    virtual void opMG2Async(::std::optional<::std::shared_ptr<G>> p1, ::std::function<void(const OpMG2MarshaledResult&)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void opMG2Async(::std::optional<::std::shared_ptr<G>> p1, ::std::function<void(OpMG2MarshaledResult)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opMG2(::IceInternal::Incoming&);
     /// \endcond

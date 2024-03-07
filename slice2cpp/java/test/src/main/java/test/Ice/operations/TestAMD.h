@@ -1635,7 +1635,7 @@ public:
         OpMStruct1MarshaledResult(const Structure& returnValue, const ::Ice::Current& current);
     };
 
-    virtual void opMStruct1Async(::std::function<void(const OpMStruct1MarshaledResult&)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void opMStruct1Async(::std::function<void(OpMStruct1MarshaledResult)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opMStruct1(::IceInternal::Incoming&);
     /// \endcond
@@ -1653,7 +1653,7 @@ public:
         OpMStruct2MarshaledResult(const Structure& returnValue, const Structure& p2, const ::Ice::Current& current);
     };
 
-    virtual void opMStruct2Async(Structure p1, ::std::function<void(const OpMStruct2MarshaledResult&)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void opMStruct2Async(Structure p1, ::std::function<void(OpMStruct2MarshaledResult)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opMStruct2(::IceInternal::Incoming&);
     /// \endcond
@@ -1671,7 +1671,7 @@ public:
         OpMSeq1MarshaledResult(const StringS& returnValue, const ::Ice::Current& current);
     };
 
-    virtual void opMSeq1Async(::std::function<void(const OpMSeq1MarshaledResult&)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void opMSeq1Async(::std::function<void(OpMSeq1MarshaledResult)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opMSeq1(::IceInternal::Incoming&);
     /// \endcond
@@ -1689,7 +1689,7 @@ public:
         OpMSeq2MarshaledResult(const StringS& returnValue, const StringS& p2, const ::Ice::Current& current);
     };
 
-    virtual void opMSeq2Async(StringS p1, ::std::function<void(const OpMSeq2MarshaledResult&)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void opMSeq2Async(StringS p1, ::std::function<void(OpMSeq2MarshaledResult)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opMSeq2(::IceInternal::Incoming&);
     /// \endcond
@@ -1707,7 +1707,7 @@ public:
         OpMDict1MarshaledResult(const StringStringD& returnValue, const ::Ice::Current& current);
     };
 
-    virtual void opMDict1Async(::std::function<void(const OpMDict1MarshaledResult&)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void opMDict1Async(::std::function<void(OpMDict1MarshaledResult)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opMDict1(::IceInternal::Incoming&);
     /// \endcond
@@ -1725,7 +1725,7 @@ public:
         OpMDict2MarshaledResult(const StringStringD& returnValue, const StringStringD& p2, const ::Ice::Current& current);
     };
 
-    virtual void opMDict2Async(StringStringD p1, ::std::function<void(const OpMDict2MarshaledResult&)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void opMDict2Async(StringStringD p1, ::std::function<void(OpMDict2MarshaledResult)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     bool _iceD_opMDict2(::IceInternal::Incoming&);
     /// \endcond

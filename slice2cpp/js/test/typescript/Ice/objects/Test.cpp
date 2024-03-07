@@ -2105,6 +2105,7 @@ Test::Initial::_iceD_supportsClassGraphDepthMax(::IceInternal::Incoming& incomin
 Test::Initial::GetMBMarshaledResult::GetMBMarshaledResult(const ::std::shared_ptr<B>& ret, const ::Ice::Current& current):
     MarshaledResult(current)
 {
+    ::Ice::OutputStream* ostr = &_ostr;
     ostr->startEncapsulation(current.encoding, ::Ice::FormatType::DefaultFormat);
     ostr->writeAll(ret);
     ostr->writePendingValues();
@@ -2125,6 +2126,7 @@ Test::Initial::_iceD_getMB(::IceInternal::Incoming& incoming)
 Test::Initial::GetAMDMBMarshaledResult::GetAMDMBMarshaledResult(const ::std::shared_ptr<B>& ret, const ::Ice::Current& current):
     MarshaledResult(current)
 {
+    ::Ice::OutputStream* ostr = &_ostr;
     ostr->startEncapsulation(current.encoding, ::Ice::FormatType::DefaultFormat);
     ostr->writeAll(ret);
     ostr->writePendingValues();
@@ -2140,7 +2142,7 @@ Test::Initial::_iceD_getAMDMB(::IceInternal::Incoming& incoming)
     auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
     try
     {
-        this->getAMDMBAsync([incomingPtr](const GetAMDMBMarshaledResult& marshaledResult) { incomingPtr->response(marshaledResult); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+        this->getAMDMBAsync([incomingPtr](GetAMDMBMarshaledResult marshaledResult) { incomingPtr->response(::std::move(marshaledResult)); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
     }
     catch (...)
     {

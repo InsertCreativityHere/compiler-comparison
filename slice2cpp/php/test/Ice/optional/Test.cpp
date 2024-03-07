@@ -3232,6 +3232,7 @@ Test::Initial::_iceD_opG(::IceInternal::Incoming& incoming)
 Test::Initial::OpMStruct1MarshaledResult::OpMStruct1MarshaledResult(const ::std::optional<SmallStruct>& ret, const ::Ice::Current& current):
     MarshaledResult(current)
 {
+    ::Ice::OutputStream* ostr = &_ostr;
     ostr->startEncapsulation(current.encoding, ::Ice::FormatType::DefaultFormat);
     ostr->writeAll({1}, ret);
     ostr->endEncapsulation();
@@ -3251,6 +3252,7 @@ Test::Initial::_iceD_opMStruct1(::IceInternal::Incoming& incoming)
 Test::Initial::OpMStruct2MarshaledResult::OpMStruct2MarshaledResult(const ::std::optional<SmallStruct>& ret, const ::std::optional<SmallStruct>& iceP_p2, const ::Ice::Current& current):
     MarshaledResult(current)
 {
+    ::Ice::OutputStream* ostr = &_ostr;
     ostr->startEncapsulation(current.encoding, ::Ice::FormatType::DefaultFormat);
     ostr->writeAll({1, 3}, ret, iceP_p2);
     ostr->endEncapsulation();
@@ -3273,6 +3275,7 @@ Test::Initial::_iceD_opMStruct2(::IceInternal::Incoming& incoming)
 Test::Initial::OpMSeq1MarshaledResult::OpMSeq1MarshaledResult(const ::std::optional<StringSeq>& ret, const ::Ice::Current& current):
     MarshaledResult(current)
 {
+    ::Ice::OutputStream* ostr = &_ostr;
     ostr->startEncapsulation(current.encoding, ::Ice::FormatType::DefaultFormat);
     ostr->writeAll({1}, ret);
     ostr->endEncapsulation();
@@ -3292,6 +3295,7 @@ Test::Initial::_iceD_opMSeq1(::IceInternal::Incoming& incoming)
 Test::Initial::OpMSeq2MarshaledResult::OpMSeq2MarshaledResult(const ::std::optional<StringSeq>& ret, const ::std::optional<StringSeq>& iceP_p2, const ::Ice::Current& current):
     MarshaledResult(current)
 {
+    ::Ice::OutputStream* ostr = &_ostr;
     ostr->startEncapsulation(current.encoding, ::Ice::FormatType::DefaultFormat);
     ostr->writeAll({1, 3}, ret, iceP_p2);
     ostr->endEncapsulation();
@@ -3314,6 +3318,7 @@ Test::Initial::_iceD_opMSeq2(::IceInternal::Incoming& incoming)
 Test::Initial::OpMDict1MarshaledResult::OpMDict1MarshaledResult(const ::std::optional<StringIntDict>& ret, const ::Ice::Current& current):
     MarshaledResult(current)
 {
+    ::Ice::OutputStream* ostr = &_ostr;
     ostr->startEncapsulation(current.encoding, ::Ice::FormatType::DefaultFormat);
     ostr->writeAll({1}, ret);
     ostr->endEncapsulation();
@@ -3333,6 +3338,7 @@ Test::Initial::_iceD_opMDict1(::IceInternal::Incoming& incoming)
 Test::Initial::OpMDict2MarshaledResult::OpMDict2MarshaledResult(const ::std::optional<StringIntDict>& ret, const ::std::optional<StringIntDict>& iceP_p2, const ::Ice::Current& current):
     MarshaledResult(current)
 {
+    ::Ice::OutputStream* ostr = &_ostr;
     ostr->startEncapsulation(current.encoding, ::Ice::FormatType::DefaultFormat);
     ostr->writeAll({1, 3}, ret, iceP_p2);
     ostr->endEncapsulation();
@@ -3355,6 +3361,7 @@ Test::Initial::_iceD_opMDict2(::IceInternal::Incoming& incoming)
 Test::Initial::OpMG1MarshaledResult::OpMG1MarshaledResult(const ::std::optional<::std::shared_ptr<G>>& ret, const ::Ice::Current& current):
     MarshaledResult(current)
 {
+    ::Ice::OutputStream* ostr = &_ostr;
     ostr->startEncapsulation(current.encoding, ::Ice::FormatType::DefaultFormat);
     ostr->writeAll({1}, ret);
     ostr->endEncapsulation();
@@ -3374,6 +3381,7 @@ Test::Initial::_iceD_opMG1(::IceInternal::Incoming& incoming)
 Test::Initial::OpMG2MarshaledResult::OpMG2MarshaledResult(const ::std::optional<::std::shared_ptr<G>>& ret, const ::std::optional<::std::shared_ptr<G>>& iceP_p2, const ::Ice::Current& current):
     MarshaledResult(current)
 {
+    ::Ice::OutputStream* ostr = &_ostr;
     ostr->startEncapsulation(current.encoding, ::Ice::FormatType::DefaultFormat);
     ostr->writeAll({1, 3}, ret, iceP_p2);
     ostr->endEncapsulation();

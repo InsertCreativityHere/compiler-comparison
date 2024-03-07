@@ -3608,6 +3608,7 @@ Test::Initial::_iceD_opVoid(::IceInternal::Incoming& incoming)
 Test::Initial::OpMStruct1MarshaledResult::OpMStruct1MarshaledResult(const ::std::optional<SmallStruct>& ret, const ::Ice::Current& current):
     MarshaledResult(current)
 {
+    ::Ice::OutputStream* ostr = &_ostr;
     ostr->startEncapsulation(current.encoding, ::Ice::FormatType::DefaultFormat);
     ostr->writeAll({1}, ret);
     ostr->endEncapsulation();
@@ -3622,7 +3623,7 @@ Test::Initial::_iceD_opMStruct1(::IceInternal::Incoming& incoming)
     auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
     try
     {
-        this->opMStruct1Async([incomingPtr](const OpMStruct1MarshaledResult& marshaledResult) { incomingPtr->response(marshaledResult); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+        this->opMStruct1Async([incomingPtr](OpMStruct1MarshaledResult marshaledResult) { incomingPtr->response(::std::move(marshaledResult)); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
     }
     catch (...)
     {
@@ -3635,6 +3636,7 @@ Test::Initial::_iceD_opMStruct1(::IceInternal::Incoming& incoming)
 Test::Initial::OpMStruct2MarshaledResult::OpMStruct2MarshaledResult(const ::std::optional<SmallStruct>& ret, const ::std::optional<SmallStruct>& iceP_p2, const ::Ice::Current& current):
     MarshaledResult(current)
 {
+    ::Ice::OutputStream* ostr = &_ostr;
     ostr->startEncapsulation(current.encoding, ::Ice::FormatType::DefaultFormat);
     ostr->writeAll({1, 3}, ret, iceP_p2);
     ostr->endEncapsulation();
@@ -3652,7 +3654,7 @@ Test::Initial::_iceD_opMStruct2(::IceInternal::Incoming& incoming)
     auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
     try
     {
-        this->opMStruct2Async(::std::move(iceP_p1), [incomingPtr](const OpMStruct2MarshaledResult& marshaledResult) { incomingPtr->response(marshaledResult); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+        this->opMStruct2Async(::std::move(iceP_p1), [incomingPtr](OpMStruct2MarshaledResult marshaledResult) { incomingPtr->response(::std::move(marshaledResult)); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
     }
     catch (...)
     {
@@ -3665,6 +3667,7 @@ Test::Initial::_iceD_opMStruct2(::IceInternal::Incoming& incoming)
 Test::Initial::OpMSeq1MarshaledResult::OpMSeq1MarshaledResult(const ::std::optional<StringSeq>& ret, const ::Ice::Current& current):
     MarshaledResult(current)
 {
+    ::Ice::OutputStream* ostr = &_ostr;
     ostr->startEncapsulation(current.encoding, ::Ice::FormatType::DefaultFormat);
     ostr->writeAll({1}, ret);
     ostr->endEncapsulation();
@@ -3679,7 +3682,7 @@ Test::Initial::_iceD_opMSeq1(::IceInternal::Incoming& incoming)
     auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
     try
     {
-        this->opMSeq1Async([incomingPtr](const OpMSeq1MarshaledResult& marshaledResult) { incomingPtr->response(marshaledResult); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+        this->opMSeq1Async([incomingPtr](OpMSeq1MarshaledResult marshaledResult) { incomingPtr->response(::std::move(marshaledResult)); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
     }
     catch (...)
     {
@@ -3692,6 +3695,7 @@ Test::Initial::_iceD_opMSeq1(::IceInternal::Incoming& incoming)
 Test::Initial::OpMSeq2MarshaledResult::OpMSeq2MarshaledResult(const ::std::optional<StringSeq>& ret, const ::std::optional<StringSeq>& iceP_p2, const ::Ice::Current& current):
     MarshaledResult(current)
 {
+    ::Ice::OutputStream* ostr = &_ostr;
     ostr->startEncapsulation(current.encoding, ::Ice::FormatType::DefaultFormat);
     ostr->writeAll({1, 3}, ret, iceP_p2);
     ostr->endEncapsulation();
@@ -3709,7 +3713,7 @@ Test::Initial::_iceD_opMSeq2(::IceInternal::Incoming& incoming)
     auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
     try
     {
-        this->opMSeq2Async(::std::move(iceP_p1), [incomingPtr](const OpMSeq2MarshaledResult& marshaledResult) { incomingPtr->response(marshaledResult); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+        this->opMSeq2Async(::std::move(iceP_p1), [incomingPtr](OpMSeq2MarshaledResult marshaledResult) { incomingPtr->response(::std::move(marshaledResult)); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
     }
     catch (...)
     {
@@ -3722,6 +3726,7 @@ Test::Initial::_iceD_opMSeq2(::IceInternal::Incoming& incoming)
 Test::Initial::OpMDict1MarshaledResult::OpMDict1MarshaledResult(const ::std::optional<StringIntDict>& ret, const ::Ice::Current& current):
     MarshaledResult(current)
 {
+    ::Ice::OutputStream* ostr = &_ostr;
     ostr->startEncapsulation(current.encoding, ::Ice::FormatType::DefaultFormat);
     ostr->writeAll({1}, ret);
     ostr->endEncapsulation();
@@ -3736,7 +3741,7 @@ Test::Initial::_iceD_opMDict1(::IceInternal::Incoming& incoming)
     auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
     try
     {
-        this->opMDict1Async([incomingPtr](const OpMDict1MarshaledResult& marshaledResult) { incomingPtr->response(marshaledResult); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+        this->opMDict1Async([incomingPtr](OpMDict1MarshaledResult marshaledResult) { incomingPtr->response(::std::move(marshaledResult)); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
     }
     catch (...)
     {
@@ -3749,6 +3754,7 @@ Test::Initial::_iceD_opMDict1(::IceInternal::Incoming& incoming)
 Test::Initial::OpMDict2MarshaledResult::OpMDict2MarshaledResult(const ::std::optional<StringIntDict>& ret, const ::std::optional<StringIntDict>& iceP_p2, const ::Ice::Current& current):
     MarshaledResult(current)
 {
+    ::Ice::OutputStream* ostr = &_ostr;
     ostr->startEncapsulation(current.encoding, ::Ice::FormatType::DefaultFormat);
     ostr->writeAll({1, 3}, ret, iceP_p2);
     ostr->endEncapsulation();
@@ -3766,7 +3772,7 @@ Test::Initial::_iceD_opMDict2(::IceInternal::Incoming& incoming)
     auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
     try
     {
-        this->opMDict2Async(::std::move(iceP_p1), [incomingPtr](const OpMDict2MarshaledResult& marshaledResult) { incomingPtr->response(marshaledResult); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+        this->opMDict2Async(::std::move(iceP_p1), [incomingPtr](OpMDict2MarshaledResult marshaledResult) { incomingPtr->response(::std::move(marshaledResult)); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
     }
     catch (...)
     {
@@ -3779,6 +3785,7 @@ Test::Initial::_iceD_opMDict2(::IceInternal::Incoming& incoming)
 Test::Initial::OpMG1MarshaledResult::OpMG1MarshaledResult(const ::std::optional<::std::shared_ptr<G>>& ret, const ::Ice::Current& current):
     MarshaledResult(current)
 {
+    ::Ice::OutputStream* ostr = &_ostr;
     ostr->startEncapsulation(current.encoding, ::Ice::FormatType::DefaultFormat);
     ostr->writeAll({1}, ret);
     ostr->endEncapsulation();
@@ -3793,7 +3800,7 @@ Test::Initial::_iceD_opMG1(::IceInternal::Incoming& incoming)
     auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
     try
     {
-        this->opMG1Async([incomingPtr](const OpMG1MarshaledResult& marshaledResult) { incomingPtr->response(marshaledResult); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+        this->opMG1Async([incomingPtr](OpMG1MarshaledResult marshaledResult) { incomingPtr->response(::std::move(marshaledResult)); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
     }
     catch (...)
     {
@@ -3806,6 +3813,7 @@ Test::Initial::_iceD_opMG1(::IceInternal::Incoming& incoming)
 Test::Initial::OpMG2MarshaledResult::OpMG2MarshaledResult(const ::std::optional<::std::shared_ptr<G>>& ret, const ::std::optional<::std::shared_ptr<G>>& iceP_p2, const ::Ice::Current& current):
     MarshaledResult(current)
 {
+    ::Ice::OutputStream* ostr = &_ostr;
     ostr->startEncapsulation(current.encoding, ::Ice::FormatType::DefaultFormat);
     ostr->writeAll({1, 3}, ret, iceP_p2);
     ostr->endEncapsulation();
@@ -3823,7 +3831,7 @@ Test::Initial::_iceD_opMG2(::IceInternal::Incoming& incoming)
     auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
     try
     {
-        this->opMG2Async(::std::move(iceP_p1), [incomingPtr](const OpMG2MarshaledResult& marshaledResult) { incomingPtr->response(marshaledResult); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+        this->opMG2Async(::std::move(iceP_p1), [incomingPtr](OpMG2MarshaledResult marshaledResult) { incomingPtr->response(::std::move(marshaledResult)); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
     }
     catch (...)
     {
