@@ -26,7 +26,7 @@ public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
      * matching domain identifier.
      * @param id The object identity.
      * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
-     * object is found.
+     * object is found. The reply proxy is never null.
      **/
     default void findObjectById(String domainId, com.zeroc.Ice.Identity id, LookupReplyPrx reply)
     {
@@ -39,7 +39,7 @@ public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
      * matching domain identifier.
      * @param id The object identity.
      * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
-     * object is found.
+     * object is found. The reply proxy is never null.
      * @param context The Context map to send with the invocation.
      **/
     default void findObjectById(String domainId, com.zeroc.Ice.Identity id, LookupReplyPrx reply, java.util.Map<String, String> context)
@@ -53,7 +53,7 @@ public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
      * matching domain identifier.
      * @param id The object identity.
      * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
-     * object is found.
+     * object is found. The reply proxy is never null.
      * @return A future that will be completed when the invocation completes.
      **/
     default java.util.concurrent.CompletableFuture<Void> findObjectByIdAsync(String domainId, com.zeroc.Ice.Identity id, LookupReplyPrx reply)
@@ -67,7 +67,7 @@ public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
      * matching domain identifier.
      * @param id The object identity.
      * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
-     * object is found.
+     * object is found. The reply proxy is never null.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -102,7 +102,7 @@ public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
      * matching domain identifier.
      * @param id The adapter ID.
      * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
-     * adapter is found.
+     * adapter is found. The reply proxy is never null.
      **/
     default void findAdapterById(String domainId, String id, LookupReplyPrx reply)
     {
@@ -115,7 +115,7 @@ public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
      * matching domain identifier.
      * @param id The adapter ID.
      * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
-     * adapter is found.
+     * adapter is found. The reply proxy is never null.
      * @param context The Context map to send with the invocation.
      **/
     default void findAdapterById(String domainId, String id, LookupReplyPrx reply, java.util.Map<String, String> context)
@@ -129,7 +129,7 @@ public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
      * matching domain identifier.
      * @param id The adapter ID.
      * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
-     * adapter is found.
+     * adapter is found. The reply proxy is never null.
      * @return A future that will be completed when the invocation completes.
      **/
     default java.util.concurrent.CompletableFuture<Void> findAdapterByIdAsync(String domainId, String id, LookupReplyPrx reply)
@@ -143,7 +143,7 @@ public interface LookupPrx extends com.zeroc.Ice.ObjectPrx
      * matching domain identifier.
      * @param id The adapter ID.
      * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
-     * adapter is found.
+     * adapter is found. The reply proxy is never null.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
      **/

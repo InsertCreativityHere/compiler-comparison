@@ -29,8 +29,7 @@ public struct LookupTraits: Ice.SliceTraits {
     public static let staticId = "::IceDiscovery::Lookup"
 }
 
-/// The LookupReply interface is used by IceDiscovery clients to answer requests
-/// received on the Lookup interface.
+/// The LookupReply interface is used by IceDiscovery clients to answer requests received on the Lookup interface.
 ///
 /// LookupReplyPrx Methods:
 ///
@@ -116,8 +115,7 @@ public extension Ice.InputStream {
     }
 }
 
-/// The LookupReply interface is used by IceDiscovery clients to answer requests
-/// received on the Lookup interface.
+/// The LookupReply interface is used by IceDiscovery clients to answer requests received on the Lookup interface.
 ///
 /// LookupReplyPrx Methods:
 ///
@@ -133,7 +131,7 @@ public extension LookupReplyPrx {
     ///
     /// - parameter id: `Ice.Identity` The identity of the object.
     ///
-    /// - parameter prx: `Ice.ObjectPrx?` The proxy of the object.
+    /// - parameter prx: `Ice.ObjectPrx?` The proxy of the object. This proxy is never null.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     func foundObjectById(id iceP_id: Ice.Identity, prx iceP_prx: Ice.ObjectPrx?, context: Ice.Context? = nil) throws {
@@ -150,7 +148,7 @@ public extension LookupReplyPrx {
     ///
     /// - parameter id: `Ice.Identity` The identity of the object.
     ///
-    /// - parameter prx: `Ice.ObjectPrx?` The proxy of the object.
+    /// - parameter prx: `Ice.ObjectPrx?` The proxy of the object. This proxy is never null.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -181,7 +179,7 @@ public extension LookupReplyPrx {
     /// - parameter id: `Swift.String` The adapter ID.
     ///
     /// - parameter prx: `Ice.ObjectPrx?` The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
-    /// endpoints.
+    /// endpoints. This proxy is never null.
     ///
     /// - parameter isReplicaGroup: `Swift.Bool` True if the adapter is also a member of a replica group.
     ///
@@ -202,7 +200,7 @@ public extension LookupReplyPrx {
     /// - parameter id: `Swift.String` The adapter ID.
     ///
     /// - parameter prx: `Ice.ObjectPrx?` The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
-    /// endpoints.
+    /// endpoints. This proxy is never null.
     ///
     /// - parameter isReplicaGroup: `Swift.Bool` True if the adapter is also a member of a replica group.
     ///
@@ -338,7 +336,7 @@ public extension LookupPrx {
     /// - parameter id: `Ice.Identity` The object identity.
     ///
     /// - parameter reply: `LookupReplyPrx?` The proxy of the LookupReply interface that should be used to send the reply if a matching
-    /// object is found.
+    /// object is found. The reply proxy is never null.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     func findObjectById(domainId iceP_domainId: Swift.String, id iceP_id: Ice.Identity, reply iceP_reply: LookupReplyPrx?, context: Ice.Context? = nil) throws {
@@ -360,7 +358,7 @@ public extension LookupPrx {
     /// - parameter id: `Ice.Identity` The object identity.
     ///
     /// - parameter reply: `LookupReplyPrx?` The proxy of the LookupReply interface that should be used to send the reply if a matching
-    /// object is found.
+    /// object is found. The reply proxy is never null.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -395,7 +393,7 @@ public extension LookupPrx {
     /// - parameter id: `Swift.String` The adapter ID.
     ///
     /// - parameter reply: `LookupReplyPrx?` The proxy of the LookupReply interface that should be used to send the reply if a matching
-    /// adapter is found.
+    /// adapter is found. The reply proxy is never null.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     func findAdapterById(domainId iceP_domainId: Swift.String, id iceP_id: Swift.String, reply iceP_reply: LookupReplyPrx?, context: Ice.Context? = nil) throws {
@@ -417,7 +415,7 @@ public extension LookupPrx {
     /// - parameter id: `Swift.String` The adapter ID.
     ///
     /// - parameter reply: `LookupReplyPrx?` The proxy of the LookupReply interface that should be used to send the reply if a matching
-    /// adapter is found.
+    /// adapter is found. The reply proxy is never null.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -476,14 +474,13 @@ public struct LookupReplyDisp: Ice.Disp {
     }
 }
 
-/// The LookupReply interface is used by IceDiscovery clients to answer requests
-/// received on the Lookup interface.
+/// The LookupReply interface is used by IceDiscovery clients to answer requests received on the Lookup interface.
 public protocol LookupReply {
     /// Reply to the findObjectById request.
     ///
     /// - parameter id: `Ice.Identity` The identity of the object.
     ///
-    /// - parameter prx: `Ice.ObjectPrx?` The proxy of the object.
+    /// - parameter prx: `Ice.ObjectPrx?` The proxy of the object. This proxy is never null.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func foundObjectById(id: Ice.Identity, prx: Ice.ObjectPrx?, current: Ice.Current) throws
@@ -493,7 +490,7 @@ public protocol LookupReply {
     /// - parameter id: `Swift.String` The adapter ID.
     ///
     /// - parameter prx: `Ice.ObjectPrx?` The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
-    /// endpoints.
+    /// endpoints. This proxy is never null.
     ///
     /// - parameter isReplicaGroup: `Swift.Bool` True if the adapter is also a member of a replica group.
     ///
@@ -542,7 +539,7 @@ public protocol Lookup {
     /// - parameter id: `Ice.Identity` The object identity.
     ///
     /// - parameter reply: `LookupReplyPrx?` The proxy of the LookupReply interface that should be used to send the reply if a matching
-    /// object is found.
+    /// object is found. The reply proxy is never null.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func findObjectById(domainId: Swift.String, id: Ice.Identity, reply: LookupReplyPrx?, current: Ice.Current) throws
@@ -555,14 +552,13 @@ public protocol Lookup {
     /// - parameter id: `Swift.String` The adapter ID.
     ///
     /// - parameter reply: `LookupReplyPrx?` The proxy of the LookupReply interface that should be used to send the reply if a matching
-    /// adapter is found.
+    /// adapter is found. The reply proxy is never null.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func findAdapterById(domainId: Swift.String, id: Swift.String, reply: LookupReplyPrx?, current: Ice.Current) throws
 }
 
-/// The LookupReply interface is used by IceDiscovery clients to answer requests
-/// received on the Lookup interface.
+/// The LookupReply interface is used by IceDiscovery clients to answer requests received on the Lookup interface.
 ///
 /// LookupReply Methods:
 ///

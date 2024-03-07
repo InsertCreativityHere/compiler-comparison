@@ -16,15 +16,14 @@
 package com.zeroc.IceDiscovery;
 
 /**
- * The LookupReply interface is used by IceDiscovery clients to answer requests
- * received on the Lookup interface.
+ * The LookupReply interface is used by IceDiscovery clients to answer requests received on the Lookup interface.
  **/
 public interface LookupReply extends com.zeroc.Ice.Object
 {
     /**
      * Reply to the findObjectById request.
      * @param id The identity of the object.
-     * @param prx The proxy of the object.
+     * @param prx The proxy of the object. This proxy is never null.
      * @param current The Current object for the invocation.
      **/
     void foundObjectById(com.zeroc.Ice.Identity id, com.zeroc.Ice.ObjectPrx prx, com.zeroc.Ice.Current current);
@@ -33,7 +32,7 @@ public interface LookupReply extends com.zeroc.Ice.Object
      * Reply to the findAdpaterById request.
      * @param id The adapter ID.
      * @param prx The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
-     * endpoints.
+     * endpoints. This proxy is never null.
      * @param isReplicaGroup True if the adapter is also a member of a replica group.
      * @param current The Current object for the invocation.
      **/

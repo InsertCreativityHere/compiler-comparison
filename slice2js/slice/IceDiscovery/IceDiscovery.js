@@ -43,8 +43,7 @@ const iceC_IceDiscovery_LookupReply_ids = [
 ];
 
 /**
- *  The LookupReply interface is used by IceDiscovery clients to answer requests
- *  received on the Lookup interface.
+ *  The LookupReply interface is used by IceDiscovery clients to answer requests received on the Lookup interface.
  **/
 IceDiscovery.LookupReply = class extends Ice.Object
 {

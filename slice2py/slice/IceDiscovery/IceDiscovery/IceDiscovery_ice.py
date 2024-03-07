@@ -34,7 +34,7 @@ if 'LookupReplyPrx' not in _M_IceDiscovery.__dict__:
          Reply to the findObjectById request.
         Arguments:
         id -- The identity of the object.
-        prx -- The proxy of the object.
+        prx -- The proxy of the object. This proxy is never null.
         context -- The request context for the invocation.
         """
         def foundObjectById(self, id, prx, context=None):
@@ -44,7 +44,7 @@ if 'LookupReplyPrx' not in _M_IceDiscovery.__dict__:
          Reply to the findObjectById request.
         Arguments:
         id -- The identity of the object.
-        prx -- The proxy of the object.
+        prx -- The proxy of the object. This proxy is never null.
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
@@ -55,7 +55,7 @@ if 'LookupReplyPrx' not in _M_IceDiscovery.__dict__:
          Reply to the findAdpaterById request.
         Arguments:
         id -- The adapter ID.
-        prx -- The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter endpoints.
+        prx -- The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter endpoints. This proxy is never null.
         isReplicaGroup -- True if the adapter is also a member of a replica group.
         context -- The request context for the invocation.
         """
@@ -66,7 +66,7 @@ if 'LookupReplyPrx' not in _M_IceDiscovery.__dict__:
          Reply to the findAdpaterById request.
         Arguments:
         id -- The adapter ID.
-        prx -- The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter endpoints.
+        prx -- The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter endpoints. This proxy is never null.
         isReplicaGroup -- True if the adapter is also a member of a replica group.
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -108,7 +108,7 @@ if 'LookupReplyPrx' not in _M_IceDiscovery.__dict__:
              Reply to the findObjectById request.
             Arguments:
             id -- The identity of the object.
-            prx -- The proxy of the object.
+            prx -- The proxy of the object. This proxy is never null.
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
             """
@@ -119,7 +119,7 @@ if 'LookupReplyPrx' not in _M_IceDiscovery.__dict__:
              Reply to the findAdpaterById request.
             Arguments:
             id -- The adapter ID.
-            prx -- The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter endpoints.
+            prx -- The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter endpoints. This proxy is never null.
             isReplicaGroup -- True if the adapter is also a member of a replica group.
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -151,7 +151,7 @@ if 'LookupPrx' not in _M_IceDiscovery.__dict__:
         Arguments:
         domainId -- The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a matching domain identifier.
         id -- The object identity.
-        reply -- The proxy of the LookupReply interface that should be used to send the reply if a matching object is found.
+        reply -- The proxy of the LookupReply interface that should be used to send the reply if a matching object is found. The reply proxy is never null.
         context -- The request context for the invocation.
         """
         def findObjectById(self, domainId, id, reply, context=None):
@@ -162,7 +162,7 @@ if 'LookupPrx' not in _M_IceDiscovery.__dict__:
         Arguments:
         domainId -- The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a matching domain identifier.
         id -- The object identity.
-        reply -- The proxy of the LookupReply interface that should be used to send the reply if a matching object is found.
+        reply -- The proxy of the LookupReply interface that should be used to send the reply if a matching object is found. The reply proxy is never null.
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
@@ -174,7 +174,7 @@ if 'LookupPrx' not in _M_IceDiscovery.__dict__:
         Arguments:
         domainId -- The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a matching domain identifier.
         id -- The adapter ID.
-        reply -- The proxy of the LookupReply interface that should be used to send the reply if a matching adapter is found.
+        reply -- The proxy of the LookupReply interface that should be used to send the reply if a matching adapter is found. The reply proxy is never null.
         context -- The request context for the invocation.
         """
         def findAdapterById(self, domainId, id, reply, context=None):
@@ -185,7 +185,7 @@ if 'LookupPrx' not in _M_IceDiscovery.__dict__:
         Arguments:
         domainId -- The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a matching domain identifier.
         id -- The adapter ID.
-        reply -- The proxy of the LookupReply interface that should be used to send the reply if a matching adapter is found.
+        reply -- The proxy of the LookupReply interface that should be used to send the reply if a matching adapter is found. The reply proxy is never null.
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
@@ -227,7 +227,7 @@ if 'LookupPrx' not in _M_IceDiscovery.__dict__:
             Arguments:
             domainId -- The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a matching domain identifier.
             id -- The object identity.
-            reply -- The proxy of the LookupReply interface that should be used to send the reply if a matching object is found.
+            reply -- The proxy of the LookupReply interface that should be used to send the reply if a matching object is found. The reply proxy is never null.
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
             """
@@ -239,7 +239,7 @@ if 'LookupPrx' not in _M_IceDiscovery.__dict__:
             Arguments:
             domainId -- The IceDiscovery domain identifier. An IceDiscovery client only replies to requests with a matching domain identifier.
             id -- The adapter ID.
-            reply -- The proxy of the LookupReply interface that should be used to send the reply if a matching adapter is found.
+            reply -- The proxy of the LookupReply interface that should be used to send the reply if a matching adapter is found. The reply proxy is never null.
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
             """

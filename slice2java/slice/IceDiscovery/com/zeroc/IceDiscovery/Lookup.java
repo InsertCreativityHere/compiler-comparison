@@ -26,7 +26,7 @@ public interface Lookup extends com.zeroc.Ice.Object
      * matching domain identifier.
      * @param id The object identity.
      * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
-     * object is found.
+     * object is found. The reply proxy is never null.
      * @param current The Current object for the invocation.
      **/
     void findObjectById(String domainId, com.zeroc.Ice.Identity id, LookupReplyPrx reply, com.zeroc.Ice.Current current);
@@ -37,7 +37,7 @@ public interface Lookup extends com.zeroc.Ice.Object
      * matching domain identifier.
      * @param id The adapter ID.
      * @param reply The proxy of the LookupReply interface that should be used to send the reply if a matching
-     * adapter is found.
+     * adapter is found. The reply proxy is never null.
      * @param current The Current object for the invocation.
      **/
     void findAdapterById(String domainId, String id, LookupReplyPrx reply, com.zeroc.Ice.Current current);

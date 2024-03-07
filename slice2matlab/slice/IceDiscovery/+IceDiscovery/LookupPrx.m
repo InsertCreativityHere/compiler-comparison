@@ -23,7 +23,7 @@ classdef LookupPrx < Ice.ObjectPrx
             %     matching domain identifier.
             %   id (Ice.Identity) - The object identity.
             %   reply (IceDiscovery.LookupReplyPrx) - The proxy of the LookupReply interface that should be used to send the reply if a matching
-            %     object is found.
+            %     object is found. The reply proxy is never null.
             %   context (containers.Map) - Optional request context.
             
             os_ = obj.iceStartWriteParams([]);
@@ -41,7 +41,7 @@ classdef LookupPrx < Ice.ObjectPrx
             %     matching domain identifier.
             %   id (Ice.Identity) - The object identity.
             %   reply (IceDiscovery.LookupReplyPrx) - The proxy of the LookupReply interface that should be used to send the reply if a matching
-            %     object is found.
+            %     object is found. The reply proxy is never null.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
@@ -61,7 +61,7 @@ classdef LookupPrx < Ice.ObjectPrx
             %     matching domain identifier.
             %   id (char) - The adapter ID.
             %   reply (IceDiscovery.LookupReplyPrx) - The proxy of the LookupReply interface that should be used to send the reply if a matching
-            %     adapter is found.
+            %     adapter is found. The reply proxy is never null.
             %   context (containers.Map) - Optional request context.
             
             os_ = obj.iceStartWriteParams([]);
@@ -79,7 +79,7 @@ classdef LookupPrx < Ice.ObjectPrx
             %     matching domain identifier.
             %   id (char) - The adapter ID.
             %   reply (IceDiscovery.LookupReplyPrx) - The proxy of the LookupReply interface that should be used to send the reply if a matching
-            %     adapter is found.
+            %     adapter is found. The reply proxy is never null.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.

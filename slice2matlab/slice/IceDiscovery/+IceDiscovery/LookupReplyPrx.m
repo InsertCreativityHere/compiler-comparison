@@ -1,7 +1,6 @@
 % LookupReplyPrx   Summary of LookupReplyPrx
 %
-% The LookupReply interface is used by IceDiscovery clients to answer requests
-% received on the Lookup interface.
+% The LookupReply interface is used by IceDiscovery clients to answer requests received on the Lookup interface.
 %
 % LookupReplyPrx Methods:
 %   foundObjectById - Reply to the findObjectById request.
@@ -21,7 +20,7 @@ classdef LookupReplyPrx < Ice.ObjectPrx
             %
             % Parameters:
             %   id (Ice.Identity) - The identity of the object.
-            %   prx (Ice.ObjectPrx) - The proxy of the object.
+            %   prx (Ice.ObjectPrx) - The proxy of the object. This proxy is never null.
             %   context (containers.Map) - Optional request context.
             
             os_ = obj.iceStartWriteParams([]);
@@ -35,7 +34,7 @@ classdef LookupReplyPrx < Ice.ObjectPrx
             %
             % Parameters:
             %   id (Ice.Identity) - The identity of the object.
-            %   prx (Ice.ObjectPrx) - The proxy of the object.
+            %   prx (Ice.ObjectPrx) - The proxy of the object. This proxy is never null.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
@@ -52,7 +51,7 @@ classdef LookupReplyPrx < Ice.ObjectPrx
             % Parameters:
             %   id (char) - The adapter ID.
             %   prx (Ice.ObjectPrx) - The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
-            %     endpoints.
+            %     endpoints. This proxy is never null.
             %   isReplicaGroup (logical) - True if the adapter is also a member of a replica group.
             %   context (containers.Map) - Optional request context.
             
@@ -69,7 +68,7 @@ classdef LookupReplyPrx < Ice.ObjectPrx
             % Parameters:
             %   id (char) - The adapter ID.
             %   prx (Ice.ObjectPrx) - The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
-            %     endpoints.
+            %     endpoints. This proxy is never null.
             %   isReplicaGroup (logical) - True if the adapter is also a member of a replica group.
             %   context (containers.Map) - Optional request context.
             %

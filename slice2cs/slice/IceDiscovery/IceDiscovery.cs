@@ -69,8 +69,7 @@ namespace IceDiscovery
 namespace IceDiscovery
 {
     /// <summary>
-    /// The LookupReply interface is used by IceDiscovery clients to answer requests
-    ///  received on the Lookup interface.
+    /// The LookupReply interface is used by IceDiscovery clients to answer requests received on the Lookup interface.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -81,7 +80,7 @@ namespace IceDiscovery
         /// </summary>
         /// <param name="id">The identity of the object.
         ///  </param>
-        /// <param name="prx">The proxy of the object.</param>
+        /// <param name="prx">The proxy of the object. This proxy is never null.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void foundObjectById(global::Ice.Identity id, global::Ice.ObjectPrx prx, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -91,7 +90,7 @@ namespace IceDiscovery
         /// </summary>
         /// <param name="id">The identity of the object.
         ///  </param>
-        /// <param name="prx">The proxy of the object.</param>
+        /// <param name="prx">The proxy of the object. This proxy is never null.</param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -104,7 +103,7 @@ namespace IceDiscovery
         /// <param name="id">The adapter ID.
         ///  </param>
         /// <param name="prx">The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
-        ///  endpoints.
+        ///  endpoints. This proxy is never null.
         ///  </param>
         /// <param name="isReplicaGroup">True if the adapter is also a member of a replica group.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -117,7 +116,7 @@ namespace IceDiscovery
         /// <param name="id">The adapter ID.
         ///  </param>
         /// <param name="prx">The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
-        ///  endpoints.
+        ///  endpoints. This proxy is never null.
         ///  </param>
         /// <param name="isReplicaGroup">True if the adapter is also a member of a replica group.</param>
         /// <param name="context">Context map to send with the invocation.</param>
@@ -143,7 +142,7 @@ namespace IceDiscovery
         /// <param name="id">The object identity.
         ///  </param>
         /// <param name="reply">The proxy of the LookupReply interface that should be used to send the reply if a matching
-        ///  object is found.</param>
+        ///  object is found. The reply proxy is never null.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void findObjectById(string domainId, global::Ice.Identity id, LookupReplyPrx reply, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -157,7 +156,7 @@ namespace IceDiscovery
         /// <param name="id">The object identity.
         ///  </param>
         /// <param name="reply">The proxy of the LookupReply interface that should be used to send the reply if a matching
-        ///  object is found.</param>
+        ///  object is found. The reply proxy is never null.</param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -173,7 +172,7 @@ namespace IceDiscovery
         /// <param name="id">The adapter ID.
         ///  </param>
         /// <param name="reply">The proxy of the LookupReply interface that should be used to send the reply if a matching
-        ///  adapter is found.</param>
+        ///  adapter is found. The reply proxy is never null.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void findAdapterById(string domainId, string id, LookupReplyPrx reply, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -187,7 +186,7 @@ namespace IceDiscovery
         /// <param name="id">The adapter ID.
         ///  </param>
         /// <param name="reply">The proxy of the LookupReply interface that should be used to send the reply if a matching
-        ///  adapter is found.</param>
+        ///  adapter is found. The reply proxy is never null.</param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -199,8 +198,7 @@ namespace IceDiscovery
 namespace IceDiscovery
 {
     /// <summary>
-    /// The LookupReply interface is used by IceDiscovery clients to answer requests
-    ///  received on the Lookup interface.
+    /// The LookupReply interface is used by IceDiscovery clients to answer requests received on the Lookup interface.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -211,7 +209,7 @@ namespace IceDiscovery
         /// </summary>
         /// <param name="id">The identity of the object.
         ///  </param>
-        /// <param name="prx">The proxy of the object.</param>
+        /// <param name="prx">The proxy of the object. This proxy is never null.</param>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -223,7 +221,7 @@ namespace IceDiscovery
         /// <param name="id">The adapter ID.
         ///  </param>
         /// <param name="prx">The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
-        ///  endpoints.
+        ///  endpoints. This proxy is never null.
         ///  </param>
         /// <param name="isReplicaGroup">True if the adapter is also a member of a replica group.</param>
         /// <param name="current">The Current object for the invocation.</param>
@@ -248,7 +246,7 @@ namespace IceDiscovery
         /// <param name="id">The object identity.
         ///  </param>
         /// <param name="reply">The proxy of the LookupReply interface that should be used to send the reply if a matching
-        ///  object is found.</param>
+        ///  object is found. The reply proxy is never null.</param>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -263,7 +261,7 @@ namespace IceDiscovery
         /// <param name="id">The adapter ID.
         ///  </param>
         /// <param name="reply">The proxy of the LookupReply interface that should be used to send the reply if a matching
-        ///  adapter is found.</param>
+        ///  adapter is found. The reply proxy is never null.</param>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]

@@ -16,15 +16,14 @@
 package com.zeroc.IceDiscovery;
 
 /**
- * The LookupReply interface is used by IceDiscovery clients to answer requests
- * received on the Lookup interface.
+ * The LookupReply interface is used by IceDiscovery clients to answer requests received on the Lookup interface.
  **/
 public interface LookupReplyPrx extends com.zeroc.Ice.ObjectPrx
 {
     /**
      * Reply to the findObjectById request.
      * @param id The identity of the object.
-     * @param prx The proxy of the object.
+     * @param prx The proxy of the object. This proxy is never null.
      **/
     default void foundObjectById(com.zeroc.Ice.Identity id, com.zeroc.Ice.ObjectPrx prx)
     {
@@ -34,7 +33,7 @@ public interface LookupReplyPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Reply to the findObjectById request.
      * @param id The identity of the object.
-     * @param prx The proxy of the object.
+     * @param prx The proxy of the object. This proxy is never null.
      * @param context The Context map to send with the invocation.
      **/
     default void foundObjectById(com.zeroc.Ice.Identity id, com.zeroc.Ice.ObjectPrx prx, java.util.Map<String, String> context)
@@ -45,7 +44,7 @@ public interface LookupReplyPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Reply to the findObjectById request.
      * @param id The identity of the object.
-     * @param prx The proxy of the object.
+     * @param prx The proxy of the object. This proxy is never null.
      * @return A future that will be completed when the invocation completes.
      **/
     default java.util.concurrent.CompletableFuture<Void> foundObjectByIdAsync(com.zeroc.Ice.Identity id, com.zeroc.Ice.ObjectPrx prx)
@@ -56,7 +55,7 @@ public interface LookupReplyPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Reply to the findObjectById request.
      * @param id The identity of the object.
-     * @param prx The proxy of the object.
+     * @param prx The proxy of the object. This proxy is never null.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -87,7 +86,7 @@ public interface LookupReplyPrx extends com.zeroc.Ice.ObjectPrx
      * Reply to the findAdpaterById request.
      * @param id The adapter ID.
      * @param prx The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
-     * endpoints.
+     * endpoints. This proxy is never null.
      * @param isReplicaGroup True if the adapter is also a member of a replica group.
      **/
     default void foundAdapterById(String id, com.zeroc.Ice.ObjectPrx prx, boolean isReplicaGroup)
@@ -99,7 +98,7 @@ public interface LookupReplyPrx extends com.zeroc.Ice.ObjectPrx
      * Reply to the findAdpaterById request.
      * @param id The adapter ID.
      * @param prx The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
-     * endpoints.
+     * endpoints. This proxy is never null.
      * @param isReplicaGroup True if the adapter is also a member of a replica group.
      * @param context The Context map to send with the invocation.
      **/
@@ -112,7 +111,7 @@ public interface LookupReplyPrx extends com.zeroc.Ice.ObjectPrx
      * Reply to the findAdpaterById request.
      * @param id The adapter ID.
      * @param prx The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
-     * endpoints.
+     * endpoints. This proxy is never null.
      * @param isReplicaGroup True if the adapter is also a member of a replica group.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -125,7 +124,7 @@ public interface LookupReplyPrx extends com.zeroc.Ice.ObjectPrx
      * Reply to the findAdpaterById request.
      * @param id The adapter ID.
      * @param prx The adapter proxy (a dummy proxy created by the adapter). The proxy provides the adapter
-     * endpoints.
+     * endpoints. This proxy is never null.
      * @param isReplicaGroup True if the adapter is also a member of a replica group.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
