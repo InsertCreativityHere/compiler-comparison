@@ -69,5 +69,5 @@ public class KnownIntermediate extends Base
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 1717373780962952537L;
+    public static final long serialVersionUID = 1717373886857438600L;
 }
