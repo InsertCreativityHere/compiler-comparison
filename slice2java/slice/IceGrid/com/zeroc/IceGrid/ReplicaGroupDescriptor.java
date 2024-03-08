@@ -232,5 +232,5 @@ public class ReplicaGroupDescriptor implements java.lang.Cloneable,
     private static final ReplicaGroupDescriptor _nullMarshalValue = new ReplicaGroupDescriptor();
 
     /** @hidden */
-    public static final long serialVersionUID = -276757335359998890L;
+    public static final long serialVersionUID = 1013740334760042628L;
 }

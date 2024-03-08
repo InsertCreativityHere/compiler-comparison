@@ -151,5 +151,5 @@ public class ProtocolVersion implements java.lang.Cloneable,
     private static final ProtocolVersion _nullMarshalValue = new ProtocolVersion();
 
     /** @hidden */
-    public static final long serialVersionUID = 7001801596571284068L;
+    public static final long serialVersionUID = -2324252566563698908L;
 }
