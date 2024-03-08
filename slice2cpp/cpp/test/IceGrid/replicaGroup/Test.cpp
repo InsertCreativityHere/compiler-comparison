@@ -105,7 +105,7 @@ Test::TestIntfPrx::ice_staticId()
 ::std::vector<::std::string>
 Test::TestIntf::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::TestIntf" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::TestIntf"};
     return allTypeIds;
 }
 
@@ -154,7 +154,7 @@ Test::TestIntf::_iceD_getReplicaIdAndShutdown(::IceInternal::Incoming& incoming)
 bool
 Test::TestIntf::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "getReplicaId", "getReplicaIdAndShutdown", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"getReplicaId", "getReplicaIdAndShutdown", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);

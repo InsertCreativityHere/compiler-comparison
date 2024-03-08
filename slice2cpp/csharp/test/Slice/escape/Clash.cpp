@@ -437,7 +437,7 @@ Clash::Ex::ice_staticId()
 ::std::vector<::std::string>
 Clash::Intf::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Clash::Intf", "::Ice::Object" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Clash::Intf", "::Ice::Object"};
     return allTypeIds;
 }
 
@@ -632,7 +632,7 @@ Clash::Intf::_iceD_opOut(::IceInternal::Incoming& incoming)
 bool
 Clash::Intf::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "context", "cookie", "current", "del", "ice_id", "ice_ids", "ice_isA", "ice_ping", "inS", "istr", "obj", "op", "opOut", "response", "sync", "typeId" };
+    static constexpr ::std::string_view allOperations[] = {"context", "cookie", "current", "del", "ice_id", "ice_ids", "ice_isA", "ice_ping", "inS", "istr", "obj", "op", "opOut", "response", "sync", "typeId"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 16, current.operation);

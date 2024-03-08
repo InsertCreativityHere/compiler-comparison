@@ -108,7 +108,7 @@ Test::UserError::ice_staticId()
 ::std::vector<::std::string>
 Test::MyInterface::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::MyInterface" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::MyInterface"};
     return allTypeIds;
 }
 
@@ -144,7 +144,7 @@ Test::MyInterface::_iceD_op(::IceInternal::Incoming& incoming)
 bool
 Test::MyInterface::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "op" };
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "op"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);

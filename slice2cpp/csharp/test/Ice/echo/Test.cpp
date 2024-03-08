@@ -131,7 +131,7 @@ Test::EchoPrx::ice_staticId()
 ::std::vector<::std::string>
 Test::Echo::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Echo" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Echo"};
     return allTypeIds;
 }
 
@@ -188,7 +188,7 @@ Test::Echo::_iceD_shutdown(::IceInternal::Incoming& incoming)
 bool
 Test::Echo::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "flushBatch", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown", "startBatch" };
+    static constexpr ::std::string_view allOperations[] = {"flushBatch", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown", "startBatch"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);

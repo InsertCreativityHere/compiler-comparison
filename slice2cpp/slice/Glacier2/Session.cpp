@@ -542,7 +542,7 @@ Glacier2::CannotCreateSessionException::ice_staticId()
 ::std::vector<::std::string>
 Glacier2::Session::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Glacier2::Session", "::Ice::Object" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Glacier2::Session", "::Ice::Object"};
     return allTypeIds;
 }
 
@@ -575,7 +575,7 @@ Glacier2::Session::_iceD_destroy(::IceInternal::Incoming& incoming)
 bool
 Glacier2::Session::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "destroy", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"destroy", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
@@ -618,7 +618,7 @@ Glacier2::Session::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Glacier2::StringSet::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Glacier2::StringSet", "::Ice::Object" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Glacier2::StringSet", "::Ice::Object"};
     return allTypeIds;
 }
 
@@ -683,7 +683,7 @@ Glacier2::StringSet::_iceD_get(::IceInternal::Incoming& incoming)
 bool
 Glacier2::StringSet::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "add", "get", "ice_id", "ice_ids", "ice_isA", "ice_ping", "remove" };
+    static constexpr ::std::string_view allOperations[] = {"add", "get", "ice_id", "ice_ids", "ice_isA", "ice_ping", "remove"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
@@ -734,7 +734,7 @@ Glacier2::StringSet::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Glacier2::IdentitySet::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Glacier2::IdentitySet", "::Ice::Object" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Glacier2::IdentitySet", "::Ice::Object"};
     return allTypeIds;
 }
 
@@ -799,7 +799,7 @@ Glacier2::IdentitySet::_iceD_get(::IceInternal::Incoming& incoming)
 bool
 Glacier2::IdentitySet::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "add", "get", "ice_id", "ice_ids", "ice_isA", "ice_ping", "remove" };
+    static constexpr ::std::string_view allOperations[] = {"add", "get", "ice_id", "ice_ids", "ice_isA", "ice_ping", "remove"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
@@ -850,7 +850,7 @@ Glacier2::IdentitySet::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Glacier2::SessionControl::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Glacier2::SessionControl", "::Ice::Object" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Glacier2::SessionControl", "::Ice::Object"};
     return allTypeIds;
 }
 
@@ -939,7 +939,7 @@ Glacier2::SessionControl::_iceD_destroy(::IceInternal::Incoming& incoming)
 bool
 Glacier2::SessionControl::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "adapterIds", "categories", "destroy", "getSessionTimeout", "ice_id", "ice_ids", "ice_isA", "ice_ping", "identities" };
+    static constexpr ::std::string_view allOperations[] = {"adapterIds", "categories", "destroy", "getSessionTimeout", "ice_id", "ice_ids", "ice_isA", "ice_ping", "identities"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 9, current.operation);
@@ -998,7 +998,7 @@ Glacier2::SessionControl::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Glacier2::SessionManager::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Glacier2::SessionManager", "::Ice::Object" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Glacier2::SessionManager", "::Ice::Object"};
     return allTypeIds;
 }
 
@@ -1038,7 +1038,7 @@ Glacier2::SessionManager::_iceD_create(::IceInternal::Incoming& incoming)
 bool
 Glacier2::SessionManager::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "create", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"create", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
@@ -1081,7 +1081,7 @@ Glacier2::SessionManager::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Glacier2::SSLSessionManager::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Glacier2::SSLSessionManager", "::Ice::Object" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Glacier2::SSLSessionManager", "::Ice::Object"};
     return allTypeIds;
 }
 
@@ -1121,7 +1121,7 @@ Glacier2::SSLSessionManager::_iceD_create(::IceInternal::Incoming& incoming)
 bool
 Glacier2::SSLSessionManager::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "create", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"create", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);

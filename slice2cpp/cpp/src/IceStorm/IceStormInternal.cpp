@@ -208,7 +208,7 @@ IceStorm::ReapWouldBlock::ice_staticId()
 ::std::vector<::std::string>
 IceStorm::TopicLink::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::IceStorm::TopicLink" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::IceStorm::TopicLink"};
     return allTypeIds;
 }
 
@@ -244,7 +244,7 @@ IceStorm::TopicLink::_iceD_forward(::IceInternal::Incoming& incoming)
 bool
 IceStorm::TopicLink::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "forward", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"forward", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
@@ -287,7 +287,7 @@ IceStorm::TopicLink::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 IceStorm::TopicInternal::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::IceStorm::Topic", "::IceStorm::TopicInternal" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::IceStorm::Topic", "::IceStorm::TopicInternal"};
     return allTypeIds;
 }
 
@@ -337,7 +337,7 @@ IceStorm::TopicInternal::_iceD_reap(::IceInternal::Incoming& incoming)
 bool
 IceStorm::TopicInternal::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "destroy", "getLinkInfoSeq", "getLinkProxy", "getName", "getNonReplicatedPublisher", "getPublisher", "getSubscribers", "ice_id", "ice_ids", "ice_isA", "ice_ping", "link", "reap", "subscribeAndGetPublisher", "unlink", "unsubscribe" };
+    static constexpr ::std::string_view allOperations[] = {"destroy", "getLinkInfoSeq", "getLinkProxy", "getName", "getNonReplicatedPublisher", "getPublisher", "getSubscribers", "ice_id", "ice_ids", "ice_isA", "ice_ping", "link", "reap", "subscribeAndGetPublisher", "unlink", "unsubscribe"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 16, current.operation);
@@ -424,7 +424,7 @@ IceStorm::TopicInternal::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 IceStorm::TopicManagerInternal::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::IceStorm::TopicManager", "::IceStorm::TopicManagerInternal" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::IceStorm::TopicManager", "::IceStorm::TopicManagerInternal"};
     return allTypeIds;
 }
 
@@ -459,7 +459,7 @@ IceStorm::TopicManagerInternal::_iceD_getReplicaNode(::IceInternal::Incoming& in
 bool
 IceStorm::TopicManagerInternal::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "create", "getReplicaNode", "ice_id", "ice_ids", "ice_isA", "ice_ping", "retrieve", "retrieveAll" };
+    static constexpr ::std::string_view allOperations[] = {"create", "getReplicaNode", "ice_id", "ice_ids", "ice_isA", "ice_ping", "retrieve", "retrieveAll"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);

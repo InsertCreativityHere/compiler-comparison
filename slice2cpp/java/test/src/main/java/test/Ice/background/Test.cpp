@@ -476,7 +476,7 @@ Test::BackgroundControllerPrx::ice_staticId()
 ::std::vector<::std::string>
 Test::Background::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Background" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Background"};
     return allTypeIds;
 }
 
@@ -536,7 +536,7 @@ Test::Background::_iceD_shutdown(::IceInternal::Incoming& incoming)
 bool
 Test::Background::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "op", "opWithPayload", "shutdown" };
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "op", "opWithPayload", "shutdown"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
@@ -587,7 +587,7 @@ Test::Background::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Test::BackgroundController::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::BackgroundController" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::BackgroundController"};
     return allTypeIds;
 }
 
@@ -767,7 +767,7 @@ Test::BackgroundController::_iceD_buffered(::IceInternal::Incoming& incoming)
 bool
 Test::BackgroundController::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "buffered", "holdAdapter", "ice_id", "ice_ids", "ice_isA", "ice_ping", "initializeException", "initializeSocketStatus", "pauseCall", "readException", "readReady", "resumeAdapter", "resumeCall", "writeException", "writeReady" };
+    static constexpr ::std::string_view allOperations[] = {"buffered", "holdAdapter", "ice_id", "ice_ids", "ice_isA", "ice_ping", "initializeException", "initializeSocketStatus", "pauseCall", "readException", "readReady", "resumeAdapter", "resumeCall", "writeException", "writeReady"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 15, current.operation);

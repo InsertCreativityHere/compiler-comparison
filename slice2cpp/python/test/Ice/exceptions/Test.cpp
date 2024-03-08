@@ -220,11 +220,11 @@ Test::ThrowerPrx::_iceI_throwAorDasAorD(const ::std::shared_ptr<::IceInternal::O
             {
                 ex.ice_throw();
             }
-            catch(const D&)
+            catch(const A&)
             {
                 throw;
             }
-            catch(const A&)
+            catch(const D&)
             {
                 throw;
             }
@@ -952,7 +952,7 @@ Test::Mod::A::ice_staticId()
 ::std::vector<::std::string>
 Test::Empty::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Empty" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Empty"};
     return allTypeIds;
 }
 
@@ -972,7 +972,7 @@ Test::Empty::ice_staticId()
 ::std::vector<::std::string>
 Test::Thrower::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Thrower" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Thrower"};
     return allTypeIds;
 }
 
@@ -1314,7 +1314,7 @@ Test::Thrower::_iceD_throwMarshalException(::IceInternal::Incoming& incoming)
 bool
 Test::Thrower::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown", "supportsAssertException", "supportsUndeclaredExceptions", "throwAasA", "throwAfterException", "throwAfterResponse", "throwAorDasAorD", "throwAssertException", "throwBasA", "throwBasB", "throwCasA", "throwCasB", "throwCasC", "throwLocalException", "throwLocalExceptionIdempotent", "throwMarshalException", "throwMemoryLimitException", "throwModA", "throwNonIceException", "throwUndeclaredA", "throwUndeclaredB", "throwUndeclaredC" };
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown", "supportsAssertException", "supportsUndeclaredExceptions", "throwAasA", "throwAfterException", "throwAfterResponse", "throwAorDasAorD", "throwAssertException", "throwBasA", "throwBasB", "throwCasA", "throwCasB", "throwCasC", "throwLocalException", "throwLocalExceptionIdempotent", "throwMarshalException", "throwMemoryLimitException", "throwModA", "throwNonIceException", "throwUndeclaredA", "throwUndeclaredB", "throwUndeclaredC"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 26, current.operation);
@@ -1441,7 +1441,7 @@ Test::Thrower::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Test::WrongOperation::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::WrongOperation" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::WrongOperation"};
     return allTypeIds;
 }
 
@@ -1474,7 +1474,7 @@ Test::WrongOperation::_iceD_noSuchOperation(::IceInternal::Incoming& incoming)
 bool
 Test::WrongOperation::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "noSuchOperation" };
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "noSuchOperation"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);

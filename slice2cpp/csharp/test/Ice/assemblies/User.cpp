@@ -112,7 +112,7 @@ User::UserInfo::ice_staticId()
 ::std::vector<::std::string>
 User::Registry::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::User::Registry" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::User::Registry"};
     return allTypeIds;
 }
 
@@ -151,7 +151,7 @@ User::Registry::_iceD_getUserInfo(::IceInternal::Incoming& incoming)
 bool
 User::Registry::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "getUserInfo", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"getUserInfo", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);

@@ -333,7 +333,7 @@ Test::TestIntfPrx::ice_staticId()
 ::std::vector<::std::string>
 Test::TestLocatorRegistry::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::LocatorRegistry", "::Ice::Object", "::Test::TestLocatorRegistry" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::LocatorRegistry", "::Ice::Object", "::Test::TestLocatorRegistry"};
     return allTypeIds;
 }
 
@@ -369,7 +369,7 @@ Test::TestLocatorRegistry::_iceD_addObject(::IceInternal::Incoming& incoming)
 bool
 Test::TestLocatorRegistry::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "addObject", "ice_id", "ice_ids", "ice_isA", "ice_ping", "setAdapterDirectProxy", "setReplicatedAdapterDirectProxy", "setServerProcessProxy" };
+    static constexpr ::std::string_view allOperations[] = {"addObject", "ice_id", "ice_ids", "ice_isA", "ice_ping", "setAdapterDirectProxy", "setReplicatedAdapterDirectProxy", "setServerProcessProxy"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
@@ -424,7 +424,7 @@ Test::TestLocatorRegistry::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Test::TestLocator::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Locator", "::Ice::Object", "::Test::TestLocator" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Locator", "::Ice::Object", "::Test::TestLocator"};
     return allTypeIds;
 }
 
@@ -459,7 +459,7 @@ Test::TestLocator::_iceD_getRequestCount(::IceInternal::Incoming& incoming) cons
 bool
 Test::TestLocator::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "findAdapterById", "findObjectById", "getRegistry", "getRequestCount", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"findAdapterById", "findObjectById", "getRegistry", "getRequestCount", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
@@ -514,7 +514,7 @@ Test::TestLocator::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Test::ServerManager::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::ServerManager" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::ServerManager"};
     return allTypeIds;
 }
 
@@ -559,7 +559,7 @@ Test::ServerManager::_iceD_shutdown(::IceInternal::Incoming& incoming)
 bool
 Test::ServerManager::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown", "startServer" };
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown", "startServer"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
@@ -606,7 +606,7 @@ Test::ServerManager::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Test::Hello::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Hello" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Hello"};
     return allTypeIds;
 }
 
@@ -639,7 +639,7 @@ Test::Hello::_iceD_sayHello(::IceInternal::Incoming& incoming)
 bool
 Test::Hello::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "sayHello" };
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "sayHello"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
@@ -682,7 +682,7 @@ Test::Hello::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Test::TestIntf::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::TestIntf" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::TestIntf"};
     return allTypeIds;
 }
 
@@ -755,7 +755,7 @@ Test::TestIntf::_iceD_migrateHello(::IceInternal::Incoming& incoming)
 bool
 Test::TestIntf::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "getHello", "getReplicatedHello", "ice_id", "ice_ids", "ice_isA", "ice_ping", "migrateHello", "shutdown" };
+    static constexpr ::std::string_view allOperations[] = {"getHello", "getReplicatedHello", "ice_id", "ice_ids", "ice_isA", "ice_ping", "migrateHello", "shutdown"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);

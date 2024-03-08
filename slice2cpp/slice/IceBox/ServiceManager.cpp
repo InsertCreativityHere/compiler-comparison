@@ -315,7 +315,7 @@ IceBox::NoSuchServiceException::ice_staticId()
 ::std::vector<::std::string>
 IceBox::ServiceObserver::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::IceBox::ServiceObserver" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::IceBox::ServiceObserver"};
     return allTypeIds;
 }
 
@@ -366,7 +366,7 @@ IceBox::ServiceObserver::_iceD_servicesStopped(::IceInternal::Incoming& incoming
 bool
 IceBox::ServiceObserver::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "servicesStarted", "servicesStopped" };
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "servicesStarted", "servicesStopped"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
@@ -413,7 +413,7 @@ IceBox::ServiceObserver::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 IceBox::ServiceManager::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::IceBox::ServiceManager" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::IceBox::ServiceManager"};
     return allTypeIds;
 }
 
@@ -491,7 +491,7 @@ IceBox::ServiceManager::_iceD_shutdown(::IceInternal::Incoming& incoming)
 bool
 IceBox::ServiceManager::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "addObserver", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown", "startService", "stopService" };
+    static constexpr ::std::string_view allOperations[] = {"addObserver", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown", "startService", "stopService"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);

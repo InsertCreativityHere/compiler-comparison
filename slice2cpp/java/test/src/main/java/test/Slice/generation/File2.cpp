@@ -75,7 +75,7 @@ Test::Interface2Prx::ice_staticId()
 ::std::vector<::std::string>
 Test::Interface2::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Interface2" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Interface2"};
     return allTypeIds;
 }
 
@@ -108,7 +108,7 @@ Test::Interface2::_iceD_method(::IceInternal::Incoming& incoming)
 bool
 Test::Interface2::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "method" };
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "method"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);

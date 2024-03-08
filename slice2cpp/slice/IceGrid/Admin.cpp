@@ -3674,7 +3674,7 @@ IceGrid::AdminSessionPrx::ice_staticId()
 ::std::vector<::std::string>
 IceGrid::Admin::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::IceGrid::Admin" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::IceGrid::Admin"};
     return allTypeIds;
 }
 
@@ -4471,7 +4471,7 @@ IceGrid::Admin::_iceD_shutdown(::IceInternal::Incoming& incoming)
 bool
 IceGrid::Admin::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "addApplication", "addObject", "addObjectWithType", "enableServer", "getAdapterInfo", "getAllAdapterIds", "getAllApplicationNames", "getAllNodeNames", "getAllObjectInfos", "getAllRegistryNames", "getAllServerIds", "getApplicationInfo", "getDefaultApplicationDescriptor", "getNodeAdmin", "getNodeHostname", "getNodeInfo", "getNodeLoad", "getNodeProcessorSocketCount", "getObjectInfo", "getObjectInfosByType", "getRegistryAdmin", "getRegistryInfo", "getServerAdmin", "getServerAdminCategory", "getServerInfo", "getServerPid", "getServerState", "ice_id", "ice_ids", "ice_isA", "ice_ping", "instantiateServer", "isServerEnabled", "patchApplication", "patchServer", "pingNode", "pingRegistry", "removeAdapter", "removeApplication", "removeObject", "sendSignal", "shutdown", "shutdownNode", "shutdownRegistry", "startServer", "stopServer", "syncApplication", "syncApplicationWithoutRestart", "updateApplication", "updateApplicationWithoutRestart", "updateObject" };
+    static constexpr ::std::string_view allOperations[] = {"addApplication", "addObject", "addObjectWithType", "enableServer", "getAdapterInfo", "getAllAdapterIds", "getAllApplicationNames", "getAllNodeNames", "getAllObjectInfos", "getAllRegistryNames", "getAllServerIds", "getApplicationInfo", "getDefaultApplicationDescriptor", "getNodeAdmin", "getNodeHostname", "getNodeInfo", "getNodeLoad", "getNodeProcessorSocketCount", "getObjectInfo", "getObjectInfosByType", "getRegistryAdmin", "getRegistryInfo", "getServerAdmin", "getServerAdminCategory", "getServerInfo", "getServerPid", "getServerState", "ice_id", "ice_ids", "ice_isA", "ice_ping", "instantiateServer", "isServerEnabled", "patchApplication", "patchServer", "pingNode", "pingRegistry", "removeAdapter", "removeApplication", "removeObject", "sendSignal", "shutdown", "shutdownNode", "shutdownRegistry", "startServer", "stopServer", "syncApplication", "syncApplicationWithoutRestart", "updateApplication", "updateApplicationWithoutRestart", "updateObject"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 51, current.operation);
@@ -4698,7 +4698,7 @@ IceGrid::Admin::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 IceGrid::FileIterator::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::IceGrid::FileIterator" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::IceGrid::FileIterator"};
     return allTypeIds;
 }
 
@@ -4749,7 +4749,7 @@ IceGrid::FileIterator::_iceD_destroy(::IceInternal::Incoming& incoming)
 bool
 IceGrid::FileIterator::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "destroy", "ice_id", "ice_ids", "ice_isA", "ice_ping", "read" };
+    static constexpr ::std::string_view allOperations[] = {"destroy", "ice_id", "ice_ids", "ice_isA", "ice_ping", "read"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
@@ -4796,7 +4796,7 @@ IceGrid::FileIterator::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 IceGrid::RegistryObserver::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::IceGrid::RegistryObserver" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::IceGrid::RegistryObserver"};
     return allTypeIds;
 }
 
@@ -4862,7 +4862,7 @@ IceGrid::RegistryObserver::_iceD_registryDown(::IceInternal::Incoming& incoming)
 bool
 IceGrid::RegistryObserver::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "registryDown", "registryInit", "registryUp" };
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "registryDown", "registryInit", "registryUp"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
@@ -4913,7 +4913,7 @@ IceGrid::RegistryObserver::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 IceGrid::NodeObserver::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::IceGrid::NodeObserver" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::IceGrid::NodeObserver"};
     return allTypeIds;
 }
 
@@ -5011,7 +5011,7 @@ IceGrid::NodeObserver::_iceD_updateAdapter(::IceInternal::Incoming& incoming)
 bool
 IceGrid::NodeObserver::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "nodeDown", "nodeInit", "nodeUp", "updateAdapter", "updateServer" };
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "nodeDown", "nodeInit", "nodeUp", "updateAdapter", "updateServer"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 9, current.operation);
@@ -5070,7 +5070,7 @@ IceGrid::NodeObserver::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 IceGrid::ApplicationObserver::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::IceGrid::ApplicationObserver" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::IceGrid::ApplicationObserver"};
     return allTypeIds;
 }
 
@@ -5158,7 +5158,7 @@ IceGrid::ApplicationObserver::_iceD_applicationUpdated(::IceInternal::Incoming& 
 bool
 IceGrid::ApplicationObserver::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "applicationAdded", "applicationInit", "applicationRemoved", "applicationUpdated", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"applicationAdded", "applicationInit", "applicationRemoved", "applicationUpdated", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
@@ -5213,7 +5213,7 @@ IceGrid::ApplicationObserver::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 IceGrid::AdapterObserver::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::IceGrid::AdapterObserver" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::IceGrid::AdapterObserver"};
     return allTypeIds;
 }
 
@@ -5294,7 +5294,7 @@ IceGrid::AdapterObserver::_iceD_adapterRemoved(::IceInternal::Incoming& incoming
 bool
 IceGrid::AdapterObserver::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "adapterAdded", "adapterInit", "adapterRemoved", "adapterUpdated", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"adapterAdded", "adapterInit", "adapterRemoved", "adapterUpdated", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
@@ -5349,7 +5349,7 @@ IceGrid::AdapterObserver::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 IceGrid::ObjectObserver::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::IceGrid::ObjectObserver" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::IceGrid::ObjectObserver"};
     return allTypeIds;
 }
 
@@ -5430,7 +5430,7 @@ IceGrid::ObjectObserver::_iceD_objectRemoved(::IceInternal::Incoming& incoming)
 bool
 IceGrid::ObjectObserver::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "objectAdded", "objectInit", "objectRemoved", "objectUpdated" };
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "objectAdded", "objectInit", "objectRemoved", "objectUpdated"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
@@ -5485,7 +5485,7 @@ IceGrid::ObjectObserver::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 IceGrid::AdminSession::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Glacier2::Session", "::Ice::Object", "::IceGrid::AdminSession" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Glacier2::Session", "::Ice::Object", "::IceGrid::AdminSession"};
     return allTypeIds;
 }
 
@@ -5751,7 +5751,7 @@ IceGrid::AdminSession::_iceD_openRegistryStdOut(::IceInternal::Incoming& incomin
 bool
 IceGrid::AdminSession::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "destroy", "finishUpdate", "getAdmin", "getAdminCallbackTemplate", "getReplicaName", "ice_id", "ice_ids", "ice_isA", "ice_ping", "keepAlive", "openNodeStdErr", "openNodeStdOut", "openRegistryStdErr", "openRegistryStdOut", "openServerLog", "openServerStdErr", "openServerStdOut", "setObservers", "setObserversByIdentity", "startUpdate" };
+    static constexpr ::std::string_view allOperations[] = {"destroy", "finishUpdate", "getAdmin", "getAdminCallbackTemplate", "getReplicaName", "ice_id", "ice_ids", "ice_isA", "ice_ping", "keepAlive", "openNodeStdErr", "openNodeStdOut", "openRegistryStdErr", "openRegistryStdOut", "openServerLog", "openServerStdErr", "openServerStdOut", "setObservers", "setObserversByIdentity", "startUpdate"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 20, current.operation);

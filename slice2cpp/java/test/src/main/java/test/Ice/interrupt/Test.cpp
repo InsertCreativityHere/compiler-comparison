@@ -338,7 +338,7 @@ Test::CannotInterruptException::ice_staticId()
 ::std::vector<::std::string>
 Test::TestIntf::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::TestIntf" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::TestIntf"};
     return allTypeIds;
 }
 
@@ -425,7 +425,7 @@ Test::TestIntf::_iceD_shutdown(::IceInternal::Incoming& incoming)
 bool
 Test::TestIntf::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "op", "opIdempotent", "opWithPayload", "shutdown", "sleep" };
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "op", "opIdempotent", "opWithPayload", "shutdown", "sleep"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 9, current.operation);
@@ -484,7 +484,7 @@ Test::TestIntf::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Test::TestIntfController::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::TestIntfController" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::TestIntfController"};
     return allTypeIds;
 }
 
@@ -541,7 +541,7 @@ Test::TestIntfController::_iceD_interrupt(::IceInternal::Incoming& incoming)
 bool
 Test::TestIntfController::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "holdAdapter", "ice_id", "ice_ids", "ice_isA", "ice_ping", "interrupt", "resumeAdapter" };
+    static constexpr ::std::string_view allOperations[] = {"holdAdapter", "ice_id", "ice_ids", "ice_isA", "ice_ping", "interrupt", "resumeAdapter"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);

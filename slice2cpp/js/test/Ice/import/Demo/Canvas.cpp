@@ -144,7 +144,7 @@ Demo::gx::SessionPrx::ice_staticId()
 ::std::vector<::std::string>
 Demo::gx::Canvas::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Demo::gx::Canvas", "::Ice::Object" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Demo::gx::Canvas", "::Ice::Object"};
     return allTypeIds;
 }
 
@@ -195,7 +195,7 @@ Demo::gx::Canvas::_iceD_paintCircle(::IceInternal::Incoming& incoming)
 bool
 Demo::gx::Canvas::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "paintCircle", "paintSquare" };
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "paintCircle", "paintSquare"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
@@ -242,7 +242,7 @@ Demo::gx::Canvas::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Demo::gx::Session::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Demo::gx::Session", "::Glacier2::Session", "::Ice::Object" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Demo::gx::Session", "::Glacier2::Session", "::Ice::Object"};
     return allTypeIds;
 }
 
@@ -275,7 +275,7 @@ Demo::gx::Session::_iceD_destroySession(::IceInternal::Incoming& incoming)
 bool
 Demo::gx::Session::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "destroy", "destroySession", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"destroy", "destroySession", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);

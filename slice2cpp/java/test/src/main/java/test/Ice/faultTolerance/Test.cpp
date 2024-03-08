@@ -160,7 +160,7 @@ Test::TestIntfPrx::ice_staticId()
 ::std::vector<::std::string>
 Test::TestIntf::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::TestIntf" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::TestIntf"};
     return allTypeIds;
 }
 
@@ -231,7 +231,7 @@ Test::TestIntf::_iceD_pid(::IceInternal::Incoming& incoming)
 bool
 Test::TestIntf::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "abort", "ice_id", "ice_ids", "ice_isA", "ice_ping", "idempotentAbort", "pid", "shutdown" };
+    static constexpr ::std::string_view allOperations[] = {"abort", "ice_id", "ice_ids", "ice_isA", "ice_ping", "idempotentAbort", "pid", "shutdown"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);

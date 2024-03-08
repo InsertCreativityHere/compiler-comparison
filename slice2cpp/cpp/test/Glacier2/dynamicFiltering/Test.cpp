@@ -205,7 +205,7 @@ Test::TestSessionPrx::ice_staticId()
 ::std::vector<::std::string>
 Test::Backend::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Backend" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Backend"};
     return allTypeIds;
 }
 
@@ -250,7 +250,7 @@ Test::Backend::_iceD_shutdown(::IceInternal::Incoming& incoming)
 bool
 Test::Backend::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "check", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown" };
+    static constexpr ::std::string_view allOperations[] = {"check", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
@@ -297,7 +297,7 @@ Test::Backend::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Test::TestController::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::TestController" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::TestController"};
     return allTypeIds;
 }
 
@@ -349,7 +349,7 @@ Test::TestController::_iceD_shutdown(::IceInternal::Incoming& incoming)
 bool
 Test::TestController::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown", "step" };
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown", "step"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
@@ -396,7 +396,7 @@ Test::TestController::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Test::TestSession::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Glacier2::Session", "::Ice::Object", "::Test::TestSession" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Glacier2::Session", "::Ice::Object", "::Test::TestSession"};
     return allTypeIds;
 }
 
@@ -429,7 +429,7 @@ Test::TestSession::_iceD_shutdown(::IceInternal::Incoming& incoming)
 bool
 Test::TestSession::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "destroy", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown" };
+    static constexpr ::std::string_view allOperations[] = {"destroy", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);

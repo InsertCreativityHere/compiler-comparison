@@ -715,7 +715,7 @@ Test::Common::ProcessFailedException::ice_staticId()
 ::std::vector<::std::string>
 Test::Common::TestCase::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Common::TestCase" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Common::TestCase"};
     return allTypeIds;
 }
 
@@ -802,7 +802,7 @@ Test::Common::TestCase::_iceD_destroy(::IceInternal::Incoming& incoming)
 bool
 Test::Common::TestCase::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "destroy", "ice_id", "ice_ids", "ice_isA", "ice_ping", "runClientSide", "startServerSide", "stopServerSide" };
+    static constexpr ::std::string_view allOperations[] = {"destroy", "ice_id", "ice_ids", "ice_isA", "ice_ping", "runClientSide", "startServerSide", "stopServerSide"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
@@ -857,7 +857,7 @@ Test::Common::TestCase::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Test::Common::Controller::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Common::Controller" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Common::Controller"};
     return allTypeIds;
 }
 
@@ -948,7 +948,7 @@ Test::Common::Controller::_iceD_getHost(::IceInternal::Incoming& incoming)
 bool
 Test::Common::Controller::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "getHost", "getOptionOverrides", "getTestSuites", "ice_id", "ice_ids", "ice_isA", "ice_ping", "runTestCase" };
+    static constexpr ::std::string_view allOperations[] = {"getHost", "getOptionOverrides", "getTestSuites", "ice_id", "ice_ids", "ice_isA", "ice_ping", "runTestCase"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
@@ -1003,7 +1003,7 @@ Test::Common::Controller::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Test::Common::Process::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Common::Process" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Common::Process"};
     return allTypeIds;
 }
 
@@ -1070,7 +1070,7 @@ Test::Common::Process::_iceD_terminate(::IceInternal::Incoming& incoming)
 bool
 Test::Common::Process::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "terminate", "waitReady", "waitSuccess" };
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "terminate", "waitReady", "waitSuccess"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
@@ -1121,7 +1121,7 @@ Test::Common::Process::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Test::Common::ProcessController::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Common::ProcessController" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Common::ProcessController"};
     return allTypeIds;
 }
 
@@ -1179,7 +1179,7 @@ Test::Common::ProcessController::_iceD_getHost(::IceInternal::Incoming& incoming
 bool
 Test::Common::ProcessController::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "getHost", "ice_id", "ice_ids", "ice_isA", "ice_ping", "start" };
+    static constexpr ::std::string_view allOperations[] = {"getHost", "ice_id", "ice_ids", "ice_isA", "ice_ping", "start"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
@@ -1226,7 +1226,7 @@ Test::Common::ProcessController::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Test::Common::BrowserProcessController::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Common::BrowserProcessController", "::Test::Common::ProcessController" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Common::BrowserProcessController", "::Test::Common::ProcessController"};
     return allTypeIds;
 }
 
@@ -1262,7 +1262,7 @@ Test::Common::BrowserProcessController::_iceD_redirect(::IceInternal::Incoming& 
 bool
 Test::Common::BrowserProcessController::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "getHost", "ice_id", "ice_ids", "ice_isA", "ice_ping", "redirect", "start" };
+    static constexpr ::std::string_view allOperations[] = {"getHost", "ice_id", "ice_ids", "ice_isA", "ice_ping", "redirect", "start"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
@@ -1313,7 +1313,7 @@ Test::Common::BrowserProcessController::_iceDispatch(::IceInternal::Incoming& in
 ::std::vector<::std::string>
 Test::Common::ProcessControllerRegistry::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Common::ProcessControllerRegistry" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Common::ProcessControllerRegistry"};
     return allTypeIds;
 }
 
@@ -1349,7 +1349,7 @@ Test::Common::ProcessControllerRegistry::_iceD_setProcessController(::IceInterna
 bool
 Test::Common::ProcessControllerRegistry::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "setProcessController" };
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "setProcessController"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);

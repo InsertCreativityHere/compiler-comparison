@@ -320,7 +320,7 @@ Test::TestException::ice_staticId()
 ::std::vector<::std::string>
 Test::TestIntf::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::TestIntf" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::TestIntf"};
     return allTypeIds;
 }
 
@@ -447,7 +447,7 @@ Test::TestIntf::_iceD_shutdown(::IceInternal::Incoming& incoming)
 bool
 Test::TestIntf::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "callOpOn", "ice_id", "ice_ids", "ice_isA", "ice_ping", "op", "shutdown", "sleep", "throwUnhandledException1", "throwUnhandledException2", "throwUserException1", "throwUserException2" };
+    static constexpr ::std::string_view allOperations[] = {"callOpOn", "ice_id", "ice_ids", "ice_isA", "ice_ping", "op", "shutdown", "sleep", "throwUnhandledException1", "throwUnhandledException2", "throwUserException1", "throwUserException2"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 12, current.operation);

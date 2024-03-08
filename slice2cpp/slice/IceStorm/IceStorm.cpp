@@ -650,7 +650,7 @@ IceStorm::NoSuchTopic::ice_staticId()
 ::std::vector<::std::string>
 IceStorm::Topic::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::IceStorm::Topic" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::IceStorm::Topic"};
     return allTypeIds;
 }
 
@@ -817,7 +817,7 @@ IceStorm::Topic::_iceD_destroy(::IceInternal::Incoming& incoming)
 bool
 IceStorm::Topic::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "destroy", "getLinkInfoSeq", "getName", "getNonReplicatedPublisher", "getPublisher", "getSubscribers", "ice_id", "ice_ids", "ice_isA", "ice_ping", "link", "subscribeAndGetPublisher", "unlink", "unsubscribe" };
+    static constexpr ::std::string_view allOperations[] = {"destroy", "getLinkInfoSeq", "getName", "getNonReplicatedPublisher", "getPublisher", "getSubscribers", "ice_id", "ice_ids", "ice_isA", "ice_ping", "link", "subscribeAndGetPublisher", "unlink", "unsubscribe"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 14, current.operation);
@@ -896,7 +896,7 @@ IceStorm::Topic::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 IceStorm::TopicManager::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::IceStorm::TopicManager" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::IceStorm::TopicManager"};
     return allTypeIds;
 }
 
@@ -965,7 +965,7 @@ IceStorm::TopicManager::_iceD_retrieveAll(::IceInternal::Incoming& incoming)
 bool
 IceStorm::TopicManager::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "create", "ice_id", "ice_ids", "ice_isA", "ice_ping", "retrieve", "retrieveAll" };
+    static constexpr ::std::string_view allOperations[] = {"create", "ice_id", "ice_ids", "ice_isA", "ice_ping", "retrieve", "retrieveAll"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
@@ -1016,7 +1016,7 @@ IceStorm::TopicManager::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 IceStorm::Finder::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::IceStorm::Finder" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::IceStorm::Finder"};
     return allTypeIds;
 }
 
@@ -1051,7 +1051,7 @@ IceStorm::Finder::_iceD_getTopicManager(::IceInternal::Incoming& incoming)
 bool
 IceStorm::Finder::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "getTopicManager", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"getTopicManager", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);

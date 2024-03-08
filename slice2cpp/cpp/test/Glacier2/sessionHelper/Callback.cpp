@@ -241,7 +241,7 @@ Test::CallbackException::ice_staticId()
 ::std::vector<::std::string>
 Test::CallbackReceiver::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::CallbackReceiver" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::CallbackReceiver"};
     return allTypeIds;
 }
 
@@ -286,7 +286,7 @@ Test::CallbackReceiver::_iceD_callbackEx(::IceInternal::Incoming& incoming)
 bool
 Test::CallbackReceiver::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "callback", "callbackEx", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"callback", "callbackEx", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
@@ -333,7 +333,7 @@ Test::CallbackReceiver::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Test::Callback::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Callback" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Callback"};
     return allTypeIds;
 }
 
@@ -396,7 +396,7 @@ Test::Callback::_iceD_shutdown(::IceInternal::Incoming& incoming)
 bool
 Test::Callback::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "initiateCallback", "initiateCallbackEx", "shutdown" };
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "initiateCallback", "initiateCallbackEx", "shutdown"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);

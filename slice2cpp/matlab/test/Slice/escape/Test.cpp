@@ -245,7 +245,7 @@ classdef::_cpp_break::global::ice_staticId()
 ::std::vector<::std::string>
 classdef::_cpp_break::elseif::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::classdef::break::elseif" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::classdef::break::elseif"};
     return allTypeIds;
 }
 
@@ -314,7 +314,7 @@ classdef::_cpp_break::elseif::_iceD_checkedCast(::IceInternal::Incoming& incomin
 bool
 classdef::_cpp_break::elseif::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "checkedCast", "delete", "events", "function", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"checkedCast", "delete", "events", "function", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);

@@ -668,7 +668,7 @@ Test::TestImpossibleException::ice_staticId()
 ::std::vector<::std::string>
 Test::TestIntf::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::TestIntf" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::TestIntf"};
     return allTypeIds;
 }
 
@@ -855,7 +855,7 @@ Test::TestIntf::_iceD_shutdown(::IceInternal::Incoming& incoming)
 bool
 Test::TestIntf::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "asyncException", "asyncResponse", "ice_id", "ice_ids", "ice_isA", "ice_ping", "impossibleException", "intfUserException", "jsException", "localException", "requestFailedException", "shutdown", "unknownException", "unknownExceptionWithServantException", "unknownLocalException", "unknownUserException", "userException" };
+    static constexpr ::std::string_view allOperations[] = {"asyncException", "asyncResponse", "ice_id", "ice_ids", "ice_isA", "ice_ping", "impossibleException", "intfUserException", "jsException", "localException", "requestFailedException", "shutdown", "unknownException", "unknownExceptionWithServantException", "unknownLocalException", "unknownUserException", "userException"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 17, current.operation);
@@ -946,7 +946,7 @@ Test::TestIntf::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Test::TestActivation::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::TestActivation" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::TestActivation"};
     return allTypeIds;
 }
 
@@ -982,7 +982,7 @@ Test::TestActivation::_iceD_activateServantLocator(::IceInternal::Incoming& inco
 bool
 Test::TestActivation::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "activateServantLocator", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"activateServantLocator", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
@@ -1025,7 +1025,7 @@ Test::TestActivation::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Test::Echo::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Echo" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Echo"};
     return allTypeIds;
 }
 
@@ -1094,7 +1094,7 @@ Test::Echo::_iceD_shutdown(::IceInternal::Incoming& incoming)
 bool
 Test::Echo::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "flushBatch", "ice_id", "ice_ids", "ice_isA", "ice_ping", "setConnection", "shutdown", "startBatch" };
+    static constexpr ::std::string_view allOperations[] = {"flushBatch", "ice_id", "ice_ids", "ice_isA", "ice_ping", "setConnection", "shutdown", "startBatch"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);

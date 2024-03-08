@@ -446,7 +446,7 @@ IceMX::ConnectionMetrics::ice_staticId()
 ::std::vector<::std::string>
 IceMX::MetricsAdmin::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::IceMX::MetricsAdmin" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::IceMX::MetricsAdmin"};
     return allTypeIds;
 }
 
@@ -574,7 +574,7 @@ IceMX::MetricsAdmin::_iceD_getMetricsFailures(::IceInternal::Incoming& incoming)
 bool
 IceMX::MetricsAdmin::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "disableMetricsView", "enableMetricsView", "getMapMetricsFailures", "getMetricsFailures", "getMetricsView", "getMetricsViewNames", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"disableMetricsView", "enableMetricsView", "getMapMetricsFailures", "getMetricsFailures", "getMetricsView", "getMetricsViewNames", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 10, current.operation);

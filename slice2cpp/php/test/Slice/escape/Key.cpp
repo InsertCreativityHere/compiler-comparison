@@ -255,7 +255,7 @@ _cpp_and::endwhile::ice_staticId()
 ::std::vector<::std::string>
 _cpp_and::_cpp_break::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::and::break" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::and::break"};
     return allTypeIds;
 }
 
@@ -294,7 +294,7 @@ _cpp_and::_cpp_break::_iceD_case(::IceInternal::Incoming& incoming)
 bool
 _cpp_and::_cpp_break::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "case", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"case", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
@@ -337,7 +337,7 @@ _cpp_and::_cpp_break::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 _cpp_and::function::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::and::function" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::and::function"};
     return allTypeIds;
 }
 
@@ -374,7 +374,7 @@ _cpp_and::function::_iceD_continue(::IceInternal::Incoming& incoming)
 bool
 _cpp_and::function::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "continue", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"continue", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
@@ -417,7 +417,7 @@ _cpp_and::function::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 _cpp_and::die::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::and::die" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::and::die"};
     return allTypeIds;
 }
 
@@ -450,7 +450,7 @@ _cpp_and::die::_iceD_do(::IceInternal::Incoming& incoming)
 bool
 _cpp_and::die::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "do", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"do", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
@@ -493,7 +493,7 @@ _cpp_and::die::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 _cpp_and::enddeclare::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::and::die", "::and::enddeclare", "::and::function" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::and::die", "::and::enddeclare", "::and::function"};
     return allTypeIds;
 }
 
@@ -514,7 +514,7 @@ _cpp_and::enddeclare::ice_staticId()
 bool
 _cpp_and::enddeclare::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "continue", "do", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"continue", "do", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
@@ -561,7 +561,7 @@ _cpp_and::enddeclare::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 _cpp_and::_cpp_for::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::and::for" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::and::for"};
     return allTypeIds;
 }
 
@@ -606,7 +606,7 @@ _cpp_and::_cpp_for::_iceD_foreach(::IceInternal::Incoming& incoming)
 bool
 _cpp_and::_cpp_for::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "foreach", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"foreach", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);

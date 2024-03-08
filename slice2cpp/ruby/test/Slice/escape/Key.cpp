@@ -261,7 +261,7 @@ BEGIN::nil::ice_staticId()
 ::std::vector<::std::string>
 BEGIN::_cpp_break::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::BEGIN::break", "::Ice::Object" };
+    static const ::std::vector<::std::string> allTypeIds = {"::BEGIN::break", "::Ice::Object"};
     return allTypeIds;
 }
 
@@ -334,7 +334,7 @@ BEGIN::_cpp_break::_iceD_instance_variables(::IceInternal::Incoming& incoming)
 bool
 BEGIN::_cpp_break::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "case", "ice_id", "ice_ids", "ice_isA", "ice_ping", "instance_variable_set", "instance_variables", "to_a" };
+    static constexpr ::std::string_view allOperations[] = {"case", "ice_id", "ice_ids", "ice_isA", "ice_ping", "instance_variable_set", "instance_variables", "to_a"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
@@ -389,7 +389,7 @@ BEGIN::_cpp_break::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 BEGIN::elsif::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::BEGIN::break", "::BEGIN::elsif", "::Ice::Object" };
+    static const ::std::vector<::std::string> allTypeIds = {"::BEGIN::break", "::BEGIN::elsif", "::Ice::Object"};
     return allTypeIds;
 }
 
@@ -410,7 +410,7 @@ BEGIN::elsif::ice_staticId()
 bool
 BEGIN::elsif::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "case", "ice_id", "ice_ids", "ice_isA", "ice_ping", "instance_variable_set", "instance_variables", "to_a" };
+    static constexpr ::std::string_view allOperations[] = {"case", "ice_id", "ice_ids", "ice_isA", "ice_ping", "instance_variable_set", "instance_variables", "to_a"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
@@ -465,7 +465,7 @@ BEGIN::elsif::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 BEGIN::extend::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::BEGIN::extend", "::Ice::Object" };
+    static const ::std::vector<::std::string> allTypeIds = {"::BEGIN::extend", "::Ice::Object"};
     return allTypeIds;
 }
 
@@ -509,7 +509,7 @@ BEGIN::extend::_iceD_for(::IceInternal::Incoming& incoming)
 bool
 BEGIN::extend::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "for", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"for", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);

@@ -78,7 +78,7 @@ Test::SinglePrx::ice_staticId()
 ::std::vector<::std::string>
 Test::Single::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Single" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Single"};
     return allTypeIds;
 }
 
@@ -114,7 +114,7 @@ Test::Single::_iceD_event(::IceInternal::Incoming& incoming)
 bool
 Test::Single::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "event", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"event", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);

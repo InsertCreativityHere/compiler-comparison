@@ -197,7 +197,7 @@ Test::HoldPrx::ice_staticId()
 ::std::vector<::std::string>
 Test::Hold::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Hold" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Hold"};
     return allTypeIds;
 }
 
@@ -291,7 +291,7 @@ Test::Hold::_iceD_shutdown(::IceInternal::Incoming& incoming)
 bool
 Test::Hold::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "putOnHold", "set", "setOneway", "shutdown", "waitForHold" };
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "putOnHold", "set", "setOneway", "shutdown", "waitForHold"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 9, current.operation);

@@ -193,7 +193,7 @@ Test::UE::ice_staticId()
 ::std::vector<::std::string>
 Test::Hello::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Hello" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Hello"};
     return allTypeIds;
 }
 
@@ -271,7 +271,7 @@ Test::Hello::_iceD_shutdown(::IceInternal::Incoming& incoming)
 bool
 Test::Hello::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "add", "ice_id", "ice_ids", "ice_isA", "ice_ping", "raiseUE", "sayHello", "shutdown" };
+    static constexpr ::std::string_view allOperations[] = {"add", "ice_id", "ice_ids", "ice_isA", "ice_ping", "raiseUE", "sayHello", "shutdown"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);

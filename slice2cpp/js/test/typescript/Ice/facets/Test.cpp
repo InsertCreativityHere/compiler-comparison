@@ -482,7 +482,7 @@ Test::EchoPrx::ice_staticId()
 ::std::vector<::std::string>
 Test::Empty::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Empty" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Empty"};
     return allTypeIds;
 }
 
@@ -502,7 +502,7 @@ Test::Empty::ice_staticId()
 ::std::vector<::std::string>
 Test::A::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::A" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::A"};
     return allTypeIds;
 }
 
@@ -537,7 +537,7 @@ Test::A::_iceD_callA(::IceInternal::Incoming& incoming)
 bool
 Test::A::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "callA", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"callA", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
@@ -580,7 +580,7 @@ Test::A::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Test::B::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::A", "::Test::B" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::A", "::Test::B"};
     return allTypeIds;
 }
 
@@ -615,7 +615,7 @@ Test::B::_iceD_callB(::IceInternal::Incoming& incoming)
 bool
 Test::B::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "callA", "callB", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"callA", "callB", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
@@ -662,7 +662,7 @@ Test::B::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Test::C::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::A", "::Test::C" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::A", "::Test::C"};
     return allTypeIds;
 }
 
@@ -697,7 +697,7 @@ Test::C::_iceD_callC(::IceInternal::Incoming& incoming)
 bool
 Test::C::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "callA", "callC", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"callA", "callC", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
@@ -744,7 +744,7 @@ Test::C::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Test::D::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::A", "::Test::B", "::Test::C", "::Test::D" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::A", "::Test::B", "::Test::C", "::Test::D"};
     return allTypeIds;
 }
 
@@ -779,7 +779,7 @@ Test::D::_iceD_callD(::IceInternal::Incoming& incoming)
 bool
 Test::D::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "callA", "callB", "callC", "callD", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"callA", "callB", "callC", "callD", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
@@ -834,7 +834,7 @@ Test::D::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Test::E::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::E" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::E"};
     return allTypeIds;
 }
 
@@ -869,7 +869,7 @@ Test::E::_iceD_callE(::IceInternal::Incoming& incoming)
 bool
 Test::E::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "callE", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"callE", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
@@ -912,7 +912,7 @@ Test::E::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Test::F::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::E", "::Test::F" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::E", "::Test::F"};
     return allTypeIds;
 }
 
@@ -947,7 +947,7 @@ Test::F::_iceD_callF(::IceInternal::Incoming& incoming)
 bool
 Test::F::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "callE", "callF", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"callE", "callF", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
@@ -994,7 +994,7 @@ Test::F::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Test::G::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::G" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::G"};
     return allTypeIds;
 }
 
@@ -1041,7 +1041,7 @@ Test::G::_iceD_callG(::IceInternal::Incoming& incoming)
 bool
 Test::G::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "callG", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown" };
+    static constexpr ::std::string_view allOperations[] = {"callG", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
@@ -1088,7 +1088,7 @@ Test::G::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Test::H::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::G", "::Test::H" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::G", "::Test::H"};
     return allTypeIds;
 }
 
@@ -1123,7 +1123,7 @@ Test::H::_iceD_callH(::IceInternal::Incoming& incoming)
 bool
 Test::H::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "callG", "callH", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown" };
+    static constexpr ::std::string_view allOperations[] = {"callG", "callH", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
@@ -1174,7 +1174,7 @@ Test::H::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Test::Echo::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Echo" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Echo"};
     return allTypeIds;
 }
 
@@ -1243,7 +1243,7 @@ Test::Echo::_iceD_shutdown(::IceInternal::Incoming& incoming)
 bool
 Test::Echo::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "flushBatch", "ice_id", "ice_ids", "ice_isA", "ice_ping", "setConnection", "shutdown", "startBatch" };
+    static constexpr ::std::string_view allOperations[] = {"flushBatch", "ice_id", "ice_ids", "ice_isA", "ice_ping", "setConnection", "shutdown", "startBatch"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);

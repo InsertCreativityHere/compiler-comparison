@@ -78,7 +78,7 @@ Test::EventPrx::ice_staticId()
 ::std::vector<::std::string>
 Test::Event::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Event" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Event"};
     return allTypeIds;
 }
 
@@ -114,7 +114,7 @@ Test::Event::_iceD_pub(::IceInternal::Incoming& incoming)
 bool
 Test::Event::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "pub" };
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "pub"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);

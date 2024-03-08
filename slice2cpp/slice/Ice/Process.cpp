@@ -109,7 +109,7 @@ Ice::ProcessPrx::ice_staticId()
 ::std::vector<::std::string>
 Ice::Process::ice_ids(const Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Ice::Process" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Ice::Process"};
     return allTypeIds;
 }
 
@@ -158,7 +158,7 @@ Ice::Process::_iceD_writeMessage(::IceInternal::Incoming& incoming)
 bool
 Ice::Process::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown", "writeMessage" };
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown", "writeMessage"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);

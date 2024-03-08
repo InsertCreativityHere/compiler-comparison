@@ -3831,7 +3831,7 @@ Test::Recursive::ice_staticId()
 ::std::vector<::std::string>
 Test::MyInterface::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::MyInterface" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::MyInterface"};
     return allTypeIds;
 }
 
@@ -3864,7 +3864,7 @@ Test::MyInterface::_iceD_op(::IceInternal::Incoming& incoming)
 bool
 Test::MyInterface::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "op" };
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "op"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
@@ -3907,7 +3907,7 @@ Test::MyInterface::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Test::Initial::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Initial" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Initial"};
     return allTypeIds;
 }
 
@@ -5436,7 +5436,7 @@ Test::Initial::_iceD_supportsNullOptional(::IceInternal::Incoming& incoming)
 bool
 Test::Initial::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "opBool", "opBoolReq", "opBoolSeq", "opBoolSeqReq", "opByte", "opByteReq", "opByteSeq", "opByteSeqReq", "opClassAndUnknownOptional", "opDerivedException", "opDouble", "opDoubleReq", "opDoubleSeq", "opDoubleSeqReq", "opFixedStruct", "opFixedStructList", "opFixedStructListReq", "opFixedStructReq", "opFixedStructSeq", "opFixedStructSeqReq", "opFloat", "opFloatReq", "opFloatSeq", "opFloatSeqReq", "opG", "opInt", "opIntIntDict", "opIntIntDictReq", "opIntOneOptionalDict", "opIntOneOptionalDictReq", "opIntReq", "opIntSeq", "opIntSeqReq", "opLong", "opLongReq", "opLongSeq", "opLongSeqReq", "opMDict1", "opMDict2", "opMG1", "opMG2", "opMSeq1", "opMSeq2", "opMStruct1", "opMStruct2", "opMyEnum", "opMyEnumReq", "opMyInterfaceProxy", "opMyInterfaceProxyReq", "opOneOptional", "opOneOptionalReq", "opOptionalException", "opRequiredException", "opSerializable", "opSerializableReq", "opShort", "opShortReq", "opShortSeq", "opShortSeqReq", "opSmallStruct", "opSmallStructList", "opSmallStructListReq", "opSmallStructReq", "opSmallStructSeq", "opSmallStructSeqReq", "opString", "opStringIntDict", "opStringIntDictReq", "opStringReq", "opStringSeq", "opStringSeqReq", "opVarStruct", "opVarStructReq", "opVarStructSeq", "opVarStructSeqReq", "opVoid", "pingPong", "returnOptionalClass", "sendOptionalClass", "shutdown", "supportsCsharpSerializable", "supportsJavaSerializable", "supportsNullOptional", "supportsRequiredParams" };
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "opBool", "opBoolReq", "opBoolSeq", "opBoolSeqReq", "opByte", "opByteReq", "opByteSeq", "opByteSeqReq", "opClassAndUnknownOptional", "opDerivedException", "opDouble", "opDoubleReq", "opDoubleSeq", "opDoubleSeqReq", "opFixedStruct", "opFixedStructList", "opFixedStructListReq", "opFixedStructReq", "opFixedStructSeq", "opFixedStructSeqReq", "opFloat", "opFloatReq", "opFloatSeq", "opFloatSeqReq", "opG", "opInt", "opIntIntDict", "opIntIntDictReq", "opIntOneOptionalDict", "opIntOneOptionalDictReq", "opIntReq", "opIntSeq", "opIntSeqReq", "opLong", "opLongReq", "opLongSeq", "opLongSeqReq", "opMDict1", "opMDict2", "opMG1", "opMG2", "opMSeq1", "opMSeq2", "opMStruct1", "opMStruct2", "opMyEnum", "opMyEnumReq", "opMyInterfaceProxy", "opMyInterfaceProxyReq", "opOneOptional", "opOneOptionalReq", "opOptionalException", "opRequiredException", "opSerializable", "opSerializableReq", "opShort", "opShortReq", "opShortSeq", "opShortSeqReq", "opSmallStruct", "opSmallStructList", "opSmallStructListReq", "opSmallStructReq", "opSmallStructSeq", "opSmallStructSeqReq", "opString", "opStringIntDict", "opStringIntDictReq", "opStringReq", "opStringSeq", "opStringSeqReq", "opVarStruct", "opVarStructReq", "opVarStructSeq", "opVarStructSeqReq", "opVoid", "pingPong", "returnOptionalClass", "sendOptionalClass", "shutdown", "supportsCsharpSerializable", "supportsJavaSerializable", "supportsNullOptional", "supportsRequiredParams"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 88, current.operation);

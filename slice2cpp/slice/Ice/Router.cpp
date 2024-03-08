@@ -189,7 +189,7 @@ Ice::RouterFinderPrx::ice_staticId()
 ::std::vector<::std::string>
 Ice::Router::ice_ids(const Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Ice::Router" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Ice::Router"};
     return allTypeIds;
 }
 
@@ -257,7 +257,7 @@ Ice::Router::_iceD_addProxies(::IceInternal::Incoming& incoming)
 bool
 Ice::Router::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "addProxies", "getClientProxy", "getServerProxy", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"addProxies", "getClientProxy", "getServerProxy", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
@@ -308,7 +308,7 @@ Ice::Router::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Ice::RouterFinder::ice_ids(const Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Ice::RouterFinder" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Ice::RouterFinder"};
     return allTypeIds;
 }
 
@@ -343,7 +343,7 @@ Ice::RouterFinder::_iceD_getRouter(::IceInternal::Incoming& incoming)
 bool
 Ice::RouterFinder::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "getRouter", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"getRouter", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);

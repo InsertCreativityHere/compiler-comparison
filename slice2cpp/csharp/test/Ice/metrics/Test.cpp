@@ -393,7 +393,7 @@ Test::UserEx::ice_staticId()
 ::std::vector<::std::string>
 Test::Metrics::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Metrics" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Metrics"};
     return allTypeIds;
 }
 
@@ -527,7 +527,7 @@ Test::Metrics::_iceD_shutdown(::IceInternal::Incoming& incoming)
 bool
 Test::Metrics::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "fail", "getAdmin", "ice_id", "ice_ids", "ice_isA", "ice_ping", "op", "opByteS", "opWithLocalException", "opWithRequestFailedException", "opWithUnknownException", "opWithUserException", "shutdown" };
+    static constexpr ::std::string_view allOperations[] = {"fail", "getAdmin", "ice_id", "ice_ids", "ice_isA", "ice_ping", "op", "opByteS", "opWithLocalException", "opWithRequestFailedException", "opWithUnknownException", "opWithUserException", "shutdown"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 13, current.operation);
@@ -602,7 +602,7 @@ Test::Metrics::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Test::Controller::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Controller" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Controller"};
     return allTypeIds;
 }
 
@@ -647,7 +647,7 @@ Test::Controller::_iceD_resume(::IceInternal::Incoming& incoming)
 bool
 Test::Controller::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "hold", "ice_id", "ice_ids", "ice_isA", "ice_ping", "resume" };
+    static constexpr ::std::string_view allOperations[] = {"hold", "ice_id", "ice_ids", "ice_isA", "ice_ping", "resume"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);

@@ -184,7 +184,7 @@ Glacier2::PermissionDeniedException::ice_staticId()
 ::std::vector<::std::string>
 Glacier2::PermissionsVerifier::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Glacier2::PermissionsVerifier", "::Ice::Object" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Glacier2::PermissionsVerifier", "::Ice::Object"};
     return allTypeIds;
 }
 
@@ -225,7 +225,7 @@ Glacier2::PermissionsVerifier::_iceD_checkPermissions(::IceInternal::Incoming& i
 bool
 Glacier2::PermissionsVerifier::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "checkPermissions", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"checkPermissions", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
@@ -268,7 +268,7 @@ Glacier2::PermissionsVerifier::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Glacier2::SSLPermissionsVerifier::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Glacier2::SSLPermissionsVerifier", "::Ice::Object" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Glacier2::SSLPermissionsVerifier", "::Ice::Object"};
     return allTypeIds;
 }
 
@@ -308,7 +308,7 @@ Glacier2::SSLPermissionsVerifier::_iceD_authorize(::IceInternal::Incoming& incom
 bool
 Glacier2::SSLPermissionsVerifier::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "authorize", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"authorize", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);

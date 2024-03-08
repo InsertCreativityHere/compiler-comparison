@@ -253,7 +253,7 @@ Ice::RemoteLoggerAlreadyAttachedException::ice_staticId()
 ::std::vector<::std::string>
 Ice::RemoteLogger::ice_ids(const Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Ice::RemoteLogger" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Ice::RemoteLogger"};
     return allTypeIds;
 }
 
@@ -305,7 +305,7 @@ Ice::RemoteLogger::_iceD_log(::IceInternal::Incoming& incoming)
 bool
 Ice::RemoteLogger::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "init", "log" };
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "init", "log"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
@@ -352,7 +352,7 @@ Ice::RemoteLogger::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Ice::LoggerAdmin::ice_ids(const Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::LoggerAdmin", "::Ice::Object" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::LoggerAdmin", "::Ice::Object"};
     return allTypeIds;
 }
 
@@ -428,7 +428,7 @@ Ice::LoggerAdmin::_iceD_getLog(::IceInternal::Incoming& incoming)
 bool
 Ice::LoggerAdmin::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "attachRemoteLogger", "detachRemoteLogger", "getLog", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"attachRemoteLogger", "detachRemoteLogger", "getLog", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);

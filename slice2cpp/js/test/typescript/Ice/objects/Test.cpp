@@ -1797,7 +1797,7 @@ Test::ETwoMembers::_usesClasses() const
 ::std::vector<::std::string>
 Test::I::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::I" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::I"};
     return allTypeIds;
 }
 
@@ -1830,7 +1830,7 @@ Test::I::_iceD_doI(::IceInternal::Incoming& incoming)
 bool
 Test::I::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "doI", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"doI", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
@@ -1873,7 +1873,7 @@ Test::I::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Test::J::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::I", "::Test::J" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::I", "::Test::J"};
     return allTypeIds;
 }
 
@@ -1906,7 +1906,7 @@ Test::J::_iceD_doJ(::IceInternal::Incoming& incoming)
 bool
 Test::J::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "doI", "doJ", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"doI", "doJ", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
@@ -1953,7 +1953,7 @@ Test::J::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Test::Initial::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Initial" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Initial"};
     return allTypeIds;
 }
 
@@ -2478,7 +2478,7 @@ Test::Initial::_iceD_hasF3(::IceInternal::Incoming& incoming)
 bool
 Test::Initial::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "getAMDMB", "getAll", "getB1", "getB2", "getC", "getCompact", "getD", "getD1", "getE", "getF", "getInnerA", "getInnerSubA", "getK", "getMB", "hasF3", "ice_id", "ice_ids", "ice_isA", "ice_ping", "opBaseSeq", "opF1", "opF2", "opF3", "opM", "opValue", "opValueMap", "opValueSeq", "setG", "setRecursive", "shutdown", "supportsClassGraphDepthMax", "throwEDerived", "throwInnerEx", "throwInnerSubEx" };
+    static constexpr ::std::string_view allOperations[] = {"getAMDMB", "getAll", "getB1", "getB2", "getC", "getCompact", "getD", "getD1", "getE", "getF", "getInnerA", "getInnerSubA", "getK", "getMB", "hasF3", "ice_id", "ice_ids", "ice_isA", "ice_ping", "opBaseSeq", "opF1", "opF2", "opF3", "opM", "opValue", "opValueMap", "opValueSeq", "setG", "setRecursive", "shutdown", "supportsClassGraphDepthMax", "throwEDerived", "throwInnerEx", "throwInnerSubEx"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 34, current.operation);
@@ -2637,7 +2637,7 @@ Test::Initial::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Test::UnexpectedObjectExceptionTest::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::UnexpectedObjectExceptionTest" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::UnexpectedObjectExceptionTest"};
     return allTypeIds;
 }
 
@@ -2673,7 +2673,7 @@ Test::UnexpectedObjectExceptionTest::_iceD_op(::IceInternal::Incoming& incoming)
 bool
 Test::UnexpectedObjectExceptionTest::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "op" };
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "op"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
@@ -2716,7 +2716,7 @@ Test::UnexpectedObjectExceptionTest::_iceDispatch(::IceInternal::Incoming& incom
 ::std::vector<::std::string>
 Test::Echo::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Echo" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Echo"};
     return allTypeIds;
 }
 
@@ -2761,7 +2761,7 @@ Test::Echo::_iceD_shutdown(::IceInternal::Incoming& incoming)
 bool
 Test::Echo::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "setConnection", "shutdown" };
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "setConnection", "shutdown"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);

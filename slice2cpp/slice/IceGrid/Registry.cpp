@@ -514,7 +514,7 @@ IceGrid::LocatorPrx::ice_staticId()
 ::std::vector<::std::string>
 IceGrid::Query::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::IceGrid::Query" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::IceGrid::Query"};
     return allTypeIds;
 }
 
@@ -621,7 +621,7 @@ IceGrid::Query::_iceD_findAllReplicas(::IceInternal::Incoming& incoming) const
 bool
 IceGrid::Query::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "findAllObjectsByType", "findAllReplicas", "findObjectById", "findObjectByType", "findObjectByTypeOnLeastLoadedNode", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"findAllObjectsByType", "findAllReplicas", "findObjectById", "findObjectByType", "findObjectByTypeOnLeastLoadedNode", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 9, current.operation);
@@ -680,7 +680,7 @@ IceGrid::Query::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 IceGrid::Registry::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::IceGrid::Registry" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::IceGrid::Registry"};
     return allTypeIds;
 }
 
@@ -793,7 +793,7 @@ IceGrid::Registry::_iceD_getACMTimeout(::IceInternal::Incoming& incoming) const
 bool
 IceGrid::Registry::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "createAdminSession", "createAdminSessionFromSecureConnection", "createSession", "createSessionFromSecureConnection", "getACMTimeout", "getSessionTimeout", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"createAdminSession", "createAdminSessionFromSecureConnection", "createSession", "createSessionFromSecureConnection", "getACMTimeout", "getSessionTimeout", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 10, current.operation);
@@ -856,7 +856,7 @@ IceGrid::Registry::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 IceGrid::Locator::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Locator", "::Ice::Object", "::IceGrid::Locator" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Locator", "::Ice::Object", "::IceGrid::Locator"};
     return allTypeIds;
 }
 
@@ -905,7 +905,7 @@ IceGrid::Locator::_iceD_getLocalQuery(::IceInternal::Incoming& incoming) const
 bool
 IceGrid::Locator::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "findAdapterById", "findObjectById", "getLocalQuery", "getLocalRegistry", "getRegistry", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"findAdapterById", "findObjectById", "getLocalQuery", "getLocalRegistry", "getRegistry", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 9, current.operation);

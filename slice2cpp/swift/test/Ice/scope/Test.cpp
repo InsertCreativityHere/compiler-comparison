@@ -1493,7 +1493,7 @@ Test::Inner::C::ice_staticId()
 ::std::vector<::std::string>
 Test::I::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::I" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::I"};
     return allTypeIds;
 }
 
@@ -1727,7 +1727,7 @@ Test::I::_iceD_shutdown(::IceInternal::Incoming& incoming)
 bool
 Test::I::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "opC", "opC1", "opCMap", "opCSeq", "opE1", "opS", "opS1", "opS1Map", "opS1Seq", "opSMap", "opSSeq", "shutdown" };
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "opC", "opC1", "opCMap", "opCSeq", "opE1", "opS", "opS1", "opS1Map", "opS1Seq", "opSMap", "opSSeq", "shutdown"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 16, current.operation);
@@ -1814,7 +1814,7 @@ Test::I::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Test::Inner::Inner2::I::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Inner::Inner2::I" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Inner::Inner2::I"};
     return allTypeIds;
 }
 
@@ -1961,7 +1961,7 @@ Test::Inner::Inner2::I::_iceD_shutdown(::IceInternal::Incoming& incoming)
 bool
 Test::Inner::Inner2::I::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "opC", "opCMap", "opCSeq", "opS", "opSMap", "opSSeq", "shutdown" };
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "opC", "opCMap", "opCSeq", "opS", "opSMap", "opSSeq", "shutdown"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 11, current.operation);
@@ -2028,7 +2028,7 @@ Test::Inner::Inner2::I::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Test::Inner::I::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Inner::I" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Inner::I"};
     return allTypeIds;
 }
 
@@ -2175,7 +2175,7 @@ Test::Inner::I::_iceD_shutdown(::IceInternal::Incoming& incoming)
 bool
 Test::Inner::I::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "opC", "opCMap", "opCSeq", "opS", "opSMap", "opSSeq", "shutdown" };
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "opC", "opCMap", "opCSeq", "opS", "opSMap", "opSSeq", "shutdown"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 11, current.operation);
@@ -2242,7 +2242,7 @@ Test::Inner::I::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Inner::Test::Inner2::I::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Inner::Test::Inner2::I" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Inner::Test::Inner2::I"};
     return allTypeIds;
 }
 
@@ -2389,7 +2389,7 @@ Inner::Test::Inner2::I::_iceD_shutdown(::IceInternal::Incoming& incoming)
 bool
 Inner::Test::Inner2::I::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "opC", "opCMap", "opCSeq", "opS", "opSMap", "opSSeq", "shutdown" };
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "opC", "opCMap", "opCSeq", "opS", "opSMap", "opSSeq", "shutdown"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 11, current.operation);

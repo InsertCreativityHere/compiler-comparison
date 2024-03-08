@@ -1324,7 +1324,7 @@ Test::Preserved2::ice_staticId()
 ::std::vector<::std::string>
 Test::Relay::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Relay" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Relay"};
     return allTypeIds;
 }
 
@@ -1397,7 +1397,7 @@ Test::Relay::_iceD_unknownPreservedAsKnownPreserved(::IceInternal::Incoming& inc
 bool
 Test::Relay::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "knownPreservedAsBase", "knownPreservedAsKnownPreserved", "unknownPreservedAsBase", "unknownPreservedAsKnownPreserved" };
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "knownPreservedAsBase", "knownPreservedAsKnownPreserved", "unknownPreservedAsBase", "unknownPreservedAsKnownPreserved"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
@@ -1452,7 +1452,7 @@ Test::Relay::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Test::TestIntf::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::TestIntf" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::TestIntf"};
     return allTypeIds;
 }
 
@@ -1784,7 +1784,7 @@ Test::TestIntf::_iceD_shutdown(::IceInternal::Incoming& incoming)
 bool
 Test::TestIntf::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "baseAsBase", "ice_id", "ice_ids", "ice_isA", "ice_ping", "knownDerivedAsBase", "knownDerivedAsKnownDerived", "knownIntermediateAsBase", "knownIntermediateAsKnownIntermediate", "knownMostDerivedAsBase", "knownMostDerivedAsKnownIntermediate", "knownMostDerivedAsKnownMostDerived", "knownPreservedAsBase", "knownPreservedAsKnownPreserved", "relayKnownPreservedAsBase", "relayKnownPreservedAsKnownPreserved", "relayUnknownPreservedAsBase", "relayUnknownPreservedAsKnownPreserved", "shutdown", "unknownDerivedAsBase", "unknownIntermediateAsBase", "unknownMostDerived1AsBase", "unknownMostDerived1AsKnownIntermediate", "unknownMostDerived2AsBase", "unknownMostDerived2AsBaseCompact", "unknownPreservedAsBase", "unknownPreservedAsKnownPreserved" };
+    static constexpr ::std::string_view allOperations[] = {"baseAsBase", "ice_id", "ice_ids", "ice_isA", "ice_ping", "knownDerivedAsBase", "knownDerivedAsKnownDerived", "knownIntermediateAsBase", "knownIntermediateAsKnownIntermediate", "knownMostDerivedAsBase", "knownMostDerivedAsKnownIntermediate", "knownMostDerivedAsKnownMostDerived", "knownPreservedAsBase", "knownPreservedAsKnownPreserved", "relayKnownPreservedAsBase", "relayKnownPreservedAsKnownPreserved", "relayUnknownPreservedAsBase", "relayUnknownPreservedAsKnownPreserved", "shutdown", "unknownDerivedAsBase", "unknownIntermediateAsBase", "unknownMostDerived1AsBase", "unknownMostDerived1AsKnownIntermediate", "unknownMostDerived2AsBase", "unknownMostDerived2AsBaseCompact", "unknownPreservedAsBase", "unknownPreservedAsKnownPreserved"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 27, current.operation);

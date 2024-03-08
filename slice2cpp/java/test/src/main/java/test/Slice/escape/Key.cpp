@@ -217,7 +217,7 @@ abstract::import::ice_staticId()
 ::std::vector<::std::string>
 abstract::_cpp_catch::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::abstract::catch" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::abstract::catch"};
     return allTypeIds;
 }
 
@@ -267,7 +267,7 @@ abstract::_cpp_catch::_iceD_checkedCast(::IceInternal::Incoming& incoming)
 bool
 abstract::_cpp_catch::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "checkedCast", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"checkedCast", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
@@ -310,7 +310,7 @@ abstract::_cpp_catch::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 abstract::_cpp_default::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::abstract::default" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::abstract::default"};
     return allTypeIds;
 }
 
@@ -343,7 +343,7 @@ abstract::_cpp_default::_iceD_do(::IceInternal::Incoming& incoming)
 bool
 abstract::_cpp_default::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "do", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"do", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
@@ -386,7 +386,7 @@ abstract::_cpp_default::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 abstract::finalize::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::abstract::catch", "::abstract::default", "::abstract::finalize" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::abstract::catch", "::abstract::default", "::abstract::finalize"};
     return allTypeIds;
 }
 
@@ -407,7 +407,7 @@ abstract::finalize::ice_staticId()
 bool
 abstract::finalize::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "checkedCast", "do", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"checkedCast", "do", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
@@ -454,7 +454,7 @@ abstract::finalize::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 abstract::_cpp_new::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::abstract::new" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::abstract::new"};
     return allTypeIds;
 }
 
@@ -500,7 +500,7 @@ abstract::_cpp_new::_iceD_notify(::IceInternal::Incoming& incoming)
 bool
 abstract::_cpp_new::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "notify" };
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "notify"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);

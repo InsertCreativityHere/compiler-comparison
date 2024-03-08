@@ -425,7 +425,7 @@ Ice::ServerNotFoundException::ice_staticId()
 ::std::vector<::std::string>
 Ice::Locator::ice_ids(const Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Locator", "::Ice::Object" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Locator", "::Ice::Object"};
     return allTypeIds;
 }
 
@@ -518,7 +518,7 @@ Ice::Locator::_iceD_getRegistry(::IceInternal::Incoming& incoming) const
 bool
 Ice::Locator::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "findAdapterById", "findObjectById", "getRegistry", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"findAdapterById", "findObjectById", "getRegistry", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
@@ -569,7 +569,7 @@ Ice::Locator::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Ice::LocatorRegistry::ice_ids(const Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::LocatorRegistry", "::Ice::Object" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::LocatorRegistry", "::Ice::Object"};
     return allTypeIds;
 }
 
@@ -660,7 +660,7 @@ Ice::LocatorRegistry::_iceD_setServerProcessProxy(::IceInternal::Incoming& incom
 bool
 Ice::LocatorRegistry::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "setAdapterDirectProxy", "setReplicatedAdapterDirectProxy", "setServerProcessProxy" };
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "setAdapterDirectProxy", "setReplicatedAdapterDirectProxy", "setServerProcessProxy"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
@@ -711,7 +711,7 @@ Ice::LocatorRegistry::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Ice::LocatorFinder::ice_ids(const Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::LocatorFinder", "::Ice::Object" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::LocatorFinder", "::Ice::Object"};
     return allTypeIds;
 }
 
@@ -746,7 +746,7 @@ Ice::LocatorFinder::_iceD_getLocator(::IceInternal::Incoming& incoming)
 bool
 Ice::LocatorFinder::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "getLocator", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"getLocator", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);

@@ -406,7 +406,7 @@ Test::InvalidInputException::ice_staticId()
 ::std::vector<::std::string>
 Test::MyObject::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::MyObject" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::MyObject"};
     return allTypeIds;
 }
 
@@ -667,7 +667,7 @@ Test::MyObject::_iceD_amdBadSystemAdd(::IceInternal::Incoming& incoming)
 bool
 Test::MyObject::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "add", "addWithRetry", "amdAdd", "amdAddWithRetry", "amdBadAdd", "amdBadSystemAdd", "amdNotExistAdd", "badAdd", "badSystemAdd", "ice_id", "ice_ids", "ice_isA", "ice_ping", "notExistAdd" };
+    static constexpr ::std::string_view allOperations[] = {"add", "addWithRetry", "amdAdd", "amdAddWithRetry", "amdBadAdd", "amdBadSystemAdd", "amdNotExistAdd", "badAdd", "badSystemAdd", "ice_id", "ice_ids", "ice_isA", "ice_ping", "notExistAdd"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 14, current.operation);

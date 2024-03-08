@@ -178,7 +178,7 @@ IceDiscovery::LookupPrx::ice_staticId()
 ::std::vector<::std::string>
 IceDiscovery::LookupReply::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::IceDiscovery::LookupReply" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::IceDiscovery::LookupReply"};
     return allTypeIds;
 }
 
@@ -232,7 +232,7 @@ IceDiscovery::LookupReply::_iceD_foundAdapterById(::IceInternal::Incoming& incom
 bool
 IceDiscovery::LookupReply::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "foundAdapterById", "foundObjectById", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"foundAdapterById", "foundObjectById", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
@@ -279,7 +279,7 @@ IceDiscovery::LookupReply::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 IceDiscovery::Lookup::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::IceDiscovery::Lookup" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::IceDiscovery::Lookup"};
     return allTypeIds;
 }
 
@@ -334,7 +334,7 @@ IceDiscovery::Lookup::_iceD_findAdapterById(::IceInternal::Incoming& incoming)
 bool
 IceDiscovery::Lookup::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "findAdapterById", "findObjectById", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"findAdapterById", "findObjectById", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);

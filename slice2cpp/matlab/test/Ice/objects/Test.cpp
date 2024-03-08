@@ -1739,7 +1739,7 @@ Test::ETwoMembers::_usesClasses() const
 ::std::vector<::std::string>
 Test::I::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::I" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::I"};
     return allTypeIds;
 }
 
@@ -1759,7 +1759,7 @@ Test::I::ice_staticId()
 ::std::vector<::std::string>
 Test::J::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::I", "::Test::J" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::I", "::Test::J"};
     return allTypeIds;
 }
 
@@ -1779,7 +1779,7 @@ Test::J::ice_staticId()
 ::std::vector<::std::string>
 Test::Initial::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Initial" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Initial"};
     return allTypeIds;
 }
 
@@ -2334,7 +2334,7 @@ Test::Initial::_iceD_hasF3(::IceInternal::Incoming& incoming)
 bool
 Test::Initial::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "acceptsClassCycles", "getAMDMB", "getAll", "getB1", "getB2", "getC", "getCompact", "getD", "getD1", "getE", "getF", "getInnerA", "getInnerSubA", "getK", "getMB", "hasF3", "ice_id", "ice_ids", "ice_isA", "ice_ping", "opBaseSeq", "opF1", "opF2", "opF3", "opM", "opValue", "opValueMap", "opValueSeq", "setCycle", "setG", "setRecursive", "shutdown", "supportsClassGraphDepthMax", "throwEDerived", "throwInnerEx", "throwInnerSubEx" };
+    static constexpr ::std::string_view allOperations[] = {"acceptsClassCycles", "getAMDMB", "getAll", "getB1", "getB2", "getC", "getCompact", "getD", "getD1", "getE", "getF", "getInnerA", "getInnerSubA", "getK", "getMB", "hasF3", "ice_id", "ice_ids", "ice_isA", "ice_ping", "opBaseSeq", "opF1", "opF2", "opF3", "opM", "opValue", "opValueMap", "opValueSeq", "setCycle", "setG", "setRecursive", "shutdown", "supportsClassGraphDepthMax", "throwEDerived", "throwInnerEx", "throwInnerSubEx"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 36, current.operation);
@@ -2501,7 +2501,7 @@ Test::Initial::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Test::UnexpectedObjectExceptionTest::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::UnexpectedObjectExceptionTest" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::UnexpectedObjectExceptionTest"};
     return allTypeIds;
 }
 
@@ -2537,7 +2537,7 @@ Test::UnexpectedObjectExceptionTest::_iceD_op(::IceInternal::Incoming& incoming)
 bool
 Test::UnexpectedObjectExceptionTest::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "op" };
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "op"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);

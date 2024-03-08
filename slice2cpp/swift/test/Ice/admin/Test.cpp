@@ -415,7 +415,7 @@ Test::TestFacetPrx::ice_staticId()
 ::std::vector<::std::string>
 Test::RemoteCommunicator::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::RemoteCommunicator" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::RemoteCommunicator"};
     return allTypeIds;
 }
 
@@ -561,7 +561,7 @@ Test::RemoteCommunicator::_iceD_destroy(::IceInternal::Incoming& incoming)
 bool
 Test::RemoteCommunicator::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "destroy", "error", "getAdmin", "getChanges", "ice_id", "ice_ids", "ice_isA", "ice_ping", "print", "shutdown", "trace", "waitForShutdown", "warning" };
+    static constexpr ::std::string_view allOperations[] = {"destroy", "error", "getAdmin", "getChanges", "ice_id", "ice_ids", "ice_isA", "ice_ping", "print", "shutdown", "trace", "waitForShutdown", "warning"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 13, current.operation);
@@ -636,7 +636,7 @@ Test::RemoteCommunicator::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Test::RemoteCommunicatorFactory::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::RemoteCommunicatorFactory" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::RemoteCommunicatorFactory"};
     return allTypeIds;
 }
 
@@ -686,7 +686,7 @@ Test::RemoteCommunicatorFactory::_iceD_shutdown(::IceInternal::Incoming& incomin
 bool
 Test::RemoteCommunicatorFactory::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "createCommunicator", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown" };
+    static constexpr ::std::string_view allOperations[] = {"createCommunicator", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
@@ -733,7 +733,7 @@ Test::RemoteCommunicatorFactory::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Test::TestFacet::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::TestFacet" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::TestFacet"};
     return allTypeIds;
 }
 
@@ -766,7 +766,7 @@ Test::TestFacet::_iceD_op(::IceInternal::Incoming& incoming)
 bool
 Test::TestFacet::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "op" };
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "op"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);

@@ -209,7 +209,7 @@ Test::Ex::_usesClasses() const
 ::std::vector<::std::string>
 Test::Initial::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Initial" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Initial"};
     return allTypeIds;
 }
 
@@ -284,7 +284,7 @@ Test::Initial::_iceD_shutdown(::IceInternal::Incoming& incoming)
 bool
 Test::Initial::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "getBase", "getEx", "getStruct1", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown" };
+    static constexpr ::std::string_view allOperations[] = {"getBase", "getEx", "getStruct1", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);

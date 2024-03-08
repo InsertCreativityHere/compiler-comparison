@@ -104,7 +104,7 @@ Test::PriorityPrx::ice_staticId()
 ::std::vector<::std::string>
 Test::Priority::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Priority" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Priority"};
     return allTypeIds;
 }
 
@@ -151,7 +151,7 @@ Test::Priority::_iceD_getPriority(::IceInternal::Incoming& incoming)
 bool
 Test::Priority::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "getPriority", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown" };
+    static constexpr ::std::string_view allOperations[] = {"getPriority", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);

@@ -145,7 +145,7 @@ Ice::PropertiesAdminPrx::ice_staticId()
 ::std::vector<::std::string>
 Ice::PropertiesAdmin::ice_ids(const Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Ice::PropertiesAdmin" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Ice::PropertiesAdmin"};
     return allTypeIds;
 }
 
@@ -215,7 +215,7 @@ Ice::PropertiesAdmin::_iceD_setProperties(::IceInternal::Incoming& incoming)
 bool
 Ice::PropertiesAdmin::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "getPropertiesForPrefix", "getProperty", "ice_id", "ice_ids", "ice_isA", "ice_ping", "setProperties" };
+    static constexpr ::std::string_view allOperations[] = {"getPropertiesForPrefix", "getProperty", "ice_id", "ice_ids", "ice_isA", "ice_ping", "setProperties"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);

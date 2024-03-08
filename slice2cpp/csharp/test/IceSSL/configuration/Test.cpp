@@ -235,7 +235,7 @@ Test::ServerFactoryPrx::ice_staticId()
 ::std::vector<::std::string>
 Test::Server::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Server" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Server"};
     return allTypeIds;
 }
 
@@ -299,7 +299,7 @@ Test::Server::_iceD_checkCipher(::IceInternal::Incoming& incoming)
 bool
 Test::Server::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "checkCert", "checkCipher", "ice_id", "ice_ids", "ice_isA", "ice_ping", "noCert" };
+    static constexpr ::std::string_view allOperations[] = {"checkCert", "checkCipher", "ice_id", "ice_ids", "ice_isA", "ice_ping", "noCert"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
@@ -350,7 +350,7 @@ Test::Server::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Test::ServerFactory::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::ServerFactory" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::ServerFactory"};
     return allTypeIds;
 }
 
@@ -415,7 +415,7 @@ Test::ServerFactory::_iceD_shutdown(::IceInternal::Incoming& incoming)
 bool
 Test::ServerFactory::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "createServer", "destroyServer", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown" };
+    static constexpr ::std::string_view allOperations[] = {"createServer", "destroyServer", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);

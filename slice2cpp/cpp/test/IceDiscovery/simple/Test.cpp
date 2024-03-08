@@ -235,7 +235,7 @@ Test::ControllerPrx::ice_staticId()
 ::std::vector<::std::string>
 Test::TestIntf::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::TestIntf" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::TestIntf"};
     return allTypeIds;
 }
 
@@ -270,7 +270,7 @@ Test::TestIntf::_iceD_getAdapterId(::IceInternal::Incoming& incoming)
 bool
 Test::TestIntf::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "getAdapterId", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"getAdapterId", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
@@ -313,7 +313,7 @@ Test::TestIntf::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Test::Controller::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Controller" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Controller"};
     return allTypeIds;
 }
 
@@ -410,7 +410,7 @@ Test::Controller::_iceD_shutdown(::IceInternal::Incoming& incoming)
 bool
 Test::Controller::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "activateObjectAdapter", "addObject", "deactivateObjectAdapter", "ice_id", "ice_ids", "ice_isA", "ice_ping", "removeObject", "shutdown" };
+    static constexpr ::std::string_view allOperations[] = {"activateObjectAdapter", "addObject", "deactivateObjectAdapter", "ice_id", "ice_ids", "ice_isA", "ice_ping", "removeObject", "shutdown"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 9, current.operation);

@@ -143,7 +143,7 @@ Test::MyDerivedClassPrx::ice_staticId()
 ::std::vector<::std::string>
 Test::MyClass::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::MyClass" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::MyClass"};
     return allTypeIds;
 }
 
@@ -209,7 +209,7 @@ Test::MyClass::_iceD_getContext(::IceInternal::Incoming& incoming)
 bool
 Test::MyClass::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "getContext", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown" };
+    static constexpr ::std::string_view allOperations[] = {"getContext", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
@@ -256,7 +256,7 @@ Test::MyClass::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Test::MyDerivedClass::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::MyClass", "::Test::MyDerivedClass" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::MyClass", "::Test::MyDerivedClass"};
     return allTypeIds;
 }
 
@@ -306,7 +306,7 @@ Test::MyDerivedClass::_iceD_echo(::IceInternal::Incoming& incoming)
 bool
 Test::MyDerivedClass::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "echo", "getContext", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown" };
+    static constexpr ::std::string_view allOperations[] = {"echo", "getContext", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);

@@ -581,7 +581,7 @@ IceStormElection::ObserverInconsistencyException::ice_staticId()
 ::std::vector<::std::string>
 IceStormElection::ReplicaObserver::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::IceStormElection::ReplicaObserver" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::IceStormElection::ReplicaObserver"};
     return allTypeIds;
 }
 
@@ -684,7 +684,7 @@ IceStormElection::ReplicaObserver::_iceD_removeSubscriber(::IceInternal::Incomin
 bool
 IceStormElection::ReplicaObserver::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "addSubscriber", "createTopic", "destroyTopic", "ice_id", "ice_ids", "ice_isA", "ice_ping", "init", "removeSubscriber" };
+    static constexpr ::std::string_view allOperations[] = {"addSubscriber", "createTopic", "destroyTopic", "ice_id", "ice_ids", "ice_isA", "ice_ping", "init", "removeSubscriber"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 9, current.operation);
@@ -743,7 +743,7 @@ IceStormElection::ReplicaObserver::_iceDispatch(::IceInternal::Incoming& incomin
 ::std::vector<::std::string>
 IceStormElection::TopicManagerSync::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::IceStormElection::TopicManagerSync" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::IceStormElection::TopicManagerSync"};
     return allTypeIds;
 }
 
@@ -780,7 +780,7 @@ IceStormElection::TopicManagerSync::_iceD_getContent(::IceInternal::Incoming& in
 bool
 IceStormElection::TopicManagerSync::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "getContent", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"getContent", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
@@ -823,7 +823,7 @@ IceStormElection::TopicManagerSync::_iceDispatch(::IceInternal::Incoming& incomi
 ::std::vector<::std::string>
 IceStormElection::Node::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::IceStormElection::Node" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::IceStormElection::Node"};
     return allTypeIds;
 }
 
@@ -973,7 +973,7 @@ IceStormElection::Node::_iceD_query(::IceInternal::Incoming& incoming) const
 bool
 IceStormElection::Node::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "accept", "areYouCoordinator", "areYouThere", "ice_id", "ice_ids", "ice_isA", "ice_ping", "invitation", "nodes", "query", "ready", "sync" };
+    static constexpr ::std::string_view allOperations[] = {"accept", "areYouCoordinator", "areYouThere", "ice_id", "ice_ids", "ice_isA", "ice_ping", "invitation", "nodes", "query", "ready", "sync"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 12, current.operation);

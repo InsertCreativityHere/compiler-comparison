@@ -575,7 +575,7 @@ Test::MyClassPrx::ice_staticId()
 ::std::vector<::std::string>
 Test::Callback::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Callback" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Callback"};
     return allTypeIds;
 }
 
@@ -648,7 +648,7 @@ Test::Callback::_iceD_getDatagramCount(::IceInternal::Incoming& incoming)
 bool
 Test::Callback::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "datagram", "getCount", "getDatagramCount", "ice_id", "ice_ids", "ice_isA", "ice_ping", "ping" };
+    static constexpr ::std::string_view allOperations[] = {"datagram", "getCount", "getDatagramCount", "ice_id", "ice_ids", "ice_isA", "ice_ping", "ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
@@ -703,7 +703,7 @@ Test::Callback::_iceDispatch(::IceInternal::Incoming& incoming)
 ::std::vector<::std::string>
 Test::MyClass::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::MyClass" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::MyClass"};
     return allTypeIds;
 }
 
@@ -944,7 +944,7 @@ Test::MyClass::_iceD_shutdown(::IceInternal::Incoming& incoming)
 bool
 Test::MyClass::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "callCallback", "callDatagramCallback", "closeConnection", "datagram", "enableHeartbeats", "getCallbackCount", "getCallbackDatagramCount", "getConnectionCount", "getConnectionInfo", "getDatagramCount", "getHeartbeatCount", "ice_id", "ice_ids", "ice_isA", "ice_ping", "incCounter", "shutdown", "waitCounter" };
+    static constexpr ::std::string_view allOperations[] = {"callCallback", "callDatagramCallback", "closeConnection", "datagram", "enableHeartbeats", "getCallbackCount", "getCallbackDatagramCount", "getConnectionCount", "getConnectionInfo", "getDatagramCount", "getHeartbeatCount", "ice_id", "ice_ids", "ice_isA", "ice_ping", "incCounter", "shutdown", "waitCounter"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 18, current.operation);

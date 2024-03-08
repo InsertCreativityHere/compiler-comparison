@@ -700,7 +700,7 @@ Test::NumPy::D::ice_staticId()
 ::std::vector<::std::string>
 Test::NumPy::Custom::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::NumPy::Custom" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::NumPy::Custom"};
     return allTypeIds;
 }
 
@@ -1007,7 +1007,7 @@ Test::NumPy::Custom::_iceD_shutdown(::IceInternal::Incoming& incoming)
 bool
 Test::NumPy::Custom::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "opBogusNumpyArrayType", "opBoolMatrix", "opBoolSeq", "opByteMatrix", "opByteSeq", "opComplex128Seq", "opD", "opDoubleMatrix", "opDoubleSeq", "opFloatMatrix", "opFloatSeq", "opIntMatrix", "opIntSeq", "opLongMatrix", "opLongSeq", "opShortMatrix", "opShortSeq", "shutdown" };
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "opBogusNumpyArrayType", "opBoolMatrix", "opBoolSeq", "opByteMatrix", "opByteSeq", "opComplex128Seq", "opD", "opDoubleMatrix", "opDoubleSeq", "opFloatMatrix", "opFloatSeq", "opIntMatrix", "opIntSeq", "opLongMatrix", "opLongSeq", "opShortMatrix", "opShortSeq", "shutdown"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 22, current.operation);

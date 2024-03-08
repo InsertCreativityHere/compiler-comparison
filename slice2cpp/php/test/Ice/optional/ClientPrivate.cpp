@@ -124,7 +124,7 @@ Test::D::ice_staticId()
 ::std::vector<::std::string>
 Test::Initial2::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Initial2" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Initial2"};
     return allTypeIds;
 }
 
@@ -179,7 +179,7 @@ Test::Initial2::_iceD_opVoid(::IceInternal::Incoming& incoming)
 bool
 Test::Initial2::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "opClassAndUnknownOptional", "opVoid" };
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "opClassAndUnknownOptional", "opVoid"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);

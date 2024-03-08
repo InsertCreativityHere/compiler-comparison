@@ -329,7 +329,7 @@ Glacier2::SessionNotExistException::ice_staticId()
 ::std::vector<::std::string>
 Glacier2::Router::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Glacier2::Router", "::Ice::Object", "::Ice::Router" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Glacier2::Router", "::Ice::Object", "::Ice::Router"};
     return allTypeIds;
 }
 
@@ -481,7 +481,7 @@ Glacier2::Router::_iceD_getACMTimeout(::IceInternal::Incoming& incoming) const
 bool
 Glacier2::Router::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "addProxies", "createSession", "createSessionFromSecureConnection", "destroySession", "getACMTimeout", "getCategoryForClient", "getClientProxy", "getServerProxy", "getSessionTimeout", "ice_id", "ice_ids", "ice_isA", "ice_ping", "refreshSession" };
+    static constexpr ::std::string_view allOperations[] = {"addProxies", "createSession", "createSessionFromSecureConnection", "destroySession", "getACMTimeout", "getCategoryForClient", "getClientProxy", "getServerProxy", "getSessionTimeout", "ice_id", "ice_ids", "ice_isA", "ice_ping", "refreshSession"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 14, current.operation);

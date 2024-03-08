@@ -94,7 +94,7 @@ Test::MyException::_usesClasses() const
 ::std::vector<::std::string>
 Test::MyInterface::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::MyInterface" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::MyInterface"};
     return allTypeIds;
 }
 

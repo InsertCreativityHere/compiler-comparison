@@ -252,7 +252,7 @@ IceGrid::SessionPrx::ice_staticId()
 ::std::vector<::std::string>
 IceGrid::Session::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Glacier2::Session", "::Ice::Object", "::IceGrid::Session" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Glacier2::Session", "::Ice::Object", "::IceGrid::Session"};
     return allTypeIds;
 }
 
@@ -373,7 +373,7 @@ IceGrid::Session::_iceD_setAllocationTimeout(::IceInternal::Incoming& incoming)
 bool
 IceGrid::Session::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "allocateObjectById", "allocateObjectByType", "destroy", "ice_id", "ice_ids", "ice_isA", "ice_ping", "keepAlive", "releaseObject", "setAllocationTimeout" };
+    static constexpr ::std::string_view allOperations[] = {"allocateObjectById", "allocateObjectByType", "destroy", "ice_id", "ice_ids", "ice_isA", "ice_ping", "keepAlive", "releaseObject", "setAllocationTimeout"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 10, current.operation);

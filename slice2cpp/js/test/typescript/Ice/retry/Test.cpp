@@ -194,7 +194,7 @@ Test::RetryPrx::ice_staticId()
 ::std::vector<::std::string>
 Test::Retry::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::Retry" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Retry"};
     return allTypeIds;
 }
 
@@ -283,7 +283,7 @@ Test::Retry::_iceD_shutdown(::IceInternal::Incoming& incoming)
 bool
 Test::Retry::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "ice_id", "ice_ids", "ice_isA", "ice_ping", "op", "opIdempotent", "opNotIdempotent", "opSystemException", "shutdown" };
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "op", "opIdempotent", "opNotIdempotent", "opSystemException", "shutdown"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 9, current.operation);

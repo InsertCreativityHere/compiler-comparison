@@ -76,7 +76,7 @@ Test::TestFacetPrx::ice_staticId()
 ::std::vector<::std::string>
 Test::TestFacet::ice_ids(const ::Ice::Current&) const
 {
-    static const ::std::vector<::std::string> allTypeIds = { "::Ice::Object", "::Test::TestFacet" };
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::TestFacet"};
     return allTypeIds;
 }
 
@@ -111,7 +111,7 @@ Test::TestFacet::_iceD_getChanges(::IceInternal::Incoming& incoming)
 bool
 Test::TestFacet::_iceDispatch(::IceInternal::Incoming& incoming)
 {
-    static constexpr ::std::string_view allOperations[] = { "getChanges", "ice_id", "ice_ids", "ice_isA", "ice_ping" };
+    static constexpr ::std::string_view allOperations[] = {"getChanges", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
     const ::Ice::Current& current = incoming.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
