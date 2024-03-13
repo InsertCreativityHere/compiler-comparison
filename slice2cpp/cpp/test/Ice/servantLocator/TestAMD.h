@@ -404,76 +404,76 @@ public:
 
     virtual void requestFailedExceptionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_requestFailedException(::IceInternal::Incoming&);
+    void _iceD_requestFailedException(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void unknownUserExceptionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_unknownUserException(::IceInternal::Incoming&);
+    void _iceD_unknownUserException(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void unknownLocalExceptionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_unknownLocalException(::IceInternal::Incoming&);
+    void _iceD_unknownLocalException(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void unknownExceptionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_unknownException(::IceInternal::Incoming&);
+    void _iceD_unknownException(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void localExceptionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_localException(::IceInternal::Incoming&);
+    void _iceD_localException(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void userExceptionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_userException(::IceInternal::Incoming&);
+    void _iceD_userException(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void stdExceptionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_stdException(::IceInternal::Incoming&);
+    void _iceD_stdException(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void cppExceptionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_cppException(::IceInternal::Incoming&);
+    void _iceD_cppException(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void unknownExceptionWithServantExceptionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_unknownExceptionWithServantException(::IceInternal::Incoming&);
+    void _iceD_unknownExceptionWithServantException(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void impossibleExceptionAsync(bool _cpp_throw, ::std::function<void(::std::string_view returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_impossibleException(::IceInternal::Incoming&);
+    void _iceD_impossibleException(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void intfUserExceptionAsync(bool _cpp_throw, ::std::function<void(::std::string_view returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_intfUserException(::IceInternal::Incoming&);
+    void _iceD_intfUserException(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void asyncResponseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_asyncResponse(::IceInternal::Incoming&);
+    void _iceD_asyncResponse(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void asyncExceptionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_asyncException(::IceInternal::Incoming&);
+    void _iceD_asyncException(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -507,11 +507,11 @@ public:
 
     virtual void activateServantLocator(bool activate, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_activateServantLocator(::IceInternal::Incoming&);
+    void _iceD_activateServantLocator(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

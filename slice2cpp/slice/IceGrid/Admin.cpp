@@ -19,7 +19,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Admin.h>
 #include <Ice/OutgoingAsync.h>
-#include <Ice/Incoming.h>
+#include <Ice/AsyncResponseHandler.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -55,7 +55,7 @@ IceGrid::AdminPrx::addApplicationAsync(const ApplicationDescriptor& iceP_descrip
 ::std::function<void()>
 IceGrid::AdminPrx::addApplicationAsync(const ApplicationDescriptor& iceP_descriptor, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_addApplication, iceP_descriptor, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_addApplication, iceP_descriptor, context);
 }
 
 void
@@ -105,7 +105,7 @@ IceGrid::AdminPrx::syncApplicationAsync(const ApplicationDescriptor& iceP_descri
 ::std::function<void()>
 IceGrid::AdminPrx::syncApplicationAsync(const ApplicationDescriptor& iceP_descriptor, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_syncApplication, iceP_descriptor, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_syncApplication, iceP_descriptor, context);
 }
 
 void
@@ -126,15 +126,15 @@ IceGrid::AdminPrx::_iceI_syncApplication(const ::std::shared_ptr<::IceInternal::
             {
                 ex.ice_throw();
             }
-            catch(const ApplicationNotExistException&)
-            {
-                throw;
-            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const AccessDeniedException&)
+            {
+                throw;
+            }
+            catch(const ApplicationNotExistException&)
             {
                 throw;
             }
@@ -159,7 +159,7 @@ IceGrid::AdminPrx::updateApplicationAsync(const ApplicationUpdateDescriptor& ice
 ::std::function<void()>
 IceGrid::AdminPrx::updateApplicationAsync(const ApplicationUpdateDescriptor& iceP_descriptor, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_updateApplication, iceP_descriptor, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_updateApplication, iceP_descriptor, context);
 }
 
 void
@@ -180,15 +180,15 @@ IceGrid::AdminPrx::_iceI_updateApplication(const ::std::shared_ptr<::IceInternal
             {
                 ex.ice_throw();
             }
-            catch(const ApplicationNotExistException&)
-            {
-                throw;
-            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const AccessDeniedException&)
+            {
+                throw;
+            }
+            catch(const ApplicationNotExistException&)
             {
                 throw;
             }
@@ -213,7 +213,7 @@ IceGrid::AdminPrx::syncApplicationWithoutRestartAsync(const ApplicationDescripto
 ::std::function<void()>
 IceGrid::AdminPrx::syncApplicationWithoutRestartAsync(const ApplicationDescriptor& iceP_descriptor, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_syncApplicationWithoutRestart, iceP_descriptor, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_syncApplicationWithoutRestart, iceP_descriptor, context);
 }
 
 void
@@ -234,15 +234,15 @@ IceGrid::AdminPrx::_iceI_syncApplicationWithoutRestart(const ::std::shared_ptr<:
             {
                 ex.ice_throw();
             }
-            catch(const ApplicationNotExistException&)
-            {
-                throw;
-            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const AccessDeniedException&)
+            {
+                throw;
+            }
+            catch(const ApplicationNotExistException&)
             {
                 throw;
             }
@@ -267,7 +267,7 @@ IceGrid::AdminPrx::updateApplicationWithoutRestartAsync(const ApplicationUpdateD
 ::std::function<void()>
 IceGrid::AdminPrx::updateApplicationWithoutRestartAsync(const ApplicationUpdateDescriptor& iceP_descriptor, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_updateApplicationWithoutRestart, iceP_descriptor, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_updateApplicationWithoutRestart, iceP_descriptor, context);
 }
 
 void
@@ -288,15 +288,15 @@ IceGrid::AdminPrx::_iceI_updateApplicationWithoutRestart(const ::std::shared_ptr
             {
                 ex.ice_throw();
             }
-            catch(const ApplicationNotExistException&)
-            {
-                throw;
-            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const AccessDeniedException&)
+            {
+                throw;
+            }
+            catch(const ApplicationNotExistException&)
             {
                 throw;
             }
@@ -321,7 +321,7 @@ IceGrid::AdminPrx::removeApplicationAsync(::std::string_view iceP_name, const ::
 ::std::function<void()>
 IceGrid::AdminPrx::removeApplicationAsync(::std::string_view iceP_name, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_removeApplication, iceP_name, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_removeApplication, iceP_name, context);
 }
 
 void
@@ -341,15 +341,15 @@ IceGrid::AdminPrx::_iceI_removeApplication(const ::std::shared_ptr<::IceInternal
             {
                 ex.ice_throw();
             }
-            catch(const ApplicationNotExistException&)
-            {
-                throw;
-            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const AccessDeniedException&)
+            {
+                throw;
+            }
+            catch(const ApplicationNotExistException&)
             {
                 throw;
             }
@@ -374,7 +374,7 @@ IceGrid::AdminPrx::instantiateServerAsync(::std::string_view iceP_application, :
 ::std::function<void()>
 IceGrid::AdminPrx::instantiateServerAsync(::std::string_view iceP_application, ::std::string_view iceP_node, const ServerInstanceDescriptor& iceP_desc, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_instantiateServer, iceP_application, iceP_node, iceP_desc, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_instantiateServer, iceP_application, iceP_node, iceP_desc, context);
 }
 
 void
@@ -394,15 +394,15 @@ IceGrid::AdminPrx::_iceI_instantiateServer(const ::std::shared_ptr<::IceInternal
             {
                 ex.ice_throw();
             }
-            catch(const ApplicationNotExistException&)
-            {
-                throw;
-            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const AccessDeniedException&)
+            {
+                throw;
+            }
+            catch(const ApplicationNotExistException&)
             {
                 throw;
             }
@@ -427,7 +427,7 @@ IceGrid::AdminPrx::patchApplicationAsync(::std::string_view iceP_name, bool iceP
 ::std::function<void()>
 IceGrid::AdminPrx::patchApplicationAsync(::std::string_view iceP_name, bool iceP_shutdown, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_patchApplication, iceP_name, iceP_shutdown, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_patchApplication, iceP_name, iceP_shutdown, context);
 }
 
 void
@@ -447,11 +447,11 @@ IceGrid::AdminPrx::_iceI_patchApplication(const ::std::shared_ptr<::IceInternal:
             {
                 ex.ice_throw();
             }
-            catch(const ApplicationNotExistException&)
+            catch(const PatchException&)
             {
                 throw;
             }
-            catch(const PatchException&)
+            catch(const ApplicationNotExistException&)
             {
                 throw;
             }
@@ -476,7 +476,7 @@ IceGrid::AdminPrx::getApplicationInfoAsync(::std::string_view iceP_name, const :
 ::std::function<void()>
 IceGrid::AdminPrx::getApplicationInfoAsync(::std::string_view iceP_name, ::std::function<void(::IceGrid::ApplicationInfo)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<ApplicationInfo>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getApplicationInfo, iceP_name, context);
+    return ::IceInternal::makeLambdaOutgoing<ApplicationInfo>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_getApplicationInfo, iceP_name, context);
 }
 
 void
@@ -528,7 +528,7 @@ IceGrid::AdminPrx::getDefaultApplicationDescriptorAsync(const ::Ice::Context& co
 ::std::function<void()>
 IceGrid::AdminPrx::getDefaultApplicationDescriptorAsync(::std::function<void(::IceGrid::ApplicationDescriptor)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<ApplicationDescriptor>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getDefaultApplicationDescriptor, context);
+    return ::IceInternal::makeLambdaOutgoing<ApplicationDescriptor>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_getDefaultApplicationDescriptor, context);
 }
 
 void
@@ -577,7 +577,7 @@ IceGrid::AdminPrx::getAllApplicationNamesAsync(const ::Ice::Context& context) co
 ::std::function<void()>
 IceGrid::AdminPrx::getAllApplicationNamesAsync(::std::function<void(::Ice::StringSeq)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::Ice::StringSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getAllApplicationNames, context);
+    return ::IceInternal::makeLambdaOutgoing<::Ice::StringSeq>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_getAllApplicationNames, context);
 }
 
 void
@@ -606,7 +606,7 @@ IceGrid::AdminPrx::getServerInfoAsync(::std::string_view iceP_id, const ::Ice::C
 ::std::function<void()>
 IceGrid::AdminPrx::getServerInfoAsync(::std::string_view iceP_id, ::std::function<void(::IceGrid::ServerInfo)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<ServerInfo>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getServerInfo, iceP_id, context);
+    return ::IceInternal::makeLambdaOutgoing<ServerInfo>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_getServerInfo, iceP_id, context);
 }
 
 void
@@ -658,7 +658,7 @@ IceGrid::AdminPrx::getServerStateAsync(::std::string_view iceP_id, const ::Ice::
 ::std::function<void()>
 IceGrid::AdminPrx::getServerStateAsync(::std::string_view iceP_id, ::std::function<void(::IceGrid::ServerState)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<ServerState>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getServerState, iceP_id, context);
+    return ::IceInternal::makeLambdaOutgoing<ServerState>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_getServerState, iceP_id, context);
 }
 
 void
@@ -678,15 +678,15 @@ IceGrid::AdminPrx::_iceI_getServerState(const ::std::shared_ptr<::IceInternal::O
             {
                 ex.ice_throw();
             }
-            catch(const ServerNotExistException&)
-            {
-                throw;
-            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const NodeUnreachableException&)
+            {
+                throw;
+            }
+            catch(const ServerNotExistException&)
             {
                 throw;
             }
@@ -711,7 +711,7 @@ IceGrid::AdminPrx::getServerPidAsync(::std::string_view iceP_id, const ::Ice::Co
 ::std::function<void()>
 IceGrid::AdminPrx::getServerPidAsync(::std::string_view iceP_id, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getServerPid, iceP_id, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_getServerPid, iceP_id, context);
 }
 
 void
@@ -731,15 +731,15 @@ IceGrid::AdminPrx::_iceI_getServerPid(const ::std::shared_ptr<::IceInternal::Out
             {
                 ex.ice_throw();
             }
-            catch(const ServerNotExistException&)
-            {
-                throw;
-            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const NodeUnreachableException&)
+            {
+                throw;
+            }
+            catch(const ServerNotExistException&)
             {
                 throw;
             }
@@ -764,7 +764,7 @@ IceGrid::AdminPrx::getServerAdminCategoryAsync(const ::Ice::Context& context) co
 ::std::function<void()>
 IceGrid::AdminPrx::getServerAdminCategoryAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getServerAdminCategory, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::string>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_getServerAdminCategory, context);
 }
 
 void
@@ -793,7 +793,7 @@ IceGrid::AdminPrx::getServerAdminAsync(::std::string_view iceP_id, const ::Ice::
 ::std::function<void()>
 IceGrid::AdminPrx::getServerAdminAsync(::std::string_view iceP_id, ::std::function<void(::std::optional<::Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::optional<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getServerAdmin, iceP_id, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::optional<::Ice::ObjectPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_getServerAdmin, iceP_id, context);
 }
 
 void
@@ -813,15 +813,15 @@ IceGrid::AdminPrx::_iceI_getServerAdmin(const ::std::shared_ptr<::IceInternal::O
             {
                 ex.ice_throw();
             }
-            catch(const ServerNotExistException&)
-            {
-                throw;
-            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const NodeUnreachableException&)
+            {
+                throw;
+            }
+            catch(const ServerNotExistException&)
             {
                 throw;
             }
@@ -846,7 +846,7 @@ IceGrid::AdminPrx::enableServerAsync(::std::string_view iceP_id, bool iceP_enabl
 ::std::function<void()>
 IceGrid::AdminPrx::enableServerAsync(::std::string_view iceP_id, bool iceP_enabled, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_enableServer, iceP_id, iceP_enabled, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_enableServer, iceP_id, iceP_enabled, context);
 }
 
 void
@@ -866,15 +866,15 @@ IceGrid::AdminPrx::_iceI_enableServer(const ::std::shared_ptr<::IceInternal::Out
             {
                 ex.ice_throw();
             }
-            catch(const ServerNotExistException&)
-            {
-                throw;
-            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const NodeUnreachableException&)
+            {
+                throw;
+            }
+            catch(const ServerNotExistException&)
             {
                 throw;
             }
@@ -899,7 +899,7 @@ IceGrid::AdminPrx::isServerEnabledAsync(::std::string_view iceP_id, const ::Ice:
 ::std::function<void()>
 IceGrid::AdminPrx::isServerEnabledAsync(::std::string_view iceP_id, ::std::function<void(bool)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_isServerEnabled, iceP_id, context);
+    return ::IceInternal::makeLambdaOutgoing<bool>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_isServerEnabled, iceP_id, context);
 }
 
 void
@@ -919,15 +919,15 @@ IceGrid::AdminPrx::_iceI_isServerEnabled(const ::std::shared_ptr<::IceInternal::
             {
                 ex.ice_throw();
             }
-            catch(const ServerNotExistException&)
-            {
-                throw;
-            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const NodeUnreachableException&)
+            {
+                throw;
+            }
+            catch(const ServerNotExistException&)
             {
                 throw;
             }
@@ -952,7 +952,7 @@ IceGrid::AdminPrx::startServerAsync(::std::string_view iceP_id, const ::Ice::Con
 ::std::function<void()>
 IceGrid::AdminPrx::startServerAsync(::std::string_view iceP_id, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_startServer, iceP_id, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_startServer, iceP_id, context);
 }
 
 void
@@ -972,19 +972,19 @@ IceGrid::AdminPrx::_iceI_startServer(const ::std::shared_ptr<::IceInternal::Outg
             {
                 ex.ice_throw();
             }
-            catch(const ServerNotExistException&)
-            {
-                throw;
-            }
-            catch(const ServerStartException&)
-            {
-                throw;
-            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const NodeUnreachableException&)
+            {
+                throw;
+            }
+            catch(const ServerNotExistException&)
+            {
+                throw;
+            }
+            catch(const ServerStartException&)
             {
                 throw;
             }
@@ -1009,7 +1009,7 @@ IceGrid::AdminPrx::stopServerAsync(::std::string_view iceP_id, const ::Ice::Cont
 ::std::function<void()>
 IceGrid::AdminPrx::stopServerAsync(::std::string_view iceP_id, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_stopServer, iceP_id, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_stopServer, iceP_id, context);
 }
 
 void
@@ -1029,19 +1029,19 @@ IceGrid::AdminPrx::_iceI_stopServer(const ::std::shared_ptr<::IceInternal::Outgo
             {
                 ex.ice_throw();
             }
-            catch(const ServerNotExistException&)
-            {
-                throw;
-            }
-            catch(const ServerStopException&)
-            {
-                throw;
-            }
             catch(const DeploymentException&)
             {
                 throw;
             }
             catch(const NodeUnreachableException&)
+            {
+                throw;
+            }
+            catch(const ServerNotExistException&)
+            {
+                throw;
+            }
+            catch(const ServerStopException&)
             {
                 throw;
             }
@@ -1066,7 +1066,7 @@ IceGrid::AdminPrx::patchServerAsync(::std::string_view iceP_id, bool iceP_shutdo
 ::std::function<void()>
 IceGrid::AdminPrx::patchServerAsync(::std::string_view iceP_id, bool iceP_shutdown, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_patchServer, iceP_id, iceP_shutdown, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_patchServer, iceP_id, iceP_shutdown, context);
 }
 
 void
@@ -1086,10 +1086,6 @@ IceGrid::AdminPrx::_iceI_patchServer(const ::std::shared_ptr<::IceInternal::Outg
             {
                 ex.ice_throw();
             }
-            catch(const ServerNotExistException&)
-            {
-                throw;
-            }
             catch(const DeploymentException&)
             {
                 throw;
@@ -1099,6 +1095,10 @@ IceGrid::AdminPrx::_iceI_patchServer(const ::std::shared_ptr<::IceInternal::Outg
                 throw;
             }
             catch(const PatchException&)
+            {
+                throw;
+            }
+            catch(const ServerNotExistException&)
             {
                 throw;
             }
@@ -1123,7 +1123,7 @@ IceGrid::AdminPrx::sendSignalAsync(::std::string_view iceP_id, ::std::string_vie
 ::std::function<void()>
 IceGrid::AdminPrx::sendSignalAsync(::std::string_view iceP_id, ::std::string_view iceP_signal, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_sendSignal, iceP_id, iceP_signal, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_sendSignal, iceP_id, iceP_signal, context);
 }
 
 void
@@ -1143,10 +1143,6 @@ IceGrid::AdminPrx::_iceI_sendSignal(const ::std::shared_ptr<::IceInternal::Outgo
             {
                 ex.ice_throw();
             }
-            catch(const ServerNotExistException&)
-            {
-                throw;
-            }
             catch(const DeploymentException&)
             {
                 throw;
@@ -1156,6 +1152,10 @@ IceGrid::AdminPrx::_iceI_sendSignal(const ::std::shared_ptr<::IceInternal::Outgo
                 throw;
             }
             catch(const BadSignalException&)
+            {
+                throw;
+            }
+            catch(const ServerNotExistException&)
             {
                 throw;
             }
@@ -1180,7 +1180,7 @@ IceGrid::AdminPrx::getAllServerIdsAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 IceGrid::AdminPrx::getAllServerIdsAsync(::std::function<void(::Ice::StringSeq)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::Ice::StringSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getAllServerIds, context);
+    return ::IceInternal::makeLambdaOutgoing<::Ice::StringSeq>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_getAllServerIds, context);
 }
 
 void
@@ -1209,7 +1209,7 @@ IceGrid::AdminPrx::getAdapterInfoAsync(::std::string_view iceP_id, const ::Ice::
 ::std::function<void()>
 IceGrid::AdminPrx::getAdapterInfoAsync(::std::string_view iceP_id, ::std::function<void(::IceGrid::AdapterInfoSeq)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<AdapterInfoSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getAdapterInfo, iceP_id, context);
+    return ::IceInternal::makeLambdaOutgoing<AdapterInfoSeq>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_getAdapterInfo, iceP_id, context);
 }
 
 void
@@ -1254,7 +1254,7 @@ IceGrid::AdminPrx::removeAdapterAsync(::std::string_view iceP_id, const ::Ice::C
 ::std::function<void()>
 IceGrid::AdminPrx::removeAdapterAsync(::std::string_view iceP_id, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_removeAdapter, iceP_id, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_removeAdapter, iceP_id, context);
 }
 
 void
@@ -1274,11 +1274,11 @@ IceGrid::AdminPrx::_iceI_removeAdapter(const ::std::shared_ptr<::IceInternal::Ou
             {
                 ex.ice_throw();
             }
-            catch(const AdapterNotExistException&)
+            catch(const DeploymentException&)
             {
                 throw;
             }
-            catch(const DeploymentException&)
+            catch(const AdapterNotExistException&)
             {
                 throw;
             }
@@ -1303,7 +1303,7 @@ IceGrid::AdminPrx::getAllAdapterIdsAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 IceGrid::AdminPrx::getAllAdapterIdsAsync(::std::function<void(::Ice::StringSeq)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::Ice::StringSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getAllAdapterIds, context);
+    return ::IceInternal::makeLambdaOutgoing<::Ice::StringSeq>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_getAllAdapterIds, context);
 }
 
 void
@@ -1332,7 +1332,7 @@ IceGrid::AdminPrx::addObjectAsync(const ::std::optional<::Ice::ObjectPrx>& iceP_
 ::std::function<void()>
 IceGrid::AdminPrx::addObjectAsync(const ::std::optional<::Ice::ObjectPrx>& iceP_obj, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_addObject, iceP_obj, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_addObject, iceP_obj, context);
 }
 
 void
@@ -1381,7 +1381,7 @@ IceGrid::AdminPrx::updateObjectAsync(const ::std::optional<::Ice::ObjectPrx>& ic
 ::std::function<void()>
 IceGrid::AdminPrx::updateObjectAsync(const ::std::optional<::Ice::ObjectPrx>& iceP_obj, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_updateObject, iceP_obj, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_updateObject, iceP_obj, context);
 }
 
 void
@@ -1430,7 +1430,7 @@ IceGrid::AdminPrx::addObjectWithTypeAsync(const ::std::optional<::Ice::ObjectPrx
 ::std::function<void()>
 IceGrid::AdminPrx::addObjectWithTypeAsync(const ::std::optional<::Ice::ObjectPrx>& iceP_obj, ::std::string_view iceP_type, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_addObjectWithType, iceP_obj, iceP_type, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_addObjectWithType, iceP_obj, iceP_type, context);
 }
 
 void
@@ -1479,7 +1479,7 @@ IceGrid::AdminPrx::removeObjectAsync(const ::Ice::Identity& iceP_id, const ::Ice
 ::std::function<void()>
 IceGrid::AdminPrx::removeObjectAsync(const ::Ice::Identity& iceP_id, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_removeObject, iceP_id, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_removeObject, iceP_id, context);
 }
 
 void
@@ -1528,7 +1528,7 @@ IceGrid::AdminPrx::getObjectInfoAsync(const ::Ice::Identity& iceP_id, const ::Ic
 ::std::function<void()>
 IceGrid::AdminPrx::getObjectInfoAsync(const ::Ice::Identity& iceP_id, ::std::function<void(::IceGrid::ObjectInfo)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<ObjectInfo>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getObjectInfo, iceP_id, context);
+    return ::IceInternal::makeLambdaOutgoing<ObjectInfo>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_getObjectInfo, iceP_id, context);
 }
 
 void
@@ -1573,7 +1573,7 @@ IceGrid::AdminPrx::getObjectInfosByTypeAsync(::std::string_view iceP_type, const
 ::std::function<void()>
 IceGrid::AdminPrx::getObjectInfosByTypeAsync(::std::string_view iceP_type, ::std::function<void(::IceGrid::ObjectInfoSeq)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<ObjectInfoSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getObjectInfosByType, iceP_type, context);
+    return ::IceInternal::makeLambdaOutgoing<ObjectInfoSeq>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_getObjectInfosByType, iceP_type, context);
 }
 
 void
@@ -1605,7 +1605,7 @@ IceGrid::AdminPrx::getAllObjectInfosAsync(::std::string_view iceP_expr, const ::
 ::std::function<void()>
 IceGrid::AdminPrx::getAllObjectInfosAsync(::std::string_view iceP_expr, ::std::function<void(::IceGrid::ObjectInfoSeq)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<ObjectInfoSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getAllObjectInfos, iceP_expr, context);
+    return ::IceInternal::makeLambdaOutgoing<ObjectInfoSeq>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_getAllObjectInfos, iceP_expr, context);
 }
 
 void
@@ -1637,7 +1637,7 @@ IceGrid::AdminPrx::pingNodeAsync(::std::string_view iceP_name, const ::Ice::Cont
 ::std::function<void()>
 IceGrid::AdminPrx::pingNodeAsync(::std::string_view iceP_name, ::std::function<void(bool)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_pingNode, iceP_name, context);
+    return ::IceInternal::makeLambdaOutgoing<bool>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_pingNode, iceP_name, context);
 }
 
 void
@@ -1682,7 +1682,7 @@ IceGrid::AdminPrx::getNodeLoadAsync(::std::string_view iceP_name, const ::Ice::C
 ::std::function<void()>
 IceGrid::AdminPrx::getNodeLoadAsync(::std::string_view iceP_name, ::std::function<void(::IceGrid::LoadInfo)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<LoadInfo>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getNodeLoad, iceP_name, context);
+    return ::IceInternal::makeLambdaOutgoing<LoadInfo>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_getNodeLoad, iceP_name, context);
 }
 
 void
@@ -1731,7 +1731,7 @@ IceGrid::AdminPrx::getNodeInfoAsync(::std::string_view iceP_name, const ::Ice::C
 ::std::function<void()>
 IceGrid::AdminPrx::getNodeInfoAsync(::std::string_view iceP_name, ::std::function<void(::IceGrid::NodeInfo)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<NodeInfo>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getNodeInfo, iceP_name, context);
+    return ::IceInternal::makeLambdaOutgoing<NodeInfo>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_getNodeInfo, iceP_name, context);
 }
 
 void
@@ -1780,7 +1780,7 @@ IceGrid::AdminPrx::getNodeAdminAsync(::std::string_view iceP_name, const ::Ice::
 ::std::function<void()>
 IceGrid::AdminPrx::getNodeAdminAsync(::std::string_view iceP_name, ::std::function<void(::std::optional<::Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::optional<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getNodeAdmin, iceP_name, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::optional<::Ice::ObjectPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_getNodeAdmin, iceP_name, context);
 }
 
 void
@@ -1829,7 +1829,7 @@ IceGrid::AdminPrx::getNodeProcessorSocketCountAsync(::std::string_view iceP_name
 ::std::function<void()>
 IceGrid::AdminPrx::getNodeProcessorSocketCountAsync(::std::string_view iceP_name, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getNodeProcessorSocketCount, iceP_name, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_getNodeProcessorSocketCount, iceP_name, context);
 }
 
 void
@@ -1878,7 +1878,7 @@ IceGrid::AdminPrx::shutdownNodeAsync(::std::string_view iceP_name, const ::Ice::
 ::std::function<void()>
 IceGrid::AdminPrx::shutdownNodeAsync(::std::string_view iceP_name, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_shutdownNode, iceP_name, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_shutdownNode, iceP_name, context);
 }
 
 void
@@ -1927,7 +1927,7 @@ IceGrid::AdminPrx::getNodeHostnameAsync(::std::string_view iceP_name, const ::Ic
 ::std::function<void()>
 IceGrid::AdminPrx::getNodeHostnameAsync(::std::string_view iceP_name, ::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getNodeHostname, iceP_name, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::string>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_getNodeHostname, iceP_name, context);
 }
 
 void
@@ -1976,7 +1976,7 @@ IceGrid::AdminPrx::getAllNodeNamesAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 IceGrid::AdminPrx::getAllNodeNamesAsync(::std::function<void(::Ice::StringSeq)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::Ice::StringSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getAllNodeNames, context);
+    return ::IceInternal::makeLambdaOutgoing<::Ice::StringSeq>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_getAllNodeNames, context);
 }
 
 void
@@ -2005,7 +2005,7 @@ IceGrid::AdminPrx::pingRegistryAsync(::std::string_view iceP_name, const ::Ice::
 ::std::function<void()>
 IceGrid::AdminPrx::pingRegistryAsync(::std::string_view iceP_name, ::std::function<void(bool)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_pingRegistry, iceP_name, context);
+    return ::IceInternal::makeLambdaOutgoing<bool>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_pingRegistry, iceP_name, context);
 }
 
 void
@@ -2050,7 +2050,7 @@ IceGrid::AdminPrx::getRegistryInfoAsync(::std::string_view iceP_name, const ::Ic
 ::std::function<void()>
 IceGrid::AdminPrx::getRegistryInfoAsync(::std::string_view iceP_name, ::std::function<void(::IceGrid::RegistryInfo)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<RegistryInfo>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getRegistryInfo, iceP_name, context);
+    return ::IceInternal::makeLambdaOutgoing<RegistryInfo>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_getRegistryInfo, iceP_name, context);
 }
 
 void
@@ -2099,7 +2099,7 @@ IceGrid::AdminPrx::getRegistryAdminAsync(::std::string_view iceP_name, const ::I
 ::std::function<void()>
 IceGrid::AdminPrx::getRegistryAdminAsync(::std::string_view iceP_name, ::std::function<void(::std::optional<::Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::optional<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getRegistryAdmin, iceP_name, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::optional<::Ice::ObjectPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_getRegistryAdmin, iceP_name, context);
 }
 
 void
@@ -2144,7 +2144,7 @@ IceGrid::AdminPrx::shutdownRegistryAsync(::std::string_view iceP_name, const ::I
 ::std::function<void()>
 IceGrid::AdminPrx::shutdownRegistryAsync(::std::string_view iceP_name, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_shutdownRegistry, iceP_name, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_shutdownRegistry, iceP_name, context);
 }
 
 void
@@ -2193,7 +2193,7 @@ IceGrid::AdminPrx::getAllRegistryNamesAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 IceGrid::AdminPrx::getAllRegistryNamesAsync(::std::function<void(::Ice::StringSeq)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::Ice::StringSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_getAllRegistryNames, context);
+    return ::IceInternal::makeLambdaOutgoing<::Ice::StringSeq>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_getAllRegistryNames, context);
 }
 
 void
@@ -2222,7 +2222,7 @@ IceGrid::AdminPrx::shutdownAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 IceGrid::AdminPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminPrx::_iceI_shutdown, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_shutdown, context);
 }
 
 void
@@ -2263,7 +2263,7 @@ IceGrid::FileIteratorPrx::readAsync(::std::int32_t iceP_size, ::std::function<vo
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<bool, ::Ice::StringSeq>>(std::move(responseCb), std::move(ex), std::move(sent), this, &IceGrid::FileIteratorPrx::_iceI_read, iceP_size, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<bool, ::Ice::StringSeq>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &IceGrid::FileIteratorPrx::_iceI_read, iceP_size, context);
 }
 
 void
@@ -2314,7 +2314,7 @@ IceGrid::FileIteratorPrx::destroyAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 IceGrid::FileIteratorPrx::destroyAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::FileIteratorPrx::_iceI_destroy, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::FileIteratorPrx::_iceI_destroy, context);
 }
 
 void
@@ -2349,7 +2349,7 @@ IceGrid::RegistryObserverPrx::registryInitAsync(const RegistryInfoSeq& iceP_regi
 ::std::function<void()>
 IceGrid::RegistryObserverPrx::registryInitAsync(const RegistryInfoSeq& iceP_registries, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::RegistryObserverPrx::_iceI_registryInit, iceP_registries, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::RegistryObserverPrx::_iceI_registryInit, iceP_registries, context);
 }
 
 void
@@ -2380,7 +2380,7 @@ IceGrid::RegistryObserverPrx::registryUpAsync(const RegistryInfo& iceP_node, con
 ::std::function<void()>
 IceGrid::RegistryObserverPrx::registryUpAsync(const RegistryInfo& iceP_node, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::RegistryObserverPrx::_iceI_registryUp, iceP_node, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::RegistryObserverPrx::_iceI_registryUp, iceP_node, context);
 }
 
 void
@@ -2411,7 +2411,7 @@ IceGrid::RegistryObserverPrx::registryDownAsync(::std::string_view iceP_name, co
 ::std::function<void()>
 IceGrid::RegistryObserverPrx::registryDownAsync(::std::string_view iceP_name, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::RegistryObserverPrx::_iceI_registryDown, iceP_name, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::RegistryObserverPrx::_iceI_registryDown, iceP_name, context);
 }
 
 void
@@ -2449,7 +2449,7 @@ IceGrid::NodeObserverPrx::nodeInitAsync(const NodeDynamicInfoSeq& iceP_nodes, co
 ::std::function<void()>
 IceGrid::NodeObserverPrx::nodeInitAsync(const NodeDynamicInfoSeq& iceP_nodes, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::NodeObserverPrx::_iceI_nodeInit, iceP_nodes, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::NodeObserverPrx::_iceI_nodeInit, iceP_nodes, context);
 }
 
 void
@@ -2480,7 +2480,7 @@ IceGrid::NodeObserverPrx::nodeUpAsync(const NodeDynamicInfo& iceP_node, const ::
 ::std::function<void()>
 IceGrid::NodeObserverPrx::nodeUpAsync(const NodeDynamicInfo& iceP_node, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::NodeObserverPrx::_iceI_nodeUp, iceP_node, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::NodeObserverPrx::_iceI_nodeUp, iceP_node, context);
 }
 
 void
@@ -2511,7 +2511,7 @@ IceGrid::NodeObserverPrx::nodeDownAsync(::std::string_view iceP_name, const ::Ic
 ::std::function<void()>
 IceGrid::NodeObserverPrx::nodeDownAsync(::std::string_view iceP_name, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::NodeObserverPrx::_iceI_nodeDown, iceP_name, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::NodeObserverPrx::_iceI_nodeDown, iceP_name, context);
 }
 
 void
@@ -2542,7 +2542,7 @@ IceGrid::NodeObserverPrx::updateServerAsync(::std::string_view iceP_node, const 
 ::std::function<void()>
 IceGrid::NodeObserverPrx::updateServerAsync(::std::string_view iceP_node, const ServerDynamicInfo& iceP_updatedInfo, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::NodeObserverPrx::_iceI_updateServer, iceP_node, iceP_updatedInfo, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::NodeObserverPrx::_iceI_updateServer, iceP_node, iceP_updatedInfo, context);
 }
 
 void
@@ -2573,7 +2573,7 @@ IceGrid::NodeObserverPrx::updateAdapterAsync(::std::string_view iceP_node, const
 ::std::function<void()>
 IceGrid::NodeObserverPrx::updateAdapterAsync(::std::string_view iceP_node, const AdapterDynamicInfo& iceP_updatedInfo, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::NodeObserverPrx::_iceI_updateAdapter, iceP_node, iceP_updatedInfo, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::NodeObserverPrx::_iceI_updateAdapter, iceP_node, iceP_updatedInfo, context);
 }
 
 void
@@ -2611,7 +2611,7 @@ IceGrid::ApplicationObserverPrx::applicationInitAsync(::std::int32_t iceP_serial
 ::std::function<void()>
 IceGrid::ApplicationObserverPrx::applicationInitAsync(::std::int32_t iceP_serial, const ApplicationInfoSeq& iceP_applications, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::ApplicationObserverPrx::_iceI_applicationInit, iceP_serial, iceP_applications, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::ApplicationObserverPrx::_iceI_applicationInit, iceP_serial, iceP_applications, context);
 }
 
 void
@@ -2643,7 +2643,7 @@ IceGrid::ApplicationObserverPrx::applicationAddedAsync(::std::int32_t iceP_seria
 ::std::function<void()>
 IceGrid::ApplicationObserverPrx::applicationAddedAsync(::std::int32_t iceP_serial, const ApplicationInfo& iceP_desc, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::ApplicationObserverPrx::_iceI_applicationAdded, iceP_serial, iceP_desc, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::ApplicationObserverPrx::_iceI_applicationAdded, iceP_serial, iceP_desc, context);
 }
 
 void
@@ -2675,7 +2675,7 @@ IceGrid::ApplicationObserverPrx::applicationRemovedAsync(::std::int32_t iceP_ser
 ::std::function<void()>
 IceGrid::ApplicationObserverPrx::applicationRemovedAsync(::std::int32_t iceP_serial, ::std::string_view iceP_name, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::ApplicationObserverPrx::_iceI_applicationRemoved, iceP_serial, iceP_name, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::ApplicationObserverPrx::_iceI_applicationRemoved, iceP_serial, iceP_name, context);
 }
 
 void
@@ -2706,7 +2706,7 @@ IceGrid::ApplicationObserverPrx::applicationUpdatedAsync(::std::int32_t iceP_ser
 ::std::function<void()>
 IceGrid::ApplicationObserverPrx::applicationUpdatedAsync(::std::int32_t iceP_serial, const ApplicationUpdateInfo& iceP_desc, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::ApplicationObserverPrx::_iceI_applicationUpdated, iceP_serial, iceP_desc, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::ApplicationObserverPrx::_iceI_applicationUpdated, iceP_serial, iceP_desc, context);
 }
 
 void
@@ -2745,7 +2745,7 @@ IceGrid::AdapterObserverPrx::adapterInitAsync(const AdapterInfoSeq& iceP_adpts, 
 ::std::function<void()>
 IceGrid::AdapterObserverPrx::adapterInitAsync(const AdapterInfoSeq& iceP_adpts, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdapterObserverPrx::_iceI_adapterInit, iceP_adpts, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdapterObserverPrx::_iceI_adapterInit, iceP_adpts, context);
 }
 
 void
@@ -2776,7 +2776,7 @@ IceGrid::AdapterObserverPrx::adapterAddedAsync(const AdapterInfo& iceP_info, con
 ::std::function<void()>
 IceGrid::AdapterObserverPrx::adapterAddedAsync(const AdapterInfo& iceP_info, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdapterObserverPrx::_iceI_adapterAdded, iceP_info, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdapterObserverPrx::_iceI_adapterAdded, iceP_info, context);
 }
 
 void
@@ -2807,7 +2807,7 @@ IceGrid::AdapterObserverPrx::adapterUpdatedAsync(const AdapterInfo& iceP_info, c
 ::std::function<void()>
 IceGrid::AdapterObserverPrx::adapterUpdatedAsync(const AdapterInfo& iceP_info, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdapterObserverPrx::_iceI_adapterUpdated, iceP_info, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdapterObserverPrx::_iceI_adapterUpdated, iceP_info, context);
 }
 
 void
@@ -2838,7 +2838,7 @@ IceGrid::AdapterObserverPrx::adapterRemovedAsync(::std::string_view iceP_id, con
 ::std::function<void()>
 IceGrid::AdapterObserverPrx::adapterRemovedAsync(::std::string_view iceP_id, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdapterObserverPrx::_iceI_adapterRemoved, iceP_id, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdapterObserverPrx::_iceI_adapterRemoved, iceP_id, context);
 }
 
 void
@@ -2876,7 +2876,7 @@ IceGrid::ObjectObserverPrx::objectInitAsync(const ObjectInfoSeq& iceP_objects, c
 ::std::function<void()>
 IceGrid::ObjectObserverPrx::objectInitAsync(const ObjectInfoSeq& iceP_objects, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::ObjectObserverPrx::_iceI_objectInit, iceP_objects, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::ObjectObserverPrx::_iceI_objectInit, iceP_objects, context);
 }
 
 void
@@ -2907,7 +2907,7 @@ IceGrid::ObjectObserverPrx::objectAddedAsync(const ObjectInfo& iceP_info, const 
 ::std::function<void()>
 IceGrid::ObjectObserverPrx::objectAddedAsync(const ObjectInfo& iceP_info, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::ObjectObserverPrx::_iceI_objectAdded, iceP_info, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::ObjectObserverPrx::_iceI_objectAdded, iceP_info, context);
 }
 
 void
@@ -2938,7 +2938,7 @@ IceGrid::ObjectObserverPrx::objectUpdatedAsync(const ObjectInfo& iceP_info, cons
 ::std::function<void()>
 IceGrid::ObjectObserverPrx::objectUpdatedAsync(const ObjectInfo& iceP_info, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::ObjectObserverPrx::_iceI_objectUpdated, iceP_info, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::ObjectObserverPrx::_iceI_objectUpdated, iceP_info, context);
 }
 
 void
@@ -2969,7 +2969,7 @@ IceGrid::ObjectObserverPrx::objectRemovedAsync(const ::Ice::Identity& iceP_id, c
 ::std::function<void()>
 IceGrid::ObjectObserverPrx::objectRemovedAsync(const ::Ice::Identity& iceP_id, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::ObjectObserverPrx::_iceI_objectRemoved, iceP_id, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::ObjectObserverPrx::_iceI_objectRemoved, iceP_id, context);
 }
 
 void
@@ -3007,7 +3007,7 @@ IceGrid::AdminSessionPrx::keepAliveAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 IceGrid::AdminSessionPrx::keepAliveAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_keepAlive, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_keepAlive, context);
 }
 
 void
@@ -3035,7 +3035,7 @@ IceGrid::AdminSessionPrx::getAdminAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 IceGrid::AdminSessionPrx::getAdminAsync(::std::function<void(::std::optional<::IceGrid::AdminPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::optional<AdminPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_getAdmin, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::optional<AdminPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_getAdmin, context);
 }
 
 void
@@ -3064,7 +3064,7 @@ IceGrid::AdminSessionPrx::getAdminCallbackTemplateAsync(const ::Ice::Context& co
 ::std::function<void()>
 IceGrid::AdminSessionPrx::getAdminCallbackTemplateAsync(::std::function<void(::std::optional<::Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::optional<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_getAdminCallbackTemplate, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::optional<::Ice::ObjectPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_getAdminCallbackTemplate, context);
 }
 
 void
@@ -3093,7 +3093,7 @@ IceGrid::AdminSessionPrx::setObserversAsync(const ::std::optional<RegistryObserv
 ::std::function<void()>
 IceGrid::AdminSessionPrx::setObserversAsync(const ::std::optional<RegistryObserverPrx>& iceP_registryObs, const ::std::optional<NodeObserverPrx>& iceP_nodeObs, const ::std::optional<ApplicationObserverPrx>& iceP_appObs, const ::std::optional<AdapterObserverPrx>& iceP_adptObs, const ::std::optional<ObjectObserverPrx>& iceP_objObs, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_setObservers, iceP_registryObs, iceP_nodeObs, iceP_appObs, iceP_adptObs, iceP_objObs, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_setObservers, iceP_registryObs, iceP_nodeObs, iceP_appObs, iceP_adptObs, iceP_objObs, context);
 }
 
 void
@@ -3138,7 +3138,7 @@ IceGrid::AdminSessionPrx::setObserversByIdentityAsync(const ::Ice::Identity& ice
 ::std::function<void()>
 IceGrid::AdminSessionPrx::setObserversByIdentityAsync(const ::Ice::Identity& iceP_registryObs, const ::Ice::Identity& iceP_nodeObs, const ::Ice::Identity& iceP_appObs, const ::Ice::Identity& iceP_adptObs, const ::Ice::Identity& iceP_objObs, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_setObserversByIdentity, iceP_registryObs, iceP_nodeObs, iceP_appObs, iceP_adptObs, iceP_objObs, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_setObserversByIdentity, iceP_registryObs, iceP_nodeObs, iceP_appObs, iceP_adptObs, iceP_objObs, context);
 }
 
 void
@@ -3183,7 +3183,7 @@ IceGrid::AdminSessionPrx::startUpdateAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 IceGrid::AdminSessionPrx::startUpdateAsync(::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_startUpdate, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_startUpdate, context);
 }
 
 void
@@ -3225,7 +3225,7 @@ IceGrid::AdminSessionPrx::finishUpdateAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 IceGrid::AdminSessionPrx::finishUpdateAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_finishUpdate, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_finishUpdate, context);
 }
 
 void
@@ -3267,7 +3267,7 @@ IceGrid::AdminSessionPrx::getReplicaNameAsync(const ::Ice::Context& context) con
 ::std::function<void()>
 IceGrid::AdminSessionPrx::getReplicaNameAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_getReplicaName, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::string>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_getReplicaName, context);
 }
 
 void
@@ -3296,7 +3296,7 @@ IceGrid::AdminSessionPrx::openServerLogAsync(::std::string_view iceP_id, ::std::
 ::std::function<void()>
 IceGrid::AdminSessionPrx::openServerLogAsync(::std::string_view iceP_id, ::std::string_view iceP_path, ::std::int32_t iceP_count, ::std::function<void(::std::optional<::IceGrid::FileIteratorPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::optional<FileIteratorPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_openServerLog, iceP_id, iceP_path, iceP_count, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::optional<FileIteratorPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_openServerLog, iceP_id, iceP_path, iceP_count, context);
 }
 
 void
@@ -3316,10 +3316,6 @@ IceGrid::AdminSessionPrx::_iceI_openServerLog(const ::std::shared_ptr<::IceInter
             {
                 ex.ice_throw();
             }
-            catch(const ServerNotExistException&)
-            {
-                throw;
-            }
             catch(const DeploymentException&)
             {
                 throw;
@@ -3329,6 +3325,10 @@ IceGrid::AdminSessionPrx::_iceI_openServerLog(const ::std::shared_ptr<::IceInter
                 throw;
             }
             catch(const FileNotAvailableException&)
+            {
+                throw;
+            }
+            catch(const ServerNotExistException&)
             {
                 throw;
             }
@@ -3353,7 +3353,7 @@ IceGrid::AdminSessionPrx::openServerStdErrAsync(::std::string_view iceP_id, ::st
 ::std::function<void()>
 IceGrid::AdminSessionPrx::openServerStdErrAsync(::std::string_view iceP_id, ::std::int32_t iceP_count, ::std::function<void(::std::optional<::IceGrid::FileIteratorPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::optional<FileIteratorPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_openServerStdErr, iceP_id, iceP_count, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::optional<FileIteratorPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_openServerStdErr, iceP_id, iceP_count, context);
 }
 
 void
@@ -3373,10 +3373,6 @@ IceGrid::AdminSessionPrx::_iceI_openServerStdErr(const ::std::shared_ptr<::IceIn
             {
                 ex.ice_throw();
             }
-            catch(const ServerNotExistException&)
-            {
-                throw;
-            }
             catch(const DeploymentException&)
             {
                 throw;
@@ -3386,6 +3382,10 @@ IceGrid::AdminSessionPrx::_iceI_openServerStdErr(const ::std::shared_ptr<::IceIn
                 throw;
             }
             catch(const FileNotAvailableException&)
+            {
+                throw;
+            }
+            catch(const ServerNotExistException&)
             {
                 throw;
             }
@@ -3410,7 +3410,7 @@ IceGrid::AdminSessionPrx::openServerStdOutAsync(::std::string_view iceP_id, ::st
 ::std::function<void()>
 IceGrid::AdminSessionPrx::openServerStdOutAsync(::std::string_view iceP_id, ::std::int32_t iceP_count, ::std::function<void(::std::optional<::IceGrid::FileIteratorPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::optional<FileIteratorPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_openServerStdOut, iceP_id, iceP_count, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::optional<FileIteratorPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_openServerStdOut, iceP_id, iceP_count, context);
 }
 
 void
@@ -3430,10 +3430,6 @@ IceGrid::AdminSessionPrx::_iceI_openServerStdOut(const ::std::shared_ptr<::IceIn
             {
                 ex.ice_throw();
             }
-            catch(const ServerNotExistException&)
-            {
-                throw;
-            }
             catch(const DeploymentException&)
             {
                 throw;
@@ -3443,6 +3439,10 @@ IceGrid::AdminSessionPrx::_iceI_openServerStdOut(const ::std::shared_ptr<::IceIn
                 throw;
             }
             catch(const FileNotAvailableException&)
+            {
+                throw;
+            }
+            catch(const ServerNotExistException&)
             {
                 throw;
             }
@@ -3467,7 +3467,7 @@ IceGrid::AdminSessionPrx::openNodeStdErrAsync(::std::string_view iceP_name, ::st
 ::std::function<void()>
 IceGrid::AdminSessionPrx::openNodeStdErrAsync(::std::string_view iceP_name, ::std::int32_t iceP_count, ::std::function<void(::std::optional<::IceGrid::FileIteratorPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::optional<FileIteratorPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_openNodeStdErr, iceP_name, iceP_count, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::optional<FileIteratorPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_openNodeStdErr, iceP_name, iceP_count, context);
 }
 
 void
@@ -3520,7 +3520,7 @@ IceGrid::AdminSessionPrx::openNodeStdOutAsync(::std::string_view iceP_name, ::st
 ::std::function<void()>
 IceGrid::AdminSessionPrx::openNodeStdOutAsync(::std::string_view iceP_name, ::std::int32_t iceP_count, ::std::function<void(::std::optional<::IceGrid::FileIteratorPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::optional<FileIteratorPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_openNodeStdOut, iceP_name, iceP_count, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::optional<FileIteratorPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_openNodeStdOut, iceP_name, iceP_count, context);
 }
 
 void
@@ -3573,7 +3573,7 @@ IceGrid::AdminSessionPrx::openRegistryStdErrAsync(::std::string_view iceP_name, 
 ::std::function<void()>
 IceGrid::AdminSessionPrx::openRegistryStdErrAsync(::std::string_view iceP_name, ::std::int32_t iceP_count, ::std::function<void(::std::optional<::IceGrid::FileIteratorPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::optional<FileIteratorPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_openRegistryStdErr, iceP_name, iceP_count, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::optional<FileIteratorPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_openRegistryStdErr, iceP_name, iceP_count, context);
 }
 
 void
@@ -3626,7 +3626,7 @@ IceGrid::AdminSessionPrx::openRegistryStdOutAsync(::std::string_view iceP_name, 
 ::std::function<void()>
 IceGrid::AdminSessionPrx::openRegistryStdOutAsync(::std::string_view iceP_name, ::std::int32_t iceP_count, ::std::function<void(::std::optional<::IceGrid::FileIteratorPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::optional<FileIteratorPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_openRegistryStdOut, iceP_name, iceP_count, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::optional<FileIteratorPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminSessionPrx::_iceI_openRegistryStdOut, iceP_name, iceP_count, context);
 }
 
 void
@@ -3692,1004 +3692,1100 @@ IceGrid::Admin::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_addApplication(::IceInternal::Incoming& incoming)
+void
+IceGrid::Admin::_iceD_addApplication(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ApplicationDescriptor iceP_descriptor;
     istr->readAll(iceP_descriptor);
     istr->readPendingValues();
-    incoming.endReadParams();
-    this->addApplication(::std::move(iceP_descriptor), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->addApplication(::std::move(iceP_descriptor), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_syncApplication(::IceInternal::Incoming& incoming)
+void
+IceGrid::Admin::_iceD_syncApplication(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ApplicationDescriptor iceP_descriptor;
     istr->readAll(iceP_descriptor);
     istr->readPendingValues();
-    incoming.endReadParams();
-    this->syncApplication(::std::move(iceP_descriptor), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->syncApplication(::std::move(iceP_descriptor), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_updateApplication(::IceInternal::Incoming& incoming)
+void
+IceGrid::Admin::_iceD_updateApplication(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ApplicationUpdateDescriptor iceP_descriptor;
     istr->readAll(iceP_descriptor);
     istr->readPendingValues();
-    incoming.endReadParams();
-    this->updateApplication(::std::move(iceP_descriptor), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->updateApplication(::std::move(iceP_descriptor), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_syncApplicationWithoutRestart(::IceInternal::Incoming& incoming)
+void
+IceGrid::Admin::_iceD_syncApplicationWithoutRestart(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ApplicationDescriptor iceP_descriptor;
     istr->readAll(iceP_descriptor);
     istr->readPendingValues();
-    incoming.endReadParams();
-    this->syncApplicationWithoutRestart(::std::move(iceP_descriptor), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->syncApplicationWithoutRestart(::std::move(iceP_descriptor), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_updateApplicationWithoutRestart(::IceInternal::Incoming& incoming)
+void
+IceGrid::Admin::_iceD_updateApplicationWithoutRestart(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ApplicationUpdateDescriptor iceP_descriptor;
     istr->readAll(iceP_descriptor);
     istr->readPendingValues();
-    incoming.endReadParams();
-    this->updateApplicationWithoutRestart(::std::move(iceP_descriptor), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->updateApplicationWithoutRestart(::std::move(iceP_descriptor), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_removeApplication(::IceInternal::Incoming& incoming)
+void
+IceGrid::Admin::_iceD_removeApplication(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_name;
     istr->readAll(iceP_name);
-    incoming.endReadParams();
-    this->removeApplication(::std::move(iceP_name), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->removeApplication(::std::move(iceP_name), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_instantiateServer(::IceInternal::Incoming& incoming)
+void
+IceGrid::Admin::_iceD_instantiateServer(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_application;
     ::std::string iceP_node;
     ServerInstanceDescriptor iceP_desc;
     istr->readAll(iceP_application, iceP_node, iceP_desc);
-    incoming.endReadParams();
-    this->instantiateServer(::std::move(iceP_application), ::std::move(iceP_node), ::std::move(iceP_desc), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->instantiateServer(::std::move(iceP_application), ::std::move(iceP_node), ::std::move(iceP_desc), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_patchApplication(::IceInternal::Incoming& incoming)
+void
+IceGrid::Admin::_iceD_patchApplication(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_name;
     bool iceP_shutdown;
     istr->readAll(iceP_name, iceP_shutdown);
-    incoming.endReadParams();
-    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    istr->endEncapsulation();
+    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
     try
     {
-        this->patchApplicationAsync(::std::move(iceP_name), iceP_shutdown, [incomingPtr] { incomingPtr->response(); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+        this->patchApplicationAsync(::std::move(iceP_name), iceP_shutdown, [responseHandler] { responseHandler->sendEmptyResponse(); }, [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
     }
     catch (...)
     {
-        incomingPtr->failed(::std::current_exception());
+        responseHandler->sendException(::std::current_exception());
     }
-    return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_getApplicationInfo(::IceInternal::Incoming& incoming) const
+void
+IceGrid::Admin::_iceD_getApplicationInfo(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_name;
     istr->readAll(iceP_name);
-    incoming.endReadParams();
-    ApplicationInfo ret = this->getApplicationInfo(::std::move(iceP_name), incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    ostr->writePendingValues();
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    ApplicationInfo ret = this->getApplicationInfo(::std::move(iceP_name), request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+            ostr->writePendingValues();
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_getDefaultApplicationDescriptor(::IceInternal::Incoming& incoming) const
+void
+IceGrid::Admin::_iceD_getDefaultApplicationDescriptor(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    incoming.readEmptyParams();
-    ApplicationDescriptor ret = this->getDefaultApplicationDescriptor(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    ostr->writePendingValues();
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    ApplicationDescriptor ret = this->getDefaultApplicationDescriptor(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+            ostr->writePendingValues();
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_getAllApplicationNames(::IceInternal::Incoming& incoming) const
+void
+IceGrid::Admin::_iceD_getAllApplicationNames(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    incoming.readEmptyParams();
-    ::Ice::StringSeq ret = this->getAllApplicationNames(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    ::Ice::StringSeq ret = this->getAllApplicationNames(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_getServerInfo(::IceInternal::Incoming& incoming) const
+void
+IceGrid::Admin::_iceD_getServerInfo(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_id;
     istr->readAll(iceP_id);
-    incoming.endReadParams();
-    ServerInfo ret = this->getServerInfo(::std::move(iceP_id), incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    ostr->writePendingValues();
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    ServerInfo ret = this->getServerInfo(::std::move(iceP_id), request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+            ostr->writePendingValues();
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_getServerState(::IceInternal::Incoming& incoming) const
+void
+IceGrid::Admin::_iceD_getServerState(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_id;
     istr->readAll(iceP_id);
-    incoming.endReadParams();
-    ServerState ret = this->getServerState(::std::move(iceP_id), incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    ServerState ret = this->getServerState(::std::move(iceP_id), request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_getServerPid(::IceInternal::Incoming& incoming) const
+void
+IceGrid::Admin::_iceD_getServerPid(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_id;
     istr->readAll(iceP_id);
-    incoming.endReadParams();
-    ::std::int32_t ret = this->getServerPid(::std::move(iceP_id), incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    ::std::int32_t ret = this->getServerPid(::std::move(iceP_id), request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_getServerAdminCategory(::IceInternal::Incoming& incoming) const
+void
+IceGrid::Admin::_iceD_getServerAdminCategory(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    incoming.readEmptyParams();
-    ::std::string ret = this->getServerAdminCategory(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    ::std::string ret = this->getServerAdminCategory(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_getServerAdmin(::IceInternal::Incoming& incoming) const
+void
+IceGrid::Admin::_iceD_getServerAdmin(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_id;
     istr->readAll(iceP_id);
-    incoming.endReadParams();
-    ::std::optional<::Ice::ObjectPrx> ret = this->getServerAdmin(::std::move(iceP_id), incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    ::std::optional<::Ice::ObjectPrx> ret = this->getServerAdmin(::std::move(iceP_id), request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_enableServer(::IceInternal::Incoming& incoming)
+void
+IceGrid::Admin::_iceD_enableServer(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_id;
     bool iceP_enabled;
     istr->readAll(iceP_id, iceP_enabled);
-    incoming.endReadParams();
-    this->enableServer(::std::move(iceP_id), iceP_enabled, incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->enableServer(::std::move(iceP_id), iceP_enabled, request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_isServerEnabled(::IceInternal::Incoming& incoming) const
+void
+IceGrid::Admin::_iceD_isServerEnabled(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_id;
     istr->readAll(iceP_id);
-    incoming.endReadParams();
-    bool ret = this->isServerEnabled(::std::move(iceP_id), incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    bool ret = this->isServerEnabled(::std::move(iceP_id), request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_startServer(::IceInternal::Incoming& incoming)
+void
+IceGrid::Admin::_iceD_startServer(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_id;
     istr->readAll(iceP_id);
-    incoming.endReadParams();
-    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    istr->endEncapsulation();
+    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
     try
     {
-        this->startServerAsync(::std::move(iceP_id), [incomingPtr] { incomingPtr->response(); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+        this->startServerAsync(::std::move(iceP_id), [responseHandler] { responseHandler->sendEmptyResponse(); }, [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
     }
     catch (...)
     {
-        incomingPtr->failed(::std::current_exception());
+        responseHandler->sendException(::std::current_exception());
     }
-    return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_stopServer(::IceInternal::Incoming& incoming)
+void
+IceGrid::Admin::_iceD_stopServer(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_id;
     istr->readAll(iceP_id);
-    incoming.endReadParams();
-    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    istr->endEncapsulation();
+    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
     try
     {
-        this->stopServerAsync(::std::move(iceP_id), [incomingPtr] { incomingPtr->response(); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+        this->stopServerAsync(::std::move(iceP_id), [responseHandler] { responseHandler->sendEmptyResponse(); }, [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
     }
     catch (...)
     {
-        incomingPtr->failed(::std::current_exception());
+        responseHandler->sendException(::std::current_exception());
     }
-    return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_patchServer(::IceInternal::Incoming& incoming)
+void
+IceGrid::Admin::_iceD_patchServer(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_id;
     bool iceP_shutdown;
     istr->readAll(iceP_id, iceP_shutdown);
-    incoming.endReadParams();
-    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    istr->endEncapsulation();
+    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
     try
     {
-        this->patchServerAsync(::std::move(iceP_id), iceP_shutdown, [incomingPtr] { incomingPtr->response(); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+        this->patchServerAsync(::std::move(iceP_id), iceP_shutdown, [responseHandler] { responseHandler->sendEmptyResponse(); }, [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
     }
     catch (...)
     {
-        incomingPtr->failed(::std::current_exception());
+        responseHandler->sendException(::std::current_exception());
     }
-    return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_sendSignal(::IceInternal::Incoming& incoming)
+void
+IceGrid::Admin::_iceD_sendSignal(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_id;
     ::std::string iceP_signal;
     istr->readAll(iceP_id, iceP_signal);
-    incoming.endReadParams();
-    this->sendSignal(::std::move(iceP_id), ::std::move(iceP_signal), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->sendSignal(::std::move(iceP_id), ::std::move(iceP_signal), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_getAllServerIds(::IceInternal::Incoming& incoming) const
+void
+IceGrid::Admin::_iceD_getAllServerIds(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    incoming.readEmptyParams();
-    ::Ice::StringSeq ret = this->getAllServerIds(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    ::Ice::StringSeq ret = this->getAllServerIds(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_getAdapterInfo(::IceInternal::Incoming& incoming) const
+void
+IceGrid::Admin::_iceD_getAdapterInfo(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_id;
     istr->readAll(iceP_id);
-    incoming.endReadParams();
-    AdapterInfoSeq ret = this->getAdapterInfo(::std::move(iceP_id), incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    AdapterInfoSeq ret = this->getAdapterInfo(::std::move(iceP_id), request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_removeAdapter(::IceInternal::Incoming& incoming)
+void
+IceGrid::Admin::_iceD_removeAdapter(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_id;
     istr->readAll(iceP_id);
-    incoming.endReadParams();
-    this->removeAdapter(::std::move(iceP_id), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->removeAdapter(::std::move(iceP_id), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_getAllAdapterIds(::IceInternal::Incoming& incoming) const
+void
+IceGrid::Admin::_iceD_getAllAdapterIds(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    incoming.readEmptyParams();
-    ::Ice::StringSeq ret = this->getAllAdapterIds(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    ::Ice::StringSeq ret = this->getAllAdapterIds(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_addObject(::IceInternal::Incoming& incoming)
+void
+IceGrid::Admin::_iceD_addObject(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::optional<::Ice::ObjectPrx> iceP_obj;
     istr->readAll(iceP_obj);
-    incoming.endReadParams();
-    this->addObject(::std::move(iceP_obj), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->addObject(::std::move(iceP_obj), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_updateObject(::IceInternal::Incoming& incoming)
+void
+IceGrid::Admin::_iceD_updateObject(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::optional<::Ice::ObjectPrx> iceP_obj;
     istr->readAll(iceP_obj);
-    incoming.endReadParams();
-    this->updateObject(::std::move(iceP_obj), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->updateObject(::std::move(iceP_obj), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_addObjectWithType(::IceInternal::Incoming& incoming)
+void
+IceGrid::Admin::_iceD_addObjectWithType(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::optional<::Ice::ObjectPrx> iceP_obj;
     ::std::string iceP_type;
     istr->readAll(iceP_obj, iceP_type);
-    incoming.endReadParams();
-    this->addObjectWithType(::std::move(iceP_obj), ::std::move(iceP_type), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->addObjectWithType(::std::move(iceP_obj), ::std::move(iceP_type), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_removeObject(::IceInternal::Incoming& incoming)
+void
+IceGrid::Admin::_iceD_removeObject(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::Ice::Identity iceP_id;
     istr->readAll(iceP_id);
-    incoming.endReadParams();
-    this->removeObject(::std::move(iceP_id), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->removeObject(::std::move(iceP_id), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_getObjectInfo(::IceInternal::Incoming& incoming) const
+void
+IceGrid::Admin::_iceD_getObjectInfo(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::Ice::Identity iceP_id;
     istr->readAll(iceP_id);
-    incoming.endReadParams();
-    ObjectInfo ret = this->getObjectInfo(::std::move(iceP_id), incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    ObjectInfo ret = this->getObjectInfo(::std::move(iceP_id), request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_getObjectInfosByType(::IceInternal::Incoming& incoming) const
+void
+IceGrid::Admin::_iceD_getObjectInfosByType(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_type;
     istr->readAll(iceP_type);
-    incoming.endReadParams();
-    ObjectInfoSeq ret = this->getObjectInfosByType(::std::move(iceP_type), incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    ObjectInfoSeq ret = this->getObjectInfosByType(::std::move(iceP_type), request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_getAllObjectInfos(::IceInternal::Incoming& incoming) const
+void
+IceGrid::Admin::_iceD_getAllObjectInfos(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_expr;
     istr->readAll(iceP_expr);
-    incoming.endReadParams();
-    ObjectInfoSeq ret = this->getAllObjectInfos(::std::move(iceP_expr), incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    ObjectInfoSeq ret = this->getAllObjectInfos(::std::move(iceP_expr), request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_pingNode(::IceInternal::Incoming& incoming) const
+void
+IceGrid::Admin::_iceD_pingNode(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_name;
     istr->readAll(iceP_name);
-    incoming.endReadParams();
-    bool ret = this->pingNode(::std::move(iceP_name), incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    bool ret = this->pingNode(::std::move(iceP_name), request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_getNodeLoad(::IceInternal::Incoming& incoming) const
+void
+IceGrid::Admin::_iceD_getNodeLoad(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_name;
     istr->readAll(iceP_name);
-    incoming.endReadParams();
-    LoadInfo ret = this->getNodeLoad(::std::move(iceP_name), incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    LoadInfo ret = this->getNodeLoad(::std::move(iceP_name), request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_getNodeInfo(::IceInternal::Incoming& incoming) const
+void
+IceGrid::Admin::_iceD_getNodeInfo(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_name;
     istr->readAll(iceP_name);
-    incoming.endReadParams();
-    NodeInfo ret = this->getNodeInfo(::std::move(iceP_name), incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    NodeInfo ret = this->getNodeInfo(::std::move(iceP_name), request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_getNodeAdmin(::IceInternal::Incoming& incoming) const
+void
+IceGrid::Admin::_iceD_getNodeAdmin(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_name;
     istr->readAll(iceP_name);
-    incoming.endReadParams();
-    ::std::optional<::Ice::ObjectPrx> ret = this->getNodeAdmin(::std::move(iceP_name), incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    ::std::optional<::Ice::ObjectPrx> ret = this->getNodeAdmin(::std::move(iceP_name), request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_getNodeProcessorSocketCount(::IceInternal::Incoming& incoming) const
+void
+IceGrid::Admin::_iceD_getNodeProcessorSocketCount(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_name;
     istr->readAll(iceP_name);
-    incoming.endReadParams();
-    ::std::int32_t ret = this->getNodeProcessorSocketCount(::std::move(iceP_name), incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    ::std::int32_t ret = this->getNodeProcessorSocketCount(::std::move(iceP_name), request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_shutdownNode(::IceInternal::Incoming& incoming)
+void
+IceGrid::Admin::_iceD_shutdownNode(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_name;
     istr->readAll(iceP_name);
-    incoming.endReadParams();
-    this->shutdownNode(::std::move(iceP_name), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->shutdownNode(::std::move(iceP_name), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_getNodeHostname(::IceInternal::Incoming& incoming) const
+void
+IceGrid::Admin::_iceD_getNodeHostname(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_name;
     istr->readAll(iceP_name);
-    incoming.endReadParams();
-    ::std::string ret = this->getNodeHostname(::std::move(iceP_name), incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    ::std::string ret = this->getNodeHostname(::std::move(iceP_name), request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_getAllNodeNames(::IceInternal::Incoming& incoming) const
+void
+IceGrid::Admin::_iceD_getAllNodeNames(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    incoming.readEmptyParams();
-    ::Ice::StringSeq ret = this->getAllNodeNames(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    ::Ice::StringSeq ret = this->getAllNodeNames(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_pingRegistry(::IceInternal::Incoming& incoming) const
+void
+IceGrid::Admin::_iceD_pingRegistry(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_name;
     istr->readAll(iceP_name);
-    incoming.endReadParams();
-    bool ret = this->pingRegistry(::std::move(iceP_name), incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    bool ret = this->pingRegistry(::std::move(iceP_name), request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_getRegistryInfo(::IceInternal::Incoming& incoming) const
+void
+IceGrid::Admin::_iceD_getRegistryInfo(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_name;
     istr->readAll(iceP_name);
-    incoming.endReadParams();
-    RegistryInfo ret = this->getRegistryInfo(::std::move(iceP_name), incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    RegistryInfo ret = this->getRegistryInfo(::std::move(iceP_name), request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_getRegistryAdmin(::IceInternal::Incoming& incoming) const
+void
+IceGrid::Admin::_iceD_getRegistryAdmin(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_name;
     istr->readAll(iceP_name);
-    incoming.endReadParams();
-    ::std::optional<::Ice::ObjectPrx> ret = this->getRegistryAdmin(::std::move(iceP_name), incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    ::std::optional<::Ice::ObjectPrx> ret = this->getRegistryAdmin(::std::move(iceP_name), request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_shutdownRegistry(::IceInternal::Incoming& incoming)
+void
+IceGrid::Admin::_iceD_shutdownRegistry(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_name;
     istr->readAll(iceP_name);
-    incoming.endReadParams();
-    this->shutdownRegistry(::std::move(iceP_name), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->shutdownRegistry(::std::move(iceP_name), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_getAllRegistryNames(::IceInternal::Incoming& incoming) const
+void
+IceGrid::Admin::_iceD_getAllRegistryNames(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    incoming.readEmptyParams();
-    ::Ice::StringSeq ret = this->getAllRegistryNames(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    ::Ice::StringSeq ret = this->getAllRegistryNames(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceD_shutdown(::IceInternal::Incoming& incoming)
+void
+IceGrid::Admin::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->shutdown(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->shutdown(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Admin::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+IceGrid::Admin::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"addApplication", "addObject", "addObjectWithType", "enableServer", "getAdapterInfo", "getAllAdapterIds", "getAllApplicationNames", "getAllNodeNames", "getAllObjectInfos", "getAllRegistryNames", "getAllServerIds", "getApplicationInfo", "getDefaultApplicationDescriptor", "getNodeAdmin", "getNodeHostname", "getNodeInfo", "getNodeLoad", "getNodeProcessorSocketCount", "getObjectInfo", "getObjectInfosByType", "getRegistryAdmin", "getRegistryInfo", "getServerAdmin", "getServerAdminCategory", "getServerInfo", "getServerPid", "getServerState", "ice_id", "ice_ids", "ice_isA", "ice_ping", "instantiateServer", "isServerEnabled", "patchApplication", "patchServer", "pingNode", "pingRegistry", "removeAdapter", "removeApplication", "removeObject", "sendSignal", "shutdown", "shutdownNode", "shutdownRegistry", "startServer", "stopServer", "syncApplication", "syncApplicationWithoutRestart", "updateApplication", "updateApplicationWithoutRestart", "updateObject"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 51, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_addApplication(incoming);
+            _iceD_addApplication(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_addObject(incoming);
+            _iceD_addObject(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_addObjectWithType(incoming);
+            _iceD_addObjectWithType(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_enableServer(incoming);
+            _iceD_enableServer(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_getAdapterInfo(incoming);
+            _iceD_getAdapterInfo(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_getAllAdapterIds(incoming);
+            _iceD_getAllAdapterIds(request, ::std::move(sendResponse));
+            break;
         }
         case 6:
         {
-            return _iceD_getAllApplicationNames(incoming);
+            _iceD_getAllApplicationNames(request, ::std::move(sendResponse));
+            break;
         }
         case 7:
         {
-            return _iceD_getAllNodeNames(incoming);
+            _iceD_getAllNodeNames(request, ::std::move(sendResponse));
+            break;
         }
         case 8:
         {
-            return _iceD_getAllObjectInfos(incoming);
+            _iceD_getAllObjectInfos(request, ::std::move(sendResponse));
+            break;
         }
         case 9:
         {
-            return _iceD_getAllRegistryNames(incoming);
+            _iceD_getAllRegistryNames(request, ::std::move(sendResponse));
+            break;
         }
         case 10:
         {
-            return _iceD_getAllServerIds(incoming);
+            _iceD_getAllServerIds(request, ::std::move(sendResponse));
+            break;
         }
         case 11:
         {
-            return _iceD_getApplicationInfo(incoming);
+            _iceD_getApplicationInfo(request, ::std::move(sendResponse));
+            break;
         }
         case 12:
         {
-            return _iceD_getDefaultApplicationDescriptor(incoming);
+            _iceD_getDefaultApplicationDescriptor(request, ::std::move(sendResponse));
+            break;
         }
         case 13:
         {
-            return _iceD_getNodeAdmin(incoming);
+            _iceD_getNodeAdmin(request, ::std::move(sendResponse));
+            break;
         }
         case 14:
         {
-            return _iceD_getNodeHostname(incoming);
+            _iceD_getNodeHostname(request, ::std::move(sendResponse));
+            break;
         }
         case 15:
         {
-            return _iceD_getNodeInfo(incoming);
+            _iceD_getNodeInfo(request, ::std::move(sendResponse));
+            break;
         }
         case 16:
         {
-            return _iceD_getNodeLoad(incoming);
+            _iceD_getNodeLoad(request, ::std::move(sendResponse));
+            break;
         }
         case 17:
         {
-            return _iceD_getNodeProcessorSocketCount(incoming);
+            _iceD_getNodeProcessorSocketCount(request, ::std::move(sendResponse));
+            break;
         }
         case 18:
         {
-            return _iceD_getObjectInfo(incoming);
+            _iceD_getObjectInfo(request, ::std::move(sendResponse));
+            break;
         }
         case 19:
         {
-            return _iceD_getObjectInfosByType(incoming);
+            _iceD_getObjectInfosByType(request, ::std::move(sendResponse));
+            break;
         }
         case 20:
         {
-            return _iceD_getRegistryAdmin(incoming);
+            _iceD_getRegistryAdmin(request, ::std::move(sendResponse));
+            break;
         }
         case 21:
         {
-            return _iceD_getRegistryInfo(incoming);
+            _iceD_getRegistryInfo(request, ::std::move(sendResponse));
+            break;
         }
         case 22:
         {
-            return _iceD_getServerAdmin(incoming);
+            _iceD_getServerAdmin(request, ::std::move(sendResponse));
+            break;
         }
         case 23:
         {
-            return _iceD_getServerAdminCategory(incoming);
+            _iceD_getServerAdminCategory(request, ::std::move(sendResponse));
+            break;
         }
         case 24:
         {
-            return _iceD_getServerInfo(incoming);
+            _iceD_getServerInfo(request, ::std::move(sendResponse));
+            break;
         }
         case 25:
         {
-            return _iceD_getServerPid(incoming);
+            _iceD_getServerPid(request, ::std::move(sendResponse));
+            break;
         }
         case 26:
         {
-            return _iceD_getServerState(incoming);
+            _iceD_getServerState(request, ::std::move(sendResponse));
+            break;
         }
         case 27:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 28:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 29:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 30:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         case 31:
         {
-            return _iceD_instantiateServer(incoming);
+            _iceD_instantiateServer(request, ::std::move(sendResponse));
+            break;
         }
         case 32:
         {
-            return _iceD_isServerEnabled(incoming);
+            _iceD_isServerEnabled(request, ::std::move(sendResponse));
+            break;
         }
         case 33:
         {
-            return _iceD_patchApplication(incoming);
+            _iceD_patchApplication(request, ::std::move(sendResponse));
+            break;
         }
         case 34:
         {
-            return _iceD_patchServer(incoming);
+            _iceD_patchServer(request, ::std::move(sendResponse));
+            break;
         }
         case 35:
         {
-            return _iceD_pingNode(incoming);
+            _iceD_pingNode(request, ::std::move(sendResponse));
+            break;
         }
         case 36:
         {
-            return _iceD_pingRegistry(incoming);
+            _iceD_pingRegistry(request, ::std::move(sendResponse));
+            break;
         }
         case 37:
         {
-            return _iceD_removeAdapter(incoming);
+            _iceD_removeAdapter(request, ::std::move(sendResponse));
+            break;
         }
         case 38:
         {
-            return _iceD_removeApplication(incoming);
+            _iceD_removeApplication(request, ::std::move(sendResponse));
+            break;
         }
         case 39:
         {
-            return _iceD_removeObject(incoming);
+            _iceD_removeObject(request, ::std::move(sendResponse));
+            break;
         }
         case 40:
         {
-            return _iceD_sendSignal(incoming);
+            _iceD_sendSignal(request, ::std::move(sendResponse));
+            break;
         }
         case 41:
         {
-            return _iceD_shutdown(incoming);
+            _iceD_shutdown(request, ::std::move(sendResponse));
+            break;
         }
         case 42:
         {
-            return _iceD_shutdownNode(incoming);
+            _iceD_shutdownNode(request, ::std::move(sendResponse));
+            break;
         }
         case 43:
         {
-            return _iceD_shutdownRegistry(incoming);
+            _iceD_shutdownRegistry(request, ::std::move(sendResponse));
+            break;
         }
         case 44:
         {
-            return _iceD_startServer(incoming);
+            _iceD_startServer(request, ::std::move(sendResponse));
+            break;
         }
         case 45:
         {
-            return _iceD_stopServer(incoming);
+            _iceD_stopServer(request, ::std::move(sendResponse));
+            break;
         }
         case 46:
         {
-            return _iceD_syncApplication(incoming);
+            _iceD_syncApplication(request, ::std::move(sendResponse));
+            break;
         }
         case 47:
         {
-            return _iceD_syncApplicationWithoutRestart(incoming);
+            _iceD_syncApplicationWithoutRestart(request, ::std::move(sendResponse));
+            break;
         }
         case 48:
         {
-            return _iceD_updateApplication(incoming);
+            _iceD_updateApplication(request, ::std::move(sendResponse));
+            break;
         }
         case 49:
         {
-            return _iceD_updateApplicationWithoutRestart(incoming);
+            _iceD_updateApplicationWithoutRestart(request, ::std::move(sendResponse));
+            break;
         }
         case 50:
         {
-            return _iceD_updateObject(incoming);
+            _iceD_updateObject(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }
@@ -4716,78 +4812,86 @@ IceGrid::FileIterator::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-IceGrid::FileIterator::_iceD_read(::IceInternal::Incoming& incoming)
+void
+IceGrid::FileIterator::_iceD_read(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::int32_t iceP_size;
     istr->readAll(iceP_size);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     ::Ice::StringSeq iceP_lines;
-    bool ret = this->read(iceP_size, iceP_lines, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_lines, ret);
-    incoming.endWriteParams();
-    return true;
+    bool ret = this->read(iceP_size, iceP_lines, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_lines, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::FileIterator::_iceD_destroy(::IceInternal::Incoming& incoming)
+void
+IceGrid::FileIterator::_iceD_destroy(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->destroy(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->destroy(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::FileIterator::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+IceGrid::FileIterator::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"destroy", "ice_id", "ice_ids", "ice_isA", "ice_ping", "read"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_destroy(incoming);
+            _iceD_destroy(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_read(incoming);
+            _iceD_read(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }
@@ -4814,97 +4918,105 @@ IceGrid::RegistryObserver::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-IceGrid::RegistryObserver::_iceD_registryInit(::IceInternal::Incoming& incoming)
+void
+IceGrid::RegistryObserver::_iceD_registryInit(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     RegistryInfoSeq iceP_registries;
     istr->readAll(iceP_registries);
-    incoming.endReadParams();
-    this->registryInit(::std::move(iceP_registries), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->registryInit(::std::move(iceP_registries), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::RegistryObserver::_iceD_registryUp(::IceInternal::Incoming& incoming)
+void
+IceGrid::RegistryObserver::_iceD_registryUp(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     RegistryInfo iceP_node;
     istr->readAll(iceP_node);
-    incoming.endReadParams();
-    this->registryUp(::std::move(iceP_node), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->registryUp(::std::move(iceP_node), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::RegistryObserver::_iceD_registryDown(::IceInternal::Incoming& incoming)
+void
+IceGrid::RegistryObserver::_iceD_registryDown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_name;
     istr->readAll(iceP_name);
-    incoming.endReadParams();
-    this->registryDown(::std::move(iceP_name), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->registryDown(::std::move(iceP_name), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::RegistryObserver::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+IceGrid::RegistryObserver::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "registryDown", "registryInit", "registryUp"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_registryDown(incoming);
+            _iceD_registryDown(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_registryInit(incoming);
+            _iceD_registryInit(request, ::std::move(sendResponse));
+            break;
         }
         case 6:
         {
-            return _iceD_registryUp(incoming);
+            _iceD_registryUp(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }
@@ -4931,137 +5043,147 @@ IceGrid::NodeObserver::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-IceGrid::NodeObserver::_iceD_nodeInit(::IceInternal::Incoming& incoming)
+void
+IceGrid::NodeObserver::_iceD_nodeInit(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     NodeDynamicInfoSeq iceP_nodes;
     istr->readAll(iceP_nodes);
-    incoming.endReadParams();
-    this->nodeInit(::std::move(iceP_nodes), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->nodeInit(::std::move(iceP_nodes), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::NodeObserver::_iceD_nodeUp(::IceInternal::Incoming& incoming)
+void
+IceGrid::NodeObserver::_iceD_nodeUp(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     NodeDynamicInfo iceP_node;
     istr->readAll(iceP_node);
-    incoming.endReadParams();
-    this->nodeUp(::std::move(iceP_node), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->nodeUp(::std::move(iceP_node), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::NodeObserver::_iceD_nodeDown(::IceInternal::Incoming& incoming)
+void
+IceGrid::NodeObserver::_iceD_nodeDown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_name;
     istr->readAll(iceP_name);
-    incoming.endReadParams();
-    this->nodeDown(::std::move(iceP_name), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->nodeDown(::std::move(iceP_name), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::NodeObserver::_iceD_updateServer(::IceInternal::Incoming& incoming)
+void
+IceGrid::NodeObserver::_iceD_updateServer(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_node;
     ServerDynamicInfo iceP_updatedInfo;
     istr->readAll(iceP_node, iceP_updatedInfo);
-    incoming.endReadParams();
-    this->updateServer(::std::move(iceP_node), ::std::move(iceP_updatedInfo), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->updateServer(::std::move(iceP_node), ::std::move(iceP_updatedInfo), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::NodeObserver::_iceD_updateAdapter(::IceInternal::Incoming& incoming)
+void
+IceGrid::NodeObserver::_iceD_updateAdapter(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_node;
     AdapterDynamicInfo iceP_updatedInfo;
     istr->readAll(iceP_node, iceP_updatedInfo);
-    incoming.endReadParams();
-    this->updateAdapter(::std::move(iceP_node), ::std::move(iceP_updatedInfo), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->updateAdapter(::std::move(iceP_node), ::std::move(iceP_updatedInfo), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::NodeObserver::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+IceGrid::NodeObserver::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "nodeDown", "nodeInit", "nodeUp", "updateAdapter", "updateServer"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 9, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_nodeDown(incoming);
+            _iceD_nodeDown(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_nodeInit(incoming);
+            _iceD_nodeInit(request, ::std::move(sendResponse));
+            break;
         }
         case 6:
         {
-            return _iceD_nodeUp(incoming);
+            _iceD_nodeUp(request, ::std::move(sendResponse));
+            break;
         }
         case 7:
         {
-            return _iceD_updateAdapter(incoming);
+            _iceD_updateAdapter(request, ::std::move(sendResponse));
+            break;
         }
         case 8:
         {
-            return _iceD_updateServer(incoming);
+            _iceD_updateServer(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }
@@ -5088,123 +5210,132 @@ IceGrid::ApplicationObserver::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-IceGrid::ApplicationObserver::_iceD_applicationInit(::IceInternal::Incoming& incoming)
+void
+IceGrid::ApplicationObserver::_iceD_applicationInit(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::int32_t iceP_serial;
     ApplicationInfoSeq iceP_applications;
     istr->readAll(iceP_serial, iceP_applications);
     istr->readPendingValues();
-    incoming.endReadParams();
-    this->applicationInit(iceP_serial, ::std::move(iceP_applications), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->applicationInit(iceP_serial, ::std::move(iceP_applications), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::ApplicationObserver::_iceD_applicationAdded(::IceInternal::Incoming& incoming)
+void
+IceGrid::ApplicationObserver::_iceD_applicationAdded(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::int32_t iceP_serial;
     ApplicationInfo iceP_desc;
     istr->readAll(iceP_serial, iceP_desc);
     istr->readPendingValues();
-    incoming.endReadParams();
-    this->applicationAdded(iceP_serial, ::std::move(iceP_desc), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->applicationAdded(iceP_serial, ::std::move(iceP_desc), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::ApplicationObserver::_iceD_applicationRemoved(::IceInternal::Incoming& incoming)
+void
+IceGrid::ApplicationObserver::_iceD_applicationRemoved(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::int32_t iceP_serial;
     ::std::string iceP_name;
     istr->readAll(iceP_serial, iceP_name);
-    incoming.endReadParams();
-    this->applicationRemoved(iceP_serial, ::std::move(iceP_name), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->applicationRemoved(iceP_serial, ::std::move(iceP_name), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::ApplicationObserver::_iceD_applicationUpdated(::IceInternal::Incoming& incoming)
+void
+IceGrid::ApplicationObserver::_iceD_applicationUpdated(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::int32_t iceP_serial;
     ApplicationUpdateInfo iceP_desc;
     istr->readAll(iceP_serial, iceP_desc);
     istr->readPendingValues();
-    incoming.endReadParams();
-    this->applicationUpdated(iceP_serial, ::std::move(iceP_desc), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->applicationUpdated(iceP_serial, ::std::move(iceP_desc), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::ApplicationObserver::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+IceGrid::ApplicationObserver::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"applicationAdded", "applicationInit", "applicationRemoved", "applicationUpdated", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_applicationAdded(incoming);
+            _iceD_applicationAdded(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_applicationInit(incoming);
+            _iceD_applicationInit(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_applicationRemoved(incoming);
+            _iceD_applicationRemoved(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_applicationUpdated(incoming);
+            _iceD_applicationUpdated(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 6:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 7:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }
@@ -5231,116 +5362,125 @@ IceGrid::AdapterObserver::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-IceGrid::AdapterObserver::_iceD_adapterInit(::IceInternal::Incoming& incoming)
+void
+IceGrid::AdapterObserver::_iceD_adapterInit(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     AdapterInfoSeq iceP_adpts;
     istr->readAll(iceP_adpts);
-    incoming.endReadParams();
-    this->adapterInit(::std::move(iceP_adpts), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->adapterInit(::std::move(iceP_adpts), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::AdapterObserver::_iceD_adapterAdded(::IceInternal::Incoming& incoming)
+void
+IceGrid::AdapterObserver::_iceD_adapterAdded(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     AdapterInfo iceP_info;
     istr->readAll(iceP_info);
-    incoming.endReadParams();
-    this->adapterAdded(::std::move(iceP_info), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->adapterAdded(::std::move(iceP_info), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::AdapterObserver::_iceD_adapterUpdated(::IceInternal::Incoming& incoming)
+void
+IceGrid::AdapterObserver::_iceD_adapterUpdated(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     AdapterInfo iceP_info;
     istr->readAll(iceP_info);
-    incoming.endReadParams();
-    this->adapterUpdated(::std::move(iceP_info), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->adapterUpdated(::std::move(iceP_info), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::AdapterObserver::_iceD_adapterRemoved(::IceInternal::Incoming& incoming)
+void
+IceGrid::AdapterObserver::_iceD_adapterRemoved(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_id;
     istr->readAll(iceP_id);
-    incoming.endReadParams();
-    this->adapterRemoved(::std::move(iceP_id), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->adapterRemoved(::std::move(iceP_id), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::AdapterObserver::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+IceGrid::AdapterObserver::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"adapterAdded", "adapterInit", "adapterRemoved", "adapterUpdated", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_adapterAdded(incoming);
+            _iceD_adapterAdded(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_adapterInit(incoming);
+            _iceD_adapterInit(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_adapterRemoved(incoming);
+            _iceD_adapterRemoved(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_adapterUpdated(incoming);
+            _iceD_adapterUpdated(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 6:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 7:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }
@@ -5367,116 +5507,125 @@ IceGrid::ObjectObserver::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-IceGrid::ObjectObserver::_iceD_objectInit(::IceInternal::Incoming& incoming)
+void
+IceGrid::ObjectObserver::_iceD_objectInit(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ObjectInfoSeq iceP_objects;
     istr->readAll(iceP_objects);
-    incoming.endReadParams();
-    this->objectInit(::std::move(iceP_objects), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->objectInit(::std::move(iceP_objects), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::ObjectObserver::_iceD_objectAdded(::IceInternal::Incoming& incoming)
+void
+IceGrid::ObjectObserver::_iceD_objectAdded(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ObjectInfo iceP_info;
     istr->readAll(iceP_info);
-    incoming.endReadParams();
-    this->objectAdded(::std::move(iceP_info), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->objectAdded(::std::move(iceP_info), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::ObjectObserver::_iceD_objectUpdated(::IceInternal::Incoming& incoming)
+void
+IceGrid::ObjectObserver::_iceD_objectUpdated(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ObjectInfo iceP_info;
     istr->readAll(iceP_info);
-    incoming.endReadParams();
-    this->objectUpdated(::std::move(iceP_info), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->objectUpdated(::std::move(iceP_info), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::ObjectObserver::_iceD_objectRemoved(::IceInternal::Incoming& incoming)
+void
+IceGrid::ObjectObserver::_iceD_objectRemoved(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::Ice::Identity iceP_id;
     istr->readAll(iceP_id);
-    incoming.endReadParams();
-    this->objectRemoved(::std::move(iceP_id), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->objectRemoved(::std::move(iceP_id), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::ObjectObserver::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+IceGrid::ObjectObserver::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "objectAdded", "objectInit", "objectRemoved", "objectUpdated"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_objectAdded(incoming);
+            _iceD_objectAdded(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_objectInit(incoming);
+            _iceD_objectInit(request, ::std::move(sendResponse));
+            break;
         }
         case 6:
         {
-            return _iceD_objectRemoved(incoming);
+            _iceD_objectRemoved(request, ::std::move(sendResponse));
+            break;
         }
         case 7:
         {
-            return _iceD_objectUpdated(incoming);
+            _iceD_objectUpdated(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }
@@ -5503,349 +5652,386 @@ IceGrid::AdminSession::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-IceGrid::AdminSession::_iceD_keepAlive(::IceInternal::Incoming& incoming)
+void
+IceGrid::AdminSession::_iceD_keepAlive(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->keepAlive(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->keepAlive(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::AdminSession::_iceD_getAdmin(::IceInternal::Incoming& incoming) const
+void
+IceGrid::AdminSession::_iceD_getAdmin(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    incoming.readEmptyParams();
-    ::std::optional<AdminPrx> ret = this->getAdmin(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    ::std::optional<AdminPrx> ret = this->getAdmin(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::AdminSession::_iceD_getAdminCallbackTemplate(::IceInternal::Incoming& incoming) const
+void
+IceGrid::AdminSession::_iceD_getAdminCallbackTemplate(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    incoming.readEmptyParams();
-    ::std::optional<::Ice::ObjectPrx> ret = this->getAdminCallbackTemplate(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    ::std::optional<::Ice::ObjectPrx> ret = this->getAdminCallbackTemplate(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::AdminSession::_iceD_setObservers(::IceInternal::Incoming& incoming)
+void
+IceGrid::AdminSession::_iceD_setObservers(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::optional<RegistryObserverPrx> iceP_registryObs;
     ::std::optional<NodeObserverPrx> iceP_nodeObs;
     ::std::optional<ApplicationObserverPrx> iceP_appObs;
     ::std::optional<AdapterObserverPrx> iceP_adptObs;
     ::std::optional<ObjectObserverPrx> iceP_objObs;
     istr->readAll(iceP_registryObs, iceP_nodeObs, iceP_appObs, iceP_adptObs, iceP_objObs);
-    incoming.endReadParams();
-    this->setObservers(::std::move(iceP_registryObs), ::std::move(iceP_nodeObs), ::std::move(iceP_appObs), ::std::move(iceP_adptObs), ::std::move(iceP_objObs), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->setObservers(::std::move(iceP_registryObs), ::std::move(iceP_nodeObs), ::std::move(iceP_appObs), ::std::move(iceP_adptObs), ::std::move(iceP_objObs), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::AdminSession::_iceD_setObserversByIdentity(::IceInternal::Incoming& incoming)
+void
+IceGrid::AdminSession::_iceD_setObserversByIdentity(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::Ice::Identity iceP_registryObs;
     ::Ice::Identity iceP_nodeObs;
     ::Ice::Identity iceP_appObs;
     ::Ice::Identity iceP_adptObs;
     ::Ice::Identity iceP_objObs;
     istr->readAll(iceP_registryObs, iceP_nodeObs, iceP_appObs, iceP_adptObs, iceP_objObs);
-    incoming.endReadParams();
-    this->setObserversByIdentity(::std::move(iceP_registryObs), ::std::move(iceP_nodeObs), ::std::move(iceP_appObs), ::std::move(iceP_adptObs), ::std::move(iceP_objObs), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->setObserversByIdentity(::std::move(iceP_registryObs), ::std::move(iceP_nodeObs), ::std::move(iceP_appObs), ::std::move(iceP_adptObs), ::std::move(iceP_objObs), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::AdminSession::_iceD_startUpdate(::IceInternal::Incoming& incoming)
+void
+IceGrid::AdminSession::_iceD_startUpdate(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    ::std::int32_t ret = this->startUpdate(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    ::std::int32_t ret = this->startUpdate(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::AdminSession::_iceD_finishUpdate(::IceInternal::Incoming& incoming)
+void
+IceGrid::AdminSession::_iceD_finishUpdate(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->finishUpdate(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->finishUpdate(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::AdminSession::_iceD_getReplicaName(::IceInternal::Incoming& incoming) const
+void
+IceGrid::AdminSession::_iceD_getReplicaName(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    incoming.readEmptyParams();
-    ::std::string ret = this->getReplicaName(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    ::std::string ret = this->getReplicaName(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::AdminSession::_iceD_openServerLog(::IceInternal::Incoming& incoming)
+void
+IceGrid::AdminSession::_iceD_openServerLog(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_id;
     ::std::string iceP_path;
     ::std::int32_t iceP_count;
     istr->readAll(iceP_id, iceP_path, iceP_count);
-    incoming.endReadParams();
-    ::std::optional<FileIteratorPrx> ret = this->openServerLog(::std::move(iceP_id), ::std::move(iceP_path), iceP_count, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    ::std::optional<FileIteratorPrx> ret = this->openServerLog(::std::move(iceP_id), ::std::move(iceP_path), iceP_count, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::AdminSession::_iceD_openServerStdErr(::IceInternal::Incoming& incoming)
+void
+IceGrid::AdminSession::_iceD_openServerStdErr(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_id;
     ::std::int32_t iceP_count;
     istr->readAll(iceP_id, iceP_count);
-    incoming.endReadParams();
-    ::std::optional<FileIteratorPrx> ret = this->openServerStdErr(::std::move(iceP_id), iceP_count, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    ::std::optional<FileIteratorPrx> ret = this->openServerStdErr(::std::move(iceP_id), iceP_count, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::AdminSession::_iceD_openServerStdOut(::IceInternal::Incoming& incoming)
+void
+IceGrid::AdminSession::_iceD_openServerStdOut(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_id;
     ::std::int32_t iceP_count;
     istr->readAll(iceP_id, iceP_count);
-    incoming.endReadParams();
-    ::std::optional<FileIteratorPrx> ret = this->openServerStdOut(::std::move(iceP_id), iceP_count, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    ::std::optional<FileIteratorPrx> ret = this->openServerStdOut(::std::move(iceP_id), iceP_count, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::AdminSession::_iceD_openNodeStdErr(::IceInternal::Incoming& incoming)
+void
+IceGrid::AdminSession::_iceD_openNodeStdErr(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_name;
     ::std::int32_t iceP_count;
     istr->readAll(iceP_name, iceP_count);
-    incoming.endReadParams();
-    ::std::optional<FileIteratorPrx> ret = this->openNodeStdErr(::std::move(iceP_name), iceP_count, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    ::std::optional<FileIteratorPrx> ret = this->openNodeStdErr(::std::move(iceP_name), iceP_count, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::AdminSession::_iceD_openNodeStdOut(::IceInternal::Incoming& incoming)
+void
+IceGrid::AdminSession::_iceD_openNodeStdOut(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_name;
     ::std::int32_t iceP_count;
     istr->readAll(iceP_name, iceP_count);
-    incoming.endReadParams();
-    ::std::optional<FileIteratorPrx> ret = this->openNodeStdOut(::std::move(iceP_name), iceP_count, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    ::std::optional<FileIteratorPrx> ret = this->openNodeStdOut(::std::move(iceP_name), iceP_count, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::AdminSession::_iceD_openRegistryStdErr(::IceInternal::Incoming& incoming)
+void
+IceGrid::AdminSession::_iceD_openRegistryStdErr(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_name;
     ::std::int32_t iceP_count;
     istr->readAll(iceP_name, iceP_count);
-    incoming.endReadParams();
-    ::std::optional<FileIteratorPrx> ret = this->openRegistryStdErr(::std::move(iceP_name), iceP_count, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    ::std::optional<FileIteratorPrx> ret = this->openRegistryStdErr(::std::move(iceP_name), iceP_count, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::AdminSession::_iceD_openRegistryStdOut(::IceInternal::Incoming& incoming)
+void
+IceGrid::AdminSession::_iceD_openRegistryStdOut(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_name;
     ::std::int32_t iceP_count;
     istr->readAll(iceP_name, iceP_count);
-    incoming.endReadParams();
-    ::std::optional<FileIteratorPrx> ret = this->openRegistryStdOut(::std::move(iceP_name), iceP_count, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    ::std::optional<FileIteratorPrx> ret = this->openRegistryStdOut(::std::move(iceP_name), iceP_count, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::AdminSession::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+IceGrid::AdminSession::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"destroy", "finishUpdate", "getAdmin", "getAdminCallbackTemplate", "getReplicaName", "ice_id", "ice_ids", "ice_isA", "ice_ping", "keepAlive", "openNodeStdErr", "openNodeStdOut", "openRegistryStdErr", "openRegistryStdOut", "openServerLog", "openServerStdErr", "openServerStdOut", "setObservers", "setObserversByIdentity", "startUpdate"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 20, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_destroy(incoming);
+            _iceD_destroy(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_finishUpdate(incoming);
+            _iceD_finishUpdate(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_getAdmin(incoming);
+            _iceD_getAdmin(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_getAdminCallbackTemplate(incoming);
+            _iceD_getAdminCallbackTemplate(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_getReplicaName(incoming);
+            _iceD_getReplicaName(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 6:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 7:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 8:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         case 9:
         {
-            return _iceD_keepAlive(incoming);
+            _iceD_keepAlive(request, ::std::move(sendResponse));
+            break;
         }
         case 10:
         {
-            return _iceD_openNodeStdErr(incoming);
+            _iceD_openNodeStdErr(request, ::std::move(sendResponse));
+            break;
         }
         case 11:
         {
-            return _iceD_openNodeStdOut(incoming);
+            _iceD_openNodeStdOut(request, ::std::move(sendResponse));
+            break;
         }
         case 12:
         {
-            return _iceD_openRegistryStdErr(incoming);
+            _iceD_openRegistryStdErr(request, ::std::move(sendResponse));
+            break;
         }
         case 13:
         {
-            return _iceD_openRegistryStdOut(incoming);
+            _iceD_openRegistryStdOut(request, ::std::move(sendResponse));
+            break;
         }
         case 14:
         {
-            return _iceD_openServerLog(incoming);
+            _iceD_openServerLog(request, ::std::move(sendResponse));
+            break;
         }
         case 15:
         {
-            return _iceD_openServerStdErr(incoming);
+            _iceD_openServerStdErr(request, ::std::move(sendResponse));
+            break;
         }
         case 16:
         {
-            return _iceD_openServerStdOut(incoming);
+            _iceD_openServerStdOut(request, ::std::move(sendResponse));
+            break;
         }
         case 17:
         {
-            return _iceD_setObservers(incoming);
+            _iceD_setObservers(request, ::std::move(sendResponse));
+            break;
         }
         case 18:
         {
-            return _iceD_setObserversByIdentity(incoming);
+            _iceD_setObserversByIdentity(request, ::std::move(sendResponse));
+            break;
         }
         case 19:
         {
-            return _iceD_startUpdate(incoming);
+            _iceD_startUpdate(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }

@@ -202,26 +202,26 @@ public:
 
     virtual void sayHello(::std::int32_t delay, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_sayHello(::IceInternal::Incoming&);
+    void _iceD_sayHello(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::int32_t add(::std::int32_t s1, ::std::int32_t s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_add(::IceInternal::Incoming&);
+    void _iceD_add(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void raiseUE(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_raiseUE(::IceInternal::Incoming&);
+    void _iceD_raiseUE(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

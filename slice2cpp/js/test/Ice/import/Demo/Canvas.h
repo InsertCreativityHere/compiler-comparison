@@ -237,16 +237,16 @@ public:
 
     virtual void paintSquare(Square square, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_paintSquare(::IceInternal::Incoming&);
+    void _iceD_paintSquare(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void paintCircle(Circle circle, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_paintCircle(::IceInternal::Incoming&);
+    void _iceD_paintCircle(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -280,11 +280,11 @@ public:
 
     virtual void destroySession(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_destroySession(::IceInternal::Incoming&);
+    void _iceD_destroySession(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

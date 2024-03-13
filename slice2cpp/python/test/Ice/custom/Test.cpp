@@ -16,7 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
 #include <Ice/OutgoingAsync.h>
-#include <Ice/Incoming.h>
+#include <Ice/AsyncResponseHandler.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -62,7 +62,7 @@ Test::CustomPrx::opByteString1Async(const ByteString& iceP_b1, ::std::function<v
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ByteString, ByteString>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::CustomPrx::_iceI_opByteString1, iceP_b1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ByteString, ByteString>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::CustomPrx::_iceI_opByteString1, iceP_b1, context);
 }
 
 void
@@ -106,7 +106,7 @@ Test::CustomPrx::opByteString2Async(const ByteString& iceP_b1, ::std::function<v
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ByteString, ByteString>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::CustomPrx::_iceI_opByteString2, iceP_b1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ByteString, ByteString>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::CustomPrx::_iceI_opByteString2, iceP_b1, context);
 }
 
 void
@@ -150,7 +150,7 @@ Test::CustomPrx::opByteList1Async(const ByteList& iceP_b1, ::std::function<void(
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ByteList, ByteList>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::CustomPrx::_iceI_opByteList1, iceP_b1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ByteList, ByteList>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::CustomPrx::_iceI_opByteList1, iceP_b1, context);
 }
 
 void
@@ -194,7 +194,7 @@ Test::CustomPrx::opByteList2Async(const ByteList& iceP_b1, ::std::function<void(
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ByteList, ByteList>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::CustomPrx::_iceI_opByteList2, iceP_b1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ByteList, ByteList>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::CustomPrx::_iceI_opByteList2, iceP_b1, context);
 }
 
 void
@@ -238,7 +238,7 @@ Test::CustomPrx::opStringList1Async(const StringList& iceP_s1, ::std::function<v
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<StringList, StringList>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::CustomPrx::_iceI_opStringList1, iceP_s1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<StringList, StringList>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::CustomPrx::_iceI_opStringList1, iceP_s1, context);
 }
 
 void
@@ -282,7 +282,7 @@ Test::CustomPrx::opStringList2Async(const StringList& iceP_s1, ::std::function<v
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<StringList, StringList>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::CustomPrx::_iceI_opStringList2, iceP_s1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<StringList, StringList>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::CustomPrx::_iceI_opStringList2, iceP_s1, context);
 }
 
 void
@@ -326,7 +326,7 @@ Test::CustomPrx::opStringTuple1Async(const StringTuple& iceP_s1, ::std::function
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<StringTuple, StringTuple>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::CustomPrx::_iceI_opStringTuple1, iceP_s1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<StringTuple, StringTuple>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::CustomPrx::_iceI_opStringTuple1, iceP_s1, context);
 }
 
 void
@@ -370,7 +370,7 @@ Test::CustomPrx::opStringTuple2Async(const StringTuple& iceP_s1, ::std::function
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<StringTuple, StringTuple>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::CustomPrx::_iceI_opStringTuple2, iceP_s1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<StringTuple, StringTuple>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::CustomPrx::_iceI_opStringTuple2, iceP_s1, context);
 }
 
 void
@@ -408,7 +408,7 @@ Test::CustomPrx::sendSAsync(const S& iceP_val, const ::Ice::Context& context) co
 ::std::function<void()>
 Test::CustomPrx::sendSAsync(const S& iceP_val, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CustomPrx::_iceI_sendS, iceP_val, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::CustomPrx::_iceI_sendS, iceP_val, context);
 }
 
 void
@@ -439,7 +439,7 @@ Test::CustomPrx::sendCAsync(const ::std::shared_ptr<C>& iceP_val, const ::Ice::C
 ::std::function<void()>
 Test::CustomPrx::sendCAsync(const ::std::shared_ptr<C>& iceP_val, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CustomPrx::_iceI_sendC, iceP_val, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::CustomPrx::_iceI_sendC, iceP_val, context);
 }
 
 void
@@ -477,7 +477,7 @@ Test::CustomPrx::opBoolSeqAsync(const BoolSeq1& iceP_v1, ::std::function<void(::
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<BoolSeq1, BoolSeq2>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::CustomPrx::_iceI_opBoolSeq, iceP_v1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<BoolSeq1, BoolSeq2>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::CustomPrx::_iceI_opBoolSeq, iceP_v1, context);
 }
 
 void
@@ -521,7 +521,7 @@ Test::CustomPrx::opByteSeqAsync(const ByteSeq1& iceP_v1, ::std::function<void(::
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ByteSeq1, ByteSeq2>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::CustomPrx::_iceI_opByteSeq, iceP_v1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ByteSeq1, ByteSeq2>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::CustomPrx::_iceI_opByteSeq, iceP_v1, context);
 }
 
 void
@@ -565,7 +565,7 @@ Test::CustomPrx::opShortSeqAsync(const ShortSeq1& iceP_v1, ::std::function<void(
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ShortSeq1, ShortSeq2>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::CustomPrx::_iceI_opShortSeq, iceP_v1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ShortSeq1, ShortSeq2>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::CustomPrx::_iceI_opShortSeq, iceP_v1, context);
 }
 
 void
@@ -609,7 +609,7 @@ Test::CustomPrx::opIntSeqAsync(const IntSeq1& iceP_v1, ::std::function<void(::Te
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<IntSeq1, IntSeq2>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::CustomPrx::_iceI_opIntSeq, iceP_v1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<IntSeq1, IntSeq2>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::CustomPrx::_iceI_opIntSeq, iceP_v1, context);
 }
 
 void
@@ -653,7 +653,7 @@ Test::CustomPrx::opLongSeqAsync(const LongSeq1& iceP_v1, ::std::function<void(::
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<LongSeq1, LongSeq2>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::CustomPrx::_iceI_opLongSeq, iceP_v1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<LongSeq1, LongSeq2>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::CustomPrx::_iceI_opLongSeq, iceP_v1, context);
 }
 
 void
@@ -697,7 +697,7 @@ Test::CustomPrx::opFloatSeqAsync(const FloatSeq1& iceP_v1, ::std::function<void(
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<FloatSeq1, FloatSeq2>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::CustomPrx::_iceI_opFloatSeq, iceP_v1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<FloatSeq1, FloatSeq2>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::CustomPrx::_iceI_opFloatSeq, iceP_v1, context);
 }
 
 void
@@ -741,7 +741,7 @@ Test::CustomPrx::opDoubleSeqAsync(const DoubleSeq1& iceP_v1, ::std::function<voi
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<DoubleSeq1, DoubleSeq2>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::CustomPrx::_iceI_opDoubleSeq, iceP_v1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<DoubleSeq1, DoubleSeq2>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::CustomPrx::_iceI_opDoubleSeq, iceP_v1, context);
 }
 
 void
@@ -779,7 +779,7 @@ Test::CustomPrx::opBogusArrayNotExistsFactoryAsync(const ::Ice::Context& context
 ::std::function<void()>
 Test::CustomPrx::opBogusArrayNotExistsFactoryAsync(::std::function<void(::Test::BoolSeq1)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<BoolSeq1>(std::move(response), std::move(ex), std::move(sent), this, &Test::CustomPrx::_iceI_opBogusArrayNotExistsFactory, context);
+    return ::IceInternal::makeLambdaOutgoing<BoolSeq1>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::CustomPrx::_iceI_opBogusArrayNotExistsFactory, context);
 }
 
 void
@@ -808,7 +808,7 @@ Test::CustomPrx::opBogusArrayThrowFactoryAsync(const ::Ice::Context& context) co
 ::std::function<void()>
 Test::CustomPrx::opBogusArrayThrowFactoryAsync(::std::function<void(::Test::BoolSeq1)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<BoolSeq1>(std::move(response), std::move(ex), std::move(sent), this, &Test::CustomPrx::_iceI_opBogusArrayThrowFactory, context);
+    return ::IceInternal::makeLambdaOutgoing<BoolSeq1>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::CustomPrx::_iceI_opBogusArrayThrowFactory, context);
 }
 
 void
@@ -837,7 +837,7 @@ Test::CustomPrx::opBogusArrayTypeAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::CustomPrx::opBogusArrayTypeAsync(::std::function<void(::Test::BoolSeq1)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<BoolSeq1>(std::move(response), std::move(ex), std::move(sent), this, &Test::CustomPrx::_iceI_opBogusArrayType, context);
+    return ::IceInternal::makeLambdaOutgoing<BoolSeq1>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::CustomPrx::_iceI_opBogusArrayType, context);
 }
 
 void
@@ -866,7 +866,7 @@ Test::CustomPrx::opBogusArrayNoneFactoryAsync(const ::Ice::Context& context) con
 ::std::function<void()>
 Test::CustomPrx::opBogusArrayNoneFactoryAsync(::std::function<void(::Test::BoolSeq1)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<BoolSeq1>(std::move(response), std::move(ex), std::move(sent), this, &Test::CustomPrx::_iceI_opBogusArrayNoneFactory, context);
+    return ::IceInternal::makeLambdaOutgoing<BoolSeq1>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::CustomPrx::_iceI_opBogusArrayNoneFactory, context);
 }
 
 void
@@ -895,7 +895,7 @@ Test::CustomPrx::opBogusArraySignatureFactoryAsync(const ::Ice::Context& context
 ::std::function<void()>
 Test::CustomPrx::opBogusArraySignatureFactoryAsync(::std::function<void(::Test::BoolSeq1)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<BoolSeq1>(std::move(response), std::move(ex), std::move(sent), this, &Test::CustomPrx::_iceI_opBogusArraySignatureFactory, context);
+    return ::IceInternal::makeLambdaOutgoing<BoolSeq1>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::CustomPrx::_iceI_opBogusArraySignatureFactory, context);
 }
 
 void
@@ -924,7 +924,7 @@ Test::CustomPrx::opBogusArrayNoCallableFactoryAsync(const ::Ice::Context& contex
 ::std::function<void()>
 Test::CustomPrx::opBogusArrayNoCallableFactoryAsync(::std::function<void(::Test::BoolSeq1)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<BoolSeq1>(std::move(response), std::move(ex), std::move(sent), this, &Test::CustomPrx::_iceI_opBogusArrayNoCallableFactory, context);
+    return ::IceInternal::makeLambdaOutgoing<BoolSeq1>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::CustomPrx::_iceI_opBogusArrayNoCallableFactory, context);
 }
 
 void
@@ -953,7 +953,7 @@ Test::CustomPrx::opDAsync(const ::std::shared_ptr<D>& iceP_d, const ::Ice::Conte
 ::std::function<void()>
 Test::CustomPrx::opDAsync(const ::std::shared_ptr<D>& iceP_d, ::std::function<void(::std::shared_ptr<::Test::D>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<D>>(std::move(response), std::move(ex), std::move(sent), this, &Test::CustomPrx::_iceI_opD, iceP_d, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<D>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::CustomPrx::_iceI_opD, iceP_d, context);
 }
 
 void
@@ -993,7 +993,7 @@ Test::CustomPrx::shutdownAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::CustomPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CustomPrx::_iceI_shutdown, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::CustomPrx::_iceI_shutdown, context);
 }
 
 void
@@ -1056,556 +1056,623 @@ Test::Custom::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-Test::Custom::_iceD_opByteString1(::IceInternal::Incoming& incoming)
+void
+Test::Custom::_iceD_opByteString1(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ByteString iceP_b1;
     istr->readAll(iceP_b1);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     ByteString iceP_b2;
-    ByteString ret = this->opByteString1(::std::move(iceP_b1), iceP_b2, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_b2, ret);
-    incoming.endWriteParams();
-    return true;
+    ByteString ret = this->opByteString1(::std::move(iceP_b1), iceP_b2, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_b2, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Custom::_iceD_opByteString2(::IceInternal::Incoming& incoming)
+void
+Test::Custom::_iceD_opByteString2(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ByteString iceP_b1;
     istr->readAll(iceP_b1);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     ByteString iceP_b2;
-    ByteString ret = this->opByteString2(::std::move(iceP_b1), iceP_b2, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_b2, ret);
-    incoming.endWriteParams();
-    return true;
+    ByteString ret = this->opByteString2(::std::move(iceP_b1), iceP_b2, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_b2, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Custom::_iceD_opByteList1(::IceInternal::Incoming& incoming)
+void
+Test::Custom::_iceD_opByteList1(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ByteList iceP_b1;
     istr->readAll(iceP_b1);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     ByteList iceP_b2;
-    ByteList ret = this->opByteList1(::std::move(iceP_b1), iceP_b2, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_b2, ret);
-    incoming.endWriteParams();
-    return true;
+    ByteList ret = this->opByteList1(::std::move(iceP_b1), iceP_b2, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_b2, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Custom::_iceD_opByteList2(::IceInternal::Incoming& incoming)
+void
+Test::Custom::_iceD_opByteList2(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ByteList iceP_b1;
     istr->readAll(iceP_b1);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     ByteList iceP_b2;
-    ByteList ret = this->opByteList2(::std::move(iceP_b1), iceP_b2, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_b2, ret);
-    incoming.endWriteParams();
-    return true;
+    ByteList ret = this->opByteList2(::std::move(iceP_b1), iceP_b2, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_b2, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Custom::_iceD_opStringList1(::IceInternal::Incoming& incoming)
+void
+Test::Custom::_iceD_opStringList1(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     StringList iceP_s1;
     istr->readAll(iceP_s1);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     StringList iceP_s2;
-    StringList ret = this->opStringList1(::std::move(iceP_s1), iceP_s2, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_s2, ret);
-    incoming.endWriteParams();
-    return true;
+    StringList ret = this->opStringList1(::std::move(iceP_s1), iceP_s2, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_s2, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Custom::_iceD_opStringList2(::IceInternal::Incoming& incoming)
+void
+Test::Custom::_iceD_opStringList2(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     StringList iceP_s1;
     istr->readAll(iceP_s1);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     StringList iceP_s2;
-    StringList ret = this->opStringList2(::std::move(iceP_s1), iceP_s2, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_s2, ret);
-    incoming.endWriteParams();
-    return true;
+    StringList ret = this->opStringList2(::std::move(iceP_s1), iceP_s2, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_s2, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Custom::_iceD_opStringTuple1(::IceInternal::Incoming& incoming)
+void
+Test::Custom::_iceD_opStringTuple1(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     StringTuple iceP_s1;
     istr->readAll(iceP_s1);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     StringTuple iceP_s2;
-    StringTuple ret = this->opStringTuple1(::std::move(iceP_s1), iceP_s2, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_s2, ret);
-    incoming.endWriteParams();
-    return true;
+    StringTuple ret = this->opStringTuple1(::std::move(iceP_s1), iceP_s2, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_s2, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Custom::_iceD_opStringTuple2(::IceInternal::Incoming& incoming)
+void
+Test::Custom::_iceD_opStringTuple2(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     StringTuple iceP_s1;
     istr->readAll(iceP_s1);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     StringTuple iceP_s2;
-    StringTuple ret = this->opStringTuple2(::std::move(iceP_s1), iceP_s2, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_s2, ret);
-    incoming.endWriteParams();
-    return true;
+    StringTuple ret = this->opStringTuple2(::std::move(iceP_s1), iceP_s2, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_s2, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Custom::_iceD_sendS(::IceInternal::Incoming& incoming)
+void
+Test::Custom::_iceD_sendS(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     S iceP_val;
     istr->readAll(iceP_val);
-    incoming.endReadParams();
-    this->sendS(::std::move(iceP_val), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->sendS(::std::move(iceP_val), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Custom::_iceD_sendC(::IceInternal::Incoming& incoming)
+void
+Test::Custom::_iceD_sendC(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::shared_ptr<C> iceP_val;
     istr->readAll(iceP_val);
     istr->readPendingValues();
-    incoming.endReadParams();
-    this->sendC(::std::move(iceP_val), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->sendC(::std::move(iceP_val), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Custom::_iceD_opBoolSeq(::IceInternal::Incoming& incoming)
+void
+Test::Custom::_iceD_opBoolSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     BoolSeq1 iceP_v1;
     istr->readAll(iceP_v1);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     BoolSeq2 iceP_v2;
-    BoolSeq1 ret = this->opBoolSeq(::std::move(iceP_v1), iceP_v2, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_v2, ret);
-    incoming.endWriteParams();
-    return true;
+    BoolSeq1 ret = this->opBoolSeq(::std::move(iceP_v1), iceP_v2, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_v2, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Custom::_iceD_opByteSeq(::IceInternal::Incoming& incoming)
+void
+Test::Custom::_iceD_opByteSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ByteSeq1 iceP_v1;
     istr->readAll(iceP_v1);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     ByteSeq2 iceP_v2;
-    ByteSeq1 ret = this->opByteSeq(::std::move(iceP_v1), iceP_v2, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_v2, ret);
-    incoming.endWriteParams();
-    return true;
+    ByteSeq1 ret = this->opByteSeq(::std::move(iceP_v1), iceP_v2, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_v2, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Custom::_iceD_opShortSeq(::IceInternal::Incoming& incoming)
+void
+Test::Custom::_iceD_opShortSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ShortSeq1 iceP_v1;
     istr->readAll(iceP_v1);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     ShortSeq2 iceP_v2;
-    ShortSeq1 ret = this->opShortSeq(::std::move(iceP_v1), iceP_v2, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_v2, ret);
-    incoming.endWriteParams();
-    return true;
+    ShortSeq1 ret = this->opShortSeq(::std::move(iceP_v1), iceP_v2, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_v2, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Custom::_iceD_opIntSeq(::IceInternal::Incoming& incoming)
+void
+Test::Custom::_iceD_opIntSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     IntSeq1 iceP_v1;
     istr->readAll(iceP_v1);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     IntSeq2 iceP_v2;
-    IntSeq1 ret = this->opIntSeq(::std::move(iceP_v1), iceP_v2, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_v2, ret);
-    incoming.endWriteParams();
-    return true;
+    IntSeq1 ret = this->opIntSeq(::std::move(iceP_v1), iceP_v2, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_v2, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Custom::_iceD_opLongSeq(::IceInternal::Incoming& incoming)
+void
+Test::Custom::_iceD_opLongSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     LongSeq1 iceP_v1;
     istr->readAll(iceP_v1);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     LongSeq2 iceP_v2;
-    LongSeq1 ret = this->opLongSeq(::std::move(iceP_v1), iceP_v2, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_v2, ret);
-    incoming.endWriteParams();
-    return true;
+    LongSeq1 ret = this->opLongSeq(::std::move(iceP_v1), iceP_v2, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_v2, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Custom::_iceD_opFloatSeq(::IceInternal::Incoming& incoming)
+void
+Test::Custom::_iceD_opFloatSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     FloatSeq1 iceP_v1;
     istr->readAll(iceP_v1);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     FloatSeq2 iceP_v2;
-    FloatSeq1 ret = this->opFloatSeq(::std::move(iceP_v1), iceP_v2, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_v2, ret);
-    incoming.endWriteParams();
-    return true;
+    FloatSeq1 ret = this->opFloatSeq(::std::move(iceP_v1), iceP_v2, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_v2, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Custom::_iceD_opDoubleSeq(::IceInternal::Incoming& incoming)
+void
+Test::Custom::_iceD_opDoubleSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     DoubleSeq1 iceP_v1;
     istr->readAll(iceP_v1);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     DoubleSeq2 iceP_v2;
-    DoubleSeq1 ret = this->opDoubleSeq(::std::move(iceP_v1), iceP_v2, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_v2, ret);
-    incoming.endWriteParams();
-    return true;
+    DoubleSeq1 ret = this->opDoubleSeq(::std::move(iceP_v1), iceP_v2, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_v2, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Custom::_iceD_opBogusArrayNotExistsFactory(::IceInternal::Incoming& incoming)
+void
+Test::Custom::_iceD_opBogusArrayNotExistsFactory(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    BoolSeq1 ret = this->opBogusArrayNotExistsFactory(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    BoolSeq1 ret = this->opBogusArrayNotExistsFactory(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Custom::_iceD_opBogusArrayThrowFactory(::IceInternal::Incoming& incoming)
+void
+Test::Custom::_iceD_opBogusArrayThrowFactory(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    BoolSeq1 ret = this->opBogusArrayThrowFactory(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    BoolSeq1 ret = this->opBogusArrayThrowFactory(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Custom::_iceD_opBogusArrayType(::IceInternal::Incoming& incoming)
+void
+Test::Custom::_iceD_opBogusArrayType(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    BoolSeq1 ret = this->opBogusArrayType(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    BoolSeq1 ret = this->opBogusArrayType(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Custom::_iceD_opBogusArrayNoneFactory(::IceInternal::Incoming& incoming)
+void
+Test::Custom::_iceD_opBogusArrayNoneFactory(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    BoolSeq1 ret = this->opBogusArrayNoneFactory(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    BoolSeq1 ret = this->opBogusArrayNoneFactory(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Custom::_iceD_opBogusArraySignatureFactory(::IceInternal::Incoming& incoming)
+void
+Test::Custom::_iceD_opBogusArraySignatureFactory(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    BoolSeq1 ret = this->opBogusArraySignatureFactory(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    BoolSeq1 ret = this->opBogusArraySignatureFactory(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Custom::_iceD_opBogusArrayNoCallableFactory(::IceInternal::Incoming& incoming)
+void
+Test::Custom::_iceD_opBogusArrayNoCallableFactory(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    BoolSeq1 ret = this->opBogusArrayNoCallableFactory(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    BoolSeq1 ret = this->opBogusArrayNoCallableFactory(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Custom::_iceD_opD(::IceInternal::Incoming& incoming)
+void
+Test::Custom::_iceD_opD(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::shared_ptr<D> iceP_d;
     istr->readAll(iceP_d);
     istr->readPendingValues();
-    incoming.endReadParams();
-    ::std::shared_ptr<D> ret = this->opD(::std::move(iceP_d), incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    ostr->writePendingValues();
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    ::std::shared_ptr<D> ret = this->opD(::std::move(iceP_d), request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+            ostr->writePendingValues();
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Custom::_iceD_shutdown(::IceInternal::Incoming& incoming)
+void
+Test::Custom::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->shutdown(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->shutdown(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Custom::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+Test::Custom::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "opBogusArrayNoCallableFactory", "opBogusArrayNoneFactory", "opBogusArrayNotExistsFactory", "opBogusArraySignatureFactory", "opBogusArrayThrowFactory", "opBogusArrayType", "opBoolSeq", "opByteList1", "opByteList2", "opByteSeq", "opByteString1", "opByteString2", "opD", "opDoubleSeq", "opFloatSeq", "opIntSeq", "opLongSeq", "opShortSeq", "opStringList1", "opStringList2", "opStringTuple1", "opStringTuple2", "sendC", "sendS", "shutdown"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 29, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_opBogusArrayNoCallableFactory(incoming);
+            _iceD_opBogusArrayNoCallableFactory(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_opBogusArrayNoneFactory(incoming);
+            _iceD_opBogusArrayNoneFactory(request, ::std::move(sendResponse));
+            break;
         }
         case 6:
         {
-            return _iceD_opBogusArrayNotExistsFactory(incoming);
+            _iceD_opBogusArrayNotExistsFactory(request, ::std::move(sendResponse));
+            break;
         }
         case 7:
         {
-            return _iceD_opBogusArraySignatureFactory(incoming);
+            _iceD_opBogusArraySignatureFactory(request, ::std::move(sendResponse));
+            break;
         }
         case 8:
         {
-            return _iceD_opBogusArrayThrowFactory(incoming);
+            _iceD_opBogusArrayThrowFactory(request, ::std::move(sendResponse));
+            break;
         }
         case 9:
         {
-            return _iceD_opBogusArrayType(incoming);
+            _iceD_opBogusArrayType(request, ::std::move(sendResponse));
+            break;
         }
         case 10:
         {
-            return _iceD_opBoolSeq(incoming);
+            _iceD_opBoolSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 11:
         {
-            return _iceD_opByteList1(incoming);
+            _iceD_opByteList1(request, ::std::move(sendResponse));
+            break;
         }
         case 12:
         {
-            return _iceD_opByteList2(incoming);
+            _iceD_opByteList2(request, ::std::move(sendResponse));
+            break;
         }
         case 13:
         {
-            return _iceD_opByteSeq(incoming);
+            _iceD_opByteSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 14:
         {
-            return _iceD_opByteString1(incoming);
+            _iceD_opByteString1(request, ::std::move(sendResponse));
+            break;
         }
         case 15:
         {
-            return _iceD_opByteString2(incoming);
+            _iceD_opByteString2(request, ::std::move(sendResponse));
+            break;
         }
         case 16:
         {
-            return _iceD_opD(incoming);
+            _iceD_opD(request, ::std::move(sendResponse));
+            break;
         }
         case 17:
         {
-            return _iceD_opDoubleSeq(incoming);
+            _iceD_opDoubleSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 18:
         {
-            return _iceD_opFloatSeq(incoming);
+            _iceD_opFloatSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 19:
         {
-            return _iceD_opIntSeq(incoming);
+            _iceD_opIntSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 20:
         {
-            return _iceD_opLongSeq(incoming);
+            _iceD_opLongSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 21:
         {
-            return _iceD_opShortSeq(incoming);
+            _iceD_opShortSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 22:
         {
-            return _iceD_opStringList1(incoming);
+            _iceD_opStringList1(request, ::std::move(sendResponse));
+            break;
         }
         case 23:
         {
-            return _iceD_opStringList2(incoming);
+            _iceD_opStringList2(request, ::std::move(sendResponse));
+            break;
         }
         case 24:
         {
-            return _iceD_opStringTuple1(incoming);
+            _iceD_opStringTuple1(request, ::std::move(sendResponse));
+            break;
         }
         case 25:
         {
-            return _iceD_opStringTuple2(incoming);
+            _iceD_opStringTuple2(request, ::std::move(sendResponse));
+            break;
         }
         case 26:
         {
-            return _iceD_sendC(incoming);
+            _iceD_sendC(request, ::std::move(sendResponse));
+            break;
         }
         case 27:
         {
-            return _iceD_sendS(incoming);
+            _iceD_sendS(request, ::std::move(sendResponse));
+            break;
         }
         case 28:
         {
-            return _iceD_shutdown(incoming);
+            _iceD_shutdown(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }

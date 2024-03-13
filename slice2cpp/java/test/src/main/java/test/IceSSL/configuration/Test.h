@@ -246,21 +246,21 @@ public:
 
     virtual void noCert(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_noCert(::IceInternal::Incoming&);
+    void _iceD_noCert(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void checkCert(::std::string subjectDN, ::std::string issuerDN, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_checkCert(::IceInternal::Incoming&);
+    void _iceD_checkCert(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void checkCipher(::std::string cipher, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_checkCipher(::IceInternal::Incoming&);
+    void _iceD_checkCipher(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -294,21 +294,21 @@ public:
 
     virtual ::std::optional<ServerPrx> createServer(Properties props, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_createServer(::IceInternal::Incoming&);
+    void _iceD_createServer(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void destroyServer(::std::optional<ServerPrx> srv, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_destroyServer(::IceInternal::Incoming&);
+    void _iceD_destroyServer(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

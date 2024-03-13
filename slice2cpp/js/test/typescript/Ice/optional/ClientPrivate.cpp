@@ -16,7 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <ClientPrivate.h>
 #include <Ice/OutgoingAsync.h>
-#include <Ice/Incoming.h>
+#include <Ice/AsyncResponseHandler.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -52,7 +52,7 @@ Test::Initial2Prx::opClassAndUnknownOptionalAsync(const ::std::shared_ptr<A>& ic
 ::std::function<void()>
 Test::Initial2Prx::opClassAndUnknownOptionalAsync(const ::std::shared_ptr<A>& iceP_p, const ::std::optional<::std::shared_ptr<::Ice::Value>>& iceP_o, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::Initial2Prx::_iceI_opClassAndUnknownOptional, iceP_p, iceP_o, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::Initial2Prx::_iceI_opClassAndUnknownOptional, iceP_p, iceP_o, context);
 }
 
 void
@@ -85,7 +85,7 @@ Test::Initial2Prx::opVoidAsync(::std::optional<::std::int32_t> iceP_a, ::std::op
 ::std::function<void()>
 Test::Initial2Prx::opVoidAsync(::std::optional<::std::int32_t> iceP_a, ::std::optional<::std::string_view> iceP_v, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::Initial2Prx::_iceI_opVoid, iceP_a, iceP_v, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::Initial2Prx::_iceI_opVoid, iceP_a, iceP_v, context);
 }
 
 void
@@ -129,82 +129,89 @@ Test::Initial2::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-Test::Initial2::_iceD_opClassAndUnknownOptional(::IceInternal::Incoming& incoming)
+void
+Test::Initial2::_iceD_opClassAndUnknownOptional(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::shared_ptr<A> iceP_p;
     ::std::optional<::std::shared_ptr<::Ice::Value>> iceP_o;
     istr->readAll(iceP_p);
     istr->readAll({1}, iceP_o);
     istr->readPendingValues();
-    incoming.endReadParams();
-    this->opClassAndUnknownOptional(::std::move(iceP_p), ::std::move(iceP_o), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->opClassAndUnknownOptional(::std::move(iceP_p), ::std::move(iceP_o), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Initial2::_iceD_opVoid(::IceInternal::Incoming& incoming)
+void
+Test::Initial2::_iceD_opVoid(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::optional<::std::int32_t> iceP_a;
     ::std::optional<::std::string> iceP_v;
     istr->readAll({1, 2}, iceP_a, iceP_v);
-    incoming.endReadParams();
-    this->opVoid(iceP_a, ::std::move(iceP_v), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->opVoid(iceP_a, ::std::move(iceP_v), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Initial2::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+Test::Initial2::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "opClassAndUnknownOptional", "opVoid"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_opClassAndUnknownOptional(incoming);
+            _iceD_opClassAndUnknownOptional(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_opVoid(incoming);
+            _iceD_opVoid(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }

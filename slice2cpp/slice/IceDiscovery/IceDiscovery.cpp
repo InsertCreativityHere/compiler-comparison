@@ -16,7 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <IceDiscovery.h>
 #include <Ice/OutgoingAsync.h>
-#include <Ice/Incoming.h>
+#include <Ice/AsyncResponseHandler.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -52,7 +52,7 @@ IceDiscovery::LookupReplyPrx::foundObjectByIdAsync(const ::Ice::Identity& iceP_i
 ::std::function<void()>
 IceDiscovery::LookupReplyPrx::foundObjectByIdAsync(const ::Ice::Identity& iceP_id, const ::std::optional<::Ice::ObjectPrx>& iceP_prx, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceDiscovery::LookupReplyPrx::_iceI_foundObjectById, iceP_id, iceP_prx, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceDiscovery::LookupReplyPrx::_iceI_foundObjectById, iceP_id, iceP_prx, context);
 }
 
 void
@@ -83,7 +83,7 @@ IceDiscovery::LookupReplyPrx::foundAdapterByIdAsync(::std::string_view iceP_id, 
 ::std::function<void()>
 IceDiscovery::LookupReplyPrx::foundAdapterByIdAsync(::std::string_view iceP_id, const ::std::optional<::Ice::ObjectPrx>& iceP_prx, bool iceP_isReplicaGroup, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceDiscovery::LookupReplyPrx::_iceI_foundAdapterById, iceP_id, iceP_prx, iceP_isReplicaGroup, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceDiscovery::LookupReplyPrx::_iceI_foundAdapterById, iceP_id, iceP_prx, iceP_isReplicaGroup, context);
 }
 
 void
@@ -121,7 +121,7 @@ IceDiscovery::LookupPrx::findObjectByIdAsync(::std::string_view iceP_domainId, c
 ::std::function<void()>
 IceDiscovery::LookupPrx::findObjectByIdAsync(::std::string_view iceP_domainId, const ::Ice::Identity& iceP_id, const ::std::optional<LookupReplyPrx>& iceP_reply, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceDiscovery::LookupPrx::_iceI_findObjectById, iceP_domainId, iceP_id, iceP_reply, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceDiscovery::LookupPrx::_iceI_findObjectById, iceP_domainId, iceP_id, iceP_reply, context);
 }
 
 void
@@ -152,7 +152,7 @@ IceDiscovery::LookupPrx::findAdapterByIdAsync(::std::string_view iceP_domainId, 
 ::std::function<void()>
 IceDiscovery::LookupPrx::findAdapterByIdAsync(::std::string_view iceP_domainId, ::std::string_view iceP_id, const ::std::optional<LookupReplyPrx>& iceP_reply, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceDiscovery::LookupPrx::_iceI_findAdapterById, iceP_domainId, iceP_id, iceP_reply, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceDiscovery::LookupPrx::_iceI_findAdapterById, iceP_domainId, iceP_id, iceP_reply, context);
 }
 
 void
@@ -196,81 +196,88 @@ IceDiscovery::LookupReply::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-IceDiscovery::LookupReply::_iceD_foundObjectById(::IceInternal::Incoming& incoming)
+void
+IceDiscovery::LookupReply::_iceD_foundObjectById(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::Ice::Identity iceP_id;
     ::std::optional<::Ice::ObjectPrx> iceP_prx;
     istr->readAll(iceP_id, iceP_prx);
-    incoming.endReadParams();
-    this->foundObjectById(::std::move(iceP_id), ::std::move(iceP_prx), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->foundObjectById(::std::move(iceP_id), ::std::move(iceP_prx), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceDiscovery::LookupReply::_iceD_foundAdapterById(::IceInternal::Incoming& incoming)
+void
+IceDiscovery::LookupReply::_iceD_foundAdapterById(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_id;
     ::std::optional<::Ice::ObjectPrx> iceP_prx;
     bool iceP_isReplicaGroup;
     istr->readAll(iceP_id, iceP_prx, iceP_isReplicaGroup);
-    incoming.endReadParams();
-    this->foundAdapterById(::std::move(iceP_id), ::std::move(iceP_prx), iceP_isReplicaGroup, incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->foundAdapterById(::std::move(iceP_id), ::std::move(iceP_prx), iceP_isReplicaGroup, request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceDiscovery::LookupReply::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+IceDiscovery::LookupReply::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"foundAdapterById", "foundObjectById", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_foundAdapterById(incoming);
+            _iceD_foundAdapterById(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_foundObjectById(incoming);
+            _iceD_foundObjectById(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }
@@ -297,82 +304,89 @@ IceDiscovery::Lookup::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-IceDiscovery::Lookup::_iceD_findObjectById(::IceInternal::Incoming& incoming)
+void
+IceDiscovery::Lookup::_iceD_findObjectById(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_domainId;
     ::Ice::Identity iceP_id;
     ::std::optional<LookupReplyPrx> iceP_reply;
     istr->readAll(iceP_domainId, iceP_id, iceP_reply);
-    incoming.endReadParams();
-    this->findObjectById(::std::move(iceP_domainId), ::std::move(iceP_id), ::std::move(iceP_reply), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->findObjectById(::std::move(iceP_domainId), ::std::move(iceP_id), ::std::move(iceP_reply), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceDiscovery::Lookup::_iceD_findAdapterById(::IceInternal::Incoming& incoming)
+void
+IceDiscovery::Lookup::_iceD_findAdapterById(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_domainId;
     ::std::string iceP_id;
     ::std::optional<LookupReplyPrx> iceP_reply;
     istr->readAll(iceP_domainId, iceP_id, iceP_reply);
-    incoming.endReadParams();
-    this->findAdapterById(::std::move(iceP_domainId), ::std::move(iceP_id), ::std::move(iceP_reply), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->findAdapterById(::std::move(iceP_domainId), ::std::move(iceP_id), ::std::move(iceP_reply), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceDiscovery::Lookup::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+IceDiscovery::Lookup::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"findAdapterById", "findObjectById", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_findAdapterById(incoming);
+            _iceD_findAdapterById(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_findObjectById(incoming);
+            _iceD_findObjectById(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }

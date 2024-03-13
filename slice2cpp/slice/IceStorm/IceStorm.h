@@ -1081,7 +1081,7 @@ public:
      */
     virtual ::std::string getName(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getName(::IceInternal::Incoming&) const;
+    void _iceD_getName(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /**
@@ -1093,7 +1093,7 @@ public:
      */
     virtual ::std::optional<::Ice::ObjectPrx> getPublisher(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getPublisher(::IceInternal::Incoming&) const;
+    void _iceD_getPublisher(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /**
@@ -1105,7 +1105,7 @@ public:
      */
     virtual ::std::optional<::Ice::ObjectPrx> getNonReplicatedPublisher(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getNonReplicatedPublisher(::IceInternal::Incoming&) const;
+    void _iceD_getNonReplicatedPublisher(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /**
@@ -1121,7 +1121,7 @@ public:
      */
     virtual ::std::optional<::Ice::ObjectPrx> subscribeAndGetPublisher(QoS theQoS, ::std::optional<::Ice::ObjectPrx> subscriber, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_subscribeAndGetPublisher(::IceInternal::Incoming&);
+    void _iceD_subscribeAndGetPublisher(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -1132,7 +1132,7 @@ public:
      */
     virtual void unsubscribe(::std::optional<::Ice::ObjectPrx> subscriber, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_unsubscribe(::IceInternal::Incoming&);
+    void _iceD_unsubscribe(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -1145,7 +1145,7 @@ public:
      */
     virtual void link(::std::optional<TopicPrx> linkTo, ::std::int32_t cost, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_link(::IceInternal::Incoming&);
+    void _iceD_link(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -1156,7 +1156,7 @@ public:
      */
     virtual void unlink(::std::optional<TopicPrx> linkTo, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_unlink(::IceInternal::Incoming&);
+    void _iceD_unlink(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -1166,7 +1166,7 @@ public:
      */
     virtual LinkInfoSeq getLinkInfoSeq(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getLinkInfoSeq(::IceInternal::Incoming&) const;
+    void _iceD_getLinkInfoSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /**
@@ -1176,7 +1176,7 @@ public:
      */
     virtual ::Ice::IdentitySeq getSubscribers(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getSubscribers(::IceInternal::Incoming&) const;
+    void _iceD_getSubscribers(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /**
@@ -1185,11 +1185,11 @@ public:
      */
     virtual void destroy(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_destroy(::IceInternal::Incoming&);
+    void _iceD_destroy(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -1234,7 +1234,7 @@ public:
      */
     virtual ::std::optional<TopicPrx> create(::std::string name, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_create(::IceInternal::Incoming&);
+    void _iceD_create(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -1246,7 +1246,7 @@ public:
      */
     virtual ::std::optional<TopicPrx> retrieve(::std::string name, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_retrieve(::IceInternal::Incoming&);
+    void _iceD_retrieve(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -1256,11 +1256,11 @@ public:
      */
     virtual TopicDict retrieveAll(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_retrieveAll(::IceInternal::Incoming&);
+    void _iceD_retrieveAll(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -1303,11 +1303,11 @@ public:
      */
     virtual ::std::optional<TopicManagerPrx> getTopicManager(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getTopicManager(::IceInternal::Incoming&);
+    void _iceD_getTopicManager(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

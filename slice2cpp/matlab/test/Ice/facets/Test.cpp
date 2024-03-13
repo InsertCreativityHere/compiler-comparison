@@ -16,7 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
 #include <Ice/OutgoingAsync.h>
-#include <Ice/Incoming.h>
+#include <Ice/AsyncResponseHandler.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -59,7 +59,7 @@ Test::APrx::callAAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::APrx::callAAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::APrx::_iceI_callA, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::string>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::APrx::_iceI_callA, context);
 }
 
 void
@@ -95,7 +95,7 @@ Test::BPrx::callBAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::BPrx::callBAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::BPrx::_iceI_callB, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::string>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::BPrx::_iceI_callB, context);
 }
 
 void
@@ -131,7 +131,7 @@ Test::CPrx::callCAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::CPrx::callCAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::CPrx::_iceI_callC, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::string>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::CPrx::_iceI_callC, context);
 }
 
 void
@@ -167,7 +167,7 @@ Test::DPrx::callDAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::DPrx::callDAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::DPrx::_iceI_callD, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::string>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::DPrx::_iceI_callD, context);
 }
 
 void
@@ -203,7 +203,7 @@ Test::EPrx::callEAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::EPrx::callEAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::EPrx::_iceI_callE, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::string>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::EPrx::_iceI_callE, context);
 }
 
 void
@@ -239,7 +239,7 @@ Test::FPrx::callFAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::FPrx::callFAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::FPrx::_iceI_callF, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::string>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::FPrx::_iceI_callF, context);
 }
 
 void
@@ -275,7 +275,7 @@ Test::GPrx::shutdownAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::GPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::GPrx::_iceI_shutdown, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::GPrx::_iceI_shutdown, context);
 }
 
 void
@@ -303,7 +303,7 @@ Test::GPrx::callGAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::GPrx::callGAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::GPrx::_iceI_callG, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::string>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::GPrx::_iceI_callG, context);
 }
 
 void
@@ -339,7 +339,7 @@ Test::HPrx::callHAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::HPrx::callHAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::HPrx::_iceI_callH, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::string>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::HPrx::_iceI_callH, context);
 }
 
 void
@@ -401,58 +401,65 @@ Test::A::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-Test::A::_iceD_callA(::IceInternal::Incoming& incoming)
+void
+Test::A::_iceD_callA(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    ::std::string ret = this->callA(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    ::std::string ret = this->callA(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::A::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+Test::A::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"callA", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_callA(incoming);
+            _iceD_callA(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }
@@ -479,62 +486,70 @@ Test::B::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-Test::B::_iceD_callB(::IceInternal::Incoming& incoming)
+void
+Test::B::_iceD_callB(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    ::std::string ret = this->callB(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    ::std::string ret = this->callB(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::B::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+Test::B::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"callA", "callB", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_callA(incoming);
+            _iceD_callA(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_callB(incoming);
+            _iceD_callB(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }
@@ -561,62 +576,70 @@ Test::C::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-Test::C::_iceD_callC(::IceInternal::Incoming& incoming)
+void
+Test::C::_iceD_callC(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    ::std::string ret = this->callC(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    ::std::string ret = this->callC(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::C::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+Test::C::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"callA", "callC", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_callA(incoming);
+            _iceD_callA(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_callC(incoming);
+            _iceD_callC(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }
@@ -643,70 +666,80 @@ Test::D::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-Test::D::_iceD_callD(::IceInternal::Incoming& incoming)
+void
+Test::D::_iceD_callD(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    ::std::string ret = this->callD(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    ::std::string ret = this->callD(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::D::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+Test::D::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"callA", "callB", "callC", "callD", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_callA(incoming);
+            _iceD_callA(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_callB(incoming);
+            _iceD_callB(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_callC(incoming);
+            _iceD_callC(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_callD(incoming);
+            _iceD_callD(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 6:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 7:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }
@@ -733,58 +766,65 @@ Test::E::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-Test::E::_iceD_callE(::IceInternal::Incoming& incoming)
+void
+Test::E::_iceD_callE(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    ::std::string ret = this->callE(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    ::std::string ret = this->callE(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::E::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+Test::E::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"callE", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_callE(incoming);
+            _iceD_callE(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }
@@ -811,62 +851,70 @@ Test::F::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-Test::F::_iceD_callF(::IceInternal::Incoming& incoming)
+void
+Test::F::_iceD_callF(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    ::std::string ret = this->callF(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    ::std::string ret = this->callF(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::F::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+Test::F::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"callE", "callF", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_callE(incoming);
+            _iceD_callE(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_callF(incoming);
+            _iceD_callF(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }
@@ -893,74 +941,81 @@ Test::G::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-Test::G::_iceD_shutdown(::IceInternal::Incoming& incoming)
+void
+Test::G::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->shutdown(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->shutdown(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::G::_iceD_callG(::IceInternal::Incoming& incoming)
+void
+Test::G::_iceD_callG(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    ::std::string ret = this->callG(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    ::std::string ret = this->callG(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::G::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+Test::G::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"callG", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_callG(incoming);
+            _iceD_callG(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_shutdown(incoming);
+            _iceD_shutdown(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }
@@ -987,66 +1042,75 @@ Test::H::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-Test::H::_iceD_callH(::IceInternal::Incoming& incoming)
+void
+Test::H::_iceD_callH(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    ::std::string ret = this->callH(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    ::std::string ret = this->callH(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::H::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+Test::H::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"callG", "callH", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_callG(incoming);
+            _iceD_callG(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_callH(incoming);
+            _iceD_callH(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         case 6:
         {
-            return _iceD_shutdown(incoming);
+            _iceD_shutdown(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }

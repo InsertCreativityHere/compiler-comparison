@@ -19,7 +19,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <PermissionsVerifier.h>
 #include <Ice/OutgoingAsync.h>
-#include <Ice/Incoming.h>
+#include <Ice/AsyncResponseHandler.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -63,7 +63,7 @@ Glacier2::PermissionsVerifierPrx::checkPermissionsAsync(::std::string_view iceP_
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<bool, ::std::string>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Glacier2::PermissionsVerifierPrx::_iceI_checkPermissions, iceP_userId, iceP_password, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<bool, ::std::string>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Glacier2::PermissionsVerifierPrx::_iceI_checkPermissions, iceP_userId, iceP_password, context);
 }
 
 void
@@ -127,7 +127,7 @@ Glacier2::SSLPermissionsVerifierPrx::authorizeAsync(const SSLInfo& iceP_info, ::
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<bool, ::std::string>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Glacier2::SSLPermissionsVerifierPrx::_iceI_authorize, iceP_info, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<bool, ::std::string>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Glacier2::SSLPermissionsVerifierPrx::_iceI_authorize, iceP_info, context);
 }
 
 void
@@ -202,64 +202,72 @@ Glacier2::PermissionsVerifier::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-Glacier2::PermissionsVerifier::_iceD_checkPermissions(::IceInternal::Incoming& incoming) const
+void
+Glacier2::PermissionsVerifier::_iceD_checkPermissions(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_userId;
     ::std::string iceP_password;
     istr->readAll(iceP_userId, iceP_password);
-    incoming.endReadParams();
-    incoming.setFormat(::Ice::FormatType::SlicedFormat);
+    istr->endEncapsulation();
     ::std::string iceP_reason;
-    bool ret = this->checkPermissions(::std::move(iceP_userId), ::std::move(iceP_password), iceP_reason, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_reason, ret);
-    incoming.endWriteParams();
-    return true;
+    bool ret = this->checkPermissions(::std::move(iceP_userId), ::std::move(iceP_password), iceP_reason, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_reason, ret);
+        },
+        request.current(),
+        ::Ice::FormatType::SlicedFormat));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Glacier2::PermissionsVerifier::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+Glacier2::PermissionsVerifier::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"checkPermissions", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_checkPermissions(incoming);
+            _iceD_checkPermissions(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }
@@ -286,63 +294,71 @@ Glacier2::SSLPermissionsVerifier::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-Glacier2::SSLPermissionsVerifier::_iceD_authorize(::IceInternal::Incoming& incoming) const
+void
+Glacier2::SSLPermissionsVerifier::_iceD_authorize(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     SSLInfo iceP_info;
     istr->readAll(iceP_info);
-    incoming.endReadParams();
-    incoming.setFormat(::Ice::FormatType::SlicedFormat);
+    istr->endEncapsulation();
     ::std::string iceP_reason;
-    bool ret = this->authorize(::std::move(iceP_info), iceP_reason, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_reason, ret);
-    incoming.endWriteParams();
-    return true;
+    bool ret = this->authorize(::std::move(iceP_info), iceP_reason, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_reason, ret);
+        },
+        request.current(),
+        ::Ice::FormatType::SlicedFormat));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Glacier2::SSLPermissionsVerifier::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+Glacier2::SSLPermissionsVerifier::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"authorize", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_authorize(incoming);
+            _iceD_authorize(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }

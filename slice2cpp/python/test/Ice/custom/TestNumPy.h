@@ -433,96 +433,96 @@ public:
 
     virtual BoolSeq1 opBoolSeq(BoolSeq1 v1, BoolSeq2& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBoolSeq(::IceInternal::Incoming&);
+    void _iceD_opBoolSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ByteSeq1 opByteSeq(ByteSeq1 v1, ByteSeq2& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteSeq(::IceInternal::Incoming&);
+    void _iceD_opByteSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ShortSeq1 opShortSeq(ShortSeq1 v1, ShortSeq2& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opShortSeq(::IceInternal::Incoming&);
+    void _iceD_opShortSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual IntSeq1 opIntSeq(IntSeq1 v1, IntSeq2& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opIntSeq(::IceInternal::Incoming&);
+    void _iceD_opIntSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual LongSeq1 opLongSeq(LongSeq1 v1, LongSeq2& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLongSeq(::IceInternal::Incoming&);
+    void _iceD_opLongSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual FloatSeq1 opFloatSeq(FloatSeq1 v1, FloatSeq2& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opFloatSeq(::IceInternal::Incoming&);
+    void _iceD_opFloatSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual DoubleSeq1 opDoubleSeq(DoubleSeq1 v1, DoubleSeq2& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opDoubleSeq(::IceInternal::Incoming&);
+    void _iceD_opDoubleSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual Complex128Seq opComplex128Seq(Complex128Seq v1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opComplex128Seq(::IceInternal::Incoming&);
+    void _iceD_opComplex128Seq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual BoolSeq1 opBoolMatrix(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBoolMatrix(::IceInternal::Incoming&);
+    void _iceD_opBoolMatrix(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ByteSeq1 opByteMatrix(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteMatrix(::IceInternal::Incoming&);
+    void _iceD_opByteMatrix(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ShortSeq1 opShortMatrix(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opShortMatrix(::IceInternal::Incoming&);
+    void _iceD_opShortMatrix(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual IntSeq1 opIntMatrix(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opIntMatrix(::IceInternal::Incoming&);
+    void _iceD_opIntMatrix(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual LongSeq1 opLongMatrix(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLongMatrix(::IceInternal::Incoming&);
+    void _iceD_opLongMatrix(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual FloatSeq1 opFloatMatrix(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opFloatMatrix(::IceInternal::Incoming&);
+    void _iceD_opFloatMatrix(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual DoubleSeq1 opDoubleMatrix(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opDoubleMatrix(::IceInternal::Incoming&);
+    void _iceD_opDoubleMatrix(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual BoolSeq1 opBogusNumpyArrayType(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBogusNumpyArrayType(::IceInternal::Incoming&);
+    void _iceD_opBogusNumpyArrayType(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::shared_ptr<D> opD(::std::shared_ptr<D> d, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opD(::IceInternal::Incoming&);
+    void _iceD_opD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

@@ -573,11 +573,11 @@ public:
 
     virtual void _cpp_case(::std::int32_t _cpp_catch, ::std::int32_t& _cpp_try, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_case(::IceInternal::Incoming&);
+    void _iceD_case(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -611,11 +611,11 @@ public:
 
     virtual void _cpp_continue(::std::int32_t declare, ::std::int32_t _cpp_default, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_continue(::IceInternal::Incoming&);
+    void _iceD_continue(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -649,11 +649,11 @@ public:
 
     virtual void _cpp_do(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_do(::IceInternal::Incoming&);
+    void _iceD_do(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -687,7 +687,7 @@ public:
     static ::std::string_view ice_staticId();
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -721,11 +721,11 @@ public:
 
     virtual array foreach(::std::optional<breakPrx> _cpp_if, ::std::shared_ptr<::and::echo> global, ::std::optional<functionPrx> include, ::std::optional<diePrx> _cpp_return, ::std::optional<enddeclarePrx> list, ::std::int32_t _cpp_new, ::std::int32_t _cpp_static, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_foreach(::IceInternal::Incoming&);
+    void _iceD_foreach(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

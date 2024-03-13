@@ -341,11 +341,11 @@ public:
      */
     virtual bool checkPermissions(::std::string userId, ::std::string password, ::std::string& reason, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_checkPermissions(::IceInternal::Incoming&) const;
+    void _iceD_checkPermissions(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -393,11 +393,11 @@ public:
      */
     virtual bool authorize(SSLInfo info, ::std::string& reason, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_authorize(::IceInternal::Incoming&) const;
+    void _iceD_authorize(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

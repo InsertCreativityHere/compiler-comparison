@@ -354,31 +354,31 @@ public:
 
     virtual void sleep(::std::int32_t seconds, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_sleep(::IceInternal::Incoming&);
+    void _iceD_sleep(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void sleepAndHold(::std::int32_t seconds, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_sleepAndHold(::IceInternal::Incoming&);
+    void _iceD_sleepAndHold(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void interruptSleep(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_interruptSleep(::IceInternal::Incoming&);
+    void _iceD_interruptSleep(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void startHeartbeatCount(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_startHeartbeatCount(::IceInternal::Incoming&);
+    void _iceD_startHeartbeatCount(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void waitForHeartbeatCount(::std::int32_t count, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_waitForHeartbeatCount(::IceInternal::Incoming&);
+    void _iceD_waitForHeartbeatCount(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -412,26 +412,26 @@ public:
 
     virtual ::std::optional<TestIntfPrx> getTestIntf(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getTestIntf(::IceInternal::Incoming&);
+    void _iceD_getTestIntf(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void activate(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_activate(::IceInternal::Incoming&);
+    void _iceD_activate(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void hold(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_hold(::IceInternal::Incoming&);
+    void _iceD_hold(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void deactivate(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_deactivate(::IceInternal::Incoming&);
+    void _iceD_deactivate(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -465,16 +465,16 @@ public:
 
     virtual ::std::optional<RemoteObjectAdapterPrx> createObjectAdapter(::std::int32_t acmTimeout, ::std::int32_t close, ::std::int32_t heartbeat, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_createObjectAdapter(::IceInternal::Incoming&);
+    void _iceD_createObjectAdapter(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

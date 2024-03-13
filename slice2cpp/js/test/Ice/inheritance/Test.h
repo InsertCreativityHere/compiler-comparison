@@ -1705,11 +1705,11 @@ public:
 
     virtual ::std::optional<IAPrx> iaop(::std::optional<IAPrx> p, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_iaop(::IceInternal::Incoming&);
+    void _iceD_iaop(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -1748,11 +1748,11 @@ public:
 
     virtual ::std::optional<IB1Prx> ib1op(::std::optional<IB1Prx> p, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_ib1op(::IceInternal::Incoming&);
+    void _iceD_ib1op(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -1786,11 +1786,11 @@ public:
 
     virtual ::std::optional<IB2Prx> ib2op(::std::optional<IB2Prx> p, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_ib2op(::IceInternal::Incoming&);
+    void _iceD_ib2op(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -1830,11 +1830,11 @@ public:
 
     virtual ::std::optional<ICPrx> icop(::std::optional<ICPrx> p, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_icop(::IceInternal::Incoming&);
+    void _iceD_icop(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -1870,31 +1870,31 @@ public:
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::optional<::Test::MA::IAPrx> iaop(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_iaop(::IceInternal::Incoming&);
+    void _iceD_iaop(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::optional<::Test::MB::IB1Prx> ib1op(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_ib1op(::IceInternal::Incoming&);
+    void _iceD_ib1op(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::optional<::Test::MB::IB2Prx> ib2op(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_ib2op(::IceInternal::Incoming&);
+    void _iceD_ib2op(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::optional<::Test::MA::ICPrx> icop(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_icop(::IceInternal::Incoming&);
+    void _iceD_icop(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -1928,26 +1928,26 @@ public:
 
     virtual void setConnection(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_setConnection(::IceInternal::Incoming&);
+    void _iceD_setConnection(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void startBatch(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_startBatch(::IceInternal::Incoming&);
+    void _iceD_startBatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void flushBatch(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_flushBatch(::IceInternal::Incoming&);
+    void _iceD_flushBatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

@@ -19,7 +19,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Exception.h>
 #include <Ice/OutgoingAsync.h>
-#include <Ice/Incoming.h>
+#include <Ice/AsyncResponseHandler.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member

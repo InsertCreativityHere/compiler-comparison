@@ -16,7 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
 #include <Ice/OutgoingAsync.h>
-#include <Ice/Incoming.h>
+#include <Ice/AsyncResponseHandler.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -54,7 +54,7 @@ Test::MyObjectPrx::addAsync(::std::int32_t iceP_x, ::std::int32_t iceP_y, const 
 ::std::function<void()>
 Test::MyObjectPrx::addAsync(::std::int32_t iceP_x, ::std::int32_t iceP_y, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_add, iceP_x, iceP_y, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MyObjectPrx::_iceI_add, iceP_x, iceP_y, context);
 }
 
 void
@@ -86,7 +86,7 @@ Test::MyObjectPrx::addWithRetryAsync(::std::int32_t iceP_x, ::std::int32_t iceP_
 ::std::function<void()>
 Test::MyObjectPrx::addWithRetryAsync(::std::int32_t iceP_x, ::std::int32_t iceP_y, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_addWithRetry, iceP_x, iceP_y, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MyObjectPrx::_iceI_addWithRetry, iceP_x, iceP_y, context);
 }
 
 void
@@ -118,7 +118,7 @@ Test::MyObjectPrx::badAddAsync(::std::int32_t iceP_x, ::std::int32_t iceP_y, con
 ::std::function<void()>
 Test::MyObjectPrx::badAddAsync(::std::int32_t iceP_x, ::std::int32_t iceP_y, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_badAdd, iceP_x, iceP_y, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MyObjectPrx::_iceI_badAdd, iceP_x, iceP_y, context);
 }
 
 void
@@ -163,7 +163,7 @@ Test::MyObjectPrx::notExistAddAsync(::std::int32_t iceP_x, ::std::int32_t iceP_y
 ::std::function<void()>
 Test::MyObjectPrx::notExistAddAsync(::std::int32_t iceP_x, ::std::int32_t iceP_y, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_notExistAdd, iceP_x, iceP_y, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MyObjectPrx::_iceI_notExistAdd, iceP_x, iceP_y, context);
 }
 
 void
@@ -195,7 +195,7 @@ Test::MyObjectPrx::badSystemAddAsync(::std::int32_t iceP_x, ::std::int32_t iceP_
 ::std::function<void()>
 Test::MyObjectPrx::badSystemAddAsync(::std::int32_t iceP_x, ::std::int32_t iceP_y, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_badSystemAdd, iceP_x, iceP_y, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MyObjectPrx::_iceI_badSystemAdd, iceP_x, iceP_y, context);
 }
 
 void
@@ -227,7 +227,7 @@ Test::MyObjectPrx::amdAddAsync(::std::int32_t iceP_x, ::std::int32_t iceP_y, con
 ::std::function<void()>
 Test::MyObjectPrx::amdAddAsync(::std::int32_t iceP_x, ::std::int32_t iceP_y, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_amdAdd, iceP_x, iceP_y, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MyObjectPrx::_iceI_amdAdd, iceP_x, iceP_y, context);
 }
 
 void
@@ -259,7 +259,7 @@ Test::MyObjectPrx::amdAddWithRetryAsync(::std::int32_t iceP_x, ::std::int32_t ic
 ::std::function<void()>
 Test::MyObjectPrx::amdAddWithRetryAsync(::std::int32_t iceP_x, ::std::int32_t iceP_y, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_amdAddWithRetry, iceP_x, iceP_y, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MyObjectPrx::_iceI_amdAddWithRetry, iceP_x, iceP_y, context);
 }
 
 void
@@ -291,7 +291,7 @@ Test::MyObjectPrx::amdBadAddAsync(::std::int32_t iceP_x, ::std::int32_t iceP_y, 
 ::std::function<void()>
 Test::MyObjectPrx::amdBadAddAsync(::std::int32_t iceP_x, ::std::int32_t iceP_y, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_amdBadAdd, iceP_x, iceP_y, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MyObjectPrx::_iceI_amdBadAdd, iceP_x, iceP_y, context);
 }
 
 void
@@ -336,7 +336,7 @@ Test::MyObjectPrx::amdNotExistAddAsync(::std::int32_t iceP_x, ::std::int32_t ice
 ::std::function<void()>
 Test::MyObjectPrx::amdNotExistAddAsync(::std::int32_t iceP_x, ::std::int32_t iceP_y, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_amdNotExistAdd, iceP_x, iceP_y, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MyObjectPrx::_iceI_amdNotExistAdd, iceP_x, iceP_y, context);
 }
 
 void
@@ -368,7 +368,7 @@ Test::MyObjectPrx::amdBadSystemAddAsync(::std::int32_t iceP_x, ::std::int32_t ic
 ::std::function<void()>
 Test::MyObjectPrx::amdBadSystemAddAsync(::std::int32_t iceP_x, ::std::int32_t iceP_y, ::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyObjectPrx::_iceI_amdBadSystemAdd, iceP_x, iceP_y, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MyObjectPrx::_iceI_amdBadSystemAdd, iceP_x, iceP_y, context);
 }
 
 void
@@ -424,320 +424,350 @@ Test::MyObject::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-Test::MyObject::_iceD_add(::IceInternal::Incoming& incoming)
+void
+Test::MyObject::_iceD_add(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::int32_t iceP_x;
     ::std::int32_t iceP_y;
     istr->readAll(iceP_x, iceP_y);
-    incoming.endReadParams();
-    ::std::int32_t ret = this->add(iceP_x, iceP_y, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    ::std::int32_t ret = this->add(iceP_x, iceP_y, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::MyObject::_iceD_addWithRetry(::IceInternal::Incoming& incoming)
+void
+Test::MyObject::_iceD_addWithRetry(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::int32_t iceP_x;
     ::std::int32_t iceP_y;
     istr->readAll(iceP_x, iceP_y);
-    incoming.endReadParams();
-    ::std::int32_t ret = this->addWithRetry(iceP_x, iceP_y, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    ::std::int32_t ret = this->addWithRetry(iceP_x, iceP_y, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::MyObject::_iceD_badAdd(::IceInternal::Incoming& incoming)
+void
+Test::MyObject::_iceD_badAdd(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::int32_t iceP_x;
     ::std::int32_t iceP_y;
     istr->readAll(iceP_x, iceP_y);
-    incoming.endReadParams();
-    ::std::int32_t ret = this->badAdd(iceP_x, iceP_y, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    ::std::int32_t ret = this->badAdd(iceP_x, iceP_y, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::MyObject::_iceD_notExistAdd(::IceInternal::Incoming& incoming)
+void
+Test::MyObject::_iceD_notExistAdd(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::int32_t iceP_x;
     ::std::int32_t iceP_y;
     istr->readAll(iceP_x, iceP_y);
-    incoming.endReadParams();
-    ::std::int32_t ret = this->notExistAdd(iceP_x, iceP_y, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    ::std::int32_t ret = this->notExistAdd(iceP_x, iceP_y, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::MyObject::_iceD_badSystemAdd(::IceInternal::Incoming& incoming)
+void
+Test::MyObject::_iceD_badSystemAdd(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::int32_t iceP_x;
     ::std::int32_t iceP_y;
     istr->readAll(iceP_x, iceP_y);
-    incoming.endReadParams();
-    ::std::int32_t ret = this->badSystemAdd(iceP_x, iceP_y, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    ::std::int32_t ret = this->badSystemAdd(iceP_x, iceP_y, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::MyObject::_iceD_amdAdd(::IceInternal::Incoming& incoming)
+void
+Test::MyObject::_iceD_amdAdd(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::int32_t iceP_x;
     ::std::int32_t iceP_y;
     istr->readAll(iceP_x, iceP_y);
-    incoming.endReadParams();
-    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
-    auto responseCB = [incomingPtr](::std::int32_t ret)
+    istr->endEncapsulation();
+    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
+    auto responseCb = [responseHandler](::std::int32_t ret)
     {
-        auto ostr = incomingPtr->startWriteParams();
-        ostr->writeAll(ret);
-        incomingPtr->endWriteParams();
-        incomingPtr->completed();
+        responseHandler->sendResponse(
+            [&](::Ice::OutputStream* ostr)
+            {
+                ostr->writeAll(ret);
+            });
     };
     try
     {
-        this->amdAddAsync(iceP_x, iceP_y, responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+        this->amdAddAsync(iceP_x, iceP_y, ::std::move(responseCb), [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
     }
     catch (...)
     {
-        incomingPtr->failed(::std::current_exception());
+        responseHandler->sendException(::std::current_exception());
     }
-    return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::MyObject::_iceD_amdAddWithRetry(::IceInternal::Incoming& incoming)
+void
+Test::MyObject::_iceD_amdAddWithRetry(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::int32_t iceP_x;
     ::std::int32_t iceP_y;
     istr->readAll(iceP_x, iceP_y);
-    incoming.endReadParams();
-    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
-    auto responseCB = [incomingPtr](::std::int32_t ret)
+    istr->endEncapsulation();
+    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
+    auto responseCb = [responseHandler](::std::int32_t ret)
     {
-        auto ostr = incomingPtr->startWriteParams();
-        ostr->writeAll(ret);
-        incomingPtr->endWriteParams();
-        incomingPtr->completed();
+        responseHandler->sendResponse(
+            [&](::Ice::OutputStream* ostr)
+            {
+                ostr->writeAll(ret);
+            });
     };
     try
     {
-        this->amdAddWithRetryAsync(iceP_x, iceP_y, responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+        this->amdAddWithRetryAsync(iceP_x, iceP_y, ::std::move(responseCb), [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
     }
     catch (...)
     {
-        incomingPtr->failed(::std::current_exception());
+        responseHandler->sendException(::std::current_exception());
     }
-    return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::MyObject::_iceD_amdBadAdd(::IceInternal::Incoming& incoming)
+void
+Test::MyObject::_iceD_amdBadAdd(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::int32_t iceP_x;
     ::std::int32_t iceP_y;
     istr->readAll(iceP_x, iceP_y);
-    incoming.endReadParams();
-    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
-    auto responseCB = [incomingPtr](::std::int32_t ret)
+    istr->endEncapsulation();
+    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
+    auto responseCb = [responseHandler](::std::int32_t ret)
     {
-        auto ostr = incomingPtr->startWriteParams();
-        ostr->writeAll(ret);
-        incomingPtr->endWriteParams();
-        incomingPtr->completed();
+        responseHandler->sendResponse(
+            [&](::Ice::OutputStream* ostr)
+            {
+                ostr->writeAll(ret);
+            });
     };
     try
     {
-        this->amdBadAddAsync(iceP_x, iceP_y, responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+        this->amdBadAddAsync(iceP_x, iceP_y, ::std::move(responseCb), [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
     }
     catch (...)
     {
-        incomingPtr->failed(::std::current_exception());
+        responseHandler->sendException(::std::current_exception());
     }
-    return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::MyObject::_iceD_amdNotExistAdd(::IceInternal::Incoming& incoming)
+void
+Test::MyObject::_iceD_amdNotExistAdd(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::int32_t iceP_x;
     ::std::int32_t iceP_y;
     istr->readAll(iceP_x, iceP_y);
-    incoming.endReadParams();
-    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
-    auto responseCB = [incomingPtr](::std::int32_t ret)
+    istr->endEncapsulation();
+    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
+    auto responseCb = [responseHandler](::std::int32_t ret)
     {
-        auto ostr = incomingPtr->startWriteParams();
-        ostr->writeAll(ret);
-        incomingPtr->endWriteParams();
-        incomingPtr->completed();
+        responseHandler->sendResponse(
+            [&](::Ice::OutputStream* ostr)
+            {
+                ostr->writeAll(ret);
+            });
     };
     try
     {
-        this->amdNotExistAddAsync(iceP_x, iceP_y, responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+        this->amdNotExistAddAsync(iceP_x, iceP_y, ::std::move(responseCb), [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
     }
     catch (...)
     {
-        incomingPtr->failed(::std::current_exception());
+        responseHandler->sendException(::std::current_exception());
     }
-    return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::MyObject::_iceD_amdBadSystemAdd(::IceInternal::Incoming& incoming)
+void
+Test::MyObject::_iceD_amdBadSystemAdd(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::int32_t iceP_x;
     ::std::int32_t iceP_y;
     istr->readAll(iceP_x, iceP_y);
-    incoming.endReadParams();
-    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
-    auto responseCB = [incomingPtr](::std::int32_t ret)
+    istr->endEncapsulation();
+    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
+    auto responseCb = [responseHandler](::std::int32_t ret)
     {
-        auto ostr = incomingPtr->startWriteParams();
-        ostr->writeAll(ret);
-        incomingPtr->endWriteParams();
-        incomingPtr->completed();
+        responseHandler->sendResponse(
+            [&](::Ice::OutputStream* ostr)
+            {
+                ostr->writeAll(ret);
+            });
     };
     try
     {
-        this->amdBadSystemAddAsync(iceP_x, iceP_y, responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+        this->amdBadSystemAddAsync(iceP_x, iceP_y, ::std::move(responseCb), [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
     }
     catch (...)
     {
-        incomingPtr->failed(::std::current_exception());
+        responseHandler->sendException(::std::current_exception());
     }
-    return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::MyObject::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+Test::MyObject::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"add", "addWithRetry", "amdAdd", "amdAddWithRetry", "amdBadAdd", "amdBadSystemAdd", "amdNotExistAdd", "badAdd", "badSystemAdd", "ice_id", "ice_ids", "ice_isA", "ice_ping", "notExistAdd"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 14, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_add(incoming);
+            _iceD_add(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_addWithRetry(incoming);
+            _iceD_addWithRetry(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_amdAdd(incoming);
+            _iceD_amdAdd(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_amdAddWithRetry(incoming);
+            _iceD_amdAddWithRetry(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_amdBadAdd(incoming);
+            _iceD_amdBadAdd(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_amdBadSystemAdd(incoming);
+            _iceD_amdBadSystemAdd(request, ::std::move(sendResponse));
+            break;
         }
         case 6:
         {
-            return _iceD_amdNotExistAdd(incoming);
+            _iceD_amdNotExistAdd(request, ::std::move(sendResponse));
+            break;
         }
         case 7:
         {
-            return _iceD_badAdd(incoming);
+            _iceD_badAdd(request, ::std::move(sendResponse));
+            break;
         }
         case 8:
         {
-            return _iceD_badSystemAdd(incoming);
+            _iceD_badSystemAdd(request, ::std::move(sendResponse));
+            break;
         }
         case 9:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 10:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 11:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 12:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         case 13:
         {
-            return _iceD_notExistAdd(incoming);
+            _iceD_notExistAdd(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }

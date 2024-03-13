@@ -16,7 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
 #include <Ice/OutgoingAsync.h>
-#include <Ice/Incoming.h>
+#include <Ice/AsyncResponseHandler.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -56,7 +56,7 @@ Test::TestIntfPrx::requestFailedExceptionAsync(const ::Ice::Context& context) co
 ::std::function<void()>
 Test::TestIntfPrx::requestFailedExceptionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_requestFailedException, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_requestFailedException, context);
 }
 
 void
@@ -84,7 +84,7 @@ Test::TestIntfPrx::unknownUserExceptionAsync(const ::Ice::Context& context) cons
 ::std::function<void()>
 Test::TestIntfPrx::unknownUserExceptionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownUserException, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownUserException, context);
 }
 
 void
@@ -112,7 +112,7 @@ Test::TestIntfPrx::unknownLocalExceptionAsync(const ::Ice::Context& context) con
 ::std::function<void()>
 Test::TestIntfPrx::unknownLocalExceptionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownLocalException, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownLocalException, context);
 }
 
 void
@@ -140,7 +140,7 @@ Test::TestIntfPrx::unknownExceptionAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::TestIntfPrx::unknownExceptionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownException, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownException, context);
 }
 
 void
@@ -168,7 +168,7 @@ Test::TestIntfPrx::localExceptionAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::TestIntfPrx::localExceptionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_localException, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_localException, context);
 }
 
 void
@@ -196,7 +196,7 @@ Test::TestIntfPrx::javaExceptionAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::TestIntfPrx::javaExceptionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_javaException, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_javaException, context);
 }
 
 void
@@ -224,7 +224,7 @@ Test::TestIntfPrx::unknownExceptionWithServantExceptionAsync(const ::Ice::Contex
 ::std::function<void()>
 Test::TestIntfPrx::unknownExceptionWithServantExceptionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownExceptionWithServantException, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownExceptionWithServantException, context);
 }
 
 void
@@ -252,7 +252,7 @@ Test::TestIntfPrx::impossibleExceptionAsync(bool iceP_throw, const ::Ice::Contex
 ::std::function<void()>
 Test::TestIntfPrx::impossibleExceptionAsync(bool iceP_throw, ::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_impossibleException, iceP_throw, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::string>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_impossibleException, iceP_throw, context);
 }
 
 void
@@ -297,7 +297,7 @@ Test::TestIntfPrx::intfUserExceptionAsync(bool iceP_throw, const ::Ice::Context&
 ::std::function<void()>
 Test::TestIntfPrx::intfUserExceptionAsync(bool iceP_throw, ::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_intfUserException, iceP_throw, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::string>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_intfUserException, iceP_throw, context);
 }
 
 void
@@ -346,7 +346,7 @@ Test::TestIntfPrx::asyncResponseAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::TestIntfPrx::asyncResponseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_asyncResponse, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_asyncResponse, context);
 }
 
 void
@@ -392,7 +392,7 @@ Test::TestIntfPrx::asyncExceptionAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::TestIntfPrx::asyncExceptionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_asyncException, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_asyncException, context);
 }
 
 void
@@ -438,7 +438,7 @@ Test::TestIntfPrx::shutdownAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::TestIntfPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
 }
 
 void
@@ -473,7 +473,7 @@ Test::TestActivationPrx::activateServantLocatorAsync(bool iceP_activate, const :
 ::std::function<void()>
 Test::TestActivationPrx::activateServantLocatorAsync(bool iceP_activate, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestActivationPrx::_iceI_activateServantLocator, iceP_activate, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestActivationPrx::_iceI_activateServantLocator, iceP_activate, context);
 }
 
 void
@@ -539,242 +539,253 @@ Test::TestIntf::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_requestFailedException(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_requestFailedException(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->requestFailedException(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->requestFailedException(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_unknownUserException(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_unknownUserException(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->unknownUserException(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->unknownUserException(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_unknownLocalException(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_unknownLocalException(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->unknownLocalException(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->unknownLocalException(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_unknownException(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_unknownException(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->unknownException(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->unknownException(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_localException(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_localException(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->localException(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->localException(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_javaException(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_javaException(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->javaException(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->javaException(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_unknownExceptionWithServantException(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_unknownExceptionWithServantException(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->unknownExceptionWithServantException(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->unknownExceptionWithServantException(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_impossibleException(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_impossibleException(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     bool iceP_throw;
     istr->readAll(iceP_throw);
-    incoming.endReadParams();
-    ::std::string ret = this->impossibleException(iceP_throw, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    ::std::string ret = this->impossibleException(iceP_throw, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_intfUserException(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_intfUserException(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     bool iceP_throw;
     istr->readAll(iceP_throw);
-    incoming.endReadParams();
-    ::std::string ret = this->intfUserException(iceP_throw, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    ::std::string ret = this->intfUserException(iceP_throw, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_asyncResponse(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_asyncResponse(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->asyncResponse(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->asyncResponse(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_asyncException(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_asyncException(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->asyncException(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->asyncException(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_shutdown(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->shutdown(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->shutdown(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"asyncException", "asyncResponse", "ice_id", "ice_ids", "ice_isA", "ice_ping", "impossibleException", "intfUserException", "javaException", "localException", "requestFailedException", "shutdown", "unknownException", "unknownExceptionWithServantException", "unknownLocalException", "unknownUserException"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 16, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_asyncException(incoming);
+            _iceD_asyncException(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_asyncResponse(incoming);
+            _iceD_asyncResponse(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         case 6:
         {
-            return _iceD_impossibleException(incoming);
+            _iceD_impossibleException(request, ::std::move(sendResponse));
+            break;
         }
         case 7:
         {
-            return _iceD_intfUserException(incoming);
+            _iceD_intfUserException(request, ::std::move(sendResponse));
+            break;
         }
         case 8:
         {
-            return _iceD_javaException(incoming);
+            _iceD_javaException(request, ::std::move(sendResponse));
+            break;
         }
         case 9:
         {
-            return _iceD_localException(incoming);
+            _iceD_localException(request, ::std::move(sendResponse));
+            break;
         }
         case 10:
         {
-            return _iceD_requestFailedException(incoming);
+            _iceD_requestFailedException(request, ::std::move(sendResponse));
+            break;
         }
         case 11:
         {
-            return _iceD_shutdown(incoming);
+            _iceD_shutdown(request, ::std::move(sendResponse));
+            break;
         }
         case 12:
         {
-            return _iceD_unknownException(incoming);
+            _iceD_unknownException(request, ::std::move(sendResponse));
+            break;
         }
         case 13:
         {
-            return _iceD_unknownExceptionWithServantException(incoming);
+            _iceD_unknownExceptionWithServantException(request, ::std::move(sendResponse));
+            break;
         }
         case 14:
         {
-            return _iceD_unknownLocalException(incoming);
+            _iceD_unknownLocalException(request, ::std::move(sendResponse));
+            break;
         }
         case 15:
         {
-            return _iceD_unknownUserException(incoming);
+            _iceD_unknownUserException(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }
@@ -801,59 +812,65 @@ Test::TestActivation::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-Test::TestActivation::_iceD_activateServantLocator(::IceInternal::Incoming& incoming)
+void
+Test::TestActivation::_iceD_activateServantLocator(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     bool iceP_activate;
     istr->readAll(iceP_activate);
-    incoming.endReadParams();
-    this->activateServantLocator(iceP_activate, incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->activateServantLocator(iceP_activate, request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestActivation::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+Test::TestActivation::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"activateServantLocator", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_activateServantLocator(incoming);
+            _iceD_activateServantLocator(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }

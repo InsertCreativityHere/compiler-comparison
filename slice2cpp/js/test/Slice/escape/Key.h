@@ -862,11 +862,11 @@ public:
 
     virtual void catchAsync(::std::int32_t checked, ::std::function<void(::std::int32_t _cpp_continue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_catch(::IceInternal::Incoming&);
+    void _iceD_catch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -900,11 +900,11 @@ public:
 
     virtual void _cpp_default(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_default(::IceInternal::Incoming&);
+    void _iceD_default(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -938,7 +938,7 @@ public:
     static ::std::string_view ice_staticId();
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -972,26 +972,26 @@ public:
 
     virtual ::std::optional<_cpp_break> _cpp_for(::std::optional<var> _cpp_goto, ::std::optional<explicitPrx> _cpp_if, ::std::optional<_cpp_while> internal, ::std::optional<::std::string> _cpp_namespace, ::std::optional<explicitPrx> null, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_for(::IceInternal::Incoming&);
+    void _iceD_for(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void continueAsync(::std::optional<var> _cpp_goto, ::std::optional<explicitPrx> _cpp_if, ::std::optional<_cpp_while> internal, ::std::optional<::std::string> _cpp_namespace, ::std::optional<explicitPrx> null, ::std::function<void(const ::std::optional<_cpp_break>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_continue(::IceInternal::Incoming&);
+    void _iceD_continue(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::optional<_cpp_break> in(::std::optional<var>& _cpp_goto, ::std::optional<explicitPrx>& _cpp_if, ::std::optional<_cpp_while>& internal, ::std::optional<::std::string>& _cpp_namespace, ::std::optional<explicitPrx>& null, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_in(::IceInternal::Incoming&);
+    void _iceD_in(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void foreachAsync(::std::function<void(const ::std::optional<_cpp_break>& returnValue, ::std::optional<var> _cpp_goto, const ::std::optional<explicitPrx>& _cpp_if, const ::std::optional<_cpp_while>& internal, ::std::optional<::std::string_view> _cpp_namespace, const ::std::optional<explicitPrx>& null)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_foreach(::IceInternal::Incoming&);
+    void _iceD_foreach(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -1025,11 +1025,11 @@ public:
 
     virtual var in(_cpp_break internal, ::std::shared_ptr<delete> is, ::std::optional<explicitPrx> lock, ::std::optional<casePrx> _cpp_namespace, ::std::optional<typeofPrx> _cpp_new, ::std::shared_ptr<delete> null, ::std::optional<explicitPrx> _cpp_operator, ::std::int32_t override, ::std::int32_t params, ::std::int32_t _cpp_private, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_in(::IceInternal::Incoming&);
+    void _iceD_in(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -1066,11 +1066,11 @@ public:
 
     virtual void op(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_op(::IceInternal::Incoming&);
+    void _iceD_op(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -1111,11 +1111,11 @@ public:
 
     virtual void op(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_op(::IceInternal::Incoming&);
+    void _iceD_op(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

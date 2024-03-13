@@ -178,31 +178,31 @@ public:
 
     virtual void op(bool kill, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_op(::IceInternal::Incoming&);
+    void _iceD_op(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::int32_t opIdempotent(::std::int32_t c, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opIdempotent(::IceInternal::Incoming&);
+    void _iceD_opIdempotent(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opNotIdempotent(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opNotIdempotent(::IceInternal::Incoming&);
+    void _iceD_opNotIdempotent(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opSystemException(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSystemException(::IceInternal::Incoming&);
+    void _iceD_opSystemException(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

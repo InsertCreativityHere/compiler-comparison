@@ -748,106 +748,106 @@ public:
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual bool supportsUndeclaredExceptions(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_supportsUndeclaredExceptions(::IceInternal::Incoming&);
+    void _iceD_supportsUndeclaredExceptions(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual bool supportsAssertException(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_supportsAssertException(::IceInternal::Incoming&);
+    void _iceD_supportsAssertException(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void throwAasA(::std::int32_t a, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwAasA(::IceInternal::Incoming&);
+    void _iceD_throwAasA(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void throwAorDasAorD(::std::int32_t a, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwAorDasAorD(::IceInternal::Incoming&);
+    void _iceD_throwAorDasAorD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void throwBasA(::std::int32_t a, ::std::int32_t b, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwBasA(::IceInternal::Incoming&);
+    void _iceD_throwBasA(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void throwCasA(::std::int32_t a, ::std::int32_t b, ::std::int32_t c, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwCasA(::IceInternal::Incoming&);
+    void _iceD_throwCasA(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void throwBasB(::std::int32_t a, ::std::int32_t b, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwBasB(::IceInternal::Incoming&);
+    void _iceD_throwBasB(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void throwCasB(::std::int32_t a, ::std::int32_t b, ::std::int32_t c, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwCasB(::IceInternal::Incoming&);
+    void _iceD_throwCasB(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void throwCasC(::std::int32_t a, ::std::int32_t b, ::std::int32_t c, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwCasC(::IceInternal::Incoming&);
+    void _iceD_throwCasC(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void throwUndeclaredA(::std::int32_t a, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwUndeclaredA(::IceInternal::Incoming&);
+    void _iceD_throwUndeclaredA(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void throwUndeclaredB(::std::int32_t a, ::std::int32_t b, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwUndeclaredB(::IceInternal::Incoming&);
+    void _iceD_throwUndeclaredB(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void throwUndeclaredC(::std::int32_t a, ::std::int32_t b, ::std::int32_t c, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwUndeclaredC(::IceInternal::Incoming&);
+    void _iceD_throwUndeclaredC(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void throwLocalException(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwLocalException(::IceInternal::Incoming&);
+    void _iceD_throwLocalException(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void throwNonIceException(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwNonIceException(::IceInternal::Incoming&);
+    void _iceD_throwNonIceException(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void throwAssertException(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwAssertException(::IceInternal::Incoming&);
+    void _iceD_throwAssertException(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::Ice::ByteSeq throwMemoryLimitException(::Ice::ByteSeq seq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwMemoryLimitException(::IceInternal::Incoming&);
+    void _iceD_throwMemoryLimitException(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void throwLocalExceptionIdempotent(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwLocalExceptionIdempotent(::IceInternal::Incoming&);
+    void _iceD_throwLocalExceptionIdempotent(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void throwAfterResponse(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwAfterResponse(::IceInternal::Incoming&);
+    void _iceD_throwAfterResponse(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void throwAfterException(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwAfterException(::IceInternal::Incoming&);
+    void _iceD_throwAfterException(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -881,11 +881,11 @@ public:
 
     virtual void noSuchOperation(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_noSuchOperation(::IceInternal::Incoming&);
+    void _iceD_noSuchOperation(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -919,26 +919,26 @@ public:
 
     virtual void setConnection(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_setConnection(::IceInternal::Incoming&);
+    void _iceD_setConnection(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void startBatch(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_startBatch(::IceInternal::Incoming&);
+    void _iceD_startBatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void flushBatch(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_flushBatch(::IceInternal::Incoming&);
+    void _iceD_flushBatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

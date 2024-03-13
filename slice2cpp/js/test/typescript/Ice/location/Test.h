@@ -461,11 +461,11 @@ public:
 
     virtual void addObject(::std::optional<::Ice::ObjectPrx> obj, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_addObject(::IceInternal::Incoming&);
+    void _iceD_addObject(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -499,11 +499,11 @@ public:
 
     virtual ::std::int32_t getRequestCount(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getRequestCount(::IceInternal::Incoming&);
+    void _iceD_getRequestCount(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -537,16 +537,16 @@ public:
 
     virtual void startServer(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_startServer(::IceInternal::Incoming&);
+    void _iceD_startServer(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -580,11 +580,11 @@ public:
 
     virtual void sayHello(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_sayHello(::IceInternal::Incoming&);
+    void _iceD_sayHello(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -618,26 +618,26 @@ public:
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::optional<HelloPrx> getHello(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getHello(::IceInternal::Incoming&);
+    void _iceD_getHello(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::optional<HelloPrx> getReplicatedHello(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getReplicatedHello(::IceInternal::Incoming&);
+    void _iceD_getReplicatedHello(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void migrateHello(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_migrateHello(::IceInternal::Incoming&);
+    void _iceD_migrateHello(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

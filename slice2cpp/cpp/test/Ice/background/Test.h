@@ -343,21 +343,21 @@ public:
 
     virtual void op(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_op(::IceInternal::Incoming&);
+    void _iceD_op(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opWithPayload(::Ice::ByteSeq seq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opWithPayload(::IceInternal::Incoming&);
+    void _iceD_opWithPayload(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -391,61 +391,61 @@ public:
 
     virtual void pauseCall(::std::string call, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_pauseCall(::IceInternal::Incoming&);
+    void _iceD_pauseCall(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void resumeCall(::std::string call, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_resumeCall(::IceInternal::Incoming&);
+    void _iceD_resumeCall(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void holdAdapter(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_holdAdapter(::IceInternal::Incoming&);
+    void _iceD_holdAdapter(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void resumeAdapter(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_resumeAdapter(::IceInternal::Incoming&);
+    void _iceD_resumeAdapter(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void initializeSocketOperation(::std::int32_t status, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_initializeSocketOperation(::IceInternal::Incoming&);
+    void _iceD_initializeSocketOperation(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void initializeException(bool enable, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_initializeException(::IceInternal::Incoming&);
+    void _iceD_initializeException(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void readReady(bool enable, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_readReady(::IceInternal::Incoming&);
+    void _iceD_readReady(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void readException(bool enable, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_readException(::IceInternal::Incoming&);
+    void _iceD_readException(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void writeReady(bool enable, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_writeReady(::IceInternal::Incoming&);
+    void _iceD_writeReady(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void writeException(bool enable, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_writeException(::IceInternal::Incoming&);
+    void _iceD_writeException(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void buffered(bool enable, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_buffered(::IceInternal::Incoming&);
+    void _iceD_buffered(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

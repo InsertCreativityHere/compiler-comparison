@@ -16,7 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <IceLocatorDiscovery.h>
 #include <Ice/OutgoingAsync.h>
-#include <Ice/Incoming.h>
+#include <Ice/AsyncResponseHandler.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -52,7 +52,7 @@ IceLocatorDiscovery::LookupReplyPrx::foundLocatorAsync(const ::std::optional<::I
 ::std::function<void()>
 IceLocatorDiscovery::LookupReplyPrx::foundLocatorAsync(const ::std::optional<::Ice::LocatorPrx>& iceP_prx, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceLocatorDiscovery::LookupReplyPrx::_iceI_foundLocator, iceP_prx, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceLocatorDiscovery::LookupReplyPrx::_iceI_foundLocator, iceP_prx, context);
 }
 
 void
@@ -90,7 +90,7 @@ IceLocatorDiscovery::LookupPrx::findLocatorAsync(::std::string_view iceP_instanc
 ::std::function<void()>
 IceLocatorDiscovery::LookupPrx::findLocatorAsync(::std::string_view iceP_instanceName, const ::std::optional<LookupReplyPrx>& iceP_reply, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceLocatorDiscovery::LookupPrx::_iceI_findLocator, iceP_instanceName, iceP_reply, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceLocatorDiscovery::LookupPrx::_iceI_findLocator, iceP_instanceName, iceP_reply, context);
 }
 
 void
@@ -134,59 +134,65 @@ IceLocatorDiscovery::LookupReply::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-IceLocatorDiscovery::LookupReply::_iceD_foundLocator(::IceInternal::Incoming& incoming)
+void
+IceLocatorDiscovery::LookupReply::_iceD_foundLocator(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::optional<::Ice::LocatorPrx> iceP_prx;
     istr->readAll(iceP_prx);
-    incoming.endReadParams();
-    this->foundLocator(::std::move(iceP_prx), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->foundLocator(::std::move(iceP_prx), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceLocatorDiscovery::LookupReply::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+IceLocatorDiscovery::LookupReply::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"foundLocator", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_foundLocator(incoming);
+            _iceD_foundLocator(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }
@@ -213,60 +219,66 @@ IceLocatorDiscovery::Lookup::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-IceLocatorDiscovery::Lookup::_iceD_findLocator(::IceInternal::Incoming& incoming)
+void
+IceLocatorDiscovery::Lookup::_iceD_findLocator(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_instanceName;
     ::std::optional<LookupReplyPrx> iceP_reply;
     istr->readAll(iceP_instanceName, iceP_reply);
-    incoming.endReadParams();
-    this->findLocator(::std::move(iceP_instanceName), ::std::move(iceP_reply), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->findLocator(::std::move(iceP_instanceName), ::std::move(iceP_reply), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceLocatorDiscovery::Lookup::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+IceLocatorDiscovery::Lookup::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"findLocator", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_findLocator(incoming);
+            _iceD_findLocator(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }

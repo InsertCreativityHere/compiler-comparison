@@ -398,66 +398,66 @@ public:
 
     virtual void context(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_context(::IceInternal::Incoming&);
+    void _iceD_context(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void current(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_current(::IceInternal::Incoming&);
+    void _iceD_current(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void response(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_response(::IceInternal::Incoming&);
+    void _iceD_response(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void upCast(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_upCast(::IceInternal::Incoming&);
+    void _iceD_upCast(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void typeId(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_typeId(::IceInternal::Incoming&);
+    void _iceD_typeId(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void del(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_del(::IceInternal::Incoming&);
+    void _iceD_del(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void cookie(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_cookie(::IceInternal::Incoming&);
+    void _iceD_cookie(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void sync(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_sync(::IceInternal::Incoming&);
+    void _iceD_sync(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void inS(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_inS(::IceInternal::Incoming&);
+    void _iceD_inS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void istr(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_istr(::IceInternal::Incoming&);
+    void _iceD_istr(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void op(::std::string context, ::std::string current, ::std::string response, ::std::string ex, ::std::string sent, ::std::string cookie, ::std::string sync, ::std::string result, ::std::string istr, ::std::string ostr, ::std::optional<::std::string> proxy, const ::Ice::Current& current_) = 0;
     /// \cond INTERNAL
-    bool _iceD_op(::IceInternal::Incoming&);
+    void _iceD_op(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opOut(::std::string& context, ::std::string& current, ::std::string& response, ::std::string& ex, ::std::string& sent, ::std::string& cookie, ::std::string& sync, ::std::string& result, ::std::string& istr, ::std::string& ostr, ::std::optional<::std::string>& proxy, const ::Ice::Current& current_) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOut(::IceInternal::Incoming&);
+    void _iceD_opOut(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

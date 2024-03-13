@@ -711,221 +711,221 @@ public:
 
     virtual CSeq opCSeq(CSeq inSeq, CSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opCSeq(::IceInternal::Incoming&);
+    void _iceD_opCSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual CArray opCArray(CArray inSeq, CArray& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opCArray(::IceInternal::Incoming&);
+    void _iceD_opCArray(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual CList opCList(CList inSeq, CList& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opCList(::IceInternal::Incoming&);
+    void _iceD_opCList(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual BoolSeq opBoolSeq(BoolSeq inSeq, BoolSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBoolSeq(::IceInternal::Incoming&);
+    void _iceD_opBoolSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ByteSeq opByteSeq(ByteSeq inSeq, ByteSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteSeq(::IceInternal::Incoming&);
+    void _iceD_opByteSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ShortSeq opShortSeq(ShortSeq inSeq, ShortSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opShortSeq(::IceInternal::Incoming&);
+    void _iceD_opShortSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual IntSeq opIntSeq(IntSeq inSeq, IntSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opIntSeq(::IceInternal::Incoming&);
+    void _iceD_opIntSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual LongSeq opLongSeq(LongSeq inSeq, LongSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLongSeq(::IceInternal::Incoming&);
+    void _iceD_opLongSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual FloatSeq opFloatSeq(FloatSeq inSeq, FloatSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opFloatSeq(::IceInternal::Incoming&);
+    void _iceD_opFloatSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual DoubleSeq opDoubleSeq(DoubleSeq inSeq, DoubleSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opDoubleSeq(::IceInternal::Incoming&);
+    void _iceD_opDoubleSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual StringSeq opStringSeq(StringSeq inSeq, StringSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringSeq(::IceInternal::Incoming&);
+    void _iceD_opStringSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ESeq opESeq(ESeq inSeq, ESeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opESeq(::IceInternal::Incoming&);
+    void _iceD_opESeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual SSeq opSSeq(SSeq inSeq, SSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSSeq(::IceInternal::Incoming&);
+    void _iceD_opSSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual DSeq opDSeq(DSeq inSeq, DSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opDSeq(::IceInternal::Incoming&);
+    void _iceD_opDSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual StringSeqSeq opStringSeqSeq(StringSeqSeq inSeq, StringSeqSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringSeqSeq(::IceInternal::Incoming&);
+    void _iceD_opStringSeqSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ByteBuffer opByteBufferSeq(ByteBuffer inSeq, ByteBuffer& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteBufferSeq(::IceInternal::Incoming&);
+    void _iceD_opByteBufferSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ShortBuffer opShortBufferSeq(ShortBuffer inSeq, ShortBuffer& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opShortBufferSeq(::IceInternal::Incoming&);
+    void _iceD_opShortBufferSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual IntBuffer opIntBufferSeq(IntBuffer inSeq, IntBuffer& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opIntBufferSeq(::IceInternal::Incoming&);
+    void _iceD_opIntBufferSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual LongBuffer opLongBufferSeq(LongBuffer inSeq, LongBuffer& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLongBufferSeq(::IceInternal::Incoming&);
+    void _iceD_opLongBufferSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual FloatBuffer opFloatBufferSeq(FloatBuffer inSeq, FloatBuffer& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opFloatBufferSeq(::IceInternal::Incoming&);
+    void _iceD_opFloatBufferSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual DoubleBuffer opDoubleBufferSeq(DoubleBuffer inSeq, DoubleBuffer& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opDoubleBufferSeq(::IceInternal::Incoming&);
+    void _iceD_opDoubleBufferSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::optional<CSeq> opOptCSeq(::std::optional<CSeq> inSeq, ::std::optional<CSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptCSeq(::IceInternal::Incoming&);
+    void _iceD_opOptCSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::optional<CArray> opOptCArray(::std::optional<CArray> inSeq, ::std::optional<CArray>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptCArray(::IceInternal::Incoming&);
+    void _iceD_opOptCArray(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::optional<CList> opOptCList(::std::optional<CList> inSeq, ::std::optional<CList>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptCList(::IceInternal::Incoming&);
+    void _iceD_opOptCList(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::optional<BoolSeq> opOptBoolSeq(::std::optional<BoolSeq> inSeq, ::std::optional<BoolSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptBoolSeq(::IceInternal::Incoming&);
+    void _iceD_opOptBoolSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::optional<ByteSeq> opOptByteSeq(::std::optional<ByteSeq> inSeq, ::std::optional<ByteSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptByteSeq(::IceInternal::Incoming&);
+    void _iceD_opOptByteSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::optional<ShortSeq> opOptShortSeq(::std::optional<ShortSeq> inSeq, ::std::optional<ShortSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptShortSeq(::IceInternal::Incoming&);
+    void _iceD_opOptShortSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::optional<IntSeq> opOptIntSeq(::std::optional<IntSeq> inSeq, ::std::optional<IntSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptIntSeq(::IceInternal::Incoming&);
+    void _iceD_opOptIntSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::optional<LongSeq> opOptLongSeq(::std::optional<LongSeq> inSeq, ::std::optional<LongSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptLongSeq(::IceInternal::Incoming&);
+    void _iceD_opOptLongSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::optional<FloatSeq> opOptFloatSeq(::std::optional<FloatSeq> inSeq, ::std::optional<FloatSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptFloatSeq(::IceInternal::Incoming&);
+    void _iceD_opOptFloatSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::optional<DoubleSeq> opOptDoubleSeq(::std::optional<DoubleSeq> inSeq, ::std::optional<DoubleSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptDoubleSeq(::IceInternal::Incoming&);
+    void _iceD_opOptDoubleSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::optional<StringSeq> opOptStringSeq(::std::optional<StringSeq> inSeq, ::std::optional<StringSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptStringSeq(::IceInternal::Incoming&);
+    void _iceD_opOptStringSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::optional<ESeq> opOptESeq(::std::optional<ESeq> inSeq, ::std::optional<ESeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptESeq(::IceInternal::Incoming&);
+    void _iceD_opOptESeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::optional<SSeq> opOptSSeq(::std::optional<SSeq> inSeq, ::std::optional<SSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptSSeq(::IceInternal::Incoming&);
+    void _iceD_opOptSSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::optional<DSeq> opOptDSeq(::std::optional<DSeq> inSeq, ::std::optional<DSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptDSeq(::IceInternal::Incoming&);
+    void _iceD_opOptDSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::optional<StringSeqSeq> opOptStringSeqSeq(::std::optional<StringSeqSeq> inSeq, ::std::optional<StringSeqSeq>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptStringSeqSeq(::IceInternal::Incoming&);
+    void _iceD_opOptStringSeqSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::optional<ByteBuffer> opOptByteBufferSeq(::std::optional<ByteBuffer> inSeq, ::std::optional<ByteBuffer>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptByteBufferSeq(::IceInternal::Incoming&);
+    void _iceD_opOptByteBufferSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::optional<ShortBuffer> opOptShortBufferSeq(::std::optional<ShortBuffer> inSeq, ::std::optional<ShortBuffer>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptShortBufferSeq(::IceInternal::Incoming&);
+    void _iceD_opOptShortBufferSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::optional<IntBuffer> opOptIntBufferSeq(::std::optional<IntBuffer> inSeq, ::std::optional<IntBuffer>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptIntBufferSeq(::IceInternal::Incoming&);
+    void _iceD_opOptIntBufferSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::optional<LongBuffer> opOptLongBufferSeq(::std::optional<LongBuffer> inSeq, ::std::optional<LongBuffer>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptLongBufferSeq(::IceInternal::Incoming&);
+    void _iceD_opOptLongBufferSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::optional<FloatBuffer> opOptFloatBufferSeq(::std::optional<FloatBuffer> inSeq, ::std::optional<FloatBuffer>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptFloatBufferSeq(::IceInternal::Incoming&);
+    void _iceD_opOptFloatBufferSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::optional<DoubleBuffer> opOptDoubleBufferSeq(::std::optional<DoubleBuffer> inSeq, ::std::optional<DoubleBuffer>& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOptDoubleBufferSeq(::IceInternal::Incoming&);
+    void _iceD_opOptDoubleBufferSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

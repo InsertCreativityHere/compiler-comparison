@@ -336,51 +336,51 @@ public:
 
     virtual void op(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_op(::IceInternal::Incoming&);
+    void _iceD_op(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void fail(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_fail(::IceInternal::Incoming&);
+    void _iceD_fail(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opWithUserException(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opWithUserException(::IceInternal::Incoming&);
+    void _iceD_opWithUserException(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opWithRequestFailedException(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opWithRequestFailedException(::IceInternal::Incoming&);
+    void _iceD_opWithRequestFailedException(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opWithLocalException(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opWithLocalException(::IceInternal::Incoming&);
+    void _iceD_opWithLocalException(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opWithUnknownException(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opWithUnknownException(::IceInternal::Incoming&);
+    void _iceD_opWithUnknownException(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opByteS(ByteSeq bs, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteS(::IceInternal::Incoming&);
+    void _iceD_opByteS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::optional<::Ice::ObjectPrx> getAdmin(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getAdmin(::IceInternal::Incoming&);
+    void _iceD_getAdmin(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -414,16 +414,16 @@ public:
 
     virtual void hold(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_hold(::IceInternal::Incoming&);
+    void _iceD_hold(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void resume(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_resume(::IceInternal::Incoming&);
+    void _iceD_resume(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

@@ -19,7 +19,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <FileServer.h>
 #include <Ice/OutgoingAsync.h>
-#include <Ice/Incoming.h>
+#include <Ice/AsyncResponseHandler.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -61,7 +61,7 @@ IcePatch2::FileServerPrx::getLargeFileInfoSeqAsync(::std::int32_t iceP_partition
 ::std::function<void()>
 IcePatch2::FileServerPrx::getLargeFileInfoSeqAsync(::std::int32_t iceP_partition, ::std::function<void(::IcePatch2::LargeFileInfoSeq)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<LargeFileInfoSeq>(std::move(response), std::move(ex), std::move(sent), this, &IcePatch2::FileServerPrx::_iceI_getLargeFileInfoSeq, iceP_partition, context);
+    return ::IceInternal::makeLambdaOutgoing<LargeFileInfoSeq>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IcePatch2::FileServerPrx::_iceI_getLargeFileInfoSeq, iceP_partition, context);
 }
 
 void
@@ -106,7 +106,7 @@ IcePatch2::FileServerPrx::getChecksumSeqAsync(const ::Ice::Context& context) con
 ::std::function<void()>
 IcePatch2::FileServerPrx::getChecksumSeqAsync(::std::function<void(::IcePatch2::ByteSeqSeq)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<ByteSeqSeq>(std::move(response), std::move(ex), std::move(sent), this, &IcePatch2::FileServerPrx::_iceI_getChecksumSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<ByteSeqSeq>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IcePatch2::FileServerPrx::_iceI_getChecksumSeq, context);
 }
 
 void
@@ -135,7 +135,7 @@ IcePatch2::FileServerPrx::getChecksumAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 IcePatch2::FileServerPrx::getChecksumAsync(::std::function<void(::Ice::ByteSeq)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::Ice::ByteSeq>(std::move(response), std::move(ex), std::move(sent), this, &IcePatch2::FileServerPrx::_iceI_getChecksum, context);
+    return ::IceInternal::makeLambdaOutgoing<::Ice::ByteSeq>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IcePatch2::FileServerPrx::_iceI_getChecksum, context);
 }
 
 void
@@ -164,7 +164,7 @@ IcePatch2::FileServerPrx::getLargeFileCompressedAsync(::std::string_view iceP_pa
 ::std::function<void()>
 IcePatch2::FileServerPrx::getLargeFileCompressedAsync(::std::string_view iceP_path, ::std::int64_t iceP_pos, ::std::int32_t iceP_num, ::std::function<void(::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>>(std::move(response), std::move(ex), std::move(sent), this, &IcePatch2::FileServerPrx::_iceIL_getLargeFileCompressed, iceP_path, iceP_pos, iceP_num, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IcePatch2::FileServerPrx::_iceIL_getLargeFileCompressed, iceP_path, iceP_pos, iceP_num, context);
 }
 
 void
@@ -282,132 +282,146 @@ IcePatch2::FileServer::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-IcePatch2::FileServer::_iceD_getLargeFileInfoSeq(::IceInternal::Incoming& incoming) const
+void
+IcePatch2::FileServer::_iceD_getLargeFileInfoSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::int32_t iceP_partition;
     istr->readAll(iceP_partition);
-    incoming.endReadParams();
-    LargeFileInfoSeq ret = this->getLargeFileInfoSeq(iceP_partition, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    LargeFileInfoSeq ret = this->getLargeFileInfoSeq(iceP_partition, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IcePatch2::FileServer::_iceD_getChecksumSeq(::IceInternal::Incoming& incoming) const
+void
+IcePatch2::FileServer::_iceD_getChecksumSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    incoming.readEmptyParams();
-    ByteSeqSeq ret = this->getChecksumSeq(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    ByteSeqSeq ret = this->getChecksumSeq(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IcePatch2::FileServer::_iceD_getChecksum(::IceInternal::Incoming& incoming) const
+void
+IcePatch2::FileServer::_iceD_getChecksum(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    incoming.readEmptyParams();
-    ::Ice::ByteSeq ret = this->getChecksum(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    ::Ice::ByteSeq ret = this->getChecksum(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IcePatch2::FileServer::_iceD_getLargeFileCompressed(::IceInternal::Incoming& incoming) const
+void
+IcePatch2::FileServer::_iceD_getLargeFileCompressed(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_path;
     ::std::int64_t iceP_pos;
     ::std::int32_t iceP_num;
     istr->readAll(iceP_path, iceP_pos, iceP_num);
-    incoming.endReadParams();
-    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
-    auto responseCB = [incomingPtr](const ::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>& ret)
+    istr->endEncapsulation();
+    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
+    auto responseCb = [responseHandler](const ::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>& ret)
     {
-        auto ostr = incomingPtr->startWriteParams();
-        ostr->writeAll(ret);
-        incomingPtr->endWriteParams();
-        incomingPtr->completed();
+        responseHandler->sendResponse(
+            [&](::Ice::OutputStream* ostr)
+            {
+                ostr->writeAll(ret);
+            });
     };
     try
     {
-        this->getLargeFileCompressedAsync(::std::move(iceP_path), iceP_pos, iceP_num, responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+        this->getLargeFileCompressedAsync(::std::move(iceP_path), iceP_pos, iceP_num, ::std::move(responseCb), [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
     }
     catch (...)
     {
-        incomingPtr->failed(::std::current_exception());
+        responseHandler->sendException(::std::current_exception());
     }
-    return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IcePatch2::FileServer::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+IcePatch2::FileServer::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"getChecksum", "getChecksumSeq", "getLargeFileCompressed", "getLargeFileInfoSeq", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_getChecksum(incoming);
+            _iceD_getChecksum(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_getChecksumSeq(incoming);
+            _iceD_getChecksumSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_getLargeFileCompressed(incoming);
+            _iceD_getLargeFileCompressed(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_getLargeFileInfoSeq(incoming);
+            _iceD_getLargeFileInfoSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 6:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 7:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }

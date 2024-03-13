@@ -366,51 +366,51 @@ public:
 
     virtual ::std::optional<::Ice::ObjectPrx> getAdmin(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getAdmin(::IceInternal::Incoming&);
+    void _iceD_getAdmin(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::Ice::PropertyDict getChanges(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getChanges(::IceInternal::Incoming&);
+    void _iceD_getChanges(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void print(::std::string message, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_print(::IceInternal::Incoming&);
+    void _iceD_print(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void trace(::std::string category, ::std::string message, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_trace(::IceInternal::Incoming&);
+    void _iceD_trace(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void warning(::std::string message, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_warning(::IceInternal::Incoming&);
+    void _iceD_warning(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void error(::std::string message, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_error(::IceInternal::Incoming&);
+    void _iceD_error(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void waitForShutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_waitForShutdown(::IceInternal::Incoming&);
+    void _iceD_waitForShutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void destroy(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_destroy(::IceInternal::Incoming&);
+    void _iceD_destroy(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -444,16 +444,16 @@ public:
 
     virtual ::std::optional<RemoteCommunicatorPrx> createCommunicator(::Ice::PropertyDict props, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_createCommunicator(::IceInternal::Incoming&);
+    void _iceD_createCommunicator(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -487,11 +487,11 @@ public:
 
     virtual void op(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_op(::IceInternal::Incoming&);
+    void _iceD_op(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

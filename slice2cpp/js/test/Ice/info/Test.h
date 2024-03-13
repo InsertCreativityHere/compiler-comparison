@@ -157,21 +157,21 @@ public:
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::Ice::Context getEndpointInfoAsContext(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getEndpointInfoAsContext(::IceInternal::Incoming&);
+    void _iceD_getEndpointInfoAsContext(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::Ice::Context getConnectionInfoAsContext(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getConnectionInfoAsContext(::IceInternal::Incoming&);
+    void _iceD_getConnectionInfoAsContext(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

@@ -1385,327 +1385,327 @@ public:
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual bool supportsCompress(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_supportsCompress(::IceInternal::Incoming&);
+    void _iceD_supportsCompress(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opVoid(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opVoid(::IceInternal::Incoming&);
+    void _iceD_opVoid(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::uint8_t opByte(::std::uint8_t p1, ::std::uint8_t p2, ::std::uint8_t& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByte(::IceInternal::Incoming&);
+    void _iceD_opByte(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual bool opBool(bool p1, bool p2, bool& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBool(::IceInternal::Incoming&);
+    void _iceD_opBool(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::int64_t opShortIntLong(::std::int16_t p1, ::std::int32_t p2, ::std::int64_t p3, ::std::int16_t& p4, ::std::int32_t& p5, ::std::int64_t& p6, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opShortIntLong(::IceInternal::Incoming&);
+    void _iceD_opShortIntLong(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual double opFloatDouble(float p1, double p2, float& p3, double& p4, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opFloatDouble(::IceInternal::Incoming&);
+    void _iceD_opFloatDouble(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::string opString(::std::string p1, ::std::string p2, ::std::string& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opString(::IceInternal::Incoming&);
+    void _iceD_opString(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual MyEnum opMyEnum(MyEnum p1, MyEnum& p2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMyEnum(::IceInternal::Incoming&);
+    void _iceD_opMyEnum(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::optional<MyClassPrx> opMyClass(::std::optional<MyClassPrx> p1, ::std::optional<MyClassPrx>& p2, ::std::optional<MyClassPrx>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMyClass(::IceInternal::Incoming&);
+    void _iceD_opMyClass(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual Structure opStruct(Structure p1, Structure p2, Structure& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStruct(::IceInternal::Incoming&);
+    void _iceD_opStruct(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ByteS opByteS(ByteS p1, ByteS p2, ByteS& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteS(::IceInternal::Incoming&);
+    void _iceD_opByteS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual BoolS opBoolS(BoolS p1, BoolS p2, BoolS& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBoolS(::IceInternal::Incoming&);
+    void _iceD_opBoolS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual LongS opShortIntLongS(ShortS p1, IntS p2, LongS p3, ShortS& p4, IntS& p5, LongS& p6, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opShortIntLongS(::IceInternal::Incoming&);
+    void _iceD_opShortIntLongS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual DoubleS opFloatDoubleS(FloatS p1, DoubleS p2, FloatS& p3, DoubleS& p4, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opFloatDoubleS(::IceInternal::Incoming&);
+    void _iceD_opFloatDoubleS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual StringS opStringS(StringS p1, StringS p2, StringS& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringS(::IceInternal::Incoming&);
+    void _iceD_opStringS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ByteSS opByteSS(ByteSS p1, ByteSS p2, ByteSS& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteSS(::IceInternal::Incoming&);
+    void _iceD_opByteSS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual BoolSS opBoolSS(BoolSS p1, BoolSS p2, BoolSS& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBoolSS(::IceInternal::Incoming&);
+    void _iceD_opBoolSS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual LongSS opShortIntLongSS(ShortSS p1, IntSS p2, LongSS p3, ShortSS& p4, IntSS& p5, LongSS& p6, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opShortIntLongSS(::IceInternal::Incoming&);
+    void _iceD_opShortIntLongSS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual DoubleSS opFloatDoubleSS(FloatSS p1, DoubleSS p2, FloatSS& p3, DoubleSS& p4, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opFloatDoubleSS(::IceInternal::Incoming&);
+    void _iceD_opFloatDoubleSS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual StringSS opStringSS(StringSS p1, StringSS p2, StringSS& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringSS(::IceInternal::Incoming&);
+    void _iceD_opStringSS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual StringSSS opStringSSS(StringSSS p1, StringSSS p2, StringSSS& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringSSS(::IceInternal::Incoming&);
+    void _iceD_opStringSSS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ByteBoolD opByteBoolD(ByteBoolD p1, ByteBoolD p2, ByteBoolD& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteBoolD(::IceInternal::Incoming&);
+    void _iceD_opByteBoolD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ShortIntD opShortIntD(ShortIntD p1, ShortIntD p2, ShortIntD& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opShortIntD(::IceInternal::Incoming&);
+    void _iceD_opShortIntD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual LongFloatD opLongFloatD(LongFloatD p1, LongFloatD p2, LongFloatD& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLongFloatD(::IceInternal::Incoming&);
+    void _iceD_opLongFloatD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual StringStringD opStringStringD(StringStringD p1, StringStringD p2, StringStringD& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringStringD(::IceInternal::Incoming&);
+    void _iceD_opStringStringD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual StringMyEnumD opStringMyEnumD(StringMyEnumD p1, StringMyEnumD p2, StringMyEnumD& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringMyEnumD(::IceInternal::Incoming&);
+    void _iceD_opStringMyEnumD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual MyEnumStringD opMyEnumStringD(MyEnumStringD p1, MyEnumStringD p2, MyEnumStringD& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMyEnumStringD(::IceInternal::Incoming&);
+    void _iceD_opMyEnumStringD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual MyStructMyEnumD opMyStructMyEnumD(MyStructMyEnumD p1, MyStructMyEnumD p2, MyStructMyEnumD& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMyStructMyEnumD(::IceInternal::Incoming&);
+    void _iceD_opMyStructMyEnumD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ByteBoolDS opByteBoolDS(ByteBoolDS p1, ByteBoolDS p2, ByteBoolDS& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteBoolDS(::IceInternal::Incoming&);
+    void _iceD_opByteBoolDS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ShortIntDS opShortIntDS(ShortIntDS p1, ShortIntDS p2, ShortIntDS& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opShortIntDS(::IceInternal::Incoming&);
+    void _iceD_opShortIntDS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual LongFloatDS opLongFloatDS(LongFloatDS p1, LongFloatDS p2, LongFloatDS& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLongFloatDS(::IceInternal::Incoming&);
+    void _iceD_opLongFloatDS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual StringStringDS opStringStringDS(StringStringDS p1, StringStringDS p2, StringStringDS& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringStringDS(::IceInternal::Incoming&);
+    void _iceD_opStringStringDS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual StringMyEnumDS opStringMyEnumDS(StringMyEnumDS p1, StringMyEnumDS p2, StringMyEnumDS& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringMyEnumDS(::IceInternal::Incoming&);
+    void _iceD_opStringMyEnumDS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual MyEnumStringDS opMyEnumStringDS(MyEnumStringDS p1, MyEnumStringDS p2, MyEnumStringDS& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMyEnumStringDS(::IceInternal::Incoming&);
+    void _iceD_opMyEnumStringDS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual MyStructMyEnumDS opMyStructMyEnumDS(MyStructMyEnumDS p1, MyStructMyEnumDS p2, MyStructMyEnumDS& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMyStructMyEnumDS(::IceInternal::Incoming&);
+    void _iceD_opMyStructMyEnumDS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ByteByteSD opByteByteSD(ByteByteSD p1, ByteByteSD p2, ByteByteSD& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteByteSD(::IceInternal::Incoming&);
+    void _iceD_opByteByteSD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual BoolBoolSD opBoolBoolSD(BoolBoolSD p1, BoolBoolSD p2, BoolBoolSD& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBoolBoolSD(::IceInternal::Incoming&);
+    void _iceD_opBoolBoolSD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ShortShortSD opShortShortSD(ShortShortSD p1, ShortShortSD p2, ShortShortSD& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opShortShortSD(::IceInternal::Incoming&);
+    void _iceD_opShortShortSD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual IntIntSD opIntIntSD(IntIntSD p1, IntIntSD p2, IntIntSD& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opIntIntSD(::IceInternal::Incoming&);
+    void _iceD_opIntIntSD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual LongLongSD opLongLongSD(LongLongSD p1, LongLongSD p2, LongLongSD& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLongLongSD(::IceInternal::Incoming&);
+    void _iceD_opLongLongSD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual StringFloatSD opStringFloatSD(StringFloatSD p1, StringFloatSD p2, StringFloatSD& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringFloatSD(::IceInternal::Incoming&);
+    void _iceD_opStringFloatSD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual StringDoubleSD opStringDoubleSD(StringDoubleSD p1, StringDoubleSD p2, StringDoubleSD& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringDoubleSD(::IceInternal::Incoming&);
+    void _iceD_opStringDoubleSD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual StringStringSD opStringStringSD(StringStringSD p1, StringStringSD p2, StringStringSD& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringStringSD(::IceInternal::Incoming&);
+    void _iceD_opStringStringSD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual MyEnumMyEnumSD opMyEnumMyEnumSD(MyEnumMyEnumSD p1, MyEnumMyEnumSD p2, MyEnumMyEnumSD& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMyEnumMyEnumSD(::IceInternal::Incoming&);
+    void _iceD_opMyEnumMyEnumSD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual IntS opIntS(IntS s, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opIntS(::IceInternal::Incoming&);
+    void _iceD_opIntS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opByteSOneway(ByteS s, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteSOneway(::IceInternal::Incoming&);
+    void _iceD_opByteSOneway(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::int32_t opByteSOnewayCallCount(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteSOnewayCallCount(::IceInternal::Incoming&);
+    void _iceD_opByteSOnewayCallCount(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::Ice::Context opContext(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opContext(::IceInternal::Incoming&);
+    void _iceD_opContext(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opDoubleMarshaling(double p1, DoubleS p2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opDoubleMarshaling(::IceInternal::Incoming&);
+    void _iceD_opDoubleMarshaling(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opIdempotent(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opIdempotent(::IceInternal::Incoming&);
+    void _iceD_opIdempotent(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opNonmutating(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opNonmutating(::IceInternal::Incoming&);
+    void _iceD_opNonmutating(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::uint8_t opByte1(::std::uint8_t opByte1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByte1(::IceInternal::Incoming&);
+    void _iceD_opByte1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::int16_t opShort1(::std::int16_t opShort1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opShort1(::IceInternal::Incoming&);
+    void _iceD_opShort1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::int32_t opInt1(::std::int32_t opInt1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opInt1(::IceInternal::Incoming&);
+    void _iceD_opInt1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::int64_t opLong1(::std::int64_t opLong1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLong1(::IceInternal::Incoming&);
+    void _iceD_opLong1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual float opFloat1(float opFloat1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opFloat1(::IceInternal::Incoming&);
+    void _iceD_opFloat1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual double opDouble1(double opDouble1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opDouble1(::IceInternal::Incoming&);
+    void _iceD_opDouble1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::string opString1(::std::string opString1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opString1(::IceInternal::Incoming&);
+    void _iceD_opString1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual StringS opStringS1(StringS opStringS1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringS1(::IceInternal::Incoming&);
+    void _iceD_opStringS1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ByteBoolD opByteBoolD1(ByteBoolD opByteBoolD1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteBoolD1(::IceInternal::Incoming&);
+    void _iceD_opByteBoolD1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual StringS opStringS2(StringS stringS, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringS2(::IceInternal::Incoming&);
+    void _iceD_opStringS2(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ByteBoolD opByteBoolD2(ByteBoolD byteBoolD, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteBoolD2(::IceInternal::Incoming&);
+    void _iceD_opByteBoolD2(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual StringS opStringLiterals(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringLiterals(::IceInternal::Incoming&);
+    void _iceD_opStringLiterals(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual StringS opWStringLiterals(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opWStringLiterals(::IceInternal::Incoming&);
+    void _iceD_opWStringLiterals(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -1723,7 +1723,7 @@ public:
 
     virtual OpMStruct1MarshaledResult opMStruct1(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMStruct1(::IceInternal::Incoming&);
+    void _iceD_opMStruct1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -1741,7 +1741,7 @@ public:
 
     virtual OpMStruct2MarshaledResult opMStruct2(Structure p1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMStruct2(::IceInternal::Incoming&);
+    void _iceD_opMStruct2(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -1759,7 +1759,7 @@ public:
 
     virtual OpMSeq1MarshaledResult opMSeq1(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMSeq1(::IceInternal::Incoming&);
+    void _iceD_opMSeq1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -1777,7 +1777,7 @@ public:
 
     virtual OpMSeq2MarshaledResult opMSeq2(StringS p1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMSeq2(::IceInternal::Incoming&);
+    void _iceD_opMSeq2(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -1795,7 +1795,7 @@ public:
 
     virtual OpMDict1MarshaledResult opMDict1(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMDict1(::IceInternal::Incoming&);
+    void _iceD_opMDict1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -1813,11 +1813,11 @@ public:
 
     virtual OpMDict2MarshaledResult opMDict2(StringStringD p1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMDict2(::IceInternal::Incoming&);
+    void _iceD_opMDict2(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -1851,21 +1851,21 @@ public:
 
     virtual void opDerived(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opDerived(::IceInternal::Incoming&);
+    void _iceD_opDerived(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::shared_ptr<MyClass1> opMyClass1(::std::shared_ptr<MyClass1> opMyClass1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMyClass1(::IceInternal::Incoming&);
+    void _iceD_opMyClass1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual MyStruct1 opMyStruct1(MyStruct1 opMyStruct1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMyStruct1(::IceInternal::Incoming&);
+    void _iceD_opMyStruct1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -1907,7 +1907,7 @@ public:
     static ::std::string_view ice_staticId();
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

@@ -1058,56 +1058,56 @@ public:
 
     virtual S opS(S s1, S& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opS(::IceInternal::Incoming&);
+    void _iceD_opS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual SSeq opSSeq(SSeq s1, SSeq& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSSeq(::IceInternal::Incoming&);
+    void _iceD_opSSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual SMap opSMap(SMap s1, SMap& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSMap(::IceInternal::Incoming&);
+    void _iceD_opSMap(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::shared_ptr<C> opC(::std::shared_ptr<C> c1, ::std::shared_ptr<C>& c2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opC(::IceInternal::Incoming&);
+    void _iceD_opC(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual CSeq opCSeq(CSeq c1, CSeq& c2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opCSeq(::IceInternal::Incoming&);
+    void _iceD_opCSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual CMap opCMap(CMap c1, CMap& c2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opCMap(::IceInternal::Incoming&);
+    void _iceD_opCMap(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual E1 opE1(E1 E1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opE1(::IceInternal::Incoming&);
+    void _iceD_opE1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual S1 opS1(S1 S1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opS1(::IceInternal::Incoming&);
+    void _iceD_opS1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::shared_ptr<C1> opC1(::std::shared_ptr<C1> C1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opC1(::IceInternal::Incoming&);
+    void _iceD_opC1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -1147,41 +1147,41 @@ public:
 
     virtual S opS(S s1, S& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opS(::IceInternal::Incoming&);
+    void _iceD_opS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual SSeq opSSeq(SSeq s1, SSeq& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSSeq(::IceInternal::Incoming&);
+    void _iceD_opSSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual SMap opSMap(SMap s1, SMap& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSMap(::IceInternal::Incoming&);
+    void _iceD_opSMap(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::shared_ptr<C> opC(::std::shared_ptr<C> c1, ::std::shared_ptr<C>& c2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opC(::IceInternal::Incoming&);
+    void _iceD_opC(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual CSeq opCSeq(CSeq c1, CSeq& c2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opCSeq(::IceInternal::Incoming&);
+    void _iceD_opCSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual CMap opCMap(CMap c1, CMap& c2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opCMap(::IceInternal::Incoming&);
+    void _iceD_opCMap(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -1217,41 +1217,41 @@ public:
 
     virtual ::Test::Inner::Inner2::S opS(::Test::Inner::Inner2::S s1, ::Test::Inner::Inner2::S& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opS(::IceInternal::Incoming&);
+    void _iceD_opS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::Test::Inner::Inner2::SSeq opSSeq(::Test::Inner::Inner2::SSeq s1, ::Test::Inner::Inner2::SSeq& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSSeq(::IceInternal::Incoming&);
+    void _iceD_opSSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::Test::Inner::Inner2::SMap opSMap(::Test::Inner::Inner2::SMap s1, ::Test::Inner::Inner2::SMap& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSMap(::IceInternal::Incoming&);
+    void _iceD_opSMap(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::shared_ptr<::Test::Inner::Inner2::C> opC(::std::shared_ptr<::Test::Inner::Inner2::C> c1, ::std::shared_ptr<::Test::Inner::Inner2::C>& c2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opC(::IceInternal::Incoming&);
+    void _iceD_opC(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::Test::Inner::Inner2::CSeq opCSeq(::Test::Inner::Inner2::CSeq c1, ::Test::Inner::Inner2::CSeq& c2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opCSeq(::IceInternal::Incoming&);
+    void _iceD_opCSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::Test::Inner::Inner2::CMap opCMap(::Test::Inner::Inner2::CMap c1, ::Test::Inner::Inner2::CMap& c2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opCMap(::IceInternal::Incoming&);
+    void _iceD_opCMap(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -1298,41 +1298,41 @@ public:
 
     virtual ::Test::S opS(::Test::S s1, ::Test::S& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opS(::IceInternal::Incoming&);
+    void _iceD_opS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::Test::SSeq opSSeq(::Test::SSeq s1, ::Test::SSeq& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSSeq(::IceInternal::Incoming&);
+    void _iceD_opSSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::Test::SMap opSMap(::Test::SMap s1, ::Test::SMap& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSMap(::IceInternal::Incoming&);
+    void _iceD_opSMap(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::shared_ptr<::Test::C> opC(::std::shared_ptr<::Test::C> c1, ::std::shared_ptr<::Test::C>& c2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opC(::IceInternal::Incoming&);
+    void _iceD_opC(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::Test::CSeq opCSeq(::Test::CSeq c1, ::Test::CSeq& c2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opCSeq(::IceInternal::Incoming&);
+    void _iceD_opCSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::Test::CMap opCMap(::Test::CMap c1, ::Test::CMap& c2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opCMap(::IceInternal::Incoming&);
+    void _iceD_opCMap(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

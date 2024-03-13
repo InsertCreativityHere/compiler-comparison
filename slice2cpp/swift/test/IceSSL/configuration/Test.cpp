@@ -16,7 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
 #include <Ice/OutgoingAsync.h>
-#include <Ice/Incoming.h>
+#include <Ice/AsyncResponseHandler.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -52,7 +52,7 @@ Test::ServerPrx::noCertAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::ServerPrx::noCertAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ServerPrx::_iceI_noCert, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::ServerPrx::_iceI_noCert, context);
 }
 
 void
@@ -80,7 +80,7 @@ Test::ServerPrx::checkCertAsync(::std::string_view iceP_subjectDN, ::std::string
 ::std::function<void()>
 Test::ServerPrx::checkCertAsync(::std::string_view iceP_subjectDN, ::std::string_view iceP_issuerDN, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ServerPrx::_iceI_checkCert, iceP_subjectDN, iceP_issuerDN, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::ServerPrx::_iceI_checkCert, iceP_subjectDN, iceP_issuerDN, context);
 }
 
 void
@@ -111,7 +111,7 @@ Test::ServerPrx::checkCipherAsync(::std::string_view iceP_cipher, const ::Ice::C
 ::std::function<void()>
 Test::ServerPrx::checkCipherAsync(::std::string_view iceP_cipher, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ServerPrx::_iceI_checkCipher, iceP_cipher, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::ServerPrx::_iceI_checkCipher, iceP_cipher, context);
 }
 
 void
@@ -149,7 +149,7 @@ Test::ServerFactoryPrx::createServerAsync(const Properties& iceP_props, const ::
 ::std::function<void()>
 Test::ServerFactoryPrx::createServerAsync(const Properties& iceP_props, ::std::function<void(::std::optional<::Test::ServerPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::optional<ServerPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::ServerFactoryPrx::_iceI_createServer, iceP_props, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::optional<ServerPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::ServerFactoryPrx::_iceI_createServer, iceP_props, context);
 }
 
 void
@@ -181,7 +181,7 @@ Test::ServerFactoryPrx::destroyServerAsync(const ::std::optional<ServerPrx>& ice
 ::std::function<void()>
 Test::ServerFactoryPrx::destroyServerAsync(const ::std::optional<ServerPrx>& iceP_srv, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ServerFactoryPrx::_iceI_destroyServer, iceP_srv, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::ServerFactoryPrx::_iceI_destroyServer, iceP_srv, context);
 }
 
 void
@@ -212,7 +212,7 @@ Test::ServerFactoryPrx::shutdownAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::ServerFactoryPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::ServerFactoryPrx::_iceI_shutdown, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::ServerFactoryPrx::_iceI_shutdown, context);
 }
 
 void
@@ -253,95 +253,102 @@ Test::Server::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-Test::Server::_iceD_noCert(::IceInternal::Incoming& incoming)
+void
+Test::Server::_iceD_noCert(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->noCert(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->noCert(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Server::_iceD_checkCert(::IceInternal::Incoming& incoming)
+void
+Test::Server::_iceD_checkCert(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_subjectDN;
     ::std::string iceP_issuerDN;
     istr->readAll(iceP_subjectDN, iceP_issuerDN);
-    incoming.endReadParams();
-    this->checkCert(::std::move(iceP_subjectDN), ::std::move(iceP_issuerDN), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->checkCert(::std::move(iceP_subjectDN), ::std::move(iceP_issuerDN), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Server::_iceD_checkCipher(::IceInternal::Incoming& incoming)
+void
+Test::Server::_iceD_checkCipher(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_cipher;
     istr->readAll(iceP_cipher);
-    incoming.endReadParams();
-    this->checkCipher(::std::move(iceP_cipher), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->checkCipher(::std::move(iceP_cipher), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Server::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+Test::Server::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"checkCert", "checkCipher", "ice_id", "ice_ids", "ice_isA", "ice_ping", "noCert"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_checkCert(incoming);
+            _iceD_checkCert(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_checkCipher(incoming);
+            _iceD_checkCipher(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         case 6:
         {
-            return _iceD_noCert(incoming);
+            _iceD_noCert(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }
@@ -368,96 +375,105 @@ Test::ServerFactory::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-Test::ServerFactory::_iceD_createServer(::IceInternal::Incoming& incoming)
+void
+Test::ServerFactory::_iceD_createServer(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     Properties iceP_props;
     istr->readAll(iceP_props);
-    incoming.endReadParams();
-    ::std::optional<ServerPrx> ret = this->createServer(::std::move(iceP_props), incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    ::std::optional<ServerPrx> ret = this->createServer(::std::move(iceP_props), request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::ServerFactory::_iceD_destroyServer(::IceInternal::Incoming& incoming)
+void
+Test::ServerFactory::_iceD_destroyServer(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::optional<ServerPrx> iceP_srv;
     istr->readAll(iceP_srv);
-    incoming.endReadParams();
-    this->destroyServer(::std::move(iceP_srv), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->destroyServer(::std::move(iceP_srv), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::ServerFactory::_iceD_shutdown(::IceInternal::Incoming& incoming)
+void
+Test::ServerFactory::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->shutdown(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->shutdown(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::ServerFactory::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+Test::ServerFactory::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"createServer", "destroyServer", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_createServer(incoming);
+            _iceD_createServer(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_destroyServer(incoming);
+            _iceD_destroyServer(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         case 6:
         {
-            return _iceD_shutdown(incoming);
+            _iceD_shutdown(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }

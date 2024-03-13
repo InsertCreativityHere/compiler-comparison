@@ -507,76 +507,76 @@ public:
 
     virtual void baseAsBase(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_baseAsBase(::IceInternal::Incoming&);
+    void _iceD_baseAsBase(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void unknownDerivedAsBase(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_unknownDerivedAsBase(::IceInternal::Incoming&);
+    void _iceD_unknownDerivedAsBase(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void knownDerivedAsBase(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_knownDerivedAsBase(::IceInternal::Incoming&);
+    void _iceD_knownDerivedAsBase(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void knownDerivedAsKnownDerived(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_knownDerivedAsKnownDerived(::IceInternal::Incoming&);
+    void _iceD_knownDerivedAsKnownDerived(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void unknownIntermediateAsBase(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_unknownIntermediateAsBase(::IceInternal::Incoming&);
+    void _iceD_unknownIntermediateAsBase(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void knownIntermediateAsBase(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_knownIntermediateAsBase(::IceInternal::Incoming&);
+    void _iceD_knownIntermediateAsBase(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void knownMostDerivedAsBase(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_knownMostDerivedAsBase(::IceInternal::Incoming&);
+    void _iceD_knownMostDerivedAsBase(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void knownIntermediateAsKnownIntermediate(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_knownIntermediateAsKnownIntermediate(::IceInternal::Incoming&);
+    void _iceD_knownIntermediateAsKnownIntermediate(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void knownMostDerivedAsKnownIntermediate(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_knownMostDerivedAsKnownIntermediate(::IceInternal::Incoming&);
+    void _iceD_knownMostDerivedAsKnownIntermediate(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void knownMostDerivedAsKnownMostDerived(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_knownMostDerivedAsKnownMostDerived(::IceInternal::Incoming&);
+    void _iceD_knownMostDerivedAsKnownMostDerived(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void unknownMostDerived1AsBase(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_unknownMostDerived1AsBase(::IceInternal::Incoming&);
+    void _iceD_unknownMostDerived1AsBase(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void unknownMostDerived1AsKnownIntermediate(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_unknownMostDerived1AsKnownIntermediate(::IceInternal::Incoming&);
+    void _iceD_unknownMostDerived1AsKnownIntermediate(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void unknownMostDerived2AsBase(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_unknownMostDerived2AsBase(::IceInternal::Incoming&);
+    void _iceD_unknownMostDerived2AsBase(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

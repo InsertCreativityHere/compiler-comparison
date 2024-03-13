@@ -299,11 +299,11 @@ public:
 
     virtual ::std::string getAdapterName(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getAdapterName(::IceInternal::Incoming&);
+    void _iceD_getAdapterName(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -337,16 +337,16 @@ public:
 
     virtual ::std::optional<TestIntfPrx> getTestIntf(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getTestIntf(::IceInternal::Incoming&);
+    void _iceD_getTestIntf(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void deactivate(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_deactivate(::IceInternal::Incoming&);
+    void _iceD_deactivate(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -380,21 +380,21 @@ public:
 
     virtual ::std::optional<RemoteObjectAdapterPrx> createObjectAdapter(::std::string name, ::std::string endpoints, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_createObjectAdapter(::IceInternal::Incoming&);
+    void _iceD_createObjectAdapter(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void deactivateObjectAdapter(::std::optional<RemoteObjectAdapterPrx> adapter, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_deactivateObjectAdapter(::IceInternal::Incoming&);
+    void _iceD_deactivateObjectAdapter(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

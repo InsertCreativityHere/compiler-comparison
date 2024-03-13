@@ -222,16 +222,16 @@ public:
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual Context getContext(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getContext(::IceInternal::Incoming&);
+    void _iceD_getContext(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -265,11 +265,11 @@ public:
 
     virtual ::std::optional<::Ice::ObjectPrx> echo(::std::optional<::Ice::ObjectPrx> obj, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_echo(::IceInternal::Incoming&);
+    void _iceD_echo(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

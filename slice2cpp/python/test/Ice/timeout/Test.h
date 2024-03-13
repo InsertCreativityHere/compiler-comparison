@@ -246,21 +246,21 @@ public:
 
     virtual void op(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_op(::IceInternal::Incoming&);
+    void _iceD_op(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void sendData(ByteSeq seq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_sendData(::IceInternal::Incoming&);
+    void _iceD_sendData(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void sleep(::std::int32_t to, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_sleep(::IceInternal::Incoming&);
+    void _iceD_sleep(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -294,21 +294,21 @@ public:
 
     virtual void holdAdapter(::std::int32_t to, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_holdAdapter(::IceInternal::Incoming&);
+    void _iceD_holdAdapter(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void resumeAdapter(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_resumeAdapter(::IceInternal::Incoming&);
+    void _iceD_resumeAdapter(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

@@ -16,7 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
 #include <Ice/OutgoingAsync.h>
-#include <Ice/Incoming.h>
+#include <Ice/AsyncResponseHandler.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -52,7 +52,7 @@ Test::CallbackPrx::pingAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::CallbackPrx::pingAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_ping, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::CallbackPrx::_iceI_ping, context);
 }
 
 void
@@ -80,7 +80,7 @@ Test::CallbackPrx::getCountAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::CallbackPrx::getCountAsync(::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_getCount, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::CallbackPrx::_iceI_getCount, context);
 }
 
 void
@@ -109,7 +109,7 @@ Test::CallbackPrx::datagramAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::CallbackPrx::datagramAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_datagram, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::CallbackPrx::_iceI_datagram, context);
 }
 
 void
@@ -137,7 +137,7 @@ Test::CallbackPrx::getDatagramCountAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::CallbackPrx::getDatagramCountAsync(::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::CallbackPrx::_iceI_getDatagramCount, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::CallbackPrx::_iceI_getDatagramCount, context);
 }
 
 void
@@ -173,7 +173,7 @@ Test::MyClassPrx::callCallbackAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::MyClassPrx::callCallbackAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_callCallback, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MyClassPrx::_iceI_callCallback, context);
 }
 
 void
@@ -201,7 +201,7 @@ Test::MyClassPrx::getCallbackCountAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::MyClassPrx::getCallbackCountAsync(::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getCallbackCount, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MyClassPrx::_iceI_getCallbackCount, context);
 }
 
 void
@@ -230,7 +230,7 @@ Test::MyClassPrx::incCounterAsync(::std::int32_t iceP_expected, const ::Ice::Con
 ::std::function<void()>
 Test::MyClassPrx::incCounterAsync(::std::int32_t iceP_expected, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_incCounter, iceP_expected, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MyClassPrx::_iceI_incCounter, iceP_expected, context);
 }
 
 void
@@ -261,7 +261,7 @@ Test::MyClassPrx::waitCounterAsync(::std::int32_t iceP_value, const ::Ice::Conte
 ::std::function<void()>
 Test::MyClassPrx::waitCounterAsync(::std::int32_t iceP_value, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_waitCounter, iceP_value, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MyClassPrx::_iceI_waitCounter, iceP_value, context);
 }
 
 void
@@ -292,7 +292,7 @@ Test::MyClassPrx::getConnectionCountAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::MyClassPrx::getConnectionCountAsync(::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getConnectionCount, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MyClassPrx::_iceI_getConnectionCount, context);
 }
 
 void
@@ -321,7 +321,7 @@ Test::MyClassPrx::getConnectionInfoAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::MyClassPrx::getConnectionInfoAsync(::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getConnectionInfo, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::string>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MyClassPrx::_iceI_getConnectionInfo, context);
 }
 
 void
@@ -350,7 +350,7 @@ Test::MyClassPrx::closeConnectionAsync(bool iceP_force, const ::Ice::Context& co
 ::std::function<void()>
 Test::MyClassPrx::closeConnectionAsync(bool iceP_force, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_closeConnection, iceP_force, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MyClassPrx::_iceI_closeConnection, iceP_force, context);
 }
 
 void
@@ -381,7 +381,7 @@ Test::MyClassPrx::datagramAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::MyClassPrx::datagramAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_datagram, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MyClassPrx::_iceI_datagram, context);
 }
 
 void
@@ -409,7 +409,7 @@ Test::MyClassPrx::getDatagramCountAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::MyClassPrx::getDatagramCountAsync(::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getDatagramCount, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MyClassPrx::_iceI_getDatagramCount, context);
 }
 
 void
@@ -438,7 +438,7 @@ Test::MyClassPrx::callDatagramCallbackAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::MyClassPrx::callDatagramCallbackAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_callDatagramCallback, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MyClassPrx::_iceI_callDatagramCallback, context);
 }
 
 void
@@ -466,7 +466,7 @@ Test::MyClassPrx::getCallbackDatagramCountAsync(const ::Ice::Context& context) c
 ::std::function<void()>
 Test::MyClassPrx::getCallbackDatagramCountAsync(::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getCallbackDatagramCount, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MyClassPrx::_iceI_getCallbackDatagramCount, context);
 }
 
 void
@@ -495,7 +495,7 @@ Test::MyClassPrx::getHeartbeatCountAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::MyClassPrx::getHeartbeatCountAsync(::std::function<void(::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_getHeartbeatCount, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::int32_t>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MyClassPrx::_iceI_getHeartbeatCount, context);
 }
 
 void
@@ -524,7 +524,7 @@ Test::MyClassPrx::enableHeartbeatsAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::MyClassPrx::enableHeartbeatsAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_enableHeartbeats, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MyClassPrx::_iceI_enableHeartbeats, context);
 }
 
 void
@@ -552,7 +552,7 @@ Test::MyClassPrx::shutdownAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::MyClassPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_shutdown, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MyClassPrx::_iceI_shutdown, context);
 }
 
 void
@@ -593,108 +593,117 @@ Test::Callback::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-Test::Callback::_iceD_ping(::IceInternal::Incoming& incoming)
+void
+Test::Callback::_iceD_ping(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->ping(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->ping(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Callback::_iceD_getCount(::IceInternal::Incoming& incoming)
+void
+Test::Callback::_iceD_getCount(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    ::std::int32_t ret = this->getCount(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    ::std::int32_t ret = this->getCount(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Callback::_iceD_datagram(::IceInternal::Incoming& incoming)
+void
+Test::Callback::_iceD_datagram(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->datagram(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->datagram(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Callback::_iceD_getDatagramCount(::IceInternal::Incoming& incoming)
+void
+Test::Callback::_iceD_getDatagramCount(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    ::std::int32_t ret = this->getDatagramCount(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    ::std::int32_t ret = this->getDatagramCount(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Callback::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+Test::Callback::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"datagram", "getCount", "getDatagramCount", "ice_id", "ice_ids", "ice_isA", "ice_ping", "ping"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_datagram(incoming);
+            _iceD_datagram(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_getCount(incoming);
+            _iceD_getCount(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_getDatagramCount(incoming);
+            _iceD_getDatagramCount(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 6:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         case 7:
         {
-            return _iceD_ping(incoming);
+            _iceD_ping(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }
@@ -721,316 +730,334 @@ Test::MyClass::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-Test::MyClass::_iceD_callCallback(::IceInternal::Incoming& incoming)
+void
+Test::MyClass::_iceD_callCallback(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
     try
     {
-        this->callCallbackAsync([incomingPtr] { incomingPtr->response(); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+        this->callCallbackAsync([responseHandler] { responseHandler->sendEmptyResponse(); }, [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
     }
     catch (...)
     {
-        incomingPtr->failed(::std::current_exception());
+        responseHandler->sendException(::std::current_exception());
     }
-    return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::MyClass::_iceD_getCallbackCount(::IceInternal::Incoming& incoming)
+void
+Test::MyClass::_iceD_getCallbackCount(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
-    auto responseCB = [incomingPtr](::std::int32_t ret)
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
+    auto responseCb = [responseHandler](::std::int32_t ret)
     {
-        auto ostr = incomingPtr->startWriteParams();
-        ostr->writeAll(ret);
-        incomingPtr->endWriteParams();
-        incomingPtr->completed();
+        responseHandler->sendResponse(
+            [&](::Ice::OutputStream* ostr)
+            {
+                ostr->writeAll(ret);
+            });
     };
     try
     {
-        this->getCallbackCountAsync(responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+        this->getCallbackCountAsync(::std::move(responseCb), [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
     }
     catch (...)
     {
-        incomingPtr->failed(::std::current_exception());
+        responseHandler->sendException(::std::current_exception());
     }
-    return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::MyClass::_iceD_incCounter(::IceInternal::Incoming& incoming)
+void
+Test::MyClass::_iceD_incCounter(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::int32_t iceP_expected;
     istr->readAll(iceP_expected);
-    incoming.endReadParams();
-    this->incCounter(iceP_expected, incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->incCounter(iceP_expected, request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::MyClass::_iceD_waitCounter(::IceInternal::Incoming& incoming)
+void
+Test::MyClass::_iceD_waitCounter(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::int32_t iceP_value;
     istr->readAll(iceP_value);
-    incoming.endReadParams();
-    this->waitCounter(iceP_value, incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->waitCounter(iceP_value, request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::MyClass::_iceD_getConnectionCount(::IceInternal::Incoming& incoming)
+void
+Test::MyClass::_iceD_getConnectionCount(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    ::std::int32_t ret = this->getConnectionCount(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    ::std::int32_t ret = this->getConnectionCount(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::MyClass::_iceD_getConnectionInfo(::IceInternal::Incoming& incoming)
+void
+Test::MyClass::_iceD_getConnectionInfo(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    ::std::string ret = this->getConnectionInfo(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    ::std::string ret = this->getConnectionInfo(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::MyClass::_iceD_closeConnection(::IceInternal::Incoming& incoming)
+void
+Test::MyClass::_iceD_closeConnection(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     bool iceP_force;
     istr->readAll(iceP_force);
-    incoming.endReadParams();
-    this->closeConnection(iceP_force, incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->closeConnection(iceP_force, request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::MyClass::_iceD_datagram(::IceInternal::Incoming& incoming)
+void
+Test::MyClass::_iceD_datagram(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->datagram(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->datagram(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::MyClass::_iceD_getDatagramCount(::IceInternal::Incoming& incoming)
+void
+Test::MyClass::_iceD_getDatagramCount(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    ::std::int32_t ret = this->getDatagramCount(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    ::std::int32_t ret = this->getDatagramCount(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::MyClass::_iceD_callDatagramCallback(::IceInternal::Incoming& incoming)
+void
+Test::MyClass::_iceD_callDatagramCallback(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->callDatagramCallback(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->callDatagramCallback(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::MyClass::_iceD_getCallbackDatagramCount(::IceInternal::Incoming& incoming)
+void
+Test::MyClass::_iceD_getCallbackDatagramCount(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
-    auto responseCB = [incomingPtr](::std::int32_t ret)
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
+    auto responseCb = [responseHandler](::std::int32_t ret)
     {
-        auto ostr = incomingPtr->startWriteParams();
-        ostr->writeAll(ret);
-        incomingPtr->endWriteParams();
-        incomingPtr->completed();
+        responseHandler->sendResponse(
+            [&](::Ice::OutputStream* ostr)
+            {
+                ostr->writeAll(ret);
+            });
     };
     try
     {
-        this->getCallbackDatagramCountAsync(responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+        this->getCallbackDatagramCountAsync(::std::move(responseCb), [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
     }
     catch (...)
     {
-        incomingPtr->failed(::std::current_exception());
+        responseHandler->sendException(::std::current_exception());
     }
-    return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::MyClass::_iceD_getHeartbeatCount(::IceInternal::Incoming& incoming)
+void
+Test::MyClass::_iceD_getHeartbeatCount(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    ::std::int32_t ret = this->getHeartbeatCount(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    ::std::int32_t ret = this->getHeartbeatCount(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::MyClass::_iceD_enableHeartbeats(::IceInternal::Incoming& incoming)
+void
+Test::MyClass::_iceD_enableHeartbeats(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->enableHeartbeats(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->enableHeartbeats(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::MyClass::_iceD_shutdown(::IceInternal::Incoming& incoming)
+void
+Test::MyClass::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->shutdown(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->shutdown(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::MyClass::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+Test::MyClass::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"callCallback", "callDatagramCallback", "closeConnection", "datagram", "enableHeartbeats", "getCallbackCount", "getCallbackDatagramCount", "getConnectionCount", "getConnectionInfo", "getDatagramCount", "getHeartbeatCount", "ice_id", "ice_ids", "ice_isA", "ice_ping", "incCounter", "shutdown", "waitCounter"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 18, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_callCallback(incoming);
+            _iceD_callCallback(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_callDatagramCallback(incoming);
+            _iceD_callDatagramCallback(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_closeConnection(incoming);
+            _iceD_closeConnection(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_datagram(incoming);
+            _iceD_datagram(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_enableHeartbeats(incoming);
+            _iceD_enableHeartbeats(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_getCallbackCount(incoming);
+            _iceD_getCallbackCount(request, ::std::move(sendResponse));
+            break;
         }
         case 6:
         {
-            return _iceD_getCallbackDatagramCount(incoming);
+            _iceD_getCallbackDatagramCount(request, ::std::move(sendResponse));
+            break;
         }
         case 7:
         {
-            return _iceD_getConnectionCount(incoming);
+            _iceD_getConnectionCount(request, ::std::move(sendResponse));
+            break;
         }
         case 8:
         {
-            return _iceD_getConnectionInfo(incoming);
+            _iceD_getConnectionInfo(request, ::std::move(sendResponse));
+            break;
         }
         case 9:
         {
-            return _iceD_getDatagramCount(incoming);
+            _iceD_getDatagramCount(request, ::std::move(sendResponse));
+            break;
         }
         case 10:
         {
-            return _iceD_getHeartbeatCount(incoming);
+            _iceD_getHeartbeatCount(request, ::std::move(sendResponse));
+            break;
         }
         case 11:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 12:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 13:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 14:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         case 15:
         {
-            return _iceD_incCounter(incoming);
+            _iceD_incCounter(request, ::std::move(sendResponse));
+            break;
         }
         case 16:
         {
-            return _iceD_shutdown(incoming);
+            _iceD_shutdown(request, ::std::move(sendResponse));
+            break;
         }
         case 17:
         {
-            return _iceD_waitCounter(incoming);
+            _iceD_waitCounter(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }

@@ -16,7 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
 #include <Ice/OutgoingAsync.h>
-#include <Ice/Incoming.h>
+#include <Ice/AsyncResponseHandler.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -64,7 +64,7 @@ classdef::_cpp_break::elseifPrx::eventsAsync(const ::Ice::Context& context) cons
 ::std::function<void()>
 classdef::_cpp_break::elseifPrx::eventsAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &classdef::_cpp_break::elseifPrx::_iceI_events, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &classdef::_cpp_break::elseifPrx::_iceI_events, context);
 }
 
 void
@@ -92,7 +92,7 @@ classdef::_cpp_break::elseifPrx::functionAsync(const ::Ice::Context& context) co
 ::std::function<void()>
 classdef::_cpp_break::elseifPrx::functionAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &classdef::_cpp_break::elseifPrx::_iceI_function, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &classdef::_cpp_break::elseifPrx::_iceI_function, context);
 }
 
 void
@@ -120,7 +120,7 @@ classdef::_cpp_break::elseifPrx::deleteAsync(const ::Ice::Context& context) cons
 ::std::function<void()>
 classdef::_cpp_break::elseifPrx::deleteAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &classdef::_cpp_break::elseifPrx::_iceI_delete, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &classdef::_cpp_break::elseifPrx::_iceI_delete, context);
 }
 
 void
@@ -148,7 +148,7 @@ classdef::_cpp_break::elseifPrx::checkedCastAsync(const ::Ice::Context& context)
 ::std::function<void()>
 classdef::_cpp_break::elseifPrx::checkedCastAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &classdef::_cpp_break::elseifPrx::_iceI_checkedCast, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &classdef::_cpp_break::elseifPrx::_iceI_checkedCast, context);
 }
 
 void
@@ -263,104 +263,109 @@ classdef::_cpp_break::elseif::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-classdef::_cpp_break::elseif::_iceD_events(::IceInternal::Incoming& incoming)
+void
+classdef::_cpp_break::elseif::_iceD_events(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->events(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->events(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-classdef::_cpp_break::elseif::_iceD_function(::IceInternal::Incoming& incoming)
+void
+classdef::_cpp_break::elseif::_iceD_function(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->function(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->function(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-classdef::_cpp_break::elseif::_iceD_delete(::IceInternal::Incoming& incoming)
+void
+classdef::_cpp_break::elseif::_iceD_delete(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->_cpp_delete(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->_cpp_delete(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-classdef::_cpp_break::elseif::_iceD_checkedCast(::IceInternal::Incoming& incoming)
+void
+classdef::_cpp_break::elseif::_iceD_checkedCast(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->checkedCast(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->checkedCast(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-classdef::_cpp_break::elseif::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+classdef::_cpp_break::elseif::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"checkedCast", "delete", "events", "function", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_checkedCast(incoming);
+            _iceD_checkedCast(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_delete(incoming);
+            _iceD_delete(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_events(incoming);
+            _iceD_events(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_function(incoming);
+            _iceD_function(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 6:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 7:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }

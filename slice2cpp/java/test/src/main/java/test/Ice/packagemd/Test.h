@@ -279,76 +279,76 @@ public:
 
     virtual ::std::shared_ptr<::Test1::C1> getTest1C2AsC1(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getTest1C2AsC1(::IceInternal::Incoming&);
+    void _iceD_getTest1C2AsC1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::shared_ptr<::Test1::C2> getTest1C2AsC2(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getTest1C2AsC2(::IceInternal::Incoming&);
+    void _iceD_getTest1C2AsC2(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void throwTest1E2AsE1(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwTest1E2AsE1(::IceInternal::Incoming&);
+    void _iceD_throwTest1E2AsE1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void throwTest1E2AsE2(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwTest1E2AsE2(::IceInternal::Incoming&);
+    void _iceD_throwTest1E2AsE2(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void throwTest1Notify(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwTest1Notify(::IceInternal::Incoming&);
+    void _iceD_throwTest1Notify(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::shared_ptr<::Test2::C1> getTest2C2AsC1(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getTest2C2AsC1(::IceInternal::Incoming&);
+    void _iceD_getTest2C2AsC1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::shared_ptr<::Test2::C2> getTest2C2AsC2(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getTest2C2AsC2(::IceInternal::Incoming&);
+    void _iceD_getTest2C2AsC2(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void throwTest2E2AsE1(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwTest2E2AsE1(::IceInternal::Incoming&);
+    void _iceD_throwTest2E2AsE1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void throwTest2E2AsE2(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwTest2E2AsE2(::IceInternal::Incoming&);
+    void _iceD_throwTest2E2AsE2(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::shared_ptr<::Test3::C1> getTest3C2AsC1(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getTest3C2AsC1(::IceInternal::Incoming&);
+    void _iceD_getTest3C2AsC1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::shared_ptr<::Test3::C2> getTest3C2AsC2(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getTest3C2AsC2(::IceInternal::Incoming&);
+    void _iceD_getTest3C2AsC2(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void throwTest3E2AsE1(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwTest3E2AsE1(::IceInternal::Incoming&);
+    void _iceD_throwTest3E2AsE1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void throwTest3E2AsE2(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwTest3E2AsE2(::IceInternal::Incoming&);
+    void _iceD_throwTest3E2AsE2(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

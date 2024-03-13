@@ -354,7 +354,7 @@ public:
      */
     virtual void foundObjectById(::Ice::Identity id, ::std::optional<::Ice::ObjectPrx> prx, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_foundObjectById(::IceInternal::Incoming&);
+    void _iceD_foundObjectById(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -367,11 +367,11 @@ public:
      */
     virtual void foundAdapterById(::std::string id, ::std::optional<::Ice::ObjectPrx> prx, bool isReplicaGroup, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_foundAdapterById(::IceInternal::Incoming&);
+    void _iceD_foundAdapterById(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -417,7 +417,7 @@ public:
      */
     virtual void findObjectById(::std::string domainId, ::Ice::Identity id, ::std::optional<LookupReplyPrx> reply, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_findObjectById(::IceInternal::Incoming&);
+    void _iceD_findObjectById(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -431,11 +431,11 @@ public:
      */
     virtual void findAdapterById(::std::string domainId, ::std::string id, ::std::optional<LookupReplyPrx> reply, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_findAdapterById(::IceInternal::Incoming&);
+    void _iceD_findAdapterById(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

@@ -515,11 +515,11 @@ public:
 
     virtual void checkedCastAsync(::std::int32_t clone, ::std::function<void(::std::int32_t _cpp_continue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_checkedCast(::IceInternal::Incoming&);
+    void _iceD_checkedCast(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -553,11 +553,11 @@ public:
 
     virtual void _cpp_do(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_do(::IceInternal::Incoming&);
+    void _iceD_do(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -591,7 +591,7 @@ public:
     static ::std::string_view ice_staticId();
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -625,11 +625,11 @@ public:
 
     virtual assert notify(_cpp_break notifyAll, ::std::shared_ptr<else> null, ::std::optional<finalizePrx> package, ::std::optional<catchPrx> _cpp_public, ::std::optional<defaultPrx> _cpp_return, ::std::int32_t _cpp_static, ::std::int32_t strictfp, ::std::int32_t super, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_notify(::IceInternal::Incoming&);
+    void _iceD_notify(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

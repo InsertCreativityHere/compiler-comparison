@@ -16,7 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
 #include <Ice/OutgoingAsync.h>
-#include <Ice/Incoming.h>
+#include <Ice/AsyncResponseHandler.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -60,7 +60,7 @@ Test::TestIntfPrx::opCSeqAsync(const CSeq& iceP_inSeq, ::std::function<void(::Te
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<CSeq, CSeq>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opCSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<CSeq, CSeq>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opCSeq, iceP_inSeq, context);
 }
 
 void
@@ -106,7 +106,7 @@ Test::TestIntfPrx::opCArrayAsync(const CArray& iceP_inSeq, ::std::function<void(
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<CArray, CArray>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opCArray, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<CArray, CArray>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opCArray, iceP_inSeq, context);
 }
 
 void
@@ -152,7 +152,7 @@ Test::TestIntfPrx::opCListAsync(const CList& iceP_inSeq, ::std::function<void(::
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<CList, CList>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opCList, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<CList, CList>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opCList, iceP_inSeq, context);
 }
 
 void
@@ -198,7 +198,7 @@ Test::TestIntfPrx::opBoolSeqAsync(const BoolSeq& iceP_inSeq, ::std::function<voi
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<BoolSeq, BoolSeq>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opBoolSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<BoolSeq, BoolSeq>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opBoolSeq, iceP_inSeq, context);
 }
 
 void
@@ -242,7 +242,7 @@ Test::TestIntfPrx::opByteSeqAsync(const ByteSeq& iceP_inSeq, ::std::function<voi
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ByteSeq, ByteSeq>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opByteSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ByteSeq, ByteSeq>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opByteSeq, iceP_inSeq, context);
 }
 
 void
@@ -286,7 +286,7 @@ Test::TestIntfPrx::opShortSeqAsync(const ShortSeq& iceP_inSeq, ::std::function<v
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ShortSeq, ShortSeq>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opShortSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ShortSeq, ShortSeq>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opShortSeq, iceP_inSeq, context);
 }
 
 void
@@ -330,7 +330,7 @@ Test::TestIntfPrx::opIntSeqAsync(const IntSeq& iceP_inSeq, ::std::function<void(
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<IntSeq, IntSeq>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opIntSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<IntSeq, IntSeq>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opIntSeq, iceP_inSeq, context);
 }
 
 void
@@ -374,7 +374,7 @@ Test::TestIntfPrx::opLongSeqAsync(const LongSeq& iceP_inSeq, ::std::function<voi
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<LongSeq, LongSeq>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opLongSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<LongSeq, LongSeq>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opLongSeq, iceP_inSeq, context);
 }
 
 void
@@ -418,7 +418,7 @@ Test::TestIntfPrx::opFloatSeqAsync(const FloatSeq& iceP_inSeq, ::std::function<v
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<FloatSeq, FloatSeq>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opFloatSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<FloatSeq, FloatSeq>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opFloatSeq, iceP_inSeq, context);
 }
 
 void
@@ -462,7 +462,7 @@ Test::TestIntfPrx::opDoubleSeqAsync(const DoubleSeq& iceP_inSeq, ::std::function
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<DoubleSeq, DoubleSeq>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opDoubleSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<DoubleSeq, DoubleSeq>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opDoubleSeq, iceP_inSeq, context);
 }
 
 void
@@ -506,7 +506,7 @@ Test::TestIntfPrx::opStringSeqAsync(const StringSeq& iceP_inSeq, ::std::function
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<StringSeq, StringSeq>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opStringSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<StringSeq, StringSeq>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opStringSeq, iceP_inSeq, context);
 }
 
 void
@@ -550,7 +550,7 @@ Test::TestIntfPrx::opESeqAsync(const ESeq& iceP_inSeq, ::std::function<void(::Te
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ESeq, ESeq>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opESeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ESeq, ESeq>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opESeq, iceP_inSeq, context);
 }
 
 void
@@ -594,7 +594,7 @@ Test::TestIntfPrx::opSSeqAsync(const SSeq& iceP_inSeq, ::std::function<void(::Te
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<SSeq, SSeq>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opSSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<SSeq, SSeq>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opSSeq, iceP_inSeq, context);
 }
 
 void
@@ -638,7 +638,7 @@ Test::TestIntfPrx::opDSeqAsync(const DSeq& iceP_inSeq, ::std::function<void(::Te
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<DSeq, DSeq>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opDSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<DSeq, DSeq>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opDSeq, iceP_inSeq, context);
 }
 
 void
@@ -682,7 +682,7 @@ Test::TestIntfPrx::opStringSeqSeqAsync(const StringSeqSeq& iceP_inSeq, ::std::fu
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<StringSeqSeq, StringSeqSeq>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opStringSeqSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<StringSeqSeq, StringSeqSeq>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opStringSeqSeq, iceP_inSeq, context);
 }
 
 void
@@ -726,7 +726,7 @@ Test::TestIntfPrx::opByteBufferSeqAsync(const ByteBuffer& iceP_inSeq, ::std::fun
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ByteBuffer, ByteBuffer>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opByteBufferSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ByteBuffer, ByteBuffer>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opByteBufferSeq, iceP_inSeq, context);
 }
 
 void
@@ -770,7 +770,7 @@ Test::TestIntfPrx::opShortBufferSeqAsync(const ShortBuffer& iceP_inSeq, ::std::f
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ShortBuffer, ShortBuffer>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opShortBufferSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<ShortBuffer, ShortBuffer>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opShortBufferSeq, iceP_inSeq, context);
 }
 
 void
@@ -814,7 +814,7 @@ Test::TestIntfPrx::opIntBufferSeqAsync(const IntBuffer& iceP_inSeq, ::std::funct
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<IntBuffer, IntBuffer>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opIntBufferSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<IntBuffer, IntBuffer>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opIntBufferSeq, iceP_inSeq, context);
 }
 
 void
@@ -858,7 +858,7 @@ Test::TestIntfPrx::opLongBufferSeqAsync(const LongBuffer& iceP_inSeq, ::std::fun
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<LongBuffer, LongBuffer>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opLongBufferSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<LongBuffer, LongBuffer>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opLongBufferSeq, iceP_inSeq, context);
 }
 
 void
@@ -902,7 +902,7 @@ Test::TestIntfPrx::opFloatBufferSeqAsync(const FloatBuffer& iceP_inSeq, ::std::f
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<FloatBuffer, FloatBuffer>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opFloatBufferSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<FloatBuffer, FloatBuffer>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opFloatBufferSeq, iceP_inSeq, context);
 }
 
 void
@@ -946,7 +946,7 @@ Test::TestIntfPrx::opDoubleBufferSeqAsync(const DoubleBuffer& iceP_inSeq, ::std:
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<DoubleBuffer, DoubleBuffer>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opDoubleBufferSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<DoubleBuffer, DoubleBuffer>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opDoubleBufferSeq, iceP_inSeq, context);
 }
 
 void
@@ -990,7 +990,7 @@ Test::TestIntfPrx::opOptCSeqAsync(const ::std::optional<CSeq>& iceP_inSeq, ::std
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<CSeq>, ::std::optional<CSeq>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptCSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<CSeq>, ::std::optional<CSeq>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptCSeq, iceP_inSeq, context);
 }
 
 void
@@ -1034,7 +1034,7 @@ Test::TestIntfPrx::opOptCArrayAsync(const ::std::optional<CArray>& iceP_inSeq, :
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<CArray>, ::std::optional<CArray>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptCArray, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<CArray>, ::std::optional<CArray>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptCArray, iceP_inSeq, context);
 }
 
 void
@@ -1078,7 +1078,7 @@ Test::TestIntfPrx::opOptCListAsync(const ::std::optional<CList>& iceP_inSeq, ::s
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<CList>, ::std::optional<CList>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptCList, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<CList>, ::std::optional<CList>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptCList, iceP_inSeq, context);
 }
 
 void
@@ -1122,7 +1122,7 @@ Test::TestIntfPrx::opOptBoolSeqAsync(const ::std::optional<BoolSeq>& iceP_inSeq,
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<BoolSeq>, ::std::optional<BoolSeq>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptBoolSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<BoolSeq>, ::std::optional<BoolSeq>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptBoolSeq, iceP_inSeq, context);
 }
 
 void
@@ -1166,7 +1166,7 @@ Test::TestIntfPrx::opOptByteSeqAsync(const ::std::optional<ByteSeq>& iceP_inSeq,
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<ByteSeq>, ::std::optional<ByteSeq>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptByteSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<ByteSeq>, ::std::optional<ByteSeq>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptByteSeq, iceP_inSeq, context);
 }
 
 void
@@ -1210,7 +1210,7 @@ Test::TestIntfPrx::opOptShortSeqAsync(const ::std::optional<ShortSeq>& iceP_inSe
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<ShortSeq>, ::std::optional<ShortSeq>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptShortSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<ShortSeq>, ::std::optional<ShortSeq>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptShortSeq, iceP_inSeq, context);
 }
 
 void
@@ -1254,7 +1254,7 @@ Test::TestIntfPrx::opOptIntSeqAsync(const ::std::optional<IntSeq>& iceP_inSeq, :
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<IntSeq>, ::std::optional<IntSeq>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptIntSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<IntSeq>, ::std::optional<IntSeq>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptIntSeq, iceP_inSeq, context);
 }
 
 void
@@ -1298,7 +1298,7 @@ Test::TestIntfPrx::opOptLongSeqAsync(const ::std::optional<LongSeq>& iceP_inSeq,
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<LongSeq>, ::std::optional<LongSeq>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptLongSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<LongSeq>, ::std::optional<LongSeq>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptLongSeq, iceP_inSeq, context);
 }
 
 void
@@ -1342,7 +1342,7 @@ Test::TestIntfPrx::opOptFloatSeqAsync(const ::std::optional<FloatSeq>& iceP_inSe
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<FloatSeq>, ::std::optional<FloatSeq>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptFloatSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<FloatSeq>, ::std::optional<FloatSeq>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptFloatSeq, iceP_inSeq, context);
 }
 
 void
@@ -1386,7 +1386,7 @@ Test::TestIntfPrx::opOptDoubleSeqAsync(const ::std::optional<DoubleSeq>& iceP_in
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<DoubleSeq>, ::std::optional<DoubleSeq>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptDoubleSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<DoubleSeq>, ::std::optional<DoubleSeq>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptDoubleSeq, iceP_inSeq, context);
 }
 
 void
@@ -1430,7 +1430,7 @@ Test::TestIntfPrx::opOptStringSeqAsync(const ::std::optional<StringSeq>& iceP_in
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<StringSeq>, ::std::optional<StringSeq>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptStringSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<StringSeq>, ::std::optional<StringSeq>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptStringSeq, iceP_inSeq, context);
 }
 
 void
@@ -1474,7 +1474,7 @@ Test::TestIntfPrx::opOptESeqAsync(const ::std::optional<ESeq>& iceP_inSeq, ::std
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<ESeq>, ::std::optional<ESeq>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptESeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<ESeq>, ::std::optional<ESeq>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptESeq, iceP_inSeq, context);
 }
 
 void
@@ -1518,7 +1518,7 @@ Test::TestIntfPrx::opOptSSeqAsync(const ::std::optional<SSeq>& iceP_inSeq, ::std
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<SSeq>, ::std::optional<SSeq>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptSSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<SSeq>, ::std::optional<SSeq>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptSSeq, iceP_inSeq, context);
 }
 
 void
@@ -1562,7 +1562,7 @@ Test::TestIntfPrx::opOptDSeqAsync(const ::std::optional<DSeq>& iceP_inSeq, ::std
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<DSeq>, ::std::optional<DSeq>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptDSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<DSeq>, ::std::optional<DSeq>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptDSeq, iceP_inSeq, context);
 }
 
 void
@@ -1606,7 +1606,7 @@ Test::TestIntfPrx::opOptStringSeqSeqAsync(const ::std::optional<StringSeqSeq>& i
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<StringSeqSeq>, ::std::optional<StringSeqSeq>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptStringSeqSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<StringSeqSeq>, ::std::optional<StringSeqSeq>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptStringSeqSeq, iceP_inSeq, context);
 }
 
 void
@@ -1650,7 +1650,7 @@ Test::TestIntfPrx::opOptByteBufferSeqAsync(const ::std::optional<ByteBuffer>& ic
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<ByteBuffer>, ::std::optional<ByteBuffer>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptByteBufferSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<ByteBuffer>, ::std::optional<ByteBuffer>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptByteBufferSeq, iceP_inSeq, context);
 }
 
 void
@@ -1694,7 +1694,7 @@ Test::TestIntfPrx::opOptShortBufferSeqAsync(const ::std::optional<ShortBuffer>& 
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<ShortBuffer>, ::std::optional<ShortBuffer>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptShortBufferSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<ShortBuffer>, ::std::optional<ShortBuffer>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptShortBufferSeq, iceP_inSeq, context);
 }
 
 void
@@ -1738,7 +1738,7 @@ Test::TestIntfPrx::opOptIntBufferSeqAsync(const ::std::optional<IntBuffer>& iceP
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<IntBuffer>, ::std::optional<IntBuffer>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptIntBufferSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<IntBuffer>, ::std::optional<IntBuffer>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptIntBufferSeq, iceP_inSeq, context);
 }
 
 void
@@ -1782,7 +1782,7 @@ Test::TestIntfPrx::opOptLongBufferSeqAsync(const ::std::optional<LongBuffer>& ic
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<LongBuffer>, ::std::optional<LongBuffer>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptLongBufferSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<LongBuffer>, ::std::optional<LongBuffer>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptLongBufferSeq, iceP_inSeq, context);
 }
 
 void
@@ -1826,7 +1826,7 @@ Test::TestIntfPrx::opOptFloatBufferSeqAsync(const ::std::optional<FloatBuffer>& 
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<FloatBuffer>, ::std::optional<FloatBuffer>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptFloatBufferSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<FloatBuffer>, ::std::optional<FloatBuffer>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptFloatBufferSeq, iceP_inSeq, context);
 }
 
 void
@@ -1870,7 +1870,7 @@ Test::TestIntfPrx::opOptDoubleBufferSeqAsync(const ::std::optional<DoubleBuffer>
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<DoubleBuffer>, ::std::optional<DoubleBuffer>>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptDoubleBufferSeq, iceP_inSeq, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<DoubleBuffer>, ::std::optional<DoubleBuffer>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_opOptDoubleBufferSeq, iceP_inSeq, context);
 }
 
 void
@@ -1908,7 +1908,7 @@ Test::TestIntfPrx::shutdownAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::TestIntfPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
 }
 
 void
@@ -1960,986 +1960,1117 @@ Test::TestIntf::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opCSeq(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opCSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     CSeq iceP_inSeq;
     istr->readAll(iceP_inSeq);
     istr->readPendingValues();
-    incoming.endReadParams();
+    istr->endEncapsulation();
     CSeq iceP_outSeq;
-    CSeq ret = this->opCSeq(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_outSeq, ret);
-    ostr->writePendingValues();
-    incoming.endWriteParams();
-    return true;
+    CSeq ret = this->opCSeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_outSeq, ret);
+            ostr->writePendingValues();
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opCArray(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opCArray(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     CArray iceP_inSeq;
     istr->readAll(iceP_inSeq);
     istr->readPendingValues();
-    incoming.endReadParams();
+    istr->endEncapsulation();
     CArray iceP_outSeq;
-    CArray ret = this->opCArray(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_outSeq, ret);
-    ostr->writePendingValues();
-    incoming.endWriteParams();
-    return true;
+    CArray ret = this->opCArray(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_outSeq, ret);
+            ostr->writePendingValues();
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opCList(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opCList(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     CList iceP_inSeq;
     istr->readAll(iceP_inSeq);
     istr->readPendingValues();
-    incoming.endReadParams();
+    istr->endEncapsulation();
     CList iceP_outSeq;
-    CList ret = this->opCList(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_outSeq, ret);
-    ostr->writePendingValues();
-    incoming.endWriteParams();
-    return true;
+    CList ret = this->opCList(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_outSeq, ret);
+            ostr->writePendingValues();
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opBoolSeq(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opBoolSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     BoolSeq iceP_inSeq;
     istr->readAll(iceP_inSeq);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     BoolSeq iceP_outSeq;
-    BoolSeq ret = this->opBoolSeq(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_outSeq, ret);
-    incoming.endWriteParams();
-    return true;
+    BoolSeq ret = this->opBoolSeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_outSeq, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opByteSeq(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opByteSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ByteSeq iceP_inSeq;
     istr->readAll(iceP_inSeq);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     ByteSeq iceP_outSeq;
-    ByteSeq ret = this->opByteSeq(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_outSeq, ret);
-    incoming.endWriteParams();
-    return true;
+    ByteSeq ret = this->opByteSeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_outSeq, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opShortSeq(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opShortSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ShortSeq iceP_inSeq;
     istr->readAll(iceP_inSeq);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     ShortSeq iceP_outSeq;
-    ShortSeq ret = this->opShortSeq(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_outSeq, ret);
-    incoming.endWriteParams();
-    return true;
+    ShortSeq ret = this->opShortSeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_outSeq, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opIntSeq(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opIntSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     IntSeq iceP_inSeq;
     istr->readAll(iceP_inSeq);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     IntSeq iceP_outSeq;
-    IntSeq ret = this->opIntSeq(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_outSeq, ret);
-    incoming.endWriteParams();
-    return true;
+    IntSeq ret = this->opIntSeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_outSeq, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opLongSeq(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opLongSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     LongSeq iceP_inSeq;
     istr->readAll(iceP_inSeq);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     LongSeq iceP_outSeq;
-    LongSeq ret = this->opLongSeq(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_outSeq, ret);
-    incoming.endWriteParams();
-    return true;
+    LongSeq ret = this->opLongSeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_outSeq, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opFloatSeq(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opFloatSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     FloatSeq iceP_inSeq;
     istr->readAll(iceP_inSeq);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     FloatSeq iceP_outSeq;
-    FloatSeq ret = this->opFloatSeq(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_outSeq, ret);
-    incoming.endWriteParams();
-    return true;
+    FloatSeq ret = this->opFloatSeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_outSeq, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opDoubleSeq(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opDoubleSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     DoubleSeq iceP_inSeq;
     istr->readAll(iceP_inSeq);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     DoubleSeq iceP_outSeq;
-    DoubleSeq ret = this->opDoubleSeq(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_outSeq, ret);
-    incoming.endWriteParams();
-    return true;
+    DoubleSeq ret = this->opDoubleSeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_outSeq, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opStringSeq(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opStringSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     StringSeq iceP_inSeq;
     istr->readAll(iceP_inSeq);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     StringSeq iceP_outSeq;
-    StringSeq ret = this->opStringSeq(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_outSeq, ret);
-    incoming.endWriteParams();
-    return true;
+    StringSeq ret = this->opStringSeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_outSeq, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opESeq(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opESeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ESeq iceP_inSeq;
     istr->readAll(iceP_inSeq);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     ESeq iceP_outSeq;
-    ESeq ret = this->opESeq(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_outSeq, ret);
-    incoming.endWriteParams();
-    return true;
+    ESeq ret = this->opESeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_outSeq, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opSSeq(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opSSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     SSeq iceP_inSeq;
     istr->readAll(iceP_inSeq);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     SSeq iceP_outSeq;
-    SSeq ret = this->opSSeq(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_outSeq, ret);
-    incoming.endWriteParams();
-    return true;
+    SSeq ret = this->opSSeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_outSeq, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opDSeq(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opDSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     DSeq iceP_inSeq;
     istr->readAll(iceP_inSeq);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     DSeq iceP_outSeq;
-    DSeq ret = this->opDSeq(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_outSeq, ret);
-    incoming.endWriteParams();
-    return true;
+    DSeq ret = this->opDSeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_outSeq, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opStringSeqSeq(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opStringSeqSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     StringSeqSeq iceP_inSeq;
     istr->readAll(iceP_inSeq);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     StringSeqSeq iceP_outSeq;
-    StringSeqSeq ret = this->opStringSeqSeq(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_outSeq, ret);
-    incoming.endWriteParams();
-    return true;
+    StringSeqSeq ret = this->opStringSeqSeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_outSeq, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opByteBufferSeq(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opByteBufferSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ByteBuffer iceP_inSeq;
     istr->readAll(iceP_inSeq);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     ByteBuffer iceP_outSeq;
-    ByteBuffer ret = this->opByteBufferSeq(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_outSeq, ret);
-    incoming.endWriteParams();
-    return true;
+    ByteBuffer ret = this->opByteBufferSeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_outSeq, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opShortBufferSeq(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opShortBufferSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ShortBuffer iceP_inSeq;
     istr->readAll(iceP_inSeq);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     ShortBuffer iceP_outSeq;
-    ShortBuffer ret = this->opShortBufferSeq(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_outSeq, ret);
-    incoming.endWriteParams();
-    return true;
+    ShortBuffer ret = this->opShortBufferSeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_outSeq, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opIntBufferSeq(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opIntBufferSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     IntBuffer iceP_inSeq;
     istr->readAll(iceP_inSeq);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     IntBuffer iceP_outSeq;
-    IntBuffer ret = this->opIntBufferSeq(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_outSeq, ret);
-    incoming.endWriteParams();
-    return true;
+    IntBuffer ret = this->opIntBufferSeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_outSeq, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opLongBufferSeq(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opLongBufferSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     LongBuffer iceP_inSeq;
     istr->readAll(iceP_inSeq);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     LongBuffer iceP_outSeq;
-    LongBuffer ret = this->opLongBufferSeq(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_outSeq, ret);
-    incoming.endWriteParams();
-    return true;
+    LongBuffer ret = this->opLongBufferSeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_outSeq, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opFloatBufferSeq(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opFloatBufferSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     FloatBuffer iceP_inSeq;
     istr->readAll(iceP_inSeq);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     FloatBuffer iceP_outSeq;
-    FloatBuffer ret = this->opFloatBufferSeq(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_outSeq, ret);
-    incoming.endWriteParams();
-    return true;
+    FloatBuffer ret = this->opFloatBufferSeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_outSeq, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opDoubleBufferSeq(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opDoubleBufferSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     DoubleBuffer iceP_inSeq;
     istr->readAll(iceP_inSeq);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     DoubleBuffer iceP_outSeq;
-    DoubleBuffer ret = this->opDoubleBufferSeq(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_outSeq, ret);
-    incoming.endWriteParams();
-    return true;
+    DoubleBuffer ret = this->opDoubleBufferSeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_outSeq, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opOptCSeq(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opOptCSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::optional<CSeq> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     ::std::optional<CSeq> iceP_outSeq;
-    ::std::optional<CSeq> ret = this->opOptCSeq(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll({1, 3}, ret, iceP_outSeq);
-    incoming.endWriteParams();
-    return true;
+    ::std::optional<CSeq> ret = this->opOptCSeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll({1, 3}, ret, iceP_outSeq);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opOptCArray(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opOptCArray(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::optional<CArray> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     ::std::optional<CArray> iceP_outSeq;
-    ::std::optional<CArray> ret = this->opOptCArray(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll({1, 3}, ret, iceP_outSeq);
-    incoming.endWriteParams();
-    return true;
+    ::std::optional<CArray> ret = this->opOptCArray(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll({1, 3}, ret, iceP_outSeq);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opOptCList(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opOptCList(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::optional<CList> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     ::std::optional<CList> iceP_outSeq;
-    ::std::optional<CList> ret = this->opOptCList(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll({1, 3}, ret, iceP_outSeq);
-    incoming.endWriteParams();
-    return true;
+    ::std::optional<CList> ret = this->opOptCList(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll({1, 3}, ret, iceP_outSeq);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opOptBoolSeq(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opOptBoolSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::optional<BoolSeq> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     ::std::optional<BoolSeq> iceP_outSeq;
-    ::std::optional<BoolSeq> ret = this->opOptBoolSeq(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll({1, 3}, ret, iceP_outSeq);
-    incoming.endWriteParams();
-    return true;
+    ::std::optional<BoolSeq> ret = this->opOptBoolSeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll({1, 3}, ret, iceP_outSeq);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opOptByteSeq(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opOptByteSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::optional<ByteSeq> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     ::std::optional<ByteSeq> iceP_outSeq;
-    ::std::optional<ByteSeq> ret = this->opOptByteSeq(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll({1, 3}, ret, iceP_outSeq);
-    incoming.endWriteParams();
-    return true;
+    ::std::optional<ByteSeq> ret = this->opOptByteSeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll({1, 3}, ret, iceP_outSeq);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opOptShortSeq(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opOptShortSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::optional<ShortSeq> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     ::std::optional<ShortSeq> iceP_outSeq;
-    ::std::optional<ShortSeq> ret = this->opOptShortSeq(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll({1, 3}, ret, iceP_outSeq);
-    incoming.endWriteParams();
-    return true;
+    ::std::optional<ShortSeq> ret = this->opOptShortSeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll({1, 3}, ret, iceP_outSeq);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opOptIntSeq(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opOptIntSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::optional<IntSeq> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     ::std::optional<IntSeq> iceP_outSeq;
-    ::std::optional<IntSeq> ret = this->opOptIntSeq(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll({1, 3}, ret, iceP_outSeq);
-    incoming.endWriteParams();
-    return true;
+    ::std::optional<IntSeq> ret = this->opOptIntSeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll({1, 3}, ret, iceP_outSeq);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opOptLongSeq(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opOptLongSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::optional<LongSeq> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     ::std::optional<LongSeq> iceP_outSeq;
-    ::std::optional<LongSeq> ret = this->opOptLongSeq(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll({1, 3}, ret, iceP_outSeq);
-    incoming.endWriteParams();
-    return true;
+    ::std::optional<LongSeq> ret = this->opOptLongSeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll({1, 3}, ret, iceP_outSeq);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opOptFloatSeq(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opOptFloatSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::optional<FloatSeq> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     ::std::optional<FloatSeq> iceP_outSeq;
-    ::std::optional<FloatSeq> ret = this->opOptFloatSeq(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll({1, 3}, ret, iceP_outSeq);
-    incoming.endWriteParams();
-    return true;
+    ::std::optional<FloatSeq> ret = this->opOptFloatSeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll({1, 3}, ret, iceP_outSeq);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opOptDoubleSeq(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opOptDoubleSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::optional<DoubleSeq> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     ::std::optional<DoubleSeq> iceP_outSeq;
-    ::std::optional<DoubleSeq> ret = this->opOptDoubleSeq(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll({1, 3}, ret, iceP_outSeq);
-    incoming.endWriteParams();
-    return true;
+    ::std::optional<DoubleSeq> ret = this->opOptDoubleSeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll({1, 3}, ret, iceP_outSeq);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opOptStringSeq(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opOptStringSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::optional<StringSeq> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     ::std::optional<StringSeq> iceP_outSeq;
-    ::std::optional<StringSeq> ret = this->opOptStringSeq(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll({1, 3}, ret, iceP_outSeq);
-    incoming.endWriteParams();
-    return true;
+    ::std::optional<StringSeq> ret = this->opOptStringSeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll({1, 3}, ret, iceP_outSeq);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opOptESeq(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opOptESeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::optional<ESeq> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     ::std::optional<ESeq> iceP_outSeq;
-    ::std::optional<ESeq> ret = this->opOptESeq(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll({1, 3}, ret, iceP_outSeq);
-    incoming.endWriteParams();
-    return true;
+    ::std::optional<ESeq> ret = this->opOptESeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll({1, 3}, ret, iceP_outSeq);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opOptSSeq(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opOptSSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::optional<SSeq> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     ::std::optional<SSeq> iceP_outSeq;
-    ::std::optional<SSeq> ret = this->opOptSSeq(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll({1, 3}, ret, iceP_outSeq);
-    incoming.endWriteParams();
-    return true;
+    ::std::optional<SSeq> ret = this->opOptSSeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll({1, 3}, ret, iceP_outSeq);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opOptDSeq(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opOptDSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::optional<DSeq> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     ::std::optional<DSeq> iceP_outSeq;
-    ::std::optional<DSeq> ret = this->opOptDSeq(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll({1, 3}, ret, iceP_outSeq);
-    incoming.endWriteParams();
-    return true;
+    ::std::optional<DSeq> ret = this->opOptDSeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll({1, 3}, ret, iceP_outSeq);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opOptStringSeqSeq(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opOptStringSeqSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::optional<StringSeqSeq> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     ::std::optional<StringSeqSeq> iceP_outSeq;
-    ::std::optional<StringSeqSeq> ret = this->opOptStringSeqSeq(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll({1, 3}, ret, iceP_outSeq);
-    incoming.endWriteParams();
-    return true;
+    ::std::optional<StringSeqSeq> ret = this->opOptStringSeqSeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll({1, 3}, ret, iceP_outSeq);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opOptByteBufferSeq(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opOptByteBufferSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::optional<ByteBuffer> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     ::std::optional<ByteBuffer> iceP_outSeq;
-    ::std::optional<ByteBuffer> ret = this->opOptByteBufferSeq(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll({1, 3}, ret, iceP_outSeq);
-    incoming.endWriteParams();
-    return true;
+    ::std::optional<ByteBuffer> ret = this->opOptByteBufferSeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll({1, 3}, ret, iceP_outSeq);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opOptShortBufferSeq(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opOptShortBufferSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::optional<ShortBuffer> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     ::std::optional<ShortBuffer> iceP_outSeq;
-    ::std::optional<ShortBuffer> ret = this->opOptShortBufferSeq(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll({1, 3}, ret, iceP_outSeq);
-    incoming.endWriteParams();
-    return true;
+    ::std::optional<ShortBuffer> ret = this->opOptShortBufferSeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll({1, 3}, ret, iceP_outSeq);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opOptIntBufferSeq(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opOptIntBufferSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::optional<IntBuffer> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     ::std::optional<IntBuffer> iceP_outSeq;
-    ::std::optional<IntBuffer> ret = this->opOptIntBufferSeq(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll({1, 3}, ret, iceP_outSeq);
-    incoming.endWriteParams();
-    return true;
+    ::std::optional<IntBuffer> ret = this->opOptIntBufferSeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll({1, 3}, ret, iceP_outSeq);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opOptLongBufferSeq(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opOptLongBufferSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::optional<LongBuffer> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     ::std::optional<LongBuffer> iceP_outSeq;
-    ::std::optional<LongBuffer> ret = this->opOptLongBufferSeq(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll({1, 3}, ret, iceP_outSeq);
-    incoming.endWriteParams();
-    return true;
+    ::std::optional<LongBuffer> ret = this->opOptLongBufferSeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll({1, 3}, ret, iceP_outSeq);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opOptFloatBufferSeq(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opOptFloatBufferSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::optional<FloatBuffer> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     ::std::optional<FloatBuffer> iceP_outSeq;
-    ::std::optional<FloatBuffer> ret = this->opOptFloatBufferSeq(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll({1, 3}, ret, iceP_outSeq);
-    incoming.endWriteParams();
-    return true;
+    ::std::optional<FloatBuffer> ret = this->opOptFloatBufferSeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll({1, 3}, ret, iceP_outSeq);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_opOptDoubleBufferSeq(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_opOptDoubleBufferSeq(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::optional<DoubleBuffer> iceP_inSeq;
     istr->readAll({2}, iceP_inSeq);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     ::std::optional<DoubleBuffer> iceP_outSeq;
-    ::std::optional<DoubleBuffer> ret = this->opOptDoubleBufferSeq(::std::move(iceP_inSeq), iceP_outSeq, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll({1, 3}, ret, iceP_outSeq);
-    incoming.endWriteParams();
-    return true;
+    ::std::optional<DoubleBuffer> ret = this->opOptDoubleBufferSeq(::std::move(iceP_inSeq), iceP_outSeq, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll({1, 3}, ret, iceP_outSeq);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_shutdown(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->shutdown(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->shutdown(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "opBoolSeq", "opByteBufferSeq", "opByteSeq", "opCArray", "opCList", "opCSeq", "opDSeq", "opDoubleBufferSeq", "opDoubleSeq", "opESeq", "opFloatBufferSeq", "opFloatSeq", "opIntBufferSeq", "opIntSeq", "opLongBufferSeq", "opLongSeq", "opOptBoolSeq", "opOptByteBufferSeq", "opOptByteSeq", "opOptCArray", "opOptCList", "opOptCSeq", "opOptDSeq", "opOptDoubleBufferSeq", "opOptDoubleSeq", "opOptESeq", "opOptFloatBufferSeq", "opOptFloatSeq", "opOptIntBufferSeq", "opOptIntSeq", "opOptLongBufferSeq", "opOptLongSeq", "opOptSSeq", "opOptShortBufferSeq", "opOptShortSeq", "opOptStringSeq", "opOptStringSeqSeq", "opSSeq", "opShortBufferSeq", "opShortSeq", "opStringSeq", "opStringSeqSeq", "shutdown"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 47, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_opBoolSeq(incoming);
+            _iceD_opBoolSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_opByteBufferSeq(incoming);
+            _iceD_opByteBufferSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 6:
         {
-            return _iceD_opByteSeq(incoming);
+            _iceD_opByteSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 7:
         {
-            return _iceD_opCArray(incoming);
+            _iceD_opCArray(request, ::std::move(sendResponse));
+            break;
         }
         case 8:
         {
-            return _iceD_opCList(incoming);
+            _iceD_opCList(request, ::std::move(sendResponse));
+            break;
         }
         case 9:
         {
-            return _iceD_opCSeq(incoming);
+            _iceD_opCSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 10:
         {
-            return _iceD_opDSeq(incoming);
+            _iceD_opDSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 11:
         {
-            return _iceD_opDoubleBufferSeq(incoming);
+            _iceD_opDoubleBufferSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 12:
         {
-            return _iceD_opDoubleSeq(incoming);
+            _iceD_opDoubleSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 13:
         {
-            return _iceD_opESeq(incoming);
+            _iceD_opESeq(request, ::std::move(sendResponse));
+            break;
         }
         case 14:
         {
-            return _iceD_opFloatBufferSeq(incoming);
+            _iceD_opFloatBufferSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 15:
         {
-            return _iceD_opFloatSeq(incoming);
+            _iceD_opFloatSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 16:
         {
-            return _iceD_opIntBufferSeq(incoming);
+            _iceD_opIntBufferSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 17:
         {
-            return _iceD_opIntSeq(incoming);
+            _iceD_opIntSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 18:
         {
-            return _iceD_opLongBufferSeq(incoming);
+            _iceD_opLongBufferSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 19:
         {
-            return _iceD_opLongSeq(incoming);
+            _iceD_opLongSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 20:
         {
-            return _iceD_opOptBoolSeq(incoming);
+            _iceD_opOptBoolSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 21:
         {
-            return _iceD_opOptByteBufferSeq(incoming);
+            _iceD_opOptByteBufferSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 22:
         {
-            return _iceD_opOptByteSeq(incoming);
+            _iceD_opOptByteSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 23:
         {
-            return _iceD_opOptCArray(incoming);
+            _iceD_opOptCArray(request, ::std::move(sendResponse));
+            break;
         }
         case 24:
         {
-            return _iceD_opOptCList(incoming);
+            _iceD_opOptCList(request, ::std::move(sendResponse));
+            break;
         }
         case 25:
         {
-            return _iceD_opOptCSeq(incoming);
+            _iceD_opOptCSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 26:
         {
-            return _iceD_opOptDSeq(incoming);
+            _iceD_opOptDSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 27:
         {
-            return _iceD_opOptDoubleBufferSeq(incoming);
+            _iceD_opOptDoubleBufferSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 28:
         {
-            return _iceD_opOptDoubleSeq(incoming);
+            _iceD_opOptDoubleSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 29:
         {
-            return _iceD_opOptESeq(incoming);
+            _iceD_opOptESeq(request, ::std::move(sendResponse));
+            break;
         }
         case 30:
         {
-            return _iceD_opOptFloatBufferSeq(incoming);
+            _iceD_opOptFloatBufferSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 31:
         {
-            return _iceD_opOptFloatSeq(incoming);
+            _iceD_opOptFloatSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 32:
         {
-            return _iceD_opOptIntBufferSeq(incoming);
+            _iceD_opOptIntBufferSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 33:
         {
-            return _iceD_opOptIntSeq(incoming);
+            _iceD_opOptIntSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 34:
         {
-            return _iceD_opOptLongBufferSeq(incoming);
+            _iceD_opOptLongBufferSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 35:
         {
-            return _iceD_opOptLongSeq(incoming);
+            _iceD_opOptLongSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 36:
         {
-            return _iceD_opOptSSeq(incoming);
+            _iceD_opOptSSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 37:
         {
-            return _iceD_opOptShortBufferSeq(incoming);
+            _iceD_opOptShortBufferSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 38:
         {
-            return _iceD_opOptShortSeq(incoming);
+            _iceD_opOptShortSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 39:
         {
-            return _iceD_opOptStringSeq(incoming);
+            _iceD_opOptStringSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 40:
         {
-            return _iceD_opOptStringSeqSeq(incoming);
+            _iceD_opOptStringSeqSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 41:
         {
-            return _iceD_opSSeq(incoming);
+            _iceD_opSSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 42:
         {
-            return _iceD_opShortBufferSeq(incoming);
+            _iceD_opShortBufferSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 43:
         {
-            return _iceD_opShortSeq(incoming);
+            _iceD_opShortSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 44:
         {
-            return _iceD_opStringSeq(incoming);
+            _iceD_opStringSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 45:
         {
-            return _iceD_opStringSeqSeq(incoming);
+            _iceD_opStringSeqSeq(request, ::std::move(sendResponse));
+            break;
         }
         case 46:
         {
-            return _iceD_shutdown(incoming);
+            _iceD_shutdown(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }

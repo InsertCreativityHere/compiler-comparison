@@ -19,7 +19,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Metrics.h>
 #include <Ice/OutgoingAsync.h>
-#include <Ice/Incoming.h>
+#include <Ice/AsyncResponseHandler.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -79,7 +79,7 @@ IceMX::MetricsAdminPrx::getMetricsViewNamesAsync(::std::function<void(::Ice::Str
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::Ice::StringSeq, ::Ice::StringSeq>>(std::move(responseCb), std::move(ex), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_getMetricsViewNames, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::Ice::StringSeq, ::Ice::StringSeq>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_getMetricsViewNames, context);
 }
 
 void
@@ -114,7 +114,7 @@ IceMX::MetricsAdminPrx::enableMetricsViewAsync(::std::string_view iceP_name, con
 ::std::function<void()>
 IceMX::MetricsAdminPrx::enableMetricsViewAsync(::std::string_view iceP_name, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_enableMetricsView, iceP_name, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_enableMetricsView, iceP_name, context);
 }
 
 void
@@ -159,7 +159,7 @@ IceMX::MetricsAdminPrx::disableMetricsViewAsync(::std::string_view iceP_name, co
 ::std::function<void()>
 IceMX::MetricsAdminPrx::disableMetricsViewAsync(::std::string_view iceP_name, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_disableMetricsView, iceP_name, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_disableMetricsView, iceP_name, context);
 }
 
 void
@@ -210,7 +210,7 @@ IceMX::MetricsAdminPrx::getMetricsViewAsync(::std::string_view iceP_view, ::std:
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<MetricsView, ::std::int64_t>>(std::move(responseCb), std::move(ex), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_getMetricsView, iceP_view, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<MetricsView, ::std::int64_t>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_getMetricsView, iceP_view, context);
 }
 
 void
@@ -262,7 +262,7 @@ IceMX::MetricsAdminPrx::getMapMetricsFailuresAsync(::std::string_view iceP_view,
 ::std::function<void()>
 IceMX::MetricsAdminPrx::getMapMetricsFailuresAsync(::std::string_view iceP_view, ::std::string_view iceP_map, ::std::function<void(::IceMX::MetricsFailuresSeq)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<MetricsFailuresSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_getMapMetricsFailures, iceP_view, iceP_map, context);
+    return ::IceInternal::makeLambdaOutgoing<MetricsFailuresSeq>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_getMapMetricsFailures, iceP_view, iceP_map, context);
 }
 
 void
@@ -307,7 +307,7 @@ IceMX::MetricsAdminPrx::getMetricsFailuresAsync(::std::string_view iceP_view, ::
 ::std::function<void()>
 IceMX::MetricsAdminPrx::getMetricsFailuresAsync(::std::string_view iceP_view, ::std::string_view iceP_map, ::std::string_view iceP_id, ::std::function<void(::IceMX::MetricsFailures)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<MetricsFailures>(std::move(response), std::move(ex), std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_getMetricsFailures, iceP_view, iceP_map, iceP_id, context);
+    return ::IceInternal::makeLambdaOutgoing<MetricsFailures>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceMX::MetricsAdminPrx::_iceI_getMetricsFailures, iceP_view, iceP_map, iceP_id, context);
 }
 
 void
@@ -464,171 +464,187 @@ IceMX::MetricsAdmin::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-IceMX::MetricsAdmin::_iceD_getMetricsViewNames(::IceInternal::Incoming& incoming)
+void
+IceMX::MetricsAdmin::_iceD_getMetricsViewNames(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    incoming.setFormat(::Ice::FormatType::SlicedFormat);
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
     ::Ice::StringSeq iceP_disabledViews;
-    ::Ice::StringSeq ret = this->getMetricsViewNames(iceP_disabledViews, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_disabledViews, ret);
-    incoming.endWriteParams();
-    return true;
+    ::Ice::StringSeq ret = this->getMetricsViewNames(iceP_disabledViews, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_disabledViews, ret);
+        },
+        request.current(),
+        ::Ice::FormatType::SlicedFormat));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceMX::MetricsAdmin::_iceD_enableMetricsView(::IceInternal::Incoming& incoming)
+void
+IceMX::MetricsAdmin::_iceD_enableMetricsView(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_name;
     istr->readAll(iceP_name);
-    incoming.endReadParams();
-    incoming.setFormat(::Ice::FormatType::SlicedFormat);
-    this->enableMetricsView(::std::move(iceP_name), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->enableMetricsView(::std::move(iceP_name), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceMX::MetricsAdmin::_iceD_disableMetricsView(::IceInternal::Incoming& incoming)
+void
+IceMX::MetricsAdmin::_iceD_disableMetricsView(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_name;
     istr->readAll(iceP_name);
-    incoming.endReadParams();
-    incoming.setFormat(::Ice::FormatType::SlicedFormat);
-    this->disableMetricsView(::std::move(iceP_name), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->disableMetricsView(::std::move(iceP_name), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceMX::MetricsAdmin::_iceD_getMetricsView(::IceInternal::Incoming& incoming)
+void
+IceMX::MetricsAdmin::_iceD_getMetricsView(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_view;
     istr->readAll(iceP_view);
-    incoming.endReadParams();
-    incoming.setFormat(::Ice::FormatType::SlicedFormat);
+    istr->endEncapsulation();
     ::std::int64_t iceP_timestamp;
-    MetricsView ret = this->getMetricsView(::std::move(iceP_view), iceP_timestamp, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_timestamp, ret);
-    ostr->writePendingValues();
-    incoming.endWriteParams();
-    return true;
+    MetricsView ret = this->getMetricsView(::std::move(iceP_view), iceP_timestamp, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_timestamp, ret);
+            ostr->writePendingValues();
+        },
+        request.current(),
+        ::Ice::FormatType::SlicedFormat));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceMX::MetricsAdmin::_iceD_getMapMetricsFailures(::IceInternal::Incoming& incoming)
+void
+IceMX::MetricsAdmin::_iceD_getMapMetricsFailures(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_view;
     ::std::string iceP_map;
     istr->readAll(iceP_view, iceP_map);
-    incoming.endReadParams();
-    incoming.setFormat(::Ice::FormatType::SlicedFormat);
-    MetricsFailuresSeq ret = this->getMapMetricsFailures(::std::move(iceP_view), ::std::move(iceP_map), incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    MetricsFailuresSeq ret = this->getMapMetricsFailures(::std::move(iceP_view), ::std::move(iceP_map), request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current(),
+        ::Ice::FormatType::SlicedFormat));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceMX::MetricsAdmin::_iceD_getMetricsFailures(::IceInternal::Incoming& incoming)
+void
+IceMX::MetricsAdmin::_iceD_getMetricsFailures(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_view;
     ::std::string iceP_map;
     ::std::string iceP_id;
     istr->readAll(iceP_view, iceP_map, iceP_id);
-    incoming.endReadParams();
-    incoming.setFormat(::Ice::FormatType::SlicedFormat);
-    MetricsFailures ret = this->getMetricsFailures(::std::move(iceP_view), ::std::move(iceP_map), ::std::move(iceP_id), incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    MetricsFailures ret = this->getMetricsFailures(::std::move(iceP_view), ::std::move(iceP_map), ::std::move(iceP_id), request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current(),
+        ::Ice::FormatType::SlicedFormat));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceMX::MetricsAdmin::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+IceMX::MetricsAdmin::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"disableMetricsView", "enableMetricsView", "getMapMetricsFailures", "getMetricsFailures", "getMetricsView", "getMetricsViewNames", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 10, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_disableMetricsView(incoming);
+            _iceD_disableMetricsView(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_enableMetricsView(incoming);
+            _iceD_enableMetricsView(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_getMapMetricsFailures(incoming);
+            _iceD_getMapMetricsFailures(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_getMetricsFailures(incoming);
+            _iceD_getMetricsFailures(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_getMetricsView(incoming);
+            _iceD_getMetricsView(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_getMetricsViewNames(incoming);
+            _iceD_getMetricsViewNames(request, ::std::move(sendResponse));
+            break;
         }
         case 6:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 7:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 8:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 9:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }

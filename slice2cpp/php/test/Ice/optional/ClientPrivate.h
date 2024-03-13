@@ -202,16 +202,16 @@ public:
 
     virtual void opClassAndUnknownOptional(::std::shared_ptr<A> p, ::std::optional<::std::shared_ptr<::Ice::Value>> o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opClassAndUnknownOptional(::IceInternal::Incoming&);
+    void _iceD_opClassAndUnknownOptional(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opVoid(::std::optional<::std::int32_t> a, ::std::optional<::std::string> v, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opVoid(::IceInternal::Incoming&);
+    void _iceD_opVoid(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

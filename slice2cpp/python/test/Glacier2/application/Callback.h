@@ -211,11 +211,11 @@ public:
 
     virtual void callback(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_callback(::IceInternal::Incoming&);
+    void _iceD_callback(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -249,16 +249,16 @@ public:
 
     virtual void initiateCallback(::std::optional<CallbackReceiverPrx> proxy, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_initiateCallback(::IceInternal::Incoming&);
+    void _iceD_initiateCallback(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

@@ -16,7 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
 #include <Ice/OutgoingAsync.h>
-#include <Ice/Incoming.h>
+#include <Ice/AsyncResponseHandler.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -64,7 +64,7 @@ Test::TestIntfPrx::baseAsBaseAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::TestIntfPrx::baseAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_baseAsBase, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_baseAsBase, context);
 }
 
 void
@@ -106,7 +106,7 @@ Test::TestIntfPrx::unknownDerivedAsBaseAsync(const ::Ice::Context& context) cons
 ::std::function<void()>
 Test::TestIntfPrx::unknownDerivedAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownDerivedAsBase, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownDerivedAsBase, context);
 }
 
 void
@@ -148,7 +148,7 @@ Test::TestIntfPrx::knownDerivedAsBaseAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::TestIntfPrx::knownDerivedAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownDerivedAsBase, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_knownDerivedAsBase, context);
 }
 
 void
@@ -190,7 +190,7 @@ Test::TestIntfPrx::knownDerivedAsKnownDerivedAsync(const ::Ice::Context& context
 ::std::function<void()>
 Test::TestIntfPrx::knownDerivedAsKnownDerivedAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownDerivedAsKnownDerived, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_knownDerivedAsKnownDerived, context);
 }
 
 void
@@ -232,7 +232,7 @@ Test::TestIntfPrx::unknownIntermediateAsBaseAsync(const ::Ice::Context& context)
 ::std::function<void()>
 Test::TestIntfPrx::unknownIntermediateAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownIntermediateAsBase, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownIntermediateAsBase, context);
 }
 
 void
@@ -274,7 +274,7 @@ Test::TestIntfPrx::knownIntermediateAsBaseAsync(const ::Ice::Context& context) c
 ::std::function<void()>
 Test::TestIntfPrx::knownIntermediateAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownIntermediateAsBase, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_knownIntermediateAsBase, context);
 }
 
 void
@@ -316,7 +316,7 @@ Test::TestIntfPrx::knownMostDerivedAsBaseAsync(const ::Ice::Context& context) co
 ::std::function<void()>
 Test::TestIntfPrx::knownMostDerivedAsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownMostDerivedAsBase, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_knownMostDerivedAsBase, context);
 }
 
 void
@@ -358,7 +358,7 @@ Test::TestIntfPrx::knownIntermediateAsKnownIntermediateAsync(const ::Ice::Contex
 ::std::function<void()>
 Test::TestIntfPrx::knownIntermediateAsKnownIntermediateAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownIntermediateAsKnownIntermediate, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_knownIntermediateAsKnownIntermediate, context);
 }
 
 void
@@ -400,7 +400,7 @@ Test::TestIntfPrx::knownMostDerivedAsKnownIntermediateAsync(const ::Ice::Context
 ::std::function<void()>
 Test::TestIntfPrx::knownMostDerivedAsKnownIntermediateAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownMostDerivedAsKnownIntermediate, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_knownMostDerivedAsKnownIntermediate, context);
 }
 
 void
@@ -442,7 +442,7 @@ Test::TestIntfPrx::knownMostDerivedAsKnownMostDerivedAsync(const ::Ice::Context&
 ::std::function<void()>
 Test::TestIntfPrx::knownMostDerivedAsKnownMostDerivedAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_knownMostDerivedAsKnownMostDerived, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_knownMostDerivedAsKnownMostDerived, context);
 }
 
 void
@@ -484,7 +484,7 @@ Test::TestIntfPrx::unknownMostDerived1AsBaseAsync(const ::Ice::Context& context)
 ::std::function<void()>
 Test::TestIntfPrx::unknownMostDerived1AsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownMostDerived1AsBase, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownMostDerived1AsBase, context);
 }
 
 void
@@ -526,7 +526,7 @@ Test::TestIntfPrx::unknownMostDerived1AsKnownIntermediateAsync(const ::Ice::Cont
 ::std::function<void()>
 Test::TestIntfPrx::unknownMostDerived1AsKnownIntermediateAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownMostDerived1AsKnownIntermediate, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownMostDerived1AsKnownIntermediate, context);
 }
 
 void
@@ -568,7 +568,7 @@ Test::TestIntfPrx::unknownMostDerived2AsBaseAsync(const ::Ice::Context& context)
 ::std::function<void()>
 Test::TestIntfPrx::unknownMostDerived2AsBaseAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownMostDerived2AsBase, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_unknownMostDerived2AsBase, context);
 }
 
 void
@@ -610,7 +610,7 @@ Test::TestIntfPrx::shutdownAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::TestIntfPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_shutdown, context);
 }
 
 void
@@ -717,278 +717,269 @@ Test::TestIntf::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_baseAsBase(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_baseAsBase(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    incoming.setFormat(::Ice::FormatType::SlicedFormat);
-    this->baseAsBase(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->baseAsBase(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_unknownDerivedAsBase(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_unknownDerivedAsBase(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    incoming.setFormat(::Ice::FormatType::CompactFormat);
-    this->unknownDerivedAsBase(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->unknownDerivedAsBase(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_knownDerivedAsBase(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_knownDerivedAsBase(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    incoming.setFormat(::Ice::FormatType::SlicedFormat);
-    this->knownDerivedAsBase(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->knownDerivedAsBase(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_knownDerivedAsKnownDerived(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_knownDerivedAsKnownDerived(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    incoming.setFormat(::Ice::FormatType::SlicedFormat);
-    this->knownDerivedAsKnownDerived(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->knownDerivedAsKnownDerived(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_unknownIntermediateAsBase(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_unknownIntermediateAsBase(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    incoming.setFormat(::Ice::FormatType::SlicedFormat);
-    this->unknownIntermediateAsBase(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->unknownIntermediateAsBase(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_knownIntermediateAsBase(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_knownIntermediateAsBase(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    incoming.setFormat(::Ice::FormatType::SlicedFormat);
-    this->knownIntermediateAsBase(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->knownIntermediateAsBase(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_knownMostDerivedAsBase(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_knownMostDerivedAsBase(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    incoming.setFormat(::Ice::FormatType::SlicedFormat);
-    this->knownMostDerivedAsBase(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->knownMostDerivedAsBase(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_knownIntermediateAsKnownIntermediate(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_knownIntermediateAsKnownIntermediate(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    incoming.setFormat(::Ice::FormatType::SlicedFormat);
-    this->knownIntermediateAsKnownIntermediate(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->knownIntermediateAsKnownIntermediate(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_knownMostDerivedAsKnownIntermediate(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_knownMostDerivedAsKnownIntermediate(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    incoming.setFormat(::Ice::FormatType::SlicedFormat);
-    this->knownMostDerivedAsKnownIntermediate(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->knownMostDerivedAsKnownIntermediate(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_knownMostDerivedAsKnownMostDerived(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_knownMostDerivedAsKnownMostDerived(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    incoming.setFormat(::Ice::FormatType::SlicedFormat);
-    this->knownMostDerivedAsKnownMostDerived(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->knownMostDerivedAsKnownMostDerived(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_unknownMostDerived1AsBase(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_unknownMostDerived1AsBase(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    incoming.setFormat(::Ice::FormatType::SlicedFormat);
-    this->unknownMostDerived1AsBase(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->unknownMostDerived1AsBase(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_unknownMostDerived1AsKnownIntermediate(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_unknownMostDerived1AsKnownIntermediate(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    incoming.setFormat(::Ice::FormatType::SlicedFormat);
-    this->unknownMostDerived1AsKnownIntermediate(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->unknownMostDerived1AsKnownIntermediate(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_unknownMostDerived2AsBase(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_unknownMostDerived2AsBase(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    incoming.setFormat(::Ice::FormatType::SlicedFormat);
-    this->unknownMostDerived2AsBase(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->unknownMostDerived2AsBase(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_shutdown(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    incoming.setFormat(::Ice::FormatType::SlicedFormat);
-    this->shutdown(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->shutdown(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"baseAsBase", "ice_id", "ice_ids", "ice_isA", "ice_ping", "knownDerivedAsBase", "knownDerivedAsKnownDerived", "knownIntermediateAsBase", "knownIntermediateAsKnownIntermediate", "knownMostDerivedAsBase", "knownMostDerivedAsKnownIntermediate", "knownMostDerivedAsKnownMostDerived", "shutdown", "unknownDerivedAsBase", "unknownIntermediateAsBase", "unknownMostDerived1AsBase", "unknownMostDerived1AsKnownIntermediate", "unknownMostDerived2AsBase"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 18, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_baseAsBase(incoming);
+            _iceD_baseAsBase(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_knownDerivedAsBase(incoming);
+            _iceD_knownDerivedAsBase(request, ::std::move(sendResponse));
+            break;
         }
         case 6:
         {
-            return _iceD_knownDerivedAsKnownDerived(incoming);
+            _iceD_knownDerivedAsKnownDerived(request, ::std::move(sendResponse));
+            break;
         }
         case 7:
         {
-            return _iceD_knownIntermediateAsBase(incoming);
+            _iceD_knownIntermediateAsBase(request, ::std::move(sendResponse));
+            break;
         }
         case 8:
         {
-            return _iceD_knownIntermediateAsKnownIntermediate(incoming);
+            _iceD_knownIntermediateAsKnownIntermediate(request, ::std::move(sendResponse));
+            break;
         }
         case 9:
         {
-            return _iceD_knownMostDerivedAsBase(incoming);
+            _iceD_knownMostDerivedAsBase(request, ::std::move(sendResponse));
+            break;
         }
         case 10:
         {
-            return _iceD_knownMostDerivedAsKnownIntermediate(incoming);
+            _iceD_knownMostDerivedAsKnownIntermediate(request, ::std::move(sendResponse));
+            break;
         }
         case 11:
         {
-            return _iceD_knownMostDerivedAsKnownMostDerived(incoming);
+            _iceD_knownMostDerivedAsKnownMostDerived(request, ::std::move(sendResponse));
+            break;
         }
         case 12:
         {
-            return _iceD_shutdown(incoming);
+            _iceD_shutdown(request, ::std::move(sendResponse));
+            break;
         }
         case 13:
         {
-            return _iceD_unknownDerivedAsBase(incoming);
+            _iceD_unknownDerivedAsBase(request, ::std::move(sendResponse));
+            break;
         }
         case 14:
         {
-            return _iceD_unknownIntermediateAsBase(incoming);
+            _iceD_unknownIntermediateAsBase(request, ::std::move(sendResponse));
+            break;
         }
         case 15:
         {
-            return _iceD_unknownMostDerived1AsBase(incoming);
+            _iceD_unknownMostDerived1AsBase(request, ::std::move(sendResponse));
+            break;
         }
         case 16:
         {
-            return _iceD_unknownMostDerived1AsKnownIntermediate(incoming);
+            _iceD_unknownMostDerived1AsKnownIntermediate(request, ::std::move(sendResponse));
+            break;
         }
         case 17:
         {
-            return _iceD_unknownMostDerived2AsBase(incoming);
+            _iceD_unknownMostDerived2AsBase(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }

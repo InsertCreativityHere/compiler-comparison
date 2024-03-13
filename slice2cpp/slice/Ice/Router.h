@@ -341,7 +341,7 @@ public:
      */
     virtual ::std::optional<::Ice::ObjectPrx> getClientProxy(::std::optional<bool>& hasRoutingTable, const Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getClientProxy(::IceInternal::Incoming&) const;
+    void _iceD_getClientProxy(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /**
@@ -351,7 +351,7 @@ public:
      */
     virtual ::std::optional<::Ice::ObjectPrx> getServerProxy(const Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getServerProxy(::IceInternal::Incoming&) const;
+    void _iceD_getServerProxy(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /**
@@ -362,11 +362,11 @@ public:
      */
     virtual ObjectProxySeq addProxies(ObjectProxySeq proxies, const Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_addProxies(::IceInternal::Incoming&);
+    void _iceD_addProxies(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -411,11 +411,11 @@ public:
      */
     virtual ::std::optional<RouterPrx> getRouter(const Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getRouter(::IceInternal::Incoming&);
+    void _iceD_getRouter(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

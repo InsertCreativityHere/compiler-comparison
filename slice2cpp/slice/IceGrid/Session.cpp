@@ -19,7 +19,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Session.h>
 #include <Ice/OutgoingAsync.h>
-#include <Ice/Incoming.h>
+#include <Ice/AsyncResponseHandler.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -55,7 +55,7 @@ IceGrid::SessionPrx::keepAliveAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 IceGrid::SessionPrx::keepAliveAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::SessionPrx::_iceI_keepAlive, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::SessionPrx::_iceI_keepAlive, context);
 }
 
 void
@@ -83,7 +83,7 @@ IceGrid::SessionPrx::allocateObjectByIdAsync(const ::Ice::Identity& iceP_id, con
 ::std::function<void()>
 IceGrid::SessionPrx::allocateObjectByIdAsync(const ::Ice::Identity& iceP_id, ::std::function<void(::std::optional<::Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::optional<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::SessionPrx::_iceI_allocateObjectById, iceP_id, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::optional<::Ice::ObjectPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::SessionPrx::_iceI_allocateObjectById, iceP_id, context);
 }
 
 void
@@ -132,7 +132,7 @@ IceGrid::SessionPrx::allocateObjectByTypeAsync(::std::string_view iceP_type, con
 ::std::function<void()>
 IceGrid::SessionPrx::allocateObjectByTypeAsync(::std::string_view iceP_type, ::std::function<void(::std::optional<::Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::optional<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::SessionPrx::_iceI_allocateObjectByType, iceP_type, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::optional<::Ice::ObjectPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::SessionPrx::_iceI_allocateObjectByType, iceP_type, context);
 }
 
 void
@@ -177,7 +177,7 @@ IceGrid::SessionPrx::releaseObjectAsync(const ::Ice::Identity& iceP_id, const ::
 ::std::function<void()>
 IceGrid::SessionPrx::releaseObjectAsync(const ::Ice::Identity& iceP_id, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::SessionPrx::_iceI_releaseObject, iceP_id, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::SessionPrx::_iceI_releaseObject, iceP_id, context);
 }
 
 void
@@ -226,7 +226,7 @@ IceGrid::SessionPrx::setAllocationTimeoutAsync(::std::int32_t iceP_timeout, cons
 ::std::function<void()>
 IceGrid::SessionPrx::setAllocationTimeoutAsync(::std::int32_t iceP_timeout, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::SessionPrx::_iceI_setAllocationTimeout, iceP_timeout, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::SessionPrx::_iceI_setAllocationTimeout, iceP_timeout, context);
 }
 
 void
@@ -270,164 +270,176 @@ IceGrid::Session::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-IceGrid::Session::_iceD_keepAlive(::IceInternal::Incoming& incoming)
+void
+IceGrid::Session::_iceD_keepAlive(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->keepAlive(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->keepAlive(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Session::_iceD_allocateObjectById(::IceInternal::Incoming& incoming)
+void
+IceGrid::Session::_iceD_allocateObjectById(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::Ice::Identity iceP_id;
     istr->readAll(iceP_id);
-    incoming.endReadParams();
-    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
-    auto responseCB = [incomingPtr](const ::std::optional<::Ice::ObjectPrx>& ret)
+    istr->endEncapsulation();
+    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
+    auto responseCb = [responseHandler](const ::std::optional<::Ice::ObjectPrx>& ret)
     {
-        auto ostr = incomingPtr->startWriteParams();
-        ostr->writeAll(ret);
-        incomingPtr->endWriteParams();
-        incomingPtr->completed();
+        responseHandler->sendResponse(
+            [&](::Ice::OutputStream* ostr)
+            {
+                ostr->writeAll(ret);
+            });
     };
     try
     {
-        this->allocateObjectByIdAsync(::std::move(iceP_id), responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+        this->allocateObjectByIdAsync(::std::move(iceP_id), ::std::move(responseCb), [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
     }
     catch (...)
     {
-        incomingPtr->failed(::std::current_exception());
+        responseHandler->sendException(::std::current_exception());
     }
-    return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Session::_iceD_allocateObjectByType(::IceInternal::Incoming& incoming)
+void
+IceGrid::Session::_iceD_allocateObjectByType(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_type;
     istr->readAll(iceP_type);
-    incoming.endReadParams();
-    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
-    auto responseCB = [incomingPtr](const ::std::optional<::Ice::ObjectPrx>& ret)
+    istr->endEncapsulation();
+    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
+    auto responseCb = [responseHandler](const ::std::optional<::Ice::ObjectPrx>& ret)
     {
-        auto ostr = incomingPtr->startWriteParams();
-        ostr->writeAll(ret);
-        incomingPtr->endWriteParams();
-        incomingPtr->completed();
+        responseHandler->sendResponse(
+            [&](::Ice::OutputStream* ostr)
+            {
+                ostr->writeAll(ret);
+            });
     };
     try
     {
-        this->allocateObjectByTypeAsync(::std::move(iceP_type), responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+        this->allocateObjectByTypeAsync(::std::move(iceP_type), ::std::move(responseCb), [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
     }
     catch (...)
     {
-        incomingPtr->failed(::std::current_exception());
+        responseHandler->sendException(::std::current_exception());
     }
-    return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Session::_iceD_releaseObject(::IceInternal::Incoming& incoming)
+void
+IceGrid::Session::_iceD_releaseObject(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::Ice::Identity iceP_id;
     istr->readAll(iceP_id);
-    incoming.endReadParams();
-    this->releaseObject(::std::move(iceP_id), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->releaseObject(::std::move(iceP_id), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Session::_iceD_setAllocationTimeout(::IceInternal::Incoming& incoming)
+void
+IceGrid::Session::_iceD_setAllocationTimeout(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::int32_t iceP_timeout;
     istr->readAll(iceP_timeout);
-    incoming.endReadParams();
-    this->setAllocationTimeout(iceP_timeout, incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->setAllocationTimeout(iceP_timeout, request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::Session::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+IceGrid::Session::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"allocateObjectById", "allocateObjectByType", "destroy", "ice_id", "ice_ids", "ice_isA", "ice_ping", "keepAlive", "releaseObject", "setAllocationTimeout"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 10, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_allocateObjectById(incoming);
+            _iceD_allocateObjectById(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_allocateObjectByType(incoming);
+            _iceD_allocateObjectByType(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_destroy(incoming);
+            _iceD_destroy(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 6:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         case 7:
         {
-            return _iceD_keepAlive(incoming);
+            _iceD_keepAlive(request, ::std::move(sendResponse));
+            break;
         }
         case 8:
         {
-            return _iceD_releaseObject(incoming);
+            _iceD_releaseObject(request, ::std::move(sendResponse));
+            break;
         }
         case 9:
         {
-            return _iceD_setAllocationTimeout(incoming);
+            _iceD_setAllocationTimeout(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }

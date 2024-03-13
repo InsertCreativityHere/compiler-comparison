@@ -1360,386 +1360,386 @@ public:
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual AByteS opAByteS(AByteS i, AByteS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opAByteS(::IceInternal::Incoming&);
+    void _iceD_opAByteS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual LByteS opLByteS(LByteS i, LByteS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLByteS(::IceInternal::Incoming&);
+    void _iceD_opLByteS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual KByteS opKByteS(KByteS i, KByteS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opKByteS(::IceInternal::Incoming&);
+    void _iceD_opKByteS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual QByteS opQByteS(QByteS i, QByteS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opQByteS(::IceInternal::Incoming&);
+    void _iceD_opQByteS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual SByteS opSByteS(SByteS i, SByteS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSByteS(::IceInternal::Incoming&);
+    void _iceD_opSByteS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ABoolS opABoolS(ABoolS i, ABoolS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opABoolS(::IceInternal::Incoming&);
+    void _iceD_opABoolS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual LBoolS opLBoolS(LBoolS i, LBoolS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLBoolS(::IceInternal::Incoming&);
+    void _iceD_opLBoolS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual KBoolS opKBoolS(KBoolS i, KBoolS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opKBoolS(::IceInternal::Incoming&);
+    void _iceD_opKBoolS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual QBoolS opQBoolS(QBoolS i, QBoolS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opQBoolS(::IceInternal::Incoming&);
+    void _iceD_opQBoolS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual SBoolS opSBoolS(SBoolS i, SBoolS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSBoolS(::IceInternal::Incoming&);
+    void _iceD_opSBoolS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual AShortS opAShortS(AShortS i, AShortS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opAShortS(::IceInternal::Incoming&);
+    void _iceD_opAShortS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual LShortS opLShortS(LShortS i, LShortS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLShortS(::IceInternal::Incoming&);
+    void _iceD_opLShortS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual KShortS opKShortS(KShortS i, KShortS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opKShortS(::IceInternal::Incoming&);
+    void _iceD_opKShortS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual QShortS opQShortS(QShortS i, QShortS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opQShortS(::IceInternal::Incoming&);
+    void _iceD_opQShortS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual SShortS opSShortS(SShortS i, SShortS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSShortS(::IceInternal::Incoming&);
+    void _iceD_opSShortS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual AIntS opAIntS(AIntS i, AIntS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opAIntS(::IceInternal::Incoming&);
+    void _iceD_opAIntS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual LIntS opLIntS(LIntS i, LIntS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLIntS(::IceInternal::Incoming&);
+    void _iceD_opLIntS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual KIntS opKIntS(KIntS i, KIntS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opKIntS(::IceInternal::Incoming&);
+    void _iceD_opKIntS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual QIntS opQIntS(QIntS i, QIntS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opQIntS(::IceInternal::Incoming&);
+    void _iceD_opQIntS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual SIntS opSIntS(SIntS i, SIntS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSIntS(::IceInternal::Incoming&);
+    void _iceD_opSIntS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ALongS opALongS(ALongS i, ALongS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opALongS(::IceInternal::Incoming&);
+    void _iceD_opALongS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual LLongS opLLongS(LLongS i, LLongS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLLongS(::IceInternal::Incoming&);
+    void _iceD_opLLongS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual KLongS opKLongS(KLongS i, KLongS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opKLongS(::IceInternal::Incoming&);
+    void _iceD_opKLongS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual QLongS opQLongS(QLongS i, QLongS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opQLongS(::IceInternal::Incoming&);
+    void _iceD_opQLongS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual SLongS opSLongS(SLongS i, SLongS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSLongS(::IceInternal::Incoming&);
+    void _iceD_opSLongS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual AFloatS opAFloatS(AFloatS i, AFloatS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opAFloatS(::IceInternal::Incoming&);
+    void _iceD_opAFloatS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual LFloatS opLFloatS(LFloatS i, LFloatS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLFloatS(::IceInternal::Incoming&);
+    void _iceD_opLFloatS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual KFloatS opKFloatS(KFloatS i, KFloatS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opKFloatS(::IceInternal::Incoming&);
+    void _iceD_opKFloatS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual QFloatS opQFloatS(QFloatS i, QFloatS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opQFloatS(::IceInternal::Incoming&);
+    void _iceD_opQFloatS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual SFloatS opSFloatS(SFloatS i, SFloatS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSFloatS(::IceInternal::Incoming&);
+    void _iceD_opSFloatS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ADoubleS opADoubleS(ADoubleS i, ADoubleS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opADoubleS(::IceInternal::Incoming&);
+    void _iceD_opADoubleS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual LDoubleS opLDoubleS(LDoubleS i, LDoubleS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLDoubleS(::IceInternal::Incoming&);
+    void _iceD_opLDoubleS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual KDoubleS opKDoubleS(KDoubleS i, KDoubleS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opKDoubleS(::IceInternal::Incoming&);
+    void _iceD_opKDoubleS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual QDoubleS opQDoubleS(QDoubleS i, QDoubleS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opQDoubleS(::IceInternal::Incoming&);
+    void _iceD_opQDoubleS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual SDoubleS opSDoubleS(SDoubleS i, SDoubleS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSDoubleS(::IceInternal::Incoming&);
+    void _iceD_opSDoubleS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual AStringS opAStringS(AStringS i, AStringS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opAStringS(::IceInternal::Incoming&);
+    void _iceD_opAStringS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual LStringS opLStringS(LStringS i, LStringS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLStringS(::IceInternal::Incoming&);
+    void _iceD_opLStringS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual KStringS opKStringS(KStringS i, KStringS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opKStringS(::IceInternal::Incoming&);
+    void _iceD_opKStringS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual QStringS opQStringS(QStringS i, QStringS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opQStringS(::IceInternal::Incoming&);
+    void _iceD_opQStringS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual SStringS opSStringS(SStringS i, SStringS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSStringS(::IceInternal::Incoming&);
+    void _iceD_opSStringS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual AObjectS opAObjectS(AObjectS i, AObjectS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opAObjectS(::IceInternal::Incoming&);
+    void _iceD_opAObjectS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual LObjectS opLObjectS(LObjectS i, LObjectS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLObjectS(::IceInternal::Incoming&);
+    void _iceD_opLObjectS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual AObjectPrxS opAObjectPrxS(AObjectPrxS i, AObjectPrxS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opAObjectPrxS(::IceInternal::Incoming&);
+    void _iceD_opAObjectPrxS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual LObjectPrxS opLObjectPrxS(LObjectPrxS i, LObjectPrxS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLObjectPrxS(::IceInternal::Incoming&);
+    void _iceD_opLObjectPrxS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual KObjectPrxS opKObjectPrxS(KObjectPrxS i, KObjectPrxS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opKObjectPrxS(::IceInternal::Incoming&);
+    void _iceD_opKObjectPrxS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual QObjectPrxS opQObjectPrxS(QObjectPrxS i, QObjectPrxS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opQObjectPrxS(::IceInternal::Incoming&);
+    void _iceD_opQObjectPrxS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual SObjectPrxS opSObjectPrxS(SObjectPrxS i, SObjectPrxS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSObjectPrxS(::IceInternal::Incoming&);
+    void _iceD_opSObjectPrxS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual AStructS opAStructS(AStructS i, AStructS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opAStructS(::IceInternal::Incoming&);
+    void _iceD_opAStructS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual LStructS opLStructS(LStructS i, LStructS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLStructS(::IceInternal::Incoming&);
+    void _iceD_opLStructS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual KStructS opKStructS(KStructS i, KStructS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opKStructS(::IceInternal::Incoming&);
+    void _iceD_opKStructS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual QStructS opQStructS(QStructS i, QStructS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opQStructS(::IceInternal::Incoming&);
+    void _iceD_opQStructS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual SStructS opSStructS(SStructS i, SStructS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSStructS(::IceInternal::Incoming&);
+    void _iceD_opSStructS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual AStructSD opAStructSD(AStructSD i, AStructSD& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opAStructSD(::IceInternal::Incoming&);
+    void _iceD_opAStructSD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual LStructSD opLStructSD(LStructSD i, LStructSD& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLStructSD(::IceInternal::Incoming&);
+    void _iceD_opLStructSD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual KStructSD opKStructSD(KStructSD i, KStructSD& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opKStructSD(::IceInternal::Incoming&);
+    void _iceD_opKStructSD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual QStructSD opQStructSD(QStructSD i, QStructSD& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opQStructSD(::IceInternal::Incoming&);
+    void _iceD_opQStructSD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual SStructSD opSStructSD(SStructSD i, SStructSD& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSStructSD(::IceInternal::Incoming&);
+    void _iceD_opSStructSD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ACVS opACVS(ACVS i, ACVS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opACVS(::IceInternal::Incoming&);
+    void _iceD_opACVS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual LCVS opLCVS(LCVS i, LCVS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLCVS(::IceInternal::Incoming&);
+    void _iceD_opLCVS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ACRS opACRS(ACRS i, ACRS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opACRS(::IceInternal::Incoming&);
+    void _iceD_opACRS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual LCRS opLCRS(LCRS i, LCRS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLCRS(::IceInternal::Incoming&);
+    void _iceD_opLCRS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual AEnS opAEnS(AEnS i, AEnS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opAEnS(::IceInternal::Incoming&);
+    void _iceD_opAEnS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual LEnS opLEnS(LEnS i, LEnS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLEnS(::IceInternal::Incoming&);
+    void _iceD_opLEnS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual KEnS opKEnS(KEnS i, KEnS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opKEnS(::IceInternal::Incoming&);
+    void _iceD_opKEnS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual QEnS opQEnS(QEnS i, QEnS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opQEnS(::IceInternal::Incoming&);
+    void _iceD_opQEnS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual SEnS opSEnS(SEnS i, SEnS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSEnS(::IceInternal::Incoming&);
+    void _iceD_opSEnS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual AIPrxS opAIPrxS(AIPrxS i, AIPrxS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opAIPrxS(::IceInternal::Incoming&);
+    void _iceD_opAIPrxS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual LIPrxS opLIPrxS(LIPrxS i, LIPrxS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLIPrxS(::IceInternal::Incoming&);
+    void _iceD_opLIPrxS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual KIPrxS opKIPrxS(KIPrxS i, KIPrxS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opKIPrxS(::IceInternal::Incoming&);
+    void _iceD_opKIPrxS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual QIPrxS opQIPrxS(QIPrxS i, QIPrxS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opQIPrxS(::IceInternal::Incoming&);
+    void _iceD_opQIPrxS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual SIPrxS opSIPrxS(SIPrxS i, SIPrxS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSIPrxS(::IceInternal::Incoming&);
+    void _iceD_opSIPrxS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual CustomIntS opCustomIntS(CustomIntS i, CustomIntS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opCustomIntS(::IceInternal::Incoming&);
+    void _iceD_opCustomIntS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual CustomCVS opCustomCVS(CustomCVS i, CustomCVS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opCustomCVS(::IceInternal::Incoming&);
+    void _iceD_opCustomCVS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual CustomIntSS opCustomIntSS(CustomIntSS i, CustomIntSS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opCustomIntSS(::IceInternal::Incoming&);
+    void _iceD_opCustomIntSS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual CustomCVSS opCustomCVSS(CustomCVSS i, CustomCVSS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opCustomCVSS(::IceInternal::Incoming&);
+    void _iceD_opCustomCVSS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

@@ -236,11 +236,11 @@ public:
 
     virtual void reply(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_reply(::IceInternal::Incoming&);
+    void _iceD_reply(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -274,26 +274,26 @@ public:
 
     virtual void ping(::std::optional<PingReplyPrx> reply, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_ping(::IceInternal::Incoming&);
+    void _iceD_ping(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void sendByteSeq(ByteSeq seq, ::std::optional<PingReplyPrx> reply, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_sendByteSeq(::IceInternal::Incoming&);
+    void _iceD_sendByteSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void pingBiDir(::Ice::Identity id, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_pingBiDir(::IceInternal::Incoming&);
+    void _iceD_pingBiDir(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

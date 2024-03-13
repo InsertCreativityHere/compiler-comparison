@@ -736,11 +736,11 @@ public:
 
     virtual ::std::string callA(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_callA(::IceInternal::Incoming&);
+    void _iceD_callA(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -774,11 +774,11 @@ public:
 
     virtual ::std::string callB(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_callB(::IceInternal::Incoming&);
+    void _iceD_callB(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -812,11 +812,11 @@ public:
 
     virtual ::std::string callC(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_callC(::IceInternal::Incoming&);
+    void _iceD_callC(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -851,11 +851,11 @@ public:
 
     virtual ::std::string callD(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_callD(::IceInternal::Incoming&);
+    void _iceD_callD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -889,11 +889,11 @@ public:
 
     virtual ::std::string callE(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_callE(::IceInternal::Incoming&);
+    void _iceD_callE(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -927,11 +927,11 @@ public:
 
     virtual ::std::string callF(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_callF(::IceInternal::Incoming&);
+    void _iceD_callF(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -965,16 +965,16 @@ public:
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::string callG(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_callG(::IceInternal::Incoming&);
+    void _iceD_callG(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -1008,11 +1008,11 @@ public:
 
     virtual ::std::string callH(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_callH(::IceInternal::Incoming&);
+    void _iceD_callH(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

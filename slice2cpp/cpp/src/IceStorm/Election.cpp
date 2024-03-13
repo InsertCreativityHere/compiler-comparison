@@ -16,7 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Election.h>
 #include <Ice/OutgoingAsync.h>
-#include <Ice/Incoming.h>
+#include <Ice/AsyncResponseHandler.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -54,7 +54,7 @@ IceStormElection::ReplicaObserverPrx::initAsync(const LogUpdate& iceP_llu, const
 ::std::function<void()>
 IceStormElection::ReplicaObserverPrx::initAsync(const LogUpdate& iceP_llu, const TopicContentSeq& iceP_content, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::ReplicaObserverPrx::_iceI_init, iceP_llu, iceP_content, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceStormElection::ReplicaObserverPrx::_iceI_init, iceP_llu, iceP_content, context);
 }
 
 void
@@ -99,7 +99,7 @@ IceStormElection::ReplicaObserverPrx::createTopicAsync(const LogUpdate& iceP_llu
 ::std::function<void()>
 IceStormElection::ReplicaObserverPrx::createTopicAsync(const LogUpdate& iceP_llu, ::std::string_view iceP_name, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::ReplicaObserverPrx::_iceI_createTopic, iceP_llu, iceP_name, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceStormElection::ReplicaObserverPrx::_iceI_createTopic, iceP_llu, iceP_name, context);
 }
 
 void
@@ -144,7 +144,7 @@ IceStormElection::ReplicaObserverPrx::destroyTopicAsync(const LogUpdate& iceP_ll
 ::std::function<void()>
 IceStormElection::ReplicaObserverPrx::destroyTopicAsync(const LogUpdate& iceP_llu, ::std::string_view iceP_name, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::ReplicaObserverPrx::_iceI_destroyTopic, iceP_llu, iceP_name, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceStormElection::ReplicaObserverPrx::_iceI_destroyTopic, iceP_llu, iceP_name, context);
 }
 
 void
@@ -189,7 +189,7 @@ IceStormElection::ReplicaObserverPrx::addSubscriberAsync(const LogUpdate& iceP_l
 ::std::function<void()>
 IceStormElection::ReplicaObserverPrx::addSubscriberAsync(const LogUpdate& iceP_llu, ::std::string_view iceP_topic, const ::IceStorm::SubscriberRecord& iceP_record, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::ReplicaObserverPrx::_iceI_addSubscriber, iceP_llu, iceP_topic, iceP_record, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceStormElection::ReplicaObserverPrx::_iceI_addSubscriber, iceP_llu, iceP_topic, iceP_record, context);
 }
 
 void
@@ -234,7 +234,7 @@ IceStormElection::ReplicaObserverPrx::removeSubscriberAsync(const LogUpdate& ice
 ::std::function<void()>
 IceStormElection::ReplicaObserverPrx::removeSubscriberAsync(const LogUpdate& iceP_llu, ::std::string_view iceP_topic, const ::Ice::IdentitySeq& iceP_subscribers, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::ReplicaObserverPrx::_iceI_removeSubscriber, iceP_llu, iceP_topic, iceP_subscribers, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceStormElection::ReplicaObserverPrx::_iceI_removeSubscriber, iceP_llu, iceP_topic, iceP_subscribers, context);
 }
 
 void
@@ -292,7 +292,7 @@ IceStormElection::TopicManagerSyncPrx::getContentAsync(::std::function<void(::Ic
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<LogUpdate, TopicContentSeq>>(std::move(responseCb), std::move(ex), std::move(sent), this, &IceStormElection::TopicManagerSyncPrx::_iceI_getContent, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<LogUpdate, TopicContentSeq>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &IceStormElection::TopicManagerSyncPrx::_iceI_getContent, context);
 }
 
 void
@@ -334,7 +334,7 @@ IceStormElection::NodePrx::invitationAsync(::std::int32_t iceP_j, ::std::string_
 ::std::function<void()>
 IceStormElection::NodePrx::invitationAsync(::std::int32_t iceP_j, ::std::string_view iceP_gn, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::NodePrx::_iceI_invitation, iceP_j, iceP_gn, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceStormElection::NodePrx::_iceI_invitation, iceP_j, iceP_gn, context);
 }
 
 void
@@ -365,7 +365,7 @@ IceStormElection::NodePrx::readyAsync(::std::int32_t iceP_j, ::std::string_view 
 ::std::function<void()>
 IceStormElection::NodePrx::readyAsync(::std::int32_t iceP_j, ::std::string_view iceP_gn, const ::std::optional<::Ice::ObjectPrx>& iceP_coordinator, ::std::int32_t iceP_max, ::std::int64_t iceP_generation, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::NodePrx::_iceI_ready, iceP_j, iceP_gn, iceP_coordinator, iceP_max, iceP_generation, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceStormElection::NodePrx::_iceI_ready, iceP_j, iceP_gn, iceP_coordinator, iceP_max, iceP_generation, context);
 }
 
 void
@@ -396,7 +396,7 @@ IceStormElection::NodePrx::acceptAsync(::std::int32_t iceP_j, ::std::string_view
 ::std::function<void()>
 IceStormElection::NodePrx::acceptAsync(::std::int32_t iceP_j, ::std::string_view iceP_gn, const ::Ice::IntSeq& iceP_forwardedInvites, const ::std::optional<::Ice::ObjectPrx>& iceP_observer, const LogUpdate& iceP_llu, ::std::int32_t iceP_max, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::NodePrx::_iceI_accept, iceP_j, iceP_gn, iceP_forwardedInvites, iceP_observer, iceP_llu, iceP_max, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceStormElection::NodePrx::_iceI_accept, iceP_j, iceP_gn, iceP_forwardedInvites, iceP_observer, iceP_llu, iceP_max, context);
 }
 
 void
@@ -427,7 +427,7 @@ IceStormElection::NodePrx::areYouCoordinatorAsync(const ::Ice::Context& context)
 ::std::function<void()>
 IceStormElection::NodePrx::areYouCoordinatorAsync(::std::function<void(bool)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::NodePrx::_iceI_areYouCoordinator, context);
+    return ::IceInternal::makeLambdaOutgoing<bool>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceStormElection::NodePrx::_iceI_areYouCoordinator, context);
 }
 
 void
@@ -456,7 +456,7 @@ IceStormElection::NodePrx::areYouThereAsync(::std::string_view iceP_gn, ::std::i
 ::std::function<void()>
 IceStormElection::NodePrx::areYouThereAsync(::std::string_view iceP_gn, ::std::int32_t iceP_j, ::std::function<void(bool)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<bool>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::NodePrx::_iceI_areYouThere, iceP_gn, iceP_j, context);
+    return ::IceInternal::makeLambdaOutgoing<bool>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceStormElection::NodePrx::_iceI_areYouThere, iceP_gn, iceP_j, context);
 }
 
 void
@@ -488,7 +488,7 @@ IceStormElection::NodePrx::syncAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 IceStormElection::NodePrx::syncAsync(::std::function<void(::std::optional<::Ice::ObjectPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::optional<::Ice::ObjectPrx>>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::NodePrx::_iceI_sync, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::optional<::Ice::ObjectPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceStormElection::NodePrx::_iceI_sync, context);
 }
 
 void
@@ -517,7 +517,7 @@ IceStormElection::NodePrx::nodesAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 IceStormElection::NodePrx::nodesAsync(::std::function<void(::IceStormElection::NodeInfoSeq)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<NodeInfoSeq>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::NodePrx::_iceI_nodes, context);
+    return ::IceInternal::makeLambdaOutgoing<NodeInfoSeq>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceStormElection::NodePrx::_iceI_nodes, context);
 }
 
 void
@@ -546,7 +546,7 @@ IceStormElection::NodePrx::queryAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 IceStormElection::NodePrx::queryAsync(::std::function<void(::IceStormElection::QueryInfo)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<QueryInfo>(std::move(response), std::move(ex), std::move(sent), this, &IceStormElection::NodePrx::_iceI_query, context);
+    return ::IceInternal::makeLambdaOutgoing<QueryInfo>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceStormElection::NodePrx::_iceI_query, context);
 }
 
 void
@@ -599,142 +599,152 @@ IceStormElection::ReplicaObserver::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-IceStormElection::ReplicaObserver::_iceD_init(::IceInternal::Incoming& incoming)
+void
+IceStormElection::ReplicaObserver::_iceD_init(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     LogUpdate iceP_llu;
     TopicContentSeq iceP_content;
     istr->readAll(iceP_llu, iceP_content);
-    incoming.endReadParams();
-    this->init(::std::move(iceP_llu), ::std::move(iceP_content), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->init(::std::move(iceP_llu), ::std::move(iceP_content), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceStormElection::ReplicaObserver::_iceD_createTopic(::IceInternal::Incoming& incoming)
+void
+IceStormElection::ReplicaObserver::_iceD_createTopic(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     LogUpdate iceP_llu;
     ::std::string iceP_name;
     istr->readAll(iceP_llu, iceP_name);
-    incoming.endReadParams();
-    this->createTopic(::std::move(iceP_llu), ::std::move(iceP_name), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->createTopic(::std::move(iceP_llu), ::std::move(iceP_name), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceStormElection::ReplicaObserver::_iceD_destroyTopic(::IceInternal::Incoming& incoming)
+void
+IceStormElection::ReplicaObserver::_iceD_destroyTopic(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     LogUpdate iceP_llu;
     ::std::string iceP_name;
     istr->readAll(iceP_llu, iceP_name);
-    incoming.endReadParams();
-    this->destroyTopic(::std::move(iceP_llu), ::std::move(iceP_name), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->destroyTopic(::std::move(iceP_llu), ::std::move(iceP_name), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceStormElection::ReplicaObserver::_iceD_addSubscriber(::IceInternal::Incoming& incoming)
+void
+IceStormElection::ReplicaObserver::_iceD_addSubscriber(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     LogUpdate iceP_llu;
     ::std::string iceP_topic;
     ::IceStorm::SubscriberRecord iceP_record;
     istr->readAll(iceP_llu, iceP_topic, iceP_record);
-    incoming.endReadParams();
-    this->addSubscriber(::std::move(iceP_llu), ::std::move(iceP_topic), ::std::move(iceP_record), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->addSubscriber(::std::move(iceP_llu), ::std::move(iceP_topic), ::std::move(iceP_record), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceStormElection::ReplicaObserver::_iceD_removeSubscriber(::IceInternal::Incoming& incoming)
+void
+IceStormElection::ReplicaObserver::_iceD_removeSubscriber(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     LogUpdate iceP_llu;
     ::std::string iceP_topic;
     ::Ice::IdentitySeq iceP_subscribers;
     istr->readAll(iceP_llu, iceP_topic, iceP_subscribers);
-    incoming.endReadParams();
-    this->removeSubscriber(::std::move(iceP_llu), ::std::move(iceP_topic), ::std::move(iceP_subscribers), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->removeSubscriber(::std::move(iceP_llu), ::std::move(iceP_topic), ::std::move(iceP_subscribers), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceStormElection::ReplicaObserver::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+IceStormElection::ReplicaObserver::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"addSubscriber", "createTopic", "destroyTopic", "ice_id", "ice_ids", "ice_isA", "ice_ping", "init", "removeSubscriber"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 9, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_addSubscriber(incoming);
+            _iceD_addSubscriber(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_createTopic(incoming);
+            _iceD_createTopic(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_destroyTopic(incoming);
+            _iceD_destroyTopic(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 6:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         case 7:
         {
-            return _iceD_init(incoming);
+            _iceD_init(request, ::std::move(sendResponse));
+            break;
         }
         case 8:
         {
-            return _iceD_removeSubscriber(incoming);
+            _iceD_removeSubscriber(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }
@@ -761,60 +771,67 @@ IceStormElection::TopicManagerSync::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-IceStormElection::TopicManagerSync::_iceD_getContent(::IceInternal::Incoming& incoming)
+void
+IceStormElection::TopicManagerSync::_iceD_getContent(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
     LogUpdate iceP_llu;
     TopicContentSeq iceP_content;
-    this->getContent(iceP_llu, iceP_content, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_llu, iceP_content);
-    incoming.endWriteParams();
-    return true;
+    this->getContent(iceP_llu, iceP_content, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_llu, iceP_content);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceStormElection::TopicManagerSync::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+IceStormElection::TopicManagerSync::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"getContent", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_getContent(incoming);
+            _iceD_getContent(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }
@@ -841,46 +858,47 @@ IceStormElection::Node::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-IceStormElection::Node::_iceD_invitation(::IceInternal::Incoming& incoming)
+void
+IceStormElection::Node::_iceD_invitation(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::int32_t iceP_j;
     ::std::string iceP_gn;
     istr->readAll(iceP_j, iceP_gn);
-    incoming.endReadParams();
-    this->invitation(iceP_j, ::std::move(iceP_gn), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->invitation(iceP_j, ::std::move(iceP_gn), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceStormElection::Node::_iceD_ready(::IceInternal::Incoming& incoming)
+void
+IceStormElection::Node::_iceD_ready(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::int32_t iceP_j;
     ::std::string iceP_gn;
     ::std::optional<::Ice::ObjectPrx> iceP_coordinator;
     ::std::int32_t iceP_max;
     ::std::int64_t iceP_generation;
     istr->readAll(iceP_j, iceP_gn, iceP_coordinator, iceP_max, iceP_generation);
-    incoming.endReadParams();
-    this->ready(iceP_j, ::std::move(iceP_gn), ::std::move(iceP_coordinator), iceP_max, iceP_generation, incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->ready(iceP_j, ::std::move(iceP_gn), ::std::move(iceP_coordinator), iceP_max, iceP_generation, request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceStormElection::Node::_iceD_accept(::IceInternal::Incoming& incoming)
+void
+IceStormElection::Node::_iceD_accept(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::int32_t iceP_j;
     ::std::string iceP_gn;
     ::Ice::IntSeq iceP_forwardedInvites;
@@ -888,154 +906,172 @@ IceStormElection::Node::_iceD_accept(::IceInternal::Incoming& incoming)
     LogUpdate iceP_llu;
     ::std::int32_t iceP_max;
     istr->readAll(iceP_j, iceP_gn, iceP_forwardedInvites, iceP_observer, iceP_llu, iceP_max);
-    incoming.endReadParams();
-    this->accept(iceP_j, ::std::move(iceP_gn), ::std::move(iceP_forwardedInvites), ::std::move(iceP_observer), ::std::move(iceP_llu), iceP_max, incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->accept(iceP_j, ::std::move(iceP_gn), ::std::move(iceP_forwardedInvites), ::std::move(iceP_observer), ::std::move(iceP_llu), iceP_max, request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceStormElection::Node::_iceD_areYouCoordinator(::IceInternal::Incoming& incoming) const
+void
+IceStormElection::Node::_iceD_areYouCoordinator(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    incoming.readEmptyParams();
-    bool ret = this->areYouCoordinator(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    bool ret = this->areYouCoordinator(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceStormElection::Node::_iceD_areYouThere(::IceInternal::Incoming& incoming) const
+void
+IceStormElection::Node::_iceD_areYouThere(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_gn;
     ::std::int32_t iceP_j;
     istr->readAll(iceP_gn, iceP_j);
-    incoming.endReadParams();
-    bool ret = this->areYouThere(::std::move(iceP_gn), iceP_j, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    bool ret = this->areYouThere(::std::move(iceP_gn), iceP_j, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceStormElection::Node::_iceD_sync(::IceInternal::Incoming& incoming) const
+void
+IceStormElection::Node::_iceD_sync(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    incoming.readEmptyParams();
-    ::std::optional<::Ice::ObjectPrx> ret = this->sync(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    ::std::optional<::Ice::ObjectPrx> ret = this->sync(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceStormElection::Node::_iceD_nodes(::IceInternal::Incoming& incoming) const
+void
+IceStormElection::Node::_iceD_nodes(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    incoming.readEmptyParams();
-    NodeInfoSeq ret = this->nodes(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    NodeInfoSeq ret = this->nodes(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceStormElection::Node::_iceD_query(::IceInternal::Incoming& incoming) const
+void
+IceStormElection::Node::_iceD_query(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    incoming.readEmptyParams();
-    QueryInfo ret = this->query(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    QueryInfo ret = this->query(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceStormElection::Node::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+IceStormElection::Node::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"accept", "areYouCoordinator", "areYouThere", "ice_id", "ice_ids", "ice_isA", "ice_ping", "invitation", "nodes", "query", "ready", "sync"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 12, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_accept(incoming);
+            _iceD_accept(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_areYouCoordinator(incoming);
+            _iceD_areYouCoordinator(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_areYouThere(incoming);
+            _iceD_areYouThere(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 6:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         case 7:
         {
-            return _iceD_invitation(incoming);
+            _iceD_invitation(request, ::std::move(sendResponse));
+            break;
         }
         case 8:
         {
-            return _iceD_nodes(incoming);
+            _iceD_nodes(request, ::std::move(sendResponse));
+            break;
         }
         case 9:
         {
-            return _iceD_query(incoming);
+            _iceD_query(request, ::std::move(sendResponse));
+            break;
         }
         case 10:
         {
-            return _iceD_ready(incoming);
+            _iceD_ready(request, ::std::move(sendResponse));
+            break;
         }
         case 11:
         {
-            return _iceD_sync(incoming);
+            _iceD_sync(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }

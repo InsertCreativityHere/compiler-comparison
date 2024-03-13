@@ -3959,7 +3959,7 @@ public:
      */
     virtual void addApplication(ApplicationDescriptor descriptor, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_addApplication(::IceInternal::Incoming&);
+    void _iceD_addApplication(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -3974,7 +3974,7 @@ public:
      */
     virtual void syncApplication(ApplicationDescriptor descriptor, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_syncApplication(::IceInternal::Incoming&);
+    void _iceD_syncApplication(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -3988,7 +3988,7 @@ public:
      */
     virtual void updateApplication(ApplicationUpdateDescriptor descriptor, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_updateApplication(::IceInternal::Incoming&);
+    void _iceD_updateApplication(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -4004,7 +4004,7 @@ public:
      */
     virtual void syncApplicationWithoutRestart(ApplicationDescriptor descriptor, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_syncApplicationWithoutRestart(::IceInternal::Incoming&);
+    void _iceD_syncApplicationWithoutRestart(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -4020,7 +4020,7 @@ public:
      */
     virtual void updateApplicationWithoutRestart(ApplicationUpdateDescriptor descriptor, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_updateApplicationWithoutRestart(::IceInternal::Incoming&);
+    void _iceD_updateApplicationWithoutRestart(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -4034,7 +4034,7 @@ public:
      */
     virtual void removeApplication(::std::string name, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_removeApplication(::IceInternal::Incoming&);
+    void _iceD_removeApplication(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -4050,7 +4050,7 @@ public:
      */
     virtual void instantiateServer(::std::string application, ::std::string node, ServerInstanceDescriptor desc, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_instantiateServer(::IceInternal::Incoming&);
+    void _iceD_instantiateServer(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -4065,7 +4065,7 @@ public:
      */
     virtual void patchApplicationAsync(::std::string name, bool shutdown, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_patchApplication(::IceInternal::Incoming&);
+    void _iceD_patchApplication(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -4077,7 +4077,7 @@ public:
      */
     virtual ApplicationInfo getApplicationInfo(::std::string name, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getApplicationInfo(::IceInternal::Incoming&) const;
+    void _iceD_getApplicationInfo(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /**
@@ -4088,7 +4088,7 @@ public:
      */
     virtual ApplicationDescriptor getDefaultApplicationDescriptor(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getDefaultApplicationDescriptor(::IceInternal::Incoming&) const;
+    void _iceD_getDefaultApplicationDescriptor(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /**
@@ -4098,7 +4098,7 @@ public:
      */
     virtual ::Ice::StringSeq getAllApplicationNames(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getAllApplicationNames(::IceInternal::Incoming&) const;
+    void _iceD_getAllApplicationNames(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /**
@@ -4110,7 +4110,7 @@ public:
      */
     virtual ServerInfo getServerInfo(::std::string id, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getServerInfo(::IceInternal::Incoming&) const;
+    void _iceD_getServerInfo(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /**
@@ -4124,7 +4124,7 @@ public:
      */
     virtual ServerState getServerState(::std::string id, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getServerState(::IceInternal::Incoming&) const;
+    void _iceD_getServerState(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /**
@@ -4138,7 +4138,7 @@ public:
      */
     virtual ::std::int32_t getServerPid(::std::string id, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getServerPid(::IceInternal::Incoming&) const;
+    void _iceD_getServerPid(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /**
@@ -4149,7 +4149,7 @@ public:
      */
     virtual ::std::string getServerAdminCategory(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getServerAdminCategory(::IceInternal::Incoming&) const;
+    void _iceD_getServerAdminCategory(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /**
@@ -4163,7 +4163,7 @@ public:
      */
     virtual ::std::optional<::Ice::ObjectPrx> getServerAdmin(::std::string id, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getServerAdmin(::IceInternal::Incoming&) const;
+    void _iceD_getServerAdmin(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /**
@@ -4178,7 +4178,7 @@ public:
      */
     virtual void enableServer(::std::string id, bool enabled, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_enableServer(::IceInternal::Incoming&);
+    void _iceD_enableServer(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -4192,7 +4192,7 @@ public:
      */
     virtual bool isServerEnabled(::std::string id, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_isServerEnabled(::IceInternal::Incoming&) const;
+    void _iceD_isServerEnabled(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /**
@@ -4208,7 +4208,7 @@ public:
      */
     virtual void startServerAsync(::std::string id, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_startServer(::IceInternal::Incoming&);
+    void _iceD_startServer(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -4224,7 +4224,7 @@ public:
      */
     virtual void stopServerAsync(::std::string id, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_stopServer(::IceInternal::Incoming&);
+    void _iceD_stopServer(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -4241,7 +4241,7 @@ public:
      */
     virtual void patchServerAsync(::std::string id, bool shutdown, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_patchServer(::IceInternal::Incoming&);
+    void _iceD_patchServer(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -4256,7 +4256,7 @@ public:
      */
     virtual void sendSignal(::std::string id, ::std::string signal, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_sendSignal(::IceInternal::Incoming&);
+    void _iceD_sendSignal(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -4266,7 +4266,7 @@ public:
      */
     virtual ::Ice::StringSeq getAllServerIds(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getAllServerIds(::IceInternal::Incoming&) const;
+    void _iceD_getAllServerIds(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /**
@@ -4280,7 +4280,7 @@ public:
      */
     virtual AdapterInfoSeq getAdapterInfo(::std::string id, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getAdapterInfo(::IceInternal::Incoming&) const;
+    void _iceD_getAdapterInfo(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /**
@@ -4292,7 +4292,7 @@ public:
      */
     virtual void removeAdapter(::std::string id, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_removeAdapter(::IceInternal::Incoming&);
+    void _iceD_removeAdapter(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -4302,7 +4302,7 @@ public:
      */
     virtual ::Ice::StringSeq getAllAdapterIds(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getAllAdapterIds(::IceInternal::Incoming&) const;
+    void _iceD_getAllAdapterIds(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /**
@@ -4316,7 +4316,7 @@ public:
      */
     virtual void addObject(::std::optional<::Ice::ObjectPrx> obj, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_addObject(::IceInternal::Incoming&);
+    void _iceD_addObject(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -4330,7 +4330,7 @@ public:
      */
     virtual void updateObject(::std::optional<::Ice::ObjectPrx> obj, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_updateObject(::IceInternal::Incoming&);
+    void _iceD_updateObject(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -4343,7 +4343,7 @@ public:
      */
     virtual void addObjectWithType(::std::optional<::Ice::ObjectPrx> obj, ::std::string type, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_addObjectWithType(::IceInternal::Incoming&);
+    void _iceD_addObjectWithType(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -4357,7 +4357,7 @@ public:
      */
     virtual void removeObject(::Ice::Identity id, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_removeObject(::IceInternal::Incoming&);
+    void _iceD_removeObject(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -4369,7 +4369,7 @@ public:
      */
     virtual ObjectInfo getObjectInfo(::Ice::Identity id, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getObjectInfo(::IceInternal::Incoming&) const;
+    void _iceD_getObjectInfo(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /**
@@ -4380,7 +4380,7 @@ public:
      */
     virtual ObjectInfoSeq getObjectInfosByType(::std::string type, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getObjectInfosByType(::IceInternal::Incoming&) const;
+    void _iceD_getObjectInfosByType(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /**
@@ -4392,7 +4392,7 @@ public:
      */
     virtual ObjectInfoSeq getAllObjectInfos(::std::string expr, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getAllObjectInfos(::IceInternal::Incoming&) const;
+    void _iceD_getAllObjectInfos(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /**
@@ -4404,7 +4404,7 @@ public:
      */
     virtual bool pingNode(::std::string name, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_pingNode(::IceInternal::Incoming&) const;
+    void _iceD_pingNode(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /**
@@ -4417,7 +4417,7 @@ public:
      */
     virtual LoadInfo getNodeLoad(::std::string name, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getNodeLoad(::IceInternal::Incoming&) const;
+    void _iceD_getNodeLoad(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /**
@@ -4430,7 +4430,7 @@ public:
      */
     virtual NodeInfo getNodeInfo(::std::string name, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getNodeInfo(::IceInternal::Incoming&) const;
+    void _iceD_getNodeInfo(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /**
@@ -4443,7 +4443,7 @@ public:
      */
     virtual ::std::optional<::Ice::ObjectPrx> getNodeAdmin(::std::string name, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getNodeAdmin(::IceInternal::Incoming&) const;
+    void _iceD_getNodeAdmin(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /**
@@ -4458,7 +4458,7 @@ public:
      */
     virtual ::std::int32_t getNodeProcessorSocketCount(::std::string name, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getNodeProcessorSocketCount(::IceInternal::Incoming&) const;
+    void _iceD_getNodeProcessorSocketCount(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /**
@@ -4470,7 +4470,7 @@ public:
      */
     virtual void shutdownNode(::std::string name, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdownNode(::IceInternal::Incoming&);
+    void _iceD_shutdownNode(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -4483,7 +4483,7 @@ public:
      */
     virtual ::std::string getNodeHostname(::std::string name, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getNodeHostname(::IceInternal::Incoming&) const;
+    void _iceD_getNodeHostname(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /**
@@ -4493,7 +4493,7 @@ public:
      */
     virtual ::Ice::StringSeq getAllNodeNames(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getAllNodeNames(::IceInternal::Incoming&) const;
+    void _iceD_getAllNodeNames(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /**
@@ -4505,7 +4505,7 @@ public:
      */
     virtual bool pingRegistry(::std::string name, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_pingRegistry(::IceInternal::Incoming&) const;
+    void _iceD_pingRegistry(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /**
@@ -4518,7 +4518,7 @@ public:
      */
     virtual RegistryInfo getRegistryInfo(::std::string name, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getRegistryInfo(::IceInternal::Incoming&) const;
+    void _iceD_getRegistryInfo(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /**
@@ -4530,7 +4530,7 @@ public:
      */
     virtual ::std::optional<::Ice::ObjectPrx> getRegistryAdmin(::std::string name, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getRegistryAdmin(::IceInternal::Incoming&) const;
+    void _iceD_getRegistryAdmin(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /**
@@ -4542,7 +4542,7 @@ public:
      */
     virtual void shutdownRegistry(::std::string name, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdownRegistry(::IceInternal::Incoming&);
+    void _iceD_shutdownRegistry(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -4552,7 +4552,7 @@ public:
      */
     virtual ::Ice::StringSeq getAllRegistryNames(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getAllRegistryNames(::IceInternal::Incoming&) const;
+    void _iceD_getAllRegistryNames(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /**
@@ -4561,11 +4561,11 @@ public:
      */
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -4613,7 +4613,7 @@ public:
      */
     virtual bool read(::std::int32_t size, ::Ice::StringSeq& lines, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_read(::IceInternal::Incoming&);
+    void _iceD_read(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -4622,11 +4622,11 @@ public:
      */
     virtual void destroy(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_destroy(::IceInternal::Incoming&);
+    void _iceD_destroy(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -4669,7 +4669,7 @@ public:
      */
     virtual void registryInit(RegistryInfoSeq registries, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_registryInit(::IceInternal::Incoming&);
+    void _iceD_registryInit(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -4679,7 +4679,7 @@ public:
      */
     virtual void registryUp(RegistryInfo node, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_registryUp(::IceInternal::Incoming&);
+    void _iceD_registryUp(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -4689,11 +4689,11 @@ public:
      */
     virtual void registryDown(::std::string name, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_registryDown(::IceInternal::Incoming&);
+    void _iceD_registryDown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -4737,7 +4737,7 @@ public:
      */
     virtual void nodeInit(NodeDynamicInfoSeq nodes, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_nodeInit(::IceInternal::Incoming&);
+    void _iceD_nodeInit(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -4747,7 +4747,7 @@ public:
      */
     virtual void nodeUp(NodeDynamicInfo node, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_nodeUp(::IceInternal::Incoming&);
+    void _iceD_nodeUp(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -4757,7 +4757,7 @@ public:
      */
     virtual void nodeDown(::std::string name, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_nodeDown(::IceInternal::Incoming&);
+    void _iceD_nodeDown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -4768,7 +4768,7 @@ public:
      */
     virtual void updateServer(::std::string node, ServerDynamicInfo updatedInfo, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_updateServer(::IceInternal::Incoming&);
+    void _iceD_updateServer(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -4779,11 +4779,11 @@ public:
      */
     virtual void updateAdapter(::std::string node, AdapterDynamicInfo updatedInfo, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_updateAdapter(::IceInternal::Incoming&);
+    void _iceD_updateAdapter(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -4829,7 +4829,7 @@ public:
      */
     virtual void applicationInit(::std::int32_t serial, ApplicationInfoSeq applications, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_applicationInit(::IceInternal::Incoming&);
+    void _iceD_applicationInit(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -4840,7 +4840,7 @@ public:
      */
     virtual void applicationAdded(::std::int32_t serial, ApplicationInfo desc, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_applicationAdded(::IceInternal::Incoming&);
+    void _iceD_applicationAdded(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -4851,7 +4851,7 @@ public:
      */
     virtual void applicationRemoved(::std::int32_t serial, ::std::string name, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_applicationRemoved(::IceInternal::Incoming&);
+    void _iceD_applicationRemoved(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -4862,11 +4862,11 @@ public:
      */
     virtual void applicationUpdated(::std::int32_t serial, ApplicationUpdateInfo desc, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_applicationUpdated(::IceInternal::Incoming&);
+    void _iceD_applicationUpdated(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -4909,7 +4909,7 @@ public:
      */
     virtual void adapterInit(AdapterInfoSeq adpts, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_adapterInit(::IceInternal::Incoming&);
+    void _iceD_adapterInit(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -4920,7 +4920,7 @@ public:
      */
     virtual void adapterAdded(AdapterInfo info, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_adapterAdded(::IceInternal::Incoming&);
+    void _iceD_adapterAdded(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -4930,7 +4930,7 @@ public:
      */
     virtual void adapterUpdated(AdapterInfo info, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_adapterUpdated(::IceInternal::Incoming&);
+    void _iceD_adapterUpdated(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -4940,11 +4940,11 @@ public:
      */
     virtual void adapterRemoved(::std::string id, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_adapterRemoved(::IceInternal::Incoming&);
+    void _iceD_adapterRemoved(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -4986,7 +4986,7 @@ public:
      */
     virtual void objectInit(ObjectInfoSeq objects, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_objectInit(::IceInternal::Incoming&);
+    void _iceD_objectInit(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -4997,7 +4997,7 @@ public:
      */
     virtual void objectAdded(ObjectInfo info, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_objectAdded(::IceInternal::Incoming&);
+    void _iceD_objectAdded(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -5008,7 +5008,7 @@ public:
      */
     virtual void objectUpdated(ObjectInfo info, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_objectUpdated(::IceInternal::Incoming&);
+    void _iceD_objectUpdated(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -5019,11 +5019,11 @@ public:
      */
     virtual void objectRemoved(::Ice::Identity id, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_objectRemoved(::IceInternal::Incoming&);
+    void _iceD_objectRemoved(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -5069,7 +5069,7 @@ public:
      */
     virtual void keepAlive(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_keepAlive(::IceInternal::Incoming&);
+    void _iceD_keepAlive(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -5079,7 +5079,7 @@ public:
      */
     virtual ::std::optional<AdminPrx> getAdmin(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getAdmin(::IceInternal::Incoming&) const;
+    void _iceD_getAdmin(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /**
@@ -5090,7 +5090,7 @@ public:
      */
     virtual ::std::optional<::Ice::ObjectPrx> getAdminCallbackTemplate(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getAdminCallbackTemplate(::IceInternal::Incoming&) const;
+    void _iceD_getAdminCallbackTemplate(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /**
@@ -5105,7 +5105,7 @@ public:
      */
     virtual void setObservers(::std::optional<RegistryObserverPrx> registryObs, ::std::optional<NodeObserverPrx> nodeObs, ::std::optional<ApplicationObserverPrx> appObs, ::std::optional<AdapterObserverPrx> adptObs, ::std::optional<ObjectObserverPrx> objObs, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_setObservers(::IceInternal::Incoming&);
+    void _iceD_setObservers(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -5121,7 +5121,7 @@ public:
      */
     virtual void setObserversByIdentity(::Ice::Identity registryObs, ::Ice::Identity nodeObs, ::Ice::Identity appObs, ::Ice::Identity adptObs, ::Ice::Identity objObs, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_setObserversByIdentity(::IceInternal::Incoming&);
+    void _iceD_setObserversByIdentity(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -5133,7 +5133,7 @@ public:
      */
     virtual ::std::int32_t startUpdate(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_startUpdate(::IceInternal::Incoming&);
+    void _iceD_startUpdate(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -5143,7 +5143,7 @@ public:
      */
     virtual void finishUpdate(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_finishUpdate(::IceInternal::Incoming&);
+    void _iceD_finishUpdate(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -5153,7 +5153,7 @@ public:
      */
     virtual ::std::string getReplicaName(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getReplicaName(::IceInternal::Incoming&) const;
+    void _iceD_getReplicaName(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /**
@@ -5172,7 +5172,7 @@ public:
      */
     virtual ::std::optional<FileIteratorPrx> openServerLog(::std::string id, ::std::string path, ::std::int32_t count, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_openServerLog(::IceInternal::Incoming&);
+    void _iceD_openServerLog(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -5189,7 +5189,7 @@ public:
      */
     virtual ::std::optional<FileIteratorPrx> openServerStdErr(::std::string id, ::std::int32_t count, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_openServerStdErr(::IceInternal::Incoming&);
+    void _iceD_openServerStdErr(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -5206,7 +5206,7 @@ public:
      */
     virtual ::std::optional<FileIteratorPrx> openServerStdOut(::std::string id, ::std::int32_t count, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_openServerStdOut(::IceInternal::Incoming&);
+    void _iceD_openServerStdOut(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -5222,7 +5222,7 @@ public:
      */
     virtual ::std::optional<FileIteratorPrx> openNodeStdErr(::std::string name, ::std::int32_t count, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_openNodeStdErr(::IceInternal::Incoming&);
+    void _iceD_openNodeStdErr(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -5238,7 +5238,7 @@ public:
      */
     virtual ::std::optional<FileIteratorPrx> openNodeStdOut(::std::string name, ::std::int32_t count, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_openNodeStdOut(::IceInternal::Incoming&);
+    void _iceD_openNodeStdOut(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -5254,7 +5254,7 @@ public:
      */
     virtual ::std::optional<FileIteratorPrx> openRegistryStdErr(::std::string name, ::std::int32_t count, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_openRegistryStdErr(::IceInternal::Incoming&);
+    void _iceD_openRegistryStdErr(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -5270,11 +5270,11 @@ public:
      */
     virtual ::std::optional<FileIteratorPrx> openRegistryStdOut(::std::string name, ::std::int32_t count, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_openRegistryStdOut(::IceInternal::Incoming&);
+    void _iceD_openRegistryStdOut(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

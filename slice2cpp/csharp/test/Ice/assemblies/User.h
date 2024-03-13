@@ -176,11 +176,11 @@ public:
 
     virtual ::std::shared_ptr<UserInfo> getUserInfo(::std::string id, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getUserInfo(::IceInternal::Incoming&);
+    void _iceD_getUserInfo(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

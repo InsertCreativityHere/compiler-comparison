@@ -393,21 +393,21 @@ public:
 
     virtual ::std::wstring opString(::std::wstring s1, ::std::wstring& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opString(::IceInternal::Incoming&);
+    void _iceD_opString(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual WstringStruct opStruct(WstringStruct s1, WstringStruct& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStruct(::IceInternal::Incoming&);
+    void _iceD_opStruct(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void throwExcept(::std::wstring reason, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwExcept(::IceInternal::Incoming&);
+    void _iceD_throwExcept(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -446,21 +446,21 @@ public:
 
     virtual ::std::wstring opString(::std::wstring s1, ::std::wstring& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opString(::IceInternal::Incoming&);
+    void _iceD_opString(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual WstringStruct opStruct(WstringStruct s1, WstringStruct& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStruct(::IceInternal::Incoming&);
+    void _iceD_opStruct(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void throwExcept(::std::wstring reason, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwExcept(::IceInternal::Incoming&);
+    void _iceD_throwExcept(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

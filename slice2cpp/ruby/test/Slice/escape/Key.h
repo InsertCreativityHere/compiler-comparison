@@ -462,26 +462,26 @@ public:
 
     virtual void _cpp_case(::std::int32_t clone, ::std::int32_t def, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_case(::IceInternal::Incoming&);
+    void _iceD_case(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void to_a(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_to_a(::IceInternal::Incoming&);
+    void _iceD_to_a(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void instance_variable_set(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_instance_variable_set(::IceInternal::Incoming&);
+    void _iceD_instance_variable_set(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void instance_variables(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_instance_variables(::IceInternal::Incoming&);
+    void _iceD_instance_variables(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -514,7 +514,7 @@ public:
     static ::std::string_view ice_staticId();
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -548,11 +548,11 @@ public:
 
     virtual END _cpp_for(::std::shared_ptr<display> freeze, ::std::optional<elsifPrx> hash, ::std::optional<breakPrx> _cpp_if, ::std::shared_ptr<display> inspect, ::std::optional<elsifPrx> method, ::std::int32_t methods, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_for(::IceInternal::Incoming&);
+    void _iceD_for(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

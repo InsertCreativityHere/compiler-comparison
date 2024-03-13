@@ -950,11 +950,11 @@ public:
      */
     virtual void destroy(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_destroy(::IceInternal::Incoming&);
+    void _iceD_destroy(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -1000,7 +1000,7 @@ public:
      */
     virtual void add(::Ice::StringSeq additions, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_add(::IceInternal::Incoming&);
+    void _iceD_add(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -1010,7 +1010,7 @@ public:
      */
     virtual void remove(::Ice::StringSeq deletions, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_remove(::IceInternal::Incoming&);
+    void _iceD_remove(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -1020,11 +1020,11 @@ public:
      */
     virtual ::Ice::StringSeq get(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_get(::IceInternal::Incoming&);
+    void _iceD_get(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -1069,7 +1069,7 @@ public:
      */
     virtual void add(::Ice::IdentitySeq additions, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_add(::IceInternal::Incoming&);
+    void _iceD_add(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -1080,7 +1080,7 @@ public:
      */
     virtual void remove(::Ice::IdentitySeq deletions, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_remove(::IceInternal::Incoming&);
+    void _iceD_remove(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -1090,11 +1090,11 @@ public:
      */
     virtual ::Ice::IdentitySeq get(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_get(::IceInternal::Incoming&);
+    void _iceD_get(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -1137,7 +1137,7 @@ public:
      */
     virtual ::std::optional<StringSetPrx> categories(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_categories(::IceInternal::Incoming&);
+    void _iceD_categories(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -1147,7 +1147,7 @@ public:
      */
     virtual ::std::optional<StringSetPrx> adapterIds(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_adapterIds(::IceInternal::Incoming&);
+    void _iceD_adapterIds(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -1157,7 +1157,7 @@ public:
      */
     virtual ::std::optional<IdentitySetPrx> identities(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_identities(::IceInternal::Incoming&);
+    void _iceD_identities(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -1167,7 +1167,7 @@ public:
      */
     virtual ::std::int32_t getSessionTimeout(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getSessionTimeout(::IceInternal::Incoming&);
+    void _iceD_getSessionTimeout(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -1176,11 +1176,11 @@ public:
      */
     virtual void destroy(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_destroy(::IceInternal::Incoming&);
+    void _iceD_destroy(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -1232,11 +1232,11 @@ public:
      */
     virtual ::std::optional<SessionPrx> create(::std::string userId, ::std::optional<SessionControlPrx> control, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_create(::IceInternal::Incoming&);
+    void _iceD_create(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -1285,11 +1285,11 @@ public:
      */
     virtual ::std::optional<SessionPrx> create(SSLInfo info, ::std::optional<SessionControlPrx> control, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_create(::IceInternal::Incoming&);
+    void _iceD_create(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

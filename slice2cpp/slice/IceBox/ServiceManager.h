@@ -493,7 +493,7 @@ public:
      */
     virtual void servicesStarted(::Ice::StringSeq services, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_servicesStarted(::IceInternal::Incoming&);
+    void _iceD_servicesStarted(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -503,11 +503,11 @@ public:
      */
     virtual void servicesStopped(::Ice::StringSeq services, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_servicesStopped(::IceInternal::Incoming&);
+    void _iceD_servicesStopped(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -552,7 +552,7 @@ public:
      */
     virtual void startService(::std::string service, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_startService(::IceInternal::Incoming&);
+    void _iceD_startService(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -564,7 +564,7 @@ public:
      */
     virtual void stopService(::std::string service, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_stopService(::IceInternal::Incoming&);
+    void _iceD_stopService(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -574,7 +574,7 @@ public:
      */
     virtual void addObserver(::std::optional<ServiceObserverPrx> observer, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_addObserver(::IceInternal::Incoming&);
+    void _iceD_addObserver(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -583,11 +583,11 @@ public:
      */
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

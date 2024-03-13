@@ -1308,327 +1308,327 @@ public:
 
     virtual void shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void supportsCompressAsync(::std::function<void(bool returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_supportsCompress(::IceInternal::Incoming&);
+    void _iceD_supportsCompress(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opVoidAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opVoid(::IceInternal::Incoming&);
+    void _iceD_opVoid(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opByteAsync(::std::uint8_t p1, ::std::uint8_t p2, ::std::function<void(::std::uint8_t returnValue, ::std::uint8_t p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByte(::IceInternal::Incoming&);
+    void _iceD_opByte(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opBoolAsync(bool p1, bool p2, ::std::function<void(bool returnValue, bool p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBool(::IceInternal::Incoming&);
+    void _iceD_opBool(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opShortIntLongAsync(::std::int16_t p1, ::std::int32_t p2, ::std::int64_t p3, ::std::function<void(::std::int64_t returnValue, ::std::int16_t p4, ::std::int32_t p5, ::std::int64_t p6)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opShortIntLong(::IceInternal::Incoming&);
+    void _iceD_opShortIntLong(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opFloatDoubleAsync(float p1, double p2, ::std::function<void(double returnValue, float p3, double p4)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opFloatDouble(::IceInternal::Incoming&);
+    void _iceD_opFloatDouble(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opStringAsync(::std::string p1, ::std::string p2, ::std::function<void(::std::string_view returnValue, ::std::string_view p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opString(::IceInternal::Incoming&);
+    void _iceD_opString(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opMyEnumAsync(MyEnum p1, ::std::function<void(MyEnum returnValue, MyEnum p2)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMyEnum(::IceInternal::Incoming&);
+    void _iceD_opMyEnum(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opMyClassAsync(::std::optional<MyClassPrx> p1, ::std::function<void(const ::std::optional<MyClassPrx>& returnValue, const ::std::optional<MyClassPrx>& p2, const ::std::optional<MyClassPrx>& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMyClass(::IceInternal::Incoming&);
+    void _iceD_opMyClass(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opStructAsync(Structure p1, Structure p2, ::std::function<void(const Structure& returnValue, const Structure& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStruct(::IceInternal::Incoming&);
+    void _iceD_opStruct(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opByteSAsync(ByteS p1, ByteS p2, ::std::function<void(const ByteS& returnValue, const ByteS& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteS(::IceInternal::Incoming&);
+    void _iceD_opByteS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opBoolSAsync(BoolS p1, BoolS p2, ::std::function<void(const BoolS& returnValue, const BoolS& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBoolS(::IceInternal::Incoming&);
+    void _iceD_opBoolS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opShortIntLongSAsync(ShortS p1, IntS p2, LongS p3, ::std::function<void(const LongS& returnValue, const ShortS& p4, const IntS& p5, const LongS& p6)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opShortIntLongS(::IceInternal::Incoming&);
+    void _iceD_opShortIntLongS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opFloatDoubleSAsync(FloatS p1, DoubleS p2, ::std::function<void(const DoubleS& returnValue, const FloatS& p3, const DoubleS& p4)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opFloatDoubleS(::IceInternal::Incoming&);
+    void _iceD_opFloatDoubleS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opStringSAsync(StringS p1, StringS p2, ::std::function<void(const StringS& returnValue, const StringS& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringS(::IceInternal::Incoming&);
+    void _iceD_opStringS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opByteSSAsync(ByteSS p1, ByteSS p2, ::std::function<void(const ByteSS& returnValue, const ByteSS& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteSS(::IceInternal::Incoming&);
+    void _iceD_opByteSS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opBoolSSAsync(BoolSS p1, BoolSS p2, ::std::function<void(const BoolSS& returnValue, const BoolSS& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBoolSS(::IceInternal::Incoming&);
+    void _iceD_opBoolSS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opShortIntLongSSAsync(ShortSS p1, IntSS p2, LongSS p3, ::std::function<void(const LongSS& returnValue, const ShortSS& p4, const IntSS& p5, const LongSS& p6)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opShortIntLongSS(::IceInternal::Incoming&);
+    void _iceD_opShortIntLongSS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opFloatDoubleSSAsync(FloatSS p1, DoubleSS p2, ::std::function<void(const DoubleSS& returnValue, const FloatSS& p3, const DoubleSS& p4)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opFloatDoubleSS(::IceInternal::Incoming&);
+    void _iceD_opFloatDoubleSS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opStringSSAsync(StringSS p1, StringSS p2, ::std::function<void(const StringSS& returnValue, const StringSS& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringSS(::IceInternal::Incoming&);
+    void _iceD_opStringSS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opStringSSSAsync(StringSSS p1, StringSSS p2, ::std::function<void(const StringSSS& returnValue, const StringSSS& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringSSS(::IceInternal::Incoming&);
+    void _iceD_opStringSSS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opByteBoolDAsync(ByteBoolD p1, ByteBoolD p2, ::std::function<void(const ByteBoolD& returnValue, const ByteBoolD& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteBoolD(::IceInternal::Incoming&);
+    void _iceD_opByteBoolD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opShortIntDAsync(ShortIntD p1, ShortIntD p2, ::std::function<void(const ShortIntD& returnValue, const ShortIntD& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opShortIntD(::IceInternal::Incoming&);
+    void _iceD_opShortIntD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opLongFloatDAsync(LongFloatD p1, LongFloatD p2, ::std::function<void(const LongFloatD& returnValue, const LongFloatD& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLongFloatD(::IceInternal::Incoming&);
+    void _iceD_opLongFloatD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opStringStringDAsync(StringStringD p1, StringStringD p2, ::std::function<void(const StringStringD& returnValue, const StringStringD& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringStringD(::IceInternal::Incoming&);
+    void _iceD_opStringStringD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opStringMyEnumDAsync(StringMyEnumD p1, StringMyEnumD p2, ::std::function<void(const StringMyEnumD& returnValue, const StringMyEnumD& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringMyEnumD(::IceInternal::Incoming&);
+    void _iceD_opStringMyEnumD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opMyEnumStringDAsync(MyEnumStringD p1, MyEnumStringD p2, ::std::function<void(const MyEnumStringD& returnValue, const MyEnumStringD& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMyEnumStringD(::IceInternal::Incoming&);
+    void _iceD_opMyEnumStringD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opMyStructMyEnumDAsync(MyStructMyEnumD p1, MyStructMyEnumD p2, ::std::function<void(const MyStructMyEnumD& returnValue, const MyStructMyEnumD& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMyStructMyEnumD(::IceInternal::Incoming&);
+    void _iceD_opMyStructMyEnumD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opByteBoolDSAsync(ByteBoolDS p1, ByteBoolDS p2, ::std::function<void(const ByteBoolDS& returnValue, const ByteBoolDS& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteBoolDS(::IceInternal::Incoming&);
+    void _iceD_opByteBoolDS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opShortIntDSAsync(ShortIntDS p1, ShortIntDS p2, ::std::function<void(const ShortIntDS& returnValue, const ShortIntDS& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opShortIntDS(::IceInternal::Incoming&);
+    void _iceD_opShortIntDS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opLongFloatDSAsync(LongFloatDS p1, LongFloatDS p2, ::std::function<void(const LongFloatDS& returnValue, const LongFloatDS& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLongFloatDS(::IceInternal::Incoming&);
+    void _iceD_opLongFloatDS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opStringStringDSAsync(StringStringDS p1, StringStringDS p2, ::std::function<void(const StringStringDS& returnValue, const StringStringDS& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringStringDS(::IceInternal::Incoming&);
+    void _iceD_opStringStringDS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opStringMyEnumDSAsync(StringMyEnumDS p1, StringMyEnumDS p2, ::std::function<void(const StringMyEnumDS& returnValue, const StringMyEnumDS& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringMyEnumDS(::IceInternal::Incoming&);
+    void _iceD_opStringMyEnumDS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opMyEnumStringDSAsync(MyEnumStringDS p1, MyEnumStringDS p2, ::std::function<void(const MyEnumStringDS& returnValue, const MyEnumStringDS& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMyEnumStringDS(::IceInternal::Incoming&);
+    void _iceD_opMyEnumStringDS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opMyStructMyEnumDSAsync(MyStructMyEnumDS p1, MyStructMyEnumDS p2, ::std::function<void(const MyStructMyEnumDS& returnValue, const MyStructMyEnumDS& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMyStructMyEnumDS(::IceInternal::Incoming&);
+    void _iceD_opMyStructMyEnumDS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opByteByteSDAsync(ByteByteSD p1, ByteByteSD p2, ::std::function<void(const ByteByteSD& returnValue, const ByteByteSD& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteByteSD(::IceInternal::Incoming&);
+    void _iceD_opByteByteSD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opBoolBoolSDAsync(BoolBoolSD p1, BoolBoolSD p2, ::std::function<void(const BoolBoolSD& returnValue, const BoolBoolSD& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBoolBoolSD(::IceInternal::Incoming&);
+    void _iceD_opBoolBoolSD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opShortShortSDAsync(ShortShortSD p1, ShortShortSD p2, ::std::function<void(const ShortShortSD& returnValue, const ShortShortSD& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opShortShortSD(::IceInternal::Incoming&);
+    void _iceD_opShortShortSD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opIntIntSDAsync(IntIntSD p1, IntIntSD p2, ::std::function<void(const IntIntSD& returnValue, const IntIntSD& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opIntIntSD(::IceInternal::Incoming&);
+    void _iceD_opIntIntSD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opLongLongSDAsync(LongLongSD p1, LongLongSD p2, ::std::function<void(const LongLongSD& returnValue, const LongLongSD& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLongLongSD(::IceInternal::Incoming&);
+    void _iceD_opLongLongSD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opStringFloatSDAsync(StringFloatSD p1, StringFloatSD p2, ::std::function<void(const StringFloatSD& returnValue, const StringFloatSD& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringFloatSD(::IceInternal::Incoming&);
+    void _iceD_opStringFloatSD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opStringDoubleSDAsync(StringDoubleSD p1, StringDoubleSD p2, ::std::function<void(const StringDoubleSD& returnValue, const StringDoubleSD& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringDoubleSD(::IceInternal::Incoming&);
+    void _iceD_opStringDoubleSD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opStringStringSDAsync(StringStringSD p1, StringStringSD p2, ::std::function<void(const StringStringSD& returnValue, const StringStringSD& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringStringSD(::IceInternal::Incoming&);
+    void _iceD_opStringStringSD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opMyEnumMyEnumSDAsync(MyEnumMyEnumSD p1, MyEnumMyEnumSD p2, ::std::function<void(const MyEnumMyEnumSD& returnValue, const MyEnumMyEnumSD& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMyEnumMyEnumSD(::IceInternal::Incoming&);
+    void _iceD_opMyEnumMyEnumSD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opIntSAsync(IntS s, ::std::function<void(const IntS& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opIntS(::IceInternal::Incoming&);
+    void _iceD_opIntS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opByteSOnewayAsync(ByteS s, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteSOneway(::IceInternal::Incoming&);
+    void _iceD_opByteSOneway(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opByteSOnewayCallCountAsync(::std::function<void(::std::int32_t returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteSOnewayCallCount(::IceInternal::Incoming&);
+    void _iceD_opByteSOnewayCallCount(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opContextAsync(::std::function<void(const ::Ice::Context& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opContext(::IceInternal::Incoming&);
+    void _iceD_opContext(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opDoubleMarshalingAsync(double p1, DoubleS p2, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opDoubleMarshaling(::IceInternal::Incoming&);
+    void _iceD_opDoubleMarshaling(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opIdempotentAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opIdempotent(::IceInternal::Incoming&);
+    void _iceD_opIdempotent(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opNonmutatingAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opNonmutating(::IceInternal::Incoming&);
+    void _iceD_opNonmutating(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opByte1Async(::std::uint8_t opByte1, ::std::function<void(::std::uint8_t returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByte1(::IceInternal::Incoming&);
+    void _iceD_opByte1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opShort1Async(::std::int16_t opShort1, ::std::function<void(::std::int16_t returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opShort1(::IceInternal::Incoming&);
+    void _iceD_opShort1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opInt1Async(::std::int32_t opInt1, ::std::function<void(::std::int32_t returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opInt1(::IceInternal::Incoming&);
+    void _iceD_opInt1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opLong1Async(::std::int64_t opLong1, ::std::function<void(::std::int64_t returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opLong1(::IceInternal::Incoming&);
+    void _iceD_opLong1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opFloat1Async(float opFloat1, ::std::function<void(float returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opFloat1(::IceInternal::Incoming&);
+    void _iceD_opFloat1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opDouble1Async(double opDouble1, ::std::function<void(double returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opDouble1(::IceInternal::Incoming&);
+    void _iceD_opDouble1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opString1Async(::std::string opString1, ::std::function<void(::std::string_view returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opString1(::IceInternal::Incoming&);
+    void _iceD_opString1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opStringS1Async(StringS opStringS1, ::std::function<void(const StringS& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringS1(::IceInternal::Incoming&);
+    void _iceD_opStringS1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opByteBoolD1Async(ByteBoolD opByteBoolD1, ::std::function<void(const ByteBoolD& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteBoolD1(::IceInternal::Incoming&);
+    void _iceD_opByteBoolD1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opStringS2Async(StringS stringS, ::std::function<void(const StringS& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringS2(::IceInternal::Incoming&);
+    void _iceD_opStringS2(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opByteBoolD2Async(ByteBoolD byteBoolD, ::std::function<void(const ByteBoolD& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteBoolD2(::IceInternal::Incoming&);
+    void _iceD_opByteBoolD2(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opStringLiteralsAsync(::std::function<void(const StringS& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringLiterals(::IceInternal::Incoming&);
+    void _iceD_opStringLiterals(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opWStringLiteralsAsync(::std::function<void(const StringS& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opWStringLiterals(::IceInternal::Incoming&);
+    void _iceD_opWStringLiterals(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -1646,7 +1646,7 @@ public:
 
     virtual void opMStruct1Async(::std::function<void(OpMStruct1MarshaledResult)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMStruct1(::IceInternal::Incoming&);
+    void _iceD_opMStruct1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -1664,7 +1664,7 @@ public:
 
     virtual void opMStruct2Async(Structure p1, ::std::function<void(OpMStruct2MarshaledResult)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMStruct2(::IceInternal::Incoming&);
+    void _iceD_opMStruct2(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -1682,7 +1682,7 @@ public:
 
     virtual void opMSeq1Async(::std::function<void(OpMSeq1MarshaledResult)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMSeq1(::IceInternal::Incoming&);
+    void _iceD_opMSeq1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -1700,7 +1700,7 @@ public:
 
     virtual void opMSeq2Async(StringS p1, ::std::function<void(OpMSeq2MarshaledResult)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMSeq2(::IceInternal::Incoming&);
+    void _iceD_opMSeq2(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -1718,7 +1718,7 @@ public:
 
     virtual void opMDict1Async(::std::function<void(OpMDict1MarshaledResult)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMDict1(::IceInternal::Incoming&);
+    void _iceD_opMDict1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -1736,11 +1736,11 @@ public:
 
     virtual void opMDict2Async(StringStringD p1, ::std::function<void(OpMDict2MarshaledResult)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMDict2(::IceInternal::Incoming&);
+    void _iceD_opMDict2(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -1774,21 +1774,21 @@ public:
 
     virtual void opDerivedAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opDerived(::IceInternal::Incoming&);
+    void _iceD_opDerived(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opMyClass1Async(::std::shared_ptr<MyClass1> opMyClass1, ::std::function<void(const ::std::shared_ptr<MyClass1>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMyClass1(::IceInternal::Incoming&);
+    void _iceD_opMyClass1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opMyStruct1Async(MyStruct1 opMyStruct1, ::std::function<void(const MyStruct1& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMyStruct1(::IceInternal::Incoming&);
+    void _iceD_opMyStruct1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

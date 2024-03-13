@@ -295,26 +295,26 @@ public:
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual SerialSmall opSerialSmallJava(SerialSmall i, SerialSmall& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSerialSmallJava(::IceInternal::Incoming&);
+    void _iceD_opSerialSmallJava(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual SerialLarge opSerialLargeJava(SerialLarge i, SerialLarge& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSerialLargeJava(::IceInternal::Incoming&);
+    void _iceD_opSerialLargeJava(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual SerialStruct opSerialStructJava(SerialStruct i, SerialStruct& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opSerialStructJava(::IceInternal::Incoming&);
+    void _iceD_opSerialStructJava(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

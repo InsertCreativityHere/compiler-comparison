@@ -481,11 +481,11 @@ public:
      */
     virtual void forward(EventDataSeq events, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_forward(::IceInternal::Incoming&);
+    void _iceD_forward(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -528,7 +528,7 @@ public:
      */
     virtual ::std::optional<TopicLinkPrx> getLinkProxy(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getLinkProxy(::IceInternal::Incoming&);
+    void _iceD_getLinkProxy(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -539,11 +539,11 @@ public:
      */
     virtual void reap(::Ice::IdentitySeq id, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_reap(::IceInternal::Incoming&);
+    void _iceD_reap(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -586,11 +586,11 @@ public:
      */
     virtual ::std::optional<::IceStormElection::NodePrx> getReplicaNode(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
-    bool _iceD_getReplicaNode(::IceInternal::Incoming&) const;
+    void _iceD_getReplicaNode(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

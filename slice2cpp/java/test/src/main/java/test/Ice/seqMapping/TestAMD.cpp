@@ -16,7 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <TestAMD.h>
 #include <Ice/OutgoingAsync.h>
-#include <Ice/Incoming.h>
+#include <Ice/AsyncResponseHandler.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -56,7 +56,7 @@ Test::MyClassPrx::shutdownAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::MyClassPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_shutdown, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MyClassPrx::_iceI_shutdown, context);
 }
 
 void
@@ -90,7 +90,7 @@ Test::MyClassPrx::opSerialSmallJavaAsync(const SerialSmall& iceP_i, ::std::funct
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<SerialSmall, SerialSmall>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSerialSmallJava, iceP_i, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<SerialSmall, SerialSmall>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::MyClassPrx::_iceI_opSerialSmallJava, iceP_i, context);
 }
 
 void
@@ -134,7 +134,7 @@ Test::MyClassPrx::opSerialLargeJavaAsync(const SerialLarge& iceP_i, ::std::funct
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<SerialLarge, SerialLarge>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSerialLargeJava, iceP_i, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<SerialLarge, SerialLarge>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::MyClassPrx::_iceI_opSerialLargeJava, iceP_i, context);
 }
 
 void
@@ -178,7 +178,7 @@ Test::MyClassPrx::opSerialStructJavaAsync(const SerialStruct& iceP_i, ::std::fun
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<SerialStruct, SerialStruct>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opSerialStructJava, iceP_i, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<SerialStruct, SerialStruct>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::MyClassPrx::_iceI_opSerialStructJava, iceP_i, context);
 }
 
 void
@@ -251,162 +251,173 @@ Test::MyClass::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-Test::MyClass::_iceD_shutdown(::IceInternal::Incoming& incoming)
+void
+Test::MyClass::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
     try
     {
-        this->shutdownAsync([incomingPtr] { incomingPtr->response(); }, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+        this->shutdownAsync([responseHandler] { responseHandler->sendEmptyResponse(); }, [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
     }
     catch (...)
     {
-        incomingPtr->failed(::std::current_exception());
+        responseHandler->sendException(::std::current_exception());
     }
-    return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::MyClass::_iceD_opSerialSmallJava(::IceInternal::Incoming& incoming)
+void
+Test::MyClass::_iceD_opSerialSmallJava(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     SerialSmall iceP_i;
     istr->readAll(iceP_i);
-    incoming.endReadParams();
-    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
-    auto responseCB = [incomingPtr](const SerialSmall& ret, const SerialSmall& iceP_o)
+    istr->endEncapsulation();
+    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
+    auto responseCb = [responseHandler](const SerialSmall& ret, const SerialSmall& iceP_o)
     {
-        auto ostr = incomingPtr->startWriteParams();
-        ostr->writeAll(iceP_o, ret);
-        incomingPtr->endWriteParams();
-        incomingPtr->completed();
+        responseHandler->sendResponse(
+            [&](::Ice::OutputStream* ostr)
+            {
+                ostr->writeAll(iceP_o, ret);
+            });
     };
     try
     {
-        this->opSerialSmallJavaAsync(::std::move(iceP_i), responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+        this->opSerialSmallJavaAsync(::std::move(iceP_i), ::std::move(responseCb), [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
     }
     catch (...)
     {
-        incomingPtr->failed(::std::current_exception());
+        responseHandler->sendException(::std::current_exception());
     }
-    return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::MyClass::_iceD_opSerialLargeJava(::IceInternal::Incoming& incoming)
+void
+Test::MyClass::_iceD_opSerialLargeJava(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     SerialLarge iceP_i;
     istr->readAll(iceP_i);
-    incoming.endReadParams();
-    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
-    auto responseCB = [incomingPtr](const SerialLarge& ret, const SerialLarge& iceP_o)
+    istr->endEncapsulation();
+    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
+    auto responseCb = [responseHandler](const SerialLarge& ret, const SerialLarge& iceP_o)
     {
-        auto ostr = incomingPtr->startWriteParams();
-        ostr->writeAll(iceP_o, ret);
-        incomingPtr->endWriteParams();
-        incomingPtr->completed();
+        responseHandler->sendResponse(
+            [&](::Ice::OutputStream* ostr)
+            {
+                ostr->writeAll(iceP_o, ret);
+            });
     };
     try
     {
-        this->opSerialLargeJavaAsync(::std::move(iceP_i), responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+        this->opSerialLargeJavaAsync(::std::move(iceP_i), ::std::move(responseCb), [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
     }
     catch (...)
     {
-        incomingPtr->failed(::std::current_exception());
+        responseHandler->sendException(::std::current_exception());
     }
-    return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::MyClass::_iceD_opSerialStructJava(::IceInternal::Incoming& incoming)
+void
+Test::MyClass::_iceD_opSerialStructJava(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     SerialStruct iceP_i;
     istr->readAll(iceP_i);
-    incoming.endReadParams();
-    auto incomingPtr = ::std::make_shared<::IceInternal::Incoming>(::std::move(incoming));
-    auto responseCB = [incomingPtr](const SerialStruct& ret, const SerialStruct& iceP_o)
+    istr->endEncapsulation();
+    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
+    auto responseCb = [responseHandler](const SerialStruct& ret, const SerialStruct& iceP_o)
     {
-        auto ostr = incomingPtr->startWriteParams();
-        ostr->writeAll(iceP_o, ret);
-        incomingPtr->endWriteParams();
-        incomingPtr->completed();
+        responseHandler->sendResponse(
+            [&](::Ice::OutputStream* ostr)
+            {
+                ostr->writeAll(iceP_o, ret);
+            });
     };
     try
     {
-        this->opSerialStructJavaAsync(::std::move(iceP_i), responseCB, [incomingPtr](std::exception_ptr ex) { incomingPtr->completed(ex); }, incomingPtr->current());
+        this->opSerialStructJavaAsync(::std::move(iceP_i), ::std::move(responseCb), [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
     }
     catch (...)
     {
-        incomingPtr->failed(::std::current_exception());
+        responseHandler->sendException(::std::current_exception());
     }
-    return false;
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::MyClass::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+Test::MyClass::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "opSerialLargeJava", "opSerialSmallJava", "opSerialStructJava", "shutdown"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_opSerialLargeJava(incoming);
+            _iceD_opSerialLargeJava(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_opSerialSmallJava(incoming);
+            _iceD_opSerialSmallJava(request, ::std::move(sendResponse));
+            break;
         }
         case 6:
         {
-            return _iceD_opSerialStructJava(incoming);
+            _iceD_opSerialStructJava(request, ::std::move(sendResponse));
+            break;
         }
         case 7:
         {
-            return _iceD_shutdown(incoming);
+            _iceD_shutdown(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }

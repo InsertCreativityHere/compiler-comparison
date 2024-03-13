@@ -1035,9 +1035,9 @@ public extension forPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
-                                     } catch let error as endwhile {
-                                         throw error
                                      } catch let error as endif {
+                                         throw error
+                                     } catch let error as endwhile {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -1090,9 +1090,9 @@ public extension forPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as endwhile {
-                                          throw error
                                       } catch let error as endif {
+                                          throw error
+                                      } catch let error as endwhile {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },

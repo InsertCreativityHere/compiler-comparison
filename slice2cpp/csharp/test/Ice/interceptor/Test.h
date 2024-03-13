@@ -278,56 +278,56 @@ public:
 
     virtual ::std::int32_t add(::std::int32_t x, ::std::int32_t y, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_add(::IceInternal::Incoming&);
+    void _iceD_add(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::int32_t addWithRetry(::std::int32_t x, ::std::int32_t y, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_addWithRetry(::IceInternal::Incoming&);
+    void _iceD_addWithRetry(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::int32_t badAdd(::std::int32_t x, ::std::int32_t y, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_badAdd(::IceInternal::Incoming&);
+    void _iceD_badAdd(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::int32_t notExistAdd(::std::int32_t x, ::std::int32_t y, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_notExistAdd(::IceInternal::Incoming&);
+    void _iceD_notExistAdd(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::int32_t badSystemAdd(::std::int32_t x, ::std::int32_t y, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_badSystemAdd(::IceInternal::Incoming&);
+    void _iceD_badSystemAdd(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void amdAddAsync(::std::int32_t x, ::std::int32_t y, ::std::function<void(::std::int32_t returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_amdAdd(::IceInternal::Incoming&);
+    void _iceD_amdAdd(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void amdAddWithRetryAsync(::std::int32_t x, ::std::int32_t y, ::std::function<void(::std::int32_t returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_amdAddWithRetry(::IceInternal::Incoming&);
+    void _iceD_amdAddWithRetry(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void amdBadAddAsync(::std::int32_t x, ::std::int32_t y, ::std::function<void(::std::int32_t returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_amdBadAdd(::IceInternal::Incoming&);
+    void _iceD_amdBadAdd(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void amdNotExistAddAsync(::std::int32_t x, ::std::int32_t y, ::std::function<void(::std::int32_t returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_amdNotExistAdd(::IceInternal::Incoming&);
+    void _iceD_amdNotExistAdd(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void amdBadSystemAddAsync(::std::int32_t x, ::std::int32_t y, ::std::function<void(::std::int32_t returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_amdBadSystemAdd(::IceInternal::Incoming&);
+    void _iceD_amdBadSystemAdd(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

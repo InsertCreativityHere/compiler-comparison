@@ -19,7 +19,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <ServiceManager.h>
 #include <Ice/OutgoingAsync.h>
-#include <Ice/Incoming.h>
+#include <Ice/AsyncResponseHandler.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -61,7 +61,7 @@ IceBox::ServiceObserverPrx::servicesStartedAsync(const ::Ice::StringSeq& iceP_se
 ::std::function<void()>
 IceBox::ServiceObserverPrx::servicesStartedAsync(const ::Ice::StringSeq& iceP_services, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceBox::ServiceObserverPrx::_iceI_servicesStarted, iceP_services, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceBox::ServiceObserverPrx::_iceI_servicesStarted, iceP_services, context);
 }
 
 void
@@ -92,7 +92,7 @@ IceBox::ServiceObserverPrx::servicesStoppedAsync(const ::Ice::StringSeq& iceP_se
 ::std::function<void()>
 IceBox::ServiceObserverPrx::servicesStoppedAsync(const ::Ice::StringSeq& iceP_services, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceBox::ServiceObserverPrx::_iceI_servicesStopped, iceP_services, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceBox::ServiceObserverPrx::_iceI_servicesStopped, iceP_services, context);
 }
 
 void
@@ -130,7 +130,7 @@ IceBox::ServiceManagerPrx::startServiceAsync(::std::string_view iceP_service, co
 ::std::function<void()>
 IceBox::ServiceManagerPrx::startServiceAsync(::std::string_view iceP_service, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceBox::ServiceManagerPrx::_iceI_startService, iceP_service, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceBox::ServiceManagerPrx::_iceI_startService, iceP_service, context);
 }
 
 void
@@ -179,7 +179,7 @@ IceBox::ServiceManagerPrx::stopServiceAsync(::std::string_view iceP_service, con
 ::std::function<void()>
 IceBox::ServiceManagerPrx::stopServiceAsync(::std::string_view iceP_service, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceBox::ServiceManagerPrx::_iceI_stopService, iceP_service, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceBox::ServiceManagerPrx::_iceI_stopService, iceP_service, context);
 }
 
 void
@@ -228,7 +228,7 @@ IceBox::ServiceManagerPrx::addObserverAsync(const ::std::optional<ServiceObserve
 ::std::function<void()>
 IceBox::ServiceManagerPrx::addObserverAsync(const ::std::optional<ServiceObserverPrx>& iceP_observer, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceBox::ServiceManagerPrx::_iceI_addObserver, iceP_observer, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceBox::ServiceManagerPrx::_iceI_addObserver, iceP_observer, context);
 }
 
 void
@@ -259,7 +259,7 @@ IceBox::ServiceManagerPrx::shutdownAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 IceBox::ServiceManagerPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &IceBox::ServiceManagerPrx::_iceI_shutdown, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceBox::ServiceManagerPrx::_iceI_shutdown, context);
 }
 
 void
@@ -333,78 +333,85 @@ IceBox::ServiceObserver::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-IceBox::ServiceObserver::_iceD_servicesStarted(::IceInternal::Incoming& incoming)
+void
+IceBox::ServiceObserver::_iceD_servicesStarted(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::Ice::StringSeq iceP_services;
     istr->readAll(iceP_services);
-    incoming.endReadParams();
-    this->servicesStarted(::std::move(iceP_services), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->servicesStarted(::std::move(iceP_services), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceBox::ServiceObserver::_iceD_servicesStopped(::IceInternal::Incoming& incoming)
+void
+IceBox::ServiceObserver::_iceD_servicesStopped(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::Ice::StringSeq iceP_services;
     istr->readAll(iceP_services);
-    incoming.endReadParams();
-    this->servicesStopped(::std::move(iceP_services), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->servicesStopped(::std::move(iceP_services), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceBox::ServiceObserver::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+IceBox::ServiceObserver::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "servicesStarted", "servicesStopped"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_servicesStarted(incoming);
+            _iceD_servicesStarted(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_servicesStopped(incoming);
+            _iceD_servicesStopped(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }
@@ -431,113 +438,121 @@ IceBox::ServiceManager::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-IceBox::ServiceManager::_iceD_startService(::IceInternal::Incoming& incoming)
+void
+IceBox::ServiceManager::_iceD_startService(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_service;
     istr->readAll(iceP_service);
-    incoming.endReadParams();
-    this->startService(::std::move(iceP_service), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->startService(::std::move(iceP_service), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceBox::ServiceManager::_iceD_stopService(::IceInternal::Incoming& incoming)
+void
+IceBox::ServiceManager::_iceD_stopService(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_service;
     istr->readAll(iceP_service);
-    incoming.endReadParams();
-    this->stopService(::std::move(iceP_service), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->stopService(::std::move(iceP_service), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceBox::ServiceManager::_iceD_addObserver(::IceInternal::Incoming& incoming)
+void
+IceBox::ServiceManager::_iceD_addObserver(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::optional<ServiceObserverPrx> iceP_observer;
     istr->readAll(iceP_observer);
-    incoming.endReadParams();
-    this->addObserver(::std::move(iceP_observer), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->addObserver(::std::move(iceP_observer), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceBox::ServiceManager::_iceD_shutdown(::IceInternal::Incoming& incoming)
+void
+IceBox::ServiceManager::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->shutdown(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->shutdown(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceBox::ServiceManager::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+IceBox::ServiceManager::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"addObserver", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown", "startService", "stopService"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_addObserver(incoming);
+            _iceD_addObserver(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_shutdown(incoming);
+            _iceD_shutdown(request, ::std::move(sendResponse));
+            break;
         }
         case 6:
         {
-            return _iceD_startService(incoming);
+            _iceD_startService(request, ::std::move(sendResponse));
+            break;
         }
         case 7:
         {
-            return _iceD_stopService(incoming);
+            _iceD_stopService(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }

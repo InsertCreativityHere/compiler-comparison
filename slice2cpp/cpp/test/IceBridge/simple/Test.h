@@ -376,26 +376,26 @@ public:
 
     virtual void ping(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_ping(::IceInternal::Incoming&);
+    void _iceD_ping(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::int32_t getCount(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getCount(::IceInternal::Incoming&);
+    void _iceD_getCount(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void datagram(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_datagram(::IceInternal::Incoming&);
+    void _iceD_datagram(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::int32_t getDatagramCount(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getDatagramCount(::IceInternal::Incoming&);
+    void _iceD_getDatagramCount(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -429,76 +429,76 @@ public:
 
     virtual void callCallbackAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_callCallback(::IceInternal::Incoming&);
+    void _iceD_callCallback(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void getCallbackCountAsync(::std::function<void(::std::int32_t returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getCallbackCount(::IceInternal::Incoming&);
+    void _iceD_getCallbackCount(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void incCounter(::std::int32_t expected, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_incCounter(::IceInternal::Incoming&);
+    void _iceD_incCounter(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void waitCounter(::std::int32_t value, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_waitCounter(::IceInternal::Incoming&);
+    void _iceD_waitCounter(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::int32_t getConnectionCount(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getConnectionCount(::IceInternal::Incoming&);
+    void _iceD_getConnectionCount(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::string getConnectionInfo(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getConnectionInfo(::IceInternal::Incoming&);
+    void _iceD_getConnectionInfo(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void closeConnection(bool force, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_closeConnection(::IceInternal::Incoming&);
+    void _iceD_closeConnection(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void datagram(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_datagram(::IceInternal::Incoming&);
+    void _iceD_datagram(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::int32_t getDatagramCount(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getDatagramCount(::IceInternal::Incoming&);
+    void _iceD_getDatagramCount(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void callDatagramCallback(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_callDatagramCallback(::IceInternal::Incoming&);
+    void _iceD_callDatagramCallback(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void getCallbackDatagramCountAsync(::std::function<void(::std::int32_t returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getCallbackDatagramCount(::IceInternal::Incoming&);
+    void _iceD_getCallbackDatagramCount(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::int32_t getHeartbeatCount(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getHeartbeatCount(::IceInternal::Incoming&);
+    void _iceD_getHeartbeatCount(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void enableHeartbeats(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_enableHeartbeats(::IceInternal::Incoming&);
+    void _iceD_enableHeartbeats(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

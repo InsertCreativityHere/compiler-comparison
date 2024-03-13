@@ -16,7 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
 #include <Ice/OutgoingAsync.h>
-#include <Ice/Incoming.h>
+#include <Ice/AsyncResponseHandler.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -52,7 +52,7 @@ Test::InitialPrx::getTest1C2AsC1Async(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::InitialPrx::getTest1C2AsC1Async(::std::function<void(::std::shared_ptr<::Test1::C1>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<::Test1::C1>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getTest1C2AsC1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<::Test1::C1>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_getTest1C2AsC1, context);
 }
 
 void
@@ -88,7 +88,7 @@ Test::InitialPrx::getTest1C2AsC2Async(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::InitialPrx::getTest1C2AsC2Async(::std::function<void(::std::shared_ptr<::Test1::C2>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<::Test1::C2>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getTest1C2AsC2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<::Test1::C2>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_getTest1C2AsC2, context);
 }
 
 void
@@ -124,7 +124,7 @@ Test::InitialPrx::throwTest1E2AsE1Async(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::InitialPrx::throwTest1E2AsE1Async(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwTest1E2AsE1, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_throwTest1E2AsE1, context);
 }
 
 void
@@ -166,7 +166,7 @@ Test::InitialPrx::throwTest1E2AsE2Async(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::InitialPrx::throwTest1E2AsE2Async(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwTest1E2AsE2, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_throwTest1E2AsE2, context);
 }
 
 void
@@ -208,7 +208,7 @@ Test::InitialPrx::throwTest1DefAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::InitialPrx::throwTest1DefAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwTest1Def, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_throwTest1Def, context);
 }
 
 void
@@ -250,7 +250,7 @@ Test::InitialPrx::getTest2C2AsC1Async(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::InitialPrx::getTest2C2AsC1Async(::std::function<void(::std::shared_ptr<::Test2::C1>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<::Test2::C1>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getTest2C2AsC1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<::Test2::C1>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_getTest2C2AsC1, context);
 }
 
 void
@@ -286,7 +286,7 @@ Test::InitialPrx::getTest2C2AsC2Async(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::InitialPrx::getTest2C2AsC2Async(::std::function<void(::std::shared_ptr<::Test2::C2>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<::Test2::C2>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getTest2C2AsC2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<::Test2::C2>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_getTest2C2AsC2, context);
 }
 
 void
@@ -322,7 +322,7 @@ Test::InitialPrx::throwTest2E2AsE1Async(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::InitialPrx::throwTest2E2AsE1Async(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwTest2E2AsE1, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_throwTest2E2AsE1, context);
 }
 
 void
@@ -364,7 +364,7 @@ Test::InitialPrx::throwTest2E2AsE2Async(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::InitialPrx::throwTest2E2AsE2Async(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwTest2E2AsE2, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_throwTest2E2AsE2, context);
 }
 
 void
@@ -406,7 +406,7 @@ Test::InitialPrx::getTest3C2AsC1Async(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::InitialPrx::getTest3C2AsC1Async(::std::function<void(::std::shared_ptr<::Test3::C1>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<::Test3::C1>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getTest3C2AsC1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<::Test3::C1>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_getTest3C2AsC1, context);
 }
 
 void
@@ -442,7 +442,7 @@ Test::InitialPrx::getTest3C2AsC2Async(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::InitialPrx::getTest3C2AsC2Async(::std::function<void(::std::shared_ptr<::Test3::C2>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<::Test3::C2>>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_getTest3C2AsC2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<::Test3::C2>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_getTest3C2AsC2, context);
 }
 
 void
@@ -478,7 +478,7 @@ Test::InitialPrx::throwTest3E2AsE1Async(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::InitialPrx::throwTest3E2AsE1Async(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwTest3E2AsE1, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_throwTest3E2AsE1, context);
 }
 
 void
@@ -520,7 +520,7 @@ Test::InitialPrx::throwTest3E2AsE2Async(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::InitialPrx::throwTest3E2AsE2Async(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_throwTest3E2AsE2, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_throwTest3E2AsE2, context);
 }
 
 void
@@ -562,7 +562,7 @@ Test::InitialPrx::shutdownAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::InitialPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::InitialPrx::_iceI_shutdown, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_shutdown, context);
 }
 
 void
@@ -603,282 +603,299 @@ Test::Initial::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-Test::Initial::_iceD_getTest1C2AsC1(::IceInternal::Incoming& incoming)
+void
+Test::Initial::_iceD_getTest1C2AsC1(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    ::std::shared_ptr<::Test1::C1> ret = this->getTest1C2AsC1(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    ostr->writePendingValues();
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    ::std::shared_ptr<::Test1::C1> ret = this->getTest1C2AsC1(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+            ostr->writePendingValues();
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Initial::_iceD_getTest1C2AsC2(::IceInternal::Incoming& incoming)
+void
+Test::Initial::_iceD_getTest1C2AsC2(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    ::std::shared_ptr<::Test1::C2> ret = this->getTest1C2AsC2(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    ostr->writePendingValues();
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    ::std::shared_ptr<::Test1::C2> ret = this->getTest1C2AsC2(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+            ostr->writePendingValues();
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Initial::_iceD_throwTest1E2AsE1(::IceInternal::Incoming& incoming)
+void
+Test::Initial::_iceD_throwTest1E2AsE1(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->throwTest1E2AsE1(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->throwTest1E2AsE1(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Initial::_iceD_throwTest1E2AsE2(::IceInternal::Incoming& incoming)
+void
+Test::Initial::_iceD_throwTest1E2AsE2(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->throwTest1E2AsE2(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->throwTest1E2AsE2(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Initial::_iceD_throwTest1Def(::IceInternal::Incoming& incoming)
+void
+Test::Initial::_iceD_throwTest1Def(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->throwTest1Def(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->throwTest1Def(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Initial::_iceD_getTest2C2AsC1(::IceInternal::Incoming& incoming)
+void
+Test::Initial::_iceD_getTest2C2AsC1(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    ::std::shared_ptr<::Test2::C1> ret = this->getTest2C2AsC1(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    ostr->writePendingValues();
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    ::std::shared_ptr<::Test2::C1> ret = this->getTest2C2AsC1(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+            ostr->writePendingValues();
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Initial::_iceD_getTest2C2AsC2(::IceInternal::Incoming& incoming)
+void
+Test::Initial::_iceD_getTest2C2AsC2(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    ::std::shared_ptr<::Test2::C2> ret = this->getTest2C2AsC2(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    ostr->writePendingValues();
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    ::std::shared_ptr<::Test2::C2> ret = this->getTest2C2AsC2(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+            ostr->writePendingValues();
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Initial::_iceD_throwTest2E2AsE1(::IceInternal::Incoming& incoming)
+void
+Test::Initial::_iceD_throwTest2E2AsE1(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->throwTest2E2AsE1(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->throwTest2E2AsE1(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Initial::_iceD_throwTest2E2AsE2(::IceInternal::Incoming& incoming)
+void
+Test::Initial::_iceD_throwTest2E2AsE2(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->throwTest2E2AsE2(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->throwTest2E2AsE2(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Initial::_iceD_getTest3C2AsC1(::IceInternal::Incoming& incoming)
+void
+Test::Initial::_iceD_getTest3C2AsC1(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    ::std::shared_ptr<::Test3::C1> ret = this->getTest3C2AsC1(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    ostr->writePendingValues();
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    ::std::shared_ptr<::Test3::C1> ret = this->getTest3C2AsC1(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+            ostr->writePendingValues();
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Initial::_iceD_getTest3C2AsC2(::IceInternal::Incoming& incoming)
+void
+Test::Initial::_iceD_getTest3C2AsC2(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    ::std::shared_ptr<::Test3::C2> ret = this->getTest3C2AsC2(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    ostr->writePendingValues();
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    ::std::shared_ptr<::Test3::C2> ret = this->getTest3C2AsC2(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+            ostr->writePendingValues();
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Initial::_iceD_throwTest3E2AsE1(::IceInternal::Incoming& incoming)
+void
+Test::Initial::_iceD_throwTest3E2AsE1(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->throwTest3E2AsE1(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->throwTest3E2AsE1(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Initial::_iceD_throwTest3E2AsE2(::IceInternal::Incoming& incoming)
+void
+Test::Initial::_iceD_throwTest3E2AsE2(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->throwTest3E2AsE2(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->throwTest3E2AsE2(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Initial::_iceD_shutdown(::IceInternal::Incoming& incoming)
+void
+Test::Initial::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->shutdown(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->shutdown(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Initial::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+Test::Initial::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"getTest1C2AsC1", "getTest1C2AsC2", "getTest2C2AsC1", "getTest2C2AsC2", "getTest3C2AsC1", "getTest3C2AsC2", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown", "throwTest1Def", "throwTest1E2AsE1", "throwTest1E2AsE2", "throwTest2E2AsE1", "throwTest2E2AsE2", "throwTest3E2AsE1", "throwTest3E2AsE2"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 18, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_getTest1C2AsC1(incoming);
+            _iceD_getTest1C2AsC1(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_getTest1C2AsC2(incoming);
+            _iceD_getTest1C2AsC2(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_getTest2C2AsC1(incoming);
+            _iceD_getTest2C2AsC1(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_getTest2C2AsC2(incoming);
+            _iceD_getTest2C2AsC2(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_getTest3C2AsC1(incoming);
+            _iceD_getTest3C2AsC1(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_getTest3C2AsC2(incoming);
+            _iceD_getTest3C2AsC2(request, ::std::move(sendResponse));
+            break;
         }
         case 6:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 7:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 8:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 9:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         case 10:
         {
-            return _iceD_shutdown(incoming);
+            _iceD_shutdown(request, ::std::move(sendResponse));
+            break;
         }
         case 11:
         {
-            return _iceD_throwTest1Def(incoming);
+            _iceD_throwTest1Def(request, ::std::move(sendResponse));
+            break;
         }
         case 12:
         {
-            return _iceD_throwTest1E2AsE1(incoming);
+            _iceD_throwTest1E2AsE1(request, ::std::move(sendResponse));
+            break;
         }
         case 13:
         {
-            return _iceD_throwTest1E2AsE2(incoming);
+            _iceD_throwTest1E2AsE2(request, ::std::move(sendResponse));
+            break;
         }
         case 14:
         {
-            return _iceD_throwTest2E2AsE1(incoming);
+            _iceD_throwTest2E2AsE1(request, ::std::move(sendResponse));
+            break;
         }
         case 15:
         {
-            return _iceD_throwTest2E2AsE2(incoming);
+            _iceD_throwTest2E2AsE2(request, ::std::move(sendResponse));
+            break;
         }
         case 16:
         {
-            return _iceD_throwTest3E2AsE1(incoming);
+            _iceD_throwTest3E2AsE1(request, ::std::move(sendResponse));
+            break;
         }
         case 17:
         {
-            return _iceD_throwTest3E2AsE2(incoming);
+            _iceD_throwTest3E2AsE2(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }

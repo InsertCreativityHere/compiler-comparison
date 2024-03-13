@@ -134,11 +134,11 @@ public:
 
     virtual void tick(::std::string time, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_tick(::IceInternal::Incoming&);
+    void _iceD_tick(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

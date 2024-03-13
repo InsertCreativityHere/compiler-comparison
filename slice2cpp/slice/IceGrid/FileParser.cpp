@@ -19,7 +19,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <FileParser.h>
 #include <Ice/OutgoingAsync.h>
-#include <Ice/Incoming.h>
+#include <Ice/AsyncResponseHandler.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -57,7 +57,7 @@ IceGrid::FileParserPrx::parseAsync(::std::string_view iceP_xmlFile, const ::std:
 ::std::function<void()>
 IceGrid::FileParserPrx::parseAsync(::std::string_view iceP_xmlFile, const ::std::optional<AdminPrx>& iceP_adminProxy, ::std::function<void(::IceGrid::ApplicationDescriptor)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<ApplicationDescriptor>(std::move(response), std::move(ex), std::move(sent), this, &IceGrid::FileParserPrx::_iceI_parse, iceP_xmlFile, iceP_adminProxy, context);
+    return ::IceInternal::makeLambdaOutgoing<ApplicationDescriptor>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::FileParserPrx::_iceI_parse, iceP_xmlFile, iceP_adminProxy, context);
 }
 
 void
@@ -133,63 +133,71 @@ IceGrid::FileParser::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-IceGrid::FileParser::_iceD_parse(::IceInternal::Incoming& incoming)
+void
+IceGrid::FileParser::_iceD_parse(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Idempotent, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_xmlFile;
     ::std::optional<AdminPrx> iceP_adminProxy;
     istr->readAll(iceP_xmlFile, iceP_adminProxy);
-    incoming.endReadParams();
-    ApplicationDescriptor ret = this->parse(::std::move(iceP_xmlFile), ::std::move(iceP_adminProxy), incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    ostr->writePendingValues();
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    ApplicationDescriptor ret = this->parse(::std::move(iceP_xmlFile), ::std::move(iceP_adminProxy), request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+            ostr->writePendingValues();
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-IceGrid::FileParser::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+IceGrid::FileParser::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "parse"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_parse(incoming);
+            _iceD_parse(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }

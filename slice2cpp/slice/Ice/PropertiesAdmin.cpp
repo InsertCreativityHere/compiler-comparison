@@ -19,7 +19,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <PropertiesAdmin.h>
 #include <Ice/OutgoingAsync.h>
-#include <Ice/Incoming.h>
+#include <Ice/AsyncResponseHandler.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -55,7 +55,7 @@ Ice::PropertiesAdminPrx::getPropertyAsync(::std::string_view iceP_key, const ::I
 ::std::function<void()>
 Ice::PropertiesAdminPrx::getPropertyAsync(::std::string_view iceP_key, ::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::string>(std::move(response), std::move(ex), std::move(sent), this, &Ice::PropertiesAdminPrx::_iceI_getProperty, iceP_key, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::string>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Ice::PropertiesAdminPrx::_iceI_getProperty, iceP_key, context);
 }
 
 void
@@ -87,7 +87,7 @@ Ice::PropertiesAdminPrx::getPropertiesForPrefixAsync(::std::string_view iceP_pre
 ::std::function<void()>
 Ice::PropertiesAdminPrx::getPropertiesForPrefixAsync(::std::string_view iceP_prefix, ::std::function<void(::Ice::PropertyDict)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<PropertyDict>(std::move(response), std::move(ex), std::move(sent), this, &Ice::PropertiesAdminPrx::_iceI_getPropertiesForPrefix, iceP_prefix, context);
+    return ::IceInternal::makeLambdaOutgoing<PropertyDict>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Ice::PropertiesAdminPrx::_iceI_getPropertiesForPrefix, iceP_prefix, context);
 }
 
 void
@@ -119,7 +119,7 @@ Ice::PropertiesAdminPrx::setPropertiesAsync(const PropertyDict& iceP_newProperti
 ::std::function<void()>
 Ice::PropertiesAdminPrx::setPropertiesAsync(const PropertyDict& iceP_newProperties, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Ice::PropertiesAdminPrx::_iceI_setProperties, iceP_newProperties, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Ice::PropertiesAdminPrx::_iceI_setProperties, iceP_newProperties, context);
 }
 
 void
@@ -163,101 +163,113 @@ Ice::PropertiesAdmin::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-Ice::PropertiesAdmin::_iceD_getProperty(::IceInternal::Incoming& incoming)
+void
+Ice::PropertiesAdmin::_iceD_getProperty(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_key;
     istr->readAll(iceP_key);
-    incoming.endReadParams();
-    ::std::string ret = this->getProperty(::std::move(iceP_key), incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    ::std::string ret = this->getProperty(::std::move(iceP_key), request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Ice::PropertiesAdmin::_iceD_getPropertiesForPrefix(::IceInternal::Incoming& incoming)
+void
+Ice::PropertiesAdmin::_iceD_getPropertiesForPrefix(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_prefix;
     istr->readAll(iceP_prefix);
-    incoming.endReadParams();
-    PropertyDict ret = this->getPropertiesForPrefix(::std::move(iceP_prefix), incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    PropertyDict ret = this->getPropertiesForPrefix(::std::move(iceP_prefix), request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Ice::PropertiesAdmin::_iceD_setProperties(::IceInternal::Incoming& incoming)
+void
+Ice::PropertiesAdmin::_iceD_setProperties(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     PropertyDict iceP_newProperties;
     istr->readAll(iceP_newProperties);
-    incoming.endReadParams();
-    this->setProperties(::std::move(iceP_newProperties), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->setProperties(::std::move(iceP_newProperties), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Ice::PropertiesAdmin::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+Ice::PropertiesAdmin::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"getPropertiesForPrefix", "getProperty", "ice_id", "ice_ids", "ice_isA", "ice_ping", "setProperties"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
-        throw OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_getPropertiesForPrefix(incoming);
+            _iceD_getPropertiesForPrefix(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_getProperty(incoming);
+            _iceD_getProperty(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         case 6:
         {
-            return _iceD_setProperties(incoming);
+            _iceD_setProperties(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }

@@ -145,16 +145,16 @@ public:
 
     virtual ::std::string getReplicaId(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getReplicaId(::IceInternal::Incoming&);
+    void _iceD_getReplicaId(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::string getReplicaIdAndShutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getReplicaIdAndShutdown(::IceInternal::Incoming&);
+    void _iceD_getReplicaIdAndShutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

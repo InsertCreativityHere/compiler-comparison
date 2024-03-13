@@ -816,26 +816,26 @@ public:
 
     virtual ::std::string startServerSide(::std::shared_ptr<Config> config, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_startServerSide(::IceInternal::Incoming&);
+    void _iceD_startServerSide(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::string stopServerSide(bool success, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_stopServerSide(::IceInternal::Incoming&);
+    void _iceD_stopServerSide(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::string runClientSide(::std::string host, ::std::shared_ptr<Config> config, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_runClientSide(::IceInternal::Incoming&);
+    void _iceD_runClientSide(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void destroy(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_destroy(::IceInternal::Incoming&);
+    void _iceD_destroy(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -869,26 +869,26 @@ public:
 
     virtual ::std::optional<TestCasePrx> runTestCase(::std::string mapping, ::std::string testsuite, ::std::string testcase, ::std::string cross, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_runTestCase(::IceInternal::Incoming&);
+    void _iceD_runTestCase(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::shared_ptr<OptionOverrides> getOptionOverrides(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getOptionOverrides(::IceInternal::Incoming&);
+    void _iceD_getOptionOverrides(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual StringSeq getTestSuites(::std::string mapping, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getTestSuites(::IceInternal::Incoming&);
+    void _iceD_getTestSuites(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::string getHost(::std::string protocol, bool ipv6, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getHost(::IceInternal::Incoming&);
+    void _iceD_getHost(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -922,21 +922,21 @@ public:
 
     virtual void waitReady(::std::int32_t timeout, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_waitReady(::IceInternal::Incoming&);
+    void _iceD_waitReady(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::int32_t waitSuccess(::std::int32_t timeout, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_waitSuccess(::IceInternal::Incoming&);
+    void _iceD_waitSuccess(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::string terminate(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_terminate(::IceInternal::Incoming&);
+    void _iceD_terminate(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -970,16 +970,16 @@ public:
 
     virtual ::std::optional<ProcessPrx> start(::std::string testsuite, ::std::string exe, StringSeq args, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_start(::IceInternal::Incoming&);
+    void _iceD_start(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::string getHost(::std::string protocol, bool ipv6, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getHost(::IceInternal::Incoming&);
+    void _iceD_getHost(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -1013,11 +1013,11 @@ public:
 
     virtual void redirect(::std::string url, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_redirect(::IceInternal::Incoming&);
+    void _iceD_redirect(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -1051,11 +1051,11 @@ public:
 
     virtual void setProcessController(::std::optional<ProcessControllerPrx> controller, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_setProcessController(::IceInternal::Incoming&);
+    void _iceD_setProcessController(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

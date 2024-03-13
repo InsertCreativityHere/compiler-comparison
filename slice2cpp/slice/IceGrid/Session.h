@@ -356,7 +356,7 @@ public:
      */
     virtual void keepAlive(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_keepAlive(::IceInternal::Incoming&);
+    void _iceD_keepAlive(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -374,7 +374,7 @@ public:
      */
     virtual void allocateObjectByIdAsync(::Ice::Identity id, ::std::function<void(const ::std::optional<::Ice::ObjectPrx>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_allocateObjectById(::IceInternal::Incoming&);
+    void _iceD_allocateObjectById(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -390,7 +390,7 @@ public:
      */
     virtual void allocateObjectByTypeAsync(::std::string type, ::std::function<void(const ::std::optional<::Ice::ObjectPrx>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_allocateObjectByType(::IceInternal::Incoming&);
+    void _iceD_allocateObjectByType(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -405,7 +405,7 @@ public:
      */
     virtual void releaseObject(::Ice::Identity id, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_releaseObject(::IceInternal::Incoming&);
+    void _iceD_releaseObject(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -417,11 +417,11 @@ public:
      */
     virtual void setAllocationTimeout(::std::int32_t timeout, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_setAllocationTimeout(::IceInternal::Incoming&);
+    void _iceD_setAllocationTimeout(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

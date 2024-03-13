@@ -145,16 +145,16 @@ public:
 
     virtual void transient(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_transient(::IceInternal::Incoming&);
+    void _iceD_transient(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void deactivate(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_deactivate(::IceInternal::Incoming&);
+    void _iceD_deactivate(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

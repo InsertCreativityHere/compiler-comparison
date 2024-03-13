@@ -215,7 +215,7 @@ public:
      */
     virtual void shutdown(const Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -226,11 +226,11 @@ public:
      */
     virtual void writeMessage(::std::string message, ::std::int32_t fd, const Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_writeMessage(::IceInternal::Incoming&);
+    void _iceD_writeMessage(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

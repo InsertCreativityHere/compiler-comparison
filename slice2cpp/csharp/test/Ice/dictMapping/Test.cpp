@@ -16,7 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
 #include <Ice/OutgoingAsync.h>
-#include <Ice/Incoming.h>
+#include <Ice/AsyncResponseHandler.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -52,7 +52,7 @@ Test::MyClassPrx::shutdownAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::MyClassPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_shutdown, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MyClassPrx::_iceI_shutdown, context);
 }
 
 void
@@ -86,7 +86,7 @@ Test::MyClassPrx::opNVAsync(const NV& iceP_i, ::std::function<void(::Test::NV, :
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<NV, NV>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opNV, iceP_i, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<NV, NV>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::MyClassPrx::_iceI_opNV, iceP_i, context);
 }
 
 void
@@ -130,7 +130,7 @@ Test::MyClassPrx::opNRAsync(const NR& iceP_i, ::std::function<void(::Test::NR, :
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<NR, NR>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opNR, iceP_i, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<NR, NR>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::MyClassPrx::_iceI_opNR, iceP_i, context);
 }
 
 void
@@ -174,7 +174,7 @@ Test::MyClassPrx::opNDVAsync(const NDV& iceP_i, ::std::function<void(::Test::NDV
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<NDV, NDV>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opNDV, iceP_i, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<NDV, NDV>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::MyClassPrx::_iceI_opNDV, iceP_i, context);
 }
 
 void
@@ -218,7 +218,7 @@ Test::MyClassPrx::opNDRAsync(const NDR& iceP_i, ::std::function<void(::Test::NDR
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<NDR, NDR>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opNDR, iceP_i, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<NDR, NDR>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::MyClassPrx::_iceI_opNDR, iceP_i, context);
 }
 
 void
@@ -262,7 +262,7 @@ Test::MyClassPrx::opNDAISAsync(const NDAIS& iceP_i, ::std::function<void(::Test:
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<NDAIS, NDAIS>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opNDAIS, iceP_i, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<NDAIS, NDAIS>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::MyClassPrx::_iceI_opNDAIS, iceP_i, context);
 }
 
 void
@@ -306,7 +306,7 @@ Test::MyClassPrx::opNDGISAsync(const NDGIS& iceP_i, ::std::function<void(::Test:
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<NDGIS, NDGIS>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opNDGIS, iceP_i, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<NDGIS, NDGIS>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::MyClassPrx::_iceI_opNDGIS, iceP_i, context);
 }
 
 void
@@ -350,7 +350,7 @@ Test::MyClassPrx::opNDASSAsync(const NDASS& iceP_i, ::std::function<void(::Test:
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<NDASS, NDASS>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opNDASS, iceP_i, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<NDASS, NDASS>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::MyClassPrx::_iceI_opNDASS, iceP_i, context);
 }
 
 void
@@ -394,7 +394,7 @@ Test::MyClassPrx::opNDGSSAsync(const NDGSS& iceP_i, ::std::function<void(::Test:
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<NDGSS, NDGSS>>(std::move(responseCb), std::move(ex), std::move(sent), this, &Test::MyClassPrx::_iceI_opNDGSS, iceP_i, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<NDGSS, NDGSS>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::MyClassPrx::_iceI_opNDGSS, iceP_i, context);
 }
 
 void
@@ -445,232 +445,261 @@ Test::MyClass::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-Test::MyClass::_iceD_shutdown(::IceInternal::Incoming& incoming)
+void
+Test::MyClass::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->shutdown(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->shutdown(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::MyClass::_iceD_opNV(::IceInternal::Incoming& incoming)
+void
+Test::MyClass::_iceD_opNV(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     NV iceP_i;
     istr->readAll(iceP_i);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     NV iceP_o;
-    NV ret = this->opNV(::std::move(iceP_i), iceP_o, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_o, ret);
-    incoming.endWriteParams();
-    return true;
+    NV ret = this->opNV(::std::move(iceP_i), iceP_o, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_o, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::MyClass::_iceD_opNR(::IceInternal::Incoming& incoming)
+void
+Test::MyClass::_iceD_opNR(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     NR iceP_i;
     istr->readAll(iceP_i);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     NR iceP_o;
-    NR ret = this->opNR(::std::move(iceP_i), iceP_o, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_o, ret);
-    incoming.endWriteParams();
-    return true;
+    NR ret = this->opNR(::std::move(iceP_i), iceP_o, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_o, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::MyClass::_iceD_opNDV(::IceInternal::Incoming& incoming)
+void
+Test::MyClass::_iceD_opNDV(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     NDV iceP_i;
     istr->readAll(iceP_i);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     NDV iceP_o;
-    NDV ret = this->opNDV(::std::move(iceP_i), iceP_o, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_o, ret);
-    incoming.endWriteParams();
-    return true;
+    NDV ret = this->opNDV(::std::move(iceP_i), iceP_o, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_o, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::MyClass::_iceD_opNDR(::IceInternal::Incoming& incoming)
+void
+Test::MyClass::_iceD_opNDR(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     NDR iceP_i;
     istr->readAll(iceP_i);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     NDR iceP_o;
-    NDR ret = this->opNDR(::std::move(iceP_i), iceP_o, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_o, ret);
-    incoming.endWriteParams();
-    return true;
+    NDR ret = this->opNDR(::std::move(iceP_i), iceP_o, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_o, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::MyClass::_iceD_opNDAIS(::IceInternal::Incoming& incoming)
+void
+Test::MyClass::_iceD_opNDAIS(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     NDAIS iceP_i;
     istr->readAll(iceP_i);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     NDAIS iceP_o;
-    NDAIS ret = this->opNDAIS(::std::move(iceP_i), iceP_o, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_o, ret);
-    incoming.endWriteParams();
-    return true;
+    NDAIS ret = this->opNDAIS(::std::move(iceP_i), iceP_o, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_o, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::MyClass::_iceD_opNDGIS(::IceInternal::Incoming& incoming)
+void
+Test::MyClass::_iceD_opNDGIS(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     NDGIS iceP_i;
     istr->readAll(iceP_i);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     NDGIS iceP_o;
-    NDGIS ret = this->opNDGIS(::std::move(iceP_i), iceP_o, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_o, ret);
-    incoming.endWriteParams();
-    return true;
+    NDGIS ret = this->opNDGIS(::std::move(iceP_i), iceP_o, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_o, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::MyClass::_iceD_opNDASS(::IceInternal::Incoming& incoming)
+void
+Test::MyClass::_iceD_opNDASS(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     NDASS iceP_i;
     istr->readAll(iceP_i);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     NDASS iceP_o;
-    NDASS ret = this->opNDASS(::std::move(iceP_i), iceP_o, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_o, ret);
-    incoming.endWriteParams();
-    return true;
+    NDASS ret = this->opNDASS(::std::move(iceP_i), iceP_o, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_o, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::MyClass::_iceD_opNDGSS(::IceInternal::Incoming& incoming)
+void
+Test::MyClass::_iceD_opNDGSS(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     NDGSS iceP_i;
     istr->readAll(iceP_i);
-    incoming.endReadParams();
+    istr->endEncapsulation();
     NDGSS iceP_o;
-    NDGSS ret = this->opNDGSS(::std::move(iceP_i), iceP_o, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(iceP_o, ret);
-    incoming.endWriteParams();
-    return true;
+    NDGSS ret = this->opNDGSS(::std::move(iceP_i), iceP_o, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(iceP_o, ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::MyClass::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+Test::MyClass::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "opNDAIS", "opNDASS", "opNDGIS", "opNDGSS", "opNDR", "opNDV", "opNR", "opNV", "shutdown"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 13, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_opNDAIS(incoming);
+            _iceD_opNDAIS(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_opNDASS(incoming);
+            _iceD_opNDASS(request, ::std::move(sendResponse));
+            break;
         }
         case 6:
         {
-            return _iceD_opNDGIS(incoming);
+            _iceD_opNDGIS(request, ::std::move(sendResponse));
+            break;
         }
         case 7:
         {
-            return _iceD_opNDGSS(incoming);
+            _iceD_opNDGSS(request, ::std::move(sendResponse));
+            break;
         }
         case 8:
         {
-            return _iceD_opNDR(incoming);
+            _iceD_opNDR(request, ::std::move(sendResponse));
+            break;
         }
         case 9:
         {
-            return _iceD_opNDV(incoming);
+            _iceD_opNDV(request, ::std::move(sendResponse));
+            break;
         }
         case 10:
         {
-            return _iceD_opNR(incoming);
+            _iceD_opNR(request, ::std::move(sendResponse));
+            break;
         }
         case 11:
         {
-            return _iceD_opNV(incoming);
+            _iceD_opNV(request, ::std::move(sendResponse));
+            break;
         }
         case 12:
         {
-            return _iceD_shutdown(incoming);
+            _iceD_shutdown(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }

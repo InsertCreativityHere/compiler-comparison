@@ -235,56 +235,56 @@ public:
 
     virtual ::std::shared_ptr<::NoNamespace::C1> getNoNamespaceC2AsC1(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getNoNamespaceC2AsC1(::IceInternal::Incoming&);
+    void _iceD_getNoNamespaceC2AsC1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::shared_ptr<::NoNamespace::C2> getNoNamespaceC2AsC2(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getNoNamespaceC2AsC2(::IceInternal::Incoming&);
+    void _iceD_getNoNamespaceC2AsC2(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void throwNoNamespaceE2AsE1(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwNoNamespaceE2AsE1(::IceInternal::Incoming&);
+    void _iceD_throwNoNamespaceE2AsE1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void throwNoNamespaceE2AsE2(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwNoNamespaceE2AsE2(::IceInternal::Incoming&);
+    void _iceD_throwNoNamespaceE2AsE2(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void throwNoNamespaceNotify(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwNoNamespaceNotify(::IceInternal::Incoming&);
+    void _iceD_throwNoNamespaceNotify(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::shared_ptr<::WithNamespace::C1> getWithNamespaceC2AsC1(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getWithNamespaceC2AsC1(::IceInternal::Incoming&);
+    void _iceD_getWithNamespaceC2AsC1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::shared_ptr<::WithNamespace::C2> getWithNamespaceC2AsC2(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getWithNamespaceC2AsC2(::IceInternal::Incoming&);
+    void _iceD_getWithNamespaceC2AsC2(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void throwWithNamespaceE2AsE1(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwWithNamespaceE2AsE1(::IceInternal::Incoming&);
+    void _iceD_throwWithNamespaceE2AsE1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void throwWithNamespaceE2AsE2(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwWithNamespaceE2AsE2(::IceInternal::Incoming&);
+    void _iceD_throwWithNamespaceE2AsE2(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

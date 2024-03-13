@@ -538,26 +538,26 @@ public:
 
     virtual void events(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_events(::IceInternal::Incoming&);
+    void _iceD_events(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void function(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_function(::IceInternal::Incoming&);
+    void _iceD_function(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void _cpp_delete(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_delete(::IceInternal::Incoming&);
+    void _iceD_delete(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void checkedCast(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_checkedCast(::IceInternal::Incoming&);
+    void _iceD_checkedCast(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

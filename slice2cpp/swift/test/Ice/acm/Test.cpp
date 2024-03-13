@@ -16,7 +16,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
 #include <Ice/OutgoingAsync.h>
-#include <Ice/Incoming.h>
+#include <Ice/AsyncResponseHandler.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -52,7 +52,7 @@ Test::TestIntfPrx::sleepAsync(::std::int32_t iceP_seconds, const ::Ice::Context&
 ::std::function<void()>
 Test::TestIntfPrx::sleepAsync(::std::int32_t iceP_seconds, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_sleep, iceP_seconds, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_sleep, iceP_seconds, context);
 }
 
 void
@@ -83,7 +83,7 @@ Test::TestIntfPrx::sleepAndHoldAsync(::std::int32_t iceP_seconds, const ::Ice::C
 ::std::function<void()>
 Test::TestIntfPrx::sleepAndHoldAsync(::std::int32_t iceP_seconds, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_sleepAndHold, iceP_seconds, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_sleepAndHold, iceP_seconds, context);
 }
 
 void
@@ -114,7 +114,7 @@ Test::TestIntfPrx::interruptSleepAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::TestIntfPrx::interruptSleepAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_interruptSleep, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_interruptSleep, context);
 }
 
 void
@@ -142,7 +142,7 @@ Test::TestIntfPrx::startHeartbeatCountAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::TestIntfPrx::startHeartbeatCountAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_startHeartbeatCount, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_startHeartbeatCount, context);
 }
 
 void
@@ -170,7 +170,7 @@ Test::TestIntfPrx::waitForHeartbeatCountAsync(::std::int32_t iceP_count, const :
 ::std::function<void()>
 Test::TestIntfPrx::waitForHeartbeatCountAsync(::std::int32_t iceP_count, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::TestIntfPrx::_iceI_waitForHeartbeatCount, iceP_count, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_waitForHeartbeatCount, iceP_count, context);
 }
 
 void
@@ -208,7 +208,7 @@ Test::RemoteObjectAdapterPrx::getTestIntfAsync(const ::Ice::Context& context) co
 ::std::function<void()>
 Test::RemoteObjectAdapterPrx::getTestIntfAsync(::std::function<void(::std::optional<::Test::TestIntfPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::optional<TestIntfPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteObjectAdapterPrx::_iceI_getTestIntf, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::optional<TestIntfPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::RemoteObjectAdapterPrx::_iceI_getTestIntf, context);
 }
 
 void
@@ -237,7 +237,7 @@ Test::RemoteObjectAdapterPrx::activateAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::RemoteObjectAdapterPrx::activateAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteObjectAdapterPrx::_iceI_activate, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::RemoteObjectAdapterPrx::_iceI_activate, context);
 }
 
 void
@@ -265,7 +265,7 @@ Test::RemoteObjectAdapterPrx::holdAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::RemoteObjectAdapterPrx::holdAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteObjectAdapterPrx::_iceI_hold, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::RemoteObjectAdapterPrx::_iceI_hold, context);
 }
 
 void
@@ -293,7 +293,7 @@ Test::RemoteObjectAdapterPrx::deactivateAsync(const ::Ice::Context& context) con
 ::std::function<void()>
 Test::RemoteObjectAdapterPrx::deactivateAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteObjectAdapterPrx::_iceI_deactivate, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::RemoteObjectAdapterPrx::_iceI_deactivate, context);
 }
 
 void
@@ -328,7 +328,7 @@ Test::RemoteCommunicatorPrx::createObjectAdapterAsync(::std::int32_t iceP_acmTim
 ::std::function<void()>
 Test::RemoteCommunicatorPrx::createObjectAdapterAsync(::std::int32_t iceP_acmTimeout, ::std::int32_t iceP_close, ::std::int32_t iceP_heartbeat, ::std::function<void(::std::optional<::Test::RemoteObjectAdapterPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::optional<RemoteObjectAdapterPrx>>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_createObjectAdapter, iceP_acmTimeout, iceP_close, iceP_heartbeat, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::optional<RemoteObjectAdapterPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_createObjectAdapter, iceP_acmTimeout, iceP_close, iceP_heartbeat, context);
 }
 
 void
@@ -360,7 +360,7 @@ Test::RemoteCommunicatorPrx::shutdownAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::RemoteCommunicatorPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_shutdown, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::RemoteCommunicatorPrx::_iceI_shutdown, context);
 }
 
 void
@@ -401,129 +401,137 @@ Test::TestIntf::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_sleep(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_sleep(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::int32_t iceP_seconds;
     istr->readAll(iceP_seconds);
-    incoming.endReadParams();
-    this->sleep(iceP_seconds, incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->sleep(iceP_seconds, request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_sleepAndHold(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_sleepAndHold(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::int32_t iceP_seconds;
     istr->readAll(iceP_seconds);
-    incoming.endReadParams();
-    this->sleepAndHold(iceP_seconds, incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->sleepAndHold(iceP_seconds, request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_interruptSleep(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_interruptSleep(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->interruptSleep(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->interruptSleep(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_startHeartbeatCount(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_startHeartbeatCount(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->startHeartbeatCount(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->startHeartbeatCount(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceD_waitForHeartbeatCount(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::_iceD_waitForHeartbeatCount(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::int32_t iceP_count;
     istr->readAll(iceP_count);
-    incoming.endReadParams();
-    this->waitForHeartbeatCount(iceP_count, incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->waitForHeartbeatCount(iceP_count, request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::TestIntf::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+Test::TestIntf::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "interruptSleep", "sleep", "sleepAndHold", "startHeartbeatCount", "waitForHeartbeatCount"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 9, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_interruptSleep(incoming);
+            _iceD_interruptSleep(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_sleep(incoming);
+            _iceD_sleep(request, ::std::move(sendResponse));
+            break;
         }
         case 6:
         {
-            return _iceD_sleepAndHold(incoming);
+            _iceD_sleepAndHold(request, ::std::move(sendResponse));
+            break;
         }
         case 7:
         {
-            return _iceD_startHeartbeatCount(incoming);
+            _iceD_startHeartbeatCount(request, ::std::move(sendResponse));
+            break;
         }
         case 8:
         {
-            return _iceD_waitForHeartbeatCount(incoming);
+            _iceD_waitForHeartbeatCount(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }
@@ -550,106 +558,113 @@ Test::RemoteObjectAdapter::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-Test::RemoteObjectAdapter::_iceD_getTestIntf(::IceInternal::Incoming& incoming)
+void
+Test::RemoteObjectAdapter::_iceD_getTestIntf(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    ::std::optional<TestIntfPrx> ret = this->getTestIntf(incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    ::std::optional<TestIntfPrx> ret = this->getTestIntf(request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::RemoteObjectAdapter::_iceD_activate(::IceInternal::Incoming& incoming)
+void
+Test::RemoteObjectAdapter::_iceD_activate(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->activate(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->activate(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::RemoteObjectAdapter::_iceD_hold(::IceInternal::Incoming& incoming)
+void
+Test::RemoteObjectAdapter::_iceD_hold(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->hold(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->hold(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::RemoteObjectAdapter::_iceD_deactivate(::IceInternal::Incoming& incoming)
+void
+Test::RemoteObjectAdapter::_iceD_deactivate(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->deactivate(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->deactivate(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::RemoteObjectAdapter::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+Test::RemoteObjectAdapter::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"activate", "deactivate", "getTestIntf", "hold", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 8, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_activate(incoming);
+            _iceD_activate(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_deactivate(incoming);
+            _iceD_deactivate(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_getTestIntf(incoming);
+            _iceD_getTestIntf(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_hold(incoming);
+            _iceD_hold(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 6:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 7:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }
@@ -676,79 +691,87 @@ Test::RemoteCommunicator::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-Test::RemoteCommunicator::_iceD_createObjectAdapter(::IceInternal::Incoming& incoming)
+void
+Test::RemoteCommunicator::_iceD_createObjectAdapter(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::int32_t iceP_acmTimeout;
     ::std::int32_t iceP_close;
     ::std::int32_t iceP_heartbeat;
     istr->readAll(iceP_acmTimeout, iceP_close, iceP_heartbeat);
-    incoming.endReadParams();
-    ::std::optional<RemoteObjectAdapterPrx> ret = this->createObjectAdapter(iceP_acmTimeout, iceP_close, iceP_heartbeat, incoming.current());
-    auto ostr = incoming.startWriteParams();
-    ostr->writeAll(ret);
-    incoming.endWriteParams();
-    return true;
+    istr->endEncapsulation();
+    ::std::optional<RemoteObjectAdapterPrx> ret = this->createObjectAdapter(iceP_acmTimeout, iceP_close, iceP_heartbeat, request.current());
+    sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
+        {
+            ostr->writeAll(ret);
+        },
+        request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::RemoteCommunicator::_iceD_shutdown(::IceInternal::Incoming& incoming)
+void
+Test::RemoteCommunicator::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->shutdown(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->shutdown(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::RemoteCommunicator::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+Test::RemoteCommunicator::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"createObjectAdapter", "ice_id", "ice_ids", "ice_isA", "ice_ping", "shutdown"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_createObjectAdapter(incoming);
+            _iceD_createObjectAdapter(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_shutdown(incoming);
+            _iceD_shutdown(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }

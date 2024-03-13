@@ -2133,11 +2133,11 @@ public:
 
     virtual void doI(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_doI(::IceInternal::Incoming&);
+    void _iceD_doI(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -2171,11 +2171,11 @@ public:
 
     virtual void doJ(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_doJ(::IceInternal::Incoming&);
+    void _iceD_doJ(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -2209,57 +2209,57 @@ public:
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::shared_ptr<B> getB1(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getB1(::IceInternal::Incoming&);
+    void _iceD_getB1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::shared_ptr<B> getB2(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getB2(::IceInternal::Incoming&);
+    void _iceD_getB2(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::shared_ptr<C> getC(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getC(::IceInternal::Incoming&);
+    void _iceD_getC(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::shared_ptr<D> getD(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getD(::IceInternal::Incoming&);
+    void _iceD_getD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::shared_ptr<E> getE(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getE(::IceInternal::Incoming&);
+    void _iceD_getE(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::shared_ptr<F> getF(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getF(::IceInternal::Incoming&);
+    void _iceD_getF(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void setRecursive(::std::shared_ptr<Recursive> p, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_setRecursive(::IceInternal::Incoming&);
+    void _iceD_setRecursive(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual bool supportsClassGraphDepthMax(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_supportsClassGraphDepthMax(::IceInternal::Incoming&);
+    void _iceD_supportsClassGraphDepthMax(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void setCycle(::std::shared_ptr<Recursive> r, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_setCycle(::IceInternal::Incoming&);
+    void _iceD_setCycle(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual bool acceptsClassCycles(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_acceptsClassCycles(::IceInternal::Incoming&);
+    void _iceD_acceptsClassCycles(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -2277,7 +2277,7 @@ public:
 
     virtual GetMBMarshaledResult getMB(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getMB(::IceInternal::Incoming&);
+    void _iceD_getMB(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -2295,106 +2295,106 @@ public:
 
     virtual void getAMDMBAsync(::std::function<void(GetAMDMBMarshaledResult)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getAMDMB(::IceInternal::Incoming&);
+    void _iceD_getAMDMB(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void getAll(::std::shared_ptr<B>& b1, ::std::shared_ptr<B>& b2, ::std::shared_ptr<C>& theC, ::std::shared_ptr<D>& theD, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getAll(::IceInternal::Incoming&);
+    void _iceD_getAll(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::shared_ptr<K> getK(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getK(::IceInternal::Incoming&);
+    void _iceD_getK(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::shared_ptr<::Ice::Value> opValue(::std::shared_ptr<::Ice::Value> v1, ::std::shared_ptr<::Ice::Value>& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opValue(::IceInternal::Incoming&);
+    void _iceD_opValue(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ValueSeq opValueSeq(ValueSeq v1, ValueSeq& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opValueSeq(::IceInternal::Incoming&);
+    void _iceD_opValueSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ValueMap opValueMap(ValueMap v1, ValueMap& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opValueMap(::IceInternal::Incoming&);
+    void _iceD_opValueMap(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::shared_ptr<D1> getD1(::std::shared_ptr<D1> d1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getD1(::IceInternal::Incoming&);
+    void _iceD_getD1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void throwEDerived(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwEDerived(::IceInternal::Incoming&);
+    void _iceD_throwEDerived(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void setG(::std::shared_ptr<G> theG, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_setG(::IceInternal::Incoming&);
+    void _iceD_setG(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual BaseSeq opBaseSeq(BaseSeq inSeq, BaseSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBaseSeq(::IceInternal::Incoming&);
+    void _iceD_opBaseSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::shared_ptr<Compact> getCompact(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getCompact(::IceInternal::Incoming&);
+    void _iceD_getCompact(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::shared_ptr<::Test::Inner::A> getInnerA(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getInnerA(::IceInternal::Incoming&);
+    void _iceD_getInnerA(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::shared_ptr<::Test::Inner::Sub::A> getInnerSubA(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_getInnerSubA(::IceInternal::Incoming&);
+    void _iceD_getInnerSubA(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void throwInnerEx(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwInnerEx(::IceInternal::Incoming&);
+    void _iceD_throwInnerEx(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void throwInnerSubEx(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_throwInnerSubEx(::IceInternal::Incoming&);
+    void _iceD_throwInnerSubEx(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::shared_ptr<M> opM(::std::shared_ptr<M> v1, ::std::shared_ptr<M>& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opM(::IceInternal::Incoming&);
+    void _iceD_opM(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::shared_ptr<F1> opF1(::std::shared_ptr<F1> f11, ::std::shared_ptr<F1>& f12, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opF1(::IceInternal::Incoming&);
+    void _iceD_opF1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::optional<F2Prx> opF2(::std::optional<F2Prx> f21, ::std::optional<F2Prx>& f22, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opF2(::IceInternal::Incoming&);
+    void _iceD_opF2(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::shared_ptr<F3> opF3(::std::shared_ptr<F3> f31, ::std::shared_ptr<F3>& f32, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opF3(::IceInternal::Incoming&);
+    void _iceD_opF3(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual bool hasF3(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_hasF3(::IceInternal::Incoming&);
+    void _iceD_hasF3(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -2428,11 +2428,11 @@ public:
 
     virtual ::std::shared_ptr<Empty> op(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_op(::IceInternal::Incoming&);
+    void _iceD_op(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
@@ -2466,16 +2466,16 @@ public:
 
     virtual void setConnection(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_setConnection(::IceInternal::Incoming&);
+    void _iceD_setConnection(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

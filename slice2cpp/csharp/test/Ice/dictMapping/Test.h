@@ -276,51 +276,51 @@ public:
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual NV opNV(NV i, NV& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opNV(::IceInternal::Incoming&);
+    void _iceD_opNV(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual NR opNR(NR i, NR& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opNR(::IceInternal::Incoming&);
+    void _iceD_opNR(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual NDV opNDV(NDV i, NDV& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opNDV(::IceInternal::Incoming&);
+    void _iceD_opNDV(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual NDR opNDR(NDR i, NDR& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opNDR(::IceInternal::Incoming&);
+    void _iceD_opNDR(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual NDAIS opNDAIS(NDAIS i, NDAIS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opNDAIS(::IceInternal::Incoming&);
+    void _iceD_opNDAIS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual NDGIS opNDGIS(NDGIS i, NDGIS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opNDGIS(::IceInternal::Incoming&);
+    void _iceD_opNDGIS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual NDASS opNDASS(NDASS i, NDASS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opNDASS(::IceInternal::Incoming&);
+    void _iceD_opNDASS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual NDGSS opNDGSS(NDGSS i, NDGSS& o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opNDGSS(::IceInternal::Incoming&);
+    void _iceD_opNDGSS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 

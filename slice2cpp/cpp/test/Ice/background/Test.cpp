@@ -19,7 +19,7 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
 #include <Ice/OutgoingAsync.h>
-#include <Ice/Incoming.h>
+#include <Ice/AsyncResponseHandler.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -55,7 +55,7 @@ Test::BackgroundPrx::opAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::BackgroundPrx::opAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundPrx::_iceI_op, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::BackgroundPrx::_iceI_op, context);
 }
 
 void
@@ -83,7 +83,7 @@ Test::BackgroundPrx::opWithPayloadAsync(const ::Ice::ByteSeq& iceP_seq, const ::
 ::std::function<void()>
 Test::BackgroundPrx::opWithPayloadAsync(const ::Ice::ByteSeq& iceP_seq, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundPrx::_iceI_opWithPayload, iceP_seq, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::BackgroundPrx::_iceI_opWithPayload, iceP_seq, context);
 }
 
 void
@@ -114,7 +114,7 @@ Test::BackgroundPrx::shutdownAsync(const ::Ice::Context& context) const
 ::std::function<void()>
 Test::BackgroundPrx::shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundPrx::_iceI_shutdown, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::BackgroundPrx::_iceI_shutdown, context);
 }
 
 void
@@ -149,7 +149,7 @@ Test::BackgroundControllerPrx::pauseCallAsync(::std::string_view iceP_call, cons
 ::std::function<void()>
 Test::BackgroundControllerPrx::pauseCallAsync(::std::string_view iceP_call, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_pauseCall, iceP_call, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_pauseCall, iceP_call, context);
 }
 
 void
@@ -180,7 +180,7 @@ Test::BackgroundControllerPrx::resumeCallAsync(::std::string_view iceP_call, con
 ::std::function<void()>
 Test::BackgroundControllerPrx::resumeCallAsync(::std::string_view iceP_call, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_resumeCall, iceP_call, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_resumeCall, iceP_call, context);
 }
 
 void
@@ -211,7 +211,7 @@ Test::BackgroundControllerPrx::holdAdapterAsync(const ::Ice::Context& context) c
 ::std::function<void()>
 Test::BackgroundControllerPrx::holdAdapterAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_holdAdapter, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_holdAdapter, context);
 }
 
 void
@@ -239,7 +239,7 @@ Test::BackgroundControllerPrx::resumeAdapterAsync(const ::Ice::Context& context)
 ::std::function<void()>
 Test::BackgroundControllerPrx::resumeAdapterAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_resumeAdapter, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_resumeAdapter, context);
 }
 
 void
@@ -267,7 +267,7 @@ Test::BackgroundControllerPrx::initializeSocketOperationAsync(::std::int32_t ice
 ::std::function<void()>
 Test::BackgroundControllerPrx::initializeSocketOperationAsync(::std::int32_t iceP_status, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_initializeSocketOperation, iceP_status, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_initializeSocketOperation, iceP_status, context);
 }
 
 void
@@ -298,7 +298,7 @@ Test::BackgroundControllerPrx::initializeExceptionAsync(bool iceP_enable, const 
 ::std::function<void()>
 Test::BackgroundControllerPrx::initializeExceptionAsync(bool iceP_enable, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_initializeException, iceP_enable, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_initializeException, iceP_enable, context);
 }
 
 void
@@ -329,7 +329,7 @@ Test::BackgroundControllerPrx::readReadyAsync(bool iceP_enable, const ::Ice::Con
 ::std::function<void()>
 Test::BackgroundControllerPrx::readReadyAsync(bool iceP_enable, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_readReady, iceP_enable, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_readReady, iceP_enable, context);
 }
 
 void
@@ -360,7 +360,7 @@ Test::BackgroundControllerPrx::readExceptionAsync(bool iceP_enable, const ::Ice:
 ::std::function<void()>
 Test::BackgroundControllerPrx::readExceptionAsync(bool iceP_enable, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_readException, iceP_enable, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_readException, iceP_enable, context);
 }
 
 void
@@ -391,7 +391,7 @@ Test::BackgroundControllerPrx::writeReadyAsync(bool iceP_enable, const ::Ice::Co
 ::std::function<void()>
 Test::BackgroundControllerPrx::writeReadyAsync(bool iceP_enable, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_writeReady, iceP_enable, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_writeReady, iceP_enable, context);
 }
 
 void
@@ -422,7 +422,7 @@ Test::BackgroundControllerPrx::writeExceptionAsync(bool iceP_enable, const ::Ice
 ::std::function<void()>
 Test::BackgroundControllerPrx::writeExceptionAsync(bool iceP_enable, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_writeException, iceP_enable, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_writeException, iceP_enable, context);
 }
 
 void
@@ -453,7 +453,7 @@ Test::BackgroundControllerPrx::bufferedAsync(bool iceP_enable, const ::Ice::Cont
 ::std::function<void()>
 Test::BackgroundControllerPrx::bufferedAsync(bool iceP_enable, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(std::move(response), std::move(ex), std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_buffered, iceP_enable, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::BackgroundControllerPrx::_iceI_buffered, iceP_enable, context);
 }
 
 void
@@ -497,91 +497,97 @@ Test::Background::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-Test::Background::_iceD_op(::IceInternal::Incoming& incoming)
+void
+Test::Background::_iceD_op(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->op(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->op(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Background::_iceD_opWithPayload(::IceInternal::Incoming& incoming)
+void
+Test::Background::_iceD_opWithPayload(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::Ice::ByteSeq iceP_seq;
     istr->readAll(iceP_seq);
-    incoming.endReadParams();
-    this->opWithPayload(::std::move(iceP_seq), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->opWithPayload(::std::move(iceP_seq), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Background::_iceD_shutdown(::IceInternal::Incoming& incoming)
+void
+Test::Background::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->shutdown(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->shutdown(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::Background::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+Test::Background::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "op", "opWithPayload", "shutdown"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 7, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_op(incoming);
+            _iceD_op(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_opWithPayload(incoming);
+            _iceD_opWithPayload(request, ::std::move(sendResponse));
+            break;
         }
         case 6:
         {
-            return _iceD_shutdown(incoming);
+            _iceD_shutdown(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }
@@ -608,243 +614,257 @@ Test::BackgroundController::ice_staticId()
 }
 
 /// \cond INTERNAL
-bool
-Test::BackgroundController::_iceD_pauseCall(::IceInternal::Incoming& incoming)
+void
+Test::BackgroundController::_iceD_pauseCall(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_call;
     istr->readAll(iceP_call);
-    incoming.endReadParams();
-    this->pauseCall(::std::move(iceP_call), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->pauseCall(::std::move(iceP_call), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::BackgroundController::_iceD_resumeCall(::IceInternal::Incoming& incoming)
+void
+Test::BackgroundController::_iceD_resumeCall(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::string iceP_call;
     istr->readAll(iceP_call);
-    incoming.endReadParams();
-    this->resumeCall(::std::move(iceP_call), incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->resumeCall(::std::move(iceP_call), request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::BackgroundController::_iceD_holdAdapter(::IceInternal::Incoming& incoming)
+void
+Test::BackgroundController::_iceD_holdAdapter(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->holdAdapter(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->holdAdapter(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::BackgroundController::_iceD_resumeAdapter(::IceInternal::Incoming& incoming)
+void
+Test::BackgroundController::_iceD_resumeAdapter(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    incoming.readEmptyParams();
-    this->resumeAdapter(incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->resumeAdapter(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::BackgroundController::_iceD_initializeSocketOperation(::IceInternal::Incoming& incoming)
+void
+Test::BackgroundController::_iceD_initializeSocketOperation(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     ::std::int32_t iceP_status;
     istr->readAll(iceP_status);
-    incoming.endReadParams();
-    this->initializeSocketOperation(iceP_status, incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->initializeSocketOperation(iceP_status, request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::BackgroundController::_iceD_initializeException(::IceInternal::Incoming& incoming)
+void
+Test::BackgroundController::_iceD_initializeException(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     bool iceP_enable;
     istr->readAll(iceP_enable);
-    incoming.endReadParams();
-    this->initializeException(iceP_enable, incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->initializeException(iceP_enable, request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::BackgroundController::_iceD_readReady(::IceInternal::Incoming& incoming)
+void
+Test::BackgroundController::_iceD_readReady(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     bool iceP_enable;
     istr->readAll(iceP_enable);
-    incoming.endReadParams();
-    this->readReady(iceP_enable, incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->readReady(iceP_enable, request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::BackgroundController::_iceD_readException(::IceInternal::Incoming& incoming)
+void
+Test::BackgroundController::_iceD_readException(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     bool iceP_enable;
     istr->readAll(iceP_enable);
-    incoming.endReadParams();
-    this->readException(iceP_enable, incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->readException(iceP_enable, request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::BackgroundController::_iceD_writeReady(::IceInternal::Incoming& incoming)
+void
+Test::BackgroundController::_iceD_writeReady(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     bool iceP_enable;
     istr->readAll(iceP_enable);
-    incoming.endReadParams();
-    this->writeReady(iceP_enable, incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->writeReady(iceP_enable, request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::BackgroundController::_iceD_writeException(::IceInternal::Incoming& incoming)
+void
+Test::BackgroundController::_iceD_writeException(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     bool iceP_enable;
     istr->readAll(iceP_enable);
-    incoming.endReadParams();
-    this->writeException(iceP_enable, incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->writeException(iceP_enable, request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::BackgroundController::_iceD_buffered(::IceInternal::Incoming& incoming)
+void
+Test::BackgroundController::_iceD_buffered(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    _iceCheckMode(::Ice::OperationMode::Normal, incoming.current().mode);
-    auto istr = incoming.startReadParams();
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    auto istr = &request.inputStream();
+    istr->startEncapsulation();
     bool iceP_enable;
     istr->readAll(iceP_enable);
-    incoming.endReadParams();
-    this->buffered(iceP_enable, incoming.current());
-    incoming.writeEmptyParams();
-    return true;
+    istr->endEncapsulation();
+    this->buffered(iceP_enable, request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
 }
 /// \endcond
 
 /// \cond INTERNAL
-bool
-Test::BackgroundController::_iceDispatch(::IceInternal::Incoming& incoming)
+void
+Test::BackgroundController::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     static constexpr ::std::string_view allOperations[] = {"buffered", "holdAdapter", "ice_id", "ice_ids", "ice_isA", "ice_ping", "initializeException", "initializeSocketOperation", "pauseCall", "readException", "readReady", "resumeAdapter", "resumeCall", "writeException", "writeReady"};
 
-    const ::Ice::Current& current = incoming.current();
+    const ::Ice::Current& current = request.current();
     ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 15, current.operation);
     if(r.first == r.second)
     {
-        throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
     }
 
     switch(r.first - allOperations)
     {
         case 0:
         {
-            return _iceD_buffered(incoming);
+            _iceD_buffered(request, ::std::move(sendResponse));
+            break;
         }
         case 1:
         {
-            return _iceD_holdAdapter(incoming);
+            _iceD_holdAdapter(request, ::std::move(sendResponse));
+            break;
         }
         case 2:
         {
-            return _iceD_ice_id(incoming);
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
         }
         case 3:
         {
-            return _iceD_ice_ids(incoming);
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
         }
         case 4:
         {
-            return _iceD_ice_isA(incoming);
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
         }
         case 5:
         {
-            return _iceD_ice_ping(incoming);
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
         }
         case 6:
         {
-            return _iceD_initializeException(incoming);
+            _iceD_initializeException(request, ::std::move(sendResponse));
+            break;
         }
         case 7:
         {
-            return _iceD_initializeSocketOperation(incoming);
+            _iceD_initializeSocketOperation(request, ::std::move(sendResponse));
+            break;
         }
         case 8:
         {
-            return _iceD_pauseCall(incoming);
+            _iceD_pauseCall(request, ::std::move(sendResponse));
+            break;
         }
         case 9:
         {
-            return _iceD_readException(incoming);
+            _iceD_readException(request, ::std::move(sendResponse));
+            break;
         }
         case 10:
         {
-            return _iceD_readReady(incoming);
+            _iceD_readReady(request, ::std::move(sendResponse));
+            break;
         }
         case 11:
         {
-            return _iceD_resumeAdapter(incoming);
+            _iceD_resumeAdapter(request, ::std::move(sendResponse));
+            break;
         }
         case 12:
         {
-            return _iceD_resumeCall(incoming);
+            _iceD_resumeCall(request, ::std::move(sendResponse));
+            break;
         }
         case 13:
         {
-            return _iceD_writeException(incoming);
+            _iceD_writeException(request, ::std::move(sendResponse));
+            break;
         }
         case 14:
         {
-            return _iceD_writeReady(incoming);
+            _iceD_writeReady(request, ::std::move(sendResponse));
+            break;
         }
         default:
         {
             assert(false);
-            throw ::Ice::OperationNotExistException(__FILE__, __LINE__, current.id, current.facet, current.operation);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
         }
     }
 }

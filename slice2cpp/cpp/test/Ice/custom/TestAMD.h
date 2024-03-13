@@ -814,156 +814,156 @@ public:
 
     virtual void opDoubleArrayAsync(::std::pair<const double*, const double*> inSeq, ::std::function<void(const DoubleSeq& returnValue, const DoubleSeq& outSeq)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opDoubleArray(::IceInternal::Incoming&);
+    void _iceD_opDoubleArray(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opBoolArrayAsync(::std::pair<const bool*, const bool*> inSeq, ::std::function<void(const BoolSeq& returnValue, const BoolSeq& outSeq)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBoolArray(::IceInternal::Incoming&);
+    void _iceD_opBoolArray(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opByteArrayAsync(::std::pair<const ::std::uint8_t*, const ::std::uint8_t*> inSeq, ::std::function<void(const ::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>& returnValue, const ::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>& outSeq)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteArray(::IceInternal::Incoming&);
+    void _iceD_opByteArray(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opVariableArrayAsync(::std::pair<const Variable*, const Variable*> inSeq, ::std::function<void(const VariableList& returnValue, const VariableList& outSeq)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opVariableArray(::IceInternal::Incoming&);
+    void _iceD_opVariableArray(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opBoolSeqAsync(std::deque<bool> inSeq, ::std::function<void(const std::deque<bool>& returnValue, const std::deque<bool>& outSeq)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBoolSeq(::IceInternal::Incoming&);
+    void _iceD_opBoolSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opBoolListAsync(BoolList inSeq, ::std::function<void(const BoolList& returnValue, const BoolList& outSeq)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBoolList(::IceInternal::Incoming&);
+    void _iceD_opBoolList(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opByteSeqAsync(std::deque<std::uint8_t> inSeq, ::std::function<void(const std::deque<std::uint8_t>& returnValue, const std::deque<std::uint8_t>& outSeq)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteSeq(::IceInternal::Incoming&);
+    void _iceD_opByteSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opByteListAsync(ByteList inSeq, ::std::function<void(const ByteList& returnValue, const ByteList& outSeq)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opByteList(::IceInternal::Incoming&);
+    void _iceD_opByteList(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opMyByteSeqAsync(MyByteSeq inSeq, ::std::function<void(const MyByteSeq& returnValue, const MyByteSeq& outSeq)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opMyByteSeq(::IceInternal::Incoming&);
+    void _iceD_opMyByteSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opStringSeqAsync(std::deque<std::string> inSeq, ::std::function<void(const std::deque<std::string>& returnValue, const std::deque<std::string>& outSeq)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringSeq(::IceInternal::Incoming&);
+    void _iceD_opStringSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opStringListAsync(StringList inSeq, ::std::function<void(const StringList& returnValue, const StringList& outSeq)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringList(::IceInternal::Incoming&);
+    void _iceD_opStringList(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opFixedSeqAsync(std::deque<::Test::Fixed> inSeq, ::std::function<void(const std::deque<::Test::Fixed>& returnValue, const std::deque<::Test::Fixed>& outSeq)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opFixedSeq(::IceInternal::Incoming&);
+    void _iceD_opFixedSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opFixedListAsync(FixedList inSeq, ::std::function<void(const FixedList& returnValue, const FixedList& outSeq)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opFixedList(::IceInternal::Incoming&);
+    void _iceD_opFixedList(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opVariableSeqAsync(std::deque<::Test::Variable> inSeq, ::std::function<void(const std::deque<::Test::Variable>& returnValue, const std::deque<::Test::Variable>& outSeq)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opVariableSeq(::IceInternal::Incoming&);
+    void _iceD_opVariableSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opVariableListAsync(VariableList inSeq, ::std::function<void(const VariableList& returnValue, const VariableList& outSeq)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opVariableList(::IceInternal::Incoming&);
+    void _iceD_opVariableList(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opStringStringDictSeqAsync(std::deque<::Test::StringStringDict> inSeq, ::std::function<void(const std::deque<::Test::StringStringDict>& returnValue, const std::deque<::Test::StringStringDict>& outSeq)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringStringDictSeq(::IceInternal::Incoming&);
+    void _iceD_opStringStringDictSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opStringStringDictListAsync(StringStringDictList inSeq, ::std::function<void(const StringStringDictList& returnValue, const StringStringDictList& outSeq)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opStringStringDictList(::IceInternal::Incoming&);
+    void _iceD_opStringStringDictList(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opESeqAsync(std::deque<::Test::E> inSeq, ::std::function<void(const std::deque<::Test::E>& returnValue, const std::deque<::Test::E>& outSeq)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opESeq(::IceInternal::Incoming&);
+    void _iceD_opESeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opEListAsync(EList inSeq, ::std::function<void(const EList& returnValue, const EList& outSeq)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opEList(::IceInternal::Incoming&);
+    void _iceD_opEList(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opDPrxSeqAsync(std::deque<::std::optional<::Test::DPrx>> inSeq, ::std::function<void(const std::deque<::std::optional<::Test::DPrx>>& returnValue, const std::deque<::std::optional<::Test::DPrx>>& outSeq)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opDPrxSeq(::IceInternal::Incoming&);
+    void _iceD_opDPrxSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opDPrxListAsync(DPrxList inSeq, ::std::function<void(const DPrxList& returnValue, const DPrxList& outSeq)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opDPrxList(::IceInternal::Incoming&);
+    void _iceD_opDPrxList(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opCSeqAsync(std::deque<std::shared_ptr<Test::C>> inSeq, ::std::function<void(const std::deque<std::shared_ptr<Test::C>>& returnValue, const std::deque<std::shared_ptr<Test::C>>& outSeq)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opCSeq(::IceInternal::Incoming&);
+    void _iceD_opCSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opCListAsync(CList inSeq, ::std::function<void(const CList& returnValue, const CList& outSeq)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opCList(::IceInternal::Incoming&);
+    void _iceD_opCList(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opOutArrayByteSeqAsync(ByteSeq org, ::std::function<void(const ::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>& copy)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opOutArrayByteSeq(::IceInternal::Incoming&);
+    void _iceD_opOutArrayByteSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opIntStringDictAsync(IntStringDict idict, ::std::function<void(const IntStringDict& returnValue, const IntStringDict& odict)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opIntStringDict(::IceInternal::Incoming&);
+    void _iceD_opIntStringDict(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opVarDictAsync(::Test::CustomMap<std::string, std::int32_t> idict, ::std::function<void(const ::Test::CustomMap< int64_t, int64_t>& returnValue, const ::Test::CustomMap<std::string, std::int32_t>& odict)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opVarDict(::IceInternal::Incoming&);
+    void _iceD_opVarDict(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opShortBufferAsync(ShortBuffer inS, ::std::function<void(const ShortBuffer& returnValue, const ShortBuffer& outS)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opShortBuffer(::IceInternal::Incoming&);
+    void _iceD_opShortBuffer(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opBoolBufferAsync(::Test::CustomBuffer<bool> inS, ::std::function<void(const ::Test::CustomBuffer<bool>& returnValue, const ::Test::CustomBuffer<bool>& outS)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBoolBuffer(::IceInternal::Incoming&);
+    void _iceD_opBoolBuffer(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void opBufferStructAsync(BufferStruct s, ::std::function<void(const BufferStruct& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_opBufferStruct(::IceInternal::Incoming&);
+    void _iceD_opBufferStruct(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual void shutdownAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    bool _iceD_shutdown(::IceInternal::Incoming&);
+    void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL
-    virtual bool _iceDispatch(::IceInternal::Incoming&) override;
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
     /// \endcond
 };
 
