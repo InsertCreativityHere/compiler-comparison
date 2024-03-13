@@ -44,7 +44,7 @@ class Base;
 using BasePtr = ::std::shared_ptr<Base>;
 struct Struct1;
 
-using ByteS = ::std::vector<::std::uint8_t>;
+using ByteS = ::std::vector<std::byte>;
 
 using IntS = ::std::vector<::std::int32_t>;
 

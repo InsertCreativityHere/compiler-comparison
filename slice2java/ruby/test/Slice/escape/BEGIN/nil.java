@@ -73,5 +73,5 @@ public class nil extends next
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 6781776764849775983L;
+    public static final long serialVersionUID = -7210016466207996689L;
 }

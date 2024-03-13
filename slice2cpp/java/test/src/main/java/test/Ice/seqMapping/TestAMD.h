@@ -30,11 +30,11 @@ namespace Test
 {
 
 
-using SerialSmall = ::std::vector<::std::uint8_t>;
+using SerialSmall = ::std::vector<std::byte>;
 
-using SerialLarge = ::std::vector<::std::uint8_t>;
+using SerialLarge = ::std::vector<std::byte>;
 
-using SerialStruct = ::std::vector<::std::uint8_t>;
+using SerialStruct = ::std::vector<std::byte>;
 class MyClassPrx;
 
 using MyClassPrxPtr = ::std::optional<MyClassPrx>;

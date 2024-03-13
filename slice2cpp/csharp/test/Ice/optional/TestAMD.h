@@ -45,7 +45,7 @@ struct FixedStruct;
 struct VarStruct;
 struct ClassVarStruct;
 
-using ByteSeq = ::std::vector<::std::uint8_t>;
+using ByteSeq = ::std::vector<std::byte>;
 
 using BoolSeq = ::std::vector<bool>;
 

@@ -30,17 +30,17 @@ namespace Test
 {
 
 
-using AByteS = ::std::vector<::std::uint8_t>;
+using AByteS = ::std::vector<std::byte>;
 
-using LByteS = ::std::vector<::std::uint8_t>;
+using LByteS = ::std::vector<std::byte>;
 
-using KByteS = ::std::vector<::std::uint8_t>;
+using KByteS = ::std::vector<std::byte>;
 
-using QByteS = ::std::vector<::std::uint8_t>;
+using QByteS = ::std::vector<std::byte>;
 
-using SByteS = ::std::vector<::std::uint8_t>;
+using SByteS = ::std::vector<std::byte>;
 
-using CByteS = ::std::vector<::std::uint8_t>;
+using CByteS = ::std::vector<std::byte>;
 
 using ABoolS = ::std::vector<bool>;
 

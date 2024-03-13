@@ -45,7 +45,7 @@ struct FixedStruct;
 struct VarStruct;
 struct ClassVarStruct;
 
-using ByteSeq = ::std::vector<::std::uint8_t>;
+using ByteSeq = ::std::vector<std::byte>;
 
 using BoolSeq = ::std::vector<bool>;
 
@@ -77,7 +77,7 @@ using OneOptionalSeq = ::std::vector<::std::shared_ptr<OneOptional>>;
 
 using MyInterfacePrxSeq = ::std::vector<::std::optional<MyInterfacePrx>>;
 
-using Serializable = ::std::vector<::std::uint8_t>;
+using Serializable = ::std::vector<std::byte>;
 
 using IntIntDict = ::std::map<::std::int32_t, ::std::int32_t>;
 
@@ -428,19 +428,19 @@ public:
     void _iceI_opMyInterfaceProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<MyInterfacePrx>, ::std::optional<MyInterfacePrx>>>>&, const ::std::optional<MyInterfacePrx>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::optional<ByteSeq> opByteSeq(const ::std::optional<::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>>& p1, ::std::optional<ByteSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<ByteSeq> opByteSeq(const ::std::optional<::std::pair<const std::byte*, const std::byte*>>& p1, ::std::optional<ByteSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<ByteSeq>, ::std::optional<ByteSeq>>> opByteSeqAsync(const ::std::optional<::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<::std::optional<ByteSeq>, ::std::optional<ByteSeq>>> opByteSeqAsync(const ::std::optional<::std::pair<const std::byte*, const std::byte*>>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opByteSeqAsync(const ::std::optional<::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>>& p1, ::std::function<void(::std::optional<::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>>, ::std::optional<::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opByteSeqAsync(const ::std::optional<::std::pair<const std::byte*, const std::byte*>>& p1, ::std::function<void(::std::optional<::std::pair<const std::byte*, const std::byte*>>, ::std::optional<::std::pair<const std::byte*, const std::byte*>>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<ByteSeq>, ::std::optional<ByteSeq>>>>&, const ::std::optional<::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>>&, const ::Ice::Context&) const;
+    void _iceI_opByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<ByteSeq>, ::std::optional<ByteSeq>>>>&, const ::std::optional<::std::pair<const std::byte*, const std::byte*>>&, const ::Ice::Context&) const;
     /// \endcond
 
     /// \cond INTERNAL
-    void _iceIL_opByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>>, ::std::optional<::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>>>>>&, const ::std::optional<::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>>&, const ::Ice::Context&) const;
+    void _iceIL_opByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::pair<const std::byte*, const std::byte*>>, ::std::optional<::std::pair<const std::byte*, const std::byte*>>>>>&, const ::std::optional<::std::pair<const std::byte*, const std::byte*>>&, const ::Ice::Context&) const;
     /// \endcond
 
     ::std::optional<BoolSeq> opBoolSeq(const ::std::optional<::std::pair<const bool*, const bool*>>& p1, ::std::optional<BoolSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -1890,7 +1890,7 @@ public:
     void _iceD_opMyInterfaceProxy(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual ::std::optional<ByteSeq> opByteSeq(::std::optional<::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>> p1, ::std::optional<ByteSeq>& p3, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<ByteSeq> opByteSeq(::std::optional<::std::pair<const std::byte*, const std::byte*>> p1, ::std::optional<ByteSeq>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_opByteSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond

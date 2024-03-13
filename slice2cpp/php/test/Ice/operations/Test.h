@@ -42,7 +42,7 @@ using MyClassPrxPtr = ::std::optional<MyClassPrx>;
 struct AnotherStruct;
 struct Structure;
 
-using ByteS = ::std::vector<::std::uint8_t>;
+using ByteS = ::std::vector<std::byte>;
 
 using BoolS = ::std::vector<bool>;
 

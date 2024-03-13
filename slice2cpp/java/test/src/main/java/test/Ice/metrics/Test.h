@@ -30,7 +30,7 @@ namespace Test
 {
 
 
-using ByteSeq = ::std::vector<::std::uint8_t>;
+using ByteSeq = ::std::vector<std::byte>;
 class MetricsPrx;
 
 using MetricsPrxPtr = ::std::optional<MetricsPrx>;

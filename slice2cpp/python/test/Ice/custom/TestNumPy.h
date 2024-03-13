@@ -38,9 +38,9 @@ using BoolSeq1 = ::std::vector<bool>;
 
 using BoolSeq2 = ::std::vector<bool>;
 
-using ByteSeq1 = ::std::vector<::std::uint8_t>;
+using ByteSeq1 = ::std::vector<std::byte>;
 
-using ByteSeq2 = ::std::vector<::std::uint8_t>;
+using ByteSeq2 = ::std::vector<std::byte>;
 
 using ShortSeq1 = ::std::vector<::std::int16_t>;
 
@@ -62,7 +62,7 @@ using DoubleSeq1 = ::std::vector<double>;
 
 using DoubleSeq2 = ::std::vector<double>;
 
-using Complex128Seq = ::std::vector<::std::uint8_t>;
+using Complex128Seq = ::std::vector<std::byte>;
 class D;
 
 using DPtr = ::std::shared_ptr<D>;

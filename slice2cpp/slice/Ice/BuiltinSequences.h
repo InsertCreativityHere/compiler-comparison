@@ -51,7 +51,7 @@ using BoolSeq = ::std::vector<bool>;
 /**
  * A sequence of bytes.
  */
-using ByteSeq = ::std::vector<::std::uint8_t>;
+using ByteSeq = ::std::vector<std::byte>;
 
 /**
  * A sequence of shorts.

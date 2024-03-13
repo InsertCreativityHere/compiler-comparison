@@ -33,9 +33,9 @@ namespace Test
 /**
  * By default, sequence<byte> is received as a string.
  */
-using ByteString = ::std::vector<::std::uint8_t>;
+using ByteString = ::std::vector<std::byte>;
 
-using ByteList = ::std::vector<::std::uint8_t>;
+using ByteList = ::std::vector<std::byte>;
 
 /**
  * By default, a sequence is received as a list.
@@ -48,9 +48,9 @@ using BoolSeq1 = ::std::vector<bool>;
 
 using BoolSeq2 = ::std::vector<bool>;
 
-using ByteSeq1 = ::std::vector<::std::uint8_t>;
+using ByteSeq1 = ::std::vector<std::byte>;
 
-using ByteSeq2 = ::std::vector<::std::uint8_t>;
+using ByteSeq2 = ::std::vector<std::byte>;
 
 using ShortSeq1 = ::std::vector<::std::int16_t>;
 

@@ -924,7 +924,7 @@ Test::InitialPrx::_iceI_opMyInterfaceProxy(const ::std::shared_ptr<::IceInternal
 }
 
 ::std::optional<::Test::ByteSeq>
-Test::InitialPrx::opByteSeq(const ::std::optional<::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>>& iceP_p1, ::std::optional<ByteSeq>& iceP_p3, const ::Ice::Context& context) const
+Test::InitialPrx::opByteSeq(const ::std::optional<::std::pair<const std::byte*, const std::byte*>>& iceP_p1, ::std::optional<ByteSeq>& iceP_p3, const ::Ice::Context& context) const
 {
     auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<ByteSeq>, ::std::optional<ByteSeq>>>(true, this, &InitialPrx::_iceI_opByteSeq, iceP_p1, context).get();
     iceP_p3 = ::std::move(::std::get<1>(result));
@@ -932,23 +932,23 @@ Test::InitialPrx::opByteSeq(const ::std::optional<::std::pair<const ::std::uint8
 }
 
 ::std::future<::std::tuple<::std::optional<::Test::ByteSeq>, ::std::optional<::Test::ByteSeq>>>
-Test::InitialPrx::opByteSeqAsync(const ::std::optional<::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>>& iceP_p1, const ::Ice::Context& context) const
+Test::InitialPrx::opByteSeqAsync(const ::std::optional<::std::pair<const std::byte*, const std::byte*>>& iceP_p1, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<ByteSeq>, ::std::optional<ByteSeq>>>(false, this, &InitialPrx::_iceI_opByteSeq, iceP_p1, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::opByteSeqAsync(const ::std::optional<::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>>& iceP_p1, ::std::function<void(::std::optional<::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>>, ::std::optional<::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::InitialPrx::opByteSeqAsync(const ::std::optional<::std::pair<const std::byte*, const std::byte*>>& iceP_p1, ::std::function<void(::std::optional<::std::pair<const std::byte*, const std::byte*>>, ::std::optional<::std::pair<const std::byte*, const std::byte*>>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>>, ::std::optional<::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<::std::pair<const std::byte*, const std::byte*>>, ::std::optional<::std::pair<const std::byte*, const std::byte*>>>&& result)
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>>, ::std::optional<::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceIL_opByteSeq, iceP_p1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<::std::pair<const std::byte*, const std::byte*>>, ::std::optional<::std::pair<const std::byte*, const std::byte*>>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceIL_opByteSeq, iceP_p1, context);
 }
 
 void
-Test::InitialPrx::_iceI_opByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<ByteSeq>, ::std::optional<ByteSeq>>>>& outAsync, const ::std::optional<::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>>& iceP_p1, const ::Ice::Context& context) const
+Test::InitialPrx::_iceI_opByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<ByteSeq>, ::std::optional<ByteSeq>>>>& outAsync, const ::std::optional<::std::pair<const std::byte*, const std::byte*>>& iceP_p1, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "opByteSeq";
 
@@ -968,7 +968,7 @@ Test::InitialPrx::_iceI_opByteSeq(const ::std::shared_ptr<::IceInternal::Outgoin
 }
 
 void
-Test::InitialPrx::_iceIL_opByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>>, ::std::optional<::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>>>>>& outAsync, const ::std::optional<::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>>& iceP_p1, const ::Ice::Context& context) const
+Test::InitialPrx::_iceIL_opByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::pair<const std::byte*, const std::byte*>>, ::std::optional<::std::pair<const std::byte*, const std::byte*>>>>>& outAsync, const ::std::optional<::std::pair<const std::byte*, const std::byte*>>& iceP_p1, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "opByteSeq";
 
@@ -981,7 +981,7 @@ Test::InitialPrx::_iceIL_opByteSeq(const ::std::shared_ptr<::IceInternal::Outgoi
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::tuple<::std::optional<::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>>, ::std::optional<::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>>> v;
+            ::std::tuple<::std::optional<::std::pair<const std::byte*, const std::byte*>>, ::std::optional<::std::pair<const std::byte*, const std::byte*>>> v;
             istr->readAll({1, 3}, ::std::get<0>(v), ::std::get<1>(v));
             return v;
         });
@@ -3334,11 +3334,11 @@ Test::Initial::_iceD_opByteSeq(::Ice::IncomingRequest& request, ::std::function<
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::optional<::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>> iceP_p1;
+    ::std::optional<::std::pair<const std::byte*, const std::byte*>> iceP_p1;
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
-    auto responseCb = [responseHandler](const ::std::optional<::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>>& ret, const ::std::optional<::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>>& iceP_p3)
+    auto responseCb = [responseHandler](const ::std::optional<::std::pair<const std::byte*, const std::byte*>>& ret, const ::std::optional<::std::pair<const std::byte*, const std::byte*>>& iceP_p3)
     {
         responseHandler->sendResponse(
             [&](::Ice::OutputStream* ostr)

@@ -45,7 +45,7 @@ struct FixedStruct;
 struct VarStruct;
 struct ClassVarStruct;
 
-using ByteSeq = ::std::vector<::std::uint8_t>;
+using ByteSeq = ::std::vector<std::byte>;
 
 using BoolSeq = ::std::vector<bool>;
 
@@ -77,7 +77,7 @@ using OneOptionalSeq = ::std::vector<::std::shared_ptr<OneOptional>>;
 
 using MyInterfacePrxSeq = ::std::vector<::std::optional<MyInterfacePrx>>;
 
-using Serializable = ::std::vector<::std::uint8_t>;
+using Serializable = ::std::vector<std::byte>;
 
 using IntIntDict = ::std::map<::std::int32_t, ::std::int32_t>;
 

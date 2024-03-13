@@ -44,7 +44,7 @@ class MyInterfacePrx;
 
 using MyInterfacePrxPtr = ::std::optional<MyInterfacePrx>;
 
-using SerialSmall = ::std::vector<::std::uint8_t>;
+using SerialSmall = ::std::vector<std::byte>;
 struct SmallStruct;
 struct Point;
 

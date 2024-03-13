@@ -194,14 +194,14 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    getLargeFileCompressedAsync(::std::string_view path, ::std::int64_t pos, ::std::int32_t num, ::std::function<void(::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    getLargeFileCompressedAsync(::std::string_view path, ::std::int64_t pos, ::std::int32_t num, ::std::function<void(::std::pair<const std::byte*, const std::byte*>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_getLargeFileCompressed(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::ByteSeq>>&, ::std::string_view, ::std::int64_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /// \cond INTERNAL
-    void _iceIL_getLargeFileCompressed(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>>>&, ::std::string_view, ::std::int64_t, ::std::int32_t, const ::Ice::Context&) const;
+    void _iceIL_getLargeFileCompressed(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::pair<const std::byte*, const std::byte*>>>&, ::std::string_view, ::std::int64_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -455,7 +455,7 @@ public:
      * @param current The Current object for the invocation.
      * @throws IcePatch2::FileAccessException If an error occurred while trying to read the file.
      */
-    virtual void getLargeFileCompressedAsync(::std::string path, ::std::int64_t pos, ::std::int32_t num, ::std::function<void(const ::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) const = 0;
+    virtual void getLargeFileCompressedAsync(::std::string path, ::std::int64_t pos, ::std::int32_t num, ::std::function<void(const ::std::pair<const std::byte*, const std::byte*>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getLargeFileCompressed(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond

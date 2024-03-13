@@ -104,7 +104,7 @@ class ClassProperty;
 using ClassPropertyPtr = ::std::shared_ptr<ClassProperty>;
 struct StructProperty;
 
-using ByteSeq = ::std::vector<::std::uint8_t>;
+using ByteSeq = ::std::vector<std::byte>;
 
 using IntSeq = ::std::vector<::std::int32_t>;
 

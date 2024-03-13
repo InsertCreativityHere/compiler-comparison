@@ -42,7 +42,7 @@ using CList = ::std::vector<::std::shared_ptr<C>>;
 
 using BoolSeq = ::std::vector<bool>;
 
-using ByteSeq = ::std::vector<::std::uint8_t>;
+using ByteSeq = ::std::vector<std::byte>;
 
 using ShortSeq = ::std::vector<::std::int16_t>;
 
@@ -56,7 +56,7 @@ using DoubleSeq = ::std::vector<double>;
 
 using StringSeq = ::std::vector<::std::string>;
 
-using ByteBuffer = ::std::vector<::std::uint8_t>;
+using ByteBuffer = ::std::vector<std::byte>;
 
 using ShortBuffer = ::std::vector<::std::int16_t>;
 

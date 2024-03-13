@@ -162,9 +162,9 @@ IcePatch2::FileServerPrx::getLargeFileCompressedAsync(::std::string_view iceP_pa
 }
 
 ::std::function<void()>
-IcePatch2::FileServerPrx::getLargeFileCompressedAsync(::std::string_view iceP_path, ::std::int64_t iceP_pos, ::std::int32_t iceP_num, ::std::function<void(::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+IcePatch2::FileServerPrx::getLargeFileCompressedAsync(::std::string_view iceP_path, ::std::int64_t iceP_pos, ::std::int32_t iceP_num, ::std::function<void(::std::pair<const std::byte*, const std::byte*>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IcePatch2::FileServerPrx::_iceIL_getLargeFileCompressed, iceP_path, iceP_pos, iceP_num, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::pair<const std::byte*, const std::byte*>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IcePatch2::FileServerPrx::_iceIL_getLargeFileCompressed, iceP_path, iceP_pos, iceP_num, context);
 }
 
 void
@@ -195,7 +195,7 @@ IcePatch2::FileServerPrx::_iceI_getLargeFileCompressed(const ::std::shared_ptr<:
 }
 
 void
-IcePatch2::FileServerPrx::_iceIL_getLargeFileCompressed(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>>>& outAsync, ::std::string_view iceP_path, ::std::int64_t iceP_pos, ::std::int32_t iceP_num, const ::Ice::Context& context) const
+IcePatch2::FileServerPrx::_iceIL_getLargeFileCompressed(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::pair<const std::byte*, const std::byte*>>>& outAsync, ::std::string_view iceP_path, ::std::int64_t iceP_pos, ::std::int32_t iceP_num, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "getLargeFileCompressed";
 
@@ -343,7 +343,7 @@ IcePatch2::FileServer::_iceD_getLargeFileCompressed(::Ice::IncomingRequest& requ
     istr->readAll(iceP_path, iceP_pos, iceP_num);
     istr->endEncapsulation();
     auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
-    auto responseCb = [responseHandler](const ::std::pair<const ::std::uint8_t*, const ::std::uint8_t*>& ret)
+    auto responseCb = [responseHandler](const ::std::pair<const std::byte*, const std::byte*>& ret)
     {
         responseHandler->sendResponse(
             [&](::Ice::OutputStream* ostr)

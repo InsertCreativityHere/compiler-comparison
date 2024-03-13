@@ -98,7 +98,7 @@ class Derived;
 
 using DerivedPtr = ::std::shared_ptr<Derived>;
 
-using ByteSeq = ::std::vector<::std::uint8_t>;
+using ByteSeq = ::std::vector<std::byte>;
 
 using IntSeq = ::std::vector<::std::int32_t>;
 

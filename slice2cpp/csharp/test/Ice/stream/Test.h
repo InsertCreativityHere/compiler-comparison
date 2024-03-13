@@ -84,7 +84,7 @@ using StringMyClassD = ::std::map<::std::string, ::std::shared_ptr<MyClass>>;
 
 using BoolList = ::std::vector<bool>;
 
-using ByteList = ::std::vector<::std::uint8_t>;
+using ByteList = ::std::vector<std::byte>;
 
 using MyEnumList = ::std::vector<MyEnum>;
 
