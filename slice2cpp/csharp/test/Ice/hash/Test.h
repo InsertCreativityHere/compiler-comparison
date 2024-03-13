@@ -53,11 +53,9 @@ class BaseException : public ::Ice::UserExceptionHelper<BaseException, ::Ice::Us
 {
 public:
 
-    virtual ~BaseException();
+    BaseException() noexcept = default;
 
     BaseException(const BaseException&) = default;
-
-    BaseException() = default;
 
     /**
      * Obtains a tuple containing all of the exception's data members.
@@ -72,7 +70,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 };
 
 /// \cond INTERNAL
@@ -83,16 +81,14 @@ class InvalidPointException : public ::Ice::UserExceptionHelper<InvalidPointExce
 {
 public:
 
-    virtual ~InvalidPointException();
+    InvalidPointException() noexcept = default;
 
     InvalidPointException(const InvalidPointException&) = default;
-
-    InvalidPointException() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    InvalidPointException(::std::int32_t index) :
+    InvalidPointException(::std::int32_t index) noexcept :
         ::Ice::UserExceptionHelper<InvalidPointException, BaseException>(),
         index(index)
     {
@@ -111,7 +107,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::int32_t index;
 };
@@ -120,16 +116,14 @@ class InvalidLengthException : public ::Ice::UserExceptionHelper<InvalidLengthEx
 {
 public:
 
-    virtual ~InvalidLengthException();
+    InvalidLengthException() noexcept = default;
 
     InvalidLengthException(const InvalidLengthException&) = default;
-
-    InvalidLengthException() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    InvalidLengthException(::std::int32_t length) :
+    InvalidLengthException(::std::int32_t length) noexcept :
         ::Ice::UserExceptionHelper<InvalidLengthException, BaseException>(),
         length(length)
     {
@@ -148,7 +142,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::int32_t length;
 };
@@ -157,16 +151,14 @@ class OtherException : public ::Ice::UserExceptionHelper<OtherException, ::Ice::
 {
 public:
 
-    virtual ~OtherException();
+    OtherException() noexcept = default;
 
     OtherException(const OtherException&) = default;
-
-    OtherException() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    OtherException(::std::int32_t x, ::std::int32_t y, ::std::int32_t z, bool b) :
+    OtherException(::std::int32_t x, ::std::int32_t y, ::std::int32_t z, bool b) noexcept :
         x(x),
         y(y),
         z(z),
@@ -187,7 +179,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::int32_t x;
     ::std::int32_t y;
@@ -291,10 +283,7 @@ class Pen : public ::Ice::ValueHelper<Pen, ::Ice::Value>
 {
 public:
 
-    virtual ~Pen();
-
     Pen() = default;
-
     Pen(const Pen&) = default;
     Pen(Pen&&) = default;
     Pen& operator=(const Pen&) = default;
@@ -303,9 +292,9 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Pen(::std::int32_t thickness, const ::Test::Color& color) :
+    Pen(::std::int32_t thickness, ::Test::Color color) :
         thickness(thickness),
-        color(color)
+        color(::std::move(color))
     {
     }
 
@@ -322,7 +311,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::int32_t thickness;
     ::Test::Color color;

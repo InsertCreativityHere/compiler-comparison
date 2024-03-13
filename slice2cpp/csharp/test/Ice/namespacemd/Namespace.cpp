@@ -45,45 +45,29 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::WithNamespace::E2> iceC_W
 
 }
 
-WithNamespace::C1::~C1()
-{
-}
-
 ::std::string_view
-WithNamespace::C1::ice_staticId()
+WithNamespace::C1::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::WithNamespace::C1";
     return typeId;
 }
 
-WithNamespace::C2::~C2()
-{
-}
-
 ::std::string_view
-WithNamespace::C2::ice_staticId()
+WithNamespace::C2::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::WithNamespace::C2";
     return typeId;
 }
 
-WithNamespace::E1::~E1()
-{
-}
-
 ::std::string_view
-WithNamespace::E1::ice_staticId()
+WithNamespace::E1::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::WithNamespace::E1";
     return typeId;
 }
 
-WithNamespace::E2::~E2()
-{
-}
-
 ::std::string_view
-WithNamespace::E2::ice_staticId()
+WithNamespace::E2::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::WithNamespace::E2";
     return typeId;

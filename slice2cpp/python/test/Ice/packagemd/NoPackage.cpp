@@ -47,56 +47,36 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::Test1::def> iceC_Test1_de
 
 }
 
-Test1::C1::~C1()
-{
-}
-
 ::std::string_view
-Test1::C1::ice_staticId()
+Test1::C1::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test1::C1";
     return typeId;
 }
 
-Test1::C2::~C2()
-{
-}
-
 ::std::string_view
-Test1::C2::ice_staticId()
+Test1::C2::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test1::C2";
     return typeId;
 }
 
-Test1::E1::~E1()
-{
-}
-
 ::std::string_view
-Test1::E1::ice_staticId()
+Test1::E1::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test1::E1";
     return typeId;
 }
 
-Test1::E2::~E2()
-{
-}
-
 ::std::string_view
-Test1::E2::ice_staticId()
+Test1::E2::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test1::E2";
     return typeId;
 }
 
-Test1::def::~def()
-{
-}
-
 ::std::string_view
-Test1::def::ice_staticId()
+Test1::def::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test1::def";
     return typeId;

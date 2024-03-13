@@ -68,7 +68,7 @@ Test::PingReplyPrx::_iceI_reply(const ::std::shared_ptr<::IceInternal::OutgoingA
 }
 
 ::std::string_view
-Test::PingReplyPrx::ice_staticId()
+Test::PingReplyPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::PingReply";
     return typeId;
@@ -621,7 +621,7 @@ Test::TestIntfPrx::_iceI_pingBiDir(const ::std::shared_ptr<::IceInternal::Outgoi
 }
 
 ::std::string_view
-Test::TestIntfPrx::ice_staticId()
+Test::TestIntfPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::TestIntf";
     return typeId;
@@ -684,7 +684,7 @@ Test::TestIntfControllerPrx::_iceI_resumeAdapter(const ::std::shared_ptr<::IceIn
 }
 
 ::std::string_view
-Test::TestIntfControllerPrx::ice_staticId()
+Test::TestIntfControllerPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::TestIntfController";
     return typeId;
@@ -735,18 +735,14 @@ Test::Outer::Inner::TestIntfPrx::_iceI_op(const ::std::shared_ptr<::IceInternal:
 }
 
 ::std::string_view
-Test::Outer::Inner::TestIntfPrx::ice_staticId()
+Test::Outer::Inner::TestIntfPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Outer::Inner::TestIntf";
     return typeId;
 }
 
-Test::TestIntfException::~TestIntfException()
-{
-}
-
 ::std::string_view
-Test::TestIntfException::ice_staticId()
+Test::TestIntfException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::TestIntfException";
     return typeId;
@@ -766,7 +762,7 @@ Test::PingReply::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::PingReply::ice_staticId()
+Test::PingReply::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::PingReply";
     return typeId;
@@ -847,7 +843,7 @@ Test::TestIntf::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::TestIntf::ice_staticId()
+Test::TestIntf::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::TestIntf";
     return typeId;
@@ -1250,7 +1246,7 @@ Test::TestIntfController::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::TestIntfController::ice_staticId()
+Test::TestIntfController::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::TestIntfController";
     return typeId;
@@ -1347,7 +1343,7 @@ Test::Outer::Inner::TestIntf::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::Outer::Inner::TestIntf::ice_staticId()
+Test::Outer::Inner::TestIntf::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Outer::Inner::TestIntf";
     return typeId;

@@ -188,7 +188,7 @@ Test::HoldPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsy
 }
 
 ::std::string_view
-Test::HoldPrx::ice_staticId()
+Test::HoldPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Hold";
     return typeId;
@@ -208,7 +208,7 @@ Test::Hold::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::Hold::ice_staticId()
+Test::Hold::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Hold";
     return typeId;

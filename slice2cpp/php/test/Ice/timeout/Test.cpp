@@ -128,7 +128,7 @@ Test::TimeoutPrx::_iceI_sleep(const ::std::shared_ptr<::IceInternal::OutgoingAsy
 }
 
 ::std::string_view
-Test::TimeoutPrx::ice_staticId()
+Test::TimeoutPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Timeout";
     return typeId;
@@ -222,7 +222,7 @@ Test::ControllerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgo
 }
 
 ::std::string_view
-Test::ControllerPrx::ice_staticId()
+Test::ControllerPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Controller";
     return typeId;
@@ -242,7 +242,7 @@ Test::Timeout::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::Timeout::ice_staticId()
+Test::Timeout::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Timeout";
     return typeId;
@@ -363,7 +363,7 @@ Test::Controller::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::Controller::ice_staticId()
+Test::Controller::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Controller";
     return typeId;

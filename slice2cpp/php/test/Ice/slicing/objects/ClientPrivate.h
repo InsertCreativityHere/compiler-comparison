@@ -58,10 +58,7 @@ class D3 : public ::Ice::ValueHelper<D3, B>
 {
 public:
 
-    virtual ~D3();
-
     D3() = default;
-
     D3(const D3&) = default;
     D3(D3&&) = default;
     D3& operator=(const D3&) = default;
@@ -70,10 +67,10 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    D3(::std::string_view sb, const ::std::shared_ptr<::Test::B>& pb, ::std::string_view sd3, const ::std::shared_ptr<::Test::B>& pd3) :
-        Ice::ValueHelper<D3, B>(sb, pb),
-        sd3(sd3),
-        pd3(pd3)
+    D3(::std::string sb, ::std::shared_ptr<::Test::B> pb, ::std::string sd3, ::std::shared_ptr<::Test::B> pd3) :
+        Ice::ValueHelper<D3, B>(::std::move(sb), ::std::move(pb)),
+        sd3(::std::move(sd3)),
+        pd3(::std::move(pd3))
     {
     }
 
@@ -90,7 +87,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::string sd3;
     ::std::shared_ptr<::Test::B> pd3;
@@ -104,10 +101,7 @@ class PCUnknown : public ::Ice::ValueHelper<PCUnknown, PBase>
 {
 public:
 
-    virtual ~PCUnknown();
-
     PCUnknown() = default;
-
     PCUnknown(const PCUnknown&) = default;
     PCUnknown(PCUnknown&&) = default;
     PCUnknown& operator=(const PCUnknown&) = default;
@@ -116,9 +110,9 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    PCUnknown(::std::int32_t pi, ::std::string_view pu) :
+    PCUnknown(::std::int32_t pi, ::std::string pu) :
         Ice::ValueHelper<PCUnknown, PBase>(pi),
-        pu(pu)
+        pu(::std::move(pu))
     {
     }
 
@@ -135,7 +129,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::string pu;
 };
@@ -144,10 +138,7 @@ class PCDerived : public ::Ice::ValueHelper<PCDerived, PDerived>
 {
 public:
 
-    virtual ~PCDerived();
-
     PCDerived() = default;
-
     PCDerived(const PCDerived&) = default;
     PCDerived(PCDerived&&) = default;
     PCDerived& operator=(const PCDerived&) = default;
@@ -156,9 +147,9 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    PCDerived(::std::int32_t pi, ::std::string_view ps, const ::std::shared_ptr<::Test::PBase>& pb, const ::Test::PBaseSeq& pbs) :
-        Ice::ValueHelper<PCDerived, PDerived>(pi, ps, pb),
-        pbs(pbs)
+    PCDerived(::std::int32_t pi, ::std::string ps, ::std::shared_ptr<::Test::PBase> pb, ::Test::PBaseSeq pbs) :
+        Ice::ValueHelper<PCDerived, PDerived>(pi, ::std::move(ps), ::std::move(pb)),
+        pbs(::std::move(pbs))
     {
     }
 
@@ -175,7 +166,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::Test::PBaseSeq pbs;
 };
@@ -184,10 +175,7 @@ class PCDerived2 : public ::Ice::ValueHelper<PCDerived2, PCDerived>
 {
 public:
 
-    virtual ~PCDerived2();
-
     PCDerived2() = default;
-
     PCDerived2(const PCDerived2&) = default;
     PCDerived2(PCDerived2&&) = default;
     PCDerived2& operator=(const PCDerived2&) = default;
@@ -196,8 +184,8 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    PCDerived2(::std::int32_t pi, ::std::string_view ps, const ::std::shared_ptr<::Test::PBase>& pb, const ::Test::PBaseSeq& pbs, ::std::int32_t pcd2) :
-        Ice::ValueHelper<PCDerived2, PCDerived>(pi, ps, pb, pbs),
+    PCDerived2(::std::int32_t pi, ::std::string ps, ::std::shared_ptr<::Test::PBase> pb, ::Test::PBaseSeq pbs, ::std::int32_t pcd2) :
+        Ice::ValueHelper<PCDerived2, PCDerived>(pi, ::std::move(ps), ::std::move(pb), ::std::move(pbs)),
         pcd2(pcd2)
     {
     }
@@ -215,7 +203,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::int32_t pcd2;
 };
@@ -224,10 +212,7 @@ class PCDerived3 : public ::Ice::ValueHelper<PCDerived3, PCDerived2>
 {
 public:
 
-    virtual ~PCDerived3();
-
     PCDerived3() = default;
-
     PCDerived3(const PCDerived3&) = default;
     PCDerived3(PCDerived3&&) = default;
     PCDerived3& operator=(const PCDerived3&) = default;
@@ -236,9 +221,9 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    PCDerived3(::std::int32_t pi, ::std::string_view ps, const ::std::shared_ptr<::Test::PBase>& pb, const ::Test::PBaseSeq& pbs, ::std::int32_t pcd2, const ::std::shared_ptr<::Ice::Value>& pcd3) :
-        Ice::ValueHelper<PCDerived3, PCDerived2>(pi, ps, pb, pbs, pcd2),
-        pcd3(pcd3)
+    PCDerived3(::std::int32_t pi, ::std::string ps, ::std::shared_ptr<::Test::PBase> pb, ::Test::PBaseSeq pbs, ::std::int32_t pcd2, ::std::shared_ptr<::Ice::Value> pcd3) :
+        Ice::ValueHelper<PCDerived3, PCDerived2>(pi, ::std::move(ps), ::std::move(pb), ::std::move(pbs), pcd2),
+        pcd3(::std::move(pcd3))
     {
     }
 
@@ -255,7 +240,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::shared_ptr<::Ice::Value> pcd3;
 };
@@ -264,10 +249,7 @@ class CompactPCDerived : public ::Ice::ValueHelper<CompactPCDerived, CompactPDer
 {
 public:
 
-    virtual ~CompactPCDerived();
-
     CompactPCDerived() = default;
-
     CompactPCDerived(const CompactPCDerived&) = default;
     CompactPCDerived(CompactPCDerived&&) = default;
     CompactPCDerived& operator=(const CompactPCDerived&) = default;
@@ -276,9 +258,9 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    CompactPCDerived(::std::int32_t pi, ::std::string_view ps, const ::std::shared_ptr<::Test::PBase>& pb, const ::Test::PBaseSeq& pbs) :
-        Ice::ValueHelper<CompactPCDerived, CompactPDerived>(pi, ps, pb),
-        pbs(pbs)
+    CompactPCDerived(::std::int32_t pi, ::std::string ps, ::std::shared_ptr<::Test::PBase> pb, ::Test::PBaseSeq pbs) :
+        Ice::ValueHelper<CompactPCDerived, CompactPDerived>(pi, ::std::move(ps), ::std::move(pb)),
+        pbs(::std::move(pbs))
     {
     }
 
@@ -295,7 +277,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::Test::PBaseSeq pbs;
 };

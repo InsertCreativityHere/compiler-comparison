@@ -44,10 +44,7 @@ class Derived : public ::Ice::ValueHelper<Derived, Base>
 {
 public:
 
-    virtual ~Derived();
-
     Derived() = default;
-
     Derived(const Derived&) = default;
     Derived(Derived&&) = default;
     Derived& operator=(const Derived&) = default;
@@ -56,9 +53,9 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Derived(const ::Test::S& theS, ::std::string_view str, ::std::string_view b) :
-        Ice::ValueHelper<Derived, Base>(theS, str),
-        b(b)
+    Derived(::Test::S theS, ::std::string str, ::std::string b) :
+        Ice::ValueHelper<Derived, Base>(::std::move(theS), ::std::move(str)),
+        b(::std::move(b))
     {
     }
 
@@ -75,7 +72,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::string b;
 };

@@ -201,7 +201,7 @@ Test::CallbackReceiverPrx::_iceI_callbackWithPayload(const ::std::shared_ptr<::I
 }
 
 ::std::string_view
-Test::CallbackReceiverPrx::ice_staticId()
+Test::CallbackReceiverPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::CallbackReceiver";
     return typeId;
@@ -406,18 +406,14 @@ Test::CallbackPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
 }
 
 ::std::string_view
-Test::CallbackPrx::ice_staticId()
+Test::CallbackPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Callback";
     return typeId;
 }
 
-Test::CallbackException::~CallbackException()
-{
-}
-
 ::std::string_view
-Test::CallbackException::ice_staticId()
+Test::CallbackException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::CallbackException";
     return typeId;
@@ -437,7 +433,7 @@ Test::CallbackReceiver::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::CallbackReceiver::ice_staticId()
+Test::CallbackReceiver::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::CallbackReceiver";
     return typeId;
@@ -605,7 +601,7 @@ Test::Callback::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::Callback::ice_staticId()
+Test::Callback::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Callback";
     return typeId;

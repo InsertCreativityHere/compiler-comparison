@@ -534,7 +534,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit TestIntfPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -548,7 +548,7 @@ public:
     {
     }
 
-    TestIntfPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    TestIntfPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -587,10 +587,7 @@ class SBase : public ::Ice::ValueHelper<SBase, ::Ice::Value>
 {
 public:
 
-    virtual ~SBase();
-
     SBase() = default;
-
     SBase(const SBase&) = default;
     SBase(SBase&&) = default;
     SBase& operator=(const SBase&) = default;
@@ -599,8 +596,8 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit SBase(::std::string_view sb) :
-        sb(sb)
+    explicit SBase(::std::string sb) :
+        sb(::std::move(sb))
     {
     }
 
@@ -617,7 +614,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::string sb;
 };
@@ -630,10 +627,7 @@ class SBSKnownDerived : public ::Ice::ValueHelper<SBSKnownDerived, SBase>
 {
 public:
 
-    virtual ~SBSKnownDerived();
-
     SBSKnownDerived() = default;
-
     SBSKnownDerived(const SBSKnownDerived&) = default;
     SBSKnownDerived(SBSKnownDerived&&) = default;
     SBSKnownDerived& operator=(const SBSKnownDerived&) = default;
@@ -642,9 +636,9 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    SBSKnownDerived(::std::string_view sb, ::std::string_view sbskd) :
-        Ice::ValueHelper<SBSKnownDerived, SBase>(sb),
-        sbskd(sbskd)
+    SBSKnownDerived(::std::string sb, ::std::string sbskd) :
+        Ice::ValueHelper<SBSKnownDerived, SBase>(::std::move(sb)),
+        sbskd(::std::move(sbskd))
     {
     }
 
@@ -661,7 +655,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::string sbskd;
 };
@@ -670,10 +664,7 @@ class B : public ::Ice::ValueHelper<B, ::Ice::Value>
 {
 public:
 
-    virtual ~B();
-
     B() = default;
-
     B(const B&) = default;
     B(B&&) = default;
     B& operator=(const B&) = default;
@@ -682,9 +673,9 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    B(::std::string_view sb, const ::std::shared_ptr<::Test::B>& pb) :
-        sb(sb),
-        pb(pb)
+    B(::std::string sb, ::std::shared_ptr<::Test::B> pb) :
+        sb(::std::move(sb)),
+        pb(::std::move(pb))
     {
     }
 
@@ -701,7 +692,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::string sb;
     ::std::shared_ptr<::Test::B> pb;
@@ -711,10 +702,7 @@ class D1 : public ::Ice::ValueHelper<D1, B>
 {
 public:
 
-    virtual ~D1();
-
     D1() = default;
-
     D1(const D1&) = default;
     D1(D1&&) = default;
     D1& operator=(const D1&) = default;
@@ -723,10 +711,10 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    D1(::std::string_view sb, const ::std::shared_ptr<::Test::B>& pb, ::std::string_view sd1, const ::std::shared_ptr<::Test::B>& pd1) :
-        Ice::ValueHelper<D1, B>(sb, pb),
-        sd1(sd1),
-        pd1(pd1)
+    D1(::std::string sb, ::std::shared_ptr<::Test::B> pb, ::std::string sd1, ::std::shared_ptr<::Test::B> pd1) :
+        Ice::ValueHelper<D1, B>(::std::move(sb), ::std::move(pb)),
+        sd1(::std::move(sd1)),
+        pd1(::std::move(pd1))
     {
     }
 
@@ -743,7 +731,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::string sd1;
     ::std::shared_ptr<::Test::B> pd1;
@@ -753,10 +741,7 @@ class SS1 : public ::Ice::ValueHelper<SS1, ::Ice::Value>
 {
 public:
 
-    virtual ~SS1();
-
     SS1() = default;
-
     SS1(const SS1&) = default;
     SS1(SS1&&) = default;
     SS1& operator=(const SS1&) = default;
@@ -765,8 +750,8 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit SS1(const ::Test::BSeq& s) :
-        s(s)
+    explicit SS1(::Test::BSeq s) :
+        s(::std::move(s))
     {
     }
 
@@ -783,7 +768,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::Test::BSeq s;
 };
@@ -792,10 +777,7 @@ class SS2 : public ::Ice::ValueHelper<SS2, ::Ice::Value>
 {
 public:
 
-    virtual ~SS2();
-
     SS2() = default;
-
     SS2(const SS2&) = default;
     SS2(SS2&&) = default;
     SS2& operator=(const SS2&) = default;
@@ -804,8 +786,8 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit SS2(const ::Test::BSeq& s) :
-        s(s)
+    explicit SS2(::Test::BSeq s) :
+        s(::std::move(s))
     {
     }
 
@@ -822,7 +804,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::Test::BSeq s;
 };
@@ -846,18 +828,16 @@ class BaseException : public ::Ice::UserExceptionHelper<BaseException, ::Ice::Us
 {
 public:
 
-    virtual ~BaseException();
+    BaseException() noexcept = default;
 
     BaseException(const BaseException&) = default;
-
-    BaseException() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    BaseException(::std::string_view sbe, const ::std::shared_ptr<B>& pb) :
-        sbe(sbe),
-        pb(pb)
+    BaseException(::std::string sbe, ::std::shared_ptr<B> pb) noexcept :
+        sbe(::std::move(sbe)),
+        pb(::std::move(pb))
     {
     }
 
@@ -874,7 +854,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /// \cond STREAM
     virtual bool _usesClasses() const override;
@@ -888,19 +868,17 @@ class DerivedException : public ::Ice::UserExceptionHelper<DerivedException, Bas
 {
 public:
 
-    virtual ~DerivedException();
+    DerivedException() noexcept = default;
 
     DerivedException(const DerivedException&) = default;
-
-    DerivedException() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    DerivedException(::std::string_view sbe, const ::std::shared_ptr<B>& pb, ::std::string_view sde, const ::std::shared_ptr<D1>& pd1) :
-        ::Ice::UserExceptionHelper<DerivedException, BaseException>(sbe, pb),
-        sde(sde),
-        pd1(pd1)
+    DerivedException(::std::string sbe, ::std::shared_ptr<B> pb, ::std::string sde, ::std::shared_ptr<D1> pd1) noexcept :
+        ::Ice::UserExceptionHelper<DerivedException, BaseException>(::std::move(sbe), ::std::move(pb)),
+        sde(::std::move(sde)),
+        pd1(::std::move(pd1))
     {
     }
 
@@ -917,7 +895,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::string sde;
     ::std::shared_ptr<::Test::D1> pd1;
@@ -927,10 +905,7 @@ class PBase : public ::Ice::ValueHelper<PBase, ::Ice::Value>
 {
 public:
 
-    virtual ~PBase();
-
     PBase() = default;
-
     PBase(const PBase&) = default;
     PBase(PBase&&) = default;
     PBase& operator=(const PBase&) = default;
@@ -957,7 +932,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::int32_t pi;
 };
@@ -966,10 +941,7 @@ class Preserved : public ::Ice::ValueHelper<Preserved, PBase>
 {
 public:
 
-    virtual ~Preserved();
-
     Preserved() = default;
-
     Preserved(const Preserved&) = default;
     Preserved(Preserved&&) = default;
     Preserved& operator=(const Preserved&) = default;
@@ -978,9 +950,9 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Preserved(::std::int32_t pi, ::std::string_view ps) :
+    Preserved(::std::int32_t pi, ::std::string ps) :
         Ice::ValueHelper<Preserved, PBase>(pi),
-        ps(ps)
+        ps(::std::move(ps))
     {
     }
 
@@ -997,7 +969,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::string ps;
 };
@@ -1006,10 +978,7 @@ class PDerived : public ::Ice::ValueHelper<PDerived, Preserved>
 {
 public:
 
-    virtual ~PDerived();
-
     PDerived() = default;
-
     PDerived(const PDerived&) = default;
     PDerived(PDerived&&) = default;
     PDerived& operator=(const PDerived&) = default;
@@ -1018,9 +987,9 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    PDerived(::std::int32_t pi, ::std::string_view ps, const ::std::shared_ptr<::Test::PBase>& pb) :
-        Ice::ValueHelper<PDerived, Preserved>(pi, ps),
-        pb(pb)
+    PDerived(::std::int32_t pi, ::std::string ps, ::std::shared_ptr<::Test::PBase> pb) :
+        Ice::ValueHelper<PDerived, Preserved>(pi, ::std::move(ps)),
+        pb(::std::move(pb))
     {
     }
 
@@ -1037,7 +1006,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::shared_ptr<::Test::PBase> pb;
 };
@@ -1046,10 +1015,7 @@ class PNode : public ::Ice::ValueHelper<PNode, ::Ice::Value>
 {
 public:
 
-    virtual ~PNode();
-
     PNode() = default;
-
     PNode(const PNode&) = default;
     PNode(PNode&&) = default;
     PNode& operator=(const PNode&) = default;
@@ -1058,8 +1024,8 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit PNode(const ::std::shared_ptr<::Test::PNode>& next) :
-        next(next)
+    explicit PNode(::std::shared_ptr<::Test::PNode> next) :
+        next(::std::move(next))
     {
     }
 
@@ -1076,7 +1042,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::shared_ptr<::Test::PNode> next;
 };
@@ -1085,11 +1051,9 @@ class PreservedException : public ::Ice::UserExceptionHelper<PreservedException,
 {
 public:
 
-    virtual ~PreservedException();
+    PreservedException() noexcept = default;
 
     PreservedException(const PreservedException&) = default;
-
-    PreservedException() = default;
 
     /**
      * Obtains a tuple containing all of the exception's data members.
@@ -1104,17 +1068,14 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 };
 
 class SBSUnknownDerived : public ::Ice::ValueHelper<SBSUnknownDerived, SBase>
 {
 public:
 
-    virtual ~SBSUnknownDerived();
-
     SBSUnknownDerived() = default;
-
     SBSUnknownDerived(const SBSUnknownDerived&) = default;
     SBSUnknownDerived(SBSUnknownDerived&&) = default;
     SBSUnknownDerived& operator=(const SBSUnknownDerived&) = default;
@@ -1123,9 +1084,9 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    SBSUnknownDerived(::std::string_view sb, ::std::string_view sbsud) :
-        Ice::ValueHelper<SBSUnknownDerived, SBase>(sb),
-        sbsud(sbsud)
+    SBSUnknownDerived(::std::string sb, ::std::string sbsud) :
+        Ice::ValueHelper<SBSUnknownDerived, SBase>(::std::move(sb)),
+        sbsud(::std::move(sbsud))
     {
     }
 
@@ -1142,7 +1103,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::string sbsud;
 };
@@ -1151,10 +1112,7 @@ class SUnknown : public ::Ice::ValueHelper<SUnknown, ::Ice::Value>
 {
 public:
 
-    virtual ~SUnknown();
-
     SUnknown() = default;
-
     SUnknown(const SUnknown&) = default;
     SUnknown(SUnknown&&) = default;
     SUnknown& operator=(const SUnknown&) = default;
@@ -1163,9 +1121,9 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    SUnknown(::std::string_view su, const ::std::shared_ptr<::Test::SUnknown>& cycle) :
-        su(su),
-        cycle(cycle)
+    SUnknown(::std::string su, ::std::shared_ptr<::Test::SUnknown> cycle) :
+        su(::std::move(su)),
+        cycle(::std::move(cycle))
     {
     }
 
@@ -1182,7 +1140,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::string su;
     ::std::shared_ptr<::Test::SUnknown> cycle;
@@ -1192,10 +1150,7 @@ class D2 : public ::Ice::ValueHelper<D2, B>
 {
 public:
 
-    virtual ~D2();
-
     D2() = default;
-
     D2(const D2&) = default;
     D2(D2&&) = default;
     D2& operator=(const D2&) = default;
@@ -1204,10 +1159,10 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    D2(::std::string_view sb, const ::std::shared_ptr<::Test::B>& pb, ::std::string_view sd2, const ::std::shared_ptr<::Test::B>& pd2) :
-        Ice::ValueHelper<D2, B>(sb, pb),
-        sd2(sd2),
-        pd2(pd2)
+    D2(::std::string sb, ::std::shared_ptr<::Test::B> pb, ::std::string sd2, ::std::shared_ptr<::Test::B> pd2) :
+        Ice::ValueHelper<D2, B>(::std::move(sb), ::std::move(pb)),
+        sd2(::std::move(sd2)),
+        pd2(::std::move(pd2))
     {
     }
 
@@ -1224,7 +1179,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::string sd2;
     ::std::shared_ptr<::Test::B> pd2;
@@ -1234,10 +1189,7 @@ class D4 : public ::Ice::ValueHelper<D4, B>
 {
 public:
 
-    virtual ~D4();
-
     D4() = default;
-
     D4(const D4&) = default;
     D4(D4&&) = default;
     D4& operator=(const D4&) = default;
@@ -1246,10 +1198,10 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    D4(::std::string_view sb, const ::std::shared_ptr<::Test::B>& pb, const ::std::shared_ptr<::Test::B>& p1, const ::std::shared_ptr<::Test::B>& p2) :
-        Ice::ValueHelper<D4, B>(sb, pb),
-        p1(p1),
-        p2(p2)
+    D4(::std::string sb, ::std::shared_ptr<::Test::B> pb, ::std::shared_ptr<::Test::B> p1, ::std::shared_ptr<::Test::B> p2) :
+        Ice::ValueHelper<D4, B>(::std::move(sb), ::std::move(pb)),
+        p1(::std::move(p1)),
+        p2(::std::move(p2))
     {
     }
 
@@ -1266,7 +1218,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::shared_ptr<::Test::B> p1;
     ::std::shared_ptr<::Test::B> p2;
@@ -1276,19 +1228,17 @@ class UnknownDerivedException : public ::Ice::UserExceptionHelper<UnknownDerived
 {
 public:
 
-    virtual ~UnknownDerivedException();
+    UnknownDerivedException() noexcept = default;
 
     UnknownDerivedException(const UnknownDerivedException&) = default;
-
-    UnknownDerivedException() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    UnknownDerivedException(::std::string_view sbe, const ::std::shared_ptr<B>& pb, ::std::string_view sude, const ::std::shared_ptr<D2>& pd2) :
-        ::Ice::UserExceptionHelper<UnknownDerivedException, BaseException>(sbe, pb),
-        sude(sude),
-        pd2(pd2)
+    UnknownDerivedException(::std::string sbe, ::std::shared_ptr<B> pb, ::std::string sude, ::std::shared_ptr<D2> pd2) noexcept :
+        ::Ice::UserExceptionHelper<UnknownDerivedException, BaseException>(::std::move(sbe), ::std::move(pb)),
+        sude(::std::move(sude)),
+        pd2(::std::move(pd2))
     {
     }
 
@@ -1305,7 +1255,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::string sude;
     ::std::shared_ptr<::Test::D2> pd2;
@@ -1315,10 +1265,7 @@ class MyClass : public ::Ice::ValueHelper<MyClass, ::Ice::Value>
 {
 public:
 
-    virtual ~MyClass();
-
     MyClass() = default;
-
     MyClass(const MyClass&) = default;
     MyClass(MyClass&&) = default;
     MyClass& operator=(const MyClass&) = default;
@@ -1345,7 +1292,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::int32_t i;
 };
@@ -1354,10 +1301,7 @@ class PSUnknown : public ::Ice::ValueHelper<PSUnknown, Preserved>
 {
 public:
 
-    virtual ~PSUnknown();
-
     PSUnknown() = default;
-
     PSUnknown(const PSUnknown&) = default;
     PSUnknown(PSUnknown&&) = default;
     PSUnknown& operator=(const PSUnknown&) = default;
@@ -1366,11 +1310,11 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    PSUnknown(::std::int32_t pi, ::std::string_view ps, ::std::string_view psu, const ::std::shared_ptr<::Test::PNode>& graph, const ::std::shared_ptr<::Test::MyClass>& cl) :
-        Ice::ValueHelper<PSUnknown, Preserved>(pi, ps),
-        psu(psu),
-        graph(graph),
-        cl(cl)
+    PSUnknown(::std::int32_t pi, ::std::string ps, ::std::string psu, ::std::shared_ptr<::Test::PNode> graph, ::std::shared_ptr<::Test::MyClass> cl) :
+        Ice::ValueHelper<PSUnknown, Preserved>(pi, ::std::move(ps)),
+        psu(::std::move(psu)),
+        graph(::std::move(graph)),
+        cl(::std::move(cl))
     {
     }
 
@@ -1387,7 +1331,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::string psu;
     ::std::shared_ptr<::Test::PNode> graph;
@@ -1398,10 +1342,7 @@ class PSUnknown2 : public ::Ice::ValueHelper<PSUnknown2, Preserved>
 {
 public:
 
-    virtual ~PSUnknown2();
-
     PSUnknown2() = default;
-
     PSUnknown2(const PSUnknown2&) = default;
     PSUnknown2(PSUnknown2&&) = default;
     PSUnknown2& operator=(const PSUnknown2&) = default;
@@ -1410,9 +1351,9 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    PSUnknown2(::std::int32_t pi, ::std::string_view ps, const ::std::shared_ptr<::Test::PBase>& pb) :
-        Ice::ValueHelper<PSUnknown2, Preserved>(pi, ps),
-        pb(pb)
+    PSUnknown2(::std::int32_t pi, ::std::string ps, ::std::shared_ptr<::Test::PBase> pb) :
+        Ice::ValueHelper<PSUnknown2, Preserved>(pi, ::std::move(ps)),
+        pb(::std::move(pb))
     {
     }
 
@@ -1429,7 +1370,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::shared_ptr<::Test::PBase> pb;
 };
@@ -1438,18 +1379,16 @@ class PSUnknownException : public ::Ice::UserExceptionHelper<PSUnknownException,
 {
 public:
 
-    virtual ~PSUnknownException();
+    PSUnknownException() noexcept = default;
 
     PSUnknownException(const PSUnknownException&) = default;
-
-    PSUnknownException() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    PSUnknownException(const ::std::shared_ptr<PSUnknown2>& p) :
+    PSUnknownException(::std::shared_ptr<PSUnknown2> p) noexcept :
         ::Ice::UserExceptionHelper<PSUnknownException, PreservedException>(),
-        p(p)
+        p(::std::move(p))
     {
     }
 
@@ -1466,7 +1405,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /// \cond STREAM
     virtual bool _usesClasses() const override;
@@ -1479,10 +1418,7 @@ class Hidden : public ::Ice::ValueHelper<Hidden, ::Ice::Value>
 {
 public:
 
-    virtual ~Hidden();
-
     Hidden() = default;
-
     Hidden(const Hidden&) = default;
     Hidden(Hidden&&) = default;
     Hidden& operator=(const Hidden&) = default;
@@ -1491,8 +1427,8 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit Hidden(const ::std::shared_ptr<::Test::Forward>& f) :
-        f(f)
+    explicit Hidden(::std::shared_ptr<::Test::Forward> f) :
+        f(::std::move(f))
     {
     }
 
@@ -1509,7 +1445,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::shared_ptr<::Test::Forward> f;
 };
@@ -1518,10 +1454,7 @@ class Forward : public ::Ice::ValueHelper<Forward, ::Ice::Value>
 {
 public:
 
-    virtual ~Forward();
-
     Forward() = default;
-
     Forward(const Forward&) = default;
     Forward(Forward&&) = default;
     Forward& operator=(const Forward&) = default;
@@ -1530,8 +1463,8 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit Forward(const ::std::shared_ptr<::Test::Hidden>& h) :
-        h(h)
+    explicit Forward(::std::shared_ptr<::Test::Hidden> h) :
+        h(::std::move(h))
     {
     }
 
@@ -1548,7 +1481,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::shared_ptr<::Test::Hidden> h;
 };
@@ -1589,7 +1522,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     virtual void SBaseAsObjectAsync(::std::function<void(const ::std::shared_ptr<::Ice::Value>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

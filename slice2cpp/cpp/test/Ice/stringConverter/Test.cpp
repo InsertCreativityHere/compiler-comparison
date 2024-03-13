@@ -145,18 +145,14 @@ Test::MyObjectPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
 }
 
 ::std::string_view
-Test::MyObjectPrx::ice_staticId()
+Test::MyObjectPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MyObject";
     return typeId;
 }
 
-Test::BadEncodingException::~BadEncodingException()
-{
-}
-
 ::std::string_view
-Test::BadEncodingException::ice_staticId()
+Test::BadEncodingException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::BadEncodingException";
     return typeId;
@@ -176,7 +172,7 @@ Test::MyObject::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::MyObject::ice_staticId()
+Test::MyObject::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MyObject";
     return typeId;

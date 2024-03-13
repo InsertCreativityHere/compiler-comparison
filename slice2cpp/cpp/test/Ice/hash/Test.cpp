@@ -39,12 +39,8 @@ const ::IceInternal::DefaultValueFactoryInit<::Test::Point> iceC_Test_Point_init
 
 }
 
-Test::Point::~Point()
-{
-}
-
 ::std::string_view
-Test::Point::ice_staticId()
+Test::Point::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Point";
     return typeId;

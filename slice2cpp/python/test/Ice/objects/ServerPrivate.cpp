@@ -86,62 +86,42 @@ Test::UnexpectedObjectExceptionTestPrx::_iceI_op(const ::std::shared_ptr<::IceIn
 }
 
 ::std::string_view
-Test::UnexpectedObjectExceptionTestPrx::ice_staticId()
+Test::UnexpectedObjectExceptionTestPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::UnexpectedObjectExceptionTest";
     return typeId;
 }
 
-Test::Empty::~Empty()
-{
-}
-
 ::std::string_view
-Test::Empty::ice_staticId()
+Test::Empty::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Empty";
     return typeId;
 }
 
-Test::AlsoEmpty::~AlsoEmpty()
-{
-}
-
 ::std::string_view
-Test::AlsoEmpty::ice_staticId()
+Test::AlsoEmpty::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::AlsoEmpty";
     return typeId;
 }
 
-Test::COneMember::~COneMember()
-{
-}
-
 ::std::string_view
-Test::COneMember::ice_staticId()
+Test::COneMember::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::COneMember";
     return typeId;
 }
 
-Test::CTwoMembers::~CTwoMembers()
-{
-}
-
 ::std::string_view
-Test::CTwoMembers::ice_staticId()
+Test::CTwoMembers::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::CTwoMembers";
     return typeId;
 }
 
-Test::EOneMember::~EOneMember()
-{
-}
-
 ::std::string_view
-Test::EOneMember::ice_staticId()
+Test::EOneMember::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::EOneMember";
     return typeId;
@@ -155,12 +135,8 @@ Test::EOneMember::_usesClasses() const
 }
 /// \endcond
 
-Test::ETwoMembers::~ETwoMembers()
-{
-}
-
 ::std::string_view
-Test::ETwoMembers::ice_staticId()
+Test::ETwoMembers::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::ETwoMembers";
     return typeId;
@@ -188,7 +164,7 @@ Test::UnexpectedObjectExceptionTest::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::UnexpectedObjectExceptionTest::ice_staticId()
+Test::UnexpectedObjectExceptionTest::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::UnexpectedObjectExceptionTest";
     return typeId;

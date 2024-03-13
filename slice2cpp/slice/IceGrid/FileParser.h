@@ -98,7 +98,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit FileParserPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -112,7 +112,7 @@ public:
     {
     }
 
-    FileParserPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    FileParserPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -155,18 +155,16 @@ class ICE_CLASS(ICEGRID_API) ParseException : public ::Ice::UserExceptionHelper<
 {
 public:
 
-    ICE_MEMBER(ICEGRID_API) virtual ~ParseException();
+    ParseException() noexcept = default;
 
     ParseException(const ParseException&) = default;
-
-    ParseException() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param reason The reason for the failure.
      */
-    ParseException(::std::string_view reason) :
-        reason(reason)
+    ParseException(::std::string reason) noexcept :
+        reason(::std::move(reason))
     {
     }
 
@@ -183,7 +181,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The reason for the failure.
@@ -228,7 +226,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /**
      * Parse a file.

@@ -243,7 +243,7 @@ IceGrid::SessionPrx::_iceI_setAllocationTimeout(const ::std::shared_ptr<::IceInt
 }
 
 ::std::string_view
-IceGrid::SessionPrx::ice_staticId()
+IceGrid::SessionPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::Session";
     return typeId;
@@ -263,7 +263,7 @@ IceGrid::Session::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-IceGrid::Session::ice_staticId()
+IceGrid::Session::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::Session";
     return typeId;

@@ -44,23 +44,15 @@ const ::IceInternal::DefaultValueFactoryInit<::IceMX::SubscriberMetrics> iceC_Ic
 
 }
 
-IceMX::TopicMetrics::~TopicMetrics()
-{
-}
-
 ::std::string_view
-IceMX::TopicMetrics::ice_staticId()
+IceMX::TopicMetrics::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceMX::TopicMetrics";
     return typeId;
 }
 
-IceMX::SubscriberMetrics::~SubscriberMetrics()
-{
-}
-
 ::std::string_view
-IceMX::SubscriberMetrics::ice_staticId()
+IceMX::SubscriberMetrics::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceMX::SubscriberMetrics";
     return typeId;

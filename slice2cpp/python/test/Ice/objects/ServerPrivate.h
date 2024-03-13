@@ -75,7 +75,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit UnexpectedObjectExceptionTestPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -89,7 +89,7 @@ public:
     {
     }
 
-    UnexpectedObjectExceptionTestPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    UnexpectedObjectExceptionTestPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -128,10 +128,7 @@ class Empty : public ::Ice::ValueHelper<Empty, ::Ice::Value>
 {
 public:
 
-    virtual ~Empty();
-
     Empty() = default;
-
     Empty(const Empty&) = default;
     Empty(Empty&&) = default;
     Empty& operator=(const Empty&) = default;
@@ -150,7 +147,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 };
 
 /// \cond INTERNAL
@@ -161,10 +158,7 @@ class AlsoEmpty : public ::Ice::ValueHelper<AlsoEmpty, ::Ice::Value>
 {
 public:
 
-    virtual ~AlsoEmpty();
-
     AlsoEmpty() = default;
-
     AlsoEmpty(const AlsoEmpty&) = default;
     AlsoEmpty(AlsoEmpty&&) = default;
     AlsoEmpty& operator=(const AlsoEmpty&) = default;
@@ -183,17 +177,14 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 };
 
 class COneMember : public ::Ice::ValueHelper<COneMember, ::Ice::Value>
 {
 public:
 
-    virtual ~COneMember();
-
     COneMember() = default;
-
     COneMember(const COneMember&) = default;
     COneMember(COneMember&&) = default;
     COneMember& operator=(const COneMember&) = default;
@@ -202,8 +193,8 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit COneMember(const ::std::shared_ptr<::Test::Empty>& e) :
-        e(e)
+    explicit COneMember(::std::shared_ptr<::Test::Empty> e) :
+        e(::std::move(e))
     {
     }
 
@@ -220,7 +211,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::shared_ptr<::Test::Empty> e;
 };
@@ -229,10 +220,7 @@ class CTwoMembers : public ::Ice::ValueHelper<CTwoMembers, ::Ice::Value>
 {
 public:
 
-    virtual ~CTwoMembers();
-
     CTwoMembers() = default;
-
     CTwoMembers(const CTwoMembers&) = default;
     CTwoMembers(CTwoMembers&&) = default;
     CTwoMembers& operator=(const CTwoMembers&) = default;
@@ -241,9 +229,9 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    CTwoMembers(const ::std::shared_ptr<::Test::Empty>& e1, const ::std::shared_ptr<::Test::Empty>& e2) :
-        e1(e1),
-        e2(e2)
+    CTwoMembers(::std::shared_ptr<::Test::Empty> e1, ::std::shared_ptr<::Test::Empty> e2) :
+        e1(::std::move(e1)),
+        e2(::std::move(e2))
     {
     }
 
@@ -260,7 +248,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::shared_ptr<::Test::Empty> e1;
     ::std::shared_ptr<::Test::Empty> e2;
@@ -270,17 +258,15 @@ class EOneMember : public ::Ice::UserExceptionHelper<EOneMember, ::Ice::UserExce
 {
 public:
 
-    virtual ~EOneMember();
+    EOneMember() noexcept = default;
 
     EOneMember(const EOneMember&) = default;
-
-    EOneMember() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    EOneMember(const ::std::shared_ptr<Empty>& e) :
-        e(e)
+    EOneMember(::std::shared_ptr<Empty> e) noexcept :
+        e(::std::move(e))
     {
     }
 
@@ -297,7 +283,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /// \cond STREAM
     virtual bool _usesClasses() const override;
@@ -310,18 +296,16 @@ class ETwoMembers : public ::Ice::UserExceptionHelper<ETwoMembers, ::Ice::UserEx
 {
 public:
 
-    virtual ~ETwoMembers();
+    ETwoMembers() noexcept = default;
 
     ETwoMembers(const ETwoMembers&) = default;
-
-    ETwoMembers() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    ETwoMembers(const ::std::shared_ptr<Empty>& e1, const ::std::shared_ptr<Empty>& e2) :
-        e1(e1),
-        e2(e2)
+    ETwoMembers(::std::shared_ptr<Empty> e1, ::std::shared_ptr<Empty> e2) noexcept :
+        e1(::std::move(e1)),
+        e2(::std::move(e2))
     {
     }
 
@@ -338,7 +322,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /// \cond STREAM
     virtual bool _usesClasses() const override;
@@ -413,7 +397,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     virtual ::std::shared_ptr<AlsoEmpty> op(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

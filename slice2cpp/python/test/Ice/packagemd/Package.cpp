@@ -53,89 +53,57 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::Test3::E2> iceC_Test3_E2_
 
 }
 
-Test2::C1::~C1()
-{
-}
-
 ::std::string_view
-Test2::C1::ice_staticId()
+Test2::C1::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test2::C1";
     return typeId;
 }
 
-Test2::C2::~C2()
-{
-}
-
 ::std::string_view
-Test2::C2::ice_staticId()
+Test2::C2::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test2::C2";
     return typeId;
 }
 
-Test2::E1::~E1()
-{
-}
-
 ::std::string_view
-Test2::E1::ice_staticId()
+Test2::E1::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test2::E1";
     return typeId;
 }
 
-Test2::E2::~E2()
-{
-}
-
 ::std::string_view
-Test2::E2::ice_staticId()
+Test2::E2::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test2::E2";
     return typeId;
 }
 
-Test3::C1::~C1()
-{
-}
-
 ::std::string_view
-Test3::C1::ice_staticId()
+Test3::C1::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test3::C1";
     return typeId;
 }
 
-Test3::C2::~C2()
-{
-}
-
 ::std::string_view
-Test3::C2::ice_staticId()
+Test3::C2::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test3::C2";
     return typeId;
 }
 
-Test3::E1::~E1()
-{
-}
-
 ::std::string_view
-Test3::E1::ice_staticId()
+Test3::E1::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test3::E1";
     return typeId;
 }
 
-Test3::E2::~E2()
-{
-}
-
 ::std::string_view
-Test3::E2::ice_staticId()
+Test3::E2::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test3::E2";
     return typeId;

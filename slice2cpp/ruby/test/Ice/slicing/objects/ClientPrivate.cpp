@@ -50,67 +50,43 @@ const ::IceInternal::CompactIdInit iceC_Test_CompactPCDerived_compactIdInit ("::
 
 }
 
-Test::D3::~D3()
-{
-}
-
 ::std::string_view
-Test::D3::ice_staticId()
+Test::D3::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::D3";
     return typeId;
 }
 
-Test::PCUnknown::~PCUnknown()
-{
-}
-
 ::std::string_view
-Test::PCUnknown::ice_staticId()
+Test::PCUnknown::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::PCUnknown";
     return typeId;
 }
 
-Test::PCDerived::~PCDerived()
-{
-}
-
 ::std::string_view
-Test::PCDerived::ice_staticId()
+Test::PCDerived::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::PCDerived";
     return typeId;
 }
 
-Test::PCDerived2::~PCDerived2()
-{
-}
-
 ::std::string_view
-Test::PCDerived2::ice_staticId()
+Test::PCDerived2::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::PCDerived2";
     return typeId;
 }
 
-Test::PCDerived3::~PCDerived3()
-{
-}
-
 ::std::string_view
-Test::PCDerived3::ice_staticId()
+Test::PCDerived3::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::PCDerived3";
     return typeId;
 }
 
-Test::CompactPCDerived::~CompactPCDerived()
-{
-}
-
 ::std::string_view
-Test::CompactPCDerived::ice_staticId()
+Test::CompactPCDerived::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::CompactPCDerived";
     return typeId;

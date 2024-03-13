@@ -58,10 +58,7 @@ class ICE_CLASS(GLACIER2_API) SessionMetrics : public ::Ice::ValueHelper<Session
 {
 public:
 
-    ICE_MEMBER(GLACIER2_API) virtual ~SessionMetrics();
-
     SessionMetrics() = default;
-
     SessionMetrics(const SessionMetrics&) = default;
     SessionMetrics(SessionMetrics&&) = default;
     SessionMetrics& operator=(const SessionMetrics&) = default;
@@ -82,8 +79,8 @@ public:
      * @param overriddenClient Number of client requests overridden.
      * @param overriddenServer Number of server requests overridden.
      */
-    SessionMetrics(::std::string_view id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int32_t forwardedClient, ::std::int32_t forwardedServer, ::std::int32_t routingTableSize, ::std::int32_t queuedClient, ::std::int32_t queuedServer, ::std::int32_t overriddenClient, ::std::int32_t overriddenServer) :
-        Ice::ValueHelper<SessionMetrics, Metrics>(id, total, current, totalLifetime, failures),
+    SessionMetrics(::std::string id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int32_t forwardedClient, ::std::int32_t forwardedServer, ::std::int32_t routingTableSize, ::std::int32_t queuedClient, ::std::int32_t queuedServer, ::std::int32_t overriddenClient, ::std::int32_t overriddenServer) :
+        Ice::ValueHelper<SessionMetrics, Metrics>(::std::move(id), total, current, totalLifetime, failures),
         forwardedClient(forwardedClient),
         forwardedServer(forwardedServer),
         routingTableSize(routingTableSize),
@@ -107,7 +104,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(GLACIER2_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(GLACIER2_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * Number of client requests forwarded.

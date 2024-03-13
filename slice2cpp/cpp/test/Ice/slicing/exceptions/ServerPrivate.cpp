@@ -45,45 +45,29 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::UnknownMostDerived2
 
 }
 
-Test::UnknownDerived::~UnknownDerived()
-{
-}
-
 ::std::string_view
-Test::UnknownDerived::ice_staticId()
+Test::UnknownDerived::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::UnknownDerived";
     return typeId;
 }
 
-Test::UnknownIntermediate::~UnknownIntermediate()
-{
-}
-
 ::std::string_view
-Test::UnknownIntermediate::ice_staticId()
+Test::UnknownIntermediate::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::UnknownIntermediate";
     return typeId;
 }
 
-Test::UnknownMostDerived1::~UnknownMostDerived1()
-{
-}
-
 ::std::string_view
-Test::UnknownMostDerived1::ice_staticId()
+Test::UnknownMostDerived1::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::UnknownMostDerived1";
     return typeId;
 }
 
-Test::UnknownMostDerived2::~UnknownMostDerived2()
-{
-}
-
 ::std::string_view
-Test::UnknownMostDerived2::ice_staticId()
+Test::UnknownMostDerived2::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::UnknownMostDerived2";
     return typeId;

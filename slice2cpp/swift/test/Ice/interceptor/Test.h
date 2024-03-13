@@ -134,7 +134,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit MyObjectPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -148,7 +148,7 @@ public:
     {
     }
 
-    MyObjectPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    MyObjectPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -187,17 +187,15 @@ class InvalidInputException : public ::Ice::UserExceptionHelper<InvalidInputExce
 {
 public:
 
-    virtual ~InvalidInputException();
+    InvalidInputException() noexcept = default;
 
     InvalidInputException(const InvalidInputException&) = default;
-
-    InvalidInputException() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    InvalidInputException(::std::string_view message) :
-        message(message)
+    InvalidInputException(::std::string message) noexcept :
+        message(::std::move(message))
     {
     }
 
@@ -214,7 +212,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::string message;
 };
@@ -252,7 +250,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     virtual ::std::int32_t add(::std::int32_t x, ::std::int32_t y, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

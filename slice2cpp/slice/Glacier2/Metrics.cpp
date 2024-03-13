@@ -42,12 +42,8 @@ const ::IceInternal::DefaultValueFactoryInit<::IceMX::SessionMetrics> iceC_IceMX
 
 }
 
-IceMX::SessionMetrics::~SessionMetrics()
-{
-}
-
 ::std::string_view
-IceMX::SessionMetrics::ice_staticId()
+IceMX::SessionMetrics::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceMX::SessionMetrics";
     return typeId;

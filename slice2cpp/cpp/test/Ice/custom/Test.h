@@ -186,7 +186,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit DPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -200,7 +200,7 @@ public:
     {
     }
 
-    DPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    DPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -614,7 +614,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit TestIntfPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -628,7 +628,7 @@ public:
     {
     }
 
-    TestIntfPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    TestIntfPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -697,10 +697,7 @@ class C : public ::Ice::ValueHelper<C, ::Ice::Value>
 {
 public:
 
-    virtual ~C();
-
     C() = default;
-
     C(const C&) = default;
     C(C&&) = default;
     C& operator=(const C&) = default;
@@ -719,7 +716,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 };
 
 /// \cond INTERNAL
@@ -730,10 +727,7 @@ class DictClass : public ::Ice::ValueHelper<DictClass, ::Ice::Value>
 {
 public:
 
-    virtual ~DictClass();
-
     DictClass() = default;
-
     DictClass(const DictClass&) = default;
     DictClass(DictClass&&) = default;
     DictClass& operator=(const DictClass&) = default;
@@ -742,8 +736,8 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit DictClass(const ::Test::IntStringDict& isdict) :
-        isdict(isdict)
+    explicit DictClass(::Test::IntStringDict isdict) :
+        isdict(::std::move(isdict))
     {
     }
 
@@ -760,7 +754,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::Test::IntStringDict isdict;
 };
@@ -821,7 +815,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 };
 
 using DPtr = ::std::shared_ptr<D>;
@@ -850,7 +844,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     virtual DoubleSeq opDoubleArray(::std::pair<const double*, const double*> inSeq, DoubleSeq& outSeq, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

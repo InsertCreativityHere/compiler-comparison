@@ -67,7 +67,7 @@ Test::TestFacetPrx::_iceI_getChanges(const ::std::shared_ptr<::IceInternal::Outg
 }
 
 ::std::string_view
-Test::TestFacetPrx::ice_staticId()
+Test::TestFacetPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::TestFacet";
     return typeId;
@@ -87,7 +87,7 @@ Test::TestFacet::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::TestFacet::ice_staticId()
+Test::TestFacet::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::TestFacet";
     return typeId;

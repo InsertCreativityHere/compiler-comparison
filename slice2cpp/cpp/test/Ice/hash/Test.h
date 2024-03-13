@@ -42,10 +42,7 @@ class Point : public ::Ice::ValueHelper<Point, ::Ice::Value>
 {
 public:
 
-    virtual ~Point();
-
     Point() = default;
-
     Point(const Point&) = default;
     Point(Point&&) = default;
     Point& operator=(const Point&) = default;
@@ -64,7 +61,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 };
 
 /// \cond INTERNAL

@@ -53,7 +53,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit EmptyPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -67,7 +67,7 @@ public:
     {
     }
 
-    EmptyPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    EmptyPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -281,7 +281,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit ThrowerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -295,7 +295,7 @@ public:
     {
     }
 
-    ThrowerPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    ThrowerPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -344,7 +344,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit WrongOperationPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -358,7 +358,7 @@ public:
     {
     }
 
-    WrongOperationPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    WrongOperationPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -397,16 +397,14 @@ class A : public ::Ice::UserExceptionHelper<A, ::Ice::UserException>
 {
 public:
 
-    virtual ~A();
+    A() noexcept = default;
 
     A(const A&) = default;
-
-    A() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    A(::std::int32_t aMem) :
+    A(::std::int32_t aMem) noexcept :
         aMem(aMem)
     {
     }
@@ -424,7 +422,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::int32_t aMem;
 };
@@ -437,16 +435,14 @@ class B : public ::Ice::UserExceptionHelper<B, A>
 {
 public:
 
-    virtual ~B();
+    B() noexcept = default;
 
     B(const B&) = default;
-
-    B() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    B(::std::int32_t aMem, ::std::int32_t bMem) :
+    B(::std::int32_t aMem, ::std::int32_t bMem) noexcept :
         ::Ice::UserExceptionHelper<B, A>(aMem),
         bMem(bMem)
     {
@@ -465,7 +461,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::int32_t bMem;
 };
@@ -474,16 +470,14 @@ class C : public ::Ice::UserExceptionHelper<C, B>
 {
 public:
 
-    virtual ~C();
+    C() noexcept = default;
 
     C(const C&) = default;
-
-    C() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    C(::std::int32_t aMem, ::std::int32_t bMem, ::std::int32_t cMem) :
+    C(::std::int32_t aMem, ::std::int32_t bMem, ::std::int32_t cMem) noexcept :
         ::Ice::UserExceptionHelper<C, B>(aMem, bMem),
         cMem(cMem)
     {
@@ -502,7 +496,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::int32_t cMem;
 };
@@ -511,16 +505,14 @@ class D : public ::Ice::UserExceptionHelper<D, ::Ice::UserException>
 {
 public:
 
-    virtual ~D();
+    D() noexcept = default;
 
     D(const D&) = default;
-
-    D() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    D(::std::int32_t dMem) :
+    D(::std::int32_t dMem) noexcept :
         dMem(dMem)
     {
     }
@@ -538,7 +530,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::int32_t dMem;
 };
@@ -572,7 +564,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 };
 
 using EmptyPtr = ::std::shared_ptr<Empty>;
@@ -601,7 +593,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -714,7 +706,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     virtual void noSuchOperation(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

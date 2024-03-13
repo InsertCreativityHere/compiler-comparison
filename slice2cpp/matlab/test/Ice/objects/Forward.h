@@ -60,7 +60,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit F2Prx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -74,7 +74,7 @@ public:
     {
     }
 
-    F2Prx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    F2Prx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -113,10 +113,7 @@ class F1 : public ::Ice::ValueHelper<F1, ::Ice::Value>
 {
 public:
 
-    virtual ~F1();
-
     F1() = default;
-
     F1(const F1&) = default;
     F1(F1&&) = default;
     F1& operator=(const F1&) = default;
@@ -125,8 +122,8 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit F1(::std::string_view name) :
-        name(name)
+    explicit F1(::std::string name) :
+        name(::std::move(name))
     {
     }
 
@@ -143,7 +140,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::string name;
 };
@@ -181,7 +178,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     virtual void op(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

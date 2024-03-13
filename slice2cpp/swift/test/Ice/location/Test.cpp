@@ -69,7 +69,7 @@ Test::TestLocatorRegistryPrx::_iceI_addObject(const ::std::shared_ptr<::IceInter
 }
 
 ::std::string_view
-Test::TestLocatorRegistryPrx::ice_staticId()
+Test::TestLocatorRegistryPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::TestLocatorRegistry";
     return typeId;
@@ -105,7 +105,7 @@ Test::TestLocatorPrx::_iceI_getRequestCount(const ::std::shared_ptr<::IceInterna
 }
 
 ::std::string_view
-Test::TestLocatorPrx::ice_staticId()
+Test::TestLocatorPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::TestLocator";
     return typeId;
@@ -168,7 +168,7 @@ Test::ServerManagerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Ou
 }
 
 ::std::string_view
-Test::ServerManagerPrx::ice_staticId()
+Test::ServerManagerPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::ServerManager";
     return typeId;
@@ -203,7 +203,7 @@ Test::HelloPrx::_iceI_sayHello(const ::std::shared_ptr<::IceInternal::OutgoingAs
 }
 
 ::std::string_view
-Test::HelloPrx::ice_staticId()
+Test::HelloPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Hello";
     return typeId;
@@ -324,7 +324,7 @@ Test::TestIntfPrx::_iceI_migrateHello(const ::std::shared_ptr<::IceInternal::Out
 }
 
 ::std::string_view
-Test::TestIntfPrx::ice_staticId()
+Test::TestIntfPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::TestIntf";
     return typeId;
@@ -344,7 +344,7 @@ Test::TestLocatorRegistry::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::TestLocatorRegistry::ice_staticId()
+Test::TestLocatorRegistry::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::TestLocatorRegistry";
     return typeId;
@@ -444,7 +444,7 @@ Test::TestLocator::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::TestLocator::ice_staticId()
+Test::TestLocator::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::TestLocator";
     return typeId;
@@ -544,7 +544,7 @@ Test::ServerManager::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::ServerManager::ice_staticId()
+Test::ServerManager::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::ServerManager";
     return typeId;
@@ -641,7 +641,7 @@ Test::Hello::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::Hello::ice_staticId()
+Test::Hello::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Hello";
     return typeId;
@@ -722,7 +722,7 @@ Test::TestIntf::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::TestIntf::ice_staticId()
+Test::TestIntf::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::TestIntf";
     return typeId;

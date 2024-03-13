@@ -66,7 +66,7 @@ Test::BackendPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
 }
 
 ::std::string_view
-Test::BackendPrx::ice_staticId()
+Test::BackendPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Backend";
     return typeId;
@@ -86,7 +86,7 @@ Test::Backend::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::Backend::ice_staticId()
+Test::Backend::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Backend";
     return typeId;

@@ -208,7 +208,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit FileServerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -222,7 +222,7 @@ public:
     {
     }
 
-    FileServerPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    FileServerPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -265,11 +265,9 @@ class ICE_CLASS(ICEPATCH2_API) PartitionOutOfRangeException : public ::Ice::User
 {
 public:
 
-    ICE_MEMBER(ICEPATCH2_API) virtual ~PartitionOutOfRangeException();
+    PartitionOutOfRangeException() noexcept = default;
 
     PartitionOutOfRangeException(const PartitionOutOfRangeException&) = default;
-
-    PartitionOutOfRangeException() = default;
 
     /**
      * Obtains a tuple containing all of the exception's data members.
@@ -284,7 +282,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEPATCH2_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICEPATCH2_API) static ::std::string_view ice_staticId() noexcept;
 };
 
 /// \cond INTERNAL
@@ -299,18 +297,16 @@ class ICE_CLASS(ICEPATCH2_API) FileAccessException : public ::Ice::UserException
 {
 public:
 
-    ICE_MEMBER(ICEPATCH2_API) virtual ~FileAccessException();
+    FileAccessException() noexcept = default;
 
     FileAccessException(const FileAccessException&) = default;
-
-    FileAccessException() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param reason An explanation of the reason for the failure.
      */
-    FileAccessException(::std::string_view reason) :
-        reason(reason)
+    FileAccessException(::std::string reason) noexcept :
+        reason(::std::move(reason))
     {
     }
 
@@ -327,7 +323,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEPATCH2_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICEPATCH2_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * An explanation of the reason for the failure.
@@ -344,18 +340,16 @@ class ICE_CLASS(ICEPATCH2_API) FileSizeRangeException : public ::Ice::UserExcept
 {
 public:
 
-    ICE_MEMBER(ICEPATCH2_API) virtual ~FileSizeRangeException();
+    FileSizeRangeException() noexcept = default;
 
     FileSizeRangeException(const FileSizeRangeException&) = default;
-
-    FileSizeRangeException() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param reason An explanation of the reason for the failure.
      */
-    FileSizeRangeException(::std::string_view reason) :
-        ::Ice::UserExceptionHelper<FileSizeRangeException, FileAccessException>(reason)
+    FileSizeRangeException(::std::string reason) noexcept :
+        ::Ice::UserExceptionHelper<FileSizeRangeException, FileAccessException>(::std::move(reason))
     {
     }
 
@@ -372,7 +366,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEPATCH2_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICEPATCH2_API) static ::std::string_view ice_staticId() noexcept;
 };
 
 }
@@ -407,7 +401,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /**
      * Returns file information for the specified partition.

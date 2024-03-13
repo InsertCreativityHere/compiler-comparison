@@ -211,10 +211,7 @@ class Base : public ::Ice::ValueHelper<Base, ::Ice::Value>
 {
 public:
 
-    virtual ~Base();
-
     Base() = default;
-
     Base(const Base&) = default;
     Base(Base&&) = default;
     Base& operator=(const Base&) = default;
@@ -223,7 +220,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Base(bool boolFalse, bool boolTrue, ::std::uint8_t b, ::std::int16_t s, ::std::int32_t i, ::std::int64_t l, float f, double d, ::std::string_view str, ::std::string_view noDefault, ::std::int32_t zeroI, ::std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD) :
+    Base(bool boolFalse, bool boolTrue, ::std::uint8_t b, ::std::int16_t s, ::std::int32_t i, ::std::int64_t l, float f, double d, ::std::string str, ::std::string noDefault, ::std::int32_t zeroI, ::std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD) :
         boolFalse(boolFalse),
         boolTrue(boolTrue),
         b(b),
@@ -232,8 +229,8 @@ public:
         l(l),
         f(f),
         d(d),
-        str(str),
-        noDefault(noDefault),
+        str(::std::move(str)),
+        noDefault(::std::move(noDefault)),
         zeroI(zeroI),
         zeroL(zeroL),
         zeroF(zeroF),
@@ -256,7 +253,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     bool boolFalse = false;
     bool boolTrue = true;
@@ -284,10 +281,7 @@ class Derived : public ::Ice::ValueHelper<Derived, Base>
 {
 public:
 
-    virtual ~Derived();
-
     Derived() = default;
-
     Derived(const Derived&) = default;
     Derived(Derived&&) = default;
     Derived& operator=(const Derived&) = default;
@@ -296,8 +290,8 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Derived(bool boolFalse, bool boolTrue, ::std::uint8_t b, ::std::int16_t s, ::std::int32_t i, ::std::int64_t l, float f, double d, ::std::string_view str, ::std::string_view noDefault, ::std::int32_t zeroI, ::std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, ::Test::Color c1, ::Test::Color c2, ::Test::Color c3, ::Test::Nested::Color nc1, ::Test::Nested::Color nc2, ::Test::Nested::Color nc3) :
-        Ice::ValueHelper<Derived, Base>(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD),
+    Derived(bool boolFalse, bool boolTrue, ::std::uint8_t b, ::std::int16_t s, ::std::int32_t i, ::std::int64_t l, float f, double d, ::std::string str, ::std::string noDefault, ::std::int32_t zeroI, ::std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, ::Test::Color c1, ::Test::Color c2, ::Test::Color c3, ::Test::Nested::Color nc1, ::Test::Nested::Color nc2, ::Test::Nested::Color nc3) :
+        Ice::ValueHelper<Derived, Base>(boolFalse, boolTrue, b, s, i, l, f, d, ::std::move(str), ::std::move(noDefault), zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD),
         c1(c1),
         c2(c2),
         c3(c3),
@@ -320,7 +314,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::Test::Color c1 = ::Test::Color::red;
     ::Test::Color c2 = ::Test::Color::green;
@@ -334,16 +328,14 @@ class BaseEx : public ::Ice::UserExceptionHelper<BaseEx, ::Ice::UserException>
 {
 public:
 
-    virtual ~BaseEx();
+    BaseEx() noexcept = default;
 
     BaseEx(const BaseEx&) = default;
-
-    BaseEx() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    BaseEx(bool boolFalse, bool boolTrue, ::std::uint8_t b, ::std::int16_t s, ::std::int32_t i, ::std::int64_t l, float f, double d, ::std::string_view str, ::std::string_view noDefault, ::std::int32_t zeroI, ::std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD) :
+    BaseEx(bool boolFalse, bool boolTrue, ::std::uint8_t b, ::std::int16_t s, ::std::int32_t i, ::std::int64_t l, float f, double d, ::std::string str, ::std::string noDefault, ::std::int32_t zeroI, ::std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD) noexcept :
         boolFalse(boolFalse),
         boolTrue(boolTrue),
         b(b),
@@ -352,8 +344,8 @@ public:
         l(l),
         f(f),
         d(d),
-        str(str),
-        noDefault(noDefault),
+        str(::std::move(str)),
+        noDefault(::std::move(noDefault)),
         zeroI(zeroI),
         zeroL(zeroL),
         zeroF(zeroF),
@@ -376,7 +368,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     bool boolFalse = false;
     bool boolTrue = true;
@@ -400,17 +392,15 @@ class DerivedEx : public ::Ice::UserExceptionHelper<DerivedEx, BaseEx>
 {
 public:
 
-    virtual ~DerivedEx();
+    DerivedEx() noexcept = default;
 
     DerivedEx(const DerivedEx&) = default;
-
-    DerivedEx() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    DerivedEx(bool boolFalse, bool boolTrue, ::std::uint8_t b, ::std::int16_t s, ::std::int32_t i, ::std::int64_t l, float f, double d, ::std::string_view str, ::std::string_view noDefault, ::std::int32_t zeroI, ::std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, Color c1, Color c2, Color c3, ::Test::Nested::Color nc1, ::Test::Nested::Color nc2, ::Test::Nested::Color nc3) :
-        ::Ice::UserExceptionHelper<DerivedEx, BaseEx>(boolFalse, boolTrue, b, s, i, l, f, d, str, noDefault, zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD),
+    DerivedEx(bool boolFalse, bool boolTrue, ::std::uint8_t b, ::std::int16_t s, ::std::int32_t i, ::std::int64_t l, float f, double d, ::std::string str, ::std::string noDefault, ::std::int32_t zeroI, ::std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, Color c1, Color c2, Color c3, ::Test::Nested::Color nc1, ::Test::Nested::Color nc2, ::Test::Nested::Color nc3) noexcept :
+        ::Ice::UserExceptionHelper<DerivedEx, BaseEx>(boolFalse, boolTrue, b, s, i, l, f, d, ::std::move(str), ::std::move(noDefault), zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD),
         c1(c1),
         c2(c2),
         c3(c3),
@@ -433,7 +423,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::Test::Color c1 = ::Test::ConstColor1;
     ::Test::Color c2 = ::Test::ConstColor2;

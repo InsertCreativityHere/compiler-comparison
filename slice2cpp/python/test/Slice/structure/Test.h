@@ -85,10 +85,7 @@ class C : public ::Ice::ValueHelper<C, ::Ice::Value>
 {
 public:
 
-    virtual ~C();
-
     C() = default;
-
     C(const C&) = default;
     C(C&&) = default;
     C& operator=(const C&) = default;
@@ -97,8 +94,8 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit C(::std::string_view name) :
-        name(name)
+    explicit C(::std::string name) :
+        name(::std::move(name))
     {
     }
 
@@ -115,7 +112,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::string name;
 };

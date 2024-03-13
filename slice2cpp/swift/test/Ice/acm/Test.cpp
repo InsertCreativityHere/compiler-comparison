@@ -187,7 +187,7 @@ Test::TestIntfPrx::_iceI_waitForHeartbeatCount(const ::std::shared_ptr<::IceInte
 }
 
 ::std::string_view
-Test::TestIntfPrx::ice_staticId()
+Test::TestIntfPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::TestIntf";
     return typeId;
@@ -307,7 +307,7 @@ Test::RemoteObjectAdapterPrx::_iceI_deactivate(const ::std::shared_ptr<::IceInte
 }
 
 ::std::string_view
-Test::RemoteObjectAdapterPrx::ice_staticId()
+Test::RemoteObjectAdapterPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::RemoteObjectAdapter";
     return typeId;
@@ -374,7 +374,7 @@ Test::RemoteCommunicatorPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInterna
 }
 
 ::std::string_view
-Test::RemoteCommunicatorPrx::ice_staticId()
+Test::RemoteCommunicatorPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::RemoteCommunicator";
     return typeId;
@@ -394,7 +394,7 @@ Test::TestIntf::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::TestIntf::ice_staticId()
+Test::TestIntf::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::TestIntf";
     return typeId;
@@ -551,7 +551,7 @@ Test::RemoteObjectAdapter::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::RemoteObjectAdapter::ice_staticId()
+Test::RemoteObjectAdapter::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::RemoteObjectAdapter";
     return typeId;
@@ -684,7 +684,7 @@ Test::RemoteCommunicator::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::RemoteCommunicator::ice_staticId()
+Test::RemoteCommunicator::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::RemoteCommunicator";
     return typeId;

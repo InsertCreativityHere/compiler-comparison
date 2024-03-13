@@ -67,7 +67,7 @@ Test::TestIntfPrx::_iceI_getAdapterId(const ::std::shared_ptr<::IceInternal::Out
 }
 
 ::std::string_view
-Test::TestIntfPrx::ice_staticId()
+Test::TestIntfPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::TestIntf";
     return typeId;
@@ -226,7 +226,7 @@ Test::ControllerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgo
 }
 
 ::std::string_view
-Test::ControllerPrx::ice_staticId()
+Test::ControllerPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Controller";
     return typeId;
@@ -246,7 +246,7 @@ Test::TestIntf::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::TestIntf::ice_staticId()
+Test::TestIntf::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::TestIntf";
     return typeId;
@@ -331,7 +331,7 @@ Test::Controller::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::Controller::ice_staticId()
+Test::Controller::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Controller";
     return typeId;

@@ -370,7 +370,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit CustomPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -384,7 +384,7 @@ public:
     {
     }
 
-    CustomPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    CustomPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -444,10 +444,7 @@ class C : public ::Ice::ValueHelper<C, ::Ice::Value>
 {
 public:
 
-    virtual ~C();
-
     C() = default;
-
     C(const C&) = default;
     C(C&&) = default;
     C& operator=(const C&) = default;
@@ -456,15 +453,15 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    C(const ::Test::ByteString& b1, const ::Test::ByteString& b2, const ::Test::ByteList& b3, const ::Test::ByteList& b4, const ::Test::StringList& s1, const ::Test::StringList& s2, const ::Test::StringTuple& s3, const ::Test::StringTuple& s4) :
-        b1(b1),
-        b2(b2),
-        b3(b3),
-        b4(b4),
-        s1(s1),
-        s2(s2),
-        s3(s3),
-        s4(s4)
+    C(::Test::ByteString b1, ::Test::ByteString b2, ::Test::ByteList b3, ::Test::ByteList b4, ::Test::StringList s1, ::Test::StringList s2, ::Test::StringTuple s3, ::Test::StringTuple s4) :
+        b1(::std::move(b1)),
+        b2(::std::move(b2)),
+        b3(::std::move(b3)),
+        b4(::std::move(b4)),
+        s1(::std::move(s1)),
+        s2(::std::move(s2)),
+        s3(::std::move(s3)),
+        s4(::std::move(s4))
     {
     }
 
@@ -481,7 +478,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::Test::ByteString b1;
     ::Test::ByteString b2;
@@ -501,10 +498,7 @@ class D : public ::Ice::ValueHelper<D, ::Ice::Value>
 {
 public:
 
-    virtual ~D();
-
     D() = default;
-
     D(const D&) = default;
     D(D&&) = default;
     D& operator=(const D&) = default;
@@ -513,14 +507,14 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    D(const ::std::optional<::Test::BoolSeq1>& boolSeq, const ::std::optional<::Test::ByteSeq1>& byteSeq, const ::std::optional<::Test::ShortSeq1>& shortSeq, const ::std::optional<::Test::IntSeq1>& intSeq, const ::std::optional<::Test::LongSeq1>& longSeq, const ::std::optional<::Test::FloatSeq1>& floatSeq, const ::std::optional<::Test::DoubleSeq1>& doubleSeq) :
-        boolSeq(boolSeq),
-        byteSeq(byteSeq),
-        shortSeq(shortSeq),
-        intSeq(intSeq),
-        longSeq(longSeq),
-        floatSeq(floatSeq),
-        doubleSeq(doubleSeq)
+    D(::std::optional<::Test::BoolSeq1> boolSeq, ::std::optional<::Test::ByteSeq1> byteSeq, ::std::optional<::Test::ShortSeq1> shortSeq, ::std::optional<::Test::IntSeq1> intSeq, ::std::optional<::Test::LongSeq1> longSeq, ::std::optional<::Test::FloatSeq1> floatSeq, ::std::optional<::Test::DoubleSeq1> doubleSeq) :
+        boolSeq(::std::move(boolSeq)),
+        byteSeq(::std::move(byteSeq)),
+        shortSeq(::std::move(shortSeq)),
+        intSeq(::std::move(intSeq)),
+        longSeq(::std::move(longSeq)),
+        floatSeq(::std::move(floatSeq)),
+        doubleSeq(::std::move(doubleSeq))
     {
     }
 
@@ -537,7 +531,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::optional<::Test::BoolSeq1> boolSeq;
     ::std::optional<::Test::ByteSeq1> byteSeq;
@@ -584,7 +578,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     virtual ByteString opByteString1(ByteString b1, ByteString& b2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

@@ -82,7 +82,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit InitialPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -96,7 +96,7 @@ public:
     {
     }
 
-    InitialPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    InitialPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -135,10 +135,7 @@ class ConcreteClass : public ::Ice::ValueHelper<ConcreteClass, ::Ice::Value>
 {
 public:
 
-    virtual ~ConcreteClass();
-
     ConcreteClass() = default;
-
     ConcreteClass(const ConcreteClass&) = default;
     ConcreteClass(ConcreteClass&&) = default;
     ConcreteClass& operator=(const ConcreteClass&) = default;
@@ -165,7 +162,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::int32_t i;
 };
@@ -178,11 +175,9 @@ class E : public ::Ice::UserExceptionHelper<E, ::Ice::UserException>
 {
 public:
 
-    virtual ~E();
+    E() noexcept = default;
 
     E(const E&) = default;
-
-    E() = default;
 
     /**
      * Obtains a tuple containing all of the exception's data members.
@@ -197,7 +192,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 };
 
 }
@@ -229,7 +224,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     virtual ::std::shared_ptr<ConcreteClass> getConcreteClass(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

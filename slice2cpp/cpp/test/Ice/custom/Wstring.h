@@ -98,7 +98,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit WstringClassPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -112,7 +112,7 @@ public:
     {
     }
 
-    WstringClassPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    WstringClassPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -188,7 +188,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit WstringClassPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -202,7 +202,7 @@ public:
     {
     }
 
-    WstringClassPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    WstringClassPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -255,17 +255,15 @@ class WstringException : public ::Ice::UserExceptionHelper<WstringException, ::I
 {
 public:
 
-    virtual ~WstringException();
+    WstringException() noexcept = default;
 
     WstringException(const WstringException&) = default;
-
-    WstringException() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    WstringException(::std::wstring_view reason) :
-        reason(reason)
+    WstringException(::std::wstring reason) noexcept :
+        reason(::std::move(reason))
     {
     }
 
@@ -282,7 +280,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::wstring reason;
 };
@@ -321,17 +319,15 @@ class WstringException : public ::Ice::UserExceptionHelper<WstringException, ::I
 {
 public:
 
-    virtual ~WstringException();
+    WstringException() noexcept = default;
 
     WstringException(const WstringException&) = default;
-
-    WstringException() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    WstringException(::std::wstring_view reason) :
-        reason(reason)
+    WstringException(::std::wstring reason) noexcept :
+        reason(::std::move(reason))
     {
     }
 
@@ -348,7 +344,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::wstring reason;
 };
@@ -389,7 +385,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     virtual ::std::wstring opString(::std::wstring s1, ::std::wstring& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -442,7 +438,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     virtual ::std::wstring opString(::std::wstring s1, ::std::wstring& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

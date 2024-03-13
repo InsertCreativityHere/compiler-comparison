@@ -680,18 +680,14 @@ Test::NumPy::CustomPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Ou
 }
 
 ::std::string_view
-Test::NumPy::CustomPrx::ice_staticId()
+Test::NumPy::CustomPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::NumPy::Custom";
     return typeId;
 }
 
-Test::NumPy::D::~D()
-{
-}
-
 ::std::string_view
-Test::NumPy::D::ice_staticId()
+Test::NumPy::D::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::NumPy::D";
     return typeId;
@@ -711,7 +707,7 @@ Test::NumPy::Custom::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::NumPy::Custom::ice_staticId()
+Test::NumPy::Custom::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::NumPy::Custom";
     return typeId;

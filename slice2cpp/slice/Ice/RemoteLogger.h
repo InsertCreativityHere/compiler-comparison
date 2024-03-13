@@ -164,7 +164,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit RemoteLoggerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -178,7 +178,7 @@ public:
     {
     }
 
-    RemoteLoggerPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    RemoteLoggerPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -360,7 +360,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit LoggerAdminPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -374,7 +374,7 @@ public:
     {
     }
 
-    LoggerAdminPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    LoggerAdminPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -451,11 +451,9 @@ class ICE_CLASS(ICE_API) RemoteLoggerAlreadyAttachedException : public UserExcep
 {
 public:
 
-    ICE_MEMBER(ICE_API) virtual ~RemoteLoggerAlreadyAttachedException();
+    RemoteLoggerAlreadyAttachedException() noexcept = default;
 
     RemoteLoggerAlreadyAttachedException(const RemoteLoggerAlreadyAttachedException&) = default;
-
-    RemoteLoggerAlreadyAttachedException() = default;
 
     /**
      * Obtains a tuple containing all of the exception's data members.
@@ -470,7 +468,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId() noexcept;
 };
 
 /// \cond INTERNAL
@@ -517,7 +515,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /**
      * init is called by attachRemoteLogger when a RemoteLogger proxy is attached.
@@ -575,7 +573,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /**
      * Attaches a RemoteLogger object to the local logger. attachRemoteLogger calls init on the provided

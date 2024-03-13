@@ -61,10 +61,7 @@ class ICE_CLASS(ICESTORM_API) TopicMetrics : public ::Ice::ValueHelper<TopicMetr
 {
 public:
 
-    ICE_MEMBER(ICESTORM_API) virtual ~TopicMetrics();
-
     TopicMetrics() = default;
-
     TopicMetrics(const TopicMetrics&) = default;
     TopicMetrics(TopicMetrics&&) = default;
     TopicMetrics& operator=(const TopicMetrics&) = default;
@@ -80,8 +77,8 @@ public:
      * @param published Number of events published on the topic by publishers.
      * @param forwarded Number of events forwarded on the topic by IceStorm topic links.
      */
-    TopicMetrics(::std::string_view id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int64_t published, ::std::int64_t forwarded) :
-        Ice::ValueHelper<TopicMetrics, Metrics>(id, total, current, totalLifetime, failures),
+    TopicMetrics(::std::string id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int64_t published, ::std::int64_t forwarded) :
+        Ice::ValueHelper<TopicMetrics, Metrics>(::std::move(id), total, current, totalLifetime, failures),
         published(published),
         forwarded(forwarded)
     {
@@ -100,7 +97,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICESTORM_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICESTORM_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * Number of events published on the topic by publishers.
@@ -124,10 +121,7 @@ class ICE_CLASS(ICESTORM_API) SubscriberMetrics : public ::Ice::ValueHelper<Subs
 {
 public:
 
-    ICE_MEMBER(ICESTORM_API) virtual ~SubscriberMetrics();
-
     SubscriberMetrics() = default;
-
     SubscriberMetrics(const SubscriberMetrics&) = default;
     SubscriberMetrics(SubscriberMetrics&&) = default;
     SubscriberMetrics& operator=(const SubscriberMetrics&) = default;
@@ -144,8 +138,8 @@ public:
      * @param outstanding Number of outstanding events.
      * @param delivered Number of forwarded events.
      */
-    SubscriberMetrics(::std::string_view id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int32_t queued, ::std::int32_t outstanding, ::std::int64_t delivered) :
-        Ice::ValueHelper<SubscriberMetrics, Metrics>(id, total, current, totalLifetime, failures),
+    SubscriberMetrics(::std::string id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int32_t queued, ::std::int32_t outstanding, ::std::int64_t delivered) :
+        Ice::ValueHelper<SubscriberMetrics, Metrics>(::std::move(id), total, current, totalLifetime, failures),
         queued(queued),
         outstanding(outstanding),
         delivered(delivered)
@@ -165,7 +159,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICESTORM_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICESTORM_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * Number of queued events.

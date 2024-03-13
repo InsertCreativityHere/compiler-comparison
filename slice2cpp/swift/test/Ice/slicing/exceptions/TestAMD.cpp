@@ -620,51 +620,35 @@ Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
 }
 
 ::std::string_view
-Test::TestIntfPrx::ice_staticId()
+Test::TestIntfPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::TestIntf";
     return typeId;
 }
 
-Test::Base::~Base()
-{
-}
-
 ::std::string_view
-Test::Base::ice_staticId()
+Test::Base::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Base";
     return typeId;
 }
 
-Test::KnownDerived::~KnownDerived()
-{
-}
-
 ::std::string_view
-Test::KnownDerived::ice_staticId()
+Test::KnownDerived::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::KnownDerived";
     return typeId;
 }
 
-Test::KnownIntermediate::~KnownIntermediate()
-{
-}
-
 ::std::string_view
-Test::KnownIntermediate::ice_staticId()
+Test::KnownIntermediate::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::KnownIntermediate";
     return typeId;
 }
 
-Test::KnownMostDerived::~KnownMostDerived()
-{
-}
-
 ::std::string_view
-Test::KnownMostDerived::ice_staticId()
+Test::KnownMostDerived::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::KnownMostDerived";
     return typeId;
@@ -684,7 +668,7 @@ Test::TestIntf::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::TestIntf::ice_staticId()
+Test::TestIntf::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::TestIntf";
     return typeId;

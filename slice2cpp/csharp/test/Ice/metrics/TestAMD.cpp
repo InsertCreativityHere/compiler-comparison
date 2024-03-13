@@ -310,7 +310,7 @@ Test::MetricsPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
 }
 
 ::std::string_view
-Test::MetricsPrx::ice_staticId()
+Test::MetricsPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Metrics";
     return typeId;
@@ -373,18 +373,14 @@ Test::ControllerPrx::_iceI_resume(const ::std::shared_ptr<::IceInternal::Outgoin
 }
 
 ::std::string_view
-Test::ControllerPrx::ice_staticId()
+Test::ControllerPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Controller";
     return typeId;
 }
 
-Test::UserEx::~UserEx()
-{
-}
-
 ::std::string_view
-Test::UserEx::ice_staticId()
+Test::UserEx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::UserEx";
     return typeId;
@@ -404,7 +400,7 @@ Test::Metrics::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::Metrics::ice_staticId()
+Test::Metrics::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Metrics";
     return typeId;
@@ -670,7 +666,7 @@ Test::Controller::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::Controller::ice_staticId()
+Test::Controller::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Controller";
     return typeId;

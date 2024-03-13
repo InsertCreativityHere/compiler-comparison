@@ -44,40 +44,28 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::MyException> iceC_T
 }
 
 ::std::string_view
-Test::MyInterfacePrx::ice_staticId()
+Test::MyInterfacePrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MyInterface";
     return typeId;
 }
 
-Test::OptionalClass::~OptionalClass()
-{
-}
-
 ::std::string_view
-Test::OptionalClass::ice_staticId()
+Test::OptionalClass::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::OptionalClass";
     return typeId;
 }
 
-Test::MyClass::~MyClass()
-{
-}
-
 ::std::string_view
-Test::MyClass::ice_staticId()
+Test::MyClass::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MyClass";
     return typeId;
 }
 
-Test::MyException::~MyException()
-{
-}
-
 ::std::string_view
-Test::MyException::ice_staticId()
+Test::MyException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MyException";
     return typeId;
@@ -105,7 +93,7 @@ Test::MyInterface::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::MyInterface::ice_staticId()
+Test::MyInterface::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MyInterface";
     return typeId;

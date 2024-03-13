@@ -88,18 +88,14 @@ Test::MyInterfacePrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAs
 }
 
 ::std::string_view
-Test::MyInterfacePrx::ice_staticId()
+Test::MyInterfacePrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MyInterface";
     return typeId;
 }
 
-Test::UserError::~UserError()
-{
-}
-
 ::std::string_view
-Test::UserError::ice_staticId()
+Test::UserError::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::UserError";
     return typeId;
@@ -119,7 +115,7 @@ Test::MyInterface::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::MyInterface::ice_staticId()
+Test::MyInterface::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MyInterface";
     return typeId;

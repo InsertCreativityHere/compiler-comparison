@@ -188,7 +188,7 @@ Test::RetryPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAs
 }
 
 ::std::string_view
-Test::RetryPrx::ice_staticId()
+Test::RetryPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Retry";
     return typeId;
@@ -208,7 +208,7 @@ Test::Retry::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::Retry::ice_staticId()
+Test::Retry::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Retry";
     return typeId;

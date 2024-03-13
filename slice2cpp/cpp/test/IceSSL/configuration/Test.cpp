@@ -128,7 +128,7 @@ Test::ServerPrx::_iceI_checkCipher(const ::std::shared_ptr<::IceInternal::Outgoi
 }
 
 ::std::string_view
-Test::ServerPrx::ice_staticId()
+Test::ServerPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Server";
     return typeId;
@@ -226,7 +226,7 @@ Test::ServerFactoryPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Ou
 }
 
 ::std::string_view
-Test::ServerFactoryPrx::ice_staticId()
+Test::ServerFactoryPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::ServerFactory";
     return typeId;
@@ -246,7 +246,7 @@ Test::Server::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::Server::ice_staticId()
+Test::Server::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Server";
     return typeId;
@@ -368,7 +368,7 @@ Test::ServerFactory::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::ServerFactory::ice_staticId()
+Test::ServerFactory::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::ServerFactory";
     return typeId;

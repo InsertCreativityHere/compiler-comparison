@@ -100,7 +100,7 @@ Ice::ProcessPrx::_iceI_writeMessage(const ::std::shared_ptr<::IceInternal::Outgo
 }
 
 ::std::string_view
-Ice::ProcessPrx::ice_staticId()
+Ice::ProcessPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Ice::Process";
     return typeId;
@@ -120,7 +120,7 @@ Ice::Process::ice_id(const Current&) const
 }
 
 ::std::string_view
-Ice::Process::ice_staticId()
+Ice::Process::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Ice::Process";
     return typeId;

@@ -202,7 +202,7 @@ Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
 }
 
 ::std::string_view
-Test::TestIntfPrx::ice_staticId()
+Test::TestIntfPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::TestIntf";
     return typeId;
@@ -307,29 +307,21 @@ Test::TestIntfControllerPrx::_iceI_interrupt(const ::std::shared_ptr<::IceIntern
 }
 
 ::std::string_view
-Test::TestIntfControllerPrx::ice_staticId()
+Test::TestIntfControllerPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::TestIntfController";
     return typeId;
 }
 
-Test::InterruptedException::~InterruptedException()
-{
-}
-
 ::std::string_view
-Test::InterruptedException::ice_staticId()
+Test::InterruptedException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::InterruptedException";
     return typeId;
 }
 
-Test::CannotInterruptException::~CannotInterruptException()
-{
-}
-
 ::std::string_view
-Test::CannotInterruptException::ice_staticId()
+Test::CannotInterruptException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::CannotInterruptException";
     return typeId;
@@ -349,7 +341,7 @@ Test::TestIntf::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::TestIntf::ice_staticId()
+Test::TestIntf::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::TestIntf";
     return typeId;
@@ -502,7 +494,7 @@ Test::TestIntfController::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::TestIntfController::ice_staticId()
+Test::TestIntfController::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::TestIntfController";
     return typeId;

@@ -102,7 +102,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit UserAccountMapperPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -116,7 +116,7 @@ public:
     {
     }
 
-    UserAccountMapperPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    UserAccountMapperPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -159,11 +159,9 @@ class ICE_CLASS(ICEGRID_API) UserAccountNotFoundException : public ::Ice::UserEx
 {
 public:
 
-    ICE_MEMBER(ICEGRID_API) virtual ~UserAccountNotFoundException();
+    UserAccountNotFoundException() noexcept = default;
 
     UserAccountNotFoundException(const UserAccountNotFoundException&) = default;
-
-    UserAccountNotFoundException() = default;
 
     /**
      * Obtains a tuple containing all of the exception's data members.
@@ -178,7 +176,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 };
 
 /// \cond INTERNAL
@@ -217,7 +215,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /**
      * Get the name of the user account for the given user. This is used by IceGrid nodes to figure out the user

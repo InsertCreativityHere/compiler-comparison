@@ -69,7 +69,7 @@ Test::EventPrx::_iceI_pub(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<
 }
 
 ::std::string_view
-Test::EventPrx::ice_staticId()
+Test::EventPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Event";
     return typeId;
@@ -89,7 +89,7 @@ Test::Event::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::Event::ice_staticId()
+Test::Event::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Event";
     return typeId;

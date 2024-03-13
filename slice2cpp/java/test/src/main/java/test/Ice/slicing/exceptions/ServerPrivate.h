@@ -200,7 +200,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit TestIntfPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -214,7 +214,7 @@ public:
     {
     }
 
-    TestIntfPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    TestIntfPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -253,17 +253,15 @@ class Base : public ::Ice::UserExceptionHelper<Base, ::Ice::UserException>
 {
 public:
 
-    virtual ~Base();
+    Base() noexcept = default;
 
     Base(const Base&) = default;
-
-    Base() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    Base(::std::string_view b) :
-        b(b)
+    Base(::std::string b) noexcept :
+        b(::std::move(b))
     {
     }
 
@@ -280,7 +278,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::string b;
 };
@@ -293,18 +291,16 @@ class KnownDerived : public ::Ice::UserExceptionHelper<KnownDerived, Base>
 {
 public:
 
-    virtual ~KnownDerived();
+    KnownDerived() noexcept = default;
 
     KnownDerived(const KnownDerived&) = default;
-
-    KnownDerived() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    KnownDerived(::std::string_view b, ::std::string_view kd) :
-        ::Ice::UserExceptionHelper<KnownDerived, Base>(b),
-        kd(kd)
+    KnownDerived(::std::string b, ::std::string kd) noexcept :
+        ::Ice::UserExceptionHelper<KnownDerived, Base>(::std::move(b)),
+        kd(::std::move(kd))
     {
     }
 
@@ -321,7 +317,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::string kd;
 };
@@ -330,18 +326,16 @@ class KnownIntermediate : public ::Ice::UserExceptionHelper<KnownIntermediate, B
 {
 public:
 
-    virtual ~KnownIntermediate();
+    KnownIntermediate() noexcept = default;
 
     KnownIntermediate(const KnownIntermediate&) = default;
-
-    KnownIntermediate() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    KnownIntermediate(::std::string_view b, ::std::string_view ki) :
-        ::Ice::UserExceptionHelper<KnownIntermediate, Base>(b),
-        ki(ki)
+    KnownIntermediate(::std::string b, ::std::string ki) noexcept :
+        ::Ice::UserExceptionHelper<KnownIntermediate, Base>(::std::move(b)),
+        ki(::std::move(ki))
     {
     }
 
@@ -358,7 +352,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::string ki;
 };
@@ -367,18 +361,16 @@ class KnownMostDerived : public ::Ice::UserExceptionHelper<KnownMostDerived, Kno
 {
 public:
 
-    virtual ~KnownMostDerived();
+    KnownMostDerived() noexcept = default;
 
     KnownMostDerived(const KnownMostDerived&) = default;
-
-    KnownMostDerived() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    KnownMostDerived(::std::string_view b, ::std::string_view ki, ::std::string_view kmd) :
-        ::Ice::UserExceptionHelper<KnownMostDerived, KnownIntermediate>(b, ki),
-        kmd(kmd)
+    KnownMostDerived(::std::string b, ::std::string ki, ::std::string kmd) noexcept :
+        ::Ice::UserExceptionHelper<KnownMostDerived, KnownIntermediate>(::std::move(b), ::std::move(ki)),
+        kmd(::std::move(kmd))
     {
     }
 
@@ -395,7 +387,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::string kmd;
 };
@@ -404,18 +396,16 @@ class UnknownDerived : public ::Ice::UserExceptionHelper<UnknownDerived, Base>
 {
 public:
 
-    virtual ~UnknownDerived();
+    UnknownDerived() noexcept = default;
 
     UnknownDerived(const UnknownDerived&) = default;
-
-    UnknownDerived() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    UnknownDerived(::std::string_view b, ::std::string_view ud) :
-        ::Ice::UserExceptionHelper<UnknownDerived, Base>(b),
-        ud(ud)
+    UnknownDerived(::std::string b, ::std::string ud) noexcept :
+        ::Ice::UserExceptionHelper<UnknownDerived, Base>(::std::move(b)),
+        ud(::std::move(ud))
     {
     }
 
@@ -432,7 +422,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::string ud;
 };
@@ -441,18 +431,16 @@ class UnknownIntermediate : public ::Ice::UserExceptionHelper<UnknownIntermediat
 {
 public:
 
-    virtual ~UnknownIntermediate();
+    UnknownIntermediate() noexcept = default;
 
     UnknownIntermediate(const UnknownIntermediate&) = default;
-
-    UnknownIntermediate() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    UnknownIntermediate(::std::string_view b, ::std::string_view ui) :
-        ::Ice::UserExceptionHelper<UnknownIntermediate, Base>(b),
-        ui(ui)
+    UnknownIntermediate(::std::string b, ::std::string ui) noexcept :
+        ::Ice::UserExceptionHelper<UnknownIntermediate, Base>(::std::move(b)),
+        ui(::std::move(ui))
     {
     }
 
@@ -469,7 +457,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::string ui;
 };
@@ -478,18 +466,16 @@ class UnknownMostDerived1 : public ::Ice::UserExceptionHelper<UnknownMostDerived
 {
 public:
 
-    virtual ~UnknownMostDerived1();
+    UnknownMostDerived1() noexcept = default;
 
     UnknownMostDerived1(const UnknownMostDerived1&) = default;
-
-    UnknownMostDerived1() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    UnknownMostDerived1(::std::string_view b, ::std::string_view ki, ::std::string_view umd1) :
-        ::Ice::UserExceptionHelper<UnknownMostDerived1, KnownIntermediate>(b, ki),
-        umd1(umd1)
+    UnknownMostDerived1(::std::string b, ::std::string ki, ::std::string umd1) noexcept :
+        ::Ice::UserExceptionHelper<UnknownMostDerived1, KnownIntermediate>(::std::move(b), ::std::move(ki)),
+        umd1(::std::move(umd1))
     {
     }
 
@@ -506,7 +492,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::string umd1;
 };
@@ -515,18 +501,16 @@ class UnknownMostDerived2 : public ::Ice::UserExceptionHelper<UnknownMostDerived
 {
 public:
 
-    virtual ~UnknownMostDerived2();
+    UnknownMostDerived2() noexcept = default;
 
     UnknownMostDerived2(const UnknownMostDerived2&) = default;
-
-    UnknownMostDerived2() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    UnknownMostDerived2(::std::string_view b, ::std::string_view ui, ::std::string_view umd2) :
-        ::Ice::UserExceptionHelper<UnknownMostDerived2, UnknownIntermediate>(b, ui),
-        umd2(umd2)
+    UnknownMostDerived2(::std::string b, ::std::string ui, ::std::string umd2) noexcept :
+        ::Ice::UserExceptionHelper<UnknownMostDerived2, UnknownIntermediate>(::std::move(b), ::std::move(ui)),
+        umd2(::std::move(umd2))
     {
     }
 
@@ -543,7 +527,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::string umd2;
 };
@@ -577,7 +561,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     virtual void baseAsBase(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

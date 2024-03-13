@@ -38,7 +38,7 @@ namespace
 }
 
 ::std::string_view
-Test::EmptyPrx::ice_staticId()
+Test::EmptyPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Empty";
     return typeId;
@@ -74,7 +74,7 @@ Test::APrx::_iceI_callA(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
 }
 
 ::std::string_view
-Test::APrx::ice_staticId()
+Test::APrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::A";
     return typeId;
@@ -110,7 +110,7 @@ Test::BPrx::_iceI_callB(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
 }
 
 ::std::string_view
-Test::BPrx::ice_staticId()
+Test::BPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::B";
     return typeId;
@@ -146,7 +146,7 @@ Test::CPrx::_iceI_callC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
 }
 
 ::std::string_view
-Test::CPrx::ice_staticId()
+Test::CPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::C";
     return typeId;
@@ -182,7 +182,7 @@ Test::DPrx::_iceI_callD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
 }
 
 ::std::string_view
-Test::DPrx::ice_staticId()
+Test::DPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::D";
     return typeId;
@@ -218,7 +218,7 @@ Test::EPrx::_iceI_callE(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
 }
 
 ::std::string_view
-Test::EPrx::ice_staticId()
+Test::EPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::E";
     return typeId;
@@ -254,7 +254,7 @@ Test::FPrx::_iceI_callF(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
 }
 
 ::std::string_view
-Test::FPrx::ice_staticId()
+Test::FPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::F";
     return typeId;
@@ -318,7 +318,7 @@ Test::GPrx::_iceI_callG(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
 }
 
 ::std::string_view
-Test::GPrx::ice_staticId()
+Test::GPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::G";
     return typeId;
@@ -354,7 +354,7 @@ Test::HPrx::_iceI_callH(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::
 }
 
 ::std::string_view
-Test::HPrx::ice_staticId()
+Test::HPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::H";
     return typeId;
@@ -473,7 +473,7 @@ Test::EchoPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsy
 }
 
 ::std::string_view
-Test::EchoPrx::ice_staticId()
+Test::EchoPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Echo";
     return typeId;
@@ -493,7 +493,7 @@ Test::Empty::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::Empty::ice_staticId()
+Test::Empty::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Empty";
     return typeId;
@@ -513,7 +513,7 @@ Test::A::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::A::ice_staticId()
+Test::A::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::A";
     return typeId;
@@ -598,7 +598,7 @@ Test::B::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::B::ice_staticId()
+Test::B::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::B";
     return typeId;
@@ -688,7 +688,7 @@ Test::C::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::C::ice_staticId()
+Test::C::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::C";
     return typeId;
@@ -778,7 +778,7 @@ Test::D::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::D::ice_staticId()
+Test::D::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::D";
     return typeId;
@@ -878,7 +878,7 @@ Test::E::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::E::ice_staticId()
+Test::E::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::E";
     return typeId;
@@ -963,7 +963,7 @@ Test::F::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::F::ice_staticId()
+Test::F::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::F";
     return typeId;
@@ -1053,7 +1053,7 @@ Test::G::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::G::ice_staticId()
+Test::G::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::G";
     return typeId;
@@ -1154,7 +1154,7 @@ Test::H::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::H::ice_staticId()
+Test::H::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::H";
     return typeId;
@@ -1249,7 +1249,7 @@ Test::Echo::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::Echo::ice_staticId()
+Test::Echo::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Echo";
     return typeId;

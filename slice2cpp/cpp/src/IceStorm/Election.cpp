@@ -265,7 +265,7 @@ IceStormElection::ReplicaObserverPrx::_iceI_removeSubscriber(const ::std::shared
 }
 
 ::std::string_view
-IceStormElection::ReplicaObserverPrx::ice_staticId()
+IceStormElection::ReplicaObserverPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceStormElection::ReplicaObserver";
     return typeId;
@@ -313,7 +313,7 @@ IceStormElection::TopicManagerSyncPrx::_iceI_getContent(const ::std::shared_ptr<
 }
 
 ::std::string_view
-IceStormElection::TopicManagerSyncPrx::ice_staticId()
+IceStormElection::TopicManagerSyncPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceStormElection::TopicManagerSync";
     return typeId;
@@ -561,18 +561,14 @@ IceStormElection::NodePrx::_iceI_query(const ::std::shared_ptr<::IceInternal::Ou
 }
 
 ::std::string_view
-IceStormElection::NodePrx::ice_staticId()
+IceStormElection::NodePrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceStormElection::Node";
     return typeId;
 }
 
-IceStormElection::ObserverInconsistencyException::~ObserverInconsistencyException()
-{
-}
-
 ::std::string_view
-IceStormElection::ObserverInconsistencyException::ice_staticId()
+IceStormElection::ObserverInconsistencyException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceStormElection::ObserverInconsistencyException";
     return typeId;
@@ -592,7 +588,7 @@ IceStormElection::ReplicaObserver::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-IceStormElection::ReplicaObserver::ice_staticId()
+IceStormElection::ReplicaObserver::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceStormElection::ReplicaObserver";
     return typeId;
@@ -764,7 +760,7 @@ IceStormElection::TopicManagerSync::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-IceStormElection::TopicManagerSync::ice_staticId()
+IceStormElection::TopicManagerSync::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceStormElection::TopicManagerSync";
     return typeId;
@@ -851,7 +847,7 @@ IceStormElection::Node::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-IceStormElection::Node::ice_staticId()
+IceStormElection::Node::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceStormElection::Node";
     return typeId;

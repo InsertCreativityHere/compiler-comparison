@@ -57,111 +57,71 @@ const ::IceInternal::DefaultValueFactoryInit<::LocalTest::Opt> iceC_LocalTest_Op
 
 }
 
-LocalTest::C1::~C1()
-{
-}
-
 ::std::string_view
-LocalTest::C1::ice_staticId()
+LocalTest::C1::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::LocalTest::C1";
     return typeId;
 }
 
-LocalTest::CB1::~CB1()
-{
-}
-
 ::std::string_view
-LocalTest::CB1::ice_staticId()
+LocalTest::CB1::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::LocalTest::CB1";
     return typeId;
 }
 
-LocalTest::CB2::~CB2()
-{
-}
-
 ::std::string_view
-LocalTest::CB2::ice_staticId()
+LocalTest::CB2::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::LocalTest::CB2";
     return typeId;
 }
 
-LocalTest::CB3::~CB3()
-{
-}
-
 ::std::string_view
-LocalTest::CB3::ice_staticId()
+LocalTest::CB3::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::LocalTest::CB3";
     return typeId;
 }
 
-LocalTest::CB4::~CB4()
-{
-}
-
 ::std::string_view
-LocalTest::CB4::ice_staticId()
+LocalTest::CB4::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::LocalTest::CB4";
     return typeId;
 }
 
-LocalTest::CB5::~CB5()
-{
-}
-
 ::std::string_view
-LocalTest::CB5::ice_staticId()
+LocalTest::CB5::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::LocalTest::CB5";
     return typeId;
 }
 
-LocalTest::CB6::~CB6()
-{
-}
-
 ::std::string_view
-LocalTest::CB6::ice_staticId()
+LocalTest::CB6::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::LocalTest::CB6";
     return typeId;
 }
 
-LocalTest::CB7::~CB7()
-{
-}
-
 ::std::string_view
-LocalTest::CB7::ice_staticId()
+LocalTest::CB7::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::LocalTest::CB7";
     return typeId;
 }
 
-LocalTest::CB8::~CB8()
-{
-}
-
 ::std::string_view
-LocalTest::CB8::ice_staticId()
+LocalTest::CB8::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::LocalTest::CB8";
     return typeId;
 }
 
-LocalTest::Opt::~Opt()
-{
-}
-
 ::std::string_view
-LocalTest::Opt::ice_staticId()
+LocalTest::Opt::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::LocalTest::Opt";
     return typeId;

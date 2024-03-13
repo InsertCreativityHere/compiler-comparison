@@ -42,7 +42,7 @@ const ::IceInternal::DefaultValueFactoryInit<::Test::CR> iceC_Test_CR_init("::Te
 }
 
 ::std::string_view
-Test::IPrx::ice_staticId()
+Test::IPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::I";
     return typeId;
@@ -3393,29 +3393,21 @@ Test::MyClassPrx::_iceI_opCustomCVSS(const ::std::shared_ptr<::IceInternal::Outg
 }
 
 ::std::string_view
-Test::MyClassPrx::ice_staticId()
+Test::MyClassPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MyClass";
     return typeId;
 }
 
-Test::CV::~CV()
-{
-}
-
 ::std::string_view
-Test::CV::ice_staticId()
+Test::CV::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::CV";
     return typeId;
 }
 
-Test::CR::~CR()
-{
-}
-
 ::std::string_view
-Test::CR::ice_staticId()
+Test::CR::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::CR";
     return typeId;
@@ -3435,7 +3427,7 @@ Test::I::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::I::ice_staticId()
+Test::I::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::I";
     return typeId;
@@ -3455,7 +3447,7 @@ Test::MyClass::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::MyClass::ice_staticId()
+Test::MyClass::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MyClass";
     return typeId;

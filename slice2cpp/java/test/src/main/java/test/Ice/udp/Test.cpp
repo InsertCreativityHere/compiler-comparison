@@ -66,7 +66,7 @@ Test::PingReplyPrx::_iceI_reply(const ::std::shared_ptr<::IceInternal::OutgoingA
 }
 
 ::std::string_view
-Test::PingReplyPrx::ice_staticId()
+Test::PingReplyPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::PingReply";
     return typeId;
@@ -194,7 +194,7 @@ Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
 }
 
 ::std::string_view
-Test::TestIntfPrx::ice_staticId()
+Test::TestIntfPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::TestIntf";
     return typeId;
@@ -214,7 +214,7 @@ Test::PingReply::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::PingReply::ice_staticId()
+Test::PingReply::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::PingReply";
     return typeId;
@@ -295,7 +295,7 @@ Test::TestIntf::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::TestIntf::ice_staticId()
+Test::TestIntf::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::TestIntf";
     return typeId;

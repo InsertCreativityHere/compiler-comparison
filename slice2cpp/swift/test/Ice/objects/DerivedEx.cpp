@@ -39,12 +39,8 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::DerivedEx> iceC_Tes
 
 }
 
-Test::DerivedEx::~DerivedEx()
-{
-}
-
 ::std::string_view
-Test::DerivedEx::ice_staticId()
+Test::DerivedEx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::DerivedEx";
     return typeId;

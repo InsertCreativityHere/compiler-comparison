@@ -66,7 +66,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit Interface1Prx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -80,7 +80,7 @@ public:
     {
     }
 
-    Interface1Prx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    Interface1Prx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -119,10 +119,7 @@ class Class1 : public ::Ice::ValueHelper<Class1, ::Ice::Value>
 {
 public:
 
-    virtual ~Class1();
-
     Class1() = default;
-
     Class1(const Class1&) = default;
     Class1(Class1&&) = default;
     Class1& operator=(const Class1&) = default;
@@ -141,7 +138,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 };
 
 /// \cond INTERNAL
@@ -177,7 +174,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     virtual void method(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

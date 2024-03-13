@@ -53,89 +53,57 @@ const ::IceInternal::DefaultValueFactoryInit<::Test::ClassNoDefaults> iceC_Test_
 
 }
 
-Test::Base::~Base()
-{
-}
-
 ::std::string_view
-Test::Base::ice_staticId()
+Test::Base::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Base";
     return typeId;
 }
 
-Test::Derived::~Derived()
-{
-}
-
 ::std::string_view
-Test::Derived::ice_staticId()
+Test::Derived::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Derived";
     return typeId;
 }
 
-Test::BaseEx::~BaseEx()
-{
-}
-
 ::std::string_view
-Test::BaseEx::ice_staticId()
+Test::BaseEx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::BaseEx";
     return typeId;
 }
 
-Test::DerivedEx::~DerivedEx()
-{
-}
-
 ::std::string_view
-Test::DerivedEx::ice_staticId()
+Test::DerivedEx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::DerivedEx";
     return typeId;
 }
 
-Test::ExceptionNoDefaultsBase::~ExceptionNoDefaultsBase()
-{
-}
-
 ::std::string_view
-Test::ExceptionNoDefaultsBase::ice_staticId()
+Test::ExceptionNoDefaultsBase::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::ExceptionNoDefaultsBase";
     return typeId;
 }
 
-Test::ExceptionNoDefaults::~ExceptionNoDefaults()
-{
-}
-
 ::std::string_view
-Test::ExceptionNoDefaults::ice_staticId()
+Test::ExceptionNoDefaults::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::ExceptionNoDefaults";
     return typeId;
 }
 
-Test::ClassNoDefaultsBase::~ClassNoDefaultsBase()
-{
-}
-
 ::std::string_view
-Test::ClassNoDefaultsBase::ice_staticId()
+Test::ClassNoDefaultsBase::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::ClassNoDefaultsBase";
     return typeId;
 }
 
-Test::ClassNoDefaults::~ClassNoDefaults()
-{
-}
-
 ::std::string_view
-Test::ClassNoDefaults::ice_staticId()
+Test::ClassNoDefaults::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::ClassNoDefaults";
     return typeId;

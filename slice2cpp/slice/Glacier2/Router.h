@@ -338,7 +338,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
 #if defined(__GNUC__)
 #   pragma GCC diagnostic push
@@ -357,7 +357,7 @@ public:
     {
     }
 
-    RouterPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    RouterPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -406,11 +406,9 @@ class ICE_CLASS(GLACIER2_API) SessionNotExistException : public ::Ice::UserExcep
 {
 public:
 
-    ICE_MEMBER(GLACIER2_API) virtual ~SessionNotExistException();
+    SessionNotExistException() noexcept = default;
 
     SessionNotExistException(const SessionNotExistException&) = default;
-
-    SessionNotExistException() = default;
 
     /**
      * Obtains a tuple containing all of the exception's data members.
@@ -425,7 +423,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(GLACIER2_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(GLACIER2_API) static ::std::string_view ice_staticId() noexcept;
 };
 
 /// \cond INTERNAL
@@ -464,7 +462,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /**
      * This category must be used in the identities of all of the client's callback objects. This is necessary in

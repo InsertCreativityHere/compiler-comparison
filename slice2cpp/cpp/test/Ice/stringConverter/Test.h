@@ -79,7 +79,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit MyObjectPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -93,7 +93,7 @@ public:
     {
     }
 
-    MyObjectPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    MyObjectPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -132,11 +132,9 @@ class BadEncodingException : public ::Ice::UserExceptionHelper<BadEncodingExcept
 {
 public:
 
-    virtual ~BadEncodingException();
+    BadEncodingException() noexcept = default;
 
     BadEncodingException(const BadEncodingException&) = default;
-
-    BadEncodingException() = default;
 
     /**
      * Obtains a tuple containing all of the exception's data members.
@@ -151,7 +149,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 };
 
 /// \cond INTERNAL
@@ -187,7 +185,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     virtual ::std::wstring widen(::std::string msg, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

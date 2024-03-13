@@ -39,12 +39,8 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::Core::ArgumentException> 
 
 }
 
-Core::ArgumentException::~ArgumentException()
-{
-}
-
 ::std::string_view
-Core::ArgumentException::ice_staticId()
+Core::ArgumentException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Core::ArgumentException";
     return typeId;

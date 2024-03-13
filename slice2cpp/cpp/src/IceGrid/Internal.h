@@ -216,7 +216,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit AdapterPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -230,7 +230,7 @@ public:
     {
     }
 
-    AdapterPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    AdapterPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -324,7 +324,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit FileReaderPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -338,7 +338,7 @@ public:
     {
     }
 
-    FileReaderPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    FileReaderPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -668,7 +668,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
 #if defined(__GNUC__)
 #   pragma GCC diagnostic push
@@ -687,7 +687,7 @@ public:
     {
     }
 
-    ServerPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    ServerPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -813,7 +813,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit ReplicaObserverPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -827,7 +827,7 @@ public:
     {
     }
 
-    ReplicaObserverPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    ReplicaObserverPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -921,7 +921,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit PatcherFeedbackPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -935,7 +935,7 @@ public:
     {
     }
 
-    PatcherFeedbackPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    PatcherFeedbackPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -1299,7 +1299,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
 #if defined(__GNUC__)
 #   pragma GCC diagnostic push
@@ -1318,7 +1318,7 @@ public:
     {
     }
 
-    NodePrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    NodePrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -1593,7 +1593,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit NodeSessionPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -1607,7 +1607,7 @@ public:
     {
     }
 
-    NodeSessionPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    NodeSessionPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -1645,7 +1645,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
 #if defined(__GNUC__)
 #   pragma GCC diagnostic push
@@ -1664,7 +1664,7 @@ public:
     {
     }
 
-    DatabaseObserverPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    DatabaseObserverPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -1939,7 +1939,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit ReplicaSessionPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -1953,7 +1953,7 @@ public:
     {
     }
 
-    ReplicaSessionPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    ReplicaSessionPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -2237,7 +2237,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
 #if defined(__GNUC__)
 #   pragma GCC diagnostic push
@@ -2256,7 +2256,7 @@ public:
     {
     }
 
-    InternalRegistryPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    InternalRegistryPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -2299,10 +2299,7 @@ class InternalDbEnvDescriptor : public ::Ice::ValueHelper<InternalDbEnvDescripto
 {
 public:
 
-    virtual ~InternalDbEnvDescriptor();
-
     InternalDbEnvDescriptor() = default;
-
     InternalDbEnvDescriptor(const InternalDbEnvDescriptor&) = default;
     InternalDbEnvDescriptor(InternalDbEnvDescriptor&&) = default;
     InternalDbEnvDescriptor& operator=(const InternalDbEnvDescriptor&) = default;
@@ -2313,9 +2310,9 @@ public:
      * @param name The name of the database environment.
      * @param properties The database properties.
      */
-    InternalDbEnvDescriptor(::std::string_view name, const ::IceGrid::PropertyDescriptorSeq& properties) :
-        name(name),
-        properties(properties)
+    InternalDbEnvDescriptor(::std::string name, ::IceGrid::PropertyDescriptorSeq properties) :
+        name(::std::move(name)),
+        properties(::std::move(properties))
     {
     }
 
@@ -2332,7 +2329,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The name of the database environment.
@@ -2352,10 +2349,7 @@ class InternalAdapterDescriptor : public ::Ice::ValueHelper<InternalAdapterDescr
 {
 public:
 
-    virtual ~InternalAdapterDescriptor();
-
     InternalAdapterDescriptor() = default;
-
     InternalAdapterDescriptor(const InternalAdapterDescriptor&) = default;
     InternalAdapterDescriptor(InternalAdapterDescriptor&&) = default;
     InternalAdapterDescriptor& operator=(const InternalAdapterDescriptor&) = default;
@@ -2366,8 +2360,8 @@ public:
      * @param id The identifier of the server.
      * @param serverLifetime Specifies if the lifetime of the adapter is the same as the server.
      */
-    InternalAdapterDescriptor(::std::string_view id, bool serverLifetime) :
-        id(id),
+    InternalAdapterDescriptor(::std::string id, bool serverLifetime) :
+        id(::std::move(id)),
         serverLifetime(serverLifetime)
     {
     }
@@ -2385,7 +2379,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The identifier of the server.
@@ -2401,10 +2395,7 @@ class InternalDistributionDescriptor : public ::Ice::ValueHelper<InternalDistrib
 {
 public:
 
-    virtual ~InternalDistributionDescriptor();
-
     InternalDistributionDescriptor() = default;
-
     InternalDistributionDescriptor(const InternalDistributionDescriptor&) = default;
     InternalDistributionDescriptor(InternalDistributionDescriptor&&) = default;
     InternalDistributionDescriptor& operator=(const InternalDistributionDescriptor&) = default;
@@ -2415,9 +2406,9 @@ public:
      * @param icepatch The proxy of the IcePatch2 server.
      * @param directories The source directories.
      */
-    InternalDistributionDescriptor(::std::string_view icepatch, const ::Ice::StringSeq& directories) :
-        icepatch(icepatch),
-        directories(directories)
+    InternalDistributionDescriptor(::std::string icepatch, ::Ice::StringSeq directories) :
+        icepatch(::std::move(icepatch)),
+        directories(::std::move(directories))
     {
     }
 
@@ -2434,7 +2425,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The proxy of the IcePatch2 server.
@@ -2450,10 +2441,7 @@ class InternalServerDescriptor : public ::Ice::ValueHelper<InternalServerDescrip
 {
 public:
 
-    virtual ~InternalServerDescriptor();
-
     InternalServerDescriptor() = default;
-
     InternalServerDescriptor(const InternalServerDescriptor&) = default;
     InternalServerDescriptor(InternalServerDescriptor&&) = default;
     InternalServerDescriptor& operator=(const InternalServerDescriptor&) = default;
@@ -2482,28 +2470,28 @@ public:
      * @param properties The configuration files of the server.
      * @param services IceBox service names
      */
-    InternalServerDescriptor(::std::string_view id, ::std::string_view application, ::std::string_view uuid, ::std::int32_t revision, ::std::string_view sessionId, ::std::string_view exe, ::std::string_view pwd, ::std::string_view user, ::std::string_view activation, ::std::string_view activationTimeout, ::std::string_view deactivationTimeout, bool applicationDistrib, const ::std::shared_ptr<::IceGrid::InternalDistributionDescriptor>& distrib, bool processRegistered, const ::Ice::StringSeq& options, const ::Ice::StringSeq& envs, const ::Ice::StringSeq& logs, const ::IceGrid::InternalAdapterDescriptorSeq& adapters, const ::IceGrid::InternalDbEnvDescriptorSeq& dbEnvs, const ::IceGrid::PropertyDescriptorSeqDict& properties, const ::std::optional<::Ice::StringSeq>& services) :
-        id(id),
-        application(application),
-        uuid(uuid),
+    InternalServerDescriptor(::std::string id, ::std::string application, ::std::string uuid, ::std::int32_t revision, ::std::string sessionId, ::std::string exe, ::std::string pwd, ::std::string user, ::std::string activation, ::std::string activationTimeout, ::std::string deactivationTimeout, bool applicationDistrib, ::std::shared_ptr<::IceGrid::InternalDistributionDescriptor> distrib, bool processRegistered, ::Ice::StringSeq options, ::Ice::StringSeq envs, ::Ice::StringSeq logs, ::IceGrid::InternalAdapterDescriptorSeq adapters, ::IceGrid::InternalDbEnvDescriptorSeq dbEnvs, ::IceGrid::PropertyDescriptorSeqDict properties, ::std::optional<::Ice::StringSeq> services) :
+        id(::std::move(id)),
+        application(::std::move(application)),
+        uuid(::std::move(uuid)),
         revision(revision),
-        sessionId(sessionId),
-        exe(exe),
-        pwd(pwd),
-        user(user),
-        activation(activation),
-        activationTimeout(activationTimeout),
-        deactivationTimeout(deactivationTimeout),
+        sessionId(::std::move(sessionId)),
+        exe(::std::move(exe)),
+        pwd(::std::move(pwd)),
+        user(::std::move(user)),
+        activation(::std::move(activation)),
+        activationTimeout(::std::move(activationTimeout)),
+        deactivationTimeout(::std::move(deactivationTimeout)),
         applicationDistrib(applicationDistrib),
-        distrib(distrib),
+        distrib(::std::move(distrib)),
         processRegistered(processRegistered),
-        options(options),
-        envs(envs),
-        logs(logs),
-        adapters(adapters),
-        dbEnvs(dbEnvs),
-        properties(properties),
-        services(services)
+        options(::std::move(options)),
+        envs(::std::move(envs)),
+        logs(::std::move(logs)),
+        adapters(::std::move(adapters)),
+        dbEnvs(::std::move(dbEnvs)),
+        properties(::std::move(properties)),
+        services(::std::move(services))
     {
     }
 
@@ -2520,7 +2508,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The server ID.
@@ -2612,11 +2600,9 @@ class AdapterActiveException : public ::Ice::UserExceptionHelper<AdapterActiveEx
 {
 public:
 
-    virtual ~AdapterActiveException();
+    AdapterActiveException() noexcept = default;
 
     AdapterActiveException(const AdapterActiveException&) = default;
-
-    AdapterActiveException() = default;
 
     /**
      * Obtains a tuple containing all of the exception's data members.
@@ -2631,24 +2617,22 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 };
 
 class AdapterNotActiveException : public ::Ice::UserExceptionHelper<AdapterNotActiveException, ::Ice::UserException>
 {
 public:
 
-    virtual ~AdapterNotActiveException();
+    AdapterNotActiveException() noexcept = default;
 
     AdapterNotActiveException(const AdapterNotActiveException&) = default;
-
-    AdapterNotActiveException() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param activatable True if the adapter can be activated on demand.
      */
-    AdapterNotActiveException(bool activatable) :
+    AdapterNotActiveException(bool activatable) noexcept :
         activatable(activatable)
     {
     }
@@ -2666,7 +2650,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /**
      * True if the adapter can be activated on demand.
@@ -2681,17 +2665,15 @@ class AdapterExistsException : public ::Ice::UserExceptionHelper<AdapterExistsEx
 {
 public:
 
-    virtual ~AdapterExistsException();
+    AdapterExistsException() noexcept = default;
 
     AdapterExistsException(const AdapterExistsException&) = default;
-
-    AdapterExistsException() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    AdapterExistsException(::std::string_view id) :
-        id(id)
+    AdapterExistsException(::std::string id) noexcept :
+        id(::std::move(id))
     {
     }
 
@@ -2708,7 +2690,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::string id;
 };
@@ -2720,11 +2702,9 @@ class NodeActiveException : public ::Ice::UserExceptionHelper<NodeActiveExceptio
 {
 public:
 
-    virtual ~NodeActiveException();
+    NodeActiveException() noexcept = default;
 
     NodeActiveException(const NodeActiveException&) = default;
-
-    NodeActiveException() = default;
 
     /**
      * Obtains a tuple containing all of the exception's data members.
@@ -2739,7 +2719,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 };
 
 /**
@@ -2749,11 +2729,9 @@ class ReplicaActiveException : public ::Ice::UserExceptionHelper<ReplicaActiveEx
 {
 public:
 
-    virtual ~ReplicaActiveException();
+    ReplicaActiveException() noexcept = default;
 
     ReplicaActiveException(const ReplicaActiveException&) = default;
-
-    ReplicaActiveException() = default;
 
     /**
      * Obtains a tuple containing all of the exception's data members.
@@ -2768,7 +2746,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 };
 
 /**
@@ -2778,10 +2756,7 @@ class InternalNodeInfo : public ::Ice::ValueHelper<InternalNodeInfo, ::Ice::Valu
 {
 public:
 
-    virtual ~InternalNodeInfo();
-
     InternalNodeInfo() = default;
-
     InternalNodeInfo(const InternalNodeInfo&) = default;
     InternalNodeInfo(InternalNodeInfo&&) = default;
     InternalNodeInfo& operator=(const InternalNodeInfo&) = default;
@@ -2798,15 +2773,15 @@ public:
      * @param nProcessors The number of processor threads (e.g.
      * @param dataDir The path to the node data directory.
      */
-    InternalNodeInfo(::std::string_view name, ::std::string_view os, ::std::string_view hostname, ::std::string_view release, ::std::string_view version, ::std::string_view machine, ::std::int32_t nProcessors, ::std::string_view dataDir) :
-        name(name),
-        os(os),
-        hostname(hostname),
-        release(release),
-        version(version),
-        machine(machine),
+    InternalNodeInfo(::std::string name, ::std::string os, ::std::string hostname, ::std::string release, ::std::string version, ::std::string machine, ::std::int32_t nProcessors, ::std::string dataDir) :
+        name(::std::move(name)),
+        os(::std::move(os)),
+        hostname(::std::move(hostname)),
+        release(::std::move(release)),
+        version(::std::move(version)),
+        machine(::std::move(machine)),
         nProcessors(nProcessors),
-        dataDir(dataDir)
+        dataDir(::std::move(dataDir))
     {
     }
 
@@ -2823,7 +2798,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The name of the node.
@@ -2866,10 +2841,7 @@ class InternalReplicaInfo : public ::Ice::ValueHelper<InternalReplicaInfo, ::Ice
 {
 public:
 
-    virtual ~InternalReplicaInfo();
-
     InternalReplicaInfo() = default;
-
     InternalReplicaInfo(const InternalReplicaInfo&) = default;
     InternalReplicaInfo(InternalReplicaInfo&&) = default;
     InternalReplicaInfo& operator=(const InternalReplicaInfo&) = default;
@@ -2880,9 +2852,9 @@ public:
      * @param name The name of the registry.
      * @param hostname The network name of the host running this registry (as defined in uname()).
      */
-    InternalReplicaInfo(::std::string_view name, ::std::string_view hostname) :
-        name(name),
-        hostname(hostname)
+    InternalReplicaInfo(::std::string name, ::std::string hostname) :
+        name(::std::move(name)),
+        hostname(::std::move(hostname))
     {
     }
 
@@ -2899,7 +2871,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The name of the registry.
@@ -2940,7 +2912,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /**
      * Activate this adapter. If this adapter can be activated, this will activate the adapter and return the direct
@@ -3008,7 +2980,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /**
      * Count the number of given lines from the end of the file and return the file offset.
@@ -3059,7 +3031,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /**
      * Start the server.
@@ -3194,7 +3166,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /**
      * Initialization of the replica observer.
@@ -3254,7 +3226,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The patch completed successfully.
@@ -3306,7 +3278,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /**
      * Load the given server. If the server resources weren't already created (database environment directories,
@@ -3454,7 +3426,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The node call this method to keep the session alive.
@@ -3568,7 +3540,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /// \cond INTERNAL
     void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
@@ -3601,7 +3573,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The replica call this method to keep the session alive.
@@ -3709,7 +3681,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /**
      * Register a node with the registry. If a node with the same name is already registered, [registerNode] will

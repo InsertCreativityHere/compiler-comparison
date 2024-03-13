@@ -304,7 +304,7 @@ Test::RemoteCommunicatorPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal
 }
 
 ::std::string_view
-Test::RemoteCommunicatorPrx::ice_staticId()
+Test::RemoteCommunicatorPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::RemoteCommunicator";
     return typeId;
@@ -371,7 +371,7 @@ Test::RemoteCommunicatorFactoryPrx::_iceI_shutdown(const ::std::shared_ptr<::Ice
 }
 
 ::std::string_view
-Test::RemoteCommunicatorFactoryPrx::ice_staticId()
+Test::RemoteCommunicatorFactoryPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::RemoteCommunicatorFactory";
     return typeId;
@@ -406,7 +406,7 @@ Test::TestFacetPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyn
 }
 
 ::std::string_view
-Test::TestFacetPrx::ice_staticId()
+Test::TestFacetPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::TestFacet";
     return typeId;
@@ -426,7 +426,7 @@ Test::RemoteCommunicator::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::RemoteCommunicator::ice_staticId()
+Test::RemoteCommunicator::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::RemoteCommunicator";
     return typeId;
@@ -660,7 +660,7 @@ Test::RemoteCommunicatorFactory::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::RemoteCommunicatorFactory::ice_staticId()
+Test::RemoteCommunicatorFactory::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::RemoteCommunicatorFactory";
     return typeId;
@@ -765,7 +765,7 @@ Test::TestFacet::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::TestFacet::ice_staticId()
+Test::TestFacet::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::TestFacet";
     return typeId;

@@ -145,10 +145,7 @@ class Pen : public ::Ice::ValueHelper<Pen, ::Ice::Value>
 {
 public:
 
-    virtual ~Pen();
-
     Pen() = default;
-
     Pen(const Pen&) = default;
     Pen(Pen&&) = default;
     Pen& operator=(const Pen&) = default;
@@ -157,9 +154,9 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Pen(::std::int32_t thickness, const ::Test::Color& color) :
+    Pen(::std::int32_t thickness, ::Test::Color color) :
         thickness(thickness),
-        color(color)
+        color(::std::move(color))
     {
     }
 
@@ -176,7 +173,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::int32_t thickness;
     ::Test::Color color;

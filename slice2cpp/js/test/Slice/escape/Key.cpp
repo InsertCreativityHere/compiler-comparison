@@ -80,7 +80,7 @@ await::casePrx::_iceI_catch(const ::std::shared_ptr<::IceInternal::OutgoingAsync
 }
 
 ::std::string_view
-await::casePrx::ice_staticId()
+await::casePrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::await::case";
     return typeId;
@@ -115,14 +115,14 @@ await::typeofPrx::_iceI_default(const ::std::shared_ptr<::IceInternal::OutgoingA
 }
 
 ::std::string_view
-await::typeofPrx::ice_staticId()
+await::typeofPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::await::typeof";
     return typeId;
 }
 
 ::std::string_view
-await::explicitPrx::ice_staticId()
+await::explicitPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::await::explicit";
     return typeId;
@@ -295,7 +295,7 @@ await::optionalParamsPrx::_iceI_foreach(const ::std::shared_ptr<::IceInternal::O
 }
 
 ::std::string_view
-await::optionalParamsPrx::ice_staticId()
+await::optionalParamsPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::await::optionalParams";
     return typeId;
@@ -352,7 +352,7 @@ await::implicitPrx::_iceI_in(const ::std::shared_ptr<::IceInternal::OutgoingAsyn
 }
 
 ::std::string_view
-await::implicitPrx::ice_staticId()
+await::implicitPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::await::implicit";
     return typeId;
@@ -387,7 +387,7 @@ await::System::TestPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::Outgoing
 }
 
 ::std::string_view
-await::System::TestPrx::ice_staticId()
+await::System::TestPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::await::System::Test";
     return typeId;
@@ -422,62 +422,42 @@ System::TestPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<
 }
 
 ::std::string_view
-System::TestPrx::ice_staticId()
+System::TestPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::System::Test";
     return typeId;
 }
 
-await::_cpp_delete::~_cpp_delete()
-{
-}
-
 ::std::string_view
-await::_cpp_delete::ice_staticId()
+await::_cpp_delete::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::await::delete";
     return typeId;
 }
 
-await::package::~package()
-{
-}
-
 ::std::string_view
-await::package::ice_staticId()
+await::package::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::await::package";
     return typeId;
 }
 
-await::fixed::~fixed()
-{
-}
-
 ::std::string_view
-await::fixed::ice_staticId()
+await::fixed::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::await::fixed";
     return typeId;
 }
 
-await::foreach::~foreach()
-{
-}
-
 ::std::string_view
-await::foreach::ice_staticId()
+await::foreach::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::await::foreach";
     return typeId;
 }
 
-await::BaseMethods::~BaseMethods()
-{
-}
-
 ::std::string_view
-await::BaseMethods::ice_staticId()
+await::BaseMethods::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::await::BaseMethods";
     return typeId;
@@ -497,7 +477,7 @@ await::_cpp_case::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-await::_cpp_case::ice_staticId()
+await::_cpp_case::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::await::case";
     return typeId;
@@ -597,7 +577,7 @@ await::typeof::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-await::typeof::ice_staticId()
+await::typeof::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::await::typeof";
     return typeId;
@@ -678,7 +658,7 @@ await::_cpp_explicit::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-await::_cpp_explicit::ice_staticId()
+await::_cpp_explicit::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::await::explicit";
     return typeId;
@@ -753,7 +733,7 @@ await::optionalParams::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-await::optionalParams::ice_staticId()
+await::optionalParams::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::await::optionalParams";
     return typeId;
@@ -941,7 +921,7 @@ await::implicit::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-await::implicit::ice_staticId()
+await::implicit::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::await::implicit";
     return typeId;
@@ -1040,7 +1020,7 @@ await::System::Test::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-await::System::Test::ice_staticId()
+await::System::Test::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::await::System::Test";
     return typeId;
@@ -1121,7 +1101,7 @@ System::Test::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-System::Test::ice_staticId()
+System::Test::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::System::Test";
     return typeId;

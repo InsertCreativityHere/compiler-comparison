@@ -175,7 +175,7 @@ Test1::WstringClassPrx::_iceI_throwExcept(const ::std::shared_ptr<::IceInternal:
 }
 
 ::std::string_view
-Test1::WstringClassPrx::ice_staticId()
+Test1::WstringClassPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test1::WstringClass";
     return typeId;
@@ -315,29 +315,21 @@ Test2::WstringClassPrx::_iceI_throwExcept(const ::std::shared_ptr<::IceInternal:
 }
 
 ::std::string_view
-Test2::WstringClassPrx::ice_staticId()
+Test2::WstringClassPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test2::WstringClass";
     return typeId;
 }
 
-Test1::WstringException::~WstringException()
-{
-}
-
 ::std::string_view
-Test1::WstringException::ice_staticId()
+Test1::WstringException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test1::WstringException";
     return typeId;
 }
 
-Test2::WstringException::~WstringException()
-{
-}
-
 ::std::string_view
-Test2::WstringException::ice_staticId()
+Test2::WstringException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test2::WstringException";
     return typeId;
@@ -357,7 +349,7 @@ Test1::WstringClass::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test1::WstringClass::ice_staticId()
+Test1::WstringClass::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test1::WstringClass";
     return typeId;
@@ -519,7 +511,7 @@ Test2::WstringClass::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test2::WstringClass::ice_staticId()
+Test2::WstringClass::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test2::WstringClass";
     return typeId;

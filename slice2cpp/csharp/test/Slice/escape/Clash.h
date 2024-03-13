@@ -182,7 +182,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit IntfPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -196,7 +196,7 @@ public:
     {
     }
 
-    IntfPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    IntfPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -235,10 +235,7 @@ class Cls : public ::Ice::ValueHelper<Cls, ::Ice::Value>
 {
 public:
 
-    virtual ~Cls();
-
     Cls() = default;
-
     Cls(const Cls&) = default;
     Cls(Cls&&) = default;
     Cls& operator=(const Cls&) = default;
@@ -247,24 +244,24 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Cls(const ::std::optional<::Clash::IntfPrx>& s, ::std::string_view context, ::std::int32_t current, ::std::int16_t response, ::std::int32_t typeId, ::std::int16_t del, ::std::optional<::std::int16_t> cookie, ::std::string_view ex, ::std::int32_t result, ::std::string_view istr, ::std::string_view ostr, ::std::string_view inS, ::std::string_view in, ::std::string_view proxy, ::std::int32_t obj, ::std::int32_t getCookie, ::std::string_view clone) :
-        s(s),
-        context(context),
+    Cls(::std::optional<::Clash::IntfPrx> s, ::std::string context, ::std::int32_t current, ::std::int16_t response, ::std::int32_t typeId, ::std::int16_t del, ::std::optional<::std::int16_t> cookie, ::std::string ex, ::std::int32_t result, ::std::string istr, ::std::string ostr, ::std::string inS, ::std::string in, ::std::string proxy, ::std::int32_t obj, ::std::int32_t getCookie, ::std::string clone) :
+        s(::std::move(s)),
+        context(::std::move(context)),
         current(current),
         response(response),
         typeId(typeId),
         del(del),
         cookie(cookie),
-        ex(ex),
+        ex(::std::move(ex)),
         result(result),
-        istr(istr),
-        ostr(ostr),
-        inS(inS),
-        in(in),
-        proxy(proxy),
+        istr(::std::move(istr)),
+        ostr(::std::move(ostr)),
+        inS(::std::move(inS)),
+        in(::std::move(in)),
+        proxy(::std::move(proxy)),
         obj(obj),
         getCookie(getCookie),
-        clone(clone)
+        clone(::std::move(clone))
     {
     }
 
@@ -281,7 +278,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::optional<::Clash::IntfPrx> s;
     ::std::string context;
@@ -329,19 +326,17 @@ class Ex : public ::Ice::UserExceptionHelper<Ex, ::Ice::UserException>
 {
 public:
 
-    virtual ~Ex();
+    Ex() noexcept = default;
 
     Ex(const Ex&) = default;
-
-    Ex() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    Ex(::std::int16_t istr, ::std::int32_t ostr, ::std::string_view cause) :
+    Ex(::std::int16_t istr, ::std::int32_t ostr, ::std::string cause) noexcept :
         istr(istr),
         ostr(ostr),
-        cause(cause)
+        cause(::std::move(cause))
     {
     }
 
@@ -358,7 +353,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::int16_t istr;
     ::std::int32_t ostr;
@@ -401,7 +396,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     virtual void context(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

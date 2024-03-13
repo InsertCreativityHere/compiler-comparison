@@ -71,7 +71,7 @@ IceStorm::TopicLinkPrx::_iceI_forward(const ::std::shared_ptr<::IceInternal::Out
 }
 
 ::std::string_view
-IceStorm::TopicLinkPrx::ice_staticId()
+IceStorm::TopicLinkPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceStorm::TopicLink";
     return typeId;
@@ -152,7 +152,7 @@ IceStorm::TopicInternalPrx::_iceI_reap(const ::std::shared_ptr<::IceInternal::Ou
 }
 
 ::std::string_view
-IceStorm::TopicInternalPrx::ice_staticId()
+IceStorm::TopicInternalPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceStorm::TopicInternal";
     return typeId;
@@ -188,18 +188,14 @@ IceStorm::TopicManagerInternalPrx::_iceI_getReplicaNode(const ::std::shared_ptr<
 }
 
 ::std::string_view
-IceStorm::TopicManagerInternalPrx::ice_staticId()
+IceStorm::TopicManagerInternalPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceStorm::TopicManagerInternal";
     return typeId;
 }
 
-IceStorm::ReapWouldBlock::~ReapWouldBlock()
-{
-}
-
 ::std::string_view
-IceStorm::ReapWouldBlock::ice_staticId()
+IceStorm::ReapWouldBlock::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceStorm::ReapWouldBlock";
     return typeId;
@@ -219,7 +215,7 @@ IceStorm::TopicLink::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-IceStorm::TopicLink::ice_staticId()
+IceStorm::TopicLink::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceStorm::TopicLink";
     return typeId;
@@ -304,7 +300,7 @@ IceStorm::TopicInternal::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-IceStorm::TopicInternal::ice_staticId()
+IceStorm::TopicInternal::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceStorm::TopicInternal";
     return typeId;
@@ -459,7 +455,7 @@ IceStorm::TopicManagerInternal::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-IceStorm::TopicManagerInternal::ice_staticId()
+IceStorm::TopicManagerInternal::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceStorm::TopicManagerInternal";
     return typeId;

@@ -40,18 +40,16 @@ class UnknownDerived : public ::Ice::UserExceptionHelper<UnknownDerived, Base>
 {
 public:
 
-    virtual ~UnknownDerived();
+    UnknownDerived() noexcept = default;
 
     UnknownDerived(const UnknownDerived&) = default;
-
-    UnknownDerived() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    UnknownDerived(::std::string_view b, ::std::string_view ud) :
-        ::Ice::UserExceptionHelper<UnknownDerived, Base>(b),
-        ud(ud)
+    UnknownDerived(::std::string b, ::std::string ud) noexcept :
+        ::Ice::UserExceptionHelper<UnknownDerived, Base>(::std::move(b)),
+        ud(::std::move(ud))
     {
     }
 
@@ -68,7 +66,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::string ud;
 };
@@ -81,18 +79,16 @@ class UnknownIntermediate : public ::Ice::UserExceptionHelper<UnknownIntermediat
 {
 public:
 
-    virtual ~UnknownIntermediate();
+    UnknownIntermediate() noexcept = default;
 
     UnknownIntermediate(const UnknownIntermediate&) = default;
-
-    UnknownIntermediate() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    UnknownIntermediate(::std::string_view b, ::std::string_view ui) :
-        ::Ice::UserExceptionHelper<UnknownIntermediate, Base>(b),
-        ui(ui)
+    UnknownIntermediate(::std::string b, ::std::string ui) noexcept :
+        ::Ice::UserExceptionHelper<UnknownIntermediate, Base>(::std::move(b)),
+        ui(::std::move(ui))
     {
     }
 
@@ -109,7 +105,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::string ui;
 };
@@ -118,18 +114,16 @@ class UnknownMostDerived1 : public ::Ice::UserExceptionHelper<UnknownMostDerived
 {
 public:
 
-    virtual ~UnknownMostDerived1();
+    UnknownMostDerived1() noexcept = default;
 
     UnknownMostDerived1(const UnknownMostDerived1&) = default;
-
-    UnknownMostDerived1() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    UnknownMostDerived1(::std::string_view b, ::std::string_view ki, ::std::string_view umd1) :
-        ::Ice::UserExceptionHelper<UnknownMostDerived1, KnownIntermediate>(b, ki),
-        umd1(umd1)
+    UnknownMostDerived1(::std::string b, ::std::string ki, ::std::string umd1) noexcept :
+        ::Ice::UserExceptionHelper<UnknownMostDerived1, KnownIntermediate>(::std::move(b), ::std::move(ki)),
+        umd1(::std::move(umd1))
     {
     }
 
@@ -146,7 +140,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::string umd1;
 };
@@ -155,18 +149,16 @@ class UnknownMostDerived2 : public ::Ice::UserExceptionHelper<UnknownMostDerived
 {
 public:
 
-    virtual ~UnknownMostDerived2();
+    UnknownMostDerived2() noexcept = default;
 
     UnknownMostDerived2(const UnknownMostDerived2&) = default;
-
-    UnknownMostDerived2() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    UnknownMostDerived2(::std::string_view b, ::std::string_view ui, ::std::string_view umd2) :
-        ::Ice::UserExceptionHelper<UnknownMostDerived2, UnknownIntermediate>(b, ui),
-        umd2(umd2)
+    UnknownMostDerived2(::std::string b, ::std::string ui, ::std::string umd2) noexcept :
+        ::Ice::UserExceptionHelper<UnknownMostDerived2, UnknownIntermediate>(::std::move(b), ::std::move(ui)),
+        umd2(::std::move(umd2))
     {
     }
 
@@ -183,7 +175,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::string umd2;
 };

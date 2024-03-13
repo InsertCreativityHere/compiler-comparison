@@ -45,10 +45,7 @@ class Default : public ::Ice::ValueHelper<Default, ::Ice::Value>
 {
 public:
 
-    virtual ~Default();
-
     Default() = default;
-
     Default(const Default&) = default;
     Default(Default&&) = default;
     Default& operator=(const Default&) = default;
@@ -76,7 +73,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::int32_t x;
     ::std::int32_t y;
@@ -90,10 +87,7 @@ class NoDefault : public ::Ice::ValueHelper<NoDefault, ::Ice::Value>
 {
 public:
 
-    virtual ~NoDefault();
-
     NoDefault() = default;
-
     NoDefault(const NoDefault&) = default;
     NoDefault(NoDefault&&) = default;
     NoDefault& operator=(const NoDefault&) = default;
@@ -121,7 +115,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::int32_t x = 10;
     ::std::int32_t y = 10;

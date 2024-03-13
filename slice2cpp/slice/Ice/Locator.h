@@ -170,7 +170,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit LocatorPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -184,7 +184,7 @@ public:
     {
     }
 
-    LocatorPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    LocatorPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -347,7 +347,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit LocatorRegistryPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -361,7 +361,7 @@ public:
     {
     }
 
-    LocatorRegistryPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    LocatorRegistryPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -436,7 +436,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit LocatorFinderPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -450,7 +450,7 @@ public:
     {
     }
 
-    LocatorFinderPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    LocatorFinderPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -493,11 +493,9 @@ class ICE_CLASS(ICE_API) AdapterNotFoundException : public UserExceptionHelper<A
 {
 public:
 
-    ICE_MEMBER(ICE_API) virtual ~AdapterNotFoundException();
+    AdapterNotFoundException() noexcept = default;
 
     AdapterNotFoundException(const AdapterNotFoundException&) = default;
-
-    AdapterNotFoundException() = default;
 
     /**
      * Obtains a tuple containing all of the exception's data members.
@@ -512,7 +510,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId() noexcept;
 };
 
 /// \cond INTERNAL
@@ -527,11 +525,9 @@ class ICE_CLASS(ICE_API) InvalidReplicaGroupIdException : public UserExceptionHe
 {
 public:
 
-    ICE_MEMBER(ICE_API) virtual ~InvalidReplicaGroupIdException();
+    InvalidReplicaGroupIdException() noexcept = default;
 
     InvalidReplicaGroupIdException(const InvalidReplicaGroupIdException&) = default;
-
-    InvalidReplicaGroupIdException() = default;
 
     /**
      * Obtains a tuple containing all of the exception's data members.
@@ -546,7 +542,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId() noexcept;
 };
 
 /**
@@ -557,11 +553,9 @@ class ICE_CLASS(ICE_API) AdapterAlreadyActiveException : public UserExceptionHel
 {
 public:
 
-    ICE_MEMBER(ICE_API) virtual ~AdapterAlreadyActiveException();
+    AdapterAlreadyActiveException() noexcept = default;
 
     AdapterAlreadyActiveException(const AdapterAlreadyActiveException&) = default;
-
-    AdapterAlreadyActiveException() = default;
 
     /**
      * Obtains a tuple containing all of the exception's data members.
@@ -576,7 +570,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId() noexcept;
 };
 
 /**
@@ -587,11 +581,9 @@ class ICE_CLASS(ICE_API) ObjectNotFoundException : public UserExceptionHelper<Ob
 {
 public:
 
-    ICE_MEMBER(ICE_API) virtual ~ObjectNotFoundException();
+    ObjectNotFoundException() noexcept = default;
 
     ObjectNotFoundException(const ObjectNotFoundException&) = default;
-
-    ObjectNotFoundException() = default;
 
     /**
      * Obtains a tuple containing all of the exception's data members.
@@ -606,7 +598,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId() noexcept;
 };
 
 /**
@@ -617,11 +609,9 @@ class ICE_CLASS(ICE_API) ServerNotFoundException : public UserExceptionHelper<Se
 {
 public:
 
-    ICE_MEMBER(ICE_API) virtual ~ServerNotFoundException();
+    ServerNotFoundException() noexcept = default;
 
     ServerNotFoundException(const ServerNotFoundException&) = default;
-
-    ServerNotFoundException() = default;
 
     /**
      * Obtains a tuple containing all of the exception's data members.
@@ -636,7 +626,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId() noexcept;
 };
 
 }
@@ -674,7 +664,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /**
      * Find an object by identity and return a proxy that contains the adapter ID or endpoints which can be used to
@@ -749,7 +739,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /**
      * Set the adapter endpoints with the locator registry.
@@ -838,7 +828,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /**
      * Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several

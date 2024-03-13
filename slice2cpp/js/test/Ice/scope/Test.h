@@ -258,7 +258,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit IPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -272,7 +272,7 @@ public:
     {
     }
 
-    IPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    IPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -393,7 +393,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit IPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -407,7 +407,7 @@ public:
     {
     }
 
-    IPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    IPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -524,7 +524,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit IPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -538,7 +538,7 @@ public:
     {
     }
 
-    IPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    IPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -666,7 +666,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit IPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -680,7 +680,7 @@ public:
     {
     }
 
-    IPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    IPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -737,10 +737,7 @@ class C : public ::Ice::ValueHelper<C, ::Ice::Value>
 {
 public:
 
-    virtual ~C();
-
     C() = default;
-
     C(const C&) = default;
     C(C&&) = default;
     C& operator=(const C&) = default;
@@ -749,8 +746,8 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit C(const ::Test::S& s) :
-        s(s)
+    explicit C(::Test::S s) :
+        s(::std::move(s))
     {
     }
 
@@ -767,7 +764,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::Test::S s;
 };
@@ -794,10 +791,7 @@ class C1 : public ::Ice::ValueHelper<C1, ::Ice::Value>
 {
 public:
 
-    virtual ~C1();
-
     C1() = default;
-
     C1(const C1&) = default;
     C1(C1&&) = default;
     C1& operator=(const C1&) = default;
@@ -806,8 +800,8 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit C1(::std::string_view s) :
-        s(s)
+    explicit C1(::std::string s) :
+        s(::std::move(s))
     {
     }
 
@@ -824,7 +818,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::string s;
 };
@@ -849,10 +843,7 @@ class C2 : public ::Ice::ValueHelper<C2, ::Ice::Value>
 {
 public:
 
-    virtual ~C2();
-
     C2() = default;
-
     C2(const C2&) = default;
     C2(C2&&) = default;
     C2& operator=(const C2&) = default;
@@ -861,10 +852,10 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    C2(::Test::E1 E1, const ::Test::S1& S1, const ::std::shared_ptr<::Test::C1>& C1) :
+    C2(::Test::E1 E1, ::Test::S1 S1, ::std::shared_ptr<::Test::C1> C1) :
         E1(E1),
-        S1(S1),
-        C1(C1)
+        S1(::std::move(S1)),
+        C1(::std::move(C1))
     {
     }
 
@@ -881,7 +872,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::Test::E1 E1;
     ::Test::S1 S1;
@@ -926,10 +917,7 @@ class C : public ::Ice::ValueHelper<C, ::Ice::Value>
 {
 public:
 
-    virtual ~C();
-
     C() = default;
-
     C(const C&) = default;
     C(C&&) = default;
     C& operator=(const C&) = default;
@@ -938,8 +926,8 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit C(const ::Test::Inner::Inner2::S& s) :
-        s(s)
+    explicit C(::Test::Inner::Inner2::S s) :
+        s(::std::move(s))
     {
     }
 
@@ -956,7 +944,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::Test::Inner::Inner2::S s;
 };
@@ -974,10 +962,7 @@ class C : public ::Ice::ValueHelper<C, ::Ice::Value>
 {
 public:
 
-    virtual ~C();
-
     C() = default;
-
     C(const C&) = default;
     C(C&&) = default;
     C& operator=(const C&) = default;
@@ -986,8 +971,8 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit C(const ::Test::Inner::S& s) :
-        s(s)
+    explicit C(::Test::Inner::S s) :
+        s(::std::move(s))
     {
     }
 
@@ -1004,7 +989,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::Test::Inner::S s;
 };
@@ -1054,7 +1039,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     virtual S opS(S s1, S& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -1143,7 +1128,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     virtual S opS(S s1, S& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -1213,7 +1198,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     virtual ::Test::Inner::Inner2::S opS(::Test::Inner::Inner2::S s1, ::Test::Inner::Inner2::S& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -1294,7 +1279,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     virtual ::Test::S opS(::Test::S s1, ::Test::S& s2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

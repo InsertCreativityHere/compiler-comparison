@@ -72,7 +72,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit Initial2Prx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -86,7 +86,7 @@ public:
     {
     }
 
-    Initial2Prx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    Initial2Prx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -125,10 +125,7 @@ class D : public ::Ice::ValueHelper<D, B>
 {
 public:
 
-    virtual ~D();
-
     D() = default;
-
     D(const D&) = default;
     D(D&&) = default;
     D& operator=(const D&) = default;
@@ -137,11 +134,11 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    D(::std::int32_t requiredA, ::std::optional<::std::int32_t> ma, ::std::optional<::std::int32_t> mb, ::std::optional<::std::int32_t> mc, ::std::int32_t requiredB, ::std::optional<::std::int32_t> md, ::std::string_view ds, const ::std::optional<::Test::StringSeq>& seq, const ::std::optional<::std::shared_ptr<::Test::A>>& ao) :
+    D(::std::int32_t requiredA, ::std::optional<::std::int32_t> ma, ::std::optional<::std::int32_t> mb, ::std::optional<::std::int32_t> mc, ::std::int32_t requiredB, ::std::optional<::std::int32_t> md, ::std::string ds, ::std::optional<::Test::StringSeq> seq, ::std::optional<::std::shared_ptr<::Test::A>> ao) :
         Ice::ValueHelper<D, B>(requiredA, ma, mb, mc, requiredB, md),
-        ds(ds),
-        seq(seq),
-        ao(ao)
+        ds(::std::move(ds)),
+        seq(::std::move(seq)),
+        ao(::std::move(ao))
     {
     }
 
@@ -158,7 +155,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::string ds;
     ::std::optional<::Test::StringSeq> seq;
@@ -198,7 +195,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     virtual void opClassAndUnknownOptional(::std::shared_ptr<A> p, ::std::optional<::std::shared_ptr<::Ice::Value>> o, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

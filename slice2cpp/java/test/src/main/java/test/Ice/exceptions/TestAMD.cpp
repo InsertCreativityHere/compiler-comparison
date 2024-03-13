@@ -758,7 +758,7 @@ Test::ThrowerPrx::_iceI_throwAfterException(const ::std::shared_ptr<::IceInterna
 }
 
 ::std::string_view
-Test::ThrowerPrx::ice_staticId()
+Test::ThrowerPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Thrower";
     return typeId;
@@ -793,51 +793,35 @@ Test::WrongOperationPrx::_iceI_noSuchOperation(const ::std::shared_ptr<::IceInte
 }
 
 ::std::string_view
-Test::WrongOperationPrx::ice_staticId()
+Test::WrongOperationPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::WrongOperation";
     return typeId;
 }
 
-Test::A::~A()
-{
-}
-
 ::std::string_view
-Test::A::ice_staticId()
+Test::A::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::A";
     return typeId;
 }
 
-Test::B::~B()
-{
-}
-
 ::std::string_view
-Test::B::ice_staticId()
+Test::B::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::B";
     return typeId;
 }
 
-Test::C::~C()
-{
-}
-
 ::std::string_view
-Test::C::ice_staticId()
+Test::C::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::C";
     return typeId;
 }
 
-Test::D::~D()
-{
-}
-
 ::std::string_view
-Test::D::ice_staticId()
+Test::D::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::D";
     return typeId;
@@ -857,7 +841,7 @@ Test::Thrower::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::Thrower::ice_staticId()
+Test::Thrower::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Thrower";
     return typeId;
@@ -1461,7 +1445,7 @@ Test::WrongOperation::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::WrongOperation::ice_staticId()
+Test::WrongOperation::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::WrongOperation";
     return typeId;

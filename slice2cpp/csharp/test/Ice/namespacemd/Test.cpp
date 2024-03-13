@@ -420,7 +420,7 @@ Test::InitialPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
 }
 
 ::std::string_view
-Test::InitialPrx::ice_staticId()
+Test::InitialPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Initial";
     return typeId;
@@ -440,7 +440,7 @@ Test::Initial::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::Initial::ice_staticId()
+Test::Initial::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Initial";
     return typeId;

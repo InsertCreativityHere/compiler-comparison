@@ -418,7 +418,7 @@ Test::MyClassPrx::_iceI_opNDGSS(const ::std::shared_ptr<::IceInternal::OutgoingA
 }
 
 ::std::string_view
-Test::MyClassPrx::ice_staticId()
+Test::MyClassPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MyClass";
     return typeId;
@@ -438,7 +438,7 @@ Test::MyClass::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::MyClass::ice_staticId()
+Test::MyClass::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MyClass";
     return typeId;

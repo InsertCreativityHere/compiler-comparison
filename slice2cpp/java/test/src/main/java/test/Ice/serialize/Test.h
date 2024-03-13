@@ -120,7 +120,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit InitialPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -134,7 +134,7 @@ public:
     {
     }
 
-    InitialPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    InitialPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -196,10 +196,7 @@ class Base : public ::Ice::ValueHelper<Base, ::Ice::Value>
 {
 public:
 
-    virtual ~Base();
-
     Base() = default;
-
     Base(const Base&) = default;
     Base(Base&&) = default;
     Base& operator=(const Base&) = default;
@@ -208,18 +205,18 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Base(const ::std::shared_ptr<::Test::Base>& b, const ::std::shared_ptr<::Ice::Value>& o, const ::Test::Struct1& s, const ::Test::ByteS& seq1, const ::Test::IntS& seq2, const ::Test::MyEnumS& seq3, const ::Test::BaseS& seq4, const ::Test::ByteBoolD& d1, const ::Test::ShortIntD& d2, const ::Test::StringMyEnumD& d3, const ::Test::StringBaseD& d4) :
-        b(b),
-        o(o),
-        s(s),
-        seq1(seq1),
-        seq2(seq2),
-        seq3(seq3),
-        seq4(seq4),
-        d1(d1),
-        d2(d2),
-        d3(d3),
-        d4(d4)
+    Base(::std::shared_ptr<::Test::Base> b, ::std::shared_ptr<::Ice::Value> o, ::Test::Struct1 s, ::Test::ByteS seq1, ::Test::IntS seq2, ::Test::MyEnumS seq3, ::Test::BaseS seq4, ::Test::ByteBoolD d1, ::Test::ShortIntD d2, ::Test::StringMyEnumD d3, ::Test::StringBaseD d4) :
+        b(::std::move(b)),
+        o(::std::move(o)),
+        s(::std::move(s)),
+        seq1(::std::move(seq1)),
+        seq2(::std::move(seq2)),
+        seq3(::std::move(seq3)),
+        seq4(::std::move(seq4)),
+        d1(::std::move(d1)),
+        d2(::std::move(d2)),
+        d3(::std::move(d3)),
+        d4(::std::move(d4))
     {
     }
 
@@ -236,7 +233,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::shared_ptr<::Test::Base> b;
     ::std::shared_ptr<::Ice::Value> o;
@@ -259,10 +256,7 @@ class Derived : public ::Ice::ValueHelper<Derived, Base>
 {
 public:
 
-    virtual ~Derived();
-
     Derived() = default;
-
     Derived(const Derived&) = default;
     Derived(Derived&&) = default;
     Derived& operator=(const Derived&) = default;
@@ -271,9 +265,9 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Derived(const ::std::shared_ptr<::Test::Base>& b, const ::std::shared_ptr<::Ice::Value>& o, const ::Test::Struct1& s, const ::Test::ByteS& seq1, const ::Test::IntS& seq2, const ::Test::MyEnumS& seq3, const ::Test::BaseS& seq4, const ::Test::ByteBoolD& d1, const ::Test::ShortIntD& d2, const ::Test::StringMyEnumD& d3, const ::Test::StringBaseD& d4, const ::std::optional<::Ice::ObjectPrx>& p) :
-        Ice::ValueHelper<Derived, Base>(b, o, s, seq1, seq2, seq3, seq4, d1, d2, d3, d4),
-        p(p)
+    Derived(::std::shared_ptr<::Test::Base> b, ::std::shared_ptr<::Ice::Value> o, ::Test::Struct1 s, ::Test::ByteS seq1, ::Test::IntS seq2, ::Test::MyEnumS seq3, ::Test::BaseS seq4, ::Test::ByteBoolD d1, ::Test::ShortIntD d2, ::Test::StringMyEnumD d3, ::Test::StringBaseD d4, ::std::optional<::Ice::ObjectPrx> p) :
+        Ice::ValueHelper<Derived, Base>(::std::move(b), ::std::move(o), ::std::move(s), ::std::move(seq1), ::std::move(seq2), ::std::move(seq3), ::std::move(seq4), ::std::move(d1), ::std::move(d2), ::std::move(d3), ::std::move(d4)),
+        p(::std::move(p))
     {
     }
 
@@ -290,7 +284,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::optional<::Ice::ObjectPrx> p;
 };
@@ -299,18 +293,16 @@ class Ex : public ::Ice::UserExceptionHelper<Ex, ::Ice::UserException>
 {
 public:
 
-    virtual ~Ex();
+    Ex() noexcept = default;
 
     Ex(const Ex&) = default;
-
-    Ex() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    Ex(const Struct1& s, const ::std::shared_ptr<Base>& b) :
-        s(s),
-        b(b)
+    Ex(Struct1 s, ::std::shared_ptr<Base> b) noexcept :
+        s(::std::move(s)),
+        b(::std::move(b))
     {
     }
 
@@ -327,7 +319,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /// \cond STREAM
     virtual bool _usesClasses() const override;
@@ -373,7 +365,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     virtual ByteS getStruct1(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

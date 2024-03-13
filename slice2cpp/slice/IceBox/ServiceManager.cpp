@@ -109,7 +109,7 @@ IceBox::ServiceObserverPrx::_iceI_servicesStopped(const ::std::shared_ptr<::IceI
 }
 
 ::std::string_view
-IceBox::ServiceObserverPrx::ice_staticId()
+IceBox::ServiceObserverPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceBox::ServiceObserver";
     return typeId;
@@ -273,40 +273,28 @@ IceBox::ServiceManagerPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal:
 }
 
 ::std::string_view
-IceBox::ServiceManagerPrx::ice_staticId()
+IceBox::ServiceManagerPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceBox::ServiceManager";
     return typeId;
 }
 
-IceBox::AlreadyStartedException::~AlreadyStartedException()
-{
-}
-
 ::std::string_view
-IceBox::AlreadyStartedException::ice_staticId()
+IceBox::AlreadyStartedException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceBox::AlreadyStartedException";
     return typeId;
 }
 
-IceBox::AlreadyStoppedException::~AlreadyStoppedException()
-{
-}
-
 ::std::string_view
-IceBox::AlreadyStoppedException::ice_staticId()
+IceBox::AlreadyStoppedException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceBox::AlreadyStoppedException";
     return typeId;
 }
 
-IceBox::NoSuchServiceException::~NoSuchServiceException()
-{
-}
-
 ::std::string_view
-IceBox::NoSuchServiceException::ice_staticId()
+IceBox::NoSuchServiceException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceBox::NoSuchServiceException";
     return typeId;
@@ -326,7 +314,7 @@ IceBox::ServiceObserver::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-IceBox::ServiceObserver::ice_staticId()
+IceBox::ServiceObserver::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceBox::ServiceObserver";
     return typeId;
@@ -431,7 +419,7 @@ IceBox::ServiceManager::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-IceBox::ServiceManager::ice_staticId()
+IceBox::ServiceManager::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceBox::ServiceManager";
     return typeId;

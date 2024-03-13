@@ -57,10 +57,7 @@ class C1 : public ::Ice::ValueHelper<C1, ::Ice::Value>
 {
 public:
 
-    virtual ~C1();
-
     C1() = default;
-
     C1(const C1&) = default;
     C1(C1&&) = default;
     C1& operator=(const C1&) = default;
@@ -87,7 +84,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::int32_t i;
 };
@@ -100,10 +97,7 @@ class C2 : public ::Ice::ValueHelper<C2, C1>
 {
 public:
 
-    virtual ~C2();
-
     C2() = default;
-
     C2(const C2&) = default;
     C2(C2&&) = default;
     C2& operator=(const C2&) = default;
@@ -131,7 +125,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::int64_t l;
 };
@@ -140,16 +134,14 @@ class E1 : public ::Ice::UserExceptionHelper<E1, ::Ice::UserException>
 {
 public:
 
-    virtual ~E1();
+    E1() noexcept = default;
 
     E1(const E1&) = default;
-
-    E1() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    E1(::std::int32_t i) :
+    E1(::std::int32_t i) noexcept :
         i(i)
     {
     }
@@ -167,7 +159,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::int32_t i;
 };
@@ -176,16 +168,14 @@ class E2 : public ::Ice::UserExceptionHelper<E2, E1>
 {
 public:
 
-    virtual ~E2();
+    E2() noexcept = default;
 
     E2(const E2&) = default;
-
-    E2() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    E2(::std::int32_t i, ::std::int64_t l) :
+    E2(::std::int32_t i, ::std::int64_t l) noexcept :
         ::Ice::UserExceptionHelper<E2, E1>(i),
         l(l)
     {
@@ -204,7 +194,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::int64_t l;
 };
@@ -218,10 +208,7 @@ class C1 : public ::Ice::ValueHelper<C1, ::Ice::Value>
 {
 public:
 
-    virtual ~C1();
-
     C1() = default;
-
     C1(const C1&) = default;
     C1(C1&&) = default;
     C1& operator=(const C1&) = default;
@@ -248,7 +235,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::int32_t i;
 };
@@ -257,10 +244,7 @@ class C2 : public ::Ice::ValueHelper<C2, C1>
 {
 public:
 
-    virtual ~C2();
-
     C2() = default;
-
     C2(const C2&) = default;
     C2(C2&&) = default;
     C2& operator=(const C2&) = default;
@@ -288,7 +272,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::int64_t l;
 };
@@ -297,16 +281,14 @@ class E1 : public ::Ice::UserExceptionHelper<E1, ::Ice::UserException>
 {
 public:
 
-    virtual ~E1();
+    E1() noexcept = default;
 
     E1(const E1&) = default;
-
-    E1() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    E1(::std::int32_t i) :
+    E1(::std::int32_t i) noexcept :
         i(i)
     {
     }
@@ -324,7 +306,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::int32_t i;
 };
@@ -333,16 +315,14 @@ class E2 : public ::Ice::UserExceptionHelper<E2, E1>
 {
 public:
 
-    virtual ~E2();
+    E2() noexcept = default;
 
     E2(const E2&) = default;
-
-    E2() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    E2(::std::int32_t i, ::std::int64_t l) :
+    E2(::std::int32_t i, ::std::int64_t l) noexcept :
         ::Ice::UserExceptionHelper<E2, E1>(i),
         l(l)
     {
@@ -361,7 +341,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::int64_t l;
 };

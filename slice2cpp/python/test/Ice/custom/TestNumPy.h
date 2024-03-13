@@ -286,7 +286,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit CustomPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -300,7 +300,7 @@ public:
     {
     }
 
-    CustomPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    CustomPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -344,10 +344,7 @@ class D : public ::Ice::ValueHelper<D, ::Ice::Value>
 {
 public:
 
-    virtual ~D();
-
     D() = default;
-
     D(const D&) = default;
     D(D&&) = default;
     D& operator=(const D&) = default;
@@ -356,14 +353,14 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    D(const ::std::optional<::Test::NumPy::BoolSeq1>& boolSeq, const ::std::optional<::Test::NumPy::ByteSeq1>& byteSeq, const ::std::optional<::Test::NumPy::ShortSeq1>& shortSeq, const ::std::optional<::Test::NumPy::IntSeq1>& intSeq, const ::std::optional<::Test::NumPy::LongSeq1>& longSeq, const ::std::optional<::Test::NumPy::FloatSeq1>& floatSeq, const ::std::optional<::Test::NumPy::DoubleSeq1>& doubleSeq) :
-        boolSeq(boolSeq),
-        byteSeq(byteSeq),
-        shortSeq(shortSeq),
-        intSeq(intSeq),
-        longSeq(longSeq),
-        floatSeq(floatSeq),
-        doubleSeq(doubleSeq)
+    D(::std::optional<::Test::NumPy::BoolSeq1> boolSeq, ::std::optional<::Test::NumPy::ByteSeq1> byteSeq, ::std::optional<::Test::NumPy::ShortSeq1> shortSeq, ::std::optional<::Test::NumPy::IntSeq1> intSeq, ::std::optional<::Test::NumPy::LongSeq1> longSeq, ::std::optional<::Test::NumPy::FloatSeq1> floatSeq, ::std::optional<::Test::NumPy::DoubleSeq1> doubleSeq) :
+        boolSeq(::std::move(boolSeq)),
+        byteSeq(::std::move(byteSeq)),
+        shortSeq(::std::move(shortSeq)),
+        intSeq(::std::move(intSeq)),
+        longSeq(::std::move(longSeq)),
+        floatSeq(::std::move(floatSeq)),
+        doubleSeq(::std::move(doubleSeq))
     {
     }
 
@@ -380,7 +377,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::optional<::Test::NumPy::BoolSeq1> boolSeq;
     ::std::optional<::Test::NumPy::ByteSeq1> byteSeq;
@@ -429,7 +426,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     virtual BoolSeq1 opBoolSeq(BoolSeq1 v1, BoolSeq2& v2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

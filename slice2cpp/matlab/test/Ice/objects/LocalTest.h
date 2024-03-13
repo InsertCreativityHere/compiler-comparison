@@ -98,10 +98,7 @@ class C1 : public ::Ice::ValueHelper<C1, ::Ice::Value>
 {
 public:
 
-    virtual ~C1();
-
     C1() = default;
-
     C1(const C1&) = default;
     C1(C1&&) = default;
     C1& operator=(const C1&) = default;
@@ -128,7 +125,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::int32_t i;
 };
@@ -253,10 +250,7 @@ class CB1 : public ::Ice::ValueHelper<CB1, ::Ice::Value>
 {
 public:
 
-    virtual ~CB1();
-
     CB1() = default;
-
     CB1(const CB1&) = default;
     CB1(CB1&&) = default;
     CB1& operator=(const CB1&) = default;
@@ -265,8 +259,8 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit CB1(const ::LocalTest::S1& s1) :
-        s1(s1)
+    explicit CB1(::LocalTest::S1 s1) :
+        s1(::std::move(s1))
     {
     }
 
@@ -283,7 +277,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::LocalTest::S1 s1;
 };
@@ -292,10 +286,7 @@ class CB2 : public ::Ice::ValueHelper<CB2, ::Ice::Value>
 {
 public:
 
-    virtual ~CB2();
-
     CB2() = default;
-
     CB2(const CB2&) = default;
     CB2(CB2&&) = default;
     CB2& operator=(const CB2&) = default;
@@ -304,8 +295,8 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit CB2(const ::LocalTest::C1Seq& c1seq) :
-        c1seq(c1seq)
+    explicit CB2(::LocalTest::C1Seq c1seq) :
+        c1seq(::std::move(c1seq))
     {
     }
 
@@ -322,7 +313,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::LocalTest::C1Seq c1seq;
 };
@@ -331,10 +322,7 @@ class CB3 : public ::Ice::ValueHelper<CB3, ::Ice::Value>
 {
 public:
 
-    virtual ~CB3();
-
     CB3() = default;
-
     CB3(const CB3&) = default;
     CB3(CB3&&) = default;
     CB3& operator=(const CB3&) = default;
@@ -343,8 +331,8 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit CB3(const ::LocalTest::S1Seq& s1seq) :
-        s1seq(s1seq)
+    explicit CB3(::LocalTest::S1Seq s1seq) :
+        s1seq(::std::move(s1seq))
     {
     }
 
@@ -361,7 +349,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::LocalTest::S1Seq s1seq;
 };
@@ -370,10 +358,7 @@ class CB4 : public ::Ice::ValueHelper<CB4, ::Ice::Value>
 {
 public:
 
-    virtual ~CB4();
-
     CB4() = default;
-
     CB4(const CB4&) = default;
     CB4(CB4&&) = default;
     CB4& operator=(const CB4&) = default;
@@ -382,8 +367,8 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit CB4(const ::LocalTest::C1Dict& c1dict) :
-        c1dict(c1dict)
+    explicit CB4(::LocalTest::C1Dict c1dict) :
+        c1dict(::std::move(c1dict))
     {
     }
 
@@ -400,7 +385,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::LocalTest::C1Dict c1dict;
 };
@@ -409,10 +394,7 @@ class CB5 : public ::Ice::ValueHelper<CB5, ::Ice::Value>
 {
 public:
 
-    virtual ~CB5();
-
     CB5() = default;
-
     CB5(const CB5&) = default;
     CB5(CB5&&) = default;
     CB5& operator=(const CB5&) = default;
@@ -421,8 +403,8 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit CB5(const ::LocalTest::S1Dict& s1dict) :
-        s1dict(s1dict)
+    explicit CB5(::LocalTest::S1Dict s1dict) :
+        s1dict(::std::move(s1dict))
     {
     }
 
@@ -439,7 +421,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::LocalTest::S1Dict s1dict;
 };
@@ -448,10 +430,7 @@ class CB6 : public ::Ice::ValueHelper<CB6, ::Ice::Value>
 {
 public:
 
-    virtual ~CB6();
-
     CB6() = default;
-
     CB6(const CB6&) = default;
     CB6(CB6&&) = default;
     CB6& operator=(const CB6&) = default;
@@ -460,8 +439,8 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit CB6(const ::LocalTest::C1SeqSeq& c1seqseq) :
-        c1seqseq(c1seqseq)
+    explicit CB6(::LocalTest::C1SeqSeq c1seqseq) :
+        c1seqseq(::std::move(c1seqseq))
     {
     }
 
@@ -478,7 +457,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::LocalTest::C1SeqSeq c1seqseq;
 };
@@ -487,10 +466,7 @@ class CB7 : public ::Ice::ValueHelper<CB7, ::Ice::Value>
 {
 public:
 
-    virtual ~CB7();
-
     CB7() = default;
-
     CB7(const CB7&) = default;
     CB7(CB7&&) = default;
     CB7& operator=(const CB7&) = default;
@@ -499,8 +475,8 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit CB7(const ::LocalTest::S1SeqSeq& s1seqseq) :
-        s1seqseq(s1seqseq)
+    explicit CB7(::LocalTest::S1SeqSeq s1seqseq) :
+        s1seqseq(::std::move(s1seqseq))
     {
     }
 
@@ -517,7 +493,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::LocalTest::S1SeqSeq s1seqseq;
 };
@@ -526,10 +502,7 @@ class CB8 : public ::Ice::ValueHelper<CB8, ::Ice::Value>
 {
 public:
 
-    virtual ~CB8();
-
     CB8() = default;
-
     CB8(const CB8&) = default;
     CB8(CB8&&) = default;
     CB8& operator=(const CB8&) = default;
@@ -538,10 +511,10 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    CB8(const ::LocalTest::S1& s1, const ::LocalTest::C1Seq& c1seq, const ::LocalTest::S1Dict& s1dict) :
-        s1(s1),
-        c1seq(c1seq),
-        s1dict(s1dict)
+    CB8(::LocalTest::S1 s1, ::LocalTest::C1Seq c1seq, ::LocalTest::S1Dict s1dict) :
+        s1(::std::move(s1)),
+        c1seq(::std::move(c1seq)),
+        s1dict(::std::move(s1dict))
     {
     }
 
@@ -558,7 +531,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::LocalTest::S1 s1;
     ::LocalTest::C1Seq c1seq;
@@ -584,10 +557,7 @@ class Opt : public ::Ice::ValueHelper<Opt, ::Ice::Value>
 {
 public:
 
-    virtual ~Opt();
-
     Opt() = default;
-
     Opt(const Opt&) = default;
     Opt(Opt&&) = default;
     Opt& operator=(const Opt&) = default;
@@ -596,10 +566,10 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Opt(const ::std::optional<::LocalTest::S1>& s1, const ::std::optional<::LocalTest::C1Seq>& c1seq, const ::std::optional<::LocalTest::S1Dict>& s1dict) :
-        s1(s1),
-        c1seq(c1seq),
-        s1dict(s1dict)
+    Opt(::std::optional<::LocalTest::S1> s1, ::std::optional<::LocalTest::C1Seq> c1seq, ::std::optional<::LocalTest::S1Dict> s1dict) :
+        s1(::std::move(s1)),
+        c1seq(::std::move(c1seq)),
+        s1dict(::std::move(s1dict))
     {
     }
 
@@ -616,7 +586,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::optional<::LocalTest::S1> s1;
     ::std::optional<::LocalTest::C1Seq> c1seq;

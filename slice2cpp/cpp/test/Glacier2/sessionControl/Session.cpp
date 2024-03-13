@@ -94,7 +94,7 @@ Test::SessionPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
 }
 
 ::std::string_view
-Test::SessionPrx::ice_staticId()
+Test::SessionPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Session";
     return typeId;
@@ -114,7 +114,7 @@ Test::Session::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::Session::ice_staticId()
+Test::Session::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Session";
     return typeId;

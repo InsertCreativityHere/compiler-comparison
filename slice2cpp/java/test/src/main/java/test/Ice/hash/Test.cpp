@@ -39,12 +39,8 @@ const ::IceInternal::DefaultValueFactoryInit<::Test::Pen> iceC_Test_Pen_init("::
 
 }
 
-Test::Pen::~Pen()
-{
-}
-
 ::std::string_view
-Test::Pen::ice_staticId()
+Test::Pen::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Pen";
     return typeId;

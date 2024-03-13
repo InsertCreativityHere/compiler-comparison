@@ -101,7 +101,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit MyInterfacePrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -115,7 +115,7 @@ public:
     {
     }
 
-    MyInterfacePrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    MyInterfacePrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -194,10 +194,7 @@ class OptionalClass : public ::Ice::ValueHelper<OptionalClass, ::Ice::Value>
 {
 public:
 
-    virtual ~OptionalClass();
-
     OptionalClass() = default;
-
     OptionalClass(const OptionalClass&) = default;
     OptionalClass(OptionalClass&&) = default;
     OptionalClass& operator=(const OptionalClass&) = default;
@@ -206,23 +203,23 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    OptionalClass(bool bo, ::std::uint8_t by, ::std::optional<::std::int16_t> sh, ::std::optional<::std::int32_t> i, const ::std::optional<::Test::SmallStruct>& sm, const ::std::optional<::Test::MyEnumS>& enumS4, const ::std::optional<::Test::MyClassS>& myClassS5, const ::std::optional<::Test::ByteBoolD>& byteBoolD6, const ::std::optional<::Test::ShortIntD>& shortIntD7, ::std::optional<::Test::MyEnum> enum8, const ::std::optional<::std::shared_ptr<::Test::MyClass>>& class9, const ::std::optional<::Test::StringMyClassD>& stringMyClassD10, const ::std::optional<::Ice::IntSeq>& intSeq12, const ::std::optional<::Ice::ByteSeq>& byteSeq13, const ::std::optional<::Ice::StringSeq>& stringSeq14, const ::std::optional<::Test::Point>& p15) :
+    OptionalClass(bool bo, ::std::uint8_t by, ::std::optional<::std::int16_t> sh, ::std::optional<::std::int32_t> i, ::std::optional<::Test::SmallStruct> sm, ::std::optional<::Test::MyEnumS> enumS4, ::std::optional<::Test::MyClassS> myClassS5, ::std::optional<::Test::ByteBoolD> byteBoolD6, ::std::optional<::Test::ShortIntD> shortIntD7, ::std::optional<::Test::MyEnum> enum8, ::std::optional<::std::shared_ptr<::Test::MyClass>> class9, ::std::optional<::Test::StringMyClassD> stringMyClassD10, ::std::optional<::Ice::IntSeq> intSeq12, ::std::optional<::Ice::ByteSeq> byteSeq13, ::std::optional<::Ice::StringSeq> stringSeq14, ::std::optional<::Test::Point> p15) :
         bo(bo),
         by(by),
         sh(sh),
         i(i),
-        sm(sm),
-        enumS4(enumS4),
-        myClassS5(myClassS5),
-        byteBoolD6(byteBoolD6),
-        shortIntD7(shortIntD7),
+        sm(::std::move(sm)),
+        enumS4(::std::move(enumS4)),
+        myClassS5(::std::move(myClassS5)),
+        byteBoolD6(::std::move(byteBoolD6)),
+        shortIntD7(::std::move(shortIntD7)),
         enum8(enum8),
-        class9(class9),
-        stringMyClassD10(stringMyClassD10),
-        intSeq12(intSeq12),
-        byteSeq13(byteSeq13),
-        stringSeq14(stringSeq14),
-        p15(p15)
+        class9(::std::move(class9)),
+        stringMyClassD10(::std::move(stringMyClassD10)),
+        intSeq12(::std::move(intSeq12)),
+        byteSeq13(::std::move(byteSeq13)),
+        stringSeq14(::std::move(stringSeq14)),
+        p15(::std::move(p15))
     {
     }
 
@@ -239,7 +236,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     bool bo;
     ::std::uint8_t by;
@@ -267,10 +264,7 @@ class MyClass : public ::Ice::ValueHelper<MyClass, ::Ice::Value>
 {
 public:
 
-    virtual ~MyClass();
-
     MyClass() = default;
-
     MyClass(const MyClass&) = default;
     MyClass(MyClass&&) = default;
     MyClass& operator=(const MyClass&) = default;
@@ -279,22 +273,22 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    MyClass(const ::std::shared_ptr<::Test::MyClass>& c, const ::std::optional<::Test::MyInterfacePrx>& prx, const ::std::shared_ptr<::Ice::Value>& o, const ::Test::SmallStruct& s, const ::Ice::BoolSeq& seq1, const ::Ice::ByteSeq& seq2, const ::Ice::ShortSeq& seq3, const ::Ice::IntSeq& seq4, const ::Ice::LongSeq& seq5, const ::Ice::FloatSeq& seq6, const ::Ice::DoubleSeq& seq7, const ::Ice::StringSeq& seq8, const ::Test::MyEnumS& seq9, const ::Test::MyClassS& seq10, const ::Test::StringMyClassD& d) :
-        c(c),
-        prx(prx),
-        o(o),
-        s(s),
-        seq1(seq1),
-        seq2(seq2),
-        seq3(seq3),
-        seq4(seq4),
-        seq5(seq5),
-        seq6(seq6),
-        seq7(seq7),
-        seq8(seq8),
-        seq9(seq9),
-        seq10(seq10),
-        d(d)
+    MyClass(::std::shared_ptr<::Test::MyClass> c, ::std::optional<::Test::MyInterfacePrx> prx, ::std::shared_ptr<::Ice::Value> o, ::Test::SmallStruct s, ::Ice::BoolSeq seq1, ::Ice::ByteSeq seq2, ::Ice::ShortSeq seq3, ::Ice::IntSeq seq4, ::Ice::LongSeq seq5, ::Ice::FloatSeq seq6, ::Ice::DoubleSeq seq7, ::Ice::StringSeq seq8, ::Test::MyEnumS seq9, ::Test::MyClassS seq10, ::Test::StringMyClassD d) :
+        c(::std::move(c)),
+        prx(::std::move(prx)),
+        o(::std::move(o)),
+        s(::std::move(s)),
+        seq1(::std::move(seq1)),
+        seq2(::std::move(seq2)),
+        seq3(::std::move(seq3)),
+        seq4(::std::move(seq4)),
+        seq5(::std::move(seq5)),
+        seq6(::std::move(seq6)),
+        seq7(::std::move(seq7)),
+        seq8(::std::move(seq8)),
+        seq9(::std::move(seq9)),
+        seq10(::std::move(seq10)),
+        d(::std::move(d))
     {
     }
 
@@ -311,7 +305,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::shared_ptr<::Test::MyClass> c;
     ::std::optional<::Test::MyInterfacePrx> prx;
@@ -334,17 +328,15 @@ class MyException : public ::Ice::UserExceptionHelper<MyException, ::Ice::UserEx
 {
 public:
 
-    virtual ~MyException();
+    MyException() noexcept = default;
 
     MyException(const MyException&) = default;
-
-    MyException() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    MyException(const ::std::shared_ptr<MyClass>& c) :
-        c(c)
+    MyException(::std::shared_ptr<MyClass> c) noexcept :
+        c(::std::move(c))
     {
     }
 
@@ -361,7 +353,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /// \cond STREAM
     virtual bool _usesClasses() const override;
@@ -406,7 +398,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 };
 
 using MyInterfacePtr = ::std::shared_ptr<MyInterface>;

@@ -1007,29 +1007,21 @@ Test::CustomPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingA
 }
 
 ::std::string_view
-Test::CustomPrx::ice_staticId()
+Test::CustomPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Custom";
     return typeId;
 }
 
-Test::C::~C()
-{
-}
-
 ::std::string_view
-Test::C::ice_staticId()
+Test::C::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::C";
     return typeId;
 }
 
-Test::D::~D()
-{
-}
-
 ::std::string_view
-Test::D::ice_staticId()
+Test::D::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::D";
     return typeId;
@@ -1049,7 +1041,7 @@ Test::Custom::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::Custom::ice_staticId()
+Test::Custom::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Custom";
     return typeId;

@@ -308,10 +308,7 @@ class ICE_CLASS(ICEGRID_API) CommunicatorDescriptor : public ::Ice::ValueHelper<
 {
 public:
 
-    ICE_MEMBER(ICEGRID_API) virtual ~CommunicatorDescriptor();
-
     CommunicatorDescriptor() = default;
-
     CommunicatorDescriptor(const CommunicatorDescriptor&) = default;
     CommunicatorDescriptor(CommunicatorDescriptor&&) = default;
     CommunicatorDescriptor& operator=(const CommunicatorDescriptor&) = default;
@@ -324,11 +321,11 @@ public:
      * @param logs The path of each log file.
      * @param description A description of this descriptor.
      */
-    CommunicatorDescriptor(const ::IceGrid::AdapterDescriptorSeq& adapters, const ::IceGrid::PropertySetDescriptor& propertySet, const ::Ice::StringSeq& logs, ::std::string_view description) :
-        adapters(adapters),
-        propertySet(propertySet),
-        logs(logs),
-        description(description)
+    CommunicatorDescriptor(::IceGrid::AdapterDescriptorSeq adapters, ::IceGrid::PropertySetDescriptor propertySet, ::Ice::StringSeq logs, ::std::string description) :
+        adapters(::std::move(adapters)),
+        propertySet(::std::move(propertySet)),
+        logs(::std::move(logs)),
+        description(::std::move(description))
     {
     }
 
@@ -345,7 +342,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The object adapters.
@@ -402,10 +399,7 @@ class ICE_CLASS(ICEGRID_API) ServerDescriptor : public ::Ice::ValueHelper<Server
 {
 public:
 
-    ICE_MEMBER(ICEGRID_API) virtual ~ServerDescriptor();
-
     ServerDescriptor() = default;
-
     ServerDescriptor(const ServerDescriptor&) = default;
     ServerDescriptor(ServerDescriptor&&) = default;
     ServerDescriptor& operator=(const ServerDescriptor&) = default;
@@ -431,21 +425,21 @@ public:
      * @param allocatable Specifies if the server is allocatable.
      * @param user The user account used to run the server.
      */
-    ServerDescriptor(const ::IceGrid::AdapterDescriptorSeq& adapters, const ::IceGrid::PropertySetDescriptor& propertySet, const ::Ice::StringSeq& logs, ::std::string_view description, ::std::string_view id, ::std::string_view exe, ::std::string_view iceVersion, ::std::string_view pwd, const ::Ice::StringSeq& options, const ::Ice::StringSeq& envs, ::std::string_view activation, ::std::string_view activationTimeout, ::std::string_view deactivationTimeout, bool applicationDistrib, const ::IceGrid::DistributionDescriptor& distrib, bool allocatable, ::std::string_view user) :
-        Ice::ValueHelper<ServerDescriptor, CommunicatorDescriptor>(adapters, propertySet, logs, description),
-        id(id),
-        exe(exe),
-        iceVersion(iceVersion),
-        pwd(pwd),
-        options(options),
-        envs(envs),
-        activation(activation),
-        activationTimeout(activationTimeout),
-        deactivationTimeout(deactivationTimeout),
+    ServerDescriptor(::IceGrid::AdapterDescriptorSeq adapters, ::IceGrid::PropertySetDescriptor propertySet, ::Ice::StringSeq logs, ::std::string description, ::std::string id, ::std::string exe, ::std::string iceVersion, ::std::string pwd, ::Ice::StringSeq options, ::Ice::StringSeq envs, ::std::string activation, ::std::string activationTimeout, ::std::string deactivationTimeout, bool applicationDistrib, ::IceGrid::DistributionDescriptor distrib, bool allocatable, ::std::string user) :
+        Ice::ValueHelper<ServerDescriptor, CommunicatorDescriptor>(::std::move(adapters), ::std::move(propertySet), ::std::move(logs), ::std::move(description)),
+        id(::std::move(id)),
+        exe(::std::move(exe)),
+        iceVersion(::std::move(iceVersion)),
+        pwd(::std::move(pwd)),
+        options(::std::move(options)),
+        envs(::std::move(envs)),
+        activation(::std::move(activation)),
+        activationTimeout(::std::move(activationTimeout)),
+        deactivationTimeout(::std::move(deactivationTimeout)),
         applicationDistrib(applicationDistrib),
-        distrib(distrib),
+        distrib(::std::move(distrib)),
         allocatable(allocatable),
-        user(user)
+        user(::std::move(user))
     {
     }
 
@@ -462,7 +456,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The server id.
@@ -528,10 +522,7 @@ class ICE_CLASS(ICEGRID_API) ServiceDescriptor : public ::Ice::ValueHelper<Servi
 {
 public:
 
-    ICE_MEMBER(ICEGRID_API) virtual ~ServiceDescriptor();
-
     ServiceDescriptor() = default;
-
     ServiceDescriptor(const ServiceDescriptor&) = default;
     ServiceDescriptor(ServiceDescriptor&&) = default;
     ServiceDescriptor& operator=(const ServiceDescriptor&) = default;
@@ -546,10 +537,10 @@ public:
      * @param name The service name.
      * @param entry The entry point of the IceBox service.
      */
-    ServiceDescriptor(const ::IceGrid::AdapterDescriptorSeq& adapters, const ::IceGrid::PropertySetDescriptor& propertySet, const ::Ice::StringSeq& logs, ::std::string_view description, ::std::string_view name, ::std::string_view entry) :
-        Ice::ValueHelper<ServiceDescriptor, CommunicatorDescriptor>(adapters, propertySet, logs, description),
-        name(name),
-        entry(entry)
+    ServiceDescriptor(::IceGrid::AdapterDescriptorSeq adapters, ::IceGrid::PropertySetDescriptor propertySet, ::Ice::StringSeq logs, ::std::string description, ::std::string name, ::std::string entry) :
+        Ice::ValueHelper<ServiceDescriptor, CommunicatorDescriptor>(::std::move(adapters), ::std::move(propertySet), ::std::move(logs), ::std::move(description)),
+        name(::std::move(name)),
+        entry(::std::move(entry))
     {
     }
 
@@ -566,7 +557,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The service name.
@@ -682,10 +673,7 @@ class ICE_CLASS(ICEGRID_API) IceBoxDescriptor : public ::Ice::ValueHelper<IceBox
 {
 public:
 
-    ICE_MEMBER(ICEGRID_API) virtual ~IceBoxDescriptor();
-
     IceBoxDescriptor() = default;
-
     IceBoxDescriptor(const IceBoxDescriptor&) = default;
     IceBoxDescriptor(IceBoxDescriptor&&) = default;
     IceBoxDescriptor& operator=(const IceBoxDescriptor&) = default;
@@ -712,9 +700,9 @@ public:
      * @param user The user account used to run the server.
      * @param services The service instances.
      */
-    IceBoxDescriptor(const ::IceGrid::AdapterDescriptorSeq& adapters, const ::IceGrid::PropertySetDescriptor& propertySet, const ::Ice::StringSeq& logs, ::std::string_view description, ::std::string_view id, ::std::string_view exe, ::std::string_view iceVersion, ::std::string_view pwd, const ::Ice::StringSeq& options, const ::Ice::StringSeq& envs, ::std::string_view activation, ::std::string_view activationTimeout, ::std::string_view deactivationTimeout, bool applicationDistrib, const ::IceGrid::DistributionDescriptor& distrib, bool allocatable, ::std::string_view user, const ::IceGrid::ServiceInstanceDescriptorSeq& services) :
-        Ice::ValueHelper<IceBoxDescriptor, ServerDescriptor>(adapters, propertySet, logs, description, id, exe, iceVersion, pwd, options, envs, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, allocatable, user),
-        services(services)
+    IceBoxDescriptor(::IceGrid::AdapterDescriptorSeq adapters, ::IceGrid::PropertySetDescriptor propertySet, ::Ice::StringSeq logs, ::std::string description, ::std::string id, ::std::string exe, ::std::string iceVersion, ::std::string pwd, ::Ice::StringSeq options, ::Ice::StringSeq envs, ::std::string activation, ::std::string activationTimeout, ::std::string deactivationTimeout, bool applicationDistrib, ::IceGrid::DistributionDescriptor distrib, bool allocatable, ::std::string user, ::IceGrid::ServiceInstanceDescriptorSeq services) :
+        Ice::ValueHelper<IceBoxDescriptor, ServerDescriptor>(::std::move(adapters), ::std::move(propertySet), ::std::move(logs), ::std::move(description), ::std::move(id), ::std::move(exe), ::std::move(iceVersion), ::std::move(pwd), ::std::move(options), ::std::move(envs), ::std::move(activation), ::std::move(activationTimeout), ::std::move(deactivationTimeout), applicationDistrib, ::std::move(distrib), allocatable, ::std::move(user)),
+        services(::std::move(services))
     {
     }
 
@@ -731,7 +719,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The service instances.
@@ -788,10 +776,7 @@ class ICE_CLASS(ICEGRID_API) LoadBalancingPolicy : public ::Ice::ValueHelper<Loa
 {
 public:
 
-    ICE_MEMBER(ICEGRID_API) virtual ~LoadBalancingPolicy();
-
     LoadBalancingPolicy() = default;
-
     LoadBalancingPolicy(const LoadBalancingPolicy&) = default;
     LoadBalancingPolicy(LoadBalancingPolicy&&) = default;
     LoadBalancingPolicy& operator=(const LoadBalancingPolicy&) = default;
@@ -801,8 +786,8 @@ public:
      * One-shot constructor to initialize all data members.
      * @param nReplicas The number of replicas that will be used to gather the endpoints of a replica group.
      */
-    explicit LoadBalancingPolicy(::std::string_view nReplicas) :
-        nReplicas(nReplicas)
+    explicit LoadBalancingPolicy(::std::string nReplicas) :
+        nReplicas(::std::move(nReplicas))
     {
     }
 
@@ -819,7 +804,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The number of replicas that will be used to gather the endpoints of a replica group.
@@ -835,10 +820,7 @@ class ICE_CLASS(ICEGRID_API) RandomLoadBalancingPolicy : public ::Ice::ValueHelp
 {
 public:
 
-    ICE_MEMBER(ICEGRID_API) virtual ~RandomLoadBalancingPolicy();
-
     RandomLoadBalancingPolicy() = default;
-
     RandomLoadBalancingPolicy(const RandomLoadBalancingPolicy&) = default;
     RandomLoadBalancingPolicy(RandomLoadBalancingPolicy&&) = default;
     RandomLoadBalancingPolicy& operator=(const RandomLoadBalancingPolicy&) = default;
@@ -848,8 +830,8 @@ public:
      * One-shot constructor to initialize all data members.
      * @param nReplicas The number of replicas that will be used to gather the endpoints of a replica group.
      */
-    explicit RandomLoadBalancingPolicy(::std::string_view nReplicas) :
-        Ice::ValueHelper<RandomLoadBalancingPolicy, LoadBalancingPolicy>(nReplicas)
+    explicit RandomLoadBalancingPolicy(::std::string nReplicas) :
+        Ice::ValueHelper<RandomLoadBalancingPolicy, LoadBalancingPolicy>(::std::move(nReplicas))
     {
     }
 
@@ -866,7 +848,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 };
 
 /**
@@ -877,10 +859,7 @@ class ICE_CLASS(ICEGRID_API) OrderedLoadBalancingPolicy : public ::Ice::ValueHel
 {
 public:
 
-    ICE_MEMBER(ICEGRID_API) virtual ~OrderedLoadBalancingPolicy();
-
     OrderedLoadBalancingPolicy() = default;
-
     OrderedLoadBalancingPolicy(const OrderedLoadBalancingPolicy&) = default;
     OrderedLoadBalancingPolicy(OrderedLoadBalancingPolicy&&) = default;
     OrderedLoadBalancingPolicy& operator=(const OrderedLoadBalancingPolicy&) = default;
@@ -890,8 +869,8 @@ public:
      * One-shot constructor to initialize all data members.
      * @param nReplicas The number of replicas that will be used to gather the endpoints of a replica group.
      */
-    explicit OrderedLoadBalancingPolicy(::std::string_view nReplicas) :
-        Ice::ValueHelper<OrderedLoadBalancingPolicy, LoadBalancingPolicy>(nReplicas)
+    explicit OrderedLoadBalancingPolicy(::std::string nReplicas) :
+        Ice::ValueHelper<OrderedLoadBalancingPolicy, LoadBalancingPolicy>(::std::move(nReplicas))
     {
     }
 
@@ -908,7 +887,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 };
 
 /**
@@ -919,10 +898,7 @@ class ICE_CLASS(ICEGRID_API) RoundRobinLoadBalancingPolicy : public ::Ice::Value
 {
 public:
 
-    ICE_MEMBER(ICEGRID_API) virtual ~RoundRobinLoadBalancingPolicy();
-
     RoundRobinLoadBalancingPolicy() = default;
-
     RoundRobinLoadBalancingPolicy(const RoundRobinLoadBalancingPolicy&) = default;
     RoundRobinLoadBalancingPolicy(RoundRobinLoadBalancingPolicy&&) = default;
     RoundRobinLoadBalancingPolicy& operator=(const RoundRobinLoadBalancingPolicy&) = default;
@@ -932,8 +908,8 @@ public:
      * One-shot constructor to initialize all data members.
      * @param nReplicas The number of replicas that will be used to gather the endpoints of a replica group.
      */
-    explicit RoundRobinLoadBalancingPolicy(::std::string_view nReplicas) :
-        Ice::ValueHelper<RoundRobinLoadBalancingPolicy, LoadBalancingPolicy>(nReplicas)
+    explicit RoundRobinLoadBalancingPolicy(::std::string nReplicas) :
+        Ice::ValueHelper<RoundRobinLoadBalancingPolicy, LoadBalancingPolicy>(::std::move(nReplicas))
     {
     }
 
@@ -950,7 +926,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 };
 
 /**
@@ -961,10 +937,7 @@ class ICE_CLASS(ICEGRID_API) AdaptiveLoadBalancingPolicy : public ::Ice::ValueHe
 {
 public:
 
-    ICE_MEMBER(ICEGRID_API) virtual ~AdaptiveLoadBalancingPolicy();
-
     AdaptiveLoadBalancingPolicy() = default;
-
     AdaptiveLoadBalancingPolicy(const AdaptiveLoadBalancingPolicy&) = default;
     AdaptiveLoadBalancingPolicy(AdaptiveLoadBalancingPolicy&&) = default;
     AdaptiveLoadBalancingPolicy& operator=(const AdaptiveLoadBalancingPolicy&) = default;
@@ -975,9 +948,9 @@ public:
      * @param nReplicas The number of replicas that will be used to gather the endpoints of a replica group.
      * @param loadSample The load sample to use for the load balancing.
      */
-    AdaptiveLoadBalancingPolicy(::std::string_view nReplicas, ::std::string_view loadSample) :
-        Ice::ValueHelper<AdaptiveLoadBalancingPolicy, LoadBalancingPolicy>(nReplicas),
-        loadSample(loadSample)
+    AdaptiveLoadBalancingPolicy(::std::string nReplicas, ::std::string loadSample) :
+        Ice::ValueHelper<AdaptiveLoadBalancingPolicy, LoadBalancingPolicy>(::std::move(nReplicas)),
+        loadSample(::std::move(loadSample))
     {
     }
 
@@ -994,7 +967,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The load sample to use for the load balancing. The allowed values for this attribute are "1", "5" and "15",
@@ -1105,10 +1078,7 @@ class ICE_CLASS(ICEGRID_API) BoxedString : public ::Ice::ValueHelper<BoxedString
 {
 public:
 
-    ICE_MEMBER(ICEGRID_API) virtual ~BoxedString();
-
     BoxedString() = default;
-
     BoxedString(const BoxedString&) = default;
     BoxedString(BoxedString&&) = default;
     BoxedString& operator=(const BoxedString&) = default;
@@ -1118,8 +1088,8 @@ public:
      * One-shot constructor to initialize all data members.
      * @param value The value of the boxed string.
      */
-    explicit BoxedString(::std::string_view value) :
-        value(value)
+    explicit BoxedString(::std::string value) :
+        value(::std::move(value))
     {
     }
 
@@ -1136,7 +1106,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The value of the boxed string.
@@ -1209,10 +1179,7 @@ class ICE_CLASS(ICEGRID_API) BoxedDistributionDescriptor : public ::Ice::ValueHe
 {
 public:
 
-    ICE_MEMBER(ICEGRID_API) virtual ~BoxedDistributionDescriptor();
-
     BoxedDistributionDescriptor() = default;
-
     BoxedDistributionDescriptor(const BoxedDistributionDescriptor&) = default;
     BoxedDistributionDescriptor(BoxedDistributionDescriptor&&) = default;
     BoxedDistributionDescriptor& operator=(const BoxedDistributionDescriptor&) = default;
@@ -1222,8 +1189,8 @@ public:
      * One-shot constructor to initialize all data members.
      * @param value The value of the boxed distribution descriptor.
      */
-    explicit BoxedDistributionDescriptor(const ::IceGrid::DistributionDescriptor& value) :
-        value(value)
+    explicit BoxedDistributionDescriptor(::IceGrid::DistributionDescriptor value) :
+        value(::std::move(value))
     {
     }
 
@@ -1240,7 +1207,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The value of the boxed distribution descriptor.

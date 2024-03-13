@@ -98,7 +98,7 @@ Test::MyInterfacePrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAs
 }
 
 ::std::string_view
-Test::MyInterfacePrx::ice_staticId()
+Test::MyInterfacePrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MyInterface";
     return typeId;
@@ -2274,7 +2274,7 @@ Test::InitialPrx::_iceI_supportsNullOptional(const ::std::shared_ptr<::IceIntern
 }
 
 ::std::string_view
-Test::InitialPrx::ice_staticId()
+Test::InitialPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Initial";
     return typeId;
@@ -2393,106 +2393,70 @@ Test::EchoPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsy
 }
 
 ::std::string_view
-Test::EchoPrx::ice_staticId()
+Test::EchoPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Echo";
     return typeId;
 }
 
-Test::OneOptional::~OneOptional()
-{
-}
-
 ::std::string_view
-Test::OneOptional::ice_staticId()
+Test::OneOptional::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::OneOptional";
     return typeId;
 }
 
-Test::MultiOptional::~MultiOptional()
-{
-}
-
 ::std::string_view
-Test::MultiOptional::ice_staticId()
+Test::MultiOptional::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MultiOptional";
     return typeId;
 }
 
-Test::A::~A()
-{
-}
-
 ::std::string_view
-Test::A::ice_staticId()
+Test::A::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::A";
     return typeId;
 }
 
-Test::B::~B()
-{
-}
-
 ::std::string_view
-Test::B::ice_staticId()
+Test::B::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::B";
     return typeId;
 }
 
-Test::C::~C()
-{
-}
-
 ::std::string_view
-Test::C::ice_staticId()
+Test::C::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::C";
     return typeId;
 }
 
-Test::WD::~WD()
-{
-}
-
 ::std::string_view
-Test::WD::ice_staticId()
+Test::WD::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::WD";
     return typeId;
 }
 
-Test::OptionalException::~OptionalException()
-{
-}
-
 ::std::string_view
-Test::OptionalException::ice_staticId()
+Test::OptionalException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::OptionalException";
     return typeId;
 }
 
-Test::DerivedException::~DerivedException()
-{
-}
-
 ::std::string_view
-Test::DerivedException::ice_staticId()
+Test::DerivedException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::DerivedException";
     return typeId;
 }
 
-Test::RequiredException::~RequiredException()
-{
-}
-
 ::std::string_view
-Test::RequiredException::ice_staticId()
+Test::RequiredException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::RequiredException";
     return typeId;
@@ -2506,78 +2470,50 @@ Test::RequiredException::_usesClasses() const
 }
 /// \endcond
 
-Test::OptionalWithCustom::~OptionalWithCustom()
-{
-}
-
 ::std::string_view
-Test::OptionalWithCustom::ice_staticId()
+Test::OptionalWithCustom::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::OptionalWithCustom";
     return typeId;
 }
 
-Test::E::~E()
-{
-}
-
 ::std::string_view
-Test::E::ice_staticId()
+Test::E::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::E";
     return typeId;
 }
 
-Test::F::~F()
-{
-}
-
 ::std::string_view
-Test::F::ice_staticId()
+Test::F::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::F";
     return typeId;
 }
 
-Test::G1::~G1()
-{
-}
-
 ::std::string_view
-Test::G1::ice_staticId()
+Test::G1::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::G1";
     return typeId;
 }
 
-Test::G2::~G2()
-{
-}
-
 ::std::string_view
-Test::G2::ice_staticId()
+Test::G2::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::G2";
     return typeId;
 }
 
-Test::G::~G()
-{
-}
-
 ::std::string_view
-Test::G::ice_staticId()
+Test::G::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::G";
     return typeId;
 }
 
-Test::Recursive::~Recursive()
-{
-}
-
 ::std::string_view
-Test::Recursive::ice_staticId()
+Test::Recursive::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Recursive";
     return typeId;
@@ -2597,7 +2533,7 @@ Test::MyInterface::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::MyInterface::ice_staticId()
+Test::MyInterface::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MyInterface";
     return typeId;
@@ -2678,7 +2614,7 @@ Test::Initial::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::Initial::ice_staticId()
+Test::Initial::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Initial";
     return typeId;
@@ -4024,7 +3960,7 @@ Test::Echo::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::Echo::ice_staticId()
+Test::Echo::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Echo";
     return typeId;

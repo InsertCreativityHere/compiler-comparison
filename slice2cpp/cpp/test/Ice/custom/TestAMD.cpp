@@ -42,7 +42,7 @@ const ::IceInternal::DefaultValueFactoryInit<::Test::DictClass> iceC_Test_DictCl
 }
 
 ::std::string_view
-Test::DPrx::ice_staticId()
+Test::DPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::D";
     return typeId;
@@ -1367,29 +1367,21 @@ Test::TestIntfPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
 }
 
 ::std::string_view
-Test::TestIntfPrx::ice_staticId()
+Test::TestIntfPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::TestIntf";
     return typeId;
 }
 
-Test::C::~C()
-{
-}
-
 ::std::string_view
-Test::C::ice_staticId()
+Test::C::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::C";
     return typeId;
 }
 
-Test::DictClass::~DictClass()
-{
-}
-
 ::std::string_view
-Test::DictClass::ice_staticId()
+Test::DictClass::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::DictClass";
     return typeId;
@@ -1409,7 +1401,7 @@ Test::D::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::D::ice_staticId()
+Test::D::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::D";
     return typeId;
@@ -1429,7 +1421,7 @@ Test::TestIntf::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::TestIntf::ice_staticId()
+Test::TestIntf::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::TestIntf";
     return typeId;

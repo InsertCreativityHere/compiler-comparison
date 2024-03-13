@@ -108,7 +108,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit MyClassPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -122,7 +122,7 @@ public:
     {
     }
 
-    MyClassPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    MyClassPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -176,18 +176,16 @@ class Bar : public ::Ice::UserExceptionHelper<Bar, ::Ice::UserException>
 {
 public:
 
-    virtual ~Bar();
+    Bar() noexcept = default;
 
     Bar(const Bar&) = default;
-
-    Bar() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    Bar(const SerialLarge& SLmem, const SLS& SLSmem) :
-        SLmem(SLmem),
-        SLSmem(SLSmem)
+    Bar(SerialLarge SLmem, SLS SLSmem) noexcept :
+        SLmem(::std::move(SLmem)),
+        SLSmem(::std::move(SLSmem))
     {
     }
 
@@ -204,7 +202,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::Test::SerialLarge SLmem;
     ::Test::SLS SLSmem;
@@ -218,10 +216,7 @@ class Baz : public ::Ice::ValueHelper<Baz, ::Ice::Value>
 {
 public:
 
-    virtual ~Baz();
-
     Baz() = default;
-
     Baz(const Baz&) = default;
     Baz(Baz&&) = default;
     Baz& operator=(const Baz&) = default;
@@ -230,9 +225,9 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Baz(const ::Test::SerialLarge& SLmem, const ::Test::SLS& SLSmem) :
-        SLmem(SLmem),
-        SLSmem(SLSmem)
+    Baz(::Test::SerialLarge SLmem, ::Test::SLS SLSmem) :
+        SLmem(::std::move(SLmem)),
+        SLSmem(::std::move(SLSmem))
     {
     }
 
@@ -249,7 +244,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::Test::SerialLarge SLmem;
     ::Test::SLS SLSmem;
@@ -291,7 +286,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

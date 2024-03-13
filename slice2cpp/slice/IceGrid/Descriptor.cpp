@@ -62,122 +62,78 @@ const ::IceInternal::DefaultValueFactoryInit<::IceGrid::BoxedDistributionDescrip
 
 }
 
-IceGrid::CommunicatorDescriptor::~CommunicatorDescriptor()
-{
-}
-
 ::std::string_view
-IceGrid::CommunicatorDescriptor::ice_staticId()
+IceGrid::CommunicatorDescriptor::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::CommunicatorDescriptor";
     return typeId;
 }
 
-IceGrid::ServerDescriptor::~ServerDescriptor()
-{
-}
-
 ::std::string_view
-IceGrid::ServerDescriptor::ice_staticId()
+IceGrid::ServerDescriptor::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::ServerDescriptor";
     return typeId;
 }
 
-IceGrid::ServiceDescriptor::~ServiceDescriptor()
-{
-}
-
 ::std::string_view
-IceGrid::ServiceDescriptor::ice_staticId()
+IceGrid::ServiceDescriptor::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::ServiceDescriptor";
     return typeId;
 }
 
-IceGrid::IceBoxDescriptor::~IceBoxDescriptor()
-{
-}
-
 ::std::string_view
-IceGrid::IceBoxDescriptor::ice_staticId()
+IceGrid::IceBoxDescriptor::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::IceBoxDescriptor";
     return typeId;
 }
 
-IceGrid::LoadBalancingPolicy::~LoadBalancingPolicy()
-{
-}
-
 ::std::string_view
-IceGrid::LoadBalancingPolicy::ice_staticId()
+IceGrid::LoadBalancingPolicy::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::LoadBalancingPolicy";
     return typeId;
 }
 
-IceGrid::RandomLoadBalancingPolicy::~RandomLoadBalancingPolicy()
-{
-}
-
 ::std::string_view
-IceGrid::RandomLoadBalancingPolicy::ice_staticId()
+IceGrid::RandomLoadBalancingPolicy::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::RandomLoadBalancingPolicy";
     return typeId;
 }
 
-IceGrid::OrderedLoadBalancingPolicy::~OrderedLoadBalancingPolicy()
-{
-}
-
 ::std::string_view
-IceGrid::OrderedLoadBalancingPolicy::ice_staticId()
+IceGrid::OrderedLoadBalancingPolicy::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::OrderedLoadBalancingPolicy";
     return typeId;
 }
 
-IceGrid::RoundRobinLoadBalancingPolicy::~RoundRobinLoadBalancingPolicy()
-{
-}
-
 ::std::string_view
-IceGrid::RoundRobinLoadBalancingPolicy::ice_staticId()
+IceGrid::RoundRobinLoadBalancingPolicy::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::RoundRobinLoadBalancingPolicy";
     return typeId;
 }
 
-IceGrid::AdaptiveLoadBalancingPolicy::~AdaptiveLoadBalancingPolicy()
-{
-}
-
 ::std::string_view
-IceGrid::AdaptiveLoadBalancingPolicy::ice_staticId()
+IceGrid::AdaptiveLoadBalancingPolicy::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::AdaptiveLoadBalancingPolicy";
     return typeId;
 }
 
-IceGrid::BoxedString::~BoxedString()
-{
-}
-
 ::std::string_view
-IceGrid::BoxedString::ice_staticId()
+IceGrid::BoxedString::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::BoxedString";
     return typeId;
 }
 
-IceGrid::BoxedDistributionDescriptor::~BoxedDistributionDescriptor()
-{
-}
-
 ::std::string_view
-IceGrid::BoxedDistributionDescriptor::ice_staticId()
+IceGrid::BoxedDistributionDescriptor::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::BoxedDistributionDescriptor";
     return typeId;

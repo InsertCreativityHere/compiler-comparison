@@ -144,7 +144,7 @@ Ice::RouterPrx::_iceI_addProxies(const ::std::shared_ptr<::IceInternal::Outgoing
 }
 
 ::std::string_view
-Ice::RouterPrx::ice_staticId()
+Ice::RouterPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Ice::Router";
     return typeId;
@@ -180,7 +180,7 @@ Ice::RouterFinderPrx::_iceI_getRouter(const ::std::shared_ptr<::IceInternal::Out
 }
 
 ::std::string_view
-Ice::RouterFinderPrx::ice_staticId()
+Ice::RouterFinderPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Ice::RouterFinder";
     return typeId;
@@ -200,7 +200,7 @@ Ice::Router::ice_id(const Current&) const
 }
 
 ::std::string_view
-Ice::Router::ice_staticId()
+Ice::Router::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Ice::Router";
     return typeId;
@@ -331,7 +331,7 @@ Ice::RouterFinder::ice_id(const Current&) const
 }
 
 ::std::string_view
-Ice::RouterFinder::ice_staticId()
+Ice::RouterFinder::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Ice::RouterFinder";
     return typeId;

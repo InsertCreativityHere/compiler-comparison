@@ -47,56 +47,36 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::NoNamespace::notify> iceC
 
 }
 
-NoNamespace::C1::~C1()
-{
-}
-
 ::std::string_view
-NoNamespace::C1::ice_staticId()
+NoNamespace::C1::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::NoNamespace::C1";
     return typeId;
 }
 
-NoNamespace::C2::~C2()
-{
-}
-
 ::std::string_view
-NoNamespace::C2::ice_staticId()
+NoNamespace::C2::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::NoNamespace::C2";
     return typeId;
 }
 
-NoNamespace::E1::~E1()
-{
-}
-
 ::std::string_view
-NoNamespace::E1::ice_staticId()
+NoNamespace::E1::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::NoNamespace::E1";
     return typeId;
 }
 
-NoNamespace::E2::~E2()
-{
-}
-
 ::std::string_view
-NoNamespace::E2::ice_staticId()
+NoNamespace::E2::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::NoNamespace::E2";
     return typeId;
 }
 
-NoNamespace::notify::~notify()
-{
-}
-
 ::std::string_view
-NoNamespace::notify::ice_staticId()
+NoNamespace::notify::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::NoNamespace::notify";
     return typeId;

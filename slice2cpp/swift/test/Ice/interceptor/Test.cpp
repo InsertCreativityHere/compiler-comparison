@@ -322,18 +322,14 @@ Test::MyObjectPrx::_iceI_amdNotExistAdd(const ::std::shared_ptr<::IceInternal::O
 }
 
 ::std::string_view
-Test::MyObjectPrx::ice_staticId()
+Test::MyObjectPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MyObject";
     return typeId;
 }
 
-Test::InvalidInputException::~InvalidInputException()
-{
-}
-
 ::std::string_view
-Test::InvalidInputException::ice_staticId()
+Test::InvalidInputException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::InvalidInputException";
     return typeId;
@@ -353,7 +349,7 @@ Test::MyObject::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::MyObject::ice_staticId()
+Test::MyObject::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MyObject";
     return typeId;

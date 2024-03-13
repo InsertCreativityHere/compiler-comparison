@@ -161,7 +161,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit MyInterfacePrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -175,7 +175,7 @@ public:
     {
     }
 
-    MyInterfacePrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    MyInterfacePrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -796,7 +796,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit InitialPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -810,7 +810,7 @@ public:
     {
     }
 
-    InitialPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    InitialPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -892,7 +892,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit EchoPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -906,7 +906,7 @@ public:
     {
     }
 
-    EchoPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    EchoPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -945,10 +945,7 @@ class OneOptional : public ::Ice::ValueHelper<OneOptional, ::Ice::Value>
 {
 public:
 
-    virtual ~OneOptional();
-
     OneOptional() = default;
-
     OneOptional(const OneOptional&) = default;
     OneOptional(OneOptional&&) = default;
     OneOptional& operator=(const OneOptional&) = default;
@@ -975,7 +972,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::optional<::std::int32_t> a;
 };
@@ -1044,10 +1041,7 @@ class MultiOptional : public ::Ice::ValueHelper<MultiOptional, ::Ice::Value>
 {
 public:
 
-    virtual ~MultiOptional();
-
     MultiOptional() = default;
-
     MultiOptional(const MultiOptional&) = default;
     MultiOptional(MultiOptional&&) = default;
     MultiOptional& operator=(const MultiOptional&) = default;
@@ -1056,7 +1050,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    MultiOptional(::std::optional<::std::uint8_t> a, ::std::optional<bool> b, ::std::optional<::std::int16_t> c, ::std::optional<::std::int32_t> d, ::std::optional<::std::int64_t> e, ::std::optional<float> f, ::std::optional<double> g, ::std::optional<::std::string_view> h, ::std::optional<::Test::MyEnum> i, const ::std::optional<::Test::MyInterfacePrx>& j, const ::std::optional<::std::shared_ptr<::Test::MultiOptional>>& k, const ::std::optional<::Test::ByteSeq>& bs, const ::std::optional<::Test::StringSeq>& ss, const ::std::optional<::Test::IntIntDict>& iid, const ::std::optional<::Test::StringIntDict>& sid, const ::std::optional<::Test::FixedStruct>& fs, const ::std::optional<::Test::VarStruct>& vs, const ::std::optional<::Test::ShortSeq>& shs, const ::std::optional<::Test::MyEnumSeq>& es, const ::std::optional<::Test::FixedStructSeq>& fss, const ::std::optional<::Test::VarStructSeq>& vss, const ::std::optional<::Test::OneOptionalSeq>& oos, const ::std::optional<::Test::MyInterfacePrxSeq>& mips, const ::std::optional<::Test::IntEnumDict>& ied, const ::std::optional<::Test::IntFixedStructDict>& ifsd, const ::std::optional<::Test::IntVarStructDict>& ivsd, const ::std::optional<::Test::IntOneOptionalDict>& iood, const ::std::optional<::Test::IntMyInterfacePrxDict>& imipd, const ::std::optional<::Test::BoolSeq>& bos, const ::std::optional<::Test::Serializable>& ser) :
+    MultiOptional(::std::optional<::std::uint8_t> a, ::std::optional<bool> b, ::std::optional<::std::int16_t> c, ::std::optional<::std::int32_t> d, ::std::optional<::std::int64_t> e, ::std::optional<float> f, ::std::optional<double> g, ::std::optional<::std::string> h, ::std::optional<::Test::MyEnum> i, ::std::optional<::Test::MyInterfacePrx> j, ::std::optional<::std::shared_ptr<::Test::MultiOptional>> k, ::std::optional<::Test::ByteSeq> bs, ::std::optional<::Test::StringSeq> ss, ::std::optional<::Test::IntIntDict> iid, ::std::optional<::Test::StringIntDict> sid, ::std::optional<::Test::FixedStruct> fs, ::std::optional<::Test::VarStruct> vs, ::std::optional<::Test::ShortSeq> shs, ::std::optional<::Test::MyEnumSeq> es, ::std::optional<::Test::FixedStructSeq> fss, ::std::optional<::Test::VarStructSeq> vss, ::std::optional<::Test::OneOptionalSeq> oos, ::std::optional<::Test::MyInterfacePrxSeq> mips, ::std::optional<::Test::IntEnumDict> ied, ::std::optional<::Test::IntFixedStructDict> ifsd, ::std::optional<::Test::IntVarStructDict> ivsd, ::std::optional<::Test::IntOneOptionalDict> iood, ::std::optional<::Test::IntMyInterfacePrxDict> imipd, ::std::optional<::Test::BoolSeq> bos, ::std::optional<::Test::Serializable> ser) :
         a(a),
         b(b),
         c(c),
@@ -1064,29 +1058,29 @@ public:
         e(e),
         f(f),
         g(g),
-        h(h),
+        h(::std::move(h)),
         i(i),
-        j(j),
-        k(k),
-        bs(bs),
-        ss(ss),
-        iid(iid),
-        sid(sid),
-        fs(fs),
-        vs(vs),
-        shs(shs),
-        es(es),
-        fss(fss),
-        vss(vss),
-        oos(oos),
-        mips(mips),
-        ied(ied),
-        ifsd(ifsd),
-        ivsd(ivsd),
-        iood(iood),
-        imipd(imipd),
-        bos(bos),
-        ser(ser)
+        j(::std::move(j)),
+        k(::std::move(k)),
+        bs(::std::move(bs)),
+        ss(::std::move(ss)),
+        iid(::std::move(iid)),
+        sid(::std::move(sid)),
+        fs(::std::move(fs)),
+        vs(::std::move(vs)),
+        shs(::std::move(shs)),
+        es(::std::move(es)),
+        fss(::std::move(fss)),
+        vss(::std::move(vss)),
+        oos(::std::move(oos)),
+        mips(::std::move(mips)),
+        ied(::std::move(ied)),
+        ifsd(::std::move(ifsd)),
+        ivsd(::std::move(ivsd)),
+        iood(::std::move(iood)),
+        imipd(::std::move(imipd)),
+        bos(::std::move(bos)),
+        ser(::std::move(ser))
     {
     }
 
@@ -1103,7 +1097,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::optional<::std::uint8_t> a;
     ::std::optional<bool> b;
@@ -1141,10 +1135,7 @@ class A : public ::Ice::ValueHelper<A, ::Ice::Value>
 {
 public:
 
-    virtual ~A();
-
     A() = default;
-
     A(const A&) = default;
     A(A&&) = default;
     A& operator=(const A&) = default;
@@ -1174,7 +1165,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::int32_t requiredA;
     ::std::optional<::std::int32_t> ma;
@@ -1186,10 +1177,7 @@ class B : public ::Ice::ValueHelper<B, A>
 {
 public:
 
-    virtual ~B();
-
     B() = default;
-
     B(const B&) = default;
     B(B&&) = default;
     B& operator=(const B&) = default;
@@ -1218,7 +1206,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::int32_t requiredB;
     ::std::optional<::std::int32_t> md;
@@ -1228,10 +1216,7 @@ class C : public ::Ice::ValueHelper<C, B>
 {
 public:
 
-    virtual ~C();
-
     C() = default;
-
     C(const C&) = default;
     C(C&&) = default;
     C& operator=(const C&) = default;
@@ -1240,10 +1225,10 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    C(::std::int32_t requiredA, ::std::optional<::std::int32_t> ma, ::std::optional<::std::int32_t> mb, ::std::optional<::std::int32_t> mc, ::std::int32_t requiredB, ::std::optional<::std::int32_t> md, ::std::string_view ss, ::std::optional<::std::string_view> ms) :
+    C(::std::int32_t requiredA, ::std::optional<::std::int32_t> ma, ::std::optional<::std::int32_t> mb, ::std::optional<::std::int32_t> mc, ::std::int32_t requiredB, ::std::optional<::std::int32_t> md, ::std::string ss, ::std::optional<::std::string> ms) :
         Ice::ValueHelper<C, B>(requiredA, ma, mb, mc, requiredB, md),
-        ss(ss),
-        ms(ms)
+        ss(::std::move(ss)),
+        ms(::std::move(ms))
     {
     }
 
@@ -1260,7 +1245,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::string ss;
     ::std::optional<::std::string> ms;
@@ -1270,10 +1255,7 @@ class WD : public ::Ice::ValueHelper<WD, ::Ice::Value>
 {
 public:
 
-    virtual ~WD();
-
     WD() = default;
-
     WD(const WD&) = default;
     WD(WD&&) = default;
     WD& operator=(const WD&) = default;
@@ -1282,9 +1264,9 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    WD(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> s) :
+    WD(::std::optional<::std::int32_t> a, ::std::optional<::std::string> s) :
         a(a),
-        s(s)
+        s(::std::move(s))
     {
     }
 
@@ -1301,7 +1283,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::optional<::std::int32_t> a = 5;
     ::std::optional<::std::string> s{"test"};
@@ -1311,20 +1293,18 @@ class OptionalException : public ::Ice::UserExceptionHelper<OptionalException, :
 {
 public:
 
-    virtual ~OptionalException();
+    OptionalException() noexcept = default;
 
     OptionalException(const OptionalException&) = default;
-
-    OptionalException() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    OptionalException(bool req, ::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> b, const ::std::optional<::std::shared_ptr<OneOptional>>& o) :
+    OptionalException(bool req, ::std::optional<::std::int32_t> a, ::std::optional<::std::string> b, ::std::optional<::std::shared_ptr<OneOptional>> o) noexcept :
         req(req),
         a(a),
-        b(b),
-        o(o)
+        b(::std::move(b)),
+        o(::std::move(o))
     {
     }
 
@@ -1341,7 +1321,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     bool req = false;
     ::std::optional<::std::int32_t> a = 5;
@@ -1353,21 +1333,19 @@ class DerivedException : public ::Ice::UserExceptionHelper<DerivedException, Opt
 {
 public:
 
-    virtual ~DerivedException();
+    DerivedException() noexcept = default;
 
     DerivedException(const DerivedException&) = default;
-
-    DerivedException() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    DerivedException(bool req, ::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> b, const ::std::optional<::std::shared_ptr<OneOptional>>& o, ::std::string_view d1, ::std::optional<::std::string_view> ss, const ::std::optional<::std::shared_ptr<OneOptional>>& o2, ::std::string_view d2) :
-        ::Ice::UserExceptionHelper<DerivedException, OptionalException>(req, a, b, o),
-        d1(d1),
-        ss(ss),
-        o2(o2),
-        d2(d2)
+    DerivedException(bool req, ::std::optional<::std::int32_t> a, ::std::optional<::std::string> b, ::std::optional<::std::shared_ptr<OneOptional>> o, ::std::string d1, ::std::optional<::std::string> ss, ::std::optional<::std::shared_ptr<OneOptional>> o2, ::std::string d2) noexcept :
+        ::Ice::UserExceptionHelper<DerivedException, OptionalException>(req, a, ::std::move(b), ::std::move(o)),
+        d1(::std::move(d1)),
+        ss(::std::move(ss)),
+        o2(::std::move(o2)),
+        d2(::std::move(d2))
     {
     }
 
@@ -1384,7 +1362,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::string d1;
     ::std::optional<::std::string> ss{"test"};
@@ -1396,19 +1374,17 @@ class RequiredException : public ::Ice::UserExceptionHelper<RequiredException, O
 {
 public:
 
-    virtual ~RequiredException();
+    RequiredException() noexcept = default;
 
     RequiredException(const RequiredException&) = default;
-
-    RequiredException() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    RequiredException(bool req, ::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> b, const ::std::optional<::std::shared_ptr<OneOptional>>& o, ::std::string_view ss, const ::std::shared_ptr<OneOptional>& o2) :
-        ::Ice::UserExceptionHelper<RequiredException, OptionalException>(req, a, b, o),
-        ss(ss),
-        o2(o2)
+    RequiredException(bool req, ::std::optional<::std::int32_t> a, ::std::optional<::std::string> b, ::std::optional<::std::shared_ptr<OneOptional>> o, ::std::string ss, ::std::shared_ptr<OneOptional> o2) noexcept :
+        ::Ice::UserExceptionHelper<RequiredException, OptionalException>(req, a, ::std::move(b), ::std::move(o)),
+        ss(::std::move(ss)),
+        o2(::std::move(o2))
     {
     }
 
@@ -1425,7 +1401,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /// \cond STREAM
     virtual bool _usesClasses() const override;
@@ -1439,10 +1415,7 @@ class OptionalWithCustom : public ::Ice::ValueHelper<OptionalWithCustom, ::Ice::
 {
 public:
 
-    virtual ~OptionalWithCustom();
-
     OptionalWithCustom() = default;
-
     OptionalWithCustom(const OptionalWithCustom&) = default;
     OptionalWithCustom(OptionalWithCustom&&) = default;
     OptionalWithCustom& operator=(const OptionalWithCustom&) = default;
@@ -1451,10 +1424,10 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    OptionalWithCustom(const ::std::optional<::Test::SmallStructList>& l, const ::std::optional<::Test::SmallStructList>& lp, const ::std::optional<::Test::ClassVarStruct>& s) :
-        l(l),
-        lp(lp),
-        s(s)
+    OptionalWithCustom(::std::optional<::Test::SmallStructList> l, ::std::optional<::Test::SmallStructList> lp, ::std::optional<::Test::ClassVarStruct> s) :
+        l(::std::move(l)),
+        lp(::std::move(lp)),
+        s(::std::move(s))
     {
     }
 
@@ -1471,7 +1444,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::optional<::Test::SmallStructList> l;
 
@@ -1495,10 +1468,7 @@ class E : public ::Ice::ValueHelper<E, ::Ice::Value>
 {
 public:
 
-    virtual ~E();
-
     E() = default;
-
     E(const E&) = default;
     E(E&&) = default;
     E& operator=(const E&) = default;
@@ -1507,8 +1477,8 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit E(const ::std::shared_ptr<::Test::A>& ae) :
-        ae(ae)
+    explicit E(::std::shared_ptr<::Test::A> ae) :
+        ae(::std::move(ae))
     {
     }
 
@@ -1525,7 +1495,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::shared_ptr<::Test::A> ae;
 };
@@ -1534,10 +1504,7 @@ class F : public ::Ice::ValueHelper<F, E>
 {
 public:
 
-    virtual ~F();
-
     F() = default;
-
     F(const F&) = default;
     F(F&&) = default;
     F& operator=(const F&) = default;
@@ -1546,9 +1513,9 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    F(const ::std::shared_ptr<::Test::A>& ae, const ::std::optional<::std::shared_ptr<::Test::A>>& af) :
-        Ice::ValueHelper<F, E>(ae),
-        af(af)
+    F(::std::shared_ptr<::Test::A> ae, ::std::optional<::std::shared_ptr<::Test::A>> af) :
+        Ice::ValueHelper<F, E>(::std::move(ae)),
+        af(::std::move(af))
     {
     }
 
@@ -1565,7 +1532,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::optional<::std::shared_ptr<::Test::A>> af;
 };
@@ -1574,10 +1541,7 @@ class G1 : public ::Ice::ValueHelper<G1, ::Ice::Value>
 {
 public:
 
-    virtual ~G1();
-
     G1() = default;
-
     G1(const G1&) = default;
     G1(G1&&) = default;
     G1& operator=(const G1&) = default;
@@ -1586,8 +1550,8 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit G1(::std::string_view a) :
-        a(a)
+    explicit G1(::std::string a) :
+        a(::std::move(a))
     {
     }
 
@@ -1604,7 +1568,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::string a;
 };
@@ -1613,10 +1577,7 @@ class G2 : public ::Ice::ValueHelper<G2, ::Ice::Value>
 {
 public:
 
-    virtual ~G2();
-
     G2() = default;
-
     G2(const G2&) = default;
     G2(G2&&) = default;
     G2& operator=(const G2&) = default;
@@ -1643,7 +1604,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::int64_t a;
 };
@@ -1652,10 +1613,7 @@ class G : public ::Ice::ValueHelper<G, ::Ice::Value>
 {
 public:
 
-    virtual ~G();
-
     G() = default;
-
     G(const G&) = default;
     G(G&&) = default;
     G& operator=(const G&) = default;
@@ -1664,11 +1622,11 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    G(const ::std::optional<::std::shared_ptr<::Test::G1>>& gg1Opt, const ::std::shared_ptr<::Test::G2>& gg2, const ::std::optional<::std::shared_ptr<::Test::G2>>& gg2Opt, const ::std::shared_ptr<::Test::G1>& gg1) :
-        gg1Opt(gg1Opt),
-        gg2(gg2),
-        gg2Opt(gg2Opt),
-        gg1(gg1)
+    G(::std::optional<::std::shared_ptr<::Test::G1>> gg1Opt, ::std::shared_ptr<::Test::G2> gg2, ::std::optional<::std::shared_ptr<::Test::G2>> gg2Opt, ::std::shared_ptr<::Test::G1> gg1) :
+        gg1Opt(::std::move(gg1Opt)),
+        gg2(::std::move(gg2)),
+        gg2Opt(::std::move(gg2Opt)),
+        gg1(::std::move(gg1))
     {
     }
 
@@ -1685,7 +1643,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::optional<::std::shared_ptr<::Test::G1>> gg1Opt;
     ::std::shared_ptr<::Test::G2> gg2;
@@ -1697,10 +1655,7 @@ class Recursive : public ::Ice::ValueHelper<Recursive, ::Ice::Value>
 {
 public:
 
-    virtual ~Recursive();
-
     Recursive() = default;
-
     Recursive(const Recursive&) = default;
     Recursive(Recursive&&) = default;
     Recursive& operator=(const Recursive&) = default;
@@ -1709,8 +1664,8 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit Recursive(const ::std::optional<::Test::RecursiveSeq>& value) :
-        value(value)
+    explicit Recursive(::std::optional<::Test::RecursiveSeq> value) :
+        value(::std::move(value))
     {
     }
 
@@ -1727,7 +1682,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::optional<::Test::RecursiveSeq> value;
 };
@@ -1768,7 +1723,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     virtual void op(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -1806,7 +1761,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -2208,7 +2163,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     virtual void setConnection(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

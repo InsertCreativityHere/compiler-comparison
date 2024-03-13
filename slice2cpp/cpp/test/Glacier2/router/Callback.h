@@ -105,7 +105,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit CallbackReceiverPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -119,7 +119,7 @@ public:
     {
     }
 
-    CallbackReceiverPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    CallbackReceiverPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -223,7 +223,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit CallbackPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -237,7 +237,7 @@ public:
     {
     }
 
-    CallbackPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    CallbackPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -276,18 +276,16 @@ class CallbackException : public ::Ice::UserExceptionHelper<CallbackException, :
 {
 public:
 
-    virtual ~CallbackException();
+    CallbackException() noexcept = default;
 
     CallbackException(const CallbackException&) = default;
-
-    CallbackException() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    CallbackException(double someValue, ::std::string_view someString) :
+    CallbackException(double someValue, ::std::string someString) noexcept :
         someValue(someValue),
-        someString(someString)
+        someString(::std::move(someString))
     {
     }
 
@@ -304,7 +302,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     double someValue;
     ::std::string someString;
@@ -343,7 +341,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     virtual void callback(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -401,7 +399,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     virtual void initiateCallbackAsync(::std::optional<CallbackReceiverPrx> proxy, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

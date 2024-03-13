@@ -402,7 +402,7 @@ IceStorm::TopicPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal::Outgoin
 }
 
 ::std::string_view
-IceStorm::TopicPrx::ice_staticId()
+IceStorm::TopicPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceStorm::Topic";
     return typeId;
@@ -528,7 +528,7 @@ IceStorm::TopicManagerPrx::_iceI_retrieveAll(const ::std::shared_ptr<::IceIntern
 }
 
 ::std::string_view
-IceStorm::TopicManagerPrx::ice_staticId()
+IceStorm::TopicManagerPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceStorm::TopicManager";
     return typeId;
@@ -564,84 +564,56 @@ IceStorm::FinderPrx::_iceI_getTopicManager(const ::std::shared_ptr<::IceInternal
 }
 
 ::std::string_view
-IceStorm::FinderPrx::ice_staticId()
+IceStorm::FinderPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceStorm::Finder";
     return typeId;
 }
 
-IceStorm::LinkExists::~LinkExists()
-{
-}
-
 ::std::string_view
-IceStorm::LinkExists::ice_staticId()
+IceStorm::LinkExists::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceStorm::LinkExists";
     return typeId;
 }
 
-IceStorm::NoSuchLink::~NoSuchLink()
-{
-}
-
 ::std::string_view
-IceStorm::NoSuchLink::ice_staticId()
+IceStorm::NoSuchLink::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceStorm::NoSuchLink";
     return typeId;
 }
 
-IceStorm::AlreadySubscribed::~AlreadySubscribed()
-{
-}
-
 ::std::string_view
-IceStorm::AlreadySubscribed::ice_staticId()
+IceStorm::AlreadySubscribed::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceStorm::AlreadySubscribed";
     return typeId;
 }
 
-IceStorm::InvalidSubscriber::~InvalidSubscriber()
-{
-}
-
 ::std::string_view
-IceStorm::InvalidSubscriber::ice_staticId()
+IceStorm::InvalidSubscriber::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceStorm::InvalidSubscriber";
     return typeId;
 }
 
-IceStorm::BadQoS::~BadQoS()
-{
-}
-
 ::std::string_view
-IceStorm::BadQoS::ice_staticId()
+IceStorm::BadQoS::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceStorm::BadQoS";
     return typeId;
 }
 
-IceStorm::TopicExists::~TopicExists()
-{
-}
-
 ::std::string_view
-IceStorm::TopicExists::ice_staticId()
+IceStorm::TopicExists::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceStorm::TopicExists";
     return typeId;
 }
 
-IceStorm::NoSuchTopic::~NoSuchTopic()
-{
-}
-
 ::std::string_view
-IceStorm::NoSuchTopic::ice_staticId()
+IceStorm::NoSuchTopic::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceStorm::NoSuchTopic";
     return typeId;
@@ -661,7 +633,7 @@ IceStorm::Topic::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-IceStorm::Topic::ice_staticId()
+IceStorm::Topic::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceStorm::Topic";
     return typeId;
@@ -928,7 +900,7 @@ IceStorm::TopicManager::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-IceStorm::TopicManager::ice_staticId()
+IceStorm::TopicManager::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceStorm::TopicManager";
     return typeId;
@@ -1061,7 +1033,7 @@ IceStorm::Finder::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-IceStorm::Finder::ice_staticId()
+IceStorm::Finder::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceStorm::Finder";
     return typeId;

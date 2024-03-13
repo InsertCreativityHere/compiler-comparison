@@ -95,18 +95,14 @@ IceGrid::FileParserPrx::_iceI_parse(const ::std::shared_ptr<::IceInternal::Outgo
 }
 
 ::std::string_view
-IceGrid::FileParserPrx::ice_staticId()
+IceGrid::FileParserPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::FileParser";
     return typeId;
 }
 
-IceGrid::ParseException::~ParseException()
-{
-}
-
 ::std::string_view
-IceGrid::ParseException::ice_staticId()
+IceGrid::ParseException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::ParseException";
     return typeId;
@@ -126,7 +122,7 @@ IceGrid::FileParser::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-IceGrid::FileParser::ice_staticId()
+IceGrid::FileParser::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::FileParser";
     return typeId;

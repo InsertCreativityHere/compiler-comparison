@@ -41,23 +41,15 @@ const ::IceInternal::DefaultValueFactoryInit<::Test::NoDefault> iceC_Test_NoDefa
 
 }
 
-Test::Default::~Default()
-{
-}
-
 ::std::string_view
-Test::Default::ice_staticId()
+Test::Default::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Default";
     return typeId;
 }
 
-Test::NoDefault::~NoDefault()
-{
-}
-
 ::std::string_view
-Test::NoDefault::ice_staticId()
+Test::NoDefault::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::NoDefault";
     return typeId;

@@ -182,18 +182,14 @@ Test::MyClassPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoing
 }
 
 ::std::string_view
-Test::MyClassPrx::ice_staticId()
+Test::MyClassPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MyClass";
     return typeId;
 }
 
-Test::MyException::~MyException()
-{
-}
-
 ::std::string_view
-Test::MyException::ice_staticId()
+Test::MyException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MyException";
     return typeId;
@@ -213,7 +209,7 @@ Test::MyClass::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::MyClass::ice_staticId()
+Test::MyClass::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MyClass";
     return typeId;

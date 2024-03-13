@@ -202,29 +202,21 @@ Test::MyClassPrx::_iceI_opSerialStructJava(const ::std::shared_ptr<::IceInternal
 }
 
 ::std::string_view
-Test::MyClassPrx::ice_staticId()
+Test::MyClassPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MyClass";
     return typeId;
 }
 
-Test::Bar::~Bar()
-{
-}
-
 ::std::string_view
-Test::Bar::ice_staticId()
+Test::Bar::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Bar";
     return typeId;
 }
 
-Test::Baz::~Baz()
-{
-}
-
 ::std::string_view
-Test::Baz::ice_staticId()
+Test::Baz::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Baz";
     return typeId;
@@ -244,7 +236,7 @@ Test::MyClass::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::MyClass::ice_staticId()
+Test::MyClass::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MyClass";
     return typeId;

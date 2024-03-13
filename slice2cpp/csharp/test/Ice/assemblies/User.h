@@ -61,7 +61,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit RegistryPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -75,7 +75,7 @@ public:
     {
     }
 
-    RegistryPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    RegistryPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -114,10 +114,7 @@ class UserInfo : public ::Ice::ValueHelper<UserInfo, ::Ice::Value>
 {
 public:
 
-    virtual ~UserInfo();
-
     UserInfo() = default;
-
     UserInfo(const UserInfo&) = default;
     UserInfo(UserInfo&&) = default;
     UserInfo& operator=(const UserInfo&) = default;
@@ -136,7 +133,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 };
 
 /// \cond INTERNAL
@@ -172,7 +169,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     virtual ::std::shared_ptr<UserInfo> getUserInfo(::std::string id, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

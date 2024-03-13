@@ -2236,7 +2236,7 @@ IceGrid::AdminPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::Outgoin
 }
 
 ::std::string_view
-IceGrid::AdminPrx::ice_staticId()
+IceGrid::AdminPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::Admin";
     return typeId;
@@ -2328,7 +2328,7 @@ IceGrid::FileIteratorPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal::O
 }
 
 ::std::string_view
-IceGrid::FileIteratorPrx::ice_staticId()
+IceGrid::FileIteratorPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::FileIterator";
     return typeId;
@@ -2428,7 +2428,7 @@ IceGrid::RegistryObserverPrx::_iceI_registryDown(const ::std::shared_ptr<::IceIn
 }
 
 ::std::string_view
-IceGrid::RegistryObserverPrx::ice_staticId()
+IceGrid::RegistryObserverPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::RegistryObserver";
     return typeId;
@@ -2590,7 +2590,7 @@ IceGrid::NodeObserverPrx::_iceI_updateAdapter(const ::std::shared_ptr<::IceInter
 }
 
 ::std::string_view
-IceGrid::NodeObserverPrx::ice_staticId()
+IceGrid::NodeObserverPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::NodeObserver";
     return typeId;
@@ -2724,7 +2724,7 @@ IceGrid::ApplicationObserverPrx::_iceI_applicationUpdated(const ::std::shared_pt
 }
 
 ::std::string_view
-IceGrid::ApplicationObserverPrx::ice_staticId()
+IceGrid::ApplicationObserverPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::ApplicationObserver";
     return typeId;
@@ -2855,7 +2855,7 @@ IceGrid::AdapterObserverPrx::_iceI_adapterRemoved(const ::std::shared_ptr<::IceI
 }
 
 ::std::string_view
-IceGrid::AdapterObserverPrx::ice_staticId()
+IceGrid::AdapterObserverPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::AdapterObserver";
     return typeId;
@@ -2986,7 +2986,7 @@ IceGrid::ObjectObserverPrx::_iceI_objectRemoved(const ::std::shared_ptr<::IceInt
 }
 
 ::std::string_view
-IceGrid::ObjectObserverPrx::ice_staticId()
+IceGrid::ObjectObserverPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::ObjectObserver";
     return typeId;
@@ -3665,7 +3665,7 @@ IceGrid::AdminSessionPrx::_iceI_openRegistryStdOut(const ::std::shared_ptr<::Ice
 }
 
 ::std::string_view
-IceGrid::AdminSessionPrx::ice_staticId()
+IceGrid::AdminSessionPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::AdminSession";
     return typeId;
@@ -3685,7 +3685,7 @@ IceGrid::Admin::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-IceGrid::Admin::ice_staticId()
+IceGrid::Admin::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::Admin";
     return typeId;
@@ -4805,7 +4805,7 @@ IceGrid::FileIterator::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-IceGrid::FileIterator::ice_staticId()
+IceGrid::FileIterator::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::FileIterator";
     return typeId;
@@ -4911,7 +4911,7 @@ IceGrid::RegistryObserver::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-IceGrid::RegistryObserver::ice_staticId()
+IceGrid::RegistryObserver::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::RegistryObserver";
     return typeId;
@@ -5036,7 +5036,7 @@ IceGrid::NodeObserver::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-IceGrid::NodeObserver::ice_staticId()
+IceGrid::NodeObserver::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::NodeObserver";
     return typeId;
@@ -5203,7 +5203,7 @@ IceGrid::ApplicationObserver::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-IceGrid::ApplicationObserver::ice_staticId()
+IceGrid::ApplicationObserver::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::ApplicationObserver";
     return typeId;
@@ -5355,7 +5355,7 @@ IceGrid::AdapterObserver::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-IceGrid::AdapterObserver::ice_staticId()
+IceGrid::AdapterObserver::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::AdapterObserver";
     return typeId;
@@ -5500,7 +5500,7 @@ IceGrid::ObjectObserver::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-IceGrid::ObjectObserver::ice_staticId()
+IceGrid::ObjectObserver::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::ObjectObserver";
     return typeId;
@@ -5645,7 +5645,7 @@ IceGrid::AdminSession::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-IceGrid::AdminSession::ice_staticId()
+IceGrid::AdminSession::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::AdminSession";
     return typeId;

@@ -419,7 +419,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit TopicPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -433,7 +433,7 @@ public:
     {
     }
 
-    TopicPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    TopicPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -570,7 +570,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit TopicManagerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -584,7 +584,7 @@ public:
     {
     }
 
-    TopicManagerPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    TopicManagerPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -655,7 +655,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit FinderPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -669,7 +669,7 @@ public:
     {
     }
 
-    FinderPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    FinderPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -741,18 +741,16 @@ class ICE_CLASS(ICESTORM_API) LinkExists : public ::Ice::UserExceptionHelper<Lin
 {
 public:
 
-    ICE_MEMBER(ICESTORM_API) virtual ~LinkExists();
+    LinkExists() noexcept = default;
 
     LinkExists(const LinkExists&) = default;
-
-    LinkExists() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param name The name of the linked topic.
      */
-    LinkExists(::std::string_view name) :
-        name(name)
+    LinkExists(::std::string name) noexcept :
+        name(::std::move(name))
     {
     }
 
@@ -769,7 +767,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICESTORM_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICESTORM_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The name of the linked topic.
@@ -789,18 +787,16 @@ class ICE_CLASS(ICESTORM_API) NoSuchLink : public ::Ice::UserExceptionHelper<NoS
 {
 public:
 
-    ICE_MEMBER(ICESTORM_API) virtual ~NoSuchLink();
+    NoSuchLink() noexcept = default;
 
     NoSuchLink(const NoSuchLink&) = default;
-
-    NoSuchLink() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param name The name of the link that does not exist.
      */
-    NoSuchLink(::std::string_view name) :
-        name(name)
+    NoSuchLink(::std::string name) noexcept :
+        name(::std::move(name))
     {
     }
 
@@ -817,7 +813,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICESTORM_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICESTORM_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The name of the link that does not exist.
@@ -833,11 +829,9 @@ class ICE_CLASS(ICESTORM_API) AlreadySubscribed : public ::Ice::UserExceptionHel
 {
 public:
 
-    ICE_MEMBER(ICESTORM_API) virtual ~AlreadySubscribed();
+    AlreadySubscribed() noexcept = default;
 
     AlreadySubscribed(const AlreadySubscribed&) = default;
-
-    AlreadySubscribed() = default;
 
     /**
      * Obtains a tuple containing all of the exception's data members.
@@ -852,7 +846,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICESTORM_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICESTORM_API) static ::std::string_view ice_staticId() noexcept;
 };
 
 /**
@@ -863,18 +857,16 @@ class ICE_CLASS(ICESTORM_API) InvalidSubscriber : public ::Ice::UserExceptionHel
 {
 public:
 
-    ICE_MEMBER(ICESTORM_API) virtual ~InvalidSubscriber();
+    InvalidSubscriber() noexcept = default;
 
     InvalidSubscriber(const InvalidSubscriber&) = default;
-
-    InvalidSubscriber() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param reason The reason for the failure.
      */
-    InvalidSubscriber(::std::string_view reason) :
-        reason(reason)
+    InvalidSubscriber(::std::string reason) noexcept :
+        reason(::std::move(reason))
     {
     }
 
@@ -891,7 +883,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICESTORM_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICESTORM_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The reason for the failure.
@@ -907,18 +899,16 @@ class ICE_CLASS(ICESTORM_API) BadQoS : public ::Ice::UserExceptionHelper<BadQoS,
 {
 public:
 
-    ICE_MEMBER(ICESTORM_API) virtual ~BadQoS();
+    BadQoS() noexcept = default;
 
     BadQoS(const BadQoS&) = default;
-
-    BadQoS() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param reason The reason for the failure.
      */
-    BadQoS(::std::string_view reason) :
-        reason(reason)
+    BadQoS(::std::string reason) noexcept :
+        reason(::std::move(reason))
     {
     }
 
@@ -935,7 +925,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICESTORM_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICESTORM_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The reason for the failure.
@@ -951,18 +941,16 @@ class ICE_CLASS(ICESTORM_API) TopicExists : public ::Ice::UserExceptionHelper<To
 {
 public:
 
-    ICE_MEMBER(ICESTORM_API) virtual ~TopicExists();
+    TopicExists() noexcept = default;
 
     TopicExists(const TopicExists&) = default;
-
-    TopicExists() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param name The name of the topic that already exists.
      */
-    TopicExists(::std::string_view name) :
-        name(name)
+    TopicExists(::std::string name) noexcept :
+        name(::std::move(name))
     {
     }
 
@@ -979,7 +967,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICESTORM_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICESTORM_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The name of the topic that already exists.
@@ -995,18 +983,16 @@ class ICE_CLASS(ICESTORM_API) NoSuchTopic : public ::Ice::UserExceptionHelper<No
 {
 public:
 
-    ICE_MEMBER(ICESTORM_API) virtual ~NoSuchTopic();
+    NoSuchTopic() noexcept = default;
 
     NoSuchTopic(const NoSuchTopic&) = default;
-
-    NoSuchTopic() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param name The name of the topic that does not exist.
      */
-    NoSuchTopic(::std::string_view name) :
-        name(name)
+    NoSuchTopic(::std::string name) noexcept :
+        name(::std::move(name))
     {
     }
 
@@ -1023,7 +1009,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICESTORM_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICESTORM_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The name of the topic that does not exist.
@@ -1071,7 +1057,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /**
      * Get the name of this topic.
@@ -1223,7 +1209,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /**
      * Create a new topic. The topic name must be unique.
@@ -1294,7 +1280,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /**
      * Get the topic manager proxy. The proxy might point to several replicas.

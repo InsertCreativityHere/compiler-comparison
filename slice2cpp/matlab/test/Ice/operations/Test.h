@@ -1033,7 +1033,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit MyClassPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -1047,7 +1047,7 @@ public:
     {
     }
 
-    MyClassPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    MyClassPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -1118,7 +1118,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
 #if defined(__GNUC__)
 #   pragma GCC diagnostic push
@@ -1137,7 +1137,7 @@ public:
     {
     }
 
-    MyDerivedClassPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    MyDerivedClassPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -1188,7 +1188,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
 #if defined(__GNUC__)
 #   pragma GCC diagnostic push
@@ -1207,7 +1207,7 @@ public:
     {
     }
 
-    MyDerivedClassPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    MyDerivedClassPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -1295,11 +1295,9 @@ class SomeException : public ::Ice::UserExceptionHelper<SomeException, ::Ice::Us
 {
 public:
 
-    virtual ~SomeException();
+    SomeException() noexcept = default;
 
     SomeException(const SomeException&) = default;
-
-    SomeException() = default;
 
     /**
      * Obtains a tuple containing all of the exception's data members.
@@ -1314,7 +1312,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 };
 
 /// \cond INTERNAL
@@ -1341,10 +1339,7 @@ class MyClass1 : public ::Ice::ValueHelper<MyClass1, ::Ice::Value>
 {
 public:
 
-    virtual ~MyClass1();
-
     MyClass1() = default;
-
     MyClass1(const MyClass1&) = default;
     MyClass1(MyClass1&&) = default;
     MyClass1& operator=(const MyClass1&) = default;
@@ -1353,10 +1348,10 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    MyClass1(::std::string_view tesT, const ::std::optional<::Test::MyClassPrx>& myClass, ::std::string_view myClass1) :
-        tesT(tesT),
-        myClass(myClass),
-        myClass1(myClass1)
+    MyClass1(::std::string tesT, ::std::optional<::Test::MyClassPrx> myClass, ::std::string myClass1) :
+        tesT(::std::move(tesT)),
+        myClass(::std::move(myClass)),
+        myClass1(::std::move(myClass1))
     {
     }
 
@@ -1373,7 +1368,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::string tesT;
     ::std::optional<::Test::MyClassPrx> myClass;
@@ -1416,7 +1411,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -1877,7 +1872,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     virtual void opDerived(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -1934,7 +1929,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /// \cond INTERNAL
     void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;

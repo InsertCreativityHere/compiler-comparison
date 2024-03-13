@@ -338,106 +338,70 @@ IceMX::MetricsAdminPrx::_iceI_getMetricsFailures(const ::std::shared_ptr<::IceIn
 }
 
 ::std::string_view
-IceMX::MetricsAdminPrx::ice_staticId()
+IceMX::MetricsAdminPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceMX::MetricsAdmin";
     return typeId;
 }
 
-IceMX::Metrics::~Metrics()
-{
-}
-
 ::std::string_view
-IceMX::Metrics::ice_staticId()
+IceMX::Metrics::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceMX::Metrics";
     return typeId;
 }
 
-IceMX::UnknownMetricsView::~UnknownMetricsView()
-{
-}
-
 ::std::string_view
-IceMX::UnknownMetricsView::ice_staticId()
+IceMX::UnknownMetricsView::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceMX::UnknownMetricsView";
     return typeId;
 }
 
-IceMX::ThreadMetrics::~ThreadMetrics()
-{
-}
-
 ::std::string_view
-IceMX::ThreadMetrics::ice_staticId()
+IceMX::ThreadMetrics::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceMX::ThreadMetrics";
     return typeId;
 }
 
-IceMX::DispatchMetrics::~DispatchMetrics()
-{
-}
-
 ::std::string_view
-IceMX::DispatchMetrics::ice_staticId()
+IceMX::DispatchMetrics::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceMX::DispatchMetrics";
     return typeId;
 }
 
-IceMX::ChildInvocationMetrics::~ChildInvocationMetrics()
-{
-}
-
 ::std::string_view
-IceMX::ChildInvocationMetrics::ice_staticId()
+IceMX::ChildInvocationMetrics::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceMX::ChildInvocationMetrics";
     return typeId;
 }
 
-IceMX::CollocatedMetrics::~CollocatedMetrics()
-{
-}
-
 ::std::string_view
-IceMX::CollocatedMetrics::ice_staticId()
+IceMX::CollocatedMetrics::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceMX::CollocatedMetrics";
     return typeId;
 }
 
-IceMX::RemoteMetrics::~RemoteMetrics()
-{
-}
-
 ::std::string_view
-IceMX::RemoteMetrics::ice_staticId()
+IceMX::RemoteMetrics::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceMX::RemoteMetrics";
     return typeId;
 }
 
-IceMX::InvocationMetrics::~InvocationMetrics()
-{
-}
-
 ::std::string_view
-IceMX::InvocationMetrics::ice_staticId()
+IceMX::InvocationMetrics::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceMX::InvocationMetrics";
     return typeId;
 }
 
-IceMX::ConnectionMetrics::~ConnectionMetrics()
-{
-}
-
 ::std::string_view
-IceMX::ConnectionMetrics::ice_staticId()
+IceMX::ConnectionMetrics::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceMX::ConnectionMetrics";
     return typeId;
@@ -457,7 +421,7 @@ IceMX::MetricsAdmin::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-IceMX::MetricsAdmin::ice_staticId()
+IceMX::MetricsAdmin::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceMX::MetricsAdmin";
     return typeId;

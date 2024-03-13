@@ -159,14 +159,14 @@ BEGIN::breakPrx::_iceI_instance_variables(const ::std::shared_ptr<::IceInternal:
 }
 
 ::std::string_view
-BEGIN::breakPrx::ice_staticId()
+BEGIN::breakPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::BEGIN::break";
     return typeId;
 }
 
 ::std::string_view
-BEGIN::elsifPrx::ice_staticId()
+BEGIN::elsifPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::BEGIN::elsif";
     return typeId;
@@ -219,40 +219,28 @@ BEGIN::extendPrx::_iceI_for(const ::std::shared_ptr<::IceInternal::OutgoingAsync
 }
 
 ::std::string_view
-BEGIN::extendPrx::ice_staticId()
+BEGIN::extendPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::BEGIN::extend";
     return typeId;
 }
 
-BEGIN::display::~display()
-{
-}
-
 ::std::string_view
-BEGIN::display::ice_staticId()
+BEGIN::display::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::BEGIN::display";
     return typeId;
 }
 
-BEGIN::next::~next()
-{
-}
-
 ::std::string_view
-BEGIN::next::ice_staticId()
+BEGIN::next::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::BEGIN::next";
     return typeId;
 }
 
-BEGIN::nil::~nil()
-{
-}
-
 ::std::string_view
-BEGIN::nil::ice_staticId()
+BEGIN::nil::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::BEGIN::nil";
     return typeId;
@@ -272,7 +260,7 @@ BEGIN::_cpp_break::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-BEGIN::_cpp_break::ice_staticId()
+BEGIN::_cpp_break::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::BEGIN::break";
     return typeId;
@@ -406,7 +394,7 @@ BEGIN::elsif::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-BEGIN::elsif::ice_staticId()
+BEGIN::elsif::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::BEGIN::elsif";
     return typeId;
@@ -491,7 +479,7 @@ BEGIN::extend::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-BEGIN::extend::ice_staticId()
+BEGIN::extend::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::BEGIN::extend";
     return typeId;

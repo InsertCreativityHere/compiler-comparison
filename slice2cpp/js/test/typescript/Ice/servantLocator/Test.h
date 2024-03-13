@@ -195,7 +195,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit TestIntfPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -209,7 +209,7 @@ public:
     {
     }
 
-    TestIntfPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    TestIntfPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -258,7 +258,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit TestActivationPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -272,7 +272,7 @@ public:
     {
     }
 
-    TestActivationPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    TestActivationPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -354,7 +354,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit EchoPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -368,7 +368,7 @@ public:
     {
     }
 
-    EchoPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    EchoPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -407,11 +407,9 @@ class TestIntfUserException : public ::Ice::UserExceptionHelper<TestIntfUserExce
 {
 public:
 
-    virtual ~TestIntfUserException();
+    TestIntfUserException() noexcept = default;
 
     TestIntfUserException(const TestIntfUserException&) = default;
-
-    TestIntfUserException() = default;
 
     /**
      * Obtains a tuple containing all of the exception's data members.
@@ -426,7 +424,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 };
 
 /// \cond INTERNAL
@@ -437,11 +435,9 @@ class TestImpossibleException : public ::Ice::UserExceptionHelper<TestImpossible
 {
 public:
 
-    virtual ~TestImpossibleException();
+    TestImpossibleException() noexcept = default;
 
     TestImpossibleException(const TestImpossibleException&) = default;
-
-    TestImpossibleException() = default;
 
     /**
      * Obtains a tuple containing all of the exception's data members.
@@ -456,7 +452,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 };
 
 }
@@ -488,7 +484,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     virtual void requestFailedException(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -586,7 +582,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     virtual void activateServantLocator(bool activate, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -624,7 +620,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     virtual void setConnection(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

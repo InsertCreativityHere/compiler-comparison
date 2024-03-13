@@ -66,7 +66,7 @@ Test::Interface2Prx::_iceI_method(const ::std::shared_ptr<::IceInternal::Outgoin
 }
 
 ::std::string_view
-Test::Interface2Prx::ice_staticId()
+Test::Interface2Prx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Interface2";
     return typeId;
@@ -86,7 +86,7 @@ Test::Interface2::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::Interface2::ice_staticId()
+Test::Interface2::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Interface2";
     return typeId;

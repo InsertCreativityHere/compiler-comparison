@@ -104,18 +104,14 @@ Test::Initial2Prx::_iceI_opVoid(const ::std::shared_ptr<::IceInternal::OutgoingA
 }
 
 ::std::string_view
-Test::Initial2Prx::ice_staticId()
+Test::Initial2Prx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Initial2";
     return typeId;
 }
 
-Test::D::~D()
-{
-}
-
 ::std::string_view
-Test::D::ice_staticId()
+Test::D::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::D";
     return typeId;
@@ -135,7 +131,7 @@ Test::Initial2::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::Initial2::ice_staticId()
+Test::Initial2::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Initial2";
     return typeId;

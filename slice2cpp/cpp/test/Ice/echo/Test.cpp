@@ -150,7 +150,7 @@ Test::EchoPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsy
 }
 
 ::std::string_view
-Test::EchoPrx::ice_staticId()
+Test::EchoPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Echo";
     return typeId;
@@ -170,7 +170,7 @@ Test::Echo::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::Echo::ice_staticId()
+Test::Echo::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Echo";
     return typeId;

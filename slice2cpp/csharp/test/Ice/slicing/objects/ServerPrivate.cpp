@@ -55,100 +55,64 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::PSUnknownException>
 
 }
 
-Test::SBSUnknownDerived::~SBSUnknownDerived()
-{
-}
-
 ::std::string_view
-Test::SBSUnknownDerived::ice_staticId()
+Test::SBSUnknownDerived::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::SBSUnknownDerived";
     return typeId;
 }
 
-Test::SUnknown::~SUnknown()
-{
-}
-
 ::std::string_view
-Test::SUnknown::ice_staticId()
+Test::SUnknown::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::SUnknown";
     return typeId;
 }
 
-Test::D2::~D2()
-{
-}
-
 ::std::string_view
-Test::D2::ice_staticId()
+Test::D2::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::D2";
     return typeId;
 }
 
-Test::D4::~D4()
-{
-}
-
 ::std::string_view
-Test::D4::ice_staticId()
+Test::D4::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::D4";
     return typeId;
 }
 
-Test::UnknownDerivedException::~UnknownDerivedException()
-{
-}
-
 ::std::string_view
-Test::UnknownDerivedException::ice_staticId()
+Test::UnknownDerivedException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::UnknownDerivedException";
     return typeId;
 }
 
-Test::MyClass::~MyClass()
-{
-}
-
 ::std::string_view
-Test::MyClass::ice_staticId()
+Test::MyClass::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MyClass";
     return typeId;
 }
 
-Test::PSUnknown::~PSUnknown()
-{
-}
-
 ::std::string_view
-Test::PSUnknown::ice_staticId()
+Test::PSUnknown::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::PSUnknown";
     return typeId;
 }
 
-Test::PSUnknown2::~PSUnknown2()
-{
-}
-
 ::std::string_view
-Test::PSUnknown2::ice_staticId()
+Test::PSUnknown2::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::PSUnknown2";
     return typeId;
 }
 
-Test::PSUnknownException::~PSUnknownException()
-{
-}
-
 ::std::string_view
-Test::PSUnknownException::ice_staticId()
+Test::PSUnknownException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::PSUnknownException";
     return typeId;

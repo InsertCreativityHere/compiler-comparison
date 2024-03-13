@@ -127,7 +127,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit ServiceObserverPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -141,7 +141,7 @@ public:
     {
     }
 
-    ServiceObserverPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    ServiceObserverPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -308,7 +308,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit ServiceManagerPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -322,7 +322,7 @@ public:
     {
     }
 
-    ServiceManagerPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    ServiceManagerPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -365,11 +365,9 @@ class ICE_CLASS(ICEBOX_API) AlreadyStartedException : public ::Ice::UserExceptio
 {
 public:
 
-    ICE_MEMBER(ICEBOX_API) virtual ~AlreadyStartedException();
+    AlreadyStartedException() noexcept = default;
 
     AlreadyStartedException(const AlreadyStartedException&) = default;
-
-    AlreadyStartedException() = default;
 
     /**
      * Obtains a tuple containing all of the exception's data members.
@@ -384,7 +382,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEBOX_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICEBOX_API) static ::std::string_view ice_staticId() noexcept;
 };
 
 /// \cond INTERNAL
@@ -399,11 +397,9 @@ class ICE_CLASS(ICEBOX_API) AlreadyStoppedException : public ::Ice::UserExceptio
 {
 public:
 
-    ICE_MEMBER(ICEBOX_API) virtual ~AlreadyStoppedException();
+    AlreadyStoppedException() noexcept = default;
 
     AlreadyStoppedException(const AlreadyStoppedException&) = default;
-
-    AlreadyStoppedException() = default;
 
     /**
      * Obtains a tuple containing all of the exception's data members.
@@ -418,7 +414,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEBOX_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICEBOX_API) static ::std::string_view ice_staticId() noexcept;
 };
 
 /**
@@ -429,11 +425,9 @@ class ICE_CLASS(ICEBOX_API) NoSuchServiceException : public ::Ice::UserException
 {
 public:
 
-    ICE_MEMBER(ICEBOX_API) virtual ~NoSuchServiceException();
+    NoSuchServiceException() noexcept = default;
 
     NoSuchServiceException(const NoSuchServiceException&) = default;
-
-    NoSuchServiceException() = default;
 
     /**
      * Obtains a tuple containing all of the exception's data members.
@@ -448,7 +442,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEBOX_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICEBOX_API) static ::std::string_view ice_staticId() noexcept;
 };
 
 }
@@ -484,7 +478,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /**
      * Receives the names of the services that were started.
@@ -541,7 +535,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /**
      * Start an individual service.

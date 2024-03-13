@@ -105,7 +105,7 @@ Ice::RemoteLoggerPrx::_iceI_log(const ::std::shared_ptr<::IceInternal::OutgoingA
 }
 
 ::std::string_view
-Ice::RemoteLoggerPrx::ice_staticId()
+Ice::RemoteLoggerPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Ice::RemoteLogger";
     return typeId;
@@ -233,18 +233,14 @@ Ice::LoggerAdminPrx::_iceI_getLog(const ::std::shared_ptr<::IceInternal::Outgoin
 }
 
 ::std::string_view
-Ice::LoggerAdminPrx::ice_staticId()
+Ice::LoggerAdminPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Ice::LoggerAdmin";
     return typeId;
 }
 
-Ice::RemoteLoggerAlreadyAttachedException::~RemoteLoggerAlreadyAttachedException()
-{
-}
-
 ::std::string_view
-Ice::RemoteLoggerAlreadyAttachedException::ice_staticId()
+Ice::RemoteLoggerAlreadyAttachedException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Ice::RemoteLoggerAlreadyAttachedException";
     return typeId;
@@ -264,7 +260,7 @@ Ice::RemoteLogger::ice_id(const Current&) const
 }
 
 ::std::string_view
-Ice::RemoteLogger::ice_staticId()
+Ice::RemoteLogger::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Ice::RemoteLogger";
     return typeId;
@@ -370,7 +366,7 @@ Ice::LoggerAdmin::ice_id(const Current&) const
 }
 
 ::std::string_view
-Ice::LoggerAdmin::ice_staticId()
+Ice::LoggerAdmin::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Ice::LoggerAdmin";
     return typeId;

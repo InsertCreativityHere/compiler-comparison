@@ -39,11 +39,9 @@ class ArgumentException : public ::Ice::UserExceptionHelper<ArgumentException, :
 {
 public:
 
-    virtual ~ArgumentException();
+    ArgumentException() noexcept = default;
 
     ArgumentException(const ArgumentException&) = default;
-
-    ArgumentException() = default;
 
     /**
      * Obtains a tuple containing all of the exception's data members.
@@ -58,7 +56,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 };
 
 /// \cond INTERNAL

@@ -309,18 +309,14 @@ Glacier2::RouterPrx::_iceI_getACMTimeout(const ::std::shared_ptr<::IceInternal::
 }
 
 ::std::string_view
-Glacier2::RouterPrx::ice_staticId()
+Glacier2::RouterPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Glacier2::Router";
     return typeId;
 }
 
-Glacier2::SessionNotExistException::~SessionNotExistException()
-{
-}
-
 ::std::string_view
-Glacier2::SessionNotExistException::ice_staticId()
+Glacier2::SessionNotExistException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Glacier2::SessionNotExistException";
     return typeId;
@@ -340,7 +336,7 @@ Glacier2::Router::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Glacier2::Router::ice_staticId()
+Glacier2::Router::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Glacier2::Router";
     return typeId;

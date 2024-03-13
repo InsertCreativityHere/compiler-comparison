@@ -69,7 +69,7 @@ IceLocatorDiscovery::LookupReplyPrx::_iceI_foundLocator(const ::std::shared_ptr<
 }
 
 ::std::string_view
-IceLocatorDiscovery::LookupReplyPrx::ice_staticId()
+IceLocatorDiscovery::LookupReplyPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceLocatorDiscovery::LookupReply";
     return typeId;
@@ -107,7 +107,7 @@ IceLocatorDiscovery::LookupPrx::_iceI_findLocator(const ::std::shared_ptr<::IceI
 }
 
 ::std::string_view
-IceLocatorDiscovery::LookupPrx::ice_staticId()
+IceLocatorDiscovery::LookupPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceLocatorDiscovery::Lookup";
     return typeId;
@@ -127,7 +127,7 @@ IceLocatorDiscovery::LookupReply::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-IceLocatorDiscovery::LookupReply::ice_staticId()
+IceLocatorDiscovery::LookupReply::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceLocatorDiscovery::LookupReply";
     return typeId;
@@ -212,7 +212,7 @@ IceLocatorDiscovery::Lookup::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-IceLocatorDiscovery::Lookup::ice_staticId()
+IceLocatorDiscovery::Lookup::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceLocatorDiscovery::Lookup";
     return typeId;

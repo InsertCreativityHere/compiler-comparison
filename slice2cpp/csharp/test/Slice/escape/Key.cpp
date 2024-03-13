@@ -80,7 +80,7 @@ abstract::casePrx::_iceI_catch(const ::std::shared_ptr<::IceInternal::OutgoingAs
 }
 
 ::std::string_view
-abstract::casePrx::ice_staticId()
+abstract::casePrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::abstract::case";
     return typeId;
@@ -115,14 +115,14 @@ abstract::decimalPrx::_iceI_default(const ::std::shared_ptr<::IceInternal::Outgo
 }
 
 ::std::string_view
-abstract::decimalPrx::ice_staticId()
+abstract::decimalPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::abstract::decimal";
     return typeId;
 }
 
 ::std::string_view
-abstract::explicitPrx::ice_staticId()
+abstract::explicitPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::abstract::explicit";
     return typeId;
@@ -293,7 +293,7 @@ abstract::optionalParamsPrx::_iceI_foreach(const ::std::shared_ptr<::IceInternal
 }
 
 ::std::string_view
-abstract::optionalParamsPrx::ice_staticId()
+abstract::optionalParamsPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::abstract::optionalParams";
     return typeId;
@@ -350,7 +350,7 @@ abstract::implicitPrx::_iceI_in(const ::std::shared_ptr<::IceInternal::OutgoingA
 }
 
 ::std::string_view
-abstract::implicitPrx::ice_staticId()
+abstract::implicitPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::abstract::implicit";
     return typeId;
@@ -385,7 +385,7 @@ abstract::System::TestPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::Outgo
 }
 
 ::std::string_view
-abstract::System::TestPrx::ice_staticId()
+abstract::System::TestPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::abstract::System::Test";
     return typeId;
@@ -420,62 +420,42 @@ System::TestPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<
 }
 
 ::std::string_view
-System::TestPrx::ice_staticId()
+System::TestPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::System::Test";
     return typeId;
 }
 
-abstract::delegate::~delegate()
-{
-}
-
 ::std::string_view
-abstract::delegate::ice_staticId()
+abstract::delegate::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::abstract::delegate";
     return typeId;
 }
 
-abstract::optionalMembers::~optionalMembers()
-{
-}
-
 ::std::string_view
-abstract::optionalMembers::ice_staticId()
+abstract::optionalMembers::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::abstract::optionalMembers";
     return typeId;
 }
 
-abstract::fixed::~fixed()
-{
-}
-
 ::std::string_view
-abstract::fixed::ice_staticId()
+abstract::fixed::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::abstract::fixed";
     return typeId;
 }
 
-abstract::foreach::~foreach()
-{
-}
-
 ::std::string_view
-abstract::foreach::ice_staticId()
+abstract::foreach::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::abstract::foreach";
     return typeId;
 }
 
-abstract::BaseMethods::~BaseMethods()
-{
-}
-
 ::std::string_view
-abstract::BaseMethods::ice_staticId()
+abstract::BaseMethods::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::abstract::BaseMethods";
     return typeId;
@@ -495,7 +475,7 @@ abstract::_cpp_case::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-abstract::_cpp_case::ice_staticId()
+abstract::_cpp_case::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::abstract::case";
     return typeId;
@@ -595,7 +575,7 @@ abstract::decimal::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-abstract::decimal::ice_staticId()
+abstract::decimal::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::abstract::decimal";
     return typeId;
@@ -676,7 +656,7 @@ abstract::_cpp_explicit::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-abstract::_cpp_explicit::ice_staticId()
+abstract::_cpp_explicit::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::abstract::explicit";
     return typeId;
@@ -751,7 +731,7 @@ abstract::optionalParams::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-abstract::optionalParams::ice_staticId()
+abstract::optionalParams::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::abstract::optionalParams";
     return typeId;
@@ -936,7 +916,7 @@ abstract::implicit::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-abstract::implicit::ice_staticId()
+abstract::implicit::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::abstract::implicit";
     return typeId;
@@ -1034,7 +1014,7 @@ abstract::System::Test::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-abstract::System::Test::ice_staticId()
+abstract::System::Test::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::abstract::System::Test";
     return typeId;
@@ -1115,7 +1095,7 @@ System::Test::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-System::Test::ice_staticId()
+System::Test::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::System::Test";
     return typeId;

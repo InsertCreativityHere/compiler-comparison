@@ -82,232 +82,148 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::FileNotAvailable
 
 }
 
-IceGrid::ApplicationNotExistException::~ApplicationNotExistException()
-{
-}
-
 ::std::string_view
-IceGrid::ApplicationNotExistException::ice_staticId()
+IceGrid::ApplicationNotExistException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::ApplicationNotExistException";
     return typeId;
 }
 
-IceGrid::ServerNotExistException::~ServerNotExistException()
-{
-}
-
 ::std::string_view
-IceGrid::ServerNotExistException::ice_staticId()
+IceGrid::ServerNotExistException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::ServerNotExistException";
     return typeId;
 }
 
-IceGrid::ServerStartException::~ServerStartException()
-{
-}
-
 ::std::string_view
-IceGrid::ServerStartException::ice_staticId()
+IceGrid::ServerStartException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::ServerStartException";
     return typeId;
 }
 
-IceGrid::ServerStopException::~ServerStopException()
-{
-}
-
 ::std::string_view
-IceGrid::ServerStopException::ice_staticId()
+IceGrid::ServerStopException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::ServerStopException";
     return typeId;
 }
 
-IceGrid::AdapterNotExistException::~AdapterNotExistException()
-{
-}
-
 ::std::string_view
-IceGrid::AdapterNotExistException::ice_staticId()
+IceGrid::AdapterNotExistException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::AdapterNotExistException";
     return typeId;
 }
 
-IceGrid::ObjectExistsException::~ObjectExistsException()
-{
-}
-
 ::std::string_view
-IceGrid::ObjectExistsException::ice_staticId()
+IceGrid::ObjectExistsException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::ObjectExistsException";
     return typeId;
 }
 
-IceGrid::ObjectNotRegisteredException::~ObjectNotRegisteredException()
-{
-}
-
 ::std::string_view
-IceGrid::ObjectNotRegisteredException::ice_staticId()
+IceGrid::ObjectNotRegisteredException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::ObjectNotRegisteredException";
     return typeId;
 }
 
-IceGrid::NodeNotExistException::~NodeNotExistException()
-{
-}
-
 ::std::string_view
-IceGrid::NodeNotExistException::ice_staticId()
+IceGrid::NodeNotExistException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::NodeNotExistException";
     return typeId;
 }
 
-IceGrid::RegistryNotExistException::~RegistryNotExistException()
-{
-}
-
 ::std::string_view
-IceGrid::RegistryNotExistException::ice_staticId()
+IceGrid::RegistryNotExistException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::RegistryNotExistException";
     return typeId;
 }
 
-IceGrid::DeploymentException::~DeploymentException()
-{
-}
-
 ::std::string_view
-IceGrid::DeploymentException::ice_staticId()
+IceGrid::DeploymentException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::DeploymentException";
     return typeId;
 }
 
-IceGrid::NodeUnreachableException::~NodeUnreachableException()
-{
-}
-
 ::std::string_view
-IceGrid::NodeUnreachableException::ice_staticId()
+IceGrid::NodeUnreachableException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::NodeUnreachableException";
     return typeId;
 }
 
-IceGrid::ServerUnreachableException::~ServerUnreachableException()
-{
-}
-
 ::std::string_view
-IceGrid::ServerUnreachableException::ice_staticId()
+IceGrid::ServerUnreachableException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::ServerUnreachableException";
     return typeId;
 }
 
-IceGrid::RegistryUnreachableException::~RegistryUnreachableException()
-{
-}
-
 ::std::string_view
-IceGrid::RegistryUnreachableException::ice_staticId()
+IceGrid::RegistryUnreachableException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::RegistryUnreachableException";
     return typeId;
 }
 
-IceGrid::BadSignalException::~BadSignalException()
-{
-}
-
 ::std::string_view
-IceGrid::BadSignalException::ice_staticId()
+IceGrid::BadSignalException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::BadSignalException";
     return typeId;
 }
 
-IceGrid::PatchException::~PatchException()
-{
-}
-
 ::std::string_view
-IceGrid::PatchException::ice_staticId()
+IceGrid::PatchException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::PatchException";
     return typeId;
 }
 
-IceGrid::AccessDeniedException::~AccessDeniedException()
-{
-}
-
 ::std::string_view
-IceGrid::AccessDeniedException::ice_staticId()
+IceGrid::AccessDeniedException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::AccessDeniedException";
     return typeId;
 }
 
-IceGrid::AllocationException::~AllocationException()
-{
-}
-
 ::std::string_view
-IceGrid::AllocationException::ice_staticId()
+IceGrid::AllocationException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::AllocationException";
     return typeId;
 }
 
-IceGrid::AllocationTimeoutException::~AllocationTimeoutException()
-{
-}
-
 ::std::string_view
-IceGrid::AllocationTimeoutException::ice_staticId()
+IceGrid::AllocationTimeoutException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::AllocationTimeoutException";
     return typeId;
 }
 
-IceGrid::PermissionDeniedException::~PermissionDeniedException()
-{
-}
-
 ::std::string_view
-IceGrid::PermissionDeniedException::ice_staticId()
+IceGrid::PermissionDeniedException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::PermissionDeniedException";
     return typeId;
 }
 
-IceGrid::ObserverAlreadyRegisteredException::~ObserverAlreadyRegisteredException()
-{
-}
-
 ::std::string_view
-IceGrid::ObserverAlreadyRegisteredException::ice_staticId()
+IceGrid::ObserverAlreadyRegisteredException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::ObserverAlreadyRegisteredException";
     return typeId;
 }
 
-IceGrid::FileNotAvailableException::~FileNotAvailableException()
-{
-}
-
 ::std::string_view
-IceGrid::FileNotAvailableException::ice_staticId()
+IceGrid::FileNotAvailableException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::FileNotAvailableException";
     return typeId;

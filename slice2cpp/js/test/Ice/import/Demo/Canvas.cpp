@@ -100,7 +100,7 @@ Demo::gx::CanvasPrx::_iceI_paintCircle(const ::std::shared_ptr<::IceInternal::Ou
 }
 
 ::std::string_view
-Demo::gx::CanvasPrx::ice_staticId()
+Demo::gx::CanvasPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Demo::gx::Canvas";
     return typeId;
@@ -135,7 +135,7 @@ Demo::gx::SessionPrx::_iceI_destroySession(const ::std::shared_ptr<::IceInternal
 }
 
 ::std::string_view
-Demo::gx::SessionPrx::ice_staticId()
+Demo::gx::SessionPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Demo::gx::Session";
     return typeId;
@@ -155,7 +155,7 @@ Demo::gx::Canvas::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Demo::gx::Canvas::ice_staticId()
+Demo::gx::Canvas::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Demo::gx::Canvas";
     return typeId;
@@ -260,7 +260,7 @@ Demo::gx::Session::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Demo::gx::Session::ice_staticId()
+Demo::gx::Session::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Demo::gx::Session";
     return typeId;

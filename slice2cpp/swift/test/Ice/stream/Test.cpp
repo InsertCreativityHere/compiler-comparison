@@ -48,40 +48,28 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::Test2::Sub2::NestedExcept
 }
 
 ::std::string_view
-Test::MyInterfacePrx::ice_staticId()
+Test::MyInterfacePrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MyInterface";
     return typeId;
 }
 
-Test::OptionalClass::~OptionalClass()
-{
-}
-
 ::std::string_view
-Test::OptionalClass::ice_staticId()
+Test::OptionalClass::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::OptionalClass";
     return typeId;
 }
 
-Test::MyClass::~MyClass()
-{
-}
-
 ::std::string_view
-Test::MyClass::ice_staticId()
+Test::MyClass::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MyClass";
     return typeId;
 }
 
-Test::MyException::~MyException()
-{
-}
-
 ::std::string_view
-Test::MyException::ice_staticId()
+Test::MyException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MyException";
     return typeId;
@@ -95,23 +83,15 @@ Test::MyException::_usesClasses() const
 }
 /// \endcond
 
-Test::Sub::NestedException::~NestedException()
-{
-}
-
 ::std::string_view
-Test::Sub::NestedException::ice_staticId()
+Test::Sub::NestedException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Sub::NestedException";
     return typeId;
 }
 
-Test2::Sub2::NestedException2::~NestedException2()
-{
-}
-
 ::std::string_view
-Test2::Sub2::NestedException2::ice_staticId()
+Test2::Sub2::NestedException2::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test2::Sub2::NestedException2";
     return typeId;
@@ -131,7 +111,7 @@ Test::MyInterface::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::MyInterface::ice_staticId()
+Test::MyInterface::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MyInterface";
     return typeId;

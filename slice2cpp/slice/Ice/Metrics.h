@@ -317,7 +317,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit MetricsAdminPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -331,7 +331,7 @@ public:
     {
     }
 
-    MetricsAdminPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    MetricsAdminPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -374,10 +374,7 @@ class ICE_CLASS(ICE_API) Metrics : public ::Ice::ValueHelper<Metrics, ::Ice::Val
 {
 public:
 
-    ICE_MEMBER(ICE_API) virtual ~Metrics();
-
     Metrics() = default;
-
     Metrics(const Metrics&) = default;
     Metrics(Metrics&&) = default;
     Metrics& operator=(const Metrics&) = default;
@@ -391,8 +388,8 @@ public:
      * @param totalLifetime The sum of the lifetime of each observed objects.
      * @param failures The number of failures observed.
      */
-    Metrics(::std::string_view id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures) :
-        id(id),
+    Metrics(::std::string id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures) :
+        id(::std::move(id)),
         total(total),
         current(current),
         totalLifetime(totalLifetime),
@@ -413,7 +410,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The metrics identifier.
@@ -476,11 +473,9 @@ class ICE_CLASS(ICE_API) UnknownMetricsView : public ::Ice::UserExceptionHelper<
 {
 public:
 
-    ICE_MEMBER(ICE_API) virtual ~UnknownMetricsView();
+    UnknownMetricsView() noexcept = default;
 
     UnknownMetricsView(const UnknownMetricsView&) = default;
-
-    UnknownMetricsView() = default;
 
     /**
      * Obtains a tuple containing all of the exception's data members.
@@ -495,7 +490,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId() noexcept;
 };
 
 /**
@@ -506,10 +501,7 @@ class ICE_CLASS(ICE_API) ThreadMetrics : public ::Ice::ValueHelper<ThreadMetrics
 {
 public:
 
-    ICE_MEMBER(ICE_API) virtual ~ThreadMetrics();
-
     ThreadMetrics() = default;
-
     ThreadMetrics(const ThreadMetrics&) = default;
     ThreadMetrics(ThreadMetrics&&) = default;
     ThreadMetrics& operator=(const ThreadMetrics&) = default;
@@ -526,8 +518,8 @@ public:
      * @param inUseForUser The number of threads which are currently calling user code (servant dispatch, AMI callbacks, etc).
      * @param inUseForOther The number of threads which are currently performing other activities.
      */
-    ThreadMetrics(::std::string_view id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int32_t inUseForIO, ::std::int32_t inUseForUser, ::std::int32_t inUseForOther) :
-        Ice::ValueHelper<ThreadMetrics, Metrics>(id, total, current, totalLifetime, failures),
+    ThreadMetrics(::std::string id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int32_t inUseForIO, ::std::int32_t inUseForUser, ::std::int32_t inUseForOther) :
+        Ice::ValueHelper<ThreadMetrics, Metrics>(::std::move(id), total, current, totalLifetime, failures),
         inUseForIO(inUseForIO),
         inUseForUser(inUseForUser),
         inUseForOther(inUseForOther)
@@ -547,7 +539,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The number of threads which are currently performing socket read or writes.
@@ -572,10 +564,7 @@ class ICE_CLASS(ICE_API) DispatchMetrics : public ::Ice::ValueHelper<DispatchMet
 {
 public:
 
-    ICE_MEMBER(ICE_API) virtual ~DispatchMetrics();
-
     DispatchMetrics() = default;
-
     DispatchMetrics(const DispatchMetrics&) = default;
     DispatchMetrics(DispatchMetrics&&) = default;
     DispatchMetrics& operator=(const DispatchMetrics&) = default;
@@ -592,8 +581,8 @@ public:
      * @param size The size of the dispatch.
      * @param replySize The size of the dispatch reply.
      */
-    DispatchMetrics(::std::string_view id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int32_t userException, ::std::int64_t size, ::std::int64_t replySize) :
-        Ice::ValueHelper<DispatchMetrics, Metrics>(id, total, current, totalLifetime, failures),
+    DispatchMetrics(::std::string id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int32_t userException, ::std::int64_t size, ::std::int64_t replySize) :
+        Ice::ValueHelper<DispatchMetrics, Metrics>(::std::move(id), total, current, totalLifetime, failures),
         userException(userException),
         size(size),
         replySize(replySize)
@@ -613,7 +602,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The number of dispatch that failed with a user exception.
@@ -639,10 +628,7 @@ class ICE_CLASS(ICE_API) ChildInvocationMetrics : public ::Ice::ValueHelper<Chil
 {
 public:
 
-    ICE_MEMBER(ICE_API) virtual ~ChildInvocationMetrics();
-
     ChildInvocationMetrics() = default;
-
     ChildInvocationMetrics(const ChildInvocationMetrics&) = default;
     ChildInvocationMetrics(ChildInvocationMetrics&&) = default;
     ChildInvocationMetrics& operator=(const ChildInvocationMetrics&) = default;
@@ -658,8 +644,8 @@ public:
      * @param size The size of the invocation.
      * @param replySize The size of the invocation reply.
      */
-    ChildInvocationMetrics(::std::string_view id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int64_t size, ::std::int64_t replySize) :
-        Ice::ValueHelper<ChildInvocationMetrics, Metrics>(id, total, current, totalLifetime, failures),
+    ChildInvocationMetrics(::std::string id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int64_t size, ::std::int64_t replySize) :
+        Ice::ValueHelper<ChildInvocationMetrics, Metrics>(::std::move(id), total, current, totalLifetime, failures),
         size(size),
         replySize(replySize)
     {
@@ -678,7 +664,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The size of the invocation. This corresponds to the size of the marshalled input parameters.
@@ -699,10 +685,7 @@ class ICE_CLASS(ICE_API) CollocatedMetrics : public ::Ice::ValueHelper<Collocate
 {
 public:
 
-    ICE_MEMBER(ICE_API) virtual ~CollocatedMetrics();
-
     CollocatedMetrics() = default;
-
     CollocatedMetrics(const CollocatedMetrics&) = default;
     CollocatedMetrics(CollocatedMetrics&&) = default;
     CollocatedMetrics& operator=(const CollocatedMetrics&) = default;
@@ -718,8 +701,8 @@ public:
      * @param size The size of the invocation.
      * @param replySize The size of the invocation reply.
      */
-    CollocatedMetrics(::std::string_view id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int64_t size, ::std::int64_t replySize) :
-        Ice::ValueHelper<CollocatedMetrics, ChildInvocationMetrics>(id, total, current, totalLifetime, failures, size, replySize)
+    CollocatedMetrics(::std::string id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int64_t size, ::std::int64_t replySize) :
+        Ice::ValueHelper<CollocatedMetrics, ChildInvocationMetrics>(::std::move(id), total, current, totalLifetime, failures, size, replySize)
     {
     }
 
@@ -736,7 +719,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId() noexcept;
 };
 
 /**
@@ -748,10 +731,7 @@ class ICE_CLASS(ICE_API) RemoteMetrics : public ::Ice::ValueHelper<RemoteMetrics
 {
 public:
 
-    ICE_MEMBER(ICE_API) virtual ~RemoteMetrics();
-
     RemoteMetrics() = default;
-
     RemoteMetrics(const RemoteMetrics&) = default;
     RemoteMetrics(RemoteMetrics&&) = default;
     RemoteMetrics& operator=(const RemoteMetrics&) = default;
@@ -767,8 +747,8 @@ public:
      * @param size The size of the invocation.
      * @param replySize The size of the invocation reply.
      */
-    RemoteMetrics(::std::string_view id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int64_t size, ::std::int64_t replySize) :
-        Ice::ValueHelper<RemoteMetrics, ChildInvocationMetrics>(id, total, current, totalLifetime, failures, size, replySize)
+    RemoteMetrics(::std::string id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int64_t size, ::std::int64_t replySize) :
+        Ice::ValueHelper<RemoteMetrics, ChildInvocationMetrics>(::std::move(id), total, current, totalLifetime, failures, size, replySize)
     {
     }
 
@@ -785,7 +765,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId() noexcept;
 };
 
 /**
@@ -796,10 +776,7 @@ class ICE_CLASS(ICE_API) InvocationMetrics : public ::Ice::ValueHelper<Invocatio
 {
 public:
 
-    ICE_MEMBER(ICE_API) virtual ~InvocationMetrics();
-
     InvocationMetrics() = default;
-
     InvocationMetrics(const InvocationMetrics&) = default;
     InvocationMetrics(InvocationMetrics&&) = default;
     InvocationMetrics& operator=(const InvocationMetrics&) = default;
@@ -817,12 +794,12 @@ public:
      * @param remotes The remote invocation metrics map.
      * @param collocated The collocated invocation metrics map.
      */
-    InvocationMetrics(::std::string_view id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int32_t retry, ::std::int32_t userException, const ::IceMX::MetricsMap& remotes, const ::IceMX::MetricsMap& collocated) :
-        Ice::ValueHelper<InvocationMetrics, Metrics>(id, total, current, totalLifetime, failures),
+    InvocationMetrics(::std::string id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int32_t retry, ::std::int32_t userException, ::IceMX::MetricsMap remotes, ::IceMX::MetricsMap collocated) :
+        Ice::ValueHelper<InvocationMetrics, Metrics>(::std::move(id), total, current, totalLifetime, failures),
         retry(retry),
         userException(userException),
-        remotes(remotes),
-        collocated(collocated)
+        remotes(::std::move(remotes)),
+        collocated(::std::move(collocated))
     {
     }
 
@@ -839,7 +816,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The number of retries for the invocation(s).
@@ -869,10 +846,7 @@ class ICE_CLASS(ICE_API) ConnectionMetrics : public ::Ice::ValueHelper<Connectio
 {
 public:
 
-    ICE_MEMBER(ICE_API) virtual ~ConnectionMetrics();
-
     ConnectionMetrics() = default;
-
     ConnectionMetrics(const ConnectionMetrics&) = default;
     ConnectionMetrics(ConnectionMetrics&&) = default;
     ConnectionMetrics& operator=(const ConnectionMetrics&) = default;
@@ -888,8 +862,8 @@ public:
      * @param receivedBytes The number of bytes received by the connection.
      * @param sentBytes The number of bytes sent by the connection.
      */
-    ConnectionMetrics(::std::string_view id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int64_t receivedBytes, ::std::int64_t sentBytes) :
-        Ice::ValueHelper<ConnectionMetrics, Metrics>(id, total, current, totalLifetime, failures),
+    ConnectionMetrics(::std::string id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int64_t receivedBytes, ::std::int64_t sentBytes) :
+        Ice::ValueHelper<ConnectionMetrics, Metrics>(::std::move(id), total, current, totalLifetime, failures),
         receivedBytes(receivedBytes),
         sentBytes(sentBytes)
     {
@@ -908,7 +882,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The number of bytes received by the connection.
@@ -960,7 +934,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /**
      * Get the names of enabled and disabled metrics.

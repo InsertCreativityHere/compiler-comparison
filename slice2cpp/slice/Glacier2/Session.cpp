@@ -71,7 +71,7 @@ Glacier2::SessionPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal::Outgo
 }
 
 ::std::string_view
-Glacier2::SessionPrx::ice_staticId()
+Glacier2::SessionPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Glacier2::Session";
     return typeId;
@@ -169,7 +169,7 @@ Glacier2::StringSetPrx::_iceI_get(const ::std::shared_ptr<::IceInternal::Outgoin
 }
 
 ::std::string_view
-Glacier2::StringSetPrx::ice_staticId()
+Glacier2::StringSetPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Glacier2::StringSet";
     return typeId;
@@ -267,7 +267,7 @@ Glacier2::IdentitySetPrx::_iceI_get(const ::std::shared_ptr<::IceInternal::Outgo
 }
 
 ::std::string_view
-Glacier2::IdentitySetPrx::ice_staticId()
+Glacier2::IdentitySetPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Glacier2::IdentitySet";
     return typeId;
@@ -418,7 +418,7 @@ Glacier2::SessionControlPrx::_iceI_destroy(const ::std::shared_ptr<::IceInternal
 }
 
 ::std::string_view
-Glacier2::SessionControlPrx::ice_staticId()
+Glacier2::SessionControlPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Glacier2::SessionControl";
     return typeId;
@@ -470,7 +470,7 @@ Glacier2::SessionManagerPrx::_iceI_create(const ::std::shared_ptr<::IceInternal:
 }
 
 ::std::string_view
-Glacier2::SessionManagerPrx::ice_staticId()
+Glacier2::SessionManagerPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Glacier2::SessionManager";
     return typeId;
@@ -522,18 +522,14 @@ Glacier2::SSLSessionManagerPrx::_iceI_create(const ::std::shared_ptr<::IceIntern
 }
 
 ::std::string_view
-Glacier2::SSLSessionManagerPrx::ice_staticId()
+Glacier2::SSLSessionManagerPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Glacier2::SSLSessionManager";
     return typeId;
 }
 
-Glacier2::CannotCreateSessionException::~CannotCreateSessionException()
-{
-}
-
 ::std::string_view
-Glacier2::CannotCreateSessionException::ice_staticId()
+Glacier2::CannotCreateSessionException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Glacier2::CannotCreateSessionException";
     return typeId;
@@ -553,7 +549,7 @@ Glacier2::Session::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Glacier2::Session::ice_staticId()
+Glacier2::Session::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Glacier2::Session";
     return typeId;
@@ -634,7 +630,7 @@ Glacier2::StringSet::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Glacier2::StringSet::ice_staticId()
+Glacier2::StringSet::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Glacier2::StringSet";
     return typeId;
@@ -759,7 +755,7 @@ Glacier2::IdentitySet::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Glacier2::IdentitySet::ice_staticId()
+Glacier2::IdentitySet::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Glacier2::IdentitySet";
     return typeId;
@@ -884,7 +880,7 @@ Glacier2::SessionControl::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Glacier2::SessionControl::ice_staticId()
+Glacier2::SessionControl::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Glacier2::SessionControl";
     return typeId;
@@ -1045,7 +1041,7 @@ Glacier2::SessionManager::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Glacier2::SessionManager::ice_staticId()
+Glacier2::SessionManager::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Glacier2::SessionManager";
     return typeId;
@@ -1136,7 +1132,7 @@ Glacier2::SSLSessionManager::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Glacier2::SSLSessionManager::ice_staticId()
+Glacier2::SSLSessionManager::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Glacier2::SSLSessionManager";
     return typeId;

@@ -39,12 +39,8 @@ const ::IceInternal::DefaultValueFactoryInit<::Test::Derived> iceC_Test_Derived_
 
 }
 
-Test::Derived::~Derived()
-{
-}
-
 ::std::string_view
-Test::Derived::ice_staticId()
+Test::Derived::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Derived";
     return typeId;

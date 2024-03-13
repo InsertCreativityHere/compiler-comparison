@@ -173,18 +173,14 @@ Test::HelloPrx::_iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAs
 }
 
 ::std::string_view
-Test::HelloPrx::ice_staticId()
+Test::HelloPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Hello";
     return typeId;
 }
 
-Test::UE::~UE()
-{
-}
-
 ::std::string_view
-Test::UE::ice_staticId()
+Test::UE::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::UE";
     return typeId;
@@ -204,7 +200,7 @@ Test::Hello::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::Hello::ice_staticId()
+Test::Hello::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Hello";
     return typeId;

@@ -95,7 +95,7 @@ Test::MyClassPrx::_iceI_getContext(const ::std::shared_ptr<::IceInternal::Outgoi
 }
 
 ::std::string_view
-Test::MyClassPrx::ice_staticId()
+Test::MyClassPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MyClass";
     return typeId;
@@ -134,7 +134,7 @@ Test::MyDerivedClassPrx::_iceI_echo(const ::std::shared_ptr<::IceInternal::Outgo
 }
 
 ::std::string_view
-Test::MyDerivedClassPrx::ice_staticId()
+Test::MyDerivedClassPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MyDerivedClass";
     return typeId;
@@ -154,7 +154,7 @@ Test::MyClass::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::MyClass::ice_staticId()
+Test::MyClass::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MyClass";
     return typeId;
@@ -255,7 +255,7 @@ Test::MyDerivedClass::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::MyDerivedClass::ice_staticId()
+Test::MyDerivedClass::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MyDerivedClass";
     return typeId;

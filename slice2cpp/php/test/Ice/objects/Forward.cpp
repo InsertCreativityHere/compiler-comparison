@@ -68,18 +68,14 @@ Test::F2Prx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void
 }
 
 ::std::string_view
-Test::F2Prx::ice_staticId()
+Test::F2Prx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::F2";
     return typeId;
 }
 
-Test::F1::~F1()
-{
-}
-
 ::std::string_view
-Test::F1::ice_staticId()
+Test::F1::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::F1";
     return typeId;
@@ -99,7 +95,7 @@ Test::F2::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::F2::ice_staticId()
+Test::F2::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::F2";
     return typeId;

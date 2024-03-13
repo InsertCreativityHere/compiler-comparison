@@ -162,62 +162,42 @@ classdef::_cpp_break::elseifPrx::_iceI_checkedCast(const ::std::shared_ptr<::Ice
 }
 
 ::std::string_view
-classdef::_cpp_break::elseifPrx::ice_staticId()
+classdef::_cpp_break::elseifPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::classdef::break::elseif";
     return typeId;
 }
 
-classdef::_cpp_break::logical::~logical()
-{
-}
-
 ::std::string_view
-classdef::_cpp_break::logical::ice_staticId()
+classdef::_cpp_break::logical::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::classdef::break::logical";
     return typeId;
 }
 
-classdef::_cpp_break::_cpp_xor::~_cpp_xor()
-{
-}
-
 ::std::string_view
-classdef::_cpp_break::_cpp_xor::ice_staticId()
+classdef::_cpp_break::_cpp_xor::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::classdef::break::xor";
     return typeId;
 }
 
-classdef::_cpp_break::_cpp_try::~_cpp_try()
-{
-}
-
 ::std::string_view
-classdef::_cpp_break::_cpp_try::ice_staticId()
+classdef::_cpp_break::_cpp_try::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::classdef::break::try";
     return typeId;
 }
 
-classdef::_cpp_break::properties::~properties()
-{
-}
-
 ::std::string_view
-classdef::_cpp_break::properties::ice_staticId()
+classdef::_cpp_break::properties::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::classdef::break::properties";
     return typeId;
 }
 
-classdef::_cpp_break::persistent::~persistent()
-{
-}
-
 ::std::string_view
-classdef::_cpp_break::persistent::ice_staticId()
+classdef::_cpp_break::persistent::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::classdef::break::persistent";
     return typeId;
@@ -231,12 +211,8 @@ classdef::_cpp_break::persistent::_usesClasses() const
 }
 /// \endcond
 
-classdef::_cpp_break::global::~global()
-{
-}
-
 ::std::string_view
-classdef::_cpp_break::global::ice_staticId()
+classdef::_cpp_break::global::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::classdef::break::global";
     return typeId;
@@ -256,7 +232,7 @@ classdef::_cpp_break::elseif::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-classdef::_cpp_break::elseif::ice_staticId()
+classdef::_cpp_break::elseif::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::classdef::break::elseif";
     return typeId;

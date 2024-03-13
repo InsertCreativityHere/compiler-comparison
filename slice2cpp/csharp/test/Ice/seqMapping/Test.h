@@ -244,7 +244,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit IPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -258,7 +258,7 @@ public:
     {
     }
 
-    IPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    IPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -1132,7 +1132,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit MyClassPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -1146,7 +1146,7 @@ public:
     {
     }
 
-    MyClassPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    MyClassPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -1213,10 +1213,7 @@ class CV : public ::Ice::ValueHelper<CV, ::Ice::Value>
 {
 public:
 
-    virtual ~CV();
-
     CV() = default;
-
     CV(const CV&) = default;
     CV(CV&&) = default;
     CV& operator=(const CV&) = default;
@@ -1243,7 +1240,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::int32_t i;
 };
@@ -1256,10 +1253,7 @@ class CR : public ::Ice::ValueHelper<CR, ::Ice::Value>
 {
 public:
 
-    virtual ~CR();
-
     CR() = default;
-
     CR(const CR&) = default;
     CR(CR&&) = default;
     CR& operator=(const CR&) = default;
@@ -1268,8 +1262,8 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit CR(const ::std::shared_ptr<::Test::CV>& v) :
-        v(v)
+    explicit CR(::std::shared_ptr<::Test::CV> v) :
+        v(::std::move(v))
     {
     }
 
@@ -1286,7 +1280,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::shared_ptr<::Test::CV> v;
 };
@@ -1327,7 +1321,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 };
 
 using IPtr = ::std::shared_ptr<I>;
@@ -1356,7 +1350,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     virtual void shutdown(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

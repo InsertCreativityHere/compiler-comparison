@@ -39,12 +39,8 @@ const ::IceInternal::DefaultValueFactoryInit<::Test::C> iceC_Test_C_init("::Test
 
 }
 
-Test::C::~C()
-{
-}
-
 ::std::string_view
-Test::C::ice_staticId()
+Test::C::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::C";
     return typeId;

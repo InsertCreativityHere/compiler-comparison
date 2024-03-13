@@ -56,18 +56,16 @@ class ICE_CLASS(ICEGRID_API) ApplicationNotExistException : public ::Ice::UserEx
 {
 public:
 
-    ICE_MEMBER(ICEGRID_API) virtual ~ApplicationNotExistException();
+    ApplicationNotExistException() noexcept = default;
 
     ApplicationNotExistException(const ApplicationNotExistException&) = default;
-
-    ApplicationNotExistException() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param name The name of the application.
      */
-    ApplicationNotExistException(::std::string_view name) :
-        name(name)
+    ApplicationNotExistException(::std::string name) noexcept :
+        name(::std::move(name))
     {
     }
 
@@ -84,7 +82,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The name of the application.
@@ -104,18 +102,16 @@ class ICE_CLASS(ICEGRID_API) ServerNotExistException : public ::Ice::UserExcepti
 {
 public:
 
-    ICE_MEMBER(ICEGRID_API) virtual ~ServerNotExistException();
+    ServerNotExistException() noexcept = default;
 
     ServerNotExistException(const ServerNotExistException&) = default;
-
-    ServerNotExistException() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param id The identifier of the server.
      */
-    ServerNotExistException(::std::string_view id) :
-        id(id)
+    ServerNotExistException(::std::string id) noexcept :
+        id(::std::move(id))
     {
     }
 
@@ -132,7 +128,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The identifier of the server.
@@ -148,20 +144,18 @@ class ICE_CLASS(ICEGRID_API) ServerStartException : public ::Ice::UserExceptionH
 {
 public:
 
-    ICE_MEMBER(ICEGRID_API) virtual ~ServerStartException();
+    ServerStartException() noexcept = default;
 
     ServerStartException(const ServerStartException&) = default;
-
-    ServerStartException() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param id The identifier of the server.
      * @param reason The reason for the failure.
      */
-    ServerStartException(::std::string_view id, ::std::string_view reason) :
-        id(id),
-        reason(reason)
+    ServerStartException(::std::string id, ::std::string reason) noexcept :
+        id(::std::move(id)),
+        reason(::std::move(reason))
     {
     }
 
@@ -178,7 +172,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The identifier of the server.
@@ -198,20 +192,18 @@ class ICE_CLASS(ICEGRID_API) ServerStopException : public ::Ice::UserExceptionHe
 {
 public:
 
-    ICE_MEMBER(ICEGRID_API) virtual ~ServerStopException();
+    ServerStopException() noexcept = default;
 
     ServerStopException(const ServerStopException&) = default;
-
-    ServerStopException() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param id The identifier of the server.
      * @param reason The reason for the failure.
      */
-    ServerStopException(::std::string_view id, ::std::string_view reason) :
-        id(id),
-        reason(reason)
+    ServerStopException(::std::string id, ::std::string reason) noexcept :
+        id(::std::move(id)),
+        reason(::std::move(reason))
     {
     }
 
@@ -228,7 +220,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The identifier of the server.
@@ -248,18 +240,16 @@ class ICE_CLASS(ICEGRID_API) AdapterNotExistException : public ::Ice::UserExcept
 {
 public:
 
-    ICE_MEMBER(ICEGRID_API) virtual ~AdapterNotExistException();
+    AdapterNotExistException() noexcept = default;
 
     AdapterNotExistException(const AdapterNotExistException&) = default;
-
-    AdapterNotExistException() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param id The id of the object adapter.
      */
-    AdapterNotExistException(::std::string_view id) :
-        id(id)
+    AdapterNotExistException(::std::string id) noexcept :
+        id(::std::move(id))
     {
     }
 
@@ -276,7 +266,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The id of the object adapter.
@@ -292,18 +282,16 @@ class ICE_CLASS(ICEGRID_API) ObjectExistsException : public ::Ice::UserException
 {
 public:
 
-    ICE_MEMBER(ICEGRID_API) virtual ~ObjectExistsException();
+    ObjectExistsException() noexcept = default;
 
     ObjectExistsException(const ObjectExistsException&) = default;
-
-    ObjectExistsException() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param id The identity of the object.
      */
-    ObjectExistsException(const ::Ice::Identity& id) :
-        id(id)
+    ObjectExistsException(::Ice::Identity id) noexcept :
+        id(::std::move(id))
     {
     }
 
@@ -320,7 +308,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The identity of the object.
@@ -336,18 +324,16 @@ class ICE_CLASS(ICEGRID_API) ObjectNotRegisteredException : public ::Ice::UserEx
 {
 public:
 
-    ICE_MEMBER(ICEGRID_API) virtual ~ObjectNotRegisteredException();
+    ObjectNotRegisteredException() noexcept = default;
 
     ObjectNotRegisteredException(const ObjectNotRegisteredException&) = default;
-
-    ObjectNotRegisteredException() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param id The identity of the object.
      */
-    ObjectNotRegisteredException(const ::Ice::Identity& id) :
-        id(id)
+    ObjectNotRegisteredException(::Ice::Identity id) noexcept :
+        id(::std::move(id))
     {
     }
 
@@ -364,7 +350,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The identity of the object.
@@ -380,18 +366,16 @@ class ICE_CLASS(ICEGRID_API) NodeNotExistException : public ::Ice::UserException
 {
 public:
 
-    ICE_MEMBER(ICEGRID_API) virtual ~NodeNotExistException();
+    NodeNotExistException() noexcept = default;
 
     NodeNotExistException(const NodeNotExistException&) = default;
-
-    NodeNotExistException() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param name The node name.
      */
-    NodeNotExistException(::std::string_view name) :
-        name(name)
+    NodeNotExistException(::std::string name) noexcept :
+        name(::std::move(name))
     {
     }
 
@@ -408,7 +392,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The node name.
@@ -424,18 +408,16 @@ class ICE_CLASS(ICEGRID_API) RegistryNotExistException : public ::Ice::UserExcep
 {
 public:
 
-    ICE_MEMBER(ICEGRID_API) virtual ~RegistryNotExistException();
+    RegistryNotExistException() noexcept = default;
 
     RegistryNotExistException(const RegistryNotExistException&) = default;
-
-    RegistryNotExistException() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param name The registry name.
      */
-    RegistryNotExistException(::std::string_view name) :
-        name(name)
+    RegistryNotExistException(::std::string name) noexcept :
+        name(::std::move(name))
     {
     }
 
@@ -452,7 +434,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The registry name.
@@ -468,18 +450,16 @@ class ICE_CLASS(ICEGRID_API) DeploymentException : public ::Ice::UserExceptionHe
 {
 public:
 
-    ICE_MEMBER(ICEGRID_API) virtual ~DeploymentException();
+    DeploymentException() noexcept = default;
 
     DeploymentException(const DeploymentException&) = default;
-
-    DeploymentException() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param reason The reason for the failure.
      */
-    DeploymentException(::std::string_view reason) :
-        reason(reason)
+    DeploymentException(::std::string reason) noexcept :
+        reason(::std::move(reason))
     {
     }
 
@@ -496,7 +476,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The reason for the failure.
@@ -512,20 +492,18 @@ class ICE_CLASS(ICEGRID_API) NodeUnreachableException : public ::Ice::UserExcept
 {
 public:
 
-    ICE_MEMBER(ICEGRID_API) virtual ~NodeUnreachableException();
+    NodeUnreachableException() noexcept = default;
 
     NodeUnreachableException(const NodeUnreachableException&) = default;
-
-    NodeUnreachableException() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param name The name of the node that is not reachable.
      * @param reason The reason why the node couldn't be reached.
      */
-    NodeUnreachableException(::std::string_view name, ::std::string_view reason) :
-        name(name),
-        reason(reason)
+    NodeUnreachableException(::std::string name, ::std::string reason) noexcept :
+        name(::std::move(name)),
+        reason(::std::move(reason))
     {
     }
 
@@ -542,7 +520,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The name of the node that is not reachable.
@@ -562,20 +540,18 @@ class ICE_CLASS(ICEGRID_API) ServerUnreachableException : public ::Ice::UserExce
 {
 public:
 
-    ICE_MEMBER(ICEGRID_API) virtual ~ServerUnreachableException();
+    ServerUnreachableException() noexcept = default;
 
     ServerUnreachableException(const ServerUnreachableException&) = default;
-
-    ServerUnreachableException() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param name The id of the server that is not reachable.
      * @param reason The reason why the server couldn't be reached.
      */
-    ServerUnreachableException(::std::string_view name, ::std::string_view reason) :
-        name(name),
-        reason(reason)
+    ServerUnreachableException(::std::string name, ::std::string reason) noexcept :
+        name(::std::move(name)),
+        reason(::std::move(reason))
     {
     }
 
@@ -592,7 +568,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The id of the server that is not reachable.
@@ -612,20 +588,18 @@ class ICE_CLASS(ICEGRID_API) RegistryUnreachableException : public ::Ice::UserEx
 {
 public:
 
-    ICE_MEMBER(ICEGRID_API) virtual ~RegistryUnreachableException();
+    RegistryUnreachableException() noexcept = default;
 
     RegistryUnreachableException(const RegistryUnreachableException&) = default;
-
-    RegistryUnreachableException() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param name The name of the registry that is not reachable.
      * @param reason The reason why the registry couldn't be reached.
      */
-    RegistryUnreachableException(::std::string_view name, ::std::string_view reason) :
-        name(name),
-        reason(reason)
+    RegistryUnreachableException(::std::string name, ::std::string reason) noexcept :
+        name(::std::move(name)),
+        reason(::std::move(reason))
     {
     }
 
@@ -642,7 +616,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The name of the registry that is not reachable.
@@ -662,18 +636,16 @@ class ICE_CLASS(ICEGRID_API) BadSignalException : public ::Ice::UserExceptionHel
 {
 public:
 
-    ICE_MEMBER(ICEGRID_API) virtual ~BadSignalException();
+    BadSignalException() noexcept = default;
 
     BadSignalException(const BadSignalException&) = default;
-
-    BadSignalException() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param reason The details of the unknown signal.
      */
-    BadSignalException(::std::string_view reason) :
-        reason(reason)
+    BadSignalException(::std::string reason) noexcept :
+        reason(::std::move(reason))
     {
     }
 
@@ -690,7 +662,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The details of the unknown signal.
@@ -706,18 +678,16 @@ class ICE_CLASS(ICEGRID_API) PatchException : public ::Ice::UserExceptionHelper<
 {
 public:
 
-    ICE_MEMBER(ICEGRID_API) virtual ~PatchException();
+    PatchException() noexcept = default;
 
     PatchException(const PatchException&) = default;
-
-    PatchException() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param reasons The reasons why the patch failed.
      */
-    PatchException(const ::Ice::StringSeq& reasons) :
-        reasons(reasons)
+    PatchException(::Ice::StringSeq reasons) noexcept :
+        reasons(::std::move(reasons))
     {
     }
 
@@ -734,7 +704,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The reasons why the patch failed.
@@ -750,18 +720,16 @@ class ICE_CLASS(ICEGRID_API) AccessDeniedException : public ::Ice::UserException
 {
 public:
 
-    ICE_MEMBER(ICEGRID_API) virtual ~AccessDeniedException();
+    AccessDeniedException() noexcept = default;
 
     AccessDeniedException(const AccessDeniedException&) = default;
-
-    AccessDeniedException() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param lockUserId The id of the user holding the lock (if any).
      */
-    AccessDeniedException(::std::string_view lockUserId) :
-        lockUserId(lockUserId)
+    AccessDeniedException(::std::string lockUserId) noexcept :
+        lockUserId(::std::move(lockUserId))
     {
     }
 
@@ -778,7 +746,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The id of the user holding the lock (if any).
@@ -794,18 +762,16 @@ class ICE_CLASS(ICEGRID_API) AllocationException : public ::Ice::UserExceptionHe
 {
 public:
 
-    ICE_MEMBER(ICEGRID_API) virtual ~AllocationException();
+    AllocationException() noexcept = default;
 
     AllocationException(const AllocationException&) = default;
-
-    AllocationException() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param reason The reason why the object couldn't be allocated.
      */
-    AllocationException(::std::string_view reason) :
-        reason(reason)
+    AllocationException(::std::string reason) noexcept :
+        reason(::std::move(reason))
     {
     }
 
@@ -822,7 +788,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The reason why the object couldn't be allocated.
@@ -838,18 +804,16 @@ class ICE_CLASS(ICEGRID_API) AllocationTimeoutException : public ::Ice::UserExce
 {
 public:
 
-    ICE_MEMBER(ICEGRID_API) virtual ~AllocationTimeoutException();
+    AllocationTimeoutException() noexcept = default;
 
     AllocationTimeoutException(const AllocationTimeoutException&) = default;
-
-    AllocationTimeoutException() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param reason The reason why the object couldn't be allocated.
      */
-    AllocationTimeoutException(::std::string_view reason) :
-        ::Ice::UserExceptionHelper<AllocationTimeoutException, AllocationException>(reason)
+    AllocationTimeoutException(::std::string reason) noexcept :
+        ::Ice::UserExceptionHelper<AllocationTimeoutException, AllocationException>(::std::move(reason))
     {
     }
 
@@ -866,7 +830,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 };
 
 /**
@@ -877,18 +841,16 @@ class ICE_CLASS(ICEGRID_API) PermissionDeniedException : public ::Ice::UserExcep
 {
 public:
 
-    ICE_MEMBER(ICEGRID_API) virtual ~PermissionDeniedException();
+    PermissionDeniedException() noexcept = default;
 
     PermissionDeniedException(const PermissionDeniedException&) = default;
-
-    PermissionDeniedException() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param reason The reason why permission was denied.
      */
-    PermissionDeniedException(::std::string_view reason) :
-        reason(reason)
+    PermissionDeniedException(::std::string reason) noexcept :
+        reason(::std::move(reason))
     {
     }
 
@@ -905,7 +867,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The reason why permission was denied.
@@ -923,18 +885,16 @@ class ICE_CLASS(ICEGRID_API) ObserverAlreadyRegisteredException : public ::Ice::
 {
 public:
 
-    ICE_MEMBER(ICEGRID_API) virtual ~ObserverAlreadyRegisteredException();
+    ObserverAlreadyRegisteredException() noexcept = default;
 
     ObserverAlreadyRegisteredException(const ObserverAlreadyRegisteredException&) = default;
-
-    ObserverAlreadyRegisteredException() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param id The identity of the observer.
      */
-    ObserverAlreadyRegisteredException(const ::Ice::Identity& id) :
-        id(id)
+    ObserverAlreadyRegisteredException(::Ice::Identity id) noexcept :
+        id(::std::move(id))
     {
     }
 
@@ -951,7 +911,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The identity of the observer.
@@ -973,18 +933,16 @@ class ICE_CLASS(ICEGRID_API) FileNotAvailableException : public ::Ice::UserExcep
 {
 public:
 
-    ICE_MEMBER(ICEGRID_API) virtual ~FileNotAvailableException();
+    FileNotAvailableException() noexcept = default;
 
     FileNotAvailableException(const FileNotAvailableException&) = default;
-
-    FileNotAvailableException() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param reason The reason for the failure.
      */
-    FileNotAvailableException(::std::string_view reason) :
-        reason(reason)
+    FileNotAvailableException(::std::string reason) noexcept :
+        reason(::std::move(reason))
     {
     }
 
@@ -1001,7 +959,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
     /**
      * The reason for the failure.

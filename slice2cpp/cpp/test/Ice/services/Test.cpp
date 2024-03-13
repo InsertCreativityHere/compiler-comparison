@@ -69,7 +69,7 @@ Test::ClockPrx::_iceI_tick(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT
 }
 
 ::std::string_view
-Test::ClockPrx::ice_staticId()
+Test::ClockPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Clock";
     return typeId;
@@ -89,7 +89,7 @@ Test::Clock::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::Clock::ice_staticId()
+Test::Clock::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Clock";
     return typeId;

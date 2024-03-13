@@ -40,17 +40,15 @@ class DerivedEx : public ::Ice::UserExceptionHelper<DerivedEx, BaseEx>
 {
 public:
 
-    virtual ~DerivedEx();
+    DerivedEx() noexcept = default;
 
     DerivedEx(const DerivedEx&) = default;
-
-    DerivedEx() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    DerivedEx(::std::string_view reason) :
-        ::Ice::UserExceptionHelper<DerivedEx, BaseEx>(reason)
+    DerivedEx(::std::string reason) noexcept :
+        ::Ice::UserExceptionHelper<DerivedEx, BaseEx>(::std::move(reason))
     {
     }
 
@@ -67,7 +65,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 };
 
 /// \cond INTERNAL

@@ -67,7 +67,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit MyInterfacePrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -81,7 +81,7 @@ public:
     {
     }
 
-    MyInterfacePrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    MyInterfacePrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -120,17 +120,15 @@ class ICE_CLASS(LIBRARY_TEST_API) UserError : public ::Ice::UserExceptionHelper<
 {
 public:
 
-    ICE_MEMBER(LIBRARY_TEST_API) virtual ~UserError();
+    UserError() noexcept = default;
 
     UserError(const UserError&) = default;
-
-    UserError() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    UserError(::std::string_view message) :
-        message(message)
+    UserError(::std::string message) noexcept :
+        message(::std::move(message))
     {
     }
 
@@ -147,7 +145,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    ICE_MEMBER(LIBRARY_TEST_API) static ::std::string_view ice_staticId();
+    ICE_MEMBER(LIBRARY_TEST_API) static ::std::string_view ice_staticId() noexcept;
 
     ::std::string message;
 };
@@ -185,7 +183,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     virtual void op(bool throwIt, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

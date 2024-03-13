@@ -154,7 +154,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit elseifPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -168,7 +168,7 @@ public:
     {
     }
 
-    elseifPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    elseifPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -229,10 +229,7 @@ class logical : public ::Ice::ValueHelper<logical, ::Ice::Value>
 {
 public:
 
-    virtual ~logical();
-
     logical() = default;
-
     logical(const logical&) = default;
     logical(logical&&) = default;
     logical& operator=(const logical&) = default;
@@ -241,9 +238,9 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    logical(::classdef::_cpp_break::_cpp_bitand _cpp_else, const ::classdef::_cpp_break::_cpp_bitor& _cpp_for, bool int64) :
+    logical(::classdef::_cpp_break::_cpp_bitand _cpp_else, ::classdef::_cpp_break::_cpp_bitor _cpp_for, bool int64) :
         _cpp_else(_cpp_else),
-        _cpp_for(_cpp_for),
+        _cpp_for(::std::move(_cpp_for)),
         int64(int64)
     {
     }
@@ -261,7 +258,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::classdef::_cpp_break::_cpp_bitand _cpp_else = ::classdef::_cpp_break::_cpp_bitand::enumeration;
     ::classdef::_cpp_break::_cpp_bitor _cpp_for;
@@ -276,10 +273,7 @@ class _cpp_xor : public ::Ice::ValueHelper<_cpp_xor, logical>
 {
 public:
 
-    virtual ~_cpp_xor();
-
     _cpp_xor() = default;
-
     _cpp_xor(const _cpp_xor&) = default;
     _cpp_xor(_cpp_xor&&) = default;
     _cpp_xor& operator=(const _cpp_xor&) = default;
@@ -288,8 +282,8 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    _cpp_xor(::classdef::_cpp_break::_cpp_bitand _cpp_else, const ::classdef::_cpp_break::_cpp_bitor& _cpp_for, bool int64, ::std::int32_t _cpp_return) :
-        Ice::ValueHelper<_cpp_xor, logical>(_cpp_else, _cpp_for, int64),
+    _cpp_xor(::classdef::_cpp_break::_cpp_bitand _cpp_else, ::classdef::_cpp_break::_cpp_bitor _cpp_for, bool int64, ::std::int32_t _cpp_return) :
+        Ice::ValueHelper<_cpp_xor, logical>(_cpp_else, ::std::move(_cpp_for), int64),
         _cpp_return(_cpp_return)
     {
     }
@@ -307,7 +301,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::int32_t _cpp_return = 1;
 };
@@ -316,10 +310,7 @@ class _cpp_try : public ::Ice::ValueHelper<_cpp_try, ::Ice::Value>
 {
 public:
 
-    virtual ~_cpp_try();
-
     _cpp_try() = default;
-
     _cpp_try(const _cpp_try&) = default;
     _cpp_try(_cpp_try&&) = default;
     _cpp_try& operator=(const _cpp_try&) = default;
@@ -347,7 +338,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::int32_t _cpp_while = 1;
     ::std::int32_t _cpp_delete = 2;
@@ -357,10 +348,7 @@ class properties : public ::Ice::ValueHelper<properties, _cpp_try>
 {
 public:
 
-    virtual ~properties();
-
     properties() = default;
-
     properties(const properties&) = default;
     properties(properties&&) = default;
     properties& operator=(const properties&) = default;
@@ -369,12 +357,12 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    properties(::std::int32_t _cpp_while, ::std::int32_t _cpp_delete, ::std::int32_t _cpp_if, const ::std::shared_ptr<::classdef::break::xor>& _cpp_catch, const ::classdef::_cpp_break::parfor& spmd, const ::classdef::_cpp_break::_cpp_switch& otherwise) :
+    properties(::std::int32_t _cpp_while, ::std::int32_t _cpp_delete, ::std::int32_t _cpp_if, ::std::shared_ptr<::classdef::break::xor> _cpp_catch, ::classdef::_cpp_break::parfor spmd, ::classdef::_cpp_break::_cpp_switch otherwise) :
         Ice::ValueHelper<properties, _cpp_try>(_cpp_while, _cpp_delete),
         _cpp_if(_cpp_if),
-        _cpp_catch(_cpp_catch),
-        spmd(spmd),
-        otherwise(otherwise)
+        _cpp_catch(::std::move(_cpp_catch)),
+        spmd(::std::move(spmd)),
+        otherwise(::std::move(otherwise))
     {
     }
 
@@ -391,7 +379,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::int32_t _cpp_if = 2;
     ::std::shared_ptr<::classdef::break::xor> _cpp_catch;
@@ -403,22 +391,20 @@ class persistent : public ::Ice::UserExceptionHelper<persistent, ::Ice::UserExce
 {
 public:
 
-    virtual ~persistent();
+    persistent() noexcept = default;
 
     persistent(const persistent&) = default;
-
-    persistent() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    persistent(::std::string_view identifier, ::std::string_view message, ::std::string_view stack, ::std::string_view cause, ::std::string_view type, const ::std::shared_ptr<::classdef::break::logical>& end) :
-        identifier(identifier),
-        message(message),
-        stack(stack),
-        cause(cause),
-        type(type),
-        end(end)
+    persistent(::std::string identifier, ::std::string message, ::std::string stack, ::std::string cause, ::std::string type, ::std::shared_ptr<::classdef::break::logical> end) noexcept :
+        identifier(::std::move(identifier)),
+        message(::std::move(message)),
+        stack(::std::move(stack)),
+        cause(::std::move(cause)),
+        type(::std::move(type)),
+        end(::std::move(end))
     {
     }
 
@@ -435,7 +421,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /// \cond STREAM
     virtual bool _usesClasses() const override;
@@ -453,17 +439,15 @@ class global : public ::Ice::UserExceptionHelper<global, persistent>
 {
 public:
 
-    virtual ~global();
+    global() noexcept = default;
 
     global(const global&) = default;
-
-    global() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    global(::std::string_view identifier, ::std::string_view message, ::std::string_view stack, ::std::string_view cause, ::std::string_view type, const ::std::shared_ptr<::classdef::break::logical>& end, ::std::int32_t enumeration) :
-        ::Ice::UserExceptionHelper<global, persistent>(identifier, message, stack, cause, type, end),
+    global(::std::string identifier, ::std::string message, ::std::string stack, ::std::string cause, ::std::string type, ::std::shared_ptr<::classdef::break::logical> end, ::std::int32_t enumeration) noexcept :
+        ::Ice::UserExceptionHelper<global, persistent>(::std::move(identifier), ::std::move(message), ::std::move(stack), ::std::move(cause), ::std::move(type), ::std::move(end)),
         enumeration(enumeration)
     {
     }
@@ -481,7 +465,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::int32_t enumeration = 1;
 };
@@ -534,7 +518,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     virtual void events(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

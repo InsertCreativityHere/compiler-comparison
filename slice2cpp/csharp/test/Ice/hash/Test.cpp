@@ -47,56 +47,36 @@ const ::IceInternal::DefaultValueFactoryInit<::Test::Pen> iceC_Test_Pen_init("::
 
 }
 
-Test::BaseException::~BaseException()
-{
-}
-
 ::std::string_view
-Test::BaseException::ice_staticId()
+Test::BaseException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::BaseException";
     return typeId;
 }
 
-Test::InvalidPointException::~InvalidPointException()
-{
-}
-
 ::std::string_view
-Test::InvalidPointException::ice_staticId()
+Test::InvalidPointException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::InvalidPointException";
     return typeId;
 }
 
-Test::InvalidLengthException::~InvalidLengthException()
-{
-}
-
 ::std::string_view
-Test::InvalidLengthException::ice_staticId()
+Test::InvalidLengthException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::InvalidLengthException";
     return typeId;
 }
 
-Test::OtherException::~OtherException()
-{
-}
-
 ::std::string_view
-Test::OtherException::ice_staticId()
+Test::OtherException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::OtherException";
     return typeId;
 }
 
-Test::Pen::~Pen()
-{
-}
-
 ::std::string_view
-Test::Pen::ice_staticId()
+Test::Pen::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Pen";
     return typeId;

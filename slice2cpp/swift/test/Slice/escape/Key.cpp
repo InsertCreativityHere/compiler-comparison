@@ -76,7 +76,7 @@ _cpp_and::breakPrx::_iceI_case(const ::std::shared_ptr<::IceInternal::OutgoingAs
 }
 
 ::std::string_view
-_cpp_and::breakPrx::ice_staticId()
+_cpp_and::breakPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::and::break";
     return typeId;
@@ -111,47 +111,35 @@ _cpp_and::funcPrx::_iceI_public(const ::std::shared_ptr<::IceInternal::OutgoingA
 }
 
 ::std::string_view
-_cpp_and::funcPrx::ice_staticId()
+_cpp_and::funcPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::and::func";
     return typeId;
 }
 
 ::std::string_view
-_cpp_and::doPrx::ice_staticId()
+_cpp_and::doPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::and::do";
     return typeId;
 }
 
-_cpp_and::_cpp_switch::~_cpp_switch()
-{
-}
-
 ::std::string_view
-_cpp_and::_cpp_switch::ice_staticId()
+_cpp_and::_cpp_switch::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::and::switch";
     return typeId;
 }
 
-_cpp_and::_cpp_return::~_cpp_return()
-{
-}
-
 ::std::string_view
-_cpp_and::_cpp_return::ice_staticId()
+_cpp_and::_cpp_return::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::and::return";
     return typeId;
 }
 
-_cpp_and::as::~as()
-{
-}
-
 ::std::string_view
-_cpp_and::as::ice_staticId()
+_cpp_and::as::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::and::as";
     return typeId;
@@ -171,7 +159,7 @@ _cpp_and::_cpp_break::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-_cpp_and::_cpp_break::ice_staticId()
+_cpp_and::_cpp_break::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::and::break";
     return typeId;
@@ -271,7 +259,7 @@ _cpp_and::func::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-_cpp_and::func::ice_staticId()
+_cpp_and::func::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::and::func";
     return typeId;
@@ -352,7 +340,7 @@ _cpp_and::_cpp_do::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-_cpp_and::_cpp_do::ice_staticId()
+_cpp_and::_cpp_do::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::and::do";
     return typeId;

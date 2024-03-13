@@ -103,7 +103,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit catchPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -117,7 +117,7 @@ public:
     {
     }
 
-    catchPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    catchPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -166,7 +166,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit defaultPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -180,7 +180,7 @@ public:
     {
     }
 
-    defaultPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    defaultPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -218,7 +218,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
 #if defined(__GNUC__)
 #   pragma GCC diagnostic push
@@ -237,7 +237,7 @@ public:
     {
     }
 
-    finalizePrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    finalizePrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -290,7 +290,7 @@ public:
      * Obtains the Slice type ID of this interface.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     explicit newPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
     {
@@ -304,7 +304,7 @@ public:
     {
     }
 
-    newPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, const ::std::string& proxyString) :
+    newPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -357,10 +357,7 @@ class _cpp_else : public ::Ice::ValueHelper<_cpp_else, ::Ice::Value>
 {
 public:
 
-    virtual ~_cpp_else();
-
     _cpp_else() = default;
-
     _cpp_else(const _cpp_else&) = default;
     _cpp_else(_cpp_else&&) = default;
     _cpp_else& operator=(const _cpp_else&) = default;
@@ -369,9 +366,9 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    _cpp_else(::std::int32_t _cpp_if, const ::std::optional<::abstract::defaultPrx>& equals, ::std::int32_t final) :
+    _cpp_else(::std::int32_t _cpp_if, ::std::optional<::abstract::defaultPrx> equals, ::std::int32_t final) :
         _cpp_if(_cpp_if),
-        equals(equals),
+        equals(::std::move(equals)),
         final(final)
     {
     }
@@ -389,7 +386,7 @@ public:
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::int32_t _cpp_if;
     ::std::optional<::abstract::defaultPrx> equals;
@@ -404,16 +401,14 @@ class hashCode : public ::Ice::UserExceptionHelper<hashCode, ::Ice::UserExceptio
 {
 public:
 
-    virtual ~hashCode();
+    hashCode() noexcept = default;
 
     hashCode(const hashCode&) = default;
-
-    hashCode() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    hashCode(::std::int32_t _cpp_if) :
+    hashCode(::std::int32_t _cpp_if) noexcept :
         _cpp_if(_cpp_if)
     {
     }
@@ -431,7 +426,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::int32_t _cpp_if;
 };
@@ -440,16 +435,14 @@ class import : public ::Ice::UserExceptionHelper<import, hashCode>
 {
 public:
 
-    virtual ~import();
+    import() noexcept = default;
 
     import(const import&) = default;
-
-    import() = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
-    import(::std::int32_t _cpp_if, ::std::int32_t instanceof, ::std::int32_t native) :
+    import(::std::int32_t _cpp_if, ::std::int32_t instanceof, ::std::int32_t native) noexcept :
         ::Ice::UserExceptionHelper<import, hashCode>(_cpp_if),
         instanceof(instanceof),
         native(native)
@@ -469,7 +462,7 @@ public:
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     ::std::int32_t instanceof;
     ::std::int32_t native;
@@ -511,7 +504,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     virtual void checkedCastAsync(::std::int32_t clone, ::std::function<void(::std::int32_t _cpp_continue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -549,7 +542,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     virtual void _cpp_do(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -588,7 +581,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     /// \cond INTERNAL
     void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
@@ -621,7 +614,7 @@ public:
      * Obtains the Slice type ID corresponding to this interface.
      * @return A fully-scoped type ID.
      */
-    static ::std::string_view ice_staticId();
+    static ::std::string_view ice_staticId() noexcept;
 
     virtual assert notify(_cpp_break notifyAll, ::std::shared_ptr<else> null, ::std::optional<finalizePrx> package, ::std::optional<catchPrx> _cpp_public, ::std::optional<defaultPrx> _cpp_return, ::std::int32_t _cpp_static, ::std::int32_t strictfp, ::std::int32_t super, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL

@@ -66,7 +66,7 @@ Test::ControllerPrx::_iceI_stop(const ::std::shared_ptr<::IceInternal::OutgoingA
 }
 
 ::std::string_view
-Test::ControllerPrx::ice_staticId()
+Test::ControllerPrx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Controller";
     return typeId;
@@ -86,7 +86,7 @@ Test::Controller::ice_id(const ::Ice::Current&) const
 }
 
 ::std::string_view
-Test::Controller::ice_staticId()
+Test::Controller::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Controller";
     return typeId;
