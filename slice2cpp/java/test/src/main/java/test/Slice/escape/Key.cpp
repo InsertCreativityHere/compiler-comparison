@@ -181,11 +181,39 @@ abstract::newPrx::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+abstract::_cpp_else::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 abstract::_cpp_else::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::abstract::else";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+abstract::_cpp_else::_iceCloneImpl() const
+{
+    return CloneEnabler<_cpp_else>::clone(*this);
+}
+
+void
+abstract::_cpp_else::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<_cpp_else, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+abstract::_cpp_else::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<_cpp_else, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
 }
 
 ::std::string_view

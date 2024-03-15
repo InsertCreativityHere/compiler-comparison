@@ -62,11 +62,45 @@ const ::IceInternal::DefaultValueFactoryInit<::IceGrid::BoxedDistributionDescrip
 
 }
 
+::std::string
+IceGrid::CommunicatorDescriptor::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 IceGrid::CommunicatorDescriptor::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::CommunicatorDescriptor";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+IceGrid::CommunicatorDescriptor::_iceCloneImpl() const
+{
+    return CloneEnabler<CommunicatorDescriptor>::clone(*this);
+}
+
+void
+IceGrid::CommunicatorDescriptor::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<CommunicatorDescriptor, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+IceGrid::CommunicatorDescriptor::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<CommunicatorDescriptor, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
+::std::string
+IceGrid::ServerDescriptor::ice_id() const
+{
+    return ::std::string{ice_staticId()};
 }
 
 ::std::string_view
@@ -76,11 +110,71 @@ IceGrid::ServerDescriptor::ice_staticId() noexcept
     return typeId;
 }
 
+::std::shared_ptr<::Ice::Value>
+IceGrid::ServerDescriptor::_iceCloneImpl() const
+{
+    return CloneEnabler<ServerDescriptor>::clone(*this);
+}
+
+void
+IceGrid::ServerDescriptor::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<ServerDescriptor, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    CommunicatorDescriptor::_iceWriteImpl(ostr);
+}
+
+void
+IceGrid::ServerDescriptor::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<ServerDescriptor, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    CommunicatorDescriptor::_iceReadImpl(istr);
+}
+
+::std::string
+IceGrid::ServiceDescriptor::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 IceGrid::ServiceDescriptor::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::ServiceDescriptor";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+IceGrid::ServiceDescriptor::_iceCloneImpl() const
+{
+    return CloneEnabler<ServiceDescriptor>::clone(*this);
+}
+
+void
+IceGrid::ServiceDescriptor::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<ServiceDescriptor, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    CommunicatorDescriptor::_iceWriteImpl(ostr);
+}
+
+void
+IceGrid::ServiceDescriptor::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<ServiceDescriptor, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    CommunicatorDescriptor::_iceReadImpl(istr);
+}
+
+::std::string
+IceGrid::IceBoxDescriptor::ice_id() const
+{
+    return ::std::string{ice_staticId()};
 }
 
 ::std::string_view
@@ -90,11 +184,69 @@ IceGrid::IceBoxDescriptor::ice_staticId() noexcept
     return typeId;
 }
 
+::std::shared_ptr<::Ice::Value>
+IceGrid::IceBoxDescriptor::_iceCloneImpl() const
+{
+    return CloneEnabler<IceBoxDescriptor>::clone(*this);
+}
+
+void
+IceGrid::IceBoxDescriptor::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<IceBoxDescriptor, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    ServerDescriptor::_iceWriteImpl(ostr);
+}
+
+void
+IceGrid::IceBoxDescriptor::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<IceBoxDescriptor, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    ServerDescriptor::_iceReadImpl(istr);
+}
+
+::std::string
+IceGrid::LoadBalancingPolicy::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 IceGrid::LoadBalancingPolicy::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::LoadBalancingPolicy";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+IceGrid::LoadBalancingPolicy::_iceCloneImpl() const
+{
+    return CloneEnabler<LoadBalancingPolicy>::clone(*this);
+}
+
+void
+IceGrid::LoadBalancingPolicy::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<LoadBalancingPolicy, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+IceGrid::LoadBalancingPolicy::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<LoadBalancingPolicy, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
+::std::string
+IceGrid::RandomLoadBalancingPolicy::ice_id() const
+{
+    return ::std::string{ice_staticId()};
 }
 
 ::std::string_view
@@ -104,11 +256,67 @@ IceGrid::RandomLoadBalancingPolicy::ice_staticId() noexcept
     return typeId;
 }
 
+::std::shared_ptr<::Ice::Value>
+IceGrid::RandomLoadBalancingPolicy::_iceCloneImpl() const
+{
+    return CloneEnabler<RandomLoadBalancingPolicy>::clone(*this);
+}
+
+void
+IceGrid::RandomLoadBalancingPolicy::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ostr->endSlice();
+    LoadBalancingPolicy::_iceWriteImpl(ostr);
+}
+
+void
+IceGrid::RandomLoadBalancingPolicy::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    istr->endSlice();
+    LoadBalancingPolicy::_iceReadImpl(istr);
+}
+
+::std::string
+IceGrid::OrderedLoadBalancingPolicy::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 IceGrid::OrderedLoadBalancingPolicy::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::OrderedLoadBalancingPolicy";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+IceGrid::OrderedLoadBalancingPolicy::_iceCloneImpl() const
+{
+    return CloneEnabler<OrderedLoadBalancingPolicy>::clone(*this);
+}
+
+void
+IceGrid::OrderedLoadBalancingPolicy::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ostr->endSlice();
+    LoadBalancingPolicy::_iceWriteImpl(ostr);
+}
+
+void
+IceGrid::OrderedLoadBalancingPolicy::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    istr->endSlice();
+    LoadBalancingPolicy::_iceReadImpl(istr);
+}
+
+::std::string
+IceGrid::RoundRobinLoadBalancingPolicy::ice_id() const
+{
+    return ::std::string{ice_staticId()};
 }
 
 ::std::string_view
@@ -118,11 +326,69 @@ IceGrid::RoundRobinLoadBalancingPolicy::ice_staticId() noexcept
     return typeId;
 }
 
+::std::shared_ptr<::Ice::Value>
+IceGrid::RoundRobinLoadBalancingPolicy::_iceCloneImpl() const
+{
+    return CloneEnabler<RoundRobinLoadBalancingPolicy>::clone(*this);
+}
+
+void
+IceGrid::RoundRobinLoadBalancingPolicy::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ostr->endSlice();
+    LoadBalancingPolicy::_iceWriteImpl(ostr);
+}
+
+void
+IceGrid::RoundRobinLoadBalancingPolicy::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    istr->endSlice();
+    LoadBalancingPolicy::_iceReadImpl(istr);
+}
+
+::std::string
+IceGrid::AdaptiveLoadBalancingPolicy::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 IceGrid::AdaptiveLoadBalancingPolicy::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::AdaptiveLoadBalancingPolicy";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+IceGrid::AdaptiveLoadBalancingPolicy::_iceCloneImpl() const
+{
+    return CloneEnabler<AdaptiveLoadBalancingPolicy>::clone(*this);
+}
+
+void
+IceGrid::AdaptiveLoadBalancingPolicy::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<AdaptiveLoadBalancingPolicy, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    LoadBalancingPolicy::_iceWriteImpl(ostr);
+}
+
+void
+IceGrid::AdaptiveLoadBalancingPolicy::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<AdaptiveLoadBalancingPolicy, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    LoadBalancingPolicy::_iceReadImpl(istr);
+}
+
+::std::string
+IceGrid::BoxedString::ice_id() const
+{
+    return ::std::string{ice_staticId()};
 }
 
 ::std::string_view
@@ -132,9 +398,59 @@ IceGrid::BoxedString::ice_staticId() noexcept
     return typeId;
 }
 
+::std::shared_ptr<::Ice::Value>
+IceGrid::BoxedString::_iceCloneImpl() const
+{
+    return CloneEnabler<BoxedString>::clone(*this);
+}
+
+void
+IceGrid::BoxedString::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<BoxedString, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+IceGrid::BoxedString::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<BoxedString, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
+::std::string
+IceGrid::BoxedDistributionDescriptor::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 IceGrid::BoxedDistributionDescriptor::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::BoxedDistributionDescriptor";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+IceGrid::BoxedDistributionDescriptor::_iceCloneImpl() const
+{
+    return CloneEnabler<BoxedDistributionDescriptor>::clone(*this);
+}
+
+void
+IceGrid::BoxedDistributionDescriptor::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<BoxedDistributionDescriptor, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+IceGrid::BoxedDistributionDescriptor::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<BoxedDistributionDescriptor, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
 }

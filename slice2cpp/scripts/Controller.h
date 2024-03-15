@@ -556,15 +556,11 @@ namespace Test
 namespace Common
 {
 
-class Config : public ::Ice::ValueHelper<Config, ::Ice::Value>
+class Config : public ::Ice::Value
 {
 public:
 
     Config() = default;
-    Config(const Config&) = default;
-    Config(Config&&) = default;
-    Config& operator=(const Config&) = default;
-    Config& operator=(Config&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -581,6 +577,14 @@ public:
     }
 
     /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
+
+    /**
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
@@ -590,10 +594,10 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<Config> ice_clone() const { return ::std::static_pointer_cast <Config>(_iceCloneImpl()); }
 
     ::std::optional<::std::string> protocol;
     ::std::optional<bool> mx;
@@ -602,21 +606,26 @@ public:
     ::std::optional<bool> ipv6;
     ::std::optional<::Test::Common::StringSeq> cprops;
     ::std::optional<::Test::Common::StringSeq> sprops;
+
+protected:
+
+    Config(const Config&) = default;
+
+    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 /// \cond INTERNAL
 static Config _iceS_Config_init;
 /// \endcond
 
-class OptionOverrides : public ::Ice::ValueHelper<OptionOverrides, ::Ice::Value>
+class OptionOverrides : public ::Ice::Value
 {
 public:
 
     OptionOverrides() = default;
-    OptionOverrides(const OptionOverrides&) = default;
-    OptionOverrides(OptionOverrides&&) = default;
-    OptionOverrides& operator=(const OptionOverrides&) = default;
-    OptionOverrides& operator=(OptionOverrides&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -631,6 +640,14 @@ public:
     }
 
     /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
+
+    /**
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
@@ -640,16 +657,25 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<OptionOverrides> ice_clone() const { return ::std::static_pointer_cast <OptionOverrides>(_iceCloneImpl()); }
 
     ::std::optional<::Test::Common::StringSeq> protocol;
     ::std::optional<::Test::Common::BoolSeq> mx;
     ::std::optional<::Test::Common::BoolSeq> serialize;
     ::std::optional<::Test::Common::BoolSeq> compress;
     ::std::optional<::Test::Common::BoolSeq> ipv6;
+
+protected:
+
+    OptionOverrides(const OptionOverrides&) = default;
+
+    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 class TestCaseNotExistException : public ::Ice::UserException

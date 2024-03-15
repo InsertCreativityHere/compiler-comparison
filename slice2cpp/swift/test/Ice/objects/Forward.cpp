@@ -74,11 +74,39 @@ Test::F2Prx::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test::F1::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 Test::F1::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::F1";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+Test::F1::_iceCloneImpl() const
+{
+    return CloneEnabler<F1>::clone(*this);
+}
+
+void
+Test::F1::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<F1, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::F1::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<F1, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
 }
 
 ::std::vector<::std::string>

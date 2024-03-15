@@ -814,15 +814,11 @@ protected:
 namespace Test
 {
 
-class OneOptional : public ::Ice::ValueHelper<OneOptional, ::Ice::Value>
+class OneOptional : public ::Ice::Value
 {
 public:
 
     OneOptional() = default;
-    OneOptional(const OneOptional&) = default;
-    OneOptional(OneOptional&&) = default;
-    OneOptional& operator=(const OneOptional&) = default;
-    OneOptional& operator=(OneOptional&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -831,6 +827,14 @@ public:
         a(a)
     {
     }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -842,12 +846,21 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<OneOptional> ice_clone() const { return ::std::static_pointer_cast <OneOptional>(_iceCloneImpl()); }
 
     ::std::optional<::std::int32_t> a;
+
+protected:
+
+    OneOptional(const OneOptional&) = default;
+
+    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 /// \cond INTERNAL
@@ -910,15 +923,11 @@ struct ClassVarStruct
     }
 };
 
-class MultiOptional : public ::Ice::ValueHelper<MultiOptional, ::Ice::Value>
+class MultiOptional : public ::Ice::Value
 {
 public:
 
     MultiOptional() = default;
-    MultiOptional(const MultiOptional&) = default;
-    MultiOptional(MultiOptional&&) = default;
-    MultiOptional& operator=(const MultiOptional&) = default;
-    MultiOptional& operator=(MultiOptional&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -957,6 +966,14 @@ public:
     }
 
     /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
+
+    /**
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
@@ -966,10 +983,10 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<MultiOptional> ice_clone() const { return ::std::static_pointer_cast <MultiOptional>(_iceCloneImpl()); }
 
     ::std::optional<::std::uint8_t> a;
     ::std::optional<bool> b;
@@ -1000,17 +1017,22 @@ public:
     ::std::optional<::Test::IntOneOptionalDict> iood;
     ::std::optional<::Test::IntMyInterfacePrxDict> imipd;
     ::std::optional<::Test::BoolSeq> bos;
+
+protected:
+
+    MultiOptional(const MultiOptional&) = default;
+
+    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-class A : public ::Ice::ValueHelper<A, ::Ice::Value>
+class A : public ::Ice::Value
 {
 public:
 
     A() = default;
-    A(const A&) = default;
-    A(A&&) = default;
-    A& operator=(const A&) = default;
-    A& operator=(A&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -1024,6 +1046,14 @@ public:
     }
 
     /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
+
+    /**
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
@@ -1033,36 +1063,49 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<A> ice_clone() const { return ::std::static_pointer_cast <A>(_iceCloneImpl()); }
 
     ::std::int32_t requiredA;
     ::std::optional<::std::int32_t> ma;
     ::std::optional<::std::int32_t> mb;
     ::std::optional<::std::int32_t> mc;
+
+protected:
+
+    A(const A&) = default;
+
+    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-class B : public ::Ice::ValueHelper<B, A>
+class B : public A
 {
 public:
 
     B() = default;
-    B(const B&) = default;
-    B(B&&) = default;
-    B& operator=(const B&) = default;
-    B& operator=(B&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     B(::std::int32_t requiredA, ::std::optional<::std::int32_t> ma, ::std::optional<::std::int32_t> mb, ::std::optional<::std::int32_t> mc, ::std::int32_t requiredB, ::std::optional<::std::int32_t> md) :
-        Ice::ValueHelper<B, A>(requiredA, ma, mb, mc),
+        A(requiredA, ma, mb, mc),
         requiredB(requiredB),
         md(md)
     {
     }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -1074,34 +1117,47 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<B> ice_clone() const { return ::std::static_pointer_cast <B>(_iceCloneImpl()); }
 
     ::std::int32_t requiredB;
     ::std::optional<::std::int32_t> md;
+
+protected:
+
+    B(const B&) = default;
+
+    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-class C : public ::Ice::ValueHelper<C, B>
+class C : public B
 {
 public:
 
     C() = default;
-    C(const C&) = default;
-    C(C&&) = default;
-    C& operator=(const C&) = default;
-    C& operator=(C&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     C(::std::int32_t requiredA, ::std::optional<::std::int32_t> ma, ::std::optional<::std::int32_t> mb, ::std::optional<::std::int32_t> mc, ::std::int32_t requiredB, ::std::optional<::std::int32_t> md, ::std::string ss, ::std::optional<::std::string> ms) :
-        Ice::ValueHelper<C, B>(requiredA, ma, mb, mc, requiredB, md),
+        B(requiredA, ma, mb, mc, requiredB, md),
         ss(::std::move(ss)),
         ms(::std::move(ms))
     {
     }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -1113,24 +1169,29 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<C> ice_clone() const { return ::std::static_pointer_cast <C>(_iceCloneImpl()); }
 
     ::std::string ss;
     ::std::optional<::std::string> ms;
+
+protected:
+
+    C(const C&) = default;
+
+    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-class WD : public ::Ice::ValueHelper<WD, ::Ice::Value>
+class WD : public ::Ice::Value
 {
 public:
 
     WD() = default;
-    WD(const WD&) = default;
-    WD(WD&&) = default;
-    WD& operator=(const WD&) = default;
-    WD& operator=(WD&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -1142,6 +1203,14 @@ public:
     }
 
     /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
+
+    /**
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
@@ -1151,13 +1220,22 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<WD> ice_clone() const { return ::std::static_pointer_cast <WD>(_iceCloneImpl()); }
 
     ::std::optional<::std::int32_t> a = 5;
     ::std::optional<::std::string> s{"test"};
+
+protected:
+
+    WD(const WD&) = default;
+
+    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 class OptionalException : public ::Ice::UserException
@@ -1300,15 +1378,11 @@ protected:
     void _readImpl(::Ice::InputStream*) override;
 };
 
-class OptionalWithCustom : public ::Ice::ValueHelper<OptionalWithCustom, ::Ice::Value>
+class OptionalWithCustom : public ::Ice::Value
 {
 public:
 
     OptionalWithCustom() = default;
-    OptionalWithCustom(const OptionalWithCustom&) = default;
-    OptionalWithCustom(OptionalWithCustom&&) = default;
-    OptionalWithCustom& operator=(const OptionalWithCustom&) = default;
-    OptionalWithCustom& operator=(OptionalWithCustom&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -1321,6 +1395,14 @@ public:
     }
 
     /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
+
+    /**
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
@@ -1330,10 +1412,10 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<OptionalWithCustom> ice_clone() const { return ::std::static_pointer_cast <OptionalWithCustom>(_iceCloneImpl()); }
 
     ::std::optional<::Test::SmallStructList> l;
 
@@ -1351,17 +1433,20 @@ protected:
     friend struct Ice::StreamWriter;
     template<typename T, typename S>
     friend struct Ice::StreamReader;
+
+    OptionalWithCustom(const OptionalWithCustom&) = default;
+
+    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-class E : public ::Ice::ValueHelper<E, ::Ice::Value>
+class E : public ::Ice::Value
 {
 public:
 
     E() = default;
-    E(const E&) = default;
-    E(E&&) = default;
-    E& operator=(const E&) = default;
-    E& operator=(E&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -1370,6 +1455,14 @@ public:
         ae(::std::move(ae))
     {
     }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -1381,32 +1474,45 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<E> ice_clone() const { return ::std::static_pointer_cast <E>(_iceCloneImpl()); }
 
     ::std::shared_ptr<::Test::A> ae;
+
+protected:
+
+    E(const E&) = default;
+
+    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-class F : public ::Ice::ValueHelper<F, E>
+class F : public E
 {
 public:
 
     F() = default;
-    F(const F&) = default;
-    F(F&&) = default;
-    F& operator=(const F&) = default;
-    F& operator=(F&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     F(::std::shared_ptr<::Test::A> ae, ::std::optional<::std::shared_ptr<::Test::A>> af) :
-        Ice::ValueHelper<F, E>(::std::move(ae)),
+        E(::std::move(ae)),
         af(::std::move(af))
     {
     }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -1418,23 +1524,28 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<F> ice_clone() const { return ::std::static_pointer_cast <F>(_iceCloneImpl()); }
 
     ::std::optional<::std::shared_ptr<::Test::A>> af;
+
+protected:
+
+    F(const F&) = default;
+
+    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-class G1 : public ::Ice::ValueHelper<G1, ::Ice::Value>
+class G1 : public ::Ice::Value
 {
 public:
 
     G1() = default;
-    G1(const G1&) = default;
-    G1(G1&&) = default;
-    G1& operator=(const G1&) = default;
-    G1& operator=(G1&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -1443,6 +1554,14 @@ public:
         a(::std::move(a))
     {
     }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -1454,23 +1573,28 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<G1> ice_clone() const { return ::std::static_pointer_cast <G1>(_iceCloneImpl()); }
 
     ::std::string a;
+
+protected:
+
+    G1(const G1&) = default;
+
+    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-class G2 : public ::Ice::ValueHelper<G2, ::Ice::Value>
+class G2 : public ::Ice::Value
 {
 public:
 
     G2() = default;
-    G2(const G2&) = default;
-    G2(G2&&) = default;
-    G2& operator=(const G2&) = default;
-    G2& operator=(G2&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -1479,6 +1603,14 @@ public:
         a(a)
     {
     }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -1490,23 +1622,28 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<G2> ice_clone() const { return ::std::static_pointer_cast <G2>(_iceCloneImpl()); }
 
     ::std::int64_t a;
+
+protected:
+
+    G2(const G2&) = default;
+
+    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-class G : public ::Ice::ValueHelper<G, ::Ice::Value>
+class G : public ::Ice::Value
 {
 public:
 
     G() = default;
-    G(const G&) = default;
-    G(G&&) = default;
-    G& operator=(const G&) = default;
-    G& operator=(G&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -1520,6 +1657,14 @@ public:
     }
 
     /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
+
+    /**
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
@@ -1529,26 +1674,31 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<G> ice_clone() const { return ::std::static_pointer_cast <G>(_iceCloneImpl()); }
 
     ::std::optional<::std::shared_ptr<::Test::G1>> gg1Opt;
     ::std::shared_ptr<::Test::G2> gg2;
     ::std::optional<::std::shared_ptr<::Test::G2>> gg2Opt;
     ::std::shared_ptr<::Test::G1> gg1;
+
+protected:
+
+    G(const G&) = default;
+
+    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-class Recursive : public ::Ice::ValueHelper<Recursive, ::Ice::Value>
+class Recursive : public ::Ice::Value
 {
 public:
 
     Recursive() = default;
-    Recursive(const Recursive&) = default;
-    Recursive(Recursive&&) = default;
-    Recursive& operator=(const Recursive&) = default;
-    Recursive& operator=(Recursive&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -1557,6 +1707,14 @@ public:
         value(::std::move(value))
     {
     }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -1568,12 +1726,21 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<Recursive> ice_clone() const { return ::std::static_pointer_cast <Recursive>(_iceCloneImpl()); }
 
     ::std::optional<::Test::RecursiveSeq> value;
+
+protected:
+
+    Recursive(const Recursive&) = default;
+
+    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 using Ice::operator<;

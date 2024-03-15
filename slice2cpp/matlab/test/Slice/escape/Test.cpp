@@ -168,11 +168,45 @@ classdef::_cpp_break::elseifPrx::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+classdef::_cpp_break::logical::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 classdef::_cpp_break::logical::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::classdef::break::logical";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+classdef::_cpp_break::logical::_iceCloneImpl() const
+{
+    return CloneEnabler<logical>::clone(*this);
+}
+
+void
+classdef::_cpp_break::logical::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<logical, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+classdef::_cpp_break::logical::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<logical, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
+::std::string
+classdef::_cpp_break::_cpp_xor::ice_id() const
+{
+    return ::std::string{ice_staticId()};
 }
 
 ::std::string_view
@@ -182,6 +216,36 @@ classdef::_cpp_break::_cpp_xor::ice_staticId() noexcept
     return typeId;
 }
 
+::std::shared_ptr<::Ice::Value>
+classdef::_cpp_break::_cpp_xor::_iceCloneImpl() const
+{
+    return CloneEnabler<_cpp_xor>::clone(*this);
+}
+
+void
+classdef::_cpp_break::_cpp_xor::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<_cpp_xor, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    logical::_iceWriteImpl(ostr);
+}
+
+void
+classdef::_cpp_break::_cpp_xor::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<_cpp_xor, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    logical::_iceReadImpl(istr);
+}
+
+::std::string
+classdef::_cpp_break::_cpp_try::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 classdef::_cpp_break::_cpp_try::ice_staticId() noexcept
 {
@@ -189,11 +253,63 @@ classdef::_cpp_break::_cpp_try::ice_staticId() noexcept
     return typeId;
 }
 
+::std::shared_ptr<::Ice::Value>
+classdef::_cpp_break::_cpp_try::_iceCloneImpl() const
+{
+    return CloneEnabler<_cpp_try>::clone(*this);
+}
+
+void
+classdef::_cpp_break::_cpp_try::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<_cpp_try, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+classdef::_cpp_break::_cpp_try::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<_cpp_try, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
+::std::string
+classdef::_cpp_break::properties::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 classdef::_cpp_break::properties::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::classdef::break::properties";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+classdef::_cpp_break::properties::_iceCloneImpl() const
+{
+    return CloneEnabler<properties>::clone(*this);
+}
+
+void
+classdef::_cpp_break::properties::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<properties, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    _cpp_try::_iceWriteImpl(ostr);
+}
+
+void
+classdef::_cpp_break::properties::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<properties, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    _cpp_try::_iceReadImpl(istr);
 }
 
 ::std::string_view

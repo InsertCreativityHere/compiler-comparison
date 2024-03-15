@@ -44,6 +44,12 @@ const ::IceInternal::DefaultValueFactoryInit<::IceMX::SubscriberMetrics> iceC_Ic
 
 }
 
+::std::string
+IceMX::TopicMetrics::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 IceMX::TopicMetrics::ice_staticId() noexcept
 {
@@ -51,9 +57,63 @@ IceMX::TopicMetrics::ice_staticId() noexcept
     return typeId;
 }
 
+::std::shared_ptr<::Ice::Value>
+IceMX::TopicMetrics::_iceCloneImpl() const
+{
+    return CloneEnabler<TopicMetrics>::clone(*this);
+}
+
+void
+IceMX::TopicMetrics::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<TopicMetrics, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    Metrics::_iceWriteImpl(ostr);
+}
+
+void
+IceMX::TopicMetrics::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<TopicMetrics, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    Metrics::_iceReadImpl(istr);
+}
+
+::std::string
+IceMX::SubscriberMetrics::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 IceMX::SubscriberMetrics::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceMX::SubscriberMetrics";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+IceMX::SubscriberMetrics::_iceCloneImpl() const
+{
+    return CloneEnabler<SubscriberMetrics>::clone(*this);
+}
+
+void
+IceMX::SubscriberMetrics::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<SubscriberMetrics, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    Metrics::_iceWriteImpl(ostr);
+}
+
+void
+IceMX::SubscriberMetrics::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<SubscriberMetrics, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    Metrics::_iceReadImpl(istr);
 }

@@ -2975,11 +2975,39 @@ Test::SomeException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
+::std::string
+Test::MyClass1::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 Test::MyClass1::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MyClass1";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+Test::MyClass1::_iceCloneImpl() const
+{
+    return CloneEnabler<MyClass1>::clone(*this);
+}
+
+void
+Test::MyClass1::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<MyClass1, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::MyClass1::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<MyClass1, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
 }
 
 ::std::vector<::std::string>

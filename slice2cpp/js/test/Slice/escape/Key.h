@@ -573,15 +573,11 @@ struct _cpp_break
     }
 };
 
-class _cpp_delete : public ::Ice::ValueHelper<_cpp_delete, ::Ice::Value>
+class _cpp_delete : public ::Ice::Value
 {
 public:
 
     _cpp_delete() = default;
-    _cpp_delete(const _cpp_delete&) = default;
-    _cpp_delete(_cpp_delete&&) = default;
-    _cpp_delete& operator=(const _cpp_delete&) = default;
-    _cpp_delete& operator=(_cpp_delete&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -594,6 +590,14 @@ public:
     }
 
     /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
+
+    /**
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
@@ -603,29 +607,34 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<_cpp_delete> ice_clone() const { return ::std::static_pointer_cast <_cpp_delete>(_iceCloneImpl()); }
 
     ::std::int32_t _cpp_if;
     ::std::optional<::await::casePrx> _cpp_else;
     ::std::int32_t _cpp_export;
+
+protected:
+
+    _cpp_delete(const _cpp_delete&) = default;
+
+    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 /// \cond INTERNAL
 static _cpp_delete _iceS_delete_init;
 /// \endcond
 
-class package : public ::Ice::ValueHelper<package, ::Ice::Value>
+class package : public ::Ice::Value
 {
 public:
 
     package() = default;
-    package(const package&) = default;
-    package(package&&) = default;
-    package& operator=(const package&) = default;
-    package& operator=(package&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -641,6 +650,14 @@ public:
     }
 
     /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
+
+    /**
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
@@ -650,10 +667,10 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<package> ice_clone() const { return ::std::static_pointer_cast <package>(_iceCloneImpl()); }
 
     ::std::optional<::await::_cpp_break> _cpp_for;
     ::std::optional<::await::var> _cpp_goto;
@@ -661,6 +678,15 @@ public:
     ::std::optional<::await::_cpp_while> internal;
     ::std::optional<::std::string> debugger;
     ::std::optional<::await::explicitPrx> null;
+
+protected:
+
+    package(const package&) = default;
+
+    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 class fixed : public ::Ice::UserException

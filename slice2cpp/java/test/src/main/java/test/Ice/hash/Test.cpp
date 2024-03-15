@@ -39,9 +39,37 @@ const ::IceInternal::DefaultValueFactoryInit<::Test::Pen> iceC_Test_Pen_init("::
 
 }
 
+::std::string
+Test::Pen::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 Test::Pen::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Pen";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+Test::Pen::_iceCloneImpl() const
+{
+    return CloneEnabler<Pen>::clone(*this);
+}
+
+void
+Test::Pen::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<Pen, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::Pen::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<Pen, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
 }

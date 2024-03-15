@@ -2275,15 +2275,11 @@ protected:
 namespace IceGrid
 {
 
-class InternalDbEnvDescriptor : public ::Ice::ValueHelper<InternalDbEnvDescriptor, ::Ice::Value>
+class InternalDbEnvDescriptor : public ::Ice::Value
 {
 public:
 
     InternalDbEnvDescriptor() = default;
-    InternalDbEnvDescriptor(const InternalDbEnvDescriptor&) = default;
-    InternalDbEnvDescriptor(InternalDbEnvDescriptor&&) = default;
-    InternalDbEnvDescriptor& operator=(const InternalDbEnvDescriptor&) = default;
-    InternalDbEnvDescriptor& operator=(InternalDbEnvDescriptor&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -2297,6 +2293,14 @@ public:
     }
 
     /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
+
+    /**
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
@@ -2306,10 +2310,10 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<InternalDbEnvDescriptor> ice_clone() const { return ::std::static_pointer_cast <InternalDbEnvDescriptor>(_iceCloneImpl()); }
 
     /**
      * The name of the database environment.
@@ -2319,21 +2323,26 @@ public:
      * The database properties.
      */
     ::IceGrid::PropertyDescriptorSeq properties;
+
+protected:
+
+    InternalDbEnvDescriptor(const InternalDbEnvDescriptor&) = default;
+
+    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 /// \cond INTERNAL
 static InternalDbEnvDescriptor _iceS_InternalDbEnvDescriptor_init;
 /// \endcond
 
-class InternalAdapterDescriptor : public ::Ice::ValueHelper<InternalAdapterDescriptor, ::Ice::Value>
+class InternalAdapterDescriptor : public ::Ice::Value
 {
 public:
 
     InternalAdapterDescriptor() = default;
-    InternalAdapterDescriptor(const InternalAdapterDescriptor&) = default;
-    InternalAdapterDescriptor(InternalAdapterDescriptor&&) = default;
-    InternalAdapterDescriptor& operator=(const InternalAdapterDescriptor&) = default;
-    InternalAdapterDescriptor& operator=(InternalAdapterDescriptor&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -2347,6 +2356,14 @@ public:
     }
 
     /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
+
+    /**
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
@@ -2356,10 +2373,10 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<InternalAdapterDescriptor> ice_clone() const { return ::std::static_pointer_cast <InternalAdapterDescriptor>(_iceCloneImpl()); }
 
     /**
      * The identifier of the server.
@@ -2369,17 +2386,22 @@ public:
      * Specifies if the lifetime of the adapter is the same as the server.
      */
     bool serverLifetime;
+
+protected:
+
+    InternalAdapterDescriptor(const InternalAdapterDescriptor&) = default;
+
+    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-class InternalDistributionDescriptor : public ::Ice::ValueHelper<InternalDistributionDescriptor, ::Ice::Value>
+class InternalDistributionDescriptor : public ::Ice::Value
 {
 public:
 
     InternalDistributionDescriptor() = default;
-    InternalDistributionDescriptor(const InternalDistributionDescriptor&) = default;
-    InternalDistributionDescriptor(InternalDistributionDescriptor&&) = default;
-    InternalDistributionDescriptor& operator=(const InternalDistributionDescriptor&) = default;
-    InternalDistributionDescriptor& operator=(InternalDistributionDescriptor&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -2393,6 +2415,14 @@ public:
     }
 
     /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
+
+    /**
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
@@ -2402,10 +2432,10 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<InternalDistributionDescriptor> ice_clone() const { return ::std::static_pointer_cast <InternalDistributionDescriptor>(_iceCloneImpl()); }
 
     /**
      * The proxy of the IcePatch2 server.
@@ -2415,17 +2445,22 @@ public:
      * The source directories.
      */
     ::Ice::StringSeq directories;
+
+protected:
+
+    InternalDistributionDescriptor(const InternalDistributionDescriptor&) = default;
+
+    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-class InternalServerDescriptor : public ::Ice::ValueHelper<InternalServerDescriptor, ::Ice::Value>
+class InternalServerDescriptor : public ::Ice::Value
 {
 public:
 
     InternalServerDescriptor() = default;
-    InternalServerDescriptor(const InternalServerDescriptor&) = default;
-    InternalServerDescriptor(InternalServerDescriptor&&) = default;
-    InternalServerDescriptor& operator=(const InternalServerDescriptor&) = default;
-    InternalServerDescriptor& operator=(InternalServerDescriptor&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -2476,6 +2511,14 @@ public:
     }
 
     /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
+
+    /**
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
@@ -2485,10 +2528,10 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<InternalServerDescriptor> ice_clone() const { return ::std::static_pointer_cast <InternalServerDescriptor>(_iceCloneImpl()); }
 
     /**
      * The server ID.
@@ -2571,6 +2614,15 @@ public:
      * IceBox service names
      */
     ::std::optional<::Ice::StringSeq> services;
+
+protected:
+
+    InternalServerDescriptor(const InternalServerDescriptor&) = default;
+
+    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 /**
@@ -2735,15 +2787,11 @@ protected:
 /**
  * Information about an IceGrid node.
  */
-class InternalNodeInfo : public ::Ice::ValueHelper<InternalNodeInfo, ::Ice::Value>
+class InternalNodeInfo : public ::Ice::Value
 {
 public:
 
     InternalNodeInfo() = default;
-    InternalNodeInfo(const InternalNodeInfo&) = default;
-    InternalNodeInfo(InternalNodeInfo&&) = default;
-    InternalNodeInfo& operator=(const InternalNodeInfo&) = default;
-    InternalNodeInfo& operator=(InternalNodeInfo&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -2769,6 +2817,14 @@ public:
     }
 
     /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
+
+    /**
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
@@ -2778,10 +2834,10 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<InternalNodeInfo> ice_clone() const { return ::std::static_pointer_cast <InternalNodeInfo>(_iceCloneImpl()); }
 
     /**
      * The name of the node.
@@ -2815,20 +2871,25 @@ public:
      * The path to the node data directory.
      */
     ::std::string dataDir;
+
+protected:
+
+    InternalNodeInfo(const InternalNodeInfo&) = default;
+
+    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 /**
  * Information about an IceGrid registry replica.
  */
-class InternalReplicaInfo : public ::Ice::ValueHelper<InternalReplicaInfo, ::Ice::Value>
+class InternalReplicaInfo : public ::Ice::Value
 {
 public:
 
     InternalReplicaInfo() = default;
-    InternalReplicaInfo(const InternalReplicaInfo&) = default;
-    InternalReplicaInfo(InternalReplicaInfo&&) = default;
-    InternalReplicaInfo& operator=(const InternalReplicaInfo&) = default;
-    InternalReplicaInfo& operator=(InternalReplicaInfo&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -2842,6 +2903,14 @@ public:
     }
 
     /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
+
+    /**
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
@@ -2851,10 +2920,10 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<InternalReplicaInfo> ice_clone() const { return ::std::static_pointer_cast <InternalReplicaInfo>(_iceCloneImpl()); }
 
     /**
      * The name of the registry.
@@ -2864,6 +2933,15 @@ public:
      * The network name of the host running this registry (as defined in uname()).
      */
     ::std::string hostname;
+
+protected:
+
+    InternalReplicaInfo(const InternalReplicaInfo&) = default;
+
+    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 }

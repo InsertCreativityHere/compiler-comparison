@@ -1928,11 +1928,37 @@ Test::TestIntfPrx::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test::C::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 Test::C::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::C";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+Test::C::_iceCloneImpl() const
+{
+    return CloneEnabler<C>::clone(*this);
+}
+
+void
+Test::C::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ostr->endSlice();
+}
+
+void
+Test::C::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    istr->endSlice();
 }
 
 ::std::vector<::std::string>

@@ -218,15 +218,11 @@ struct ClassStruct
     }
 };
 
-class OptionalClass : public ::Ice::ValueHelper<OptionalClass, ::Ice::Value>
+class OptionalClass : public ::Ice::Value
 {
 public:
 
     OptionalClass() = default;
-    OptionalClass(const OptionalClass&) = default;
-    OptionalClass(OptionalClass&&) = default;
-    OptionalClass& operator=(const OptionalClass&) = default;
-    OptionalClass& operator=(OptionalClass&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -240,6 +236,14 @@ public:
     }
 
     /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
+
+    /**
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
@@ -249,30 +253,35 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<OptionalClass> ice_clone() const { return ::std::static_pointer_cast <OptionalClass>(_iceCloneImpl()); }
 
     bool bo;
     ::std::uint8_t by;
     ::std::optional<::std::int16_t> sh;
     ::std::optional<::std::int32_t> i;
+
+protected:
+
+    OptionalClass(const OptionalClass&) = default;
+
+    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 /// \cond INTERNAL
 static OptionalClass _iceS_OptionalClass_init;
 /// \endcond
 
-class MyClass : public ::Ice::ValueHelper<MyClass, ::Ice::Value>
+class MyClass : public ::Ice::Value
 {
 public:
 
     MyClass() = default;
-    MyClass(const MyClass&) = default;
-    MyClass(MyClass&&) = default;
-    MyClass& operator=(const MyClass&) = default;
-    MyClass& operator=(MyClass&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -296,6 +305,14 @@ public:
     }
 
     /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
+
+    /**
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
@@ -305,10 +322,10 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<MyClass> ice_clone() const { return ::std::static_pointer_cast <MyClass>(_iceCloneImpl()); }
 
     ::std::shared_ptr<::Test::MyClass> c;
     ::std::shared_ptr<::Ice::Value> o;
@@ -324,6 +341,15 @@ public:
     ::Test::MyEnumS seq9;
     ::Test::MyClassS seq10;
     ::Test::StringMyClassD d;
+
+protected:
+
+    MyClass(const MyClass&) = default;
+
+    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 class MyException : public ::Ice::UserException

@@ -698,15 +698,11 @@ protected:
     void _readImpl(::Ice::InputStream*) override;
 };
 
-class BaseClass : public ::Ice::ValueHelper<BaseClass, ::Ice::Value>
+class BaseClass : public ::Ice::Value
 {
 public:
 
     BaseClass() = default;
-    BaseClass(const BaseClass&) = default;
-    BaseClass(BaseClass&&) = default;
-    BaseClass& operator=(const BaseClass&) = default;
-    BaseClass& operator=(BaseClass&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -715,6 +711,14 @@ public:
         bc(::std::move(bc))
     {
     }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -726,32 +730,45 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<BaseClass> ice_clone() const { return ::std::static_pointer_cast <BaseClass>(_iceCloneImpl()); }
 
     ::std::string bc;
+
+protected:
+
+    BaseClass(const BaseClass&) = default;
+
+    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-class PreservedClass : public ::Ice::ValueHelper<PreservedClass, BaseClass>
+class PreservedClass : public BaseClass
 {
 public:
 
     PreservedClass() = default;
-    PreservedClass(const PreservedClass&) = default;
-    PreservedClass(PreservedClass&&) = default;
-    PreservedClass& operator=(const PreservedClass&) = default;
-    PreservedClass& operator=(PreservedClass&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     PreservedClass(::std::string bc, ::std::string pc) :
-        Ice::ValueHelper<PreservedClass, BaseClass>(::std::move(bc)),
+        BaseClass(::std::move(bc)),
         pc(::std::move(pc))
     {
     }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -763,12 +780,21 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<PreservedClass> ice_clone() const { return ::std::static_pointer_cast <PreservedClass>(_iceCloneImpl()); }
 
     ::std::string pc;
+
+protected:
+
+    PreservedClass(const PreservedClass&) = default;
+
+    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 class Preserved1 : public KnownPreservedDerived

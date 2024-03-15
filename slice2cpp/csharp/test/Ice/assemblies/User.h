@@ -108,30 +108,34 @@ protected:
 namespace User
 {
 
-class UserInfo : public ::Ice::ValueHelper<UserInfo, ::Ice::Value>
+class UserInfo : public ::Ice::Value
 {
 public:
 
     UserInfo() = default;
-    UserInfo(const UserInfo&) = default;
-    UserInfo(UserInfo&&) = default;
-    UserInfo& operator=(const UserInfo&) = default;
-    UserInfo& operator=(UserInfo&&) = default;
-
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<> ice_tuple() const
-    {
-        return std::tie();
-    }
 
     /**
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
     static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
+
+    /**
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
+     */
+    ::std::shared_ptr<UserInfo> ice_clone() const { return ::std::static_pointer_cast <UserInfo>(_iceCloneImpl()); }
+
+protected:
+
+    UserInfo(const UserInfo&) = default;
+
+    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 /// \cond INTERNAL

@@ -54,15 +54,11 @@ namespace IceMX
  * Provides information on Glacier2 sessions.
  * \headerfile Glacier2/Glacier2.h
  */
-class ICE_CLASS(GLACIER2_API) SessionMetrics : public ::Ice::ValueHelper<SessionMetrics, Metrics>
+class ICE_CLASS(GLACIER2_API) SessionMetrics : public Metrics
 {
 public:
 
     SessionMetrics() = default;
-    SessionMetrics(const SessionMetrics&) = default;
-    SessionMetrics(SessionMetrics&&) = default;
-    SessionMetrics& operator=(const SessionMetrics&) = default;
-    SessionMetrics& operator=(SessionMetrics&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -80,7 +76,7 @@ public:
      * @param overriddenServer Number of server requests overridden.
      */
     SessionMetrics(::std::string id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int32_t forwardedClient, ::std::int32_t forwardedServer, ::std::int32_t routingTableSize, ::std::int32_t queuedClient, ::std::int32_t queuedServer, ::std::int32_t overriddenClient, ::std::int32_t overriddenServer) :
-        Ice::ValueHelper<SessionMetrics, Metrics>(::std::move(id), total, current, totalLifetime, failures),
+        Metrics(::std::move(id), total, current, totalLifetime, failures),
         forwardedClient(forwardedClient),
         forwardedServer(forwardedServer),
         routingTableSize(routingTableSize),
@@ -92,6 +88,14 @@ public:
     }
 
     /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    ICE_MEMBER(GLACIER2_API) static ::std::string_view ice_staticId() noexcept;
+
+    ICE_MEMBER(GLACIER2_API) ::std::string ice_id() const override;
+
+    /**
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
@@ -101,10 +105,10 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    ICE_MEMBER(GLACIER2_API) static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<SessionMetrics> ice_clone() const { return ::std::static_pointer_cast <SessionMetrics>(_iceCloneImpl()); }
 
     /**
      * Number of client requests forwarded.
@@ -134,6 +138,15 @@ public:
      * Number of server requests overridden.
      */
     ::std::int32_t overriddenServer = 0;
+
+protected:
+
+    SessionMetrics(const SessionMetrics&) = default;
+
+    ICE_MEMBER(GLACIER2_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(GLACIER2_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(GLACIER2_API) void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 /// \cond INTERNAL

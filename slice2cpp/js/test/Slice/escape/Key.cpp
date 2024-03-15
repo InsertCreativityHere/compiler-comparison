@@ -428,6 +428,12 @@ System::TestPrx::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+await::_cpp_delete::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 await::_cpp_delete::ice_staticId() noexcept
 {
@@ -435,11 +441,61 @@ await::_cpp_delete::ice_staticId() noexcept
     return typeId;
 }
 
+::std::shared_ptr<::Ice::Value>
+await::_cpp_delete::_iceCloneImpl() const
+{
+    return CloneEnabler<_cpp_delete>::clone(*this);
+}
+
+void
+await::_cpp_delete::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<_cpp_delete, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+await::_cpp_delete::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<_cpp_delete, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
+::std::string
+await::package::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 await::package::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::await::package";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+await::package::_iceCloneImpl() const
+{
+    return CloneEnabler<package>::clone(*this);
+}
+
+void
+await::package::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<package, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+await::package::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<package, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
 }
 
 ::std::string_view

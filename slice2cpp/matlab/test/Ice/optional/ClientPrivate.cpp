@@ -110,11 +110,41 @@ Test::Initial2Prx::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test::D::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 Test::D::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::D";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+Test::D::_iceCloneImpl() const
+{
+    return CloneEnabler<D>::clone(*this);
+}
+
+void
+Test::D::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<D, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    B::_iceWriteImpl(ostr);
+}
+
+void
+Test::D::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<D, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    B::_iceReadImpl(istr);
 }
 
 ::std::vector<::std::string>

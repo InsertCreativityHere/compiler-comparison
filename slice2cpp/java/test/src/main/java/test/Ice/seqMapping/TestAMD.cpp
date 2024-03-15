@@ -243,11 +243,39 @@ Test::Bar::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
+::std::string
+Test::Baz::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 Test::Baz::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Baz";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+Test::Baz::_iceCloneImpl() const
+{
+    return CloneEnabler<Baz>::clone(*this);
+}
+
+void
+Test::Baz::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<Baz, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::Baz::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<Baz, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
 }
 
 ::std::vector<::std::string>

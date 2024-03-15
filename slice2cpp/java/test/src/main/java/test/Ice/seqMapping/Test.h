@@ -216,15 +216,11 @@ protected:
 static Bar _iceS_Bar_init;
 /// \endcond
 
-class Baz : public ::Ice::ValueHelper<Baz, ::Ice::Value>
+class Baz : public ::Ice::Value
 {
 public:
 
     Baz() = default;
-    Baz(const Baz&) = default;
-    Baz(Baz&&) = default;
-    Baz& operator=(const Baz&) = default;
-    Baz& operator=(Baz&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -236,6 +232,14 @@ public:
     }
 
     /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
+
+    /**
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
@@ -245,13 +249,22 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<Baz> ice_clone() const { return ::std::static_pointer_cast <Baz>(_iceCloneImpl()); }
 
     ::Test::SerialLarge SLmem;
     ::Test::SLS SLSmem;
+
+protected:
+
+    Baz(const Baz&) = default;
+
+    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 using Ice::operator<;

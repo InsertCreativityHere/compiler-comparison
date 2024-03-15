@@ -38,30 +38,34 @@ using PointPtr = ::std::shared_ptr<Point>;
 namespace Test
 {
 
-class Point : public ::Ice::ValueHelper<Point, ::Ice::Value>
+class Point : public ::Ice::Value
 {
 public:
 
     Point() = default;
-    Point(const Point&) = default;
-    Point(Point&&) = default;
-    Point& operator=(const Point&) = default;
-    Point& operator=(Point&&) = default;
-
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<> ice_tuple() const
-    {
-        return std::tie();
-    }
 
     /**
      * Obtains the Slice type ID of this value.
      * @return The fully-scoped type ID.
      */
     static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
+
+    /**
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
+     */
+    ::std::shared_ptr<Point> ice_clone() const { return ::std::static_pointer_cast <Point>(_iceCloneImpl()); }
+
+protected:
+
+    Point(const Point&) = default;
+
+    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 /// \cond INTERNAL

@@ -154,11 +154,39 @@ Test::InitialPrx::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test::ConcreteClass::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 Test::ConcreteClass::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::ConcreteClass";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+Test::ConcreteClass::_iceCloneImpl() const
+{
+    return CloneEnabler<ConcreteClass>::clone(*this);
+}
+
+void
+Test::ConcreteClass::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<ConcreteClass, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::ConcreteClass::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<ConcreteClass, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
 }
 
 ::std::string_view

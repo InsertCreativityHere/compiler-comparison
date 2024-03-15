@@ -392,11 +392,45 @@ Test::InitialPrx::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test::MC::A::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 Test::MC::A::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MC::A";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+Test::MC::A::_iceCloneImpl() const
+{
+    return CloneEnabler<A>::clone(*this);
+}
+
+void
+Test::MC::A::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<A, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::MC::A::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<A, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
+::std::string
+Test::MC::B::ice_id() const
+{
+    return ::std::string{ice_staticId()};
 }
 
 ::std::string_view
@@ -406,11 +440,71 @@ Test::MC::B::ice_staticId() noexcept
     return typeId;
 }
 
+::std::shared_ptr<::Ice::Value>
+Test::MC::B::_iceCloneImpl() const
+{
+    return CloneEnabler<B>::clone(*this);
+}
+
+void
+Test::MC::B::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<B, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    A::_iceWriteImpl(ostr);
+}
+
+void
+Test::MC::B::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<B, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    A::_iceReadImpl(istr);
+}
+
+::std::string
+Test::MC::C::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 Test::MC::C::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MC::C";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+Test::MC::C::_iceCloneImpl() const
+{
+    return CloneEnabler<C>::clone(*this);
+}
+
+void
+Test::MC::C::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<C, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    B::_iceWriteImpl(ostr);
+}
+
+void
+Test::MC::C::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<C, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    B::_iceReadImpl(istr);
+}
+
+::std::string
+Test::MC::D::ice_id() const
+{
+    return ::std::string{ice_staticId()};
 }
 
 ::std::string_view
@@ -420,11 +514,69 @@ Test::MC::D::ice_staticId() noexcept
     return typeId;
 }
 
+::std::shared_ptr<::Ice::Value>
+Test::MC::D::_iceCloneImpl() const
+{
+    return CloneEnabler<D>::clone(*this);
+}
+
+void
+Test::MC::D::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<D, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    C::_iceWriteImpl(ostr);
+}
+
+void
+Test::MC::D::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<D, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    C::_iceReadImpl(istr);
+}
+
+::std::string
+Test::MD::A::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 Test::MD::A::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MD::A";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+Test::MD::A::_iceCloneImpl() const
+{
+    return CloneEnabler<A>::clone(*this);
+}
+
+void
+Test::MD::A::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<A, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::MD::A::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<A, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
+::std::string
+Test::MD::B::ice_id() const
+{
+    return ::std::string{ice_staticId()};
 }
 
 ::std::string_view
@@ -434,11 +586,71 @@ Test::MD::B::ice_staticId() noexcept
     return typeId;
 }
 
+::std::shared_ptr<::Ice::Value>
+Test::MD::B::_iceCloneImpl() const
+{
+    return CloneEnabler<B>::clone(*this);
+}
+
+void
+Test::MD::B::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<B, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    A::_iceWriteImpl(ostr);
+}
+
+void
+Test::MD::B::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<B, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    A::_iceReadImpl(istr);
+}
+
+::std::string
+Test::MD::C::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 Test::MD::C::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MD::C";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+Test::MD::C::_iceCloneImpl() const
+{
+    return CloneEnabler<C>::clone(*this);
+}
+
+void
+Test::MD::C::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<C, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    B::_iceWriteImpl(ostr);
+}
+
+void
+Test::MD::C::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<C, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    B::_iceReadImpl(istr);
+}
+
+::std::string
+Test::MD::D::ice_id() const
+{
+    return ::std::string{ice_staticId()};
 }
 
 ::std::string_view
@@ -448,11 +660,69 @@ Test::MD::D::ice_staticId() noexcept
     return typeId;
 }
 
+::std::shared_ptr<::Ice::Value>
+Test::MD::D::_iceCloneImpl() const
+{
+    return CloneEnabler<D>::clone(*this);
+}
+
+void
+Test::MD::D::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<D, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    C::_iceWriteImpl(ostr);
+}
+
+void
+Test::MD::D::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<D, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    C::_iceReadImpl(istr);
+}
+
+::std::string
+Test::ME::A::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 Test::ME::A::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::ME::A";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+Test::ME::A::_iceCloneImpl() const
+{
+    return CloneEnabler<A>::clone(*this);
+}
+
+void
+Test::ME::A::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<A, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::ME::A::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<A, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
+::std::string
+Test::ME::B::ice_id() const
+{
+    return ::std::string{ice_staticId()};
 }
 
 ::std::string_view
@@ -462,11 +732,71 @@ Test::ME::B::ice_staticId() noexcept
     return typeId;
 }
 
+::std::shared_ptr<::Ice::Value>
+Test::ME::B::_iceCloneImpl() const
+{
+    return CloneEnabler<B>::clone(*this);
+}
+
+void
+Test::ME::B::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<B, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    A::_iceWriteImpl(ostr);
+}
+
+void
+Test::ME::B::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<B, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    A::_iceReadImpl(istr);
+}
+
+::std::string
+Test::ME::C::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 Test::ME::C::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::ME::C";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+Test::ME::C::_iceCloneImpl() const
+{
+    return CloneEnabler<C>::clone(*this);
+}
+
+void
+Test::ME::C::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<C, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    B::_iceWriteImpl(ostr);
+}
+
+void
+Test::ME::C::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<C, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    B::_iceReadImpl(istr);
+}
+
+::std::string
+Test::ME::D::ice_id() const
+{
+    return ::std::string{ice_staticId()};
 }
 
 ::std::string_view
@@ -476,11 +806,69 @@ Test::ME::D::ice_staticId() noexcept
     return typeId;
 }
 
+::std::shared_ptr<::Ice::Value>
+Test::ME::D::_iceCloneImpl() const
+{
+    return CloneEnabler<D>::clone(*this);
+}
+
+void
+Test::ME::D::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<D, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    C::_iceWriteImpl(ostr);
+}
+
+void
+Test::ME::D::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<D, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    C::_iceReadImpl(istr);
+}
+
+::std::string
+Test::MF::A::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 Test::MF::A::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MF::A";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+Test::MF::A::_iceCloneImpl() const
+{
+    return CloneEnabler<A>::clone(*this);
+}
+
+void
+Test::MF::A::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<A, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::MF::A::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<A, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
+::std::string
+Test::MF::B::ice_id() const
+{
+    return ::std::string{ice_staticId()};
 }
 
 ::std::string_view
@@ -490,11 +878,71 @@ Test::MF::B::ice_staticId() noexcept
     return typeId;
 }
 
+::std::shared_ptr<::Ice::Value>
+Test::MF::B::_iceCloneImpl() const
+{
+    return CloneEnabler<B>::clone(*this);
+}
+
+void
+Test::MF::B::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<B, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    A::_iceWriteImpl(ostr);
+}
+
+void
+Test::MF::B::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<B, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    A::_iceReadImpl(istr);
+}
+
+::std::string
+Test::MF::C::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 Test::MF::C::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MF::C";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+Test::MF::C::_iceCloneImpl() const
+{
+    return CloneEnabler<C>::clone(*this);
+}
+
+void
+Test::MF::C::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<C, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    B::_iceWriteImpl(ostr);
+}
+
+void
+Test::MF::C::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<C, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    B::_iceReadImpl(istr);
+}
+
+::std::string
+Test::MF::D::ice_id() const
+{
+    return ::std::string{ice_staticId()};
 }
 
 ::std::string_view
@@ -504,11 +952,69 @@ Test::MF::D::ice_staticId() noexcept
     return typeId;
 }
 
+::std::shared_ptr<::Ice::Value>
+Test::MF::D::_iceCloneImpl() const
+{
+    return CloneEnabler<D>::clone(*this);
+}
+
+void
+Test::MF::D::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<D, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    C::_iceWriteImpl(ostr);
+}
+
+void
+Test::MF::D::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<D, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    C::_iceReadImpl(istr);
+}
+
+::std::string
+Test::MG::A::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 Test::MG::A::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MG::A";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+Test::MG::A::_iceCloneImpl() const
+{
+    return CloneEnabler<A>::clone(*this);
+}
+
+void
+Test::MG::A::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<A, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::MG::A::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<A, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
+::std::string
+Test::MG::B::ice_id() const
+{
+    return ::std::string{ice_staticId()};
 }
 
 ::std::string_view
@@ -518,11 +1024,71 @@ Test::MG::B::ice_staticId() noexcept
     return typeId;
 }
 
+::std::shared_ptr<::Ice::Value>
+Test::MG::B::_iceCloneImpl() const
+{
+    return CloneEnabler<B>::clone(*this);
+}
+
+void
+Test::MG::B::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<B, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    A::_iceWriteImpl(ostr);
+}
+
+void
+Test::MG::B::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<B, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    A::_iceReadImpl(istr);
+}
+
+::std::string
+Test::MG::C::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 Test::MG::C::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MG::C";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+Test::MG::C::_iceCloneImpl() const
+{
+    return CloneEnabler<C>::clone(*this);
+}
+
+void
+Test::MG::C::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<C, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    B::_iceWriteImpl(ostr);
+}
+
+void
+Test::MG::C::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<C, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    B::_iceReadImpl(istr);
+}
+
+::std::string
+Test::MG::D::ice_id() const
+{
+    return ::std::string{ice_staticId()};
 }
 
 ::std::string_view
@@ -532,11 +1098,69 @@ Test::MG::D::ice_staticId() noexcept
     return typeId;
 }
 
+::std::shared_ptr<::Ice::Value>
+Test::MG::D::_iceCloneImpl() const
+{
+    return CloneEnabler<D>::clone(*this);
+}
+
+void
+Test::MG::D::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<D, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    C::_iceWriteImpl(ostr);
+}
+
+void
+Test::MG::D::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<D, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    C::_iceReadImpl(istr);
+}
+
+::std::string
+Test::MH::A::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 Test::MH::A::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MH::A";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+Test::MH::A::_iceCloneImpl() const
+{
+    return CloneEnabler<A>::clone(*this);
+}
+
+void
+Test::MH::A::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<A, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::MH::A::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<A, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
+::std::string
+Test::MH::B::ice_id() const
+{
+    return ::std::string{ice_staticId()};
 }
 
 ::std::string_view
@@ -546,6 +1170,36 @@ Test::MH::B::ice_staticId() noexcept
     return typeId;
 }
 
+::std::shared_ptr<::Ice::Value>
+Test::MH::B::_iceCloneImpl() const
+{
+    return CloneEnabler<B>::clone(*this);
+}
+
+void
+Test::MH::B::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<B, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    A::_iceWriteImpl(ostr);
+}
+
+void
+Test::MH::B::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<B, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    A::_iceReadImpl(istr);
+}
+
+::std::string
+Test::MH::C::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 Test::MH::C::ice_staticId() noexcept
 {
@@ -553,11 +1207,65 @@ Test::MH::C::ice_staticId() noexcept
     return typeId;
 }
 
+::std::shared_ptr<::Ice::Value>
+Test::MH::C::_iceCloneImpl() const
+{
+    return CloneEnabler<C>::clone(*this);
+}
+
+void
+Test::MH::C::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<C, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    B::_iceWriteImpl(ostr);
+}
+
+void
+Test::MH::C::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<C, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    B::_iceReadImpl(istr);
+}
+
+::std::string
+Test::MH::D::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 Test::MH::D::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MH::D";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+Test::MH::D::_iceCloneImpl() const
+{
+    return CloneEnabler<D>::clone(*this);
+}
+
+void
+Test::MH::D::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<D, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    C::_iceWriteImpl(ostr);
+}
+
+void
+Test::MH::D::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<D, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    C::_iceReadImpl(istr);
 }
 
 ::std::vector<::std::string>

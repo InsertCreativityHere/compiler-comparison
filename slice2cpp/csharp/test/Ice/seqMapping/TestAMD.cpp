@@ -3399,6 +3399,12 @@ Test::MyClassPrx::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test::CV::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 Test::CV::ice_staticId() noexcept
 {
@@ -3406,11 +3412,61 @@ Test::CV::ice_staticId() noexcept
     return typeId;
 }
 
+::std::shared_ptr<::Ice::Value>
+Test::CV::_iceCloneImpl() const
+{
+    return CloneEnabler<CV>::clone(*this);
+}
+
+void
+Test::CV::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<CV, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::CV::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<CV, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
+::std::string
+Test::CR::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 Test::CR::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::CR";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+Test::CR::_iceCloneImpl() const
+{
+    return CloneEnabler<CR>::clone(*this);
+}
+
+void
+Test::CR::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<CR, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::CR::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<CR, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
 }
 
 ::std::vector<::std::string>

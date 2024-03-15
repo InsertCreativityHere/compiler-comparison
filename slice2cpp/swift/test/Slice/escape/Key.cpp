@@ -124,11 +124,39 @@ _cpp_and::doPrx::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+_cpp_and::_cpp_switch::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 _cpp_and::_cpp_switch::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::and::switch";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+_cpp_and::_cpp_switch::_iceCloneImpl() const
+{
+    return CloneEnabler<_cpp_switch>::clone(*this);
+}
+
+void
+_cpp_and::_cpp_switch::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<_cpp_switch, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+_cpp_and::_cpp_switch::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<_cpp_switch, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
 }
 
 ::std::string_view

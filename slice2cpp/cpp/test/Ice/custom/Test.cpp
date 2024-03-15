@@ -1541,6 +1541,12 @@ Test::TestIntfPrx::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test::C::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 Test::C::ice_staticId() noexcept
 {
@@ -1548,11 +1554,59 @@ Test::C::ice_staticId() noexcept
     return typeId;
 }
 
+::std::shared_ptr<::Ice::Value>
+Test::C::_iceCloneImpl() const
+{
+    return CloneEnabler<C>::clone(*this);
+}
+
+void
+Test::C::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ostr->endSlice();
+}
+
+void
+Test::C::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    istr->endSlice();
+}
+
+::std::string
+Test::DictClass::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 Test::DictClass::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::DictClass";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+Test::DictClass::_iceCloneImpl() const
+{
+    return CloneEnabler<DictClass>::clone(*this);
+}
+
+void
+Test::DictClass::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<DictClass, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::DictClass::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<DictClass, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
 }
 
 ::std::vector<::std::string>

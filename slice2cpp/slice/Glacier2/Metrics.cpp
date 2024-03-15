@@ -42,9 +42,39 @@ const ::IceInternal::DefaultValueFactoryInit<::IceMX::SessionMetrics> iceC_IceMX
 
 }
 
+::std::string
+IceMX::SessionMetrics::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 IceMX::SessionMetrics::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceMX::SessionMetrics";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+IceMX::SessionMetrics::_iceCloneImpl() const
+{
+    return CloneEnabler<SessionMetrics>::clone(*this);
+}
+
+void
+IceMX::SessionMetrics::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<SessionMetrics, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    Metrics::_iceWriteImpl(ostr);
+}
+
+void
+IceMX::SessionMetrics::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<SessionMetrics, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    Metrics::_iceReadImpl(istr);
 }

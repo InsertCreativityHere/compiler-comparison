@@ -292,15 +292,11 @@ struct _cpp_and
     }
 };
 
-class display : public ::Ice::ValueHelper<display, ::Ice::Value>
+class display : public ::Ice::Value
 {
 public:
 
     display() = default;
-    display(const display&) = default;
-    display(display&&) = default;
-    display& operator=(const display&) = default;
-    display& operator=(display&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -314,6 +310,14 @@ public:
     }
 
     /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
+
+    /**
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
@@ -323,15 +327,24 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<display> ice_clone() const { return ::std::static_pointer_cast <display>(_iceCloneImpl()); }
 
     ::std::int32_t when;
     ::std::int32_t _cpp_do;
     ::std::optional<::BEGIN::breakPrx> dup;
     ::std::int32_t _cpp_else;
+
+protected:
+
+    display(const display&) = default;
+
+    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 /// \cond INTERNAL

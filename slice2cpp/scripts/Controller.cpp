@@ -657,6 +657,12 @@ Test::Common::ProcessControllerRegistryPrx::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test::Common::Config::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 Test::Common::Config::ice_staticId() noexcept
 {
@@ -664,11 +670,61 @@ Test::Common::Config::ice_staticId() noexcept
     return typeId;
 }
 
+::std::shared_ptr<::Ice::Value>
+Test::Common::Config::_iceCloneImpl() const
+{
+    return CloneEnabler<Config>::clone(*this);
+}
+
+void
+Test::Common::Config::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<Config, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::Common::Config::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<Config, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
+::std::string
+Test::Common::OptionOverrides::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 Test::Common::OptionOverrides::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Common::OptionOverrides";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+Test::Common::OptionOverrides::_iceCloneImpl() const
+{
+    return CloneEnabler<OptionOverrides>::clone(*this);
+}
+
+void
+Test::Common::OptionOverrides::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<OptionOverrides, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::Common::OptionOverrides::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<OptionOverrides, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
 }
 
 ::std::string_view

@@ -50,11 +50,47 @@ const ::IceInternal::CompactIdInit iceC_Test_CompactPCDerived_compactIdInit ("::
 
 }
 
+::std::string
+Test::D3::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 Test::D3::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::D3";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+Test::D3::_iceCloneImpl() const
+{
+    return CloneEnabler<D3>::clone(*this);
+}
+
+void
+Test::D3::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<D3, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    B::_iceWriteImpl(ostr);
+}
+
+void
+Test::D3::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<D3, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    B::_iceReadImpl(istr);
+}
+
+::std::string
+Test::PCUnknown::ice_id() const
+{
+    return ::std::string{ice_staticId()};
 }
 
 ::std::string_view
@@ -64,11 +100,71 @@ Test::PCUnknown::ice_staticId() noexcept
     return typeId;
 }
 
+::std::shared_ptr<::Ice::Value>
+Test::PCUnknown::_iceCloneImpl() const
+{
+    return CloneEnabler<PCUnknown>::clone(*this);
+}
+
+void
+Test::PCUnknown::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<PCUnknown, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    PBase::_iceWriteImpl(ostr);
+}
+
+void
+Test::PCUnknown::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<PCUnknown, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    PBase::_iceReadImpl(istr);
+}
+
+::std::string
+Test::PCDerived::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 Test::PCDerived::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::PCDerived";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+Test::PCDerived::_iceCloneImpl() const
+{
+    return CloneEnabler<PCDerived>::clone(*this);
+}
+
+void
+Test::PCDerived::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<PCDerived, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    PDerived::_iceWriteImpl(ostr);
+}
+
+void
+Test::PCDerived::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<PCDerived, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    PDerived::_iceReadImpl(istr);
+}
+
+::std::string
+Test::PCDerived2::ice_id() const
+{
+    return ::std::string{ice_staticId()};
 }
 
 ::std::string_view
@@ -78,6 +174,36 @@ Test::PCDerived2::ice_staticId() noexcept
     return typeId;
 }
 
+::std::shared_ptr<::Ice::Value>
+Test::PCDerived2::_iceCloneImpl() const
+{
+    return CloneEnabler<PCDerived2>::clone(*this);
+}
+
+void
+Test::PCDerived2::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<PCDerived2, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    PCDerived::_iceWriteImpl(ostr);
+}
+
+void
+Test::PCDerived2::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<PCDerived2, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    PCDerived::_iceReadImpl(istr);
+}
+
+::std::string
+Test::PCDerived3::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 Test::PCDerived3::ice_staticId() noexcept
 {
@@ -85,9 +211,63 @@ Test::PCDerived3::ice_staticId() noexcept
     return typeId;
 }
 
+::std::shared_ptr<::Ice::Value>
+Test::PCDerived3::_iceCloneImpl() const
+{
+    return CloneEnabler<PCDerived3>::clone(*this);
+}
+
+void
+Test::PCDerived3::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<PCDerived3, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    PCDerived2::_iceWriteImpl(ostr);
+}
+
+void
+Test::PCDerived3::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<PCDerived3, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    PCDerived2::_iceReadImpl(istr);
+}
+
+::std::string
+Test::CompactPCDerived::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 Test::CompactPCDerived::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::CompactPCDerived";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+Test::CompactPCDerived::_iceCloneImpl() const
+{
+    return CloneEnabler<CompactPCDerived>::clone(*this);
+}
+
+void
+Test::CompactPCDerived::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<CompactPCDerived, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    CompactPDerived::_iceWriteImpl(ostr);
+}
+
+void
+Test::CompactPCDerived::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<CompactPCDerived, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    CompactPDerived::_iceReadImpl(istr);
 }

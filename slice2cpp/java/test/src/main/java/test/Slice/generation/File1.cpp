@@ -74,11 +74,37 @@ Test::Interface1Prx::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test2::Class1::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 Test2::Class1::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test2::Class1";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+Test2::Class1::_iceCloneImpl() const
+{
+    return CloneEnabler<Class1>::clone(*this);
+}
+
+void
+Test2::Class1::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ostr->endSlice();
+}
+
+void
+Test2::Class1::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    istr->endSlice();
 }
 
 ::std::vector<::std::string>

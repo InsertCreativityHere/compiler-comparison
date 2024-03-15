@@ -426,6 +426,12 @@ System::TestPrx::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+abstract::delegate::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 abstract::delegate::ice_staticId() noexcept
 {
@@ -433,11 +439,61 @@ abstract::delegate::ice_staticId() noexcept
     return typeId;
 }
 
+::std::shared_ptr<::Ice::Value>
+abstract::delegate::_iceCloneImpl() const
+{
+    return CloneEnabler<delegate>::clone(*this);
+}
+
+void
+abstract::delegate::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<delegate, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+abstract::delegate::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<delegate, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
+::std::string
+abstract::optionalMembers::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 abstract::optionalMembers::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::abstract::optionalMembers";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+abstract::optionalMembers::_iceCloneImpl() const
+{
+    return CloneEnabler<optionalMembers>::clone(*this);
+}
+
+void
+abstract::optionalMembers::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<optionalMembers, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+abstract::optionalMembers::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<optionalMembers, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
 }
 
 ::std::string_view

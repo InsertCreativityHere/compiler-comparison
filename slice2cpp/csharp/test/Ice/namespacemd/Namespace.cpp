@@ -45,6 +45,12 @@ const ::IceInternal::DefaultUserExceptionFactoryInit<::WithNamespace::E2> iceC_W
 
 }
 
+::std::string
+WithNamespace::C1::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 WithNamespace::C1::ice_staticId() noexcept
 {
@@ -52,11 +58,63 @@ WithNamespace::C1::ice_staticId() noexcept
     return typeId;
 }
 
+::std::shared_ptr<::Ice::Value>
+WithNamespace::C1::_iceCloneImpl() const
+{
+    return CloneEnabler<C1>::clone(*this);
+}
+
+void
+WithNamespace::C1::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<C1, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+WithNamespace::C1::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<C1, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
+::std::string
+WithNamespace::C2::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 WithNamespace::C2::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::WithNamespace::C2";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+WithNamespace::C2::_iceCloneImpl() const
+{
+    return CloneEnabler<C2>::clone(*this);
+}
+
+void
+WithNamespace::C2::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<C2, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    C1::_iceWriteImpl(ostr);
+}
+
+void
+WithNamespace::C2::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<C2, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    C1::_iceReadImpl(istr);
 }
 
 ::std::string_view

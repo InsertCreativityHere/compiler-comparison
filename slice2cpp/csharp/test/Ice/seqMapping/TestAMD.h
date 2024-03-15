@@ -1175,15 +1175,11 @@ struct SD
     }
 };
 
-class CV : public ::Ice::ValueHelper<CV, ::Ice::Value>
+class CV : public ::Ice::Value
 {
 public:
 
     CV() = default;
-    CV(const CV&) = default;
-    CV(CV&&) = default;
-    CV& operator=(const CV&) = default;
-    CV& operator=(CV&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -1192,6 +1188,14 @@ public:
         i(i)
     {
     }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -1203,27 +1207,32 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<CV> ice_clone() const { return ::std::static_pointer_cast <CV>(_iceCloneImpl()); }
 
     ::std::int32_t i;
+
+protected:
+
+    CV(const CV&) = default;
+
+    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 /// \cond INTERNAL
 static CV _iceS_CV_init;
 /// \endcond
 
-class CR : public ::Ice::ValueHelper<CR, ::Ice::Value>
+class CR : public ::Ice::Value
 {
 public:
 
     CR() = default;
-    CR(const CR&) = default;
-    CR(CR&&) = default;
-    CR& operator=(const CR&) = default;
-    CR& operator=(CR&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -1232,6 +1241,14 @@ public:
         v(::std::move(v))
     {
     }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -1243,12 +1260,21 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<CR> ice_clone() const { return ::std::static_pointer_cast <CR>(_iceCloneImpl()); }
 
     ::std::shared_ptr<::Test::CV> v;
+
+protected:
+
+    CR(const CR&) = default;
+
+    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 using Ice::operator<;

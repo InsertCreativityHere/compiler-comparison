@@ -304,15 +304,11 @@ struct AdapterDescriptor
  * A communicator descriptor.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICE_CLASS(ICEGRID_API) CommunicatorDescriptor : public ::Ice::ValueHelper<CommunicatorDescriptor, ::Ice::Value>
+class ICE_CLASS(ICEGRID_API) CommunicatorDescriptor : public ::Ice::Value
 {
 public:
 
     CommunicatorDescriptor() = default;
-    CommunicatorDescriptor(const CommunicatorDescriptor&) = default;
-    CommunicatorDescriptor(CommunicatorDescriptor&&) = default;
-    CommunicatorDescriptor& operator=(const CommunicatorDescriptor&) = default;
-    CommunicatorDescriptor& operator=(CommunicatorDescriptor&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -330,6 +326,14 @@ public:
     }
 
     /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
+
+    ICE_MEMBER(ICEGRID_API) ::std::string ice_id() const override;
+
+    /**
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
@@ -339,10 +343,10 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<CommunicatorDescriptor> ice_clone() const { return ::std::static_pointer_cast <CommunicatorDescriptor>(_iceCloneImpl()); }
 
     /**
      * The object adapters.
@@ -360,6 +364,15 @@ public:
      * A description of this descriptor.
      */
     ::std::string description;
+
+protected:
+
+    CommunicatorDescriptor(const CommunicatorDescriptor&) = default;
+
+    ICE_MEMBER(ICEGRID_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 /// \cond INTERNAL
@@ -395,15 +408,11 @@ struct DistributionDescriptor
  * An Ice server descriptor.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICE_CLASS(ICEGRID_API) ServerDescriptor : public ::Ice::ValueHelper<ServerDescriptor, CommunicatorDescriptor>
+class ICE_CLASS(ICEGRID_API) ServerDescriptor : public CommunicatorDescriptor
 {
 public:
 
     ServerDescriptor() = default;
-    ServerDescriptor(const ServerDescriptor&) = default;
-    ServerDescriptor(ServerDescriptor&&) = default;
-    ServerDescriptor& operator=(const ServerDescriptor&) = default;
-    ServerDescriptor& operator=(ServerDescriptor&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -426,7 +435,7 @@ public:
      * @param user The user account used to run the server.
      */
     ServerDescriptor(::IceGrid::AdapterDescriptorSeq adapters, ::IceGrid::PropertySetDescriptor propertySet, ::Ice::StringSeq logs, ::std::string description, ::std::string id, ::std::string exe, ::std::string iceVersion, ::std::string pwd, ::Ice::StringSeq options, ::Ice::StringSeq envs, ::std::string activation, ::std::string activationTimeout, ::std::string deactivationTimeout, bool applicationDistrib, ::IceGrid::DistributionDescriptor distrib, bool allocatable, ::std::string user) :
-        Ice::ValueHelper<ServerDescriptor, CommunicatorDescriptor>(::std::move(adapters), ::std::move(propertySet), ::std::move(logs), ::std::move(description)),
+        CommunicatorDescriptor(::std::move(adapters), ::std::move(propertySet), ::std::move(logs), ::std::move(description)),
         id(::std::move(id)),
         exe(::std::move(exe)),
         iceVersion(::std::move(iceVersion)),
@@ -444,6 +453,14 @@ public:
     }
 
     /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
+
+    ICE_MEMBER(ICEGRID_API) ::std::string ice_id() const override;
+
+    /**
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
@@ -453,10 +470,10 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<ServerDescriptor> ice_clone() const { return ::std::static_pointer_cast <ServerDescriptor>(_iceCloneImpl()); }
 
     /**
      * The server id.
@@ -512,21 +529,26 @@ public:
      * The user account used to run the server.
      */
     ::std::string user;
+
+protected:
+
+    ServerDescriptor(const ServerDescriptor&) = default;
+
+    ICE_MEMBER(ICEGRID_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 /**
  * An IceBox service descriptor.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICE_CLASS(ICEGRID_API) ServiceDescriptor : public ::Ice::ValueHelper<ServiceDescriptor, CommunicatorDescriptor>
+class ICE_CLASS(ICEGRID_API) ServiceDescriptor : public CommunicatorDescriptor
 {
 public:
 
     ServiceDescriptor() = default;
-    ServiceDescriptor(const ServiceDescriptor&) = default;
-    ServiceDescriptor(ServiceDescriptor&&) = default;
-    ServiceDescriptor& operator=(const ServiceDescriptor&) = default;
-    ServiceDescriptor& operator=(ServiceDescriptor&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -538,11 +560,19 @@ public:
      * @param entry The entry point of the IceBox service.
      */
     ServiceDescriptor(::IceGrid::AdapterDescriptorSeq adapters, ::IceGrid::PropertySetDescriptor propertySet, ::Ice::StringSeq logs, ::std::string description, ::std::string name, ::std::string entry) :
-        Ice::ValueHelper<ServiceDescriptor, CommunicatorDescriptor>(::std::move(adapters), ::std::move(propertySet), ::std::move(logs), ::std::move(description)),
+        CommunicatorDescriptor(::std::move(adapters), ::std::move(propertySet), ::std::move(logs), ::std::move(description)),
         name(::std::move(name)),
         entry(::std::move(entry))
     {
     }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
+
+    ICE_MEMBER(ICEGRID_API) ::std::string ice_id() const override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -554,10 +584,10 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<ServiceDescriptor> ice_clone() const { return ::std::static_pointer_cast <ServiceDescriptor>(_iceCloneImpl()); }
 
     /**
      * The service name.
@@ -567,6 +597,15 @@ public:
      * The entry point of the IceBox service.
      */
     ::std::string entry;
+
+protected:
+
+    ServiceDescriptor(const ServiceDescriptor&) = default;
+
+    ICE_MEMBER(ICEGRID_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 /**
@@ -669,15 +708,11 @@ struct ServiceInstanceDescriptor
  * An IceBox server descriptor.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICE_CLASS(ICEGRID_API) IceBoxDescriptor : public ::Ice::ValueHelper<IceBoxDescriptor, ServerDescriptor>
+class ICE_CLASS(ICEGRID_API) IceBoxDescriptor : public ServerDescriptor
 {
 public:
 
     IceBoxDescriptor() = default;
-    IceBoxDescriptor(const IceBoxDescriptor&) = default;
-    IceBoxDescriptor(IceBoxDescriptor&&) = default;
-    IceBoxDescriptor& operator=(const IceBoxDescriptor&) = default;
-    IceBoxDescriptor& operator=(IceBoxDescriptor&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -701,10 +736,18 @@ public:
      * @param services The service instances.
      */
     IceBoxDescriptor(::IceGrid::AdapterDescriptorSeq adapters, ::IceGrid::PropertySetDescriptor propertySet, ::Ice::StringSeq logs, ::std::string description, ::std::string id, ::std::string exe, ::std::string iceVersion, ::std::string pwd, ::Ice::StringSeq options, ::Ice::StringSeq envs, ::std::string activation, ::std::string activationTimeout, ::std::string deactivationTimeout, bool applicationDistrib, ::IceGrid::DistributionDescriptor distrib, bool allocatable, ::std::string user, ::IceGrid::ServiceInstanceDescriptorSeq services) :
-        Ice::ValueHelper<IceBoxDescriptor, ServerDescriptor>(::std::move(adapters), ::std::move(propertySet), ::std::move(logs), ::std::move(description), ::std::move(id), ::std::move(exe), ::std::move(iceVersion), ::std::move(pwd), ::std::move(options), ::std::move(envs), ::std::move(activation), ::std::move(activationTimeout), ::std::move(deactivationTimeout), applicationDistrib, ::std::move(distrib), allocatable, ::std::move(user)),
+        ServerDescriptor(::std::move(adapters), ::std::move(propertySet), ::std::move(logs), ::std::move(description), ::std::move(id), ::std::move(exe), ::std::move(iceVersion), ::std::move(pwd), ::std::move(options), ::std::move(envs), ::std::move(activation), ::std::move(activationTimeout), ::std::move(deactivationTimeout), applicationDistrib, ::std::move(distrib), allocatable, ::std::move(user)),
         services(::std::move(services))
     {
     }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
+
+    ICE_MEMBER(ICEGRID_API) ::std::string ice_id() const override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -716,15 +759,24 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<IceBoxDescriptor> ice_clone() const { return ::std::static_pointer_cast <IceBoxDescriptor>(_iceCloneImpl()); }
 
     /**
      * The service instances.
      */
     ::IceGrid::ServiceInstanceDescriptorSeq services;
+
+protected:
+
+    IceBoxDescriptor(const IceBoxDescriptor&) = default;
+
+    ICE_MEMBER(ICEGRID_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 /**
@@ -772,15 +824,11 @@ struct NodeDescriptor
  * A base class for load balancing policies.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICE_CLASS(ICEGRID_API) LoadBalancingPolicy : public ::Ice::ValueHelper<LoadBalancingPolicy, ::Ice::Value>
+class ICE_CLASS(ICEGRID_API) LoadBalancingPolicy : public ::Ice::Value
 {
 public:
 
     LoadBalancingPolicy() = default;
-    LoadBalancingPolicy(const LoadBalancingPolicy&) = default;
-    LoadBalancingPolicy(LoadBalancingPolicy&&) = default;
-    LoadBalancingPolicy& operator=(const LoadBalancingPolicy&) = default;
-    LoadBalancingPolicy& operator=(LoadBalancingPolicy&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -792,6 +840,14 @@ public:
     }
 
     /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
+
+    ICE_MEMBER(ICEGRID_API) ::std::string ice_id() const override;
+
+    /**
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
@@ -801,47 +857,43 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<LoadBalancingPolicy> ice_clone() const { return ::std::static_pointer_cast <LoadBalancingPolicy>(_iceCloneImpl()); }
 
     /**
      * The number of replicas that will be used to gather the endpoints of a replica group.
      */
     ::std::string nReplicas;
+
+protected:
+
+    LoadBalancingPolicy(const LoadBalancingPolicy&) = default;
+
+    ICE_MEMBER(ICEGRID_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 /**
  * Random load balancing policy.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICE_CLASS(ICEGRID_API) RandomLoadBalancingPolicy : public ::Ice::ValueHelper<RandomLoadBalancingPolicy, LoadBalancingPolicy>
+class ICE_CLASS(ICEGRID_API) RandomLoadBalancingPolicy : public LoadBalancingPolicy
 {
 public:
 
     RandomLoadBalancingPolicy() = default;
-    RandomLoadBalancingPolicy(const RandomLoadBalancingPolicy&) = default;
-    RandomLoadBalancingPolicy(RandomLoadBalancingPolicy&&) = default;
-    RandomLoadBalancingPolicy& operator=(const RandomLoadBalancingPolicy&) = default;
-    RandomLoadBalancingPolicy& operator=(RandomLoadBalancingPolicy&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param nReplicas The number of replicas that will be used to gather the endpoints of a replica group.
      */
     explicit RandomLoadBalancingPolicy(::std::string nReplicas) :
-        Ice::ValueHelper<RandomLoadBalancingPolicy, LoadBalancingPolicy>(::std::move(nReplicas))
+        LoadBalancingPolicy(::std::move(nReplicas))
     {
-    }
-
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::string&> ice_tuple() const
-    {
-        return std::tie(nReplicas);
     }
 
     /**
@@ -849,38 +901,42 @@ public:
      * @return The fully-scoped type ID.
      */
     ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
+
+    ICE_MEMBER(ICEGRID_API) ::std::string ice_id() const override;
+
+    /**
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
+     */
+    ::std::shared_ptr<RandomLoadBalancingPolicy> ice_clone() const { return ::std::static_pointer_cast <RandomLoadBalancingPolicy>(_iceCloneImpl()); }
+
+protected:
+
+    RandomLoadBalancingPolicy(const RandomLoadBalancingPolicy&) = default;
+
+    ICE_MEMBER(ICEGRID_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 /**
  * Ordered load balancing policy.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICE_CLASS(ICEGRID_API) OrderedLoadBalancingPolicy : public ::Ice::ValueHelper<OrderedLoadBalancingPolicy, LoadBalancingPolicy>
+class ICE_CLASS(ICEGRID_API) OrderedLoadBalancingPolicy : public LoadBalancingPolicy
 {
 public:
 
     OrderedLoadBalancingPolicy() = default;
-    OrderedLoadBalancingPolicy(const OrderedLoadBalancingPolicy&) = default;
-    OrderedLoadBalancingPolicy(OrderedLoadBalancingPolicy&&) = default;
-    OrderedLoadBalancingPolicy& operator=(const OrderedLoadBalancingPolicy&) = default;
-    OrderedLoadBalancingPolicy& operator=(OrderedLoadBalancingPolicy&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param nReplicas The number of replicas that will be used to gather the endpoints of a replica group.
      */
     explicit OrderedLoadBalancingPolicy(::std::string nReplicas) :
-        Ice::ValueHelper<OrderedLoadBalancingPolicy, LoadBalancingPolicy>(::std::move(nReplicas))
+        LoadBalancingPolicy(::std::move(nReplicas))
     {
-    }
-
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::string&> ice_tuple() const
-    {
-        return std::tie(nReplicas);
     }
 
     /**
@@ -888,38 +944,42 @@ public:
      * @return The fully-scoped type ID.
      */
     ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
+
+    ICE_MEMBER(ICEGRID_API) ::std::string ice_id() const override;
+
+    /**
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
+     */
+    ::std::shared_ptr<OrderedLoadBalancingPolicy> ice_clone() const { return ::std::static_pointer_cast <OrderedLoadBalancingPolicy>(_iceCloneImpl()); }
+
+protected:
+
+    OrderedLoadBalancingPolicy(const OrderedLoadBalancingPolicy&) = default;
+
+    ICE_MEMBER(ICEGRID_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 /**
  * Round robin load balancing policy.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICE_CLASS(ICEGRID_API) RoundRobinLoadBalancingPolicy : public ::Ice::ValueHelper<RoundRobinLoadBalancingPolicy, LoadBalancingPolicy>
+class ICE_CLASS(ICEGRID_API) RoundRobinLoadBalancingPolicy : public LoadBalancingPolicy
 {
 public:
 
     RoundRobinLoadBalancingPolicy() = default;
-    RoundRobinLoadBalancingPolicy(const RoundRobinLoadBalancingPolicy&) = default;
-    RoundRobinLoadBalancingPolicy(RoundRobinLoadBalancingPolicy&&) = default;
-    RoundRobinLoadBalancingPolicy& operator=(const RoundRobinLoadBalancingPolicy&) = default;
-    RoundRobinLoadBalancingPolicy& operator=(RoundRobinLoadBalancingPolicy&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param nReplicas The number of replicas that will be used to gather the endpoints of a replica group.
      */
     explicit RoundRobinLoadBalancingPolicy(::std::string nReplicas) :
-        Ice::ValueHelper<RoundRobinLoadBalancingPolicy, LoadBalancingPolicy>(::std::move(nReplicas))
+        LoadBalancingPolicy(::std::move(nReplicas))
     {
-    }
-
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::string&> ice_tuple() const
-    {
-        return std::tie(nReplicas);
     }
 
     /**
@@ -927,21 +987,34 @@ public:
      * @return The fully-scoped type ID.
      */
     ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
+
+    ICE_MEMBER(ICEGRID_API) ::std::string ice_id() const override;
+
+    /**
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
+     */
+    ::std::shared_ptr<RoundRobinLoadBalancingPolicy> ice_clone() const { return ::std::static_pointer_cast <RoundRobinLoadBalancingPolicy>(_iceCloneImpl()); }
+
+protected:
+
+    RoundRobinLoadBalancingPolicy(const RoundRobinLoadBalancingPolicy&) = default;
+
+    ICE_MEMBER(ICEGRID_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 /**
  * Adaptive load balancing policy.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICE_CLASS(ICEGRID_API) AdaptiveLoadBalancingPolicy : public ::Ice::ValueHelper<AdaptiveLoadBalancingPolicy, LoadBalancingPolicy>
+class ICE_CLASS(ICEGRID_API) AdaptiveLoadBalancingPolicy : public LoadBalancingPolicy
 {
 public:
 
     AdaptiveLoadBalancingPolicy() = default;
-    AdaptiveLoadBalancingPolicy(const AdaptiveLoadBalancingPolicy&) = default;
-    AdaptiveLoadBalancingPolicy(AdaptiveLoadBalancingPolicy&&) = default;
-    AdaptiveLoadBalancingPolicy& operator=(const AdaptiveLoadBalancingPolicy&) = default;
-    AdaptiveLoadBalancingPolicy& operator=(AdaptiveLoadBalancingPolicy&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -949,10 +1022,18 @@ public:
      * @param loadSample The load sample to use for the load balancing.
      */
     AdaptiveLoadBalancingPolicy(::std::string nReplicas, ::std::string loadSample) :
-        Ice::ValueHelper<AdaptiveLoadBalancingPolicy, LoadBalancingPolicy>(::std::move(nReplicas)),
+        LoadBalancingPolicy(::std::move(nReplicas)),
         loadSample(::std::move(loadSample))
     {
     }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
+
+    ICE_MEMBER(ICEGRID_API) ::std::string ice_id() const override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -964,16 +1045,25 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<AdaptiveLoadBalancingPolicy> ice_clone() const { return ::std::static_pointer_cast <AdaptiveLoadBalancingPolicy>(_iceCloneImpl()); }
 
     /**
      * The load sample to use for the load balancing. The allowed values for this attribute are "1", "5" and "15",
      * representing respectively the load average over the past minute, the past 5 minutes and the past 15 minutes.
      */
     ::std::string loadSample;
+
+protected:
+
+    AdaptiveLoadBalancingPolicy(const AdaptiveLoadBalancingPolicy&) = default;
+
+    ICE_MEMBER(ICEGRID_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 /**
@@ -1074,15 +1164,11 @@ struct ApplicationDescriptor
  * A "boxed" string.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICE_CLASS(ICEGRID_API) BoxedString : public ::Ice::ValueHelper<BoxedString, ::Ice::Value>
+class ICE_CLASS(ICEGRID_API) BoxedString : public ::Ice::Value
 {
 public:
 
     BoxedString() = default;
-    BoxedString(const BoxedString&) = default;
-    BoxedString(BoxedString&&) = default;
-    BoxedString& operator=(const BoxedString&) = default;
-    BoxedString& operator=(BoxedString&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -1094,6 +1180,14 @@ public:
     }
 
     /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
+
+    ICE_MEMBER(ICEGRID_API) ::std::string ice_id() const override;
+
+    /**
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
@@ -1103,15 +1197,24 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<BoxedString> ice_clone() const { return ::std::static_pointer_cast <BoxedString>(_iceCloneImpl()); }
 
     /**
      * The value of the boxed string.
      */
     ::std::string value;
+
+protected:
+
+    BoxedString(const BoxedString&) = default;
+
+    ICE_MEMBER(ICEGRID_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 /**
@@ -1175,15 +1278,11 @@ struct NodeUpdateDescriptor
  * A "boxed" distribution descriptor.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICE_CLASS(ICEGRID_API) BoxedDistributionDescriptor : public ::Ice::ValueHelper<BoxedDistributionDescriptor, ::Ice::Value>
+class ICE_CLASS(ICEGRID_API) BoxedDistributionDescriptor : public ::Ice::Value
 {
 public:
 
     BoxedDistributionDescriptor() = default;
-    BoxedDistributionDescriptor(const BoxedDistributionDescriptor&) = default;
-    BoxedDistributionDescriptor(BoxedDistributionDescriptor&&) = default;
-    BoxedDistributionDescriptor& operator=(const BoxedDistributionDescriptor&) = default;
-    BoxedDistributionDescriptor& operator=(BoxedDistributionDescriptor&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -1195,6 +1294,14 @@ public:
     }
 
     /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
+
+    ICE_MEMBER(ICEGRID_API) ::std::string ice_id() const override;
+
+    /**
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
@@ -1204,15 +1311,24 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<BoxedDistributionDescriptor> ice_clone() const { return ::std::static_pointer_cast <BoxedDistributionDescriptor>(_iceCloneImpl()); }
 
     /**
      * The value of the boxed distribution descriptor.
      */
     ::IceGrid::DistributionDescriptor value;
+
+protected:
+
+    BoxedDistributionDescriptor(const BoxedDistributionDescriptor&) = default;
+
+    ICE_MEMBER(ICEGRID_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 /**

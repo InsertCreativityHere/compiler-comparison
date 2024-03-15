@@ -98,11 +98,37 @@ User::RegistryPrx::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+User::UserInfo::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 User::UserInfo::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::User::UserInfo";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+User::UserInfo::_iceCloneImpl() const
+{
+    return CloneEnabler<UserInfo>::clone(*this);
+}
+
+void
+User::UserInfo::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ostr->endSlice();
+}
+
+void
+User::UserInfo::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    istr->endSlice();
 }
 
 ::std::vector<::std::string>

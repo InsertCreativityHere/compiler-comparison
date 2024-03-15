@@ -41,6 +41,12 @@ const ::IceInternal::DefaultValueFactoryInit<::Test::NoDefault> iceC_Test_NoDefa
 
 }
 
+::std::string
+Test::Default::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 Test::Default::ice_staticId() noexcept
 {
@@ -48,9 +54,59 @@ Test::Default::ice_staticId() noexcept
     return typeId;
 }
 
+::std::shared_ptr<::Ice::Value>
+Test::Default::_iceCloneImpl() const
+{
+    return CloneEnabler<Default>::clone(*this);
+}
+
+void
+Test::Default::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<Default, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::Default::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<Default, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
+::std::string
+Test::NoDefault::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 Test::NoDefault::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::NoDefault";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+Test::NoDefault::_iceCloneImpl() const
+{
+    return CloneEnabler<NoDefault>::clone(*this);
+}
+
+void
+Test::NoDefault::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<NoDefault, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::NoDefault::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<NoDefault, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
 }

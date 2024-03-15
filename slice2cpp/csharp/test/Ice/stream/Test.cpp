@@ -50,6 +50,12 @@ Test::MyInterfacePrx::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test::OptionalClass::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 Test::OptionalClass::ice_staticId() noexcept
 {
@@ -57,11 +63,61 @@ Test::OptionalClass::ice_staticId() noexcept
     return typeId;
 }
 
+::std::shared_ptr<::Ice::Value>
+Test::OptionalClass::_iceCloneImpl() const
+{
+    return CloneEnabler<OptionalClass>::clone(*this);
+}
+
+void
+Test::OptionalClass::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<OptionalClass, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::OptionalClass::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<OptionalClass, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
+::std::string
+Test::MyClass::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 Test::MyClass::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::MyClass";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+Test::MyClass::_iceCloneImpl() const
+{
+    return CloneEnabler<MyClass>::clone(*this);
+}
+
+void
+Test::MyClass::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<MyClass, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::MyClass::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<MyClass, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
 }
 
 ::std::string_view

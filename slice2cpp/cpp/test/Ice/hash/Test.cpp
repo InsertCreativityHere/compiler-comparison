@@ -39,9 +39,35 @@ const ::IceInternal::DefaultValueFactoryInit<::Test::Point> iceC_Test_Point_init
 
 }
 
+::std::string
+Test::Point::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 Test::Point::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Point";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+Test::Point::_iceCloneImpl() const
+{
+    return CloneEnabler<Point>::clone(*this);
+}
+
+void
+Test::Point::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ostr->endSlice();
+}
+
+void
+Test::Point::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    istr->endSlice();
 }

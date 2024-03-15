@@ -54,25 +54,29 @@ using CompactPCDerivedPtr = ::std::shared_ptr<CompactPCDerived>;
 namespace Test
 {
 
-class D3 : public ::Ice::ValueHelper<D3, B>
+class D3 : public B
 {
 public:
 
     D3() = default;
-    D3(const D3&) = default;
-    D3(D3&&) = default;
-    D3& operator=(const D3&) = default;
-    D3& operator=(D3&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     D3(::std::string sb, ::std::shared_ptr<::Test::B> pb, ::std::string sd3, ::std::shared_ptr<::Test::B> pd3) :
-        Ice::ValueHelper<D3, B>(::std::move(sb), ::std::move(pb)),
+        B(::std::move(sb), ::std::move(pb)),
         sd3(::std::move(sd3)),
         pd3(::std::move(pd3))
     {
     }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -84,37 +88,50 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<D3> ice_clone() const { return ::std::static_pointer_cast <D3>(_iceCloneImpl()); }
 
     ::std::string sd3;
     ::std::shared_ptr<::Test::B> pd3;
+
+protected:
+
+    D3(const D3&) = default;
+
+    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 /// \cond INTERNAL
 static D3 _iceS_D3_init;
 /// \endcond
 
-class PCUnknown : public ::Ice::ValueHelper<PCUnknown, PBase>
+class PCUnknown : public PBase
 {
 public:
 
     PCUnknown() = default;
-    PCUnknown(const PCUnknown&) = default;
-    PCUnknown(PCUnknown&&) = default;
-    PCUnknown& operator=(const PCUnknown&) = default;
-    PCUnknown& operator=(PCUnknown&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     PCUnknown(::std::int32_t pi, ::std::string pu) :
-        Ice::ValueHelper<PCUnknown, PBase>(pi),
+        PBase(pi),
         pu(::std::move(pu))
     {
     }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -126,32 +143,45 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<PCUnknown> ice_clone() const { return ::std::static_pointer_cast <PCUnknown>(_iceCloneImpl()); }
 
     ::std::string pu;
+
+protected:
+
+    PCUnknown(const PCUnknown&) = default;
+
+    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-class PCDerived : public ::Ice::ValueHelper<PCDerived, PDerived>
+class PCDerived : public PDerived
 {
 public:
 
     PCDerived() = default;
-    PCDerived(const PCDerived&) = default;
-    PCDerived(PCDerived&&) = default;
-    PCDerived& operator=(const PCDerived&) = default;
-    PCDerived& operator=(PCDerived&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     PCDerived(::std::int32_t pi, ::std::string ps, ::std::shared_ptr<::Test::PBase> pb, ::Test::PBaseSeq pbs) :
-        Ice::ValueHelper<PCDerived, PDerived>(pi, ::std::move(ps), ::std::move(pb)),
+        PDerived(pi, ::std::move(ps), ::std::move(pb)),
         pbs(::std::move(pbs))
     {
     }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -163,32 +193,45 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<PCDerived> ice_clone() const { return ::std::static_pointer_cast <PCDerived>(_iceCloneImpl()); }
 
     ::Test::PBaseSeq pbs;
+
+protected:
+
+    PCDerived(const PCDerived&) = default;
+
+    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-class PCDerived2 : public ::Ice::ValueHelper<PCDerived2, PCDerived>
+class PCDerived2 : public PCDerived
 {
 public:
 
     PCDerived2() = default;
-    PCDerived2(const PCDerived2&) = default;
-    PCDerived2(PCDerived2&&) = default;
-    PCDerived2& operator=(const PCDerived2&) = default;
-    PCDerived2& operator=(PCDerived2&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     PCDerived2(::std::int32_t pi, ::std::string ps, ::std::shared_ptr<::Test::PBase> pb, ::Test::PBaseSeq pbs, ::std::int32_t pcd2) :
-        Ice::ValueHelper<PCDerived2, PCDerived>(pi, ::std::move(ps), ::std::move(pb), ::std::move(pbs)),
+        PCDerived(pi, ::std::move(ps), ::std::move(pb), ::std::move(pbs)),
         pcd2(pcd2)
     {
     }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -200,32 +243,45 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<PCDerived2> ice_clone() const { return ::std::static_pointer_cast <PCDerived2>(_iceCloneImpl()); }
 
     ::std::int32_t pcd2;
+
+protected:
+
+    PCDerived2(const PCDerived2&) = default;
+
+    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-class PCDerived3 : public ::Ice::ValueHelper<PCDerived3, PCDerived2>
+class PCDerived3 : public PCDerived2
 {
 public:
 
     PCDerived3() = default;
-    PCDerived3(const PCDerived3&) = default;
-    PCDerived3(PCDerived3&&) = default;
-    PCDerived3& operator=(const PCDerived3&) = default;
-    PCDerived3& operator=(PCDerived3&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     PCDerived3(::std::int32_t pi, ::std::string ps, ::std::shared_ptr<::Test::PBase> pb, ::Test::PBaseSeq pbs, ::std::int32_t pcd2, ::std::shared_ptr<::Ice::Value> pcd3) :
-        Ice::ValueHelper<PCDerived3, PCDerived2>(pi, ::std::move(ps), ::std::move(pb), ::std::move(pbs), pcd2),
+        PCDerived2(pi, ::std::move(ps), ::std::move(pb), ::std::move(pbs), pcd2),
         pcd3(::std::move(pcd3))
     {
     }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -237,32 +293,45 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<PCDerived3> ice_clone() const { return ::std::static_pointer_cast <PCDerived3>(_iceCloneImpl()); }
 
     ::std::shared_ptr<::Ice::Value> pcd3;
+
+protected:
+
+    PCDerived3(const PCDerived3&) = default;
+
+    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-class CompactPCDerived : public ::Ice::ValueHelper<CompactPCDerived, CompactPDerived>
+class CompactPCDerived : public CompactPDerived
 {
 public:
 
     CompactPCDerived() = default;
-    CompactPCDerived(const CompactPCDerived&) = default;
-    CompactPCDerived(CompactPCDerived&&) = default;
-    CompactPCDerived& operator=(const CompactPCDerived&) = default;
-    CompactPCDerived& operator=(CompactPCDerived&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     CompactPCDerived(::std::int32_t pi, ::std::string ps, ::std::shared_ptr<::Test::PBase> pb, ::Test::PBaseSeq pbs) :
-        Ice::ValueHelper<CompactPCDerived, CompactPDerived>(pi, ::std::move(ps), ::std::move(pb)),
+        CompactPDerived(pi, ::std::move(ps), ::std::move(pb)),
         pbs(::std::move(pbs))
     {
     }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -274,12 +343,21 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<CompactPCDerived> ice_clone() const { return ::std::static_pointer_cast <CompactPCDerived>(_iceCloneImpl()); }
 
     ::Test::PBaseSeq pbs;
+
+protected:
+
+    CompactPCDerived(const CompactPCDerived&) = default;
+
+    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 }

@@ -107,15 +107,11 @@ protected:
 namespace Test
 {
 
-class F1 : public ::Ice::ValueHelper<F1, ::Ice::Value>
+class F1 : public ::Ice::Value
 {
 public:
 
     F1() = default;
-    F1(const F1&) = default;
-    F1(F1&&) = default;
-    F1& operator=(const F1&) = default;
-    F1& operator=(F1&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -124,6 +120,14 @@ public:
         name(::std::move(name))
     {
     }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -135,12 +139,21 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<F1> ice_clone() const { return ::std::static_pointer_cast <F1>(_iceCloneImpl()); }
 
     ::std::string name;
+
+protected:
+
+    F1(const F1&) = default;
+
+    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 /// \cond INTERNAL

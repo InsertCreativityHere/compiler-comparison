@@ -368,15 +368,11 @@ namespace IceMX
  * The base class for metrics. A metrics object represents a collection of measurements associated to a given a system.
  * \headerfile Ice/Ice.h
  */
-class ICE_CLASS(ICE_API) Metrics : public ::Ice::ValueHelper<Metrics, ::Ice::Value>
+class ICE_CLASS(ICE_API) Metrics : public ::Ice::Value
 {
 public:
 
     Metrics() = default;
-    Metrics(const Metrics&) = default;
-    Metrics(Metrics&&) = default;
-    Metrics& operator=(const Metrics&) = default;
-    Metrics& operator=(Metrics&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -396,6 +392,14 @@ public:
     }
 
     /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId() noexcept;
+
+    ICE_MEMBER(ICE_API) ::std::string ice_id() const override;
+
+    /**
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
@@ -405,10 +409,10 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<Metrics> ice_clone() const { return ::std::static_pointer_cast <Metrics>(_iceCloneImpl()); }
 
     /**
      * The metrics identifier.
@@ -432,6 +436,15 @@ public:
      * The number of failures observed.
      */
     ::std::int32_t failures = 0;
+
+protected:
+
+    Metrics(const Metrics&) = default;
+
+    ICE_MEMBER(ICE_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(ICE_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICE_API) void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 /// \cond INTERNAL
@@ -492,15 +505,11 @@ protected:
  * Provides information on the number of threads currently in use and their activity.
  * \headerfile Ice/Ice.h
  */
-class ICE_CLASS(ICE_API) ThreadMetrics : public ::Ice::ValueHelper<ThreadMetrics, Metrics>
+class ICE_CLASS(ICE_API) ThreadMetrics : public Metrics
 {
 public:
 
     ThreadMetrics() = default;
-    ThreadMetrics(const ThreadMetrics&) = default;
-    ThreadMetrics(ThreadMetrics&&) = default;
-    ThreadMetrics& operator=(const ThreadMetrics&) = default;
-    ThreadMetrics& operator=(ThreadMetrics&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -514,12 +523,20 @@ public:
      * @param inUseForOther The number of threads which are currently performing other activities.
      */
     ThreadMetrics(::std::string id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int32_t inUseForIO, ::std::int32_t inUseForUser, ::std::int32_t inUseForOther) :
-        Ice::ValueHelper<ThreadMetrics, Metrics>(::std::move(id), total, current, totalLifetime, failures),
+        Metrics(::std::move(id), total, current, totalLifetime, failures),
         inUseForIO(inUseForIO),
         inUseForUser(inUseForUser),
         inUseForOther(inUseForOther)
     {
     }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId() noexcept;
+
+    ICE_MEMBER(ICE_API) ::std::string ice_id() const override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -531,10 +548,10 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<ThreadMetrics> ice_clone() const { return ::std::static_pointer_cast <ThreadMetrics>(_iceCloneImpl()); }
 
     /**
      * The number of threads which are currently performing socket read or writes.
@@ -549,21 +566,26 @@ public:
      * with {@link #inUseForUser} or {@link #inUseForIO}, such as DNS lookups, garbage collection).
      */
     ::std::int32_t inUseForOther = 0;
+
+protected:
+
+    ThreadMetrics(const ThreadMetrics&) = default;
+
+    ICE_MEMBER(ICE_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(ICE_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICE_API) void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 /**
  * Provides information on servant dispatch.
  * \headerfile Ice/Ice.h
  */
-class ICE_CLASS(ICE_API) DispatchMetrics : public ::Ice::ValueHelper<DispatchMetrics, Metrics>
+class ICE_CLASS(ICE_API) DispatchMetrics : public Metrics
 {
 public:
 
     DispatchMetrics() = default;
-    DispatchMetrics(const DispatchMetrics&) = default;
-    DispatchMetrics(DispatchMetrics&&) = default;
-    DispatchMetrics& operator=(const DispatchMetrics&) = default;
-    DispatchMetrics& operator=(DispatchMetrics&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -577,12 +599,20 @@ public:
      * @param replySize The size of the dispatch reply.
      */
     DispatchMetrics(::std::string id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int32_t userException, ::std::int64_t size, ::std::int64_t replySize) :
-        Ice::ValueHelper<DispatchMetrics, Metrics>(::std::move(id), total, current, totalLifetime, failures),
+        Metrics(::std::move(id), total, current, totalLifetime, failures),
         userException(userException),
         size(size),
         replySize(replySize)
     {
     }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId() noexcept;
+
+    ICE_MEMBER(ICE_API) ::std::string ice_id() const override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -594,10 +624,10 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<DispatchMetrics> ice_clone() const { return ::std::static_pointer_cast <DispatchMetrics>(_iceCloneImpl()); }
 
     /**
      * The number of dispatch that failed with a user exception.
@@ -611,6 +641,15 @@ public:
      * The size of the dispatch reply. This corresponds to the size of the marshalled output and return parameters.
      */
     ::std::int64_t replySize = INT64_C(0);
+
+protected:
+
+    DispatchMetrics(const DispatchMetrics&) = default;
+
+    ICE_MEMBER(ICE_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(ICE_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICE_API) void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 /**
@@ -619,15 +658,11 @@ public:
  * embedded within {@link InvocationMetrics}.
  * \headerfile Ice/Ice.h
  */
-class ICE_CLASS(ICE_API) ChildInvocationMetrics : public ::Ice::ValueHelper<ChildInvocationMetrics, Metrics>
+class ICE_CLASS(ICE_API) ChildInvocationMetrics : public Metrics
 {
 public:
 
     ChildInvocationMetrics() = default;
-    ChildInvocationMetrics(const ChildInvocationMetrics&) = default;
-    ChildInvocationMetrics(ChildInvocationMetrics&&) = default;
-    ChildInvocationMetrics& operator=(const ChildInvocationMetrics&) = default;
-    ChildInvocationMetrics& operator=(ChildInvocationMetrics&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -640,11 +675,19 @@ public:
      * @param replySize The size of the invocation reply.
      */
     ChildInvocationMetrics(::std::string id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int64_t size, ::std::int64_t replySize) :
-        Ice::ValueHelper<ChildInvocationMetrics, Metrics>(::std::move(id), total, current, totalLifetime, failures),
+        Metrics(::std::move(id), total, current, totalLifetime, failures),
         size(size),
         replySize(replySize)
     {
     }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId() noexcept;
+
+    ICE_MEMBER(ICE_API) ::std::string ice_id() const override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -656,10 +699,10 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<ChildInvocationMetrics> ice_clone() const { return ::std::static_pointer_cast <ChildInvocationMetrics>(_iceCloneImpl()); }
 
     /**
      * The size of the invocation. This corresponds to the size of the marshalled input parameters.
@@ -669,6 +712,15 @@ public:
      * The size of the invocation reply. This corresponds to the size of the marshalled output and return parameters.
      */
     ::std::int64_t replySize = INT64_C(0);
+
+protected:
+
+    ChildInvocationMetrics(const ChildInvocationMetrics&) = default;
+
+    ICE_MEMBER(ICE_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(ICE_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICE_API) void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 /**
@@ -676,15 +728,11 @@ public:
  * {@link InvocationMetrics}.
  * \headerfile Ice/Ice.h
  */
-class ICE_CLASS(ICE_API) CollocatedMetrics : public ::Ice::ValueHelper<CollocatedMetrics, ChildInvocationMetrics>
+class ICE_CLASS(ICE_API) CollocatedMetrics : public ChildInvocationMetrics
 {
 public:
 
     CollocatedMetrics() = default;
-    CollocatedMetrics(const CollocatedMetrics&) = default;
-    CollocatedMetrics(CollocatedMetrics&&) = default;
-    CollocatedMetrics& operator=(const CollocatedMetrics&) = default;
-    CollocatedMetrics& operator=(CollocatedMetrics&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -697,17 +745,8 @@ public:
      * @param replySize The size of the invocation reply.
      */
     CollocatedMetrics(::std::string id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int64_t size, ::std::int64_t replySize) :
-        Ice::ValueHelper<CollocatedMetrics, ChildInvocationMetrics>(::std::move(id), total, current, totalLifetime, failures, size, replySize)
+        ChildInvocationMetrics(::std::move(id), total, current, totalLifetime, failures, size, replySize)
     {
-    }
-
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::string&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int64_t&> ice_tuple() const
-    {
-        return std::tie(id, total, current, totalLifetime, failures, size, replySize);
     }
 
     /**
@@ -715,6 +754,23 @@ public:
      * @return The fully-scoped type ID.
      */
     ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId() noexcept;
+
+    ICE_MEMBER(ICE_API) ::std::string ice_id() const override;
+
+    /**
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
+     */
+    ::std::shared_ptr<CollocatedMetrics> ice_clone() const { return ::std::static_pointer_cast <CollocatedMetrics>(_iceCloneImpl()); }
+
+protected:
+
+    CollocatedMetrics(const CollocatedMetrics&) = default;
+
+    ICE_MEMBER(ICE_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(ICE_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICE_API) void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 /**
@@ -722,15 +778,11 @@ public:
  * within {@link InvocationMetrics}.
  * \headerfile Ice/Ice.h
  */
-class ICE_CLASS(ICE_API) RemoteMetrics : public ::Ice::ValueHelper<RemoteMetrics, ChildInvocationMetrics>
+class ICE_CLASS(ICE_API) RemoteMetrics : public ChildInvocationMetrics
 {
 public:
 
     RemoteMetrics() = default;
-    RemoteMetrics(const RemoteMetrics&) = default;
-    RemoteMetrics(RemoteMetrics&&) = default;
-    RemoteMetrics& operator=(const RemoteMetrics&) = default;
-    RemoteMetrics& operator=(RemoteMetrics&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -743,17 +795,8 @@ public:
      * @param replySize The size of the invocation reply.
      */
     RemoteMetrics(::std::string id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int64_t size, ::std::int64_t replySize) :
-        Ice::ValueHelper<RemoteMetrics, ChildInvocationMetrics>(::std::move(id), total, current, totalLifetime, failures, size, replySize)
+        ChildInvocationMetrics(::std::move(id), total, current, totalLifetime, failures, size, replySize)
     {
-    }
-
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::string&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int32_t&, const ::std::int64_t&, const ::std::int64_t&> ice_tuple() const
-    {
-        return std::tie(id, total, current, totalLifetime, failures, size, replySize);
     }
 
     /**
@@ -761,21 +804,34 @@ public:
      * @return The fully-scoped type ID.
      */
     ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId() noexcept;
+
+    ICE_MEMBER(ICE_API) ::std::string ice_id() const override;
+
+    /**
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
+     */
+    ::std::shared_ptr<RemoteMetrics> ice_clone() const { return ::std::static_pointer_cast <RemoteMetrics>(_iceCloneImpl()); }
+
+protected:
+
+    RemoteMetrics(const RemoteMetrics&) = default;
+
+    ICE_MEMBER(ICE_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(ICE_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICE_API) void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 /**
  * Provide measurements for proxy invocations. Proxy invocations can either be sent over the wire or be collocated.
  * \headerfile Ice/Ice.h
  */
-class ICE_CLASS(ICE_API) InvocationMetrics : public ::Ice::ValueHelper<InvocationMetrics, Metrics>
+class ICE_CLASS(ICE_API) InvocationMetrics : public Metrics
 {
 public:
 
     InvocationMetrics() = default;
-    InvocationMetrics(const InvocationMetrics&) = default;
-    InvocationMetrics(InvocationMetrics&&) = default;
-    InvocationMetrics& operator=(const InvocationMetrics&) = default;
-    InvocationMetrics& operator=(InvocationMetrics&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -790,13 +846,21 @@ public:
      * @param collocated The collocated invocation metrics map.
      */
     InvocationMetrics(::std::string id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int32_t retry, ::std::int32_t userException, ::IceMX::MetricsMap remotes, ::IceMX::MetricsMap collocated) :
-        Ice::ValueHelper<InvocationMetrics, Metrics>(::std::move(id), total, current, totalLifetime, failures),
+        Metrics(::std::move(id), total, current, totalLifetime, failures),
         retry(retry),
         userException(userException),
         remotes(::std::move(remotes)),
         collocated(::std::move(collocated))
     {
     }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId() noexcept;
+
+    ICE_MEMBER(ICE_API) ::std::string ice_id() const override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -808,10 +872,10 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<InvocationMetrics> ice_clone() const { return ::std::static_pointer_cast <InvocationMetrics>(_iceCloneImpl()); }
 
     /**
      * The number of retries for the invocation(s).
@@ -831,21 +895,26 @@ public:
      * @see CollocatedMetrics
      */
     ::IceMX::MetricsMap collocated;
+
+protected:
+
+    InvocationMetrics(const InvocationMetrics&) = default;
+
+    ICE_MEMBER(ICE_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(ICE_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICE_API) void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 /**
  * Provides information on the data sent and received over Ice connections.
  * \headerfile Ice/Ice.h
  */
-class ICE_CLASS(ICE_API) ConnectionMetrics : public ::Ice::ValueHelper<ConnectionMetrics, Metrics>
+class ICE_CLASS(ICE_API) ConnectionMetrics : public Metrics
 {
 public:
 
     ConnectionMetrics() = default;
-    ConnectionMetrics(const ConnectionMetrics&) = default;
-    ConnectionMetrics(ConnectionMetrics&&) = default;
-    ConnectionMetrics& operator=(const ConnectionMetrics&) = default;
-    ConnectionMetrics& operator=(ConnectionMetrics&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -858,11 +927,19 @@ public:
      * @param sentBytes The number of bytes sent by the connection.
      */
     ConnectionMetrics(::std::string id, ::std::int64_t total, ::std::int32_t current, ::std::int64_t totalLifetime, ::std::int32_t failures, ::std::int64_t receivedBytes, ::std::int64_t sentBytes) :
-        Ice::ValueHelper<ConnectionMetrics, Metrics>(::std::move(id), total, current, totalLifetime, failures),
+        Metrics(::std::move(id), total, current, totalLifetime, failures),
         receivedBytes(receivedBytes),
         sentBytes(sentBytes)
     {
     }
+
+    /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId() noexcept;
+
+    ICE_MEMBER(ICE_API) ::std::string ice_id() const override;
 
     /**
      * Obtains a tuple containing all of the value's data members.
@@ -874,10 +951,10 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<ConnectionMetrics> ice_clone() const { return ::std::static_pointer_cast <ConnectionMetrics>(_iceCloneImpl()); }
 
     /**
      * The number of bytes received by the connection.
@@ -887,6 +964,15 @@ public:
      * The number of bytes sent by the connection.
      */
     ::std::int64_t sentBytes = INT64_C(0);
+
+protected:
+
+    ConnectionMetrics(const ConnectionMetrics&) = default;
+
+    ICE_MEMBER(ICE_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(ICE_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICE_API) void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 using Ice::operator<;

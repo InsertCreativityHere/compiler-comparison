@@ -1423,6 +1423,12 @@ Test::KnownPreservedDerived::_readImpl(::Ice::InputStream* istr)
     KnownPreserved::_readImpl(istr);
 }
 
+::std::string
+Test::BaseClass::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 Test::BaseClass::ice_staticId() noexcept
 {
@@ -1430,11 +1436,63 @@ Test::BaseClass::ice_staticId() noexcept
     return typeId;
 }
 
+::std::shared_ptr<::Ice::Value>
+Test::BaseClass::_iceCloneImpl() const
+{
+    return CloneEnabler<BaseClass>::clone(*this);
+}
+
+void
+Test::BaseClass::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<BaseClass, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::BaseClass::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<BaseClass, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
+::std::string
+Test::PreservedClass::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 Test::PreservedClass::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::PreservedClass";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+Test::PreservedClass::_iceCloneImpl() const
+{
+    return CloneEnabler<PreservedClass>::clone(*this);
+}
+
+void
+Test::PreservedClass::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<PreservedClass, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    BaseClass::_iceWriteImpl(ostr);
+}
+
+void
+Test::PreservedClass::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<PreservedClass, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    BaseClass::_iceReadImpl(istr);
 }
 
 ::std::string_view

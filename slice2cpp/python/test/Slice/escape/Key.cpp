@@ -177,11 +177,39 @@ _cpp_and::printPrx::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+_cpp_and::_cpp_for::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 _cpp_and::_cpp_for::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::and::for";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+_cpp_and::_cpp_for::_iceCloneImpl() const
+{
+    return CloneEnabler<_cpp_for>::clone(*this);
+}
+
+void
+_cpp_and::_cpp_for::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<_cpp_for, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+_cpp_and::_cpp_for::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<_cpp_for, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
 }
 
 ::std::string_view

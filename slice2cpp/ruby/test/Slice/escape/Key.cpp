@@ -225,11 +225,39 @@ BEGIN::extendPrx::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+BEGIN::display::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 BEGIN::display::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::BEGIN::display";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+BEGIN::display::_iceCloneImpl() const
+{
+    return CloneEnabler<display>::clone(*this);
+}
+
+void
+BEGIN::display::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<display, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+BEGIN::display::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<display, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
 }
 
 ::std::string_view

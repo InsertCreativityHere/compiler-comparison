@@ -296,15 +296,11 @@ struct defer
     }
 };
 
-class _cpp_switch : public ::Ice::ValueHelper<_cpp_switch, ::Ice::Value>
+class _cpp_switch : public ::Ice::Value
 {
 public:
 
     _cpp_switch() = default;
-    _cpp_switch(const _cpp_switch&) = default;
-    _cpp_switch(_cpp_switch&&) = default;
-    _cpp_switch& operator=(const _cpp_switch&) = default;
-    _cpp_switch& operator=(_cpp_switch&&) = default;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -317,6 +313,14 @@ public:
     }
 
     /**
+     * Obtains the Slice type ID of this value.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
+
+    /**
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
@@ -326,14 +330,23 @@ public:
     }
 
     /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
+     * Creates a shallow polymorphic copy of this instance.
+     * @return The cloned value.
      */
-    static ::std::string_view ice_staticId() noexcept;
+    ::std::shared_ptr<_cpp_switch> ice_clone() const { return ::std::static_pointer_cast <_cpp_switch>(_iceCloneImpl()); }
 
     ::std::int32_t _cpp_if;
     ::std::optional<::_cpp_and::funcPrx> _cpp_export;
     ::std::int32_t _cpp_volatile;
+
+protected:
+
+    _cpp_switch(const _cpp_switch&) = default;
+
+    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    void _iceWriteImpl(::Ice::OutputStream*) const override;
+
+    void _iceReadImpl(::Ice::InputStream*) override;
 };
 
 /// \cond INTERNAL

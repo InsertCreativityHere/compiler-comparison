@@ -1698,11 +1698,11 @@ IceGrid::ReplicaSessionPrx::_iceI_setAdapterDirectProxy(const ::std::shared_ptr<
             {
                 ex.ice_throw();
             }
-            catch(const AdapterExistsException&)
+            catch(const AdapterNotExistException&)
             {
                 throw;
             }
-            catch(const AdapterNotExistException&)
+            catch(const AdapterExistsException&)
             {
                 throw;
             }
@@ -1814,11 +1814,11 @@ IceGrid::InternalRegistryPrx::_iceI_registerNode(const ::std::shared_ptr<::IceIn
             {
                 ex.ice_throw();
             }
-            catch(const NodeActiveException&)
+            catch(const PermissionDeniedException&)
             {
                 throw;
             }
-            catch(const PermissionDeniedException&)
+            catch(const NodeActiveException&)
             {
                 throw;
             }
@@ -1864,11 +1864,11 @@ IceGrid::InternalRegistryPrx::_iceI_registerReplica(const ::std::shared_ptr<::Ic
             {
                 ex.ice_throw();
             }
-            catch(const ReplicaActiveException&)
+            catch(const PermissionDeniedException&)
             {
                 throw;
             }
-            catch(const PermissionDeniedException&)
+            catch(const ReplicaActiveException&)
             {
                 throw;
             }
@@ -2126,11 +2126,45 @@ IceGrid::InternalRegistryPrx::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+IceGrid::InternalDbEnvDescriptor::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 IceGrid::InternalDbEnvDescriptor::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::InternalDbEnvDescriptor";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+IceGrid::InternalDbEnvDescriptor::_iceCloneImpl() const
+{
+    return CloneEnabler<InternalDbEnvDescriptor>::clone(*this);
+}
+
+void
+IceGrid::InternalDbEnvDescriptor::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<InternalDbEnvDescriptor, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+IceGrid::InternalDbEnvDescriptor::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<InternalDbEnvDescriptor, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
+::std::string
+IceGrid::InternalAdapterDescriptor::ice_id() const
+{
+    return ::std::string{ice_staticId()};
 }
 
 ::std::string_view
@@ -2140,6 +2174,34 @@ IceGrid::InternalAdapterDescriptor::ice_staticId() noexcept
     return typeId;
 }
 
+::std::shared_ptr<::Ice::Value>
+IceGrid::InternalAdapterDescriptor::_iceCloneImpl() const
+{
+    return CloneEnabler<InternalAdapterDescriptor>::clone(*this);
+}
+
+void
+IceGrid::InternalAdapterDescriptor::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<InternalAdapterDescriptor, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+IceGrid::InternalAdapterDescriptor::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<InternalAdapterDescriptor, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
+::std::string
+IceGrid::InternalDistributionDescriptor::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 IceGrid::InternalDistributionDescriptor::ice_staticId() noexcept
 {
@@ -2147,11 +2209,61 @@ IceGrid::InternalDistributionDescriptor::ice_staticId() noexcept
     return typeId;
 }
 
+::std::shared_ptr<::Ice::Value>
+IceGrid::InternalDistributionDescriptor::_iceCloneImpl() const
+{
+    return CloneEnabler<InternalDistributionDescriptor>::clone(*this);
+}
+
+void
+IceGrid::InternalDistributionDescriptor::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<InternalDistributionDescriptor, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+IceGrid::InternalDistributionDescriptor::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<InternalDistributionDescriptor, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
+::std::string
+IceGrid::InternalServerDescriptor::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 IceGrid::InternalServerDescriptor::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::InternalServerDescriptor";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+IceGrid::InternalServerDescriptor::_iceCloneImpl() const
+{
+    return CloneEnabler<InternalServerDescriptor>::clone(*this);
+}
+
+void
+IceGrid::InternalServerDescriptor::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<InternalServerDescriptor, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+IceGrid::InternalServerDescriptor::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<InternalServerDescriptor, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
 }
 
 ::std::string_view
@@ -2323,6 +2435,12 @@ IceGrid::ReplicaActiveException::_readImpl(::Ice::InputStream* istr)
     istr->endSlice();
 }
 
+::std::string
+IceGrid::InternalNodeInfo::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 IceGrid::InternalNodeInfo::ice_staticId() noexcept
 {
@@ -2330,11 +2448,61 @@ IceGrid::InternalNodeInfo::ice_staticId() noexcept
     return typeId;
 }
 
+::std::shared_ptr<::Ice::Value>
+IceGrid::InternalNodeInfo::_iceCloneImpl() const
+{
+    return CloneEnabler<InternalNodeInfo>::clone(*this);
+}
+
+void
+IceGrid::InternalNodeInfo::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<InternalNodeInfo, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+IceGrid::InternalNodeInfo::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<InternalNodeInfo, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
+::std::string
+IceGrid::InternalReplicaInfo::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
 ::std::string_view
 IceGrid::InternalReplicaInfo::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceGrid::InternalReplicaInfo";
     return typeId;
+}
+
+::std::shared_ptr<::Ice::Value>
+IceGrid::InternalReplicaInfo::_iceCloneImpl() const
+{
+    return CloneEnabler<InternalReplicaInfo>::clone(*this);
+}
+
+void
+IceGrid::InternalReplicaInfo::_iceWriteImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<InternalReplicaInfo, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+IceGrid::InternalReplicaInfo::_iceReadImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<InternalReplicaInfo, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
 }
 
 ::std::vector<::std::string>
