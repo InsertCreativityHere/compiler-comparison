@@ -13169,6 +13169,8 @@ namespace Ice.operations.AMD
 
             #region Inherited Slice operations
 
+            public abstract global::System.Threading.Tasks.Task<string> opString1Async(string opString1, global::Ice.Current current = null);
+
             public abstract global::System.Threading.Tasks.Task shutdownAsync(global::Ice.Current current = null);
 
             public abstract global::System.Threading.Tasks.Task<bool> supportsCompressAsync(global::Ice.Current current = null);
@@ -13284,8 +13286,6 @@ namespace Ice.operations.AMD
             public abstract global::System.Threading.Tasks.Task<float> opFloat1Async(float opFloat1, global::Ice.Current current = null);
 
             public abstract global::System.Threading.Tasks.Task<double> opDouble1Async(double opDouble1, global::Ice.Current current = null);
-
-            public abstract global::System.Threading.Tasks.Task<string> opString1Async(string opString1, global::Ice.Current current = null);
 
             public abstract global::System.Threading.Tasks.Task<string[]> opStringS1Async(string[] opStringS1, global::Ice.Current current = null);
 
