@@ -68,7 +68,7 @@ classdef LocatorRegistryPrx < Ice.ObjectPrx
             %   adapterId (char) - The adapter id.
             %   replicaGroupId (char) - The replica group id.
             %   proxy (Ice.ObjectPrx) - The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-            %     endpoints. TThe proxy can be null, typically during adapter deactivation.
+            %     endpoints. The proxy can be null, typically during adapter deactivation.
             %   context (containers.Map) - Optional request context.
             %
             % Exceptions:
@@ -92,7 +92,7 @@ classdef LocatorRegistryPrx < Ice.ObjectPrx
             %   adapterId (char) - The adapter id.
             %   replicaGroupId (char) - The replica group id.
             %   proxy (Ice.ObjectPrx) - The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-            %     endpoints. TThe proxy can be null, typically during adapter deactivation.
+            %     endpoints. The proxy can be null, typically during adapter deactivation.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.

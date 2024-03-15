@@ -42,7 +42,7 @@ public interface LocatorRegistry extends Object
      * @param adapterId The adapter id.
      * @param replicaGroupId The replica group id.
      * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-     * endpoints. TThe proxy can be null, typically during adapter deactivation.
+     * endpoints. The proxy can be null, typically during adapter deactivation.
      * @param current The Current object for the invocation.
      * @return A completion stage that the servant will complete when the invocation completes.
      * @throws AdapterAlreadyActiveException Raised if an adapter with the same id is already active.

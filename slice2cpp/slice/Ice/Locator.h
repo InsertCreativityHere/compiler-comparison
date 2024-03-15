@@ -260,7 +260,7 @@ public:
      * @param adapterId The adapter id.
      * @param replicaGroupId The replica group id.
      * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-     * endpoints. TThe proxy can be null, typically during adapter deactivation.
+     * endpoints. The proxy can be null, typically during adapter deactivation.
      * @param context The Context map to send with the invocation.
      * @throws Ice::AdapterAlreadyActiveException Raised if an adapter with the same id is already active.
      * @throws Ice::AdapterNotFoundException Raised if the adapter cannot be found, or if the locator only allows
@@ -275,7 +275,7 @@ public:
      * @param adapterId The adapter id.
      * @param replicaGroupId The replica group id.
      * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-     * endpoints. TThe proxy can be null, typically during adapter deactivation.
+     * endpoints. The proxy can be null, typically during adapter deactivation.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -286,7 +286,7 @@ public:
      * @param adapterId The adapter id.
      * @param replicaGroupId The replica group id.
      * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-     * endpoints. TThe proxy can be null, typically during adapter deactivation.
+     * endpoints. The proxy can be null, typically during adapter deactivation.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -740,7 +740,7 @@ public:
      * @param adapterId The adapter id.
      * @param replicaGroupId The replica group id.
      * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-     * endpoints. TThe proxy can be null, typically during adapter deactivation.
+     * endpoints. The proxy can be null, typically during adapter deactivation.
      * @param response The response callback.
      * @param exception The exception callback.
      * @param current The Current object for the invocation.

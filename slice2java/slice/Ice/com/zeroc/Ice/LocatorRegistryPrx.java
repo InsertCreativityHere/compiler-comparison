@@ -125,7 +125,7 @@ public interface LocatorRegistryPrx extends ObjectPrx
      * @param adapterId The adapter id.
      * @param replicaGroupId The replica group id.
      * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-     * endpoints. TThe proxy can be null, typically during adapter deactivation.
+     * endpoints. The proxy can be null, typically during adapter deactivation.
      * @throws AdapterAlreadyActiveException Raised if an adapter with the same id is already active.
      * @throws AdapterNotFoundException Raised if the adapter cannot be found, or if the locator only allows
      * registered adapters to set their active proxy and the adapter is not registered with the locator.
@@ -145,7 +145,7 @@ public interface LocatorRegistryPrx extends ObjectPrx
      * @param adapterId The adapter id.
      * @param replicaGroupId The replica group id.
      * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-     * endpoints. TThe proxy can be null, typically during adapter deactivation.
+     * endpoints. The proxy can be null, typically during adapter deactivation.
      * @param context The Context map to send with the invocation.
      * @throws AdapterAlreadyActiveException Raised if an adapter with the same id is already active.
      * @throws AdapterNotFoundException Raised if the adapter cannot be found, or if the locator only allows
@@ -185,7 +185,7 @@ public interface LocatorRegistryPrx extends ObjectPrx
      * @param adapterId The adapter id.
      * @param replicaGroupId The replica group id.
      * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-     * endpoints. TThe proxy can be null, typically during adapter deactivation.
+     * endpoints. The proxy can be null, typically during adapter deactivation.
      * @return A future that will be completed when the invocation completes.
      **/
     default java.util.concurrent.CompletableFuture<Void> setReplicatedAdapterDirectProxyAsync(String adapterId, String replicaGroupId, ObjectPrx proxy)
@@ -198,7 +198,7 @@ public interface LocatorRegistryPrx extends ObjectPrx
      * @param adapterId The adapter id.
      * @param replicaGroupId The replica group id.
      * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-     * endpoints. TThe proxy can be null, typically during adapter deactivation.
+     * endpoints. The proxy can be null, typically during adapter deactivation.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
      **/

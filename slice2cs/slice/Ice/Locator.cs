@@ -502,7 +502,7 @@ namespace Ice
         /// <param name="replicaGroupId">The replica group id.
         ///  </param>
         /// <param name="proxy">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-        ///  endpoints. TThe proxy can be null, typically during adapter deactivation.
+        ///  endpoints. The proxy can be null, typically during adapter deactivation.
         ///  </param>
         /// <exception name="AdapterNotFoundException">Raised if the adapter cannot be found, or if the locator only allows
         ///  registered adapters to set their active proxy and the adapter is not registered with the locator.
@@ -523,7 +523,7 @@ namespace Ice
         /// <param name="replicaGroupId">The replica group id.
         ///  </param>
         /// <param name="proxy">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-        ///  endpoints. TThe proxy can be null, typically during adapter deactivation.
+        ///  endpoints. The proxy can be null, typically during adapter deactivation.
         ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -664,7 +664,7 @@ namespace Ice
         /// <param name="replicaGroupId">The replica group id.
         ///  </param>
         /// <param name="proxy">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-        ///  endpoints. TThe proxy can be null, typically during adapter deactivation.
+        ///  endpoints. The proxy can be null, typically during adapter deactivation.
         ///  </param>
         /// <param name="current">The Current object for the invocation.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>

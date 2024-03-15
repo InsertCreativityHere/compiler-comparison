@@ -324,7 +324,7 @@ if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
         Arguments:
         adapterId -- The adapter id.
         replicaGroupId -- The replica group id.
-        proxy -- The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter endpoints. TThe proxy can be null, typically during adapter deactivation.
+        proxy -- The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter endpoints. The proxy can be null, typically during adapter deactivation.
         context -- The request context for the invocation.
         Throws:
         AdapterAlreadyActiveException -- Raised if an adapter with the same id is already active.
@@ -339,7 +339,7 @@ if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
         Arguments:
         adapterId -- The adapter id.
         replicaGroupId -- The replica group id.
-        proxy -- The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter endpoints. TThe proxy can be null, typically during adapter deactivation.
+        proxy -- The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter endpoints. The proxy can be null, typically during adapter deactivation.
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
@@ -418,7 +418,7 @@ if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
             Arguments:
             adapterId -- The adapter id.
             replicaGroupId -- The replica group id.
-            proxy -- The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter endpoints. TThe proxy can be null, typically during adapter deactivation.
+            proxy -- The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter endpoints. The proxy can be null, typically during adapter deactivation.
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
             Throws:

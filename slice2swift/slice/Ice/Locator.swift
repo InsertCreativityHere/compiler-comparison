@@ -694,7 +694,7 @@ public extension LocatorRegistryPrx {
     /// - parameter replicaGroupId: `Swift.String` The replica group id.
     ///
     /// - parameter proxy: `ObjectPrx?` The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-    /// endpoints. TThe proxy can be null, typically during adapter deactivation.
+    /// endpoints. The proxy can be null, typically during adapter deactivation.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -736,7 +736,7 @@ public extension LocatorRegistryPrx {
     /// - parameter replicaGroupId: `Swift.String` The replica group id.
     ///
     /// - parameter proxy: `ObjectPrx?` The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-    /// endpoints. TThe proxy can be null, typically during adapter deactivation.
+    /// endpoints. The proxy can be null, typically during adapter deactivation.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -1099,7 +1099,7 @@ public protocol LocatorRegistry {
     /// - parameter replicaGroupId: `Swift.String` The replica group id.
     ///
     /// - parameter proxy: `ObjectPrx?` The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-    /// endpoints. TThe proxy can be null, typically during adapter deactivation.
+    /// endpoints. The proxy can be null, typically during adapter deactivation.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
