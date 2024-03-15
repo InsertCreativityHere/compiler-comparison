@@ -165,5 +165,5 @@ public class ObjectInfo implements java.lang.Cloneable,
     private static final ObjectInfo _nullMarshalValue = new ObjectInfo();
 
     /** @hidden */
-    public static final long serialVersionUID = -6139434458698805013L;
+    public static final long serialVersionUID = -78690938822794793L;
 }

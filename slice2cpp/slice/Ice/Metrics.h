@@ -418,7 +418,7 @@ public:
      * The total number of objects observed by this metrics. This includes the number of currently observed objects
      * and the number of objects observed in the past.
      */
-    ::std::int64_t total = 0LL;
+    ::std::int64_t total = INT64_C(0);
     /**
      * The number of objects currently observed by this metrics.
      */
@@ -427,7 +427,7 @@ public:
      * The sum of the lifetime of each observed objects. This does not include the lifetime of objects which are
      * currently observed, only the objects observed in the past.
      */
-    ::std::int64_t totalLifetime = 0LL;
+    ::std::int64_t totalLifetime = INT64_C(0);
     /**
      * The number of failures observed.
      */
@@ -606,11 +606,11 @@ public:
     /**
      * The size of the dispatch. This corresponds to the size of the marshalled input parameters.
      */
-    ::std::int64_t size = 0LL;
+    ::std::int64_t size = INT64_C(0);
     /**
      * The size of the dispatch reply. This corresponds to the size of the marshalled output and return parameters.
      */
-    ::std::int64_t replySize = 0LL;
+    ::std::int64_t replySize = INT64_C(0);
 };
 
 /**
@@ -664,11 +664,11 @@ public:
     /**
      * The size of the invocation. This corresponds to the size of the marshalled input parameters.
      */
-    ::std::int64_t size = 0LL;
+    ::std::int64_t size = INT64_C(0);
     /**
      * The size of the invocation reply. This corresponds to the size of the marshalled output and return parameters.
      */
-    ::std::int64_t replySize = 0LL;
+    ::std::int64_t replySize = INT64_C(0);
 };
 
 /**
@@ -882,11 +882,11 @@ public:
     /**
      * The number of bytes received by the connection.
      */
-    ::std::int64_t receivedBytes = 0LL;
+    ::std::int64_t receivedBytes = INT64_C(0);
     /**
      * The number of bytes sent by the connection.
      */
-    ::std::int64_t sentBytes = 0LL;
+    ::std::int64_t sentBytes = INT64_C(0);
 };
 
 using Ice::operator<;

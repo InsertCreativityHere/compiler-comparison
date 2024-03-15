@@ -224,5 +224,5 @@ public class SSLInfo implements java.lang.Cloneable,
     private static final SSLInfo _nullMarshalValue = new SSLInfo();
 
     /** @hidden */
-    public static final long serialVersionUID = -4795642936490149899L;
+    public static final long serialVersionUID = -1288305707114071051L;
 }

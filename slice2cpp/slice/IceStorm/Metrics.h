@@ -102,11 +102,11 @@ public:
     /**
      * Number of events published on the topic by publishers.
      */
-    ::std::int64_t published = 0LL;
+    ::std::int64_t published = INT64_C(0);
     /**
      * Number of events forwarded on the topic by IceStorm topic links.
      */
-    ::std::int64_t forwarded = 0LL;
+    ::std::int64_t forwarded = INT64_C(0);
 };
 
 /// \cond INTERNAL
@@ -172,7 +172,7 @@ public:
     /**
      * Number of forwarded events.
      */
-    ::std::int64_t delivered = 0LL;
+    ::std::int64_t delivered = INT64_C(0);
 };
 
 }

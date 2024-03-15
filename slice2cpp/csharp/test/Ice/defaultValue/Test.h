@@ -59,7 +59,7 @@ constexpr ::std::int16_t ConstShort = 16000;
 
 constexpr ::std::int32_t ConstInt = 3;
 
-constexpr ::std::int64_t ConstLong = 4LL;
+constexpr ::std::int64_t ConstLong = INT64_C(4);
 
 constexpr float ConstFloat = 5.1F;
 
@@ -81,7 +81,7 @@ constexpr ::Test::Nested::Color ConstNestedColor3 = ::Test::Nested::Color::blue;
 
 constexpr ::std::int32_t ConstZeroI = 0;
 
-constexpr ::std::int64_t ConstZeroL = 0LL;
+constexpr ::std::int64_t ConstZeroL = INT64_C(0);
 
 constexpr float ConstZeroF = 0.0F;
 
@@ -131,7 +131,7 @@ struct Struct1
     ::std::uint8_t b = 254;
     ::std::int16_t s = 16000;
     ::std::int32_t i = 3;
-    ::std::int64_t l = 4LL;
+    ::std::int64_t l = INT64_C(4);
     float f = 5.1F;
     double d = 6.2;
     ::std::string str = "foo \\ \"bar\n \r\n\t\v\f\a\b\? \a \a";
@@ -143,7 +143,7 @@ struct Struct1
     ::Test::Nested::Color nc3 = ::Test::Nested::Color::blue;
     ::std::string noDefault;
     ::std::int32_t zeroI = 0;
-    ::std::int64_t zeroL = 0LL;
+    ::std::int64_t zeroL = INT64_C(0);
     float zeroF = 0.0F;
     float zeroDotF = 0.0F;
     double zeroD = 0;
@@ -199,7 +199,7 @@ struct Struct3
     ::std::uint8_t b = 1;
     ::std::int16_t s = 2;
     ::std::int32_t i = 3;
-    ::std::int64_t l = 4LL;
+    ::std::int64_t l = INT64_C(4);
     float f = 5.1F;
     double d = 6.2;
     ::Test::Color c1 = ::Test::Color::red;
@@ -209,7 +209,7 @@ struct Struct3
     ::Test::Nested::Color nc2 = ::Test::Nested::Color::green;
     ::Test::Nested::Color nc3 = ::Test::Nested::Color::blue;
     ::std::int32_t zeroI = 0;
-    ::std::int64_t zeroL = 0LL;
+    ::std::int64_t zeroL = INT64_C(0);
     float zeroF = 0.0F;
     float zeroDotF = 0.0F;
     double zeroD = 0;
@@ -232,7 +232,7 @@ struct Struct4
     ::std::uint8_t b = 1;
     ::std::int16_t s = 2;
     ::std::int32_t i = 3;
-    ::std::int64_t l = 4LL;
+    ::std::int64_t l = INT64_C(4);
     float f = 5.1F;
     double d = 6.2;
     ::Test::Color c1 = ::Test::Color::red;
@@ -242,7 +242,7 @@ struct Struct4
     ::Test::Nested::Color nc2 = ::Test::Nested::Color::green;
     ::Test::Nested::Color nc3 = ::Test::Nested::Color::blue;
     ::std::int32_t zeroI = 0;
-    ::std::int64_t zeroL = 0LL;
+    ::std::int64_t zeroL = INT64_C(0);
     float zeroF = 0.0F;
     float zeroDotF = 0.0F;
     double zeroD = 0;
@@ -311,13 +311,13 @@ public:
     ::std::uint8_t b = 1;
     ::std::int16_t s = 2;
     ::std::int32_t i = 3;
-    ::std::int64_t l = 4LL;
+    ::std::int64_t l = INT64_C(4);
     float f = 5.1F;
     double d = 6.2;
     ::std::string str = "foo \\ \"bar\n \r\n\t\v\f\a\b\? \a \a";
     ::std::string noDefault;
     ::std::int32_t zeroI = 0;
-    ::std::int64_t zeroL = 0LL;
+    ::std::int64_t zeroL = INT64_C(0);
     float zeroF = 0.0F;
     float zeroDotF = 0.0F;
     double zeroD = 0;
@@ -427,13 +427,13 @@ public:
     ::std::uint8_t b = 1;
     ::std::int16_t s = 2;
     ::std::int32_t i = 3;
-    ::std::int64_t l = 4LL;
+    ::std::int64_t l = INT64_C(4);
     float f = 5.1F;
     double d = 6.2;
     ::std::string str = "foo \\ \"bar\n \r\n\t\v\f\a\b\? \a \a";
     ::std::string noDefault;
     ::std::int32_t zeroI = 0;
-    ::std::int64_t zeroL = 0LL;
+    ::std::int64_t zeroL = INT64_C(0);
     float zeroF = 0.0F;
     float zeroDotF = 0.0F;
     double zeroD = 0;
@@ -549,13 +549,13 @@ public:
     ::std::uint8_t b = 1;
     ::std::int16_t s = 2;
     ::std::int32_t i = 3;
-    ::std::int64_t l = 4LL;
+    ::std::int64_t l = INT64_C(4);
     float f = 5.1F;
     double d = 6.2;
     ::std::string str = "foo bar";
     ::std::string noDefault;
     ::std::int32_t zeroI = 0;
-    ::std::int64_t zeroL = 0LL;
+    ::std::int64_t zeroL = INT64_C(0);
     float zeroF = 0.0F;
     float zeroDotF = 0.0F;
     double zeroD = 0;
@@ -569,13 +569,13 @@ struct StructProperty
     ::std::uint8_t b = 1;
     ::std::int16_t s = 2;
     ::std::int32_t i = 3;
-    ::std::int64_t l = 4LL;
+    ::std::int64_t l = INT64_C(4);
     float f = 5.1F;
     double d = 6.2;
     ::std::string str = "foo bar";
     ::std::string noDefault;
     ::std::int32_t zeroI = 0;
-    ::std::int64_t zeroL = 0LL;
+    ::std::int64_t zeroL = INT64_C(0);
     float zeroF = 0.0F;
     float zeroDotF = 0.0F;
     double zeroD = 0;
@@ -643,13 +643,13 @@ public:
     ::std::uint8_t b = 1;
     ::std::int16_t s = 2;
     ::std::int32_t i = 3;
-    ::std::int64_t l = 4LL;
+    ::std::int64_t l = INT64_C(4);
     float f = 5.1F;
     double d = 6.2;
     ::std::string str = "foo bar";
     ::std::string noDefault;
     ::std::int32_t zeroI = 0;
-    ::std::int64_t zeroL = 0LL;
+    ::std::int64_t zeroL = INT64_C(0);
     float zeroF = 0.0F;
     float zeroDotF = 0.0F;
     double zeroD = 0;

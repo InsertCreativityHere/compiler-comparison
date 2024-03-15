@@ -36,7 +36,7 @@ constexpr ::std::int16_t ShortConst1 = 20;
 
 constexpr ::std::int32_t IntConst1 = 30;
 
-constexpr ::std::int64_t LongConst1 = 40LL;
+constexpr ::std::int64_t LongConst1 = INT64_C(40);
 
 constexpr ::std::uint8_t ByteConst2 = 126;
 
@@ -44,7 +44,7 @@ constexpr ::std::int16_t ShortConst2 = 32766;
 
 constexpr ::std::int32_t IntConst2 = 2147483647;
 
-constexpr ::std::int64_t LongConst2 = 2147483646LL;
+constexpr ::std::int64_t LongConst2 = INT64_C(2147483646);
 
 enum class ByteEnum : unsigned char
 {
