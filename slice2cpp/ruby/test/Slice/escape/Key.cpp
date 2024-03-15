@@ -239,11 +239,69 @@ BEGIN::next::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+BEGIN::next::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+BEGIN::next::ice_throw() const
+{
+    throw *this;
+}
+
+void
+BEGIN::next::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<next, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+BEGIN::next::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<next, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
 ::std::string_view
 BEGIN::nil::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::BEGIN::nil";
     return typeId;
+}
+
+::std::string
+BEGIN::nil::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+BEGIN::nil::ice_throw() const
+{
+    throw *this;
+}
+
+void
+BEGIN::nil::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<nil, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    next::_writeImpl(ostr);
+}
+
+void
+BEGIN::nil::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<nil, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    next::_readImpl(istr);
 }
 
 ::std::vector<::std::string>

@@ -114,13 +114,10 @@ protected:
 namespace Test
 {
 
-class ICE_CLASS(LIBRARY_TEST_API) UserError : public ::Ice::UserExceptionHelper<UserError, ::Ice::UserException>
+class ICE_CLASS(LIBRARY_TEST_API) UserError : public ::Ice::UserException
 {
 public:
-
-    UserError() noexcept = default;
-
-    UserError(const UserError&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -145,7 +142,16 @@ public:
      */
     ICE_MEMBER(LIBRARY_TEST_API) static ::std::string_view ice_staticId() noexcept;
 
+    ICE_MEMBER(LIBRARY_TEST_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(LIBRARY_TEST_API) void ice_throw() const override;
+
     ::std::string message;
+
+protected:
+    ICE_MEMBER(LIBRARY_TEST_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(LIBRARY_TEST_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 /// \cond INTERNAL

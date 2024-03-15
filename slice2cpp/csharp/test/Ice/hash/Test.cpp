@@ -54,11 +54,67 @@ Test::BaseException::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test::BaseException::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::BaseException::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test::BaseException::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ostr->endSlice();
+}
+
+void
+Test::BaseException::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    istr->endSlice();
+}
+
 ::std::string_view
 Test::InvalidPointException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::InvalidPointException";
     return typeId;
+}
+
+::std::string
+Test::InvalidPointException::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::InvalidPointException::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test::InvalidPointException::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<InvalidPointException, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    BaseException::_writeImpl(ostr);
+}
+
+void
+Test::InvalidPointException::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<InvalidPointException, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    BaseException::_readImpl(istr);
 }
 
 ::std::string_view
@@ -68,11 +124,69 @@ Test::InvalidLengthException::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test::InvalidLengthException::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::InvalidLengthException::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test::InvalidLengthException::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<InvalidLengthException, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    BaseException::_writeImpl(ostr);
+}
+
+void
+Test::InvalidLengthException::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<InvalidLengthException, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    BaseException::_readImpl(istr);
+}
+
 ::std::string_view
 Test::OtherException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::OtherException";
     return typeId;
+}
+
+::std::string
+Test::OtherException::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::OtherException::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test::OtherException::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<OtherException, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::OtherException::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<OtherException, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
 }
 
 ::std::string_view

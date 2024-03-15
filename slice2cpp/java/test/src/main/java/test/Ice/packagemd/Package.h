@@ -130,13 +130,10 @@ public:
     ::std::int64_t l;
 };
 
-class E1 : public ::Ice::UserExceptionHelper<E1, ::Ice::UserException>
+class E1 : public ::Ice::UserException
 {
 public:
-
-    E1() noexcept = default;
-
-    E1(const E1&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -161,22 +158,28 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::int32_t i;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
-class E2 : public ::Ice::UserExceptionHelper<E2, E1>
+class E2 : public E1
 {
 public:
-
-    E2() noexcept = default;
-
-    E2(const E2&) = default;
+    using E1::E1;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     E2(::std::int32_t i, ::std::int64_t l) noexcept :
-        ::Ice::UserExceptionHelper<E2, E1>(i),
+        E1(i),
         l(l)
     {
     }
@@ -196,7 +199,16 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::int64_t l;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 }
@@ -277,13 +289,10 @@ public:
     ::std::int64_t l;
 };
 
-class E1 : public ::Ice::UserExceptionHelper<E1, ::Ice::UserException>
+class E1 : public ::Ice::UserException
 {
 public:
-
-    E1() noexcept = default;
-
-    E1(const E1&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -308,22 +317,28 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::int32_t i;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
-class E2 : public ::Ice::UserExceptionHelper<E2, E1>
+class E2 : public E1
 {
 public:
-
-    E2() noexcept = default;
-
-    E2(const E2&) = default;
+    using E1::E1;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     E2(::std::int32_t i, ::std::int64_t l) noexcept :
-        ::Ice::UserExceptionHelper<E2, E1>(i),
+        E1(i),
         l(l)
     {
     }
@@ -343,7 +358,16 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::int64_t l;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 }

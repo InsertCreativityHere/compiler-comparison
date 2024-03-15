@@ -158,6 +158,32 @@ Test::BadEncodingException::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test::BadEncodingException::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::BadEncodingException::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test::BadEncodingException::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ostr->endSlice();
+}
+
+void
+Test::BadEncodingException::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    istr->endSlice();
+}
+
 ::std::vector<::std::string>
 Test::MyObject::ice_ids(const ::Ice::Current&) const
 {

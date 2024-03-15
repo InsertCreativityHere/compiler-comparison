@@ -328,11 +328,67 @@ Test1::WstringException::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test1::WstringException::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test1::WstringException::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test1::WstringException::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<WstringException, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test1::WstringException::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<WstringException, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
 ::std::string_view
 Test2::WstringException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test2::WstringException";
     return typeId;
+}
+
+::std::string
+Test2::WstringException::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test2::WstringException::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test2::WstringException::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<WstringException, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test2::WstringException::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<WstringException, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
 }
 
 ::std::vector<::std::string>

@@ -101,6 +101,32 @@ IceGrid::UserAccountNotFoundException::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+IceGrid::UserAccountNotFoundException::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+IceGrid::UserAccountNotFoundException::ice_throw() const
+{
+    throw *this;
+}
+
+void
+IceGrid::UserAccountNotFoundException::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ostr->endSlice();
+}
+
+void
+IceGrid::UserAccountNotFoundException::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    istr->endSlice();
+}
+
 ::std::vector<::std::string>
 IceGrid::UserAccountMapper::ice_ids(const ::Ice::Current&) const
 {

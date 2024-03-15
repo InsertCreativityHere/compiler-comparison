@@ -66,9 +66,67 @@ Test::BaseEx::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test::BaseEx::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::BaseEx::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test::BaseEx::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<BaseEx, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::BaseEx::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<BaseEx, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
 ::std::string_view
 Test::DerivedEx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::DerivedEx";
     return typeId;
+}
+
+::std::string
+Test::DerivedEx::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::DerivedEx::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test::DerivedEx::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<DerivedEx, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    BaseEx::_writeImpl(ostr);
+}
+
+void
+Test::DerivedEx::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<DerivedEx, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    BaseEx::_readImpl(istr);
 }

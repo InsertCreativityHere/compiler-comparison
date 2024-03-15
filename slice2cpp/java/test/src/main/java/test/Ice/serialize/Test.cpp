@@ -186,6 +186,18 @@ Test::Ex::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test::Ex::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::Ex::ice_throw() const
+{
+    throw *this;
+}
+
 /// \cond STREAM
 bool
 Test::Ex::_usesClasses() const
@@ -193,6 +205,22 @@ Test::Ex::_usesClasses() const
     return true;
 }
 /// \endcond
+
+void
+Test::Ex::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<Ex, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::Ex::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<Ex, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
 
 ::std::vector<::std::string>
 Test::Initial::ice_ids(const ::Ice::Current&) const

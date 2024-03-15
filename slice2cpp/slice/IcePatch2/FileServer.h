@@ -259,28 +259,25 @@ namespace IcePatch2
  * A <code>partition</code> argument was not in the range 0-255.
  * \headerfile IcePatch2/IcePatch2.h
  */
-class ICE_CLASS(ICEPATCH2_API) PartitionOutOfRangeException : public ::Ice::UserExceptionHelper<PartitionOutOfRangeException, ::Ice::UserException>
+class ICE_CLASS(ICEPATCH2_API) PartitionOutOfRangeException : public ::Ice::UserException
 {
 public:
-
-    PartitionOutOfRangeException() noexcept = default;
-
-    PartitionOutOfRangeException(const PartitionOutOfRangeException&) = default;
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<> ice_tuple() const
-    {
-        return std::tie();
-    }
+    using ::Ice::UserException::UserException;
 
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
     ICE_MEMBER(ICEPATCH2_API) static ::std::string_view ice_staticId() noexcept;
+
+    ICE_MEMBER(ICEPATCH2_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICEPATCH2_API) void ice_throw() const override;
+
+protected:
+    ICE_MEMBER(ICEPATCH2_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICEPATCH2_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 /// \cond INTERNAL
@@ -291,13 +288,10 @@ static PartitionOutOfRangeException _iceS_PartitionOutOfRangeException_init;
  * This exception is raised if a file's contents cannot be read.
  * \headerfile IcePatch2/IcePatch2.h
  */
-class ICE_CLASS(ICEPATCH2_API) FileAccessException : public ::Ice::UserExceptionHelper<FileAccessException, ::Ice::UserException>
+class ICE_CLASS(ICEPATCH2_API) FileAccessException : public ::Ice::UserException
 {
 public:
-
-    FileAccessException() noexcept = default;
-
-    FileAccessException(const FileAccessException&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -323,10 +317,19 @@ public:
      */
     ICE_MEMBER(ICEPATCH2_API) static ::std::string_view ice_staticId() noexcept;
 
+    ICE_MEMBER(ICEPATCH2_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICEPATCH2_API) void ice_throw() const override;
+
     /**
      * An explanation of the reason for the failure.
      */
     ::std::string reason;
+
+protected:
+    ICE_MEMBER(ICEPATCH2_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICEPATCH2_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 /**
@@ -334,30 +337,18 @@ public:
  * versions of the operations instead.
  * \headerfile IcePatch2/IcePatch2.h
  */
-class ICE_CLASS(ICEPATCH2_API) FileSizeRangeException : public ::Ice::UserExceptionHelper<FileSizeRangeException, FileAccessException>
+class ICE_CLASS(ICEPATCH2_API) FileSizeRangeException : public FileAccessException
 {
 public:
-
-    FileSizeRangeException() noexcept = default;
-
-    FileSizeRangeException(const FileSizeRangeException&) = default;
+    using FileAccessException::FileAccessException;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param reason An explanation of the reason for the failure.
      */
     FileSizeRangeException(::std::string reason) noexcept :
-        ::Ice::UserExceptionHelper<FileSizeRangeException, FileAccessException>(::std::move(reason))
+        FileAccessException(::std::move(reason))
     {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::string&> ice_tuple() const
-    {
-        return std::tie(reason);
     }
 
     /**
@@ -365,6 +356,15 @@ public:
      * @return The fully-scoped type ID.
      */
     ICE_MEMBER(ICEPATCH2_API) static ::std::string_view ice_staticId() noexcept;
+
+    ICE_MEMBER(ICEPATCH2_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICEPATCH2_API) void ice_throw() const override;
+
+protected:
+    ICE_MEMBER(ICEPATCH2_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICEPATCH2_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 }

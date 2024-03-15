@@ -45,3 +45,29 @@ Core::ArgumentException::ice_staticId() noexcept
     static constexpr ::std::string_view typeId = "::Core::ArgumentException";
     return typeId;
 }
+
+::std::string
+Core::ArgumentException::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Core::ArgumentException::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Core::ArgumentException::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ostr->endSlice();
+}
+
+void
+Core::ArgumentException::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    istr->endSlice();
+}

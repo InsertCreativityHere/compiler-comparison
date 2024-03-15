@@ -322,13 +322,10 @@ public:
     ::Test::StringMyClassD d;
 };
 
-class MyException : public ::Ice::UserExceptionHelper<MyException, ::Ice::UserException>
+class MyException : public ::Ice::UserException
 {
 public:
-
-    MyException() noexcept = default;
-
-    MyException(const MyException&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -353,11 +350,20 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     /// \cond STREAM
-    virtual bool _usesClasses() const override;
+    bool _usesClasses() const override;
     /// \endcond
 
     ::std::shared_ptr<::Test::MyClass> c;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 using Ice::operator<;

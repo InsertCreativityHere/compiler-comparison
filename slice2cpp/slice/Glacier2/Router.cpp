@@ -322,6 +322,32 @@ Glacier2::SessionNotExistException::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Glacier2::SessionNotExistException::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Glacier2::SessionNotExistException::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Glacier2::SessionNotExistException::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ostr->endSlice();
+}
+
+void
+Glacier2::SessionNotExistException::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    istr->endSlice();
+}
+
 ::std::vector<::std::string>
 Glacier2::Router::ice_ids(const ::Ice::Current&) const
 {

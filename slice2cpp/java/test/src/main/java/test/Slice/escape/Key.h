@@ -389,13 +389,10 @@ public:
 static _cpp_else _iceS_else_init;
 /// \endcond
 
-class hashCode : public ::Ice::UserExceptionHelper<hashCode, ::Ice::UserException>
+class hashCode : public ::Ice::UserException
 {
 public:
-
-    hashCode() noexcept = default;
-
-    hashCode(const hashCode&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -420,22 +417,28 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::int32_t _cpp_if;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
-class import : public ::Ice::UserExceptionHelper<import, hashCode>
+class import : public hashCode
 {
 public:
-
-    import() noexcept = default;
-
-    import(const import&) = default;
+    using hashCode::hashCode;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     import(::std::int32_t _cpp_if, ::std::int32_t instanceof, ::std::int32_t native) noexcept :
-        ::Ice::UserExceptionHelper<import, hashCode>(_cpp_if),
+        hashCode(_cpp_if),
         instanceof(instanceof),
         native(native)
     {
@@ -456,8 +459,17 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::int32_t instanceof;
     ::std::int32_t native;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 using Ice::operator<;

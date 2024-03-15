@@ -357,28 +357,25 @@ namespace IceBox
  * This exception is thrown if an attempt is made to start an already-started service.
  * \headerfile IceBox/IceBox.h
  */
-class ICE_CLASS(ICEBOX_API) AlreadyStartedException : public ::Ice::UserExceptionHelper<AlreadyStartedException, ::Ice::UserException>
+class ICE_CLASS(ICEBOX_API) AlreadyStartedException : public ::Ice::UserException
 {
 public:
-
-    AlreadyStartedException() noexcept = default;
-
-    AlreadyStartedException(const AlreadyStartedException&) = default;
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<> ice_tuple() const
-    {
-        return std::tie();
-    }
+    using ::Ice::UserException::UserException;
 
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
     ICE_MEMBER(ICEBOX_API) static ::std::string_view ice_staticId() noexcept;
+
+    ICE_MEMBER(ICEBOX_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICEBOX_API) void ice_throw() const override;
+
+protected:
+    ICE_MEMBER(ICEBOX_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICEBOX_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 /// \cond INTERNAL
@@ -389,56 +386,50 @@ static AlreadyStartedException _iceS_AlreadyStartedException_init;
  * This exception is thrown if an attempt is made to stop an already-stopped service.
  * \headerfile IceBox/IceBox.h
  */
-class ICE_CLASS(ICEBOX_API) AlreadyStoppedException : public ::Ice::UserExceptionHelper<AlreadyStoppedException, ::Ice::UserException>
+class ICE_CLASS(ICEBOX_API) AlreadyStoppedException : public ::Ice::UserException
 {
 public:
-
-    AlreadyStoppedException() noexcept = default;
-
-    AlreadyStoppedException(const AlreadyStoppedException&) = default;
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<> ice_tuple() const
-    {
-        return std::tie();
-    }
+    using ::Ice::UserException::UserException;
 
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
     ICE_MEMBER(ICEBOX_API) static ::std::string_view ice_staticId() noexcept;
+
+    ICE_MEMBER(ICEBOX_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICEBOX_API) void ice_throw() const override;
+
+protected:
+    ICE_MEMBER(ICEBOX_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICEBOX_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 /**
  * This exception is thrown if a service name does not refer to an existing service.
  * \headerfile IceBox/IceBox.h
  */
-class ICE_CLASS(ICEBOX_API) NoSuchServiceException : public ::Ice::UserExceptionHelper<NoSuchServiceException, ::Ice::UserException>
+class ICE_CLASS(ICEBOX_API) NoSuchServiceException : public ::Ice::UserException
 {
 public:
-
-    NoSuchServiceException() noexcept = default;
-
-    NoSuchServiceException(const NoSuchServiceException&) = default;
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<> ice_tuple() const
-    {
-        return std::tie();
-    }
+    using ::Ice::UserException::UserException;
 
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
     ICE_MEMBER(ICEBOX_API) static ::std::string_view ice_staticId() noexcept;
+
+    ICE_MEMBER(ICEBOX_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICEBOX_API) void ice_throw() const override;
+
+protected:
+    ICE_MEMBER(ICEBOX_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICEBOX_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 }

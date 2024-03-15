@@ -577,11 +577,67 @@ IceStorm::LinkExists::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+IceStorm::LinkExists::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+IceStorm::LinkExists::ice_throw() const
+{
+    throw *this;
+}
+
+void
+IceStorm::LinkExists::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<LinkExists, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+IceStorm::LinkExists::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<LinkExists, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
 ::std::string_view
 IceStorm::NoSuchLink::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceStorm::NoSuchLink";
     return typeId;
+}
+
+::std::string
+IceStorm::NoSuchLink::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+IceStorm::NoSuchLink::ice_throw() const
+{
+    throw *this;
+}
+
+void
+IceStorm::NoSuchLink::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<NoSuchLink, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+IceStorm::NoSuchLink::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<NoSuchLink, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
 }
 
 ::std::string_view
@@ -591,11 +647,65 @@ IceStorm::AlreadySubscribed::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+IceStorm::AlreadySubscribed::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+IceStorm::AlreadySubscribed::ice_throw() const
+{
+    throw *this;
+}
+
+void
+IceStorm::AlreadySubscribed::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ostr->endSlice();
+}
+
+void
+IceStorm::AlreadySubscribed::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    istr->endSlice();
+}
+
 ::std::string_view
 IceStorm::InvalidSubscriber::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceStorm::InvalidSubscriber";
     return typeId;
+}
+
+::std::string
+IceStorm::InvalidSubscriber::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+IceStorm::InvalidSubscriber::ice_throw() const
+{
+    throw *this;
+}
+
+void
+IceStorm::InvalidSubscriber::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<InvalidSubscriber, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+IceStorm::InvalidSubscriber::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<InvalidSubscriber, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
 }
 
 ::std::string_view
@@ -605,6 +715,34 @@ IceStorm::BadQoS::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+IceStorm::BadQoS::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+IceStorm::BadQoS::ice_throw() const
+{
+    throw *this;
+}
+
+void
+IceStorm::BadQoS::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<BadQoS, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+IceStorm::BadQoS::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<BadQoS, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
 ::std::string_view
 IceStorm::TopicExists::ice_staticId() noexcept
 {
@@ -612,11 +750,67 @@ IceStorm::TopicExists::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+IceStorm::TopicExists::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+IceStorm::TopicExists::ice_throw() const
+{
+    throw *this;
+}
+
+void
+IceStorm::TopicExists::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<TopicExists, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+IceStorm::TopicExists::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<TopicExists, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
 ::std::string_view
 IceStorm::NoSuchTopic::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceStorm::NoSuchTopic";
     return typeId;
+}
+
+::std::string
+IceStorm::NoSuchTopic::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+IceStorm::NoSuchTopic::ice_throw() const
+{
+    throw *this;
+}
+
+void
+IceStorm::NoSuchTopic::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<NoSuchTopic, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+IceStorm::NoSuchTopic::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<NoSuchTopic, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
 }
 
 ::std::vector<::std::string>

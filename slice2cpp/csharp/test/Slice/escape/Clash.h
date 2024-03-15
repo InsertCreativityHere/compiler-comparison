@@ -320,13 +320,10 @@ struct St
     }
 };
 
-class Ex : public ::Ice::UserExceptionHelper<Ex, ::Ice::UserException>
+class Ex : public ::Ice::UserException
 {
 public:
-
-    Ex() noexcept = default;
-
-    Ex(const Ex&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -353,9 +350,18 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::int16_t istr;
     ::std::int32_t ostr;
     ::std::string cause;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 using Ice::operator<;

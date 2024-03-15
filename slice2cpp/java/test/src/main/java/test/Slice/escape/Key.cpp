@@ -195,11 +195,69 @@ abstract::hashCode::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+abstract::hashCode::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+abstract::hashCode::ice_throw() const
+{
+    throw *this;
+}
+
+void
+abstract::hashCode::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<hashCode, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+abstract::hashCode::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<hashCode, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
 ::std::string_view
 abstract::import::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::abstract::import";
     return typeId;
+}
+
+::std::string
+abstract::import::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+abstract::import::ice_throw() const
+{
+    throw *this;
+}
+
+void
+abstract::import::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<import, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    hashCode::_writeImpl(ostr);
+}
+
+void
+abstract::import::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<import, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    hashCode::_readImpl(istr);
 }
 
 ::std::vector<::std::string>

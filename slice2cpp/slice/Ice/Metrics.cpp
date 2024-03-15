@@ -358,6 +358,32 @@ IceMX::UnknownMetricsView::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+IceMX::UnknownMetricsView::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+IceMX::UnknownMetricsView::ice_throw() const
+{
+    throw *this;
+}
+
+void
+IceMX::UnknownMetricsView::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ostr->endSlice();
+}
+
+void
+IceMX::UnknownMetricsView::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    istr->endSlice();
+}
+
 ::std::string_view
 IceMX::ThreadMetrics::ice_staticId() noexcept
 {

@@ -52,11 +52,71 @@ Test::UnknownDerived::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test::UnknownDerived::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::UnknownDerived::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test::UnknownDerived::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<UnknownDerived, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    Base::_writeImpl(ostr);
+}
+
+void
+Test::UnknownDerived::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<UnknownDerived, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    Base::_readImpl(istr);
+}
+
 ::std::string_view
 Test::UnknownIntermediate::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::UnknownIntermediate";
     return typeId;
+}
+
+::std::string
+Test::UnknownIntermediate::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::UnknownIntermediate::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test::UnknownIntermediate::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<UnknownIntermediate, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    Base::_writeImpl(ostr);
+}
+
+void
+Test::UnknownIntermediate::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<UnknownIntermediate, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    Base::_readImpl(istr);
 }
 
 ::std::string_view
@@ -66,9 +126,69 @@ Test::UnknownMostDerived1::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test::UnknownMostDerived1::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::UnknownMostDerived1::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test::UnknownMostDerived1::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<UnknownMostDerived1, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    KnownIntermediate::_writeImpl(ostr);
+}
+
+void
+Test::UnknownMostDerived1::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<UnknownMostDerived1, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    KnownIntermediate::_readImpl(istr);
+}
+
 ::std::string_view
 Test::UnknownMostDerived2::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::UnknownMostDerived2";
     return typeId;
+}
+
+::std::string
+Test::UnknownMostDerived2::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::UnknownMostDerived2::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test::UnknownMostDerived2::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<UnknownMostDerived2, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    UnknownIntermediate::_writeImpl(ostr);
+}
+
+void
+Test::UnknownMostDerived2::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<UnknownMostDerived2, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    UnknownIntermediate::_readImpl(istr);
 }

@@ -1527,13 +1527,10 @@ public:
     ::std::optional<::std::string> s{"test"};
 };
 
-class OptionalException : public ::Ice::UserExceptionHelper<OptionalException, ::Ice::UserException>
+class OptionalException : public ::Ice::UserException
 {
 public:
-
-    OptionalException() noexcept = default;
-
-    OptionalException(const OptionalException&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -1561,25 +1558,31 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     bool req = false;
     ::std::optional<::std::int32_t> a = 5;
     ::std::optional<::std::string> b;
     ::std::optional<::std::shared_ptr<::Test::OneOptional>> o;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
-class DerivedException : public ::Ice::UserExceptionHelper<DerivedException, OptionalException>
+class DerivedException : public OptionalException
 {
 public:
-
-    DerivedException() noexcept = default;
-
-    DerivedException(const DerivedException&) = default;
+    using OptionalException::OptionalException;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     DerivedException(bool req, ::std::optional<::std::int32_t> a, ::std::optional<::std::string> b, ::std::optional<::std::shared_ptr<OneOptional>> o, ::std::string d1, ::std::optional<::std::string> ss, ::std::optional<::std::shared_ptr<OneOptional>> o2, ::std::string d2) noexcept :
-        ::Ice::UserExceptionHelper<DerivedException, OptionalException>(req, a, ::std::move(b), ::std::move(o)),
+        OptionalException(req, a, ::std::move(b), ::std::move(o)),
         d1(::std::move(d1)),
         ss(::std::move(ss)),
         o2(::std::move(o2)),
@@ -1602,25 +1605,31 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::string d1;
     ::std::optional<::std::string> ss{"test"};
     ::std::optional<::std::shared_ptr<::Test::OneOptional>> o2;
     ::std::string d2;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
-class RequiredException : public ::Ice::UserExceptionHelper<RequiredException, OptionalException>
+class RequiredException : public OptionalException
 {
 public:
-
-    RequiredException() noexcept = default;
-
-    RequiredException(const RequiredException&) = default;
+    using OptionalException::OptionalException;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     RequiredException(bool req, ::std::optional<::std::int32_t> a, ::std::optional<::std::string> b, ::std::optional<::std::shared_ptr<OneOptional>> o, ::std::string ss, ::std::shared_ptr<OneOptional> o2) noexcept :
-        ::Ice::UserExceptionHelper<RequiredException, OptionalException>(req, a, ::std::move(b), ::std::move(o)),
+        OptionalException(req, a, ::std::move(b), ::std::move(o)),
         ss(::std::move(ss)),
         o2(::std::move(o2))
     {
@@ -1641,12 +1650,21 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     /// \cond STREAM
-    virtual bool _usesClasses() const override;
+    bool _usesClasses() const override;
     /// \endcond
 
     ::std::string ss = "test";
     ::std::shared_ptr<::Test::OneOptional> o2;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 class OptionalWithCustom : public ::Ice::ValueHelper<OptionalWithCustom, ::Ice::Value>

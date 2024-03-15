@@ -90,6 +90,36 @@ Test::UnknownDerivedException::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test::UnknownDerivedException::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::UnknownDerivedException::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test::UnknownDerivedException::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<UnknownDerivedException, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    BaseException::_writeImpl(ostr);
+}
+
+void
+Test::UnknownDerivedException::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<UnknownDerivedException, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    BaseException::_readImpl(istr);
+}
+
 ::std::string_view
 Test::MyClass::ice_staticId() noexcept
 {
@@ -118,6 +148,18 @@ Test::PSUnknownException::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test::PSUnknownException::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::PSUnknownException::ice_throw() const
+{
+    throw *this;
+}
+
 /// \cond STREAM
 bool
 Test::PSUnknownException::_usesClasses() const
@@ -125,3 +167,21 @@ Test::PSUnknownException::_usesClasses() const
     return true;
 }
 /// \endcond
+
+void
+Test::PSUnknownException::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<PSUnknownException, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    PreservedException::_writeImpl(ostr);
+}
+
+void
+Test::PSUnknownException::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<PSUnknownException, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    PreservedException::_readImpl(istr);
+}

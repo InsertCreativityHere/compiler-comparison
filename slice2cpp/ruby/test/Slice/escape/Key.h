@@ -338,13 +338,10 @@ public:
 static display _iceS_display_init;
 /// \endcond
 
-class next : public ::Ice::UserExceptionHelper<next, ::Ice::UserException>
+class next : public ::Ice::UserException
 {
 public:
-
-    next() noexcept = default;
-
-    next(const next&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -369,22 +366,28 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::int32_t _cpp_new;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
-class nil : public ::Ice::UserExceptionHelper<nil, next>
+class nil : public next
 {
 public:
-
-    nil() noexcept = default;
-
-    nil(const nil&) = default;
+    using next::next;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     nil(::std::int32_t _cpp_new, ::std::int32_t _cpp_not, ::std::int32_t _cpp_or) noexcept :
-        ::Ice::UserExceptionHelper<nil, next>(_cpp_new),
+        next(_cpp_new),
         _cpp_not(_cpp_not),
         _cpp_or(_cpp_or)
     {
@@ -405,8 +408,17 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::int32_t _cpp_not;
     ::std::int32_t _cpp_or;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 using Ice::operator<;

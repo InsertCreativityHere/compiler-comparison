@@ -313,6 +313,32 @@ Test::TestException::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test::TestException::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::TestException::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test::TestException::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ostr->endSlice();
+}
+
+void
+Test::TestException::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    istr->endSlice();
+}
+
 ::std::vector<::std::string>
 Test::TestIntf::ice_ids(const ::Ice::Current&) const
 {

@@ -481,28 +481,25 @@ namespace Ice
  * This exception is raised if an adapter cannot be found.
  * \headerfile Ice/Ice.h
  */
-class ICE_CLASS(ICE_API) AdapterNotFoundException : public UserExceptionHelper<AdapterNotFoundException, UserException>
+class ICE_CLASS(ICE_API) AdapterNotFoundException : public UserException
 {
 public:
-
-    AdapterNotFoundException() noexcept = default;
-
-    AdapterNotFoundException(const AdapterNotFoundException&) = default;
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<> ice_tuple() const
-    {
-        return std::tie();
-    }
+    using UserException::UserException;
 
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
     ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId() noexcept;
+
+    ICE_MEMBER(ICE_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICE_API) void ice_throw() const override;
+
+protected:
+    ICE_MEMBER(ICE_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICE_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 /// \cond INTERNAL
@@ -513,112 +510,100 @@ static AdapterNotFoundException _iceS_AdapterNotFoundException_init;
  * This exception is raised if the replica group provided by the server is invalid.
  * \headerfile Ice/Ice.h
  */
-class ICE_CLASS(ICE_API) InvalidReplicaGroupIdException : public UserExceptionHelper<InvalidReplicaGroupIdException, UserException>
+class ICE_CLASS(ICE_API) InvalidReplicaGroupIdException : public UserException
 {
 public:
-
-    InvalidReplicaGroupIdException() noexcept = default;
-
-    InvalidReplicaGroupIdException(const InvalidReplicaGroupIdException&) = default;
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<> ice_tuple() const
-    {
-        return std::tie();
-    }
+    using UserException::UserException;
 
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
     ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId() noexcept;
+
+    ICE_MEMBER(ICE_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICE_API) void ice_throw() const override;
+
+protected:
+    ICE_MEMBER(ICE_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICE_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 /**
  * This exception is raised if a server tries to set endpoints for an adapter that is already active.
  * \headerfile Ice/Ice.h
  */
-class ICE_CLASS(ICE_API) AdapterAlreadyActiveException : public UserExceptionHelper<AdapterAlreadyActiveException, UserException>
+class ICE_CLASS(ICE_API) AdapterAlreadyActiveException : public UserException
 {
 public:
-
-    AdapterAlreadyActiveException() noexcept = default;
-
-    AdapterAlreadyActiveException(const AdapterAlreadyActiveException&) = default;
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<> ice_tuple() const
-    {
-        return std::tie();
-    }
+    using UserException::UserException;
 
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
     ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId() noexcept;
+
+    ICE_MEMBER(ICE_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICE_API) void ice_throw() const override;
+
+protected:
+    ICE_MEMBER(ICE_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICE_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 /**
  * This exception is raised if an object cannot be found.
  * \headerfile Ice/Ice.h
  */
-class ICE_CLASS(ICE_API) ObjectNotFoundException : public UserExceptionHelper<ObjectNotFoundException, UserException>
+class ICE_CLASS(ICE_API) ObjectNotFoundException : public UserException
 {
 public:
-
-    ObjectNotFoundException() noexcept = default;
-
-    ObjectNotFoundException(const ObjectNotFoundException&) = default;
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<> ice_tuple() const
-    {
-        return std::tie();
-    }
+    using UserException::UserException;
 
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
     ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId() noexcept;
+
+    ICE_MEMBER(ICE_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICE_API) void ice_throw() const override;
+
+protected:
+    ICE_MEMBER(ICE_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICE_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 /**
  * This exception is raised if a server cannot be found.
  * \headerfile Ice/Ice.h
  */
-class ICE_CLASS(ICE_API) ServerNotFoundException : public UserExceptionHelper<ServerNotFoundException, UserException>
+class ICE_CLASS(ICE_API) ServerNotFoundException : public UserException
 {
 public:
-
-    ServerNotFoundException() noexcept = default;
-
-    ServerNotFoundException(const ServerNotFoundException&) = default;
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<> ice_tuple() const
-    {
-        return std::tie();
-    }
+    using UserException::UserException;
 
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
     ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId() noexcept;
+
+    ICE_MEMBER(ICE_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICE_API) void ice_throw() const override;
+
+protected:
+    ICE_MEMBER(ICE_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICE_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 }

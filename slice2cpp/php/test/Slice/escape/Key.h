@@ -445,13 +445,10 @@ public:
 static echo _iceS_echo_init;
 /// \endcond
 
-class endif : public ::Ice::UserExceptionHelper<endif, ::Ice::UserException>
+class endif : public ::Ice::UserException
 {
 public:
-
-    endif() noexcept = default;
-
-    endif(const endif&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -476,22 +473,28 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::int32_t endswitch;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
-class endwhile : public ::Ice::UserExceptionHelper<endwhile, endif>
+class endwhile : public endif
 {
 public:
-
-    endwhile() noexcept = default;
-
-    endwhile(const endwhile&) = default;
+    using endif::endif;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     endwhile(::std::int32_t endswitch, ::std::int32_t eval, ::std::int32_t exit) noexcept :
-        ::Ice::UserExceptionHelper<endwhile, endif>(endswitch),
+        endif(endswitch),
         eval(eval),
         exit(exit)
     {
@@ -512,8 +515,17 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::int32_t eval;
     ::std::int32_t exit;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 using Ice::operator<;

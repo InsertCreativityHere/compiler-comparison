@@ -252,13 +252,10 @@ public:
     ::std::shared_ptr<::Test::Empty> e2;
 };
 
-class EOneMember : public ::Ice::UserExceptionHelper<EOneMember, ::Ice::UserException>
+class EOneMember : public ::Ice::UserException
 {
 public:
-
-    EOneMember() noexcept = default;
-
-    EOneMember(const EOneMember&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -283,20 +280,26 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     /// \cond STREAM
-    virtual bool _usesClasses() const override;
+    bool _usesClasses() const override;
     /// \endcond
 
     ::std::shared_ptr<::Test::Empty> e;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
-class ETwoMembers : public ::Ice::UserExceptionHelper<ETwoMembers, ::Ice::UserException>
+class ETwoMembers : public ::Ice::UserException
 {
 public:
-
-    ETwoMembers() noexcept = default;
-
-    ETwoMembers(const ETwoMembers&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -322,12 +325,21 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     /// \cond STREAM
-    virtual bool _usesClasses() const override;
+    bool _usesClasses() const override;
     /// \endcond
 
     ::std::shared_ptr<::Test::Empty> e1;
     ::std::shared_ptr<::Test::Empty> e2;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 struct SOneMember

@@ -372,13 +372,10 @@ public:
 static _cpp_for _iceS_for_init;
 /// \endcond
 
-class is : public ::Ice::UserExceptionHelper<is, ::Ice::UserException>
+class is : public ::Ice::UserException
 {
 public:
-
-    is() noexcept = default;
-
-    is(const is&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -403,22 +400,28 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::int32_t lambda;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
-class _cpp_not : public ::Ice::UserExceptionHelper<_cpp_not, is>
+class _cpp_not : public is
 {
 public:
-
-    _cpp_not() noexcept = default;
-
-    _cpp_not(const _cpp_not&) = default;
+    using is::is;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     _cpp_not(::std::int32_t lambda, ::std::int32_t _cpp_or, ::std::int32_t pass) noexcept :
-        ::Ice::UserExceptionHelper<_cpp_not, is>(lambda),
+        is(lambda),
         _cpp_or(_cpp_or),
         pass(pass)
     {
@@ -439,8 +442,17 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::int32_t _cpp_or;
     ::std::int32_t pass;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 using Ice::operator<;

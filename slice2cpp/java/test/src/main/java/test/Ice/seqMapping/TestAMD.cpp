@@ -215,6 +215,34 @@ Test::Bar::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test::Bar::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::Bar::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test::Bar::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<Bar, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::Bar::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<Bar, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
 ::std::string_view
 Test::Baz::ice_staticId() noexcept
 {

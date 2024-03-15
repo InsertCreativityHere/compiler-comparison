@@ -748,6 +748,32 @@ Test::TestIntfException::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test::TestIntfException::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::TestIntfException::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test::TestIntfException::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ostr->endSlice();
+}
+
+void
+Test::TestIntfException::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    istr->endSlice();
+}
+
 ::std::vector<::std::string>
 Test::PingReply::ice_ids(const ::Ice::Current&) const
 {

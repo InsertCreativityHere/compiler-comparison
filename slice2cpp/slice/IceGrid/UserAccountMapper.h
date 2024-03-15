@@ -153,28 +153,25 @@ namespace IceGrid
  * This exception is raised if a user account for a given session identifier can't be found.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICE_CLASS(ICEGRID_API) UserAccountNotFoundException : public ::Ice::UserExceptionHelper<UserAccountNotFoundException, ::Ice::UserException>
+class ICE_CLASS(ICEGRID_API) UserAccountNotFoundException : public ::Ice::UserException
 {
 public:
-
-    UserAccountNotFoundException() noexcept = default;
-
-    UserAccountNotFoundException(const UserAccountNotFoundException&) = default;
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<> ice_tuple() const
-    {
-        return std::tie();
-    }
+    using ::Ice::UserException::UserException;
 
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
     ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
+
+    ICE_MEMBER(ICEGRID_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+
+protected:
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 /// \cond INTERNAL

@@ -235,56 +235,50 @@ protected:
 namespace Test
 {
 
-class InterruptedException : public ::Ice::UserExceptionHelper<InterruptedException, ::Ice::UserException>
+class InterruptedException : public ::Ice::UserException
 {
 public:
-
-    InterruptedException() noexcept = default;
-
-    InterruptedException(const InterruptedException&) = default;
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<> ice_tuple() const
-    {
-        return std::tie();
-    }
+    using ::Ice::UserException::UserException;
 
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
     static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 /// \cond INTERNAL
 static InterruptedException _iceS_InterruptedException_init;
 /// \endcond
 
-class CannotInterruptException : public ::Ice::UserExceptionHelper<CannotInterruptException, ::Ice::UserException>
+class CannotInterruptException : public ::Ice::UserException
 {
 public:
-
-    CannotInterruptException() noexcept = default;
-
-    CannotInterruptException(const CannotInterruptException&) = default;
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<> ice_tuple() const
-    {
-        return std::tie();
-    }
+    using ::Ice::UserException::UserException;
 
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
     static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 }

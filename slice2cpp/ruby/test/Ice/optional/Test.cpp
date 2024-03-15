@@ -2329,11 +2329,69 @@ Test::OptionalException::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test::OptionalException::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::OptionalException::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test::OptionalException::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<OptionalException, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::OptionalException::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<OptionalException, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
 ::std::string_view
 Test::DerivedException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::DerivedException";
     return typeId;
+}
+
+::std::string
+Test::DerivedException::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::DerivedException::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test::DerivedException::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<DerivedException, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    OptionalException::_writeImpl(ostr);
+}
+
+void
+Test::DerivedException::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<DerivedException, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    OptionalException::_readImpl(istr);
 }
 
 ::std::string_view
@@ -2343,6 +2401,18 @@ Test::RequiredException::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test::RequiredException::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::RequiredException::ice_throw() const
+{
+    throw *this;
+}
+
 /// \cond STREAM
 bool
 Test::RequiredException::_usesClasses() const
@@ -2350,6 +2420,24 @@ Test::RequiredException::_usesClasses() const
     return true;
 }
 /// \endcond
+
+void
+Test::RequiredException::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<RequiredException, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    OptionalException::_writeImpl(ostr);
+}
+
+void
+Test::RequiredException::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<RequiredException, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    OptionalException::_readImpl(istr);
+}
 
 ::std::string_view
 Test::OptionalWithCustom::ice_staticId() noexcept

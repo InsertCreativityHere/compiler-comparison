@@ -45,3 +45,31 @@ Test::DerivedEx::ice_staticId() noexcept
     static constexpr ::std::string_view typeId = "::Test::DerivedEx";
     return typeId;
 }
+
+::std::string
+Test::DerivedEx::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::DerivedEx::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test::DerivedEx::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ostr->endSlice();
+    BaseEx::_writeImpl(ostr);
+}
+
+void
+Test::DerivedEx::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    istr->endSlice();
+    BaseEx::_readImpl(istr);
+}

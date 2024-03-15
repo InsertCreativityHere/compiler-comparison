@@ -235,6 +235,32 @@ IcePatch2::PartitionOutOfRangeException::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+IcePatch2::PartitionOutOfRangeException::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+IcePatch2::PartitionOutOfRangeException::ice_throw() const
+{
+    throw *this;
+}
+
+void
+IcePatch2::PartitionOutOfRangeException::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ostr->endSlice();
+}
+
+void
+IcePatch2::PartitionOutOfRangeException::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    istr->endSlice();
+}
+
 ::std::string_view
 IcePatch2::FileAccessException::ice_staticId() noexcept
 {
@@ -242,11 +268,67 @@ IcePatch2::FileAccessException::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+IcePatch2::FileAccessException::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+IcePatch2::FileAccessException::ice_throw() const
+{
+    throw *this;
+}
+
+void
+IcePatch2::FileAccessException::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<FileAccessException, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+IcePatch2::FileAccessException::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<FileAccessException, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
 ::std::string_view
 IcePatch2::FileSizeRangeException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IcePatch2::FileSizeRangeException";
     return typeId;
+}
+
+::std::string
+IcePatch2::FileSizeRangeException::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+IcePatch2::FileSizeRangeException::ice_throw() const
+{
+    throw *this;
+}
+
+void
+IcePatch2::FileSizeRangeException::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ostr->endSlice();
+    FileAccessException::_writeImpl(ostr);
+}
+
+void
+IcePatch2::FileSizeRangeException::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    istr->endSlice();
+    FileAccessException::_readImpl(istr);
 }
 
 ::std::vector<::std::string>

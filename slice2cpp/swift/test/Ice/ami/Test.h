@@ -514,28 +514,25 @@ protected:
 namespace Test
 {
 
-class TestIntfException : public ::Ice::UserExceptionHelper<TestIntfException, ::Ice::UserException>
+class TestIntfException : public ::Ice::UserException
 {
 public:
-
-    TestIntfException() noexcept = default;
-
-    TestIntfException(const TestIntfException&) = default;
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<> ice_tuple() const
-    {
-        return std::tie();
-    }
+    using ::Ice::UserException::UserException;
 
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
     static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 /// \cond INTERNAL

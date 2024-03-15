@@ -108,6 +108,34 @@ IceGrid::ParseException::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+IceGrid::ParseException::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+IceGrid::ParseException::ice_throw() const
+{
+    throw *this;
+}
+
+void
+IceGrid::ParseException::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<ParseException, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+IceGrid::ParseException::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<ParseException, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
 ::std::vector<::std::string>
 IceGrid::FileParser::ice_ids(const ::Ice::Current&) const
 {

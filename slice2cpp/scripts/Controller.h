@@ -652,13 +652,10 @@ public:
     ::std::optional<::Test::Common::BoolSeq> ipv6;
 };
 
-class TestCaseNotExistException : public ::Ice::UserExceptionHelper<TestCaseNotExistException, ::Ice::UserException>
+class TestCaseNotExistException : public ::Ice::UserException
 {
 public:
-
-    TestCaseNotExistException() noexcept = default;
-
-    TestCaseNotExistException(const TestCaseNotExistException&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -683,16 +680,22 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::string reason;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
-class TestCaseFailedException : public ::Ice::UserExceptionHelper<TestCaseFailedException, ::Ice::UserException>
+class TestCaseFailedException : public ::Ice::UserException
 {
 public:
-
-    TestCaseFailedException() noexcept = default;
-
-    TestCaseFailedException(const TestCaseFailedException&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -717,16 +720,22 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::string output;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
-class ProcessFailedException : public ::Ice::UserExceptionHelper<ProcessFailedException, ::Ice::UserException>
+class ProcessFailedException : public ::Ice::UserException
 {
 public:
-
-    ProcessFailedException() noexcept = default;
-
-    ProcessFailedException(const ProcessFailedException&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -751,7 +760,16 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::string reason;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 }

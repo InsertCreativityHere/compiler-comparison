@@ -1285,28 +1285,25 @@ struct MyStruct
     }
 };
 
-class SomeException : public ::Ice::UserExceptionHelper<SomeException, ::Ice::UserException>
+class SomeException : public ::Ice::UserException
 {
 public:
-
-    SomeException() noexcept = default;
-
-    SomeException(const SomeException&) = default;
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<> ice_tuple() const
-    {
-        return std::tie();
-    }
+    using ::Ice::UserException::UserException;
 
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
     static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 /// \cond INTERNAL

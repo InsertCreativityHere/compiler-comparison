@@ -37,29 +37,17 @@ namespace Test
 namespace Test
 {
 
-class DerivedEx : public ::Ice::UserExceptionHelper<DerivedEx, BaseEx>
+class DerivedEx : public BaseEx
 {
 public:
-
-    DerivedEx() noexcept = default;
-
-    DerivedEx(const DerivedEx&) = default;
+    using BaseEx::BaseEx;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     DerivedEx(::std::string reason) noexcept :
-        ::Ice::UserExceptionHelper<DerivedEx, BaseEx>(::std::move(reason))
+        BaseEx(::std::move(reason))
     {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::string&> ice_tuple() const
-    {
-        return std::tie(reason);
     }
 
     /**
@@ -67,6 +55,15 @@ public:
      * @return The fully-scoped type ID.
      */
     static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 /// \cond INTERNAL

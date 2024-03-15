@@ -186,6 +186,32 @@ Test::UE::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test::UE::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::UE::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test::UE::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ostr->endSlice();
+}
+
+void
+Test::UE::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    istr->endSlice();
+}
+
 ::std::vector<::std::string>
 Test::Hello::ice_ids(const ::Ice::Current&) const
 {

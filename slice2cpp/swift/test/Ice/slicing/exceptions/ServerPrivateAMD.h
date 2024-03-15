@@ -36,19 +36,16 @@ namespace Test
 namespace Test
 {
 
-class UnknownDerived : public ::Ice::UserExceptionHelper<UnknownDerived, Base>
+class UnknownDerived : public Base
 {
 public:
-
-    UnknownDerived() noexcept = default;
-
-    UnknownDerived(const UnknownDerived&) = default;
+    using Base::Base;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     UnknownDerived(::std::string b, ::std::string ud) noexcept :
-        ::Ice::UserExceptionHelper<UnknownDerived, Base>(::std::move(b)),
+        Base(::std::move(b)),
         ud(::std::move(ud))
     {
     }
@@ -68,26 +65,32 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::string ud;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 /// \cond INTERNAL
 static UnknownDerived _iceS_UnknownDerived_init;
 /// \endcond
 
-class UnknownIntermediate : public ::Ice::UserExceptionHelper<UnknownIntermediate, Base>
+class UnknownIntermediate : public Base
 {
 public:
-
-    UnknownIntermediate() noexcept = default;
-
-    UnknownIntermediate(const UnknownIntermediate&) = default;
+    using Base::Base;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     UnknownIntermediate(::std::string b, ::std::string ui) noexcept :
-        ::Ice::UserExceptionHelper<UnknownIntermediate, Base>(::std::move(b)),
+        Base(::std::move(b)),
         ui(::std::move(ui))
     {
     }
@@ -107,22 +110,28 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::string ui;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
-class UnknownMostDerived1 : public ::Ice::UserExceptionHelper<UnknownMostDerived1, KnownIntermediate>
+class UnknownMostDerived1 : public KnownIntermediate
 {
 public:
-
-    UnknownMostDerived1() noexcept = default;
-
-    UnknownMostDerived1(const UnknownMostDerived1&) = default;
+    using KnownIntermediate::KnownIntermediate;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     UnknownMostDerived1(::std::string b, ::std::string ki, ::std::string umd1) noexcept :
-        ::Ice::UserExceptionHelper<UnknownMostDerived1, KnownIntermediate>(::std::move(b), ::std::move(ki)),
+        KnownIntermediate(::std::move(b), ::std::move(ki)),
         umd1(::std::move(umd1))
     {
     }
@@ -142,22 +151,28 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::string umd1;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
-class UnknownMostDerived2 : public ::Ice::UserExceptionHelper<UnknownMostDerived2, UnknownIntermediate>
+class UnknownMostDerived2 : public UnknownIntermediate
 {
 public:
-
-    UnknownMostDerived2() noexcept = default;
-
-    UnknownMostDerived2(const UnknownMostDerived2&) = default;
+    using UnknownIntermediate::UnknownIntermediate;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     UnknownMostDerived2(::std::string b, ::std::string ui, ::std::string umd2) noexcept :
-        ::Ice::UserExceptionHelper<UnknownMostDerived2, UnknownIntermediate>(::std::move(b), ::std::move(ui)),
+        UnknownIntermediate(::std::move(b), ::std::move(ui)),
         umd2(::std::move(umd2))
     {
     }
@@ -177,7 +192,16 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::string umd2;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 }

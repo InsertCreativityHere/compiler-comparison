@@ -426,13 +426,10 @@ protected:
 namespace Test
 {
 
-class A : public ::Ice::UserExceptionHelper<A, ::Ice::UserException>
+class A : public ::Ice::UserException
 {
 public:
-
-    A() noexcept = default;
-
-    A(const A&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -457,26 +454,32 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::int32_t aMem;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 /// \cond INTERNAL
 static A _iceS_A_init;
 /// \endcond
 
-class B : public ::Ice::UserExceptionHelper<B, A>
+class B : public A
 {
 public:
-
-    B() noexcept = default;
-
-    B(const B&) = default;
+    using A::A;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     B(::std::int32_t aMem, ::std::int32_t bMem) noexcept :
-        ::Ice::UserExceptionHelper<B, A>(aMem),
+        A(aMem),
         bMem(bMem)
     {
     }
@@ -496,22 +499,28 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::int32_t bMem;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
-class C : public ::Ice::UserExceptionHelper<C, B>
+class C : public B
 {
 public:
-
-    C() noexcept = default;
-
-    C(const C&) = default;
+    using B::B;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     C(::std::int32_t aMem, ::std::int32_t bMem, ::std::int32_t cMem) noexcept :
-        ::Ice::UserExceptionHelper<C, B>(aMem, bMem),
+        B(aMem, bMem),
         cMem(cMem)
     {
     }
@@ -531,16 +540,22 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::int32_t cMem;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
-class D : public ::Ice::UserExceptionHelper<D, ::Ice::UserException>
+class D : public ::Ice::UserException
 {
 public:
-
-    D() noexcept = default;
-
-    D(const D&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -565,25 +580,31 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::int32_t dMem;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 namespace Mod
 {
 
-class A : public ::Ice::UserExceptionHelper<A, ::Test::A>
+class A : public ::Test::A
 {
 public:
-
-    A() noexcept = default;
-
-    A(const A&) = default;
+    using ::Test::A::A;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     A(::std::int32_t aMem, ::std::int32_t a2Mem) noexcept :
-        ::Ice::UserExceptionHelper<A, ::Test::A>(aMem),
+        ::Test::A(aMem),
         a2Mem(a2Mem)
     {
     }
@@ -603,7 +624,16 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::int32_t a2Mem;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 }

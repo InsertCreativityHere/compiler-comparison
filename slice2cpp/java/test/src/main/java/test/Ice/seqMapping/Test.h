@@ -170,13 +170,10 @@ struct Foo
     }
 };
 
-class Bar : public ::Ice::UserExceptionHelper<Bar, ::Ice::UserException>
+class Bar : public ::Ice::UserException
 {
 public:
-
-    Bar() noexcept = default;
-
-    Bar(const Bar&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -202,8 +199,17 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::Test::SerialLarge SLmem;
     ::Test::SLS SLSmem;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 /// \cond INTERNAL

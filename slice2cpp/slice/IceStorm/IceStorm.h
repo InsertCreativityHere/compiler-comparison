@@ -731,13 +731,10 @@ struct LinkInfo
  * This exception indicates that an attempt was made to create a link that already exists.
  * \headerfile IceStorm/IceStorm.h
  */
-class ICE_CLASS(ICESTORM_API) LinkExists : public ::Ice::UserExceptionHelper<LinkExists, ::Ice::UserException>
+class ICE_CLASS(ICESTORM_API) LinkExists : public ::Ice::UserException
 {
 public:
-
-    LinkExists() noexcept = default;
-
-    LinkExists(const LinkExists&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -763,10 +760,19 @@ public:
      */
     ICE_MEMBER(ICESTORM_API) static ::std::string_view ice_staticId() noexcept;
 
+    ICE_MEMBER(ICESTORM_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICESTORM_API) void ice_throw() const override;
+
     /**
      * The name of the linked topic.
      */
     ::std::string name;
+
+protected:
+    ICE_MEMBER(ICESTORM_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICESTORM_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 /// \cond INTERNAL
@@ -777,13 +783,10 @@ static LinkExists _iceS_LinkExists_init;
  * This exception indicates that an attempt was made to remove a link that does not exist.
  * \headerfile IceStorm/IceStorm.h
  */
-class ICE_CLASS(ICESTORM_API) NoSuchLink : public ::Ice::UserExceptionHelper<NoSuchLink, ::Ice::UserException>
+class ICE_CLASS(ICESTORM_API) NoSuchLink : public ::Ice::UserException
 {
 public:
-
-    NoSuchLink() noexcept = default;
-
-    NoSuchLink(const NoSuchLink&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -809,51 +812,54 @@ public:
      */
     ICE_MEMBER(ICESTORM_API) static ::std::string_view ice_staticId() noexcept;
 
+    ICE_MEMBER(ICESTORM_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICESTORM_API) void ice_throw() const override;
+
     /**
      * The name of the link that does not exist.
      */
     ::std::string name;
+
+protected:
+    ICE_MEMBER(ICESTORM_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICESTORM_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 /**
  * This exception indicates that an attempt was made to subscribe a proxy for which a subscription already exists.
  * \headerfile IceStorm/IceStorm.h
  */
-class ICE_CLASS(ICESTORM_API) AlreadySubscribed : public ::Ice::UserExceptionHelper<AlreadySubscribed, ::Ice::UserException>
+class ICE_CLASS(ICESTORM_API) AlreadySubscribed : public ::Ice::UserException
 {
 public:
-
-    AlreadySubscribed() noexcept = default;
-
-    AlreadySubscribed(const AlreadySubscribed&) = default;
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<> ice_tuple() const
-    {
-        return std::tie();
-    }
+    using ::Ice::UserException::UserException;
 
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
     ICE_MEMBER(ICESTORM_API) static ::std::string_view ice_staticId() noexcept;
+
+    ICE_MEMBER(ICESTORM_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICESTORM_API) void ice_throw() const override;
+
+protected:
+    ICE_MEMBER(ICESTORM_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICESTORM_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 /**
  * This exception indicates that an attempt was made to subscribe a proxy that is null.
  * \headerfile IceStorm/IceStorm.h
  */
-class ICE_CLASS(ICESTORM_API) InvalidSubscriber : public ::Ice::UserExceptionHelper<InvalidSubscriber, ::Ice::UserException>
+class ICE_CLASS(ICESTORM_API) InvalidSubscriber : public ::Ice::UserException
 {
 public:
-
-    InvalidSubscriber() noexcept = default;
-
-    InvalidSubscriber(const InvalidSubscriber&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -879,23 +885,29 @@ public:
      */
     ICE_MEMBER(ICESTORM_API) static ::std::string_view ice_staticId() noexcept;
 
+    ICE_MEMBER(ICESTORM_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICESTORM_API) void ice_throw() const override;
+
     /**
      * The reason for the failure.
      */
     ::std::string reason;
+
+protected:
+    ICE_MEMBER(ICESTORM_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICESTORM_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 /**
  * This exception indicates that a subscription failed due to an invalid QoS.
  * \headerfile IceStorm/IceStorm.h
  */
-class ICE_CLASS(ICESTORM_API) BadQoS : public ::Ice::UserExceptionHelper<BadQoS, ::Ice::UserException>
+class ICE_CLASS(ICESTORM_API) BadQoS : public ::Ice::UserException
 {
 public:
-
-    BadQoS() noexcept = default;
-
-    BadQoS(const BadQoS&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -921,23 +933,29 @@ public:
      */
     ICE_MEMBER(ICESTORM_API) static ::std::string_view ice_staticId() noexcept;
 
+    ICE_MEMBER(ICESTORM_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICESTORM_API) void ice_throw() const override;
+
     /**
      * The reason for the failure.
      */
     ::std::string reason;
+
+protected:
+    ICE_MEMBER(ICESTORM_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICESTORM_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 /**
  * This exception indicates that an attempt was made to create a topic that already exists.
  * \headerfile IceStorm/IceStorm.h
  */
-class ICE_CLASS(ICESTORM_API) TopicExists : public ::Ice::UserExceptionHelper<TopicExists, ::Ice::UserException>
+class ICE_CLASS(ICESTORM_API) TopicExists : public ::Ice::UserException
 {
 public:
-
-    TopicExists() noexcept = default;
-
-    TopicExists(const TopicExists&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -963,23 +981,29 @@ public:
      */
     ICE_MEMBER(ICESTORM_API) static ::std::string_view ice_staticId() noexcept;
 
+    ICE_MEMBER(ICESTORM_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICESTORM_API) void ice_throw() const override;
+
     /**
      * The name of the topic that already exists.
      */
     ::std::string name;
+
+protected:
+    ICE_MEMBER(ICESTORM_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICESTORM_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 /**
  * This exception indicates that an attempt was made to retrieve a topic that does not exist.
  * \headerfile IceStorm/IceStorm.h
  */
-class ICE_CLASS(ICESTORM_API) NoSuchTopic : public ::Ice::UserExceptionHelper<NoSuchTopic, ::Ice::UserException>
+class ICE_CLASS(ICESTORM_API) NoSuchTopic : public ::Ice::UserException
 {
 public:
-
-    NoSuchTopic() noexcept = default;
-
-    NoSuchTopic(const NoSuchTopic&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -1005,10 +1029,19 @@ public:
      */
     ICE_MEMBER(ICESTORM_API) static ::std::string_view ice_staticId() noexcept;
 
+    ICE_MEMBER(ICESTORM_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICESTORM_API) void ice_throw() const override;
+
     /**
      * The name of the topic that does not exist.
      */
     ::std::string name;
+
+protected:
+    ICE_MEMBER(ICESTORM_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICESTORM_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 using Ice::operator<;

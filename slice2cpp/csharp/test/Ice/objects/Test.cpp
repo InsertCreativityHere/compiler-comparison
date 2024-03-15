@@ -1474,6 +1474,34 @@ Test::Inner::Ex::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test::Inner::Ex::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::Inner::Ex::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test::Inner::Ex::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<Ex, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::Inner::Ex::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<Ex, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
 ::std::string_view
 Test::Inner::Sub::A::ice_staticId() noexcept
 {
@@ -1486,6 +1514,34 @@ Test::Inner::Sub::Ex::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Inner::Sub::Ex";
     return typeId;
+}
+
+::std::string
+Test::Inner::Sub::Ex::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::Inner::Sub::Ex::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test::Inner::Sub::Ex::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<Ex, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::Inner::Sub::Ex::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<Ex, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
 }
 
 ::std::string_view
@@ -1516,6 +1572,18 @@ Test::EBase::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test::EBase::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::EBase::ice_throw() const
+{
+    throw *this;
+}
+
 /// \cond STREAM
 bool
 Test::EBase::_usesClasses() const
@@ -1524,11 +1592,57 @@ Test::EBase::_usesClasses() const
 }
 /// \endcond
 
+void
+Test::EBase::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<EBase, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::EBase::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<EBase, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
 ::std::string_view
 Test::EDerived::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::EDerived";
     return typeId;
+}
+
+::std::string
+Test::EDerived::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::EDerived::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test::EDerived::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<EDerived, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    EBase::_writeImpl(ostr);
+}
+
+void
+Test::EDerived::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<EDerived, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    EBase::_readImpl(istr);
 }
 
 ::std::string_view
@@ -1629,6 +1743,18 @@ Test::EOneMember::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test::EOneMember::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::EOneMember::ice_throw() const
+{
+    throw *this;
+}
+
 /// \cond STREAM
 bool
 Test::EOneMember::_usesClasses() const
@@ -1637,11 +1763,39 @@ Test::EOneMember::_usesClasses() const
 }
 /// \endcond
 
+void
+Test::EOneMember::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<EOneMember, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::EOneMember::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<EOneMember, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
 ::std::string_view
 Test::ETwoMembers::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::ETwoMembers";
     return typeId;
+}
+
+::std::string
+Test::ETwoMembers::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::ETwoMembers::ice_throw() const
+{
+    throw *this;
 }
 
 /// \cond STREAM
@@ -1651,6 +1805,22 @@ Test::ETwoMembers::_usesClasses() const
     return true;
 }
 /// \endcond
+
+void
+Test::ETwoMembers::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<ETwoMembers, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::ETwoMembers::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<ETwoMembers, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
 
 ::std::vector<::std::string>
 Test::I::ice_ids(const ::Ice::Current&) const

@@ -247,13 +247,10 @@ protected:
 namespace Test
 {
 
-class Base : public ::Ice::UserExceptionHelper<Base, ::Ice::UserException>
+class Base : public ::Ice::UserException
 {
 public:
-
-    Base() noexcept = default;
-
-    Base(const Base&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -278,26 +275,32 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::string b;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 /// \cond INTERNAL
 static Base _iceS_Base_init;
 /// \endcond
 
-class KnownDerived : public ::Ice::UserExceptionHelper<KnownDerived, Base>
+class KnownDerived : public Base
 {
 public:
-
-    KnownDerived() noexcept = default;
-
-    KnownDerived(const KnownDerived&) = default;
+    using Base::Base;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     KnownDerived(::std::string b, ::std::string kd) noexcept :
-        ::Ice::UserExceptionHelper<KnownDerived, Base>(::std::move(b)),
+        Base(::std::move(b)),
         kd(::std::move(kd))
     {
     }
@@ -317,22 +320,28 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::string kd;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
-class KnownIntermediate : public ::Ice::UserExceptionHelper<KnownIntermediate, Base>
+class KnownIntermediate : public Base
 {
 public:
-
-    KnownIntermediate() noexcept = default;
-
-    KnownIntermediate(const KnownIntermediate&) = default;
+    using Base::Base;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     KnownIntermediate(::std::string b, ::std::string ki) noexcept :
-        ::Ice::UserExceptionHelper<KnownIntermediate, Base>(::std::move(b)),
+        Base(::std::move(b)),
         ki(::std::move(ki))
     {
     }
@@ -352,22 +361,28 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::string ki;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
-class KnownMostDerived : public ::Ice::UserExceptionHelper<KnownMostDerived, KnownIntermediate>
+class KnownMostDerived : public KnownIntermediate
 {
 public:
-
-    KnownMostDerived() noexcept = default;
-
-    KnownMostDerived(const KnownMostDerived&) = default;
+    using KnownIntermediate::KnownIntermediate;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     KnownMostDerived(::std::string b, ::std::string ki, ::std::string kmd) noexcept :
-        ::Ice::UserExceptionHelper<KnownMostDerived, KnownIntermediate>(::std::move(b), ::std::move(ki)),
+        KnownIntermediate(::std::move(b), ::std::move(ki)),
         kmd(::std::move(kmd))
     {
     }
@@ -387,7 +402,16 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::string kmd;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 }

@@ -1485,6 +1485,18 @@ Test::BaseException::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test::BaseException::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::BaseException::ice_throw() const
+{
+    throw *this;
+}
+
 /// \cond STREAM
 bool
 Test::BaseException::_usesClasses() const
@@ -1493,11 +1505,57 @@ Test::BaseException::_usesClasses() const
 }
 /// \endcond
 
+void
+Test::BaseException::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<BaseException, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::BaseException::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<BaseException, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
 ::std::string_view
 Test::DerivedException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::DerivedException";
     return typeId;
+}
+
+::std::string
+Test::DerivedException::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::DerivedException::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test::DerivedException::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<DerivedException, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    BaseException::_writeImpl(ostr);
+}
+
+void
+Test::DerivedException::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<DerivedException, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    BaseException::_readImpl(istr);
 }
 
 ::std::string_view

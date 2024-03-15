@@ -1161,13 +1161,10 @@ public:
     ::std::shared_ptr<::Test::A1> a4;
 };
 
-class EBase : public ::Ice::UserExceptionHelper<EBase, ::Ice::UserException>
+class EBase : public ::Ice::UserException
 {
 public:
-
-    EBase() noexcept = default;
-
-    EBase(const EBase&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -1193,27 +1190,33 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     /// \cond STREAM
-    virtual bool _usesClasses() const override;
+    bool _usesClasses() const override;
     /// \endcond
 
     ::std::shared_ptr<::Test::A1> a1;
     ::std::shared_ptr<::Test::A1> a2;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
-class EDerived : public ::Ice::UserExceptionHelper<EDerived, EBase>
+class EDerived : public EBase
 {
 public:
-
-    EDerived() noexcept = default;
-
-    EDerived(const EDerived&) = default;
+    using EBase::EBase;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     EDerived(::std::shared_ptr<A1> a1, ::std::shared_ptr<A1> a2, ::std::shared_ptr<A1> a3, ::std::shared_ptr<A1> a4) noexcept :
-        ::Ice::UserExceptionHelper<EDerived, EBase>(::std::move(a1), ::std::move(a2)),
+        EBase(::std::move(a1), ::std::move(a2)),
         a3(::std::move(a3)),
         a4(::std::move(a4))
     {
@@ -1234,8 +1237,17 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::shared_ptr<::Test::A1> a3;
     ::std::shared_ptr<::Test::A1> a4;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 namespace Inner
@@ -1277,13 +1289,10 @@ public:
     ::std::shared_ptr<::Test::A> theA;
 };
 
-class Ex : public ::Ice::UserExceptionHelper<Ex, ::Ice::UserException>
+class Ex : public ::Ice::UserException
 {
 public:
-
-    Ex() noexcept = default;
-
-    Ex(const Ex&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -1308,7 +1317,16 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::string reason;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 namespace Sub
@@ -1350,13 +1368,10 @@ public:
     ::std::shared_ptr<::Test::Inner::A> theA;
 };
 
-class Ex : public ::Ice::UserExceptionHelper<Ex, ::Ice::UserException>
+class Ex : public ::Ice::UserException
 {
 public:
-
-    Ex() noexcept = default;
-
-    Ex(const Ex&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -1381,7 +1396,16 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::string reason;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 }

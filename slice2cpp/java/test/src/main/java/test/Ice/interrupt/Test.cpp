@@ -320,11 +320,63 @@ Test::InterruptedException::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test::InterruptedException::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::InterruptedException::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test::InterruptedException::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ostr->endSlice();
+}
+
+void
+Test::InterruptedException::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    istr->endSlice();
+}
+
 ::std::string_view
 Test::CannotInterruptException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::CannotInterruptException";
     return typeId;
+}
+
+::std::string
+Test::CannotInterruptException::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::CannotInterruptException::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test::CannotInterruptException::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ostr->endSlice();
+}
+
+void
+Test::CannotInterruptException::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    istr->endSlice();
 }
 
 ::std::vector<::std::string>

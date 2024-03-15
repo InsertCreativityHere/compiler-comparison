@@ -443,28 +443,25 @@ struct LogMessage
  * Thrown when the provided RemoteLogger was previously attached to a LoggerAdmin.
  * \headerfile Ice/Ice.h
  */
-class ICE_CLASS(ICE_API) RemoteLoggerAlreadyAttachedException : public UserExceptionHelper<RemoteLoggerAlreadyAttachedException, UserException>
+class ICE_CLASS(ICE_API) RemoteLoggerAlreadyAttachedException : public UserException
 {
 public:
-
-    RemoteLoggerAlreadyAttachedException() noexcept = default;
-
-    RemoteLoggerAlreadyAttachedException(const RemoteLoggerAlreadyAttachedException&) = default;
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<> ice_tuple() const
-    {
-        return std::tie();
-    }
+    using UserException::UserException;
 
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
     ICE_MEMBER(ICE_API) static ::std::string_view ice_staticId() noexcept;
+
+    ICE_MEMBER(ICE_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICE_API) void ice_throw() const override;
+
+protected:
+    ICE_MEMBER(ICE_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICE_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 /// \cond INTERNAL

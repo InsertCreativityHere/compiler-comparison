@@ -400,28 +400,25 @@ namespace Glacier2
  * @see Router#destroySession
  * \headerfile Glacier2/Glacier2.h
  */
-class ICE_CLASS(GLACIER2_API) SessionNotExistException : public ::Ice::UserExceptionHelper<SessionNotExistException, ::Ice::UserException>
+class ICE_CLASS(GLACIER2_API) SessionNotExistException : public ::Ice::UserException
 {
 public:
-
-    SessionNotExistException() noexcept = default;
-
-    SessionNotExistException(const SessionNotExistException&) = default;
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<> ice_tuple() const
-    {
-        return std::tie();
-    }
+    using ::Ice::UserException::UserException;
 
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
     ICE_MEMBER(GLACIER2_API) static ::std::string_view ice_staticId() noexcept;
+
+    ICE_MEMBER(GLACIER2_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(GLACIER2_API) void ice_throw() const override;
+
+protected:
+    ICE_MEMBER(GLACIER2_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(GLACIER2_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 /// \cond INTERNAL

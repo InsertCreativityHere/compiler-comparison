@@ -449,6 +449,34 @@ await::fixed::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+await::fixed::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+await::fixed::ice_throw() const
+{
+    throw *this;
+}
+
+void
+await::fixed::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<fixed, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+await::fixed::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<fixed, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
 ::std::string_view
 await::foreach::ice_staticId() noexcept
 {
@@ -456,11 +484,69 @@ await::foreach::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+await::foreach::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+await::foreach::ice_throw() const
+{
+    throw *this;
+}
+
+void
+await::foreach::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<foreach, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    fixed::_writeImpl(ostr);
+}
+
+void
+await::foreach::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<foreach, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    fixed::_readImpl(istr);
+}
+
 ::std::string_view
 await::BaseMethods::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::await::BaseMethods";
     return typeId;
+}
+
+::std::string
+await::BaseMethods::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+await::BaseMethods::ice_throw() const
+{
+    throw *this;
+}
+
+void
+await::BaseMethods::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<BaseMethods, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+await::BaseMethods::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<BaseMethods, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
 }
 
 ::std::vector<::std::string>

@@ -340,13 +340,10 @@ public:
 static _cpp_switch _iceS_switch_init;
 /// \endcond
 
-class _cpp_return : public ::Ice::UserExceptionHelper<_cpp_return, ::Ice::UserException>
+class _cpp_return : public ::Ice::UserException
 {
 public:
-
-    _cpp_return() noexcept = default;
-
-    _cpp_return(const _cpp_return&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -371,22 +368,28 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::int32_t Int32;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
-class as : public ::Ice::UserExceptionHelper<as, _cpp_return>
+class as : public _cpp_return
 {
 public:
-
-    as() noexcept = default;
-
-    as(const as&) = default;
+    using _cpp_return::_cpp_return;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     as(::std::int32_t Int32, ::std::int32_t _cpp_static, ::std::int32_t _cpp_switch) noexcept :
-        ::Ice::UserExceptionHelper<as, _cpp_return>(Int32),
+        _cpp_return(Int32),
         _cpp_static(_cpp_static),
         _cpp_switch(_cpp_switch)
     {
@@ -407,8 +410,17 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::int32_t _cpp_static;
     ::std::int32_t _cpp_switch;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 using Ice::operator<;

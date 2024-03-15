@@ -399,6 +399,34 @@ Test::InvalidInputException::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test::InvalidInputException::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::InvalidInputException::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test::InvalidInputException::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<InvalidInputException, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::InvalidInputException::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<InvalidInputException, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
 ::std::vector<::std::string>
 Test::MyObject::ice_ids(const ::Ice::Current&) const
 {

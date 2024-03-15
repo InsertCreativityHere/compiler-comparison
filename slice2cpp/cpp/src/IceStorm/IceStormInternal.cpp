@@ -201,6 +201,32 @@ IceStorm::ReapWouldBlock::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+IceStorm::ReapWouldBlock::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+IceStorm::ReapWouldBlock::ice_throw() const
+{
+    throw *this;
+}
+
+void
+IceStorm::ReapWouldBlock::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ostr->endSlice();
+}
+
+void
+IceStorm::ReapWouldBlock::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    istr->endSlice();
+}
+
 ::std::vector<::std::string>
 IceStorm::TopicLink::ice_ids(const ::Ice::Current&) const
 {

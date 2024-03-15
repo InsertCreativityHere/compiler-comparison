@@ -49,47 +49,41 @@ struct Draw;
 namespace Test
 {
 
-class BaseException : public ::Ice::UserExceptionHelper<BaseException, ::Ice::UserException>
+class BaseException : public ::Ice::UserException
 {
 public:
-
-    BaseException() noexcept = default;
-
-    BaseException(const BaseException&) = default;
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<> ice_tuple() const
-    {
-        return std::tie();
-    }
+    using ::Ice::UserException::UserException;
 
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
     static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 /// \cond INTERNAL
 static BaseException _iceS_BaseException_init;
 /// \endcond
 
-class InvalidPointException : public ::Ice::UserExceptionHelper<InvalidPointException, BaseException>
+class InvalidPointException : public BaseException
 {
 public:
-
-    InvalidPointException() noexcept = default;
-
-    InvalidPointException(const InvalidPointException&) = default;
+    using BaseException::BaseException;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     InvalidPointException(::std::int32_t index) noexcept :
-        ::Ice::UserExceptionHelper<InvalidPointException, BaseException>(),
+        BaseException(),
         index(index)
     {
     }
@@ -109,22 +103,28 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::int32_t index;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
-class InvalidLengthException : public ::Ice::UserExceptionHelper<InvalidLengthException, BaseException>
+class InvalidLengthException : public BaseException
 {
 public:
-
-    InvalidLengthException() noexcept = default;
-
-    InvalidLengthException(const InvalidLengthException&) = default;
+    using BaseException::BaseException;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     InvalidLengthException(::std::int32_t length) noexcept :
-        ::Ice::UserExceptionHelper<InvalidLengthException, BaseException>(),
+        BaseException(),
         length(length)
     {
     }
@@ -144,16 +144,22 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::int32_t length;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
-class OtherException : public ::Ice::UserExceptionHelper<OtherException, ::Ice::UserException>
+class OtherException : public ::Ice::UserException
 {
 public:
-
-    OtherException() noexcept = default;
-
-    OtherException(const OtherException&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -181,10 +187,19 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::int32_t x;
     ::std::int32_t y;
     ::std::int32_t z;
     bool b;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 struct PointF

@@ -767,13 +767,10 @@ struct TopicContent
 /**
  * Thrown if an observer detects an inconsistency.
  */
-class ObserverInconsistencyException : public ::Ice::UserExceptionHelper<ObserverInconsistencyException, ::Ice::UserException>
+class ObserverInconsistencyException : public ::Ice::UserException
 {
 public:
-
-    ObserverInconsistencyException() noexcept = default;
-
-    ObserverInconsistencyException(const ObserverInconsistencyException&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -799,10 +796,19 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     /**
      * The reason for the inconsistency.
      */
     ::std::string reason;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 /// \cond INTERNAL

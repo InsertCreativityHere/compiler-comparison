@@ -663,13 +663,10 @@ public:
     ::std::optional<::await::explicitPrx> null;
 };
 
-class fixed : public ::Ice::UserExceptionHelper<fixed, ::Ice::UserException>
+class fixed : public ::Ice::UserException
 {
 public:
-
-    fixed() noexcept = default;
-
-    fixed(const fixed&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -694,22 +691,28 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::int32_t _cpp_for;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
-class foreach : public ::Ice::UserExceptionHelper<foreach, fixed>
+class foreach : public fixed
 {
 public:
-
-    foreach() noexcept = default;
-
-    foreach(const foreach&) = default;
+    using fixed::fixed;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     foreach(::std::int32_t _cpp_for, ::std::int32_t _cpp_goto, ::std::int32_t _cpp_if) noexcept :
-        ::Ice::UserExceptionHelper<foreach, fixed>(_cpp_for),
+        fixed(_cpp_for),
         _cpp_goto(_cpp_goto),
         _cpp_if(_cpp_if)
     {
@@ -730,17 +733,23 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::int32_t _cpp_goto;
     ::std::int32_t _cpp_if;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
-class BaseMethods : public ::Ice::UserExceptionHelper<BaseMethods, ::Ice::UserException>
+class BaseMethods : public ::Ice::UserException
 {
 public:
-
-    BaseMethods() noexcept = default;
-
-    BaseMethods(const BaseMethods&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -779,6 +788,10 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::int32_t Data;
     ::std::int32_t HelpLink;
     ::std::int32_t InnerException;
@@ -794,6 +807,11 @@ public:
     ::std::int32_t GetType;
     ::std::int32_t ReferenceEquals;
     ::std::int32_t ToString;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 using Ice::operator<;

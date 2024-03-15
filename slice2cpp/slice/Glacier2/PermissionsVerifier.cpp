@@ -177,6 +177,34 @@ Glacier2::PermissionDeniedException::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Glacier2::PermissionDeniedException::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Glacier2::PermissionDeniedException::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Glacier2::PermissionDeniedException::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<PermissionDeniedException, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Glacier2::PermissionDeniedException::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<PermissionDeniedException, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
 ::std::vector<::std::string>
 Glacier2::PermissionsVerifier::ice_ids(const ::Ice::Current&) const
 {

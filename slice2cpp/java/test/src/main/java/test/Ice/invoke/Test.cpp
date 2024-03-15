@@ -195,6 +195,32 @@ Test::MyException::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test::MyException::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::MyException::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test::MyException::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ostr->endSlice();
+}
+
+void
+Test::MyException::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    istr->endSlice();
+}
+
 ::std::vector<::std::string>
 Test::MyClass::ice_ids(const ::Ice::Current&) const
 {

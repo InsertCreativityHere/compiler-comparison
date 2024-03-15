@@ -678,6 +678,34 @@ Test::Common::TestCaseNotExistException::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test::Common::TestCaseNotExistException::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::Common::TestCaseNotExistException::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test::Common::TestCaseNotExistException::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<TestCaseNotExistException, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::Common::TestCaseNotExistException::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<TestCaseNotExistException, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
 ::std::string_view
 Test::Common::TestCaseFailedException::ice_staticId() noexcept
 {
@@ -685,11 +713,67 @@ Test::Common::TestCaseFailedException::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test::Common::TestCaseFailedException::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::Common::TestCaseFailedException::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test::Common::TestCaseFailedException::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<TestCaseFailedException, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::Common::TestCaseFailedException::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<TestCaseFailedException, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
 ::std::string_view
 Test::Common::ProcessFailedException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::Common::ProcessFailedException";
     return typeId;
+}
+
+::std::string
+Test::Common::ProcessFailedException::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::Common::ProcessFailedException::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test::Common::ProcessFailedException::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<ProcessFailedException, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::Common::ProcessFailedException::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<ProcessFailedException, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
 }
 
 ::std::vector<::std::string>

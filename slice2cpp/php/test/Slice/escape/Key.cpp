@@ -233,11 +233,69 @@ _cpp_and::endif::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+_cpp_and::endif::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+_cpp_and::endif::ice_throw() const
+{
+    throw *this;
+}
+
+void
+_cpp_and::endif::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<endif, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+_cpp_and::endif::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<endif, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
 ::std::string_view
 _cpp_and::endwhile::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::and::endwhile";
     return typeId;
+}
+
+::std::string
+_cpp_and::endwhile::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+_cpp_and::endwhile::ice_throw() const
+{
+    throw *this;
+}
+
+void
+_cpp_and::endwhile::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<endwhile, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    endif::_writeImpl(ostr);
+}
+
+void
+_cpp_and::endwhile::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<endwhile, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    endif::_readImpl(istr);
 }
 
 ::std::vector<::std::string>

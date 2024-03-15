@@ -268,13 +268,10 @@ protected:
 namespace Test
 {
 
-class CallbackException : public ::Ice::UserExceptionHelper<CallbackException, ::Ice::UserException>
+class CallbackException : public ::Ice::UserException
 {
 public:
-
-    CallbackException() noexcept = default;
-
-    CallbackException(const CallbackException&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -300,8 +297,17 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     double someValue;
     ::std::string someString;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 /// \cond INTERNAL

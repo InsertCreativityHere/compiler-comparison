@@ -302,13 +302,10 @@ public:
     ::Test::Nested::Color nc3 = ::Test::Nested::Color::blue;
 };
 
-class BaseEx : public ::Ice::UserExceptionHelper<BaseEx, ::Ice::UserException>
+class BaseEx : public ::Ice::UserException
 {
 public:
-
-    BaseEx() noexcept = default;
-
-    BaseEx(const BaseEx&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -348,6 +345,10 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     bool boolFalse = false;
     bool boolTrue = true;
     ::std::uint8_t b = 1;
@@ -364,21 +365,23 @@ public:
     float zeroDotF = 0.0F;
     double zeroD = 0;
     double zeroDotD = 0;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
-class DerivedEx : public ::Ice::UserExceptionHelper<DerivedEx, BaseEx>
+class DerivedEx : public BaseEx
 {
 public:
-
-    DerivedEx() noexcept = default;
-
-    DerivedEx(const DerivedEx&) = default;
+    using BaseEx::BaseEx;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     DerivedEx(bool boolFalse, bool boolTrue, ::std::uint8_t b, ::std::int16_t s, ::std::int32_t i, ::std::int64_t l, float f, double d, ::std::string str, ::std::string noDefault, ::std::int32_t zeroI, ::std::int64_t zeroL, float zeroF, float zeroDotF, double zeroD, double zeroDotD, Color c1, Color c2, Color c3, ::Test::Nested::Color nc1, ::Test::Nested::Color nc2, ::Test::Nested::Color nc3) noexcept :
-        ::Ice::UserExceptionHelper<DerivedEx, BaseEx>(boolFalse, boolTrue, b, s, i, l, f, d, ::std::move(str), ::std::move(noDefault), zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD),
+        BaseEx(boolFalse, boolTrue, b, s, i, l, f, d, ::std::move(str), ::std::move(noDefault), zeroI, zeroL, zeroF, zeroDotF, zeroD, zeroDotD),
         c1(c1),
         c2(c2),
         c3(c3),
@@ -403,12 +406,21 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::Test::Color c1 = ::Test::ConstColor1;
     ::Test::Color c2 = ::Test::ConstColor2;
     ::Test::Color c3 = ::Test::ConstColor3;
     ::Test::Nested::Color nc1 = ::Test::ConstNestedColor1;
     ::Test::Nested::Color nc2 = ::Test::ConstNestedColor2;
     ::Test::Nested::Color nc3 = ::Test::ConstNestedColor3;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 struct InnerStruct
@@ -451,13 +463,10 @@ struct StructNoDefaults
     }
 };
 
-class ExceptionNoDefaultsBase : public ::Ice::UserExceptionHelper<ExceptionNoDefaultsBase, ::Ice::UserException>
+class ExceptionNoDefaultsBase : public ::Ice::UserException
 {
 public:
-
-    ExceptionNoDefaultsBase() noexcept = default;
-
-    ExceptionNoDefaultsBase(const ExceptionNoDefaultsBase&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -484,24 +493,30 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::string str;
     ::Test::Color c1;
     ::Test::ByteSeq bs;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
-class ExceptionNoDefaults : public ::Ice::UserExceptionHelper<ExceptionNoDefaults, ExceptionNoDefaultsBase>
+class ExceptionNoDefaults : public ExceptionNoDefaultsBase
 {
 public:
-
-    ExceptionNoDefaults() noexcept = default;
-
-    ExceptionNoDefaults(const ExceptionNoDefaults&) = default;
+    using ExceptionNoDefaultsBase::ExceptionNoDefaultsBase;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     ExceptionNoDefaults(::std::string str, Color c1, ByteSeq bs, InnerStruct st, IntStringDict dict) noexcept :
-        ::Ice::UserExceptionHelper<ExceptionNoDefaults, ExceptionNoDefaultsBase>(::std::move(str), c1, ::std::move(bs)),
+        ExceptionNoDefaultsBase(::std::move(str), c1, ::std::move(bs)),
         st(::std::move(st)),
         dict(::std::move(dict))
     {
@@ -522,8 +537,17 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::Test::InnerStruct st;
     ::Test::IntStringDict dict;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 class ClassNoDefaultsBase : public ::Ice::ValueHelper<ClassNoDefaultsBase, ::Ice::Value>

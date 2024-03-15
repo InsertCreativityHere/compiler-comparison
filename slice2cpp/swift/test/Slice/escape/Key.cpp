@@ -138,11 +138,69 @@ _cpp_and::_cpp_return::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+_cpp_and::_cpp_return::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+_cpp_and::_cpp_return::ice_throw() const
+{
+    throw *this;
+}
+
+void
+_cpp_and::_cpp_return::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<_cpp_return, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+_cpp_and::_cpp_return::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<_cpp_return, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
 ::std::string_view
 _cpp_and::as::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::and::as";
     return typeId;
+}
+
+::std::string
+_cpp_and::as::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+_cpp_and::as::ice_throw() const
+{
+    throw *this;
+}
+
+void
+_cpp_and::as::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<as, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    _cpp_return::_writeImpl(ostr);
+}
+
+void
+_cpp_and::as::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<as, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    _cpp_return::_readImpl(istr);
 }
 
 ::std::vector<::std::string>

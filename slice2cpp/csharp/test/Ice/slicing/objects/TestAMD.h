@@ -801,13 +801,10 @@ struct SS3
     }
 };
 
-class BaseException : public ::Ice::UserExceptionHelper<BaseException, ::Ice::UserException>
+class BaseException : public ::Ice::UserException
 {
 public:
-
-    BaseException() noexcept = default;
-
-    BaseException(const BaseException&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -833,27 +830,33 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     /// \cond STREAM
-    virtual bool _usesClasses() const override;
+    bool _usesClasses() const override;
     /// \endcond
 
     ::std::string sbe;
     ::std::shared_ptr<::Test::B> pb;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
-class DerivedException : public ::Ice::UserExceptionHelper<DerivedException, BaseException>
+class DerivedException : public BaseException
 {
 public:
-
-    DerivedException() noexcept = default;
-
-    DerivedException(const DerivedException&) = default;
+    using BaseException::BaseException;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     DerivedException(::std::string sbe, ::std::shared_ptr<B> pb, ::std::string sde, ::std::shared_ptr<D1> pd1) noexcept :
-        ::Ice::UserExceptionHelper<DerivedException, BaseException>(::std::move(sbe), ::std::move(pb)),
+        BaseException(::std::move(sbe), ::std::move(pb)),
         sde(::std::move(sde)),
         pd1(::std::move(pd1))
     {
@@ -874,8 +877,17 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::string sde;
     ::std::shared_ptr<::Test::D1> pd1;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 class PBase : public ::Ice::ValueHelper<PBase, ::Ice::Value>
@@ -1024,28 +1036,25 @@ public:
     ::std::shared_ptr<::Test::PNode> next;
 };
 
-class PreservedException : public ::Ice::UserExceptionHelper<PreservedException, ::Ice::UserException>
+class PreservedException : public ::Ice::UserException
 {
 public:
-
-    PreservedException() noexcept = default;
-
-    PreservedException(const PreservedException&) = default;
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<> ice_tuple() const
-    {
-        return std::tie();
-    }
+    using ::Ice::UserException::UserException;
 
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
     static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 class Hidden : public ::Ice::ValueHelper<Hidden, ::Ice::Value>

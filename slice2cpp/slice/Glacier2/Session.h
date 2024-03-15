@@ -852,13 +852,10 @@ namespace Glacier2
  * This exception is raised if an attempt to create a new session failed.
  * \headerfile Glacier2/Glacier2.h
  */
-class ICE_CLASS(GLACIER2_API) CannotCreateSessionException : public ::Ice::UserExceptionHelper<CannotCreateSessionException, ::Ice::UserException>
+class ICE_CLASS(GLACIER2_API) CannotCreateSessionException : public ::Ice::UserException
 {
 public:
-
-    CannotCreateSessionException() noexcept = default;
-
-    CannotCreateSessionException(const CannotCreateSessionException&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -884,10 +881,19 @@ public:
      */
     ICE_MEMBER(GLACIER2_API) static ::std::string_view ice_staticId() noexcept;
 
+    ICE_MEMBER(GLACIER2_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(GLACIER2_API) void ice_throw() const override;
+
     /**
      * The reason why session creation has failed.
      */
     ::std::string reason;
+
+protected:
+    ICE_MEMBER(GLACIER2_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(GLACIER2_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 /// \cond INTERNAL

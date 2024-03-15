@@ -127,6 +127,18 @@ Test::EOneMember::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test::EOneMember::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::EOneMember::ice_throw() const
+{
+    throw *this;
+}
+
 /// \cond STREAM
 bool
 Test::EOneMember::_usesClasses() const
@@ -135,11 +147,39 @@ Test::EOneMember::_usesClasses() const
 }
 /// \endcond
 
+void
+Test::EOneMember::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<EOneMember, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::EOneMember::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<EOneMember, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
 ::std::string_view
 Test::ETwoMembers::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::ETwoMembers";
     return typeId;
+}
+
+::std::string
+Test::ETwoMembers::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::ETwoMembers::ice_throw() const
+{
+    throw *this;
 }
 
 /// \cond STREAM
@@ -149,6 +189,22 @@ Test::ETwoMembers::_usesClasses() const
     return true;
 }
 /// \endcond
+
+void
+Test::ETwoMembers::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<ETwoMembers, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::ETwoMembers::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<ETwoMembers, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
 
 ::std::vector<::std::string>
 Test::UnexpectedObjectExceptionTest::ice_ids(const ::Ice::Current&) const

@@ -535,6 +535,34 @@ Glacier2::CannotCreateSessionException::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Glacier2::CannotCreateSessionException::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Glacier2::CannotCreateSessionException::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Glacier2::CannotCreateSessionException::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<CannotCreateSessionException, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Glacier2::CannotCreateSessionException::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<CannotCreateSessionException, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
 ::std::vector<::std::string>
 Glacier2::Session::ice_ids(const ::Ice::Current&) const
 {

@@ -203,6 +203,18 @@ classdef::_cpp_break::persistent::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+classdef::_cpp_break::persistent::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+classdef::_cpp_break::persistent::ice_throw() const
+{
+    throw *this;
+}
+
 /// \cond STREAM
 bool
 classdef::_cpp_break::persistent::_usesClasses() const
@@ -211,11 +223,57 @@ classdef::_cpp_break::persistent::_usesClasses() const
 }
 /// \endcond
 
+void
+classdef::_cpp_break::persistent::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<persistent, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+classdef::_cpp_break::persistent::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<persistent, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
 ::std::string_view
 classdef::_cpp_break::global::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::classdef::break::global";
     return typeId;
+}
+
+::std::string
+classdef::_cpp_break::global::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+classdef::_cpp_break::global::ice_throw() const
+{
+    throw *this;
+}
+
+void
+classdef::_cpp_break::global::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<global, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    persistent::_writeImpl(ostr);
+}
+
+void
+classdef::_cpp_break::global::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<global, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    persistent::_readImpl(istr);
 }
 
 ::std::vector<::std::string>

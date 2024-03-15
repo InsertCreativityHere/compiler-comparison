@@ -531,11 +531,63 @@ Test::TestIntfUserException::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test::TestIntfUserException::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::TestIntfUserException::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test::TestIntfUserException::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ostr->endSlice();
+}
+
+void
+Test::TestIntfUserException::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    istr->endSlice();
+}
+
 ::std::string_view
 Test::TestImpossibleException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::TestImpossibleException";
     return typeId;
+}
+
+::std::string
+Test::TestImpossibleException::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::TestImpossibleException::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test::TestImpossibleException::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ostr->endSlice();
+}
+
+void
+Test::TestImpossibleException::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    istr->endSlice();
 }
 
 ::std::vector<::std::string>

@@ -149,13 +149,10 @@ namespace IceGrid
  * This exception is raised if an error occurs during parsing.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICE_CLASS(ICEGRID_API) ParseException : public ::Ice::UserExceptionHelper<ParseException, ::Ice::UserException>
+class ICE_CLASS(ICEGRID_API) ParseException : public ::Ice::UserException
 {
 public:
-
-    ParseException() noexcept = default;
-
-    ParseException(const ParseException&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -181,10 +178,19 @@ public:
      */
     ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
+    ICE_MEMBER(ICEGRID_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+
     /**
      * The reason for the failure.
      */
     ::std::string reason;
+
+protected:
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 /// \cond INTERNAL

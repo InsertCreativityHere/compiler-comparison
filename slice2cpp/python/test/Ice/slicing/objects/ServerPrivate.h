@@ -214,19 +214,16 @@ public:
     ::std::shared_ptr<::Test::B> p2;
 };
 
-class UnknownDerivedException : public ::Ice::UserExceptionHelper<UnknownDerivedException, BaseException>
+class UnknownDerivedException : public BaseException
 {
 public:
-
-    UnknownDerivedException() noexcept = default;
-
-    UnknownDerivedException(const UnknownDerivedException&) = default;
+    using BaseException::BaseException;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     UnknownDerivedException(::std::string sbe, ::std::shared_ptr<B> pb, ::std::string sude, ::std::shared_ptr<D2> pd2) noexcept :
-        ::Ice::UserExceptionHelper<UnknownDerivedException, BaseException>(::std::move(sbe), ::std::move(pb)),
+        BaseException(::std::move(sbe), ::std::move(pb)),
         sude(::std::move(sude)),
         pd2(::std::move(pd2))
     {
@@ -247,8 +244,17 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::string sude;
     ::std::shared_ptr<::Test::D2> pd2;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 class MyClass : public ::Ice::ValueHelper<MyClass, ::Ice::Value>

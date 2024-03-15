@@ -52,13 +52,10 @@ namespace IceGrid
  * This exception is raised if an application does not exist.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICE_CLASS(ICEGRID_API) ApplicationNotExistException : public ::Ice::UserExceptionHelper<ApplicationNotExistException, ::Ice::UserException>
+class ICE_CLASS(ICEGRID_API) ApplicationNotExistException : public ::Ice::UserException
 {
 public:
-
-    ApplicationNotExistException() noexcept = default;
-
-    ApplicationNotExistException(const ApplicationNotExistException&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -84,10 +81,19 @@ public:
      */
     ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
+    ICE_MEMBER(ICEGRID_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+
     /**
      * The name of the application.
      */
     ::std::string name;
+
+protected:
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 /// \cond INTERNAL
@@ -98,13 +104,10 @@ static ApplicationNotExistException _iceS_ApplicationNotExistException_init;
  * This exception is raised if a server does not exist.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICE_CLASS(ICEGRID_API) ServerNotExistException : public ::Ice::UserExceptionHelper<ServerNotExistException, ::Ice::UserException>
+class ICE_CLASS(ICEGRID_API) ServerNotExistException : public ::Ice::UserException
 {
 public:
-
-    ServerNotExistException() noexcept = default;
-
-    ServerNotExistException(const ServerNotExistException&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -130,23 +133,29 @@ public:
      */
     ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
+    ICE_MEMBER(ICEGRID_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+
     /**
      * The identifier of the server.
      */
     ::std::string id;
+
+protected:
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 /**
  * This exception is raised if a server failed to start.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICE_CLASS(ICEGRID_API) ServerStartException : public ::Ice::UserExceptionHelper<ServerStartException, ::Ice::UserException>
+class ICE_CLASS(ICEGRID_API) ServerStartException : public ::Ice::UserException
 {
 public:
-
-    ServerStartException() noexcept = default;
-
-    ServerStartException(const ServerStartException&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -174,6 +183,10 @@ public:
      */
     ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
+    ICE_MEMBER(ICEGRID_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+
     /**
      * The identifier of the server.
      */
@@ -182,19 +195,21 @@ public:
      * The reason for the failure.
      */
     ::std::string reason;
+
+protected:
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 /**
  * This exception is raised if a server failed to stop.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICE_CLASS(ICEGRID_API) ServerStopException : public ::Ice::UserExceptionHelper<ServerStopException, ::Ice::UserException>
+class ICE_CLASS(ICEGRID_API) ServerStopException : public ::Ice::UserException
 {
 public:
-
-    ServerStopException() noexcept = default;
-
-    ServerStopException(const ServerStopException&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -222,6 +237,10 @@ public:
      */
     ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
+    ICE_MEMBER(ICEGRID_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+
     /**
      * The identifier of the server.
      */
@@ -230,19 +249,21 @@ public:
      * The reason for the failure.
      */
     ::std::string reason;
+
+protected:
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 /**
  * This exception is raised if an adapter does not exist.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICE_CLASS(ICEGRID_API) AdapterNotExistException : public ::Ice::UserExceptionHelper<AdapterNotExistException, ::Ice::UserException>
+class ICE_CLASS(ICEGRID_API) AdapterNotExistException : public ::Ice::UserException
 {
 public:
-
-    AdapterNotExistException() noexcept = default;
-
-    AdapterNotExistException(const AdapterNotExistException&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -268,23 +289,29 @@ public:
      */
     ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
+    ICE_MEMBER(ICEGRID_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+
     /**
      * The id of the object adapter.
      */
     ::std::string id;
+
+protected:
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 /**
  * This exception is raised if an object already exists.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICE_CLASS(ICEGRID_API) ObjectExistsException : public ::Ice::UserExceptionHelper<ObjectExistsException, ::Ice::UserException>
+class ICE_CLASS(ICEGRID_API) ObjectExistsException : public ::Ice::UserException
 {
 public:
-
-    ObjectExistsException() noexcept = default;
-
-    ObjectExistsException(const ObjectExistsException&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -310,23 +337,29 @@ public:
      */
     ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
+    ICE_MEMBER(ICEGRID_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+
     /**
      * The identity of the object.
      */
     ::Ice::Identity id;
+
+protected:
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 /**
  * This exception is raised if an object is not registered.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICE_CLASS(ICEGRID_API) ObjectNotRegisteredException : public ::Ice::UserExceptionHelper<ObjectNotRegisteredException, ::Ice::UserException>
+class ICE_CLASS(ICEGRID_API) ObjectNotRegisteredException : public ::Ice::UserException
 {
 public:
-
-    ObjectNotRegisteredException() noexcept = default;
-
-    ObjectNotRegisteredException(const ObjectNotRegisteredException&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -352,23 +385,29 @@ public:
      */
     ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
+    ICE_MEMBER(ICEGRID_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+
     /**
      * The identity of the object.
      */
     ::Ice::Identity id;
+
+protected:
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 /**
  * This exception is raised if a node does not exist.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICE_CLASS(ICEGRID_API) NodeNotExistException : public ::Ice::UserExceptionHelper<NodeNotExistException, ::Ice::UserException>
+class ICE_CLASS(ICEGRID_API) NodeNotExistException : public ::Ice::UserException
 {
 public:
-
-    NodeNotExistException() noexcept = default;
-
-    NodeNotExistException(const NodeNotExistException&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -394,23 +433,29 @@ public:
      */
     ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
+    ICE_MEMBER(ICEGRID_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+
     /**
      * The node name.
      */
     ::std::string name;
+
+protected:
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 /**
  * This exception is raised if a registry does not exist.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICE_CLASS(ICEGRID_API) RegistryNotExistException : public ::Ice::UserExceptionHelper<RegistryNotExistException, ::Ice::UserException>
+class ICE_CLASS(ICEGRID_API) RegistryNotExistException : public ::Ice::UserException
 {
 public:
-
-    RegistryNotExistException() noexcept = default;
-
-    RegistryNotExistException(const RegistryNotExistException&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -436,23 +481,29 @@ public:
      */
     ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
+    ICE_MEMBER(ICEGRID_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+
     /**
      * The registry name.
      */
     ::std::string name;
+
+protected:
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 /**
  * An exception for deployment errors.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICE_CLASS(ICEGRID_API) DeploymentException : public ::Ice::UserExceptionHelper<DeploymentException, ::Ice::UserException>
+class ICE_CLASS(ICEGRID_API) DeploymentException : public ::Ice::UserException
 {
 public:
-
-    DeploymentException() noexcept = default;
-
-    DeploymentException(const DeploymentException&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -478,23 +529,29 @@ public:
      */
     ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
+    ICE_MEMBER(ICEGRID_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+
     /**
      * The reason for the failure.
      */
     ::std::string reason;
+
+protected:
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 /**
  * This exception is raised if a node could not be reached.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICE_CLASS(ICEGRID_API) NodeUnreachableException : public ::Ice::UserExceptionHelper<NodeUnreachableException, ::Ice::UserException>
+class ICE_CLASS(ICEGRID_API) NodeUnreachableException : public ::Ice::UserException
 {
 public:
-
-    NodeUnreachableException() noexcept = default;
-
-    NodeUnreachableException(const NodeUnreachableException&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -522,6 +579,10 @@ public:
      */
     ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
+    ICE_MEMBER(ICEGRID_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+
     /**
      * The name of the node that is not reachable.
      */
@@ -530,19 +591,21 @@ public:
      * The reason why the node couldn't be reached.
      */
     ::std::string reason;
+
+protected:
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 /**
  * This exception is raised if a server could not be reached.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICE_CLASS(ICEGRID_API) ServerUnreachableException : public ::Ice::UserExceptionHelper<ServerUnreachableException, ::Ice::UserException>
+class ICE_CLASS(ICEGRID_API) ServerUnreachableException : public ::Ice::UserException
 {
 public:
-
-    ServerUnreachableException() noexcept = default;
-
-    ServerUnreachableException(const ServerUnreachableException&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -570,6 +633,10 @@ public:
      */
     ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
+    ICE_MEMBER(ICEGRID_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+
     /**
      * The id of the server that is not reachable.
      */
@@ -578,19 +645,21 @@ public:
      * The reason why the server couldn't be reached.
      */
     ::std::string reason;
+
+protected:
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 /**
  * This exception is raised if a registry could not be reached.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICE_CLASS(ICEGRID_API) RegistryUnreachableException : public ::Ice::UserExceptionHelper<RegistryUnreachableException, ::Ice::UserException>
+class ICE_CLASS(ICEGRID_API) RegistryUnreachableException : public ::Ice::UserException
 {
 public:
-
-    RegistryUnreachableException() noexcept = default;
-
-    RegistryUnreachableException(const RegistryUnreachableException&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -618,6 +687,10 @@ public:
      */
     ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
+    ICE_MEMBER(ICEGRID_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+
     /**
      * The name of the registry that is not reachable.
      */
@@ -626,19 +699,21 @@ public:
      * The reason why the registry couldn't be reached.
      */
     ::std::string reason;
+
+protected:
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 /**
  * This exception is raised if an unknown signal was sent to to a server.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICE_CLASS(ICEGRID_API) BadSignalException : public ::Ice::UserExceptionHelper<BadSignalException, ::Ice::UserException>
+class ICE_CLASS(ICEGRID_API) BadSignalException : public ::Ice::UserException
 {
 public:
-
-    BadSignalException() noexcept = default;
-
-    BadSignalException(const BadSignalException&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -664,23 +739,29 @@ public:
      */
     ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
+    ICE_MEMBER(ICEGRID_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+
     /**
      * The details of the unknown signal.
      */
     ::std::string reason;
+
+protected:
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 /**
  * This exception is raised if a patch failed.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICE_CLASS(ICEGRID_API) PatchException : public ::Ice::UserExceptionHelper<PatchException, ::Ice::UserException>
+class ICE_CLASS(ICEGRID_API) PatchException : public ::Ice::UserException
 {
 public:
-
-    PatchException() noexcept = default;
-
-    PatchException(const PatchException&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -706,23 +787,29 @@ public:
      */
     ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
+    ICE_MEMBER(ICEGRID_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+
     /**
      * The reasons why the patch failed.
      */
     ::Ice::StringSeq reasons;
+
+protected:
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 /**
  * his exception is raised if a registry lock wasn't acquired or is already held by a session.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICE_CLASS(ICEGRID_API) AccessDeniedException : public ::Ice::UserExceptionHelper<AccessDeniedException, ::Ice::UserException>
+class ICE_CLASS(ICEGRID_API) AccessDeniedException : public ::Ice::UserException
 {
 public:
-
-    AccessDeniedException() noexcept = default;
-
-    AccessDeniedException(const AccessDeniedException&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -748,23 +835,29 @@ public:
      */
     ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
+    ICE_MEMBER(ICEGRID_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+
     /**
      * The id of the user holding the lock (if any).
      */
     ::std::string lockUserId;
+
+protected:
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 /**
  * This exception is raised if the allocation of an object failed.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICE_CLASS(ICEGRID_API) AllocationException : public ::Ice::UserExceptionHelper<AllocationException, ::Ice::UserException>
+class ICE_CLASS(ICEGRID_API) AllocationException : public ::Ice::UserException
 {
 public:
-
-    AllocationException() noexcept = default;
-
-    AllocationException(const AllocationException&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -790,40 +883,37 @@ public:
      */
     ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
+    ICE_MEMBER(ICEGRID_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+
     /**
      * The reason why the object couldn't be allocated.
      */
     ::std::string reason;
+
+protected:
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 /**
  * This exception is raised if the request to allocate an object times out.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICE_CLASS(ICEGRID_API) AllocationTimeoutException : public ::Ice::UserExceptionHelper<AllocationTimeoutException, AllocationException>
+class ICE_CLASS(ICEGRID_API) AllocationTimeoutException : public AllocationException
 {
 public:
-
-    AllocationTimeoutException() noexcept = default;
-
-    AllocationTimeoutException(const AllocationTimeoutException&) = default;
+    using AllocationException::AllocationException;
 
     /**
      * One-shot constructor to initialize all data members.
      * @param reason The reason why the object couldn't be allocated.
      */
     AllocationTimeoutException(::std::string reason) noexcept :
-        ::Ice::UserExceptionHelper<AllocationTimeoutException, AllocationException>(::std::move(reason))
+        AllocationException(::std::move(reason))
     {
-    }
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::string&> ice_tuple() const
-    {
-        return std::tie(reason);
     }
 
     /**
@@ -831,19 +921,25 @@ public:
      * @return The fully-scoped type ID.
      */
     ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
+
+    ICE_MEMBER(ICEGRID_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+
+protected:
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 /**
  * This exception is raised if a client is denied the ability to create a session with IceGrid.
  * \headerfile IceGrid/IceGrid.h
  */
-class ICE_CLASS(ICEGRID_API) PermissionDeniedException : public ::Ice::UserExceptionHelper<PermissionDeniedException, ::Ice::UserException>
+class ICE_CLASS(ICEGRID_API) PermissionDeniedException : public ::Ice::UserException
 {
 public:
-
-    PermissionDeniedException() noexcept = default;
-
-    PermissionDeniedException(const PermissionDeniedException&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -869,10 +965,19 @@ public:
      */
     ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
+    ICE_MEMBER(ICEGRID_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+
     /**
      * The reason why permission was denied.
      */
     ::std::string reason;
+
+protected:
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 /**
@@ -881,13 +986,10 @@ public:
  * @see AdminSession#setObserversByIdentity
  * \headerfile IceGrid/IceGrid.h
  */
-class ICE_CLASS(ICEGRID_API) ObserverAlreadyRegisteredException : public ::Ice::UserExceptionHelper<ObserverAlreadyRegisteredException, ::Ice::UserException>
+class ICE_CLASS(ICEGRID_API) ObserverAlreadyRegisteredException : public ::Ice::UserException
 {
 public:
-
-    ObserverAlreadyRegisteredException() noexcept = default;
-
-    ObserverAlreadyRegisteredException(const ObserverAlreadyRegisteredException&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -913,10 +1015,19 @@ public:
      */
     ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
+    ICE_MEMBER(ICEGRID_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+
     /**
      * The identity of the observer.
      */
     ::Ice::Identity id;
+
+protected:
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 /**
@@ -929,13 +1040,10 @@ public:
  * @see AdminSession#openRegistryStdErr
  * \headerfile IceGrid/IceGrid.h
  */
-class ICE_CLASS(ICEGRID_API) FileNotAvailableException : public ::Ice::UserExceptionHelper<FileNotAvailableException, ::Ice::UserException>
+class ICE_CLASS(ICEGRID_API) FileNotAvailableException : public ::Ice::UserException
 {
 public:
-
-    FileNotAvailableException() noexcept = default;
-
-    FileNotAvailableException(const FileNotAvailableException&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -961,10 +1069,19 @@ public:
      */
     ICE_MEMBER(ICEGRID_API) static ::std::string_view ice_staticId() noexcept;
 
+    ICE_MEMBER(ICEGRID_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(ICEGRID_API) void ice_throw() const override;
+
     /**
      * The reason for the failure.
      */
     ::std::string reason;
+
+protected:
+    ICE_MEMBER(ICEGRID_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(ICEGRID_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 }

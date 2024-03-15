@@ -286,6 +286,32 @@ IceBox::AlreadyStartedException::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+IceBox::AlreadyStartedException::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+IceBox::AlreadyStartedException::ice_throw() const
+{
+    throw *this;
+}
+
+void
+IceBox::AlreadyStartedException::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ostr->endSlice();
+}
+
+void
+IceBox::AlreadyStartedException::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    istr->endSlice();
+}
+
 ::std::string_view
 IceBox::AlreadyStoppedException::ice_staticId() noexcept
 {
@@ -293,11 +319,63 @@ IceBox::AlreadyStoppedException::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+IceBox::AlreadyStoppedException::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+IceBox::AlreadyStoppedException::ice_throw() const
+{
+    throw *this;
+}
+
+void
+IceBox::AlreadyStoppedException::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ostr->endSlice();
+}
+
+void
+IceBox::AlreadyStoppedException::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    istr->endSlice();
+}
+
 ::std::string_view
 IceBox::NoSuchServiceException::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::IceBox::NoSuchServiceException";
     return typeId;
+}
+
+::std::string
+IceBox::NoSuchServiceException::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+IceBox::NoSuchServiceException::ice_throw() const
+{
+    throw *this;
+}
+
+void
+IceBox::NoSuchServiceException::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ostr->endSlice();
+}
+
+void
+IceBox::NoSuchServiceException::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    istr->endSlice();
 }
 
 ::std::vector<::std::string>

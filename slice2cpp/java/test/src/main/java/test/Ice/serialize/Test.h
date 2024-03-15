@@ -287,13 +287,10 @@ public:
     ::std::optional<::Ice::ObjectPrx> p;
 };
 
-class Ex : public ::Ice::UserExceptionHelper<Ex, ::Ice::UserException>
+class Ex : public ::Ice::UserException
 {
 public:
-
-    Ex() noexcept = default;
-
-    Ex(const Ex&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -319,12 +316,21 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     /// \cond STREAM
-    virtual bool _usesClasses() const override;
+    bool _usesClasses() const override;
     /// \endcond
 
     ::Test::Struct1 s;
     ::std::shared_ptr<::Test::Base> b;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 using Ice::operator<;

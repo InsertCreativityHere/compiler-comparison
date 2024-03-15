@@ -385,13 +385,10 @@ public:
     ::classdef::_cpp_break::_cpp_switch otherwise;
 };
 
-class persistent : public ::Ice::UserExceptionHelper<persistent, ::Ice::UserException>
+class persistent : public ::Ice::UserException
 {
 public:
-
-    persistent() noexcept = default;
-
-    persistent(const persistent&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -421,8 +418,12 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     /// \cond STREAM
-    virtual bool _usesClasses() const override;
+    bool _usesClasses() const override;
     /// \endcond
 
     ::std::string identifier = "1";
@@ -431,21 +432,23 @@ public:
     ::std::string cause = "4";
     ::std::string type = "5";
     ::std::shared_ptr<::classdef::break::logical> end;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
-class global : public ::Ice::UserExceptionHelper<global, persistent>
+class global : public persistent
 {
 public:
-
-    global() noexcept = default;
-
-    global(const global&) = default;
+    using persistent::persistent;
 
     /**
      * One-shot constructor to initialize all data members.
      */
     global(::std::string identifier, ::std::string message, ::std::string stack, ::std::string cause, ::std::string type, ::std::shared_ptr<::classdef::break::logical> end, ::std::int32_t enumeration) noexcept :
-        ::Ice::UserExceptionHelper<global, persistent>(::std::move(identifier), ::std::move(message), ::std::move(stack), ::std::move(cause), ::std::move(type), ::std::move(end)),
+        persistent(::std::move(identifier), ::std::move(message), ::std::move(stack), ::std::move(cause), ::std::move(type), ::std::move(end)),
         enumeration(enumeration)
     {
     }
@@ -465,7 +468,16 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::int32_t enumeration = 1;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 using Ice::operator<;

@@ -75,6 +75,18 @@ Test::MyException::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test::MyException::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::MyException::ice_throw() const
+{
+    throw *this;
+}
+
 /// \cond STREAM
 bool
 Test::MyException::_usesClasses() const
@@ -83,6 +95,22 @@ Test::MyException::_usesClasses() const
 }
 /// \endcond
 
+void
+Test::MyException::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<MyException, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::MyException::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<MyException, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
 ::std::string_view
 Test::Sub::NestedException::ice_staticId() noexcept
 {
@@ -90,11 +118,67 @@ Test::Sub::NestedException::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test::Sub::NestedException::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::Sub::NestedException::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test::Sub::NestedException::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<NestedException, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::Sub::NestedException::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<NestedException, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
 ::std::string_view
 Test2::Sub2::NestedException2::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test2::Sub2::NestedException2";
     return typeId;
+}
+
+::std::string
+Test2::Sub2::NestedException2::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test2::Sub2::NestedException2::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test2::Sub2::NestedException2::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<NestedException2, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test2::Sub2::NestedException2::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<NestedException2, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
 }
 
 ::std::vector<::std::string>

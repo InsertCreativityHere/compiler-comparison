@@ -2920,6 +2920,32 @@ Test::SomeException::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test::SomeException::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::SomeException::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test::SomeException::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ostr->endSlice();
+}
+
+void
+Test::SomeException::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    istr->endSlice();
+}
+
 ::std::string_view
 Test::MyClass1::ice_staticId() noexcept
 {

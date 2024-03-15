@@ -246,13 +246,10 @@ namespace Glacier2
  * This exception is raised if a client is denied the ability to create a session with the router.
  * \headerfile Glacier2/Glacier2.h
  */
-class ICE_CLASS(GLACIER2_API) PermissionDeniedException : public ::Ice::UserExceptionHelper<PermissionDeniedException, ::Ice::UserException>
+class ICE_CLASS(GLACIER2_API) PermissionDeniedException : public ::Ice::UserException
 {
 public:
-
-    PermissionDeniedException() noexcept = default;
-
-    PermissionDeniedException(const PermissionDeniedException&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -278,10 +275,19 @@ public:
      */
     ICE_MEMBER(GLACIER2_API) static ::std::string_view ice_staticId() noexcept;
 
+    ICE_MEMBER(GLACIER2_API) ::std::string ice_id() const override;
+
+    ICE_MEMBER(GLACIER2_API) void ice_throw() const override;
+
     /**
      * The reason why permission was denied.
      */
     ::std::string reason;
+
+protected:
+    ICE_MEMBER(GLACIER2_API) void _writeImpl(::Ice::OutputStream*) const override;
+
+    ICE_MEMBER(GLACIER2_API) void _readImpl(::Ice::InputStream*) override;
 };
 
 /// \cond INTERNAL

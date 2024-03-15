@@ -101,6 +101,34 @@ Test::UserError::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test::UserError::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::UserError::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test::UserError::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<UserError, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::UserError::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<UserError, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
 ::std::vector<::std::string>
 Test::MyInterface::ice_ids(const ::Ice::Current&) const
 {

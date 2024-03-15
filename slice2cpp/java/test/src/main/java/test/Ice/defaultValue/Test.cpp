@@ -74,11 +74,69 @@ Test::BaseEx::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test::BaseEx::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::BaseEx::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test::BaseEx::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<BaseEx, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::BaseEx::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<BaseEx, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
 ::std::string_view
 Test::DerivedEx::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::DerivedEx";
     return typeId;
+}
+
+::std::string
+Test::DerivedEx::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::DerivedEx::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test::DerivedEx::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<DerivedEx, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    BaseEx::_writeImpl(ostr);
+}
+
+void
+Test::DerivedEx::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<DerivedEx, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    BaseEx::_readImpl(istr);
 }
 
 ::std::string_view
@@ -88,11 +146,69 @@ Test::ExceptionNoDefaultsBase::ice_staticId() noexcept
     return typeId;
 }
 
+::std::string
+Test::ExceptionNoDefaultsBase::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::ExceptionNoDefaultsBase::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test::ExceptionNoDefaultsBase::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, true);
+    ::Ice::StreamWriter<ExceptionNoDefaultsBase, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+}
+
+void
+Test::ExceptionNoDefaultsBase::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<ExceptionNoDefaultsBase, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+}
+
 ::std::string_view
 Test::ExceptionNoDefaults::ice_staticId() noexcept
 {
     static constexpr ::std::string_view typeId = "::Test::ExceptionNoDefaults";
     return typeId;
+}
+
+::std::string
+Test::ExceptionNoDefaults::ice_id() const
+{
+    return ::std::string{ice_staticId()};
+}
+
+void
+Test::ExceptionNoDefaults::ice_throw() const
+{
+    throw *this;
+}
+
+void
+Test::ExceptionNoDefaults::_writeImpl(::Ice::OutputStream* ostr) const
+{
+    ostr->startSlice(ice_staticId(), -1, false);
+    ::Ice::StreamWriter<ExceptionNoDefaults, ::Ice::OutputStream>::write(ostr, *this);
+    ostr->endSlice();
+    ExceptionNoDefaultsBase::_writeImpl(ostr);
+}
+
+void
+Test::ExceptionNoDefaults::_readImpl(::Ice::InputStream* istr)
+{
+    istr->startSlice();
+    ::Ice::StreamReader<ExceptionNoDefaults, ::Ice::InputStream>::read(istr, *this);
+    istr->endSlice();
+    ExceptionNoDefaultsBase::_readImpl(istr);
 }
 
 ::std::string_view

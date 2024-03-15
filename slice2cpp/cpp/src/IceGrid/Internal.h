@@ -2576,37 +2576,31 @@ public:
 /**
  * This exception is raised if an adapter is active.
  */
-class AdapterActiveException : public ::Ice::UserExceptionHelper<AdapterActiveException, ::Ice::UserException>
+class AdapterActiveException : public ::Ice::UserException
 {
 public:
-
-    AdapterActiveException() noexcept = default;
-
-    AdapterActiveException(const AdapterActiveException&) = default;
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<> ice_tuple() const
-    {
-        return std::tie();
-    }
+    using ::Ice::UserException::UserException;
 
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
     static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
-class AdapterNotActiveException : public ::Ice::UserExceptionHelper<AdapterNotActiveException, ::Ice::UserException>
+class AdapterNotActiveException : public ::Ice::UserException
 {
 public:
-
-    AdapterNotActiveException() noexcept = default;
-
-    AdapterNotActiveException(const AdapterNotActiveException&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -2632,22 +2626,28 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     /**
      * True if the adapter can be activated on demand.
      */
     bool activatable;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 /**
  * This exception is raised if an adapter with the same name already exists.
  */
-class AdapterExistsException : public ::Ice::UserExceptionHelper<AdapterExistsException, ::Ice::UserException>
+class AdapterExistsException : public ::Ice::UserException
 {
 public:
-
-    AdapterExistsException() noexcept = default;
-
-    AdapterExistsException(const AdapterExistsException&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -2672,61 +2672,64 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::string id;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 /**
  * This exception is raised if a node is already registered and active.
  */
-class NodeActiveException : public ::Ice::UserExceptionHelper<NodeActiveException, ::Ice::UserException>
+class NodeActiveException : public ::Ice::UserException
 {
 public:
-
-    NodeActiveException() noexcept = default;
-
-    NodeActiveException(const NodeActiveException&) = default;
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<> ice_tuple() const
-    {
-        return std::tie();
-    }
+    using ::Ice::UserException::UserException;
 
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
     static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 /**
  * This exception is raised if a replica is already registered and active.
  */
-class ReplicaActiveException : public ::Ice::UserExceptionHelper<ReplicaActiveException, ::Ice::UserException>
+class ReplicaActiveException : public ::Ice::UserException
 {
 public:
-
-    ReplicaActiveException() noexcept = default;
-
-    ReplicaActiveException(const ReplicaActiveException&) = default;
-
-    /**
-     * Obtains a tuple containing all of the exception's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<> ice_tuple() const
-    {
-        return std::tie();
-    }
+    using ::Ice::UserException::UserException;
 
     /**
      * Obtains the Slice type ID of this exception.
      * @return The fully-scoped type ID.
      */
     static ::std::string_view ice_staticId() noexcept;
+
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 /**

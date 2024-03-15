@@ -203,13 +203,10 @@ protected:
 namespace Test
 {
 
-class InvalidInputException : public ::Ice::UserExceptionHelper<InvalidInputException, ::Ice::UserException>
+class InvalidInputException : public ::Ice::UserException
 {
 public:
-
-    InvalidInputException() noexcept = default;
-
-    InvalidInputException(const InvalidInputException&) = default;
+    using ::Ice::UserException::UserException;
 
     /**
      * One-shot constructor to initialize all data members.
@@ -234,7 +231,16 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
+    ::std::string ice_id() const override;
+
+    void ice_throw() const override;
+
     ::std::string message;
+
+protected:
+    void _writeImpl(::Ice::OutputStream*) const override;
+
+    void _readImpl(::Ice::InputStream*) override;
 };
 
 /// \cond INTERNAL
