@@ -31,8 +31,6 @@ namespace Test
 
 class HoldPrx;
 
-using HoldPrxPtr = ::std::optional<HoldPrx>;
-
 }
 
 namespace Test

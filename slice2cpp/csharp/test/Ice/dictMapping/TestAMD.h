@@ -55,8 +55,6 @@ using NDASS = ::std::map<::std::string, ASS>;
 using NDGSS = ::std::map<::std::string, GSS>;
 class MyClassPrx;
 
-using MyClassPrxPtr = ::std::optional<MyClassPrx>;
-
 }
 
 namespace Test

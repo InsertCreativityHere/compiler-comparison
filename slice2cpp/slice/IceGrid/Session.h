@@ -44,8 +44,6 @@ namespace IceGrid
 
 class SessionPrx;
 
-using SessionPrxPtr = ::std::optional<SessionPrx>;
-
 }
 
 namespace IceGrid
@@ -99,7 +97,7 @@ public:
      * available or until the timeout is reached.
      * @param id The identity of the object to allocate.
      * @param context The Context map to send with the invocation.
-     * @return The proxy of the allocated object.
+     * @return The proxy of the allocated object. The returned proxy is never null.
      * @throws IceGrid::AllocationException Raised if the object can't be allocated.
      * @throws IceGrid::ObjectNotRegisteredException Raised if the object with the given identity is not registered with
      * the registry.
@@ -143,7 +141,7 @@ public:
      * an object becomes available or until the timeout is reached.
      * @param type The type of the object.
      * @param context The Context map to send with the invocation.
-     * @return The proxy of the allocated object.
+     * @return The proxy of the allocated object. The returned proxy is never null.
      * @throws IceGrid::AllocationException Raised if the object could not be allocated.
      * @see #setAllocationTimeout
      * @see #releaseObject

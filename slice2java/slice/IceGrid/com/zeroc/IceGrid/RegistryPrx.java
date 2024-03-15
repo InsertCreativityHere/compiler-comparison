@@ -27,7 +27,7 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
      * Create a client session.
      * @param userId The user id.
      * @param password The password for the given user id.
-     * @return A proxy for the newly created session.
+     * @return A proxy for the newly created session. The returned proxy is never null.
      * @throws PermissionDeniedException Raised if the password for the given user id is not correct, or if the
      * user is not allowed access.
      **/
@@ -42,7 +42,7 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
      * @param userId The user id.
      * @param password The password for the given user id.
      * @param context The Context map to send with the invocation.
-     * @return A proxy for the newly created session.
+     * @return A proxy for the newly created session. The returned proxy is never null.
      * @throws PermissionDeniedException Raised if the password for the given user id is not correct, or if the
      * user is not allowed access.
      **/
@@ -67,7 +67,7 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
      * Create a client session.
      * @param userId The user id.
      * @param password The password for the given user id.
-     * @return A proxy for the newly created session.
+     * @return A proxy for the newly created session. The returned proxy is never null.
      **/
     default java.util.concurrent.CompletableFuture<SessionPrx> createSessionAsync(String userId, String password)
     {
@@ -79,7 +79,7 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
      * @param userId The user id.
      * @param password The password for the given user id.
      * @param context The Context map to send with the invocation.
-     * @return A proxy for the newly created session.
+     * @return A proxy for the newly created session. The returned proxy is never null.
      **/
     default java.util.concurrent.CompletableFuture<SessionPrx> createSessionAsync(String userId, String password, java.util.Map<String, String> context)
     {
@@ -118,7 +118,7 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
      * Create an administrative session.
      * @param userId The user id.
      * @param password The password for the given user id.
-     * @return A proxy for the newly created session.
+     * @return A proxy for the newly created session. The returned proxy is never null.
      * @throws PermissionDeniedException Raised if the password for the given user id is not correct, or if the
      * user is not allowed access.
      **/
@@ -133,7 +133,7 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
      * @param userId The user id.
      * @param password The password for the given user id.
      * @param context The Context map to send with the invocation.
-     * @return A proxy for the newly created session.
+     * @return A proxy for the newly created session. The returned proxy is never null.
      * @throws PermissionDeniedException Raised if the password for the given user id is not correct, or if the
      * user is not allowed access.
      **/
@@ -158,7 +158,7 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
      * Create an administrative session.
      * @param userId The user id.
      * @param password The password for the given user id.
-     * @return A proxy for the newly created session.
+     * @return A proxy for the newly created session. The returned proxy is never null.
      **/
     default java.util.concurrent.CompletableFuture<AdminSessionPrx> createAdminSessionAsync(String userId, String password)
     {
@@ -170,7 +170,7 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
      * @param userId The user id.
      * @param password The password for the given user id.
      * @param context The Context map to send with the invocation.
-     * @return A proxy for the newly created session.
+     * @return A proxy for the newly created session. The returned proxy is never null.
      **/
     default java.util.concurrent.CompletableFuture<AdminSessionPrx> createAdminSessionAsync(String userId, String password, java.util.Map<String, String> context)
     {
@@ -207,7 +207,7 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Create a client session from a secure connection.
-     * @return A proxy for the newly created session.
+     * @return A proxy for the newly created session. The returned proxy is never null.
      * @throws PermissionDeniedException Raised if the password for the given user id is not correct, or if the
      * user is not allowed access.
      **/
@@ -220,7 +220,7 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Create a client session from a secure connection.
      * @param context The Context map to send with the invocation.
-     * @return A proxy for the newly created session.
+     * @return A proxy for the newly created session. The returned proxy is never null.
      * @throws PermissionDeniedException Raised if the password for the given user id is not correct, or if the
      * user is not allowed access.
      **/
@@ -243,7 +243,7 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Create a client session from a secure connection.
-     * @return A proxy for the newly created session.
+     * @return A proxy for the newly created session. The returned proxy is never null.
      **/
     default java.util.concurrent.CompletableFuture<SessionPrx> createSessionFromSecureConnectionAsync()
     {
@@ -253,7 +253,7 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Create a client session from a secure connection.
      * @param context The Context map to send with the invocation.
-     * @return A proxy for the newly created session.
+     * @return A proxy for the newly created session. The returned proxy is never null.
      **/
     default java.util.concurrent.CompletableFuture<SessionPrx> createSessionFromSecureConnectionAsync(java.util.Map<String, String> context)
     {
@@ -285,7 +285,7 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Create an administrative session from a secure connection.
-     * @return A proxy for the newly created session.
+     * @return A proxy for the newly created session. The returned proxy is never null.
      * @throws PermissionDeniedException Raised if the password for the given user id is not correct, or if the
      * user is not allowed access.
      **/
@@ -298,7 +298,7 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Create an administrative session from a secure connection.
      * @param context The Context map to send with the invocation.
-     * @return A proxy for the newly created session.
+     * @return A proxy for the newly created session. The returned proxy is never null.
      * @throws PermissionDeniedException Raised if the password for the given user id is not correct, or if the
      * user is not allowed access.
      **/
@@ -321,7 +321,7 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Create an administrative session from a secure connection.
-     * @return A proxy for the newly created session.
+     * @return A proxy for the newly created session. The returned proxy is never null.
      **/
     default java.util.concurrent.CompletableFuture<AdminSessionPrx> createAdminSessionFromSecureConnectionAsync()
     {
@@ -331,7 +331,7 @@ public interface RegistryPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Create an administrative session from a secure connection.
      * @param context The Context map to send with the invocation.
-     * @return A proxy for the newly created session.
+     * @return A proxy for the newly created session. The returned proxy is never null.
      **/
     default java.util.concurrent.CompletableFuture<AdminSessionPrx> createAdminSessionFromSecureConnectionAsync(java.util.Map<String, String> context)
     {

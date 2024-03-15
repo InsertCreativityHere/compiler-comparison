@@ -13,7 +13,7 @@ classdef AdapterDynamicInfo
     properties
         % id - The id of the adapter.
         id char
-        % proxy - The direct proxy containing the adapter endpoints.
+        % proxy - The direct proxy containing the adapter endpoints. This proxy is never null.
         proxy
     end
     methods

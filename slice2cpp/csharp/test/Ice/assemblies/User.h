@@ -35,8 +35,6 @@ class UserInfo;
 using UserInfoPtr = ::std::shared_ptr<UserInfo>;
 class RegistryPrx;
 
-using RegistryPrxPtr = ::std::optional<RegistryPrx>;
-
 }
 
 namespace User

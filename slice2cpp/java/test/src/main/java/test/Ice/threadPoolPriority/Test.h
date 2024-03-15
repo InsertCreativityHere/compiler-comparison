@@ -31,8 +31,6 @@ namespace Test
 
 class PriorityPrx;
 
-using PriorityPrxPtr = ::std::optional<PriorityPrx>;
-
 }
 
 namespace Test

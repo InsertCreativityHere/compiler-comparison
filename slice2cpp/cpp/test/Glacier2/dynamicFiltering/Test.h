@@ -32,8 +32,6 @@ namespace Test
 
 class BackendPrx;
 
-using BackendPrxPtr = ::std::optional<BackendPrx>;
-
 enum class StateCode : unsigned char
 {
     Initial,
@@ -42,11 +40,7 @@ enum class StateCode : unsigned char
 };
 struct TestToken;
 class TestControllerPrx;
-
-using TestControllerPrxPtr = ::std::optional<TestControllerPrx>;
 class TestSessionPrx;
-
-using TestSessionPrxPtr = ::std::optional<TestSessionPrx>;
 
 }
 

@@ -1032,7 +1032,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
         Arguments:
         id -- The server id.
         context -- The request context for the invocation.
-        Returns: A proxy to the server's admin object
+        Returns: A proxy to the server's admin object. The returned proxy is never null.
         Throws:
         DeploymentException -- Raised if the server couldn't be deployed on the node.
         NodeUnreachableException -- Raised if the node could not be reached.
@@ -1333,7 +1333,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
         """
          Add an object to the object registry and explicitly specify its type.
         Arguments:
-        obj -- The object to be added to the registry.
+        obj -- The object to be added to the registry. The proxy is never null.
         type -- The object type.
         context -- The request context for the invocation.
         Throws:
@@ -1346,7 +1346,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
         """
          Add an object to the object registry and explicitly specify its type.
         Arguments:
-        obj -- The object to be added to the registry.
+        obj -- The object to be added to the registry. The proxy is never null.
         type -- The object type.
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -1513,7 +1513,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
         Arguments:
         name -- The IceGrid node name
         context -- The request context for the invocation.
-        Returns: A proxy to the IceGrid node's admin object
+        Returns: A proxy to the IceGrid node's admin object. The returned proxy is never null.
         Throws:
         NodeNotExistException -- Raised if the node doesn't exist.
         NodeUnreachableException -- Raised if the node could not be reached.
@@ -1671,7 +1671,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
         Arguments:
         name -- The registry name
         context -- The request context for the invocation.
-        Returns: A proxy to the IceGrid registry's admin object
+        Returns: A proxy to the IceGrid registry's admin object. The returned proxy is never null.
         Throws:
         RegistryNotExistException -- Raised if the registry doesn't exist.
         """
@@ -2155,7 +2155,7 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             """
              Add an object to the object registry and explicitly specify its type.
             Arguments:
-            obj -- The object to be added to the registry.
+            obj -- The object to be added to the registry. The proxy is never null.
             type -- The object type.
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -2682,7 +2682,7 @@ if 'AdapterDynamicInfo' not in _M_IceGrid.__dict__:
          Dynamic information about the state of an adapter.
         Members:
         id --  The id of the adapter.
-        proxy --  The direct proxy containing the adapter endpoints.
+        proxy --  The direct proxy containing the adapter endpoints. This proxy is never null.
         """
         def __init__(self, id='', proxy=None):
             self.id = id
@@ -3674,7 +3674,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
          Get the admin interface. The admin object returned by this operation can only be accessed by the session.
         Arguments:
         context -- The request context for the invocation.
-        Returns: The admin interface proxy.
+        Returns: The admin interface proxy. The returned proxy is never null.
         """
         def getAdmin(self, context=None):
             return _M_IceGrid.AdminSession._op_getAdmin.invoke(self, ((), context))
@@ -3832,7 +3832,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
         path -- The path of the log file. A log file can be opened only if it's declared in the server or service deployment descriptor.
         count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
         context -- The request context for the invocation.
-        Returns: An iterator to read the file.
+        Returns: An iterator to read the file. The returned proxy is never null.
         Throws:
         DeploymentException -- Raised if the server couldn't be deployed on the node.
         FileNotAvailableException -- Raised if the file can't be read.
@@ -3860,7 +3860,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
         id -- The server id.
         count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
         context -- The request context for the invocation.
-        Returns: An iterator to read the file.
+        Returns: An iterator to read the file. The returned proxy is never null.
         Throws:
         DeploymentException -- Raised if the server couldn't be deployed on the node.
         FileNotAvailableException -- Raised if the file can't be read.
@@ -3887,7 +3887,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
         id -- The server id.
         count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
         context -- The request context for the invocation.
-        Returns: An iterator to read the file.
+        Returns: An iterator to read the file. The returned proxy is never null.
         Throws:
         DeploymentException -- Raised if the server couldn't be deployed on the node.
         FileNotAvailableException -- Raised if the file can't be read.
@@ -3914,7 +3914,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
         name -- The node name.
         count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
         context -- The request context for the invocation.
-        Returns: An iterator to read the file.
+        Returns: An iterator to read the file. The returned proxy is never null.
         Throws:
         FileNotAvailableException -- Raised if the file can't be read.
         NodeNotExistException -- Raised if the node doesn't exist.
@@ -3940,7 +3940,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
         name -- The node name.
         count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
         context -- The request context for the invocation.
-        Returns: An iterator to read the file.
+        Returns: An iterator to read the file. The returned proxy is never null.
         Throws:
         FileNotAvailableException -- Raised if the file can't be read.
         NodeNotExistException -- Raised if the node doesn't exist.
@@ -3966,7 +3966,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
         name -- The registry name.
         count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
         context -- The request context for the invocation.
-        Returns: An iterator to read the file.
+        Returns: An iterator to read the file. The returned proxy is never null.
         Throws:
         FileNotAvailableException -- Raised if the file can't be read.
         RegistryNotExistException -- Raised if the registry doesn't exist.
@@ -3992,7 +3992,7 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
         name -- The registry name.
         count -- Specifies where to start reading the file. If negative, the file is read from the begining. If 0 or positive, the file is read from the last count lines.
         context -- The request context for the invocation.
-        Returns: An iterator to read the file.
+        Returns: An iterator to read the file. The returned proxy is never null.
         Throws:
         FileNotAvailableException -- Raised if the file can't be read.
         RegistryNotExistException -- Raised if the registry doesn't exist.

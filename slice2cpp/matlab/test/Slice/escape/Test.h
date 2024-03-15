@@ -88,8 +88,6 @@ class properties;
 using propertiesPtr = ::std::shared_ptr<properties>;
 class elseifPrx;
 
-using elseifPrxPtr = ::std::optional<elseifPrx>;
-
 constexpr ::std::int32_t methods = 1;
 
 }

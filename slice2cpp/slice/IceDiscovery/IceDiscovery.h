@@ -31,11 +31,7 @@ namespace IceDiscovery
 {
 
 class LookupReplyPrx;
-
-using LookupReplyPrxPtr = ::std::optional<LookupReplyPrx>;
 class LookupPrx;
-
-using LookupPrxPtr = ::std::optional<LookupPrx>;
 
 }
 

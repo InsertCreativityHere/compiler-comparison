@@ -31,9 +31,9 @@
 
 classdef NodePrx < IceGrid.FileReaderPrx & IceGrid.ReplicaObserverPrx
     methods
-        function [result, adapters, actTimeout, deactTimeout] = loadServer(obj, svr, replicaName, varargin)
+        function [result, adapters, activateTimeout, deactivateTimeout] = loadServer(obj, svr, replicaName, varargin)
             % loadServer   Load the given server. If the server resources weren't already created (database environment directories,
-            % property files, etc), they will be created.
+            % property files, etc), they will be created. The returned proxy is never null.
             %
             % Parameters:
             %   svr (IceGrid.InternalServerDescriptor)
@@ -43,8 +43,8 @@ classdef NodePrx < IceGrid.FileReaderPrx & IceGrid.ReplicaObserverPrx
             % Returns:
             %   result (IceGrid.ServerPrx)
             %   adapters (containers.Map)
-            %   actTimeout (int32)
-            %   deactTimeout (int32)
+            %   activateTimeout (int32)
+            %   deactivateTimeout (int32)
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeValue(svr);
@@ -54,14 +54,14 @@ classdef NodePrx < IceGrid.FileReaderPrx & IceGrid.ReplicaObserverPrx
             is_ = obj.iceInvoke('loadServer', 2, true, os_, true, IceGrid.NodePrx.loadServer_ex_, varargin{:});
             is_.startEncapsulation();
             adapters = IceGrid.AdapterPrxDict.read(is_);
-            actTimeout = is_.readInt();
-            deactTimeout = is_.readInt();
+            activateTimeout = is_.readInt();
+            deactivateTimeout = is_.readInt();
             result = IceGrid.ServerPrx.ice_read(is_);
             is_.endEncapsulation();
         end
         function r_ = loadServerAsync(obj, svr, replicaName, varargin)
             % loadServerAsync   Load the given server. If the server resources weren't already created (database environment directories,
-            % property files, etc), they will be created.
+            % property files, etc), they will be created. The returned proxy is never null.
             %
             % Parameters:
             %   svr (IceGrid.InternalServerDescriptor)
@@ -78,21 +78,21 @@ classdef NodePrx < IceGrid.FileReaderPrx & IceGrid.ReplicaObserverPrx
             function varargout = unmarshal(is_)
                 is_.startEncapsulation();
                 adapters = IceGrid.AdapterPrxDict.read(is_);
-                actTimeout = is_.readInt();
-                deactTimeout = is_.readInt();
+                activateTimeout = is_.readInt();
+                deactivateTimeout = is_.readInt();
                 result = IceGrid.ServerPrx.ice_read(is_);
                 is_.endEncapsulation();
                 varargout{1} = result;
                 varargout{2} = adapters;
-                varargout{3} = actTimeout;
-                varargout{4} = deactTimeout;
+                varargout{3} = activateTimeout;
+                varargout{4} = deactivateTimeout;
             end
             r_ = obj.iceInvokeAsync('loadServer', 2, true, os_, 4, @unmarshal, IceGrid.NodePrx.loadServer_ex_, varargin{:});
         end
-        function [result, adapters, actTimeout, deactTimeout] = loadServerWithoutRestart(obj, svr, replicaName, varargin)
+        function [result, adapters, activateTimeout, deactivateTimeout] = loadServerWithoutRestart(obj, svr, replicaName, varargin)
             % loadServerWithoutRestart   Load the given server and ensure the server won't be restarted. If the server resources weren't already created
             % (database environment directories, property files, etc), they will be created. If the server can't be updated
-            % without a restart, a DeploymentException is raised.
+            % without a restart, a DeploymentException is raised. The returned proxy is never null.
             %
             % Parameters:
             %   svr (IceGrid.InternalServerDescriptor)
@@ -102,8 +102,8 @@ classdef NodePrx < IceGrid.FileReaderPrx & IceGrid.ReplicaObserverPrx
             % Returns:
             %   result (IceGrid.ServerPrx)
             %   adapters (containers.Map)
-            %   actTimeout (int32)
-            %   deactTimeout (int32)
+            %   activateTimeout (int32)
+            %   deactivateTimeout (int32)
             
             os_ = obj.iceStartWriteParams([]);
             os_.writeValue(svr);
@@ -113,15 +113,15 @@ classdef NodePrx < IceGrid.FileReaderPrx & IceGrid.ReplicaObserverPrx
             is_ = obj.iceInvoke('loadServerWithoutRestart', 2, true, os_, true, IceGrid.NodePrx.loadServerWithoutRestart_ex_, varargin{:});
             is_.startEncapsulation();
             adapters = IceGrid.AdapterPrxDict.read(is_);
-            actTimeout = is_.readInt();
-            deactTimeout = is_.readInt();
+            activateTimeout = is_.readInt();
+            deactivateTimeout = is_.readInt();
             result = IceGrid.ServerPrx.ice_read(is_);
             is_.endEncapsulation();
         end
         function r_ = loadServerWithoutRestartAsync(obj, svr, replicaName, varargin)
             % loadServerWithoutRestartAsync   Load the given server and ensure the server won't be restarted. If the server resources weren't already created
             % (database environment directories, property files, etc), they will be created. If the server can't be updated
-            % without a restart, a DeploymentException is raised.
+            % without a restart, a DeploymentException is raised. The returned proxy is never null.
             %
             % Parameters:
             %   svr (IceGrid.InternalServerDescriptor)
@@ -138,14 +138,14 @@ classdef NodePrx < IceGrid.FileReaderPrx & IceGrid.ReplicaObserverPrx
             function varargout = unmarshal(is_)
                 is_.startEncapsulation();
                 adapters = IceGrid.AdapterPrxDict.read(is_);
-                actTimeout = is_.readInt();
-                deactTimeout = is_.readInt();
+                activateTimeout = is_.readInt();
+                deactivateTimeout = is_.readInt();
                 result = IceGrid.ServerPrx.ice_read(is_);
                 is_.endEncapsulation();
                 varargout{1} = result;
                 varargout{2} = adapters;
-                varargout{3} = actTimeout;
-                varargout{4} = deactTimeout;
+                varargout{3} = activateTimeout;
+                varargout{4} = deactivateTimeout;
             end
             r_ = obj.iceInvokeAsync('loadServerWithoutRestart', 2, true, os_, 4, @unmarshal, IceGrid.NodePrx.loadServerWithoutRestart_ex_, varargin{:});
         end

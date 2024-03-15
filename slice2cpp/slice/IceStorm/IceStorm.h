@@ -43,8 +43,6 @@ namespace IceStorm
 {
 
 class TopicPrx;
-
-using TopicPrxPtr = ::std::optional<TopicPrx>;
 struct LinkInfo;
 
 /**
@@ -63,11 +61,7 @@ using QoS = ::std::map<::std::string, ::std::string>;
  */
 using TopicDict = ::std::map<::std::string, ::std::optional<TopicPrx>>;
 class TopicManagerPrx;
-
-using TopicManagerPrxPtr = ::std::optional<TopicManagerPrx>;
 class FinderPrx;
-
-using FinderPrxPtr = ::std::optional<FinderPrx>;
 
 }
 

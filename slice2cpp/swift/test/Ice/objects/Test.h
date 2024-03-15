@@ -55,11 +55,7 @@ class G;
 
 using GPtr = ::std::shared_ptr<G>;
 class IPrx;
-
-using IPrxPtr = ::std::optional<IPrx>;
 class JPrx;
-
-using JPrxPtr = ::std::optional<JPrx>;
 
 using BaseSeq = ::std::vector<::std::shared_ptr<Base>>;
 class CompactExt;
@@ -120,17 +116,11 @@ class F1;
 
 using F1Ptr = ::std::shared_ptr<F1>;
 class F2Prx;
-
-using F2PrxPtr = ::std::optional<F2Prx>;
 class F3;
 
 using F3Ptr = ::std::shared_ptr<F3>;
 class InitialPrx;
-
-using InitialPrxPtr = ::std::optional<InitialPrx>;
 class TestIntfPrx;
-
-using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
 class Empty;
 
 using EmptyPtr = ::std::shared_ptr<Empty>;
@@ -138,8 +128,6 @@ class AlsoEmpty;
 
 using AlsoEmptyPtr = ::std::shared_ptr<AlsoEmpty>;
 class UnexpectedObjectExceptionTestPrx;
-
-using UnexpectedObjectExceptionTestPrxPtr = ::std::optional<UnexpectedObjectExceptionTestPrx>;
 class COneMember;
 
 using COneMemberPtr = ::std::shared_ptr<COneMember>;

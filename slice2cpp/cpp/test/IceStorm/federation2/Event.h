@@ -31,8 +31,6 @@ namespace Test
 
 class EventPrx;
 
-using EventPrxPtr = ::std::optional<EventPrx>;
-
 }
 
 namespace Test

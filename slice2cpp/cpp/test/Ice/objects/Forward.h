@@ -34,8 +34,6 @@ class F1;
 using F1Ptr = ::std::shared_ptr<F1>;
 class F2Prx;
 
-using F2PrxPtr = ::std::optional<F2Prx>;
-
 }
 
 namespace Test

@@ -41,11 +41,7 @@ namespace Test
 {
 
 class BackgroundPrx;
-
-using BackgroundPrxPtr = ::std::optional<BackgroundPrx>;
 class BackgroundControllerPrx;
-
-using BackgroundControllerPrxPtr = ::std::optional<BackgroundControllerPrx>;
 
 }
 

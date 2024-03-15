@@ -61,7 +61,7 @@ if 'SessionPrx' not in _M_IceGrid.__dict__:
         Arguments:
         id -- The identity of the object to allocate.
         context -- The request context for the invocation.
-        Returns: The proxy of the allocated object.
+        Returns: The proxy of the allocated object. The returned proxy is never null.
         Throws:
         AllocationException -- Raised if the object can't be allocated.
         ObjectNotRegisteredException -- Raised if the object with the given identity is not registered with the registry.
@@ -86,7 +86,7 @@ if 'SessionPrx' not in _M_IceGrid.__dict__:
         Arguments:
         type -- The type of the object.
         context -- The request context for the invocation.
-        Returns: The proxy of the allocated object.
+        Returns: The proxy of the allocated object. The returned proxy is never null.
         Throws:
         AllocationException -- Raised if the object could not be allocated.
         """

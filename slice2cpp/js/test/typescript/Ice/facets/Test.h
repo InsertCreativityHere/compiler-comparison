@@ -30,35 +30,15 @@ namespace Test
 {
 
 class EmptyPrx;
-
-using EmptyPrxPtr = ::std::optional<EmptyPrx>;
 class APrx;
-
-using APrxPtr = ::std::optional<APrx>;
 class BPrx;
-
-using BPrxPtr = ::std::optional<BPrx>;
 class CPrx;
-
-using CPrxPtr = ::std::optional<CPrx>;
 class DPrx;
-
-using DPrxPtr = ::std::optional<DPrx>;
 class EPrx;
-
-using EPrxPtr = ::std::optional<EPrx>;
 class FPrx;
-
-using FPrxPtr = ::std::optional<FPrx>;
 class GPrx;
-
-using GPrxPtr = ::std::optional<GPrx>;
 class HPrx;
-
-using HPrxPtr = ::std::optional<HPrx>;
 class EchoPrx;
-
-using EchoPrxPtr = ::std::optional<EchoPrx>;
 
 }
 

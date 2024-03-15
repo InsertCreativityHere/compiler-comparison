@@ -41,8 +41,6 @@ namespace Test
 
 class MyInterfacePrx;
 
-using MyInterfacePrxPtr = ::std::optional<MyInterfacePrx>;
-
 }
 
 namespace Test

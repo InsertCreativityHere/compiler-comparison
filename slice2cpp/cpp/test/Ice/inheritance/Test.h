@@ -35,19 +35,13 @@ namespace MA
 
 class IAPrx;
 
-using IAPrxPtr = ::std::optional<IAPrx>;
-
 }
 
 namespace MB
 {
 
 class IB1Prx;
-
-using IB1PrxPtr = ::std::optional<IB1Prx>;
 class IB2Prx;
-
-using IB2PrxPtr = ::std::optional<IB2Prx>;
 
 }
 
@@ -56,12 +50,8 @@ namespace MA
 
 class ICPrx;
 
-using ICPrxPtr = ::std::optional<ICPrx>;
-
 }
 class InitialPrx;
-
-using InitialPrxPtr = ::std::optional<InitialPrx>;
 
 namespace MC
 {

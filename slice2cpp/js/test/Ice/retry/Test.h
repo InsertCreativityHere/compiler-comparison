@@ -31,8 +31,6 @@ namespace Test
 
 class RetryPrx;
 
-using RetryPrxPtr = ::std::optional<RetryPrx>;
-
 }
 
 namespace Test

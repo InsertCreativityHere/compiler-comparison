@@ -299,7 +299,7 @@ if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
          Set the adapter endpoints with the locator registry.
         Arguments:
         id -- The adapter id.
-        proxy -- The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter endpoints.
+        proxy -- The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter endpoints. The proxy can be null, typically during adapter deactivation.
         context -- The request context for the invocation.
         Throws:
         AdapterAlreadyActiveException -- Raised if an adapter with the same id is already active.
@@ -312,7 +312,7 @@ if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
          Set the adapter endpoints with the locator registry.
         Arguments:
         id -- The adapter id.
-        proxy -- The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter endpoints.
+        proxy -- The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter endpoints. The proxy can be null, typically during adapter deactivation.
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
@@ -324,33 +324,33 @@ if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
         Arguments:
         adapterId -- The adapter id.
         replicaGroupId -- The replica group id.
-        p -- The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter endpoints.
+        proxy -- The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter endpoints. TThe proxy can be null, typically during adapter deactivation.
         context -- The request context for the invocation.
         Throws:
         AdapterAlreadyActiveException -- Raised if an adapter with the same id is already active.
         AdapterNotFoundException -- Raised if the adapter cannot be found, or if the locator only allows registered adapters to set their active proxy and the adapter is not registered with the locator.
         InvalidReplicaGroupIdException -- Raised if the given replica group doesn't match the one registered with the locator registry for this object adapter.
         """
-        def setReplicatedAdapterDirectProxy(self, adapterId, replicaGroupId, p, context=None):
-            return _M_Ice.LocatorRegistry._op_setReplicatedAdapterDirectProxy.invoke(self, ((adapterId, replicaGroupId, p), context))
+        def setReplicatedAdapterDirectProxy(self, adapterId, replicaGroupId, proxy, context=None):
+            return _M_Ice.LocatorRegistry._op_setReplicatedAdapterDirectProxy.invoke(self, ((adapterId, replicaGroupId, proxy), context))
 
         """
          Set the adapter endpoints with the locator registry.
         Arguments:
         adapterId -- The adapter id.
         replicaGroupId -- The replica group id.
-        p -- The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter endpoints.
+        proxy -- The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter endpoints. TThe proxy can be null, typically during adapter deactivation.
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
-        def setReplicatedAdapterDirectProxyAsync(self, adapterId, replicaGroupId, p, context=None):
-            return _M_Ice.LocatorRegistry._op_setReplicatedAdapterDirectProxy.invokeAsync(self, ((adapterId, replicaGroupId, p), context))
+        def setReplicatedAdapterDirectProxyAsync(self, adapterId, replicaGroupId, proxy, context=None):
+            return _M_Ice.LocatorRegistry._op_setReplicatedAdapterDirectProxy.invokeAsync(self, ((adapterId, replicaGroupId, proxy), context))
 
         """
          Set the process proxy for a server.
         Arguments:
         id -- The server id.
-        proxy -- The process proxy.
+        proxy -- The process proxy. The proxy is never null.
         context -- The request context for the invocation.
         Throws:
         ServerNotFoundException -- Raised if the server cannot be found.
@@ -362,7 +362,7 @@ if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
          Set the process proxy for a server.
         Arguments:
         id -- The server id.
-        proxy -- The process proxy.
+        proxy -- The process proxy. The proxy is never null.
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
         """
@@ -403,7 +403,7 @@ if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
              Set the adapter endpoints with the locator registry.
             Arguments:
             id -- The adapter id.
-            proxy -- The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter endpoints.
+            proxy -- The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter endpoints. The proxy can be null, typically during adapter deactivation.
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
             Throws:
@@ -412,13 +412,13 @@ if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
             """
             raise NotImplementedError("servant method 'setAdapterDirectProxy' not implemented")
 
-        def setReplicatedAdapterDirectProxy(self, adapterId, replicaGroupId, p, current=None):
+        def setReplicatedAdapterDirectProxy(self, adapterId, replicaGroupId, proxy, current=None):
             """
              Set the adapter endpoints with the locator registry.
             Arguments:
             adapterId -- The adapter id.
             replicaGroupId -- The replica group id.
-            p -- The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter endpoints.
+            proxy -- The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter endpoints. TThe proxy can be null, typically during adapter deactivation.
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
             Throws:
@@ -433,7 +433,7 @@ if 'LocatorRegistryPrx' not in _M_Ice.__dict__:
              Set the process proxy for a server.
             Arguments:
             id -- The server id.
-            proxy -- The process proxy.
+            proxy -- The process proxy. The proxy is never null.
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
             Throws:

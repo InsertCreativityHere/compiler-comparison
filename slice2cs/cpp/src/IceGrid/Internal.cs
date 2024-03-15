@@ -1268,10 +1268,10 @@ namespace IceGrid
     public delegate void Callback_PatcherFeedback_failed();
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Node_loadServer(ServerPrx ret, global::System.Collections.Generic.Dictionary<string, AdapterPrx> adapters, int actTimeout, int deactTimeout);
+    public delegate void Callback_Node_loadServer(ServerPrx ret, global::System.Collections.Generic.Dictionary<string, AdapterPrx> adapters, int activateTimeout, int deactivateTimeout);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Node_loadServerWithoutRestart(ServerPrx ret, global::System.Collections.Generic.Dictionary<string, AdapterPrx> adapters, int actTimeout, int deactTimeout);
+    public delegate void Callback_Node_loadServerWithoutRestart(ServerPrx ret, global::System.Collections.Generic.Dictionary<string, AdapterPrx> adapters, int activateTimeout, int deactivateTimeout);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public delegate void Callback_Node_destroyServer();
@@ -1394,34 +1394,34 @@ namespace IceGrid
 
     public struct Node_LoadServerResult
     {
-        public Node_LoadServerResult(ServerPrx returnValue, global::System.Collections.Generic.Dictionary<string, AdapterPrx> adapters, int actTimeout, int deactTimeout)
+        public Node_LoadServerResult(ServerPrx returnValue, global::System.Collections.Generic.Dictionary<string, AdapterPrx> adapters, int activateTimeout, int deactivateTimeout)
         {
             this.returnValue = returnValue;
             this.adapters = adapters;
-            this.actTimeout = actTimeout;
-            this.deactTimeout = deactTimeout;
+            this.activateTimeout = activateTimeout;
+            this.deactivateTimeout = deactivateTimeout;
         }
 
         public ServerPrx returnValue;
         public global::System.Collections.Generic.Dictionary<string, AdapterPrx> adapters;
-        public int actTimeout;
-        public int deactTimeout;
+        public int activateTimeout;
+        public int deactivateTimeout;
     }
 
     public struct Node_LoadServerWithoutRestartResult
     {
-        public Node_LoadServerWithoutRestartResult(ServerPrx returnValue, global::System.Collections.Generic.Dictionary<string, AdapterPrx> adapters, int actTimeout, int deactTimeout)
+        public Node_LoadServerWithoutRestartResult(ServerPrx returnValue, global::System.Collections.Generic.Dictionary<string, AdapterPrx> adapters, int activateTimeout, int deactivateTimeout)
         {
             this.returnValue = returnValue;
             this.adapters = adapters;
-            this.actTimeout = actTimeout;
-            this.deactTimeout = deactTimeout;
+            this.activateTimeout = activateTimeout;
+            this.deactivateTimeout = deactivateTimeout;
         }
 
         public ServerPrx returnValue;
         public global::System.Collections.Generic.Dictionary<string, AdapterPrx> adapters;
-        public int actTimeout;
-        public int deactTimeout;
+        public int activateTimeout;
+        public int deactivateTimeout;
     }
 
     public struct InternalRegistry_GetApplicationsResult
@@ -1837,11 +1837,11 @@ namespace IceGrid
         /// <summary>
         /// Load the given server.
         /// If the server resources weren't already created (database environment directories,
-        ///  property files, etc), they will be created.
+        ///  property files, etc), they will be created. The returned proxy is never null.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        ServerPrx loadServer(InternalServerDescriptor svr, string replicaName, out global::System.Collections.Generic.Dictionary<string, AdapterPrx> adapters, out int actTimeout, out int deactTimeout, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        ServerPrx loadServer(InternalServerDescriptor svr, string replicaName, out global::System.Collections.Generic.Dictionary<string, AdapterPrx> adapters, out int activateTimeout, out int deactivateTimeout, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Load the given server.
@@ -1857,11 +1857,11 @@ namespace IceGrid
         /// Load the given server and ensure the server won't be restarted.
         /// If the server resources weren't already created
         ///  (database environment directories, property files, etc), they will be created. If the server can't be updated
-        ///  without a restart, a DeploymentException is raised.
+        ///  without a restart, a DeploymentException is raised. The returned proxy is never null.
         /// </summary>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        ServerPrx loadServerWithoutRestart(InternalServerDescriptor svr, string replicaName, out global::System.Collections.Generic.Dictionary<string, AdapterPrx> adapters, out int actTimeout, out int deactTimeout, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
+        ServerPrx loadServerWithoutRestart(InternalServerDescriptor svr, string replicaName, out global::System.Collections.Generic.Dictionary<string, AdapterPrx> adapters, out int activateTimeout, out int deactivateTimeout, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
         /// Load the given server and ensure the server won't be restarted.
@@ -5135,14 +5135,14 @@ namespace IceGrid
             }
         }
 
-        public ServerPrx loadServer(InternalServerDescriptor svr, string replicaName, out global::System.Collections.Generic.Dictionary<string, AdapterPrx> adapters, out int actTimeout, out int deactTimeout, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public ServerPrx loadServer(InternalServerDescriptor svr, string replicaName, out global::System.Collections.Generic.Dictionary<string, AdapterPrx> adapters, out int activateTimeout, out int deactivateTimeout, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
             try
             {
                 var result_ = _iceI_loadServerAsync(svr, replicaName, context, null, global::System.Threading.CancellationToken.None, true).Result;
                 adapters = result_.adapters;
-                actTimeout = result_.actTimeout;
-                deactTimeout = result_.deactTimeout;
+                activateTimeout = result_.activateTimeout;
+                deactivateTimeout = result_.deactivateTimeout;
                 return result_.returnValue;
             }
             catch(global::System.AggregateException ex_)
@@ -5151,14 +5151,14 @@ namespace IceGrid
             }
         }
 
-        public ServerPrx loadServerWithoutRestart(InternalServerDescriptor svr, string replicaName, out global::System.Collections.Generic.Dictionary<string, AdapterPrx> adapters, out int actTimeout, out int deactTimeout, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+        public ServerPrx loadServerWithoutRestart(InternalServerDescriptor svr, string replicaName, out global::System.Collections.Generic.Dictionary<string, AdapterPrx> adapters, out int activateTimeout, out int deactivateTimeout, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
             try
             {
                 var result_ = _iceI_loadServerWithoutRestartAsync(svr, replicaName, context, null, global::System.Threading.CancellationToken.None, true).Result;
                 adapters = result_.adapters;
-                actTimeout = result_.actTimeout;
-                deactTimeout = result_.deactTimeout;
+                activateTimeout = result_.activateTimeout;
+                deactivateTimeout = result_.deactivateTimeout;
                 return result_.returnValue;
             }
             catch(global::System.AggregateException ex_)
@@ -5519,8 +5519,8 @@ namespace IceGrid
                 {
                     Node_LoadServerResult ret = new Node_LoadServerResult();
                     ret.adapters = AdapterPrxDictHelper.read(istr);
-                    ret.actTimeout = istr.readInt();
-                    ret.deactTimeout = istr.readInt();
+                    ret.activateTimeout = istr.readInt();
+                    ret.deactivateTimeout = istr.readInt();
                     ret.returnValue = ServerPrxHelper.read(istr);
                     return ret;
                 });
@@ -5574,8 +5574,8 @@ namespace IceGrid
                 {
                     Node_LoadServerWithoutRestartResult ret = new Node_LoadServerWithoutRestartResult();
                     ret.adapters = AdapterPrxDictHelper.read(istr);
-                    ret.actTimeout = istr.readInt();
-                    ret.deactTimeout = istr.readInt();
+                    ret.activateTimeout = istr.readInt();
+                    ret.deactivateTimeout = istr.readInt();
                     ret.returnValue = ServerPrxHelper.read(istr);
                     return ret;
                 });
@@ -7559,11 +7559,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(AdapterExistsException)
+                    catch(AdapterNotExistException)
                     {
                         throw;
                     }
-                    catch(AdapterNotExistException)
+                    catch(AdapterExistsException)
                     {
                         throw;
                     }
@@ -8066,11 +8066,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(NodeActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
-                    catch(PermissionDeniedException)
+                    catch(NodeActiveException)
                     {
                         throw;
                     }
@@ -8122,11 +8122,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(ReplicaActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
-                    catch(PermissionDeniedException)
+                    catch(ReplicaActiveException)
                     {
                         throw;
                     }
@@ -9451,8 +9451,8 @@ namespace IceGrid
                 (ostr, ret) =>
                 {
                     AdapterPrxDictHelper.write(ostr, ret.adapters);
-                    ostr.writeInt(ret.actTimeout);
-                    ostr.writeInt(ret.deactTimeout);
+                    ostr.writeInt(ret.activateTimeout);
+                    ostr.writeInt(ret.deactivateTimeout);
                     ServerPrxHelper.write(ostr, ret.returnValue);
                 });
         }
@@ -9474,8 +9474,8 @@ namespace IceGrid
                 (ostr, ret) =>
                 {
                     AdapterPrxDictHelper.write(ostr, ret.adapters);
-                    ostr.writeInt(ret.actTimeout);
-                    ostr.writeInt(ret.deactTimeout);
+                    ostr.writeInt(ret.activateTimeout);
+                    ostr.writeInt(ret.deactivateTimeout);
                     ServerPrxHelper.write(ostr, ret.returnValue);
                 });
         }

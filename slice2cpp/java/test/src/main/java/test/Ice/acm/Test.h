@@ -30,14 +30,8 @@ namespace Test
 {
 
 class TestIntfPrx;
-
-using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
 class RemoteObjectAdapterPrx;
-
-using RemoteObjectAdapterPrxPtr = ::std::optional<RemoteObjectAdapterPrx>;
 class RemoteCommunicatorPrx;
-
-using RemoteCommunicatorPrxPtr = ::std::optional<RemoteCommunicatorPrx>;
 
 }
 

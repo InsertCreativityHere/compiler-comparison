@@ -31,8 +31,6 @@ namespace Test
 
 class ControllerPrx;
 
-using ControllerPrxPtr = ::std::optional<ControllerPrx>;
-
 }
 
 namespace Test

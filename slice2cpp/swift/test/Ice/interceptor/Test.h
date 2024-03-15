@@ -31,8 +31,6 @@ namespace Test
 
 class MyObjectPrx;
 
-using MyObjectPrxPtr = ::std::optional<MyObjectPrx>;
-
 }
 
 namespace Test

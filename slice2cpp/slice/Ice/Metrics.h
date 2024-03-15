@@ -67,8 +67,6 @@ using MetricsMap = ::std::vector<::std::shared_ptr<Metrics>>;
  */
 using MetricsView = ::std::map<::std::string, MetricsMap>;
 class MetricsAdminPrx;
-
-using MetricsAdminPrxPtr = ::std::optional<MetricsAdminPrx>;
 class ThreadMetrics;
 
 using ThreadMetricsPtr = ::std::shared_ptr<ThreadMetrics>;

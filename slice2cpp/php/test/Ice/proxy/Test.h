@@ -32,11 +32,7 @@ namespace Test
 
 using Context = ::std::map<::std::string, ::std::string>;
 class MyClassPrx;
-
-using MyClassPrxPtr = ::std::optional<MyClassPrx>;
 class MyDerivedClassPrx;
-
-using MyDerivedClassPrxPtr = ::std::optional<MyDerivedClassPrx>;
 
 }
 

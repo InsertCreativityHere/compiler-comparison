@@ -20,7 +20,7 @@ public interface NodePrx extends FileReaderPrx,
 {
     /**
      * Load the given server. If the server resources weren't already created (database environment directories,
-     * property files, etc), they will be created.
+     * property files, etc), they will be created. The returned proxy is never null.
      * @return An instance of Node.LoadServerResult.
      **/
     default Node.LoadServerResult loadServer(InternalServerDescriptor svr, String replicaName)
@@ -31,7 +31,7 @@ public interface NodePrx extends FileReaderPrx,
 
     /**
      * Load the given server. If the server resources weren't already created (database environment directories,
-     * property files, etc), they will be created.
+     * property files, etc), they will be created. The returned proxy is never null.
      * @param context The Context map to send with the invocation.
      * @return An instance of Node.LoadServerResult.
      **/
@@ -54,7 +54,7 @@ public interface NodePrx extends FileReaderPrx,
 
     /**
      * Load the given server. If the server resources weren't already created (database environment directories,
-     * property files, etc), they will be created.
+     * property files, etc), they will be created. The returned proxy is never null.
      * @return A future that will be completed with an instance of Node.LoadServerResult.
      **/
     default java.util.concurrent.CompletableFuture<Node.LoadServerResult> loadServerAsync(InternalServerDescriptor svr, String replicaName)
@@ -64,7 +64,7 @@ public interface NodePrx extends FileReaderPrx,
 
     /**
      * Load the given server. If the server resources weren't already created (database environment directories,
-     * property files, etc), they will be created.
+     * property files, etc), they will be created. The returned proxy is never null.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed with an instance of Node.LoadServerResult.
      **/
@@ -105,7 +105,7 @@ public interface NodePrx extends FileReaderPrx,
     /**
      * Load the given server and ensure the server won't be restarted. If the server resources weren't already created
      * (database environment directories, property files, etc), they will be created. If the server can't be updated
-     * without a restart, a DeploymentException is raised.
+     * without a restart, a DeploymentException is raised. The returned proxy is never null.
      * @return An instance of Node.LoadServerWithoutRestartResult.
      **/
     default Node.LoadServerWithoutRestartResult loadServerWithoutRestart(InternalServerDescriptor svr, String replicaName)
@@ -117,7 +117,7 @@ public interface NodePrx extends FileReaderPrx,
     /**
      * Load the given server and ensure the server won't be restarted. If the server resources weren't already created
      * (database environment directories, property files, etc), they will be created. If the server can't be updated
-     * without a restart, a DeploymentException is raised.
+     * without a restart, a DeploymentException is raised. The returned proxy is never null.
      * @param context The Context map to send with the invocation.
      * @return An instance of Node.LoadServerWithoutRestartResult.
      **/
@@ -141,7 +141,7 @@ public interface NodePrx extends FileReaderPrx,
     /**
      * Load the given server and ensure the server won't be restarted. If the server resources weren't already created
      * (database environment directories, property files, etc), they will be created. If the server can't be updated
-     * without a restart, a DeploymentException is raised.
+     * without a restart, a DeploymentException is raised. The returned proxy is never null.
      * @return A future that will be completed with an instance of Node.LoadServerWithoutRestartResult.
      **/
     default java.util.concurrent.CompletableFuture<Node.LoadServerWithoutRestartResult> loadServerWithoutRestartAsync(InternalServerDescriptor svr, String replicaName)
@@ -152,7 +152,7 @@ public interface NodePrx extends FileReaderPrx,
     /**
      * Load the given server and ensure the server won't be restarted. If the server resources weren't already created
      * (database environment directories, property files, etc), they will be created. If the server can't be updated
-     * without a restart, a DeploymentException is raised.
+     * without a restart, a DeploymentException is raised. The returned proxy is never null.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed with an instance of Node.LoadServerWithoutRestartResult.
      **/

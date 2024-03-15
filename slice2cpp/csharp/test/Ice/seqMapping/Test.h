@@ -178,8 +178,6 @@ using ACVS = ::std::vector<::std::shared_ptr<CV>>;
 using LCVS = ::std::vector<::std::shared_ptr<CV>>;
 class IPrx;
 
-using IPrxPtr = ::std::optional<IPrx>;
-
 using AIPrxS = ::std::vector<::std::optional<IPrx>>;
 
 using LIPrxS = ::std::vector<::std::optional<IPrx>>;
@@ -228,8 +226,6 @@ using CustomIntSS = ::std::vector<CustomIntS>;
 
 using CustomCVSS = ::std::vector<CustomCVS>;
 class MyClassPrx;
-
-using MyClassPrxPtr = ::std::optional<MyClassPrx>;
 
 }
 

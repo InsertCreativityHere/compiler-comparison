@@ -32,11 +32,7 @@ namespace Test
 
 using ByteSeq = ::std::vector<std::byte>;
 class TimeoutPrx;
-
-using TimeoutPrxPtr = ::std::optional<TimeoutPrx>;
 class ControllerPrx;
-
-using ControllerPrxPtr = ::std::optional<ControllerPrx>;
 
 }
 

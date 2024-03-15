@@ -73,8 +73,6 @@ class PNode;
 
 using PNodePtr = ::std::shared_ptr<PNode>;
 class TestIntfPrx;
-
-using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
 class SBSUnknownDerived;
 
 using SBSUnknownDerivedPtr = ::std::shared_ptr<SBSUnknownDerived>;

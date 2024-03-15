@@ -31,8 +31,6 @@ namespace Test
 
 class BackendPrx;
 
-using BackendPrxPtr = ::std::optional<BackendPrx>;
-
 }
 
 namespace Test

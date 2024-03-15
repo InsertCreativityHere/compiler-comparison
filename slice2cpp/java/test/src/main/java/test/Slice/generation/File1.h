@@ -31,8 +31,6 @@ namespace Test
 
 class Interface1Prx;
 
-using Interface1PrxPtr = ::std::optional<Interface1Prx>;
-
 }
 
 namespace Test2

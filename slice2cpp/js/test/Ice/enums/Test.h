@@ -100,8 +100,6 @@ enum class SimpleEnum : unsigned char
 };
 class TestIntfPrx;
 
-using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
-
 }
 
 namespace Test

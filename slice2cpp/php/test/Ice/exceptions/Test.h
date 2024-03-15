@@ -31,14 +31,8 @@ namespace Test
 {
 
 class EmptyPrx;
-
-using EmptyPrxPtr = ::std::optional<EmptyPrx>;
 class ThrowerPrx;
-
-using ThrowerPrxPtr = ::std::optional<ThrowerPrx>;
 class WrongOperationPrx;
-
-using WrongOperationPrxPtr = ::std::optional<WrongOperationPrx>;
 
 }
 

@@ -618,7 +618,7 @@ public extension LocatorRegistryPrx {
     /// - parameter id: `Swift.String` The adapter id.
     ///
     /// - parameter proxy: `ObjectPrx?` The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
-    /// adapter endpoints.
+    /// adapter endpoints. The proxy can be null, typically during adapter deactivation.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -652,7 +652,7 @@ public extension LocatorRegistryPrx {
     /// - parameter id: `Swift.String` The adapter id.
     ///
     /// - parameter proxy: `ObjectPrx?` The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
-    /// adapter endpoints.
+    /// adapter endpoints. The proxy can be null, typically during adapter deactivation.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -693,8 +693,8 @@ public extension LocatorRegistryPrx {
     ///
     /// - parameter replicaGroupId: `Swift.String` The replica group id.
     ///
-    /// - parameter p: `ObjectPrx?` The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-    /// endpoints.
+    /// - parameter proxy: `ObjectPrx?` The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
+    /// endpoints. TThe proxy can be null, typically during adapter deactivation.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -707,13 +707,13 @@ public extension LocatorRegistryPrx {
     ///
     ///   - InvalidReplicaGroupIdException - Raised if the given replica group doesn't match the one registered with
     ///     the locator registry for this object adapter.
-    func setReplicatedAdapterDirectProxy(adapterId iceP_adapterId: Swift.String, replicaGroupId iceP_replicaGroupId: Swift.String, p iceP_p: ObjectPrx?, context: Context? = nil) throws {
+    func setReplicatedAdapterDirectProxy(adapterId iceP_adapterId: Swift.String, replicaGroupId iceP_replicaGroupId: Swift.String, proxy iceP_proxy: ObjectPrx?, context: Context? = nil) throws {
         try _impl._invoke(operation: "setReplicatedAdapterDirectProxy",
                           mode: .Idempotent,
                           write: { ostr in
                               ostr.write(iceP_adapterId)
                               ostr.write(iceP_replicaGroupId)
-                              ostr.write(iceP_p)
+                              ostr.write(iceP_proxy)
                           },
                           userException:{ ex in
                               do  {
@@ -735,8 +735,8 @@ public extension LocatorRegistryPrx {
     ///
     /// - parameter replicaGroupId: `Swift.String` The replica group id.
     ///
-    /// - parameter p: `ObjectPrx?` The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-    /// endpoints.
+    /// - parameter proxy: `ObjectPrx?` The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
+    /// endpoints. TThe proxy can be null, typically during adapter deactivation.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -749,13 +749,13 @@ public extension LocatorRegistryPrx {
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
     /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func setReplicatedAdapterDirectProxyAsync(adapterId iceP_adapterId: Swift.String, replicaGroupId iceP_replicaGroupId: Swift.String, p iceP_p: ObjectPrx?, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
+    func setReplicatedAdapterDirectProxyAsync(adapterId iceP_adapterId: Swift.String, replicaGroupId iceP_replicaGroupId: Swift.String, proxy iceP_proxy: ObjectPrx?, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "setReplicatedAdapterDirectProxy",
                                   mode: .Idempotent,
                                   write: { ostr in
                                       ostr.write(iceP_adapterId)
                                       ostr.write(iceP_replicaGroupId)
-                                      ostr.write(iceP_p)
+                                      ostr.write(iceP_proxy)
                                   },
                                   userException:{ ex in
                                       do  {
@@ -778,7 +778,7 @@ public extension LocatorRegistryPrx {
     ///
     /// - parameter id: `Swift.String` The server id.
     ///
-    /// - parameter proxy: `ProcessPrx?` The process proxy.
+    /// - parameter proxy: `ProcessPrx?` The process proxy. The proxy is never null.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -806,7 +806,7 @@ public extension LocatorRegistryPrx {
     ///
     /// - parameter id: `Swift.String` The server id.
     ///
-    /// - parameter proxy: `ProcessPrx?` The process proxy.
+    /// - parameter proxy: `ProcessPrx?` The process proxy. The proxy is never null.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -1085,7 +1085,7 @@ public protocol LocatorRegistry {
     /// - parameter id: `Swift.String` The adapter id.
     ///
     /// - parameter proxy: `ObjectPrx?` The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
-    /// adapter endpoints.
+    /// adapter endpoints. The proxy can be null, typically during adapter deactivation.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
@@ -1098,19 +1098,19 @@ public protocol LocatorRegistry {
     ///
     /// - parameter replicaGroupId: `Swift.String` The replica group id.
     ///
-    /// - parameter p: `ObjectPrx?` The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-    /// endpoints.
+    /// - parameter proxy: `ObjectPrx?` The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
+    /// endpoints. TThe proxy can be null, typically during adapter deactivation.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
     /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func setReplicatedAdapterDirectProxyAsync(adapterId: Swift.String, replicaGroupId: Swift.String, p: ObjectPrx?, current: Current) -> PromiseKit.Promise<Swift.Void>
+    func setReplicatedAdapterDirectProxyAsync(adapterId: Swift.String, replicaGroupId: Swift.String, proxy: ObjectPrx?, current: Current) -> PromiseKit.Promise<Swift.Void>
 
     /// Set the process proxy for a server.
     ///
     /// - parameter id: `Swift.String` The server id.
     ///
-    /// - parameter proxy: `ProcessPrx?` The process proxy.
+    /// - parameter proxy: `ProcessPrx?` The process proxy. The proxy is never null.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
@@ -1231,14 +1231,14 @@ public extension LocatorRegistry {
     }
 
     func _iceD_setReplicatedAdapterDirectProxy(incoming inS: Incoming, current: Current) throws -> PromiseKit.Promise<OutputStream>? {
-        let (iceP_adapterId, iceP_replicaGroupId, iceP_p): (Swift.String, Swift.String, ObjectPrx?) = try inS.read { istr in
+        let (iceP_adapterId, iceP_replicaGroupId, iceP_proxy): (Swift.String, Swift.String, ObjectPrx?) = try inS.read { istr in
             let iceP_adapterId: Swift.String = try istr.read()
             let iceP_replicaGroupId: Swift.String = try istr.read()
-            let iceP_p: ObjectPrx? = try istr.read(ObjectPrx.self)
-            return (iceP_adapterId, iceP_replicaGroupId, iceP_p)
+            let iceP_proxy: ObjectPrx? = try istr.read(ObjectPrx.self)
+            return (iceP_adapterId, iceP_replicaGroupId, iceP_proxy)
         }
 
-        return inS.setResultPromise(setReplicatedAdapterDirectProxyAsync(adapterId: iceP_adapterId, replicaGroupId: iceP_replicaGroupId, p: iceP_p, current: current))
+        return inS.setResultPromise(setReplicatedAdapterDirectProxyAsync(adapterId: iceP_adapterId, replicaGroupId: iceP_replicaGroupId, proxy: iceP_proxy, current: current))
     }
 
     func _iceD_setServerProcessProxy(incoming inS: Incoming, current: Current) throws -> PromiseKit.Promise<OutputStream>? {

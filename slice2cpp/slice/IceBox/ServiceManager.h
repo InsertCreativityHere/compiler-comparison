@@ -42,11 +42,7 @@ namespace IceBox
 {
 
 class ServiceObserverPrx;
-
-using ServiceObserverPrxPtr = ::std::optional<ServiceObserverPrx>;
 class ServiceManagerPrx;
-
-using ServiceManagerPrxPtr = ::std::optional<ServiceManagerPrx>;
 
 }
 

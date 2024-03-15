@@ -37,8 +37,6 @@ using SerialLarge = ::std::vector<std::byte>;
 using SerialStruct = ::std::vector<std::byte>;
 class MyClassPrx;
 
-using MyClassPrxPtr = ::std::optional<MyClassPrx>;
-
 using SLS = ::std::vector<SerialLarge>;
 
 using SLSS = ::std::vector<SLS>;

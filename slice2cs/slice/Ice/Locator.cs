@@ -470,7 +470,7 @@ namespace Ice
         /// <param name="id">The adapter id.
         ///  </param>
         /// <param name="proxy">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
-        ///  adapter endpoints.
+        ///  adapter endpoints. The proxy can be null, typically during adapter deactivation.
         ///  </param>
         /// <exception name="AdapterNotFoundException">Raised if the adapter cannot be found, or if the locator only allows
         ///  registered adapters to set their active proxy and the adapter is not registered with the locator.
@@ -486,7 +486,7 @@ namespace Ice
         /// <param name="id">The adapter id.
         ///  </param>
         /// <param name="proxy">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
-        ///  adapter endpoints.
+        ///  adapter endpoints. The proxy can be null, typically during adapter deactivation.
         ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -501,8 +501,8 @@ namespace Ice
         ///  </param>
         /// <param name="replicaGroupId">The replica group id.
         ///  </param>
-        /// <param name="p">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-        ///  endpoints.
+        /// <param name="proxy">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
+        ///  endpoints. TThe proxy can be null, typically during adapter deactivation.
         ///  </param>
         /// <exception name="AdapterNotFoundException">Raised if the adapter cannot be found, or if the locator only allows
         ///  registered adapters to set their active proxy and the adapter is not registered with the locator.
@@ -513,7 +513,7 @@ namespace Ice
         ///  the locator registry for this object adapter.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
-        void setReplicatedAdapterDirectProxy(string adapterId, string replicaGroupId, ObjectPrx p, OptionalContext context = new OptionalContext());
+        void setReplicatedAdapterDirectProxy(string adapterId, string replicaGroupId, ObjectPrx proxy, OptionalContext context = new OptionalContext());
 
         /// <summary>
         /// Set the adapter endpoints with the locator registry.
@@ -522,21 +522,21 @@ namespace Ice
         ///  </param>
         /// <param name="replicaGroupId">The replica group id.
         ///  </param>
-        /// <param name="p">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-        ///  endpoints.
+        /// <param name="proxy">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
+        ///  endpoints. TThe proxy can be null, typically during adapter deactivation.
         ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, ObjectPrx p, OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
+        global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, ObjectPrx proxy, OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
         /// Set the process proxy for a server.
         /// </summary>
         /// <param name="id">The server id.
         ///  </param>
-        /// <param name="proxy">The process proxy.
+        /// <param name="proxy">The process proxy. The proxy is never null.
         ///  </param>
         /// <exception name="ServerNotFoundException">Raised if the server cannot be found.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -548,7 +548,7 @@ namespace Ice
         /// </summary>
         /// <param name="id">The server id.
         ///  </param>
-        /// <param name="proxy">The process proxy.
+        /// <param name="proxy">The process proxy. The proxy is never null.
         ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -649,7 +649,7 @@ namespace Ice
         /// <param name="id">The adapter id.
         ///  </param>
         /// <param name="proxy">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
-        ///  adapter endpoints.
+        ///  adapter endpoints. The proxy can be null, typically during adapter deactivation.
         ///  </param>
         /// <param name="current">The Current object for the invocation.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
@@ -663,20 +663,20 @@ namespace Ice
         ///  </param>
         /// <param name="replicaGroupId">The replica group id.
         ///  </param>
-        /// <param name="p">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-        ///  endpoints.
+        /// <param name="proxy">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
+        ///  endpoints. TThe proxy can be null, typically during adapter deactivation.
         ///  </param>
         /// <param name="current">The Current object for the invocation.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, ObjectPrx p, Current current = null);
+        global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, ObjectPrx proxy, Current current = null);
 
         /// <summary>
         /// Set the process proxy for a server.
         /// </summary>
         /// <param name="id">The server id.
         ///  </param>
-        /// <param name="proxy">The process proxy.
+        /// <param name="proxy">The process proxy. The proxy is never null.
         ///  </param>
         /// <param name="current">The Current object for the invocation.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
@@ -1053,11 +1053,11 @@ namespace Ice
             }
         }
 
-        public void setReplicatedAdapterDirectProxy(string adapterId, string replicaGroupId, ObjectPrx p, OptionalContext context = new OptionalContext())
+        public void setReplicatedAdapterDirectProxy(string adapterId, string replicaGroupId, ObjectPrx proxy, OptionalContext context = new OptionalContext())
         {
             try
             {
-                _iceI_setReplicatedAdapterDirectProxyAsync(adapterId, replicaGroupId, p, context, null, global::System.Threading.CancellationToken.None, true).Wait();
+                _iceI_setReplicatedAdapterDirectProxyAsync(adapterId, replicaGroupId, proxy, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch(global::System.AggregateException ex_)
             {
@@ -1130,22 +1130,22 @@ namespace Ice
                 });
         }
 
-        public global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, ObjectPrx p, OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+        public global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, ObjectPrx proxy, OptionalContext context = new OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
         {
-            return _iceI_setReplicatedAdapterDirectProxyAsync(adapterId, replicaGroupId, p, context, progress, cancel, false);
+            return _iceI_setReplicatedAdapterDirectProxyAsync(adapterId, replicaGroupId, proxy, context, progress, cancel, false);
         }
 
-        private global::System.Threading.Tasks.Task _iceI_setReplicatedAdapterDirectProxyAsync(string iceP_adapterId, string iceP_replicaGroupId, ObjectPrx iceP_p, OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+        private global::System.Threading.Tasks.Task _iceI_setReplicatedAdapterDirectProxyAsync(string iceP_adapterId, string iceP_replicaGroupId, ObjectPrx iceP_proxy, OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
         {
             iceCheckTwowayOnly(_setReplicatedAdapterDirectProxy_name);
             var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_setReplicatedAdapterDirectProxy(iceP_adapterId, iceP_replicaGroupId, iceP_p, context, synchronous, completed);
+            _iceI_setReplicatedAdapterDirectProxy(iceP_adapterId, iceP_replicaGroupId, iceP_proxy, context, synchronous, completed);
             return completed.Task;
         }
 
         private const string _setReplicatedAdapterDirectProxy_name = "setReplicatedAdapterDirectProxy";
 
-        private void _iceI_setReplicatedAdapterDirectProxy(string iceP_adapterId, string iceP_replicaGroupId, ObjectPrx iceP_p, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+        private void _iceI_setReplicatedAdapterDirectProxy(string iceP_adapterId, string iceP_replicaGroupId, ObjectPrx iceP_proxy, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
         {
             var outAsync = getOutgoingAsync<object>(completed);
             outAsync.invoke(
@@ -1158,7 +1158,7 @@ namespace Ice
                 {
                     ostr.writeString(iceP_adapterId);
                     ostr.writeString(iceP_replicaGroupId);
-                    ostr.writeProxy(iceP_p);
+                    ostr.writeProxy(iceP_proxy);
                 },
                 userException: (UserException ex) =>
                 {
@@ -1729,7 +1729,7 @@ namespace Ice
 
         public abstract global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(string id, ObjectPrx proxy, Current current = null);
 
-        public abstract global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, ObjectPrx p, Current current = null);
+        public abstract global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, ObjectPrx proxy, Current current = null);
 
         public abstract global::System.Threading.Tasks.Task setServerProcessProxyAsync(string id, ProcessPrx proxy, Current current = null);
 
@@ -1789,12 +1789,12 @@ namespace Ice
             var istr = inS.startReadParams();
             string iceP_adapterId;
             string iceP_replicaGroupId;
-            ObjectPrx iceP_p;
+            ObjectPrx iceP_proxy;
             iceP_adapterId = istr.readString();
             iceP_replicaGroupId = istr.readString();
-            iceP_p = istr.readProxy();
+            iceP_proxy = istr.readProxy();
             inS.endReadParams();
-            return inS.setResultTask(obj.setReplicatedAdapterDirectProxyAsync(iceP_adapterId, iceP_replicaGroupId, iceP_p, current));
+            return inS.setResultTask(obj.setReplicatedAdapterDirectProxyAsync(iceP_adapterId, iceP_replicaGroupId, iceP_proxy, current));
         }
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]

@@ -41,17 +41,9 @@ namespace Ice
 {
 
 class ProcessPrx;
-
-using ProcessPrxPtr = ::std::optional<ProcessPrx>;
 class LocatorRegistryPrx;
-
-using LocatorRegistryPrxPtr = ::std::optional<LocatorRegistryPrx>;
 class LocatorPrx;
-
-using LocatorPrxPtr = ::std::optional<LocatorPrx>;
 class LocatorFinderPrx;
-
-using LocatorFinderPrxPtr = ::std::optional<LocatorFinderPrx>;
 
 }
 
@@ -227,7 +219,7 @@ public:
      * Set the adapter endpoints with the locator registry.
      * @param id The adapter id.
      * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
-     * adapter endpoints.
+     * adapter endpoints. The proxy can be null, typically during adapter deactivation.
      * @param context The Context map to send with the invocation.
      * @throws Ice::AdapterAlreadyActiveException Raised if an adapter with the same id is already active.
      * @throws Ice::AdapterNotFoundException Raised if the adapter cannot be found, or if the locator only allows
@@ -239,7 +231,7 @@ public:
      * Set the adapter endpoints with the locator registry.
      * @param id The adapter id.
      * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
-     * adapter endpoints.
+     * adapter endpoints. The proxy can be null, typically during adapter deactivation.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -249,7 +241,7 @@ public:
      * Set the adapter endpoints with the locator registry.
      * @param id The adapter id.
      * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
-     * adapter endpoints.
+     * adapter endpoints. The proxy can be null, typically during adapter deactivation.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -267,8 +259,8 @@ public:
      * Set the adapter endpoints with the locator registry.
      * @param adapterId The adapter id.
      * @param replicaGroupId The replica group id.
-     * @param p The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-     * endpoints.
+     * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
+     * endpoints. TThe proxy can be null, typically during adapter deactivation.
      * @param context The Context map to send with the invocation.
      * @throws Ice::AdapterAlreadyActiveException Raised if an adapter with the same id is already active.
      * @throws Ice::AdapterNotFoundException Raised if the adapter cannot be found, or if the locator only allows
@@ -276,25 +268,25 @@ public:
      * @throws Ice::InvalidReplicaGroupIdException Raised if the given replica group doesn't match the one registered with
      * the locator registry for this object adapter.
      */
-    void setReplicatedAdapterDirectProxy(::std::string_view adapterId, ::std::string_view replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& p, const Context& context = noExplicitContext) const;
+    void setReplicatedAdapterDirectProxy(::std::string_view adapterId, ::std::string_view replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& proxy, const Context& context = noExplicitContext) const;
 
     /**
      * Set the adapter endpoints with the locator registry.
      * @param adapterId The adapter id.
      * @param replicaGroupId The replica group id.
-     * @param p The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-     * endpoints.
+     * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
+     * endpoints. TThe proxy can be null, typically during adapter deactivation.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> setReplicatedAdapterDirectProxyAsync(::std::string_view adapterId, ::std::string_view replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& p, const Context& context = noExplicitContext) const;
+    ::std::future<void> setReplicatedAdapterDirectProxyAsync(::std::string_view adapterId, ::std::string_view replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& proxy, const Context& context = noExplicitContext) const;
 
     /**
      * Set the adapter endpoints with the locator registry.
      * @param adapterId The adapter id.
      * @param replicaGroupId The replica group id.
-     * @param p The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-     * endpoints.
+     * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
+     * endpoints. TThe proxy can be null, typically during adapter deactivation.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -302,7 +294,7 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    setReplicatedAdapterDirectProxyAsync(::std::string_view adapterId, ::std::string_view replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& p, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Context& context = noExplicitContext) const;
+    setReplicatedAdapterDirectProxyAsync(::std::string_view adapterId, ::std::string_view replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& proxy, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const Context& context = noExplicitContext) const;
 
     /// \cond INTERNAL
     void _iceI_setReplicatedAdapterDirectProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, ::std::string_view, const ::std::optional<::Ice::ObjectPrx>&, const Context&) const;
@@ -311,7 +303,7 @@ public:
     /**
      * Set the process proxy for a server.
      * @param id The server id.
-     * @param proxy The process proxy.
+     * @param proxy The process proxy. The proxy is never null.
      * @param context The Context map to send with the invocation.
      * @throws Ice::ServerNotFoundException Raised if the server cannot be found.
      */
@@ -320,7 +312,7 @@ public:
     /**
      * Set the process proxy for a server.
      * @param id The server id.
-     * @param proxy The process proxy.
+     * @param proxy The process proxy. The proxy is never null.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -329,7 +321,7 @@ public:
     /**
      * Set the process proxy for a server.
      * @param id The server id.
-     * @param proxy The process proxy.
+     * @param proxy The process proxy. The proxy is never null.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -745,7 +737,7 @@ public:
      * Set the adapter endpoints with the locator registry.
      * @param id The adapter id.
      * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
-     * adapter endpoints.
+     * adapter endpoints. The proxy can be null, typically during adapter deactivation.
      * @param response The response callback.
      * @param exception The exception callback.
      * @param current The Current object for the invocation.
@@ -762,8 +754,8 @@ public:
      * Set the adapter endpoints with the locator registry.
      * @param adapterId The adapter id.
      * @param replicaGroupId The replica group id.
-     * @param p The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-     * endpoints.
+     * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
+     * endpoints. TThe proxy can be null, typically during adapter deactivation.
      * @param response The response callback.
      * @param exception The exception callback.
      * @param current The Current object for the invocation.
@@ -773,7 +765,7 @@ public:
      * @throws Ice::InvalidReplicaGroupIdException Raised if the given replica group doesn't match the one registered with
      * the locator registry for this object adapter.
      */
-    virtual void setReplicatedAdapterDirectProxyAsync(::std::string adapterId, ::std::string replicaGroupId, ::std::optional<::Ice::ObjectPrx> p, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const Current& current) = 0;
+    virtual void setReplicatedAdapterDirectProxyAsync(::std::string adapterId, ::std::string replicaGroupId, ::std::optional<::Ice::ObjectPrx> proxy, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_setReplicatedAdapterDirectProxy(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
@@ -781,7 +773,7 @@ public:
     /**
      * Set the process proxy for a server.
      * @param id The server id.
-     * @param proxy The process proxy.
+     * @param proxy The process proxy. The proxy is never null.
      * @param response The response callback.
      * @param exception The exception callback.
      * @param current The Current object for the invocation.

@@ -42,8 +42,6 @@ namespace Ice
 
 class PropertiesAdminPrx;
 
-using PropertiesAdminPrxPtr = ::std::optional<PropertiesAdminPrx>;
-
 }
 
 namespace Ice

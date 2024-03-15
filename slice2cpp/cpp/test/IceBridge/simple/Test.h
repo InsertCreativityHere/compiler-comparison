@@ -30,11 +30,7 @@ namespace Test
 {
 
 class CallbackPrx;
-
-using CallbackPrxPtr = ::std::optional<CallbackPrx>;
 class MyClassPrx;
-
-using MyClassPrxPtr = ::std::optional<MyClassPrx>;
 
 }
 

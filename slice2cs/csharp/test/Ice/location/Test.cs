@@ -273,11 +273,11 @@ namespace Ice.location
                 }
             }
 
-            public void setReplicatedAdapterDirectProxy(string adapterId, string replicaGroupId, global::Ice.ObjectPrx p, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
+            public void setReplicatedAdapterDirectProxy(string adapterId, string replicaGroupId, global::Ice.ObjectPrx proxy, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
             {
                 try
                 {
-                    _iceI_setReplicatedAdapterDirectProxyAsync(adapterId, replicaGroupId, p, context, null, global::System.Threading.CancellationToken.None, true).Wait();
+                    _iceI_setReplicatedAdapterDirectProxyAsync(adapterId, replicaGroupId, proxy, context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
                 catch(global::System.AggregateException ex_)
                 {
@@ -362,22 +362,22 @@ namespace Ice.location
                     });
             }
 
-            public global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, global::Ice.ObjectPrx p, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
+            public global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, global::Ice.ObjectPrx proxy, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
             {
-                return _iceI_setReplicatedAdapterDirectProxyAsync(adapterId, replicaGroupId, p, context, progress, cancel, false);
+                return _iceI_setReplicatedAdapterDirectProxyAsync(adapterId, replicaGroupId, proxy, context, progress, cancel, false);
             }
 
-            private global::System.Threading.Tasks.Task _iceI_setReplicatedAdapterDirectProxyAsync(string iceP_adapterId, string iceP_replicaGroupId, global::Ice.ObjectPrx iceP_p, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
+            private global::System.Threading.Tasks.Task _iceI_setReplicatedAdapterDirectProxyAsync(string iceP_adapterId, string iceP_replicaGroupId, global::Ice.ObjectPrx iceP_proxy, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
             {
                 iceCheckTwowayOnly(_setReplicatedAdapterDirectProxy_name);
                 var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
-                _iceI_setReplicatedAdapterDirectProxy(iceP_adapterId, iceP_replicaGroupId, iceP_p, context, synchronous, completed);
+                _iceI_setReplicatedAdapterDirectProxy(iceP_adapterId, iceP_replicaGroupId, iceP_proxy, context, synchronous, completed);
                 return completed.Task;
             }
 
             private const string _setReplicatedAdapterDirectProxy_name = "setReplicatedAdapterDirectProxy";
 
-            private void _iceI_setReplicatedAdapterDirectProxy(string iceP_adapterId, string iceP_replicaGroupId, global::Ice.ObjectPrx iceP_p, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
+            private void _iceI_setReplicatedAdapterDirectProxy(string iceP_adapterId, string iceP_replicaGroupId, global::Ice.ObjectPrx iceP_proxy, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
             {
                 var outAsync = getOutgoingAsync<object>(completed);
                 outAsync.invoke(
@@ -390,7 +390,7 @@ namespace Ice.location
                     {
                         ostr.writeString(iceP_adapterId);
                         ostr.writeString(iceP_replicaGroupId);
-                        ostr.writeProxy(iceP_p);
+                        ostr.writeProxy(iceP_proxy);
                     },
                     userException: (global::Ice.UserException ex) =>
                     {
@@ -1753,7 +1753,7 @@ namespace Ice.location
 
             public abstract global::System.Threading.Tasks.Task setAdapterDirectProxyAsync(string id, global::Ice.ObjectPrx proxy, global::Ice.Current current = null);
 
-            public abstract global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, global::Ice.ObjectPrx p, global::Ice.Current current = null);
+            public abstract global::System.Threading.Tasks.Task setReplicatedAdapterDirectProxyAsync(string adapterId, string replicaGroupId, global::Ice.ObjectPrx proxy, global::Ice.Current current = null);
 
             public abstract global::System.Threading.Tasks.Task setServerProcessProxyAsync(string id, global::Ice.ProcessPrx proxy, global::Ice.Current current = null);
 

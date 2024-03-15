@@ -36,27 +36,17 @@ enum class array : unsigned char
 };
 struct _cpp_xor;
 class breakPrx;
-
-using breakPrxPtr = ::std::optional<breakPrx>;
 class functionPrx;
-
-using functionPrxPtr = ::std::optional<functionPrx>;
 class diePrx;
-
-using diePrxPtr = ::std::optional<diePrx>;
 class echo;
 
 using echoPtr = ::std::shared_ptr<echo>;
 class enddeclarePrx;
 
-using enddeclarePrxPtr = ::std::optional<enddeclarePrx>;
-
 using endfor = ::std::vector<array>;
 
 using endforeach = ::std::map<::std::string, array>;
 class forPrx;
-
-using forPrxPtr = ::std::optional<forPrx>;
 
 constexpr ::std::int32_t _cpp_or = 0;
 

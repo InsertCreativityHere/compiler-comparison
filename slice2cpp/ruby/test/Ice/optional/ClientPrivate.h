@@ -35,8 +35,6 @@ class D;
 using DPtr = ::std::shared_ptr<D>;
 class Initial2Prx;
 
-using Initial2PrxPtr = ::std::optional<Initial2Prx>;
-
 }
 
 namespace Test

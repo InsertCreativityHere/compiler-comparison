@@ -27,14 +27,14 @@ public interface Locator extends com.zeroc.Ice.Locator
     /**
      * Get the proxy of the registry object hosted by this IceGrid registry.
      * @param current The Current object for the invocation.
-     * @return The proxy of the registry object.
+     * @return The proxy of the registry object. The returned proxy is never null.
      **/
     RegistryPrx getLocalRegistry(com.zeroc.Ice.Current current);
 
     /**
      * Get the proxy of the query object hosted by this IceGrid registry.
      * @param current The Current object for the invocation.
-     * @return The proxy of the query object.
+     * @return The proxy of the query object. The returned proxy is never null.
      **/
     QueryPrx getLocalQuery(com.zeroc.Ice.Current current);
 

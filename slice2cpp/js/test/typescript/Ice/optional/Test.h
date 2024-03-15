@@ -34,8 +34,6 @@ class OneOptional;
 using OneOptionalPtr = ::std::shared_ptr<OneOptional>;
 class MyInterfacePrx;
 
-using MyInterfacePrxPtr = ::std::optional<MyInterfacePrx>;
-
 enum class MyEnum : unsigned char
 {
     MyEnumMember
@@ -131,11 +129,7 @@ using RecursivePtr = ::std::shared_ptr<Recursive>;
 
 using RecursiveSeq = ::std::vector<::std::shared_ptr<Recursive>>;
 class InitialPrx;
-
-using InitialPrxPtr = ::std::optional<InitialPrx>;
 class EchoPrx;
-
-using EchoPrxPtr = ::std::optional<EchoPrx>;
 
 }
 

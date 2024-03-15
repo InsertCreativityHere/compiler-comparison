@@ -44,23 +44,11 @@ namespace Glacier2
 {
 
 class SessionPrx;
-
-using SessionPrxPtr = ::std::optional<SessionPrx>;
 class StringSetPrx;
-
-using StringSetPrxPtr = ::std::optional<StringSetPrx>;
 class IdentitySetPrx;
-
-using IdentitySetPrxPtr = ::std::optional<IdentitySetPrx>;
 class SessionControlPrx;
-
-using SessionControlPrxPtr = ::std::optional<SessionControlPrx>;
 class SessionManagerPrx;
-
-using SessionManagerPrxPtr = ::std::optional<SessionManagerPrx>;
 class SSLSessionManagerPrx;
-
-using SSLSessionManagerPrxPtr = ::std::optional<SSLSessionManagerPrx>;
 
 }
 

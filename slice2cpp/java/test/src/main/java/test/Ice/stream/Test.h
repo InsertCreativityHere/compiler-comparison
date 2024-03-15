@@ -42,8 +42,6 @@ class MyClass;
 using MyClassPtr = ::std::shared_ptr<MyClass>;
 class MyInterfacePrx;
 
-using MyInterfacePrxPtr = ::std::optional<MyInterfacePrx>;
-
 using SerialSmall = ::std::vector<std::byte>;
 struct SmallStruct;
 struct Point;

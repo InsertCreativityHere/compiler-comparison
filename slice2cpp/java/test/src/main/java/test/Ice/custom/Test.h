@@ -87,8 +87,6 @@ using DSeq = ::std::vector<D>;
 using StringSeqSeq = ::std::vector<StringSeq>;
 class TestIntfPrx;
 
-using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
-
 }
 
 namespace Test

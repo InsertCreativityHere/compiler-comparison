@@ -36,8 +36,6 @@ using WstringWStringDict = ::std::map<::std::wstring, ::std::wstring>;
 struct WstringStruct;
 class WstringClassPrx;
 
-using WstringClassPrxPtr = ::std::optional<WstringClassPrx>;
-
 }
 
 namespace Test2
@@ -49,8 +47,6 @@ using WstringSeq = ::std::vector<::std::wstring>;
 using WstringWStringDict = ::std::map<::std::wstring, ::std::wstring>;
 struct WstringStruct;
 class WstringClassPrx;
-
-using WstringClassPrxPtr = ::std::optional<WstringClassPrx>;
 
 }
 

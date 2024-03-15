@@ -33,32 +33,32 @@ public interface Node extends FileReader,
         /**
          * This constructor makes shallow copies of the results for operation LoadServer.
          **/
-        public LoadServerResult(ServerPrx returnValue, java.util.Map<java.lang.String, AdapterPrx> adapters, int actTimeout, int deactTimeout)
+        public LoadServerResult(ServerPrx returnValue, java.util.Map<java.lang.String, AdapterPrx> adapters, int activateTimeout, int deactivateTimeout)
         {
             this.returnValue = returnValue;
             this.adapters = adapters;
-            this.actTimeout = actTimeout;
-            this.deactTimeout = deactTimeout;
+            this.activateTimeout = activateTimeout;
+            this.deactivateTimeout = deactivateTimeout;
         }
 
         public ServerPrx returnValue;
         public java.util.Map<java.lang.String, AdapterPrx> adapters;
-        public int actTimeout;
-        public int deactTimeout;
+        public int activateTimeout;
+        public int deactivateTimeout;
 
         public void write(com.zeroc.Ice.OutputStream ostr)
         {
             AdapterPrxDictHelper.write(ostr, this.adapters);
-            ostr.writeInt(this.actTimeout);
-            ostr.writeInt(this.deactTimeout);
+            ostr.writeInt(this.activateTimeout);
+            ostr.writeInt(this.deactivateTimeout);
             ostr.writeProxy(returnValue);
         }
 
         public void read(com.zeroc.Ice.InputStream istr)
         {
             this.adapters = AdapterPrxDictHelper.read(istr);
-            this.actTimeout = istr.readInt();
-            this.deactTimeout = istr.readInt();
+            this.activateTimeout = istr.readInt();
+            this.deactivateTimeout = istr.readInt();
             returnValue = ServerPrx.uncheckedCast(istr.readProxy());
         }
     }
@@ -78,39 +78,39 @@ public interface Node extends FileReader,
         /**
          * This constructor makes shallow copies of the results for operation LoadServerWithoutRestart.
          **/
-        public LoadServerWithoutRestartResult(ServerPrx returnValue, java.util.Map<java.lang.String, AdapterPrx> adapters, int actTimeout, int deactTimeout)
+        public LoadServerWithoutRestartResult(ServerPrx returnValue, java.util.Map<java.lang.String, AdapterPrx> adapters, int activateTimeout, int deactivateTimeout)
         {
             this.returnValue = returnValue;
             this.adapters = adapters;
-            this.actTimeout = actTimeout;
-            this.deactTimeout = deactTimeout;
+            this.activateTimeout = activateTimeout;
+            this.deactivateTimeout = deactivateTimeout;
         }
 
         public ServerPrx returnValue;
         public java.util.Map<java.lang.String, AdapterPrx> adapters;
-        public int actTimeout;
-        public int deactTimeout;
+        public int activateTimeout;
+        public int deactivateTimeout;
 
         public void write(com.zeroc.Ice.OutputStream ostr)
         {
             AdapterPrxDictHelper.write(ostr, this.adapters);
-            ostr.writeInt(this.actTimeout);
-            ostr.writeInt(this.deactTimeout);
+            ostr.writeInt(this.activateTimeout);
+            ostr.writeInt(this.deactivateTimeout);
             ostr.writeProxy(returnValue);
         }
 
         public void read(com.zeroc.Ice.InputStream istr)
         {
             this.adapters = AdapterPrxDictHelper.read(istr);
-            this.actTimeout = istr.readInt();
-            this.deactTimeout = istr.readInt();
+            this.activateTimeout = istr.readInt();
+            this.deactivateTimeout = istr.readInt();
             returnValue = ServerPrx.uncheckedCast(istr.readProxy());
         }
     }
 
     /**
      * Load the given server. If the server resources weren't already created (database environment directories,
-     * property files, etc), they will be created.
+     * property files, etc), they will be created. The returned proxy is never null.
      * @param current The Current object for the invocation.
      * @return A completion stage that the servant will complete with an instance of Node.LoadServerResult.
      **/
@@ -120,7 +120,7 @@ public interface Node extends FileReader,
     /**
      * Load the given server and ensure the server won't be restarted. If the server resources weren't already created
      * (database environment directories, property files, etc), they will be created. If the server can't be updated
-     * without a restart, a DeploymentException is raised.
+     * without a restart, a DeploymentException is raised. The returned proxy is never null.
      * @param current The Current object for the invocation.
      * @return A completion stage that the servant will complete with an instance of Node.LoadServerWithoutRestartResult.
      **/

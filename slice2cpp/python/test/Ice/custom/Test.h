@@ -80,8 +80,6 @@ class D;
 using DPtr = ::std::shared_ptr<D>;
 class CustomPrx;
 
-using CustomPrxPtr = ::std::optional<CustomPrx>;
-
 }
 
 namespace Test

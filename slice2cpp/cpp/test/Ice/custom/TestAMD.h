@@ -130,8 +130,6 @@ using CListSeq = ::std::vector<CList>;
 using CSeqList = std::list<::Test::CSeq>;
 class DPrx;
 
-using DPrxPtr = ::std::optional<DPrx>;
-
 using DPrxSeq = ::std::vector<::std::optional<DPrx>>;
 
 using DPrxList = std::list<::std::optional<::Test::DPrx>>;
@@ -168,8 +166,6 @@ using DoubleBuffer = Test::CustomBuffer<double>;
 using ByteBuffer = Test::CustomBuffer<std::byte>;
 struct BufferStruct;
 class TestIntfPrx;
-
-using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
 
 }
 

@@ -40,11 +40,7 @@ struct TopicContent;
  */
 using TopicContentSeq = ::std::vector<TopicContent>;
 class ReplicaObserverPrx;
-
-using ReplicaObserverPrxPtr = ::std::optional<ReplicaObserverPrx>;
 class TopicManagerSyncPrx;
-
-using TopicManagerSyncPrxPtr = ::std::optional<TopicManagerSyncPrx>;
 
 /**
  * The node state.
@@ -69,8 +65,6 @@ enum class NodeState : unsigned char
     NodeStateNormal
 };
 class NodePrx;
-
-using NodePrxPtr = ::std::optional<NodePrx>;
 struct NodeInfo;
 
 /**

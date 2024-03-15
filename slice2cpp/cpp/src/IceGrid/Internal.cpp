@@ -821,12 +821,12 @@ IceGrid::PatcherFeedbackPrx::ice_staticId() noexcept
 }
 
 ::std::optional<::IceGrid::ServerPrx>
-IceGrid::NodePrx::loadServer(const ::std::shared_ptr<InternalServerDescriptor>& iceP_svr, ::std::string_view iceP_replicaName, AdapterPrxDict& iceP_adapters, ::std::int32_t& iceP_actTimeout, ::std::int32_t& iceP_deactTimeout, const ::Ice::Context& context) const
+IceGrid::NodePrx::loadServer(const ::std::shared_ptr<InternalServerDescriptor>& iceP_svr, ::std::string_view iceP_replicaName, AdapterPrxDict& iceP_adapters, ::std::int32_t& iceP_activateTimeout, ::std::int32_t& iceP_deactivateTimeout, const ::Ice::Context& context) const
 {
     auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, ::std::int32_t, ::std::int32_t>>(true, this, &NodePrx::_iceI_loadServer, iceP_svr, iceP_replicaName, context).get();
     iceP_adapters = ::std::move(::std::get<1>(result));
-    iceP_actTimeout = ::std::get<2>(result);
-    iceP_deactTimeout = ::std::get<3>(result);
+    iceP_activateTimeout = ::std::get<2>(result);
+    iceP_deactivateTimeout = ::std::get<3>(result);
     return ::std::move(::std::get<0>(result));
 }
 
@@ -881,12 +881,12 @@ IceGrid::NodePrx::_iceI_loadServer(const ::std::shared_ptr<::IceInternal::Outgoi
 }
 
 ::std::optional<::IceGrid::ServerPrx>
-IceGrid::NodePrx::loadServerWithoutRestart(const ::std::shared_ptr<InternalServerDescriptor>& iceP_svr, ::std::string_view iceP_replicaName, AdapterPrxDict& iceP_adapters, ::std::int32_t& iceP_actTimeout, ::std::int32_t& iceP_deactTimeout, const ::Ice::Context& context) const
+IceGrid::NodePrx::loadServerWithoutRestart(const ::std::shared_ptr<InternalServerDescriptor>& iceP_svr, ::std::string_view iceP_replicaName, AdapterPrxDict& iceP_adapters, ::std::int32_t& iceP_activateTimeout, ::std::int32_t& iceP_deactivateTimeout, const ::Ice::Context& context) const
 {
     auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, ::std::int32_t, ::std::int32_t>>(true, this, &NodePrx::_iceI_loadServerWithoutRestart, iceP_svr, iceP_replicaName, context).get();
     iceP_adapters = ::std::move(::std::get<1>(result));
-    iceP_actTimeout = ::std::get<2>(result);
-    iceP_deactTimeout = ::std::get<3>(result);
+    iceP_activateTimeout = ::std::get<2>(result);
+    iceP_deactivateTimeout = ::std::get<3>(result);
     return ::std::move(::std::get<0>(result));
 }
 
@@ -1587,11 +1587,11 @@ IceGrid::ReplicaSessionPrx::_iceI_setDatabaseObserver(const ::std::shared_ptr<::
             {
                 ex.ice_throw();
             }
-            catch(const DeploymentException&)
+            catch(const ObserverAlreadyRegisteredException&)
             {
                 throw;
             }
-            catch(const ObserverAlreadyRegisteredException&)
+            catch(const DeploymentException&)
             {
                 throw;
             }
@@ -1814,11 +1814,11 @@ IceGrid::InternalRegistryPrx::_iceI_registerNode(const ::std::shared_ptr<::IceIn
             {
                 ex.ice_throw();
             }
-            catch(const NodeActiveException&)
+            catch(const PermissionDeniedException&)
             {
                 throw;
             }
-            catch(const PermissionDeniedException&)
+            catch(const NodeActiveException&)
             {
                 throw;
             }
@@ -1864,11 +1864,11 @@ IceGrid::InternalRegistryPrx::_iceI_registerReplica(const ::std::shared_ptr<::Ic
             {
                 ex.ice_throw();
             }
-            catch(const ReplicaActiveException&)
+            catch(const PermissionDeniedException&)
             {
                 throw;
             }
-            catch(const PermissionDeniedException&)
+            catch(const ReplicaActiveException&)
             {
                 throw;
             }
@@ -3011,12 +3011,12 @@ IceGrid::Node::_iceD_loadServer(::Ice::IncomingRequest& request, ::std::function
     istr->readPendingValues();
     istr->endEncapsulation();
     auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
-    auto responseCb = [responseHandler](const ::std::optional<ServerPrx>& ret, const AdapterPrxDict& iceP_adapters, ::std::int32_t iceP_actTimeout, ::std::int32_t iceP_deactTimeout)
+    auto responseCb = [responseHandler](const ::std::optional<ServerPrx>& ret, const AdapterPrxDict& iceP_adapters, ::std::int32_t iceP_activateTimeout, ::std::int32_t iceP_deactivateTimeout)
     {
         responseHandler->sendResponse(
             [&](::Ice::OutputStream* ostr)
             {
-                ostr->writeAll(iceP_adapters, iceP_actTimeout, iceP_deactTimeout, ret);
+                ostr->writeAll(iceP_adapters, iceP_activateTimeout, iceP_deactivateTimeout, ret);
             });
     };
     try
@@ -3043,12 +3043,12 @@ IceGrid::Node::_iceD_loadServerWithoutRestart(::Ice::IncomingRequest& request, :
     istr->readPendingValues();
     istr->endEncapsulation();
     auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
-    auto responseCb = [responseHandler](const ::std::optional<ServerPrx>& ret, const AdapterPrxDict& iceP_adapters, ::std::int32_t iceP_actTimeout, ::std::int32_t iceP_deactTimeout)
+    auto responseCb = [responseHandler](const ::std::optional<ServerPrx>& ret, const AdapterPrxDict& iceP_adapters, ::std::int32_t iceP_activateTimeout, ::std::int32_t iceP_deactivateTimeout)
     {
         responseHandler->sendResponse(
             [&](::Ice::OutputStream* ostr)
             {
-                ostr->writeAll(iceP_adapters, iceP_actTimeout, iceP_deactTimeout, ret);
+                ostr->writeAll(iceP_adapters, iceP_activateTimeout, iceP_deactivateTimeout, ret);
             });
     };
     try

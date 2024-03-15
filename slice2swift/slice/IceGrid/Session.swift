@@ -188,7 +188,7 @@ public extension SessionPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `Ice.ObjectPrx?` - The proxy of the allocated object.
+    /// - returns: `Ice.ObjectPrx?` - The proxy of the allocated object. The returned proxy is never null.
     ///
     /// - throws:
     ///
@@ -266,7 +266,7 @@ public extension SessionPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `Ice.ObjectPrx?` - The proxy of the allocated object.
+    /// - returns: `Ice.ObjectPrx?` - The proxy of the allocated object. The returned proxy is never null.
     ///
     /// - throws:
     ///

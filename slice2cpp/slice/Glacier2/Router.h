@@ -45,8 +45,6 @@ namespace Glacier2
 
 class RouterPrx;
 
-using RouterPrxPtr = ::std::optional<RouterPrx>;
-
 }
 
 namespace Glacier2

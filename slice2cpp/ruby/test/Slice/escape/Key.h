@@ -36,21 +36,15 @@ enum class END : unsigned char
 };
 struct _cpp_and;
 class breakPrx;
-
-using breakPrxPtr = ::std::optional<breakPrx>;
 class display;
 
 using displayPtr = ::std::shared_ptr<display>;
 class elsifPrx;
 
-using elsifPrxPtr = ::std::optional<elsifPrx>;
-
 using rescue = ::std::vector<END>;
 
 using ensure = ::std::map<::std::string, END>;
 class extendPrx;
-
-using extendPrxPtr = ::std::optional<extendPrx>;
 
 constexpr ::std::int32_t redo = 1;
 

@@ -291,7 +291,7 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
         userId -- The user id.
         password -- The password for the given user id.
         context -- The request context for the invocation.
-        Returns: A proxy for the newly created session.
+        Returns: A proxy for the newly created session. The returned proxy is never null.
         Throws:
         PermissionDeniedException -- Raised if the password for the given user id is not correct, or if the user is not allowed access.
         """
@@ -315,7 +315,7 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
         userId -- The user id.
         password -- The password for the given user id.
         context -- The request context for the invocation.
-        Returns: A proxy for the newly created session.
+        Returns: A proxy for the newly created session. The returned proxy is never null.
         Throws:
         PermissionDeniedException -- Raised if the password for the given user id is not correct, or if the user is not allowed access.
         """
@@ -337,7 +337,7 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
          Create a client session from a secure connection.
         Arguments:
         context -- The request context for the invocation.
-        Returns: A proxy for the newly created session.
+        Returns: A proxy for the newly created session. The returned proxy is never null.
         Throws:
         PermissionDeniedException -- Raised if the password for the given user id is not correct, or if the user is not allowed access.
         """
@@ -357,7 +357,7 @@ if 'RegistryPrx' not in _M_IceGrid.__dict__:
          Create an administrative session from a secure connection.
         Arguments:
         context -- The request context for the invocation.
-        Returns: A proxy for the newly created session.
+        Returns: A proxy for the newly created session. The returned proxy is never null.
         Throws:
         PermissionDeniedException -- Raised if the password for the given user id is not correct, or if the user is not allowed access.
         """
@@ -538,7 +538,7 @@ if 'LocatorPrx' not in _M_IceGrid.__dict__:
          Get the proxy of the registry object hosted by this IceGrid registry.
         Arguments:
         context -- The request context for the invocation.
-        Returns: The proxy of the registry object.
+        Returns: The proxy of the registry object. The returned proxy is never null.
         """
         def getLocalRegistry(self, context=None):
             return _M_IceGrid.Locator._op_getLocalRegistry.invoke(self, ((), context))
@@ -556,7 +556,7 @@ if 'LocatorPrx' not in _M_IceGrid.__dict__:
          Get the proxy of the query object hosted by this IceGrid registry.
         Arguments:
         context -- The request context for the invocation.
-        Returns: The proxy of the query object.
+        Returns: The proxy of the query object. The returned proxy is never null.
         """
         def getLocalQuery(self, context=None):
             return _M_IceGrid.Locator._op_getLocalQuery.invoke(self, ((), context))

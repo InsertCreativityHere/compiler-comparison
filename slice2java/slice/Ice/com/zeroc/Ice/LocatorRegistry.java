@@ -26,7 +26,7 @@ public interface LocatorRegistry extends Object
      * Set the adapter endpoints with the locator registry.
      * @param id The adapter id.
      * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
-     * adapter endpoints.
+     * adapter endpoints. The proxy can be null, typically during adapter deactivation.
      * @param current The Current object for the invocation.
      * @return A completion stage that the servant will complete when the invocation completes.
      * @throws AdapterAlreadyActiveException Raised if an adapter with the same id is already active.
@@ -41,8 +41,8 @@ public interface LocatorRegistry extends Object
      * Set the adapter endpoints with the locator registry.
      * @param adapterId The adapter id.
      * @param replicaGroupId The replica group id.
-     * @param p The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-     * endpoints.
+     * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
+     * endpoints. TThe proxy can be null, typically during adapter deactivation.
      * @param current The Current object for the invocation.
      * @return A completion stage that the servant will complete when the invocation completes.
      * @throws AdapterAlreadyActiveException Raised if an adapter with the same id is already active.
@@ -51,7 +51,7 @@ public interface LocatorRegistry extends Object
      * @throws InvalidReplicaGroupIdException Raised if the given replica group doesn't match the one registered with
      * the locator registry for this object adapter.
      **/
-    java.util.concurrent.CompletionStage<Void> setReplicatedAdapterDirectProxyAsync(String adapterId, String replicaGroupId, ObjectPrx p, Current current)
+    java.util.concurrent.CompletionStage<Void> setReplicatedAdapterDirectProxyAsync(String adapterId, String replicaGroupId, ObjectPrx proxy, Current current)
         throws AdapterNotFoundException,
                InvalidReplicaGroupIdException,
                AdapterAlreadyActiveException;
@@ -59,7 +59,7 @@ public interface LocatorRegistry extends Object
     /**
      * Set the process proxy for a server.
      * @param id The server id.
-     * @param proxy The process proxy.
+     * @param proxy The process proxy. The proxy is never null.
      * @param current The Current object for the invocation.
      * @return A completion stage that the servant will complete when the invocation completes.
      * @throws ServerNotFoundException Raised if the server cannot be found.
@@ -127,12 +127,12 @@ public interface LocatorRegistry extends Object
         InputStream istr = inS.startReadParams();
         String iceP_adapterId;
         String iceP_replicaGroupId;
-        ObjectPrx iceP_p;
+        ObjectPrx iceP_proxy;
         iceP_adapterId = istr.readString();
         iceP_replicaGroupId = istr.readString();
-        iceP_p = istr.readProxy();
+        iceP_proxy = istr.readProxy();
         inS.endReadParams();
-        return inS.setResultFuture(obj.setReplicatedAdapterDirectProxyAsync(iceP_adapterId, iceP_replicaGroupId, iceP_p, current));
+        return inS.setResultFuture(obj.setReplicatedAdapterDirectProxyAsync(iceP_adapterId, iceP_replicaGroupId, iceP_proxy, current));
     }
 
     /**

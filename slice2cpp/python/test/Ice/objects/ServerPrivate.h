@@ -36,8 +36,6 @@ class AlsoEmpty;
 
 using AlsoEmptyPtr = ::std::shared_ptr<AlsoEmpty>;
 class UnexpectedObjectExceptionTestPrx;
-
-using UnexpectedObjectExceptionTestPrxPtr = ::std::optional<UnexpectedObjectExceptionTestPrx>;
 class COneMember;
 
 using COneMemberPtr = ::std::shared_ptr<COneMember>;

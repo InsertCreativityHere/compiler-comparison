@@ -27,7 +27,7 @@ public class AdapterDynamicInfo implements java.lang.Cloneable,
     public String id;
 
     /**
-     * The direct proxy containing the adapter endpoints.
+     * The direct proxy containing the adapter endpoints. This proxy is never null.
      **/
     public com.zeroc.Ice.ObjectPrx proxy;
 
@@ -165,5 +165,5 @@ public class AdapterDynamicInfo implements java.lang.Cloneable,
     private static final AdapterDynamicInfo _nullMarshalValue = new AdapterDynamicInfo();
 
     /** @hidden */
-    public static final long serialVersionUID = 1809876599524609269L;
+    public static final long serialVersionUID = 5926374853518391035L;
 }

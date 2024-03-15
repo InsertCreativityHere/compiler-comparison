@@ -44,23 +44,11 @@ class OptionOverrides;
 
 using OptionOverridesPtr = ::std::shared_ptr<OptionOverrides>;
 class TestCasePrx;
-
-using TestCasePrxPtr = ::std::optional<TestCasePrx>;
 class ControllerPrx;
-
-using ControllerPrxPtr = ::std::optional<ControllerPrx>;
 class ProcessPrx;
-
-using ProcessPrxPtr = ::std::optional<ProcessPrx>;
 class ProcessControllerPrx;
-
-using ProcessControllerPrxPtr = ::std::optional<ProcessControllerPrx>;
 class BrowserProcessControllerPrx;
-
-using BrowserProcessControllerPrxPtr = ::std::optional<BrowserProcessControllerPrx>;
 class ProcessControllerRegistryPrx;
-
-using ProcessControllerRegistryPrxPtr = ::std::optional<ProcessControllerRegistryPrx>;
 
 }
 

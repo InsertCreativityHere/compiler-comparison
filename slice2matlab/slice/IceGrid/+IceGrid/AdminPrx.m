@@ -727,7 +727,7 @@ classdef AdminPrx < Ice.ObjectPrx
             %   id (char) - The server id.
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (Ice.ObjectPrx) - A proxy to the server's admin object
+            % Returns (Ice.ObjectPrx) - A proxy to the server's admin object. The returned proxy is never null.
             %
             % Exceptions:
             %   IceGrid.DeploymentException - Raised if the server couldn't be deployed on the node.
@@ -1233,7 +1233,7 @@ classdef AdminPrx < Ice.ObjectPrx
             % addObjectWithType   Add an object to the object registry and explicitly specify its type.
             %
             % Parameters:
-            %   obj (Ice.ObjectPrx) - The object to be added to the registry.
+            %   obj (Ice.ObjectPrx) - The object to be added to the registry. The proxy is never null.
             %   type (char) - The object type.
             %   context (containers.Map) - Optional request context.
             %
@@ -1251,7 +1251,7 @@ classdef AdminPrx < Ice.ObjectPrx
             % addObjectWithTypeAsync   Add an object to the object registry and explicitly specify its type.
             %
             % Parameters:
-            %   obj (Ice.ObjectPrx) - The object to be added to the registry.
+            %   obj (Ice.ObjectPrx) - The object to be added to the registry. The proxy is never null.
             %   type (char) - The object type.
             %   context (containers.Map) - Optional request context.
             %
@@ -1564,7 +1564,7 @@ classdef AdminPrx < Ice.ObjectPrx
             %   name (char) - The IceGrid node name
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (Ice.ObjectPrx) - A proxy to the IceGrid node's admin object
+            % Returns (Ice.ObjectPrx) - A proxy to the IceGrid node's admin object. The returned proxy is never null.
             %
             % Exceptions:
             %   IceGrid.NodeNotExistException - Raised if the node doesn't exist.
@@ -1854,7 +1854,7 @@ classdef AdminPrx < Ice.ObjectPrx
             %   name (char) - The registry name
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (Ice.ObjectPrx) - A proxy to the IceGrid registry's admin object
+            % Returns (Ice.ObjectPrx) - A proxy to the IceGrid registry's admin object. The returned proxy is never null.
             %
             % Exceptions:
             %   IceGrid.RegistryNotExistException - Raised if the registry doesn't exist.

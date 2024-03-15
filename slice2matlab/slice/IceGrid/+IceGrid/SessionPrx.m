@@ -56,7 +56,7 @@ classdef SessionPrx < Glacier2.SessionPrx
             %   id (Ice.Identity) - The identity of the object to allocate.
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (Ice.ObjectPrx) - The proxy of the allocated object.
+            % Returns (Ice.ObjectPrx) - The proxy of the allocated object. The returned proxy is never null.
             %
             % Exceptions:
             %   IceGrid.AllocationException - Raised if the object can't be allocated.
@@ -109,7 +109,7 @@ classdef SessionPrx < Glacier2.SessionPrx
             %   type (char) - The type of the object.
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (Ice.ObjectPrx) - The proxy of the allocated object.
+            % Returns (Ice.ObjectPrx) - The proxy of the allocated object. The returned proxy is never null.
             %
             % Exceptions:
             %   IceGrid.AllocationException - Raised if the object could not be allocated.

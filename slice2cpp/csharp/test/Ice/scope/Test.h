@@ -58,8 +58,6 @@ class C2;
 using C2Ptr = ::std::shared_ptr<C2>;
 class IPrx;
 
-using IPrxPtr = ::std::optional<IPrx>;
-
 using IMap = ::std::map<::std::string, ::std::optional<IPrx>>;
 
 using ISeq = ::std::vector<::std::optional<IPrx>>;
@@ -86,8 +84,6 @@ using CMap = ::std::map<::std::string, ::std::shared_ptr<C>>;
 using CSeq = ::std::vector<::std::shared_ptr<C>>;
 class IPrx;
 
-using IPrxPtr = ::std::optional<IPrx>;
-
 using IMap = ::std::map<::std::string, ::std::optional<IPrx>>;
 
 using ISeq = ::std::vector<::std::optional<IPrx>>;
@@ -105,8 +101,6 @@ using CMap = ::std::map<::std::string, ::std::shared_ptr<::Test::Inner::Inner2::
 
 using CSeq = ::std::vector<::std::shared_ptr<::Test::Inner::Inner2::C>>;
 class IPrx;
-
-using IPrxPtr = ::std::optional<IPrx>;
 
 using IMap = ::std::map<::std::string, ::std::optional<IPrx>>;
 
@@ -128,8 +122,6 @@ namespace Inner2
 {
 
 class IPrx;
-
-using IPrxPtr = ::std::optional<IPrx>;
 
 }
 

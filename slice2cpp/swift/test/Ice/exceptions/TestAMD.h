@@ -31,11 +31,7 @@ namespace Test
 {
 
 class EmptyPrx;
-
-using EmptyPrxPtr = ::std::optional<EmptyPrx>;
 class ThrowerPrx;
-
-using ThrowerPrxPtr = ::std::optional<ThrowerPrx>;
 
 namespace Mod
 {
@@ -43,8 +39,6 @@ namespace Mod
 
 }
 class WrongOperationPrx;
-
-using WrongOperationPrxPtr = ::std::optional<WrongOperationPrx>;
 
 }
 

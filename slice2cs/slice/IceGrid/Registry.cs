@@ -295,7 +295,7 @@ namespace IceGrid
         ///  </param>
         /// <param name="password">The password for the given user id.
         ///  </param>
-        /// <returns>A proxy for the newly created session.
+        /// <returns>A proxy for the newly created session. The returned proxy is never null.
         ///  </returns>
         /// <exception name="PermissionDeniedException">Raised if the password for the given user id is not correct, or if the
         ///  user is not allowed access.</exception>
@@ -319,7 +319,7 @@ namespace IceGrid
         /// <summary>
         /// Create an administrative session.
         /// </summary>
-        /// <returns>A proxy for the newly created session.
+        /// <returns>A proxy for the newly created session. The returned proxy is never null.
         ///  </returns>
         /// <param name="userId">The user id.
         ///  </param>
@@ -347,7 +347,7 @@ namespace IceGrid
         /// <summary>
         /// Create a client session from a secure connection.
         /// </summary>
-        /// <returns>A proxy for the newly created session.
+        /// <returns>A proxy for the newly created session. The returned proxy is never null.
         ///  </returns>
         /// <exception name="PermissionDeniedException">Raised if the password for the given user id is not correct, or if the
         ///  user is not allowed access.</exception>
@@ -367,7 +367,7 @@ namespace IceGrid
         /// <summary>
         /// Create an administrative session from a secure connection.
         /// </summary>
-        /// <returns>A proxy for the newly created session.
+        /// <returns>A proxy for the newly created session. The returned proxy is never null.
         ///  </returns>
         /// <exception name="PermissionDeniedException">Raised if the password for the given user id is not correct, or if the
         ///  user is not allowed access.</exception>
@@ -436,7 +436,7 @@ namespace IceGrid
         /// <summary>
         /// Get the proxy of the registry object hosted by this IceGrid registry.
         /// </summary>
-        /// <returns>The proxy of the registry object.</returns>
+        /// <returns>The proxy of the registry object. The returned proxy is never null.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         RegistryPrx getLocalRegistry(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -453,7 +453,7 @@ namespace IceGrid
         /// <summary>
         /// Get the proxy of the query object hosted by this IceGrid registry.
         /// </summary>
-        /// <returns>The proxy of the query object.</returns>
+        /// <returns>The proxy of the query object. The returned proxy is never null.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         QueryPrx getLocalQuery(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -560,7 +560,7 @@ namespace IceGrid
         ///  </param>
         /// <param name="password">The password for the given user id.
         ///  </param>
-        /// <returns>A proxy for the newly created session.
+        /// <returns>A proxy for the newly created session. The returned proxy is never null.
         ///  </returns>
         /// <exception name="PermissionDeniedException">Raised if the password for the given user id is not correct, or if the
         ///  user is not allowed access.</exception>
@@ -572,7 +572,7 @@ namespace IceGrid
         /// <summary>
         /// Create an administrative session.
         /// </summary>
-        /// <returns>A proxy for the newly created session.
+        /// <returns>A proxy for the newly created session. The returned proxy is never null.
         ///  </returns>
         /// <param name="userId">The user id.
         ///  </param>
@@ -588,7 +588,7 @@ namespace IceGrid
         /// <summary>
         /// Create a client session from a secure connection.
         /// </summary>
-        /// <returns>A proxy for the newly created session.
+        /// <returns>A proxy for the newly created session. The returned proxy is never null.
         ///  </returns>
         /// <exception name="PermissionDeniedException">Raised if the password for the given user id is not correct, or if the
         ///  user is not allowed access.</exception>
@@ -600,7 +600,7 @@ namespace IceGrid
         /// <summary>
         /// Create an administrative session from a secure connection.
         /// </summary>
-        /// <returns>A proxy for the newly created session.
+        /// <returns>A proxy for the newly created session. The returned proxy is never null.
         ///  </returns>
         /// <exception name="PermissionDeniedException">Raised if the password for the given user id is not correct, or if the
         ///  user is not allowed access.</exception>
@@ -643,7 +643,7 @@ namespace IceGrid
         /// <summary>
         /// Get the proxy of the registry object hosted by this IceGrid registry.
         /// </summary>
-        /// <returns>The proxy of the registry object.</returns>
+        /// <returns>The proxy of the registry object. The returned proxy is never null.</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -652,7 +652,7 @@ namespace IceGrid
         /// <summary>
         /// Get the proxy of the query object hosted by this IceGrid registry.
         /// </summary>
-        /// <returns>The proxy of the query object.</returns>
+        /// <returns>The proxy of the query object. The returned proxy is never null.</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]

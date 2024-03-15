@@ -73,8 +73,6 @@ class PNode;
 
 using PNodePtr = ::std::shared_ptr<PNode>;
 class TestIntfPrx;
-
-using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
 class D3;
 
 using D3Ptr = ::std::shared_ptr<D3>;

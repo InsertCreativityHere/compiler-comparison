@@ -34,8 +34,6 @@ class ConcreteClass;
 using ConcreteClassPtr = ::std::shared_ptr<ConcreteClass>;
 class InitialPrx;
 
-using InitialPrxPtr = ::std::optional<InitialPrx>;
-
 }
 
 namespace Test

@@ -32,8 +32,6 @@ namespace Test
 
 class SessionPrx;
 
-using SessionPrxPtr = ::std::optional<SessionPrx>;
-
 }
 
 namespace Test

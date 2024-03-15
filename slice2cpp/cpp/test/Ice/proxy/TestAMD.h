@@ -31,11 +31,7 @@ namespace Test
 {
 
 class MyClassPrx;
-
-using MyClassPrxPtr = ::std::optional<MyClassPrx>;
 class MyDerivedClassPrx;
-
-using MyDerivedClassPrxPtr = ::std::optional<MyDerivedClassPrx>;
 
 }
 

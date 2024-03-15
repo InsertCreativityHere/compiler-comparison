@@ -36,7 +36,7 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
     /**
      * Get the admin interface. The admin object returned by this operation can only be accessed by the session.
      * @param current The Current object for the invocation.
-     * @return The admin interface proxy.
+     * @return The admin interface proxy. The returned proxy is never null.
      **/
     AdminPrx getAdmin(com.zeroc.Ice.Current current);
 
@@ -108,7 +108,7 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
      * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
      * or positive, the file is read from the last <code>count</code> lines.
      * @param current The Current object for the invocation.
-     * @return An iterator to read the file.
+     * @return An iterator to read the file. The returned proxy is never null.
      * @throws DeploymentException Raised if the server couldn't be deployed on the node.
      * @throws FileNotAvailableException Raised if the file can't be read.
      * @throws NodeUnreachableException Raised if the node could not be reached.
@@ -126,7 +126,7 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
      * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
      * or positive, the file is read from the last <code>count</code> lines.
      * @param current The Current object for the invocation.
-     * @return An iterator to read the file.
+     * @return An iterator to read the file. The returned proxy is never null.
      * @throws DeploymentException Raised if the server couldn't be deployed on the node.
      * @throws FileNotAvailableException Raised if the file can't be read.
      * @throws NodeUnreachableException Raised if the node could not be reached.
@@ -144,7 +144,7 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
      * @param count Specifies where to start reading the file. If negative, the file is read from the begining.
      * If 0 or positive, the file is read from the last <code>count</code> lines.
      * @param current The Current object for the invocation.
-     * @return An iterator to read the file.
+     * @return An iterator to read the file. The returned proxy is never null.
      * @throws DeploymentException Raised if the server couldn't be deployed on the node.
      * @throws FileNotAvailableException Raised if the file can't be read.
      * @throws NodeUnreachableException Raised if the node could not be reached.
@@ -162,7 +162,7 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
      * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
      * or positive, the file is read from the last <code>count</code> lines.
      * @param current The Current object for the invocation.
-     * @return An iterator to read the file.
+     * @return An iterator to read the file. The returned proxy is never null.
      * @throws FileNotAvailableException Raised if the file can't be read.
      * @throws NodeNotExistException Raised if the node doesn't exist.
      * @throws NodeUnreachableException Raised if the node could not be reached.
@@ -178,7 +178,7 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
      * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
      * or positive, the file is read from the last <code>count</code> lines.
      * @param current The Current object for the invocation.
-     * @return An iterator to read the file.
+     * @return An iterator to read the file. The returned proxy is never null.
      * @throws FileNotAvailableException Raised if the file can't be read.
      * @throws NodeNotExistException Raised if the node doesn't exist.
      * @throws NodeUnreachableException Raised if the node could not be reached.
@@ -194,7 +194,7 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
      * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
      * or positive, the file is read from the last <code>count</code> lines.
      * @param current The Current object for the invocation.
-     * @return An iterator to read the file.
+     * @return An iterator to read the file. The returned proxy is never null.
      * @throws FileNotAvailableException Raised if the file can't be read.
      * @throws RegistryNotExistException Raised if the registry doesn't exist.
      * @throws RegistryUnreachableException Raised if the registry could not be reached.
@@ -210,7 +210,7 @@ public interface AdminSession extends com.zeroc.Glacier2.Session
      * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
      * or positive, the file is read from the last <code>count</code> lines.
      * @param current The Current object for the invocation.
-     * @return An iterator to read the file.
+     * @return An iterator to read the file. The returned proxy is never null.
      * @throws FileNotAvailableException Raised if the file can't be read.
      * @throws RegistryNotExistException Raised if the registry doesn't exist.
      * @throws RegistryUnreachableException Raised if the registry could not be reached.

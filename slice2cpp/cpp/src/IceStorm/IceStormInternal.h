@@ -41,14 +41,8 @@ struct EventData;
  */
 using EventDataSeq = std::deque<IceStorm::EventData>;
 class TopicLinkPrx;
-
-using TopicLinkPrxPtr = ::std::optional<TopicLinkPrx>;
 class TopicInternalPrx;
-
-using TopicInternalPrxPtr = ::std::optional<TopicInternalPrx>;
 class TopicManagerInternalPrx;
-
-using TopicManagerInternalPrxPtr = ::std::optional<TopicManagerInternalPrx>;
 
 }
 

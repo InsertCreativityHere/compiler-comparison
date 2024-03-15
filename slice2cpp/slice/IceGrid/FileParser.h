@@ -43,8 +43,6 @@ namespace IceGrid
 
 class FileParserPrx;
 
-using FileParserPrxPtr = ::std::optional<FileParserPrx>;
-
 }
 
 namespace IceGrid

@@ -64,14 +64,8 @@ enum class LoadSample : unsigned char
     LoadSample15
 };
 class QueryPrx;
-
-using QueryPrxPtr = ::std::optional<QueryPrx>;
 class RegistryPrx;
-
-using RegistryPrxPtr = ::std::optional<RegistryPrx>;
 class LocatorPrx;
-
-using LocatorPrxPtr = ::std::optional<LocatorPrx>;
 
 }
 
@@ -324,7 +318,7 @@ public:
      * @param userId The user id.
      * @param password The password for the given user id.
      * @param context The Context map to send with the invocation.
-     * @return A proxy for the newly created session.
+     * @return A proxy for the newly created session. The returned proxy is never null.
      * @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
      * user is not allowed access.
      */
@@ -361,7 +355,7 @@ public:
      * @param userId The user id.
      * @param password The password for the given user id.
      * @param context The Context map to send with the invocation.
-     * @return A proxy for the newly created session.
+     * @return A proxy for the newly created session. The returned proxy is never null.
      * @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
      * user is not allowed access.
      */
@@ -396,7 +390,7 @@ public:
     /**
      * Create a client session from a secure connection.
      * @param context The Context map to send with the invocation.
-     * @return A proxy for the newly created session.
+     * @return A proxy for the newly created session. The returned proxy is never null.
      * @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
      * user is not allowed access.
      */
@@ -427,7 +421,7 @@ public:
     /**
      * Create an administrative session from a secure connection.
      * @param context The Context map to send with the invocation.
-     * @return A proxy for the newly created session.
+     * @return A proxy for the newly created session. The returned proxy is never null.
      * @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
      * user is not allowed access.
      */
@@ -586,7 +580,7 @@ public:
     /**
      * Get the proxy of the registry object hosted by this IceGrid registry.
      * @param context The Context map to send with the invocation.
-     * @return The proxy of the registry object.
+     * @return The proxy of the registry object. The returned proxy is never null.
      */
     ::std::optional<RegistryPrx> getLocalRegistry(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -615,7 +609,7 @@ public:
     /**
      * Get the proxy of the query object hosted by this IceGrid registry.
      * @param context The Context map to send with the invocation.
-     * @return The proxy of the query object.
+     * @return The proxy of the query object. The returned proxy is never null.
      */
     ::std::optional<QueryPrx> getLocalQuery(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -837,7 +831,7 @@ public:
      * @param userId The user id.
      * @param password The password for the given user id.
      * @param current The Current object for the invocation.
-     * @return A proxy for the newly created session.
+     * @return A proxy for the newly created session. The returned proxy is never null.
      * @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
      * user is not allowed access.
      */
@@ -851,7 +845,7 @@ public:
      * @param userId The user id.
      * @param password The password for the given user id.
      * @param current The Current object for the invocation.
-     * @return A proxy for the newly created session.
+     * @return A proxy for the newly created session. The returned proxy is never null.
      * @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
      * user is not allowed access.
      */
@@ -863,7 +857,7 @@ public:
     /**
      * Create a client session from a secure connection.
      * @param current The Current object for the invocation.
-     * @return A proxy for the newly created session.
+     * @return A proxy for the newly created session. The returned proxy is never null.
      * @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
      * user is not allowed access.
      */
@@ -875,7 +869,7 @@ public:
     /**
      * Create an administrative session from a secure connection.
      * @param current The Current object for the invocation.
-     * @return A proxy for the newly created session.
+     * @return A proxy for the newly created session. The returned proxy is never null.
      * @throws IceGrid::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
      * user is not allowed access.
      */
@@ -950,7 +944,7 @@ public:
     /**
      * Get the proxy of the registry object hosted by this IceGrid registry.
      * @param current The Current object for the invocation.
-     * @return The proxy of the registry object.
+     * @return The proxy of the registry object. The returned proxy is never null.
      */
     virtual ::std::optional<RegistryPrx> getLocalRegistry(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
@@ -960,7 +954,7 @@ public:
     /**
      * Get the proxy of the query object hosted by this IceGrid registry.
      * @param current The Current object for the invocation.
-     * @return The proxy of the query object.
+     * @return The proxy of the query object. The returned proxy is never null.
      */
     virtual ::std::optional<QueryPrx> getLocalQuery(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL

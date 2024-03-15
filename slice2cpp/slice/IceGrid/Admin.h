@@ -115,11 +115,7 @@ struct ApplicationInfo;
 using ApplicationInfoSeq = ::std::vector<ApplicationInfo>;
 struct ApplicationUpdateInfo;
 class AdminPrx;
-
-using AdminPrxPtr = ::std::optional<AdminPrx>;
 class FileIteratorPrx;
-
-using FileIteratorPrxPtr = ::std::optional<FileIteratorPrx>;
 struct ServerDynamicInfo;
 
 /**
@@ -135,27 +131,15 @@ using AdapterDynamicInfoSeq = ::std::vector<AdapterDynamicInfo>;
 struct NodeDynamicInfo;
 class RegistryObserverPrx;
 
-using RegistryObserverPrxPtr = ::std::optional<RegistryObserverPrx>;
-
 /**
  * A sequence of node dynamic information structures.
  */
 using NodeDynamicInfoSeq = ::std::vector<NodeDynamicInfo>;
 class NodeObserverPrx;
-
-using NodeObserverPrxPtr = ::std::optional<NodeObserverPrx>;
 class ApplicationObserverPrx;
-
-using ApplicationObserverPrxPtr = ::std::optional<ApplicationObserverPrx>;
 class AdapterObserverPrx;
-
-using AdapterObserverPrxPtr = ::std::optional<AdapterObserverPrx>;
 class ObjectObserverPrx;
-
-using ObjectObserverPrxPtr = ::std::optional<ObjectObserverPrx>;
 class AdminSessionPrx;
-
-using AdminSessionPrxPtr = ::std::optional<AdminSessionPrx>;
 
 }
 
@@ -702,7 +686,7 @@ public:
      * Get a proxy to the server's admin object.
      * @param id The server id.
      * @param context The Context map to send with the invocation.
-     * @return A proxy to the server's admin object
+     * @return A proxy to the server's admin object. The returned proxy is never null.
      * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
@@ -1156,7 +1140,7 @@ public:
 
     /**
      * Add an object to the object registry and explicitly specify its type.
-     * @param obj The object to be added to the registry.
+     * @param obj The object to be added to the registry. The proxy is never null.
      * @param type The object type.
      * @param context The Context map to send with the invocation.
      * @throws IceGrid::DeploymentException Raised if application deployment failed.
@@ -1166,7 +1150,7 @@ public:
 
     /**
      * Add an object to the object registry and explicitly specify its type.
-     * @param obj The object to be added to the registry.
+     * @param obj The object to be added to the registry. The proxy is never null.
      * @param type The object type.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -1175,7 +1159,7 @@ public:
 
     /**
      * Add an object to the object registry and explicitly specify its type.
-     * @param obj The object to be added to the registry.
+     * @param obj The object to be added to the registry. The proxy is never null.
      * @param type The object type.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -1432,7 +1416,7 @@ public:
      * Get a proxy to the IceGrid node's admin object.
      * @param name The IceGrid node name
      * @param context The Context map to send with the invocation.
-     * @return A proxy to the IceGrid node's admin object
+     * @return A proxy to the IceGrid node's admin object. The returned proxy is never null.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
@@ -1669,7 +1653,7 @@ public:
      * Get a proxy to the IceGrid registry's admin object.
      * @param name The registry name
      * @param context The Context map to send with the invocation.
-     * @return A proxy to the IceGrid registry's admin object
+     * @return A proxy to the IceGrid registry's admin object. The returned proxy is never null.
      * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
      */
     ::std::optional<::Ice::ObjectPrx> getRegistryAdmin(::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -2947,7 +2931,7 @@ public:
     /**
      * Get the admin interface. The admin object returned by this operation can only be accessed by the session.
      * @param context The Context map to send with the invocation.
-     * @return The admin interface proxy.
+     * @return The admin interface proxy. The returned proxy is never null.
      */
     ::std::optional<AdminPrx> getAdmin(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -3193,7 +3177,7 @@ public:
      * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
      * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
-     * @return An iterator to read the file.
+     * @return An iterator to read the file. The returned proxy is never null.
      * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
      * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
@@ -3239,7 +3223,7 @@ public:
      * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
      * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
-     * @return An iterator to read the file.
+     * @return An iterator to read the file. The returned proxy is never null.
      * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
      * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
@@ -3281,7 +3265,7 @@ public:
      * @param count Specifies where to start reading the file. If negative, the file is read from the begining.
      * If 0 or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
-     * @return An iterator to read the file.
+     * @return An iterator to read the file. The returned proxy is never null.
      * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
      * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
@@ -3323,7 +3307,7 @@ public:
      * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
      * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
-     * @return An iterator to read the file.
+     * @return An iterator to read the file. The returned proxy is never null.
      * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
@@ -3364,7 +3348,7 @@ public:
      * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
      * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
-     * @return An iterator to read the file.
+     * @return An iterator to read the file. The returned proxy is never null.
      * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
@@ -3405,7 +3389,7 @@ public:
      * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
      * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
-     * @return An iterator to read the file.
+     * @return An iterator to read the file. The returned proxy is never null.
      * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
      * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
      * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
@@ -3446,7 +3430,7 @@ public:
      * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
      * or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
-     * @return An iterator to read the file.
+     * @return An iterator to read the file. The returned proxy is never null.
      * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
      * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
      * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
@@ -3864,7 +3848,7 @@ struct AdapterDynamicInfo
      */
     ::std::string id;
     /**
-     * The direct proxy containing the adapter endpoints.
+     * The direct proxy containing the adapter endpoints. This proxy is never null.
      */
     ::std::optional<::Ice::ObjectPrx> proxy;
 
@@ -4156,7 +4140,7 @@ public:
      * Get a proxy to the server's admin object.
      * @param id The server id.
      * @param current The Current object for the invocation.
-     * @return A proxy to the server's admin object
+     * @return A proxy to the server's admin object. The returned proxy is never null.
      * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
@@ -4335,7 +4319,7 @@ public:
 
     /**
      * Add an object to the object registry and explicitly specify its type.
-     * @param obj The object to be added to the registry.
+     * @param obj The object to be added to the registry. The proxy is never null.
      * @param type The object type.
      * @param current The Current object for the invocation.
      * @throws IceGrid::DeploymentException Raised if application deployment failed.
@@ -4437,7 +4421,7 @@ public:
      * Get a proxy to the IceGrid node's admin object.
      * @param name The IceGrid node name
      * @param current The Current object for the invocation.
-     * @return A proxy to the IceGrid node's admin object
+     * @return A proxy to the IceGrid node's admin object. The returned proxy is never null.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
      */
@@ -4525,7 +4509,7 @@ public:
      * Get a proxy to the IceGrid registry's admin object.
      * @param name The registry name
      * @param current The Current object for the invocation.
-     * @return A proxy to the IceGrid registry's admin object
+     * @return A proxy to the IceGrid registry's admin object. The returned proxy is never null.
      * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
      */
     virtual ::std::optional<::Ice::ObjectPrx> getRegistryAdmin(::std::string name, const ::Ice::Current& current) const = 0;
@@ -5075,7 +5059,7 @@ public:
     /**
      * Get the admin interface. The admin object returned by this operation can only be accessed by the session.
      * @param current The Current object for the invocation.
-     * @return The admin interface proxy.
+     * @return The admin interface proxy. The returned proxy is never null.
      */
     virtual ::std::optional<AdminPrx> getAdmin(const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
@@ -5164,7 +5148,7 @@ public:
      * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
      * or positive, the file is read from the last <code>count</code> lines.
      * @param current The Current object for the invocation.
-     * @return An iterator to read the file.
+     * @return An iterator to read the file. The returned proxy is never null.
      * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
      * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
@@ -5181,7 +5165,7 @@ public:
      * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
      * or positive, the file is read from the last <code>count</code> lines.
      * @param current The Current object for the invocation.
-     * @return An iterator to read the file.
+     * @return An iterator to read the file. The returned proxy is never null.
      * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
      * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
@@ -5198,7 +5182,7 @@ public:
      * @param count Specifies where to start reading the file. If negative, the file is read from the begining.
      * If 0 or positive, the file is read from the last <code>count</code> lines.
      * @param current The Current object for the invocation.
-     * @return An iterator to read the file.
+     * @return An iterator to read the file. The returned proxy is never null.
      * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
      * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
@@ -5215,7 +5199,7 @@ public:
      * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
      * or positive, the file is read from the last <code>count</code> lines.
      * @param current The Current object for the invocation.
-     * @return An iterator to read the file.
+     * @return An iterator to read the file. The returned proxy is never null.
      * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
@@ -5231,7 +5215,7 @@ public:
      * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
      * or positive, the file is read from the last <code>count</code> lines.
      * @param current The Current object for the invocation.
-     * @return An iterator to read the file.
+     * @return An iterator to read the file. The returned proxy is never null.
      * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
      * @throws IceGrid::NodeNotExistException Raised if the node doesn't exist.
      * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
@@ -5247,7 +5231,7 @@ public:
      * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
      * or positive, the file is read from the last <code>count</code> lines.
      * @param current The Current object for the invocation.
-     * @return An iterator to read the file.
+     * @return An iterator to read the file. The returned proxy is never null.
      * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
      * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
      * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.
@@ -5263,7 +5247,7 @@ public:
      * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
      * or positive, the file is read from the last <code>count</code> lines.
      * @param current The Current object for the invocation.
-     * @return An iterator to read the file.
+     * @return An iterator to read the file. The returned proxy is never null.
      * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
      * @throws IceGrid::RegistryNotExistException Raised if the registry doesn't exist.
      * @throws IceGrid::RegistryUnreachableException Raised if the registry could not be reached.

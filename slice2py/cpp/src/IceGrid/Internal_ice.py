@@ -1132,7 +1132,7 @@ if 'NodePrx' not in _M_IceGrid.__dict__:
 
         """
          Load the given server. If the server resources weren't already created (database environment directories,
-         property files, etc), they will be created.
+         property files, etc), they will be created. The returned proxy is never null.
         Arguments:
         svr -- 
         replicaName -- 
@@ -1140,15 +1140,15 @@ if 'NodePrx' not in _M_IceGrid.__dict__:
         Returns a tuple containing the following:
         _retval -- 
         adapters -- 
-        actTimeout -- 
-        deactTimeout -- 
+        activateTimeout -- 
+        deactivateTimeout -- 
         """
         def loadServer(self, svr, replicaName, context=None):
             return _M_IceGrid.Node._op_loadServer.invoke(self, ((svr, replicaName), context))
 
         """
          Load the given server. If the server resources weren't already created (database environment directories,
-         property files, etc), they will be created.
+         property files, etc), they will be created. The returned proxy is never null.
         Arguments:
         svr -- 
         replicaName -- 
@@ -1161,7 +1161,7 @@ if 'NodePrx' not in _M_IceGrid.__dict__:
         """
          Load the given server and ensure the server won't be restarted. If the server resources weren't already created
          (database environment directories, property files, etc), they will be created. If the server can't be updated
-         without a restart, a DeploymentException is raised.
+         without a restart, a DeploymentException is raised. The returned proxy is never null.
         Arguments:
         svr -- 
         replicaName -- 
@@ -1169,8 +1169,8 @@ if 'NodePrx' not in _M_IceGrid.__dict__:
         Returns a tuple containing the following:
         _retval -- 
         adapters -- 
-        actTimeout -- 
-        deactTimeout -- 
+        activateTimeout -- 
+        deactivateTimeout -- 
         """
         def loadServerWithoutRestart(self, svr, replicaName, context=None):
             return _M_IceGrid.Node._op_loadServerWithoutRestart.invoke(self, ((svr, replicaName), context))
@@ -1178,7 +1178,7 @@ if 'NodePrx' not in _M_IceGrid.__dict__:
         """
          Load the given server and ensure the server won't be restarted. If the server resources weren't already created
          (database environment directories, property files, etc), they will be created. If the server can't be updated
-         without a restart, a DeploymentException is raised.
+         without a restart, a DeploymentException is raised. The returned proxy is never null.
         Arguments:
         svr -- 
         replicaName -- 
@@ -1407,7 +1407,7 @@ if 'NodePrx' not in _M_IceGrid.__dict__:
         def loadServer(self, svr, replicaName, current=None):
             """
              Load the given server. If the server resources weren't already created (database environment directories,
-             property files, etc), they will be created.
+             property files, etc), they will be created. The returned proxy is never null.
             Arguments:
             svr -- 
             replicaName -- 
@@ -1420,7 +1420,7 @@ if 'NodePrx' not in _M_IceGrid.__dict__:
             """
              Load the given server and ensure the server won't be restarted. If the server resources weren't already created
              (database environment directories, property files, etc), they will be created. If the server can't be updated
-             without a restart, a DeploymentException is raised.
+             without a restart, a DeploymentException is raised. The returned proxy is never null.
             Arguments:
             svr -- 
             replicaName -- 

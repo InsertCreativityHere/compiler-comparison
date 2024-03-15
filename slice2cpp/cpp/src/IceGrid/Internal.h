@@ -55,34 +55,18 @@ class InternalServerDescriptor;
 using InternalServerDescriptorPtr = ::std::shared_ptr<InternalServerDescriptor>;
 class AdapterPrx;
 
-using AdapterPrxPtr = ::std::optional<AdapterPrx>;
-
 using AdapterPrxDict = ::std::map<::std::string, ::std::optional<AdapterPrx>>;
 class FileReaderPrx;
-
-using FileReaderPrxPtr = ::std::optional<FileReaderPrx>;
 class ServerPrx;
-
-using ServerPrxPtr = ::std::optional<ServerPrx>;
 class InternalRegistryPrx;
-
-using InternalRegistryPrxPtr = ::std::optional<InternalRegistryPrx>;
 
 using InternalRegistryPrxSeq = ::std::vector<::std::optional<InternalRegistryPrx>>;
 class ReplicaObserverPrx;
-
-using ReplicaObserverPrxPtr = ::std::optional<ReplicaObserverPrx>;
 class PatcherFeedbackPrx;
-
-using PatcherFeedbackPrxPtr = ::std::optional<PatcherFeedbackPrx>;
 class NodePrx;
-
-using NodePrxPtr = ::std::optional<NodePrx>;
 
 using NodePrxSeq = ::std::vector<::std::optional<NodePrx>>;
 class NodeSessionPrx;
-
-using NodeSessionPrxPtr = ::std::optional<NodeSessionPrx>;
 
 enum class TopicName : unsigned char
 {
@@ -94,12 +78,8 @@ enum class TopicName : unsigned char
 };
 class DatabaseObserverPrx;
 
-using DatabaseObserverPrxPtr = ::std::optional<DatabaseObserverPrx>;
-
 using StringLongDict = ::std::map<::std::string, ::std::int64_t>;
 class ReplicaSessionPrx;
-
-using ReplicaSessionPrxPtr = ::std::optional<ReplicaSessionPrx>;
 class InternalNodeInfo;
 
 using InternalNodeInfoPtr = ::std::shared_ptr<InternalNodeInfo>;
@@ -971,14 +951,14 @@ public:
 
     /**
      * Load the given server. If the server resources weren't already created (database environment directories,
-     * property files, etc), they will be created.
+     * property files, etc), they will be created. The returned proxy is never null.
      * @param context The Context map to send with the invocation.
      */
-    ::std::optional<ServerPrx> loadServer(const ::std::shared_ptr<InternalServerDescriptor>& svr, ::std::string_view replicaName, AdapterPrxDict& adapters, ::std::int32_t& actTimeout, ::std::int32_t& deactTimeout, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<ServerPrx> loadServer(const ::std::shared_ptr<InternalServerDescriptor>& svr, ::std::string_view replicaName, AdapterPrxDict& adapters, ::std::int32_t& activateTimeout, ::std::int32_t& deactivateTimeout, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Load the given server. If the server resources weren't already created (database environment directories,
-     * property files, etc), they will be created.
+     * property files, etc), they will be created. The returned proxy is never null.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -986,7 +966,7 @@ public:
 
     /**
      * Load the given server. If the server resources weren't already created (database environment directories,
-     * property files, etc), they will be created.
+     * property files, etc), they will be created. The returned proxy is never null.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -1003,15 +983,15 @@ public:
     /**
      * Load the given server and ensure the server won't be restarted. If the server resources weren't already created
      * (database environment directories, property files, etc), they will be created. If the server can't be updated
-     * without a restart, a DeploymentException is raised.
+     * without a restart, a DeploymentException is raised. The returned proxy is never null.
      * @param context The Context map to send with the invocation.
      */
-    ::std::optional<ServerPrx> loadServerWithoutRestart(const ::std::shared_ptr<InternalServerDescriptor>& svr, ::std::string_view replicaName, AdapterPrxDict& adapters, ::std::int32_t& actTimeout, ::std::int32_t& deactTimeout, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<ServerPrx> loadServerWithoutRestart(const ::std::shared_ptr<InternalServerDescriptor>& svr, ::std::string_view replicaName, AdapterPrxDict& adapters, ::std::int32_t& activateTimeout, ::std::int32_t& deactivateTimeout, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Load the given server and ensure the server won't be restarted. If the server resources weren't already created
      * (database environment directories, property files, etc), they will be created. If the server can't be updated
-     * without a restart, a DeploymentException is raised.
+     * without a restart, a DeploymentException is raised. The returned proxy is never null.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -1020,7 +1000,7 @@ public:
     /**
      * Load the given server and ensure the server won't be restarted. If the server resources weren't already created
      * (database environment directories, property files, etc), they will be created. If the server can't be updated
-     * without a restart, a DeploymentException is raised.
+     * without a restart, a DeploymentException is raised. The returned proxy is never null.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -3282,12 +3262,12 @@ public:
 
     /**
      * Load the given server. If the server resources weren't already created (database environment directories,
-     * property files, etc), they will be created.
+     * property files, etc), they will be created. The returned proxy is never null.
      * @param response The response callback.
      * @param exception The exception callback.
      * @param current The Current object for the invocation.
      */
-    virtual void loadServerAsync(::std::shared_ptr<InternalServerDescriptor> svr, ::std::string replicaName, ::std::function<void(const ::std::optional<ServerPrx>& returnValue, const AdapterPrxDict& adapters, ::std::int32_t actTimeout, ::std::int32_t deactTimeout)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void loadServerAsync(::std::shared_ptr<InternalServerDescriptor> svr, ::std::string replicaName, ::std::function<void(const ::std::optional<ServerPrx>& returnValue, const AdapterPrxDict& adapters, ::std::int32_t activateTimeout, ::std::int32_t deactivateTimeout)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_loadServer(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
@@ -3295,12 +3275,12 @@ public:
     /**
      * Load the given server and ensure the server won't be restarted. If the server resources weren't already created
      * (database environment directories, property files, etc), they will be created. If the server can't be updated
-     * without a restart, a DeploymentException is raised.
+     * without a restart, a DeploymentException is raised. The returned proxy is never null.
      * @param response The response callback.
      * @param exception The exception callback.
      * @param current The Current object for the invocation.
      */
-    virtual void loadServerWithoutRestartAsync(::std::shared_ptr<InternalServerDescriptor> svr, ::std::string replicaName, ::std::function<void(const ::std::optional<ServerPrx>& returnValue, const AdapterPrxDict& adapters, ::std::int32_t actTimeout, ::std::int32_t deactTimeout)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void loadServerWithoutRestartAsync(::std::shared_ptr<InternalServerDescriptor> svr, ::std::string replicaName, ::std::function<void(const ::std::optional<ServerPrx>& returnValue, const AdapterPrxDict& adapters, ::std::int32_t activateTimeout, ::std::int32_t deactivateTimeout)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_loadServerWithoutRestart(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond

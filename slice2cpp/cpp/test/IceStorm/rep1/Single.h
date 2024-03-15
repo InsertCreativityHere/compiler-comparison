@@ -31,8 +31,6 @@ namespace Test
 
 class SinglePrx;
 
-using SinglePrxPtr = ::std::optional<SinglePrx>;
-
 }
 
 namespace Test

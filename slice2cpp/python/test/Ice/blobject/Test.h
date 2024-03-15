@@ -31,8 +31,6 @@ namespace Test
 
 class HelloPrx;
 
-using HelloPrxPtr = ::std::optional<HelloPrx>;
-
 }
 
 namespace Test

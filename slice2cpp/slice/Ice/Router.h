@@ -41,11 +41,7 @@ namespace Ice
 {
 
 class RouterPrx;
-
-using RouterPrxPtr = ::std::optional<RouterPrx>;
 class RouterFinderPrx;
-
-using RouterFinderPrxPtr = ::std::optional<RouterFinderPrx>;
 
 }
 

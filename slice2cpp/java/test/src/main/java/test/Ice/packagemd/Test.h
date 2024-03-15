@@ -33,8 +33,6 @@ namespace Test
 
 class InitialPrx;
 
-using InitialPrxPtr = ::std::optional<InitialPrx>;
-
 }
 
 namespace Test

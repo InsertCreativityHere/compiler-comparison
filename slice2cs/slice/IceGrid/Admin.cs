@@ -3079,7 +3079,7 @@ namespace IceGrid
         /// </summary>
         /// <param name="id">The server id.
         ///  </param>
-        /// <returns>A proxy to the server's admin object
+        /// <returns>A proxy to the server's admin object. The returned proxy is never null.
         ///  </returns>
         /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
         ///  </exception>
@@ -3415,7 +3415,7 @@ namespace IceGrid
         /// <summary>
         /// Add an object to the object registry and explicitly specify its type.
         /// </summary>
-        /// <param name="obj">The object to be added to the registry.
+        /// <param name="obj">The object to be added to the registry. The proxy is never null.
         ///  </param>
         /// <param name="type">The object type.
         ///  </param>
@@ -3429,7 +3429,7 @@ namespace IceGrid
         /// <summary>
         /// Add an object to the object registry and explicitly specify its type.
         /// </summary>
-        /// <param name="obj">The object to be added to the registry.
+        /// <param name="obj">The object to be added to the registry. The proxy is never null.
         ///  </param>
         /// <param name="type">The object type.
         ///  </param>
@@ -3611,7 +3611,7 @@ namespace IceGrid
         /// </summary>
         /// <param name="name">The IceGrid node name
         ///  </param>
-        /// <returns>A proxy to the IceGrid node's admin object
+        /// <returns>A proxy to the IceGrid node's admin object. The returned proxy is never null.
         ///  </returns>
         /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
         ///  </exception>
@@ -3777,7 +3777,7 @@ namespace IceGrid
         /// </summary>
         /// <param name="name">The registry name
         ///  </param>
-        /// <returns>A proxy to the IceGrid registry's admin object
+        /// <returns>A proxy to the IceGrid registry's admin object. The returned proxy is never null.
         ///  </returns>
         /// <exception name="RegistryNotExistException">Raised if the registry doesn't exist.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -4385,7 +4385,7 @@ namespace IceGrid
         /// Get the admin interface.
         /// The admin object returned by this operation can only be accessed by the session.
         /// </summary>
-        ///  <returns>The admin interface proxy.</returns>
+        ///  <returns>The admin interface proxy. The returned proxy is never null.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         AdminPrx getAdmin(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -4563,7 +4563,7 @@ namespace IceGrid
         /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
         ///  or positive, the file is read from the last count lines.
         ///  </param>
-        /// <returns>An iterator to read the file.
+        /// <returns>An iterator to read the file. The returned proxy is never null.
         ///  </returns>
         /// <exception name="FileNotAvailableException">Raised if the file can't be read.
         ///  </exception>
@@ -4603,7 +4603,7 @@ namespace IceGrid
         /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
         ///  or positive, the file is read from the last count lines.
         ///  </param>
-        /// <returns>An iterator to read the file.
+        /// <returns>An iterator to read the file. The returned proxy is never null.
         ///  </returns>
         /// <exception name="FileNotAvailableException">Raised if the file can't be read.
         ///  </exception>
@@ -4640,7 +4640,7 @@ namespace IceGrid
         /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining.
         ///  If 0 or positive, the file is read from the last count lines.
         ///  </param>
-        /// <returns>An iterator to read the file.
+        /// <returns>An iterator to read the file. The returned proxy is never null.
         ///  </returns>
         /// <exception name="FileNotAvailableException">Raised if the file can't be read.
         ///   </exception>
@@ -4677,7 +4677,7 @@ namespace IceGrid
         /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
         ///  or positive, the file is read from the last count lines.
         ///  </param>
-        /// <returns>An iterator to read the file.
+        /// <returns>An iterator to read the file. The returned proxy is never null.
         ///  </returns>
         /// <exception name="FileNotAvailableException">Raised if the file can't be read.
         ///  </exception>
@@ -4712,7 +4712,7 @@ namespace IceGrid
         /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
         ///  or positive, the file is read from the last count lines.
         ///  </param>
-        /// <returns>An iterator to read the file.
+        /// <returns>An iterator to read the file. The returned proxy is never null.
         ///  </returns>
         /// <exception name="FileNotAvailableException">Raised if the file can't be read.
         ///  </exception>
@@ -4747,7 +4747,7 @@ namespace IceGrid
         /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
         ///  or positive, the file is read from the last count lines.
         ///  </param>
-        /// <returns>An iterator to read the file.
+        /// <returns>An iterator to read the file. The returned proxy is never null.
         ///  </returns>
         /// <exception name="FileNotAvailableException">Raised if the file can't be read.
         ///  </exception>
@@ -4782,7 +4782,7 @@ namespace IceGrid
         /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
         ///  or positive, the file is read from the last count lines.
         ///  </param>
-        /// <returns>An iterator to read the file.
+        /// <returns>An iterator to read the file. The returned proxy is never null.
         ///  </returns>
         /// <exception name="FileNotAvailableException">Raised if the file can't be read.
         ///  </exception>
@@ -5052,7 +5052,7 @@ namespace IceGrid
         /// </summary>
         /// <param name="id">The server id.
         ///  </param>
-        /// <returns>A proxy to the server's admin object
+        /// <returns>A proxy to the server's admin object. The returned proxy is never null.
         ///  </returns>
         /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
         ///  </exception>
@@ -5232,7 +5232,7 @@ namespace IceGrid
         /// <summary>
         /// Add an object to the object registry and explicitly specify its type.
         /// </summary>
-        /// <param name="obj">The object to be added to the registry.
+        /// <param name="obj">The object to be added to the registry. The proxy is never null.
         ///  </param>
         /// <param name="type">The object type.
         ///  </param>
@@ -5344,7 +5344,7 @@ namespace IceGrid
         /// </summary>
         /// <param name="name">The IceGrid node name
         ///  </param>
-        /// <returns>A proxy to the IceGrid node's admin object
+        /// <returns>A proxy to the IceGrid node's admin object. The returned proxy is never null.
         ///  </returns>
         /// <exception name="NodeNotExistException">Raised if the node doesn't exist.
         ///  </exception>
@@ -5441,7 +5441,7 @@ namespace IceGrid
         /// </summary>
         /// <param name="name">The registry name
         ///  </param>
-        /// <returns>A proxy to the IceGrid registry's admin object
+        /// <returns>A proxy to the IceGrid registry's admin object. The returned proxy is never null.
         ///  </returns>
         /// <exception name="RegistryNotExistException">Raised if the registry doesn't exist.</exception>
         /// <param name="current">The Current object for the invocation.</param>
@@ -5784,7 +5784,7 @@ namespace IceGrid
         /// Get the admin interface.
         /// The admin object returned by this operation can only be accessed by the session.
         /// </summary>
-        ///  <returns>The admin interface proxy.</returns>
+        ///  <returns>The admin interface proxy. The returned proxy is never null.</returns>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -5883,7 +5883,7 @@ namespace IceGrid
         /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
         ///  or positive, the file is read from the last count lines.
         ///  </param>
-        /// <returns>An iterator to read the file.
+        /// <returns>An iterator to read the file. The returned proxy is never null.
         ///  </returns>
         /// <exception name="FileNotAvailableException">Raised if the file can't be read.
         ///  </exception>
@@ -5906,7 +5906,7 @@ namespace IceGrid
         /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
         ///  or positive, the file is read from the last count lines.
         ///  </param>
-        /// <returns>An iterator to read the file.
+        /// <returns>An iterator to read the file. The returned proxy is never null.
         ///  </returns>
         /// <exception name="FileNotAvailableException">Raised if the file can't be read.
         ///  </exception>
@@ -5929,7 +5929,7 @@ namespace IceGrid
         /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining.
         ///  If 0 or positive, the file is read from the last count lines.
         ///  </param>
-        /// <returns>An iterator to read the file.
+        /// <returns>An iterator to read the file. The returned proxy is never null.
         ///  </returns>
         /// <exception name="FileNotAvailableException">Raised if the file can't be read.
         ///   </exception>
@@ -5952,7 +5952,7 @@ namespace IceGrid
         /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
         ///  or positive, the file is read from the last count lines.
         ///  </param>
-        /// <returns>An iterator to read the file.
+        /// <returns>An iterator to read the file. The returned proxy is never null.
         ///  </returns>
         /// <exception name="FileNotAvailableException">Raised if the file can't be read.
         ///  </exception>
@@ -5973,7 +5973,7 @@ namespace IceGrid
         /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
         ///  or positive, the file is read from the last count lines.
         ///  </param>
-        /// <returns>An iterator to read the file.
+        /// <returns>An iterator to read the file. The returned proxy is never null.
         ///  </returns>
         /// <exception name="FileNotAvailableException">Raised if the file can't be read.
         ///  </exception>
@@ -5994,7 +5994,7 @@ namespace IceGrid
         /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
         ///  or positive, the file is read from the last count lines.
         ///  </param>
-        /// <returns>An iterator to read the file.
+        /// <returns>An iterator to read the file. The returned proxy is never null.
         ///  </returns>
         /// <exception name="FileNotAvailableException">Raised if the file can't be read.
         ///  </exception>
@@ -6015,7 +6015,7 @@ namespace IceGrid
         /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
         ///  or positive, the file is read from the last count lines.
         ///  </param>
-        /// <returns>An iterator to read the file.
+        /// <returns>An iterator to read the file. The returned proxy is never null.
         ///  </returns>
         /// <exception name="FileNotAvailableException">Raised if the file can't be read.
         ///  </exception>

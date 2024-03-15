@@ -37,11 +37,7 @@ namespace gx
 {
 
 class CanvasPrx;
-
-using CanvasPrxPtr = ::std::optional<CanvasPrx>;
 class SessionPrx;
-
-using SessionPrxPtr = ::std::optional<SessionPrx>;
 
 }
 

@@ -32,8 +32,6 @@ namespace Test
 
 class TestFacetPrx;
 
-using TestFacetPrxPtr = ::std::optional<TestFacetPrx>;
-
 }
 
 namespace Test

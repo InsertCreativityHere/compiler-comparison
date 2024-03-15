@@ -42,11 +42,7 @@ namespace Glacier2
 {
 
 class PermissionsVerifierPrx;
-
-using PermissionsVerifierPrxPtr = ::std::optional<PermissionsVerifierPrx>;
 class SSLPermissionsVerifierPrx;
-
-using SSLPermissionsVerifierPrxPtr = ::std::optional<SSLPermissionsVerifierPrx>;
 
 }
 

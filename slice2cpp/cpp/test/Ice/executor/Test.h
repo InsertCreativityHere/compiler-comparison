@@ -31,11 +31,7 @@ namespace Test
 {
 
 class TestIntfPrx;
-
-using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
 class TestIntfControllerPrx;
-
-using TestIntfControllerPrxPtr = ::std::optional<TestIntfControllerPrx>;
 
 }
 

@@ -32,8 +32,6 @@ namespace Test
 
 class Initial2Prx;
 
-using Initial2PrxPtr = ::std::optional<Initial2Prx>;
-
 }
 
 namespace Test

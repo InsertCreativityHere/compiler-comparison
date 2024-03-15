@@ -38,8 +38,6 @@ enum class MyEnum : unsigned char
     enum3
 };
 class MyClassPrx;
-
-using MyClassPrxPtr = ::std::optional<MyClassPrx>;
 struct AnotherStruct;
 struct Structure;
 
@@ -138,8 +136,6 @@ class MyClass1;
 
 using MyClass1Ptr = ::std::shared_ptr<MyClass1>;
 class MyDerivedClassPrx;
-
-using MyDerivedClassPrxPtr = ::std::optional<MyDerivedClassPrx>;
 
 const ::std::string s0 = "\\";
 
@@ -319,8 +315,6 @@ namespace Test2
 {
 
 class MyDerivedClassPrx;
-
-using MyDerivedClassPrxPtr = ::std::optional<MyDerivedClassPrx>;
 
 }
 

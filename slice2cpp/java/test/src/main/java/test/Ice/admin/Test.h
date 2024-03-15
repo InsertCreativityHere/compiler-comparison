@@ -31,14 +31,8 @@ namespace Test
 {
 
 class RemoteCommunicatorPrx;
-
-using RemoteCommunicatorPrxPtr = ::std::optional<RemoteCommunicatorPrx>;
 class RemoteCommunicatorFactoryPrx;
-
-using RemoteCommunicatorFactoryPrxPtr = ::std::optional<RemoteCommunicatorFactoryPrx>;
 class TestFacetPrx;
-
-using TestFacetPrxPtr = ::std::optional<TestFacetPrx>;
 
 }
 

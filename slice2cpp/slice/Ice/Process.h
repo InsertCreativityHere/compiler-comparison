@@ -41,8 +41,6 @@ namespace Ice
 
 class ProcessPrx;
 
-using ProcessPrxPtr = ::std::optional<ProcessPrx>;
-
 }
 
 namespace Ice

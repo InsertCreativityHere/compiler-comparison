@@ -31,8 +31,6 @@ namespace Test
 
 class EchoPrx;
 
-using EchoPrxPtr = ::std::optional<EchoPrx>;
-
 }
 
 namespace Test

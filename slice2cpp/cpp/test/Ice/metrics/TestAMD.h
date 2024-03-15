@@ -32,11 +32,7 @@ namespace Test
 
 using ByteSeq = ::std::vector<std::byte>;
 class MetricsPrx;
-
-using MetricsPrxPtr = ::std::optional<MetricsPrx>;
 class ControllerPrx;
-
-using ControllerPrxPtr = ::std::optional<ControllerPrx>;
 
 }
 

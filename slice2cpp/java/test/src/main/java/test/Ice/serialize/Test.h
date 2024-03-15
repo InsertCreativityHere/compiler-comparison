@@ -37,8 +37,6 @@ enum class MyEnum : unsigned char
     enum3
 };
 class InitialPrx;
-
-using InitialPrxPtr = ::std::optional<InitialPrx>;
 class Base;
 
 using BasePtr = ::std::shared_ptr<Base>;

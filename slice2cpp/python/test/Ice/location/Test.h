@@ -31,20 +31,10 @@ namespace Test
 {
 
 class TestLocatorRegistryPrx;
-
-using TestLocatorRegistryPrxPtr = ::std::optional<TestLocatorRegistryPrx>;
 class TestLocatorPrx;
-
-using TestLocatorPrxPtr = ::std::optional<TestLocatorPrx>;
 class ServerManagerPrx;
-
-using ServerManagerPrxPtr = ::std::optional<ServerManagerPrx>;
 class HelloPrx;
-
-using HelloPrxPtr = ::std::optional<HelloPrx>;
 class TestIntfPrx;
-
-using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
 
 }
 

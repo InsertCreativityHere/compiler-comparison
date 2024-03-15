@@ -38,8 +38,6 @@ enum class MyEnum : unsigned char
     enum3
 };
 class MyInterfacePrx;
-
-using MyInterfacePrxPtr = ::std::optional<MyInterfacePrx>;
 class MyClass;
 
 using MyClassPtr = ::std::shared_ptr<MyClass>;

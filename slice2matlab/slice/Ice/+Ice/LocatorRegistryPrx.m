@@ -25,7 +25,7 @@ classdef LocatorRegistryPrx < Ice.ObjectPrx
             % Parameters:
             %   id (char) - The adapter id.
             %   proxy (Ice.ObjectPrx) - The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
-            %     adapter endpoints.
+            %     adapter endpoints. The proxy can be null, typically during adapter deactivation.
             %   context (containers.Map) - Optional request context.
             %
             % Exceptions:
@@ -45,7 +45,7 @@ classdef LocatorRegistryPrx < Ice.ObjectPrx
             % Parameters:
             %   id (char) - The adapter id.
             %   proxy (Ice.ObjectPrx) - The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
-            %     adapter endpoints.
+            %     adapter endpoints. The proxy can be null, typically during adapter deactivation.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
@@ -61,14 +61,14 @@ classdef LocatorRegistryPrx < Ice.ObjectPrx
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('setAdapterDirectProxy', 2, true, os_, 0, [], Ice.LocatorRegistryPrx.setAdapterDirectProxy_ex_, varargin{:});
         end
-        function setReplicatedAdapterDirectProxy(obj, adapterId, replicaGroupId, p, varargin)
+        function setReplicatedAdapterDirectProxy(obj, adapterId, replicaGroupId, proxy, varargin)
             % setReplicatedAdapterDirectProxy   Set the adapter endpoints with the locator registry.
             %
             % Parameters:
             %   adapterId (char) - The adapter id.
             %   replicaGroupId (char) - The replica group id.
-            %   p (Ice.ObjectPrx) - The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-            %     endpoints.
+            %   proxy (Ice.ObjectPrx) - The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
+            %     endpoints. TThe proxy can be null, typically during adapter deactivation.
             %   context (containers.Map) - Optional request context.
             %
             % Exceptions:
@@ -81,18 +81,18 @@ classdef LocatorRegistryPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(adapterId);
             os_.writeString(replicaGroupId);
-            os_.writeProxy(p);
+            os_.writeProxy(proxy);
             obj.iceEndWriteParams(os_);
             obj.iceInvoke('setReplicatedAdapterDirectProxy', 2, true, os_, false, Ice.LocatorRegistryPrx.setReplicatedAdapterDirectProxy_ex_, varargin{:});
         end
-        function r_ = setReplicatedAdapterDirectProxyAsync(obj, adapterId, replicaGroupId, p, varargin)
+        function r_ = setReplicatedAdapterDirectProxyAsync(obj, adapterId, replicaGroupId, proxy, varargin)
             % setReplicatedAdapterDirectProxyAsync   Set the adapter endpoints with the locator registry.
             %
             % Parameters:
             %   adapterId (char) - The adapter id.
             %   replicaGroupId (char) - The replica group id.
-            %   p (Ice.ObjectPrx) - The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-            %     endpoints.
+            %   proxy (Ice.ObjectPrx) - The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
+            %     endpoints. TThe proxy can be null, typically during adapter deactivation.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
@@ -107,7 +107,7 @@ classdef LocatorRegistryPrx < Ice.ObjectPrx
             os_ = obj.iceStartWriteParams([]);
             os_.writeString(adapterId);
             os_.writeString(replicaGroupId);
-            os_.writeProxy(p);
+            os_.writeProxy(proxy);
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('setReplicatedAdapterDirectProxy', 2, true, os_, 0, [], Ice.LocatorRegistryPrx.setReplicatedAdapterDirectProxy_ex_, varargin{:});
         end
@@ -116,7 +116,7 @@ classdef LocatorRegistryPrx < Ice.ObjectPrx
             %
             % Parameters:
             %   id (char) - The server id.
-            %   proxy (Ice.ProcessPrx) - The process proxy.
+            %   proxy (Ice.ProcessPrx) - The process proxy. The proxy is never null.
             %   context (containers.Map) - Optional request context.
             %
             % Exceptions:
@@ -133,7 +133,7 @@ classdef LocatorRegistryPrx < Ice.ObjectPrx
             %
             % Parameters:
             %   id (char) - The server id.
-            %   proxy (Ice.ProcessPrx) - The process proxy.
+            %   proxy (Ice.ProcessPrx) - The process proxy. The proxy is never null.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.

@@ -32,12 +32,8 @@ namespace Test
 
 class PingReplyPrx;
 
-using PingReplyPrxPtr = ::std::optional<PingReplyPrx>;
-
 using ByteSeq = ::std::vector<std::byte>;
 class TestIntfPrx;
-
-using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
 
 }
 

@@ -36,24 +36,16 @@ enum class assert : unsigned char
 };
 struct _cpp_continue;
 class delPrx;
-
-using delPrxPtr = ::std::optional<delPrx>;
 class execPrx;
-
-using execPrxPtr = ::std::optional<execPrx>;
 class _cpp_for;
 
 using forPtr = ::std::shared_ptr<_cpp_for>;
 class ifPrx;
 
-using ifPrxPtr = ::std::optional<ifPrx>;
-
 using import = ::std::vector<assert>;
 
 using in = ::std::map<::std::string, assert>;
 class printPrx;
-
-using printPrxPtr = ::std::optional<printPrx>;
 
 constexpr ::std::int32_t lambda = 0;
 

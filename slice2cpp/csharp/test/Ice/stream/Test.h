@@ -41,8 +41,6 @@ class MyClass;
 
 using MyClassPtr = ::std::shared_ptr<MyClass>;
 class MyInterfacePrx;
-
-using MyInterfacePrxPtr = ::std::optional<MyInterfacePrx>;
 struct SmallStruct;
 class OptionalClass;
 

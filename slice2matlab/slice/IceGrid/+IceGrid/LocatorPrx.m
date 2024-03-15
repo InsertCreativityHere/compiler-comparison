@@ -24,7 +24,7 @@ classdef LocatorPrx < Ice.LocatorPrx
             % Parameters:
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (IceGrid.RegistryPrx) - The proxy of the registry object.
+            % Returns (IceGrid.RegistryPrx) - The proxy of the registry object. The returned proxy is never null.
             
             is_ = obj.iceInvoke('getLocalRegistry', 2, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
@@ -53,7 +53,7 @@ classdef LocatorPrx < Ice.LocatorPrx
             % Parameters:
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (IceGrid.QueryPrx) - The proxy of the query object.
+            % Returns (IceGrid.QueryPrx) - The proxy of the query object. The returned proxy is never null.
             
             is_ = obj.iceInvoke('getLocalQuery', 2, true, [], true, {}, varargin{:});
             is_.startEncapsulation();

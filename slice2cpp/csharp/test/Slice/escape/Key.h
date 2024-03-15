@@ -36,28 +36,18 @@ enum class as : unsigned char
 };
 struct _cpp_break;
 class casePrx;
-
-using casePrxPtr = ::std::optional<casePrx>;
 class decimalPrx;
-
-using decimalPrxPtr = ::std::optional<decimalPrx>;
 class delegate;
 
 using delegatePtr = ::std::shared_ptr<delegate>;
 class explicitPrx;
-
-using explicitPrxPtr = ::std::optional<explicitPrx>;
 
 using _cpp_while = ::std::map<::std::string, _cpp_break>;
 class optionalMembers;
 
 using optionalMembersPtr = ::std::shared_ptr<optionalMembers>;
 class optionalParamsPrx;
-
-using optionalParamsPrxPtr = ::std::optional<optionalParamsPrx>;
 class implicitPrx;
-
-using implicitPrxPtr = ::std::optional<implicitPrx>;
 
 constexpr ::std::int32_t _cpp_protected = 0;
 
@@ -68,8 +58,6 @@ namespace System
 
 class TestPrx;
 
-using TestPrxPtr = ::std::optional<TestPrx>;
-
 }
 
 }
@@ -78,8 +66,6 @@ namespace System
 {
 
 class TestPrx;
-
-using TestPrxPtr = ::std::optional<TestPrx>;
 
 }
 

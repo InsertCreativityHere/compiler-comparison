@@ -76,11 +76,7 @@ struct LogMessage;
  */
 using LogMessageSeq = std::list<LogMessage>;
 class RemoteLoggerPrx;
-
-using RemoteLoggerPrxPtr = ::std::optional<RemoteLoggerPrx>;
 class LoggerAdminPrx;
-
-using LoggerAdminPrxPtr = ::std::optional<LoggerAdminPrx>;
 
 }
 

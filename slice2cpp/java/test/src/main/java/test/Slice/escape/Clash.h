@@ -30,8 +30,6 @@ namespace Clash
 {
 
 class IntfPrx;
-
-using IntfPrxPtr = ::std::optional<IntfPrx>;
 class Cls;
 
 using ClsPtr = ::std::shared_ptr<Cls>;

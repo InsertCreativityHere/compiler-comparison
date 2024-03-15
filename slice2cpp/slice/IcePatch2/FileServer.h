@@ -48,8 +48,6 @@ namespace IcePatch2
 using ByteSeqSeq = ::std::vector<::Ice::ByteSeq>;
 class FileServerPrx;
 
-using FileServerPrxPtr = ::std::optional<FileServerPrx>;
-
 }
 
 namespace IcePatch2

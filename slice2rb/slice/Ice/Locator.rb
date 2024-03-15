@@ -138,8 +138,8 @@ module ::Ice
                 LocatorRegistryPrx_mixin::OP_setAdapterDirectProxy.invoke(self, [id, proxy], context)
             end
 
-            def setReplicatedAdapterDirectProxy(adapterId, replicaGroupId, p, context=nil)
-                LocatorRegistryPrx_mixin::OP_setReplicatedAdapterDirectProxy.invoke(self, [adapterId, replicaGroupId, p], context)
+            def setReplicatedAdapterDirectProxy(adapterId, replicaGroupId, proxy, context=nil)
+                LocatorRegistryPrx_mixin::OP_setReplicatedAdapterDirectProxy.invoke(self, [adapterId, replicaGroupId, proxy], context)
             end
 
             def setServerProcessProxy(id, proxy, context=nil)

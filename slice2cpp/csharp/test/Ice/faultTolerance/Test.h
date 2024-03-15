@@ -30,11 +30,7 @@ namespace Test
 {
 
 class TestIntfPrx;
-
-using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
 class CleanerPrx;
-
-using CleanerPrxPtr = ::std::optional<CleanerPrx>;
 
 }
 

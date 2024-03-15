@@ -42,8 +42,6 @@ namespace IceGrid
 
 class UserAccountMapperPrx;
 
-using UserAccountMapperPrxPtr = ::std::optional<UserAccountMapperPrx>;
-
 }
 
 namespace IceGrid

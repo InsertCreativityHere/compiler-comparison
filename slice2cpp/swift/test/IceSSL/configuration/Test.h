@@ -31,12 +31,8 @@ namespace Test
 
 class ServerPrx;
 
-using ServerPrxPtr = ::std::optional<ServerPrx>;
-
 using Properties = ::std::map<::std::string, ::std::string>;
 class ServerFactoryPrx;
-
-using ServerFactoryPrxPtr = ::std::optional<ServerFactoryPrx>;
 
 }
 

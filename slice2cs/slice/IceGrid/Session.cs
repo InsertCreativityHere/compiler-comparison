@@ -91,7 +91,7 @@ namespace IceGrid
         /// </summary>
         ///  <param name="id">The identity of the object to allocate.
         ///  </param>
-        /// <returns>The proxy of the allocated object.
+        /// <returns>The proxy of the allocated object. The returned proxy is never null.
         ///  </returns>
         /// <exception name="ObjectNotRegisteredException">Raised if the object with the given identity is not registered with
         ///  the registry.
@@ -121,7 +121,7 @@ namespace IceGrid
         /// </summary>
         ///  <param name="type">The type of the object.
         ///  </param>
-        /// <returns>The proxy of the allocated object.
+        /// <returns>The proxy of the allocated object. The returned proxy is never null.
         ///  </returns>
         /// <exception name="AllocationException">Raised if the object could not be allocated.
         ///  </exception>

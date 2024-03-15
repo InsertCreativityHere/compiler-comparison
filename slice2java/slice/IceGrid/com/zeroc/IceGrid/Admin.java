@@ -213,7 +213,7 @@ public interface Admin extends com.zeroc.Ice.Object
      * Get a proxy to the server's admin object.
      * @param id The server id.
      * @param current The Current object for the invocation.
-     * @return A proxy to the server's admin object
+     * @return A proxy to the server's admin object. The returned proxy is never null.
      * @throws DeploymentException Raised if the server couldn't be deployed on the node.
      * @throws NodeUnreachableException Raised if the node could not be reached.
      * @throws ServerNotExistException Raised if the server doesn't exist.
@@ -382,7 +382,7 @@ public interface Admin extends com.zeroc.Ice.Object
 
     /**
      * Add an object to the object registry and explicitly specify its type.
-     * @param obj The object to be added to the registry.
+     * @param obj The object to be added to the registry. The proxy is never null.
      * @param type The object type.
      * @param current The Current object for the invocation.
      * @throws DeploymentException Raised if application deployment failed.
@@ -470,7 +470,7 @@ public interface Admin extends com.zeroc.Ice.Object
      * Get a proxy to the IceGrid node's admin object.
      * @param name The IceGrid node name
      * @param current The Current object for the invocation.
-     * @return A proxy to the IceGrid node's admin object
+     * @return A proxy to the IceGrid node's admin object. The returned proxy is never null.
      * @throws NodeNotExistException Raised if the node doesn't exist.
      * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
@@ -548,7 +548,7 @@ public interface Admin extends com.zeroc.Ice.Object
      * Get a proxy to the IceGrid registry's admin object.
      * @param name The registry name
      * @param current The Current object for the invocation.
-     * @return A proxy to the IceGrid registry's admin object
+     * @return A proxy to the IceGrid registry's admin object. The returned proxy is never null.
      * @throws RegistryNotExistException Raised if the registry doesn't exist.
      **/
     com.zeroc.Ice.ObjectPrx getRegistryAdmin(String name, com.zeroc.Ice.Current current)

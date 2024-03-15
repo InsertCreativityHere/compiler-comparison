@@ -108,8 +108,6 @@ enum class SimpleEnum : unsigned char
 using SimpleEnumSeq = ::std::vector<SimpleEnum>;
 class TestIntfPrx;
 
-using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
-
 }
 
 namespace Test

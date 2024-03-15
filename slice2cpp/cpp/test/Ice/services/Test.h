@@ -31,8 +31,6 @@ namespace Test
 
 class ClockPrx;
 
-using ClockPrxPtr = ::std::optional<ClockPrx>;
-
 }
 
 namespace Test

@@ -1215,7 +1215,7 @@ public struct ServerDynamicInfoSeqHelper {
 public struct AdapterDynamicInfo {
     /// The id of the adapter.
     public var id: Swift.String = ""
-    /// The direct proxy containing the adapter endpoints.
+    /// The direct proxy containing the adapter endpoints. This proxy is never null.
     public var proxy: Ice.ObjectPrx? = nil
 
     public init() {}
@@ -3036,7 +3036,7 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `Ice.ObjectPrx?` - A proxy to the server's admin object
+    /// - returns: `Ice.ObjectPrx?` - A proxy to the server's admin object. The returned proxy is never null.
     ///
     /// - throws:
     ///
@@ -3947,7 +3947,7 @@ public extension AdminPrx {
 
     /// Add an object to the object registry and explicitly specify its type.
     ///
-    /// - parameter obj: `Ice.ObjectPrx?` The object to be added to the registry.
+    /// - parameter obj: `Ice.ObjectPrx?` The object to be added to the registry. The proxy is never null.
     ///
     /// - parameter type: `Swift.String` The object type.
     ///
@@ -3979,7 +3979,7 @@ public extension AdminPrx {
 
     /// Add an object to the object registry and explicitly specify its type.
     ///
-    /// - parameter obj: `Ice.ObjectPrx?` The object to be added to the registry.
+    /// - parameter obj: `Ice.ObjectPrx?` The object to be added to the registry. The proxy is never null.
     ///
     /// - parameter type: `Swift.String` The object type.
     ///
@@ -4482,7 +4482,7 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `Ice.ObjectPrx?` - A proxy to the IceGrid node's admin object
+    /// - returns: `Ice.ObjectPrx?` - A proxy to the IceGrid node's admin object. The returned proxy is never null.
     ///
     /// - throws:
     ///
@@ -4961,7 +4961,7 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `Ice.ObjectPrx?` - A proxy to the IceGrid registry's admin object
+    /// - returns: `Ice.ObjectPrx?` - A proxy to the IceGrid registry's admin object. The returned proxy is never null.
     ///
     /// - throws:
     ///
@@ -7073,7 +7073,7 @@ public extension AdminSessionPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `AdminPrx?` - The admin interface proxy.
+    /// - returns: `AdminPrx?` - The admin interface proxy. The returned proxy is never null.
     func getAdmin(context: Ice.Context? = nil) throws -> AdminPrx? {
         return try _impl._invoke(operation: "getAdmin",
                                  mode: .Nonmutating,
@@ -7483,7 +7483,7 @@ public extension AdminSessionPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `FileIteratorPrx?` - An iterator to read the file.
+    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
     ///
     /// - throws:
     ///
@@ -7583,7 +7583,7 @@ public extension AdminSessionPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `FileIteratorPrx?` - An iterator to read the file.
+    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
     ///
     /// - throws:
     ///
@@ -7678,7 +7678,7 @@ public extension AdminSessionPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `FileIteratorPrx?` - An iterator to read the file.
+    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
     ///
     /// - throws:
     ///
@@ -7773,7 +7773,7 @@ public extension AdminSessionPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `FileIteratorPrx?` - An iterator to read the file.
+    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
     ///
     /// - throws:
     ///
@@ -7862,7 +7862,7 @@ public extension AdminSessionPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `FileIteratorPrx?` - An iterator to read the file.
+    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
     ///
     /// - throws:
     ///
@@ -7951,7 +7951,7 @@ public extension AdminSessionPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `FileIteratorPrx?` - An iterator to read the file.
+    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
     ///
     /// - throws:
     ///
@@ -8040,7 +8040,7 @@ public extension AdminSessionPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `FileIteratorPrx?` - An iterator to read the file.
+    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
     ///
     /// - throws:
     ///
@@ -8467,7 +8467,7 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.ObjectPrx?` - A proxy to the server's admin object
+    /// - returns: `Ice.ObjectPrx?` - A proxy to the server's admin object. The returned proxy is never null.
     ///
     /// - throws:
     ///
@@ -8635,7 +8635,7 @@ public protocol Admin {
 
     /// Add an object to the object registry and explicitly specify its type.
     ///
-    /// - parameter obj: `Ice.ObjectPrx?` The object to be added to the registry.
+    /// - parameter obj: `Ice.ObjectPrx?` The object to be added to the registry. The proxy is never null.
     ///
     /// - parameter type: `Swift.String` The object type.
     ///
@@ -8744,7 +8744,7 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.ObjectPrx?` - A proxy to the IceGrid node's admin object
+    /// - returns: `Ice.ObjectPrx?` - A proxy to the IceGrid node's admin object. The returned proxy is never null.
     ///
     /// - throws:
     ///
@@ -8839,7 +8839,7 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `Ice.ObjectPrx?` - A proxy to the IceGrid registry's admin object
+    /// - returns: `Ice.ObjectPrx?` - A proxy to the IceGrid registry's admin object. The returned proxy is never null.
     ///
     /// - throws:
     ///
@@ -9357,7 +9357,7 @@ public protocol AdminSession: Glacier2.Session {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `AdminPrx?` - The admin interface proxy.
+    /// - returns: `AdminPrx?` - The admin interface proxy. The returned proxy is never null.
     func getAdmin(current: Ice.Current) throws -> AdminPrx?
 
     /// Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
@@ -9447,7 +9447,7 @@ public protocol AdminSession: Glacier2.Session {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `FileIteratorPrx?` - An iterator to read the file.
+    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
     ///
     /// - throws:
     ///
@@ -9469,7 +9469,7 @@ public protocol AdminSession: Glacier2.Session {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `FileIteratorPrx?` - An iterator to read the file.
+    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
     ///
     /// - throws:
     ///
@@ -9491,7 +9491,7 @@ public protocol AdminSession: Glacier2.Session {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `FileIteratorPrx?` - An iterator to read the file.
+    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
     ///
     /// - throws:
     ///
@@ -9513,7 +9513,7 @@ public protocol AdminSession: Glacier2.Session {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `FileIteratorPrx?` - An iterator to read the file.
+    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
     ///
     /// - throws:
     ///
@@ -9533,7 +9533,7 @@ public protocol AdminSession: Glacier2.Session {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `FileIteratorPrx?` - An iterator to read the file.
+    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
     ///
     /// - throws:
     ///
@@ -9553,7 +9553,7 @@ public protocol AdminSession: Glacier2.Session {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `FileIteratorPrx?` - An iterator to read the file.
+    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
     ///
     /// - throws:
     ///
@@ -9573,7 +9573,7 @@ public protocol AdminSession: Glacier2.Session {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `FileIteratorPrx?` - An iterator to read the file.
+    /// - returns: `FileIteratorPrx?` - An iterator to read the file. The returned proxy is never null.
     ///
     /// - throws:
     ///

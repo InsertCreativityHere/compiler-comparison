@@ -34,8 +34,6 @@ class OneOptional;
 using OneOptionalPtr = ::std::shared_ptr<OneOptional>;
 class MyInterfacePrx;
 
-using MyInterfacePrxPtr = ::std::optional<MyInterfacePrx>;
-
 enum class MyEnum : unsigned char
 {
     MyEnumMember
@@ -126,8 +124,6 @@ class G;
 
 using GPtr = ::std::shared_ptr<G>;
 class InitialPrx;
-
-using InitialPrxPtr = ::std::optional<InitialPrx>;
 
 }
 

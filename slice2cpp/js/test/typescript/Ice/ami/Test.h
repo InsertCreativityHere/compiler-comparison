@@ -39,14 +39,8 @@ enum class CloseMode : unsigned char
     GracefullyWithWait
 };
 class PingReplyPrx;
-
-using PingReplyPrxPtr = ::std::optional<PingReplyPrx>;
 class TestIntfPrx;
-
-using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
 class TestIntfControllerPrx;
-
-using TestIntfControllerPrxPtr = ::std::optional<TestIntfControllerPrx>;
 
 }
 

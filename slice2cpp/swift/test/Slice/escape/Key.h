@@ -38,17 +38,11 @@ enum class _cpp_continue : unsigned char
 struct guard;
 struct defer;
 class breakPrx;
-
-using breakPrxPtr = ::std::optional<breakPrx>;
 class funcPrx;
-
-using funcPrxPtr = ::std::optional<funcPrx>;
 class _cpp_switch;
 
 using switchPtr = ::std::shared_ptr<_cpp_switch>;
 class doPrx;
-
-using doPrxPtr = ::std::optional<doPrx>;
 
 using fileprivate = ::std::vector<guard>;
 

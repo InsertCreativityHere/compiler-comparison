@@ -75,7 +75,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             % Parameters:
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (IceGrid.AdminPrx) - The admin interface proxy.
+            % Returns (IceGrid.AdminPrx) - The admin interface proxy. The returned proxy is never null.
             
             is_ = obj.iceInvoke('getAdmin', 1, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
@@ -328,7 +328,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %     or positive, the file is read from the last count lines.
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (IceGrid.FileIteratorPrx) - An iterator to read the file.
+            % Returns (IceGrid.FileIteratorPrx) - An iterator to read the file. The returned proxy is never null.
             %
             % Exceptions:
             %   IceGrid.DeploymentException - Raised if the server couldn't be deployed on the node.
@@ -387,7 +387,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %     or positive, the file is read from the last count lines.
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (IceGrid.FileIteratorPrx) - An iterator to read the file.
+            % Returns (IceGrid.FileIteratorPrx) - An iterator to read the file. The returned proxy is never null.
             %
             % Exceptions:
             %   IceGrid.DeploymentException - Raised if the server couldn't be deployed on the node.
@@ -442,7 +442,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %     If 0 or positive, the file is read from the last count lines.
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (IceGrid.FileIteratorPrx) - An iterator to read the file.
+            % Returns (IceGrid.FileIteratorPrx) - An iterator to read the file. The returned proxy is never null.
             %
             % Exceptions:
             %   IceGrid.DeploymentException - Raised if the server couldn't be deployed on the node.
@@ -497,7 +497,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %     or positive, the file is read from the last count lines.
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (IceGrid.FileIteratorPrx) - An iterator to read the file.
+            % Returns (IceGrid.FileIteratorPrx) - An iterator to read the file. The returned proxy is never null.
             %
             % Exceptions:
             %   IceGrid.FileNotAvailableException - Raised if the file can't be read.
@@ -550,7 +550,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %     or positive, the file is read from the last count lines.
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (IceGrid.FileIteratorPrx) - An iterator to read the file.
+            % Returns (IceGrid.FileIteratorPrx) - An iterator to read the file. The returned proxy is never null.
             %
             % Exceptions:
             %   IceGrid.FileNotAvailableException - Raised if the file can't be read.
@@ -603,7 +603,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %     or positive, the file is read from the last count lines.
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (IceGrid.FileIteratorPrx) - An iterator to read the file.
+            % Returns (IceGrid.FileIteratorPrx) - An iterator to read the file. The returned proxy is never null.
             %
             % Exceptions:
             %   IceGrid.FileNotAvailableException - Raised if the file can't be read.
@@ -656,7 +656,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %     or positive, the file is read from the last count lines.
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (IceGrid.FileIteratorPrx) - An iterator to read the file.
+            % Returns (IceGrid.FileIteratorPrx) - An iterator to read the file. The returned proxy is never null.
             %
             % Exceptions:
             %   IceGrid.FileNotAvailableException - Raised if the file can't be read.

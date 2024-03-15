@@ -227,25 +227,25 @@ Ice::LocatorRegistryPrx::_iceI_setAdapterDirectProxy(const ::std::shared_ptr<::I
 }
 
 void
-Ice::LocatorRegistryPrx::setReplicatedAdapterDirectProxy(::std::string_view iceP_adapterId, ::std::string_view iceP_replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& iceP_p, const ::Ice::Context& context) const
+Ice::LocatorRegistryPrx::setReplicatedAdapterDirectProxy(::std::string_view iceP_adapterId, ::std::string_view iceP_replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &LocatorRegistryPrx::_iceI_setReplicatedAdapterDirectProxy, iceP_adapterId, iceP_replicaGroupId, iceP_p, context).get();
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &LocatorRegistryPrx::_iceI_setReplicatedAdapterDirectProxy, iceP_adapterId, iceP_replicaGroupId, iceP_proxy, context).get();
 }
 
 ::std::future<void>
-Ice::LocatorRegistryPrx::setReplicatedAdapterDirectProxyAsync(::std::string_view iceP_adapterId, ::std::string_view iceP_replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& iceP_p, const ::Ice::Context& context) const
+Ice::LocatorRegistryPrx::setReplicatedAdapterDirectProxyAsync(::std::string_view iceP_adapterId, ::std::string_view iceP_replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& iceP_proxy, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &LocatorRegistryPrx::_iceI_setReplicatedAdapterDirectProxy, iceP_adapterId, iceP_replicaGroupId, iceP_p, context);
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &LocatorRegistryPrx::_iceI_setReplicatedAdapterDirectProxy, iceP_adapterId, iceP_replicaGroupId, iceP_proxy, context);
 }
 
 ::std::function<void()>
-Ice::LocatorRegistryPrx::setReplicatedAdapterDirectProxyAsync(::std::string_view iceP_adapterId, ::std::string_view iceP_replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& iceP_p, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Ice::LocatorRegistryPrx::setReplicatedAdapterDirectProxyAsync(::std::string_view iceP_adapterId, ::std::string_view iceP_replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& iceP_proxy, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Ice::LocatorRegistryPrx::_iceI_setReplicatedAdapterDirectProxy, iceP_adapterId, iceP_replicaGroupId, iceP_p, context);
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Ice::LocatorRegistryPrx::_iceI_setReplicatedAdapterDirectProxy, iceP_adapterId, iceP_replicaGroupId, iceP_proxy, context);
 }
 
 void
-Ice::LocatorRegistryPrx::_iceI_setReplicatedAdapterDirectProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_adapterId, ::std::string_view iceP_replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& iceP_p, const Context& context) const
+Ice::LocatorRegistryPrx::_iceI_setReplicatedAdapterDirectProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_adapterId, ::std::string_view iceP_replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& iceP_proxy, const Context& context) const
 {
     static constexpr ::std::string_view operationName = "setReplicatedAdapterDirectProxy";
 
@@ -253,7 +253,7 @@ Ice::LocatorRegistryPrx::_iceI_setReplicatedAdapterDirectProxy(const ::std::shar
     outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
         [&](OutputStream* ostr)
         {
-            ostr->writeAll(iceP_adapterId, iceP_replicaGroupId, iceP_p);
+            ostr->writeAll(iceP_adapterId, iceP_replicaGroupId, iceP_proxy);
         },
         [](const UserException& ex)
         {
@@ -609,13 +609,13 @@ Ice::LocatorRegistry::_iceD_setReplicatedAdapterDirectProxy(::Ice::IncomingReque
     istr->startEncapsulation();
     ::std::string iceP_adapterId;
     ::std::string iceP_replicaGroupId;
-    ::std::optional<::Ice::ObjectPrx> iceP_p;
-    istr->readAll(iceP_adapterId, iceP_replicaGroupId, iceP_p);
+    ::std::optional<::Ice::ObjectPrx> iceP_proxy;
+    istr->readAll(iceP_adapterId, iceP_replicaGroupId, iceP_proxy);
     istr->endEncapsulation();
     auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
     try
     {
-        this->setReplicatedAdapterDirectProxyAsync(::std::move(iceP_adapterId), ::std::move(iceP_replicaGroupId), ::std::move(iceP_p), [responseHandler] { responseHandler->sendEmptyResponse(); }, [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
+        this->setReplicatedAdapterDirectProxyAsync(::std::move(iceP_adapterId), ::std::move(iceP_replicaGroupId), ::std::move(iceP_proxy), [responseHandler] { responseHandler->sendEmptyResponse(); }, [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
     }
     catch (...)
     {

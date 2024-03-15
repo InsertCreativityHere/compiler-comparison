@@ -28,7 +28,7 @@ public interface Registry extends com.zeroc.Ice.Object
      * @param userId The user id.
      * @param password The password for the given user id.
      * @param current The Current object for the invocation.
-     * @return A proxy for the newly created session.
+     * @return A proxy for the newly created session. The returned proxy is never null.
      * @throws PermissionDeniedException Raised if the password for the given user id is not correct, or if the
      * user is not allowed access.
      **/
@@ -40,7 +40,7 @@ public interface Registry extends com.zeroc.Ice.Object
      * @param userId The user id.
      * @param password The password for the given user id.
      * @param current The Current object for the invocation.
-     * @return A proxy for the newly created session.
+     * @return A proxy for the newly created session. The returned proxy is never null.
      * @throws PermissionDeniedException Raised if the password for the given user id is not correct, or if the
      * user is not allowed access.
      **/
@@ -50,7 +50,7 @@ public interface Registry extends com.zeroc.Ice.Object
     /**
      * Create a client session from a secure connection.
      * @param current The Current object for the invocation.
-     * @return A proxy for the newly created session.
+     * @return A proxy for the newly created session. The returned proxy is never null.
      * @throws PermissionDeniedException Raised if the password for the given user id is not correct, or if the
      * user is not allowed access.
      **/
@@ -60,7 +60,7 @@ public interface Registry extends com.zeroc.Ice.Object
     /**
      * Create an administrative session from a secure connection.
      * @param current The Current object for the invocation.
-     * @return A proxy for the newly created session.
+     * @return A proxy for the newly created session. The returned proxy is never null.
      * @throws PermissionDeniedException Raised if the password for the given user id is not correct, or if the
      * user is not allowed access.
      **/

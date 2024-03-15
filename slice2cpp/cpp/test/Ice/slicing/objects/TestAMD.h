@@ -70,8 +70,6 @@ class PNode;
 
 using PNodePtr = ::std::shared_ptr<PNode>;
 class TestIntfPrx;
-
-using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
 class Hidden;
 
 using HiddenPtr = ::std::shared_ptr<Hidden>;

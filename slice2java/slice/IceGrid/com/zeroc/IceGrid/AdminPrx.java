@@ -1384,7 +1384,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Get a proxy to the server's admin object.
      * @param id The server id.
-     * @return A proxy to the server's admin object
+     * @return A proxy to the server's admin object. The returned proxy is never null.
      * @throws DeploymentException Raised if the server couldn't be deployed on the node.
      * @throws NodeUnreachableException Raised if the node could not be reached.
      * @throws ServerNotExistException Raised if the server doesn't exist.
@@ -1401,7 +1401,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * Get a proxy to the server's admin object.
      * @param id The server id.
      * @param context The Context map to send with the invocation.
-     * @return A proxy to the server's admin object
+     * @return A proxy to the server's admin object. The returned proxy is never null.
      * @throws DeploymentException Raised if the server couldn't be deployed on the node.
      * @throws NodeUnreachableException Raised if the node could not be reached.
      * @throws ServerNotExistException Raised if the server doesn't exist.
@@ -1436,7 +1436,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Get a proxy to the server's admin object.
      * @param id The server id.
-     * @return A proxy to the server's admin object
+     * @return A proxy to the server's admin object. The returned proxy is never null.
      **/
     default java.util.concurrent.CompletableFuture<com.zeroc.Ice.ObjectPrx> getServerAdminAsync(String id)
     {
@@ -1447,7 +1447,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * Get a proxy to the server's admin object.
      * @param id The server id.
      * @param context The Context map to send with the invocation.
-     * @return A proxy to the server's admin object
+     * @return A proxy to the server's admin object. The returned proxy is never null.
      **/
     default java.util.concurrent.CompletableFuture<com.zeroc.Ice.ObjectPrx> getServerAdminAsync(String id, java.util.Map<String, String> context)
     {
@@ -2589,7 +2589,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Add an object to the object registry and explicitly specify its type.
-     * @param obj The object to be added to the registry.
+     * @param obj The object to be added to the registry. The proxy is never null.
      * @param type The object type.
      * @throws DeploymentException Raised if application deployment failed.
      * @throws ObjectExistsException Raised if the object is already registered.
@@ -2603,7 +2603,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Add an object to the object registry and explicitly specify its type.
-     * @param obj The object to be added to the registry.
+     * @param obj The object to be added to the registry. The proxy is never null.
      * @param type The object type.
      * @param context The Context map to send with the invocation.
      * @throws DeploymentException Raised if application deployment failed.
@@ -2633,7 +2633,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Add an object to the object registry and explicitly specify its type.
-     * @param obj The object to be added to the registry.
+     * @param obj The object to be added to the registry. The proxy is never null.
      * @param type The object type.
      * @return A future that will be completed when the invocation completes.
      **/
@@ -2644,7 +2644,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
 
     /**
      * Add an object to the object registry and explicitly specify its type.
-     * @param obj The object to be added to the registry.
+     * @param obj The object to be added to the registry. The proxy is never null.
      * @param type The object type.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
@@ -3252,7 +3252,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Get a proxy to the IceGrid node's admin object.
      * @param name The IceGrid node name
-     * @return A proxy to the IceGrid node's admin object
+     * @return A proxy to the IceGrid node's admin object. The returned proxy is never null.
      * @throws NodeNotExistException Raised if the node doesn't exist.
      * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
@@ -3267,7 +3267,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * Get a proxy to the IceGrid node's admin object.
      * @param name The IceGrid node name
      * @param context The Context map to send with the invocation.
-     * @return A proxy to the IceGrid node's admin object
+     * @return A proxy to the IceGrid node's admin object. The returned proxy is never null.
      * @throws NodeNotExistException Raised if the node doesn't exist.
      * @throws NodeUnreachableException Raised if the node could not be reached.
      **/
@@ -3296,7 +3296,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Get a proxy to the IceGrid node's admin object.
      * @param name The IceGrid node name
-     * @return A proxy to the IceGrid node's admin object
+     * @return A proxy to the IceGrid node's admin object. The returned proxy is never null.
      **/
     default java.util.concurrent.CompletableFuture<com.zeroc.Ice.ObjectPrx> getNodeAdminAsync(String name)
     {
@@ -3307,7 +3307,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * Get a proxy to the IceGrid node's admin object.
      * @param name The IceGrid node name
      * @param context The Context map to send with the invocation.
-     * @return A proxy to the IceGrid node's admin object
+     * @return A proxy to the IceGrid node's admin object. The returned proxy is never null.
      **/
     default java.util.concurrent.CompletableFuture<com.zeroc.Ice.ObjectPrx> getNodeAdminAsync(String name, java.util.Map<String, String> context)
     {
@@ -3852,7 +3852,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Get a proxy to the IceGrid registry's admin object.
      * @param name The registry name
-     * @return A proxy to the IceGrid registry's admin object
+     * @return A proxy to the IceGrid registry's admin object. The returned proxy is never null.
      * @throws RegistryNotExistException Raised if the registry doesn't exist.
      **/
     default com.zeroc.Ice.ObjectPrx getRegistryAdmin(String name)
@@ -3865,7 +3865,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * Get a proxy to the IceGrid registry's admin object.
      * @param name The registry name
      * @param context The Context map to send with the invocation.
-     * @return A proxy to the IceGrid registry's admin object
+     * @return A proxy to the IceGrid registry's admin object. The returned proxy is never null.
      * @throws RegistryNotExistException Raised if the registry doesn't exist.
      **/
     default com.zeroc.Ice.ObjectPrx getRegistryAdmin(String name, java.util.Map<String, String> context)
@@ -3888,7 +3888,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
     /**
      * Get a proxy to the IceGrid registry's admin object.
      * @param name The registry name
-     * @return A proxy to the IceGrid registry's admin object
+     * @return A proxy to the IceGrid registry's admin object. The returned proxy is never null.
      **/
     default java.util.concurrent.CompletableFuture<com.zeroc.Ice.ObjectPrx> getRegistryAdminAsync(String name)
     {
@@ -3899,7 +3899,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      * Get a proxy to the IceGrid registry's admin object.
      * @param name The registry name
      * @param context The Context map to send with the invocation.
-     * @return A proxy to the IceGrid registry's admin object
+     * @return A proxy to the IceGrid registry's admin object. The returned proxy is never null.
      **/
     default java.util.concurrent.CompletableFuture<com.zeroc.Ice.ObjectPrx> getRegistryAdminAsync(String name, java.util.Map<String, String> context)
     {

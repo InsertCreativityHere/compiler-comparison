@@ -33,11 +33,7 @@ class BaseClass;
 
 using BaseClassPtr = ::std::shared_ptr<BaseClass>;
 class RelayPrx;
-
-using RelayPrxPtr = ::std::optional<RelayPrx>;
 class TestIntfPrx;
-
-using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
 class PreservedClass;
 
 using PreservedClassPtr = ::std::shared_ptr<PreservedClass>;

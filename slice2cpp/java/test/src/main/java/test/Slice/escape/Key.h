@@ -36,24 +36,16 @@ enum class assert : unsigned char
 };
 struct _cpp_break;
 class catchPrx;
-
-using catchPrxPtr = ::std::optional<catchPrx>;
 class defaultPrx;
-
-using defaultPrxPtr = ::std::optional<defaultPrx>;
 class _cpp_else;
 
 using elsePtr = ::std::shared_ptr<_cpp_else>;
 class finalizePrx;
 
-using finalizePrxPtr = ::std::optional<finalizePrx>;
-
 using _cpp_for = ::std::vector<assert>;
 
 using _cpp_goto = ::std::map<::std::string, assert>;
 class newPrx;
-
-using newPrxPtr = ::std::optional<newPrx>;
 
 constexpr ::std::int32_t _cpp_switch = 0;
 

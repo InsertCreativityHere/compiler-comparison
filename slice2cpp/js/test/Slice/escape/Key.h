@@ -36,28 +36,18 @@ enum class var : unsigned char
 };
 struct _cpp_break;
 class casePrx;
-
-using casePrxPtr = ::std::optional<casePrx>;
 class typeofPrx;
-
-using typeofPrxPtr = ::std::optional<typeofPrx>;
 class _cpp_delete;
 
 using deletePtr = ::std::shared_ptr<_cpp_delete>;
 class explicitPrx;
-
-using explicitPrxPtr = ::std::optional<explicitPrx>;
 
 using _cpp_while = ::std::map<::std::string, _cpp_break>;
 class package;
 
 using packagePtr = ::std::shared_ptr<package>;
 class optionalParamsPrx;
-
-using optionalParamsPrxPtr = ::std::optional<optionalParamsPrx>;
 class implicitPrx;
-
-using implicitPrxPtr = ::std::optional<implicitPrx>;
 
 constexpr ::std::int32_t _cpp_protected = 0;
 
@@ -68,8 +58,6 @@ namespace System
 
 class TestPrx;
 
-using TestPrxPtr = ::std::optional<TestPrx>;
-
 }
 
 }
@@ -78,8 +66,6 @@ namespace System
 {
 
 class TestPrx;
-
-using TestPrxPtr = ::std::optional<TestPrx>;
 
 }
 

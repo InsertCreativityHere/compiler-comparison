@@ -31,8 +31,6 @@ namespace Test
 
 class TestIntfPrx;
 
-using TestIntfPrxPtr = ::std::optional<TestIntfPrx>;
-
 }
 
 namespace Test

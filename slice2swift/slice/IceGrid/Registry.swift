@@ -629,7 +629,7 @@ public extension RegistryPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `SessionPrx?` - A proxy for the newly created session.
+    /// - returns: `SessionPrx?` - A proxy for the newly created session. The returned proxy is never null.
     ///
     /// - throws:
     ///
@@ -705,7 +705,7 @@ public extension RegistryPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `AdminSessionPrx?` - A proxy for the newly created session.
+    /// - returns: `AdminSessionPrx?` - A proxy for the newly created session. The returned proxy is never null.
     ///
     /// - throws:
     ///
@@ -777,7 +777,7 @@ public extension RegistryPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `SessionPrx?` - A proxy for the newly created session.
+    /// - returns: `SessionPrx?` - A proxy for the newly created session. The returned proxy is never null.
     ///
     /// - throws:
     ///
@@ -837,7 +837,7 @@ public extension RegistryPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `AdminSessionPrx?` - A proxy for the newly created session.
+    /// - returns: `AdminSessionPrx?` - A proxy for the newly created session. The returned proxy is never null.
     ///
     /// - throws:
     ///
@@ -1084,7 +1084,7 @@ public extension LocatorPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `RegistryPrx?` - The proxy of the registry object.
+    /// - returns: `RegistryPrx?` - The proxy of the registry object. The returned proxy is never null.
     func getLocalRegistry(context: Ice.Context? = nil) throws -> RegistryPrx? {
         return try _impl._invoke(operation: "getLocalRegistry",
                                  mode: .Idempotent,
@@ -1125,7 +1125,7 @@ public extension LocatorPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `QueryPrx?` - The proxy of the query object.
+    /// - returns: `QueryPrx?` - The proxy of the query object. The returned proxy is never null.
     func getLocalQuery(context: Ice.Context? = nil) throws -> QueryPrx? {
         return try _impl._invoke(operation: "getLocalQuery",
                                  mode: .Idempotent,
@@ -1305,7 +1305,7 @@ public protocol Registry {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `SessionPrx?` - A proxy for the newly created session.
+    /// - returns: `SessionPrx?` - A proxy for the newly created session. The returned proxy is never null.
     ///
     /// - throws:
     ///
@@ -1321,7 +1321,7 @@ public protocol Registry {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `AdminSessionPrx?` - A proxy for the newly created session.
+    /// - returns: `AdminSessionPrx?` - A proxy for the newly created session. The returned proxy is never null.
     ///
     /// - throws:
     ///
@@ -1333,7 +1333,7 @@ public protocol Registry {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `SessionPrx?` - A proxy for the newly created session.
+    /// - returns: `SessionPrx?` - A proxy for the newly created session. The returned proxy is never null.
     ///
     /// - throws:
     ///
@@ -1345,7 +1345,7 @@ public protocol Registry {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `AdminSessionPrx?` - A proxy for the newly created session.
+    /// - returns: `AdminSessionPrx?` - A proxy for the newly created session. The returned proxy is never null.
     ///
     /// - throws:
     ///
@@ -1414,14 +1414,14 @@ public protocol Locator: Ice.Locator {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `RegistryPrx?` - The proxy of the registry object.
+    /// - returns: `RegistryPrx?` - The proxy of the registry object. The returned proxy is never null.
     func getLocalRegistry(current: Ice.Current) throws -> RegistryPrx?
 
     /// Get the proxy of the query object hosted by this IceGrid registry.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `QueryPrx?` - The proxy of the query object.
+    /// - returns: `QueryPrx?` - The proxy of the query object. The returned proxy is never null.
     func getLocalQuery(current: Ice.Current) throws -> QueryPrx?
 }
 

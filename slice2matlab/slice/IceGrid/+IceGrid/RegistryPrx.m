@@ -33,7 +33,7 @@ classdef RegistryPrx < Ice.ObjectPrx
             %   password (char) - The password for the given user id.
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (IceGrid.SessionPrx) - A proxy for the newly created session.
+            % Returns (IceGrid.SessionPrx) - A proxy for the newly created session. The returned proxy is never null.
             %
             % Exceptions:
             %   IceGrid.PermissionDeniedException - Raised if the password for the given user id is not correct, or if the
@@ -82,7 +82,7 @@ classdef RegistryPrx < Ice.ObjectPrx
             %   password (char) - The password for the given user id.
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (IceGrid.AdminSessionPrx) - A proxy for the newly created session.
+            % Returns (IceGrid.AdminSessionPrx) - A proxy for the newly created session. The returned proxy is never null.
             %
             % Exceptions:
             %   IceGrid.PermissionDeniedException - Raised if the password for the given user id is not correct, or if the
@@ -129,7 +129,7 @@ classdef RegistryPrx < Ice.ObjectPrx
             % Parameters:
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (IceGrid.SessionPrx) - A proxy for the newly created session.
+            % Returns (IceGrid.SessionPrx) - A proxy for the newly created session. The returned proxy is never null.
             %
             % Exceptions:
             %   IceGrid.PermissionDeniedException - Raised if the password for the given user id is not correct, or if the
@@ -166,7 +166,7 @@ classdef RegistryPrx < Ice.ObjectPrx
             % Parameters:
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (IceGrid.AdminSessionPrx) - A proxy for the newly created session.
+            % Returns (IceGrid.AdminSessionPrx) - A proxy for the newly created session. The returned proxy is never null.
             %
             % Exceptions:
             %   IceGrid.PermissionDeniedException - Raised if the password for the given user id is not correct, or if the

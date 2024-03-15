@@ -2572,7 +2572,7 @@ public extension Ice.InputStream {
 ///  - shutdownAsync: Shutdown the node.
 public extension NodePrx {
     /// Load the given server. If the server resources weren't already created (database environment directories,
-    /// property files, etc), they will be created.
+    /// property files, etc), they will be created. The returned proxy is never null.
     ///
     /// - parameter svr: `InternalServerDescriptor?`
     ///
@@ -2580,16 +2580,16 @@ public extension NodePrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `(returnValue: ServerPrx?, adapters: AdapterPrxDict, actTimeout: Swift.Int32, deactTimeout: Swift.Int32)`:
+    /// - returns: `(returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32)`:
     ///
     ///   - returnValue: `ServerPrx?`
     ///
     ///   - adapters: `AdapterPrxDict`
     ///
-    ///   - actTimeout: `Swift.Int32`
+    ///   - activateTimeout: `Swift.Int32`
     ///
-    ///   - deactTimeout: `Swift.Int32`
-    func loadServer(svr iceP_svr: InternalServerDescriptor?, replicaName iceP_replicaName: Swift.String, context: Ice.Context? = nil) throws -> (returnValue: ServerPrx?, adapters: AdapterPrxDict, actTimeout: Swift.Int32, deactTimeout: Swift.Int32) {
+    ///   - deactivateTimeout: `Swift.Int32`
+    func loadServer(svr iceP_svr: InternalServerDescriptor?, replicaName iceP_replicaName: Swift.String, context: Ice.Context? = nil) throws -> (returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32) {
         return try _impl._invoke(operation: "loadServer",
                                  mode: .Idempotent,
                                  write: { ostr in
@@ -2599,10 +2599,10 @@ public extension NodePrx {
                                  },
                                  read: { istr in
                                      let iceP_adapters: AdapterPrxDict = try AdapterPrxDictHelper.read(from: istr)
-                                     let iceP_actTimeout: Swift.Int32 = try istr.read()
-                                     let iceP_deactTimeout: Swift.Int32 = try istr.read()
+                                     let iceP_activateTimeout: Swift.Int32 = try istr.read()
+                                     let iceP_deactivateTimeout: Swift.Int32 = try istr.read()
                                      let iceP_returnValue: ServerPrx? = try istr.read(ServerPrx.self)
-                                     return (iceP_returnValue, iceP_adapters, iceP_actTimeout, iceP_deactTimeout)
+                                     return (iceP_returnValue, iceP_adapters, iceP_activateTimeout, iceP_deactivateTimeout)
                                  },
                                  userException:{ ex in
                                      do  {
@@ -2615,7 +2615,7 @@ public extension NodePrx {
     }
 
     /// Load the given server. If the server resources weren't already created (database environment directories,
-    /// property files, etc), they will be created.
+    /// property files, etc), they will be created. The returned proxy is never null.
     ///
     /// - parameter svr: `InternalServerDescriptor?`
     ///
@@ -2631,8 +2631,8 @@ public extension NodePrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: ServerPrx?, adapters: AdapterPrxDict, actTimeout: Swift.Int32, deactTimeout: Swift.Int32)>` - The result of the operation
-    func loadServerAsync(svr iceP_svr: InternalServerDescriptor?, replicaName iceP_replicaName: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: ServerPrx?, adapters: AdapterPrxDict, actTimeout: Swift.Int32, deactTimeout: Swift.Int32)> {
+    /// - returns: `PromiseKit.Promise<(returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32)>` - The result of the operation
+    func loadServerAsync(svr iceP_svr: InternalServerDescriptor?, replicaName iceP_replicaName: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32)> {
         return _impl._invokeAsync(operation: "loadServer",
                                   mode: .Idempotent,
                                   write: { ostr in
@@ -2642,10 +2642,10 @@ public extension NodePrx {
                                   },
                                   read: { istr in
                                       let iceP_adapters: AdapterPrxDict = try AdapterPrxDictHelper.read(from: istr)
-                                      let iceP_actTimeout: Swift.Int32 = try istr.read()
-                                      let iceP_deactTimeout: Swift.Int32 = try istr.read()
+                                      let iceP_activateTimeout: Swift.Int32 = try istr.read()
+                                      let iceP_deactivateTimeout: Swift.Int32 = try istr.read()
                                       let iceP_returnValue: ServerPrx? = try istr.read(ServerPrx.self)
-                                      return (iceP_returnValue, iceP_adapters, iceP_actTimeout, iceP_deactTimeout)
+                                      return (iceP_returnValue, iceP_adapters, iceP_activateTimeout, iceP_deactivateTimeout)
                                   },
                                   userException:{ ex in
                                       do  {
@@ -2662,7 +2662,7 @@ public extension NodePrx {
 
     /// Load the given server and ensure the server won't be restarted. If the server resources weren't already created
     /// (database environment directories, property files, etc), they will be created. If the server can't be updated
-    /// without a restart, a DeploymentException is raised.
+    /// without a restart, a DeploymentException is raised. The returned proxy is never null.
     ///
     /// - parameter svr: `InternalServerDescriptor?`
     ///
@@ -2670,16 +2670,16 @@ public extension NodePrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `(returnValue: ServerPrx?, adapters: AdapterPrxDict, actTimeout: Swift.Int32, deactTimeout: Swift.Int32)`:
+    /// - returns: `(returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32)`:
     ///
     ///   - returnValue: `ServerPrx?`
     ///
     ///   - adapters: `AdapterPrxDict`
     ///
-    ///   - actTimeout: `Swift.Int32`
+    ///   - activateTimeout: `Swift.Int32`
     ///
-    ///   - deactTimeout: `Swift.Int32`
-    func loadServerWithoutRestart(svr iceP_svr: InternalServerDescriptor?, replicaName iceP_replicaName: Swift.String, context: Ice.Context? = nil) throws -> (returnValue: ServerPrx?, adapters: AdapterPrxDict, actTimeout: Swift.Int32, deactTimeout: Swift.Int32) {
+    ///   - deactivateTimeout: `Swift.Int32`
+    func loadServerWithoutRestart(svr iceP_svr: InternalServerDescriptor?, replicaName iceP_replicaName: Swift.String, context: Ice.Context? = nil) throws -> (returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32) {
         return try _impl._invoke(operation: "loadServerWithoutRestart",
                                  mode: .Idempotent,
                                  write: { ostr in
@@ -2689,10 +2689,10 @@ public extension NodePrx {
                                  },
                                  read: { istr in
                                      let iceP_adapters: AdapterPrxDict = try AdapterPrxDictHelper.read(from: istr)
-                                     let iceP_actTimeout: Swift.Int32 = try istr.read()
-                                     let iceP_deactTimeout: Swift.Int32 = try istr.read()
+                                     let iceP_activateTimeout: Swift.Int32 = try istr.read()
+                                     let iceP_deactivateTimeout: Swift.Int32 = try istr.read()
                                      let iceP_returnValue: ServerPrx? = try istr.read(ServerPrx.self)
-                                     return (iceP_returnValue, iceP_adapters, iceP_actTimeout, iceP_deactTimeout)
+                                     return (iceP_returnValue, iceP_adapters, iceP_activateTimeout, iceP_deactivateTimeout)
                                  },
                                  userException:{ ex in
                                      do  {
@@ -2706,7 +2706,7 @@ public extension NodePrx {
 
     /// Load the given server and ensure the server won't be restarted. If the server resources weren't already created
     /// (database environment directories, property files, etc), they will be created. If the server can't be updated
-    /// without a restart, a DeploymentException is raised.
+    /// without a restart, a DeploymentException is raised. The returned proxy is never null.
     ///
     /// - parameter svr: `InternalServerDescriptor?`
     ///
@@ -2722,8 +2722,8 @@ public extension NodePrx {
     ///
     /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: ServerPrx?, adapters: AdapterPrxDict, actTimeout: Swift.Int32, deactTimeout: Swift.Int32)>` - The result of the operation
-    func loadServerWithoutRestartAsync(svr iceP_svr: InternalServerDescriptor?, replicaName iceP_replicaName: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: ServerPrx?, adapters: AdapterPrxDict, actTimeout: Swift.Int32, deactTimeout: Swift.Int32)> {
+    /// - returns: `PromiseKit.Promise<(returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32)>` - The result of the operation
+    func loadServerWithoutRestartAsync(svr iceP_svr: InternalServerDescriptor?, replicaName iceP_replicaName: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<(returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32)> {
         return _impl._invokeAsync(operation: "loadServerWithoutRestart",
                                   mode: .Idempotent,
                                   write: { ostr in
@@ -2733,10 +2733,10 @@ public extension NodePrx {
                                   },
                                   read: { istr in
                                       let iceP_adapters: AdapterPrxDict = try AdapterPrxDictHelper.read(from: istr)
-                                      let iceP_actTimeout: Swift.Int32 = try istr.read()
-                                      let iceP_deactTimeout: Swift.Int32 = try istr.read()
+                                      let iceP_activateTimeout: Swift.Int32 = try istr.read()
+                                      let iceP_deactivateTimeout: Swift.Int32 = try istr.read()
                                       let iceP_returnValue: ServerPrx? = try istr.read(ServerPrx.self)
-                                      return (iceP_returnValue, iceP_adapters, iceP_actTimeout, iceP_deactTimeout)
+                                      return (iceP_returnValue, iceP_adapters, iceP_activateTimeout, iceP_deactivateTimeout)
                                   },
                                   userException:{ ex in
                                       do  {
@@ -3988,9 +3988,9 @@ public extension ReplicaSessionPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
-                              } catch let error as DeploymentException {
-                                  throw error
                               } catch let error as ObserverAlreadyRegisteredException {
+                                  throw error
+                              } catch let error as DeploymentException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -4024,9 +4024,9 @@ public extension ReplicaSessionPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as DeploymentException {
-                                          throw error
                                       } catch let error as ObserverAlreadyRegisteredException {
+                                          throw error
+                                      } catch let error as DeploymentException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -4141,9 +4141,9 @@ public extension ReplicaSessionPrx {
                           userException:{ ex in
                               do  {
                                   throw ex
-                              } catch let error as AdapterNotExistException {
-                                  throw error
                               } catch let error as AdapterExistsException {
+                                  throw error
+                              } catch let error as AdapterNotExistException {
                                   throw error
                               } catch is Ice.UserException {}
                           },
@@ -4181,9 +4181,9 @@ public extension ReplicaSessionPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as AdapterNotExistException {
-                                          throw error
                                       } catch let error as AdapterExistsException {
+                                          throw error
+                                      } catch let error as AdapterNotExistException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -5784,7 +5784,7 @@ public struct NodeDisp: Ice.Disp {
 
 public protocol Node: FileReader, ReplicaObserver {
     /// Load the given server. If the server resources weren't already created (database environment directories,
-    /// property files, etc), they will be created.
+    /// property files, etc), they will be created. The returned proxy is never null.
     ///
     /// - parameter svr: `InternalServerDescriptor?`
     ///
@@ -5792,12 +5792,12 @@ public protocol Node: FileReader, ReplicaObserver {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: ServerPrx?, adapters: AdapterPrxDict, actTimeout: Swift.Int32, deactTimeout: Swift.Int32)>` - The result of the operation
-    func loadServerAsync(svr: InternalServerDescriptor?, replicaName: Swift.String, current: Ice.Current) -> PromiseKit.Promise<(returnValue: ServerPrx?, adapters: AdapterPrxDict, actTimeout: Swift.Int32, deactTimeout: Swift.Int32)>
+    /// - returns: `PromiseKit.Promise<(returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32)>` - The result of the operation
+    func loadServerAsync(svr: InternalServerDescriptor?, replicaName: Swift.String, current: Ice.Current) -> PromiseKit.Promise<(returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32)>
 
     /// Load the given server and ensure the server won't be restarted. If the server resources weren't already created
     /// (database environment directories, property files, etc), they will be created. If the server can't be updated
-    /// without a restart, a DeploymentException is raised.
+    /// without a restart, a DeploymentException is raised. The returned proxy is never null.
     ///
     /// - parameter svr: `InternalServerDescriptor?`
     ///
@@ -5805,8 +5805,8 @@ public protocol Node: FileReader, ReplicaObserver {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `PromiseKit.Promise<(returnValue: ServerPrx?, adapters: AdapterPrxDict, actTimeout: Swift.Int32, deactTimeout: Swift.Int32)>` - The result of the operation
-    func loadServerWithoutRestartAsync(svr: InternalServerDescriptor?, replicaName: Swift.String, current: Ice.Current) -> PromiseKit.Promise<(returnValue: ServerPrx?, adapters: AdapterPrxDict, actTimeout: Swift.Int32, deactTimeout: Swift.Int32)>
+    /// - returns: `PromiseKit.Promise<(returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32)>` - The result of the operation
+    func loadServerWithoutRestartAsync(svr: InternalServerDescriptor?, replicaName: Swift.String, current: Ice.Current) -> PromiseKit.Promise<(returnValue: ServerPrx?, adapters: AdapterPrxDict, activateTimeout: Swift.Int32, deactivateTimeout: Swift.Int32)>
 
     /// Destroy the given server.
     ///
@@ -6626,10 +6626,10 @@ public extension Node {
         }
 
         return inS.setResultPromise(loadServerAsync(svr: iceP_svr, replicaName: iceP_replicaName, current: current)) { (ostr, retVals) in
-            let (iceP_returnValue, iceP_adapters, iceP_actTimeout, iceP_deactTimeout) = retVals
+            let (iceP_returnValue, iceP_adapters, iceP_activateTimeout, iceP_deactivateTimeout) = retVals
             AdapterPrxDictHelper.write(to: ostr, value: iceP_adapters)
-            ostr.write(iceP_actTimeout)
-            ostr.write(iceP_deactTimeout)
+            ostr.write(iceP_activateTimeout)
+            ostr.write(iceP_deactivateTimeout)
             ostr.write(iceP_returnValue)
         }
     }
@@ -6644,10 +6644,10 @@ public extension Node {
         }
 
         return inS.setResultPromise(loadServerWithoutRestartAsync(svr: iceP_svr, replicaName: iceP_replicaName, current: current)) { (ostr, retVals) in
-            let (iceP_returnValue, iceP_adapters, iceP_actTimeout, iceP_deactTimeout) = retVals
+            let (iceP_returnValue, iceP_adapters, iceP_activateTimeout, iceP_deactivateTimeout) = retVals
             AdapterPrxDictHelper.write(to: ostr, value: iceP_adapters)
-            ostr.write(iceP_actTimeout)
-            ostr.write(iceP_deactTimeout)
+            ostr.write(iceP_activateTimeout)
+            ostr.write(iceP_deactivateTimeout)
             ostr.write(iceP_returnValue)
         }
     }
