@@ -277,8 +277,8 @@ Slice.defineOperations(IceStorm.Topic, IceStorm.TopicPrx, iceC_IceStorm_Topic_id
     "subscribeAndGetPublisher": [, , , , [9], [["IceStorm.QoSHelper"], [9]], ,
     [
         IceStorm.AlreadySubscribed,
-        IceStorm.BadQoS,
-        IceStorm.InvalidSubscriber
+        IceStorm.InvalidSubscriber,
+        IceStorm.BadQoS
     ], , ],
     "unsubscribe": [, 2, 2, , , [[9]], , , , ],
     "link": [, , , , , [["IceStorm.TopicPrx"], [3]], ,
