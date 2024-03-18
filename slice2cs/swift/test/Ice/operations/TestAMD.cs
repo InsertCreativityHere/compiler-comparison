@@ -13140,24 +13140,6 @@ namespace Test
 
         #region Inherited Slice operations
 
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpStringSResult> opStringSAsync(string[] p1, string[] p2, global::Ice.Current current = null);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpByteSSResult> opByteSSAsync(byte[][] p1, byte[][] p2, global::Ice.Current current = null);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpBoolSSResult> opBoolSSAsync(bool[][] p1, bool[][] p2, global::Ice.Current current = null);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSSResult> opShortIntLongSSAsync(short[][] p1, int[][] p2, long[][] p3, global::Ice.Current current = null);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSSResult> opFloatDoubleSSAsync(float[][] p1, double[][] p2, global::Ice.Current current = null);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpStringSSResult> opStringSSAsync(string[][] p1, string[][] p2, global::Ice.Current current = null);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpStringSSSResult> opStringSSSAsync(string[][][] p1, string[][][] p2, global::Ice.Current current = null);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpByteBoolDResult> opByteBoolDAsync(global::System.Collections.Generic.Dictionary<byte, bool> p1, global::System.Collections.Generic.Dictionary<byte, bool> p2, global::Ice.Current current = null);
-
-        public abstract global::System.Threading.Tasks.Task<MyClass_OpShortIntDResult> opShortIntDAsync(global::System.Collections.Generic.Dictionary<short, int> p1, global::System.Collections.Generic.Dictionary<short, int> p2, global::Ice.Current current = null);
-
         public abstract global::System.Threading.Tasks.Task shutdownAsync(global::Ice.Current current = null);
 
         public abstract global::System.Threading.Tasks.Task<bool> supportsCompressAsync(global::Ice.Current current = null);
@@ -13187,6 +13169,24 @@ namespace Test
         public abstract global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSResult> opShortIntLongSAsync(short[] p1, int[] p2, long[] p3, global::Ice.Current current = null);
 
         public abstract global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSResult> opFloatDoubleSAsync(float[] p1, double[] p2, global::Ice.Current current = null);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpStringSResult> opStringSAsync(string[] p1, string[] p2, global::Ice.Current current = null);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpByteSSResult> opByteSSAsync(byte[][] p1, byte[][] p2, global::Ice.Current current = null);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpBoolSSResult> opBoolSSAsync(bool[][] p1, bool[][] p2, global::Ice.Current current = null);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpShortIntLongSSResult> opShortIntLongSSAsync(short[][] p1, int[][] p2, long[][] p3, global::Ice.Current current = null);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpFloatDoubleSSResult> opFloatDoubleSSAsync(float[][] p1, double[][] p2, global::Ice.Current current = null);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpStringSSResult> opStringSSAsync(string[][] p1, string[][] p2, global::Ice.Current current = null);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpStringSSSResult> opStringSSSAsync(string[][][] p1, string[][][] p2, global::Ice.Current current = null);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpByteBoolDResult> opByteBoolDAsync(global::System.Collections.Generic.Dictionary<byte, bool> p1, global::System.Collections.Generic.Dictionary<byte, bool> p2, global::Ice.Current current = null);
+
+        public abstract global::System.Threading.Tasks.Task<MyClass_OpShortIntDResult> opShortIntDAsync(global::System.Collections.Generic.Dictionary<short, int> p1, global::System.Collections.Generic.Dictionary<short, int> p2, global::Ice.Current current = null);
 
         public abstract global::System.Threading.Tasks.Task<MyClass_OpLongFloatDResult> opLongFloatDAsync(global::System.Collections.Generic.Dictionary<long, float> p1, global::System.Collections.Generic.Dictionary<long, float> p2, global::Ice.Current current = null);
 
