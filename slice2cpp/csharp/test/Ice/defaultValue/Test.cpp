@@ -15,8 +15,9 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -34,27 +35,17 @@
 
 namespace
 {
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::Base> iceC_Test_Base_init("::Test::Base");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::Derived> iceC_Test_Derived_init("::Test::Derived");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::BaseEx> iceC_Test_BaseEx_init("::Test::BaseEx");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::DerivedEx> iceC_Test_DerivedEx_init("::Test::DerivedEx");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::ClassProperty> iceC_Test_ClassProperty_init("::Test::ClassProperty");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::ExceptionProperty> iceC_Test_ExceptionProperty_init("::Test::ExceptionProperty");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::ExceptionNoDefaultsBase> iceC_Test_ExceptionNoDefaultsBase_init("::Test::ExceptionNoDefaultsBase");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::ExceptionNoDefaults> iceC_Test_ExceptionNoDefaults_init("::Test::ExceptionNoDefaults");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::ClassNoDefaultsBase> iceC_Test_ClassNoDefaultsBase_init("::Test::ClassNoDefaultsBase");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::ClassNoDefaults> iceC_Test_ClassNoDefaults_init("::Test::ClassNoDefaults");
-
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultValueFactoryInit<::Test::Base> iceC_Test_Base_init("::Test::Base");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::Derived> iceC_Test_Derived_init("::Test::Derived");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::BaseEx> iceC_Test_BaseEx_init("::Test::BaseEx");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::DerivedEx> iceC_Test_DerivedEx_init("::Test::DerivedEx");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::ClassProperty> iceC_Test_ClassProperty_init("::Test::ClassProperty");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::ExceptionProperty> iceC_Test_ExceptionProperty_init("::Test::ExceptionProperty");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::ExceptionNoDefaultsBase> iceC_Test_ExceptionNoDefaultsBase_init("::Test::ExceptionNoDefaultsBase");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::ExceptionNoDefaults> iceC_Test_ExceptionNoDefaults_init("::Test::ExceptionNoDefaults");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::ClassNoDefaultsBase> iceC_Test_ClassNoDefaultsBase_init("::Test::ClassNoDefaultsBase");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::ClassNoDefaults> iceC_Test_ClassNoDefaults_init("::Test::ClassNoDefaults");
 }
 
 ::std::string

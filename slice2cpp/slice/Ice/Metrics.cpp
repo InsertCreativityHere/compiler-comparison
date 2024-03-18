@@ -18,8 +18,9 @@
 #endif
 #define ICE_BUILDING_GENERATED_CODE
 #include <Metrics.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -37,25 +38,16 @@
 
 namespace
 {
-
-const ::IceInternal::DefaultValueFactoryInit<::IceMX::Metrics> iceC_IceMX_Metrics_init("::IceMX::Metrics");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IceMX::UnknownMetricsView> iceC_IceMX_UnknownMetricsView_init("::IceMX::UnknownMetricsView");
-
-const ::IceInternal::DefaultValueFactoryInit<::IceMX::ThreadMetrics> iceC_IceMX_ThreadMetrics_init("::IceMX::ThreadMetrics");
-
-const ::IceInternal::DefaultValueFactoryInit<::IceMX::DispatchMetrics> iceC_IceMX_DispatchMetrics_init("::IceMX::DispatchMetrics");
-
-const ::IceInternal::DefaultValueFactoryInit<::IceMX::ChildInvocationMetrics> iceC_IceMX_ChildInvocationMetrics_init("::IceMX::ChildInvocationMetrics");
-
-const ::IceInternal::DefaultValueFactoryInit<::IceMX::CollocatedMetrics> iceC_IceMX_CollocatedMetrics_init("::IceMX::CollocatedMetrics");
-
-const ::IceInternal::DefaultValueFactoryInit<::IceMX::RemoteMetrics> iceC_IceMX_RemoteMetrics_init("::IceMX::RemoteMetrics");
-
-const ::IceInternal::DefaultValueFactoryInit<::IceMX::InvocationMetrics> iceC_IceMX_InvocationMetrics_init("::IceMX::InvocationMetrics");
-
-const ::IceInternal::DefaultValueFactoryInit<::IceMX::ConnectionMetrics> iceC_IceMX_ConnectionMetrics_init("::IceMX::ConnectionMetrics");
-
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultValueFactoryInit<::IceMX::Metrics> iceC_IceMX_Metrics_init("::IceMX::Metrics");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceMX::UnknownMetricsView> iceC_IceMX_UnknownMetricsView_init("::IceMX::UnknownMetricsView");
+    const ::IceInternal::DefaultValueFactoryInit<::IceMX::ThreadMetrics> iceC_IceMX_ThreadMetrics_init("::IceMX::ThreadMetrics");
+    const ::IceInternal::DefaultValueFactoryInit<::IceMX::DispatchMetrics> iceC_IceMX_DispatchMetrics_init("::IceMX::DispatchMetrics");
+    const ::IceInternal::DefaultValueFactoryInit<::IceMX::ChildInvocationMetrics> iceC_IceMX_ChildInvocationMetrics_init("::IceMX::ChildInvocationMetrics");
+    const ::IceInternal::DefaultValueFactoryInit<::IceMX::CollocatedMetrics> iceC_IceMX_CollocatedMetrics_init("::IceMX::CollocatedMetrics");
+    const ::IceInternal::DefaultValueFactoryInit<::IceMX::RemoteMetrics> iceC_IceMX_RemoteMetrics_init("::IceMX::RemoteMetrics");
+    const ::IceInternal::DefaultValueFactoryInit<::IceMX::InvocationMetrics> iceC_IceMX_InvocationMetrics_init("::IceMX::InvocationMetrics");
+    const ::IceInternal::DefaultValueFactoryInit<::IceMX::ConnectionMetrics> iceC_IceMX_ConnectionMetrics_init("::IceMX::ConnectionMetrics");
 }
 
 ::Ice::StringSeq

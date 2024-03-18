@@ -15,8 +15,9 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Controller.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -34,17 +35,12 @@
 
 namespace
 {
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::Common::Config> iceC_Test_Common_Config_init("::Test::Common::Config");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::Common::OptionOverrides> iceC_Test_Common_OptionOverrides_init("::Test::Common::OptionOverrides");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::Common::TestCaseNotExistException> iceC_Test_Common_TestCaseNotExistException_init("::Test::Common::TestCaseNotExistException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::Common::TestCaseFailedException> iceC_Test_Common_TestCaseFailedException_init("::Test::Common::TestCaseFailedException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::Common::ProcessFailedException> iceC_Test_Common_ProcessFailedException_init("::Test::Common::ProcessFailedException");
-
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultValueFactoryInit<::Test::Common::Config> iceC_Test_Common_Config_init("::Test::Common::Config");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::Common::OptionOverrides> iceC_Test_Common_OptionOverrides_init("::Test::Common::OptionOverrides");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::Common::TestCaseNotExistException> iceC_Test_Common_TestCaseNotExistException_init("::Test::Common::TestCaseNotExistException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::Common::TestCaseFailedException> iceC_Test_Common_TestCaseFailedException_init("::Test::Common::TestCaseFailedException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::Common::ProcessFailedException> iceC_Test_Common_ProcessFailedException_init("::Test::Common::ProcessFailedException");
 }
 
 ::std::string

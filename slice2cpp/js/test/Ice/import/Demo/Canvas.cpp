@@ -15,8 +15,9 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Canvas.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -34,7 +35,6 @@
 
 namespace
 {
-
 }
 
 void

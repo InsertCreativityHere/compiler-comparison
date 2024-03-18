@@ -15,8 +15,9 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -34,17 +35,12 @@
 
 namespace
 {
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::OptionalClass> iceC_Test_OptionalClass_init("::Test::OptionalClass");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::MyClass> iceC_Test_MyClass_init("::Test::MyClass");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::MyException> iceC_Test_MyException_init("::Test::MyException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::Sub::NestedException> iceC_Test_Sub_NestedException_init("::Test::Sub::NestedException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test2::Sub2::NestedException2> iceC_Test2_Sub2_NestedException2_init("::Test2::Sub2::NestedException2");
-
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultValueFactoryInit<::Test::OptionalClass> iceC_Test_OptionalClass_init("::Test::OptionalClass");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::MyClass> iceC_Test_MyClass_init("::Test::MyClass");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::MyException> iceC_Test_MyException_init("::Test::MyException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::Sub::NestedException> iceC_Test_Sub_NestedException_init("::Test::Sub::NestedException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test2::Sub2::NestedException2> iceC_Test2_Sub2_NestedException2_init("::Test2::Sub2::NestedException2");
 }
 
 ::std::string_view

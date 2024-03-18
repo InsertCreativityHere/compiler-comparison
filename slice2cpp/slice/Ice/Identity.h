@@ -21,6 +21,8 @@
 #include <Ice/Config.h>
 #include <Ice/Comparable.h>
 #include <Ice/StreamHelpers.h>
+#include <string>
+#include <vector>
 
 #ifndef ICE_IGNORE_VERSION
 #   if ICE_INT_VERSION  != 30850

@@ -32,8 +32,3 @@
 #       error Ice version mismatch: an exact match is required for beta generated code
 #   endif
 #endif
-
-namespace
-{
-
-}

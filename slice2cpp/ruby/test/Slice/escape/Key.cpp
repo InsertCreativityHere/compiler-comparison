@@ -15,8 +15,9 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Key.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -34,13 +35,10 @@
 
 namespace
 {
-
-const ::IceInternal::DefaultValueFactoryInit<::BEGIN::display> iceC_BEGIN_display_init("::BEGIN::display");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::BEGIN::next> iceC_BEGIN_next_init("::BEGIN::next");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::BEGIN::nil> iceC_BEGIN_nil_init("::BEGIN::nil");
-
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultValueFactoryInit<::BEGIN::display> iceC_BEGIN_display_init("::BEGIN::display");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::BEGIN::next> iceC_BEGIN_next_init("::BEGIN::next");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::BEGIN::nil> iceC_BEGIN_nil_init("::BEGIN::nil");
 }
 
 void

@@ -15,8 +15,9 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <ClientPrivate.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -34,20 +35,14 @@
 
 namespace
 {
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::D3> iceC_Test_D3_init("::Test::D3");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::PCUnknown> iceC_Test_PCUnknown_init("::Test::PCUnknown");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::PCDerived> iceC_Test_PCDerived_init("::Test::PCDerived");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::PCDerived2> iceC_Test_PCDerived2_init("::Test::PCDerived2");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::PCDerived3> iceC_Test_PCDerived3_init("::Test::PCDerived3");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::CompactPCDerived> iceC_Test_CompactPCDerived_init("::Test::CompactPCDerived");
-const ::IceInternal::CompactIdInit iceC_Test_CompactPCDerived_compactIdInit ("::Test::CompactPCDerived", 57);
-
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultValueFactoryInit<::Test::D3> iceC_Test_D3_init("::Test::D3");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::PCUnknown> iceC_Test_PCUnknown_init("::Test::PCUnknown");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::PCDerived> iceC_Test_PCDerived_init("::Test::PCDerived");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::PCDerived2> iceC_Test_PCDerived2_init("::Test::PCDerived2");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::PCDerived3> iceC_Test_PCDerived3_init("::Test::PCDerived3");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::CompactPCDerived> iceC_Test_CompactPCDerived_init("::Test::CompactPCDerived");
+    const ::IceInternal::CompactIdInit iceC_Test_CompactPCDerived_compactIdInit ("::Test::CompactPCDerived", 57);
 }
 
 ::std::string

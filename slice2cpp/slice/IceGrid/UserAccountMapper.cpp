@@ -18,8 +18,9 @@
 #endif
 #define ICE_BUILDING_GENERATED_CODE
 #include <UserAccountMapper.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -37,9 +38,8 @@
 
 namespace
 {
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::UserAccountNotFoundException> iceC_IceGrid_UserAccountNotFoundException_init("::IceGrid::UserAccountNotFoundException");
-
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::UserAccountNotFoundException> iceC_IceGrid_UserAccountNotFoundException_init("::IceGrid::UserAccountNotFoundException");
 }
 
 ::std::string

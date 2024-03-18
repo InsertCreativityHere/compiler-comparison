@@ -18,8 +18,9 @@
 #endif
 #define ICE_BUILDING_GENERATED_CODE
 #include <Registry.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -37,7 +38,6 @@
 
 namespace
 {
-
 }
 
 ::std::optional<::Ice::ObjectPrx>

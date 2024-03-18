@@ -15,8 +15,9 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <NoNamespace.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -34,17 +35,12 @@
 
 namespace
 {
-
-const ::IceInternal::DefaultValueFactoryInit<::NoNamespace::C1> iceC_NoNamespace_C1_init("::NoNamespace::C1");
-
-const ::IceInternal::DefaultValueFactoryInit<::NoNamespace::C2> iceC_NoNamespace_C2_init("::NoNamespace::C2");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::NoNamespace::E1> iceC_NoNamespace_E1_init("::NoNamespace::E1");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::NoNamespace::E2> iceC_NoNamespace_E2_init("::NoNamespace::E2");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::NoNamespace::notify> iceC_NoNamespace_notify_init("::NoNamespace::notify");
-
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultValueFactoryInit<::NoNamespace::C1> iceC_NoNamespace_C1_init("::NoNamespace::C1");
+    const ::IceInternal::DefaultValueFactoryInit<::NoNamespace::C2> iceC_NoNamespace_C2_init("::NoNamespace::C2");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::NoNamespace::E1> iceC_NoNamespace_E1_init("::NoNamespace::E1");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::NoNamespace::E2> iceC_NoNamespace_E2_init("::NoNamespace::E2");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::NoNamespace::notify> iceC_NoNamespace_notify_init("::NoNamespace::notify");
 }
 
 ::std::string

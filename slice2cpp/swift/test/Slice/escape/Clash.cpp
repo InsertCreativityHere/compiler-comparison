@@ -15,8 +15,9 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Clash.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -34,11 +35,9 @@
 
 namespace
 {
-
-const ::IceInternal::DefaultValueFactoryInit<::Clash::Cls> iceC_Clash_Cls_init("::Clash::Cls");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Clash::Ex> iceC_Clash_Ex_init("::Clash::Ex");
-
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultValueFactoryInit<::Clash::Cls> iceC_Clash_Cls_init("::Clash::Cls");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Clash::Ex> iceC_Clash_Ex_init("::Clash::Ex");
 }
 
 void

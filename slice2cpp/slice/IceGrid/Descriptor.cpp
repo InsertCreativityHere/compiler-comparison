@@ -18,8 +18,9 @@
 #endif
 #define ICE_BUILDING_GENERATED_CODE
 #include <Descriptor.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -37,29 +38,18 @@
 
 namespace
 {
-
-const ::IceInternal::DefaultValueFactoryInit<::IceGrid::CommunicatorDescriptor> iceC_IceGrid_CommunicatorDescriptor_init("::IceGrid::CommunicatorDescriptor");
-
-const ::IceInternal::DefaultValueFactoryInit<::IceGrid::ServerDescriptor> iceC_IceGrid_ServerDescriptor_init("::IceGrid::ServerDescriptor");
-
-const ::IceInternal::DefaultValueFactoryInit<::IceGrid::ServiceDescriptor> iceC_IceGrid_ServiceDescriptor_init("::IceGrid::ServiceDescriptor");
-
-const ::IceInternal::DefaultValueFactoryInit<::IceGrid::IceBoxDescriptor> iceC_IceGrid_IceBoxDescriptor_init("::IceGrid::IceBoxDescriptor");
-
-const ::IceInternal::DefaultValueFactoryInit<::IceGrid::LoadBalancingPolicy> iceC_IceGrid_LoadBalancingPolicy_init("::IceGrid::LoadBalancingPolicy");
-
-const ::IceInternal::DefaultValueFactoryInit<::IceGrid::RandomLoadBalancingPolicy> iceC_IceGrid_RandomLoadBalancingPolicy_init("::IceGrid::RandomLoadBalancingPolicy");
-
-const ::IceInternal::DefaultValueFactoryInit<::IceGrid::OrderedLoadBalancingPolicy> iceC_IceGrid_OrderedLoadBalancingPolicy_init("::IceGrid::OrderedLoadBalancingPolicy");
-
-const ::IceInternal::DefaultValueFactoryInit<::IceGrid::RoundRobinLoadBalancingPolicy> iceC_IceGrid_RoundRobinLoadBalancingPolicy_init("::IceGrid::RoundRobinLoadBalancingPolicy");
-
-const ::IceInternal::DefaultValueFactoryInit<::IceGrid::AdaptiveLoadBalancingPolicy> iceC_IceGrid_AdaptiveLoadBalancingPolicy_init("::IceGrid::AdaptiveLoadBalancingPolicy");
-
-const ::IceInternal::DefaultValueFactoryInit<::IceGrid::BoxedString> iceC_IceGrid_BoxedString_init("::IceGrid::BoxedString");
-
-const ::IceInternal::DefaultValueFactoryInit<::IceGrid::BoxedDistributionDescriptor> iceC_IceGrid_BoxedDistributionDescriptor_init("::IceGrid::BoxedDistributionDescriptor");
-
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultValueFactoryInit<::IceGrid::CommunicatorDescriptor> iceC_IceGrid_CommunicatorDescriptor_init("::IceGrid::CommunicatorDescriptor");
+    const ::IceInternal::DefaultValueFactoryInit<::IceGrid::ServerDescriptor> iceC_IceGrid_ServerDescriptor_init("::IceGrid::ServerDescriptor");
+    const ::IceInternal::DefaultValueFactoryInit<::IceGrid::ServiceDescriptor> iceC_IceGrid_ServiceDescriptor_init("::IceGrid::ServiceDescriptor");
+    const ::IceInternal::DefaultValueFactoryInit<::IceGrid::IceBoxDescriptor> iceC_IceGrid_IceBoxDescriptor_init("::IceGrid::IceBoxDescriptor");
+    const ::IceInternal::DefaultValueFactoryInit<::IceGrid::LoadBalancingPolicy> iceC_IceGrid_LoadBalancingPolicy_init("::IceGrid::LoadBalancingPolicy");
+    const ::IceInternal::DefaultValueFactoryInit<::IceGrid::RandomLoadBalancingPolicy> iceC_IceGrid_RandomLoadBalancingPolicy_init("::IceGrid::RandomLoadBalancingPolicy");
+    const ::IceInternal::DefaultValueFactoryInit<::IceGrid::OrderedLoadBalancingPolicy> iceC_IceGrid_OrderedLoadBalancingPolicy_init("::IceGrid::OrderedLoadBalancingPolicy");
+    const ::IceInternal::DefaultValueFactoryInit<::IceGrid::RoundRobinLoadBalancingPolicy> iceC_IceGrid_RoundRobinLoadBalancingPolicy_init("::IceGrid::RoundRobinLoadBalancingPolicy");
+    const ::IceInternal::DefaultValueFactoryInit<::IceGrid::AdaptiveLoadBalancingPolicy> iceC_IceGrid_AdaptiveLoadBalancingPolicy_init("::IceGrid::AdaptiveLoadBalancingPolicy");
+    const ::IceInternal::DefaultValueFactoryInit<::IceGrid::BoxedString> iceC_IceGrid_BoxedString_init("::IceGrid::BoxedString");
+    const ::IceInternal::DefaultValueFactoryInit<::IceGrid::BoxedDistributionDescriptor> iceC_IceGrid_BoxedDistributionDescriptor_init("::IceGrid::BoxedDistributionDescriptor");
 }
 
 ::std::string

@@ -15,8 +15,9 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -34,17 +35,12 @@
 
 namespace
 {
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::BaseException> iceC_Test_BaseException_init("::Test::BaseException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::InvalidPointException> iceC_Test_InvalidPointException_init("::Test::InvalidPointException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::InvalidLengthException> iceC_Test_InvalidLengthException_init("::Test::InvalidLengthException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::OtherException> iceC_Test_OtherException_init("::Test::OtherException");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::Pen> iceC_Test_Pen_init("::Test::Pen");
-
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::BaseException> iceC_Test_BaseException_init("::Test::BaseException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::InvalidPointException> iceC_Test_InvalidPointException_init("::Test::InvalidPointException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::InvalidLengthException> iceC_Test_InvalidLengthException_init("::Test::InvalidLengthException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::OtherException> iceC_Test_OtherException_init("::Test::OtherException");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::Pen> iceC_Test_Pen_init("::Test::Pen");
 }
 
 ::std::string_view

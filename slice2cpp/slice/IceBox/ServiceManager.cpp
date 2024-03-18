@@ -18,8 +18,9 @@
 #endif
 #define ICE_BUILDING_GENERATED_CODE
 #include <ServiceManager.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -37,13 +38,10 @@
 
 namespace
 {
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IceBox::AlreadyStartedException> iceC_IceBox_AlreadyStartedException_init("::IceBox::AlreadyStartedException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IceBox::AlreadyStoppedException> iceC_IceBox_AlreadyStoppedException_init("::IceBox::AlreadyStoppedException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IceBox::NoSuchServiceException> iceC_IceBox_NoSuchServiceException_init("::IceBox::NoSuchServiceException");
-
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceBox::AlreadyStartedException> iceC_IceBox_AlreadyStartedException_init("::IceBox::AlreadyStartedException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceBox::AlreadyStoppedException> iceC_IceBox_AlreadyStoppedException_init("::IceBox::AlreadyStoppedException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceBox::NoSuchServiceException> iceC_IceBox_NoSuchServiceException_init("::IceBox::NoSuchServiceException");
 }
 
 void

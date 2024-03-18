@@ -15,8 +15,9 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Namespace.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -34,15 +35,11 @@
 
 namespace
 {
-
-const ::IceInternal::DefaultValueFactoryInit<::WithNamespace::C1> iceC_WithNamespace_C1_init("::WithNamespace::C1");
-
-const ::IceInternal::DefaultValueFactoryInit<::WithNamespace::C2> iceC_WithNamespace_C2_init("::WithNamespace::C2");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::WithNamespace::E1> iceC_WithNamespace_E1_init("::WithNamespace::E1");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::WithNamespace::E2> iceC_WithNamespace_E2_init("::WithNamespace::E2");
-
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultValueFactoryInit<::WithNamespace::C1> iceC_WithNamespace_C1_init("::WithNamespace::C1");
+    const ::IceInternal::DefaultValueFactoryInit<::WithNamespace::C2> iceC_WithNamespace_C2_init("::WithNamespace::C2");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::WithNamespace::E1> iceC_WithNamespace_E1_init("::WithNamespace::E1");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::WithNamespace::E2> iceC_WithNamespace_E2_init("::WithNamespace::E2");
 }
 
 ::std::string

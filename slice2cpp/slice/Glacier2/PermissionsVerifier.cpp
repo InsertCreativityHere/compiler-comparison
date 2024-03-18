@@ -18,8 +18,9 @@
 #endif
 #define ICE_BUILDING_GENERATED_CODE
 #include <PermissionsVerifier.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -37,9 +38,8 @@
 
 namespace
 {
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Glacier2::PermissionDeniedException> iceC_Glacier2_PermissionDeniedException_init("::Glacier2::PermissionDeniedException");
-
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Glacier2::PermissionDeniedException> iceC_Glacier2_PermissionDeniedException_init("::Glacier2::PermissionDeniedException");
 }
 
 bool

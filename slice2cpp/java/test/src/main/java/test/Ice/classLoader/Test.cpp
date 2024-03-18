@@ -15,8 +15,9 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -34,11 +35,9 @@
 
 namespace
 {
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::ConcreteClass> iceC_Test_ConcreteClass_init("::Test::ConcreteClass");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::E> iceC_Test_E_init("::Test::E");
-
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultValueFactoryInit<::Test::ConcreteClass> iceC_Test_ConcreteClass_init("::Test::ConcreteClass");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::E> iceC_Test_E_init("::Test::E");
 }
 
 ::std::shared_ptr<::Test::ConcreteClass>

@@ -15,8 +15,9 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Election.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -34,9 +35,8 @@
 
 namespace
 {
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IceStormElection::ObserverInconsistencyException> iceC_IceStormElection_ObserverInconsistencyException_init("::IceStormElection::ObserverInconsistencyException");
-
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceStormElection::ObserverInconsistencyException> iceC_IceStormElection_ObserverInconsistencyException_init("::IceStormElection::ObserverInconsistencyException");
 }
 
 void

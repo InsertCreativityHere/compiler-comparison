@@ -15,8 +15,9 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <ServerPrivateAMD.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -34,25 +35,16 @@
 
 namespace
 {
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::SBSUnknownDerived> iceC_Test_SBSUnknownDerived_init("::Test::SBSUnknownDerived");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::SUnknown> iceC_Test_SUnknown_init("::Test::SUnknown");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::D2> iceC_Test_D2_init("::Test::D2");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::D4> iceC_Test_D4_init("::Test::D4");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::UnknownDerivedException> iceC_Test_UnknownDerivedException_init("::Test::UnknownDerivedException");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::MyClass> iceC_Test_MyClass_init("::Test::MyClass");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::PSUnknown> iceC_Test_PSUnknown_init("::Test::PSUnknown");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::PSUnknown2> iceC_Test_PSUnknown2_init("::Test::PSUnknown2");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::PSUnknownException> iceC_Test_PSUnknownException_init("::Test::PSUnknownException");
-
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultValueFactoryInit<::Test::SBSUnknownDerived> iceC_Test_SBSUnknownDerived_init("::Test::SBSUnknownDerived");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::SUnknown> iceC_Test_SUnknown_init("::Test::SUnknown");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::D2> iceC_Test_D2_init("::Test::D2");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::D4> iceC_Test_D4_init("::Test::D4");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::UnknownDerivedException> iceC_Test_UnknownDerivedException_init("::Test::UnknownDerivedException");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::MyClass> iceC_Test_MyClass_init("::Test::MyClass");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::PSUnknown> iceC_Test_PSUnknown_init("::Test::PSUnknown");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::PSUnknown2> iceC_Test_PSUnknown2_init("::Test::PSUnknown2");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::PSUnknownException> iceC_Test_PSUnknownException_init("::Test::PSUnknownException");
 }
 
 ::std::string

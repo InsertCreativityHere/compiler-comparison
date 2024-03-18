@@ -18,8 +18,9 @@
 #endif
 #define ICE_BUILDING_GENERATED_CODE
 #include <RemoteLogger.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -37,9 +38,8 @@
 
 namespace
 {
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Ice::RemoteLoggerAlreadyAttachedException> iceC_Ice_RemoteLoggerAlreadyAttachedException_init("::Ice::RemoteLoggerAlreadyAttachedException");
-
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Ice::RemoteLoggerAlreadyAttachedException> iceC_Ice_RemoteLoggerAlreadyAttachedException_init("::Ice::RemoteLoggerAlreadyAttachedException");
 }
 
 void

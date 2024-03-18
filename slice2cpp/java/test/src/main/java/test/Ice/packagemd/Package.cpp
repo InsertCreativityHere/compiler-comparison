@@ -15,8 +15,9 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Package.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -34,23 +35,15 @@
 
 namespace
 {
-
-const ::IceInternal::DefaultValueFactoryInit<::Test2::C1> iceC_Test2_C1_init("::Test2::C1");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test2::C2> iceC_Test2_C2_init("::Test2::C2");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test2::E1> iceC_Test2_E1_init("::Test2::E1");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test2::E2> iceC_Test2_E2_init("::Test2::E2");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test3::C1> iceC_Test3_C1_init("::Test3::C1");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test3::C2> iceC_Test3_C2_init("::Test3::C2");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test3::E1> iceC_Test3_E1_init("::Test3::E1");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test3::E2> iceC_Test3_E2_init("::Test3::E2");
-
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultValueFactoryInit<::Test2::C1> iceC_Test2_C1_init("::Test2::C1");
+    const ::IceInternal::DefaultValueFactoryInit<::Test2::C2> iceC_Test2_C2_init("::Test2::C2");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test2::E1> iceC_Test2_E1_init("::Test2::E1");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test2::E2> iceC_Test2_E2_init("::Test2::E2");
+    const ::IceInternal::DefaultValueFactoryInit<::Test3::C1> iceC_Test3_C1_init("::Test3::C1");
+    const ::IceInternal::DefaultValueFactoryInit<::Test3::C2> iceC_Test3_C2_init("::Test3::C2");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test3::E1> iceC_Test3_E1_init("::Test3::E1");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test3::E2> iceC_Test3_E2_init("::Test3::E2");
 }
 
 ::std::string

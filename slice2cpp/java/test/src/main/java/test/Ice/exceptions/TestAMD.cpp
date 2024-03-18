@@ -15,8 +15,9 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <TestAMD.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -34,15 +35,11 @@
 
 namespace
 {
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::A> iceC_Test_A_init("::Test::A");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::B> iceC_Test_B_init("::Test::B");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::C> iceC_Test_C_init("::Test::C");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::D> iceC_Test_D_init("::Test::D");
-
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::A> iceC_Test_A_init("::Test::A");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::B> iceC_Test_B_init("::Test::B");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::C> iceC_Test_C_init("::Test::C");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::D> iceC_Test_D_init("::Test::D");
 }
 
 void

@@ -15,8 +15,9 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -34,11 +35,9 @@
 
 namespace
 {
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::SomeException> iceC_Test_SomeException_init("::Test::SomeException");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::MyClass1> iceC_Test_MyClass1_init("::Test::MyClass1");
-
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::SomeException> iceC_Test_SomeException_init("::Test::SomeException");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::MyClass1> iceC_Test_MyClass1_init("::Test::MyClass1");
 }
 
 void

@@ -15,8 +15,9 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -31,11 +32,6 @@
 #       error Ice version mismatch: an exact match is required for beta generated code
 #   endif
 #endif
-
-namespace
-{
-
-}
 
 ::Ice::PropertyDict
 Test::TestFacetPrx::getChanges(const ::Ice::Context& context) const

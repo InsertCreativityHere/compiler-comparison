@@ -15,8 +15,9 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <LocalTest.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -34,27 +35,17 @@
 
 namespace
 {
-
-const ::IceInternal::DefaultValueFactoryInit<::LocalTest::C1> iceC_LocalTest_C1_init("::LocalTest::C1");
-
-const ::IceInternal::DefaultValueFactoryInit<::LocalTest::CB1> iceC_LocalTest_CB1_init("::LocalTest::CB1");
-
-const ::IceInternal::DefaultValueFactoryInit<::LocalTest::CB2> iceC_LocalTest_CB2_init("::LocalTest::CB2");
-
-const ::IceInternal::DefaultValueFactoryInit<::LocalTest::CB3> iceC_LocalTest_CB3_init("::LocalTest::CB3");
-
-const ::IceInternal::DefaultValueFactoryInit<::LocalTest::CB4> iceC_LocalTest_CB4_init("::LocalTest::CB4");
-
-const ::IceInternal::DefaultValueFactoryInit<::LocalTest::CB5> iceC_LocalTest_CB5_init("::LocalTest::CB5");
-
-const ::IceInternal::DefaultValueFactoryInit<::LocalTest::CB6> iceC_LocalTest_CB6_init("::LocalTest::CB6");
-
-const ::IceInternal::DefaultValueFactoryInit<::LocalTest::CB7> iceC_LocalTest_CB7_init("::LocalTest::CB7");
-
-const ::IceInternal::DefaultValueFactoryInit<::LocalTest::CB8> iceC_LocalTest_CB8_init("::LocalTest::CB8");
-
-const ::IceInternal::DefaultValueFactoryInit<::LocalTest::Opt> iceC_LocalTest_Opt_init("::LocalTest::Opt");
-
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultValueFactoryInit<::LocalTest::C1> iceC_LocalTest_C1_init("::LocalTest::C1");
+    const ::IceInternal::DefaultValueFactoryInit<::LocalTest::CB1> iceC_LocalTest_CB1_init("::LocalTest::CB1");
+    const ::IceInternal::DefaultValueFactoryInit<::LocalTest::CB2> iceC_LocalTest_CB2_init("::LocalTest::CB2");
+    const ::IceInternal::DefaultValueFactoryInit<::LocalTest::CB3> iceC_LocalTest_CB3_init("::LocalTest::CB3");
+    const ::IceInternal::DefaultValueFactoryInit<::LocalTest::CB4> iceC_LocalTest_CB4_init("::LocalTest::CB4");
+    const ::IceInternal::DefaultValueFactoryInit<::LocalTest::CB5> iceC_LocalTest_CB5_init("::LocalTest::CB5");
+    const ::IceInternal::DefaultValueFactoryInit<::LocalTest::CB6> iceC_LocalTest_CB6_init("::LocalTest::CB6");
+    const ::IceInternal::DefaultValueFactoryInit<::LocalTest::CB7> iceC_LocalTest_CB7_init("::LocalTest::CB7");
+    const ::IceInternal::DefaultValueFactoryInit<::LocalTest::CB8> iceC_LocalTest_CB8_init("::LocalTest::CB8");
+    const ::IceInternal::DefaultValueFactoryInit<::LocalTest::Opt> iceC_LocalTest_Opt_init("::LocalTest::Opt");
 }
 
 ::std::string

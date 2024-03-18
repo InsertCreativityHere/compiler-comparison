@@ -15,8 +15,9 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Internal.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -34,29 +35,18 @@
 
 namespace
 {
-
-const ::IceInternal::DefaultValueFactoryInit<::IceGrid::InternalDbEnvDescriptor> iceC_IceGrid_InternalDbEnvDescriptor_init("::IceGrid::InternalDbEnvDescriptor");
-
-const ::IceInternal::DefaultValueFactoryInit<::IceGrid::InternalAdapterDescriptor> iceC_IceGrid_InternalAdapterDescriptor_init("::IceGrid::InternalAdapterDescriptor");
-
-const ::IceInternal::DefaultValueFactoryInit<::IceGrid::InternalDistributionDescriptor> iceC_IceGrid_InternalDistributionDescriptor_init("::IceGrid::InternalDistributionDescriptor");
-
-const ::IceInternal::DefaultValueFactoryInit<::IceGrid::InternalServerDescriptor> iceC_IceGrid_InternalServerDescriptor_init("::IceGrid::InternalServerDescriptor");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::AdapterActiveException> iceC_IceGrid_AdapterActiveException_init("::IceGrid::AdapterActiveException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::AdapterNotActiveException> iceC_IceGrid_AdapterNotActiveException_init("::IceGrid::AdapterNotActiveException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::AdapterExistsException> iceC_IceGrid_AdapterExistsException_init("::IceGrid::AdapterExistsException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::NodeActiveException> iceC_IceGrid_NodeActiveException_init("::IceGrid::NodeActiveException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::ReplicaActiveException> iceC_IceGrid_ReplicaActiveException_init("::IceGrid::ReplicaActiveException");
-
-const ::IceInternal::DefaultValueFactoryInit<::IceGrid::InternalNodeInfo> iceC_IceGrid_InternalNodeInfo_init("::IceGrid::InternalNodeInfo");
-
-const ::IceInternal::DefaultValueFactoryInit<::IceGrid::InternalReplicaInfo> iceC_IceGrid_InternalReplicaInfo_init("::IceGrid::InternalReplicaInfo");
-
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultValueFactoryInit<::IceGrid::InternalDbEnvDescriptor> iceC_IceGrid_InternalDbEnvDescriptor_init("::IceGrid::InternalDbEnvDescriptor");
+    const ::IceInternal::DefaultValueFactoryInit<::IceGrid::InternalAdapterDescriptor> iceC_IceGrid_InternalAdapterDescriptor_init("::IceGrid::InternalAdapterDescriptor");
+    const ::IceInternal::DefaultValueFactoryInit<::IceGrid::InternalDistributionDescriptor> iceC_IceGrid_InternalDistributionDescriptor_init("::IceGrid::InternalDistributionDescriptor");
+    const ::IceInternal::DefaultValueFactoryInit<::IceGrid::InternalServerDescriptor> iceC_IceGrid_InternalServerDescriptor_init("::IceGrid::InternalServerDescriptor");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::AdapterActiveException> iceC_IceGrid_AdapterActiveException_init("::IceGrid::AdapterActiveException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::AdapterNotActiveException> iceC_IceGrid_AdapterNotActiveException_init("::IceGrid::AdapterNotActiveException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::AdapterExistsException> iceC_IceGrid_AdapterExistsException_init("::IceGrid::AdapterExistsException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::NodeActiveException> iceC_IceGrid_NodeActiveException_init("::IceGrid::NodeActiveException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::ReplicaActiveException> iceC_IceGrid_ReplicaActiveException_init("::IceGrid::ReplicaActiveException");
+    const ::IceInternal::DefaultValueFactoryInit<::IceGrid::InternalNodeInfo> iceC_IceGrid_InternalNodeInfo_init("::IceGrid::InternalNodeInfo");
+    const ::IceInternal::DefaultValueFactoryInit<::IceGrid::InternalReplicaInfo> iceC_IceGrid_InternalReplicaInfo_init("::IceGrid::InternalReplicaInfo");
 }
 
 ::std::optional<::Ice::ObjectPrx>
@@ -1698,11 +1688,11 @@ IceGrid::ReplicaSessionPrx::_iceI_setAdapterDirectProxy(const ::std::shared_ptr<
             {
                 ex.ice_throw();
             }
-            catch(const AdapterNotExistException&)
+            catch(const AdapterExistsException&)
             {
                 throw;
             }
-            catch(const AdapterExistsException&)
+            catch(const AdapterNotExistException&)
             {
                 throw;
             }

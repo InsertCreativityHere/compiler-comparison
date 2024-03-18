@@ -15,8 +15,9 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Key.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -34,13 +35,10 @@
 
 namespace
 {
-
-const ::IceInternal::DefaultValueFactoryInit<::_cpp_and::_cpp_for> iceC_and_for_init("::and::for");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::_cpp_and::is> iceC_and_is_init("::and::is");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::_cpp_and::_cpp_not> iceC_and_not_init("::and::not");
-
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultValueFactoryInit<::_cpp_and::_cpp_for> iceC_and_for_init("::and::for");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::_cpp_and::is> iceC_and_is_init("::and::is");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::_cpp_and::_cpp_not> iceC_and_not_init("::and::not");
 }
 
 void

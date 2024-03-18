@@ -22,6 +22,10 @@
 #include <Ice/ObjectF.h>
 #include <Ice/ProxyF.h>
 #include <Ice/ValueF.h>
+#include <cstdint>
+#include <optional>
+#include <string>
+#include <vector>
 
 #ifndef ICE_IGNORE_VERSION
 #   if ICE_INT_VERSION  != 30850

@@ -15,8 +15,9 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -34,39 +35,23 @@
 
 namespace
 {
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::OneOptional> iceC_Test_OneOptional_init("::Test::OneOptional");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::MultiOptional> iceC_Test_MultiOptional_init("::Test::MultiOptional");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::A> iceC_Test_A_init("::Test::A");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::B> iceC_Test_B_init("::Test::B");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::C> iceC_Test_C_init("::Test::C");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::WD> iceC_Test_WD_init("::Test::WD");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::OptionalException> iceC_Test_OptionalException_init("::Test::OptionalException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::DerivedException> iceC_Test_DerivedException_init("::Test::DerivedException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::RequiredException> iceC_Test_RequiredException_init("::Test::RequiredException");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::OptionalWithCustom> iceC_Test_OptionalWithCustom_init("::Test::OptionalWithCustom");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::E> iceC_Test_E_init("::Test::E");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::F> iceC_Test_F_init("::Test::F");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::G1> iceC_Test_G1_init("::Test::G1");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::G2> iceC_Test_G2_init("::Test::G2");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::G> iceC_Test_G_init("::Test::G");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::Recursive> iceC_Test_Recursive_init("::Test::Recursive");
-
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultValueFactoryInit<::Test::OneOptional> iceC_Test_OneOptional_init("::Test::OneOptional");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::MultiOptional> iceC_Test_MultiOptional_init("::Test::MultiOptional");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::A> iceC_Test_A_init("::Test::A");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::B> iceC_Test_B_init("::Test::B");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::C> iceC_Test_C_init("::Test::C");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::WD> iceC_Test_WD_init("::Test::WD");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::OptionalException> iceC_Test_OptionalException_init("::Test::OptionalException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::DerivedException> iceC_Test_DerivedException_init("::Test::DerivedException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::RequiredException> iceC_Test_RequiredException_init("::Test::RequiredException");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::OptionalWithCustom> iceC_Test_OptionalWithCustom_init("::Test::OptionalWithCustom");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::E> iceC_Test_E_init("::Test::E");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::F> iceC_Test_F_init("::Test::F");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::G1> iceC_Test_G1_init("::Test::G1");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::G2> iceC_Test_G2_init("::Test::G2");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::G> iceC_Test_G_init("::Test::G");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::Recursive> iceC_Test_Recursive_init("::Test::Recursive");
 }
 
 void

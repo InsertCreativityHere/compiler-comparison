@@ -18,8 +18,9 @@
 #endif
 #define ICE_BUILDING_GENERATED_CODE
 #include <Exception.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -37,49 +38,28 @@
 
 namespace
 {
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::ApplicationNotExistException> iceC_IceGrid_ApplicationNotExistException_init("::IceGrid::ApplicationNotExistException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::ServerNotExistException> iceC_IceGrid_ServerNotExistException_init("::IceGrid::ServerNotExistException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::ServerStartException> iceC_IceGrid_ServerStartException_init("::IceGrid::ServerStartException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::ServerStopException> iceC_IceGrid_ServerStopException_init("::IceGrid::ServerStopException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::AdapterNotExistException> iceC_IceGrid_AdapterNotExistException_init("::IceGrid::AdapterNotExistException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::ObjectExistsException> iceC_IceGrid_ObjectExistsException_init("::IceGrid::ObjectExistsException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::ObjectNotRegisteredException> iceC_IceGrid_ObjectNotRegisteredException_init("::IceGrid::ObjectNotRegisteredException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::NodeNotExistException> iceC_IceGrid_NodeNotExistException_init("::IceGrid::NodeNotExistException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::RegistryNotExistException> iceC_IceGrid_RegistryNotExistException_init("::IceGrid::RegistryNotExistException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::DeploymentException> iceC_IceGrid_DeploymentException_init("::IceGrid::DeploymentException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::NodeUnreachableException> iceC_IceGrid_NodeUnreachableException_init("::IceGrid::NodeUnreachableException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::ServerUnreachableException> iceC_IceGrid_ServerUnreachableException_init("::IceGrid::ServerUnreachableException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::RegistryUnreachableException> iceC_IceGrid_RegistryUnreachableException_init("::IceGrid::RegistryUnreachableException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::BadSignalException> iceC_IceGrid_BadSignalException_init("::IceGrid::BadSignalException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::PatchException> iceC_IceGrid_PatchException_init("::IceGrid::PatchException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::AccessDeniedException> iceC_IceGrid_AccessDeniedException_init("::IceGrid::AccessDeniedException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::AllocationException> iceC_IceGrid_AllocationException_init("::IceGrid::AllocationException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::AllocationTimeoutException> iceC_IceGrid_AllocationTimeoutException_init("::IceGrid::AllocationTimeoutException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::PermissionDeniedException> iceC_IceGrid_PermissionDeniedException_init("::IceGrid::PermissionDeniedException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::ObserverAlreadyRegisteredException> iceC_IceGrid_ObserverAlreadyRegisteredException_init("::IceGrid::ObserverAlreadyRegisteredException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::FileNotAvailableException> iceC_IceGrid_FileNotAvailableException_init("::IceGrid::FileNotAvailableException");
-
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::ApplicationNotExistException> iceC_IceGrid_ApplicationNotExistException_init("::IceGrid::ApplicationNotExistException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::ServerNotExistException> iceC_IceGrid_ServerNotExistException_init("::IceGrid::ServerNotExistException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::ServerStartException> iceC_IceGrid_ServerStartException_init("::IceGrid::ServerStartException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::ServerStopException> iceC_IceGrid_ServerStopException_init("::IceGrid::ServerStopException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::AdapterNotExistException> iceC_IceGrid_AdapterNotExistException_init("::IceGrid::AdapterNotExistException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::ObjectExistsException> iceC_IceGrid_ObjectExistsException_init("::IceGrid::ObjectExistsException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::ObjectNotRegisteredException> iceC_IceGrid_ObjectNotRegisteredException_init("::IceGrid::ObjectNotRegisteredException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::NodeNotExistException> iceC_IceGrid_NodeNotExistException_init("::IceGrid::NodeNotExistException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::RegistryNotExistException> iceC_IceGrid_RegistryNotExistException_init("::IceGrid::RegistryNotExistException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::DeploymentException> iceC_IceGrid_DeploymentException_init("::IceGrid::DeploymentException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::NodeUnreachableException> iceC_IceGrid_NodeUnreachableException_init("::IceGrid::NodeUnreachableException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::ServerUnreachableException> iceC_IceGrid_ServerUnreachableException_init("::IceGrid::ServerUnreachableException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::RegistryUnreachableException> iceC_IceGrid_RegistryUnreachableException_init("::IceGrid::RegistryUnreachableException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::BadSignalException> iceC_IceGrid_BadSignalException_init("::IceGrid::BadSignalException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::PatchException> iceC_IceGrid_PatchException_init("::IceGrid::PatchException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::AccessDeniedException> iceC_IceGrid_AccessDeniedException_init("::IceGrid::AccessDeniedException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::AllocationException> iceC_IceGrid_AllocationException_init("::IceGrid::AllocationException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::AllocationTimeoutException> iceC_IceGrid_AllocationTimeoutException_init("::IceGrid::AllocationTimeoutException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::PermissionDeniedException> iceC_IceGrid_PermissionDeniedException_init("::IceGrid::PermissionDeniedException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::ObserverAlreadyRegisteredException> iceC_IceGrid_ObserverAlreadyRegisteredException_init("::IceGrid::ObserverAlreadyRegisteredException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::FileNotAvailableException> iceC_IceGrid_FileNotAvailableException_init("::IceGrid::FileNotAvailableException");
 }
 
 ::std::string_view

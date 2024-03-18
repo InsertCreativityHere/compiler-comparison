@@ -18,8 +18,9 @@
 #endif
 #define ICE_BUILDING_GENERATED_CODE
 #include <FileServer.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -37,13 +38,10 @@
 
 namespace
 {
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IcePatch2::PartitionOutOfRangeException> iceC_IcePatch2_PartitionOutOfRangeException_init("::IcePatch2::PartitionOutOfRangeException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IcePatch2::FileAccessException> iceC_IcePatch2_FileAccessException_init("::IcePatch2::FileAccessException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IcePatch2::FileSizeRangeException> iceC_IcePatch2_FileSizeRangeException_init("::IcePatch2::FileSizeRangeException");
-
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IcePatch2::PartitionOutOfRangeException> iceC_IcePatch2_PartitionOutOfRangeException_init("::IcePatch2::PartitionOutOfRangeException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IcePatch2::FileAccessException> iceC_IcePatch2_FileAccessException_init("::IcePatch2::FileAccessException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IcePatch2::FileSizeRangeException> iceC_IcePatch2_FileSizeRangeException_init("::IcePatch2::FileSizeRangeException");
 }
 
 ::IcePatch2::LargeFileInfoSeq

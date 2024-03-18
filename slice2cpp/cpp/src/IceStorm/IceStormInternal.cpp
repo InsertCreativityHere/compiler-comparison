@@ -15,8 +15,9 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <IceStormInternal.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -34,9 +35,8 @@
 
 namespace
 {
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IceStorm::ReapWouldBlock> iceC_IceStorm_ReapWouldBlock_init("::IceStorm::ReapWouldBlock");
-
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceStorm::ReapWouldBlock> iceC_IceStorm_ReapWouldBlock_init("::IceStorm::ReapWouldBlock");
 }
 
 void

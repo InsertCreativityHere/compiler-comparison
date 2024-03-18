@@ -15,8 +15,9 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -34,59 +35,34 @@
 
 namespace
 {
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::Base> iceC_Test_Base_init("::Test::Base");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::A> iceC_Test_A_init("::Test::A");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::B> iceC_Test_B_init("::Test::B");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::C> iceC_Test_C_init("::Test::C");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::D> iceC_Test_D_init("::Test::D");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::E> iceC_Test_E_init("::Test::E");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::F> iceC_Test_F_init("::Test::F");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::G> iceC_Test_G_init("::Test::G");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::Compact> iceC_Test_Compact_init("::Test::Compact");
-const ::IceInternal::CompactIdInit iceC_Test_Compact_compactIdInit ("::Test::Compact", 1);
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::CompactExt> iceC_Test_CompactExt_init("::Test::CompactExt");
-const ::IceInternal::CompactIdInit iceC_Test_CompactExt_compactIdInit ("::Test::CompactExt", 789);
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::A1> iceC_Test_A1_init("::Test::A1");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::B1> iceC_Test_B1_init("::Test::B1");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::D1> iceC_Test_D1_init("::Test::D1");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::EBase> iceC_Test_EBase_init("::Test::EBase");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::EDerived> iceC_Test_EDerived_init("::Test::EDerived");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::Recursive> iceC_Test_Recursive_init("::Test::Recursive");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::K> iceC_Test_K_init("::Test::K");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::L> iceC_Test_L_init("::Test::L");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::F3> iceC_Test_F3_init("::Test::F3");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::Empty> iceC_Test_Empty_init("::Test::Empty");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::AlsoEmpty> iceC_Test_AlsoEmpty_init("::Test::AlsoEmpty");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::COneMember> iceC_Test_COneMember_init("::Test::COneMember");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::CTwoMembers> iceC_Test_CTwoMembers_init("::Test::CTwoMembers");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::EOneMember> iceC_Test_EOneMember_init("::Test::EOneMember");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::ETwoMembers> iceC_Test_ETwoMembers_init("::Test::ETwoMembers");
-
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultValueFactoryInit<::Test::Base> iceC_Test_Base_init("::Test::Base");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::A> iceC_Test_A_init("::Test::A");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::B> iceC_Test_B_init("::Test::B");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::C> iceC_Test_C_init("::Test::C");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::D> iceC_Test_D_init("::Test::D");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::E> iceC_Test_E_init("::Test::E");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::F> iceC_Test_F_init("::Test::F");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::G> iceC_Test_G_init("::Test::G");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::Compact> iceC_Test_Compact_init("::Test::Compact");
+    const ::IceInternal::CompactIdInit iceC_Test_Compact_compactIdInit ("::Test::Compact", 1);
+    const ::IceInternal::DefaultValueFactoryInit<::Test::CompactExt> iceC_Test_CompactExt_init("::Test::CompactExt");
+    const ::IceInternal::CompactIdInit iceC_Test_CompactExt_compactIdInit ("::Test::CompactExt", 789);
+    const ::IceInternal::DefaultValueFactoryInit<::Test::A1> iceC_Test_A1_init("::Test::A1");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::B1> iceC_Test_B1_init("::Test::B1");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::D1> iceC_Test_D1_init("::Test::D1");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::EBase> iceC_Test_EBase_init("::Test::EBase");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::EDerived> iceC_Test_EDerived_init("::Test::EDerived");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::Recursive> iceC_Test_Recursive_init("::Test::Recursive");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::K> iceC_Test_K_init("::Test::K");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::L> iceC_Test_L_init("::Test::L");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::F3> iceC_Test_F3_init("::Test::F3");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::Empty> iceC_Test_Empty_init("::Test::Empty");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::AlsoEmpty> iceC_Test_AlsoEmpty_init("::Test::AlsoEmpty");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::COneMember> iceC_Test_COneMember_init("::Test::COneMember");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::CTwoMembers> iceC_Test_CTwoMembers_init("::Test::CTwoMembers");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::EOneMember> iceC_Test_EOneMember_init("::Test::EOneMember");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::ETwoMembers> iceC_Test_ETwoMembers_init("::Test::ETwoMembers");
 }
 
 ::std::string_view

@@ -15,8 +15,9 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -34,55 +35,31 @@
 
 namespace
 {
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::MC::A> iceC_Test_MC_A_init("::Test::MC::A");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::MC::B> iceC_Test_MC_B_init("::Test::MC::B");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::MC::C> iceC_Test_MC_C_init("::Test::MC::C");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::MC::D> iceC_Test_MC_D_init("::Test::MC::D");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::MD::A> iceC_Test_MD_A_init("::Test::MD::A");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::MD::B> iceC_Test_MD_B_init("::Test::MD::B");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::MD::C> iceC_Test_MD_C_init("::Test::MD::C");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::MD::D> iceC_Test_MD_D_init("::Test::MD::D");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::ME::A> iceC_Test_ME_A_init("::Test::ME::A");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::ME::B> iceC_Test_ME_B_init("::Test::ME::B");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::ME::C> iceC_Test_ME_C_init("::Test::ME::C");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::ME::D> iceC_Test_ME_D_init("::Test::ME::D");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::MF::A> iceC_Test_MF_A_init("::Test::MF::A");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::MF::B> iceC_Test_MF_B_init("::Test::MF::B");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::MF::C> iceC_Test_MF_C_init("::Test::MF::C");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::MF::D> iceC_Test_MF_D_init("::Test::MF::D");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::MG::A> iceC_Test_MG_A_init("::Test::MG::A");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::MG::B> iceC_Test_MG_B_init("::Test::MG::B");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::MG::C> iceC_Test_MG_C_init("::Test::MG::C");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::MG::D> iceC_Test_MG_D_init("::Test::MG::D");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::MH::A> iceC_Test_MH_A_init("::Test::MH::A");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::MH::B> iceC_Test_MH_B_init("::Test::MH::B");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::MH::C> iceC_Test_MH_C_init("::Test::MH::C");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::MH::D> iceC_Test_MH_D_init("::Test::MH::D");
-
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultValueFactoryInit<::Test::MC::A> iceC_Test_MC_A_init("::Test::MC::A");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::MC::B> iceC_Test_MC_B_init("::Test::MC::B");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::MC::C> iceC_Test_MC_C_init("::Test::MC::C");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::MC::D> iceC_Test_MC_D_init("::Test::MC::D");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::MD::A> iceC_Test_MD_A_init("::Test::MD::A");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::MD::B> iceC_Test_MD_B_init("::Test::MD::B");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::MD::C> iceC_Test_MD_C_init("::Test::MD::C");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::MD::D> iceC_Test_MD_D_init("::Test::MD::D");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::ME::A> iceC_Test_ME_A_init("::Test::ME::A");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::ME::B> iceC_Test_ME_B_init("::Test::ME::B");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::ME::C> iceC_Test_ME_C_init("::Test::ME::C");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::ME::D> iceC_Test_ME_D_init("::Test::ME::D");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::MF::A> iceC_Test_MF_A_init("::Test::MF::A");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::MF::B> iceC_Test_MF_B_init("::Test::MF::B");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::MF::C> iceC_Test_MF_C_init("::Test::MF::C");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::MF::D> iceC_Test_MF_D_init("::Test::MF::D");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::MG::A> iceC_Test_MG_A_init("::Test::MG::A");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::MG::B> iceC_Test_MG_B_init("::Test::MG::B");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::MG::C> iceC_Test_MG_C_init("::Test::MG::C");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::MG::D> iceC_Test_MG_D_init("::Test::MG::D");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::MH::A> iceC_Test_MH_A_init("::Test::MH::A");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::MH::B> iceC_Test_MH_B_init("::Test::MH::B");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::MH::C> iceC_Test_MH_C_init("::Test::MH::C");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::MH::D> iceC_Test_MH_D_init("::Test::MH::D");
 }
 
 ::std::optional<::Test::MA::IAPrx>

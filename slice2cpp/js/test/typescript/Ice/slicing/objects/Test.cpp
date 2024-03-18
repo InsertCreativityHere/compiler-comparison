@@ -15,8 +15,9 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -34,53 +35,31 @@
 
 namespace
 {
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::SBase> iceC_Test_SBase_init("::Test::SBase");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::SBSKnownDerived> iceC_Test_SBSKnownDerived_init("::Test::SBSKnownDerived");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::B> iceC_Test_B_init("::Test::B");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::D1> iceC_Test_D1_init("::Test::D1");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::SS1> iceC_Test_SS1_init("::Test::SS1");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::SS2> iceC_Test_SS2_init("::Test::SS2");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::BaseException> iceC_Test_BaseException_init("::Test::BaseException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::DerivedException> iceC_Test_DerivedException_init("::Test::DerivedException");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::PBase> iceC_Test_PBase_init("::Test::PBase");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::Preserved> iceC_Test_Preserved_init("::Test::Preserved");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::PDerived> iceC_Test_PDerived_init("::Test::PDerived");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::CompactPDerived> iceC_Test_CompactPDerived_init("::Test::CompactPDerived");
-const ::IceInternal::CompactIdInit iceC_Test_CompactPDerived_compactIdInit ("::Test::CompactPDerived", 56);
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::PNode> iceC_Test_PNode_init("::Test::PNode");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::PreservedException> iceC_Test_PreservedException_init("::Test::PreservedException");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::D3> iceC_Test_D3_init("::Test::D3");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::PCUnknown> iceC_Test_PCUnknown_init("::Test::PCUnknown");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::PCDerived> iceC_Test_PCDerived_init("::Test::PCDerived");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::PCDerived2> iceC_Test_PCDerived2_init("::Test::PCDerived2");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::PCDerived3> iceC_Test_PCDerived3_init("::Test::PCDerived3");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::CompactPCDerived> iceC_Test_CompactPCDerived_init("::Test::CompactPCDerived");
-const ::IceInternal::CompactIdInit iceC_Test_CompactPCDerived_compactIdInit ("::Test::CompactPCDerived", 57);
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::Hidden> iceC_Test_Hidden_init("::Test::Hidden");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::Forward> iceC_Test_Forward_init("::Test::Forward");
-
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultValueFactoryInit<::Test::SBase> iceC_Test_SBase_init("::Test::SBase");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::SBSKnownDerived> iceC_Test_SBSKnownDerived_init("::Test::SBSKnownDerived");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::B> iceC_Test_B_init("::Test::B");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::D1> iceC_Test_D1_init("::Test::D1");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::SS1> iceC_Test_SS1_init("::Test::SS1");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::SS2> iceC_Test_SS2_init("::Test::SS2");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::BaseException> iceC_Test_BaseException_init("::Test::BaseException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::DerivedException> iceC_Test_DerivedException_init("::Test::DerivedException");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::PBase> iceC_Test_PBase_init("::Test::PBase");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::Preserved> iceC_Test_Preserved_init("::Test::Preserved");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::PDerived> iceC_Test_PDerived_init("::Test::PDerived");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::CompactPDerived> iceC_Test_CompactPDerived_init("::Test::CompactPDerived");
+    const ::IceInternal::CompactIdInit iceC_Test_CompactPDerived_compactIdInit ("::Test::CompactPDerived", 56);
+    const ::IceInternal::DefaultValueFactoryInit<::Test::PNode> iceC_Test_PNode_init("::Test::PNode");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::PreservedException> iceC_Test_PreservedException_init("::Test::PreservedException");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::D3> iceC_Test_D3_init("::Test::D3");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::PCUnknown> iceC_Test_PCUnknown_init("::Test::PCUnknown");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::PCDerived> iceC_Test_PCDerived_init("::Test::PCDerived");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::PCDerived2> iceC_Test_PCDerived2_init("::Test::PCDerived2");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::PCDerived3> iceC_Test_PCDerived3_init("::Test::PCDerived3");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::CompactPCDerived> iceC_Test_CompactPCDerived_init("::Test::CompactPCDerived");
+    const ::IceInternal::CompactIdInit iceC_Test_CompactPCDerived_compactIdInit ("::Test::CompactPCDerived", 57);
+    const ::IceInternal::DefaultValueFactoryInit<::Test::Hidden> iceC_Test_Hidden_init("::Test::Hidden");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::Forward> iceC_Test_Forward_init("::Test::Forward");
 }
 
 ::std::shared_ptr<::Ice::Value>

@@ -15,8 +15,9 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Key.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -34,17 +35,12 @@
 
 namespace
 {
-
-const ::IceInternal::DefaultValueFactoryInit<::await::_cpp_delete> iceC_await_delete_init("::await::delete");
-
-const ::IceInternal::DefaultValueFactoryInit<::await::package> iceC_await_package_init("::await::package");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::await::fixed> iceC_await_fixed_init("::await::fixed");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::await::foreach> iceC_await_foreach_init("::await::foreach");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::await::BaseMethods> iceC_await_BaseMethods_init("::await::BaseMethods");
-
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultValueFactoryInit<::await::_cpp_delete> iceC_await_delete_init("::await::delete");
+    const ::IceInternal::DefaultValueFactoryInit<::await::package> iceC_await_package_init("::await::package");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::await::fixed> iceC_await_fixed_init("::await::fixed");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::await::foreach> iceC_await_foreach_init("::await::foreach");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::await::BaseMethods> iceC_await_BaseMethods_init("::await::BaseMethods");
 }
 
 void

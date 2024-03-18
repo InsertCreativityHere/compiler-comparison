@@ -15,8 +15,9 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Key.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -34,17 +35,12 @@
 
 namespace
 {
-
-const ::IceInternal::DefaultValueFactoryInit<::abstract::delegate> iceC_abstract_delegate_init("::abstract::delegate");
-
-const ::IceInternal::DefaultValueFactoryInit<::abstract::optionalMembers> iceC_abstract_optionalMembers_init("::abstract::optionalMembers");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::abstract::fixed> iceC_abstract_fixed_init("::abstract::fixed");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::abstract::foreach> iceC_abstract_foreach_init("::abstract::foreach");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::abstract::BaseMethods> iceC_abstract_BaseMethods_init("::abstract::BaseMethods");
-
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultValueFactoryInit<::abstract::delegate> iceC_abstract_delegate_init("::abstract::delegate");
+    const ::IceInternal::DefaultValueFactoryInit<::abstract::optionalMembers> iceC_abstract_optionalMembers_init("::abstract::optionalMembers");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::abstract::fixed> iceC_abstract_fixed_init("::abstract::fixed");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::abstract::foreach> iceC_abstract_foreach_init("::abstract::foreach");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::abstract::BaseMethods> iceC_abstract_BaseMethods_init("::abstract::BaseMethods");
 }
 
 void

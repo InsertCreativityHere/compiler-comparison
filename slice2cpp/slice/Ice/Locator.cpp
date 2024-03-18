@@ -19,8 +19,9 @@
 #define ICE_BUILDING_GENERATED_CODE
 #include <Locator.h>
 #include <Ice/Process.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -38,17 +39,12 @@
 
 namespace
 {
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Ice::AdapterNotFoundException> iceC_Ice_AdapterNotFoundException_init("::Ice::AdapterNotFoundException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Ice::InvalidReplicaGroupIdException> iceC_Ice_InvalidReplicaGroupIdException_init("::Ice::InvalidReplicaGroupIdException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Ice::AdapterAlreadyActiveException> iceC_Ice_AdapterAlreadyActiveException_init("::Ice::AdapterAlreadyActiveException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Ice::ObjectNotFoundException> iceC_Ice_ObjectNotFoundException_init("::Ice::ObjectNotFoundException");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Ice::ServerNotFoundException> iceC_Ice_ServerNotFoundException_init("::Ice::ServerNotFoundException");
-
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Ice::AdapterNotFoundException> iceC_Ice_AdapterNotFoundException_init("::Ice::AdapterNotFoundException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Ice::InvalidReplicaGroupIdException> iceC_Ice_InvalidReplicaGroupIdException_init("::Ice::InvalidReplicaGroupIdException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Ice::AdapterAlreadyActiveException> iceC_Ice_AdapterAlreadyActiveException_init("::Ice::AdapterAlreadyActiveException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Ice::ObjectNotFoundException> iceC_Ice_ObjectNotFoundException_init("::Ice::ObjectNotFoundException");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Ice::ServerNotFoundException> iceC_Ice_ServerNotFoundException_init("::Ice::ServerNotFoundException");
 }
 
 ::std::optional<::Ice::ObjectPrx>

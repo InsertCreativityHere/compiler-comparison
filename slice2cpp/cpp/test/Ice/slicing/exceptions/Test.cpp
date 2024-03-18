@@ -15,8 +15,9 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -34,15 +35,11 @@
 
 namespace
 {
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::Base> iceC_Test_Base_init("::Test::Base");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::KnownDerived> iceC_Test_KnownDerived_init("::Test::KnownDerived");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::KnownIntermediate> iceC_Test_KnownIntermediate_init("::Test::KnownIntermediate");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::KnownMostDerived> iceC_Test_KnownMostDerived_init("::Test::KnownMostDerived");
-
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::Base> iceC_Test_Base_init("::Test::Base");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::KnownDerived> iceC_Test_KnownDerived_init("::Test::KnownDerived");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::KnownIntermediate> iceC_Test_KnownIntermediate_init("::Test::KnownIntermediate");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::KnownMostDerived> iceC_Test_KnownMostDerived_init("::Test::KnownMostDerived");
 }
 
 void

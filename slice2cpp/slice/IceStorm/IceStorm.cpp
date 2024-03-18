@@ -18,8 +18,9 @@
 #endif
 #define ICE_BUILDING_GENERATED_CODE
 #include <IceStorm.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -37,21 +38,14 @@
 
 namespace
 {
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IceStorm::LinkExists> iceC_IceStorm_LinkExists_init("::IceStorm::LinkExists");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IceStorm::NoSuchLink> iceC_IceStorm_NoSuchLink_init("::IceStorm::NoSuchLink");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IceStorm::AlreadySubscribed> iceC_IceStorm_AlreadySubscribed_init("::IceStorm::AlreadySubscribed");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IceStorm::InvalidSubscriber> iceC_IceStorm_InvalidSubscriber_init("::IceStorm::InvalidSubscriber");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IceStorm::BadQoS> iceC_IceStorm_BadQoS_init("::IceStorm::BadQoS");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IceStorm::TopicExists> iceC_IceStorm_TopicExists_init("::IceStorm::TopicExists");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::IceStorm::NoSuchTopic> iceC_IceStorm_NoSuchTopic_init("::IceStorm::NoSuchTopic");
-
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceStorm::LinkExists> iceC_IceStorm_LinkExists_init("::IceStorm::LinkExists");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceStorm::NoSuchLink> iceC_IceStorm_NoSuchLink_init("::IceStorm::NoSuchLink");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceStorm::AlreadySubscribed> iceC_IceStorm_AlreadySubscribed_init("::IceStorm::AlreadySubscribed");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceStorm::InvalidSubscriber> iceC_IceStorm_InvalidSubscriber_init("::IceStorm::InvalidSubscriber");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceStorm::BadQoS> iceC_IceStorm_BadQoS_init("::IceStorm::BadQoS");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceStorm::TopicExists> iceC_IceStorm_TopicExists_init("::IceStorm::TopicExists");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceStorm::NoSuchTopic> iceC_IceStorm_NoSuchTopic_init("::IceStorm::NoSuchTopic");
 }
 
 ::std::string

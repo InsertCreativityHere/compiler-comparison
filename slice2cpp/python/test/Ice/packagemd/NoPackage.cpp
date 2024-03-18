@@ -15,8 +15,9 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <NoPackage.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -34,17 +35,12 @@
 
 namespace
 {
-
-const ::IceInternal::DefaultValueFactoryInit<::Test1::C1> iceC_Test1_C1_init("::Test1::C1");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test1::C2> iceC_Test1_C2_init("::Test1::C2");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test1::E1> iceC_Test1_E1_init("::Test1::E1");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test1::E2> iceC_Test1_E2_init("::Test1::E2");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::Test1::def> iceC_Test1_def_init("::Test1::def");
-
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultValueFactoryInit<::Test1::C1> iceC_Test1_C1_init("::Test1::C1");
+    const ::IceInternal::DefaultValueFactoryInit<::Test1::C2> iceC_Test1_C2_init("::Test1::C2");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test1::E1> iceC_Test1_E1_init("::Test1::E1");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test1::E2> iceC_Test1_E2_init("::Test1::E2");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::Test1::def> iceC_Test1_def_init("::Test1::def");
 }
 
 ::std::string

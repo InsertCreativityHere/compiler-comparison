@@ -15,8 +15,9 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -34,19 +35,13 @@
 
 namespace
 {
-
-const ::IceInternal::DefaultValueFactoryInit<::classdef::_cpp_break::logical> iceC_classdef_break_logical_init("::classdef::break::logical");
-
-const ::IceInternal::DefaultValueFactoryInit<::classdef::_cpp_break::_cpp_xor> iceC_classdef_break_xor_init("::classdef::break::xor");
-
-const ::IceInternal::DefaultValueFactoryInit<::classdef::_cpp_break::_cpp_try> iceC_classdef_break_try_init("::classdef::break::try");
-
-const ::IceInternal::DefaultValueFactoryInit<::classdef::_cpp_break::properties> iceC_classdef_break_properties_init("::classdef::break::properties");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::classdef::_cpp_break::persistent> iceC_classdef_break_persistent_init("::classdef::break::persistent");
-
-const ::IceInternal::DefaultUserExceptionFactoryInit<::classdef::_cpp_break::global> iceC_classdef_break_global_init("::classdef::break::global");
-
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultValueFactoryInit<::classdef::_cpp_break::logical> iceC_classdef_break_logical_init("::classdef::break::logical");
+    const ::IceInternal::DefaultValueFactoryInit<::classdef::_cpp_break::_cpp_xor> iceC_classdef_break_xor_init("::classdef::break::xor");
+    const ::IceInternal::DefaultValueFactoryInit<::classdef::_cpp_break::_cpp_try> iceC_classdef_break_try_init("::classdef::break::try");
+    const ::IceInternal::DefaultValueFactoryInit<::classdef::_cpp_break::properties> iceC_classdef_break_properties_init("::classdef::break::properties");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::classdef::_cpp_break::persistent> iceC_classdef_break_persistent_init("::classdef::break::persistent");
+    const ::IceInternal::DefaultUserExceptionFactoryInit<::classdef::_cpp_break::global> iceC_classdef_break_global_init("::classdef::break::global");
 }
 
 void

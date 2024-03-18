@@ -15,8 +15,9 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -34,17 +35,12 @@
 
 namespace
 {
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::C> iceC_Test_C_init("::Test::C");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::C1> iceC_Test_C1_init("::Test::C1");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::C2> iceC_Test_C2_init("::Test::C2");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::Inner::Inner2::C> iceC_Test_Inner_Inner2_C_init("::Test::Inner::Inner2::C");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::Inner::C> iceC_Test_Inner_C_init("::Test::Inner::C");
-
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultValueFactoryInit<::Test::C> iceC_Test_C_init("::Test::C");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::C1> iceC_Test_C1_init("::Test::C1");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::C2> iceC_Test_C2_init("::Test::C2");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::Inner::Inner2::C> iceC_Test_Inner_Inner2_C_init("::Test::Inner::Inner2::C");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::Inner::C> iceC_Test_Inner_C_init("::Test::Inner::C");
 }
 
 ::Test::S

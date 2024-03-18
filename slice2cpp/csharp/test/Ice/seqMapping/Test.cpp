@@ -15,8 +15,9 @@
 
 #define ICE_BUILDING_GENERATED_CODE
 #include <Test.h>
-#include <Ice/OutgoingAsync.h>
 #include <Ice/AsyncResponseHandler.h>
+#include <Ice/FactoryTable.h>
+#include <Ice/OutgoingAsync.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member
@@ -34,11 +35,9 @@
 
 namespace
 {
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::CV> iceC_Test_CV_init("::Test::CV");
-
-const ::IceInternal::DefaultValueFactoryInit<::Test::CR> iceC_Test_CR_init("::Test::CR");
-
+    const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
+    const ::IceInternal::DefaultValueFactoryInit<::Test::CV> iceC_Test_CV_init("::Test::CV");
+    const ::IceInternal::DefaultValueFactoryInit<::Test::CR> iceC_Test_CR_init("::Test::CR");
 }
 
 ::std::string_view
