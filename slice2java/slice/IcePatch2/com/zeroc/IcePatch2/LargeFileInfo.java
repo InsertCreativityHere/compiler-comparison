@@ -188,5 +188,5 @@ public class LargeFileInfo implements java.lang.Cloneable,
     private static final LargeFileInfo _nullMarshalValue = new LargeFileInfo();
 
     /** @hidden */
-    public static final long serialVersionUID = -6681837672062102726L;
+    public static final long serialVersionUID = 5918404855401606458L;
 }

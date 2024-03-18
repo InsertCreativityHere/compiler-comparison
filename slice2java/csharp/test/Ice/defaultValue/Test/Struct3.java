@@ -367,5 +367,5 @@ public class Struct3 implements java.lang.Cloneable,
     private static final Struct3 _nullMarshalValue = new Struct3();
 
     /** @hidden */
-    public static final long serialVersionUID = 9073803447182183577L;
+    public static final long serialVersionUID = -3126677154461634980L;
 }
