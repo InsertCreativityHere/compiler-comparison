@@ -230,64 +230,64 @@ class TestIntfPrx : public ::Ice::Proxy<TestIntfPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    DoubleSeq opDoubleArray(const ::std::pair<const double*, const double*>& inSeq, DoubleSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    DoubleSeq opDoubleArray(::std::pair<const double*, const double*> inSeq, DoubleSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<DoubleSeq, DoubleSeq>> opDoubleArrayAsync(const ::std::pair<const double*, const double*>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::function<void()>
-    opDoubleArrayAsync(const ::std::pair<const double*, const double*>& inSeq, ::std::function<void(::std::pair<const double*, const double*>, ::std::pair<const double*, const double*>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opDoubleArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<DoubleSeq, DoubleSeq>>>&, const ::std::pair<const double*, const double*>&, const ::Ice::Context&) const;
-    /// \endcond
-
-    /// \cond INTERNAL
-    void _iceIL_opDoubleArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::pair<const double*, const double*>, ::std::pair<const double*, const double*>>>>&, const ::std::pair<const double*, const double*>&, const ::Ice::Context&) const;
-    /// \endcond
-
-    BoolSeq opBoolArray(const ::std::pair<const bool*, const bool*>& inSeq, BoolSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::future<::std::tuple<BoolSeq, BoolSeq>> opBoolArrayAsync(const ::std::pair<const bool*, const bool*>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<DoubleSeq, DoubleSeq>> opDoubleArrayAsync(::std::pair<const double*, const double*> inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opBoolArrayAsync(const ::std::pair<const bool*, const bool*>& inSeq, ::std::function<void(::std::pair<const bool*, const bool*>, ::std::pair<const bool*, const bool*>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opDoubleArrayAsync(::std::pair<const double*, const double*> inSeq, ::std::function<void(::std::pair<const double*, const double*>, ::std::pair<const double*, const double*>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opBoolArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<BoolSeq, BoolSeq>>>&, const ::std::pair<const bool*, const bool*>&, const ::Ice::Context&) const;
+    void _iceI_opDoubleArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<DoubleSeq, DoubleSeq>>>&, ::std::pair<const double*, const double*>, const ::Ice::Context&) const;
     /// \endcond
 
     /// \cond INTERNAL
-    void _iceIL_opBoolArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::pair<const bool*, const bool*>, ::std::pair<const bool*, const bool*>>>>&, const ::std::pair<const bool*, const bool*>&, const ::Ice::Context&) const;
+    void _iceIL_opDoubleArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::pair<const double*, const double*>, ::std::pair<const double*, const double*>>>>&, ::std::pair<const double*, const double*>, const ::Ice::Context&) const;
     /// \endcond
 
-    ByteList opByteArray(const ::std::pair<const std::byte*, const std::byte*>& inSeq, ByteList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    BoolSeq opBoolArray(::std::pair<const bool*, const bool*> inSeq, BoolSeq& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<ByteList, ByteList>> opByteArrayAsync(const ::std::pair<const std::byte*, const std::byte*>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<BoolSeq, BoolSeq>> opBoolArrayAsync(::std::pair<const bool*, const bool*> inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opByteArrayAsync(const ::std::pair<const std::byte*, const std::byte*>& inSeq, ::std::function<void(::std::pair<const std::byte*, const std::byte*>, ::std::pair<const std::byte*, const std::byte*>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opBoolArrayAsync(::std::pair<const bool*, const bool*> inSeq, ::std::function<void(::std::pair<const bool*, const bool*>, ::std::pair<const bool*, const bool*>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opByteArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ByteList, ByteList>>>&, const ::std::pair<const std::byte*, const std::byte*>&, const ::Ice::Context&) const;
+    void _iceI_opBoolArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<BoolSeq, BoolSeq>>>&, ::std::pair<const bool*, const bool*>, const ::Ice::Context&) const;
     /// \endcond
 
     /// \cond INTERNAL
-    void _iceIL_opByteArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::pair<const std::byte*, const std::byte*>, ::std::pair<const std::byte*, const std::byte*>>>>&, const ::std::pair<const std::byte*, const std::byte*>&, const ::Ice::Context&) const;
+    void _iceIL_opBoolArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::pair<const bool*, const bool*>, ::std::pair<const bool*, const bool*>>>>&, ::std::pair<const bool*, const bool*>, const ::Ice::Context&) const;
     /// \endcond
 
-    VariableList opVariableArray(const ::std::pair<const Variable*, const Variable*>& inSeq, VariableList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ByteList opByteArray(::std::pair<const std::byte*, const std::byte*> inSeq, ByteList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<VariableList, VariableList>> opVariableArrayAsync(const ::std::pair<const Variable*, const Variable*>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<ByteList, ByteList>> opByteArrayAsync(::std::pair<const std::byte*, const std::byte*> inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opVariableArrayAsync(const ::std::pair<const Variable*, const Variable*>& inSeq, ::std::function<void(::std::pair<const ::Test::Variable*, const ::Test::Variable*>, ::std::pair<const ::Test::Variable*, const ::Test::Variable*>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opByteArrayAsync(::std::pair<const std::byte*, const std::byte*> inSeq, ::std::function<void(::std::pair<const std::byte*, const std::byte*>, ::std::pair<const std::byte*, const std::byte*>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opVariableArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<VariableList, VariableList>>>&, const ::std::pair<const Variable*, const Variable*>&, const ::Ice::Context&) const;
+    void _iceI_opByteArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<ByteList, ByteList>>>&, ::std::pair<const std::byte*, const std::byte*>, const ::Ice::Context&) const;
     /// \endcond
 
     /// \cond INTERNAL
-    void _iceIL_opVariableArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::pair<const Variable*, const Variable*>, ::std::pair<const Variable*, const Variable*>>>>&, const ::std::pair<const Variable*, const Variable*>&, const ::Ice::Context&) const;
+    void _iceIL_opByteArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::pair<const std::byte*, const std::byte*>, ::std::pair<const std::byte*, const std::byte*>>>>&, ::std::pair<const std::byte*, const std::byte*>, const ::Ice::Context&) const;
+    /// \endcond
+
+    VariableList opVariableArray(::std::pair<const Variable*, const Variable*> inSeq, VariableList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    ::std::future<::std::tuple<VariableList, VariableList>> opVariableArrayAsync(::std::pair<const Variable*, const Variable*> inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    ::std::function<void()>
+    opVariableArrayAsync(::std::pair<const Variable*, const Variable*> inSeq, ::std::function<void(::std::pair<const ::Test::Variable*, const ::Test::Variable*>, ::std::pair<const ::Test::Variable*, const ::Test::Variable*>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    /// \cond INTERNAL
+    void _iceI_opVariableArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<VariableList, VariableList>>>&, ::std::pair<const Variable*, const Variable*>, const ::Ice::Context&) const;
+    /// \endcond
+
+    /// \cond INTERNAL
+    void _iceIL_opVariableArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::pair<const Variable*, const Variable*>, ::std::pair<const Variable*, const Variable*>>>>&, ::std::pair<const Variable*, const Variable*>, const ::Ice::Context&) const;
     /// \endcond
 
     std::deque<bool> opBoolSeq(const std::deque<bool>& inSeq, std::deque<bool>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -323,19 +323,19 @@ public:
     void _iceI_opBoolDequeList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<BoolDequeList, BoolDequeList>>>&, const BoolDequeList&, const ::Ice::Context&) const;
     /// \endcond
 
-    BoolDequeList opBoolDequeListArray(const ::std::pair<const std::deque<bool>*, const std::deque<bool>*>& inSeq, BoolDequeList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    BoolDequeList opBoolDequeListArray(::std::pair<const std::deque<bool>*, const std::deque<bool>*> inSeq, BoolDequeList& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<BoolDequeList, BoolDequeList>> opBoolDequeListArrayAsync(const ::std::pair<const std::deque<bool>*, const std::deque<bool>*>& inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<BoolDequeList, BoolDequeList>> opBoolDequeListArrayAsync(::std::pair<const std::deque<bool>*, const std::deque<bool>*> inSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opBoolDequeListArrayAsync(const ::std::pair<const std::deque<bool>*, const std::deque<bool>*>& inSeq, ::std::function<void(::std::pair<const std::deque<bool>*, const std::deque<bool>*>, ::std::pair<const std::deque<bool>*, const std::deque<bool>*>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opBoolDequeListArrayAsync(::std::pair<const std::deque<bool>*, const std::deque<bool>*> inSeq, ::std::function<void(::std::pair<const std::deque<bool>*, const std::deque<bool>*>, ::std::pair<const std::deque<bool>*, const std::deque<bool>*>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opBoolDequeListArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<BoolDequeList, BoolDequeList>>>&, const ::std::pair<const std::deque<bool>*, const std::deque<bool>*>&, const ::Ice::Context&) const;
+    void _iceI_opBoolDequeListArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<BoolDequeList, BoolDequeList>>>&, ::std::pair<const std::deque<bool>*, const std::deque<bool>*>, const ::Ice::Context&) const;
     /// \endcond
 
     /// \cond INTERNAL
-    void _iceIL_opBoolDequeListArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::pair<const std::deque<bool>*, const std::deque<bool>*>, ::std::pair<const std::deque<bool>*, const std::deque<bool>*>>>>&, const ::std::pair<const std::deque<bool>*, const std::deque<bool>*>&, const ::Ice::Context&) const;
+    void _iceIL_opBoolDequeListArray(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::pair<const std::deque<bool>*, const std::deque<bool>*>, ::std::pair<const std::deque<bool>*, const std::deque<bool>*>>>>&, ::std::pair<const std::deque<bool>*, const std::deque<bool>*>, const ::Ice::Context&) const;
     /// \endcond
 
     std::deque<::std::byte> opByteSeq(const std::deque<::std::byte>& inSeq, std::deque<::std::byte>& outSeq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;

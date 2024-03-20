@@ -447,7 +447,7 @@ public:
      * @param current The Current object for the invocation.
      * @throws IcePatch2::FileAccessException If an error occurred while trying to read the file.
      */
-    virtual void getLargeFileCompressedAsync(::std::string path, ::std::int64_t pos, ::std::int32_t num, ::std::function<void(const ::std::pair<const std::byte*, const std::byte*>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) const = 0;
+    virtual void getLargeFileCompressedAsync(::std::string path, ::std::int64_t pos, ::std::int32_t num, ::std::function<void(::std::pair<const std::byte*, const std::byte*> returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) const = 0;
     /// \cond INTERNAL
     void _iceD_getLargeFileCompressed(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
     /// \endcond

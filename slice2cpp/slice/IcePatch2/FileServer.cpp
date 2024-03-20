@@ -411,7 +411,7 @@ IcePatch2::FileServer::_iceD_getLargeFileCompressed(::Ice::IncomingRequest& requ
     istr->readAll(iceP_path, iceP_pos, iceP_num);
     istr->endEncapsulation();
     auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
-    auto responseCb = [responseHandler](const ::std::pair<const std::byte*, const std::byte*>& ret)
+    auto responseCb = [responseHandler](::std::pair<const std::byte*, const std::byte*> ret)
     {
         responseHandler->sendResponse(
             [&](::Ice::OutputStream* ostr)
