@@ -13,12 +13,12 @@
 // </auto-generated>
 //
 
-package com.zeroc.IceMX;
+package com.zeroc.IceStorm.IceMX;
 
 /**
  * Provides information on IceStorm topics.
  **/
-public class TopicMetrics extends Metrics
+public class TopicMetrics extends com.zeroc.Ice.IceMX.Metrics
 {
     public TopicMetrics()
     {
@@ -61,7 +61,7 @@ public class TopicMetrics extends Metrics
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -1317954959686682719L;
+    public static final long serialVersionUID = -6793000222476932479L;
 
     /** @hidden */
     @Override

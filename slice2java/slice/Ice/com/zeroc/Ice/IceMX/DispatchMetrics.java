@@ -13,7 +13,7 @@
 // </auto-generated>
 //
 
-package com.zeroc.IceMX;
+package com.zeroc.Ice.IceMX;
 
 /**
  * Provides information on servant dispatch.
@@ -68,7 +68,7 @@ public class DispatchMetrics extends Metrics
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 4758505100690026588L;
+    public static final long serialVersionUID = 7222805927641638584L;
 
     /** @hidden */
     @Override

@@ -13,14 +13,14 @@
 // </auto-generated>
 //
 
-package com.zeroc.IceMX;
+package com.zeroc.Ice.IceMX;
 
 /**
- * Helper class for marshaling/unmarshaling MetricsMap.
+ * Helper class for marshaling/unmarshaling MetricsFailuresSeq.
  **/
-public final class MetricsMapHelper
+public final class MetricsFailuresSeqHelper
 {
-    public static void write(com.zeroc.Ice.OutputStream ostr, Metrics[] v)
+    public static void write(com.zeroc.Ice.OutputStream ostr, MetricsFailures[] v)
     {
         if(v == null)
         {
@@ -31,25 +31,24 @@ public final class MetricsMapHelper
             ostr.writeSize(v.length);
             for(int i0 = 0; i0 < v.length; i0++)
             {
-                ostr.writeValue(v[i0]);
+                MetricsFailures.ice_write(ostr, v[i0]);
             }
         }
     }
 
-    public static Metrics[] read(com.zeroc.Ice.InputStream istr)
+    public static MetricsFailures[] read(com.zeroc.Ice.InputStream istr)
     {
-        final Metrics[] v;
-        final int len0 = istr.readAndCheckSeqSize(1);
-        v = new Metrics[len0];
+        final MetricsFailures[] v;
+        final int len0 = istr.readAndCheckSeqSize(2);
+        v = new MetricsFailures[len0];
         for(int i0 = 0; i0 < len0; i0++)
         {
-            final int fi0 = i0;
-            istr.readValue(value -> v[fi0] = value, Metrics.class);
+            v[i0] = MetricsFailures.ice_read(istr);
         }
         return v;
     }
 
-    public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<Metrics[]> v)
+    public static void write(com.zeroc.Ice.OutputStream ostr, int tag, java.util.Optional<MetricsFailures[]> v)
     {
         if(v != null && v.isPresent())
         {
@@ -57,23 +56,23 @@ public final class MetricsMapHelper
         }
     }
 
-    public static void write(com.zeroc.Ice.OutputStream ostr, int tag, Metrics[] v)
+    public static void write(com.zeroc.Ice.OutputStream ostr, int tag, MetricsFailures[] v)
     {
         if(ostr.writeOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
         {
             int pos = ostr.startSize();
-            MetricsMapHelper.write(ostr, v);
+            MetricsFailuresSeqHelper.write(ostr, v);
             ostr.endSize(pos);
         }
     }
 
-    public static java.util.Optional<Metrics[]> read(com.zeroc.Ice.InputStream istr, int tag)
+    public static java.util.Optional<MetricsFailures[]> read(com.zeroc.Ice.InputStream istr, int tag)
     {
         if(istr.readOptional(tag, com.zeroc.Ice.OptionalFormat.FSize))
         {
             istr.skip(4);
-            Metrics[] v;
-            v = MetricsMapHelper.read(istr);
+            MetricsFailures[] v;
+            v = MetricsFailuresSeqHelper.read(istr);
             return java.util.Optional.of(v);
         }
         else

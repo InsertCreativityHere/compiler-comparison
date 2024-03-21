@@ -13,7 +13,7 @@
 // </auto-generated>
 //
 
-package com.zeroc.IceMX;
+package com.zeroc.Ice.IceMX;
 
 /**
  * A structure to keep track of failures associated with a given metrics.
@@ -165,5 +165,5 @@ public class MetricsFailures implements java.lang.Cloneable,
     private static final MetricsFailures _nullMarshalValue = new MetricsFailures();
 
     /** @hidden */
-    public static final long serialVersionUID = 298773706934998736L;
+    public static final long serialVersionUID = 4186504415637984878L;
 }

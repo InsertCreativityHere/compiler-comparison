@@ -13,7 +13,7 @@
 // </auto-generated>
 //
 
-package com.zeroc.IceMX;
+package com.zeroc.Ice.IceMX;
 
 /**
  * The base class for metrics. A metrics object represents a collection of measurements associated to a given a system.
@@ -82,7 +82,7 @@ public class Metrics extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -6631348265584354822L;
+    public static final long serialVersionUID = 973578016233263351L;
 
     /** @hidden */
     @Override

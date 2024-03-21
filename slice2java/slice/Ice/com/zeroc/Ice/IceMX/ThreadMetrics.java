@@ -13,7 +13,7 @@
 // </auto-generated>
 //
 
-package com.zeroc.IceMX;
+package com.zeroc.Ice.IceMX;
 
 /**
  * Provides information on the number of threads currently in use and their activity.
@@ -69,7 +69,7 @@ public class ThreadMetrics extends Metrics
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 5335734494726892890L;
+    public static final long serialVersionUID = -3157029481549357250L;
 
     /** @hidden */
     @Override

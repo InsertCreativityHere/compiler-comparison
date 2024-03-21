@@ -13,7 +13,7 @@
 // </auto-generated>
 //
 
-package com.zeroc.IceMX;
+package com.zeroc.IceStorm.IceMX;
 
 interface _Marker
 {

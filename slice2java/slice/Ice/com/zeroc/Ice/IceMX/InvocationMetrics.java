@@ -13,7 +13,7 @@
 // </auto-generated>
 //
 
-package com.zeroc.IceMX;
+package com.zeroc.Ice.IceMX;
 
 /**
  * Provide measurements for proxy invocations. Proxy invocations can either be sent over the wire or be collocated.
@@ -77,7 +77,7 @@ public class InvocationMetrics extends Metrics
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -8036809441717089713L;
+    public static final long serialVersionUID = -3654730873583744369L;
 
     /** @hidden */
     @Override

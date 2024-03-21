@@ -13,7 +13,7 @@
 // </auto-generated>
 //
 
-package com.zeroc.IceMX;
+package com.zeroc.Ice.IceMX;
 /**
  * Helper class for marshaling/unmarshaling MetricsView.
  **/
@@ -40,7 +40,7 @@ public final class MetricsViewHelper
     public static java.util.Map<java.lang.String, Metrics[]> read(com.zeroc.Ice.InputStream istr)
     {
         java.util.Map<java.lang.String, Metrics[]> v;
-        v = new java.util.HashMap<java.lang.String, com.zeroc.IceMX.Metrics[]>();
+        v = new java.util.HashMap<java.lang.String, com.zeroc.Ice.IceMX.Metrics[]>();
         int sz0 = istr.readSize();
         for(int i0 = 0; i0 < sz0; i0++)
         {

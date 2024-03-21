@@ -13,7 +13,7 @@
 // </auto-generated>
 //
 
-package com.zeroc.IceMX;
+package com.zeroc.Ice.IceMX;
 
 /** @hidden */
 public class _MetricsAdminPrxI extends com.zeroc.Ice._ObjectPrxI implements MetricsAdminPrx

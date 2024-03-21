@@ -13,7 +13,7 @@
 // </auto-generated>
 //
 
-package com.zeroc.IceMX;
+package com.zeroc.Ice.IceMX;
 
 /**
  * Provides information on the data sent and received over Ice connections.
@@ -61,7 +61,7 @@ public class ConnectionMetrics extends Metrics
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 3825995243362284695L;
+    public static final long serialVersionUID = 3324877688901572119L;
 
     /** @hidden */
     @Override

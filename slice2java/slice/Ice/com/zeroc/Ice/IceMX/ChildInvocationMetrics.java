@@ -13,7 +13,7 @@
 // </auto-generated>
 //
 
-package com.zeroc.IceMX;
+package com.zeroc.Ice.IceMX;
 
 /**
  * Provides information on child invocations. A child invocation is either remote (sent over an Ice connection) or
@@ -63,7 +63,7 @@ public class ChildInvocationMetrics extends Metrics
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -3272367383593251398L;
+    public static final long serialVersionUID = -2216940424842579014L;
 
     /** @hidden */
     @Override

@@ -13,12 +13,12 @@
 // </auto-generated>
 //
 
-package com.zeroc.IceMX;
+package com.zeroc.IceStorm.IceMX;
 
 /**
  * Provides information on IceStorm subscribers.
  **/
-public class SubscriberMetrics extends Metrics
+public class SubscriberMetrics extends com.zeroc.Ice.IceMX.Metrics
 {
     public SubscriberMetrics()
     {
@@ -68,7 +68,7 @@ public class SubscriberMetrics extends Metrics
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -1043955974960964321L;
+    public static final long serialVersionUID = 2892846819428743436L;
 
     /** @hidden */
     @Override

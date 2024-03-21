@@ -13,12 +13,12 @@
 // </auto-generated>
 //
 
-package com.zeroc.IceMX;
+package com.zeroc.Glacier2.IceMX;
 
 /**
  * Provides information on Glacier2 sessions.
  **/
-public class SessionMetrics extends Metrics
+public class SessionMetrics extends com.zeroc.Ice.IceMX.Metrics
 {
     public SessionMetrics()
     {
@@ -96,7 +96,7 @@ public class SessionMetrics extends Metrics
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 3206108346415655044L;
+    public static final long serialVersionUID = -5204021998853346206L;
 
     /** @hidden */
     @Override
