@@ -461,37 +461,37 @@ using UnexpectedObjectExceptionTestPtr = ::std::shared_ptr<UnexpectedObjectExcep
 namespace Ice
 {
 
-template<typename S>
-struct StreamReader<::Test::COneMember, S>
+template<>
+struct StreamReader<::Test::COneMember>
 {
-    static void read(S* istr, ::Test::COneMember& v)
+    static void read(InputStream* istr, ::Test::COneMember& v)
     {
         istr->readAll(v.e);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::CTwoMembers, S>
+template<>
+struct StreamReader<::Test::CTwoMembers>
 {
-    static void read(S* istr, ::Test::CTwoMembers& v)
+    static void read(InputStream* istr, ::Test::CTwoMembers& v)
     {
         istr->readAll(v.e1, v.e2);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::EOneMember, S>
+template<>
+struct StreamReader<::Test::EOneMember>
 {
-    static void read(S* istr, ::Test::EOneMember& v)
+    static void read(InputStream* istr, ::Test::EOneMember& v)
     {
         istr->readAll(v.e);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::ETwoMembers, S>
+template<>
+struct StreamReader<::Test::ETwoMembers>
 {
-    static void read(S* istr, ::Test::ETwoMembers& v)
+    static void read(InputStream* istr, ::Test::ETwoMembers& v)
     {
         istr->readAll(v.e1, v.e2);
     }
@@ -505,10 +505,10 @@ struct StreamableTraits<::Test::SOneMember>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::Test::SOneMember, S>
+template<>
+struct StreamReader<::Test::SOneMember>
 {
-    static void read(S* istr, ::Test::SOneMember& v)
+    static void read(InputStream* istr, ::Test::SOneMember& v)
     {
         istr->readAll(v.e);
     }
@@ -522,10 +522,10 @@ struct StreamableTraits<::Test::STwoMembers>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::Test::STwoMembers, S>
+template<>
+struct StreamReader<::Test::STwoMembers>
 {
-    static void read(S* istr, ::Test::STwoMembers& v)
+    static void read(InputStream* istr, ::Test::STwoMembers& v)
     {
         istr->readAll(v.e1, v.e2);
     }

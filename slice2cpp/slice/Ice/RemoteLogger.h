@@ -648,10 +648,10 @@ struct StreamableTraits<::Ice::LogMessage>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::Ice::LogMessage, S>
+template<>
+struct StreamReader<::Ice::LogMessage>
 {
-    static void read(S* istr, ::Ice::LogMessage& v)
+    static void read(InputStream* istr, ::Ice::LogMessage& v)
     {
         istr->readAll(v.type, v.timestamp, v.traceCategory, v.message);
     }

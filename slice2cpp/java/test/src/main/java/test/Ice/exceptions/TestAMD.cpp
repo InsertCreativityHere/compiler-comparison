@@ -819,7 +819,7 @@ void
 Test::A::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<A, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<A>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -827,7 +827,7 @@ void
 Test::A::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<A, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<A>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -854,7 +854,7 @@ void
 Test::B::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<B, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<B>::write(ostr, *this);
     ostr->endSlice();
     A::_writeImpl(ostr);
 }
@@ -863,7 +863,7 @@ void
 Test::B::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<B, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<B>::read(istr, *this);
     istr->endSlice();
     A::_readImpl(istr);
 }
@@ -891,7 +891,7 @@ void
 Test::C::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<C, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<C>::write(ostr, *this);
     ostr->endSlice();
     B::_writeImpl(ostr);
 }
@@ -900,7 +900,7 @@ void
 Test::C::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<C, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<C>::read(istr, *this);
     istr->endSlice();
     B::_readImpl(istr);
 }
@@ -928,7 +928,7 @@ void
 Test::D::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<D, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<D>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -936,7 +936,7 @@ void
 Test::D::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<D, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<D>::read(istr, *this);
     istr->endSlice();
 }
 

@@ -171,10 +171,10 @@ struct StreamableTraits<::Test::S1>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::Test::S1, S>
+template<>
+struct StreamReader<::Test::S1>
 {
-    static void read(S* istr, ::Test::S1& v)
+    static void read(InputStream* istr, ::Test::S1& v)
     {
         istr->readAll(v.name);
     }
@@ -188,19 +188,19 @@ struct StreamableTraits<::Test::S2>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::Test::S2, S>
+template<>
+struct StreamReader<::Test::S2>
 {
-    static void read(S* istr, ::Test::S2& v)
+    static void read(InputStream* istr, ::Test::S2& v)
     {
         istr->readAll(v.bo, v.by, v.sh, v.i, v.l, v.str, v.seq, v.s);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::C, S>
+template<>
+struct StreamReader<::Test::C>
 {
-    static void read(S* istr, ::Test::C& v)
+    static void read(InputStream* istr, ::Test::C& v)
     {
         istr->readAll(v.name);
     }
@@ -214,10 +214,10 @@ struct StreamableTraits<::Test::S3>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::Test::S3, S>
+template<>
+struct StreamReader<::Test::S3>
 {
-    static void read(S* istr, ::Test::S3& v)
+    static void read(InputStream* istr, ::Test::S3& v)
     {
         istr->readAll(v.obj, v.sd, v.prx);
     }

@@ -1105,10 +1105,10 @@ using MetricsAdminPtr = ::std::shared_ptr<MetricsAdmin>;
 namespace Ice
 {
 
-template<typename S>
-struct StreamReader<::IceMX::Metrics, S>
+template<>
+struct StreamReader<::IceMX::Metrics>
 {
-    static void read(S* istr, ::IceMX::Metrics& v)
+    static void read(InputStream* istr, ::IceMX::Metrics& v)
     {
         istr->readAll(v.id, v.total, v.current, v.totalLifetime, v.failures);
     }
@@ -1122,132 +1122,132 @@ struct StreamableTraits<::IceMX::MetricsFailures>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::IceMX::MetricsFailures, S>
+template<>
+struct StreamReader<::IceMX::MetricsFailures>
 {
-    static void read(S* istr, ::IceMX::MetricsFailures& v)
+    static void read(InputStream* istr, ::IceMX::MetricsFailures& v)
     {
         istr->readAll(v.id, v.failures);
     }
 };
 
-template<typename S>
-struct StreamWriter<::IceMX::ThreadMetrics, S>
+template<>
+struct StreamWriter<::IceMX::ThreadMetrics>
 {
-    static void write(S* ostr, const ::IceMX::ThreadMetrics& v)
+    static void write(OutputStream* ostr, const ::IceMX::ThreadMetrics& v)
     {
         ostr->writeAll(v.inUseForIO, v.inUseForUser, v.inUseForOther);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceMX::ThreadMetrics, S>
+template<>
+struct StreamReader<::IceMX::ThreadMetrics>
 {
-    static void read(S* istr, ::IceMX::ThreadMetrics& v)
+    static void read(InputStream* istr, ::IceMX::ThreadMetrics& v)
     {
         istr->readAll(v.inUseForIO, v.inUseForUser, v.inUseForOther);
     }
 };
 
-template<typename S>
-struct StreamWriter<::IceMX::DispatchMetrics, S>
+template<>
+struct StreamWriter<::IceMX::DispatchMetrics>
 {
-    static void write(S* ostr, const ::IceMX::DispatchMetrics& v)
+    static void write(OutputStream* ostr, const ::IceMX::DispatchMetrics& v)
     {
         ostr->writeAll(v.userException, v.size, v.replySize);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceMX::DispatchMetrics, S>
+template<>
+struct StreamReader<::IceMX::DispatchMetrics>
 {
-    static void read(S* istr, ::IceMX::DispatchMetrics& v)
+    static void read(InputStream* istr, ::IceMX::DispatchMetrics& v)
     {
         istr->readAll(v.userException, v.size, v.replySize);
     }
 };
 
-template<typename S>
-struct StreamWriter<::IceMX::ChildInvocationMetrics, S>
+template<>
+struct StreamWriter<::IceMX::ChildInvocationMetrics>
 {
-    static void write(S* ostr, const ::IceMX::ChildInvocationMetrics& v)
+    static void write(OutputStream* ostr, const ::IceMX::ChildInvocationMetrics& v)
     {
         ostr->writeAll(v.size, v.replySize);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceMX::ChildInvocationMetrics, S>
+template<>
+struct StreamReader<::IceMX::ChildInvocationMetrics>
 {
-    static void read(S* istr, ::IceMX::ChildInvocationMetrics& v)
+    static void read(InputStream* istr, ::IceMX::ChildInvocationMetrics& v)
     {
         istr->readAll(v.size, v.replySize);
     }
 };
 
-template<typename S>
-struct StreamWriter<::IceMX::CollocatedMetrics, S>
+template<>
+struct StreamWriter<::IceMX::CollocatedMetrics>
 {
-    static void write(S*, const ::IceMX::CollocatedMetrics&)
+    static void write(OutputStream*, const ::IceMX::CollocatedMetrics&)
     {
     }
 };
 
-template<typename S>
-struct StreamReader<::IceMX::CollocatedMetrics, S>
+template<>
+struct StreamReader<::IceMX::CollocatedMetrics>
 {
-    static void read(S*, ::IceMX::CollocatedMetrics&)
+    static void read(InputStream*, ::IceMX::CollocatedMetrics&)
     {
     }
 };
 
-template<typename S>
-struct StreamWriter<::IceMX::RemoteMetrics, S>
+template<>
+struct StreamWriter<::IceMX::RemoteMetrics>
 {
-    static void write(S*, const ::IceMX::RemoteMetrics&)
+    static void write(OutputStream*, const ::IceMX::RemoteMetrics&)
     {
     }
 };
 
-template<typename S>
-struct StreamReader<::IceMX::RemoteMetrics, S>
+template<>
+struct StreamReader<::IceMX::RemoteMetrics>
 {
-    static void read(S*, ::IceMX::RemoteMetrics&)
+    static void read(InputStream*, ::IceMX::RemoteMetrics&)
     {
     }
 };
 
-template<typename S>
-struct StreamWriter<::IceMX::InvocationMetrics, S>
+template<>
+struct StreamWriter<::IceMX::InvocationMetrics>
 {
-    static void write(S* ostr, const ::IceMX::InvocationMetrics& v)
+    static void write(OutputStream* ostr, const ::IceMX::InvocationMetrics& v)
     {
         ostr->writeAll(v.retry, v.userException, v.remotes, v.collocated);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceMX::InvocationMetrics, S>
+template<>
+struct StreamReader<::IceMX::InvocationMetrics>
 {
-    static void read(S* istr, ::IceMX::InvocationMetrics& v)
+    static void read(InputStream* istr, ::IceMX::InvocationMetrics& v)
     {
         istr->readAll(v.retry, v.userException, v.remotes, v.collocated);
     }
 };
 
-template<typename S>
-struct StreamWriter<::IceMX::ConnectionMetrics, S>
+template<>
+struct StreamWriter<::IceMX::ConnectionMetrics>
 {
-    static void write(S* ostr, const ::IceMX::ConnectionMetrics& v)
+    static void write(OutputStream* ostr, const ::IceMX::ConnectionMetrics& v)
     {
         ostr->writeAll(v.receivedBytes, v.sentBytes);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceMX::ConnectionMetrics, S>
+template<>
+struct StreamReader<::IceMX::ConnectionMetrics>
 {
-    static void read(S* istr, ::IceMX::ConnectionMetrics& v)
+    static void read(InputStream* istr, ::IceMX::ConnectionMetrics& v)
     {
         istr->readAll(v.receivedBytes, v.sentBytes);
     }

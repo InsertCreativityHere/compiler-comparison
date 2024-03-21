@@ -1040,10 +1040,10 @@ struct StreamableTraits<::Test::Fixed>
     static const bool fixedLength = true;
 };
 
-template<typename S>
-struct StreamReader<::Test::Fixed, S>
+template<>
+struct StreamReader<::Test::Fixed>
 {
-    static void read(S* istr, ::Test::Fixed& v)
+    static void read(InputStream* istr, ::Test::Fixed& v)
     {
         istr->readAll(v.s);
     }
@@ -1057,10 +1057,10 @@ struct StreamableTraits<::Test::Variable>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::Test::Variable, S>
+template<>
+struct StreamReader<::Test::Variable>
 {
-    static void read(S* istr, ::Test::Variable& v)
+    static void read(InputStream* istr, ::Test::Variable& v)
     {
         istr->readAll(v.s, v.bl, v.ss);
     }
@@ -1076,10 +1076,10 @@ struct StreamableTraits< ::Test::E>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::Test::DictClass, S>
+template<>
+struct StreamReader<::Test::DictClass>
 {
-    static void read(S* istr, ::Test::DictClass& v)
+    static void read(InputStream* istr, ::Test::DictClass& v)
     {
         istr->readAll(v.isdict);
     }
@@ -1093,10 +1093,10 @@ struct StreamableTraits<::Test::BufferStruct>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::Test::BufferStruct, S>
+template<>
+struct StreamReader<::Test::BufferStruct>
 {
-    static void read(S* istr, ::Test::BufferStruct& v)
+    static void read(InputStream* istr, ::Test::BufferStruct& v)
     {
         istr->readAll(v.byteBuf, v.boolBuf, v.shortBuf, v.intBuf, v.longBuf, v.floatBuf, v.doubleBuf);
     }

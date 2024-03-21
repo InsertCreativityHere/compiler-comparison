@@ -1089,64 +1089,64 @@ using ProcessControllerRegistryPtr = ::std::shared_ptr<ProcessControllerRegistry
 namespace Ice
 {
 
-template<typename S>
-struct StreamWriter<::Test::Common::Config, S>
+template<>
+struct StreamWriter<::Test::Common::Config>
 {
-    static void write(S* ostr, const ::Test::Common::Config& v)
+    static void write(OutputStream* ostr, const ::Test::Common::Config& v)
     {
         ostr->writeAll({1, 2, 3, 4, 5, 6, 7}, v.protocol, v.mx, v.serialize, v.compress, v.ipv6, v.cprops, v.sprops);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::Common::Config, S>
+template<>
+struct StreamReader<::Test::Common::Config>
 {
-    static void read(S* istr, ::Test::Common::Config& v)
+    static void read(InputStream* istr, ::Test::Common::Config& v)
     {
         istr->readAll({1, 2, 3, 4, 5, 6, 7}, v.protocol, v.mx, v.serialize, v.compress, v.ipv6, v.cprops, v.sprops);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::Common::OptionOverrides, S>
+template<>
+struct StreamWriter<::Test::Common::OptionOverrides>
 {
-    static void write(S* ostr, const ::Test::Common::OptionOverrides& v)
+    static void write(OutputStream* ostr, const ::Test::Common::OptionOverrides& v)
     {
         ostr->writeAll({1, 2, 3, 4, 5}, v.protocol, v.mx, v.serialize, v.compress, v.ipv6);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::Common::OptionOverrides, S>
+template<>
+struct StreamReader<::Test::Common::OptionOverrides>
 {
-    static void read(S* istr, ::Test::Common::OptionOverrides& v)
+    static void read(InputStream* istr, ::Test::Common::OptionOverrides& v)
     {
         istr->readAll({1, 2, 3, 4, 5}, v.protocol, v.mx, v.serialize, v.compress, v.ipv6);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::Common::TestCaseNotExistException, S>
+template<>
+struct StreamReader<::Test::Common::TestCaseNotExistException>
 {
-    static void read(S* istr, ::Test::Common::TestCaseNotExistException& v)
+    static void read(InputStream* istr, ::Test::Common::TestCaseNotExistException& v)
     {
         istr->readAll(v.reason);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::Common::TestCaseFailedException, S>
+template<>
+struct StreamReader<::Test::Common::TestCaseFailedException>
 {
-    static void read(S* istr, ::Test::Common::TestCaseFailedException& v)
+    static void read(InputStream* istr, ::Test::Common::TestCaseFailedException& v)
     {
         istr->readAll(v.output);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::Common::ProcessFailedException, S>
+template<>
+struct StreamReader<::Test::Common::ProcessFailedException>
 {
-    static void read(S* istr, ::Test::Common::ProcessFailedException& v)
+    static void read(InputStream* istr, ::Test::Common::ProcessFailedException& v)
     {
         istr->readAll(v.reason);
     }

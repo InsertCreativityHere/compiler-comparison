@@ -250,7 +250,7 @@ void
 Test::CallbackException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<CallbackException, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<CallbackException>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -258,7 +258,7 @@ void
 Test::CallbackException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<CallbackException, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<CallbackException>::read(istr, *this);
     istr->endSlice();
 }
 

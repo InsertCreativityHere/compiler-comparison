@@ -1090,197 +1090,197 @@ protected:
 namespace Ice
 {
 
-template<typename S>
-struct StreamReader<::IceGrid::ApplicationNotExistException, S>
+template<>
+struct StreamReader<::IceGrid::ApplicationNotExistException>
 {
-    static void read(S* istr, ::IceGrid::ApplicationNotExistException& v)
+    static void read(InputStream* istr, ::IceGrid::ApplicationNotExistException& v)
     {
         istr->readAll(v.name);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::ServerNotExistException, S>
+template<>
+struct StreamReader<::IceGrid::ServerNotExistException>
 {
-    static void read(S* istr, ::IceGrid::ServerNotExistException& v)
+    static void read(InputStream* istr, ::IceGrid::ServerNotExistException& v)
     {
         istr->readAll(v.id);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::ServerStartException, S>
+template<>
+struct StreamReader<::IceGrid::ServerStartException>
 {
-    static void read(S* istr, ::IceGrid::ServerStartException& v)
+    static void read(InputStream* istr, ::IceGrid::ServerStartException& v)
     {
         istr->readAll(v.id, v.reason);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::ServerStopException, S>
+template<>
+struct StreamReader<::IceGrid::ServerStopException>
 {
-    static void read(S* istr, ::IceGrid::ServerStopException& v)
+    static void read(InputStream* istr, ::IceGrid::ServerStopException& v)
     {
         istr->readAll(v.id, v.reason);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::AdapterNotExistException, S>
+template<>
+struct StreamReader<::IceGrid::AdapterNotExistException>
 {
-    static void read(S* istr, ::IceGrid::AdapterNotExistException& v)
+    static void read(InputStream* istr, ::IceGrid::AdapterNotExistException& v)
     {
         istr->readAll(v.id);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::ObjectExistsException, S>
+template<>
+struct StreamReader<::IceGrid::ObjectExistsException>
 {
-    static void read(S* istr, ::IceGrid::ObjectExistsException& v)
+    static void read(InputStream* istr, ::IceGrid::ObjectExistsException& v)
     {
         istr->readAll(v.id);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::ObjectNotRegisteredException, S>
+template<>
+struct StreamReader<::IceGrid::ObjectNotRegisteredException>
 {
-    static void read(S* istr, ::IceGrid::ObjectNotRegisteredException& v)
+    static void read(InputStream* istr, ::IceGrid::ObjectNotRegisteredException& v)
     {
         istr->readAll(v.id);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::NodeNotExistException, S>
+template<>
+struct StreamReader<::IceGrid::NodeNotExistException>
 {
-    static void read(S* istr, ::IceGrid::NodeNotExistException& v)
+    static void read(InputStream* istr, ::IceGrid::NodeNotExistException& v)
     {
         istr->readAll(v.name);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::RegistryNotExistException, S>
+template<>
+struct StreamReader<::IceGrid::RegistryNotExistException>
 {
-    static void read(S* istr, ::IceGrid::RegistryNotExistException& v)
+    static void read(InputStream* istr, ::IceGrid::RegistryNotExistException& v)
     {
         istr->readAll(v.name);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::DeploymentException, S>
+template<>
+struct StreamReader<::IceGrid::DeploymentException>
 {
-    static void read(S* istr, ::IceGrid::DeploymentException& v)
+    static void read(InputStream* istr, ::IceGrid::DeploymentException& v)
     {
         istr->readAll(v.reason);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::NodeUnreachableException, S>
+template<>
+struct StreamReader<::IceGrid::NodeUnreachableException>
 {
-    static void read(S* istr, ::IceGrid::NodeUnreachableException& v)
+    static void read(InputStream* istr, ::IceGrid::NodeUnreachableException& v)
     {
         istr->readAll(v.name, v.reason);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::ServerUnreachableException, S>
+template<>
+struct StreamReader<::IceGrid::ServerUnreachableException>
 {
-    static void read(S* istr, ::IceGrid::ServerUnreachableException& v)
+    static void read(InputStream* istr, ::IceGrid::ServerUnreachableException& v)
     {
         istr->readAll(v.name, v.reason);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::RegistryUnreachableException, S>
+template<>
+struct StreamReader<::IceGrid::RegistryUnreachableException>
 {
-    static void read(S* istr, ::IceGrid::RegistryUnreachableException& v)
+    static void read(InputStream* istr, ::IceGrid::RegistryUnreachableException& v)
     {
         istr->readAll(v.name, v.reason);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::BadSignalException, S>
+template<>
+struct StreamReader<::IceGrid::BadSignalException>
 {
-    static void read(S* istr, ::IceGrid::BadSignalException& v)
+    static void read(InputStream* istr, ::IceGrid::BadSignalException& v)
     {
         istr->readAll(v.reason);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::PatchException, S>
+template<>
+struct StreamReader<::IceGrid::PatchException>
 {
-    static void read(S* istr, ::IceGrid::PatchException& v)
+    static void read(InputStream* istr, ::IceGrid::PatchException& v)
     {
         istr->readAll(v.reasons);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::AccessDeniedException, S>
+template<>
+struct StreamReader<::IceGrid::AccessDeniedException>
 {
-    static void read(S* istr, ::IceGrid::AccessDeniedException& v)
+    static void read(InputStream* istr, ::IceGrid::AccessDeniedException& v)
     {
         istr->readAll(v.lockUserId);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::AllocationException, S>
+template<>
+struct StreamReader<::IceGrid::AllocationException>
 {
-    static void read(S* istr, ::IceGrid::AllocationException& v)
+    static void read(InputStream* istr, ::IceGrid::AllocationException& v)
     {
         istr->readAll(v.reason);
     }
 };
 
-template<typename S>
-struct StreamWriter<::IceGrid::AllocationTimeoutException, S>
+template<>
+struct StreamWriter<::IceGrid::AllocationTimeoutException>
 {
-    static void write(S*, const ::IceGrid::AllocationTimeoutException&)
+    static void write(OutputStream*, const ::IceGrid::AllocationTimeoutException&)
     {
     }
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::AllocationTimeoutException, S>
+template<>
+struct StreamReader<::IceGrid::AllocationTimeoutException>
 {
-    static void read(S*, ::IceGrid::AllocationTimeoutException&)
+    static void read(InputStream*, ::IceGrid::AllocationTimeoutException&)
     {
     }
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::PermissionDeniedException, S>
+template<>
+struct StreamReader<::IceGrid::PermissionDeniedException>
 {
-    static void read(S* istr, ::IceGrid::PermissionDeniedException& v)
+    static void read(InputStream* istr, ::IceGrid::PermissionDeniedException& v)
     {
         istr->readAll(v.reason);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::ObserverAlreadyRegisteredException, S>
+template<>
+struct StreamReader<::IceGrid::ObserverAlreadyRegisteredException>
 {
-    static void read(S* istr, ::IceGrid::ObserverAlreadyRegisteredException& v)
+    static void read(InputStream* istr, ::IceGrid::ObserverAlreadyRegisteredException& v)
     {
         istr->readAll(v.id);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::FileNotAvailableException, S>
+template<>
+struct StreamReader<::IceGrid::FileNotAvailableException>
 {
-    static void read(S* istr, ::IceGrid::FileNotAvailableException& v)
+    static void read(InputStream* istr, ::IceGrid::FileNotAvailableException& v)
     {
         istr->readAll(v.reason);
     }

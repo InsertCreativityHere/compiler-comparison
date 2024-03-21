@@ -2139,7 +2139,7 @@ void
 IceGrid::InternalDbEnvDescriptor::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<InternalDbEnvDescriptor, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<InternalDbEnvDescriptor>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -2147,7 +2147,7 @@ void
 IceGrid::InternalDbEnvDescriptor::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<InternalDbEnvDescriptor, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<InternalDbEnvDescriptor>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -2174,7 +2174,7 @@ void
 IceGrid::InternalAdapterDescriptor::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<InternalAdapterDescriptor, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<InternalAdapterDescriptor>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -2182,7 +2182,7 @@ void
 IceGrid::InternalAdapterDescriptor::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<InternalAdapterDescriptor, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<InternalAdapterDescriptor>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -2209,7 +2209,7 @@ void
 IceGrid::InternalDistributionDescriptor::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<InternalDistributionDescriptor, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<InternalDistributionDescriptor>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -2217,7 +2217,7 @@ void
 IceGrid::InternalDistributionDescriptor::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<InternalDistributionDescriptor, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<InternalDistributionDescriptor>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -2244,7 +2244,7 @@ void
 IceGrid::InternalServerDescriptor::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<InternalServerDescriptor, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<InternalServerDescriptor>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -2252,7 +2252,7 @@ void
 IceGrid::InternalServerDescriptor::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<InternalServerDescriptor, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<InternalServerDescriptor>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -2312,7 +2312,7 @@ void
 IceGrid::AdapterNotActiveException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<AdapterNotActiveException, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<AdapterNotActiveException>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -2320,7 +2320,7 @@ void
 IceGrid::AdapterNotActiveException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<AdapterNotActiveException, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<AdapterNotActiveException>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -2347,7 +2347,7 @@ void
 IceGrid::AdapterExistsException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<AdapterExistsException, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<AdapterExistsException>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -2355,7 +2355,7 @@ void
 IceGrid::AdapterExistsException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<AdapterExistsException, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<AdapterExistsException>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -2448,7 +2448,7 @@ void
 IceGrid::InternalNodeInfo::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<InternalNodeInfo, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<InternalNodeInfo>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -2456,7 +2456,7 @@ void
 IceGrid::InternalNodeInfo::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<InternalNodeInfo, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<InternalNodeInfo>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -2483,7 +2483,7 @@ void
 IceGrid::InternalReplicaInfo::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<InternalReplicaInfo, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<InternalReplicaInfo>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -2491,7 +2491,7 @@ void
 IceGrid::InternalReplicaInfo::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<InternalReplicaInfo, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<InternalReplicaInfo>::read(istr, *this);
     istr->endSlice();
 }
 

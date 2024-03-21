@@ -153,19 +153,19 @@ protected:
 namespace Ice
 {
 
-template<typename S>
-struct StreamReader<::Test::Default, S>
+template<>
+struct StreamReader<::Test::Default>
 {
-    static void read(S* istr, ::Test::Default& v)
+    static void read(InputStream* istr, ::Test::Default& v)
     {
         istr->readAll(v.x, v.y);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::NoDefault, S>
+template<>
+struct StreamReader<::Test::NoDefault>
 {
-    static void read(S* istr, ::Test::NoDefault& v)
+    static void read(InputStream* istr, ::Test::NoDefault& v)
     {
         istr->readAll(v.x, v.y);
     }

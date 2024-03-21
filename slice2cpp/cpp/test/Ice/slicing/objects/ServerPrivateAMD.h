@@ -468,127 +468,127 @@ protected:
 namespace Ice
 {
 
-template<typename S>
-struct StreamWriter<::Test::SBSUnknownDerived, S>
+template<>
+struct StreamWriter<::Test::SBSUnknownDerived>
 {
-    static void write(S* ostr, const ::Test::SBSUnknownDerived& v)
+    static void write(OutputStream* ostr, const ::Test::SBSUnknownDerived& v)
     {
         ostr->writeAll(v.sbsud);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::SBSUnknownDerived, S>
+template<>
+struct StreamReader<::Test::SBSUnknownDerived>
 {
-    static void read(S* istr, ::Test::SBSUnknownDerived& v)
+    static void read(InputStream* istr, ::Test::SBSUnknownDerived& v)
     {
         istr->readAll(v.sbsud);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::SUnknown, S>
+template<>
+struct StreamReader<::Test::SUnknown>
 {
-    static void read(S* istr, ::Test::SUnknown& v)
+    static void read(InputStream* istr, ::Test::SUnknown& v)
     {
         istr->readAll(v.su, v.cycle);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::D2, S>
+template<>
+struct StreamWriter<::Test::D2>
 {
-    static void write(S* ostr, const ::Test::D2& v)
+    static void write(OutputStream* ostr, const ::Test::D2& v)
     {
         ostr->writeAll(v.sd2, v.pd2);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::D2, S>
+template<>
+struct StreamReader<::Test::D2>
 {
-    static void read(S* istr, ::Test::D2& v)
+    static void read(InputStream* istr, ::Test::D2& v)
     {
         istr->readAll(v.sd2, v.pd2);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::D4, S>
+template<>
+struct StreamWriter<::Test::D4>
 {
-    static void write(S* ostr, const ::Test::D4& v)
+    static void write(OutputStream* ostr, const ::Test::D4& v)
     {
         ostr->writeAll(v.p1, v.p2);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::D4, S>
+template<>
+struct StreamReader<::Test::D4>
 {
-    static void read(S* istr, ::Test::D4& v)
+    static void read(InputStream* istr, ::Test::D4& v)
     {
         istr->readAll(v.p1, v.p2);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::UnknownDerivedException, S>
+template<>
+struct StreamWriter<::Test::UnknownDerivedException>
 {
-    static void write(S* ostr, const ::Test::UnknownDerivedException& v)
+    static void write(OutputStream* ostr, const ::Test::UnknownDerivedException& v)
     {
         ostr->writeAll(v.sude, v.pd2);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::UnknownDerivedException, S>
+template<>
+struct StreamReader<::Test::UnknownDerivedException>
 {
-    static void read(S* istr, ::Test::UnknownDerivedException& v)
+    static void read(InputStream* istr, ::Test::UnknownDerivedException& v)
     {
         istr->readAll(v.sude, v.pd2);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::MyClass, S>
+template<>
+struct StreamReader<::Test::MyClass>
 {
-    static void read(S* istr, ::Test::MyClass& v)
+    static void read(InputStream* istr, ::Test::MyClass& v)
     {
         istr->readAll(v.i);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::PSUnknown, S>
+template<>
+struct StreamWriter<::Test::PSUnknown>
 {
-    static void write(S* ostr, const ::Test::PSUnknown& v)
+    static void write(OutputStream* ostr, const ::Test::PSUnknown& v)
     {
         ostr->writeAll(v.psu, v.graph, v.cl);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::PSUnknown, S>
+template<>
+struct StreamReader<::Test::PSUnknown>
 {
-    static void read(S* istr, ::Test::PSUnknown& v)
+    static void read(InputStream* istr, ::Test::PSUnknown& v)
     {
         istr->readAll(v.psu, v.graph, v.cl);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::PSUnknown2, S>
+template<>
+struct StreamWriter<::Test::PSUnknown2>
 {
-    static void write(S* ostr, const ::Test::PSUnknown2& v)
+    static void write(OutputStream* ostr, const ::Test::PSUnknown2& v)
     {
         ostr->writeAll(v.pb);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::PSUnknown2, S>
+template<>
+struct StreamReader<::Test::PSUnknown2>
 {
-    static void read(S* istr, ::Test::PSUnknown2& v)
+    static void read(InputStream* istr, ::Test::PSUnknown2& v)
     {
         istr->readAll(v.pb);
     }

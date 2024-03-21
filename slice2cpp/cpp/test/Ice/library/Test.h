@@ -207,10 +207,10 @@ using MyInterfacePtr = ::std::shared_ptr<MyInterface>;
 namespace Ice
 {
 
-template<typename S>
-struct StreamReader<::Test::UserError, S>
+template<>
+struct StreamReader<::Test::UserError>
 {
-    static void read(S* istr, ::Test::UserError& v)
+    static void read(InputStream* istr, ::Test::UserError& v)
     {
         istr->readAll(v.message);
     }

@@ -97,7 +97,7 @@ void
 Test::F1::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<F1, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<F1>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -105,7 +105,7 @@ void
 Test::F1::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<F1, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<F1>::read(istr, *this);
     istr->endSlice();
 }
 

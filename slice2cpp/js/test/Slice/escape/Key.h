@@ -1163,73 +1163,73 @@ struct StreamableTraits<::await::_cpp_break>
     static const bool fixedLength = true;
 };
 
-template<typename S>
-struct StreamReader<::await::_cpp_break, S>
+template<>
+struct StreamReader<::await::_cpp_break>
 {
-    static void read(S* istr, ::await::_cpp_break& v)
+    static void read(InputStream* istr, ::await::_cpp_break& v)
     {
         istr->readAll(v._cpp_while);
     }
 };
 
-template<typename S>
-struct StreamReader<::await::_cpp_delete, S>
+template<>
+struct StreamReader<::await::_cpp_delete>
 {
-    static void read(S* istr, ::await::_cpp_delete& v)
+    static void read(InputStream* istr, ::await::_cpp_delete& v)
     {
         istr->readAll(v._cpp_if, v._cpp_else, v._cpp_export);
     }
 };
 
-template<typename S>
-struct StreamWriter<::await::package, S>
+template<>
+struct StreamWriter<::await::package>
 {
-    static void write(S* ostr, const ::await::package& v)
+    static void write(OutputStream* ostr, const ::await::package& v)
     {
         ostr->writeAll({1, 2, 3, 5, 7, 8}, v._cpp_for, v._cpp_goto, v._cpp_if, v.internal, v.debugger, v.null);
     }
 };
 
-template<typename S>
-struct StreamReader<::await::package, S>
+template<>
+struct StreamReader<::await::package>
 {
-    static void read(S* istr, ::await::package& v)
+    static void read(InputStream* istr, ::await::package& v)
     {
         istr->readAll({1, 2, 3, 5, 7, 8}, v._cpp_for, v._cpp_goto, v._cpp_if, v.internal, v.debugger, v.null);
     }
 };
 
-template<typename S>
-struct StreamReader<::await::fixed, S>
+template<>
+struct StreamReader<::await::fixed>
 {
-    static void read(S* istr, ::await::fixed& v)
+    static void read(InputStream* istr, ::await::fixed& v)
     {
         istr->readAll(v._cpp_for);
     }
 };
 
-template<typename S>
-struct StreamWriter<::await::foreach, S>
+template<>
+struct StreamWriter<::await::foreach>
 {
-    static void write(S* ostr, const ::await::foreach& v)
+    static void write(OutputStream* ostr, const ::await::foreach& v)
     {
         ostr->writeAll(v._cpp_goto, v._cpp_if);
     }
 };
 
-template<typename S>
-struct StreamReader<::await::foreach, S>
+template<>
+struct StreamReader<::await::foreach>
 {
-    static void read(S* istr, ::await::foreach& v)
+    static void read(InputStream* istr, ::await::foreach& v)
     {
         istr->readAll(v._cpp_goto, v._cpp_if);
     }
 };
 
-template<typename S>
-struct StreamReader<::await::BaseMethods, S>
+template<>
+struct StreamReader<::await::BaseMethods>
 {
-    static void read(S* istr, ::await::BaseMethods& v)
+    static void read(InputStream* istr, ::await::BaseMethods& v)
     {
         istr->readAll(v.Data, v.HelpLink, v.InnerException, v.Message, v.Source, v.StackTrace, v.TargetSite, v.HResult, v.Equals, v.GetBaseException, v.GetHashCode, v.GetObjectData, v.GetType, v.ReferenceEquals, v.ToString);
     }

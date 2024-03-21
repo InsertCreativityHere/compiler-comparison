@@ -676,7 +676,7 @@ void
 Test::Common::Config::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<Config, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<Config>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -684,7 +684,7 @@ void
 Test::Common::Config::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<Config, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<Config>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -711,7 +711,7 @@ void
 Test::Common::OptionOverrides::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<OptionOverrides, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<OptionOverrides>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -719,7 +719,7 @@ void
 Test::Common::OptionOverrides::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<OptionOverrides, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<OptionOverrides>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -746,7 +746,7 @@ void
 Test::Common::TestCaseNotExistException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<TestCaseNotExistException, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<TestCaseNotExistException>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -754,7 +754,7 @@ void
 Test::Common::TestCaseNotExistException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<TestCaseNotExistException, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<TestCaseNotExistException>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -781,7 +781,7 @@ void
 Test::Common::TestCaseFailedException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<TestCaseFailedException, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<TestCaseFailedException>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -789,7 +789,7 @@ void
 Test::Common::TestCaseFailedException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<TestCaseFailedException, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<TestCaseFailedException>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -816,7 +816,7 @@ void
 Test::Common::ProcessFailedException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<ProcessFailedException, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<ProcessFailedException>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -824,7 +824,7 @@ void
 Test::Common::ProcessFailedException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<ProcessFailedException, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<ProcessFailedException>::read(istr, *this);
     istr->endSlice();
 }
 

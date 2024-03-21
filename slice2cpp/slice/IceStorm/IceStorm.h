@@ -1340,64 +1340,64 @@ struct StreamableTraits<::IceStorm::LinkInfo>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::IceStorm::LinkInfo, S>
+template<>
+struct StreamReader<::IceStorm::LinkInfo>
 {
-    static void read(S* istr, ::IceStorm::LinkInfo& v)
+    static void read(InputStream* istr, ::IceStorm::LinkInfo& v)
     {
         istr->readAll(v.theTopic, v.name, v.cost);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceStorm::LinkExists, S>
+template<>
+struct StreamReader<::IceStorm::LinkExists>
 {
-    static void read(S* istr, ::IceStorm::LinkExists& v)
+    static void read(InputStream* istr, ::IceStorm::LinkExists& v)
     {
         istr->readAll(v.name);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceStorm::NoSuchLink, S>
+template<>
+struct StreamReader<::IceStorm::NoSuchLink>
 {
-    static void read(S* istr, ::IceStorm::NoSuchLink& v)
+    static void read(InputStream* istr, ::IceStorm::NoSuchLink& v)
     {
         istr->readAll(v.name);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceStorm::InvalidSubscriber, S>
+template<>
+struct StreamReader<::IceStorm::InvalidSubscriber>
 {
-    static void read(S* istr, ::IceStorm::InvalidSubscriber& v)
+    static void read(InputStream* istr, ::IceStorm::InvalidSubscriber& v)
     {
         istr->readAll(v.reason);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceStorm::BadQoS, S>
+template<>
+struct StreamReader<::IceStorm::BadQoS>
 {
-    static void read(S* istr, ::IceStorm::BadQoS& v)
+    static void read(InputStream* istr, ::IceStorm::BadQoS& v)
     {
         istr->readAll(v.reason);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceStorm::TopicExists, S>
+template<>
+struct StreamReader<::IceStorm::TopicExists>
 {
-    static void read(S* istr, ::IceStorm::TopicExists& v)
+    static void read(InputStream* istr, ::IceStorm::TopicExists& v)
     {
         istr->readAll(v.name);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceStorm::NoSuchTopic, S>
+template<>
+struct StreamReader<::IceStorm::NoSuchTopic>
 {
-    static void read(S* istr, ::IceStorm::NoSuchTopic& v)
+    static void read(InputStream* istr, ::IceStorm::NoSuchTopic& v)
     {
         istr->readAll(v.name);
     }

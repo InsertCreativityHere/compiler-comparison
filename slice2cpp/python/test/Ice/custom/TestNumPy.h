@@ -544,19 +544,19 @@ using CustomPtr = ::std::shared_ptr<Custom>;
 namespace Ice
 {
 
-template<typename S>
-struct StreamWriter<::Test::NumPy::D, S>
+template<>
+struct StreamWriter<::Test::NumPy::D>
 {
-    static void write(S* ostr, const ::Test::NumPy::D& v)
+    static void write(OutputStream* ostr, const ::Test::NumPy::D& v)
     {
         ostr->writeAll({1, 2, 3, 4, 5, 6, 7}, v.boolSeq, v.byteSeq, v.shortSeq, v.intSeq, v.longSeq, v.floatSeq, v.doubleSeq);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::NumPy::D, S>
+template<>
+struct StreamReader<::Test::NumPy::D>
 {
-    static void read(S* istr, ::Test::NumPy::D& v)
+    static void read(InputStream* istr, ::Test::NumPy::D& v)
     {
         istr->readAll({1, 2, 3, 4, 5, 6, 7}, v.boolSeq, v.byteSeq, v.shortSeq, v.intSeq, v.longSeq, v.floatSeq, v.doubleSeq);
     }

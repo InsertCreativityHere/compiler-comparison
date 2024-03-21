@@ -1428,7 +1428,7 @@ void
 Test::DictClass::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<DictClass, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<DictClass>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -1436,7 +1436,7 @@ void
 Test::DictClass::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<DictClass, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<DictClass>::read(istr, *this);
     istr->endSlice();
 }
 

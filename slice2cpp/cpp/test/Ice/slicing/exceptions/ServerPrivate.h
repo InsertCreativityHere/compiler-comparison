@@ -210,73 +210,73 @@ protected:
 namespace Ice
 {
 
-template<typename S>
-struct StreamWriter<::Test::UnknownDerived, S>
+template<>
+struct StreamWriter<::Test::UnknownDerived>
 {
-    static void write(S* ostr, const ::Test::UnknownDerived& v)
+    static void write(OutputStream* ostr, const ::Test::UnknownDerived& v)
     {
         ostr->writeAll(v.ud);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::UnknownDerived, S>
+template<>
+struct StreamReader<::Test::UnknownDerived>
 {
-    static void read(S* istr, ::Test::UnknownDerived& v)
+    static void read(InputStream* istr, ::Test::UnknownDerived& v)
     {
         istr->readAll(v.ud);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::UnknownIntermediate, S>
+template<>
+struct StreamWriter<::Test::UnknownIntermediate>
 {
-    static void write(S* ostr, const ::Test::UnknownIntermediate& v)
+    static void write(OutputStream* ostr, const ::Test::UnknownIntermediate& v)
     {
         ostr->writeAll(v.ui);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::UnknownIntermediate, S>
+template<>
+struct StreamReader<::Test::UnknownIntermediate>
 {
-    static void read(S* istr, ::Test::UnknownIntermediate& v)
+    static void read(InputStream* istr, ::Test::UnknownIntermediate& v)
     {
         istr->readAll(v.ui);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::UnknownMostDerived1, S>
+template<>
+struct StreamWriter<::Test::UnknownMostDerived1>
 {
-    static void write(S* ostr, const ::Test::UnknownMostDerived1& v)
+    static void write(OutputStream* ostr, const ::Test::UnknownMostDerived1& v)
     {
         ostr->writeAll(v.umd1);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::UnknownMostDerived1, S>
+template<>
+struct StreamReader<::Test::UnknownMostDerived1>
 {
-    static void read(S* istr, ::Test::UnknownMostDerived1& v)
+    static void read(InputStream* istr, ::Test::UnknownMostDerived1& v)
     {
         istr->readAll(v.umd1);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::UnknownMostDerived2, S>
+template<>
+struct StreamWriter<::Test::UnknownMostDerived2>
 {
-    static void write(S* ostr, const ::Test::UnknownMostDerived2& v)
+    static void write(OutputStream* ostr, const ::Test::UnknownMostDerived2& v)
     {
         ostr->writeAll(v.umd2);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::UnknownMostDerived2, S>
+template<>
+struct StreamReader<::Test::UnknownMostDerived2>
 {
-    static void read(S* istr, ::Test::UnknownMostDerived2& v)
+    static void read(InputStream* istr, ::Test::UnknownMostDerived2& v)
     {
         istr->readAll(v.umd2);
     }

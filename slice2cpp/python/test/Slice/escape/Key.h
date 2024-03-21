@@ -652,46 +652,46 @@ struct StreamableTraits<::_cpp_and::_cpp_continue>
     static const bool fixedLength = true;
 };
 
-template<typename S>
-struct StreamReader<::_cpp_and::_cpp_continue, S>
+template<>
+struct StreamReader<::_cpp_and::_cpp_continue>
 {
-    static void read(S* istr, ::_cpp_and::_cpp_continue& v)
+    static void read(InputStream* istr, ::_cpp_and::_cpp_continue& v)
     {
         istr->readAll(v.def);
     }
 };
 
-template<typename S>
-struct StreamReader<::_cpp_and::_cpp_for, S>
+template<>
+struct StreamReader<::_cpp_and::_cpp_for>
 {
-    static void read(S* istr, ::_cpp_and::_cpp_for& v)
+    static void read(InputStream* istr, ::_cpp_and::_cpp_for& v)
     {
         istr->readAll(v.lambda, v.from, v.global);
     }
 };
 
-template<typename S>
-struct StreamReader<::_cpp_and::is, S>
+template<>
+struct StreamReader<::_cpp_and::is>
 {
-    static void read(S* istr, ::_cpp_and::is& v)
+    static void read(InputStream* istr, ::_cpp_and::is& v)
     {
         istr->readAll(v.lambda);
     }
 };
 
-template<typename S>
-struct StreamWriter<::_cpp_and::_cpp_not, S>
+template<>
+struct StreamWriter<::_cpp_and::_cpp_not>
 {
-    static void write(S* ostr, const ::_cpp_and::_cpp_not& v)
+    static void write(OutputStream* ostr, const ::_cpp_and::_cpp_not& v)
     {
         ostr->writeAll(v._cpp_or, v.pass);
     }
 };
 
-template<typename S>
-struct StreamReader<::_cpp_and::_cpp_not, S>
+template<>
+struct StreamReader<::_cpp_and::_cpp_not>
 {
-    static void read(S* istr, ::_cpp_and::_cpp_not& v)
+    static void read(InputStream* istr, ::_cpp_and::_cpp_not& v)
     {
         istr->readAll(v._cpp_or, v.pass);
     }

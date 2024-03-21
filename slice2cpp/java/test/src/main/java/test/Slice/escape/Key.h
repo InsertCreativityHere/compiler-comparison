@@ -669,46 +669,46 @@ struct StreamableTraits<::abstract::_cpp_break>
     static const bool fixedLength = true;
 };
 
-template<typename S>
-struct StreamReader<::abstract::_cpp_break, S>
+template<>
+struct StreamReader<::abstract::_cpp_break>
 {
-    static void read(S* istr, ::abstract::_cpp_break& v)
+    static void read(InputStream* istr, ::abstract::_cpp_break& v)
     {
         istr->readAll(v._cpp_case);
     }
 };
 
-template<typename S>
-struct StreamReader<::abstract::_cpp_else, S>
+template<>
+struct StreamReader<::abstract::_cpp_else>
 {
-    static void read(S* istr, ::abstract::_cpp_else& v)
+    static void read(InputStream* istr, ::abstract::_cpp_else& v)
     {
         istr->readAll(v._cpp_if, v.equals, v.final);
     }
 };
 
-template<typename S>
-struct StreamReader<::abstract::hashCode, S>
+template<>
+struct StreamReader<::abstract::hashCode>
 {
-    static void read(S* istr, ::abstract::hashCode& v)
+    static void read(InputStream* istr, ::abstract::hashCode& v)
     {
         istr->readAll(v._cpp_if);
     }
 };
 
-template<typename S>
-struct StreamWriter<::abstract::import, S>
+template<>
+struct StreamWriter<::abstract::import>
 {
-    static void write(S* ostr, const ::abstract::import& v)
+    static void write(OutputStream* ostr, const ::abstract::import& v)
     {
         ostr->writeAll(v.instanceof, v.native);
     }
 };
 
-template<typename S>
-struct StreamReader<::abstract::import, S>
+template<>
+struct StreamReader<::abstract::import>
 {
-    static void read(S* istr, ::abstract::import& v)
+    static void read(InputStream* istr, ::abstract::import& v)
     {
         istr->readAll(v.instanceof, v.native);
     }

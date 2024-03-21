@@ -73,7 +73,7 @@ void
 Test::OptionalClass::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<OptionalClass, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<OptionalClass>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -81,7 +81,7 @@ void
 Test::OptionalClass::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<OptionalClass, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<OptionalClass>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -108,7 +108,7 @@ void
 Test::MyClass::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<MyClass, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<MyClass>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -116,7 +116,7 @@ void
 Test::MyClass::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<MyClass, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<MyClass>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -151,7 +151,7 @@ void
 Test::MyException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<MyException, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<MyException>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -159,7 +159,7 @@ void
 Test::MyException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<MyException, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<MyException>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -186,7 +186,7 @@ void
 Test::Sub::NestedException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<NestedException, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<NestedException>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -194,7 +194,7 @@ void
 Test::Sub::NestedException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<NestedException, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<NestedException>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -221,7 +221,7 @@ void
 Test2::Sub2::NestedException2::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<NestedException2, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<NestedException2>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -229,7 +229,7 @@ void
 Test2::Sub2::NestedException2::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<NestedException2, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<NestedException2>::read(istr, *this);
     istr->endSlice();
 }
 

@@ -1398,19 +1398,19 @@ struct StreamableTraits<::Test::S>
     static const bool fixedLength = true;
 };
 
-template<typename S>
-struct StreamReader<::Test::S, S>
+template<>
+struct StreamReader<::Test::S>
 {
-    static void read(S* istr, ::Test::S& v)
+    static void read(InputStream* istr, ::Test::S& v)
     {
         istr->readAll(v.v);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::C, S>
+template<>
+struct StreamReader<::Test::C>
 {
-    static void read(S* istr, ::Test::C& v)
+    static void read(InputStream* istr, ::Test::C& v)
     {
         istr->readAll(v.s);
     }
@@ -1434,19 +1434,19 @@ struct StreamableTraits<::Test::S1>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::Test::S1, S>
+template<>
+struct StreamReader<::Test::S1>
 {
-    static void read(S* istr, ::Test::S1& v)
+    static void read(InputStream* istr, ::Test::S1& v)
     {
         istr->readAll(v.s);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::C1, S>
+template<>
+struct StreamReader<::Test::C1>
 {
-    static void read(S* istr, ::Test::C1& v)
+    static void read(InputStream* istr, ::Test::C1& v)
     {
         istr->readAll(v.s);
     }
@@ -1460,19 +1460,19 @@ struct StreamableTraits<::Test::S2>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::Test::S2, S>
+template<>
+struct StreamReader<::Test::S2>
 {
-    static void read(S* istr, ::Test::S2& v)
+    static void read(InputStream* istr, ::Test::S2& v)
     {
         istr->readAll(v.E1, v.S1, v.C1);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::C2, S>
+template<>
+struct StreamReader<::Test::C2>
 {
-    static void read(S* istr, ::Test::C2& v)
+    static void read(InputStream* istr, ::Test::C2& v)
     {
         istr->readAll(v.E1, v.S1, v.C1);
     }
@@ -1486,10 +1486,10 @@ struct StreamableTraits<::Test::Inner::S>
     static const bool fixedLength = true;
 };
 
-template<typename S>
-struct StreamReader<::Test::Inner::S, S>
+template<>
+struct StreamReader<::Test::Inner::S>
 {
-    static void read(S* istr, ::Test::Inner::S& v)
+    static void read(InputStream* istr, ::Test::Inner::S& v)
     {
         istr->readAll(v.v);
     }
@@ -1503,28 +1503,28 @@ struct StreamableTraits<::Test::Inner::Inner2::S>
     static const bool fixedLength = true;
 };
 
-template<typename S>
-struct StreamReader<::Test::Inner::Inner2::S, S>
+template<>
+struct StreamReader<::Test::Inner::Inner2::S>
 {
-    static void read(S* istr, ::Test::Inner::Inner2::S& v)
+    static void read(InputStream* istr, ::Test::Inner::Inner2::S& v)
     {
         istr->readAll(v.v);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::Inner::Inner2::C, S>
+template<>
+struct StreamReader<::Test::Inner::Inner2::C>
 {
-    static void read(S* istr, ::Test::Inner::Inner2::C& v)
+    static void read(InputStream* istr, ::Test::Inner::Inner2::C& v)
     {
         istr->readAll(v.s);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::Inner::C, S>
+template<>
+struct StreamReader<::Test::Inner::C>
 {
-    static void read(S* istr, ::Test::Inner::C& v)
+    static void read(InputStream* istr, ::Test::Inner::C& v)
     {
         istr->readAll(v.s);
     }

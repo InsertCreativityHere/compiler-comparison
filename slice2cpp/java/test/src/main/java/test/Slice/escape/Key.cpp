@@ -202,7 +202,7 @@ void
 abstract::_cpp_else::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<_cpp_else, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<_cpp_else>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -210,7 +210,7 @@ void
 abstract::_cpp_else::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<_cpp_else, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<_cpp_else>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -237,7 +237,7 @@ void
 abstract::hashCode::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<hashCode, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<hashCode>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -245,7 +245,7 @@ void
 abstract::hashCode::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<hashCode, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<hashCode>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -272,7 +272,7 @@ void
 abstract::import::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<import, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<import>::write(ostr, *this);
     ostr->endSlice();
     hashCode::_writeImpl(ostr);
 }
@@ -281,7 +281,7 @@ void
 abstract::import::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<import, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<import>::read(istr, *this);
     istr->endSlice();
     hashCode::_readImpl(istr);
 }

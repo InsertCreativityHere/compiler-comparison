@@ -434,7 +434,7 @@ void
 Clash::Cls::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<Cls, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<Cls>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -442,7 +442,7 @@ void
 Clash::Cls::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<Cls, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<Cls>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -469,7 +469,7 @@ void
 Clash::Ex::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<Ex, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<Ex>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -477,7 +477,7 @@ void
 Clash::Ex::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<Ex, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<Ex>::read(istr, *this);
     istr->endSlice();
 }
 

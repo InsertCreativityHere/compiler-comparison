@@ -282,7 +282,7 @@ void
 IcePatch2::FileAccessException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<FileAccessException, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<FileAccessException>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -290,7 +290,7 @@ void
 IcePatch2::FileAccessException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<FileAccessException, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<FileAccessException>::read(istr, *this);
     istr->endSlice();
 }
 

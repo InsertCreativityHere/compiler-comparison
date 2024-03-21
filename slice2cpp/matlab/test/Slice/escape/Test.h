@@ -635,91 +635,91 @@ struct StreamableTraits<::classdef::_cpp_break::_cpp_bitor>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::classdef::_cpp_break::_cpp_bitor, S>
+template<>
+struct StreamReader<::classdef::_cpp_break::_cpp_bitor>
 {
-    static void read(S* istr, ::classdef::_cpp_break::_cpp_bitor& v)
+    static void read(InputStream* istr, ::classdef::_cpp_break::_cpp_bitor& v)
     {
         istr->readAll(v._cpp_case, v._cpp_continue, v.eq, v.ne);
     }
 };
 
-template<typename S>
-struct StreamReader<::classdef::_cpp_break::logical, S>
+template<>
+struct StreamReader<::classdef::_cpp_break::logical>
 {
-    static void read(S* istr, ::classdef::_cpp_break::logical& v)
+    static void read(InputStream* istr, ::classdef::_cpp_break::logical& v)
     {
         istr->readAll(v._cpp_else, v._cpp_for, v.int64);
     }
 };
 
-template<typename S>
-struct StreamWriter<::classdef::_cpp_break::_cpp_xor, S>
+template<>
+struct StreamWriter<::classdef::_cpp_break::_cpp_xor>
 {
-    static void write(S* ostr, const ::classdef::_cpp_break::_cpp_xor& v)
+    static void write(OutputStream* ostr, const ::classdef::_cpp_break::_cpp_xor& v)
     {
         ostr->writeAll(v._cpp_return);
     }
 };
 
-template<typename S>
-struct StreamReader<::classdef::_cpp_break::_cpp_xor, S>
+template<>
+struct StreamReader<::classdef::_cpp_break::_cpp_xor>
 {
-    static void read(S* istr, ::classdef::_cpp_break::_cpp_xor& v)
+    static void read(InputStream* istr, ::classdef::_cpp_break::_cpp_xor& v)
     {
         istr->readAll(v._cpp_return);
     }
 };
 
-template<typename S>
-struct StreamReader<::classdef::_cpp_break::_cpp_try, S>
+template<>
+struct StreamReader<::classdef::_cpp_break::_cpp_try>
 {
-    static void read(S* istr, ::classdef::_cpp_break::_cpp_try& v)
+    static void read(InputStream* istr, ::classdef::_cpp_break::_cpp_try& v)
     {
         istr->readAll(v._cpp_while, v._cpp_delete);
     }
 };
 
-template<typename S>
-struct StreamWriter<::classdef::_cpp_break::properties, S>
+template<>
+struct StreamWriter<::classdef::_cpp_break::properties>
 {
-    static void write(S* ostr, const ::classdef::_cpp_break::properties& v)
+    static void write(OutputStream* ostr, const ::classdef::_cpp_break::properties& v)
     {
         ostr->writeAll(v._cpp_if, v._cpp_catch, v.spmd, v.otherwise);
     }
 };
 
-template<typename S>
-struct StreamReader<::classdef::_cpp_break::properties, S>
+template<>
+struct StreamReader<::classdef::_cpp_break::properties>
 {
-    static void read(S* istr, ::classdef::_cpp_break::properties& v)
+    static void read(InputStream* istr, ::classdef::_cpp_break::properties& v)
     {
         istr->readAll(v._cpp_if, v._cpp_catch, v.spmd, v.otherwise);
     }
 };
 
-template<typename S>
-struct StreamReader<::classdef::_cpp_break::persistent, S>
+template<>
+struct StreamReader<::classdef::_cpp_break::persistent>
 {
-    static void read(S* istr, ::classdef::_cpp_break::persistent& v)
+    static void read(InputStream* istr, ::classdef::_cpp_break::persistent& v)
     {
         istr->readAll(v.identifier, v.message, v.stack, v.cause, v.type, v.end);
     }
 };
 
-template<typename S>
-struct StreamWriter<::classdef::_cpp_break::global, S>
+template<>
+struct StreamWriter<::classdef::_cpp_break::global>
 {
-    static void write(S* ostr, const ::classdef::_cpp_break::global& v)
+    static void write(OutputStream* ostr, const ::classdef::_cpp_break::global& v)
     {
         ostr->writeAll(v.enumeration);
     }
 };
 
-template<typename S>
-struct StreamReader<::classdef::_cpp_break::global, S>
+template<>
+struct StreamReader<::classdef::_cpp_break::global>
 {
-    static void read(S* istr, ::classdef::_cpp_break::global& v)
+    static void read(InputStream* istr, ::classdef::_cpp_break::global& v)
     {
         istr->readAll(v.enumeration);
     }

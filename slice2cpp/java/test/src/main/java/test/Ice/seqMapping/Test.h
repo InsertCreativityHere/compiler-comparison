@@ -346,28 +346,28 @@ struct StreamableTraits<::Test::Foo>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::Test::Foo, S>
+template<>
+struct StreamReader<::Test::Foo>
 {
-    static void read(S* istr, ::Test::Foo& v)
+    static void read(InputStream* istr, ::Test::Foo& v)
     {
         istr->readAll(v.SLmem, v.SLSmem);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::Bar, S>
+template<>
+struct StreamReader<::Test::Bar>
 {
-    static void read(S* istr, ::Test::Bar& v)
+    static void read(InputStream* istr, ::Test::Bar& v)
     {
         istr->readAll(v.SLmem, v.SLSmem);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::Baz, S>
+template<>
+struct StreamReader<::Test::Baz>
 {
-    static void read(S* istr, ::Test::Baz& v)
+    static void read(InputStream* istr, ::Test::Baz& v)
     {
         istr->readAll(v.SLmem, v.SLSmem);
     }

@@ -274,64 +274,64 @@ protected:
 namespace Ice
 {
 
-template<typename S>
-struct StreamReader<::NoNamespace::C1, S>
+template<>
+struct StreamReader<::NoNamespace::C1>
 {
-    static void read(S* istr, ::NoNamespace::C1& v)
+    static void read(InputStream* istr, ::NoNamespace::C1& v)
     {
         istr->readAll(v.i);
     }
 };
 
-template<typename S>
-struct StreamWriter<::NoNamespace::C2, S>
+template<>
+struct StreamWriter<::NoNamespace::C2>
 {
-    static void write(S* ostr, const ::NoNamespace::C2& v)
+    static void write(OutputStream* ostr, const ::NoNamespace::C2& v)
     {
         ostr->writeAll(v.l);
     }
 };
 
-template<typename S>
-struct StreamReader<::NoNamespace::C2, S>
+template<>
+struct StreamReader<::NoNamespace::C2>
 {
-    static void read(S* istr, ::NoNamespace::C2& v)
+    static void read(InputStream* istr, ::NoNamespace::C2& v)
     {
         istr->readAll(v.l);
     }
 };
 
-template<typename S>
-struct StreamReader<::NoNamespace::E1, S>
+template<>
+struct StreamReader<::NoNamespace::E1>
 {
-    static void read(S* istr, ::NoNamespace::E1& v)
+    static void read(InputStream* istr, ::NoNamespace::E1& v)
     {
         istr->readAll(v.i);
     }
 };
 
-template<typename S>
-struct StreamWriter<::NoNamespace::E2, S>
+template<>
+struct StreamWriter<::NoNamespace::E2>
 {
-    static void write(S* ostr, const ::NoNamespace::E2& v)
+    static void write(OutputStream* ostr, const ::NoNamespace::E2& v)
     {
         ostr->writeAll(v.l);
     }
 };
 
-template<typename S>
-struct StreamReader<::NoNamespace::E2, S>
+template<>
+struct StreamReader<::NoNamespace::E2>
 {
-    static void read(S* istr, ::NoNamespace::E2& v)
+    static void read(InputStream* istr, ::NoNamespace::E2& v)
     {
         istr->readAll(v.l);
     }
 };
 
-template<typename S>
-struct StreamReader<::NoNamespace::notify, S>
+template<>
+struct StreamReader<::NoNamespace::notify>
 {
-    static void read(S* istr, ::NoNamespace::notify& v)
+    static void read(InputStream* istr, ::NoNamespace::notify& v)
     {
         istr->readAll(v.i);
     }

@@ -480,20 +480,20 @@ using IntfPtr = ::std::shared_ptr<Intf>;
 namespace Ice
 {
 
-template<typename S>
-struct StreamWriter<::Clash::Cls, S>
+template<>
+struct StreamWriter<::Clash::Cls>
 {
-    static void write(S* ostr, const ::Clash::Cls& v)
+    static void write(OutputStream* ostr, const ::Clash::Cls& v)
     {
         ostr->writeAll(v.s, v.context, v.current, v.response, v.upCast, v.typeId, v.del, v.ex, v.result, v.istr, v.ostr, v.inS, v.in, v.proxy);
         ostr->writeAll({1}, v.cookie);
     }
 };
 
-template<typename S>
-struct StreamReader<::Clash::Cls, S>
+template<>
+struct StreamReader<::Clash::Cls>
 {
-    static void read(S* istr, ::Clash::Cls& v)
+    static void read(InputStream* istr, ::Clash::Cls& v)
     {
         istr->readAll(v.s, v.context, v.current, v.response, v.upCast, v.typeId, v.del, v.ex, v.result, v.istr, v.ostr, v.inS, v.in, v.proxy);
         istr->readAll({1}, v.cookie);
@@ -508,19 +508,19 @@ struct StreamableTraits<::Clash::St>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::Clash::St, S>
+template<>
+struct StreamReader<::Clash::St>
 {
-    static void read(S* istr, ::Clash::St& v)
+    static void read(InputStream* istr, ::Clash::St& v)
     {
         istr->readAll(v.v, v.istr, v.ostr, v.rhs);
     }
 };
 
-template<typename S>
-struct StreamReader<::Clash::Ex, S>
+template<>
+struct StreamReader<::Clash::Ex>
 {
-    static void read(S* istr, ::Clash::Ex& v)
+    static void read(InputStream* istr, ::Clash::Ex& v)
     {
         istr->readAll(v.istr, v.ostr);
     }

@@ -445,7 +445,7 @@ void
 abstract::delegate::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<delegate, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<delegate>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -453,7 +453,7 @@ void
 abstract::delegate::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<delegate, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<delegate>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -480,7 +480,7 @@ void
 abstract::optionalMembers::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<optionalMembers, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<optionalMembers>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -488,7 +488,7 @@ void
 abstract::optionalMembers::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<optionalMembers, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<optionalMembers>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -515,7 +515,7 @@ void
 abstract::fixed::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<fixed, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<fixed>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -523,7 +523,7 @@ void
 abstract::fixed::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<fixed, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<fixed>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -550,7 +550,7 @@ void
 abstract::foreach::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<foreach, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<foreach>::write(ostr, *this);
     ostr->endSlice();
     fixed::_writeImpl(ostr);
 }
@@ -559,7 +559,7 @@ void
 abstract::foreach::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<foreach, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<foreach>::read(istr, *this);
     istr->endSlice();
     fixed::_readImpl(istr);
 }
@@ -587,7 +587,7 @@ void
 abstract::BaseMethods::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<BaseMethods, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<BaseMethods>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -595,7 +595,7 @@ void
 abstract::BaseMethods::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<BaseMethods, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<BaseMethods>::read(istr, *this);
     istr->endSlice();
 }
 

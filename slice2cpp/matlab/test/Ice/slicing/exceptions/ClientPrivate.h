@@ -1095,163 +1095,163 @@ using TestIntfPtr = ::std::shared_ptr<TestIntf>;
 namespace Ice
 {
 
-template<typename S>
-struct StreamReader<::Test::Base, S>
+template<>
+struct StreamReader<::Test::Base>
 {
-    static void read(S* istr, ::Test::Base& v)
+    static void read(InputStream* istr, ::Test::Base& v)
     {
         istr->readAll(v.b);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::KnownDerived, S>
+template<>
+struct StreamWriter<::Test::KnownDerived>
 {
-    static void write(S* ostr, const ::Test::KnownDerived& v)
+    static void write(OutputStream* ostr, const ::Test::KnownDerived& v)
     {
         ostr->writeAll(v.kd);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::KnownDerived, S>
+template<>
+struct StreamReader<::Test::KnownDerived>
 {
-    static void read(S* istr, ::Test::KnownDerived& v)
+    static void read(InputStream* istr, ::Test::KnownDerived& v)
     {
         istr->readAll(v.kd);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::KnownIntermediate, S>
+template<>
+struct StreamWriter<::Test::KnownIntermediate>
 {
-    static void write(S* ostr, const ::Test::KnownIntermediate& v)
+    static void write(OutputStream* ostr, const ::Test::KnownIntermediate& v)
     {
         ostr->writeAll(v.ki);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::KnownIntermediate, S>
+template<>
+struct StreamReader<::Test::KnownIntermediate>
 {
-    static void read(S* istr, ::Test::KnownIntermediate& v)
+    static void read(InputStream* istr, ::Test::KnownIntermediate& v)
     {
         istr->readAll(v.ki);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::KnownMostDerived, S>
+template<>
+struct StreamWriter<::Test::KnownMostDerived>
 {
-    static void write(S* ostr, const ::Test::KnownMostDerived& v)
+    static void write(OutputStream* ostr, const ::Test::KnownMostDerived& v)
     {
         ostr->writeAll(v.kmd);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::KnownMostDerived, S>
+template<>
+struct StreamReader<::Test::KnownMostDerived>
 {
-    static void read(S* istr, ::Test::KnownMostDerived& v)
+    static void read(InputStream* istr, ::Test::KnownMostDerived& v)
     {
         istr->readAll(v.kmd);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::KnownPreserved, S>
+template<>
+struct StreamWriter<::Test::KnownPreserved>
 {
-    static void write(S* ostr, const ::Test::KnownPreserved& v)
+    static void write(OutputStream* ostr, const ::Test::KnownPreserved& v)
     {
         ostr->writeAll(v.kp);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::KnownPreserved, S>
+template<>
+struct StreamReader<::Test::KnownPreserved>
 {
-    static void read(S* istr, ::Test::KnownPreserved& v)
+    static void read(InputStream* istr, ::Test::KnownPreserved& v)
     {
         istr->readAll(v.kp);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::KnownPreservedDerived, S>
+template<>
+struct StreamWriter<::Test::KnownPreservedDerived>
 {
-    static void write(S* ostr, const ::Test::KnownPreservedDerived& v)
+    static void write(OutputStream* ostr, const ::Test::KnownPreservedDerived& v)
     {
         ostr->writeAll(v.kpd);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::KnownPreservedDerived, S>
+template<>
+struct StreamReader<::Test::KnownPreservedDerived>
 {
-    static void read(S* istr, ::Test::KnownPreservedDerived& v)
+    static void read(InputStream* istr, ::Test::KnownPreservedDerived& v)
     {
         istr->readAll(v.kpd);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::BaseClass, S>
+template<>
+struct StreamReader<::Test::BaseClass>
 {
-    static void read(S* istr, ::Test::BaseClass& v)
+    static void read(InputStream* istr, ::Test::BaseClass& v)
     {
         istr->readAll(v.bc);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::PreservedClass, S>
+template<>
+struct StreamWriter<::Test::PreservedClass>
 {
-    static void write(S* ostr, const ::Test::PreservedClass& v)
+    static void write(OutputStream* ostr, const ::Test::PreservedClass& v)
     {
         ostr->writeAll(v.pc);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::PreservedClass, S>
+template<>
+struct StreamReader<::Test::PreservedClass>
 {
-    static void read(S* istr, ::Test::PreservedClass& v)
+    static void read(InputStream* istr, ::Test::PreservedClass& v)
     {
         istr->readAll(v.pc);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::Preserved1, S>
+template<>
+struct StreamWriter<::Test::Preserved1>
 {
-    static void write(S* ostr, const ::Test::Preserved1& v)
+    static void write(OutputStream* ostr, const ::Test::Preserved1& v)
     {
         ostr->writeAll(v.p1);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::Preserved1, S>
+template<>
+struct StreamReader<::Test::Preserved1>
 {
-    static void read(S* istr, ::Test::Preserved1& v)
+    static void read(InputStream* istr, ::Test::Preserved1& v)
     {
         istr->readAll(v.p1);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::Preserved2, S>
+template<>
+struct StreamWriter<::Test::Preserved2>
 {
-    static void write(S* ostr, const ::Test::Preserved2& v)
+    static void write(OutputStream* ostr, const ::Test::Preserved2& v)
     {
         ostr->writeAll(v.p2);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::Preserved2, S>
+template<>
+struct StreamReader<::Test::Preserved2>
 {
-    static void read(S* istr, ::Test::Preserved2& v)
+    static void read(InputStream* istr, ::Test::Preserved2& v)
     {
         istr->readAll(v.p2);
     }

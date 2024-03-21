@@ -484,19 +484,19 @@ struct StreamableTraits<::Test1::WstringStruct>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::Test1::WstringStruct, S>
+template<>
+struct StreamReader<::Test1::WstringStruct>
 {
-    static void read(S* istr, ::Test1::WstringStruct& v)
+    static void read(InputStream* istr, ::Test1::WstringStruct& v)
     {
         istr->readAll(v.s);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test1::WstringException, S>
+template<>
+struct StreamReader<::Test1::WstringException>
 {
-    static void read(S* istr, ::Test1::WstringException& v)
+    static void read(InputStream* istr, ::Test1::WstringException& v)
     {
         istr->readAll(v.reason);
     }
@@ -517,19 +517,19 @@ struct StreamableTraits<::Test2::WstringStruct>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::Test2::WstringStruct, S>
+template<>
+struct StreamReader<::Test2::WstringStruct>
 {
-    static void read(S* istr, ::Test2::WstringStruct& v)
+    static void read(InputStream* istr, ::Test2::WstringStruct& v)
     {
         istr->readAll(v.s);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test2::WstringException, S>
+template<>
+struct StreamReader<::Test2::WstringException>
 {
-    static void read(S* istr, ::Test2::WstringException& v)
+    static void read(InputStream* istr, ::Test2::WstringException& v)
     {
         istr->readAll(v.reason);
     }

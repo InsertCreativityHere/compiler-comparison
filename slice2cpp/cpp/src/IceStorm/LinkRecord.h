@@ -87,10 +87,10 @@ struct StreamableTraits<::IceStorm::LinkRecord>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::IceStorm::LinkRecord, S>
+template<>
+struct StreamReader<::IceStorm::LinkRecord>
 {
-    static void read(S* istr, ::IceStorm::LinkRecord& v)
+    static void read(InputStream* istr, ::IceStorm::LinkRecord& v)
     {
         istr->readAll(v.obj, v.cost, v.theTopic);
     }

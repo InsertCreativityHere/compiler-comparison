@@ -844,73 +844,73 @@ using WrongOperationPtr = ::std::shared_ptr<WrongOperation>;
 namespace Ice
 {
 
-template<typename S>
-struct StreamReader<::Test::A, S>
+template<>
+struct StreamReader<::Test::A>
 {
-    static void read(S* istr, ::Test::A& v)
+    static void read(InputStream* istr, ::Test::A& v)
     {
         istr->readAll(v.aMem);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::B, S>
+template<>
+struct StreamWriter<::Test::B>
 {
-    static void write(S* ostr, const ::Test::B& v)
+    static void write(OutputStream* ostr, const ::Test::B& v)
     {
         ostr->writeAll(v.bMem);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::B, S>
+template<>
+struct StreamReader<::Test::B>
 {
-    static void read(S* istr, ::Test::B& v)
+    static void read(InputStream* istr, ::Test::B& v)
     {
         istr->readAll(v.bMem);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::C, S>
+template<>
+struct StreamWriter<::Test::C>
 {
-    static void write(S* ostr, const ::Test::C& v)
+    static void write(OutputStream* ostr, const ::Test::C& v)
     {
         ostr->writeAll(v.cMem);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::C, S>
+template<>
+struct StreamReader<::Test::C>
 {
-    static void read(S* istr, ::Test::C& v)
+    static void read(InputStream* istr, ::Test::C& v)
     {
         istr->readAll(v.cMem);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::D, S>
+template<>
+struct StreamReader<::Test::D>
 {
-    static void read(S* istr, ::Test::D& v)
+    static void read(InputStream* istr, ::Test::D& v)
     {
         istr->readAll(v.dMem);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::Mod::A, S>
+template<>
+struct StreamWriter<::Test::Mod::A>
 {
-    static void write(S* ostr, const ::Test::Mod::A& v)
+    static void write(OutputStream* ostr, const ::Test::Mod::A& v)
     {
         ostr->writeAll(v.a2Mem);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::Mod::A, S>
+template<>
+struct StreamReader<::Test::Mod::A>
 {
-    static void read(S* istr, ::Test::Mod::A& v)
+    static void read(InputStream* istr, ::Test::Mod::A& v)
     {
         istr->readAll(v.a2Mem);
     }

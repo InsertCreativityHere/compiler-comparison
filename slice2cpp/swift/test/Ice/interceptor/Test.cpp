@@ -351,7 +351,7 @@ void
 Test::InvalidInputException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<InvalidInputException, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<InvalidInputException>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -359,7 +359,7 @@ void
 Test::InvalidInputException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<InvalidInputException, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<InvalidInputException>::read(istr, *this);
     istr->endSlice();
 }
 

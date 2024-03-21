@@ -207,37 +207,37 @@ protected:
 namespace Ice
 {
 
-template<typename S>
-struct StreamWriter<::IceMX::TopicMetrics, S>
+template<>
+struct StreamWriter<::IceMX::TopicMetrics>
 {
-    static void write(S* ostr, const ::IceMX::TopicMetrics& v)
+    static void write(OutputStream* ostr, const ::IceMX::TopicMetrics& v)
     {
         ostr->writeAll(v.published, v.forwarded);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceMX::TopicMetrics, S>
+template<>
+struct StreamReader<::IceMX::TopicMetrics>
 {
-    static void read(S* istr, ::IceMX::TopicMetrics& v)
+    static void read(InputStream* istr, ::IceMX::TopicMetrics& v)
     {
         istr->readAll(v.published, v.forwarded);
     }
 };
 
-template<typename S>
-struct StreamWriter<::IceMX::SubscriberMetrics, S>
+template<>
+struct StreamWriter<::IceMX::SubscriberMetrics>
 {
-    static void write(S* ostr, const ::IceMX::SubscriberMetrics& v)
+    static void write(OutputStream* ostr, const ::IceMX::SubscriberMetrics& v)
     {
         ostr->writeAll(v.queued, v.outstanding, v.delivered);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceMX::SubscriberMetrics, S>
+template<>
+struct StreamReader<::IceMX::SubscriberMetrics>
 {
-    static void read(S* istr, ::IceMX::SubscriberMetrics& v)
+    static void read(InputStream* istr, ::IceMX::SubscriberMetrics& v)
     {
         istr->readAll(v.queued, v.outstanding, v.delivered);
     }

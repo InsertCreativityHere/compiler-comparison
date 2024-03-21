@@ -258,10 +258,10 @@ using FileParserPtr = ::std::shared_ptr<FileParser>;
 namespace Ice
 {
 
-template<typename S>
-struct StreamReader<::IceGrid::ParseException, S>
+template<>
+struct StreamReader<::IceGrid::ParseException>
 {
-    static void read(S* istr, ::IceGrid::ParseException& v)
+    static void read(InputStream* istr, ::IceGrid::ParseException& v)
     {
         istr->readAll(v.reason);
     }

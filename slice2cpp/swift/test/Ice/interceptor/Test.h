@@ -309,10 +309,10 @@ using MyObjectPtr = ::std::shared_ptr<MyObject>;
 namespace Ice
 {
 
-template<typename S>
-struct StreamReader<::Test::InvalidInputException, S>
+template<>
+struct StreamReader<::Test::InvalidInputException>
 {
-    static void read(S* istr, ::Test::InvalidInputException& v)
+    static void read(InputStream* istr, ::Test::InvalidInputException& v)
     {
         istr->readAll(v.message);
     }

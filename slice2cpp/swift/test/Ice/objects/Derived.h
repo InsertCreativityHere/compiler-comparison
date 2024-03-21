@@ -99,19 +99,19 @@ static Derived _iceS_Derived_init;
 namespace Ice
 {
 
-template<typename S>
-struct StreamWriter<::Test::Derived, S>
+template<>
+struct StreamWriter<::Test::Derived>
 {
-    static void write(S* ostr, const ::Test::Derived& v)
+    static void write(OutputStream* ostr, const ::Test::Derived& v)
     {
         ostr->writeAll(v.b);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::Derived, S>
+template<>
+struct StreamReader<::Test::Derived>
 {
-    static void read(S* istr, ::Test::Derived& v)
+    static void read(InputStream* istr, ::Test::Derived& v)
     {
         istr->readAll(v.b);
     }

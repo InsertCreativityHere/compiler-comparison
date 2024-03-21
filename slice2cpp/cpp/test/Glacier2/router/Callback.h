@@ -446,10 +446,10 @@ using CallbackPtr = ::std::shared_ptr<Callback>;
 namespace Ice
 {
 
-template<typename S>
-struct StreamReader<::Test::CallbackException, S>
+template<>
+struct StreamReader<::Test::CallbackException>
 {
-    static void read(S* istr, ::Test::CallbackException& v)
+    static void read(InputStream* istr, ::Test::CallbackException& v)
     {
         istr->readAll(v.someValue, v.someString);
     }

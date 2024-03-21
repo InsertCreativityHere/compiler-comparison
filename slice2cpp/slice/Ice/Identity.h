@@ -105,10 +105,10 @@ struct StreamableTraits<::Ice::Identity>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::Ice::Identity, S>
+template<>
+struct StreamReader<::Ice::Identity>
 {
-    static void read(S* istr, ::Ice::Identity& v)
+    static void read(InputStream* istr, ::Ice::Identity& v)
     {
         istr->readAll(v.name, v.category);
     }

@@ -736,10 +736,10 @@ using Ice::operator!=;
 namespace Ice
 {
 
-template<typename S>
-struct StreamReader<::LocalTest::C1, S>
+template<>
+struct StreamReader<::LocalTest::C1>
 {
-    static void read(S* istr, ::LocalTest::C1& v)
+    static void read(InputStream* istr, ::LocalTest::C1& v)
     {
         istr->readAll(v.i);
     }
@@ -753,10 +753,10 @@ struct StreamableTraits<::LocalTest::S1>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::LocalTest::S1, S>
+template<>
+struct StreamReader<::LocalTest::S1>
 {
-    static void read(S* istr, ::LocalTest::S1& v)
+    static void read(InputStream* istr, ::LocalTest::S1& v)
     {
         istr->readAll(v.c1);
     }
@@ -770,10 +770,10 @@ struct StreamableTraits<::LocalTest::S2>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::LocalTest::S2, S>
+template<>
+struct StreamReader<::LocalTest::S2>
 {
-    static void read(S* istr, ::LocalTest::S2& v)
+    static void read(InputStream* istr, ::LocalTest::S2& v)
     {
         istr->readAll(v.s1);
     }
@@ -787,10 +787,10 @@ struct StreamableTraits<::LocalTest::S3>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::LocalTest::S3, S>
+template<>
+struct StreamReader<::LocalTest::S3>
 {
-    static void read(S* istr, ::LocalTest::S3& v)
+    static void read(InputStream* istr, ::LocalTest::S3& v)
     {
         istr->readAll(v.c1seq);
     }
@@ -804,10 +804,10 @@ struct StreamableTraits<::LocalTest::S4>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::LocalTest::S4, S>
+template<>
+struct StreamReader<::LocalTest::S4>
 {
-    static void read(S* istr, ::LocalTest::S4& v)
+    static void read(InputStream* istr, ::LocalTest::S4& v)
     {
         istr->readAll(v.s1seq);
     }
@@ -821,10 +821,10 @@ struct StreamableTraits<::LocalTest::S5>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::LocalTest::S5, S>
+template<>
+struct StreamReader<::LocalTest::S5>
 {
-    static void read(S* istr, ::LocalTest::S5& v)
+    static void read(InputStream* istr, ::LocalTest::S5& v)
     {
         istr->readAll(v.c1dict);
     }
@@ -838,10 +838,10 @@ struct StreamableTraits<::LocalTest::S6>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::LocalTest::S6, S>
+template<>
+struct StreamReader<::LocalTest::S6>
 {
-    static void read(S* istr, ::LocalTest::S6& v)
+    static void read(InputStream* istr, ::LocalTest::S6& v)
     {
         istr->readAll(v.s1dict);
     }
@@ -855,10 +855,10 @@ struct StreamableTraits<::LocalTest::S7>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::LocalTest::S7, S>
+template<>
+struct StreamReader<::LocalTest::S7>
 {
-    static void read(S* istr, ::LocalTest::S7& v)
+    static void read(InputStream* istr, ::LocalTest::S7& v)
     {
         istr->readAll(v.c1seqseq);
     }
@@ -872,82 +872,82 @@ struct StreamableTraits<::LocalTest::S8>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::LocalTest::S8, S>
+template<>
+struct StreamReader<::LocalTest::S8>
 {
-    static void read(S* istr, ::LocalTest::S8& v)
+    static void read(InputStream* istr, ::LocalTest::S8& v)
     {
         istr->readAll(v.s1seqseq);
     }
 };
 
-template<typename S>
-struct StreamReader<::LocalTest::CB1, S>
+template<>
+struct StreamReader<::LocalTest::CB1>
 {
-    static void read(S* istr, ::LocalTest::CB1& v)
+    static void read(InputStream* istr, ::LocalTest::CB1& v)
     {
         istr->readAll(v.s1);
     }
 };
 
-template<typename S>
-struct StreamReader<::LocalTest::CB2, S>
+template<>
+struct StreamReader<::LocalTest::CB2>
 {
-    static void read(S* istr, ::LocalTest::CB2& v)
+    static void read(InputStream* istr, ::LocalTest::CB2& v)
     {
         istr->readAll(v.c1seq);
     }
 };
 
-template<typename S>
-struct StreamReader<::LocalTest::CB3, S>
+template<>
+struct StreamReader<::LocalTest::CB3>
 {
-    static void read(S* istr, ::LocalTest::CB3& v)
+    static void read(InputStream* istr, ::LocalTest::CB3& v)
     {
         istr->readAll(v.s1seq);
     }
 };
 
-template<typename S>
-struct StreamReader<::LocalTest::CB4, S>
+template<>
+struct StreamReader<::LocalTest::CB4>
 {
-    static void read(S* istr, ::LocalTest::CB4& v)
+    static void read(InputStream* istr, ::LocalTest::CB4& v)
     {
         istr->readAll(v.c1dict);
     }
 };
 
-template<typename S>
-struct StreamReader<::LocalTest::CB5, S>
+template<>
+struct StreamReader<::LocalTest::CB5>
 {
-    static void read(S* istr, ::LocalTest::CB5& v)
+    static void read(InputStream* istr, ::LocalTest::CB5& v)
     {
         istr->readAll(v.s1dict);
     }
 };
 
-template<typename S>
-struct StreamReader<::LocalTest::CB6, S>
+template<>
+struct StreamReader<::LocalTest::CB6>
 {
-    static void read(S* istr, ::LocalTest::CB6& v)
+    static void read(InputStream* istr, ::LocalTest::CB6& v)
     {
         istr->readAll(v.c1seqseq);
     }
 };
 
-template<typename S>
-struct StreamReader<::LocalTest::CB7, S>
+template<>
+struct StreamReader<::LocalTest::CB7>
 {
-    static void read(S* istr, ::LocalTest::CB7& v)
+    static void read(InputStream* istr, ::LocalTest::CB7& v)
     {
         istr->readAll(v.s1seqseq);
     }
 };
 
-template<typename S>
-struct StreamReader<::LocalTest::CB8, S>
+template<>
+struct StreamReader<::LocalTest::CB8>
 {
-    static void read(S* istr, ::LocalTest::CB8& v)
+    static void read(InputStream* istr, ::LocalTest::CB8& v)
     {
         istr->readAll(v.s1, v.c1seq, v.s1dict);
     }
@@ -961,28 +961,28 @@ struct StreamableTraits<::LocalTest::StructKey>
     static const bool fixedLength = true;
 };
 
-template<typename S>
-struct StreamReader<::LocalTest::StructKey, S>
+template<>
+struct StreamReader<::LocalTest::StructKey>
 {
-    static void read(S* istr, ::LocalTest::StructKey& v)
+    static void read(InputStream* istr, ::LocalTest::StructKey& v)
     {
         istr->readAll(v.i, v.j);
     }
 };
 
-template<typename S>
-struct StreamWriter<::LocalTest::Opt, S>
+template<>
+struct StreamWriter<::LocalTest::Opt>
 {
-    static void write(S* ostr, const ::LocalTest::Opt& v)
+    static void write(OutputStream* ostr, const ::LocalTest::Opt& v)
     {
         ostr->writeAll({1, 2, 3}, v.s1, v.c1seq, v.s1dict);
     }
 };
 
-template<typename S>
-struct StreamReader<::LocalTest::Opt, S>
+template<>
+struct StreamReader<::LocalTest::Opt>
 {
-    static void read(S* istr, ::LocalTest::Opt& v)
+    static void read(InputStream* istr, ::LocalTest::Opt& v)
     {
         istr->readAll({1, 2, 3}, v.s1, v.c1seq, v.s1dict);
     }

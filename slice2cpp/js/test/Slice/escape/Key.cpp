@@ -447,7 +447,7 @@ void
 await::_cpp_delete::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<_cpp_delete, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<_cpp_delete>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -455,7 +455,7 @@ void
 await::_cpp_delete::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<_cpp_delete, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<_cpp_delete>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -482,7 +482,7 @@ void
 await::package::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<package, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<package>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -490,7 +490,7 @@ void
 await::package::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<package, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<package>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -517,7 +517,7 @@ void
 await::fixed::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<fixed, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<fixed>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -525,7 +525,7 @@ void
 await::fixed::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<fixed, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<fixed>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -552,7 +552,7 @@ void
 await::foreach::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<foreach, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<foreach>::write(ostr, *this);
     ostr->endSlice();
     fixed::_writeImpl(ostr);
 }
@@ -561,7 +561,7 @@ void
 await::foreach::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<foreach, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<foreach>::read(istr, *this);
     istr->endSlice();
     fixed::_readImpl(istr);
 }
@@ -589,7 +589,7 @@ void
 await::BaseMethods::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<BaseMethods, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<BaseMethods>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -597,7 +597,7 @@ void
 await::BaseMethods::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<BaseMethods, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<BaseMethods>::read(istr, *this);
     istr->endSlice();
 }
 

@@ -176,7 +176,7 @@ void
 Test::COneMember::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<COneMember, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<COneMember>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -184,7 +184,7 @@ void
 Test::COneMember::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<COneMember, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<COneMember>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -211,7 +211,7 @@ void
 Test::CTwoMembers::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<CTwoMembers, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<CTwoMembers>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -219,7 +219,7 @@ void
 Test::CTwoMembers::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<CTwoMembers, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<CTwoMembers>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -254,7 +254,7 @@ void
 Test::EOneMember::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<EOneMember, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<EOneMember>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -262,7 +262,7 @@ void
 Test::EOneMember::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<EOneMember, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<EOneMember>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -297,7 +297,7 @@ void
 Test::ETwoMembers::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<ETwoMembers, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<ETwoMembers>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -305,7 +305,7 @@ void
 Test::ETwoMembers::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<ETwoMembers, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<ETwoMembers>::read(istr, *this);
     istr->endSlice();
 }
 

@@ -465,27 +465,27 @@ using FileServerPtr = ::std::shared_ptr<FileServer>;
 namespace Ice
 {
 
-template<typename S>
-struct StreamReader<::IcePatch2::FileAccessException, S>
+template<>
+struct StreamReader<::IcePatch2::FileAccessException>
 {
-    static void read(S* istr, ::IcePatch2::FileAccessException& v)
+    static void read(InputStream* istr, ::IcePatch2::FileAccessException& v)
     {
         istr->readAll(v.reason);
     }
 };
 
-template<typename S>
-struct StreamWriter<::IcePatch2::FileSizeRangeException, S>
+template<>
+struct StreamWriter<::IcePatch2::FileSizeRangeException>
 {
-    static void write(S*, const ::IcePatch2::FileSizeRangeException&)
+    static void write(OutputStream*, const ::IcePatch2::FileSizeRangeException&)
     {
     }
 };
 
-template<typename S>
-struct StreamReader<::IcePatch2::FileSizeRangeException, S>
+template<>
+struct StreamReader<::IcePatch2::FileSizeRangeException>
 {
-    static void read(S*, ::IcePatch2::FileSizeRangeException&)
+    static void read(InputStream*, ::IcePatch2::FileSizeRangeException&)
     {
     }
 };

@@ -582,10 +582,10 @@ struct StreamableTraits<::_cpp_and::guard>
     static const bool fixedLength = true;
 };
 
-template<typename S>
-struct StreamReader<::_cpp_and::guard, S>
+template<>
+struct StreamReader<::_cpp_and::guard>
 {
-    static void read(S* istr, ::_cpp_and::guard& v)
+    static void read(InputStream* istr, ::_cpp_and::guard& v)
     {
         istr->readAll(v._cpp_default);
     }
@@ -599,46 +599,46 @@ struct StreamableTraits<::_cpp_and::defer>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::_cpp_and::defer, S>
+template<>
+struct StreamReader<::_cpp_and::defer>
 {
-    static void read(S* istr, ::_cpp_and::defer& v)
+    static void read(InputStream* istr, ::_cpp_and::defer& v)
     {
         istr->readAll(v._cpp_else);
     }
 };
 
-template<typename S>
-struct StreamReader<::_cpp_and::_cpp_switch, S>
+template<>
+struct StreamReader<::_cpp_and::_cpp_switch>
 {
-    static void read(S* istr, ::_cpp_and::_cpp_switch& v)
+    static void read(InputStream* istr, ::_cpp_and::_cpp_switch& v)
     {
         istr->readAll(v._cpp_if, v._cpp_export, v._cpp_volatile);
     }
 };
 
-template<typename S>
-struct StreamReader<::_cpp_and::_cpp_return, S>
+template<>
+struct StreamReader<::_cpp_and::_cpp_return>
 {
-    static void read(S* istr, ::_cpp_and::_cpp_return& v)
+    static void read(InputStream* istr, ::_cpp_and::_cpp_return& v)
     {
         istr->readAll(v.Int32);
     }
 };
 
-template<typename S>
-struct StreamWriter<::_cpp_and::as, S>
+template<>
+struct StreamWriter<::_cpp_and::as>
 {
-    static void write(S* ostr, const ::_cpp_and::as& v)
+    static void write(OutputStream* ostr, const ::_cpp_and::as& v)
     {
         ostr->writeAll(v._cpp_static, v._cpp_switch);
     }
 };
 
-template<typename S>
-struct StreamReader<::_cpp_and::as, S>
+template<>
+struct StreamReader<::_cpp_and::as>
 {
-    static void read(S* istr, ::_cpp_and::as& v)
+    static void read(InputStream* istr, ::_cpp_and::as& v)
     {
         istr->readAll(v._cpp_static, v._cpp_switch);
     }

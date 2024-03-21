@@ -66,7 +66,7 @@ void
 IceMX::TopicMetrics::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<TopicMetrics, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<TopicMetrics>::write(ostr, *this);
     ostr->endSlice();
     Metrics::_iceWriteImpl(ostr);
 }
@@ -75,7 +75,7 @@ void
 IceMX::TopicMetrics::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<TopicMetrics, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<TopicMetrics>::read(istr, *this);
     istr->endSlice();
     Metrics::_iceReadImpl(istr);
 }
@@ -103,7 +103,7 @@ void
 IceMX::SubscriberMetrics::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<SubscriberMetrics, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<SubscriberMetrics>::write(ostr, *this);
     ostr->endSlice();
     Metrics::_iceWriteImpl(ostr);
 }
@@ -112,7 +112,7 @@ void
 IceMX::SubscriberMetrics::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<SubscriberMetrics, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<SubscriberMetrics>::read(istr, *this);
     istr->endSlice();
     Metrics::_iceReadImpl(istr);
 }

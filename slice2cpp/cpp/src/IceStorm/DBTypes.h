@@ -84,10 +84,10 @@ struct StreamableTraits<::IceStorm::AllData>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::IceStorm::AllData, S>
+template<>
+struct StreamReader<::IceStorm::AllData>
 {
-    static void read(S* istr, ::IceStorm::AllData& v)
+    static void read(InputStream* istr, ::IceStorm::AllData& v)
     {
         istr->readAll(v.llus, v.subscribers);
     }

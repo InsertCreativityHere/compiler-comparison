@@ -1429,10 +1429,10 @@ struct StreamableTraits<::IceGrid::PropertyDescriptor>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::PropertyDescriptor, S>
+template<>
+struct StreamReader<::IceGrid::PropertyDescriptor>
 {
-    static void read(S* istr, ::IceGrid::PropertyDescriptor& v)
+    static void read(InputStream* istr, ::IceGrid::PropertyDescriptor& v)
     {
         istr->readAll(v.name, v.value);
     }
@@ -1446,10 +1446,10 @@ struct StreamableTraits<::IceGrid::PropertySetDescriptor>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::PropertySetDescriptor, S>
+template<>
+struct StreamReader<::IceGrid::PropertySetDescriptor>
 {
-    static void read(S* istr, ::IceGrid::PropertySetDescriptor& v)
+    static void read(InputStream* istr, ::IceGrid::PropertySetDescriptor& v)
     {
         istr->readAll(v.references, v.properties);
     }
@@ -1463,10 +1463,10 @@ struct StreamableTraits<::IceGrid::ObjectDescriptor>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::ObjectDescriptor, S>
+template<>
+struct StreamReader<::IceGrid::ObjectDescriptor>
 {
-    static void read(S* istr, ::IceGrid::ObjectDescriptor& v)
+    static void read(InputStream* istr, ::IceGrid::ObjectDescriptor& v)
     {
         istr->readAll(v.id, v.type, v.proxyOptions);
     }
@@ -1480,19 +1480,19 @@ struct StreamableTraits<::IceGrid::AdapterDescriptor>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::AdapterDescriptor, S>
+template<>
+struct StreamReader<::IceGrid::AdapterDescriptor>
 {
-    static void read(S* istr, ::IceGrid::AdapterDescriptor& v)
+    static void read(InputStream* istr, ::IceGrid::AdapterDescriptor& v)
     {
         istr->readAll(v.name, v.description, v.id, v.replicaGroupId, v.priority, v.registerProcess, v.serverLifetime, v.objects, v.allocatables);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::CommunicatorDescriptor, S>
+template<>
+struct StreamReader<::IceGrid::CommunicatorDescriptor>
 {
-    static void read(S* istr, ::IceGrid::CommunicatorDescriptor& v)
+    static void read(InputStream* istr, ::IceGrid::CommunicatorDescriptor& v)
     {
         istr->readAll(v.adapters, v.propertySet, v.logs, v.description);
     }
@@ -1506,46 +1506,46 @@ struct StreamableTraits<::IceGrid::DistributionDescriptor>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::DistributionDescriptor, S>
+template<>
+struct StreamReader<::IceGrid::DistributionDescriptor>
 {
-    static void read(S* istr, ::IceGrid::DistributionDescriptor& v)
+    static void read(InputStream* istr, ::IceGrid::DistributionDescriptor& v)
     {
         istr->readAll(v.icepatch, v.directories);
     }
 };
 
-template<typename S>
-struct StreamWriter<::IceGrid::ServerDescriptor, S>
+template<>
+struct StreamWriter<::IceGrid::ServerDescriptor>
 {
-    static void write(S* ostr, const ::IceGrid::ServerDescriptor& v)
+    static void write(OutputStream* ostr, const ::IceGrid::ServerDescriptor& v)
     {
         ostr->writeAll(v.id, v.exe, v.iceVersion, v.pwd, v.options, v.envs, v.activation, v.activationTimeout, v.deactivationTimeout, v.applicationDistrib, v.distrib, v.allocatable, v.user);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::ServerDescriptor, S>
+template<>
+struct StreamReader<::IceGrid::ServerDescriptor>
 {
-    static void read(S* istr, ::IceGrid::ServerDescriptor& v)
+    static void read(InputStream* istr, ::IceGrid::ServerDescriptor& v)
     {
         istr->readAll(v.id, v.exe, v.iceVersion, v.pwd, v.options, v.envs, v.activation, v.activationTimeout, v.deactivationTimeout, v.applicationDistrib, v.distrib, v.allocatable, v.user);
     }
 };
 
-template<typename S>
-struct StreamWriter<::IceGrid::ServiceDescriptor, S>
+template<>
+struct StreamWriter<::IceGrid::ServiceDescriptor>
 {
-    static void write(S* ostr, const ::IceGrid::ServiceDescriptor& v)
+    static void write(OutputStream* ostr, const ::IceGrid::ServiceDescriptor& v)
     {
         ostr->writeAll(v.name, v.entry);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::ServiceDescriptor, S>
+template<>
+struct StreamReader<::IceGrid::ServiceDescriptor>
 {
-    static void read(S* istr, ::IceGrid::ServiceDescriptor& v)
+    static void read(InputStream* istr, ::IceGrid::ServiceDescriptor& v)
     {
         istr->readAll(v.name, v.entry);
     }
@@ -1559,10 +1559,10 @@ struct StreamableTraits<::IceGrid::ServerInstanceDescriptor>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::ServerInstanceDescriptor, S>
+template<>
+struct StreamReader<::IceGrid::ServerInstanceDescriptor>
 {
-    static void read(S* istr, ::IceGrid::ServerInstanceDescriptor& v)
+    static void read(InputStream* istr, ::IceGrid::ServerInstanceDescriptor& v)
     {
         istr->readAll(v._cpp_template, v.parameterValues, v.propertySet, v.servicePropertySets);
     }
@@ -1576,10 +1576,10 @@ struct StreamableTraits<::IceGrid::TemplateDescriptor>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::TemplateDescriptor, S>
+template<>
+struct StreamReader<::IceGrid::TemplateDescriptor>
 {
-    static void read(S* istr, ::IceGrid::TemplateDescriptor& v)
+    static void read(InputStream* istr, ::IceGrid::TemplateDescriptor& v)
     {
         istr->readAll(v.descriptor, v.parameters, v.parameterDefaults);
     }
@@ -1593,28 +1593,28 @@ struct StreamableTraits<::IceGrid::ServiceInstanceDescriptor>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::ServiceInstanceDescriptor, S>
+template<>
+struct StreamReader<::IceGrid::ServiceInstanceDescriptor>
 {
-    static void read(S* istr, ::IceGrid::ServiceInstanceDescriptor& v)
+    static void read(InputStream* istr, ::IceGrid::ServiceInstanceDescriptor& v)
     {
         istr->readAll(v._cpp_template, v.parameterValues, v.descriptor, v.propertySet);
     }
 };
 
-template<typename S>
-struct StreamWriter<::IceGrid::IceBoxDescriptor, S>
+template<>
+struct StreamWriter<::IceGrid::IceBoxDescriptor>
 {
-    static void write(S* ostr, const ::IceGrid::IceBoxDescriptor& v)
+    static void write(OutputStream* ostr, const ::IceGrid::IceBoxDescriptor& v)
     {
         ostr->writeAll(v.services);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::IceBoxDescriptor, S>
+template<>
+struct StreamReader<::IceGrid::IceBoxDescriptor>
 {
-    static void read(S* istr, ::IceGrid::IceBoxDescriptor& v)
+    static void read(InputStream* istr, ::IceGrid::IceBoxDescriptor& v)
     {
         istr->readAll(v.services);
     }
@@ -1628,85 +1628,85 @@ struct StreamableTraits<::IceGrid::NodeDescriptor>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::NodeDescriptor, S>
+template<>
+struct StreamReader<::IceGrid::NodeDescriptor>
 {
-    static void read(S* istr, ::IceGrid::NodeDescriptor& v)
+    static void read(InputStream* istr, ::IceGrid::NodeDescriptor& v)
     {
         istr->readAll(v.variables, v.serverInstances, v.servers, v.loadFactor, v.description, v.propertySets);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::LoadBalancingPolicy, S>
+template<>
+struct StreamReader<::IceGrid::LoadBalancingPolicy>
 {
-    static void read(S* istr, ::IceGrid::LoadBalancingPolicy& v)
+    static void read(InputStream* istr, ::IceGrid::LoadBalancingPolicy& v)
     {
         istr->readAll(v.nReplicas);
     }
 };
 
-template<typename S>
-struct StreamWriter<::IceGrid::RandomLoadBalancingPolicy, S>
+template<>
+struct StreamWriter<::IceGrid::RandomLoadBalancingPolicy>
 {
-    static void write(S*, const ::IceGrid::RandomLoadBalancingPolicy&)
+    static void write(OutputStream*, const ::IceGrid::RandomLoadBalancingPolicy&)
     {
     }
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::RandomLoadBalancingPolicy, S>
+template<>
+struct StreamReader<::IceGrid::RandomLoadBalancingPolicy>
 {
-    static void read(S*, ::IceGrid::RandomLoadBalancingPolicy&)
+    static void read(InputStream*, ::IceGrid::RandomLoadBalancingPolicy&)
     {
     }
 };
 
-template<typename S>
-struct StreamWriter<::IceGrid::OrderedLoadBalancingPolicy, S>
+template<>
+struct StreamWriter<::IceGrid::OrderedLoadBalancingPolicy>
 {
-    static void write(S*, const ::IceGrid::OrderedLoadBalancingPolicy&)
+    static void write(OutputStream*, const ::IceGrid::OrderedLoadBalancingPolicy&)
     {
     }
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::OrderedLoadBalancingPolicy, S>
+template<>
+struct StreamReader<::IceGrid::OrderedLoadBalancingPolicy>
 {
-    static void read(S*, ::IceGrid::OrderedLoadBalancingPolicy&)
+    static void read(InputStream*, ::IceGrid::OrderedLoadBalancingPolicy&)
     {
     }
 };
 
-template<typename S>
-struct StreamWriter<::IceGrid::RoundRobinLoadBalancingPolicy, S>
+template<>
+struct StreamWriter<::IceGrid::RoundRobinLoadBalancingPolicy>
 {
-    static void write(S*, const ::IceGrid::RoundRobinLoadBalancingPolicy&)
+    static void write(OutputStream*, const ::IceGrid::RoundRobinLoadBalancingPolicy&)
     {
     }
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::RoundRobinLoadBalancingPolicy, S>
+template<>
+struct StreamReader<::IceGrid::RoundRobinLoadBalancingPolicy>
 {
-    static void read(S*, ::IceGrid::RoundRobinLoadBalancingPolicy&)
+    static void read(InputStream*, ::IceGrid::RoundRobinLoadBalancingPolicy&)
     {
     }
 };
 
-template<typename S>
-struct StreamWriter<::IceGrid::AdaptiveLoadBalancingPolicy, S>
+template<>
+struct StreamWriter<::IceGrid::AdaptiveLoadBalancingPolicy>
 {
-    static void write(S* ostr, const ::IceGrid::AdaptiveLoadBalancingPolicy& v)
+    static void write(OutputStream* ostr, const ::IceGrid::AdaptiveLoadBalancingPolicy& v)
     {
         ostr->writeAll(v.loadSample);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::AdaptiveLoadBalancingPolicy, S>
+template<>
+struct StreamReader<::IceGrid::AdaptiveLoadBalancingPolicy>
 {
-    static void read(S* istr, ::IceGrid::AdaptiveLoadBalancingPolicy& v)
+    static void read(InputStream* istr, ::IceGrid::AdaptiveLoadBalancingPolicy& v)
     {
         istr->readAll(v.loadSample);
     }
@@ -1720,10 +1720,10 @@ struct StreamableTraits<::IceGrid::ReplicaGroupDescriptor>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::ReplicaGroupDescriptor, S>
+template<>
+struct StreamReader<::IceGrid::ReplicaGroupDescriptor>
 {
-    static void read(S* istr, ::IceGrid::ReplicaGroupDescriptor& v)
+    static void read(InputStream* istr, ::IceGrid::ReplicaGroupDescriptor& v)
     {
         istr->readAll(v.id, v.loadBalancing, v.proxyOptions, v.objects, v.description, v.filter);
     }
@@ -1737,19 +1737,19 @@ struct StreamableTraits<::IceGrid::ApplicationDescriptor>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::ApplicationDescriptor, S>
+template<>
+struct StreamReader<::IceGrid::ApplicationDescriptor>
 {
-    static void read(S* istr, ::IceGrid::ApplicationDescriptor& v)
+    static void read(InputStream* istr, ::IceGrid::ApplicationDescriptor& v)
     {
         istr->readAll(v.name, v.variables, v.replicaGroups, v.serverTemplates, v.serviceTemplates, v.nodes, v.distrib, v.description, v.propertySets);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::BoxedString, S>
+template<>
+struct StreamReader<::IceGrid::BoxedString>
 {
-    static void read(S* istr, ::IceGrid::BoxedString& v)
+    static void read(InputStream* istr, ::IceGrid::BoxedString& v)
     {
         istr->readAll(v.value);
     }
@@ -1763,19 +1763,19 @@ struct StreamableTraits<::IceGrid::NodeUpdateDescriptor>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::NodeUpdateDescriptor, S>
+template<>
+struct StreamReader<::IceGrid::NodeUpdateDescriptor>
 {
-    static void read(S* istr, ::IceGrid::NodeUpdateDescriptor& v)
+    static void read(InputStream* istr, ::IceGrid::NodeUpdateDescriptor& v)
     {
         istr->readAll(v.name, v.description, v.variables, v.removeVariables, v.propertySets, v.removePropertySets, v.serverInstances, v.servers, v.removeServers, v.loadFactor);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::BoxedDistributionDescriptor, S>
+template<>
+struct StreamReader<::IceGrid::BoxedDistributionDescriptor>
 {
-    static void read(S* istr, ::IceGrid::BoxedDistributionDescriptor& v)
+    static void read(InputStream* istr, ::IceGrid::BoxedDistributionDescriptor& v)
     {
         istr->readAll(v.value);
     }
@@ -1789,10 +1789,10 @@ struct StreamableTraits<::IceGrid::ApplicationUpdateDescriptor>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::ApplicationUpdateDescriptor, S>
+template<>
+struct StreamReader<::IceGrid::ApplicationUpdateDescriptor>
 {
-    static void read(S* istr, ::IceGrid::ApplicationUpdateDescriptor& v)
+    static void read(InputStream* istr, ::IceGrid::ApplicationUpdateDescriptor& v)
     {
         istr->readAll(v.name, v.description, v.distrib, v.variables, v.removeVariables, v.propertySets, v.removePropertySets, v.replicaGroups, v.removeReplicaGroups, v.serverTemplates, v.removeServerTemplates, v.serviceTemplates, v.removeServiceTemplates, v.nodes, v.removeNodes);
     }

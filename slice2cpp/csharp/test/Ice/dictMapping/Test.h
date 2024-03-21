@@ -338,10 +338,10 @@ struct StreamableTraits<::Test::TEstNv>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::Test::TEstNv, S>
+template<>
+struct StreamReader<::Test::TEstNv>
 {
-    static void read(S* istr, ::Test::TEstNv& v)
+    static void read(InputStream* istr, ::Test::TEstNv& v)
     {
         istr->readAll(v.d, v.s);
     }

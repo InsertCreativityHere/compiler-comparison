@@ -1206,19 +1206,19 @@ struct StreamableTraits<::IceStormElection::TopicContent>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::IceStormElection::TopicContent, S>
+template<>
+struct StreamReader<::IceStormElection::TopicContent>
 {
-    static void read(S* istr, ::IceStormElection::TopicContent& v)
+    static void read(InputStream* istr, ::IceStormElection::TopicContent& v)
     {
         istr->readAll(v.id, v.records);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceStormElection::ObserverInconsistencyException, S>
+template<>
+struct StreamReader<::IceStormElection::ObserverInconsistencyException>
 {
-    static void read(S* istr, ::IceStormElection::ObserverInconsistencyException& v)
+    static void read(InputStream* istr, ::IceStormElection::ObserverInconsistencyException& v)
     {
         istr->readAll(v.reason);
     }
@@ -1242,10 +1242,10 @@ struct StreamableTraits<::IceStormElection::NodeInfo>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::IceStormElection::NodeInfo, S>
+template<>
+struct StreamReader<::IceStormElection::NodeInfo>
 {
-    static void read(S* istr, ::IceStormElection::NodeInfo& v)
+    static void read(InputStream* istr, ::IceStormElection::NodeInfo& v)
     {
         istr->readAll(v.id, v.n);
     }
@@ -1259,10 +1259,10 @@ struct StreamableTraits<::IceStormElection::GroupInfo>
     static const bool fixedLength = true;
 };
 
-template<typename S>
-struct StreamReader<::IceStormElection::GroupInfo, S>
+template<>
+struct StreamReader<::IceStormElection::GroupInfo>
 {
-    static void read(S* istr, ::IceStormElection::GroupInfo& v)
+    static void read(InputStream* istr, ::IceStormElection::GroupInfo& v)
     {
         istr->readAll(v.id, v.llu);
     }
@@ -1276,10 +1276,10 @@ struct StreamableTraits<::IceStormElection::QueryInfo>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::IceStormElection::QueryInfo, S>
+template<>
+struct StreamReader<::IceStormElection::QueryInfo>
 {
-    static void read(S* istr, ::IceStormElection::QueryInfo& v)
+    static void read(InputStream* istr, ::IceStormElection::QueryInfo& v)
     {
         istr->readAll(v.id, v.coord, v.group, v.replica, v.state, v.up, v.max);
     }

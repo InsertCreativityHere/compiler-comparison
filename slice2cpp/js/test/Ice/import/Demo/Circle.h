@@ -91,10 +91,10 @@ struct StreamableTraits<::Demo::gx::Circle>
     static const bool fixedLength = true;
 };
 
-template<typename S>
-struct StreamReader<::Demo::gx::Circle, S>
+template<>
+struct StreamReader<::Demo::gx::Circle>
 {
-    static void read(S* istr, ::Demo::gx::Circle& v)
+    static void read(InputStream* istr, ::Demo::gx::Circle& v)
     {
         istr->readAll(v.center, v.radius);
     }

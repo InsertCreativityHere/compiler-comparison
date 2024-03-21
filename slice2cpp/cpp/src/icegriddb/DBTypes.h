@@ -78,10 +78,10 @@ struct StreamableTraits<::IceGrid::AllData>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::AllData, S>
+template<>
+struct StreamReader<::IceGrid::AllData>
 {
-    static void read(S* istr, ::IceGrid::AllData& v)
+    static void read(InputStream* istr, ::IceGrid::AllData& v)
     {
         istr->readAll(v.applications, v.adapters, v.objects, v.internalObjects, v.serials);
     }

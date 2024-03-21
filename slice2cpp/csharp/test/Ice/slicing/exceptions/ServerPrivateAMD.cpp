@@ -65,7 +65,7 @@ void
 Test::UnknownDerived::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<UnknownDerived, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<UnknownDerived>::write(ostr, *this);
     ostr->endSlice();
     Base::_writeImpl(ostr);
 }
@@ -74,7 +74,7 @@ void
 Test::UnknownDerived::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<UnknownDerived, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<UnknownDerived>::read(istr, *this);
     istr->endSlice();
     Base::_readImpl(istr);
 }
@@ -102,7 +102,7 @@ void
 Test::UnknownIntermediate::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<UnknownIntermediate, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<UnknownIntermediate>::write(ostr, *this);
     ostr->endSlice();
     Base::_writeImpl(ostr);
 }
@@ -111,7 +111,7 @@ void
 Test::UnknownIntermediate::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<UnknownIntermediate, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<UnknownIntermediate>::read(istr, *this);
     istr->endSlice();
     Base::_readImpl(istr);
 }
@@ -139,7 +139,7 @@ void
 Test::UnknownMostDerived1::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<UnknownMostDerived1, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<UnknownMostDerived1>::write(ostr, *this);
     ostr->endSlice();
     KnownIntermediate::_writeImpl(ostr);
 }
@@ -148,7 +148,7 @@ void
 Test::UnknownMostDerived1::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<UnknownMostDerived1, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<UnknownMostDerived1>::read(istr, *this);
     istr->endSlice();
     KnownIntermediate::_readImpl(istr);
 }
@@ -176,7 +176,7 @@ void
 Test::UnknownMostDerived2::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<UnknownMostDerived2, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<UnknownMostDerived2>::write(ostr, *this);
     ostr->endSlice();
     UnknownIntermediate::_writeImpl(ostr);
 }
@@ -185,7 +185,7 @@ void
 Test::UnknownMostDerived2::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<UnknownMostDerived2, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<UnknownMostDerived2>::read(istr, *this);
     istr->endSlice();
     UnknownIntermediate::_readImpl(istr);
 }

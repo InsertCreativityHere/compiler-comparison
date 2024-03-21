@@ -65,7 +65,7 @@ void
 Test::Base::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<Base, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<Base>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -73,7 +73,7 @@ void
 Test::Base::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<Base, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<Base>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -100,7 +100,7 @@ void
 Test::Derived::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<Derived, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<Derived>::write(ostr, *this);
     ostr->endSlice();
     Base::_iceWriteImpl(ostr);
 }
@@ -109,7 +109,7 @@ void
 Test::Derived::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<Derived, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<Derived>::read(istr, *this);
     istr->endSlice();
     Base::_iceReadImpl(istr);
 }
@@ -137,7 +137,7 @@ void
 Test::BaseEx::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<BaseEx, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<BaseEx>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -145,7 +145,7 @@ void
 Test::BaseEx::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<BaseEx, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<BaseEx>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -172,7 +172,7 @@ void
 Test::DerivedEx::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<DerivedEx, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<DerivedEx>::write(ostr, *this);
     ostr->endSlice();
     BaseEx::_writeImpl(ostr);
 }
@@ -181,7 +181,7 @@ void
 Test::DerivedEx::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<DerivedEx, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<DerivedEx>::read(istr, *this);
     istr->endSlice();
     BaseEx::_readImpl(istr);
 }

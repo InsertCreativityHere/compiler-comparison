@@ -457,10 +457,10 @@ struct StreamableTraits<::Test::SmallStruct>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::Test::SmallStruct, S>
+template<>
+struct StreamReader<::Test::SmallStruct>
 {
-    static void read(S* istr, ::Test::SmallStruct& v)
+    static void read(InputStream* istr, ::Test::SmallStruct& v)
     {
         istr->readAll(v.bo, v.by, v.sh, v.i, v.l, v.f, v.d, v.str, v.e, v.c, v.p, v.ss);
     }
@@ -474,48 +474,48 @@ struct StreamableTraits<::Test::Point>
     static const bool fixedLength = true;
 };
 
-template<typename S>
-struct StreamReader<::Test::Point, S>
+template<>
+struct StreamReader<::Test::Point>
 {
-    static void read(S* istr, ::Test::Point& v)
+    static void read(InputStream* istr, ::Test::Point& v)
     {
         istr->readAll(v.x, v.y);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::OptionalClass, S>
+template<>
+struct StreamWriter<::Test::OptionalClass>
 {
-    static void write(S* ostr, const ::Test::OptionalClass& v)
+    static void write(OutputStream* ostr, const ::Test::OptionalClass& v)
     {
         ostr->writeAll(v.bo, v.by);
         ostr->writeAll({1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15}, v.sh, v.i, v.sm, v.enumS4, v.myClassS5, v.byteBoolD6, v.shortIntD7, v.enum8, v.class9, v.stringMyClassD10, v.intSeq12, v.byteSeq13, v.stringSeq14, v.p15);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::OptionalClass, S>
+template<>
+struct StreamReader<::Test::OptionalClass>
 {
-    static void read(S* istr, ::Test::OptionalClass& v)
+    static void read(InputStream* istr, ::Test::OptionalClass& v)
     {
         istr->readAll(v.bo, v.by);
         istr->readAll({1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15}, v.sh, v.i, v.sm, v.enumS4, v.myClassS5, v.byteBoolD6, v.shortIntD7, v.enum8, v.class9, v.stringMyClassD10, v.intSeq12, v.byteSeq13, v.stringSeq14, v.p15);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::MyClass, S>
+template<>
+struct StreamReader<::Test::MyClass>
 {
-    static void read(S* istr, ::Test::MyClass& v)
+    static void read(InputStream* istr, ::Test::MyClass& v)
     {
         istr->readAll(v.c, v.prx, v.o, v.s, v.seq1, v.seq2, v.seq3, v.seq4, v.seq5, v.seq6, v.seq7, v.seq8, v.seq9, v.seq10, v.d);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::MyException, S>
+template<>
+struct StreamReader<::Test::MyException>
 {
-    static void read(S* istr, ::Test::MyException& v)
+    static void read(InputStream* istr, ::Test::MyException& v)
     {
         istr->readAll(v.c);
     }

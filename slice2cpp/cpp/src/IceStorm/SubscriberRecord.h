@@ -132,10 +132,10 @@ struct StreamableTraits<::IceStorm::SubscriberRecordKey>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::IceStorm::SubscriberRecordKey, S>
+template<>
+struct StreamReader<::IceStorm::SubscriberRecordKey>
 {
-    static void read(S* istr, ::IceStorm::SubscriberRecordKey& v)
+    static void read(InputStream* istr, ::IceStorm::SubscriberRecordKey& v)
     {
         istr->readAll(v.topic, v.id);
     }
@@ -149,10 +149,10 @@ struct StreamableTraits<::IceStorm::SubscriberRecord>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::IceStorm::SubscriberRecord, S>
+template<>
+struct StreamReader<::IceStorm::SubscriberRecord>
 {
-    static void read(S* istr, ::IceStorm::SubscriberRecord& v)
+    static void read(InputStream* istr, ::IceStorm::SubscriberRecord& v)
     {
         istr->readAll(v.topicName, v.id, v.link, v.obj, v.theQoS, v.cost, v.theTopic);
     }

@@ -240,7 +240,7 @@ void
 _cpp_and::echo::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<echo, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<echo>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -248,7 +248,7 @@ void
 _cpp_and::echo::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<echo, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<echo>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -275,7 +275,7 @@ void
 _cpp_and::endif::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<endif, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<endif>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -283,7 +283,7 @@ void
 _cpp_and::endif::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<endif, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<endif>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -310,7 +310,7 @@ void
 _cpp_and::endwhile::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<endwhile, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<endwhile>::write(ostr, *this);
     ostr->endSlice();
     endif::_writeImpl(ostr);
 }
@@ -319,7 +319,7 @@ void
 _cpp_and::endwhile::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<endwhile, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<endwhile>::read(istr, *this);
     istr->endSlice();
     endif::_readImpl(istr);
 }

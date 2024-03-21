@@ -954,10 +954,10 @@ struct StreamableTraits<::Test::S>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::Test::S, S>
+template<>
+struct StreamReader<::Test::S>
 {
-    static void read(S* istr, ::Test::S& v)
+    static void read(InputStream* istr, ::Test::S& v)
     {
         istr->readAll(v.en);
     }

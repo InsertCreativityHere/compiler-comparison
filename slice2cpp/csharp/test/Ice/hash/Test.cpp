@@ -99,7 +99,7 @@ void
 Test::InvalidPointException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<InvalidPointException, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<InvalidPointException>::write(ostr, *this);
     ostr->endSlice();
     BaseException::_writeImpl(ostr);
 }
@@ -108,7 +108,7 @@ void
 Test::InvalidPointException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<InvalidPointException, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<InvalidPointException>::read(istr, *this);
     istr->endSlice();
     BaseException::_readImpl(istr);
 }
@@ -136,7 +136,7 @@ void
 Test::InvalidLengthException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<InvalidLengthException, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<InvalidLengthException>::write(ostr, *this);
     ostr->endSlice();
     BaseException::_writeImpl(ostr);
 }
@@ -145,7 +145,7 @@ void
 Test::InvalidLengthException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<InvalidLengthException, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<InvalidLengthException>::read(istr, *this);
     istr->endSlice();
     BaseException::_readImpl(istr);
 }
@@ -173,7 +173,7 @@ void
 Test::OtherException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<OtherException, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<OtherException>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -181,7 +181,7 @@ void
 Test::OtherException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<OtherException, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<OtherException>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -208,7 +208,7 @@ void
 Test::Pen::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<Pen, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<Pen>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -216,6 +216,6 @@ void
 Test::Pen::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<Pen, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<Pen>::read(istr, *this);
     istr->endSlice();
 }

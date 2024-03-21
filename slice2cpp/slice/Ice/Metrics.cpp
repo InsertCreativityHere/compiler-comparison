@@ -359,7 +359,7 @@ void
 IceMX::Metrics::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<Metrics, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<Metrics>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -367,7 +367,7 @@ void
 IceMX::Metrics::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<Metrics, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<Metrics>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -427,7 +427,7 @@ void
 IceMX::ThreadMetrics::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<ThreadMetrics, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<ThreadMetrics>::write(ostr, *this);
     ostr->endSlice();
     Metrics::_iceWriteImpl(ostr);
 }
@@ -436,7 +436,7 @@ void
 IceMX::ThreadMetrics::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<ThreadMetrics, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<ThreadMetrics>::read(istr, *this);
     istr->endSlice();
     Metrics::_iceReadImpl(istr);
 }
@@ -464,7 +464,7 @@ void
 IceMX::DispatchMetrics::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<DispatchMetrics, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<DispatchMetrics>::write(ostr, *this);
     ostr->endSlice();
     Metrics::_iceWriteImpl(ostr);
 }
@@ -473,7 +473,7 @@ void
 IceMX::DispatchMetrics::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<DispatchMetrics, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<DispatchMetrics>::read(istr, *this);
     istr->endSlice();
     Metrics::_iceReadImpl(istr);
 }
@@ -501,7 +501,7 @@ void
 IceMX::ChildInvocationMetrics::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<ChildInvocationMetrics, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<ChildInvocationMetrics>::write(ostr, *this);
     ostr->endSlice();
     Metrics::_iceWriteImpl(ostr);
 }
@@ -510,7 +510,7 @@ void
 IceMX::ChildInvocationMetrics::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<ChildInvocationMetrics, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<ChildInvocationMetrics>::read(istr, *this);
     istr->endSlice();
     Metrics::_iceReadImpl(istr);
 }
@@ -608,7 +608,7 @@ void
 IceMX::InvocationMetrics::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<InvocationMetrics, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<InvocationMetrics>::write(ostr, *this);
     ostr->endSlice();
     Metrics::_iceWriteImpl(ostr);
 }
@@ -617,7 +617,7 @@ void
 IceMX::InvocationMetrics::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<InvocationMetrics, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<InvocationMetrics>::read(istr, *this);
     istr->endSlice();
     Metrics::_iceReadImpl(istr);
 }
@@ -645,7 +645,7 @@ void
 IceMX::ConnectionMetrics::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<ConnectionMetrics, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<ConnectionMetrics>::write(ostr, *this);
     ostr->endSlice();
     Metrics::_iceWriteImpl(ostr);
 }
@@ -654,7 +654,7 @@ void
 IceMX::ConnectionMetrics::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<ConnectionMetrics, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<ConnectionMetrics>::read(istr, *this);
     istr->endSlice();
     Metrics::_iceReadImpl(istr);
 }

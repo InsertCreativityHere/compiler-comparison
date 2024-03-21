@@ -366,109 +366,109 @@ protected:
 namespace Ice
 {
 
-template<typename S>
-struct StreamWriter<::Test::D3, S>
+template<>
+struct StreamWriter<::Test::D3>
 {
-    static void write(S* ostr, const ::Test::D3& v)
+    static void write(OutputStream* ostr, const ::Test::D3& v)
     {
         ostr->writeAll(v.sd3, v.pd3);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::D3, S>
+template<>
+struct StreamReader<::Test::D3>
 {
-    static void read(S* istr, ::Test::D3& v)
+    static void read(InputStream* istr, ::Test::D3& v)
     {
         istr->readAll(v.sd3, v.pd3);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::PCUnknown, S>
+template<>
+struct StreamWriter<::Test::PCUnknown>
 {
-    static void write(S* ostr, const ::Test::PCUnknown& v)
+    static void write(OutputStream* ostr, const ::Test::PCUnknown& v)
     {
         ostr->writeAll(v.pu);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::PCUnknown, S>
+template<>
+struct StreamReader<::Test::PCUnknown>
 {
-    static void read(S* istr, ::Test::PCUnknown& v)
+    static void read(InputStream* istr, ::Test::PCUnknown& v)
     {
         istr->readAll(v.pu);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::PCDerived, S>
+template<>
+struct StreamWriter<::Test::PCDerived>
 {
-    static void write(S* ostr, const ::Test::PCDerived& v)
+    static void write(OutputStream* ostr, const ::Test::PCDerived& v)
     {
         ostr->writeAll(v.pbs);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::PCDerived, S>
+template<>
+struct StreamReader<::Test::PCDerived>
 {
-    static void read(S* istr, ::Test::PCDerived& v)
+    static void read(InputStream* istr, ::Test::PCDerived& v)
     {
         istr->readAll(v.pbs);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::PCDerived2, S>
+template<>
+struct StreamWriter<::Test::PCDerived2>
 {
-    static void write(S* ostr, const ::Test::PCDerived2& v)
+    static void write(OutputStream* ostr, const ::Test::PCDerived2& v)
     {
         ostr->writeAll(v.pcd2);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::PCDerived2, S>
+template<>
+struct StreamReader<::Test::PCDerived2>
 {
-    static void read(S* istr, ::Test::PCDerived2& v)
+    static void read(InputStream* istr, ::Test::PCDerived2& v)
     {
         istr->readAll(v.pcd2);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::PCDerived3, S>
+template<>
+struct StreamWriter<::Test::PCDerived3>
 {
-    static void write(S* ostr, const ::Test::PCDerived3& v)
+    static void write(OutputStream* ostr, const ::Test::PCDerived3& v)
     {
         ostr->writeAll(v.pcd3);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::PCDerived3, S>
+template<>
+struct StreamReader<::Test::PCDerived3>
 {
-    static void read(S* istr, ::Test::PCDerived3& v)
+    static void read(InputStream* istr, ::Test::PCDerived3& v)
     {
         istr->readAll(v.pcd3);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::CompactPCDerived, S>
+template<>
+struct StreamWriter<::Test::CompactPCDerived>
 {
-    static void write(S* ostr, const ::Test::CompactPCDerived& v)
+    static void write(OutputStream* ostr, const ::Test::CompactPCDerived& v)
     {
         ostr->writeAll(v.pbs);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::CompactPCDerived, S>
+template<>
+struct StreamReader<::Test::CompactPCDerived>
 {
-    static void read(S* istr, ::Test::CompactPCDerived& v)
+    static void read(InputStream* istr, ::Test::CompactPCDerived& v)
     {
         istr->readAll(v.pbs);
     }

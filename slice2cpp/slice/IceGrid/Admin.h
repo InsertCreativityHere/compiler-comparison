@@ -5288,10 +5288,10 @@ struct StreamableTraits<::IceGrid::ObjectInfo>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::ObjectInfo, S>
+template<>
+struct StreamReader<::IceGrid::ObjectInfo>
 {
-    static void read(S* istr, ::IceGrid::ObjectInfo& v)
+    static void read(InputStream* istr, ::IceGrid::ObjectInfo& v)
     {
         istr->readAll(v.proxy, v.type);
     }
@@ -5305,10 +5305,10 @@ struct StreamableTraits<::IceGrid::AdapterInfo>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::AdapterInfo, S>
+template<>
+struct StreamReader<::IceGrid::AdapterInfo>
 {
-    static void read(S* istr, ::IceGrid::AdapterInfo& v)
+    static void read(InputStream* istr, ::IceGrid::AdapterInfo& v)
     {
         istr->readAll(v.id, v.proxy, v.replicaGroupId);
     }
@@ -5322,10 +5322,10 @@ struct StreamableTraits<::IceGrid::ServerInfo>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::ServerInfo, S>
+template<>
+struct StreamReader<::IceGrid::ServerInfo>
 {
-    static void read(S* istr, ::IceGrid::ServerInfo& v)
+    static void read(InputStream* istr, ::IceGrid::ServerInfo& v)
     {
         istr->readAll(v.application, v.uuid, v.revision, v.node, v.descriptor, v.sessionId);
     }
@@ -5339,10 +5339,10 @@ struct StreamableTraits<::IceGrid::NodeInfo>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::NodeInfo, S>
+template<>
+struct StreamReader<::IceGrid::NodeInfo>
 {
-    static void read(S* istr, ::IceGrid::NodeInfo& v)
+    static void read(InputStream* istr, ::IceGrid::NodeInfo& v)
     {
         istr->readAll(v.name, v.os, v.hostname, v.release, v.version, v.machine, v.nProcessors, v.dataDir);
     }
@@ -5356,10 +5356,10 @@ struct StreamableTraits<::IceGrid::RegistryInfo>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::RegistryInfo, S>
+template<>
+struct StreamReader<::IceGrid::RegistryInfo>
 {
-    static void read(S* istr, ::IceGrid::RegistryInfo& v)
+    static void read(InputStream* istr, ::IceGrid::RegistryInfo& v)
     {
         istr->readAll(v.name, v.hostname);
     }
@@ -5373,10 +5373,10 @@ struct StreamableTraits<::IceGrid::LoadInfo>
     static const bool fixedLength = true;
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::LoadInfo, S>
+template<>
+struct StreamReader<::IceGrid::LoadInfo>
 {
-    static void read(S* istr, ::IceGrid::LoadInfo& v)
+    static void read(InputStream* istr, ::IceGrid::LoadInfo& v)
     {
         istr->readAll(v.avg1, v.avg5, v.avg15);
     }
@@ -5390,10 +5390,10 @@ struct StreamableTraits<::IceGrid::ApplicationInfo>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::ApplicationInfo, S>
+template<>
+struct StreamReader<::IceGrid::ApplicationInfo>
 {
-    static void read(S* istr, ::IceGrid::ApplicationInfo& v)
+    static void read(InputStream* istr, ::IceGrid::ApplicationInfo& v)
     {
         istr->readAll(v.uuid, v.createTime, v.createUser, v.updateTime, v.updateUser, v.revision, v.descriptor);
     }
@@ -5407,10 +5407,10 @@ struct StreamableTraits<::IceGrid::ApplicationUpdateInfo>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::ApplicationUpdateInfo, S>
+template<>
+struct StreamReader<::IceGrid::ApplicationUpdateInfo>
 {
-    static void read(S* istr, ::IceGrid::ApplicationUpdateInfo& v)
+    static void read(InputStream* istr, ::IceGrid::ApplicationUpdateInfo& v)
     {
         istr->readAll(v.updateTime, v.updateUser, v.revision, v.descriptor);
     }
@@ -5424,10 +5424,10 @@ struct StreamableTraits<::IceGrid::ServerDynamicInfo>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::ServerDynamicInfo, S>
+template<>
+struct StreamReader<::IceGrid::ServerDynamicInfo>
 {
-    static void read(S* istr, ::IceGrid::ServerDynamicInfo& v)
+    static void read(InputStream* istr, ::IceGrid::ServerDynamicInfo& v)
     {
         istr->readAll(v.id, v.state, v.pid, v.enabled);
     }
@@ -5441,10 +5441,10 @@ struct StreamableTraits<::IceGrid::AdapterDynamicInfo>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::AdapterDynamicInfo, S>
+template<>
+struct StreamReader<::IceGrid::AdapterDynamicInfo>
 {
-    static void read(S* istr, ::IceGrid::AdapterDynamicInfo& v)
+    static void read(InputStream* istr, ::IceGrid::AdapterDynamicInfo& v)
     {
         istr->readAll(v.id, v.proxy);
     }
@@ -5458,10 +5458,10 @@ struct StreamableTraits<::IceGrid::NodeDynamicInfo>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::NodeDynamicInfo, S>
+template<>
+struct StreamReader<::IceGrid::NodeDynamicInfo>
 {
-    static void read(S* istr, ::IceGrid::NodeDynamicInfo& v)
+    static void read(InputStream* istr, ::IceGrid::NodeDynamicInfo& v)
     {
         istr->readAll(v.info, v.servers, v.adapters);
     }

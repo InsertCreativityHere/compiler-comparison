@@ -43,7 +43,6 @@ namespace Ice
 {
 
 struct ProtocolVersion;
-struct EncodingVersion;
 
 }
 
@@ -55,25 +54,6 @@ namespace Ice
  * \headerfile Ice/Ice.h
  */
 struct ProtocolVersion
-{
-    ::std::uint8_t major;
-    ::std::uint8_t minor;
-
-    /**
-     * Obtains a tuple containing all of the struct's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::uint8_t&, const ::std::uint8_t&> ice_tuple() const
-    {
-        return std::tie(major, minor);
-    }
-};
-
-/**
- * A version structure for the encoding version.
- * \headerfile Ice/Ice.h
- */
-struct EncodingVersion
 {
     ::std::uint8_t major;
     ::std::uint8_t minor;
@@ -109,27 +89,10 @@ struct StreamableTraits<::Ice::ProtocolVersion>
     static const bool fixedLength = true;
 };
 
-template<typename S>
-struct StreamReader<::Ice::ProtocolVersion, S>
-{
-    static void read(S* istr, ::Ice::ProtocolVersion& v)
-    {
-        istr->readAll(v.major, v.minor);
-    }
-};
-
 template<>
-struct StreamableTraits<::Ice::EncodingVersion>
+struct StreamReader<::Ice::ProtocolVersion>
 {
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 2;
-    static const bool fixedLength = true;
-};
-
-template<typename S>
-struct StreamReader<::Ice::EncodingVersion, S>
-{
-    static void read(S* istr, ::Ice::EncodingVersion& v)
+    static void read(InputStream* istr, ::Ice::ProtocolVersion& v)
     {
         istr->readAll(v.major, v.minor);
     }

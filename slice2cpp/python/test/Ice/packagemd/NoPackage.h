@@ -274,64 +274,64 @@ protected:
 namespace Ice
 {
 
-template<typename S>
-struct StreamReader<::Test1::C1, S>
+template<>
+struct StreamReader<::Test1::C1>
 {
-    static void read(S* istr, ::Test1::C1& v)
+    static void read(InputStream* istr, ::Test1::C1& v)
     {
         istr->readAll(v.i);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test1::C2, S>
+template<>
+struct StreamWriter<::Test1::C2>
 {
-    static void write(S* ostr, const ::Test1::C2& v)
+    static void write(OutputStream* ostr, const ::Test1::C2& v)
     {
         ostr->writeAll(v.l);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test1::C2, S>
+template<>
+struct StreamReader<::Test1::C2>
 {
-    static void read(S* istr, ::Test1::C2& v)
+    static void read(InputStream* istr, ::Test1::C2& v)
     {
         istr->readAll(v.l);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test1::E1, S>
+template<>
+struct StreamReader<::Test1::E1>
 {
-    static void read(S* istr, ::Test1::E1& v)
+    static void read(InputStream* istr, ::Test1::E1& v)
     {
         istr->readAll(v.i);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test1::E2, S>
+template<>
+struct StreamWriter<::Test1::E2>
 {
-    static void write(S* ostr, const ::Test1::E2& v)
+    static void write(OutputStream* ostr, const ::Test1::E2& v)
     {
         ostr->writeAll(v.l);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test1::E2, S>
+template<>
+struct StreamReader<::Test1::E2>
 {
-    static void read(S* istr, ::Test1::E2& v)
+    static void read(InputStream* istr, ::Test1::E2& v)
     {
         istr->readAll(v.l);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test1::def, S>
+template<>
+struct StreamReader<::Test1::def>
 {
-    static void read(S* istr, ::Test1::def& v)
+    static void read(InputStream* istr, ::Test1::def& v)
     {
         istr->readAll(v.i);
     }

@@ -763,46 +763,46 @@ struct StreamableTraits<::_cpp_and::_cpp_xor>
     static const bool fixedLength = true;
 };
 
-template<typename S>
-struct StreamReader<::_cpp_and::_cpp_xor, S>
+template<>
+struct StreamReader<::_cpp_and::_cpp_xor>
 {
-    static void read(S* istr, ::_cpp_and::_cpp_xor& v)
+    static void read(InputStream* istr, ::_cpp_and::_cpp_xor& v)
     {
         istr->readAll(v.abstract, v.clone, v._cpp_private, v._cpp_protected, v._cpp_public, v._cpp_this, v._cpp_throw, v.use, v.var);
     }
 };
 
-template<typename S>
-struct StreamReader<::_cpp_and::echo, S>
+template<>
+struct StreamReader<::_cpp_and::echo>
 {
-    static void read(S* istr, ::_cpp_and::echo& v)
+    static void read(InputStream* istr, ::_cpp_and::echo& v)
     {
         istr->readAll(v._cpp_if, v._cpp_else, v.elseif, v.empty);
     }
 };
 
-template<typename S>
-struct StreamReader<::_cpp_and::endif, S>
+template<>
+struct StreamReader<::_cpp_and::endif>
 {
-    static void read(S* istr, ::_cpp_and::endif& v)
+    static void read(InputStream* istr, ::_cpp_and::endif& v)
     {
         istr->readAll(v.endswitch);
     }
 };
 
-template<typename S>
-struct StreamWriter<::_cpp_and::endwhile, S>
+template<>
+struct StreamWriter<::_cpp_and::endwhile>
 {
-    static void write(S* ostr, const ::_cpp_and::endwhile& v)
+    static void write(OutputStream* ostr, const ::_cpp_and::endwhile& v)
     {
         ostr->writeAll(v.eval, v.exit);
     }
 };
 
-template<typename S>
-struct StreamReader<::_cpp_and::endwhile, S>
+template<>
+struct StreamReader<::_cpp_and::endwhile>
 {
-    static void read(S* istr, ::_cpp_and::endwhile& v)
+    static void read(InputStream* istr, ::_cpp_and::endwhile& v)
     {
         istr->readAll(v.eval, v.exit);
     }

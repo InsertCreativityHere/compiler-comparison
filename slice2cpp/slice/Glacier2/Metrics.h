@@ -159,19 +159,19 @@ static SessionMetrics _iceS_SessionMetrics_init;
 namespace Ice
 {
 
-template<typename S>
-struct StreamWriter<::IceMX::SessionMetrics, S>
+template<>
+struct StreamWriter<::IceMX::SessionMetrics>
 {
-    static void write(S* ostr, const ::IceMX::SessionMetrics& v)
+    static void write(OutputStream* ostr, const ::IceMX::SessionMetrics& v)
     {
         ostr->writeAll(v.forwardedClient, v.forwardedServer, v.routingTableSize, v.queuedClient, v.queuedServer, v.overriddenClient, v.overriddenServer);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceMX::SessionMetrics, S>
+template<>
+struct StreamReader<::IceMX::SessionMetrics>
 {
-    static void read(S* istr, ::IceMX::SessionMetrics& v)
+    static void read(InputStream* istr, ::IceMX::SessionMetrics& v)
     {
         istr->readAll(v.forwardedClient, v.forwardedServer, v.routingTableSize, v.queuedClient, v.queuedServer, v.overriddenClient, v.overriddenServer);
     }

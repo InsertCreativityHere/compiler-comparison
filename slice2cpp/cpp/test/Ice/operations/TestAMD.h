@@ -1910,10 +1910,10 @@ struct StreamableTraits<::Test::AnotherStruct>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::Test::AnotherStruct, S>
+template<>
+struct StreamReader<::Test::AnotherStruct>
 {
-    static void read(S* istr, ::Test::AnotherStruct& v)
+    static void read(InputStream* istr, ::Test::AnotherStruct& v)
     {
         istr->readAll(v.s);
     }
@@ -1927,10 +1927,10 @@ struct StreamableTraits<::Test::Structure>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::Test::Structure, S>
+template<>
+struct StreamReader<::Test::Structure>
 {
-    static void read(S* istr, ::Test::Structure& v)
+    static void read(InputStream* istr, ::Test::Structure& v)
     {
         istr->readAll(v.p, v.e, v.s);
     }
@@ -1944,10 +1944,10 @@ struct StreamableTraits<::Test::MyStruct>
     static const bool fixedLength = true;
 };
 
-template<typename S>
-struct StreamReader<::Test::MyStruct, S>
+template<>
+struct StreamReader<::Test::MyStruct>
 {
-    static void read(S* istr, ::Test::MyStruct& v)
+    static void read(InputStream* istr, ::Test::MyStruct& v)
     {
         istr->readAll(v.i, v.j);
     }
@@ -1961,19 +1961,19 @@ struct StreamableTraits<::Test::MyStruct1>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::Test::MyStruct1, S>
+template<>
+struct StreamReader<::Test::MyStruct1>
 {
-    static void read(S* istr, ::Test::MyStruct1& v)
+    static void read(InputStream* istr, ::Test::MyStruct1& v)
     {
         istr->readAll(v.tesT, v.myClass, v.myStruct1);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::MyClass1, S>
+template<>
+struct StreamReader<::Test::MyClass1>
 {
-    static void read(S* istr, ::Test::MyClass1& v)
+    static void read(InputStream* istr, ::Test::MyClass1& v)
     {
         istr->readAll(v.tesT, v.myClass, v.myClass1);
     }

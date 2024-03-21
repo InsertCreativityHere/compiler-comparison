@@ -71,7 +71,7 @@ void
 LocalTest::C1::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<C1, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<C1>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -79,7 +79,7 @@ void
 LocalTest::C1::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<C1, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<C1>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -106,7 +106,7 @@ void
 LocalTest::CB1::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<CB1, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<CB1>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -114,7 +114,7 @@ void
 LocalTest::CB1::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<CB1, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<CB1>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -141,7 +141,7 @@ void
 LocalTest::CB2::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<CB2, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<CB2>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -149,7 +149,7 @@ void
 LocalTest::CB2::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<CB2, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<CB2>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -176,7 +176,7 @@ void
 LocalTest::CB3::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<CB3, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<CB3>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -184,7 +184,7 @@ void
 LocalTest::CB3::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<CB3, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<CB3>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -211,7 +211,7 @@ void
 LocalTest::CB4::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<CB4, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<CB4>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -219,7 +219,7 @@ void
 LocalTest::CB4::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<CB4, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<CB4>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -246,7 +246,7 @@ void
 LocalTest::CB5::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<CB5, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<CB5>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -254,7 +254,7 @@ void
 LocalTest::CB5::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<CB5, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<CB5>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -281,7 +281,7 @@ void
 LocalTest::CB6::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<CB6, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<CB6>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -289,7 +289,7 @@ void
 LocalTest::CB6::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<CB6, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<CB6>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -316,7 +316,7 @@ void
 LocalTest::CB7::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<CB7, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<CB7>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -324,7 +324,7 @@ void
 LocalTest::CB7::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<CB7, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<CB7>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -351,7 +351,7 @@ void
 LocalTest::CB8::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<CB8, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<CB8>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -359,7 +359,7 @@ void
 LocalTest::CB8::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<CB8, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<CB8>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -386,7 +386,7 @@ void
 LocalTest::Opt::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<Opt, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<Opt>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -394,6 +394,6 @@ void
 LocalTest::Opt::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<Opt, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<Opt>::read(istr, *this);
     istr->endSlice();
 }

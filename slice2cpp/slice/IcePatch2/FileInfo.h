@@ -146,10 +146,10 @@ struct StreamableTraits<::IcePatch2::FileInfo>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::IcePatch2::FileInfo, S>
+template<>
+struct StreamReader<::IcePatch2::FileInfo>
 {
-    static void read(S* istr, ::IcePatch2::FileInfo& v)
+    static void read(InputStream* istr, ::IcePatch2::FileInfo& v)
     {
         istr->readAll(v.path, v.checksum, v.size, v.executable);
     }
@@ -163,10 +163,10 @@ struct StreamableTraits<::IcePatch2::LargeFileInfo>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::IcePatch2::LargeFileInfo, S>
+template<>
+struct StreamReader<::IcePatch2::LargeFileInfo>
 {
-    static void read(S* istr, ::IcePatch2::LargeFileInfo& v)
+    static void read(InputStream* istr, ::IcePatch2::LargeFileInfo& v)
     {
         istr->readAll(v.path, v.checksum, v.size, v.executable);
     }

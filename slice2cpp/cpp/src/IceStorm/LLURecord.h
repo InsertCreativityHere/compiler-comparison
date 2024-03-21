@@ -81,10 +81,10 @@ struct StreamableTraits<::IceStormElection::LogUpdate>
     static const bool fixedLength = true;
 };
 
-template<typename S>
-struct StreamReader<::IceStormElection::LogUpdate, S>
+template<>
+struct StreamReader<::IceStormElection::LogUpdate>
 {
-    static void read(S* istr, ::IceStormElection::LogUpdate& v)
+    static void read(InputStream* istr, ::IceStormElection::LogUpdate& v)
     {
         istr->readAll(v.generation, v.iteration);
     }

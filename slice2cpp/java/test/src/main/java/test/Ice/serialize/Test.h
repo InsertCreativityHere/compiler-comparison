@@ -448,46 +448,46 @@ struct StreamableTraits<::Test::Struct1>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::Test::Struct1, S>
+template<>
+struct StreamReader<::Test::Struct1>
 {
-    static void read(S* istr, ::Test::Struct1& v)
+    static void read(InputStream* istr, ::Test::Struct1& v)
     {
         istr->readAll(v.bo, v.by, v.sh, v.i, v.l, v.f, v.d, v.str, v.e, v.p);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::Base, S>
+template<>
+struct StreamReader<::Test::Base>
 {
-    static void read(S* istr, ::Test::Base& v)
+    static void read(InputStream* istr, ::Test::Base& v)
     {
         istr->readAll(v.b, v.o, v.s, v.seq1, v.seq2, v.seq3, v.seq4, v.d1, v.d2, v.d3, v.d4);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::Derived, S>
+template<>
+struct StreamWriter<::Test::Derived>
 {
-    static void write(S* ostr, const ::Test::Derived& v)
+    static void write(OutputStream* ostr, const ::Test::Derived& v)
     {
         ostr->writeAll(v.p);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::Derived, S>
+template<>
+struct StreamReader<::Test::Derived>
 {
-    static void read(S* istr, ::Test::Derived& v)
+    static void read(InputStream* istr, ::Test::Derived& v)
     {
         istr->readAll(v.p);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::Ex, S>
+template<>
+struct StreamReader<::Test::Ex>
 {
-    static void read(S* istr, ::Test::Ex& v)
+    static void read(InputStream* istr, ::Test::Ex& v)
     {
         istr->readAll(v.s, v.b);
     }

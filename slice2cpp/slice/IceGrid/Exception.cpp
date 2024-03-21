@@ -85,7 +85,7 @@ void
 IceGrid::ApplicationNotExistException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<ApplicationNotExistException, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<ApplicationNotExistException>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -93,7 +93,7 @@ void
 IceGrid::ApplicationNotExistException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<ApplicationNotExistException, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<ApplicationNotExistException>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -120,7 +120,7 @@ void
 IceGrid::ServerNotExistException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<ServerNotExistException, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<ServerNotExistException>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -128,7 +128,7 @@ void
 IceGrid::ServerNotExistException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<ServerNotExistException, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<ServerNotExistException>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -155,7 +155,7 @@ void
 IceGrid::ServerStartException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<ServerStartException, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<ServerStartException>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -163,7 +163,7 @@ void
 IceGrid::ServerStartException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<ServerStartException, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<ServerStartException>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -190,7 +190,7 @@ void
 IceGrid::ServerStopException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<ServerStopException, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<ServerStopException>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -198,7 +198,7 @@ void
 IceGrid::ServerStopException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<ServerStopException, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<ServerStopException>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -225,7 +225,7 @@ void
 IceGrid::AdapterNotExistException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<AdapterNotExistException, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<AdapterNotExistException>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -233,7 +233,7 @@ void
 IceGrid::AdapterNotExistException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<AdapterNotExistException, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<AdapterNotExistException>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -260,7 +260,7 @@ void
 IceGrid::ObjectExistsException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<ObjectExistsException, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<ObjectExistsException>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -268,7 +268,7 @@ void
 IceGrid::ObjectExistsException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<ObjectExistsException, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<ObjectExistsException>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -295,7 +295,7 @@ void
 IceGrid::ObjectNotRegisteredException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<ObjectNotRegisteredException, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<ObjectNotRegisteredException>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -303,7 +303,7 @@ void
 IceGrid::ObjectNotRegisteredException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<ObjectNotRegisteredException, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<ObjectNotRegisteredException>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -330,7 +330,7 @@ void
 IceGrid::NodeNotExistException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<NodeNotExistException, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<NodeNotExistException>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -338,7 +338,7 @@ void
 IceGrid::NodeNotExistException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<NodeNotExistException, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<NodeNotExistException>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -365,7 +365,7 @@ void
 IceGrid::RegistryNotExistException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<RegistryNotExistException, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<RegistryNotExistException>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -373,7 +373,7 @@ void
 IceGrid::RegistryNotExistException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<RegistryNotExistException, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<RegistryNotExistException>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -400,7 +400,7 @@ void
 IceGrid::DeploymentException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<DeploymentException, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<DeploymentException>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -408,7 +408,7 @@ void
 IceGrid::DeploymentException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<DeploymentException, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<DeploymentException>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -435,7 +435,7 @@ void
 IceGrid::NodeUnreachableException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<NodeUnreachableException, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<NodeUnreachableException>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -443,7 +443,7 @@ void
 IceGrid::NodeUnreachableException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<NodeUnreachableException, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<NodeUnreachableException>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -470,7 +470,7 @@ void
 IceGrid::ServerUnreachableException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<ServerUnreachableException, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<ServerUnreachableException>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -478,7 +478,7 @@ void
 IceGrid::ServerUnreachableException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<ServerUnreachableException, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<ServerUnreachableException>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -505,7 +505,7 @@ void
 IceGrid::RegistryUnreachableException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<RegistryUnreachableException, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<RegistryUnreachableException>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -513,7 +513,7 @@ void
 IceGrid::RegistryUnreachableException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<RegistryUnreachableException, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<RegistryUnreachableException>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -540,7 +540,7 @@ void
 IceGrid::BadSignalException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<BadSignalException, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<BadSignalException>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -548,7 +548,7 @@ void
 IceGrid::BadSignalException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<BadSignalException, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<BadSignalException>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -575,7 +575,7 @@ void
 IceGrid::PatchException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<PatchException, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<PatchException>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -583,7 +583,7 @@ void
 IceGrid::PatchException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<PatchException, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<PatchException>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -610,7 +610,7 @@ void
 IceGrid::AccessDeniedException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<AccessDeniedException, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<AccessDeniedException>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -618,7 +618,7 @@ void
 IceGrid::AccessDeniedException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<AccessDeniedException, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<AccessDeniedException>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -645,7 +645,7 @@ void
 IceGrid::AllocationException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<AllocationException, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<AllocationException>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -653,7 +653,7 @@ void
 IceGrid::AllocationException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<AllocationException, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<AllocationException>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -715,7 +715,7 @@ void
 IceGrid::PermissionDeniedException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<PermissionDeniedException, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<PermissionDeniedException>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -723,7 +723,7 @@ void
 IceGrid::PermissionDeniedException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<PermissionDeniedException, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<PermissionDeniedException>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -750,7 +750,7 @@ void
 IceGrid::ObserverAlreadyRegisteredException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<ObserverAlreadyRegisteredException, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<ObserverAlreadyRegisteredException>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -758,7 +758,7 @@ void
 IceGrid::ObserverAlreadyRegisteredException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<ObserverAlreadyRegisteredException, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<ObserverAlreadyRegisteredException>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -785,7 +785,7 @@ void
 IceGrid::FileNotAvailableException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<FileNotAvailableException, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<FileNotAvailableException>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -793,6 +793,6 @@ void
 IceGrid::FileNotAvailableException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<FileNotAvailableException, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<FileNotAvailableException>::read(istr, *this);
     istr->endSlice();
 }

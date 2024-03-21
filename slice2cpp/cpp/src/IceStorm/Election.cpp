@@ -590,7 +590,7 @@ void
 IceStormElection::ObserverInconsistencyException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<ObserverInconsistencyException, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<ObserverInconsistencyException>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -598,7 +598,7 @@ void
 IceStormElection::ObserverInconsistencyException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<ObserverInconsistencyException, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<ObserverInconsistencyException>::read(istr, *this);
     istr->endSlice();
 }
 

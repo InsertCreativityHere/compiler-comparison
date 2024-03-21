@@ -594,46 +594,46 @@ struct StreamableTraits<::BEGIN::_cpp_and>
     static const bool fixedLength = true;
 };
 
-template<typename S>
-struct StreamReader<::BEGIN::_cpp_and, S>
+template<>
+struct StreamReader<::BEGIN::_cpp_and>
 {
-    static void read(S* istr, ::BEGIN::_cpp_and& v)
+    static void read(InputStream* istr, ::BEGIN::_cpp_and& v)
     {
         istr->readAll(v.begin);
     }
 };
 
-template<typename S>
-struct StreamReader<::BEGIN::display, S>
+template<>
+struct StreamReader<::BEGIN::display>
 {
-    static void read(S* istr, ::BEGIN::display& v)
+    static void read(InputStream* istr, ::BEGIN::display& v)
     {
         istr->readAll(v.when, v._cpp_do, v.dup, v._cpp_else);
     }
 };
 
-template<typename S>
-struct StreamReader<::BEGIN::next, S>
+template<>
+struct StreamReader<::BEGIN::next>
 {
-    static void read(S* istr, ::BEGIN::next& v)
+    static void read(InputStream* istr, ::BEGIN::next& v)
     {
         istr->readAll(v._cpp_new);
     }
 };
 
-template<typename S>
-struct StreamWriter<::BEGIN::nil, S>
+template<>
+struct StreamWriter<::BEGIN::nil>
 {
-    static void write(S* ostr, const ::BEGIN::nil& v)
+    static void write(OutputStream* ostr, const ::BEGIN::nil& v)
     {
         ostr->writeAll(v._cpp_not, v._cpp_or);
     }
 };
 
-template<typename S>
-struct StreamReader<::BEGIN::nil, S>
+template<>
+struct StreamReader<::BEGIN::nil>
 {
-    static void read(S* istr, ::BEGIN::nil& v)
+    static void read(InputStream* istr, ::BEGIN::nil& v)
     {
         istr->readAll(v._cpp_not, v._cpp_or);
     }

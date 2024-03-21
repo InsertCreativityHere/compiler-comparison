@@ -209,10 +209,10 @@ using F2Ptr = ::std::shared_ptr<F2>;
 namespace Ice
 {
 
-template<typename S>
-struct StreamReader<::Test::F1, S>
+template<>
+struct StreamReader<::Test::F1>
 {
-    static void read(S* istr, ::Test::F1& v)
+    static void read(InputStream* istr, ::Test::F1& v)
     {
         istr->readAll(v.name);
     }

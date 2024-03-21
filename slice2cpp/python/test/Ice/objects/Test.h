@@ -975,9 +975,9 @@ protected:
     ::std::int32_t i;
     ::std::string s;
 
-    template<typename T, typename S>
+    template<typename T>
     friend struct Ice::StreamWriter;
-    template<typename T, typename S>
+    template<typename T>
     friend struct Ice::StreamReader;
 
     E(const E&) = default;
@@ -1036,9 +1036,9 @@ public:
 
 protected:
 
-    template<typename T, typename S>
+    template<typename T>
     friend struct Ice::StreamWriter;
-    template<typename T, typename S>
+    template<typename T>
     friend struct Ice::StreamReader;
 
     F(const F&) = default;
@@ -2141,224 +2141,224 @@ struct StreamableTraits<::Test::S>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::Test::S, S>
+template<>
+struct StreamReader<::Test::S>
 {
-    static void read(S* istr, ::Test::S& v)
+    static void read(InputStream* istr, ::Test::S& v)
     {
         istr->readAll(v.str);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::Base, S>
+template<>
+struct StreamReader<::Test::Base>
 {
-    static void read(S* istr, ::Test::Base& v)
+    static void read(InputStream* istr, ::Test::Base& v)
     {
         istr->readAll(v.theS, v.str);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::A, S>
+template<>
+struct StreamReader<::Test::A>
 {
-    static void read(S* istr, ::Test::A& v)
+    static void read(InputStream* istr, ::Test::A& v)
     {
         istr->readAll(v.theB, v.theC, v.preMarshalInvoked, v.postUnmarshalInvoked);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::B, S>
+template<>
+struct StreamWriter<::Test::B>
 {
-    static void write(S* ostr, const ::Test::B& v)
+    static void write(OutputStream* ostr, const ::Test::B& v)
     {
         ostr->writeAll(v.theA);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::B, S>
+template<>
+struct StreamReader<::Test::B>
 {
-    static void read(S* istr, ::Test::B& v)
+    static void read(InputStream* istr, ::Test::B& v)
     {
         istr->readAll(v.theA);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::C, S>
+template<>
+struct StreamReader<::Test::C>
 {
-    static void read(S* istr, ::Test::C& v)
+    static void read(InputStream* istr, ::Test::C& v)
     {
         istr->readAll(v.theB, v.preMarshalInvoked, v.postUnmarshalInvoked);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::D, S>
+template<>
+struct StreamReader<::Test::D>
 {
-    static void read(S* istr, ::Test::D& v)
+    static void read(InputStream* istr, ::Test::D& v)
     {
         istr->readAll(v.theA, v.theB, v.theC, v.preMarshalInvoked, v.postUnmarshalInvoked);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::E, S>
+template<>
+struct StreamReader<::Test::E>
 {
-    static void read(S* istr, ::Test::E& v)
+    static void read(InputStream* istr, ::Test::E& v)
     {
         istr->readAll(v.i, v.s);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::F, S>
+template<>
+struct StreamReader<::Test::F>
 {
-    static void read(S* istr, ::Test::F& v)
+    static void read(InputStream* istr, ::Test::F& v)
     {
         istr->readAll(v.e1, v.e2);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::G, S>
+template<>
+struct StreamWriter<::Test::G>
 {
-    static void write(S*, const ::Test::G&)
+    static void write(OutputStream*, const ::Test::G&)
     {
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::G, S>
+template<>
+struct StreamReader<::Test::G>
 {
-    static void read(S*, ::Test::G&)
+    static void read(InputStream*, ::Test::G&)
     {
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::A1, S>
+template<>
+struct StreamReader<::Test::A1>
 {
-    static void read(S* istr, ::Test::A1& v)
+    static void read(InputStream* istr, ::Test::A1& v)
     {
         istr->readAll(v.name);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::B1, S>
+template<>
+struct StreamReader<::Test::B1>
 {
-    static void read(S* istr, ::Test::B1& v)
+    static void read(InputStream* istr, ::Test::B1& v)
     {
         istr->readAll(v.a1, v.a2);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::D1, S>
+template<>
+struct StreamWriter<::Test::D1>
 {
-    static void write(S* ostr, const ::Test::D1& v)
+    static void write(OutputStream* ostr, const ::Test::D1& v)
     {
         ostr->writeAll(v.a3, v.a4);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::D1, S>
+template<>
+struct StreamReader<::Test::D1>
 {
-    static void read(S* istr, ::Test::D1& v)
+    static void read(InputStream* istr, ::Test::D1& v)
     {
         istr->readAll(v.a3, v.a4);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::EBase, S>
+template<>
+struct StreamReader<::Test::EBase>
 {
-    static void read(S* istr, ::Test::EBase& v)
+    static void read(InputStream* istr, ::Test::EBase& v)
     {
         istr->readAll(v.a1, v.a2);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::EDerived, S>
+template<>
+struct StreamWriter<::Test::EDerived>
 {
-    static void write(S* ostr, const ::Test::EDerived& v)
+    static void write(OutputStream* ostr, const ::Test::EDerived& v)
     {
         ostr->writeAll(v.a3, v.a4);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::EDerived, S>
+template<>
+struct StreamReader<::Test::EDerived>
 {
-    static void read(S* istr, ::Test::EDerived& v)
+    static void read(InputStream* istr, ::Test::EDerived& v)
     {
         istr->readAll(v.a3, v.a4);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::Inner::A, S>
+template<>
+struct StreamReader<::Test::Inner::A>
 {
-    static void read(S* istr, ::Test::Inner::A& v)
+    static void read(InputStream* istr, ::Test::Inner::A& v)
     {
         istr->readAll(v.theA);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::Inner::Ex, S>
+template<>
+struct StreamReader<::Test::Inner::Ex>
 {
-    static void read(S* istr, ::Test::Inner::Ex& v)
+    static void read(InputStream* istr, ::Test::Inner::Ex& v)
     {
         istr->readAll(v.reason);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::Inner::Sub::A, S>
+template<>
+struct StreamReader<::Test::Inner::Sub::A>
 {
-    static void read(S* istr, ::Test::Inner::Sub::A& v)
+    static void read(InputStream* istr, ::Test::Inner::Sub::A& v)
     {
         istr->readAll(v.theA);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::Inner::Sub::Ex, S>
+template<>
+struct StreamReader<::Test::Inner::Sub::Ex>
 {
-    static void read(S* istr, ::Test::Inner::Sub::Ex& v)
+    static void read(InputStream* istr, ::Test::Inner::Sub::Ex& v)
     {
         istr->readAll(v.reason);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::Recursive, S>
+template<>
+struct StreamReader<::Test::Recursive>
 {
-    static void read(S* istr, ::Test::Recursive& v)
+    static void read(InputStream* istr, ::Test::Recursive& v)
     {
         istr->readAll(v.v);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::K, S>
+template<>
+struct StreamReader<::Test::K>
 {
-    static void read(S* istr, ::Test::K& v)
+    static void read(InputStream* istr, ::Test::K& v)
     {
         istr->readAll(v.value);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::L, S>
+template<>
+struct StreamReader<::Test::L>
 {
-    static void read(S* istr, ::Test::L& v)
+    static void read(InputStream* istr, ::Test::L& v)
     {
         istr->readAll(v.data);
     }
@@ -2372,28 +2372,28 @@ struct StreamableTraits<::Test::StructKey>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::Test::StructKey, S>
+template<>
+struct StreamReader<::Test::StructKey>
 {
-    static void read(S* istr, ::Test::StructKey& v)
+    static void read(InputStream* istr, ::Test::StructKey& v)
     {
         istr->readAll(v.i, v.s);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::M, S>
+template<>
+struct StreamReader<::Test::M>
 {
-    static void read(S* istr, ::Test::M& v)
+    static void read(InputStream* istr, ::Test::M& v)
     {
         istr->readAll(v.v);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::F3, S>
+template<>
+struct StreamReader<::Test::F3>
 {
-    static void read(S* istr, ::Test::F3& v)
+    static void read(InputStream* istr, ::Test::F3& v)
     {
         istr->readAll(v.f1, v.f2);
     }

@@ -3842,66 +3842,66 @@ using InternalRegistryPtr = ::std::shared_ptr<InternalRegistry>;
 namespace Ice
 {
 
-template<typename S>
-struct StreamReader<::IceGrid::InternalDbEnvDescriptor, S>
+template<>
+struct StreamReader<::IceGrid::InternalDbEnvDescriptor>
 {
-    static void read(S* istr, ::IceGrid::InternalDbEnvDescriptor& v)
+    static void read(InputStream* istr, ::IceGrid::InternalDbEnvDescriptor& v)
     {
         istr->readAll(v.name, v.properties);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::InternalAdapterDescriptor, S>
+template<>
+struct StreamReader<::IceGrid::InternalAdapterDescriptor>
 {
-    static void read(S* istr, ::IceGrid::InternalAdapterDescriptor& v)
+    static void read(InputStream* istr, ::IceGrid::InternalAdapterDescriptor& v)
     {
         istr->readAll(v.id, v.serverLifetime);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::InternalDistributionDescriptor, S>
+template<>
+struct StreamReader<::IceGrid::InternalDistributionDescriptor>
 {
-    static void read(S* istr, ::IceGrid::InternalDistributionDescriptor& v)
+    static void read(InputStream* istr, ::IceGrid::InternalDistributionDescriptor& v)
     {
         istr->readAll(v.icepatch, v.directories);
     }
 };
 
-template<typename S>
-struct StreamWriter<::IceGrid::InternalServerDescriptor, S>
+template<>
+struct StreamWriter<::IceGrid::InternalServerDescriptor>
 {
-    static void write(S* ostr, const ::IceGrid::InternalServerDescriptor& v)
+    static void write(OutputStream* ostr, const ::IceGrid::InternalServerDescriptor& v)
     {
         ostr->writeAll(v.id, v.application, v.uuid, v.revision, v.sessionId, v.exe, v.pwd, v.user, v.activation, v.activationTimeout, v.deactivationTimeout, v.applicationDistrib, v.distrib, v.processRegistered, v.options, v.envs, v.logs, v.adapters, v.dbEnvs, v.properties);
         ostr->writeAll({1}, v.services);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::InternalServerDescriptor, S>
+template<>
+struct StreamReader<::IceGrid::InternalServerDescriptor>
 {
-    static void read(S* istr, ::IceGrid::InternalServerDescriptor& v)
+    static void read(InputStream* istr, ::IceGrid::InternalServerDescriptor& v)
     {
         istr->readAll(v.id, v.application, v.uuid, v.revision, v.sessionId, v.exe, v.pwd, v.user, v.activation, v.activationTimeout, v.deactivationTimeout, v.applicationDistrib, v.distrib, v.processRegistered, v.options, v.envs, v.logs, v.adapters, v.dbEnvs, v.properties);
         istr->readAll({1}, v.services);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::AdapterNotActiveException, S>
+template<>
+struct StreamReader<::IceGrid::AdapterNotActiveException>
 {
-    static void read(S* istr, ::IceGrid::AdapterNotActiveException& v)
+    static void read(InputStream* istr, ::IceGrid::AdapterNotActiveException& v)
     {
         istr->readAll(v.activatable);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::AdapterExistsException, S>
+template<>
+struct StreamReader<::IceGrid::AdapterExistsException>
 {
-    static void read(S* istr, ::IceGrid::AdapterExistsException& v)
+    static void read(InputStream* istr, ::IceGrid::AdapterExistsException& v)
     {
         istr->readAll(v.id);
     }
@@ -3917,19 +3917,19 @@ struct StreamableTraits< ::IceGrid::TopicName>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::InternalNodeInfo, S>
+template<>
+struct StreamReader<::IceGrid::InternalNodeInfo>
 {
-    static void read(S* istr, ::IceGrid::InternalNodeInfo& v)
+    static void read(InputStream* istr, ::IceGrid::InternalNodeInfo& v)
     {
         istr->readAll(v.name, v.os, v.hostname, v.release, v.version, v.machine, v.nProcessors, v.dataDir);
     }
 };
 
-template<typename S>
-struct StreamReader<::IceGrid::InternalReplicaInfo, S>
+template<>
+struct StreamReader<::IceGrid::InternalReplicaInfo>
 {
-    static void read(S* istr, ::IceGrid::InternalReplicaInfo& v)
+    static void read(InputStream* istr, ::IceGrid::InternalReplicaInfo& v)
     {
         istr->readAll(v.name, v.hostname);
     }

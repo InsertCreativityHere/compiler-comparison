@@ -90,10 +90,10 @@ struct StreamableTraits<::Demo::gx::Point>
     static const bool fixedLength = true;
 };
 
-template<typename S>
-struct StreamReader<::Demo::gx::Point, S>
+template<>
+struct StreamReader<::Demo::gx::Point>
 {
-    static void read(S* istr, ::Demo::gx::Point& v)
+    static void read(InputStream* istr, ::Demo::gx::Point& v)
     {
         istr->readAll(v.x, v.y);
     }

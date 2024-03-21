@@ -2037,379 +2037,379 @@ using InitialPtr = ::std::shared_ptr<Initial>;
 namespace Ice
 {
 
-template<typename S>
-struct StreamReader<::Test::MC::A, S>
+template<>
+struct StreamReader<::Test::MC::A>
 {
-    static void read(S* istr, ::Test::MC::A& v)
+    static void read(InputStream* istr, ::Test::MC::A& v)
     {
         istr->readAll(v.aA);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::MC::B, S>
+template<>
+struct StreamWriter<::Test::MC::B>
 {
-    static void write(S* ostr, const ::Test::MC::B& v)
+    static void write(OutputStream* ostr, const ::Test::MC::B& v)
     {
         ostr->writeAll(v.bB);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::MC::B, S>
+template<>
+struct StreamReader<::Test::MC::B>
 {
-    static void read(S* istr, ::Test::MC::B& v)
+    static void read(InputStream* istr, ::Test::MC::B& v)
     {
         istr->readAll(v.bB);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::MC::C, S>
+template<>
+struct StreamWriter<::Test::MC::C>
 {
-    static void write(S* ostr, const ::Test::MC::C& v)
+    static void write(OutputStream* ostr, const ::Test::MC::C& v)
     {
         ostr->writeAll(v.cC);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::MC::C, S>
+template<>
+struct StreamReader<::Test::MC::C>
 {
-    static void read(S* istr, ::Test::MC::C& v)
+    static void read(InputStream* istr, ::Test::MC::C& v)
     {
         istr->readAll(v.cC);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::MC::D, S>
+template<>
+struct StreamWriter<::Test::MC::D>
 {
-    static void write(S* ostr, const ::Test::MC::D& v)
+    static void write(OutputStream* ostr, const ::Test::MC::D& v)
     {
         ostr->writeAll(v.dD);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::MC::D, S>
+template<>
+struct StreamReader<::Test::MC::D>
 {
-    static void read(S* istr, ::Test::MC::D& v)
+    static void read(InputStream* istr, ::Test::MC::D& v)
     {
         istr->readAll(v.dD);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::MD::A, S>
+template<>
+struct StreamReader<::Test::MD::A>
 {
-    static void read(S* istr, ::Test::MD::A& v)
+    static void read(InputStream* istr, ::Test::MD::A& v)
     {
         istr->readAll(v.aA);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::MD::B, S>
+template<>
+struct StreamWriter<::Test::MD::B>
 {
-    static void write(S* ostr, const ::Test::MD::B& v)
+    static void write(OutputStream* ostr, const ::Test::MD::B& v)
     {
         ostr->writeAll(v.bB);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::MD::B, S>
+template<>
+struct StreamReader<::Test::MD::B>
 {
-    static void read(S* istr, ::Test::MD::B& v)
+    static void read(InputStream* istr, ::Test::MD::B& v)
     {
         istr->readAll(v.bB);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::MD::C, S>
+template<>
+struct StreamWriter<::Test::MD::C>
 {
-    static void write(S* ostr, const ::Test::MD::C& v)
+    static void write(OutputStream* ostr, const ::Test::MD::C& v)
     {
         ostr->writeAll(v.cC);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::MD::C, S>
+template<>
+struct StreamReader<::Test::MD::C>
 {
-    static void read(S* istr, ::Test::MD::C& v)
+    static void read(InputStream* istr, ::Test::MD::C& v)
     {
         istr->readAll(v.cC);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::MD::D, S>
+template<>
+struct StreamWriter<::Test::MD::D>
 {
-    static void write(S* ostr, const ::Test::MD::D& v)
+    static void write(OutputStream* ostr, const ::Test::MD::D& v)
     {
         ostr->writeAll(v.dD);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::MD::D, S>
+template<>
+struct StreamReader<::Test::MD::D>
 {
-    static void read(S* istr, ::Test::MD::D& v)
+    static void read(InputStream* istr, ::Test::MD::D& v)
     {
         istr->readAll(v.dD);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::ME::A, S>
+template<>
+struct StreamReader<::Test::ME::A>
 {
-    static void read(S* istr, ::Test::ME::A& v)
+    static void read(InputStream* istr, ::Test::ME::A& v)
     {
         istr->readAll(v.aA);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::ME::B, S>
+template<>
+struct StreamWriter<::Test::ME::B>
 {
-    static void write(S* ostr, const ::Test::ME::B& v)
+    static void write(OutputStream* ostr, const ::Test::ME::B& v)
     {
         ostr->writeAll(v.bB);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::ME::B, S>
+template<>
+struct StreamReader<::Test::ME::B>
 {
-    static void read(S* istr, ::Test::ME::B& v)
+    static void read(InputStream* istr, ::Test::ME::B& v)
     {
         istr->readAll(v.bB);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::ME::C, S>
+template<>
+struct StreamWriter<::Test::ME::C>
 {
-    static void write(S* ostr, const ::Test::ME::C& v)
+    static void write(OutputStream* ostr, const ::Test::ME::C& v)
     {
         ostr->writeAll(v.cC);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::ME::C, S>
+template<>
+struct StreamReader<::Test::ME::C>
 {
-    static void read(S* istr, ::Test::ME::C& v)
+    static void read(InputStream* istr, ::Test::ME::C& v)
     {
         istr->readAll(v.cC);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::ME::D, S>
+template<>
+struct StreamWriter<::Test::ME::D>
 {
-    static void write(S* ostr, const ::Test::ME::D& v)
+    static void write(OutputStream* ostr, const ::Test::ME::D& v)
     {
         ostr->writeAll(v.dD);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::ME::D, S>
+template<>
+struct StreamReader<::Test::ME::D>
 {
-    static void read(S* istr, ::Test::ME::D& v)
+    static void read(InputStream* istr, ::Test::ME::D& v)
     {
         istr->readAll(v.dD);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::MF::A, S>
+template<>
+struct StreamReader<::Test::MF::A>
 {
-    static void read(S* istr, ::Test::MF::A& v)
+    static void read(InputStream* istr, ::Test::MF::A& v)
     {
         istr->readAll(v.aA);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::MF::B, S>
+template<>
+struct StreamWriter<::Test::MF::B>
 {
-    static void write(S* ostr, const ::Test::MF::B& v)
+    static void write(OutputStream* ostr, const ::Test::MF::B& v)
     {
         ostr->writeAll(v.bB);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::MF::B, S>
+template<>
+struct StreamReader<::Test::MF::B>
 {
-    static void read(S* istr, ::Test::MF::B& v)
+    static void read(InputStream* istr, ::Test::MF::B& v)
     {
         istr->readAll(v.bB);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::MF::C, S>
+template<>
+struct StreamWriter<::Test::MF::C>
 {
-    static void write(S* ostr, const ::Test::MF::C& v)
+    static void write(OutputStream* ostr, const ::Test::MF::C& v)
     {
         ostr->writeAll(v.cC);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::MF::C, S>
+template<>
+struct StreamReader<::Test::MF::C>
 {
-    static void read(S* istr, ::Test::MF::C& v)
+    static void read(InputStream* istr, ::Test::MF::C& v)
     {
         istr->readAll(v.cC);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::MF::D, S>
+template<>
+struct StreamWriter<::Test::MF::D>
 {
-    static void write(S* ostr, const ::Test::MF::D& v)
+    static void write(OutputStream* ostr, const ::Test::MF::D& v)
     {
         ostr->writeAll(v.dD);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::MF::D, S>
+template<>
+struct StreamReader<::Test::MF::D>
 {
-    static void read(S* istr, ::Test::MF::D& v)
+    static void read(InputStream* istr, ::Test::MF::D& v)
     {
         istr->readAll(v.dD);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::MG::A, S>
+template<>
+struct StreamReader<::Test::MG::A>
 {
-    static void read(S* istr, ::Test::MG::A& v)
+    static void read(InputStream* istr, ::Test::MG::A& v)
     {
         istr->readAll(v.aA);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::MG::B, S>
+template<>
+struct StreamWriter<::Test::MG::B>
 {
-    static void write(S* ostr, const ::Test::MG::B& v)
+    static void write(OutputStream* ostr, const ::Test::MG::B& v)
     {
         ostr->writeAll(v.bB);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::MG::B, S>
+template<>
+struct StreamReader<::Test::MG::B>
 {
-    static void read(S* istr, ::Test::MG::B& v)
+    static void read(InputStream* istr, ::Test::MG::B& v)
     {
         istr->readAll(v.bB);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::MG::C, S>
+template<>
+struct StreamWriter<::Test::MG::C>
 {
-    static void write(S* ostr, const ::Test::MG::C& v)
+    static void write(OutputStream* ostr, const ::Test::MG::C& v)
     {
         ostr->writeAll(v.cC);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::MG::C, S>
+template<>
+struct StreamReader<::Test::MG::C>
 {
-    static void read(S* istr, ::Test::MG::C& v)
+    static void read(InputStream* istr, ::Test::MG::C& v)
     {
         istr->readAll(v.cC);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::MG::D, S>
+template<>
+struct StreamWriter<::Test::MG::D>
 {
-    static void write(S* ostr, const ::Test::MG::D& v)
+    static void write(OutputStream* ostr, const ::Test::MG::D& v)
     {
         ostr->writeAll(v.dD);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::MG::D, S>
+template<>
+struct StreamReader<::Test::MG::D>
 {
-    static void read(S* istr, ::Test::MG::D& v)
+    static void read(InputStream* istr, ::Test::MG::D& v)
     {
         istr->readAll(v.dD);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::MH::A, S>
+template<>
+struct StreamReader<::Test::MH::A>
 {
-    static void read(S* istr, ::Test::MH::A& v)
+    static void read(InputStream* istr, ::Test::MH::A& v)
     {
         istr->readAll(v.aA);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::MH::B, S>
+template<>
+struct StreamWriter<::Test::MH::B>
 {
-    static void write(S* ostr, const ::Test::MH::B& v)
+    static void write(OutputStream* ostr, const ::Test::MH::B& v)
     {
         ostr->writeAll(v.bB);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::MH::B, S>
+template<>
+struct StreamReader<::Test::MH::B>
 {
-    static void read(S* istr, ::Test::MH::B& v)
+    static void read(InputStream* istr, ::Test::MH::B& v)
     {
         istr->readAll(v.bB);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::MH::C, S>
+template<>
+struct StreamWriter<::Test::MH::C>
 {
-    static void write(S* ostr, const ::Test::MH::C& v)
+    static void write(OutputStream* ostr, const ::Test::MH::C& v)
     {
         ostr->writeAll(v.cC);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::MH::C, S>
+template<>
+struct StreamReader<::Test::MH::C>
 {
-    static void read(S* istr, ::Test::MH::C& v)
+    static void read(InputStream* istr, ::Test::MH::C& v)
     {
         istr->readAll(v.cC);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::MH::D, S>
+template<>
+struct StreamWriter<::Test::MH::D>
 {
-    static void write(S* ostr, const ::Test::MH::D& v)
+    static void write(OutputStream* ostr, const ::Test::MH::D& v)
     {
         ostr->writeAll(v.dD);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::MH::D, S>
+template<>
+struct StreamReader<::Test::MH::D>
 {
-    static void read(S* istr, ::Test::MH::D& v)
+    static void read(InputStream* istr, ::Test::MH::D& v)
     {
         istr->readAll(v.dD);
     }

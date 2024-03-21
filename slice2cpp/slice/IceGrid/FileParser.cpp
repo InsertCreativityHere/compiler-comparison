@@ -124,7 +124,7 @@ void
 IceGrid::ParseException::_writeImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<ParseException, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<ParseException>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -132,7 +132,7 @@ void
 IceGrid::ParseException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<ParseException, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<ParseException>::read(istr, *this);
     istr->endSlice();
 }
 

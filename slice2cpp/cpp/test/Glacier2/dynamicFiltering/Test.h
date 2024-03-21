@@ -465,10 +465,10 @@ struct StreamableTraits<::Test::TestToken>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::Test::TestToken, S>
+template<>
+struct StreamReader<::Test::TestToken>
 {
-    static void read(S* istr, ::Test::TestToken& v)
+    static void read(InputStream* istr, ::Test::TestToken& v)
     {
         istr->readAll(v.expectedResult, v.description, v.code, v.config, v.caseIndex, v.testReference);
     }

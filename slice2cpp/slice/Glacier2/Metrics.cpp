@@ -65,7 +65,7 @@ void
 IceMX::SessionMetrics::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, false);
-    ::Ice::StreamWriter<SessionMetrics, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<SessionMetrics>::write(ostr, *this);
     ostr->endSlice();
     Metrics::_iceWriteImpl(ostr);
 }
@@ -74,7 +74,7 @@ void
 IceMX::SessionMetrics::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<SessionMetrics, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<SessionMetrics>::read(istr, *this);
     istr->endSlice();
     Metrics::_iceReadImpl(istr);
 }

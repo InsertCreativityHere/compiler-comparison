@@ -233,10 +233,10 @@ struct StreamableTraits<::Test::PointF>
     static const bool fixedLength = true;
 };
 
-template<typename S>
-struct StreamReader<::Test::PointF, S>
+template<>
+struct StreamReader<::Test::PointF>
 {
-    static void read(S* istr, ::Test::PointF& v)
+    static void read(InputStream* istr, ::Test::PointF& v)
     {
         istr->readAll(v.x, v.y, v.z);
     }
@@ -250,10 +250,10 @@ struct StreamableTraits<::Test::PointD>
     static const bool fixedLength = true;
 };
 
-template<typename S>
-struct StreamReader<::Test::PointD, S>
+template<>
+struct StreamReader<::Test::PointD>
 {
-    static void read(S* istr, ::Test::PointD& v)
+    static void read(InputStream* istr, ::Test::PointD& v)
     {
         istr->readAll(v.x, v.y, v.z);
     }
@@ -267,10 +267,10 @@ struct StreamableTraits<::Test::Point>
     static const bool fixedLength = true;
 };
 
-template<typename S>
-struct StreamReader<::Test::Point, S>
+template<>
+struct StreamReader<::Test::Point>
 {
-    static void read(S* istr, ::Test::Point& v)
+    static void read(InputStream* istr, ::Test::Point& v)
     {
         istr->readAll(v.x, v.y);
     }
@@ -284,10 +284,10 @@ struct StreamableTraits<::Test::Polyline>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::Test::Polyline, S>
+template<>
+struct StreamReader<::Test::Polyline>
 {
-    static void read(S* istr, ::Test::Polyline& v)
+    static void read(InputStream* istr, ::Test::Polyline& v)
     {
         istr->readAll(v.vertices);
     }
@@ -301,10 +301,10 @@ struct StreamableTraits<::Test::Color>
     static const bool fixedLength = true;
 };
 
-template<typename S>
-struct StreamReader<::Test::Color, S>
+template<>
+struct StreamReader<::Test::Color>
 {
-    static void read(S* istr, ::Test::Color& v)
+    static void read(InputStream* istr, ::Test::Color& v)
     {
         istr->readAll(v.r, v.g, v.b, v.a);
     }
@@ -318,19 +318,19 @@ struct StreamableTraits<::Test::ColorPalette>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::Test::ColorPalette, S>
+template<>
+struct StreamReader<::Test::ColorPalette>
 {
-    static void read(S* istr, ::Test::ColorPalette& v)
+    static void read(InputStream* istr, ::Test::ColorPalette& v)
     {
         istr->readAll(v.colors);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::Pen, S>
+template<>
+struct StreamReader<::Test::Pen>
 {
-    static void read(S* istr, ::Test::Pen& v)
+    static void read(InputStream* istr, ::Test::Pen& v)
     {
         istr->readAll(v.thickness, v.color);
     }
@@ -344,10 +344,10 @@ struct StreamableTraits<::Test::Draw>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::Test::Draw, S>
+template<>
+struct StreamReader<::Test::Draw>
 {
-    static void read(S* istr, ::Test::Draw& v)
+    static void read(InputStream* istr, ::Test::Draw& v)
     {
         istr->readAll(v.backgroundColor, v.pen, v.shared);
     }

@@ -75,18 +75,18 @@ static DerivedEx _iceS_DerivedEx_init;
 namespace Ice
 {
 
-template<typename S>
-struct StreamWriter<::Test::DerivedEx, S>
+template<>
+struct StreamWriter<::Test::DerivedEx>
 {
-    static void write(S*, const ::Test::DerivedEx&)
+    static void write(OutputStream*, const ::Test::DerivedEx&)
     {
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::DerivedEx, S>
+template<>
+struct StreamReader<::Test::DerivedEx>
 {
-    static void read(S*, ::Test::DerivedEx&)
+    static void read(InputStream*, ::Test::DerivedEx&)
     {
     }
 };

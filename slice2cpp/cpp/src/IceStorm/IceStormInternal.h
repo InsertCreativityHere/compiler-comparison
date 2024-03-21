@@ -599,10 +599,10 @@ struct StreamableTraits<::IceStorm::EventData>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::IceStorm::EventData, S>
+template<>
+struct StreamReader<::IceStorm::EventData>
 {
-    static void read(S* istr, ::IceStorm::EventData& v)
+    static void read(InputStream* istr, ::IceStorm::EventData& v)
     {
         istr->readAll(v.op, v.mode, v.data, v.context);
     }

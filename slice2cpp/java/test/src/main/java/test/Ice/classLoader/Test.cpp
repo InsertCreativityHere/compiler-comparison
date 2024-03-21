@@ -176,7 +176,7 @@ void
 Test::ConcreteClass::_iceWriteImpl(::Ice::OutputStream* ostr) const
 {
     ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<ConcreteClass, ::Ice::OutputStream>::write(ostr, *this);
+    ::Ice::StreamWriter<ConcreteClass>::write(ostr, *this);
     ostr->endSlice();
 }
 
@@ -184,7 +184,7 @@ void
 Test::ConcreteClass::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
-    ::Ice::StreamReader<ConcreteClass, ::Ice::InputStream>::read(istr, *this);
+    ::Ice::StreamReader<ConcreteClass>::read(istr, *this);
     istr->endSlice();
 }
 

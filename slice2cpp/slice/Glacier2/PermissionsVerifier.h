@@ -409,10 +409,10 @@ using SSLPermissionsVerifierPtr = ::std::shared_ptr<SSLPermissionsVerifier>;
 namespace Ice
 {
 
-template<typename S>
-struct StreamReader<::Glacier2::PermissionDeniedException, S>
+template<>
+struct StreamReader<::Glacier2::PermissionDeniedException>
 {
-    static void read(S* istr, ::Glacier2::PermissionDeniedException& v)
+    static void read(InputStream* istr, ::Glacier2::PermissionDeniedException& v)
     {
         istr->readAll(v.reason);
     }

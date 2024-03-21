@@ -231,20 +231,20 @@ using Initial2Ptr = ::std::shared_ptr<Initial2>;
 namespace Ice
 {
 
-template<typename S>
-struct StreamWriter<::Test::D, S>
+template<>
+struct StreamWriter<::Test::D>
 {
-    static void write(S* ostr, const ::Test::D& v)
+    static void write(OutputStream* ostr, const ::Test::D& v)
     {
         ostr->writeAll(v.ds);
         ostr->writeAll({990, 1000}, v.seq, v.ao);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::D, S>
+template<>
+struct StreamReader<::Test::D>
 {
-    static void read(S* istr, ::Test::D& v)
+    static void read(InputStream* istr, ::Test::D& v)
     {
         istr->readAll(v.ds);
         istr->readAll({990, 1000}, v.seq, v.ao);

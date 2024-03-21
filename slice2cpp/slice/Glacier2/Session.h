@@ -1293,10 +1293,10 @@ using SSLSessionManagerPtr = ::std::shared_ptr<SSLSessionManager>;
 namespace Ice
 {
 
-template<typename S>
-struct StreamReader<::Glacier2::CannotCreateSessionException, S>
+template<>
+struct StreamReader<::Glacier2::CannotCreateSessionException>
 {
-    static void read(S* istr, ::Glacier2::CannotCreateSessionException& v)
+    static void read(InputStream* istr, ::Glacier2::CannotCreateSessionException& v)
     {
         istr->readAll(v.reason);
     }

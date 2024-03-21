@@ -111,10 +111,10 @@ struct StreamableTraits<::Glacier2::SSLInfo>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::Glacier2::SSLInfo, S>
+template<>
+struct StreamReader<::Glacier2::SSLInfo>
 {
-    static void read(S* istr, ::Glacier2::SSLInfo& v)
+    static void read(InputStream* istr, ::Glacier2::SSLInfo& v)
     {
         istr->readAll(v.remoteHost, v.remotePort, v.localHost, v.localPort, v.cipher, v.certs);
     }

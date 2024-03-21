@@ -750,37 +750,37 @@ struct StreamableTraits<::Test::S>
     static const bool fixedLength = false;
 };
 
-template<typename S>
-struct StreamReader<::Test::S, S>
+template<>
+struct StreamReader<::Test::S>
 {
-    static void read(S* istr, ::Test::S& v)
+    static void read(InputStream* istr, ::Test::S& v)
     {
         istr->readAll(v.b1, v.b2, v.b3, v.b4, v.s1, v.s2, v.s3, v.s4);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::C, S>
+template<>
+struct StreamReader<::Test::C>
 {
-    static void read(S* istr, ::Test::C& v)
+    static void read(InputStream* istr, ::Test::C& v)
     {
         istr->readAll(v.b1, v.b2, v.b3, v.b4, v.s1, v.s2, v.s3, v.s4);
     }
 };
 
-template<typename S>
-struct StreamWriter<::Test::D, S>
+template<>
+struct StreamWriter<::Test::D>
 {
-    static void write(S* ostr, const ::Test::D& v)
+    static void write(OutputStream* ostr, const ::Test::D& v)
     {
         ostr->writeAll({1, 2, 3, 4, 5, 6, 7}, v.boolSeq, v.byteSeq, v.shortSeq, v.intSeq, v.longSeq, v.floatSeq, v.doubleSeq);
     }
 };
 
-template<typename S>
-struct StreamReader<::Test::D, S>
+template<>
+struct StreamReader<::Test::D>
 {
-    static void read(S* istr, ::Test::D& v)
+    static void read(InputStream* istr, ::Test::D& v)
     {
         istr->readAll({1, 2, 3, 4, 5, 6, 7}, v.boolSeq, v.byteSeq, v.shortSeq, v.intSeq, v.longSeq, v.floatSeq, v.doubleSeq);
     }
