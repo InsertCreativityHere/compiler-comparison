@@ -71,5 +71,5 @@ public class FileAccessException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -5996622280054308163L;
+    public static final long serialVersionUID = -5996618268911198563L;
 }
