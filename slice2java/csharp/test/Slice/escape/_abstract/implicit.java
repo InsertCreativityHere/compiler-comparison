@@ -18,8 +18,8 @@ package _abstract;
 public interface implicit extends com.zeroc.Ice.Object
 {
     as in(_break internal, delegate is, explicitPrx lock, casePrx namespace, decimalPrx _new, delegate _null, int override, int params, int _private, com.zeroc.Ice.Current current)
-        throws foreach,
-               fixed;
+        throws fixed,
+               foreach;
 
     /** @hidden */
     static final String[] _iceIds =
