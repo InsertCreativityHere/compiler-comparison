@@ -188,5 +188,5 @@ public class FileInfo implements java.lang.Cloneable,
     private static final FileInfo _nullMarshalValue = new FileInfo();
 
     /** @hidden */
-    public static final long serialVersionUID = 8656144305281064274L;
+    public static final long serialVersionUID = 4015736866486965074L;
 }

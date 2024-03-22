@@ -198,5 +198,5 @@ public class TemplateDescriptor implements java.lang.Cloneable,
     private static final TemplateDescriptor _nullMarshalValue = new TemplateDescriptor();
 
     /** @hidden */
-    public static final long serialVersionUID = -7702774823266247261L;
+    public static final long serialVersionUID = -1308218575249869632L;
 }
