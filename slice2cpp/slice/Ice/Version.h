@@ -20,7 +20,6 @@
 #include <IceUtil/UndefSysMacros.h>
 #include <Ice/Config.h>
 #include <Ice/Comparable.h>
-#include <Ice/StreamHelpers.h>
 #include <cstdint>
 
 #ifndef ICE_IGNORE_VERSION
@@ -43,6 +42,7 @@ namespace Ice
 {
 
 struct ProtocolVersion;
+struct EncodingVersion;
 
 }
 
@@ -68,6 +68,25 @@ struct ProtocolVersion
     }
 };
 
+/**
+ * A version structure for the encoding version.
+ * \headerfile Ice/Ice.h
+ */
+struct EncodingVersion
+{
+    ::std::uint8_t major;
+    ::std::uint8_t minor;
+
+    /**
+     * Obtains a tuple containing all of the struct's data members.
+     * @return The data members in a tuple.
+     */
+    std::tuple<const ::std::uint8_t&, const ::std::uint8_t&> ice_tuple() const
+    {
+        return std::tie(major, minor);
+    }
+};
+
 using Ice::operator<;
 using Ice::operator<=;
 using Ice::operator>;
@@ -76,30 +95,6 @@ using Ice::operator==;
 using Ice::operator!=;
 
 }
-
-/// \cond STREAM
-namespace Ice
-{
-
-template<>
-struct StreamableTraits<::Ice::ProtocolVersion>
-{
-    static const StreamHelperCategory helper = StreamHelperCategoryStruct;
-    static const int minWireSize = 2;
-    static const bool fixedLength = true;
-};
-
-template<>
-struct StreamReader<::Ice::ProtocolVersion>
-{
-    static void read(InputStream* istr, ::Ice::ProtocolVersion& v)
-    {
-        istr->readAll(v.major, v.minor);
-    }
-};
-
-}
-/// \endcond
 
 #include <IceUtil/PopDisableWarnings.h>
 #endif
