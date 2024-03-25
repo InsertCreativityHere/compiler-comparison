@@ -28,13 +28,11 @@
 
 namespace Test
 {
+    class Default;
+    using DefaultPtr = ::std::shared_ptr<Default>;
 
-class Default;
-
-using DefaultPtr = ::std::shared_ptr<Default>;
-class NoDefault;
-
-using NoDefaultPtr = ::std::shared_ptr<NoDefault>;
+    class NoDefault;
+    using NoDefaultPtr = ::std::shared_ptr<NoDefault>;
 
 }
 
@@ -77,7 +75,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<Default> ice_clone() const { return ::std::static_pointer_cast <Default>(_iceCloneImpl()); }
+    DefaultPtr ice_clone() const { return ::std::static_pointer_cast <Default>(_iceCloneImpl()); }
 
     ::std::int32_t x;
     ::std::int32_t y;
@@ -86,7 +84,7 @@ protected:
 
     Default(const Default&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -132,7 +130,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<NoDefault> ice_clone() const { return ::std::static_pointer_cast <NoDefault>(_iceCloneImpl()); }
+    NoDefaultPtr ice_clone() const { return ::std::static_pointer_cast <NoDefault>(_iceCloneImpl()); }
 
     ::std::int32_t x = 10;
     ::std::int32_t y = 10;
@@ -141,7 +139,7 @@ protected:
 
     NoDefault(const NoDefault&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;

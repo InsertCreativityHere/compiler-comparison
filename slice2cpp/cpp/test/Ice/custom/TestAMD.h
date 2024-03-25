@@ -33,139 +33,142 @@
 
 namespace Test
 {
+    using BoolSeq = ::std::vector<bool>;
 
+    using BoolList = std::list<bool>;
 
-using BoolSeq = ::std::vector<bool>;
+    using BoolListList = std::list<::Test::BoolList>;
 
-using BoolList = std::list<bool>;
+    using BoolListSeq = ::std::vector<BoolList>;
 
-using BoolListList = std::list<::Test::BoolList>;
+    using BoolSeqList = std::list<::Test::BoolSeq>;
 
-using BoolListSeq = ::std::vector<BoolList>;
+    using ByteSeq = ::std::vector<std::byte>;
 
-using BoolSeqList = std::list<::Test::BoolSeq>;
+    using ByteList = std::list<std::byte>;
 
-using ByteSeq = ::std::vector<std::byte>;
+    using ByteListList = std::list<::Test::ByteList>;
 
-using ByteList = std::list<std::byte>;
+    using ByteListSeq = ::std::vector<ByteList>;
 
-using ByteListList = std::list<::Test::ByteList>;
+    using ByteSeqList = std::list<::Test::ByteSeq>;
 
-using ByteListSeq = ::std::vector<ByteList>;
+    using StringSeq = ::std::vector<::std::string>;
 
-using ByteSeqList = std::list<::Test::ByteSeq>;
+    using StringList = std::list<std::string>;
 
-using StringSeq = ::std::vector<::std::string>;
+    using StringListList = std::list<::Test::StringList>;
 
-using StringList = std::list<std::string>;
+    using StringListSeq = ::std::vector<StringList>;
 
-using StringListList = std::list<::Test::StringList>;
+    using StringSeqList = std::list<::Test::StringSeq>;
 
-using StringListSeq = ::std::vector<StringList>;
+    struct Fixed;
 
-using StringSeqList = std::list<::Test::StringSeq>;
-struct Fixed;
+    using FixedSeq = ::std::vector<Fixed>;
 
-using FixedSeq = ::std::vector<Fixed>;
+    using FixedList = std::list<::Test::Fixed>;
 
-using FixedList = std::list<::Test::Fixed>;
+    using FixedListList = std::list<::Test::FixedList>;
 
-using FixedListList = std::list<::Test::FixedList>;
+    using FixedListSeq = ::std::vector<FixedList>;
 
-using FixedListSeq = ::std::vector<FixedList>;
+    using FixedSeqList = std::list<::Test::FixedSeq>;
 
-using FixedSeqList = std::list<::Test::FixedSeq>;
-struct Variable;
+    struct Variable;
 
-using VariableSeq = ::std::vector<Variable>;
+    using VariableSeq = ::std::vector<Variable>;
 
-using VariableList = std::list<::Test::Variable>;
+    using VariableList = std::list<::Test::Variable>;
 
-using VariableListList = std::list<::Test::VariableList>;
+    using VariableListList = std::list<::Test::VariableList>;
 
-using VariableListSeq = ::std::vector<VariableList>;
+    using VariableListSeq = ::std::vector<VariableList>;
 
-using VariableSeqList = std::list<::Test::VariableSeq>;
+    using VariableSeqList = std::list<::Test::VariableSeq>;
 
-using StringStringDict = ::std::map<::std::string, ::std::string>;
+    using StringStringDict = ::std::map<::std::string, ::std::string>;
 
-using StringStringDictSeq = ::std::vector<StringStringDict>;
+    using StringStringDictSeq = ::std::vector<StringStringDict>;
 
-using StringStringDictList = std::list<::Test::StringStringDict>;
+    using StringStringDictList = std::list<::Test::StringStringDict>;
 
-using StringStringDictListList = std::list<::Test::StringStringDictList>;
+    using StringStringDictListList = std::list<::Test::StringStringDictList>;
 
-using StringStringDictListSeq = ::std::vector<StringStringDictList>;
+    using StringStringDictListSeq = ::std::vector<StringStringDictList>;
 
-using StringStringDictSeqList = std::list<::Test::StringStringDictSeq>;
+    using StringStringDictSeqList = std::list<::Test::StringStringDictSeq>;
 
-enum class E : unsigned char
-{
-    E1,
-    E2,
-    E3
-};
+    enum class E : ::std::uint8_t
+    {
+        E1,
+        E2,
+        E3
+    };
 
-using ESeq = ::std::vector<E>;
+    using ESeq = ::std::vector<E>;
 
-using EList = std::list<::Test::E>;
+    using EList = std::list<::Test::E>;
 
-using EListList = std::list<::Test::EList>;
+    using EListList = std::list<::Test::EList>;
 
-using EListSeq = ::std::vector<EList>;
+    using EListSeq = ::std::vector<EList>;
 
-using ESeqList = std::list<::Test::ESeq>;
-class C;
+    using ESeqList = std::list<::Test::ESeq>;
 
-using CPtr = ::std::shared_ptr<C>;
+    class C;
+    using CPtr = ::std::shared_ptr<C>;
 
-using CSeq = ::std::vector<::std::shared_ptr<C>>;
+    using CSeq = ::std::vector<CPtr>;
 
-using CList = std::list<std::shared_ptr<::Test::C>>;
+    using CList = std::list<std::shared_ptr<::Test::C>>;
 
-using CListList = std::list<::Test::CList>;
+    using CListList = std::list<::Test::CList>;
 
-using CListSeq = ::std::vector<CList>;
+    using CListSeq = ::std::vector<CList>;
 
-using CSeqList = std::list<::Test::CSeq>;
-class DPrx;
+    using CSeqList = std::list<::Test::CSeq>;
 
-using DPrxSeq = ::std::vector<::std::optional<DPrx>>;
+    class DPrx;
 
-using DPrxList = std::list<::std::optional<::Test::DPrx>>;
+    using DPrxSeq = ::std::vector<::std::optional<DPrx>>;
 
-using DPrxListList = std::list<::Test::DPrxList>;
+    using DPrxList = std::list<::std::optional<::Test::DPrx>>;
 
-using DPrxListSeq = ::std::vector<DPrxList>;
+    using DPrxListList = std::list<::Test::DPrxList>;
 
-using DPrxSeqList = std::list<::Test::DPrxSeq>;
+    using DPrxListSeq = ::std::vector<DPrxList>;
 
-using DoubleSeq = ::std::vector<double>;
+    using DPrxSeqList = std::list<::Test::DPrxSeq>;
 
-using IntStringDict = Test::CustomMap<std::int32_t, std::string>;
+    using DoubleSeq = ::std::vector<double>;
 
-using LongLongDict = ::std::map<::std::int64_t, ::std::int64_t>;
+    using IntStringDict = Test::CustomMap<std::int32_t, std::string>;
 
-using StringIntDict = ::std::map<::std::string, ::std::int32_t>;
-class DictClass;
+    using LongLongDict = ::std::map<::std::int64_t, ::std::int64_t>;
 
-using DictClassPtr = ::std::shared_ptr<DictClass>;
+    using StringIntDict = ::std::map<::std::string, ::std::int32_t>;
 
-using BoolBuffer = Test::CustomBuffer<bool>;
+    class DictClass;
+    using DictClassPtr = ::std::shared_ptr<DictClass>;
 
-using ShortBuffer = Test::CustomBuffer<std::int16_t>;
+    using BoolBuffer = Test::CustomBuffer<bool>;
 
-using IntBuffer = Test::CustomBuffer<std::int32_t>;
+    using ShortBuffer = Test::CustomBuffer<std::int16_t>;
 
-using LongBuffer = Test::CustomBuffer<int64_t>;
+    using IntBuffer = Test::CustomBuffer<std::int32_t>;
 
-using FloatBuffer = Test::CustomBuffer<float>;
+    using LongBuffer = Test::CustomBuffer<int64_t>;
 
-using DoubleBuffer = Test::CustomBuffer<double>;
+    using FloatBuffer = Test::CustomBuffer<float>;
 
-using ByteBuffer = Test::CustomBuffer<std::byte>;
-struct BufferStruct;
-class TestIntfPrx;
+    using DoubleBuffer = Test::CustomBuffer<double>;
+
+    using ByteBuffer = Test::CustomBuffer<std::byte>;
+
+    struct BufferStruct;
+
+    class TestIntfPrx;
 
 }
 
@@ -194,7 +197,7 @@ public:
     {
     }
 
-    DPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    DPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -584,7 +587,7 @@ public:
     {
     }
 
-    TestIntfPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    TestIntfPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -667,13 +670,13 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<C> ice_clone() const { return ::std::static_pointer_cast <C>(_iceCloneImpl()); }
+    CPtr ice_clone() const { return ::std::static_pointer_cast <C>(_iceCloneImpl()); }
 
 protected:
 
     C(const C&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -718,7 +721,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<DictClass> ice_clone() const { return ::std::static_pointer_cast <DictClass>(_iceCloneImpl()); }
+    DictClassPtr ice_clone() const { return ::std::static_pointer_cast <DictClass>(_iceCloneImpl()); }
 
     ::Test::IntStringDict isdict;
 
@@ -726,7 +729,7 @@ protected:
 
     DictClass(const DictClass&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;

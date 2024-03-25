@@ -29,14 +29,11 @@
 namespace Demo
 {
 
+    namespace gx
+    {
+        struct Point;
 
-namespace gx
-{
-
-struct Point;
-
-}
-
+    }
 }
 
 namespace Demo

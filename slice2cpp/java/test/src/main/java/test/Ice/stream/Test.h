@@ -29,62 +29,63 @@
 
 namespace Test
 {
+    enum class MyEnum : ::std::uint8_t
+    {
+        enum1,
+        enum2,
+        enum3
+    };
 
+    class MyClass;
+    using MyClassPtr = ::std::shared_ptr<MyClass>;
 
-enum class MyEnum : unsigned char
-{
-    enum1,
-    enum2,
-    enum3
-};
-class MyClass;
+    class MyInterfacePrx;
 
-using MyClassPtr = ::std::shared_ptr<MyClass>;
-class MyInterfacePrx;
+    using SerialSmall = ::std::vector<std::byte>;
 
-using SerialSmall = ::std::vector<std::byte>;
-struct SmallStruct;
-struct Point;
+    struct SmallStruct;
 
-using MyEnumS = ::std::vector<MyEnum>;
+    struct Point;
 
-using MyClassS = ::std::vector<::std::shared_ptr<MyClass>>;
+    using MyEnumS = ::std::vector<MyEnum>;
 
-using ByteBoolD = ::std::map<::std::uint8_t, bool>;
+    using MyClassS = ::std::vector<MyClassPtr>;
 
-using ShortIntD = ::std::map<::std::int16_t, ::std::int32_t>;
+    using ByteBoolD = ::std::map<::std::uint8_t, bool>;
 
-using StringMyClassD = ::std::map<::std::string, ::std::shared_ptr<MyClass>>;
-class OptionalClass;
+    using ShortIntD = ::std::map<::std::int16_t, ::std::int32_t>;
 
-using OptionalClassPtr = ::std::shared_ptr<OptionalClass>;
+    using StringMyClassD = ::std::map<::std::string, MyClassPtr>;
 
-using BoolSS = ::std::vector<::Ice::BoolSeq>;
+    class OptionalClass;
+    using OptionalClassPtr = ::std::shared_ptr<OptionalClass>;
 
-using ByteSS = ::std::vector<::Ice::ByteSeq>;
+    using BoolSS = ::std::vector<::Ice::BoolSeq>;
 
-using ShortSS = ::std::vector<::Ice::ShortSeq>;
+    using ByteSS = ::std::vector<::Ice::ByteSeq>;
 
-using IntSS = ::std::vector<::Ice::IntSeq>;
+    using ShortSS = ::std::vector<::Ice::ShortSeq>;
 
-using LongSS = ::std::vector<::Ice::LongSeq>;
+    using IntSS = ::std::vector<::Ice::IntSeq>;
 
-using FloatSS = ::std::vector<::Ice::FloatSeq>;
+    using LongSS = ::std::vector<::Ice::LongSeq>;
 
-using DoubleSS = ::std::vector<::Ice::DoubleSeq>;
+    using FloatSS = ::std::vector<::Ice::FloatSeq>;
 
-using StringSS = ::std::vector<::Ice::StringSeq>;
+    using DoubleSS = ::std::vector<::Ice::DoubleSeq>;
 
-using MyEnumSS = ::std::vector<MyEnumS>;
+    using StringSS = ::std::vector<::Ice::StringSeq>;
 
-using MyClassSS = ::std::vector<MyClassS>;
+    using MyEnumSS = ::std::vector<MyEnumS>;
 
-using LongFloatD = ::std::map<::std::int64_t, float>;
+    using MyClassSS = ::std::vector<MyClassS>;
 
-using StringStringD = ::std::map<::std::string, ::std::string>;
-class Bar;
+    using LongFloatD = ::std::map<::std::int64_t, float>;
 
-using BarPtr = ::std::shared_ptr<Bar>;
+    using StringStringD = ::std::map<::std::string, ::std::string>;
+
+    class Bar;
+    using BarPtr = ::std::shared_ptr<Bar>;
 
 }
 
@@ -113,7 +114,7 @@ public:
     {
     }
 
-    MyInterfacePrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    MyInterfacePrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -159,7 +160,7 @@ struct SmallStruct
     double d;
     ::std::string str;
     ::Test::MyEnum e;
-    ::std::shared_ptr<::Test::MyClass> c;
+    ::Test::MyClassPtr c;
     ::std::optional<::Test::MyInterfacePrx> p;
     ::Test::SerialSmall ss;
 
@@ -167,7 +168,7 @@ struct SmallStruct
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::Test::MyEnum&, const ::std::shared_ptr<::Test::MyClass>&, const ::std::optional<::Test::MyInterfacePrx>&, const ::Test::SerialSmall&> ice_tuple() const
+    std::tuple<const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::Test::MyEnum&, const ::Test::MyClassPtr&, const ::std::optional<::Test::MyInterfacePrx>&, const ::Test::SerialSmall&> ice_tuple() const
     {
         return std::tie(bo, by, sh, i, l, f, d, str, e, c, p, ss);
     }
@@ -197,7 +198,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    OptionalClass(bool bo, ::std::uint8_t by, ::std::optional<::std::int16_t> sh, ::std::optional<::std::int32_t> i, ::std::optional<::Test::SmallStruct> sm, ::std::optional<::Test::MyEnumS> enumS4, ::std::optional<::Test::MyClassS> myClassS5, ::std::optional<::Test::ByteBoolD> byteBoolD6, ::std::optional<::Test::ShortIntD> shortIntD7, ::std::optional<::Test::MyEnum> enum8, ::std::optional<::std::shared_ptr<::Test::MyClass>> class9, ::std::optional<::Test::StringMyClassD> stringMyClassD10, ::std::optional<::Ice::IntSeq> intSeq12, ::std::optional<::Ice::ByteSeq> byteSeq13, ::std::optional<::Ice::StringSeq> stringSeq14, ::std::optional<::Test::Point> p15) :
+    OptionalClass(bool bo, ::std::uint8_t by, ::std::optional<::std::int16_t> sh, ::std::optional<::std::int32_t> i, ::std::optional<::Test::SmallStruct> sm, ::std::optional<::Test::MyEnumS> enumS4, ::std::optional<::Test::MyClassS> myClassS5, ::std::optional<::Test::ByteBoolD> byteBoolD6, ::std::optional<::Test::ShortIntD> shortIntD7, ::std::optional<::Test::MyEnum> enum8, ::std::optional<::Test::MyClassPtr> class9, ::std::optional<::Test::StringMyClassD> stringMyClassD10, ::std::optional<::Ice::IntSeq> intSeq12, ::std::optional<::Ice::ByteSeq> byteSeq13, ::std::optional<::Ice::StringSeq> stringSeq14, ::std::optional<::Test::Point> p15) :
         bo(bo),
         by(by),
         sh(sh),
@@ -229,7 +230,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const ::std::uint8_t&, const ::std::optional<::std::int16_t>&, const ::std::optional<::std::int32_t>&, const ::std::optional<::Test::SmallStruct>&, const ::std::optional<::Test::MyEnumS>&, const ::std::optional<::Test::MyClassS>&, const ::std::optional<::Test::ByteBoolD>&, const ::std::optional<::Test::ShortIntD>&, const ::std::optional<::Test::MyEnum>&, const ::std::optional<::std::shared_ptr<::Test::MyClass>>&, const ::std::optional<::Test::StringMyClassD>&, const ::std::optional<::Ice::IntSeq>&, const ::std::optional<::Ice::ByteSeq>&, const ::std::optional<::Ice::StringSeq>&, const ::std::optional<::Test::Point>&> ice_tuple() const
+    std::tuple<const bool&, const ::std::uint8_t&, const ::std::optional<::std::int16_t>&, const ::std::optional<::std::int32_t>&, const ::std::optional<::Test::SmallStruct>&, const ::std::optional<::Test::MyEnumS>&, const ::std::optional<::Test::MyClassS>&, const ::std::optional<::Test::ByteBoolD>&, const ::std::optional<::Test::ShortIntD>&, const ::std::optional<::Test::MyEnum>&, const ::std::optional<::Test::MyClassPtr>&, const ::std::optional<::Test::StringMyClassD>&, const ::std::optional<::Ice::IntSeq>&, const ::std::optional<::Ice::ByteSeq>&, const ::std::optional<::Ice::StringSeq>&, const ::std::optional<::Test::Point>&> ice_tuple() const
     {
         return std::tie(bo, by, sh, i, sm, enumS4, myClassS5, byteBoolD6, shortIntD7, enum8, class9, stringMyClassD10, intSeq12, byteSeq13, stringSeq14, p15);
     }
@@ -238,7 +239,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<OptionalClass> ice_clone() const { return ::std::static_pointer_cast <OptionalClass>(_iceCloneImpl()); }
+    OptionalClassPtr ice_clone() const { return ::std::static_pointer_cast <OptionalClass>(_iceCloneImpl()); }
 
     bool bo;
     ::std::uint8_t by;
@@ -250,7 +251,7 @@ public:
     ::std::optional<::Test::ByteBoolD> byteBoolD6;
     ::std::optional<::Test::ShortIntD> shortIntD7;
     ::std::optional<::Test::MyEnum> enum8;
-    ::std::optional<::std::shared_ptr<::Test::MyClass>> class9;
+    ::std::optional<::Test::MyClassPtr> class9;
     ::std::optional<::Test::StringMyClassD> stringMyClassD10;
     ::std::optional<::Ice::IntSeq> intSeq12;
     ::std::optional<::Ice::ByteSeq> byteSeq13;
@@ -261,7 +262,7 @@ protected:
 
     OptionalClass(const OptionalClass&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -280,7 +281,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    MyClass(::std::shared_ptr<::Test::MyClass> c, ::std::optional<::Test::MyInterfacePrx> prx, ::std::shared_ptr<::Ice::Value> o, ::Test::SmallStruct s, ::Ice::BoolSeq seq1, ::Ice::ByteSeq seq2, ::Ice::ShortSeq seq3, ::Ice::IntSeq seq4, ::Ice::LongSeq seq5, ::Ice::FloatSeq seq6, ::Ice::DoubleSeq seq7, ::Ice::StringSeq seq8, ::Test::MyEnumS seq9, ::Test::MyClassS seq10, ::Test::StringMyClassD d) :
+    MyClass(::Test::MyClassPtr c, ::std::optional<::Test::MyInterfacePrx> prx, ::Ice::ValuePtr o, ::Test::SmallStruct s, ::Ice::BoolSeq seq1, ::Ice::ByteSeq seq2, ::Ice::ShortSeq seq3, ::Ice::IntSeq seq4, ::Ice::LongSeq seq5, ::Ice::FloatSeq seq6, ::Ice::DoubleSeq seq7, ::Ice::StringSeq seq8, ::Test::MyEnumS seq9, ::Test::MyClassS seq10, ::Test::StringMyClassD d) :
         c(::std::move(c)),
         prx(::std::move(prx)),
         o(::std::move(o)),
@@ -311,7 +312,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::shared_ptr<::Test::MyClass>&, const ::std::optional<::Test::MyInterfacePrx>&, const ::std::shared_ptr<::Ice::Value>&, const ::Test::SmallStruct&, const ::Ice::BoolSeq&, const ::Ice::ByteSeq&, const ::Ice::ShortSeq&, const ::Ice::IntSeq&, const ::Ice::LongSeq&, const ::Ice::FloatSeq&, const ::Ice::DoubleSeq&, const ::Ice::StringSeq&, const ::Test::MyEnumS&, const ::Test::MyClassS&, const ::Test::StringMyClassD&> ice_tuple() const
+    std::tuple<const ::Test::MyClassPtr&, const ::std::optional<::Test::MyInterfacePrx>&, const ::Ice::ValuePtr&, const ::Test::SmallStruct&, const ::Ice::BoolSeq&, const ::Ice::ByteSeq&, const ::Ice::ShortSeq&, const ::Ice::IntSeq&, const ::Ice::LongSeq&, const ::Ice::FloatSeq&, const ::Ice::DoubleSeq&, const ::Ice::StringSeq&, const ::Test::MyEnumS&, const ::Test::MyClassS&, const ::Test::StringMyClassD&> ice_tuple() const
     {
         return std::tie(c, prx, o, s, seq1, seq2, seq3, seq4, seq5, seq6, seq7, seq8, seq9, seq10, d);
     }
@@ -320,11 +321,11 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<MyClass> ice_clone() const { return ::std::static_pointer_cast <MyClass>(_iceCloneImpl()); }
+    MyClassPtr ice_clone() const { return ::std::static_pointer_cast <MyClass>(_iceCloneImpl()); }
 
-    ::std::shared_ptr<::Test::MyClass> c;
+    ::Test::MyClassPtr c;
     ::std::optional<::Test::MyInterfacePrx> prx;
-    ::std::shared_ptr<::Ice::Value> o;
+    ::Ice::ValuePtr o;
     ::Test::SmallStruct s;
     ::Ice::BoolSeq seq1;
     ::Ice::ByteSeq seq2;
@@ -342,7 +343,7 @@ protected:
 
     MyClass(const MyClass&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -356,7 +357,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    MyException(::std::shared_ptr<MyClass> c) noexcept :
+    MyException(MyClassPtr c) noexcept :
         c(::std::move(c))
     {
     }
@@ -365,7 +366,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::shared_ptr<::Test::MyClass>&> ice_tuple() const
+    std::tuple<const ::Test::MyClassPtr&> ice_tuple() const
     {
         return std::tie(c);
     }
@@ -384,7 +385,7 @@ public:
     bool _usesClasses() const override;
     /// \endcond
 
-    ::std::shared_ptr<::Test::MyClass> c;
+    ::Test::MyClassPtr c;
 
 protected:
     void _writeImpl(::Ice::OutputStream*) const override;

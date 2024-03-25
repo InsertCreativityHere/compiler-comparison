@@ -28,11 +28,10 @@
 
 namespace Test
 {
+    class ConcreteClass;
+    using ConcreteClassPtr = ::std::shared_ptr<ConcreteClass>;
 
-class ConcreteClass;
-
-using ConcreteClassPtr = ::std::shared_ptr<ConcreteClass>;
-class InitialPrx;
+    class InitialPrx;
 
 }
 
@@ -43,15 +42,15 @@ class InitialPrx : public ::Ice::Proxy<InitialPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    ::std::shared_ptr<ConcreteClass> getConcreteClass(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ConcreteClassPtr getConcreteClass(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<ConcreteClass>> getConcreteClassAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<ConcreteClassPtr> getConcreteClassAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    getConcreteClassAsync(::std::function<void(::std::shared_ptr<::Test::ConcreteClass>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    getConcreteClassAsync(::std::function<void(::Test::ConcreteClassPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getConcreteClass(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<ConcreteClass>>>&, const ::Ice::Context&) const;
+    void _iceI_getConcreteClass(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ConcreteClassPtr>>&, const ::Ice::Context&) const;
     /// \endcond
 
     void throwException(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -94,7 +93,7 @@ public:
     {
     }
 
-    InitialPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    InitialPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -164,7 +163,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<ConcreteClass> ice_clone() const { return ::std::static_pointer_cast <ConcreteClass>(_iceCloneImpl()); }
+    ConcreteClassPtr ice_clone() const { return ::std::static_pointer_cast <ConcreteClass>(_iceCloneImpl()); }
 
     ::std::int32_t i;
 
@@ -172,7 +171,7 @@ protected:
 
     ConcreteClass(const ConcreteClass&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -234,7 +233,7 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
-    virtual ::std::shared_ptr<ConcreteClass> getConcreteClass(const ::Ice::Current& current) = 0;
+    virtual ConcreteClassPtr getConcreteClass(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_getConcreteClass(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond

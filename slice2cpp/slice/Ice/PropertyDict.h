@@ -40,14 +40,12 @@
 
 namespace Ice
 {
-
-
-/**
- * A simple collection of properties, represented as a dictionary of key/value pairs. Both key and value are
- * strings.
- * @see Properties#getPropertiesForPrefix
- */
-using PropertyDict = ::std::map<::std::string, ::std::string>;
+    /**
+     * A simple collection of properties, represented as a dictionary of key/value pairs. Both key and value are
+     * strings.
+     * @see Properties#getPropertiesForPrefix
+     */
+    using PropertyDict = ::std::map<::std::string, ::std::string>;
 
 }
 

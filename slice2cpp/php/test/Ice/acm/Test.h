@@ -28,10 +28,11 @@
 
 namespace Test
 {
+    class TestIntfPrx;
 
-class TestIntfPrx;
-class RemoteObjectAdapterPrx;
-class RemoteCommunicatorPrx;
+    class RemoteObjectAdapterPrx;
+
+    class RemoteCommunicatorPrx;
 
 }
 
@@ -115,7 +116,7 @@ public:
     {
     }
 
-    TestIntfPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    TestIntfPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -211,7 +212,7 @@ public:
     {
     }
 
-    RemoteObjectAdapterPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    RemoteObjectAdapterPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -285,7 +286,7 @@ public:
     {
     }
 
-    RemoteCommunicatorPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    RemoteCommunicatorPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

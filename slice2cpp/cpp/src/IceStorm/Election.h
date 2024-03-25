@@ -32,52 +32,57 @@
 
 namespace IceStormElection
 {
+    struct TopicContent;
 
-struct TopicContent;
-
-/**
- * A sequence of topic content.
- */
-using TopicContentSeq = ::std::vector<TopicContent>;
-class ReplicaObserverPrx;
-class TopicManagerSyncPrx;
-
-/**
- * The node state.
- */
-enum class NodeState : unsigned char
-{
     /**
-     * The node is inactive and awaiting an election.
+     * A sequence of topic content.
      */
-    NodeStateInactive,
-    /**
-     * The node is electing a leader.
-     */
-    NodeStateElection,
-    /**
-     * The replica group is reorganizing.
-     */
-    NodeStateReorganization,
-    /**
-     * The replica group is active & replicating.
-     */
-    NodeStateNormal
-};
-class NodePrx;
-struct NodeInfo;
+    using TopicContentSeq = ::std::vector<TopicContent>;
 
-/**
- * A sequence of node info.
- */
-using NodeInfoSeq = ::std::vector<NodeInfo>;
-struct GroupInfo;
+    class ReplicaObserverPrx;
 
-/**
- * A sequence of group info.
- */
-using GroupInfoSeq = ::std::vector<GroupInfo>;
-struct QueryInfo;
+    class TopicManagerSyncPrx;
+
+    /**
+     * The node state.
+     */
+    enum class NodeState : ::std::uint8_t
+    {
+        /**
+         * The node is inactive and awaiting an election.
+         */
+        NodeStateInactive,
+        /**
+         * The node is electing a leader.
+         */
+        NodeStateElection,
+        /**
+         * The replica group is reorganizing.
+         */
+        NodeStateReorganization,
+        /**
+         * The replica group is active & replicating.
+         */
+        NodeStateNormal
+    };
+
+    class NodePrx;
+
+    struct NodeInfo;
+
+    /**
+     * A sequence of node info.
+     */
+    using NodeInfoSeq = ::std::vector<NodeInfo>;
+
+    struct GroupInfo;
+
+    /**
+     * A sequence of group info.
+     */
+    using GroupInfoSeq = ::std::vector<GroupInfo>;
+
+    struct QueryInfo;
 
 }
 
@@ -291,7 +296,7 @@ public:
     {
     }
 
-    ReplicaObserverPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    ReplicaObserverPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -376,7 +381,7 @@ public:
     {
     }
 
-    TopicManagerSyncPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    TopicManagerSyncPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -705,7 +710,7 @@ public:
     {
     }
 
-    NodePrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    NodePrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

@@ -28,8 +28,7 @@
 
 namespace Test
 {
-
-class ClockPrx;
+    class ClockPrx;
 
 }
 
@@ -69,7 +68,7 @@ public:
     {
     }
 
-    ClockPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    ClockPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

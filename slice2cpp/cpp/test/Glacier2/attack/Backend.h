@@ -28,8 +28,7 @@
 
 namespace Test
 {
-
-class BackendPrx;
+    class BackendPrx;
 
 }
 
@@ -69,7 +68,7 @@ public:
     {
     }
 
-    BackendPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    BackendPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

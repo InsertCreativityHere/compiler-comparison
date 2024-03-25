@@ -29,10 +29,8 @@
 
 namespace Test
 {
-
-class Derived;
-
-using DerivedPtr = ::std::shared_ptr<Derived>;
+    class Derived;
+    using DerivedPtr = ::std::shared_ptr<Derived>;
 
 }
 
@@ -75,7 +73,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<Derived> ice_clone() const { return ::std::static_pointer_cast <Derived>(_iceCloneImpl()); }
+    DerivedPtr ice_clone() const { return ::std::static_pointer_cast <Derived>(_iceCloneImpl()); }
 
     ::std::string b;
 
@@ -83,7 +81,7 @@ protected:
 
     Derived(const Derived&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;

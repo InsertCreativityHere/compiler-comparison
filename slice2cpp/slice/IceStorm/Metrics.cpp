@@ -56,7 +56,7 @@ IceMX::TopicMetrics::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 IceMX::TopicMetrics::_iceCloneImpl() const
 {
     return CloneEnabler<TopicMetrics>::clone(*this);
@@ -93,7 +93,7 @@ IceMX::SubscriberMetrics::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 IceMX::SubscriberMetrics::_iceCloneImpl() const
 {
     return CloneEnabler<SubscriberMetrics>::clone(*this);

@@ -44,25 +44,25 @@ namespace
 }
 
 ::std::string
-Test::Common::TestCasePrx::startServerSide(const ::std::shared_ptr<Config>& iceP_config, const ::Ice::Context& context) const
+Test::Common::TestCasePrx::startServerSide(const ConfigPtr& iceP_config, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::string>(true, this, &TestCasePrx::_iceI_startServerSide, iceP_config, context).get();
 }
 
 ::std::future<::std::string>
-Test::Common::TestCasePrx::startServerSideAsync(const ::std::shared_ptr<Config>& iceP_config, const ::Ice::Context& context) const
+Test::Common::TestCasePrx::startServerSideAsync(const ConfigPtr& iceP_config, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::string>(false, this, &TestCasePrx::_iceI_startServerSide, iceP_config, context);
 }
 
 ::std::function<void()>
-Test::Common::TestCasePrx::startServerSideAsync(const ::std::shared_ptr<Config>& iceP_config, ::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::Common::TestCasePrx::startServerSideAsync(const ConfigPtr& iceP_config, ::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<::std::string>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::Common::TestCasePrx::_iceI_startServerSide, iceP_config, context);
 }
 
 void
-Test::Common::TestCasePrx::_iceI_startServerSide(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ::std::shared_ptr<Config>& iceP_config, const ::Ice::Context& context) const
+Test::Common::TestCasePrx::_iceI_startServerSide(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, const ConfigPtr& iceP_config, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "startServerSide";
 
@@ -135,25 +135,25 @@ Test::Common::TestCasePrx::_iceI_stopServerSide(const ::std::shared_ptr<::IceInt
 }
 
 ::std::string
-Test::Common::TestCasePrx::runClientSide(::std::string_view iceP_host, const ::std::shared_ptr<Config>& iceP_config, const ::Ice::Context& context) const
+Test::Common::TestCasePrx::runClientSide(::std::string_view iceP_host, const ConfigPtr& iceP_config, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::string>(true, this, &TestCasePrx::_iceI_runClientSide, iceP_host, iceP_config, context).get();
 }
 
 ::std::future<::std::string>
-Test::Common::TestCasePrx::runClientSideAsync(::std::string_view iceP_host, const ::std::shared_ptr<Config>& iceP_config, const ::Ice::Context& context) const
+Test::Common::TestCasePrx::runClientSideAsync(::std::string_view iceP_host, const ConfigPtr& iceP_config, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::string>(false, this, &TestCasePrx::_iceI_runClientSide, iceP_host, iceP_config, context);
 }
 
 ::std::function<void()>
-Test::Common::TestCasePrx::runClientSideAsync(::std::string_view iceP_host, const ::std::shared_ptr<Config>& iceP_config, ::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::Common::TestCasePrx::runClientSideAsync(::std::string_view iceP_host, const ConfigPtr& iceP_config, ::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<::std::string>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::Common::TestCasePrx::_iceI_runClientSide, iceP_host, iceP_config, context);
 }
 
 void
-Test::Common::TestCasePrx::_iceI_runClientSide(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, ::std::string_view iceP_host, const ::std::shared_ptr<Config>& iceP_config, const ::Ice::Context& context) const
+Test::Common::TestCasePrx::_iceI_runClientSide(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>& outAsync, ::std::string_view iceP_host, const ConfigPtr& iceP_config, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "runClientSide";
 
@@ -260,26 +260,26 @@ Test::Common::ControllerPrx::_iceI_runTestCase(const ::std::shared_ptr<::IceInte
         });
 }
 
-::std::shared_ptr<::Test::Common::OptionOverrides>
+::Test::Common::OptionOverridesPtr
 Test::Common::ControllerPrx::getOptionOverrides(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<OptionOverrides>>(true, this, &ControllerPrx::_iceI_getOptionOverrides, context).get();
+    return ::IceInternal::makePromiseOutgoing<OptionOverridesPtr>(true, this, &ControllerPrx::_iceI_getOptionOverrides, context).get();
 }
 
-::std::future<::std::shared_ptr<::Test::Common::OptionOverrides>>
+::std::future<::Test::Common::OptionOverridesPtr>
 Test::Common::ControllerPrx::getOptionOverridesAsync(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<OptionOverrides>>(false, this, &ControllerPrx::_iceI_getOptionOverrides, context);
+    return ::IceInternal::makePromiseOutgoing<OptionOverridesPtr>(false, this, &ControllerPrx::_iceI_getOptionOverrides, context);
 }
 
 ::std::function<void()>
-Test::Common::ControllerPrx::getOptionOverridesAsync(::std::function<void(::std::shared_ptr<::Test::Common::OptionOverrides>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::Common::ControllerPrx::getOptionOverridesAsync(::std::function<void(::Test::Common::OptionOverridesPtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<OptionOverrides>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::Common::ControllerPrx::_iceI_getOptionOverrides, context);
+    return ::IceInternal::makeLambdaOutgoing<OptionOverridesPtr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::Common::ControllerPrx::_iceI_getOptionOverrides, context);
 }
 
 void
-Test::Common::ControllerPrx::_iceI_getOptionOverrides(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<OptionOverrides>>>& outAsync, const ::Ice::Context& context) const
+Test::Common::ControllerPrx::_iceI_getOptionOverrides(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<OptionOverridesPtr>>& outAsync, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "getOptionOverrides";
 
@@ -289,7 +289,7 @@ Test::Common::ControllerPrx::_iceI_getOptionOverrides(const ::std::shared_ptr<::
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::shared_ptr<OptionOverrides> ret;
+            OptionOverridesPtr ret;
             istr->readAll(ret);
             istr->readPendingValues();
             return ret;
@@ -666,7 +666,7 @@ Test::Common::Config::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::Common::Config::_iceCloneImpl() const
 {
     return CloneEnabler<Config>::clone(*this);
@@ -701,7 +701,7 @@ Test::Common::OptionOverrides::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::Common::OptionOverrides::_iceCloneImpl() const
 {
     return CloneEnabler<OptionOverrides>::clone(*this);
@@ -855,7 +855,7 @@ Test::Common::TestCase::_iceD_startServerSide(::Ice::IncomingRequest& request, :
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::shared_ptr<Config> iceP_config;
+    ConfigPtr iceP_config;
     istr->readAll(iceP_config);
     istr->readPendingValues();
     istr->endEncapsulation();
@@ -895,7 +895,7 @@ Test::Common::TestCase::_iceD_runClientSide(::Ice::IncomingRequest& request, ::s
     auto istr = &request.inputStream();
     istr->startEncapsulation();
     ::std::string iceP_host;
-    ::std::shared_ptr<Config> iceP_config;
+    ConfigPtr iceP_config;
     istr->readAll(iceP_host, iceP_config);
     istr->readPendingValues();
     istr->endEncapsulation();
@@ -1032,7 +1032,7 @@ Test::Common::Controller::_iceD_getOptionOverrides(::Ice::IncomingRequest& reque
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::shared_ptr<OptionOverrides> ret = this->getOptionOverrides(request.current());
+    OptionOverridesPtr ret = this->getOptionOverrides(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

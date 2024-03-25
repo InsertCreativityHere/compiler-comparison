@@ -40,25 +40,25 @@ namespace
 }
 
 void
-Test::Initial2Prx::opClassAndUnknownOptional(const ::std::shared_ptr<A>& iceP_p, const ::std::optional<::std::shared_ptr<::Ice::Value>>& iceP_o, const ::Ice::Context& context) const
+Test::Initial2Prx::opClassAndUnknownOptional(const APtr& iceP_p, const ::std::optional<::Ice::ValuePtr>& iceP_o, const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &Initial2Prx::_iceI_opClassAndUnknownOptional, iceP_p, iceP_o, context).get();
 }
 
 ::std::future<void>
-Test::Initial2Prx::opClassAndUnknownOptionalAsync(const ::std::shared_ptr<A>& iceP_p, const ::std::optional<::std::shared_ptr<::Ice::Value>>& iceP_o, const ::Ice::Context& context) const
+Test::Initial2Prx::opClassAndUnknownOptionalAsync(const APtr& iceP_p, const ::std::optional<::Ice::ValuePtr>& iceP_o, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &Initial2Prx::_iceI_opClassAndUnknownOptional, iceP_p, iceP_o, context);
 }
 
 ::std::function<void()>
-Test::Initial2Prx::opClassAndUnknownOptionalAsync(const ::std::shared_ptr<A>& iceP_p, const ::std::optional<::std::shared_ptr<::Ice::Value>>& iceP_o, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::Initial2Prx::opClassAndUnknownOptionalAsync(const APtr& iceP_p, const ::std::optional<::Ice::ValuePtr>& iceP_o, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::Initial2Prx::_iceI_opClassAndUnknownOptional, iceP_p, iceP_o, context);
 }
 
 void
-Test::Initial2Prx::_iceI_opClassAndUnknownOptional(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<A>& iceP_p, const ::std::optional<::std::shared_ptr<::Ice::Value>>& iceP_o, const ::Ice::Context& context) const
+Test::Initial2Prx::_iceI_opClassAndUnknownOptional(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const APtr& iceP_p, const ::std::optional<::Ice::ValuePtr>& iceP_o, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "opClassAndUnknownOptional";
 
@@ -123,7 +123,7 @@ Test::D::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::D::_iceCloneImpl() const
 {
     return CloneEnabler<D>::clone(*this);
@@ -174,8 +174,8 @@ Test::Initial2::_iceD_opClassAndUnknownOptional(::Ice::IncomingRequest& request,
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::shared_ptr<A> iceP_p;
-    ::std::optional<::std::shared_ptr<::Ice::Value>> iceP_o;
+    APtr iceP_p;
+    ::std::optional<::Ice::ValuePtr> iceP_o;
     istr->readAll(iceP_p);
     istr->readAll({1}, iceP_o);
     istr->readPendingValues();

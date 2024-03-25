@@ -61,7 +61,7 @@ LocalTest::C1::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 LocalTest::C1::_iceCloneImpl() const
 {
     return CloneEnabler<C1>::clone(*this);
@@ -96,7 +96,7 @@ LocalTest::CB1::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 LocalTest::CB1::_iceCloneImpl() const
 {
     return CloneEnabler<CB1>::clone(*this);
@@ -131,7 +131,7 @@ LocalTest::CB2::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 LocalTest::CB2::_iceCloneImpl() const
 {
     return CloneEnabler<CB2>::clone(*this);
@@ -166,7 +166,7 @@ LocalTest::CB3::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 LocalTest::CB3::_iceCloneImpl() const
 {
     return CloneEnabler<CB3>::clone(*this);
@@ -201,7 +201,7 @@ LocalTest::CB4::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 LocalTest::CB4::_iceCloneImpl() const
 {
     return CloneEnabler<CB4>::clone(*this);
@@ -236,7 +236,7 @@ LocalTest::CB5::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 LocalTest::CB5::_iceCloneImpl() const
 {
     return CloneEnabler<CB5>::clone(*this);
@@ -271,7 +271,7 @@ LocalTest::CB6::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 LocalTest::CB6::_iceCloneImpl() const
 {
     return CloneEnabler<CB6>::clone(*this);
@@ -306,7 +306,7 @@ LocalTest::CB7::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 LocalTest::CB7::_iceCloneImpl() const
 {
     return CloneEnabler<CB7>::clone(*this);
@@ -341,7 +341,7 @@ LocalTest::CB8::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 LocalTest::CB8::_iceCloneImpl() const
 {
     return CloneEnabler<CB8>::clone(*this);
@@ -376,7 +376,7 @@ LocalTest::Opt::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 LocalTest::Opt::_iceCloneImpl() const
 {
     return CloneEnabler<Opt>::clone(*this);

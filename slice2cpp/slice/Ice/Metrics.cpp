@@ -349,7 +349,7 @@ IceMX::Metrics::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 IceMX::Metrics::_iceCloneImpl() const
 {
     return CloneEnabler<Metrics>::clone(*this);
@@ -417,7 +417,7 @@ IceMX::ThreadMetrics::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 IceMX::ThreadMetrics::_iceCloneImpl() const
 {
     return CloneEnabler<ThreadMetrics>::clone(*this);
@@ -454,7 +454,7 @@ IceMX::DispatchMetrics::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 IceMX::DispatchMetrics::_iceCloneImpl() const
 {
     return CloneEnabler<DispatchMetrics>::clone(*this);
@@ -491,7 +491,7 @@ IceMX::ChildInvocationMetrics::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 IceMX::ChildInvocationMetrics::_iceCloneImpl() const
 {
     return CloneEnabler<ChildInvocationMetrics>::clone(*this);
@@ -528,7 +528,7 @@ IceMX::CollocatedMetrics::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 IceMX::CollocatedMetrics::_iceCloneImpl() const
 {
     return CloneEnabler<CollocatedMetrics>::clone(*this);
@@ -563,7 +563,7 @@ IceMX::RemoteMetrics::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 IceMX::RemoteMetrics::_iceCloneImpl() const
 {
     return CloneEnabler<RemoteMetrics>::clone(*this);
@@ -598,7 +598,7 @@ IceMX::InvocationMetrics::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 IceMX::InvocationMetrics::_iceCloneImpl() const
 {
     return CloneEnabler<InvocationMetrics>::clone(*this);
@@ -635,7 +635,7 @@ IceMX::ConnectionMetrics::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 IceMX::ConnectionMetrics::_iceCloneImpl() const
 {
     return CloneEnabler<ConnectionMetrics>::clone(*this);

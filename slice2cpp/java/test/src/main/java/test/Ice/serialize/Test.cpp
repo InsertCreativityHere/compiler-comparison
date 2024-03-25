@@ -176,7 +176,7 @@ Test::Base::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::Base::_iceCloneImpl() const
 {
     return CloneEnabler<Base>::clone(*this);
@@ -211,7 +211,7 @@ Test::Derived::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::Derived::_iceCloneImpl() const
 {
     return CloneEnabler<Derived>::clone(*this);

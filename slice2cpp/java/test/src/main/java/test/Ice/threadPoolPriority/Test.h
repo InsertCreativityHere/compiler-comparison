@@ -28,8 +28,7 @@
 
 namespace Test
 {
-
-class PriorityPrx;
+    class PriorityPrx;
 
 }
 
@@ -80,7 +79,7 @@ public:
     {
     }
 
-    PriorityPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    PriorityPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

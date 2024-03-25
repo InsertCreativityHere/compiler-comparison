@@ -29,100 +29,100 @@
 
 namespace Test
 {
+    enum class MyEnum : ::std::uint8_t
+    {
+        enum1,
+        enum2,
+        enum3
+    };
 
+    class MyClass;
+    using MyClassPtr = ::std::shared_ptr<MyClass>;
 
-enum class MyEnum : unsigned char
-{
-    enum1,
-    enum2,
-    enum3
-};
-class MyClass;
+    class MyInterfacePrx;
 
-using MyClassPtr = ::std::shared_ptr<MyClass>;
-class MyInterfacePrx;
-struct SmallStruct;
-class OptionalClass;
+    struct SmallStruct;
 
-using OptionalClassPtr = ::std::shared_ptr<OptionalClass>;
+    class OptionalClass;
+    using OptionalClassPtr = ::std::shared_ptr<OptionalClass>;
 
-using MyEnumS = ::std::vector<MyEnum>;
+    using MyEnumS = ::std::vector<MyEnum>;
 
-using MyClassS = ::std::vector<::std::shared_ptr<MyClass>>;
+    using MyClassS = ::std::vector<MyClassPtr>;
 
-using BoolSS = ::std::vector<::Ice::BoolSeq>;
+    using BoolSS = ::std::vector<::Ice::BoolSeq>;
 
-using ByteSS = ::std::vector<::Ice::ByteSeq>;
+    using ByteSS = ::std::vector<::Ice::ByteSeq>;
 
-using ShortSS = ::std::vector<::Ice::ShortSeq>;
+    using ShortSS = ::std::vector<::Ice::ShortSeq>;
 
-using IntSS = ::std::vector<::Ice::IntSeq>;
+    using IntSS = ::std::vector<::Ice::IntSeq>;
 
-using LongSS = ::std::vector<::Ice::LongSeq>;
+    using LongSS = ::std::vector<::Ice::LongSeq>;
 
-using FloatSS = ::std::vector<::Ice::FloatSeq>;
+    using FloatSS = ::std::vector<::Ice::FloatSeq>;
 
-using DoubleSS = ::std::vector<::Ice::DoubleSeq>;
+    using DoubleSS = ::std::vector<::Ice::DoubleSeq>;
 
-using StringSS = ::std::vector<::Ice::StringSeq>;
+    using StringSS = ::std::vector<::Ice::StringSeq>;
 
-using MyEnumSS = ::std::vector<MyEnumS>;
+    using MyEnumSS = ::std::vector<MyEnumS>;
 
-using MyClassSS = ::std::vector<MyClassS>;
+    using MyClassSS = ::std::vector<MyClassS>;
 
-using ByteBoolD = ::std::map<::std::uint8_t, bool>;
+    using ByteBoolD = ::std::map<::std::uint8_t, bool>;
 
-using ShortIntD = ::std::map<::std::int16_t, ::std::int32_t>;
+    using ShortIntD = ::std::map<::std::int16_t, ::std::int32_t>;
 
-using LongFloatD = ::std::map<::std::int64_t, float>;
+    using LongFloatD = ::std::map<::std::int64_t, float>;
 
-using StringStringD = ::std::map<::std::string, ::std::string>;
+    using StringStringD = ::std::map<::std::string, ::std::string>;
 
-using StringMyClassD = ::std::map<::std::string, ::std::shared_ptr<MyClass>>;
+    using StringMyClassD = ::std::map<::std::string, MyClassPtr>;
 
-using BoolList = ::std::vector<bool>;
+    using BoolList = ::std::vector<bool>;
 
-using ByteList = ::std::vector<std::byte>;
+    using ByteList = ::std::vector<std::byte>;
 
-using MyEnumList = ::std::vector<MyEnum>;
+    using MyEnumList = ::std::vector<MyEnum>;
 
-using SmallStructList = ::std::vector<SmallStruct>;
+    using SmallStructList = ::std::vector<SmallStruct>;
 
-using MyClassList = ::std::vector<::std::shared_ptr<MyClass>>;
+    using MyClassList = ::std::vector<MyClassPtr>;
 
-using MyInterfaceProxyList = ::std::vector<::std::optional<MyInterfacePrx>>;
+    using MyInterfaceProxyList = ::std::vector<::std::optional<MyInterfacePrx>>;
 
-using ShortLinkedList = ::std::vector<::std::int16_t>;
+    using ShortLinkedList = ::std::vector<::std::int16_t>;
 
-using IntLinkedList = ::std::vector<::std::int32_t>;
+    using IntLinkedList = ::std::vector<::std::int32_t>;
 
-using MyEnumLinkedList = ::std::vector<MyEnum>;
+    using MyEnumLinkedList = ::std::vector<MyEnum>;
 
-using SmallStructLinkedList = ::std::vector<SmallStruct>;
+    using SmallStructLinkedList = ::std::vector<SmallStruct>;
 
-using LongStack = ::std::vector<::std::int64_t>;
+    using LongStack = ::std::vector<::std::int64_t>;
 
-using FloatStack = ::std::vector<float>;
+    using FloatStack = ::std::vector<float>;
 
-using SmallStructStack = ::std::vector<SmallStruct>;
+    using SmallStructStack = ::std::vector<SmallStruct>;
 
-using MyInterfaceProxyStack = ::std::vector<::std::optional<MyInterfacePrx>>;
+    using MyInterfaceProxyStack = ::std::vector<::std::optional<MyInterfacePrx>>;
 
-using ObjectStack = ::std::vector<::std::shared_ptr<::Ice::Value>>;
+    using ObjectStack = ::std::vector<::Ice::ValuePtr>;
 
-using MyClassStack = ::std::vector<::std::shared_ptr<MyClass>>;
+    using MyClassStack = ::std::vector<MyClassPtr>;
 
-using DoubleQueue = ::std::vector<double>;
+    using DoubleQueue = ::std::vector<double>;
 
-using StringQueue = ::std::vector<::std::string>;
+    using StringQueue = ::std::vector<::std::string>;
 
-using SmallStructQueue = ::std::vector<SmallStruct>;
+    using SmallStructQueue = ::std::vector<SmallStruct>;
 
-using StringSList = ::std::vector<::Ice::StringSeq>;
+    using StringSList = ::std::vector<::Ice::StringSeq>;
 
-using StringSStack = ::std::vector<::Ice::StringSeq>;
+    using StringSStack = ::std::vector<::Ice::StringSeq>;
 
-using SortedStringStringD = ::std::map<::std::string, ::std::string>;
+    using SortedStringStringD = ::std::map<::std::string, ::std::string>;
 
 }
 
@@ -151,7 +151,7 @@ public:
     {
     }
 
-    MyInterfacePrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    MyInterfacePrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -247,7 +247,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<OptionalClass> ice_clone() const { return ::std::static_pointer_cast <OptionalClass>(_iceCloneImpl()); }
+    OptionalClassPtr ice_clone() const { return ::std::static_pointer_cast <OptionalClass>(_iceCloneImpl()); }
 
     bool bo;
     ::std::uint8_t by;
@@ -258,7 +258,7 @@ protected:
 
     OptionalClass(const OptionalClass&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -277,7 +277,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    MyClass(::std::shared_ptr<::Test::MyClass> c, ::std::shared_ptr<::Ice::Value> o, ::Test::SmallStruct s, ::Ice::BoolSeq seq1, ::Ice::ByteSeq seq2, ::Ice::ShortSeq seq3, ::Ice::IntSeq seq4, ::Ice::LongSeq seq5, ::Ice::FloatSeq seq6, ::Ice::DoubleSeq seq7, ::Ice::StringSeq seq8, ::Test::MyEnumS seq9, ::Test::MyClassS seq10, ::Test::StringMyClassD d) :
+    MyClass(::Test::MyClassPtr c, ::Ice::ValuePtr o, ::Test::SmallStruct s, ::Ice::BoolSeq seq1, ::Ice::ByteSeq seq2, ::Ice::ShortSeq seq3, ::Ice::IntSeq seq4, ::Ice::LongSeq seq5, ::Ice::FloatSeq seq6, ::Ice::DoubleSeq seq7, ::Ice::StringSeq seq8, ::Test::MyEnumS seq9, ::Test::MyClassS seq10, ::Test::StringMyClassD d) :
         c(::std::move(c)),
         o(::std::move(o)),
         s(::std::move(s)),
@@ -307,7 +307,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::shared_ptr<::Test::MyClass>&, const ::std::shared_ptr<::Ice::Value>&, const ::Test::SmallStruct&, const ::Ice::BoolSeq&, const ::Ice::ByteSeq&, const ::Ice::ShortSeq&, const ::Ice::IntSeq&, const ::Ice::LongSeq&, const ::Ice::FloatSeq&, const ::Ice::DoubleSeq&, const ::Ice::StringSeq&, const ::Test::MyEnumS&, const ::Test::MyClassS&, const ::Test::StringMyClassD&> ice_tuple() const
+    std::tuple<const ::Test::MyClassPtr&, const ::Ice::ValuePtr&, const ::Test::SmallStruct&, const ::Ice::BoolSeq&, const ::Ice::ByteSeq&, const ::Ice::ShortSeq&, const ::Ice::IntSeq&, const ::Ice::LongSeq&, const ::Ice::FloatSeq&, const ::Ice::DoubleSeq&, const ::Ice::StringSeq&, const ::Test::MyEnumS&, const ::Test::MyClassS&, const ::Test::StringMyClassD&> ice_tuple() const
     {
         return std::tie(c, o, s, seq1, seq2, seq3, seq4, seq5, seq6, seq7, seq8, seq9, seq10, d);
     }
@@ -316,10 +316,10 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<MyClass> ice_clone() const { return ::std::static_pointer_cast <MyClass>(_iceCloneImpl()); }
+    MyClassPtr ice_clone() const { return ::std::static_pointer_cast <MyClass>(_iceCloneImpl()); }
 
-    ::std::shared_ptr<::Test::MyClass> c;
-    ::std::shared_ptr<::Ice::Value> o;
+    ::Test::MyClassPtr c;
+    ::Ice::ValuePtr o;
     ::Test::SmallStruct s;
     ::Ice::BoolSeq seq1;
     ::Ice::ByteSeq seq2;
@@ -337,7 +337,7 @@ protected:
 
     MyClass(const MyClass&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -351,7 +351,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    MyException(::std::shared_ptr<MyClass> c) noexcept :
+    MyException(MyClassPtr c) noexcept :
         c(::std::move(c))
     {
     }
@@ -360,7 +360,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::shared_ptr<::Test::MyClass>&> ice_tuple() const
+    std::tuple<const ::Test::MyClassPtr&> ice_tuple() const
     {
         return std::tie(c);
     }
@@ -379,7 +379,7 @@ public:
     bool _usesClasses() const override;
     /// \endcond
 
-    ::std::shared_ptr<::Test::MyClass> c;
+    ::Test::MyClassPtr c;
 
 protected:
     void _writeImpl(::Ice::OutputStream*) const override;

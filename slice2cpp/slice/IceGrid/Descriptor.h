@@ -41,123 +41,134 @@
 
 namespace IceGrid
 {
+    /**
+     * A mapping of string to string.
+     */
+    using StringStringDict = ::std::map<::std::string, ::std::string>;
 
+    struct PropertyDescriptor;
 
-/**
- * A mapping of string to string.
- */
-using StringStringDict = ::std::map<::std::string, ::std::string>;
-struct PropertyDescriptor;
+    /**
+     * A sequence of property descriptors.
+     */
+    using PropertyDescriptorSeq = ::std::vector<PropertyDescriptor>;
 
-/**
- * A sequence of property descriptors.
- */
-using PropertyDescriptorSeq = ::std::vector<PropertyDescriptor>;
-struct PropertySetDescriptor;
+    struct PropertySetDescriptor;
 
-/**
- * A mapping of property set name to property set descriptor.
- */
-using PropertySetDescriptorDict = ::std::map<::std::string, PropertySetDescriptor>;
-struct ObjectDescriptor;
+    /**
+     * A mapping of property set name to property set descriptor.
+     */
+    using PropertySetDescriptorDict = ::std::map<::std::string, PropertySetDescriptor>;
 
-/**
- * A sequence of object descriptors.
- */
-using ObjectDescriptorSeq = ::std::vector<ObjectDescriptor>;
-struct AdapterDescriptor;
+    struct ObjectDescriptor;
 
-/**
- * A sequence of adapter descriptors.
- */
-using AdapterDescriptorSeq = ::std::vector<AdapterDescriptor>;
-class CommunicatorDescriptor;
+    /**
+     * A sequence of object descriptors.
+     */
+    using ObjectDescriptorSeq = ::std::vector<ObjectDescriptor>;
 
-using CommunicatorDescriptorPtr = ::std::shared_ptr<CommunicatorDescriptor>;
-struct DistributionDescriptor;
-class ServerDescriptor;
+    struct AdapterDescriptor;
 
-using ServerDescriptorPtr = ::std::shared_ptr<ServerDescriptor>;
+    /**
+     * A sequence of adapter descriptors.
+     */
+    using AdapterDescriptorSeq = ::std::vector<AdapterDescriptor>;
 
-/**
- * A sequence of server descriptors.
- */
-using ServerDescriptorSeq = ::std::vector<::std::shared_ptr<ServerDescriptor>>;
-class ServiceDescriptor;
+    class CommunicatorDescriptor;
+    using CommunicatorDescriptorPtr = ::std::shared_ptr<CommunicatorDescriptor>;
 
-using ServiceDescriptorPtr = ::std::shared_ptr<ServiceDescriptor>;
+    struct DistributionDescriptor;
 
-/**
- * A sequence of service descriptors.
- */
-using ServiceDescriptorSeq = ::std::vector<::std::shared_ptr<ServiceDescriptor>>;
-struct ServerInstanceDescriptor;
+    class ServerDescriptor;
+    using ServerDescriptorPtr = ::std::shared_ptr<ServerDescriptor>;
 
-/**
- * A sequence of server instance descriptors.
- */
-using ServerInstanceDescriptorSeq = ::std::vector<ServerInstanceDescriptor>;
-struct TemplateDescriptor;
+    /**
+     * A sequence of server descriptors.
+     */
+    using ServerDescriptorSeq = ::std::vector<ServerDescriptorPtr>;
 
-/**
- * A mapping of template identifier to template descriptor.
- */
-using TemplateDescriptorDict = ::std::map<::std::string, TemplateDescriptor>;
-struct ServiceInstanceDescriptor;
+    class ServiceDescriptor;
+    using ServiceDescriptorPtr = ::std::shared_ptr<ServiceDescriptor>;
 
-/**
- * A sequence of service instance descriptors.
- */
-using ServiceInstanceDescriptorSeq = ::std::vector<ServiceInstanceDescriptor>;
-class IceBoxDescriptor;
+    /**
+     * A sequence of service descriptors.
+     */
+    using ServiceDescriptorSeq = ::std::vector<ServiceDescriptorPtr>;
 
-using IceBoxDescriptorPtr = ::std::shared_ptr<IceBoxDescriptor>;
-struct NodeDescriptor;
+    struct ServerInstanceDescriptor;
 
-/**
- * Mapping of node name to node descriptor.
- */
-using NodeDescriptorDict = ::std::map<::std::string, NodeDescriptor>;
-class LoadBalancingPolicy;
+    /**
+     * A sequence of server instance descriptors.
+     */
+    using ServerInstanceDescriptorSeq = ::std::vector<ServerInstanceDescriptor>;
 
-using LoadBalancingPolicyPtr = ::std::shared_ptr<LoadBalancingPolicy>;
-class RandomLoadBalancingPolicy;
+    struct TemplateDescriptor;
 
-using RandomLoadBalancingPolicyPtr = ::std::shared_ptr<RandomLoadBalancingPolicy>;
-class OrderedLoadBalancingPolicy;
+    /**
+     * A mapping of template identifier to template descriptor.
+     */
+    using TemplateDescriptorDict = ::std::map<::std::string, TemplateDescriptor>;
 
-using OrderedLoadBalancingPolicyPtr = ::std::shared_ptr<OrderedLoadBalancingPolicy>;
-class RoundRobinLoadBalancingPolicy;
+    struct ServiceInstanceDescriptor;
 
-using RoundRobinLoadBalancingPolicyPtr = ::std::shared_ptr<RoundRobinLoadBalancingPolicy>;
-class AdaptiveLoadBalancingPolicy;
+    /**
+     * A sequence of service instance descriptors.
+     */
+    using ServiceInstanceDescriptorSeq = ::std::vector<ServiceInstanceDescriptor>;
 
-using AdaptiveLoadBalancingPolicyPtr = ::std::shared_ptr<AdaptiveLoadBalancingPolicy>;
-struct ReplicaGroupDescriptor;
+    class IceBoxDescriptor;
+    using IceBoxDescriptorPtr = ::std::shared_ptr<IceBoxDescriptor>;
 
-/**
- * A sequence of replica groups.
- */
-using ReplicaGroupDescriptorSeq = ::std::vector<ReplicaGroupDescriptor>;
-struct ApplicationDescriptor;
+    struct NodeDescriptor;
 
-/**
- * A sequence of application descriptors.
- */
-using ApplicationDescriptorSeq = ::std::vector<ApplicationDescriptor>;
-class BoxedString;
+    /**
+     * Mapping of node name to node descriptor.
+     */
+    using NodeDescriptorDict = ::std::map<::std::string, NodeDescriptor>;
 
-using BoxedStringPtr = ::std::shared_ptr<BoxedString>;
-struct NodeUpdateDescriptor;
+    class LoadBalancingPolicy;
+    using LoadBalancingPolicyPtr = ::std::shared_ptr<LoadBalancingPolicy>;
 
-/**
- * A sequence of node update descriptors.
- */
-using NodeUpdateDescriptorSeq = ::std::vector<NodeUpdateDescriptor>;
-class BoxedDistributionDescriptor;
+    class RandomLoadBalancingPolicy;
+    using RandomLoadBalancingPolicyPtr = ::std::shared_ptr<RandomLoadBalancingPolicy>;
 
-using BoxedDistributionDescriptorPtr = ::std::shared_ptr<BoxedDistributionDescriptor>;
-struct ApplicationUpdateDescriptor;
+    class OrderedLoadBalancingPolicy;
+    using OrderedLoadBalancingPolicyPtr = ::std::shared_ptr<OrderedLoadBalancingPolicy>;
+
+    class RoundRobinLoadBalancingPolicy;
+    using RoundRobinLoadBalancingPolicyPtr = ::std::shared_ptr<RoundRobinLoadBalancingPolicy>;
+
+    class AdaptiveLoadBalancingPolicy;
+    using AdaptiveLoadBalancingPolicyPtr = ::std::shared_ptr<AdaptiveLoadBalancingPolicy>;
+
+    struct ReplicaGroupDescriptor;
+
+    /**
+     * A sequence of replica groups.
+     */
+    using ReplicaGroupDescriptorSeq = ::std::vector<ReplicaGroupDescriptor>;
+
+    struct ApplicationDescriptor;
+
+    /**
+     * A sequence of application descriptors.
+     */
+    using ApplicationDescriptorSeq = ::std::vector<ApplicationDescriptor>;
+
+    class BoxedString;
+    using BoxedStringPtr = ::std::shared_ptr<BoxedString>;
+
+    struct NodeUpdateDescriptor;
+
+    /**
+     * A sequence of node update descriptors.
+     */
+    using NodeUpdateDescriptorSeq = ::std::vector<NodeUpdateDescriptor>;
+
+    class BoxedDistributionDescriptor;
+    using BoxedDistributionDescriptorPtr = ::std::shared_ptr<BoxedDistributionDescriptor>;
+
+    struct ApplicationUpdateDescriptor;
 
 }
 
@@ -346,7 +357,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<CommunicatorDescriptor> ice_clone() const { return ::std::static_pointer_cast <CommunicatorDescriptor>(_iceCloneImpl()); }
+    CommunicatorDescriptorPtr ice_clone() const { return ::std::static_pointer_cast <CommunicatorDescriptor>(_iceCloneImpl()); }
 
     /**
      * The object adapters.
@@ -369,7 +380,7 @@ protected:
 
     CommunicatorDescriptor(const CommunicatorDescriptor&) = default;
 
-    ICE_MEMBER(ICEGRID_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -473,7 +484,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<ServerDescriptor> ice_clone() const { return ::std::static_pointer_cast <ServerDescriptor>(_iceCloneImpl()); }
+    ServerDescriptorPtr ice_clone() const { return ::std::static_pointer_cast <ServerDescriptor>(_iceCloneImpl()); }
 
     /**
      * The server id.
@@ -534,7 +545,7 @@ protected:
 
     ServerDescriptor(const ServerDescriptor&) = default;
 
-    ICE_MEMBER(ICEGRID_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -587,7 +598,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<ServiceDescriptor> ice_clone() const { return ::std::static_pointer_cast <ServiceDescriptor>(_iceCloneImpl()); }
+    ServiceDescriptorPtr ice_clone() const { return ::std::static_pointer_cast <ServiceDescriptor>(_iceCloneImpl()); }
 
     /**
      * The service name.
@@ -602,7 +613,7 @@ protected:
 
     ServiceDescriptor(const ServiceDescriptor&) = default;
 
-    ICE_MEMBER(ICEGRID_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -651,7 +662,7 @@ struct TemplateDescriptor
     /**
      * The template.
      */
-    ::std::shared_ptr<::IceGrid::CommunicatorDescriptor> descriptor;
+    ::IceGrid::CommunicatorDescriptorPtr descriptor;
     /**
      * The parameters required to instantiate the template.
      */
@@ -665,7 +676,7 @@ struct TemplateDescriptor
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::shared_ptr<::IceGrid::CommunicatorDescriptor>&, const ::Ice::StringSeq&, const ::IceGrid::StringStringDict&> ice_tuple() const
+    std::tuple<const ::IceGrid::CommunicatorDescriptorPtr&, const ::Ice::StringSeq&, const ::IceGrid::StringStringDict&> ice_tuple() const
     {
         return std::tie(descriptor, parameters, parameterDefaults);
     }
@@ -688,7 +699,7 @@ struct ServiceInstanceDescriptor
     /**
      * The service definition if the instance isn't a template instance (i.e.: if the template attribute is empty).
      */
-    ::std::shared_ptr<::IceGrid::ServiceDescriptor> descriptor;
+    ::IceGrid::ServiceDescriptorPtr descriptor;
     /**
      * The property set.
      */
@@ -698,7 +709,7 @@ struct ServiceInstanceDescriptor
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::string&, const ::IceGrid::StringStringDict&, const ::std::shared_ptr<::IceGrid::ServiceDescriptor>&, const ::IceGrid::PropertySetDescriptor&> ice_tuple() const
+    std::tuple<const ::std::string&, const ::IceGrid::StringStringDict&, const ::IceGrid::ServiceDescriptorPtr&, const ::IceGrid::PropertySetDescriptor&> ice_tuple() const
     {
         return std::tie(_cpp_template, parameterValues, descriptor, propertySet);
     }
@@ -762,7 +773,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<IceBoxDescriptor> ice_clone() const { return ::std::static_pointer_cast <IceBoxDescriptor>(_iceCloneImpl()); }
+    IceBoxDescriptorPtr ice_clone() const { return ::std::static_pointer_cast <IceBoxDescriptor>(_iceCloneImpl()); }
 
     /**
      * The service instances.
@@ -773,7 +784,7 @@ protected:
 
     IceBoxDescriptor(const IceBoxDescriptor&) = default;
 
-    ICE_MEMBER(ICEGRID_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -860,7 +871,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<LoadBalancingPolicy> ice_clone() const { return ::std::static_pointer_cast <LoadBalancingPolicy>(_iceCloneImpl()); }
+    LoadBalancingPolicyPtr ice_clone() const { return ::std::static_pointer_cast <LoadBalancingPolicy>(_iceCloneImpl()); }
 
     /**
      * The number of replicas that will be used to gather the endpoints of a replica group.
@@ -871,7 +882,7 @@ protected:
 
     LoadBalancingPolicy(const LoadBalancingPolicy&) = default;
 
-    ICE_MEMBER(ICEGRID_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -908,13 +919,13 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<RandomLoadBalancingPolicy> ice_clone() const { return ::std::static_pointer_cast <RandomLoadBalancingPolicy>(_iceCloneImpl()); }
+    RandomLoadBalancingPolicyPtr ice_clone() const { return ::std::static_pointer_cast <RandomLoadBalancingPolicy>(_iceCloneImpl()); }
 
 protected:
 
     RandomLoadBalancingPolicy(const RandomLoadBalancingPolicy&) = default;
 
-    ICE_MEMBER(ICEGRID_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -951,13 +962,13 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<OrderedLoadBalancingPolicy> ice_clone() const { return ::std::static_pointer_cast <OrderedLoadBalancingPolicy>(_iceCloneImpl()); }
+    OrderedLoadBalancingPolicyPtr ice_clone() const { return ::std::static_pointer_cast <OrderedLoadBalancingPolicy>(_iceCloneImpl()); }
 
 protected:
 
     OrderedLoadBalancingPolicy(const OrderedLoadBalancingPolicy&) = default;
 
-    ICE_MEMBER(ICEGRID_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -994,13 +1005,13 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<RoundRobinLoadBalancingPolicy> ice_clone() const { return ::std::static_pointer_cast <RoundRobinLoadBalancingPolicy>(_iceCloneImpl()); }
+    RoundRobinLoadBalancingPolicyPtr ice_clone() const { return ::std::static_pointer_cast <RoundRobinLoadBalancingPolicy>(_iceCloneImpl()); }
 
 protected:
 
     RoundRobinLoadBalancingPolicy(const RoundRobinLoadBalancingPolicy&) = default;
 
-    ICE_MEMBER(ICEGRID_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -1048,7 +1059,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<AdaptiveLoadBalancingPolicy> ice_clone() const { return ::std::static_pointer_cast <AdaptiveLoadBalancingPolicy>(_iceCloneImpl()); }
+    AdaptiveLoadBalancingPolicyPtr ice_clone() const { return ::std::static_pointer_cast <AdaptiveLoadBalancingPolicy>(_iceCloneImpl()); }
 
     /**
      * The load sample to use for the load balancing. The allowed values for this attribute are "1", "5" and "15",
@@ -1060,7 +1071,7 @@ protected:
 
     AdaptiveLoadBalancingPolicy(const AdaptiveLoadBalancingPolicy&) = default;
 
-    ICE_MEMBER(ICEGRID_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -1079,7 +1090,7 @@ struct ReplicaGroupDescriptor
     /**
      * The load balancing policy.
      */
-    ::std::shared_ptr<::IceGrid::LoadBalancingPolicy> loadBalancing;
+    ::IceGrid::LoadBalancingPolicyPtr loadBalancing;
     /**
      * Default options for proxies created for the replica group.
      */
@@ -1101,7 +1112,7 @@ struct ReplicaGroupDescriptor
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::string&, const ::std::shared_ptr<::IceGrid::LoadBalancingPolicy>&, const ::std::string&, const ::IceGrid::ObjectDescriptorSeq&, const ::std::string&, const ::std::string&> ice_tuple() const
+    std::tuple<const ::std::string&, const ::IceGrid::LoadBalancingPolicyPtr&, const ::std::string&, const ::IceGrid::ObjectDescriptorSeq&, const ::std::string&, const ::std::string&> ice_tuple() const
     {
         return std::tie(id, loadBalancing, proxyOptions, objects, description, filter);
     }
@@ -1200,7 +1211,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<BoxedString> ice_clone() const { return ::std::static_pointer_cast <BoxedString>(_iceCloneImpl()); }
+    BoxedStringPtr ice_clone() const { return ::std::static_pointer_cast <BoxedString>(_iceCloneImpl()); }
 
     /**
      * The value of the boxed string.
@@ -1211,7 +1222,7 @@ protected:
 
     BoxedString(const BoxedString&) = default;
 
-    ICE_MEMBER(ICEGRID_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -1230,7 +1241,7 @@ struct NodeUpdateDescriptor
     /**
      * The updated description (or null if the description wasn't updated.)
      */
-    ::std::shared_ptr<::IceGrid::BoxedString> description;
+    ::IceGrid::BoxedStringPtr description;
     /**
      * The variables to update.
      */
@@ -1262,13 +1273,13 @@ struct NodeUpdateDescriptor
     /**
      * The updated load factor of the node (or null if the load factor was not updated).
      */
-    ::std::shared_ptr<::IceGrid::BoxedString> loadFactor;
+    ::IceGrid::BoxedStringPtr loadFactor;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::string&, const ::std::shared_ptr<::IceGrid::BoxedString>&, const ::IceGrid::StringStringDict&, const ::Ice::StringSeq&, const ::IceGrid::PropertySetDescriptorDict&, const ::Ice::StringSeq&, const ::IceGrid::ServerInstanceDescriptorSeq&, const ::IceGrid::ServerDescriptorSeq&, const ::Ice::StringSeq&, const ::std::shared_ptr<::IceGrid::BoxedString>&> ice_tuple() const
+    std::tuple<const ::std::string&, const ::IceGrid::BoxedStringPtr&, const ::IceGrid::StringStringDict&, const ::Ice::StringSeq&, const ::IceGrid::PropertySetDescriptorDict&, const ::Ice::StringSeq&, const ::IceGrid::ServerInstanceDescriptorSeq&, const ::IceGrid::ServerDescriptorSeq&, const ::Ice::StringSeq&, const ::IceGrid::BoxedStringPtr&> ice_tuple() const
     {
         return std::tie(name, description, variables, removeVariables, propertySets, removePropertySets, serverInstances, servers, removeServers, loadFactor);
     }
@@ -1314,7 +1325,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<BoxedDistributionDescriptor> ice_clone() const { return ::std::static_pointer_cast <BoxedDistributionDescriptor>(_iceCloneImpl()); }
+    BoxedDistributionDescriptorPtr ice_clone() const { return ::std::static_pointer_cast <BoxedDistributionDescriptor>(_iceCloneImpl()); }
 
     /**
      * The value of the boxed distribution descriptor.
@@ -1325,7 +1336,7 @@ protected:
 
     BoxedDistributionDescriptor(const BoxedDistributionDescriptor&) = default;
 
-    ICE_MEMBER(ICEGRID_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(ICEGRID_API) ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICEGRID_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICEGRID_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -1344,11 +1355,11 @@ struct ApplicationUpdateDescriptor
     /**
      * The updated description (or null if the description wasn't updated.)
      */
-    ::std::shared_ptr<::IceGrid::BoxedString> description;
+    ::IceGrid::BoxedStringPtr description;
     /**
      * The updated distribution application descriptor.
      */
-    ::std::shared_ptr<::IceGrid::BoxedDistributionDescriptor> distrib;
+    ::IceGrid::BoxedDistributionDescriptorPtr distrib;
     /**
      * The variables to update.
      */
@@ -1402,7 +1413,7 @@ struct ApplicationUpdateDescriptor
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::string&, const ::std::shared_ptr<::IceGrid::BoxedString>&, const ::std::shared_ptr<::IceGrid::BoxedDistributionDescriptor>&, const ::IceGrid::StringStringDict&, const ::Ice::StringSeq&, const ::IceGrid::PropertySetDescriptorDict&, const ::Ice::StringSeq&, const ::IceGrid::ReplicaGroupDescriptorSeq&, const ::Ice::StringSeq&, const ::IceGrid::TemplateDescriptorDict&, const ::Ice::StringSeq&, const ::IceGrid::TemplateDescriptorDict&, const ::Ice::StringSeq&, const ::IceGrid::NodeUpdateDescriptorSeq&, const ::Ice::StringSeq&> ice_tuple() const
+    std::tuple<const ::std::string&, const ::IceGrid::BoxedStringPtr&, const ::IceGrid::BoxedDistributionDescriptorPtr&, const ::IceGrid::StringStringDict&, const ::Ice::StringSeq&, const ::IceGrid::PropertySetDescriptorDict&, const ::Ice::StringSeq&, const ::IceGrid::ReplicaGroupDescriptorSeq&, const ::Ice::StringSeq&, const ::IceGrid::TemplateDescriptorDict&, const ::Ice::StringSeq&, const ::IceGrid::TemplateDescriptorDict&, const ::Ice::StringSeq&, const ::IceGrid::NodeUpdateDescriptorSeq&, const ::Ice::StringSeq&> ice_tuple() const
     {
         return std::tie(name, description, distrib, variables, removeVariables, propertySets, removePropertySets, replicaGroups, removeReplicaGroups, serverTemplates, removeServerTemplates, serviceTemplates, removeServiceTemplates, nodes, removeNodes);
     }

@@ -30,108 +30,111 @@
 
 namespace Test
 {
+    class OneOptional;
+    using OneOptionalPtr = ::std::shared_ptr<OneOptional>;
 
-class OneOptional;
+    class MyInterfacePrx;
 
-using OneOptionalPtr = ::std::shared_ptr<OneOptional>;
-class MyInterfacePrx;
+    enum class MyEnum : ::std::uint8_t
+    {
+        MyEnumMember
+    };
 
-enum class MyEnum : unsigned char
-{
-    MyEnumMember
-};
-struct SmallStruct;
-struct FixedStruct;
-struct VarStruct;
+    struct SmallStruct;
 
-using ByteSeq = ::std::vector<std::byte>;
+    struct FixedStruct;
 
-using BoolSeq = ::std::vector<bool>;
+    struct VarStruct;
 
-using ShortSeq = ::std::vector<::std::int16_t>;
+    using ByteSeq = ::std::vector<std::byte>;
 
-using IntSeq = ::std::vector<::std::int32_t>;
+    using BoolSeq = ::std::vector<bool>;
 
-using LongSeq = ::std::vector<::std::int64_t>;
+    using ShortSeq = ::std::vector<::std::int16_t>;
 
-using FloatSeq = ::std::vector<float>;
+    using IntSeq = ::std::vector<::std::int32_t>;
 
-using DoubleSeq = ::std::vector<double>;
+    using LongSeq = ::std::vector<::std::int64_t>;
 
-using StringSeq = ::std::vector<::std::string>;
+    using FloatSeq = ::std::vector<float>;
 
-using MyEnumSeq = ::std::vector<MyEnum>;
+    using DoubleSeq = ::std::vector<double>;
 
-using SmallStructSeq = ::std::vector<SmallStruct>;
+    using StringSeq = ::std::vector<::std::string>;
 
-using SmallStructList = std::list< ::Test::SmallStruct>;
+    using MyEnumSeq = ::std::vector<MyEnum>;
 
-using FixedStructSeq = ::std::vector<FixedStruct>;
+    using SmallStructSeq = ::std::vector<SmallStruct>;
 
-using FixedStructList = std::list< ::Test::FixedStruct>;
+    using SmallStructList = std::list< ::Test::SmallStruct>;
 
-using VarStructSeq = ::std::vector<VarStruct>;
+    using FixedStructSeq = ::std::vector<FixedStruct>;
 
-using OneOptionalSeq = ::std::vector<::std::shared_ptr<OneOptional>>;
+    using FixedStructList = std::list< ::Test::FixedStruct>;
 
-using MyInterfacePrxSeq = ::std::vector<::std::optional<MyInterfacePrx>>;
+    using VarStructSeq = ::std::vector<VarStruct>;
 
-using Serializable = ::std::vector<std::byte>;
+    using OneOptionalSeq = ::std::vector<OneOptionalPtr>;
 
-using IntIntDict = ::std::map<::std::int32_t, ::std::int32_t>;
+    using MyInterfacePrxSeq = ::std::vector<::std::optional<MyInterfacePrx>>;
 
-using StringIntDict = ::std::map<::std::string, ::std::int32_t>;
+    using Serializable = ::std::vector<std::byte>;
 
-using IntEnumDict = ::std::map<::std::int32_t, MyEnum>;
+    using IntIntDict = ::std::map<::std::int32_t, ::std::int32_t>;
 
-using IntFixedStructDict = ::std::map<::std::int32_t, FixedStruct>;
+    using StringIntDict = ::std::map<::std::string, ::std::int32_t>;
 
-using IntVarStructDict = ::std::map<::std::int32_t, VarStruct>;
+    using IntEnumDict = ::std::map<::std::int32_t, MyEnum>;
 
-using IntOneOptionalDict = ::std::map<::std::int32_t, ::std::shared_ptr<OneOptional>>;
+    using IntFixedStructDict = ::std::map<::std::int32_t, FixedStruct>;
 
-using IntMyInterfacePrxDict = ::std::map<::std::int32_t, ::std::optional<MyInterfacePrx>>;
+    using IntVarStructDict = ::std::map<::std::int32_t, VarStruct>;
 
-using IntStringDict = Test::CustomMap<std::int32_t, std::string>;
-class MultiOptional;
+    using IntOneOptionalDict = ::std::map<::std::int32_t, OneOptionalPtr>;
 
-using MultiOptionalPtr = ::std::shared_ptr<MultiOptional>;
-class A;
+    using IntMyInterfacePrxDict = ::std::map<::std::int32_t, ::std::optional<MyInterfacePrx>>;
 
-using APtr = ::std::shared_ptr<A>;
-class B;
+    using IntStringDict = Test::CustomMap<std::int32_t, std::string>;
 
-using BPtr = ::std::shared_ptr<B>;
-class C;
+    class MultiOptional;
+    using MultiOptionalPtr = ::std::shared_ptr<MultiOptional>;
 
-using CPtr = ::std::shared_ptr<C>;
-class WD;
+    class A;
+    using APtr = ::std::shared_ptr<A>;
 
-using WDPtr = ::std::shared_ptr<WD>;
-class OptionalWithCustom;
+    class B;
+    using BPtr = ::std::shared_ptr<B>;
 
-using OptionalWithCustomPtr = ::std::shared_ptr<OptionalWithCustom>;
-class E;
+    class C;
+    using CPtr = ::std::shared_ptr<C>;
 
-using EPtr = ::std::shared_ptr<E>;
-class F;
+    class WD;
+    using WDPtr = ::std::shared_ptr<WD>;
 
-using FPtr = ::std::shared_ptr<F>;
-class G1;
+    class OptionalWithCustom;
+    using OptionalWithCustomPtr = ::std::shared_ptr<OptionalWithCustom>;
 
-using G1Ptr = ::std::shared_ptr<G1>;
-class G2;
+    class E;
+    using EPtr = ::std::shared_ptr<E>;
 
-using G2Ptr = ::std::shared_ptr<G2>;
-class G;
+    class F;
+    using FPtr = ::std::shared_ptr<F>;
 
-using GPtr = ::std::shared_ptr<G>;
-class Recursive;
+    class G1;
+    using G1Ptr = ::std::shared_ptr<G1>;
 
-using RecursivePtr = ::std::shared_ptr<Recursive>;
+    class G2;
+    using G2Ptr = ::std::shared_ptr<G2>;
 
-using RecursiveSeq = ::std::vector<::std::shared_ptr<Recursive>>;
-class InitialPrx;
+    class G;
+    using GPtr = ::std::shared_ptr<G>;
+
+    class Recursive;
+    using RecursivePtr = ::std::shared_ptr<Recursive>;
+
+    using RecursiveSeq = ::std::vector<RecursivePtr>;
+
+    class InitialPrx;
 
 }
 
@@ -171,7 +174,7 @@ public:
     {
     }
 
-    MyInterfacePrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    MyInterfacePrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -216,48 +219,48 @@ public:
     void _iceI_shutdown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::shared_ptr<::Ice::Value> pingPong(const ::std::shared_ptr<::Ice::Value>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::Ice::ValuePtr pingPong(const ::Ice::ValuePtr& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<::Ice::Value>> pingPongAsync(const ::std::shared_ptr<::Ice::Value>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::Ice::ValuePtr> pingPongAsync(const ::Ice::ValuePtr& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    pingPongAsync(const ::std::shared_ptr<::Ice::Value>& o, ::std::function<void(::std::shared_ptr<::Ice::Value>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    pingPongAsync(const ::Ice::ValuePtr& o, ::std::function<void(::Ice::ValuePtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_pingPong(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::Value>>>&, const ::std::shared_ptr<::Ice::Value>&, const ::Ice::Context&) const;
+    void _iceI_pingPong(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::ValuePtr>>&, const ::Ice::ValuePtr&, const ::Ice::Context&) const;
     /// \endcond
 
-    void opOptionalException(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> b, const ::std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void opOptionalException(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> b, const ::std::optional<OneOptionalPtr>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opOptionalExceptionAsync(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> b, const ::std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> opOptionalExceptionAsync(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> b, const ::std::optional<OneOptionalPtr>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opOptionalExceptionAsync(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> b, const ::std::optional<::std::shared_ptr<OneOptional>>& o, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opOptionalExceptionAsync(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> b, const ::std::optional<OneOptionalPtr>& o, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opOptionalException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::optional<::std::int32_t>, ::std::optional<::std::string_view>, const ::std::optional<::std::shared_ptr<OneOptional>>&, const ::Ice::Context&) const;
+    void _iceI_opOptionalException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::optional<::std::int32_t>, ::std::optional<::std::string_view>, const ::std::optional<OneOptionalPtr>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void opDerivedException(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> b, const ::std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void opDerivedException(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> b, const ::std::optional<OneOptionalPtr>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opDerivedExceptionAsync(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> b, const ::std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> opDerivedExceptionAsync(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> b, const ::std::optional<OneOptionalPtr>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opDerivedExceptionAsync(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> b, const ::std::optional<::std::shared_ptr<OneOptional>>& o, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opDerivedExceptionAsync(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> b, const ::std::optional<OneOptionalPtr>& o, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opDerivedException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::optional<::std::int32_t>, ::std::optional<::std::string_view>, const ::std::optional<::std::shared_ptr<OneOptional>>&, const ::Ice::Context&) const;
+    void _iceI_opDerivedException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::optional<::std::int32_t>, ::std::optional<::std::string_view>, const ::std::optional<OneOptionalPtr>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void opRequiredException(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> b, const ::std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void opRequiredException(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> b, const ::std::optional<OneOptionalPtr>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opRequiredExceptionAsync(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> b, const ::std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> opRequiredExceptionAsync(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> b, const ::std::optional<OneOptionalPtr>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opRequiredExceptionAsync(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> b, const ::std::optional<::std::shared_ptr<OneOptional>>& o, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opRequiredExceptionAsync(::std::optional<::std::int32_t> a, ::std::optional<::std::string_view> b, const ::std::optional<OneOptionalPtr>& o, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opRequiredException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::optional<::std::int32_t>, ::std::optional<::std::string_view>, const ::std::optional<::std::shared_ptr<OneOptional>>&, const ::Ice::Context&) const;
+    void _iceI_opRequiredException(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::optional<::std::int32_t>, ::std::optional<::std::string_view>, const ::std::optional<OneOptionalPtr>&, const ::Ice::Context&) const;
     /// \endcond
 
     ::std::optional<::std::uint8_t> opByte(::std::optional<::std::uint8_t> p1, ::std::optional<::std::uint8_t>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -392,15 +395,15 @@ public:
     void _iceI_opVarStruct(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<VarStruct>, ::std::optional<VarStruct>>>>&, const ::std::optional<VarStruct>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::optional<::std::shared_ptr<OneOptional>> opOneOptional(const ::std::optional<::std::shared_ptr<OneOptional>>& p1, ::std::optional<::std::shared_ptr<OneOptional>>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<OneOptionalPtr> opOneOptional(const ::std::optional<OneOptionalPtr>& p1, ::std::optional<OneOptionalPtr>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<::std::shared_ptr<OneOptional>>, ::std::optional<::std::shared_ptr<OneOptional>>>> opOneOptionalAsync(const ::std::optional<::std::shared_ptr<OneOptional>>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<::std::optional<OneOptionalPtr>, ::std::optional<OneOptionalPtr>>> opOneOptionalAsync(const ::std::optional<OneOptionalPtr>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opOneOptionalAsync(const ::std::optional<::std::shared_ptr<OneOptional>>& p1, ::std::function<void(::std::optional<::std::shared_ptr<::Test::OneOptional>>, ::std::optional<::std::shared_ptr<::Test::OneOptional>>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opOneOptionalAsync(const ::std::optional<OneOptionalPtr>& p1, ::std::function<void(::std::optional<::Test::OneOptionalPtr>, ::std::optional<::Test::OneOptionalPtr>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opOneOptional(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::shared_ptr<OneOptional>>, ::std::optional<::std::shared_ptr<OneOptional>>>>>&, const ::std::optional<::std::shared_ptr<OneOptional>>&, const ::Ice::Context&) const;
+    void _iceI_opOneOptional(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<OneOptionalPtr>, ::std::optional<OneOptionalPtr>>>>&, const ::std::optional<OneOptionalPtr>&, const ::Ice::Context&) const;
     /// \endcond
 
     ::std::optional<MyInterfacePrx> opMyInterfaceProxy(const ::std::optional<MyInterfacePrx>& p1, ::std::optional<MyInterfacePrx>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -645,48 +648,48 @@ public:
     void _iceI_opIntOneOptionalDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<IntOneOptionalDict>, ::std::optional<IntOneOptionalDict>>>>&, const ::std::optional<IntOneOptionalDict>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void opClassAndUnknownOptional(const ::std::shared_ptr<A>& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void opClassAndUnknownOptional(const APtr& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> opClassAndUnknownOptionalAsync(const ::std::shared_ptr<A>& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> opClassAndUnknownOptionalAsync(const APtr& p, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opClassAndUnknownOptionalAsync(const ::std::shared_ptr<A>& p, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opClassAndUnknownOptionalAsync(const APtr& p, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opClassAndUnknownOptional(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<A>&, const ::Ice::Context&) const;
+    void _iceI_opClassAndUnknownOptional(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const APtr&, const ::Ice::Context&) const;
     /// \endcond
 
-    void sendOptionalClass(bool req, const ::std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void sendOptionalClass(bool req, const ::std::optional<OneOptionalPtr>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> sendOptionalClassAsync(bool req, const ::std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> sendOptionalClassAsync(bool req, const ::std::optional<OneOptionalPtr>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    sendOptionalClassAsync(bool req, const ::std::optional<::std::shared_ptr<OneOptional>>& o, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    sendOptionalClassAsync(bool req, const ::std::optional<OneOptionalPtr>& o, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_sendOptionalClass(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, bool, const ::std::optional<::std::shared_ptr<OneOptional>>&, const ::Ice::Context&) const;
+    void _iceI_sendOptionalClass(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, bool, const ::std::optional<OneOptionalPtr>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void returnOptionalClass(bool req, ::std::optional<::std::shared_ptr<OneOptional>>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void returnOptionalClass(bool req, ::std::optional<OneOptionalPtr>& o, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::optional<::std::shared_ptr<OneOptional>>> returnOptionalClassAsync(bool req, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::optional<OneOptionalPtr>> returnOptionalClassAsync(bool req, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    returnOptionalClassAsync(bool req, ::std::function<void(::std::optional<::std::shared_ptr<::Test::OneOptional>>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    returnOptionalClassAsync(bool req, ::std::function<void(::std::optional<::Test::OneOptionalPtr>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_returnOptionalClass(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::std::shared_ptr<OneOptional>>>>&, bool, const ::Ice::Context&) const;
+    void _iceI_returnOptionalClass(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<OneOptionalPtr>>>&, bool, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::shared_ptr<G> opG(const ::std::shared_ptr<G>& g, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    GPtr opG(const GPtr& g, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<G>> opGAsync(const ::std::shared_ptr<G>& g, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<GPtr> opGAsync(const GPtr& g, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opGAsync(const ::std::shared_ptr<G>& g, ::std::function<void(::std::shared_ptr<::Test::G>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opGAsync(const GPtr& g, ::std::function<void(::Test::GPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opG(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<G>>>&, const ::std::shared_ptr<G>&, const ::Ice::Context&) const;
+    void _iceI_opG(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<GPtr>>&, const GPtr&, const ::Ice::Context&) const;
     /// \endcond
 
     void opVoid(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -766,26 +769,26 @@ public:
     void _iceI_opMDict2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<StringIntDict>, ::std::optional<StringIntDict>>>>&, const ::std::optional<StringIntDict>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::optional<::std::shared_ptr<G>> opMG1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<GPtr> opMG1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::optional<::std::shared_ptr<G>>> opMG1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::optional<GPtr>> opMG1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opMG1Async(::std::function<void(::std::optional<::std::shared_ptr<::Test::G>>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opMG1Async(::std::function<void(::std::optional<::Test::GPtr>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opMG1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<::std::shared_ptr<G>>>>&, const ::Ice::Context&) const;
+    void _iceI_opMG1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<GPtr>>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::optional<::std::shared_ptr<G>> opMG2(const ::std::optional<::std::shared_ptr<G>>& p1, ::std::optional<::std::shared_ptr<G>>& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<GPtr> opMG2(const ::std::optional<GPtr>& p1, ::std::optional<GPtr>& p2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<::std::shared_ptr<G>>, ::std::optional<::std::shared_ptr<G>>>> opMG2Async(const ::std::optional<::std::shared_ptr<G>>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<::std::optional<GPtr>, ::std::optional<GPtr>>> opMG2Async(const ::std::optional<GPtr>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opMG2Async(const ::std::optional<::std::shared_ptr<G>>& p1, ::std::function<void(::std::optional<::std::shared_ptr<::Test::G>>, ::std::optional<::std::shared_ptr<::Test::G>>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opMG2Async(const ::std::optional<GPtr>& p1, ::std::function<void(::std::optional<::Test::GPtr>, ::std::optional<::Test::GPtr>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opMG2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::shared_ptr<G>>, ::std::optional<::std::shared_ptr<G>>>>>&, const ::std::optional<::std::shared_ptr<G>>&, const ::Ice::Context&) const;
+    void _iceI_opMG2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<GPtr>, ::std::optional<GPtr>>>>&, const ::std::optional<GPtr>&, const ::Ice::Context&) const;
     /// \endcond
 
     bool supportsRequiredParams(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -850,7 +853,7 @@ public:
     {
     }
 
-    InitialPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    InitialPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -920,7 +923,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<OneOptional> ice_clone() const { return ::std::static_pointer_cast <OneOptional>(_iceCloneImpl()); }
+    OneOptionalPtr ice_clone() const { return ::std::static_pointer_cast <OneOptional>(_iceCloneImpl()); }
 
     ::std::optional<::std::int32_t> a;
 
@@ -928,7 +931,7 @@ protected:
 
     OneOptional(const OneOptional&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -989,7 +992,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    MultiOptional(::std::optional<::std::uint8_t> a, ::std::optional<bool> b, ::std::optional<::std::int16_t> c, ::std::optional<::std::int32_t> d, ::std::optional<::std::int64_t> e, ::std::optional<float> f, ::std::optional<double> g, ::std::optional<::std::string> h, ::std::optional<::Test::MyEnum> i, ::std::optional<::Test::MyInterfacePrx> j, ::std::optional<::std::shared_ptr<::Test::MultiOptional>> k, ::std::optional<::Test::ByteSeq> bs, ::std::optional<::Test::StringSeq> ss, ::std::optional<::Test::IntIntDict> iid, ::std::optional<::Test::StringIntDict> sid, ::std::optional<::Test::FixedStruct> fs, ::std::optional<::Test::VarStruct> vs, ::std::optional<::Test::ShortSeq> shs, ::std::optional<::Test::MyEnumSeq> es, ::std::optional<::Test::FixedStructSeq> fss, ::std::optional<::Test::VarStructSeq> vss, ::std::optional<::Test::OneOptionalSeq> oos, ::std::optional<::Test::MyInterfacePrxSeq> mips, ::std::optional<::Test::IntEnumDict> ied, ::std::optional<::Test::IntFixedStructDict> ifsd, ::std::optional<::Test::IntVarStructDict> ivsd, ::std::optional<::Test::IntOneOptionalDict> iood, ::std::optional<::Test::IntMyInterfacePrxDict> imipd, ::std::optional<::Test::BoolSeq> bos, ::std::optional<::Test::Serializable> ser) :
+    MultiOptional(::std::optional<::std::uint8_t> a, ::std::optional<bool> b, ::std::optional<::std::int16_t> c, ::std::optional<::std::int32_t> d, ::std::optional<::std::int64_t> e, ::std::optional<float> f, ::std::optional<double> g, ::std::optional<::std::string> h, ::std::optional<::Test::MyEnum> i, ::std::optional<::Test::MyInterfacePrx> j, ::std::optional<::Test::MultiOptionalPtr> k, ::std::optional<::Test::ByteSeq> bs, ::std::optional<::Test::StringSeq> ss, ::std::optional<::Test::IntIntDict> iid, ::std::optional<::Test::StringIntDict> sid, ::std::optional<::Test::FixedStruct> fs, ::std::optional<::Test::VarStruct> vs, ::std::optional<::Test::ShortSeq> shs, ::std::optional<::Test::MyEnumSeq> es, ::std::optional<::Test::FixedStructSeq> fss, ::std::optional<::Test::VarStructSeq> vss, ::std::optional<::Test::OneOptionalSeq> oos, ::std::optional<::Test::MyInterfacePrxSeq> mips, ::std::optional<::Test::IntEnumDict> ied, ::std::optional<::Test::IntFixedStructDict> ifsd, ::std::optional<::Test::IntVarStructDict> ivsd, ::std::optional<::Test::IntOneOptionalDict> iood, ::std::optional<::Test::IntMyInterfacePrxDict> imipd, ::std::optional<::Test::BoolSeq> bos, ::std::optional<::Test::Serializable> ser) :
         a(a),
         b(b),
         c(c),
@@ -1035,7 +1038,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::optional<::std::uint8_t>&, const ::std::optional<bool>&, const ::std::optional<::std::int16_t>&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::int64_t>&, const ::std::optional<float>&, const ::std::optional<double>&, const ::std::optional<::std::string>&, const ::std::optional<::Test::MyEnum>&, const ::std::optional<::Test::MyInterfacePrx>&, const ::std::optional<::std::shared_ptr<::Test::MultiOptional>>&, const ::std::optional<::Test::ByteSeq>&, const ::std::optional<::Test::StringSeq>&, const ::std::optional<::Test::IntIntDict>&, const ::std::optional<::Test::StringIntDict>&, const ::std::optional<::Test::FixedStruct>&, const ::std::optional<::Test::VarStruct>&, const ::std::optional<::Test::ShortSeq>&, const ::std::optional<::Test::MyEnumSeq>&, const ::std::optional<::Test::FixedStructSeq>&, const ::std::optional<::Test::VarStructSeq>&, const ::std::optional<::Test::OneOptionalSeq>&, const ::std::optional<::Test::MyInterfacePrxSeq>&, const ::std::optional<::Test::IntEnumDict>&, const ::std::optional<::Test::IntFixedStructDict>&, const ::std::optional<::Test::IntVarStructDict>&, const ::std::optional<::Test::IntOneOptionalDict>&, const ::std::optional<::Test::IntMyInterfacePrxDict>&, const ::std::optional<::Test::BoolSeq>&, const ::std::optional<::Test::Serializable>&> ice_tuple() const
+    std::tuple<const ::std::optional<::std::uint8_t>&, const ::std::optional<bool>&, const ::std::optional<::std::int16_t>&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::int64_t>&, const ::std::optional<float>&, const ::std::optional<double>&, const ::std::optional<::std::string>&, const ::std::optional<::Test::MyEnum>&, const ::std::optional<::Test::MyInterfacePrx>&, const ::std::optional<::Test::MultiOptionalPtr>&, const ::std::optional<::Test::ByteSeq>&, const ::std::optional<::Test::StringSeq>&, const ::std::optional<::Test::IntIntDict>&, const ::std::optional<::Test::StringIntDict>&, const ::std::optional<::Test::FixedStruct>&, const ::std::optional<::Test::VarStruct>&, const ::std::optional<::Test::ShortSeq>&, const ::std::optional<::Test::MyEnumSeq>&, const ::std::optional<::Test::FixedStructSeq>&, const ::std::optional<::Test::VarStructSeq>&, const ::std::optional<::Test::OneOptionalSeq>&, const ::std::optional<::Test::MyInterfacePrxSeq>&, const ::std::optional<::Test::IntEnumDict>&, const ::std::optional<::Test::IntFixedStructDict>&, const ::std::optional<::Test::IntVarStructDict>&, const ::std::optional<::Test::IntOneOptionalDict>&, const ::std::optional<::Test::IntMyInterfacePrxDict>&, const ::std::optional<::Test::BoolSeq>&, const ::std::optional<::Test::Serializable>&> ice_tuple() const
     {
         return std::tie(a, b, c, d, e, f, g, h, i, j, k, bs, ss, iid, sid, fs, vs, shs, es, fss, vss, oos, mips, ied, ifsd, ivsd, iood, imipd, bos, ser);
     }
@@ -1044,7 +1047,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<MultiOptional> ice_clone() const { return ::std::static_pointer_cast <MultiOptional>(_iceCloneImpl()); }
+    MultiOptionalPtr ice_clone() const { return ::std::static_pointer_cast <MultiOptional>(_iceCloneImpl()); }
 
     ::std::optional<::std::uint8_t> a;
     ::std::optional<bool> b;
@@ -1056,7 +1059,7 @@ public:
     ::std::optional<::std::string> h;
     ::std::optional<::Test::MyEnum> i;
     ::std::optional<::Test::MyInterfacePrx> j;
-    ::std::optional<::std::shared_ptr<::Test::MultiOptional>> k;
+    ::std::optional<::Test::MultiOptionalPtr> k;
     ::std::optional<::Test::ByteSeq> bs;
     ::std::optional<::Test::StringSeq> ss;
     ::std::optional<::Test::IntIntDict> iid;
@@ -1081,7 +1084,7 @@ protected:
 
     MultiOptional(const MultiOptional&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1125,7 +1128,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<A> ice_clone() const { return ::std::static_pointer_cast <A>(_iceCloneImpl()); }
+    APtr ice_clone() const { return ::std::static_pointer_cast <A>(_iceCloneImpl()); }
 
     ::std::int32_t requiredA = 0;
     ::std::optional<::std::int32_t> ma;
@@ -1136,7 +1139,7 @@ protected:
 
     A(const A&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1179,7 +1182,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<B> ice_clone() const { return ::std::static_pointer_cast <B>(_iceCloneImpl()); }
+    BPtr ice_clone() const { return ::std::static_pointer_cast <B>(_iceCloneImpl()); }
 
     ::std::int32_t requiredB = 0;
     ::std::optional<::std::int32_t> md;
@@ -1188,7 +1191,7 @@ protected:
 
     B(const B&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1231,7 +1234,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<C> ice_clone() const { return ::std::static_pointer_cast <C>(_iceCloneImpl()); }
+    CPtr ice_clone() const { return ::std::static_pointer_cast <C>(_iceCloneImpl()); }
 
     ::std::string ss;
     ::std::optional<::std::string> ms;
@@ -1240,7 +1243,7 @@ protected:
 
     C(const C&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1282,7 +1285,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<WD> ice_clone() const { return ::std::static_pointer_cast <WD>(_iceCloneImpl()); }
+    WDPtr ice_clone() const { return ::std::static_pointer_cast <WD>(_iceCloneImpl()); }
 
     ::std::optional<::std::int32_t> a = 5;
     ::std::optional<::std::string> s{"test"};
@@ -1291,7 +1294,7 @@ protected:
 
     WD(const WD&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1305,7 +1308,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    OptionalException(bool req, ::std::optional<::std::int32_t> a, ::std::optional<::std::string> b, ::std::optional<::std::shared_ptr<OneOptional>> o) noexcept :
+    OptionalException(bool req, ::std::optional<::std::int32_t> a, ::std::optional<::std::string> b, ::std::optional<OneOptionalPtr> o) noexcept :
         req(req),
         a(a),
         b(::std::move(b)),
@@ -1317,7 +1320,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::string>&, const ::std::optional<::std::shared_ptr<::Test::OneOptional>>&> ice_tuple() const
+    std::tuple<const bool&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::string>&, const ::std::optional<::Test::OneOptionalPtr>&> ice_tuple() const
     {
         return std::tie(req, a, b, o);
     }
@@ -1335,7 +1338,7 @@ public:
     bool req = false;
     ::std::optional<::std::int32_t> a = 5;
     ::std::optional<::std::string> b;
-    ::std::optional<::std::shared_ptr<::Test::OneOptional>> o;
+    ::std::optional<::Test::OneOptionalPtr> o;
 
 protected:
     void _writeImpl(::Ice::OutputStream*) const override;
@@ -1351,7 +1354,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    DerivedException(bool req, ::std::optional<::std::int32_t> a, ::std::optional<::std::string> b, ::std::optional<::std::shared_ptr<OneOptional>> o, ::std::string d1, ::std::optional<::std::string> ss, ::std::optional<::std::shared_ptr<OneOptional>> o2, ::std::string d2) noexcept :
+    DerivedException(bool req, ::std::optional<::std::int32_t> a, ::std::optional<::std::string> b, ::std::optional<OneOptionalPtr> o, ::std::string d1, ::std::optional<::std::string> ss, ::std::optional<OneOptionalPtr> o2, ::std::string d2) noexcept :
         OptionalException(req, a, ::std::move(b), ::std::move(o)),
         d1(::std::move(d1)),
         ss(::std::move(ss)),
@@ -1364,7 +1367,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::string>&, const ::std::optional<::std::shared_ptr<::Test::OneOptional>>&, const ::std::string&, const ::std::optional<::std::string>&, const ::std::optional<::std::shared_ptr<::Test::OneOptional>>&, const ::std::string&> ice_tuple() const
+    std::tuple<const bool&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::string>&, const ::std::optional<::Test::OneOptionalPtr>&, const ::std::string&, const ::std::optional<::std::string>&, const ::std::optional<::Test::OneOptionalPtr>&, const ::std::string&> ice_tuple() const
     {
         return std::tie(req, a, b, o, d1, ss, o2, d2);
     }
@@ -1381,7 +1384,7 @@ public:
 
     ::std::string d1;
     ::std::optional<::std::string> ss{"test"};
-    ::std::optional<::std::shared_ptr<::Test::OneOptional>> o2;
+    ::std::optional<::Test::OneOptionalPtr> o2;
     ::std::string d2;
 
 protected:
@@ -1398,7 +1401,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    RequiredException(bool req, ::std::optional<::std::int32_t> a, ::std::optional<::std::string> b, ::std::optional<::std::shared_ptr<OneOptional>> o, ::std::string ss, ::std::shared_ptr<OneOptional> o2) noexcept :
+    RequiredException(bool req, ::std::optional<::std::int32_t> a, ::std::optional<::std::string> b, ::std::optional<OneOptionalPtr> o, ::std::string ss, OneOptionalPtr o2) noexcept :
         OptionalException(req, a, ::std::move(b), ::std::move(o)),
         ss(::std::move(ss)),
         o2(::std::move(o2))
@@ -1409,7 +1412,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::string>&, const ::std::optional<::std::shared_ptr<::Test::OneOptional>>&, const ::std::string&, const ::std::shared_ptr<::Test::OneOptional>&> ice_tuple() const
+    std::tuple<const bool&, const ::std::optional<::std::int32_t>&, const ::std::optional<::std::string>&, const ::std::optional<::Test::OneOptionalPtr>&, const ::std::string&, const ::Test::OneOptionalPtr&> ice_tuple() const
     {
         return std::tie(req, a, b, o, ss, o2);
     }
@@ -1429,7 +1432,7 @@ public:
     /// \endcond
 
     ::std::string ss = "test";
-    ::std::shared_ptr<::Test::OneOptional> o2;
+    ::Test::OneOptionalPtr o2;
 
 protected:
     void _writeImpl(::Ice::OutputStream*) const override;
@@ -1473,7 +1476,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<OptionalWithCustom> ice_clone() const { return ::std::static_pointer_cast <OptionalWithCustom>(_iceCloneImpl()); }
+    OptionalWithCustomPtr ice_clone() const { return ::std::static_pointer_cast <OptionalWithCustom>(_iceCloneImpl()); }
 
     ::std::optional<::Test::SmallStructList> l;
 
@@ -1488,7 +1491,7 @@ protected:
 
     OptionalWithCustom(const OptionalWithCustom&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1503,7 +1506,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit E(::std::shared_ptr<::Test::A> ae) :
+    explicit E(::Test::APtr ae) :
         ae(::std::move(ae))
     {
     }
@@ -1520,7 +1523,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::shared_ptr<::Test::A>&> ice_tuple() const
+    std::tuple<const ::Test::APtr&> ice_tuple() const
     {
         return std::tie(ae);
     }
@@ -1529,15 +1532,15 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<E> ice_clone() const { return ::std::static_pointer_cast <E>(_iceCloneImpl()); }
+    EPtr ice_clone() const { return ::std::static_pointer_cast <E>(_iceCloneImpl()); }
 
-    ::std::shared_ptr<::Test::A> ae;
+    ::Test::APtr ae;
 
 protected:
 
     E(const E&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1552,7 +1555,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    F(::std::shared_ptr<::Test::A> ae, ::std::optional<::std::shared_ptr<::Test::A>> af) :
+    F(::Test::APtr ae, ::std::optional<::Test::APtr> af) :
         E(::std::move(ae)),
         af(::std::move(af))
     {
@@ -1570,7 +1573,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::shared_ptr<::Test::A>&, const ::std::optional<::std::shared_ptr<::Test::A>>&> ice_tuple() const
+    std::tuple<const ::Test::APtr&, const ::std::optional<::Test::APtr>&> ice_tuple() const
     {
         return std::tie(ae, af);
     }
@@ -1579,15 +1582,15 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<F> ice_clone() const { return ::std::static_pointer_cast <F>(_iceCloneImpl()); }
+    FPtr ice_clone() const { return ::std::static_pointer_cast <F>(_iceCloneImpl()); }
 
-    ::std::optional<::std::shared_ptr<::Test::A>> af;
+    ::std::optional<::Test::APtr> af;
 
 protected:
 
     F(const F&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1628,7 +1631,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<G1> ice_clone() const { return ::std::static_pointer_cast <G1>(_iceCloneImpl()); }
+    G1Ptr ice_clone() const { return ::std::static_pointer_cast <G1>(_iceCloneImpl()); }
 
     ::std::string a;
 
@@ -1636,7 +1639,7 @@ protected:
 
     G1(const G1&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1677,7 +1680,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<G2> ice_clone() const { return ::std::static_pointer_cast <G2>(_iceCloneImpl()); }
+    G2Ptr ice_clone() const { return ::std::static_pointer_cast <G2>(_iceCloneImpl()); }
 
     ::std::int64_t a;
 
@@ -1685,7 +1688,7 @@ protected:
 
     G2(const G2&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1700,7 +1703,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    G(::std::optional<::std::shared_ptr<::Test::G1>> gg1Opt, ::std::shared_ptr<::Test::G2> gg2, ::std::optional<::std::shared_ptr<::Test::G2>> gg2Opt, ::std::shared_ptr<::Test::G1> gg1) :
+    G(::std::optional<::Test::G1Ptr> gg1Opt, ::Test::G2Ptr gg2, ::std::optional<::Test::G2Ptr> gg2Opt, ::Test::G1Ptr gg1) :
         gg1Opt(::std::move(gg1Opt)),
         gg2(::std::move(gg2)),
         gg2Opt(::std::move(gg2Opt)),
@@ -1720,7 +1723,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::optional<::std::shared_ptr<::Test::G1>>&, const ::std::shared_ptr<::Test::G2>&, const ::std::optional<::std::shared_ptr<::Test::G2>>&, const ::std::shared_ptr<::Test::G1>&> ice_tuple() const
+    std::tuple<const ::std::optional<::Test::G1Ptr>&, const ::Test::G2Ptr&, const ::std::optional<::Test::G2Ptr>&, const ::Test::G1Ptr&> ice_tuple() const
     {
         return std::tie(gg1Opt, gg2, gg2Opt, gg1);
     }
@@ -1729,18 +1732,18 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<G> ice_clone() const { return ::std::static_pointer_cast <G>(_iceCloneImpl()); }
+    GPtr ice_clone() const { return ::std::static_pointer_cast <G>(_iceCloneImpl()); }
 
-    ::std::optional<::std::shared_ptr<::Test::G1>> gg1Opt;
-    ::std::shared_ptr<::Test::G2> gg2;
-    ::std::optional<::std::shared_ptr<::Test::G2>> gg2Opt;
-    ::std::shared_ptr<::Test::G1> gg1;
+    ::std::optional<::Test::G1Ptr> gg1Opt;
+    ::Test::G2Ptr gg2;
+    ::std::optional<::Test::G2Ptr> gg2Opt;
+    ::Test::G1Ptr gg1;
 
 protected:
 
     G(const G&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1781,7 +1784,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<Recursive> ice_clone() const { return ::std::static_pointer_cast <Recursive>(_iceCloneImpl()); }
+    RecursivePtr ice_clone() const { return ::std::static_pointer_cast <Recursive>(_iceCloneImpl()); }
 
     ::std::optional<::Test::RecursiveSeq> value;
 
@@ -1789,7 +1792,7 @@ protected:
 
     Recursive(const Recursive&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1876,22 +1879,22 @@ public:
     void _iceD_shutdown(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void pingPongAsync(::std::shared_ptr<::Ice::Value> o, ::std::function<void(const ::std::shared_ptr<::Ice::Value>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void pingPongAsync(::Ice::ValuePtr o, ::std::function<void(const ::Ice::ValuePtr& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_pingPong(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void opOptionalExceptionAsync(::std::optional<::std::int32_t> a, ::std::optional<::std::string> b, ::std::optional<::std::shared_ptr<OneOptional>> o, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void opOptionalExceptionAsync(::std::optional<::std::int32_t> a, ::std::optional<::std::string> b, ::std::optional<OneOptionalPtr> o, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_opOptionalException(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void opDerivedExceptionAsync(::std::optional<::std::int32_t> a, ::std::optional<::std::string> b, ::std::optional<::std::shared_ptr<OneOptional>> o, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void opDerivedExceptionAsync(::std::optional<::std::int32_t> a, ::std::optional<::std::string> b, ::std::optional<OneOptionalPtr> o, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_opDerivedException(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void opRequiredExceptionAsync(::std::optional<::std::int32_t> a, ::std::optional<::std::string> b, ::std::optional<::std::shared_ptr<OneOptional>> o, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void opRequiredExceptionAsync(::std::optional<::std::int32_t> a, ::std::optional<::std::string> b, ::std::optional<OneOptionalPtr> o, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_opRequiredException(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
@@ -1956,7 +1959,7 @@ public:
     void _iceD_opVarStruct(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void opOneOptionalAsync(::std::optional<::std::shared_ptr<OneOptional>> p1, ::std::function<void(const ::std::optional<::std::shared_ptr<OneOptional>>& returnValue, const ::std::optional<::std::shared_ptr<OneOptional>>& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void opOneOptionalAsync(::std::optional<OneOptionalPtr> p1, ::std::function<void(const ::std::optional<OneOptionalPtr>& returnValue, const ::std::optional<OneOptionalPtr>& p3)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_opOneOptional(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
@@ -2051,22 +2054,22 @@ public:
     void _iceD_opIntOneOptionalDict(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void opClassAndUnknownOptionalAsync(::std::shared_ptr<A> p, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void opClassAndUnknownOptionalAsync(APtr p, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_opClassAndUnknownOptional(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void sendOptionalClassAsync(bool req, ::std::optional<::std::shared_ptr<OneOptional>> o, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void sendOptionalClassAsync(bool req, ::std::optional<OneOptionalPtr> o, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_sendOptionalClass(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void returnOptionalClassAsync(bool req, ::std::function<void(const ::std::optional<::std::shared_ptr<OneOptional>>& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void returnOptionalClassAsync(bool req, ::std::function<void(const ::std::optional<OneOptionalPtr>& o)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_returnOptionalClass(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void opGAsync(::std::shared_ptr<G> g, ::std::function<void(const ::std::shared_ptr<G>& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void opGAsync(GPtr g, ::std::function<void(const GPtr& returnValue)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_opG(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
@@ -2194,7 +2197,7 @@ public:
          * Marshals the results immediately.
          * @param current The Current object for the invocation.
          */
-        OpMG1MarshaledResult(const ::std::optional<::std::shared_ptr<G>>& returnValue, const ::Ice::Current& current);
+        OpMG1MarshaledResult(const ::std::optional<GPtr>& returnValue, const ::Ice::Current& current);
     };
 
     virtual void opMG1Async(::std::function<void(OpMG1MarshaledResult)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
@@ -2212,10 +2215,10 @@ public:
          * Marshals the results immediately.
          * @param current The Current object for the invocation.
          */
-        OpMG2MarshaledResult(const ::std::optional<::std::shared_ptr<G>>& returnValue, const ::std::optional<::std::shared_ptr<G>>& p2, const ::Ice::Current& current);
+        OpMG2MarshaledResult(const ::std::optional<GPtr>& returnValue, const ::std::optional<GPtr>& p2, const ::Ice::Current& current);
     };
 
-    virtual void opMG2Async(::std::optional<::std::shared_ptr<G>> p1, ::std::function<void(OpMG2MarshaledResult)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void opMG2Async(::std::optional<GPtr> p1, ::std::function<void(OpMG2MarshaledResult)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_opMG2(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond

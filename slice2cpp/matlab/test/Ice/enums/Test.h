@@ -28,85 +28,84 @@
 
 namespace Test
 {
+    constexpr ::std::uint8_t ByteConst1 = 10;
 
+    constexpr ::std::int16_t ShortConst1 = 20;
 
-constexpr ::std::uint8_t ByteConst1 = 10;
+    constexpr ::std::int32_t IntConst1 = 30;
 
-constexpr ::std::int16_t ShortConst1 = 20;
+    constexpr ::std::int64_t LongConst1 = INT64_C(40);
 
-constexpr ::std::int32_t IntConst1 = 30;
+    constexpr ::std::uint8_t ByteConst2 = 126;
 
-constexpr ::std::int64_t LongConst1 = INT64_C(40);
+    constexpr ::std::int16_t ShortConst2 = 32766;
 
-constexpr ::std::uint8_t ByteConst2 = 126;
+    constexpr ::std::int32_t IntConst2 = 2147483647;
 
-constexpr ::std::int16_t ShortConst2 = 32766;
+    constexpr ::std::int64_t LongConst2 = INT64_C(2147483646);
 
-constexpr ::std::int32_t IntConst2 = 2147483647;
+    enum class ByteEnum : ::std::uint8_t
+    {
+        benum1 = 0,
+        benum2 = 1,
+        benum3 = 10,
+        benum4 = 11,
+        benum5 = 20,
+        benum6 = 21,
+        benum7 = 30,
+        benum8 = 31,
+        benum9 = 40,
+        benum10 = 41,
+        benum11 = 126
+    };
 
-constexpr ::std::int64_t LongConst2 = INT64_C(2147483646);
+    using ByteEnumSeq = ::std::vector<ByteEnum>;
 
-enum class ByteEnum : unsigned char
-{
-    benum1 = 0,
-    benum2 = 1,
-    benum3 = 10,
-    benum4 = 11,
-    benum5 = 20,
-    benum6 = 21,
-    benum7 = 30,
-    benum8 = 31,
-    benum9 = 40,
-    benum10 = 41,
-    benum11 = 126
-};
+    enum class ShortEnum
+    {
+        senum1 = 3,
+        senum2 = 4,
+        senum3 = 10,
+        senum4 = 11,
+        senum5 = 20,
+        senum6 = 21,
+        senum7 = 30,
+        senum8 = 31,
+        senum9 = 40,
+        senum10 = 41,
+        senum11 = 32766
+    };
 
-using ByteEnumSeq = ::std::vector<ByteEnum>;
+    using ShortEnumSeq = ::std::vector<ShortEnum>;
 
-enum class ShortEnum
-{
-    senum1 = 3,
-    senum2 = 4,
-    senum3 = 10,
-    senum4 = 11,
-    senum5 = 20,
-    senum6 = 21,
-    senum7 = 30,
-    senum8 = 31,
-    senum9 = 40,
-    senum10 = 41,
-    senum11 = 32766
-};
+    enum class IntEnum
+    {
+        ienum1 = 0,
+        ienum2 = 1,
+        ienum3 = 10,
+        ienum4 = 11,
+        ienum5 = 20,
+        ienum6 = 21,
+        ienum7 = 30,
+        ienum8 = 31,
+        ienum9 = 40,
+        ienum10 = 41,
+        ienum11 = 2147483647,
+        ienum12 = 2147483646
+    };
 
-using ShortEnumSeq = ::std::vector<ShortEnum>;
+    using IntEnumSeq = ::std::vector<IntEnum>;
 
-enum class IntEnum
-{
-    ienum1 = 0,
-    ienum2 = 1,
-    ienum3 = 10,
-    ienum4 = 11,
-    ienum5 = 20,
-    ienum6 = 21,
-    ienum7 = 30,
-    ienum8 = 31,
-    ienum9 = 40,
-    ienum10 = 41,
-    ienum11 = 2147483647,
-    ienum12 = 2147483646
-};
+    enum class SimpleEnum : ::std::uint8_t
+    {
+        red,
+        green,
+        blue
+    };
 
-using IntEnumSeq = ::std::vector<IntEnum>;
+    using SimpleEnumSeq = ::std::vector<SimpleEnum>;
 
-enum class SimpleEnum : unsigned char
-{
-    red,
-    green,
-    blue
-};
-
-using SimpleEnumSeq = ::std::vector<SimpleEnum>;
-class TestIntfPrx;
+    class TestIntfPrx;
 
 }
 
@@ -234,7 +233,7 @@ public:
     {
     }
 
-    TestIntfPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    TestIntfPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

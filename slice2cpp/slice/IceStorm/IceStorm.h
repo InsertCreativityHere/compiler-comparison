@@ -41,27 +41,29 @@
 
 namespace IceStorm
 {
+    class TopicPrx;
 
-class TopicPrx;
-struct LinkInfo;
+    struct LinkInfo;
 
-/**
- * A sequence of {@link LinkInfo} objects.
- */
-using LinkInfoSeq = ::std::vector<LinkInfo>;
+    /**
+     * A sequence of {@link LinkInfo} objects.
+     */
+    using LinkInfoSeq = ::std::vector<LinkInfo>;
 
-/**
- * This dictionary represents quality of service parameters.
- * @see Topic#subscribeAndGetPublisher
- */
-using QoS = ::std::map<::std::string, ::std::string>;
+    /**
+     * This dictionary represents quality of service parameters.
+     * @see Topic#subscribeAndGetPublisher
+     */
+    using QoS = ::std::map<::std::string, ::std::string>;
 
-/**
- * Mapping of topic name to topic proxy.
- */
-using TopicDict = ::std::map<::std::string, ::std::optional<TopicPrx>>;
-class TopicManagerPrx;
-class FinderPrx;
+    /**
+     * Mapping of topic name to topic proxy.
+     */
+    using TopicDict = ::std::map<::std::string, ::std::optional<TopicPrx>>;
+
+    class TopicManagerPrx;
+
+    class FinderPrx;
 
 }
 
@@ -427,7 +429,7 @@ public:
     {
     }
 
-    TopicPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    TopicPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -578,7 +580,7 @@ public:
     {
     }
 
-    TopicManagerPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    TopicManagerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -663,7 +665,7 @@ public:
     {
     }
 
-    FinderPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    FinderPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

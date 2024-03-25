@@ -53,7 +53,7 @@ Test::Default::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::Default::_iceCloneImpl() const
 {
     return CloneEnabler<Default>::clone(*this);
@@ -88,7 +88,7 @@ Test::NoDefault::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::NoDefault::_iceCloneImpl() const
 {
     return CloneEnabler<NoDefault>::clone(*this);

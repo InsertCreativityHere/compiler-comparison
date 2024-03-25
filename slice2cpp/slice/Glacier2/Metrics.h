@@ -40,10 +40,8 @@
 
 namespace IceMX
 {
-
-class SessionMetrics;
-
-using SessionMetricsPtr = ::std::shared_ptr<SessionMetrics>;
+    class SessionMetrics;
+    using SessionMetricsPtr = ::std::shared_ptr<SessionMetrics>;
 
 }
 
@@ -108,7 +106,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<SessionMetrics> ice_clone() const { return ::std::static_pointer_cast <SessionMetrics>(_iceCloneImpl()); }
+    SessionMetricsPtr ice_clone() const { return ::std::static_pointer_cast <SessionMetrics>(_iceCloneImpl()); }
 
     /**
      * Number of client requests forwarded.
@@ -143,7 +141,7 @@ protected:
 
     SessionMetrics(const SessionMetrics&) = default;
 
-    ICE_MEMBER(GLACIER2_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(GLACIER2_API) ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(GLACIER2_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(GLACIER2_API) void _iceReadImpl(::Ice::InputStream*) override;

@@ -39,55 +39,55 @@
 
 namespace IceMX
 {
+    /**
+     * A dictionary of strings to integers.
+     */
+    using StringIntDict = ::std::map<::std::string, ::std::int32_t>;
 
+    class Metrics;
+    using MetricsPtr = ::std::shared_ptr<Metrics>;
 
-/**
- * A dictionary of strings to integers.
- */
-using StringIntDict = ::std::map<::std::string, ::std::int32_t>;
-class Metrics;
+    struct MetricsFailures;
 
-using MetricsPtr = ::std::shared_ptr<Metrics>;
-struct MetricsFailures;
+    /**
+     * A sequence of {@link MetricsFailures}.
+     */
+    using MetricsFailuresSeq = ::std::vector<MetricsFailures>;
 
-/**
- * A sequence of {@link MetricsFailures}.
- */
-using MetricsFailuresSeq = ::std::vector<MetricsFailures>;
+    /**
+     * A metrics map is a sequence of metrics. We use a sequence here instead of a map because the ID of the metrics is
+     * already included in the Metrics class and using sequences of metrics objects is more efficient than using
+     * dictionaries since lookup is not necessary.
+     */
+    using MetricsMap = ::std::vector<MetricsPtr>;
 
-/**
- * A metrics map is a sequence of metrics. We use a sequence here instead of a map because the ID of the metrics is
- * already included in the Metrics class and using sequences of metrics objects is more efficient than using
- * dictionaries since lookup is not necessary.
- */
-using MetricsMap = ::std::vector<::std::shared_ptr<Metrics>>;
+    /**
+     * A metrics view is a dictionary of metrics map. The key of the dictionary is the name of the metrics map.
+     */
+    using MetricsView = ::std::map<::std::string, MetricsMap>;
 
-/**
- * A metrics view is a dictionary of metrics map. The key of the dictionary is the name of the metrics map.
- */
-using MetricsView = ::std::map<::std::string, MetricsMap>;
-class MetricsAdminPrx;
-class ThreadMetrics;
+    class MetricsAdminPrx;
 
-using ThreadMetricsPtr = ::std::shared_ptr<ThreadMetrics>;
-class DispatchMetrics;
+    class ThreadMetrics;
+    using ThreadMetricsPtr = ::std::shared_ptr<ThreadMetrics>;
 
-using DispatchMetricsPtr = ::std::shared_ptr<DispatchMetrics>;
-class ChildInvocationMetrics;
+    class DispatchMetrics;
+    using DispatchMetricsPtr = ::std::shared_ptr<DispatchMetrics>;
 
-using ChildInvocationMetricsPtr = ::std::shared_ptr<ChildInvocationMetrics>;
-class CollocatedMetrics;
+    class ChildInvocationMetrics;
+    using ChildInvocationMetricsPtr = ::std::shared_ptr<ChildInvocationMetrics>;
 
-using CollocatedMetricsPtr = ::std::shared_ptr<CollocatedMetrics>;
-class RemoteMetrics;
+    class CollocatedMetrics;
+    using CollocatedMetricsPtr = ::std::shared_ptr<CollocatedMetrics>;
 
-using RemoteMetricsPtr = ::std::shared_ptr<RemoteMetrics>;
-class InvocationMetrics;
+    class RemoteMetrics;
+    using RemoteMetricsPtr = ::std::shared_ptr<RemoteMetrics>;
 
-using InvocationMetricsPtr = ::std::shared_ptr<InvocationMetrics>;
-class ConnectionMetrics;
+    class InvocationMetrics;
+    using InvocationMetricsPtr = ::std::shared_ptr<InvocationMetrics>;
 
-using ConnectionMetricsPtr = ::std::shared_ptr<ConnectionMetrics>;
+    class ConnectionMetrics;
+    using ConnectionMetricsPtr = ::std::shared_ptr<ConnectionMetrics>;
 
 }
 
@@ -329,7 +329,7 @@ public:
     {
     }
 
-    MetricsAdminPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    MetricsAdminPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -412,7 +412,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<Metrics> ice_clone() const { return ::std::static_pointer_cast <Metrics>(_iceCloneImpl()); }
+    MetricsPtr ice_clone() const { return ::std::static_pointer_cast <Metrics>(_iceCloneImpl()); }
 
     /**
      * The metrics identifier.
@@ -441,7 +441,7 @@ protected:
 
     Metrics(const Metrics&) = default;
 
-    ICE_MEMBER(ICE_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(ICE_API) ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICE_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICE_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -551,7 +551,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<ThreadMetrics> ice_clone() const { return ::std::static_pointer_cast <ThreadMetrics>(_iceCloneImpl()); }
+    ThreadMetricsPtr ice_clone() const { return ::std::static_pointer_cast <ThreadMetrics>(_iceCloneImpl()); }
 
     /**
      * The number of threads which are currently performing socket read or writes.
@@ -571,7 +571,7 @@ protected:
 
     ThreadMetrics(const ThreadMetrics&) = default;
 
-    ICE_MEMBER(ICE_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(ICE_API) ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICE_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICE_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -627,7 +627,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<DispatchMetrics> ice_clone() const { return ::std::static_pointer_cast <DispatchMetrics>(_iceCloneImpl()); }
+    DispatchMetricsPtr ice_clone() const { return ::std::static_pointer_cast <DispatchMetrics>(_iceCloneImpl()); }
 
     /**
      * The number of dispatch that failed with a user exception.
@@ -646,7 +646,7 @@ protected:
 
     DispatchMetrics(const DispatchMetrics&) = default;
 
-    ICE_MEMBER(ICE_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(ICE_API) ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICE_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICE_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -702,7 +702,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<ChildInvocationMetrics> ice_clone() const { return ::std::static_pointer_cast <ChildInvocationMetrics>(_iceCloneImpl()); }
+    ChildInvocationMetricsPtr ice_clone() const { return ::std::static_pointer_cast <ChildInvocationMetrics>(_iceCloneImpl()); }
 
     /**
      * The size of the invocation. This corresponds to the size of the marshalled input parameters.
@@ -717,7 +717,7 @@ protected:
 
     ChildInvocationMetrics(const ChildInvocationMetrics&) = default;
 
-    ICE_MEMBER(ICE_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(ICE_API) ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICE_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICE_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -761,13 +761,13 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<CollocatedMetrics> ice_clone() const { return ::std::static_pointer_cast <CollocatedMetrics>(_iceCloneImpl()); }
+    CollocatedMetricsPtr ice_clone() const { return ::std::static_pointer_cast <CollocatedMetrics>(_iceCloneImpl()); }
 
 protected:
 
     CollocatedMetrics(const CollocatedMetrics&) = default;
 
-    ICE_MEMBER(ICE_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(ICE_API) ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICE_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICE_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -811,13 +811,13 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<RemoteMetrics> ice_clone() const { return ::std::static_pointer_cast <RemoteMetrics>(_iceCloneImpl()); }
+    RemoteMetricsPtr ice_clone() const { return ::std::static_pointer_cast <RemoteMetrics>(_iceCloneImpl()); }
 
 protected:
 
     RemoteMetrics(const RemoteMetrics&) = default;
 
-    ICE_MEMBER(ICE_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(ICE_API) ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICE_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICE_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -875,7 +875,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<InvocationMetrics> ice_clone() const { return ::std::static_pointer_cast <InvocationMetrics>(_iceCloneImpl()); }
+    InvocationMetricsPtr ice_clone() const { return ::std::static_pointer_cast <InvocationMetrics>(_iceCloneImpl()); }
 
     /**
      * The number of retries for the invocation(s).
@@ -900,7 +900,7 @@ protected:
 
     InvocationMetrics(const InvocationMetrics&) = default;
 
-    ICE_MEMBER(ICE_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(ICE_API) ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICE_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICE_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -954,7 +954,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<ConnectionMetrics> ice_clone() const { return ::std::static_pointer_cast <ConnectionMetrics>(_iceCloneImpl()); }
+    ConnectionMetricsPtr ice_clone() const { return ::std::static_pointer_cast <ConnectionMetrics>(_iceCloneImpl()); }
 
     /**
      * The number of bytes received by the connection.
@@ -969,7 +969,7 @@ protected:
 
     ConnectionMetrics(const ConnectionMetrics&) = default;
 
-    ICE_MEMBER(ICE_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(ICE_API) ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICE_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICE_API) void _iceReadImpl(::Ice::InputStream*) override;

@@ -28,21 +28,26 @@
 
 namespace Test
 {
+    struct PointF;
 
-struct PointF;
-struct PointD;
-struct Point;
+    struct PointD;
 
-using Points = ::std::vector<Point>;
-struct Polyline;
-struct Color;
+    struct Point;
 
-using StringColorMap = ::std::map<::std::int32_t, Color>;
-struct ColorPalette;
-class Pen;
+    using Points = ::std::vector<Point>;
 
-using PenPtr = ::std::shared_ptr<Pen>;
-struct Draw;
+    struct Polyline;
+
+    struct Color;
+
+    using StringColorMap = ::std::map<::std::int32_t, Color>;
+
+    struct ColorPalette;
+
+    class Pen;
+    using PenPtr = ::std::shared_ptr<Pen>;
+
+    struct Draw;
 
 }
 
@@ -177,7 +182,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<Pen> ice_clone() const { return ::std::static_pointer_cast <Pen>(_iceCloneImpl()); }
+    PenPtr ice_clone() const { return ::std::static_pointer_cast <Pen>(_iceCloneImpl()); }
 
     ::std::int32_t thickness;
     ::Test::Color color;
@@ -186,7 +191,7 @@ protected:
 
     Pen(const Pen&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -199,14 +204,14 @@ static Pen _iceS_Pen_init;
 struct Draw
 {
     ::Test::Color backgroundColor;
-    ::std::shared_ptr<::Test::Pen> pen;
+    ::Test::PenPtr pen;
     bool shared;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::Test::Color&, const ::std::shared_ptr<::Test::Pen>&, const bool&> ice_tuple() const
+    std::tuple<const ::Test::Color&, const ::Test::PenPtr&, const bool&> ice_tuple() const
     {
         return std::tie(backgroundColor, pen, shared);
     }

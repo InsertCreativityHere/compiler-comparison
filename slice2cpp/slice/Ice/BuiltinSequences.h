@@ -45,57 +45,55 @@
 
 namespace Ice
 {
+    /**
+     * A sequence of bools.
+     */
+    using BoolSeq = ::std::vector<bool>;
 
+    /**
+     * A sequence of bytes.
+     */
+    using ByteSeq = ::std::vector<std::byte>;
 
-/**
- * A sequence of bools.
- */
-using BoolSeq = ::std::vector<bool>;
+    /**
+     * A sequence of shorts.
+     */
+    using ShortSeq = ::std::vector<::std::int16_t>;
 
-/**
- * A sequence of bytes.
- */
-using ByteSeq = ::std::vector<std::byte>;
+    /**
+     * A sequence of ints.
+     */
+    using IntSeq = ::std::vector<::std::int32_t>;
 
-/**
- * A sequence of shorts.
- */
-using ShortSeq = ::std::vector<::std::int16_t>;
+    /**
+     * A sequence of longs.
+     */
+    using LongSeq = ::std::vector<::std::int64_t>;
 
-/**
- * A sequence of ints.
- */
-using IntSeq = ::std::vector<::std::int32_t>;
+    /**
+     * A sequence of floats.
+     */
+    using FloatSeq = ::std::vector<float>;
 
-/**
- * A sequence of longs.
- */
-using LongSeq = ::std::vector<::std::int64_t>;
+    /**
+     * A sequence of doubles.
+     */
+    using DoubleSeq = ::std::vector<double>;
 
-/**
- * A sequence of floats.
- */
-using FloatSeq = ::std::vector<float>;
+    /**
+     * A sequence of strings.
+     */
+    using StringSeq = ::std::vector<::std::string>;
 
-/**
- * A sequence of doubles.
- */
-using DoubleSeq = ::std::vector<double>;
+    /**
+     * A sequence of objects.
+     */
+    using ObjectSeq = ::std::vector<ValuePtr>;
 
-/**
- * A sequence of strings.
- */
-using StringSeq = ::std::vector<::std::string>;
-
-/**
- * A sequence of objects.
- */
-using ObjectSeq = ::std::vector<::std::shared_ptr<Value>>;
-
-/**
- * A sequence of object proxies.
- */
-using ObjectProxySeq = ::std::vector<::std::optional<::Ice::ObjectPrx>>;
+    /**
+     * A sequence of object proxies.
+     */
+    using ObjectProxySeq = ::std::vector<::std::optional<::Ice::ObjectPrx>>;
 
 }
 

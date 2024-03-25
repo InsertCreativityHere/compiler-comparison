@@ -28,11 +28,10 @@
 
 namespace Test
 {
+    class F1;
+    using F1Ptr = ::std::shared_ptr<F1>;
 
-class F1;
-
-using F1Ptr = ::std::shared_ptr<F1>;
-class F2Prx;
+    class F2Prx;
 
 }
 
@@ -72,7 +71,7 @@ public:
     {
     }
 
-    F2Prx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    F2Prx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -142,7 +141,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<F1> ice_clone() const { return ::std::static_pointer_cast <F1>(_iceCloneImpl()); }
+    F1Ptr ice_clone() const { return ::std::static_pointer_cast <F1>(_iceCloneImpl()); }
 
     ::std::string name;
 
@@ -150,7 +149,7 @@ protected:
 
     F1(const F1&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;

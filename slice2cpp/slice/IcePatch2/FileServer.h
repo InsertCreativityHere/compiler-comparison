@@ -40,13 +40,12 @@
 
 namespace IcePatch2
 {
+    /**
+     * A sequence of byte sequences. Each element is the checksum for a partition.
+     */
+    using ByteSeqSeq = ::std::vector<::Ice::ByteSeq>;
 
-
-/**
- * A sequence of byte sequences. Each element is the checksum for a partition.
- */
-using ByteSeqSeq = ::std::vector<::Ice::ByteSeq>;
-class FileServerPrx;
+    class FileServerPrx;
 
 }
 
@@ -220,7 +219,7 @@ public:
     {
     }
 
-    FileServerPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    FileServerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

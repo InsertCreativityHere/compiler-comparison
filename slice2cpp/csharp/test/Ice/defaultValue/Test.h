@@ -28,96 +28,100 @@
 
 namespace Test
 {
+    enum class Color : ::std::uint8_t
+    {
+        red,
+        green,
+        blue
+    };
 
 
-enum class Color : unsigned char
-{
-    red,
-    green,
-    blue
-};
+    namespace Nested
+    {
+        enum class Color : ::std::uint8_t
+        {
+            red,
+            green,
+            blue
+        };
 
-namespace Nested
-{
+    }
+    struct Struct1;
 
+    constexpr bool ConstBool = true;
 
-enum class Color : unsigned char
-{
-    red,
-    green,
-    blue
-};
+    constexpr ::std::uint8_t ConstByte = 254;
 
-}
-struct Struct1;
+    constexpr ::std::int16_t ConstShort = 16000;
 
-constexpr bool ConstBool = true;
+    constexpr ::std::int32_t ConstInt = 3;
 
-constexpr ::std::uint8_t ConstByte = 254;
+    constexpr ::std::int64_t ConstLong = INT64_C(4);
 
-constexpr ::std::int16_t ConstShort = 16000;
+    constexpr float ConstFloat = 5.1F;
 
-constexpr ::std::int32_t ConstInt = 3;
+    constexpr double ConstDouble = 6.2;
 
-constexpr ::std::int64_t ConstLong = INT64_C(4);
+    const ::std::string ConstString = "foo \\ \"bar\n \r\n\t\v\f\a\b\? \a \a";
 
-constexpr float ConstFloat = 5.1F;
+    constexpr Color ConstColor1 = ::Test::Color::red;
 
-constexpr double ConstDouble = 6.2;
+    constexpr Color ConstColor2 = ::Test::Color::green;
 
-const ::std::string ConstString = "foo \\ \"bar\n \r\n\t\v\f\a\b\? \a \a";
+    constexpr Color ConstColor3 = ::Test::Color::blue;
 
-constexpr Color ConstColor1 = ::Test::Color::red;
+    constexpr ::Test::Nested::Color ConstNestedColor1 = ::Test::Nested::Color::red;
 
-constexpr Color ConstColor2 = ::Test::Color::green;
+    constexpr ::Test::Nested::Color ConstNestedColor2 = ::Test::Nested::Color::green;
 
-constexpr Color ConstColor3 = ::Test::Color::blue;
+    constexpr ::Test::Nested::Color ConstNestedColor3 = ::Test::Nested::Color::blue;
 
-constexpr ::Test::Nested::Color ConstNestedColor1 = ::Test::Nested::Color::red;
+    constexpr ::std::int32_t ConstZeroI = 0;
 
-constexpr ::Test::Nested::Color ConstNestedColor2 = ::Test::Nested::Color::green;
+    constexpr ::std::int64_t ConstZeroL = INT64_C(0);
 
-constexpr ::Test::Nested::Color ConstNestedColor3 = ::Test::Nested::Color::blue;
+    constexpr float ConstZeroF = 0.0F;
 
-constexpr ::std::int32_t ConstZeroI = 0;
+    constexpr float ConstZeroDotF = 0.0F;
 
-constexpr ::std::int64_t ConstZeroL = INT64_C(0);
+    constexpr double ConstZeroD = 0;
 
-constexpr float ConstZeroF = 0.0F;
+    constexpr double ConstZeroDotD = 0;
 
-constexpr float ConstZeroDotF = 0.0F;
+    struct Struct2;
 
-constexpr double ConstZeroD = 0;
+    struct Struct3;
 
-constexpr double ConstZeroDotD = 0;
-struct Struct2;
-struct Struct3;
-struct Struct4;
-class Base;
+    struct Struct4;
 
-using BasePtr = ::std::shared_ptr<Base>;
-class Derived;
+    class Base;
+    using BasePtr = ::std::shared_ptr<Base>;
 
-using DerivedPtr = ::std::shared_ptr<Derived>;
-class ClassProperty;
+    class Derived;
+    using DerivedPtr = ::std::shared_ptr<Derived>;
 
-using ClassPropertyPtr = ::std::shared_ptr<ClassProperty>;
-struct StructProperty;
+    class ClassProperty;
+    using ClassPropertyPtr = ::std::shared_ptr<ClassProperty>;
 
-using ByteSeq = ::std::vector<std::byte>;
+    struct StructProperty;
 
-using IntSeq = ::std::vector<::std::int32_t>;
+    using ByteSeq = ::std::vector<std::byte>;
 
-using IntStringDict = ::std::map<::std::int32_t, ::std::string>;
-struct InnerStruct;
-struct InnerStruct2;
-struct StructNoDefaults;
-class ClassNoDefaultsBase;
+    using IntSeq = ::std::vector<::std::int32_t>;
 
-using ClassNoDefaultsBasePtr = ::std::shared_ptr<ClassNoDefaultsBase>;
-class ClassNoDefaults;
+    using IntStringDict = ::std::map<::std::int32_t, ::std::string>;
 
-using ClassNoDefaultsPtr = ::std::shared_ptr<ClassNoDefaults>;
+    struct InnerStruct;
+
+    struct InnerStruct2;
+
+    struct StructNoDefaults;
+
+    class ClassNoDefaultsBase;
+    using ClassNoDefaultsBasePtr = ::std::shared_ptr<ClassNoDefaultsBase>;
+
+    class ClassNoDefaults;
+    using ClassNoDefaultsPtr = ::std::shared_ptr<ClassNoDefaults>;
 
 }
 
@@ -308,7 +312,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<Base> ice_clone() const { return ::std::static_pointer_cast <Base>(_iceCloneImpl()); }
+    BasePtr ice_clone() const { return ::std::static_pointer_cast <Base>(_iceCloneImpl()); }
 
     bool boolFalse = false;
     bool boolTrue = true;
@@ -331,7 +335,7 @@ protected:
 
     Base(const Base&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -382,7 +386,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<Derived> ice_clone() const { return ::std::static_pointer_cast <Derived>(_iceCloneImpl()); }
+    DerivedPtr ice_clone() const { return ::std::static_pointer_cast <Derived>(_iceCloneImpl()); }
 
     ::Test::Color c1 = ::Test::Color::red;
     ::Test::Color c2 = ::Test::Color::green;
@@ -395,7 +399,7 @@ protected:
 
     Derived(const Derived&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -572,7 +576,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<ClassProperty> ice_clone() const { return ::std::static_pointer_cast <ClassProperty>(_iceCloneImpl()); }
+    ClassPropertyPtr ice_clone() const { return ::std::static_pointer_cast <ClassProperty>(_iceCloneImpl()); }
 
     bool boolFalse = false;
     bool boolTrue = true;
@@ -595,7 +599,7 @@ protected:
 
     ClassProperty(const ClassProperty&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -881,7 +885,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<ClassNoDefaultsBase> ice_clone() const { return ::std::static_pointer_cast <ClassNoDefaultsBase>(_iceCloneImpl()); }
+    ClassNoDefaultsBasePtr ice_clone() const { return ::std::static_pointer_cast <ClassNoDefaultsBase>(_iceCloneImpl()); }
 
     ::std::string str;
     ::Test::Color c1;
@@ -891,7 +895,7 @@ protected:
 
     ClassNoDefaultsBase(const ClassNoDefaultsBase&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -935,7 +939,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<ClassNoDefaults> ice_clone() const { return ::std::static_pointer_cast <ClassNoDefaults>(_iceCloneImpl()); }
+    ClassNoDefaultsPtr ice_clone() const { return ::std::static_pointer_cast <ClassNoDefaults>(_iceCloneImpl()); }
 
     ::Test::InnerStruct st;
     ::Test::InnerStruct2 st2;
@@ -945,7 +949,7 @@ protected:
 
     ClassNoDefaults(const ClassNoDefaults&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;

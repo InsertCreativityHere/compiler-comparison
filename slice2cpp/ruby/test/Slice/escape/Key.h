@@ -28,25 +28,27 @@
 
 namespace BEGIN
 {
+    enum class END : ::std::uint8_t
+    {
+        alias
+    };
 
+    struct _cpp_and;
 
-enum class END : unsigned char
-{
-    alias
-};
-struct _cpp_and;
-class breakPrx;
-class display;
+    class breakPrx;
 
-using displayPtr = ::std::shared_ptr<display>;
-class elsifPrx;
+    class display;
+    using displayPtr = ::std::shared_ptr<display>;
 
-using rescue = ::std::vector<END>;
+    class elsifPrx;
 
-using ensure = ::std::map<::std::string, END>;
-class extendPrx;
+    using rescue = ::std::vector<END>;
 
-constexpr ::std::int32_t redo = 1;
+    using ensure = ::std::map<::std::string, END>;
+
+    class extendPrx;
+
+    constexpr ::std::int32_t redo = 1;
 
 }
 
@@ -119,7 +121,7 @@ public:
     {
     }
 
-    breakPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    breakPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -176,7 +178,7 @@ public:
     {
     }
 
-    elsifPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    elsifPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -214,15 +216,15 @@ class extendPrx : public ::Ice::Proxy<extendPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    END _cpp_for(const ::std::shared_ptr<display>& freeze, const ::std::optional<elsifPrx>& hash, const ::std::optional<breakPrx>& _cpp_if, const ::std::shared_ptr<display>& inspect, const ::std::optional<elsifPrx>& method, ::std::int32_t methods, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    END _cpp_for(const displayPtr& freeze, const ::std::optional<elsifPrx>& hash, const ::std::optional<breakPrx>& _cpp_if, const displayPtr& inspect, const ::std::optional<elsifPrx>& method, ::std::int32_t methods, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<END> forAsync(const ::std::shared_ptr<display>& freeze, const ::std::optional<elsifPrx>& hash, const ::std::optional<breakPrx>& _cpp_if, const ::std::shared_ptr<display>& inspect, const ::std::optional<elsifPrx>& method, ::std::int32_t methods, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<END> forAsync(const displayPtr& freeze, const ::std::optional<elsifPrx>& hash, const ::std::optional<breakPrx>& _cpp_if, const displayPtr& inspect, const ::std::optional<elsifPrx>& method, ::std::int32_t methods, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    forAsync(const ::std::shared_ptr<display>& freeze, const ::std::optional<elsifPrx>& hash, const ::std::optional<breakPrx>& _cpp_if, const ::std::shared_ptr<display>& inspect, const ::std::optional<elsifPrx>& method, ::std::int32_t methods, ::std::function<void(::BEGIN::END)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    forAsync(const displayPtr& freeze, const ::std::optional<elsifPrx>& hash, const ::std::optional<breakPrx>& _cpp_if, const displayPtr& inspect, const ::std::optional<elsifPrx>& method, ::std::int32_t methods, ::std::function<void(::BEGIN::END)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_for(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<END>>&, const ::std::shared_ptr<display>&, const ::std::optional<elsifPrx>&, const ::std::optional<breakPrx>&, const ::std::shared_ptr<display>&, const ::std::optional<elsifPrx>&, ::std::int32_t, const ::Ice::Context&) const;
+    void _iceI_for(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<END>>&, const displayPtr&, const ::std::optional<elsifPrx>&, const ::std::optional<breakPrx>&, const displayPtr&, const ::std::optional<elsifPrx>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -243,7 +245,7 @@ public:
     {
     }
 
-    extendPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    extendPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -330,7 +332,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<display> ice_clone() const { return ::std::static_pointer_cast <display>(_iceCloneImpl()); }
+    displayPtr ice_clone() const { return ::std::static_pointer_cast <display>(_iceCloneImpl()); }
 
     ::std::int32_t when;
     ::std::int32_t _cpp_do;
@@ -341,7 +343,7 @@ protected:
 
     display(const display&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -558,7 +560,7 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
-    virtual END _cpp_for(::std::shared_ptr<display> freeze, ::std::optional<elsifPrx> hash, ::std::optional<breakPrx> _cpp_if, ::std::shared_ptr<display> inspect, ::std::optional<elsifPrx> method, ::std::int32_t methods, const ::Ice::Current& current) = 0;
+    virtual END _cpp_for(displayPtr freeze, ::std::optional<elsifPrx> hash, ::std::optional<breakPrx> _cpp_if, displayPtr inspect, ::std::optional<elsifPrx> method, ::std::int32_t methods, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_for(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond

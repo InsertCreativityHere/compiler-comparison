@@ -28,48 +28,51 @@
 
 namespace abstract
 {
+    enum class assert : ::std::uint8_t
+    {
+        boolean
+    };
 
+    struct _cpp_break;
 
-enum class assert : unsigned char
-{
-    boolean
-};
-struct _cpp_break;
-class catchPrx;
-class defaultPrx;
-class _cpp_else;
+    class catchPrx;
 
-using elsePtr = ::std::shared_ptr<_cpp_else>;
-class finalizePrx;
+    class defaultPrx;
 
-using _cpp_for = ::std::vector<assert>;
+    class _cpp_else;
+    using elsePtr = ::std::shared_ptr<_cpp_else>;
 
-using _cpp_goto = ::std::map<::std::string, assert>;
-class newPrx;
+    class finalizePrx;
 
-constexpr ::std::int32_t _cpp_switch = 0;
+    using _cpp_for = ::std::vector<assert>;
 
-constexpr ::std::int32_t synchronized = 0;
+    using _cpp_goto = ::std::map<::std::string, assert>;
 
-constexpr ::std::int32_t _cpp_this = 0;
+    class newPrx;
 
-constexpr ::std::int32_t _cpp_throw = 0;
+    constexpr ::std::int32_t _cpp_switch = 0;
 
-constexpr ::std::int32_t toString = 0;
+    constexpr ::std::int32_t synchronized = 0;
 
-constexpr ::std::int32_t _cpp_try = 0;
+    constexpr ::std::int32_t _cpp_this = 0;
 
-constexpr ::std::int32_t uncheckedCast = 0;
+    constexpr ::std::int32_t _cpp_throw = 0;
 
-constexpr ::std::int32_t _cpp_volatile = 0;
+    constexpr ::std::int32_t toString = 0;
 
-constexpr ::std::int32_t wait = 0;
+    constexpr ::std::int32_t _cpp_try = 0;
 
-constexpr ::std::int32_t _cpp_while = 0;
+    constexpr ::std::int32_t uncheckedCast = 0;
 
-constexpr ::std::int32_t finally = 0;
+    constexpr ::std::int32_t _cpp_volatile = 0;
 
-constexpr ::std::int32_t getClass = 0;
+    constexpr ::std::int32_t wait = 0;
+
+    constexpr ::std::int32_t _cpp_while = 0;
+
+    constexpr ::std::int32_t finally = 0;
+
+    constexpr ::std::int32_t getClass = 0;
 
 }
 
@@ -109,7 +112,7 @@ public:
     {
     }
 
-    catchPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    catchPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -172,7 +175,7 @@ public:
     {
     }
 
-    defaultPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    defaultPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -229,7 +232,7 @@ public:
     {
     }
 
-    finalizePrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    finalizePrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -267,15 +270,15 @@ class newPrx : public ::Ice::Proxy<newPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    assert notify(const _cpp_break& notifyAll, const ::std::shared_ptr<else>& null, const ::std::optional<finalizePrx>& package, const ::std::optional<catchPrx>& _cpp_public, const ::std::optional<defaultPrx>& _cpp_return, ::std::int32_t _cpp_static, ::std::int32_t strictfp, ::std::int32_t super, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    assert notify(const _cpp_break& notifyAll, const elsePtr& null, const ::std::optional<finalizePrx>& package, const ::std::optional<catchPrx>& _cpp_public, const ::std::optional<defaultPrx>& _cpp_return, ::std::int32_t _cpp_static, ::std::int32_t strictfp, ::std::int32_t super, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<assert> notifyAsync(const _cpp_break& notifyAll, const ::std::shared_ptr<else>& null, const ::std::optional<finalizePrx>& package, const ::std::optional<catchPrx>& _cpp_public, const ::std::optional<defaultPrx>& _cpp_return, ::std::int32_t _cpp_static, ::std::int32_t strictfp, ::std::int32_t super, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<assert> notifyAsync(const _cpp_break& notifyAll, const elsePtr& null, const ::std::optional<finalizePrx>& package, const ::std::optional<catchPrx>& _cpp_public, const ::std::optional<defaultPrx>& _cpp_return, ::std::int32_t _cpp_static, ::std::int32_t strictfp, ::std::int32_t super, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    notifyAsync(const _cpp_break& notifyAll, const ::std::shared_ptr<else>& null, const ::std::optional<finalizePrx>& package, const ::std::optional<catchPrx>& _cpp_public, const ::std::optional<defaultPrx>& _cpp_return, ::std::int32_t _cpp_static, ::std::int32_t strictfp, ::std::int32_t super, ::std::function<void(::abstract::assert)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    notifyAsync(const _cpp_break& notifyAll, const elsePtr& null, const ::std::optional<finalizePrx>& package, const ::std::optional<catchPrx>& _cpp_public, const ::std::optional<defaultPrx>& _cpp_return, ::std::int32_t _cpp_static, ::std::int32_t strictfp, ::std::int32_t super, ::std::function<void(::abstract::assert)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_notify(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<assert>>&, const _cpp_break&, const ::std::shared_ptr<else>&, const ::std::optional<finalizePrx>&, const ::std::optional<catchPrx>&, const ::std::optional<defaultPrx>&, ::std::int32_t, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
+    void _iceI_notify(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<assert>>&, const _cpp_break&, const elsePtr&, const ::std::optional<finalizePrx>&, const ::std::optional<catchPrx>&, const ::std::optional<defaultPrx>&, ::std::int32_t, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -296,7 +299,7 @@ public:
     {
     }
 
-    newPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    newPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -382,7 +385,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<_cpp_else> ice_clone() const { return ::std::static_pointer_cast <_cpp_else>(_iceCloneImpl()); }
+    elsePtr ice_clone() const { return ::std::static_pointer_cast <_cpp_else>(_iceCloneImpl()); }
 
     ::std::int32_t _cpp_if;
     ::std::optional<::abstract::defaultPrx> equals;
@@ -392,7 +395,7 @@ protected:
 
     _cpp_else(const _cpp_else&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -633,7 +636,7 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
-    virtual assert notify(_cpp_break notifyAll, ::std::shared_ptr<else> null, ::std::optional<finalizePrx> package, ::std::optional<catchPrx> _cpp_public, ::std::optional<defaultPrx> _cpp_return, ::std::int32_t _cpp_static, ::std::int32_t strictfp, ::std::int32_t super, const ::Ice::Current& current) = 0;
+    virtual assert notify(_cpp_break notifyAll, elsePtr null, ::std::optional<finalizePrx> package, ::std::optional<catchPrx> _cpp_public, ::std::optional<defaultPrx> _cpp_return, ::std::int32_t _cpp_static, ::std::int32_t strictfp, ::std::int32_t super, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_notify(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond

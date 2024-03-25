@@ -29,9 +29,9 @@
 
 namespace Test
 {
+    class BackgroundPrx;
 
-class BackgroundPrx;
-class BackgroundControllerPrx;
+    class BackgroundControllerPrx;
 
 }
 
@@ -93,7 +93,7 @@ public:
     {
     }
 
-    BackgroundPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    BackgroundPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -255,7 +255,7 @@ public:
     {
     }
 
-    BackgroundControllerPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    BackgroundControllerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

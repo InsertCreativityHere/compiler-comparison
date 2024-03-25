@@ -28,10 +28,8 @@
 
 namespace Test
 {
-
-class Point;
-
-using PointPtr = ::std::shared_ptr<Point>;
+    class Point;
+    using PointPtr = ::std::shared_ptr<Point>;
 
 }
 
@@ -56,13 +54,13 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<Point> ice_clone() const { return ::std::static_pointer_cast <Point>(_iceCloneImpl()); }
+    PointPtr ice_clone() const { return ::std::static_pointer_cast <Point>(_iceCloneImpl()); }
 
 protected:
 
     Point(const Point&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;

@@ -44,102 +44,119 @@
 
 namespace IceGrid
 {
-
-
-/**
- * An enumeration representing the state of the server.
- */
-enum class ServerState : unsigned char
-{
     /**
-     * The server is not running.
+     * An enumeration representing the state of the server.
      */
-    Inactive,
+    enum class ServerState : ::std::uint8_t
+    {
+        /**
+         * The server is not running.
+         */
+        Inactive,
+        /**
+         * The server is being activated and will change to the active state when the registered server object adapters
+         * are activated or to the activation timed out state if the activation timeout expires.
+         */
+        Activating,
+        /**
+         * The activation timed out state indicates that the server activation timed out.
+         */
+        ActivationTimedOut,
+        /**
+         * The server is running.
+         */
+        Active,
+        /**
+         * The server is being deactivated.
+         */
+        Deactivating,
+        /**
+         * The server is being destroyed.
+         */
+        Destroying,
+        /**
+         * The server is destroyed.
+         */
+        Destroyed
+    };
+
     /**
-     * The server is being activated and will change to the active state when the registered server object adapters
-     * are activated or to the activation timed out state if the activation timeout expires.
+     * A dictionary of proxies.
      */
-    Activating,
+    using StringObjectProxyDict = ::std::map<::std::string, ::std::optional<::Ice::ObjectPrx>>;
+
+    struct ObjectInfo;
+
     /**
-     * The activation timed out state indicates that the server activation timed out.
+     * A sequence of object information structures.
      */
-    ActivationTimedOut,
+    using ObjectInfoSeq = ::std::vector<ObjectInfo>;
+
+    struct AdapterInfo;
+
     /**
-     * The server is running.
+     * A sequence of adapter information structures.
      */
-    Active,
+    using AdapterInfoSeq = ::std::vector<AdapterInfo>;
+
+    struct ServerInfo;
+
+    struct NodeInfo;
+
+    struct RegistryInfo;
+
     /**
-     * The server is being deactivated.
+     * A sequence of {@link RegistryInfo} structures.
      */
-    Deactivating,
+    using RegistryInfoSeq = ::std::vector<RegistryInfo>;
+
+    struct LoadInfo;
+
+    struct ApplicationInfo;
+
     /**
-     * The server is being destroyed.
+     * A sequence of {@link ApplicationInfo} structures.
      */
-    Destroying,
+    using ApplicationInfoSeq = ::std::vector<ApplicationInfo>;
+
+    struct ApplicationUpdateInfo;
+
+    class AdminPrx;
+
+    class FileIteratorPrx;
+
+    struct ServerDynamicInfo;
+
     /**
-     * The server is destroyed.
+     * A sequence of server dynamic information structures.
      */
-    Destroyed
-};
+    using ServerDynamicInfoSeq = ::std::vector<ServerDynamicInfo>;
 
-/**
- * A dictionary of proxies.
- */
-using StringObjectProxyDict = ::std::map<::std::string, ::std::optional<::Ice::ObjectPrx>>;
-struct ObjectInfo;
+    struct AdapterDynamicInfo;
 
-/**
- * A sequence of object information structures.
- */
-using ObjectInfoSeq = ::std::vector<ObjectInfo>;
-struct AdapterInfo;
+    /**
+     * A sequence of adapter dynamic information structures.
+     */
+    using AdapterDynamicInfoSeq = ::std::vector<AdapterDynamicInfo>;
 
-/**
- * A sequence of adapter information structures.
- */
-using AdapterInfoSeq = ::std::vector<AdapterInfo>;
-struct ServerInfo;
-struct NodeInfo;
-struct RegistryInfo;
+    struct NodeDynamicInfo;
 
-/**
- * A sequence of {@link RegistryInfo} structures.
- */
-using RegistryInfoSeq = ::std::vector<RegistryInfo>;
-struct LoadInfo;
-struct ApplicationInfo;
+    class RegistryObserverPrx;
 
-/**
- * A sequence of {@link ApplicationInfo} structures.
- */
-using ApplicationInfoSeq = ::std::vector<ApplicationInfo>;
-struct ApplicationUpdateInfo;
-class AdminPrx;
-class FileIteratorPrx;
-struct ServerDynamicInfo;
+    /**
+     * A sequence of node dynamic information structures.
+     */
+    using NodeDynamicInfoSeq = ::std::vector<NodeDynamicInfo>;
 
-/**
- * A sequence of server dynamic information structures.
- */
-using ServerDynamicInfoSeq = ::std::vector<ServerDynamicInfo>;
-struct AdapterDynamicInfo;
+    class NodeObserverPrx;
 
-/**
- * A sequence of adapter dynamic information structures.
- */
-using AdapterDynamicInfoSeq = ::std::vector<AdapterDynamicInfo>;
-struct NodeDynamicInfo;
-class RegistryObserverPrx;
+    class ApplicationObserverPrx;
 
-/**
- * A sequence of node dynamic information structures.
- */
-using NodeDynamicInfoSeq = ::std::vector<NodeDynamicInfo>;
-class NodeObserverPrx;
-class ApplicationObserverPrx;
-class AdapterObserverPrx;
-class ObjectObserverPrx;
-class AdminSessionPrx;
+    class AdapterObserverPrx;
+
+    class ObjectObserverPrx;
+
+    class AdminSessionPrx;
 
 }
 
@@ -1790,7 +1807,7 @@ public:
     {
     }
 
-    AdminPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    AdminPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -1912,7 +1929,7 @@ public:
     {
     }
 
-    FileIteratorPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    FileIteratorPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -2063,7 +2080,7 @@ public:
     {
     }
 
-    RegistryObserverPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    RegistryObserverPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -2283,7 +2300,7 @@ public:
     {
     }
 
-    NodeObserverPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    NodeObserverPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -2481,7 +2498,7 @@ public:
     {
     }
 
-    ApplicationObserverPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    ApplicationObserverPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -2666,7 +2683,7 @@ public:
     {
     }
 
-    AdapterObserverPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    AdapterObserverPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -2854,7 +2871,7 @@ public:
     {
     }
 
-    ObjectObserverPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    ObjectObserverPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -3488,7 +3505,7 @@ public:
     {
     }
 
-    AdminSessionPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    AdminSessionPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -3606,7 +3623,7 @@ struct ServerInfo
     /**
      * The server descriptor.
      */
-    ::std::shared_ptr<::IceGrid::ServerDescriptor> descriptor;
+    ::IceGrid::ServerDescriptorPtr descriptor;
     /**
      * The id of the session which allocated the server.
      */
@@ -3616,7 +3633,7 @@ struct ServerInfo
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::string&, const ::std::string&, const ::std::int32_t&, const ::std::string&, const ::std::shared_ptr<::IceGrid::ServerDescriptor>&, const ::std::string&> ice_tuple() const
+    std::tuple<const ::std::string&, const ::std::string&, const ::std::int32_t&, const ::std::string&, const ::IceGrid::ServerDescriptorPtr&, const ::std::string&> ice_tuple() const
     {
         return std::tie(application, uuid, revision, node, descriptor, sessionId);
     }

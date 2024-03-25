@@ -29,9 +29,9 @@
 
 namespace IceLocatorDiscovery
 {
+    class LookupReplyPrx;
 
-class LookupReplyPrx;
-class LookupPrx;
+    class LookupPrx;
 
 }
 
@@ -96,7 +96,7 @@ public:
     {
     }
 
-    LookupReplyPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    LookupReplyPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -192,7 +192,7 @@ public:
     {
     }
 
-    LookupPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    LookupPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

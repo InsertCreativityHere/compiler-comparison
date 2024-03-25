@@ -176,7 +176,7 @@ classdef::_cpp_break::logical::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 classdef::_cpp_break::logical::_iceCloneImpl() const
 {
     return CloneEnabler<logical>::clone(*this);
@@ -211,7 +211,7 @@ classdef::_cpp_break::_cpp_xor::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 classdef::_cpp_break::_cpp_xor::_iceCloneImpl() const
 {
     return CloneEnabler<_cpp_xor>::clone(*this);
@@ -248,7 +248,7 @@ classdef::_cpp_break::_cpp_try::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 classdef::_cpp_break::_cpp_try::_iceCloneImpl() const
 {
     return CloneEnabler<_cpp_try>::clone(*this);
@@ -283,7 +283,7 @@ classdef::_cpp_break::properties::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 classdef::_cpp_break::properties::_iceCloneImpl() const
 {
     return CloneEnabler<properties>::clone(*this);

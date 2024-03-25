@@ -29,29 +29,31 @@
 namespace Test
 {
 
+    namespace Common
+    {
+        using BoolSeq = ::std::vector<bool>;
 
-namespace Common
-{
+        using StringSeq = ::std::vector<::std::string>;
 
+        class Config;
+        using ConfigPtr = ::std::shared_ptr<Config>;
 
-using BoolSeq = ::std::vector<bool>;
+        class OptionOverrides;
+        using OptionOverridesPtr = ::std::shared_ptr<OptionOverrides>;
 
-using StringSeq = ::std::vector<::std::string>;
-class Config;
+        class TestCasePrx;
 
-using ConfigPtr = ::std::shared_ptr<Config>;
-class OptionOverrides;
+        class ControllerPrx;
 
-using OptionOverridesPtr = ::std::shared_ptr<OptionOverrides>;
-class TestCasePrx;
-class ControllerPrx;
-class ProcessPrx;
-class ProcessControllerPrx;
-class BrowserProcessControllerPrx;
-class ProcessControllerRegistryPrx;
+        class ProcessPrx;
 
-}
+        class ProcessControllerPrx;
 
+        class BrowserProcessControllerPrx;
+
+        class ProcessControllerRegistryPrx;
+
+    }
 }
 
 namespace Test
@@ -64,15 +66,15 @@ class TestCasePrx : public ::Ice::Proxy<TestCasePrx, ::Ice::ObjectPrx>
 {
 public:
 
-    ::std::string startServerSide(const ::std::shared_ptr<Config>& config, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::string startServerSide(const ConfigPtr& config, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> startServerSideAsync(const ::std::shared_ptr<Config>& config, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::string> startServerSideAsync(const ConfigPtr& config, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    startServerSideAsync(const ::std::shared_ptr<Config>& config, ::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    startServerSideAsync(const ConfigPtr& config, ::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_startServerSide(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ::std::shared_ptr<Config>&, const ::Ice::Context&) const;
+    void _iceI_startServerSide(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, const ConfigPtr&, const ::Ice::Context&) const;
     /// \endcond
 
     ::std::string stopServerSide(bool success, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -86,15 +88,15 @@ public:
     void _iceI_stopServerSide(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, bool, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::string runClientSide(::std::string_view host, const ::std::shared_ptr<Config>& config, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::string runClientSide(::std::string_view host, const ConfigPtr& config, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::string> runClientSideAsync(::std::string_view host, const ::std::shared_ptr<Config>& config, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::string> runClientSideAsync(::std::string_view host, const ConfigPtr& config, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    runClientSideAsync(::std::string_view host, const ::std::shared_ptr<Config>& config, ::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    runClientSideAsync(::std::string_view host, const ConfigPtr& config, ::std::function<void(::std::string)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_runClientSide(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, ::std::string_view, const ::std::shared_ptr<Config>&, const ::Ice::Context&) const;
+    void _iceI_runClientSide(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::string>>&, ::std::string_view, const ConfigPtr&, const ::Ice::Context&) const;
     /// \endcond
 
     void destroy(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -126,7 +128,7 @@ public:
     {
     }
 
-    TestCasePrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    TestCasePrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -171,15 +173,15 @@ public:
     void _iceI_runTestCase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<TestCasePrx>>>&, ::std::string_view, ::std::string_view, ::std::string_view, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::shared_ptr<OptionOverrides> getOptionOverrides(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    OptionOverridesPtr getOptionOverrides(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<OptionOverrides>> getOptionOverridesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<OptionOverridesPtr> getOptionOverridesAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    getOptionOverridesAsync(::std::function<void(::std::shared_ptr<::Test::Common::OptionOverrides>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    getOptionOverridesAsync(::std::function<void(::Test::Common::OptionOverridesPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getOptionOverrides(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<OptionOverrides>>>&, const ::Ice::Context&) const;
+    void _iceI_getOptionOverrides(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<OptionOverridesPtr>>&, const ::Ice::Context&) const;
     /// \endcond
 
     StringSeq getTestSuites(::std::string_view mapping, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -222,7 +224,7 @@ public:
     {
     }
 
-    ControllerPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    ControllerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -307,7 +309,7 @@ public:
     {
     }
 
-    ProcessPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    ProcessPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -381,7 +383,7 @@ public:
     {
     }
 
-    ProcessControllerPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    ProcessControllerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -449,7 +451,7 @@ public:
     {
     }
 
-    BrowserProcessControllerPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    BrowserProcessControllerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -516,7 +518,7 @@ public:
     {
     }
 
-    ProcessControllerRegistryPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    ProcessControllerRegistryPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -597,7 +599,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<Config> ice_clone() const { return ::std::static_pointer_cast <Config>(_iceCloneImpl()); }
+    ConfigPtr ice_clone() const { return ::std::static_pointer_cast <Config>(_iceCloneImpl()); }
 
     ::std::optional<::std::string> protocol;
     ::std::optional<bool> mx;
@@ -611,7 +613,7 @@ protected:
 
     Config(const Config&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -660,7 +662,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<OptionOverrides> ice_clone() const { return ::std::static_pointer_cast <OptionOverrides>(_iceCloneImpl()); }
+    OptionOverridesPtr ice_clone() const { return ::std::static_pointer_cast <OptionOverrides>(_iceCloneImpl()); }
 
     ::std::optional<::Test::Common::StringSeq> protocol;
     ::std::optional<::Test::Common::BoolSeq> mx;
@@ -672,7 +674,7 @@ protected:
 
     OptionOverrides(const OptionOverrides&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -834,7 +836,7 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
-    virtual ::std::string startServerSide(::std::shared_ptr<Config> config, const ::Ice::Current& current) = 0;
+    virtual ::std::string startServerSide(ConfigPtr config, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_startServerSide(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
@@ -844,7 +846,7 @@ public:
     void _iceD_stopServerSide(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual ::std::string runClientSide(::std::string host, ::std::shared_ptr<Config> config, const ::Ice::Current& current) = 0;
+    virtual ::std::string runClientSide(::std::string host, ConfigPtr config, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_runClientSide(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
@@ -892,7 +894,7 @@ public:
     void _iceD_runTestCase(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual ::std::shared_ptr<OptionOverrides> getOptionOverrides(const ::Ice::Current& current) = 0;
+    virtual OptionOverridesPtr getOptionOverrides(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_getOptionOverrides(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond

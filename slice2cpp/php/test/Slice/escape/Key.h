@@ -28,31 +28,35 @@
 
 namespace _cpp_and
 {
+    enum class array : ::std::uint8_t
+    {
+        as
+    };
 
+    struct _cpp_xor;
 
-enum class array : unsigned char
-{
-    as
-};
-struct _cpp_xor;
-class breakPrx;
-class functionPrx;
-class diePrx;
-class echo;
+    class breakPrx;
 
-using echoPtr = ::std::shared_ptr<echo>;
-class enddeclarePrx;
+    class functionPrx;
 
-using endfor = ::std::vector<array>;
+    class diePrx;
 
-using endforeach = ::std::map<::std::string, array>;
-class forPrx;
+    class echo;
+    using echoPtr = ::std::shared_ptr<echo>;
 
-constexpr ::std::int32_t _cpp_or = 0;
+    class enddeclarePrx;
 
-constexpr ::std::int32_t print = 0;
+    using endfor = ::std::vector<array>;
 
-constexpr ::std::int32_t require_once = 0;
+    using endforeach = ::std::map<::std::string, array>;
+
+    class forPrx;
+
+    constexpr ::std::int32_t _cpp_or = 0;
+
+    constexpr ::std::int32_t print = 0;
+
+    constexpr ::std::int32_t require_once = 0;
 
 }
 
@@ -92,7 +96,7 @@ public:
     {
     }
 
-    breakPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    breakPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -155,7 +159,7 @@ public:
     {
     }
 
-    functionPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    functionPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -218,7 +222,7 @@ public:
     {
     }
 
-    diePrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    diePrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -275,7 +279,7 @@ public:
     {
     }
 
-    enddeclarePrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    enddeclarePrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -313,15 +317,15 @@ class forPrx : public ::Ice::Proxy<forPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    array foreach(const ::std::optional<breakPrx>& _cpp_if, const ::std::shared_ptr<::and::echo>& global, const ::std::optional<functionPrx>& include, const ::std::optional<diePrx>& _cpp_return, const ::std::optional<enddeclarePrx>& list, ::std::int32_t _cpp_new, ::std::int32_t _cpp_static, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    array foreach(const ::std::optional<breakPrx>& _cpp_if, const ::and::echoPtr& global, const ::std::optional<functionPrx>& include, const ::std::optional<diePrx>& _cpp_return, const ::std::optional<enddeclarePrx>& list, ::std::int32_t _cpp_new, ::std::int32_t _cpp_static, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<array> foreachAsync(const ::std::optional<breakPrx>& _cpp_if, const ::std::shared_ptr<::and::echo>& global, const ::std::optional<functionPrx>& include, const ::std::optional<diePrx>& _cpp_return, const ::std::optional<enddeclarePrx>& list, ::std::int32_t _cpp_new, ::std::int32_t _cpp_static, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<array> foreachAsync(const ::std::optional<breakPrx>& _cpp_if, const ::and::echoPtr& global, const ::std::optional<functionPrx>& include, const ::std::optional<diePrx>& _cpp_return, const ::std::optional<enddeclarePrx>& list, ::std::int32_t _cpp_new, ::std::int32_t _cpp_static, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    foreachAsync(const ::std::optional<breakPrx>& _cpp_if, const ::std::shared_ptr<::and::echo>& global, const ::std::optional<functionPrx>& include, const ::std::optional<diePrx>& _cpp_return, const ::std::optional<enddeclarePrx>& list, ::std::int32_t _cpp_new, ::std::int32_t _cpp_static, ::std::function<void(::_cpp_and::array)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    foreachAsync(const ::std::optional<breakPrx>& _cpp_if, const ::and::echoPtr& global, const ::std::optional<functionPrx>& include, const ::std::optional<diePrx>& _cpp_return, const ::std::optional<enddeclarePrx>& list, ::std::int32_t _cpp_new, ::std::int32_t _cpp_static, ::std::function<void(::_cpp_and::array)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_foreach(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<array>>&, const ::std::optional<breakPrx>&, const ::std::shared_ptr<::and::echo>&, const ::std::optional<functionPrx>&, const ::std::optional<diePrx>&, const ::std::optional<enddeclarePrx>&, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
+    void _iceI_foreach(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<array>>&, const ::std::optional<breakPrx>&, const ::and::echoPtr&, const ::std::optional<functionPrx>&, const ::std::optional<diePrx>&, const ::std::optional<enddeclarePrx>&, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -342,7 +346,7 @@ public:
     {
     }
 
-    forPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    forPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -437,7 +441,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<echo> ice_clone() const { return ::std::static_pointer_cast <echo>(_iceCloneImpl()); }
+    echoPtr ice_clone() const { return ::std::static_pointer_cast <echo>(_iceCloneImpl()); }
 
     ::std::int32_t _cpp_if;
     ::std::int32_t _cpp_else;
@@ -448,7 +452,7 @@ protected:
 
     echo(const echo&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -727,7 +731,7 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
-    virtual array foreach(::std::optional<breakPrx> _cpp_if, ::std::shared_ptr<::and::echo> global, ::std::optional<functionPrx> include, ::std::optional<diePrx> _cpp_return, ::std::optional<enddeclarePrx> list, ::std::int32_t _cpp_new, ::std::int32_t _cpp_static, const ::Ice::Current& current) = 0;
+    virtual array foreach(::std::optional<breakPrx> _cpp_if, ::and::echoPtr global, ::std::optional<functionPrx> include, ::std::optional<diePrx> _cpp_return, ::std::optional<enddeclarePrx> list, ::std::int32_t _cpp_new, ::std::int32_t _cpp_static, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_foreach(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond

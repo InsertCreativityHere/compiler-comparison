@@ -52,7 +52,7 @@ Test::Point::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::Point::_iceCloneImpl() const
 {
     return CloneEnabler<Point>::clone(*this);

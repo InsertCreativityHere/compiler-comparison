@@ -28,13 +28,11 @@
 
 namespace NoNamespace
 {
+    class C1;
+    using C1Ptr = ::std::shared_ptr<C1>;
 
-class C1;
-
-using C1Ptr = ::std::shared_ptr<C1>;
-class C2;
-
-using C2Ptr = ::std::shared_ptr<C2>;
+    class C2;
+    using C2Ptr = ::std::shared_ptr<C2>;
 
 }
 
@@ -76,7 +74,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<C1> ice_clone() const { return ::std::static_pointer_cast <C1>(_iceCloneImpl()); }
+    C1Ptr ice_clone() const { return ::std::static_pointer_cast <C1>(_iceCloneImpl()); }
 
     ::std::int32_t i;
 
@@ -84,7 +82,7 @@ protected:
 
     C1(const C1&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -130,7 +128,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<C2> ice_clone() const { return ::std::static_pointer_cast <C2>(_iceCloneImpl()); }
+    C2Ptr ice_clone() const { return ::std::static_pointer_cast <C2>(_iceCloneImpl()); }
 
     ::std::int64_t l;
 
@@ -138,7 +136,7 @@ protected:
 
     C2(const C2&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;

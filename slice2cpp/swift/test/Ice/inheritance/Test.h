@@ -29,138 +29,123 @@
 namespace Test
 {
 
+    namespace MA
+    {
+        class IAPrx;
 
-namespace MA
-{
+    }
 
-class IAPrx;
+    namespace MB
+    {
+        class IB1Prx;
 
-}
+        class IB2Prx;
 
-namespace MB
-{
+    }
 
-class IB1Prx;
-class IB2Prx;
+    namespace MA
+    {
+        class ICPrx;
 
-}
+    }
+    class InitialPrx;
 
-namespace MA
-{
 
-class ICPrx;
+    namespace MC
+    {
+        class A;
+        using APtr = ::std::shared_ptr<A>;
 
-}
-class InitialPrx;
+        class B;
+        using BPtr = ::std::shared_ptr<B>;
 
-namespace MC
-{
+        class C;
+        using CPtr = ::std::shared_ptr<C>;
 
-class A;
+        class D;
+        using DPtr = ::std::shared_ptr<D>;
 
-using APtr = ::std::shared_ptr<A>;
-class B;
+    }
 
-using BPtr = ::std::shared_ptr<B>;
-class C;
+    namespace MD
+    {
+        class A;
+        using APtr = ::std::shared_ptr<A>;
 
-using CPtr = ::std::shared_ptr<C>;
-class D;
+        class B;
+        using BPtr = ::std::shared_ptr<B>;
 
-using DPtr = ::std::shared_ptr<D>;
+        class C;
+        using CPtr = ::std::shared_ptr<C>;
 
-}
+        class D;
+        using DPtr = ::std::shared_ptr<D>;
 
-namespace MD
-{
+    }
 
-class A;
+    namespace ME
+    {
+        class A;
+        using APtr = ::std::shared_ptr<A>;
 
-using APtr = ::std::shared_ptr<A>;
-class B;
+        class B;
+        using BPtr = ::std::shared_ptr<B>;
 
-using BPtr = ::std::shared_ptr<B>;
-class C;
+        class C;
+        using CPtr = ::std::shared_ptr<C>;
 
-using CPtr = ::std::shared_ptr<C>;
-class D;
+        class D;
+        using DPtr = ::std::shared_ptr<D>;
 
-using DPtr = ::std::shared_ptr<D>;
+    }
 
-}
+    namespace MF
+    {
+        class A;
+        using APtr = ::std::shared_ptr<A>;
 
-namespace ME
-{
+        class B;
+        using BPtr = ::std::shared_ptr<B>;
 
-class A;
+        class C;
+        using CPtr = ::std::shared_ptr<C>;
 
-using APtr = ::std::shared_ptr<A>;
-class B;
+        class D;
+        using DPtr = ::std::shared_ptr<D>;
 
-using BPtr = ::std::shared_ptr<B>;
-class C;
+    }
 
-using CPtr = ::std::shared_ptr<C>;
-class D;
+    namespace MG
+    {
+        class A;
+        using APtr = ::std::shared_ptr<A>;
 
-using DPtr = ::std::shared_ptr<D>;
+        class B;
+        using BPtr = ::std::shared_ptr<B>;
 
-}
+        class C;
+        using CPtr = ::std::shared_ptr<C>;
 
-namespace MF
-{
+        class D;
+        using DPtr = ::std::shared_ptr<D>;
 
-class A;
+    }
 
-using APtr = ::std::shared_ptr<A>;
-class B;
+    namespace MH
+    {
+        class A;
+        using APtr = ::std::shared_ptr<A>;
 
-using BPtr = ::std::shared_ptr<B>;
-class C;
+        class B;
+        using BPtr = ::std::shared_ptr<B>;
 
-using CPtr = ::std::shared_ptr<C>;
-class D;
+        class C;
+        using CPtr = ::std::shared_ptr<C>;
 
-using DPtr = ::std::shared_ptr<D>;
+        class D;
+        using DPtr = ::std::shared_ptr<D>;
 
-}
-
-namespace MG
-{
-
-class A;
-
-using APtr = ::std::shared_ptr<A>;
-class B;
-
-using BPtr = ::std::shared_ptr<B>;
-class C;
-
-using CPtr = ::std::shared_ptr<C>;
-class D;
-
-using DPtr = ::std::shared_ptr<D>;
-
-}
-
-namespace MH
-{
-
-class A;
-
-using APtr = ::std::shared_ptr<A>;
-class B;
-
-using BPtr = ::std::shared_ptr<B>;
-class C;
-
-using CPtr = ::std::shared_ptr<C>;
-class D;
-
-using DPtr = ::std::shared_ptr<D>;
-
-}
-
+    }
 }
 
 namespace Test
@@ -202,7 +187,7 @@ public:
     {
     }
 
-    IAPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    IAPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -275,7 +260,7 @@ public:
     {
     }
 
-    IB1Prx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    IB1Prx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -347,7 +332,7 @@ public:
     {
     }
 
-    IB2Prx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    IB2Prx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -424,7 +409,7 @@ public:
     {
     }
 
-    ICPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    ICPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -537,7 +522,7 @@ public:
     {
     }
 
-    InitialPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    InitialPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -610,7 +595,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<A> ice_clone() const { return ::std::static_pointer_cast <A>(_iceCloneImpl()); }
+    APtr ice_clone() const { return ::std::static_pointer_cast <A>(_iceCloneImpl()); }
 
     ::std::int32_t aA;
 
@@ -618,7 +603,7 @@ protected:
 
     A(const A&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -664,7 +649,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<B> ice_clone() const { return ::std::static_pointer_cast <B>(_iceCloneImpl()); }
+    BPtr ice_clone() const { return ::std::static_pointer_cast <B>(_iceCloneImpl()); }
 
     ::std::int32_t bB;
 
@@ -672,7 +657,7 @@ protected:
 
     B(const B&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -714,7 +699,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<C> ice_clone() const { return ::std::static_pointer_cast <C>(_iceCloneImpl()); }
+    CPtr ice_clone() const { return ::std::static_pointer_cast <C>(_iceCloneImpl()); }
 
     ::std::int32_t cC;
 
@@ -722,7 +707,7 @@ protected:
 
     C(const C&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -764,7 +749,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<D> ice_clone() const { return ::std::static_pointer_cast <D>(_iceCloneImpl()); }
+    DPtr ice_clone() const { return ::std::static_pointer_cast <D>(_iceCloneImpl()); }
 
     ::std::int32_t dD;
 
@@ -772,7 +757,7 @@ protected:
 
     D(const D&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -818,7 +803,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<A> ice_clone() const { return ::std::static_pointer_cast <A>(_iceCloneImpl()); }
+    APtr ice_clone() const { return ::std::static_pointer_cast <A>(_iceCloneImpl()); }
 
     ::std::int32_t aA;
 
@@ -826,7 +811,7 @@ protected:
 
     A(const A&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -868,7 +853,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<B> ice_clone() const { return ::std::static_pointer_cast <B>(_iceCloneImpl()); }
+    BPtr ice_clone() const { return ::std::static_pointer_cast <B>(_iceCloneImpl()); }
 
     ::std::int32_t bB;
 
@@ -876,7 +861,7 @@ protected:
 
     B(const B&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -918,7 +903,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<C> ice_clone() const { return ::std::static_pointer_cast <C>(_iceCloneImpl()); }
+    CPtr ice_clone() const { return ::std::static_pointer_cast <C>(_iceCloneImpl()); }
 
     ::std::int32_t cC;
 
@@ -926,7 +911,7 @@ protected:
 
     C(const C&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -968,7 +953,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<D> ice_clone() const { return ::std::static_pointer_cast <D>(_iceCloneImpl()); }
+    DPtr ice_clone() const { return ::std::static_pointer_cast <D>(_iceCloneImpl()); }
 
     ::std::int32_t dD;
 
@@ -976,7 +961,7 @@ protected:
 
     D(const D&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1022,7 +1007,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<A> ice_clone() const { return ::std::static_pointer_cast <A>(_iceCloneImpl()); }
+    APtr ice_clone() const { return ::std::static_pointer_cast <A>(_iceCloneImpl()); }
 
     ::std::int32_t aA;
 
@@ -1030,7 +1015,7 @@ protected:
 
     A(const A&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1072,7 +1057,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<B> ice_clone() const { return ::std::static_pointer_cast <B>(_iceCloneImpl()); }
+    BPtr ice_clone() const { return ::std::static_pointer_cast <B>(_iceCloneImpl()); }
 
     ::std::int32_t bB;
 
@@ -1080,7 +1065,7 @@ protected:
 
     B(const B&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1122,7 +1107,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<C> ice_clone() const { return ::std::static_pointer_cast <C>(_iceCloneImpl()); }
+    CPtr ice_clone() const { return ::std::static_pointer_cast <C>(_iceCloneImpl()); }
 
     ::std::int32_t cC;
 
@@ -1130,7 +1115,7 @@ protected:
 
     C(const C&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1172,7 +1157,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<D> ice_clone() const { return ::std::static_pointer_cast <D>(_iceCloneImpl()); }
+    DPtr ice_clone() const { return ::std::static_pointer_cast <D>(_iceCloneImpl()); }
 
     ::std::int32_t dD;
 
@@ -1180,7 +1165,7 @@ protected:
 
     D(const D&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1226,7 +1211,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<A> ice_clone() const { return ::std::static_pointer_cast <A>(_iceCloneImpl()); }
+    APtr ice_clone() const { return ::std::static_pointer_cast <A>(_iceCloneImpl()); }
 
     ::std::int32_t aA;
 
@@ -1234,7 +1219,7 @@ protected:
 
     A(const A&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1276,7 +1261,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<B> ice_clone() const { return ::std::static_pointer_cast <B>(_iceCloneImpl()); }
+    BPtr ice_clone() const { return ::std::static_pointer_cast <B>(_iceCloneImpl()); }
 
     ::std::int32_t bB;
 
@@ -1284,7 +1269,7 @@ protected:
 
     B(const B&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1326,7 +1311,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<C> ice_clone() const { return ::std::static_pointer_cast <C>(_iceCloneImpl()); }
+    CPtr ice_clone() const { return ::std::static_pointer_cast <C>(_iceCloneImpl()); }
 
     ::std::int32_t cC;
 
@@ -1334,7 +1319,7 @@ protected:
 
     C(const C&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1376,7 +1361,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<D> ice_clone() const { return ::std::static_pointer_cast <D>(_iceCloneImpl()); }
+    DPtr ice_clone() const { return ::std::static_pointer_cast <D>(_iceCloneImpl()); }
 
     ::std::int32_t dD;
 
@@ -1384,7 +1369,7 @@ protected:
 
     D(const D&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1430,7 +1415,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<A> ice_clone() const { return ::std::static_pointer_cast <A>(_iceCloneImpl()); }
+    APtr ice_clone() const { return ::std::static_pointer_cast <A>(_iceCloneImpl()); }
 
     ::std::int32_t aA;
 
@@ -1438,7 +1423,7 @@ protected:
 
     A(const A&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1480,7 +1465,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<B> ice_clone() const { return ::std::static_pointer_cast <B>(_iceCloneImpl()); }
+    BPtr ice_clone() const { return ::std::static_pointer_cast <B>(_iceCloneImpl()); }
 
     ::std::int32_t bB;
 
@@ -1488,7 +1473,7 @@ protected:
 
     B(const B&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1530,7 +1515,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<C> ice_clone() const { return ::std::static_pointer_cast <C>(_iceCloneImpl()); }
+    CPtr ice_clone() const { return ::std::static_pointer_cast <C>(_iceCloneImpl()); }
 
     ::std::int32_t cC;
 
@@ -1538,7 +1523,7 @@ protected:
 
     C(const C&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1580,7 +1565,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<D> ice_clone() const { return ::std::static_pointer_cast <D>(_iceCloneImpl()); }
+    DPtr ice_clone() const { return ::std::static_pointer_cast <D>(_iceCloneImpl()); }
 
     ::std::int32_t dD;
 
@@ -1588,7 +1573,7 @@ protected:
 
     D(const D&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1634,7 +1619,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<A> ice_clone() const { return ::std::static_pointer_cast <A>(_iceCloneImpl()); }
+    APtr ice_clone() const { return ::std::static_pointer_cast <A>(_iceCloneImpl()); }
 
     ::std::int32_t aA;
 
@@ -1642,7 +1627,7 @@ protected:
 
     A(const A&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1684,7 +1669,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<B> ice_clone() const { return ::std::static_pointer_cast <B>(_iceCloneImpl()); }
+    BPtr ice_clone() const { return ::std::static_pointer_cast <B>(_iceCloneImpl()); }
 
     ::std::int32_t bB;
 
@@ -1692,7 +1677,7 @@ protected:
 
     B(const B&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1734,7 +1719,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<C> ice_clone() const { return ::std::static_pointer_cast <C>(_iceCloneImpl()); }
+    CPtr ice_clone() const { return ::std::static_pointer_cast <C>(_iceCloneImpl()); }
 
     ::std::int32_t cC;
 
@@ -1742,7 +1727,7 @@ protected:
 
     C(const C&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1784,7 +1769,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<D> ice_clone() const { return ::std::static_pointer_cast <D>(_iceCloneImpl()); }
+    DPtr ice_clone() const { return ::std::static_pointer_cast <D>(_iceCloneImpl()); }
 
     ::std::int32_t dD;
 
@@ -1792,7 +1777,7 @@ protected:
 
     D(const D&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;

@@ -39,11 +39,13 @@
 
 namespace Ice
 {
+    class ProcessPrx;
 
-class ProcessPrx;
-class LocatorRegistryPrx;
-class LocatorPrx;
-class LocatorFinderPrx;
+    class LocatorRegistryPrx;
+
+    class LocatorPrx;
+
+    class LocatorFinderPrx;
 
 }
 
@@ -176,7 +178,7 @@ public:
     {
     }
 
-    LocatorPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    LocatorPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -353,7 +355,7 @@ public:
     {
     }
 
-    LocatorRegistryPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    LocatorRegistryPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -442,7 +444,7 @@ public:
     {
     }
 
-    LocatorFinderPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    LocatorFinderPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

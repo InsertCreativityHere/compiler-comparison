@@ -87,7 +87,7 @@ Test2::Class1::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test2::Class1::_iceCloneImpl() const
 {
     return CloneEnabler<Class1>::clone(*this);

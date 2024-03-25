@@ -28,11 +28,11 @@
 
 namespace Test
 {
+    using Context = ::std::map<::std::string, ::std::string>;
 
+    class MyClassPrx;
 
-using Context = ::std::map<::std::string, ::std::string>;
-class MyClassPrx;
-class MyDerivedClassPrx;
+    class MyDerivedClassPrx;
 
 }
 
@@ -83,7 +83,7 @@ public:
     {
     }
 
-    MyClassPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    MyClassPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -151,7 +151,7 @@ public:
     {
     }
 
-    MyDerivedClassPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    MyDerivedClassPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

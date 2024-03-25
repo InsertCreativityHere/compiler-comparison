@@ -40,9 +40,9 @@
 
 namespace IceBox
 {
+    class ServiceObserverPrx;
 
-class ServiceObserverPrx;
-class ServiceManagerPrx;
+    class ServiceManagerPrx;
 
 }
 
@@ -137,7 +137,7 @@ public:
     {
     }
 
-    ServiceObserverPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    ServiceObserverPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -318,7 +318,7 @@ public:
     {
     }
 
-    ServiceManagerPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    ServiceManagerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

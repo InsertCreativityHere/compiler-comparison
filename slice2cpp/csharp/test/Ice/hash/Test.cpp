@@ -198,7 +198,7 @@ Test::Pen::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::Pen::_iceCloneImpl() const
 {
     return CloneEnabler<Pen>::clone(*this);

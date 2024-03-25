@@ -298,25 +298,25 @@ await::optionalParamsPrx::ice_staticId() noexcept
 }
 
 ::await::var
-await::implicitPrx::in(const _cpp_break& iceP_internal, const ::std::shared_ptr<delete>& iceP_is, const ::std::optional<explicitPrx>& iceP_lock, const ::std::optional<casePrx>& iceP_namespace, const ::std::optional<typeofPrx>& iceP_new, const ::std::shared_ptr<delete>& iceP_null, const ::std::optional<explicitPrx>& iceP_operator, ::std::int32_t iceP_override, ::std::int32_t iceP_params, ::std::int32_t iceP_private, const ::Ice::Context& context) const
+await::implicitPrx::in(const _cpp_break& iceP_internal, const deletePtr& iceP_is, const ::std::optional<explicitPrx>& iceP_lock, const ::std::optional<casePrx>& iceP_namespace, const ::std::optional<typeofPrx>& iceP_new, const deletePtr& iceP_null, const ::std::optional<explicitPrx>& iceP_operator, ::std::int32_t iceP_override, ::std::int32_t iceP_params, ::std::int32_t iceP_private, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<var>(true, this, &implicitPrx::_iceI_in, iceP_internal, iceP_is, iceP_lock, iceP_namespace, iceP_new, iceP_null, iceP_operator, iceP_override, iceP_params, iceP_private, context).get();
 }
 
 ::std::future<::await::var>
-await::implicitPrx::inAsync(const _cpp_break& iceP_internal, const ::std::shared_ptr<delete>& iceP_is, const ::std::optional<explicitPrx>& iceP_lock, const ::std::optional<casePrx>& iceP_namespace, const ::std::optional<typeofPrx>& iceP_new, const ::std::shared_ptr<delete>& iceP_null, const ::std::optional<explicitPrx>& iceP_operator, ::std::int32_t iceP_override, ::std::int32_t iceP_params, ::std::int32_t iceP_private, const ::Ice::Context& context) const
+await::implicitPrx::inAsync(const _cpp_break& iceP_internal, const deletePtr& iceP_is, const ::std::optional<explicitPrx>& iceP_lock, const ::std::optional<casePrx>& iceP_namespace, const ::std::optional<typeofPrx>& iceP_new, const deletePtr& iceP_null, const ::std::optional<explicitPrx>& iceP_operator, ::std::int32_t iceP_override, ::std::int32_t iceP_params, ::std::int32_t iceP_private, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<var>(false, this, &implicitPrx::_iceI_in, iceP_internal, iceP_is, iceP_lock, iceP_namespace, iceP_new, iceP_null, iceP_operator, iceP_override, iceP_params, iceP_private, context);
 }
 
 ::std::function<void()>
-await::implicitPrx::inAsync(const _cpp_break& iceP_internal, const ::std::shared_ptr<delete>& iceP_is, const ::std::optional<explicitPrx>& iceP_lock, const ::std::optional<casePrx>& iceP_namespace, const ::std::optional<typeofPrx>& iceP_new, const ::std::shared_ptr<delete>& iceP_null, const ::std::optional<explicitPrx>& iceP_operator, ::std::int32_t iceP_override, ::std::int32_t iceP_params, ::std::int32_t iceP_private, ::std::function<void(::await::var)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+await::implicitPrx::inAsync(const _cpp_break& iceP_internal, const deletePtr& iceP_is, const ::std::optional<explicitPrx>& iceP_lock, const ::std::optional<casePrx>& iceP_namespace, const ::std::optional<typeofPrx>& iceP_new, const deletePtr& iceP_null, const ::std::optional<explicitPrx>& iceP_operator, ::std::int32_t iceP_override, ::std::int32_t iceP_params, ::std::int32_t iceP_private, ::std::function<void(::await::var)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<var>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &await::implicitPrx::_iceI_in, iceP_internal, iceP_is, iceP_lock, iceP_namespace, iceP_new, iceP_null, iceP_operator, iceP_override, iceP_params, iceP_private, context);
 }
 
 void
-await::implicitPrx::_iceI_in(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<var>>& outAsync, const _cpp_break& iceP_internal, const ::std::shared_ptr<delete>& iceP_is, const ::std::optional<explicitPrx>& iceP_lock, const ::std::optional<casePrx>& iceP_namespace, const ::std::optional<typeofPrx>& iceP_new, const ::std::shared_ptr<delete>& iceP_null, const ::std::optional<explicitPrx>& iceP_operator, ::std::int32_t iceP_override, ::std::int32_t iceP_params, ::std::int32_t iceP_private, const ::Ice::Context& context) const
+await::implicitPrx::_iceI_in(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<var>>& outAsync, const _cpp_break& iceP_internal, const deletePtr& iceP_is, const ::std::optional<explicitPrx>& iceP_lock, const ::std::optional<casePrx>& iceP_namespace, const ::std::optional<typeofPrx>& iceP_new, const deletePtr& iceP_null, const ::std::optional<explicitPrx>& iceP_operator, ::std::int32_t iceP_override, ::std::int32_t iceP_params, ::std::int32_t iceP_private, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "in";
 
@@ -437,7 +437,7 @@ await::_cpp_delete::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 await::_cpp_delete::_iceCloneImpl() const
 {
     return CloneEnabler<_cpp_delete>::clone(*this);
@@ -472,7 +472,7 @@ await::package::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 await::package::_iceCloneImpl() const
 {
     return CloneEnabler<package>::clone(*this);
@@ -1073,11 +1073,11 @@ await::implicit::_iceD_in(::Ice::IncomingRequest& request, ::std::function<void(
     auto istr = &request.inputStream();
     istr->startEncapsulation();
     _cpp_break iceP_internal;
-    ::std::shared_ptr<delete> iceP_is;
+    deletePtr iceP_is;
     ::std::optional<explicitPrx> iceP_lock;
     ::std::optional<casePrx> iceP_namespace;
     ::std::optional<typeofPrx> iceP_new;
-    ::std::shared_ptr<delete> iceP_null;
+    deletePtr iceP_null;
     ::std::optional<explicitPrx> iceP_operator;
     ::std::int32_t iceP_override;
     ::std::int32_t iceP_params;

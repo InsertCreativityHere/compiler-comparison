@@ -29,29 +29,26 @@
 namespace Test
 {
 
+    namespace MA
+    {
+        class IAPrx;
 
-namespace MA
-{
+    }
 
-class IAPrx;
+    namespace MB
+    {
+        class IB1Prx;
 
-}
+        class IB2Prx;
 
-namespace MB
-{
+    }
 
-class IB1Prx;
-class IB2Prx;
+    namespace MA
+    {
+        class ICPrx;
 
-}
-
-namespace MA
-{
-
-class ICPrx;
-
-}
-class InitialPrx;
+    }
+    class InitialPrx;
 
 }
 
@@ -94,7 +91,7 @@ public:
     {
     }
 
-    IAPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    IAPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -167,7 +164,7 @@ public:
     {
     }
 
-    IB1Prx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    IB1Prx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -239,7 +236,7 @@ public:
     {
     }
 
-    IB2Prx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    IB2Prx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -316,7 +313,7 @@ public:
     {
     }
 
-    ICPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    ICPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -429,7 +426,7 @@ public:
     {
     }
 
-    InitialPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    InitialPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

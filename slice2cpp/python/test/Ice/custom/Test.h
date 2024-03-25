@@ -28,57 +28,57 @@
 
 namespace Test
 {
+    /**
+     * By default, sequence<byte> is received as a string.
+     */
+    using ByteString = ::std::vector<std::byte>;
 
+    using ByteList = ::std::vector<std::byte>;
 
-/**
- * By default, sequence<byte> is received as a string.
- */
-using ByteString = ::std::vector<std::byte>;
+    /**
+     * By default, a sequence is received as a list.
+     */
+    using StringList = ::std::vector<::std::string>;
 
-using ByteList = ::std::vector<std::byte>;
+    using StringTuple = ::std::vector<::std::string>;
 
-/**
- * By default, a sequence is received as a list.
- */
-using StringList = ::std::vector<::std::string>;
+    using BoolSeq1 = ::std::vector<bool>;
 
-using StringTuple = ::std::vector<::std::string>;
+    using BoolSeq2 = ::std::vector<bool>;
 
-using BoolSeq1 = ::std::vector<bool>;
+    using ByteSeq1 = ::std::vector<std::byte>;
 
-using BoolSeq2 = ::std::vector<bool>;
+    using ByteSeq2 = ::std::vector<std::byte>;
 
-using ByteSeq1 = ::std::vector<std::byte>;
+    using ShortSeq1 = ::std::vector<::std::int16_t>;
 
-using ByteSeq2 = ::std::vector<std::byte>;
+    using ShortSeq2 = ::std::vector<::std::int16_t>;
 
-using ShortSeq1 = ::std::vector<::std::int16_t>;
+    using IntSeq1 = ::std::vector<::std::int32_t>;
 
-using ShortSeq2 = ::std::vector<::std::int16_t>;
+    using IntSeq2 = ::std::vector<::std::int32_t>;
 
-using IntSeq1 = ::std::vector<::std::int32_t>;
+    using LongSeq1 = ::std::vector<::std::int64_t>;
 
-using IntSeq2 = ::std::vector<::std::int32_t>;
+    using LongSeq2 = ::std::vector<::std::int64_t>;
 
-using LongSeq1 = ::std::vector<::std::int64_t>;
+    using FloatSeq1 = ::std::vector<float>;
 
-using LongSeq2 = ::std::vector<::std::int64_t>;
+    using FloatSeq2 = ::std::vector<float>;
 
-using FloatSeq1 = ::std::vector<float>;
+    using DoubleSeq1 = ::std::vector<double>;
 
-using FloatSeq2 = ::std::vector<float>;
+    using DoubleSeq2 = ::std::vector<double>;
 
-using DoubleSeq1 = ::std::vector<double>;
+    struct S;
 
-using DoubleSeq2 = ::std::vector<double>;
-struct S;
-class C;
+    class C;
+    using CPtr = ::std::shared_ptr<C>;
 
-using CPtr = ::std::shared_ptr<C>;
-class D;
+    class D;
+    using DPtr = ::std::shared_ptr<D>;
 
-using DPtr = ::std::shared_ptr<D>;
-class CustomPrx;
+    class CustomPrx;
 
 }
 
@@ -188,15 +188,15 @@ public:
     void _iceI_sendS(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const S&, const ::Ice::Context&) const;
     /// \endcond
 
-    void sendC(const ::std::shared_ptr<C>& val, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void sendC(const CPtr& val, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<void> sendCAsync(const ::std::shared_ptr<C>& val, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> sendCAsync(const CPtr& val, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    sendCAsync(const ::std::shared_ptr<C>& val, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    sendCAsync(const CPtr& val, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_sendC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::shared_ptr<C>&, const ::Ice::Context&) const;
+    void _iceI_sendC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const CPtr&, const ::Ice::Context&) const;
     /// \endcond
 
     BoolSeq1 opBoolSeq(const BoolSeq1& v1, BoolSeq2& v2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -342,15 +342,15 @@ public:
     void _iceI_opBogusArrayNoCallableFactory(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<BoolSeq1>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::shared_ptr<D> opD(const ::std::shared_ptr<D>& d, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    DPtr opD(const DPtr& d, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<D>> opDAsync(const ::std::shared_ptr<D>& d, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<DPtr> opDAsync(const DPtr& d, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opDAsync(const ::std::shared_ptr<D>& d, ::std::function<void(::std::shared_ptr<::Test::D>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opDAsync(const DPtr& d, ::std::function<void(::Test::DPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<D>>>&, const ::std::shared_ptr<D>&, const ::Ice::Context&) const;
+    void _iceI_opD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<DPtr>>&, const DPtr&, const ::Ice::Context&) const;
     /// \endcond
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -382,7 +382,7 @@ public:
     {
     }
 
-    CustomPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    CustomPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -480,7 +480,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<C> ice_clone() const { return ::std::static_pointer_cast <C>(_iceCloneImpl()); }
+    CPtr ice_clone() const { return ::std::static_pointer_cast <C>(_iceCloneImpl()); }
 
     ::Test::ByteString b1;
     ::Test::ByteString b2;
@@ -495,7 +495,7 @@ protected:
 
     C(const C&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -546,7 +546,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<D> ice_clone() const { return ::std::static_pointer_cast <D>(_iceCloneImpl()); }
+    DPtr ice_clone() const { return ::std::static_pointer_cast <D>(_iceCloneImpl()); }
 
     ::std::optional<::Test::BoolSeq1> boolSeq;
     ::std::optional<::Test::ByteSeq1> byteSeq;
@@ -560,7 +560,7 @@ protected:
 
     D(const D&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -649,7 +649,7 @@ public:
     void _iceD_sendS(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual void sendC(::std::shared_ptr<C> val, const ::Ice::Current& current) = 0;
+    virtual void sendC(CPtr val, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_sendC(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
@@ -719,7 +719,7 @@ public:
     void _iceD_opBogusArrayNoCallableFactory(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual ::std::shared_ptr<D> opD(::std::shared_ptr<D> d, const ::Ice::Current& current) = 0;
+    virtual DPtr opD(DPtr d, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_opD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond

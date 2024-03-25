@@ -30,14 +30,11 @@
 namespace Demo
 {
 
+    namespace gx
+    {
+        struct Square;
 
-namespace gx
-{
-
-struct Square;
-
-}
-
+    }
 }
 
 namespace Demo

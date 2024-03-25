@@ -28,12 +28,12 @@
 
 namespace Clash
 {
+    class IntfPrx;
 
-class IntfPrx;
-class Cls;
+    class Cls;
+    using ClsPtr = ::std::shared_ptr<Cls>;
 
-using ClsPtr = ::std::shared_ptr<Cls>;
-struct St;
+    struct St;
 
 }
 
@@ -194,7 +194,7 @@ public:
     {
     }
 
-    IntfPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    IntfPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -280,7 +280,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<Cls> ice_clone() const { return ::std::static_pointer_cast <Cls>(_iceCloneImpl()); }
+    ClsPtr ice_clone() const { return ::std::static_pointer_cast <Cls>(_iceCloneImpl()); }
 
     ::std::optional<::Clash::IntfPrx> s;
     ::std::string context;
@@ -304,7 +304,7 @@ protected:
 
     Cls(const Cls&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;

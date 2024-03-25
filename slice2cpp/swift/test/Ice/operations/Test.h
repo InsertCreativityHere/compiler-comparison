@@ -29,292 +29,295 @@
 
 namespace Test
 {
+    enum class MyEnum : ::std::uint8_t
+    {
+        enum1,
+        enum2,
+        enum3
+    };
 
+    class MyClassPrx;
 
-enum class MyEnum : unsigned char
-{
-    enum1,
-    enum2,
-    enum3
-};
-class MyClassPrx;
-struct AnotherStruct;
-struct Structure;
+    struct AnotherStruct;
 
-using ByteS = ::std::vector<std::byte>;
+    struct Structure;
 
-using BoolS = ::std::vector<bool>;
+    using ByteS = ::std::vector<std::byte>;
 
-using ShortS = ::std::vector<::std::int16_t>;
+    using BoolS = ::std::vector<bool>;
 
-using IntS = ::std::vector<::std::int32_t>;
+    using ShortS = ::std::vector<::std::int16_t>;
 
-using LongS = ::std::vector<::std::int64_t>;
+    using IntS = ::std::vector<::std::int32_t>;
 
-using FloatS = ::std::vector<float>;
+    using LongS = ::std::vector<::std::int64_t>;
 
-using DoubleS = ::std::vector<double>;
+    using FloatS = ::std::vector<float>;
 
-using StringS = ::std::vector<::std::string>;
+    using DoubleS = ::std::vector<double>;
 
-using WStringS = ::std::vector<::std::wstring>;
+    using StringS = ::std::vector<::std::string>;
 
-using MyEnumS = ::std::vector<MyEnum>;
+    using WStringS = ::std::vector<::std::wstring>;
 
-using MyClassS = ::std::vector<::std::optional<MyClassPrx>>;
+    using MyEnumS = ::std::vector<MyEnum>;
 
-using ByteSS = ::std::vector<ByteS>;
+    using MyClassS = ::std::vector<::std::optional<MyClassPrx>>;
 
-using BoolSS = ::std::vector<BoolS>;
+    using ByteSS = ::std::vector<ByteS>;
 
-using ShortSS = ::std::vector<ShortS>;
+    using BoolSS = ::std::vector<BoolS>;
 
-using IntSS = ::std::vector<IntS>;
+    using ShortSS = ::std::vector<ShortS>;
 
-using LongSS = ::std::vector<LongS>;
+    using IntSS = ::std::vector<IntS>;
 
-using FloatSS = ::std::vector<FloatS>;
+    using LongSS = ::std::vector<LongS>;
 
-using DoubleSS = ::std::vector<DoubleS>;
+    using FloatSS = ::std::vector<FloatS>;
 
-using StringSS = ::std::vector<StringS>;
+    using DoubleSS = ::std::vector<DoubleS>;
 
-using MyEnumSS = ::std::vector<MyEnumS>;
+    using StringSS = ::std::vector<StringS>;
 
-using MyClassSS = ::std::vector<MyClassS>;
+    using MyEnumSS = ::std::vector<MyEnumS>;
 
-using StringSSS = ::std::vector<StringSS>;
-struct MyStruct;
+    using MyClassSS = ::std::vector<MyClassS>;
 
-using ByteBoolD = ::std::map<::std::uint8_t, bool>;
+    using StringSSS = ::std::vector<StringSS>;
 
-using ShortIntD = ::std::map<::std::int16_t, ::std::int32_t>;
+    struct MyStruct;
 
-using LongFloatD = ::std::map<::std::int64_t, float>;
+    using ByteBoolD = ::std::map<::std::uint8_t, bool>;
 
-using StringStringD = ::std::map<::std::string, ::std::string>;
+    using ShortIntD = ::std::map<::std::int16_t, ::std::int32_t>;
 
-using StringMyEnumD = ::std::map<::std::string, MyEnum>;
+    using LongFloatD = ::std::map<::std::int64_t, float>;
 
-using MyEnumStringD = ::std::map<MyEnum, ::std::string>;
+    using StringStringD = ::std::map<::std::string, ::std::string>;
 
-using MyStructMyEnumD = ::std::map<MyStruct, MyEnum>;
+    using StringMyEnumD = ::std::map<::std::string, MyEnum>;
 
-using ByteBoolDS = ::std::vector<ByteBoolD>;
+    using MyEnumStringD = ::std::map<MyEnum, ::std::string>;
 
-using ShortIntDS = ::std::vector<ShortIntD>;
+    using MyStructMyEnumD = ::std::map<MyStruct, MyEnum>;
 
-using LongFloatDS = ::std::vector<LongFloatD>;
+    using ByteBoolDS = ::std::vector<ByteBoolD>;
 
-using StringStringDS = ::std::vector<StringStringD>;
+    using ShortIntDS = ::std::vector<ShortIntD>;
 
-using StringMyEnumDS = ::std::vector<StringMyEnumD>;
+    using LongFloatDS = ::std::vector<LongFloatD>;
 
-using MyEnumStringDS = ::std::vector<MyEnumStringD>;
+    using StringStringDS = ::std::vector<StringStringD>;
 
-using MyStructMyEnumDS = ::std::vector<MyStructMyEnumD>;
+    using StringMyEnumDS = ::std::vector<StringMyEnumD>;
 
-using ByteByteSD = ::std::map<::std::uint8_t, ByteS>;
+    using MyEnumStringDS = ::std::vector<MyEnumStringD>;
 
-using BoolBoolSD = ::std::map<bool, BoolS>;
+    using MyStructMyEnumDS = ::std::vector<MyStructMyEnumD>;
 
-using ShortShortSD = ::std::map<::std::int16_t, ShortS>;
+    using ByteByteSD = ::std::map<::std::uint8_t, ByteS>;
 
-using IntIntSD = ::std::map<::std::int32_t, IntS>;
+    using BoolBoolSD = ::std::map<bool, BoolS>;
 
-using LongLongSD = ::std::map<::std::int64_t, LongS>;
+    using ShortShortSD = ::std::map<::std::int16_t, ShortS>;
 
-using StringFloatSD = ::std::map<::std::string, FloatS>;
+    using IntIntSD = ::std::map<::std::int32_t, IntS>;
 
-using StringDoubleSD = ::std::map<::std::string, DoubleS>;
+    using LongLongSD = ::std::map<::std::int64_t, LongS>;
 
-using StringStringSD = ::std::map<::std::string, StringS>;
+    using StringFloatSD = ::std::map<::std::string, FloatS>;
 
-using MyEnumMyEnumSD = ::std::map<MyEnum, MyEnumS>;
-struct MyStruct1;
-class MyClass1;
+    using StringDoubleSD = ::std::map<::std::string, DoubleS>;
 
-using MyClass1Ptr = ::std::shared_ptr<MyClass1>;
-class MyDerivedClassPrx;
+    using StringStringSD = ::std::map<::std::string, StringS>;
 
-const ::std::string s0 = "\\";
+    using MyEnumMyEnumSD = ::std::map<MyEnum, MyEnumS>;
 
-const ::std::string s1 = "A";
+    struct MyStruct1;
 
-const ::std::string s2 = "Ice";
+    class MyClass1;
+    using MyClass1Ptr = ::std::shared_ptr<MyClass1>;
 
-const ::std::string s3 = "A21";
+    class MyDerivedClassPrx;
 
-const ::std::string s4 = "\\u0041 \\U00000041";
+    const ::std::string s0 = "\\";
 
-const ::std::string s5 = "\303\277";
+    const ::std::string s1 = "A";
 
-const ::std::string s6 = "\317\277";
+    const ::std::string s2 = "Ice";
 
-const ::std::string s7 = "\327\260";
+    const ::std::string s3 = "A21";
 
-const ::std::string s8 = "\360\220\200\200";
+    const ::std::string s4 = "\\u0041 \\U00000041";
 
-const ::std::string s9 = "\360\237\215\214";
+    const ::std::string s5 = "\303\277";
 
-const ::std::string s10 = "\340\266\247";
+    const ::std::string s6 = "\317\277";
 
-const ::std::string s11 = "\342\202\254\342\202\254\342\202\254";
+    const ::std::string s7 = "\327\260";
 
-const ::std::string s12 = "\\101";
+    const ::std::string s8 = "\360\220\200\200";
 
-const ::std::string sw0 = "\\";
+    const ::std::string s9 = "\360\237\215\214";
 
-const ::std::string sw1 = "A";
+    const ::std::string s10 = "\340\266\247";
 
-const ::std::string sw2 = "Ice";
+    const ::std::string s11 = "\342\202\254\342\202\254\342\202\254";
 
-const ::std::string sw3 = "A21";
+    const ::std::string s12 = "\\101";
 
-const ::std::string sw4 = "\\u0041 \\U00000041";
+    const ::std::string sw0 = "\\";
 
-const ::std::string sw5 = "\303\277";
+    const ::std::string sw1 = "A";
 
-const ::std::string sw6 = "\317\277";
+    const ::std::string sw2 = "Ice";
 
-const ::std::string sw7 = "\327\260";
+    const ::std::string sw3 = "A21";
 
-const ::std::string sw8 = "\360\220\200\200";
+    const ::std::string sw4 = "\\u0041 \\U00000041";
 
-const ::std::string sw9 = "\360\237\215\214";
+    const ::std::string sw5 = "\303\277";
 
-const ::std::string sw10 = "\340\266\247";
+    const ::std::string sw6 = "\317\277";
 
-/**
- * \'      single quote    byte 0x27 in ASCII encoding
- * \"      double quote    byte 0x22 in ASCII encoding
- * \?      question mark   byte 0x3f in ASCII encoding
- * \\      backslash       byte 0x5c in ASCII encoding
- * \a      audible bell    byte 0x07 in ASCII encoding
- * \b      backspace       byte 0x08 in ASCII encoding
- * \f      form feed - new page    byte 0x0c in ASCII encoding
- * \n      line feed - new line    byte 0x0a in ASCII encoding
- * \r      carriage return byte 0x0d in ASCII encoding
- * \t      horizontal tab  byte 0x09 in ASCII encoding
- * \v      vertical tab    byte 0x0b in ASCII encoding
- */
-const ::std::string ss0 = "'\"\?\\\a\b\f\n\r\t\v\006";
+    const ::std::string sw7 = "\327\260";
 
-const ::std::string ss1 = "'\"\?\\\a\b\f\n\r\t\v\006";
+    const ::std::string sw8 = "\360\220\200\200";
 
-const ::std::string ss2 = "'\"\?\\\a\b\f\n\r\t\v\006";
+    const ::std::string sw9 = "\360\237\215\214";
 
-/**
- * \\U\u\
- */
-const ::std::string ss3 = "\\\\U\\u\\";
+    const ::std::string sw10 = "\340\266\247";
 
-/**
- * \A\
- */
-const ::std::string ss4 = "\\A\\";
+    /**
+     * \'      single quote    byte 0x27 in ASCII encoding
+     * \"      double quote    byte 0x22 in ASCII encoding
+     * \?      question mark   byte 0x3f in ASCII encoding
+     * \\      backslash       byte 0x5c in ASCII encoding
+     * \a      audible bell    byte 0x07 in ASCII encoding
+     * \b      backspace       byte 0x08 in ASCII encoding
+     * \f      form feed - new page    byte 0x0c in ASCII encoding
+     * \n      line feed - new line    byte 0x0a in ASCII encoding
+     * \r      carriage return byte 0x0d in ASCII encoding
+     * \t      horizontal tab  byte 0x09 in ASCII encoding
+     * \v      vertical tab    byte 0x0b in ASCII encoding
+     */
+    const ::std::string ss0 = "'\"\?\\\a\b\f\n\r\t\v\006";
 
-/**
- * \u0041\
- */
-const ::std::string ss5 = "\\u0041\\";
+    const ::std::string ss1 = "'\"\?\\\a\b\f\n\r\t\v\006";
 
-const ::std::string su0 = "\304\250\305\270\303\277\304\200\341\274\200\360\220\206\224\360\220\205\252\360\220\206\230\360\237\215\200\360\237\215\201\360\237\215\202\360\237\215\203";
+    const ::std::string ss2 = "'\"\?\\\a\b\f\n\r\t\v\006";
 
-const ::std::string su1 = "\304\250\305\270\303\277\304\200\341\274\200\360\220\206\224\360\220\205\252\360\220\206\230\360\237\215\200\360\237\215\201\360\237\215\202\360\237\215\203";
+    /**
+     * \\U\u\
+     */
+    const ::std::string ss3 = "\\\\U\\u\\";
 
-const ::std::string su2 = "\304\250\305\270\303\277\304\200\341\274\200\360\220\206\224\360\220\205\252\360\220\206\230\360\237\215\200\360\237\215\201\360\237\215\202\360\237\215\203";
+    /**
+     * \A\
+     */
+    const ::std::string ss4 = "\\A\\";
 
-const ::std::wstring ws0 = L"\\";
+    /**
+     * \u0041\
+     */
+    const ::std::string ss5 = "\\u0041\\";
 
-const ::std::wstring ws1 = L"A";
+    const ::std::string su0 = "\304\250\305\270\303\277\304\200\341\274\200\360\220\206\224\360\220\205\252\360\220\206\230\360\237\215\200\360\237\215\201\360\237\215\202\360\237\215\203";
 
-const ::std::wstring ws2 = L"Ice";
+    const ::std::string su1 = "\304\250\305\270\303\277\304\200\341\274\200\360\220\206\224\360\220\205\252\360\220\206\230\360\237\215\200\360\237\215\201\360\237\215\202\360\237\215\203";
 
-const ::std::wstring ws3 = L"A21";
+    const ::std::string su2 = "\304\250\305\270\303\277\304\200\341\274\200\360\220\206\224\360\220\205\252\360\220\206\230\360\237\215\200\360\237\215\201\360\237\215\202\360\237\215\203";
 
-const ::std::wstring ws4 = L"\\u0041 \\U00000041";
+    const ::std::wstring ws0 = L"\\";
 
-const ::std::wstring ws5 = L"\u00FF";
+    const ::std::wstring ws1 = L"A";
 
-const ::std::wstring ws6 = L"\u03FF";
+    const ::std::wstring ws2 = L"Ice";
 
-const ::std::wstring ws7 = L"\u05F0";
+    const ::std::wstring ws3 = L"A21";
 
-const ::std::wstring ws8 = L"\U00010000";
+    const ::std::wstring ws4 = L"\\u0041 \\U00000041";
 
-const ::std::wstring ws9 = L"\U0001F34C";
+    const ::std::wstring ws5 = L"\u00FF";
 
-const ::std::wstring ws10 = L"\u0DA7";
+    const ::std::wstring ws6 = L"\u03FF";
 
-const ::std::wstring wsw0 = L"\\";
+    const ::std::wstring ws7 = L"\u05F0";
 
-const ::std::wstring wsw1 = L"A";
+    const ::std::wstring ws8 = L"\U00010000";
 
-const ::std::wstring wsw2 = L"Ice";
+    const ::std::wstring ws9 = L"\U0001F34C";
 
-const ::std::wstring wsw3 = L"A21";
+    const ::std::wstring ws10 = L"\u0DA7";
 
-const ::std::wstring wsw4 = L"\\u0041 \\U00000041";
+    const ::std::wstring wsw0 = L"\\";
 
-const ::std::wstring wsw5 = L"\U000000FF";
+    const ::std::wstring wsw1 = L"A";
 
-const ::std::wstring wsw6 = L"\U000003FF";
+    const ::std::wstring wsw2 = L"Ice";
 
-const ::std::wstring wsw7 = L"\U000005F0";
+    const ::std::wstring wsw3 = L"A21";
 
-const ::std::wstring wsw8 = L"\U00010000";
+    const ::std::wstring wsw4 = L"\\u0041 \\U00000041";
 
-const ::std::wstring wsw9 = L"\U0001F34C";
+    const ::std::wstring wsw5 = L"\U000000FF";
 
-const ::std::wstring wsw10 = L"\U00000DA7";
+    const ::std::wstring wsw6 = L"\U000003FF";
 
-/**
- * \'      single quote    byte 0x27 in ASCII encoding
- * \"      double quote    byte 0x22 in ASCII encoding
- * \?      question mark   byte 0x3f in ASCII encoding
- * \\      backslash       byte 0x5c in ASCII encoding
- * \a      audible bell    byte 0x07 in ASCII encoding
- * \b      backspace       byte 0x08 in ASCII encoding
- * \f      form feed - new page    byte 0x0c in ASCII encoding
- * \n      line feed - new line    byte 0x0a in ASCII encoding
- * \r      carriage return byte 0x0d in ASCII encoding
- * \t      horizontal tab  byte 0x09 in ASCII encoding
- * \v      vertical tab    byte 0x0b in ASCII encoding
- */
-const ::std::wstring wss0 = L"'\"\?\\\a\b\f\n\r\t\v\u0006";
+    const ::std::wstring wsw7 = L"\U000005F0";
 
-const ::std::wstring wss1 = L"'\"\?\\\a\b\f\n\r\t\v\u0006";
+    const ::std::wstring wsw8 = L"\U00010000";
 
-const ::std::wstring wss2 = L"'\"\?\\\a\b\f\n\r\t\v\u0006";
+    const ::std::wstring wsw9 = L"\U0001F34C";
 
-/**
- * \\U\u\
- */
-const ::std::wstring wss3 = L"\\\\U\\u\\";
+    const ::std::wstring wsw10 = L"\U00000DA7";
 
-/**
- * \A\
- */
-const ::std::wstring wss4 = L"\\A\\";
+    /**
+     * \'      single quote    byte 0x27 in ASCII encoding
+     * \"      double quote    byte 0x22 in ASCII encoding
+     * \?      question mark   byte 0x3f in ASCII encoding
+     * \\      backslash       byte 0x5c in ASCII encoding
+     * \a      audible bell    byte 0x07 in ASCII encoding
+     * \b      backspace       byte 0x08 in ASCII encoding
+     * \f      form feed - new page    byte 0x0c in ASCII encoding
+     * \n      line feed - new line    byte 0x0a in ASCII encoding
+     * \r      carriage return byte 0x0d in ASCII encoding
+     * \t      horizontal tab  byte 0x09 in ASCII encoding
+     * \v      vertical tab    byte 0x0b in ASCII encoding
+     */
+    const ::std::wstring wss0 = L"'\"\?\\\a\b\f\n\r\t\v\u0006";
 
-/**
- * \u0041\
- */
-const ::std::wstring wss5 = L"\\u0041\\";
+    const ::std::wstring wss1 = L"'\"\?\\\a\b\f\n\r\t\v\u0006";
 
-const ::std::wstring wsu0 = L"\u0128\u0178\u00ff\u0100\u1f00\U00010194\U0001016a\U00010198\U0001f340\U0001f341\U0001f342\U0001f343";
+    const ::std::wstring wss2 = L"'\"\?\\\a\b\f\n\r\t\v\u0006";
 
-const ::std::wstring wsu1 = L"\u0128\u0178\u00FF\u0100\u1F00\U00010194\U0001016A\U00010198\U0001F340\U0001F341\U0001F342\U0001F343";
+    /**
+     * \\U\u\
+     */
+    const ::std::wstring wss3 = L"\\\\U\\u\\";
 
-const ::std::wstring wsu2 = L"\U00000128\U00000178\U000000FF\U00000100\U00001F00\U00010194\U0001016A\U00010198\U0001F340\U0001F341\U0001F342\U0001F343";
+    /**
+     * \A\
+     */
+    const ::std::wstring wss4 = L"\\A\\";
+
+    /**
+     * \u0041\
+     */
+    const ::std::wstring wss5 = L"\\u0041\\";
+
+    const ::std::wstring wsu0 = L"\u0128\u0178\u00ff\u0100\u1f00\U00010194\U0001016a\U00010198\U0001f340\U0001f341\U0001f342\U0001f343";
+
+    const ::std::wstring wsu1 = L"\u0128\u0178\u00FF\u0100\u1F00\U00010194\U0001016A\U00010198\U0001F340\U0001F341\U0001F342\U0001F343";
+
+    const ::std::wstring wsu2 = L"\U00000128\U00000178\U000000FF\U00000100\U00001F00\U00010194\U0001016A\U00010198\U0001F340\U0001F341\U0001F342\U0001F343";
 
 }
 
 namespace Test2
 {
-
-class MyDerivedClassPrx;
+    class MyDerivedClassPrx;
 
 }
 
@@ -1124,7 +1127,7 @@ public:
     {
     }
 
-    MyClassPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    MyClassPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -1169,15 +1172,15 @@ public:
     void _iceI_opDerived(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::shared_ptr<MyClass1> opMyClass1(const ::std::shared_ptr<MyClass1>& opMyClass1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    MyClass1Ptr opMyClass1(const MyClass1Ptr& opMyClass1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<MyClass1>> opMyClass1Async(const ::std::shared_ptr<MyClass1>& opMyClass1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<MyClass1Ptr> opMyClass1Async(const MyClass1Ptr& opMyClass1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opMyClass1Async(const ::std::shared_ptr<MyClass1>& opMyClass1, ::std::function<void(::std::shared_ptr<::Test::MyClass1>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opMyClass1Async(const MyClass1Ptr& opMyClass1, ::std::function<void(::Test::MyClass1Ptr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opMyClass1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<MyClass1>>>&, const ::std::shared_ptr<MyClass1>&, const ::Ice::Context&) const;
+    void _iceI_opMyClass1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass1Ptr>>&, const MyClass1Ptr&, const ::Ice::Context&) const;
     /// \endcond
 
     MyStruct1 opMyStruct1(const MyStruct1& opMyStruct1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -1214,7 +1217,7 @@ public:
     {
     }
 
-    MyDerivedClassPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    MyDerivedClassPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -1284,7 +1287,7 @@ public:
     {
     }
 
-    MyDerivedClassPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    MyDerivedClassPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -1446,7 +1449,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<MyClass1> ice_clone() const { return ::std::static_pointer_cast <MyClass1>(_iceCloneImpl()); }
+    MyClass1Ptr ice_clone() const { return ::std::static_pointer_cast <MyClass1>(_iceCloneImpl()); }
 
     ::std::string tesT;
     ::std::optional<::Test::MyClassPrx> myClass;
@@ -1456,7 +1459,7 @@ protected:
 
     MyClass1(const MyClass1&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1971,7 +1974,7 @@ public:
     void _iceD_opDerived(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual ::std::shared_ptr<MyClass1> opMyClass1(::std::shared_ptr<MyClass1> opMyClass1, const ::Ice::Current& current) = 0;
+    virtual MyClass1Ptr opMyClass1(MyClass1Ptr opMyClass1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_opMyClass1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond

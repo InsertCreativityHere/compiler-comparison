@@ -29,11 +29,11 @@
 
 namespace Test
 {
+    class PingReplyPrx;
 
-class PingReplyPrx;
+    using ByteSeq = ::std::vector<std::byte>;
 
-using ByteSeq = ::std::vector<std::byte>;
-class TestIntfPrx;
+    class TestIntfPrx;
 
 }
 
@@ -73,7 +73,7 @@ public:
     {
     }
 
-    PingReplyPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    PingReplyPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -169,7 +169,7 @@ public:
     {
     }
 
-    TestIntfPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    TestIntfPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

@@ -40,9 +40,9 @@
 
 namespace Glacier2
 {
+    class PermissionsVerifierPrx;
 
-class PermissionsVerifierPrx;
-class SSLPermissionsVerifierPrx;
+    class SSLPermissionsVerifierPrx;
 
 }
 
@@ -113,7 +113,7 @@ public:
     {
     }
 
-    PermissionsVerifierPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    PermissionsVerifierPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -207,7 +207,7 @@ public:
     {
     }
 
-    SSLPermissionsVerifierPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    SSLPermissionsVerifierPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

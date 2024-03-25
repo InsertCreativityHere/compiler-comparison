@@ -34,58 +34,66 @@
 
 namespace IceGrid
 {
+    class InternalDbEnvDescriptor;
+    using InternalDbEnvDescriptorPtr = ::std::shared_ptr<InternalDbEnvDescriptor>;
 
-class InternalDbEnvDescriptor;
+    using InternalDbEnvDescriptorSeq = ::std::vector<InternalDbEnvDescriptorPtr>;
 
-using InternalDbEnvDescriptorPtr = ::std::shared_ptr<InternalDbEnvDescriptor>;
+    class InternalAdapterDescriptor;
+    using InternalAdapterDescriptorPtr = ::std::shared_ptr<InternalAdapterDescriptor>;
 
-using InternalDbEnvDescriptorSeq = ::std::vector<::std::shared_ptr<InternalDbEnvDescriptor>>;
-class InternalAdapterDescriptor;
+    using InternalAdapterDescriptorSeq = ::std::vector<InternalAdapterDescriptorPtr>;
 
-using InternalAdapterDescriptorPtr = ::std::shared_ptr<InternalAdapterDescriptor>;
+    class InternalDistributionDescriptor;
+    using InternalDistributionDescriptorPtr = ::std::shared_ptr<InternalDistributionDescriptor>;
 
-using InternalAdapterDescriptorSeq = ::std::vector<::std::shared_ptr<InternalAdapterDescriptor>>;
-class InternalDistributionDescriptor;
+    using PropertyDescriptorSeqDict = ::std::map<::std::string, PropertyDescriptorSeq>;
 
-using InternalDistributionDescriptorPtr = ::std::shared_ptr<InternalDistributionDescriptor>;
+    class InternalServerDescriptor;
+    using InternalServerDescriptorPtr = ::std::shared_ptr<InternalServerDescriptor>;
 
-using PropertyDescriptorSeqDict = ::std::map<::std::string, PropertyDescriptorSeq>;
-class InternalServerDescriptor;
+    class AdapterPrx;
 
-using InternalServerDescriptorPtr = ::std::shared_ptr<InternalServerDescriptor>;
-class AdapterPrx;
+    using AdapterPrxDict = ::std::map<::std::string, ::std::optional<AdapterPrx>>;
 
-using AdapterPrxDict = ::std::map<::std::string, ::std::optional<AdapterPrx>>;
-class FileReaderPrx;
-class ServerPrx;
-class InternalRegistryPrx;
+    class FileReaderPrx;
 
-using InternalRegistryPrxSeq = ::std::vector<::std::optional<InternalRegistryPrx>>;
-class ReplicaObserverPrx;
-class PatcherFeedbackPrx;
-class NodePrx;
+    class ServerPrx;
 
-using NodePrxSeq = ::std::vector<::std::optional<NodePrx>>;
-class NodeSessionPrx;
+    class InternalRegistryPrx;
 
-enum class TopicName : unsigned char
-{
-    RegistryObserver,
-    NodeObserver,
-    ApplicationObserver,
-    AdapterObserver,
-    ObjectObserver
-};
-class DatabaseObserverPrx;
+    using InternalRegistryPrxSeq = ::std::vector<::std::optional<InternalRegistryPrx>>;
 
-using StringLongDict = ::std::map<::std::string, ::std::int64_t>;
-class ReplicaSessionPrx;
-class InternalNodeInfo;
+    class ReplicaObserverPrx;
 
-using InternalNodeInfoPtr = ::std::shared_ptr<InternalNodeInfo>;
-class InternalReplicaInfo;
+    class PatcherFeedbackPrx;
 
-using InternalReplicaInfoPtr = ::std::shared_ptr<InternalReplicaInfo>;
+    class NodePrx;
+
+    using NodePrxSeq = ::std::vector<::std::optional<NodePrx>>;
+
+    class NodeSessionPrx;
+
+    enum class TopicName : ::std::uint8_t
+    {
+        RegistryObserver,
+        NodeObserver,
+        ApplicationObserver,
+        AdapterObserver,
+        ObjectObserver
+    };
+
+    class DatabaseObserverPrx;
+
+    using StringLongDict = ::std::map<::std::string, ::std::int64_t>;
+
+    class ReplicaSessionPrx;
+
+    class InternalNodeInfo;
+    using InternalNodeInfoPtr = ::std::shared_ptr<InternalNodeInfo>;
+
+    class InternalReplicaInfo;
+    using InternalReplicaInfoPtr = ::std::shared_ptr<InternalReplicaInfo>;
 
 }
 
@@ -210,7 +218,7 @@ public:
     {
     }
 
-    AdapterPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    AdapterPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -318,7 +326,7 @@ public:
     {
     }
 
-    FileReaderPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    FileReaderPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -417,14 +425,14 @@ public:
      * @return True if the server is inactive.
      * @throws IceGrid::DeploymentException Raised if the server can't be updated.
      */
-    bool checkUpdate(const ::std::shared_ptr<InternalServerDescriptor>& svr, bool noRestart, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    bool checkUpdate(const InternalServerDescriptorPtr& svr, bool noRestart, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Check if the given server can be loaded on this node.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<bool> checkUpdateAsync(const ::std::shared_ptr<InternalServerDescriptor>& svr, bool noRestart, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<bool> checkUpdateAsync(const InternalServerDescriptorPtr& svr, bool noRestart, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Check if the given server can be loaded on this node.
@@ -435,10 +443,10 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    checkUpdateAsync(const ::std::shared_ptr<InternalServerDescriptor>& svr, bool noRestart, ::std::function<void(bool)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    checkUpdateAsync(const InternalServerDescriptorPtr& svr, bool noRestart, ::std::function<void(bool)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_checkUpdate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const ::std::shared_ptr<InternalServerDescriptor>&, bool, const ::Ice::Context&) const;
+    void _iceI_checkUpdate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>&, const InternalServerDescriptorPtr&, bool, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -667,7 +675,7 @@ public:
     {
     }
 
-    ServerPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    ServerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -807,7 +815,7 @@ public:
     {
     }
 
-    ReplicaObserverPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    ReplicaObserverPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -915,7 +923,7 @@ public:
     {
     }
 
-    PatcherFeedbackPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    PatcherFeedbackPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -954,7 +962,7 @@ public:
      * property files, etc), they will be created. The returned proxy is never null.
      * @param context The Context map to send with the invocation.
      */
-    ::std::optional<ServerPrx> loadServer(const ::std::shared_ptr<InternalServerDescriptor>& svr, ::std::string_view replicaName, AdapterPrxDict& adapters, ::std::int32_t& activateTimeout, ::std::int32_t& deactivateTimeout, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<ServerPrx> loadServer(const InternalServerDescriptorPtr& svr, ::std::string_view replicaName, AdapterPrxDict& adapters, ::std::int32_t& activateTimeout, ::std::int32_t& deactivateTimeout, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Load the given server. If the server resources weren't already created (database environment directories,
@@ -962,7 +970,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, ::std::int32_t, ::std::int32_t>> loadServerAsync(const ::std::shared_ptr<InternalServerDescriptor>& svr, ::std::string_view replicaName, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, ::std::int32_t, ::std::int32_t>> loadServerAsync(const InternalServerDescriptorPtr& svr, ::std::string_view replicaName, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Load the given server. If the server resources weren't already created (database environment directories,
@@ -974,10 +982,10 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    loadServerAsync(const ::std::shared_ptr<InternalServerDescriptor>& svr, ::std::string_view replicaName, ::std::function<void(::std::optional<::IceGrid::ServerPrx>, ::IceGrid::AdapterPrxDict, ::std::int32_t, ::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    loadServerAsync(const InternalServerDescriptorPtr& svr, ::std::string_view replicaName, ::std::function<void(::std::optional<::IceGrid::ServerPrx>, ::IceGrid::AdapterPrxDict, ::std::int32_t, ::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_loadServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, ::std::int32_t, ::std::int32_t>>>&, const ::std::shared_ptr<InternalServerDescriptor>&, ::std::string_view, const ::Ice::Context&) const;
+    void _iceI_loadServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, ::std::int32_t, ::std::int32_t>>>&, const InternalServerDescriptorPtr&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -986,7 +994,7 @@ public:
      * without a restart, a DeploymentException is raised. The returned proxy is never null.
      * @param context The Context map to send with the invocation.
      */
-    ::std::optional<ServerPrx> loadServerWithoutRestart(const ::std::shared_ptr<InternalServerDescriptor>& svr, ::std::string_view replicaName, AdapterPrxDict& adapters, ::std::int32_t& activateTimeout, ::std::int32_t& deactivateTimeout, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<ServerPrx> loadServerWithoutRestart(const InternalServerDescriptorPtr& svr, ::std::string_view replicaName, AdapterPrxDict& adapters, ::std::int32_t& activateTimeout, ::std::int32_t& deactivateTimeout, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Load the given server and ensure the server won't be restarted. If the server resources weren't already created
@@ -995,7 +1003,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, ::std::int32_t, ::std::int32_t>> loadServerWithoutRestartAsync(const ::std::shared_ptr<InternalServerDescriptor>& svr, ::std::string_view replicaName, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, ::std::int32_t, ::std::int32_t>> loadServerWithoutRestartAsync(const InternalServerDescriptorPtr& svr, ::std::string_view replicaName, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Load the given server and ensure the server won't be restarted. If the server resources weren't already created
@@ -1008,10 +1016,10 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    loadServerWithoutRestartAsync(const ::std::shared_ptr<InternalServerDescriptor>& svr, ::std::string_view replicaName, ::std::function<void(::std::optional<::IceGrid::ServerPrx>, ::IceGrid::AdapterPrxDict, ::std::int32_t, ::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    loadServerWithoutRestartAsync(const InternalServerDescriptorPtr& svr, ::std::string_view replicaName, ::std::function<void(::std::optional<::IceGrid::ServerPrx>, ::IceGrid::AdapterPrxDict, ::std::int32_t, ::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_loadServerWithoutRestart(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, ::std::int32_t, ::std::int32_t>>>&, const ::std::shared_ptr<InternalServerDescriptor>&, ::std::string_view, const ::Ice::Context&) const;
+    void _iceI_loadServerWithoutRestart(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, ::std::int32_t, ::std::int32_t>>>&, const InternalServerDescriptorPtr&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1076,7 +1084,7 @@ public:
      * shutdown.
      * @param context The Context map to send with the invocation.
      */
-    void patch(const ::std::optional<PatcherFeedbackPrx>& feedback, ::std::string_view application, ::std::string_view server, const ::std::shared_ptr<InternalDistributionDescriptor>& appDistrib, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    void patch(const ::std::optional<PatcherFeedbackPrx>& feedback, ::std::string_view application, ::std::string_view server, const InternalDistributionDescriptorPtr& appDistrib, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Patch application and server distributions. If some servers using a distribution directory to patch are active,
@@ -1085,7 +1093,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<void> patchAsync(const ::std::optional<PatcherFeedbackPrx>& feedback, ::std::string_view application, ::std::string_view server, const ::std::shared_ptr<InternalDistributionDescriptor>& appDistrib, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<void> patchAsync(const ::std::optional<PatcherFeedbackPrx>& feedback, ::std::string_view application, ::std::string_view server, const InternalDistributionDescriptorPtr& appDistrib, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Patch application and server distributions. If some servers using a distribution directory to patch are active,
@@ -1098,10 +1106,10 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    patchAsync(const ::std::optional<PatcherFeedbackPrx>& feedback, ::std::string_view application, ::std::string_view server, const ::std::shared_ptr<InternalDistributionDescriptor>& appDistrib, bool shutdown, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    patchAsync(const ::std::optional<PatcherFeedbackPrx>& feedback, ::std::string_view application, ::std::string_view server, const InternalDistributionDescriptorPtr& appDistrib, bool shutdown, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_patch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<PatcherFeedbackPrx>&, ::std::string_view, ::std::string_view, const ::std::shared_ptr<InternalDistributionDescriptor>&, bool, const ::Ice::Context&) const;
+    void _iceI_patch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<PatcherFeedbackPrx>&, ::std::string_view, ::std::string_view, const InternalDistributionDescriptorPtr&, bool, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -1298,7 +1306,7 @@ public:
     {
     }
 
-    NodePrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    NodePrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -1587,7 +1595,7 @@ public:
     {
     }
 
-    NodeSessionPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    NodeSessionPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -1644,7 +1652,7 @@ public:
     {
     }
 
-    DatabaseObserverPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    DatabaseObserverPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -1933,7 +1941,7 @@ public:
     {
     }
 
-    ReplicaSessionPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    ReplicaSessionPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -1977,7 +1985,7 @@ public:
      * @return The node session proxy.
      * @throws IceGrid::NodeActiveException Raised if the node is already registered and currently active.
      */
-    ::std::optional<NodeSessionPrx> registerNode(const ::std::shared_ptr<InternalNodeInfo>& info, const ::std::optional<NodePrx>& prx, const LoadInfo& loadInf, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<NodeSessionPrx> registerNode(const InternalNodeInfoPtr& info, const ::std::optional<NodePrx>& prx, const LoadInfo& loadInf, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Register a node with the registry. If a node with the same name is already registered, [registerNode] will
@@ -1988,7 +1996,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<NodeSessionPrx>> registerNodeAsync(const ::std::shared_ptr<InternalNodeInfo>& info, const ::std::optional<NodePrx>& prx, const LoadInfo& loadInf, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::optional<NodeSessionPrx>> registerNodeAsync(const InternalNodeInfoPtr& info, const ::std::optional<NodePrx>& prx, const LoadInfo& loadInf, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Register a node with the registry. If a node with the same name is already registered, [registerNode] will
@@ -2003,10 +2011,10 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    registerNodeAsync(const ::std::shared_ptr<InternalNodeInfo>& info, const ::std::optional<NodePrx>& prx, const LoadInfo& loadInf, ::std::function<void(::std::optional<::IceGrid::NodeSessionPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    registerNodeAsync(const InternalNodeInfoPtr& info, const ::std::optional<NodePrx>& prx, const LoadInfo& loadInf, ::std::function<void(::std::optional<::IceGrid::NodeSessionPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_registerNode(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<NodeSessionPrx>>>&, const ::std::shared_ptr<InternalNodeInfo>&, const ::std::optional<NodePrx>&, const LoadInfo&, const ::Ice::Context&) const;
+    void _iceI_registerNode(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<NodeSessionPrx>>>&, const InternalNodeInfoPtr&, const ::std::optional<NodePrx>&, const LoadInfo&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -2018,7 +2026,7 @@ public:
      * @return The replica session proxy.
      * @throws IceGrid::ReplicaActiveException Raised if the replica is already registered and currently active.
      */
-    ::std::optional<ReplicaSessionPrx> registerReplica(const ::std::shared_ptr<InternalReplicaInfo>& info, const ::std::optional<InternalRegistryPrx>& prx, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<ReplicaSessionPrx> registerReplica(const InternalReplicaInfoPtr& info, const ::std::optional<InternalRegistryPrx>& prx, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]
@@ -2028,7 +2036,7 @@ public:
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
-    ::std::future<::std::optional<ReplicaSessionPrx>> registerReplicaAsync(const ::std::shared_ptr<InternalReplicaInfo>& info, const ::std::optional<InternalRegistryPrx>& prx, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::optional<ReplicaSessionPrx>> registerReplicaAsync(const InternalReplicaInfoPtr& info, const ::std::optional<InternalRegistryPrx>& prx, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
      * Register a replica with the registry. If a replica with the  same name is already registered, [registerReplica]
@@ -2042,10 +2050,10 @@ public:
      * @return A function that can be called to cancel the invocation locally.
      */
     ::std::function<void()>
-    registerReplicaAsync(const ::std::shared_ptr<InternalReplicaInfo>& info, const ::std::optional<InternalRegistryPrx>& prx, ::std::function<void(::std::optional<::IceGrid::ReplicaSessionPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    registerReplicaAsync(const InternalReplicaInfoPtr& info, const ::std::optional<InternalRegistryPrx>& prx, ::std::function<void(::std::optional<::IceGrid::ReplicaSessionPrx>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_registerReplica(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<ReplicaSessionPrx>>>&, const ::std::shared_ptr<InternalReplicaInfo>&, const ::std::optional<InternalRegistryPrx>&, const ::Ice::Context&) const;
+    void _iceI_registerReplica(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<ReplicaSessionPrx>>>&, const InternalReplicaInfoPtr&, const ::std::optional<InternalRegistryPrx>&, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -2236,7 +2244,7 @@ public:
     {
     }
 
-    InternalRegistryPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    InternalRegistryPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -2313,7 +2321,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<InternalDbEnvDescriptor> ice_clone() const { return ::std::static_pointer_cast <InternalDbEnvDescriptor>(_iceCloneImpl()); }
+    InternalDbEnvDescriptorPtr ice_clone() const { return ::std::static_pointer_cast <InternalDbEnvDescriptor>(_iceCloneImpl()); }
 
     /**
      * The name of the database environment.
@@ -2328,7 +2336,7 @@ protected:
 
     InternalDbEnvDescriptor(const InternalDbEnvDescriptor&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -2376,7 +2384,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<InternalAdapterDescriptor> ice_clone() const { return ::std::static_pointer_cast <InternalAdapterDescriptor>(_iceCloneImpl()); }
+    InternalAdapterDescriptorPtr ice_clone() const { return ::std::static_pointer_cast <InternalAdapterDescriptor>(_iceCloneImpl()); }
 
     /**
      * The identifier of the server.
@@ -2391,7 +2399,7 @@ protected:
 
     InternalAdapterDescriptor(const InternalAdapterDescriptor&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -2435,7 +2443,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<InternalDistributionDescriptor> ice_clone() const { return ::std::static_pointer_cast <InternalDistributionDescriptor>(_iceCloneImpl()); }
+    InternalDistributionDescriptorPtr ice_clone() const { return ::std::static_pointer_cast <InternalDistributionDescriptor>(_iceCloneImpl()); }
 
     /**
      * The proxy of the IcePatch2 server.
@@ -2450,7 +2458,7 @@ protected:
 
     InternalDistributionDescriptor(const InternalDistributionDescriptor&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -2485,7 +2493,7 @@ public:
      * @param properties The configuration files of the server.
      * @param services IceBox service names
      */
-    InternalServerDescriptor(::std::string id, ::std::string application, ::std::string uuid, ::std::int32_t revision, ::std::string sessionId, ::std::string exe, ::std::string pwd, ::std::string user, ::std::string activation, ::std::string activationTimeout, ::std::string deactivationTimeout, bool applicationDistrib, ::std::shared_ptr<::IceGrid::InternalDistributionDescriptor> distrib, bool processRegistered, ::Ice::StringSeq options, ::Ice::StringSeq envs, ::Ice::StringSeq logs, ::IceGrid::InternalAdapterDescriptorSeq adapters, ::IceGrid::InternalDbEnvDescriptorSeq dbEnvs, ::IceGrid::PropertyDescriptorSeqDict properties, ::std::optional<::Ice::StringSeq> services) :
+    InternalServerDescriptor(::std::string id, ::std::string application, ::std::string uuid, ::std::int32_t revision, ::std::string sessionId, ::std::string exe, ::std::string pwd, ::std::string user, ::std::string activation, ::std::string activationTimeout, ::std::string deactivationTimeout, bool applicationDistrib, ::IceGrid::InternalDistributionDescriptorPtr distrib, bool processRegistered, ::Ice::StringSeq options, ::Ice::StringSeq envs, ::Ice::StringSeq logs, ::IceGrid::InternalAdapterDescriptorSeq adapters, ::IceGrid::InternalDbEnvDescriptorSeq dbEnvs, ::IceGrid::PropertyDescriptorSeqDict properties, ::std::optional<::Ice::StringSeq> services) :
         id(::std::move(id)),
         application(::std::move(application)),
         uuid(::std::move(uuid)),
@@ -2522,7 +2530,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::int32_t&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const bool&, const ::std::shared_ptr<::IceGrid::InternalDistributionDescriptor>&, const bool&, const ::Ice::StringSeq&, const ::Ice::StringSeq&, const ::Ice::StringSeq&, const ::IceGrid::InternalAdapterDescriptorSeq&, const ::IceGrid::InternalDbEnvDescriptorSeq&, const ::IceGrid::PropertyDescriptorSeqDict&, const ::std::optional<::Ice::StringSeq>&> ice_tuple() const
+    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::int32_t&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const bool&, const ::IceGrid::InternalDistributionDescriptorPtr&, const bool&, const ::Ice::StringSeq&, const ::Ice::StringSeq&, const ::Ice::StringSeq&, const ::IceGrid::InternalAdapterDescriptorSeq&, const ::IceGrid::InternalDbEnvDescriptorSeq&, const ::IceGrid::PropertyDescriptorSeqDict&, const ::std::optional<::Ice::StringSeq>&> ice_tuple() const
     {
         return std::tie(id, application, uuid, revision, sessionId, exe, pwd, user, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, processRegistered, options, envs, logs, adapters, dbEnvs, properties, services);
     }
@@ -2531,7 +2539,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<InternalServerDescriptor> ice_clone() const { return ::std::static_pointer_cast <InternalServerDescriptor>(_iceCloneImpl()); }
+    InternalServerDescriptorPtr ice_clone() const { return ::std::static_pointer_cast <InternalServerDescriptor>(_iceCloneImpl()); }
 
     /**
      * The server ID.
@@ -2584,7 +2592,7 @@ public:
     /**
      * The distribution descriptor of this server.
      */
-    ::std::shared_ptr<::IceGrid::InternalDistributionDescriptor> distrib;
+    ::IceGrid::InternalDistributionDescriptorPtr distrib;
     /**
      * Specifies if a process object is registered.
      */
@@ -2619,7 +2627,7 @@ protected:
 
     InternalServerDescriptor(const InternalServerDescriptor&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -2837,7 +2845,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<InternalNodeInfo> ice_clone() const { return ::std::static_pointer_cast <InternalNodeInfo>(_iceCloneImpl()); }
+    InternalNodeInfoPtr ice_clone() const { return ::std::static_pointer_cast <InternalNodeInfo>(_iceCloneImpl()); }
 
     /**
      * The name of the node.
@@ -2876,7 +2884,7 @@ protected:
 
     InternalNodeInfo(const InternalNodeInfo&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -2923,7 +2931,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<InternalReplicaInfo> ice_clone() const { return ::std::static_pointer_cast <InternalReplicaInfo>(_iceCloneImpl()); }
+    InternalReplicaInfoPtr ice_clone() const { return ::std::static_pointer_cast <InternalReplicaInfo>(_iceCloneImpl()); }
 
     /**
      * The name of the registry.
@@ -2938,7 +2946,7 @@ protected:
 
     InternalReplicaInfo(const InternalReplicaInfo&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -3123,7 +3131,7 @@ public:
      * @return True if the server is inactive.
      * @throws IceGrid::DeploymentException Raised if the server can't be updated.
      */
-    virtual bool checkUpdate(::std::shared_ptr<InternalServerDescriptor> svr, bool noRestart, const ::Ice::Current& current) = 0;
+    virtual bool checkUpdate(InternalServerDescriptorPtr svr, bool noRestart, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_checkUpdate(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
@@ -3348,7 +3356,7 @@ public:
      * @param exception The exception callback.
      * @param current The Current object for the invocation.
      */
-    virtual void loadServerAsync(::std::shared_ptr<InternalServerDescriptor> svr, ::std::string replicaName, ::std::function<void(const ::std::optional<ServerPrx>& returnValue, const AdapterPrxDict& adapters, ::std::int32_t activateTimeout, ::std::int32_t deactivateTimeout)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void loadServerAsync(InternalServerDescriptorPtr svr, ::std::string replicaName, ::std::function<void(const ::std::optional<ServerPrx>& returnValue, const AdapterPrxDict& adapters, ::std::int32_t activateTimeout, ::std::int32_t deactivateTimeout)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_loadServer(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
@@ -3361,7 +3369,7 @@ public:
      * @param exception The exception callback.
      * @param current The Current object for the invocation.
      */
-    virtual void loadServerWithoutRestartAsync(::std::shared_ptr<InternalServerDescriptor> svr, ::std::string replicaName, ::std::function<void(const ::std::optional<ServerPrx>& returnValue, const AdapterPrxDict& adapters, ::std::int32_t activateTimeout, ::std::int32_t deactivateTimeout)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void loadServerWithoutRestartAsync(InternalServerDescriptorPtr svr, ::std::string replicaName, ::std::function<void(const ::std::optional<ServerPrx>& returnValue, const AdapterPrxDict& adapters, ::std::int32_t activateTimeout, ::std::int32_t deactivateTimeout)> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_loadServerWithoutRestart(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
@@ -3396,7 +3404,7 @@ public:
      * @param exception The exception callback.
      * @param current The Current object for the invocation.
      */
-    virtual void patchAsync(::std::optional<PatcherFeedbackPrx> feedback, ::std::string application, ::std::string server, ::std::shared_ptr<InternalDistributionDescriptor> appDistrib, bool shutdown, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
+    virtual void patchAsync(::std::optional<PatcherFeedbackPrx> feedback, ::std::string application, ::std::string server, InternalDistributionDescriptorPtr appDistrib, bool shutdown, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_patch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
@@ -3754,7 +3762,7 @@ public:
      * @return The node session proxy.
      * @throws IceGrid::NodeActiveException Raised if the node is already registered and currently active.
      */
-    virtual ::std::optional<NodeSessionPrx> registerNode(::std::shared_ptr<InternalNodeInfo> info, ::std::optional<NodePrx> prx, LoadInfo loadInf, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<NodeSessionPrx> registerNode(InternalNodeInfoPtr info, ::std::optional<NodePrx> prx, LoadInfo loadInf, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_registerNode(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
@@ -3768,7 +3776,7 @@ public:
      * @return The replica session proxy.
      * @throws IceGrid::ReplicaActiveException Raised if the replica is already registered and currently active.
      */
-    virtual ::std::optional<ReplicaSessionPrx> registerReplica(::std::shared_ptr<InternalReplicaInfo> info, ::std::optional<InternalRegistryPrx> prx, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<ReplicaSessionPrx> registerReplica(InternalReplicaInfoPtr info, ::std::optional<InternalRegistryPrx> prx, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_registerReplica(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond

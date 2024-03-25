@@ -42,13 +42,17 @@
 
 namespace Glacier2
 {
+    class SessionPrx;
 
-class SessionPrx;
-class StringSetPrx;
-class IdentitySetPrx;
-class SessionControlPrx;
-class SessionManagerPrx;
-class SSLSessionManagerPrx;
+    class StringSetPrx;
+
+    class IdentitySetPrx;
+
+    class SessionControlPrx;
+
+    class SessionManagerPrx;
+
+    class SSLSessionManagerPrx;
 
 }
 
@@ -110,7 +114,7 @@ public:
     {
     }
 
-    SessionPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    SessionPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -262,7 +266,7 @@ public:
     {
     }
 
-    StringSetPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    StringSetPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -416,7 +420,7 @@ public:
     {
     }
 
-    IdentitySetPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    IdentitySetPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -616,7 +620,7 @@ public:
     {
     }
 
-    SessionControlPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    SessionControlPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -718,7 +722,7 @@ public:
     {
     }
 
-    SessionManagerPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    SessionManagerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -813,7 +817,7 @@ public:
     {
     }
 
-    SSLSessionManagerPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    SSLSessionManagerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

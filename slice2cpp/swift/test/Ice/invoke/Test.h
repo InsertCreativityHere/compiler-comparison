@@ -28,8 +28,7 @@
 
 namespace Test
 {
-
-class MyClassPrx;
+    class MyClassPrx;
 
 }
 
@@ -102,7 +101,7 @@ public:
     {
     }
 
-    MyClassPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    MyClassPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

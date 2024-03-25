@@ -28,25 +28,25 @@
 
 namespace Test1
 {
+    using WstringSeq = ::std::vector<::std::wstring>;
 
+    using WstringWStringDict = ::std::map<::std::wstring, ::std::wstring>;
 
-using WstringSeq = ::std::vector<::std::wstring>;
+    struct WstringStruct;
 
-using WstringWStringDict = ::std::map<::std::wstring, ::std::wstring>;
-struct WstringStruct;
-class WstringClassPrx;
+    class WstringClassPrx;
 
 }
 
 namespace Test2
 {
+    using WstringSeq = ::std::vector<::std::wstring>;
 
+    using WstringWStringDict = ::std::map<::std::wstring, ::std::wstring>;
 
-using WstringSeq = ::std::vector<::std::wstring>;
+    struct WstringStruct;
 
-using WstringWStringDict = ::std::map<::std::wstring, ::std::wstring>;
-struct WstringStruct;
-class WstringClassPrx;
+    class WstringClassPrx;
 
 }
 
@@ -108,7 +108,7 @@ public:
     {
     }
 
-    WstringClassPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    WstringClassPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -198,7 +198,7 @@ public:
     {
     }
 
-    WstringClassPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    WstringClassPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

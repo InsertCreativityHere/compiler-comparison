@@ -28,16 +28,23 @@
 
 namespace Test
 {
+    class EmptyPrx;
 
-class EmptyPrx;
-class APrx;
-class BPrx;
-class CPrx;
-class DPrx;
-class EPrx;
-class FPrx;
-class GPrx;
-class HPrx;
+    class APrx;
+
+    class BPrx;
+
+    class CPrx;
+
+    class DPrx;
+
+    class EPrx;
+
+    class FPrx;
+
+    class GPrx;
+
+    class HPrx;
 
 }
 
@@ -66,7 +73,7 @@ public:
     {
     }
 
-    EmptyPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    EmptyPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -129,7 +136,7 @@ public:
     {
     }
 
-    APrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    APrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -197,7 +204,7 @@ public:
     {
     }
 
-    BPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    BPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -269,7 +276,7 @@ public:
     {
     }
 
-    CPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    CPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -341,7 +348,7 @@ public:
     {
     }
 
-    DPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    DPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -408,7 +415,7 @@ public:
     {
     }
 
-    EPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    EPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -476,7 +483,7 @@ public:
     {
     }
 
-    FPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    FPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -554,7 +561,7 @@ public:
     {
     }
 
-    GPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    GPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -622,7 +629,7 @@ public:
     {
     }
 
-    HPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    HPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

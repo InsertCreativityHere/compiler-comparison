@@ -28,38 +28,38 @@
 
 namespace Test
 {
+    enum class MyEnum : ::std::uint8_t
+    {
+        enum1,
+        enum2,
+        enum3
+    };
 
+    class InitialPrx;
 
-enum class MyEnum : unsigned char
-{
-    enum1,
-    enum2,
-    enum3
-};
-class InitialPrx;
-class Base;
+    class Base;
+    using BasePtr = ::std::shared_ptr<Base>;
 
-using BasePtr = ::std::shared_ptr<Base>;
-struct Struct1;
+    struct Struct1;
 
-using ByteS = ::std::vector<std::byte>;
+    using ByteS = ::std::vector<std::byte>;
 
-using IntS = ::std::vector<::std::int32_t>;
+    using IntS = ::std::vector<::std::int32_t>;
 
-using MyEnumS = ::std::vector<MyEnum>;
+    using MyEnumS = ::std::vector<MyEnum>;
 
-using BaseS = ::std::vector<::std::shared_ptr<Base>>;
+    using BaseS = ::std::vector<BasePtr>;
 
-using ByteBoolD = ::std::map<::std::uint8_t, bool>;
+    using ByteBoolD = ::std::map<::std::uint8_t, bool>;
 
-using ShortIntD = ::std::map<::std::int16_t, ::std::int32_t>;
+    using ShortIntD = ::std::map<::std::int16_t, ::std::int32_t>;
 
-using StringMyEnumD = ::std::map<::std::string, MyEnum>;
+    using StringMyEnumD = ::std::map<::std::string, MyEnum>;
 
-using StringBaseD = ::std::map<::std::string, ::std::shared_ptr<Base>>;
-class Derived;
+    using StringBaseD = ::std::map<::std::string, BasePtr>;
 
-using DerivedPtr = ::std::shared_ptr<Derived>;
+    class Derived;
+    using DerivedPtr = ::std::shared_ptr<Derived>;
 
 }
 
@@ -132,7 +132,7 @@ public:
     {
     }
 
-    InitialPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    InitialPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -199,7 +199,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Base(::std::shared_ptr<::Test::Base> b, ::std::shared_ptr<::Ice::Value> o, ::Test::Struct1 s, ::Test::ByteS seq1, ::Test::IntS seq2, ::Test::MyEnumS seq3, ::Test::BaseS seq4, ::Test::ByteBoolD d1, ::Test::ShortIntD d2, ::Test::StringMyEnumD d3, ::Test::StringBaseD d4) :
+    Base(::Test::BasePtr b, ::Ice::ValuePtr o, ::Test::Struct1 s, ::Test::ByteS seq1, ::Test::IntS seq2, ::Test::MyEnumS seq3, ::Test::BaseS seq4, ::Test::ByteBoolD d1, ::Test::ShortIntD d2, ::Test::StringMyEnumD d3, ::Test::StringBaseD d4) :
         b(::std::move(b)),
         o(::std::move(o)),
         s(::std::move(s)),
@@ -226,7 +226,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::shared_ptr<::Test::Base>&, const ::std::shared_ptr<::Ice::Value>&, const ::Test::Struct1&, const ::Test::ByteS&, const ::Test::IntS&, const ::Test::MyEnumS&, const ::Test::BaseS&, const ::Test::ByteBoolD&, const ::Test::ShortIntD&, const ::Test::StringMyEnumD&, const ::Test::StringBaseD&> ice_tuple() const
+    std::tuple<const ::Test::BasePtr&, const ::Ice::ValuePtr&, const ::Test::Struct1&, const ::Test::ByteS&, const ::Test::IntS&, const ::Test::MyEnumS&, const ::Test::BaseS&, const ::Test::ByteBoolD&, const ::Test::ShortIntD&, const ::Test::StringMyEnumD&, const ::Test::StringBaseD&> ice_tuple() const
     {
         return std::tie(b, o, s, seq1, seq2, seq3, seq4, d1, d2, d3, d4);
     }
@@ -235,10 +235,10 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<Base> ice_clone() const { return ::std::static_pointer_cast <Base>(_iceCloneImpl()); }
+    BasePtr ice_clone() const { return ::std::static_pointer_cast <Base>(_iceCloneImpl()); }
 
-    ::std::shared_ptr<::Test::Base> b;
-    ::std::shared_ptr<::Ice::Value> o;
+    ::Test::BasePtr b;
+    ::Ice::ValuePtr o;
     ::Test::Struct1 s;
     ::Test::ByteS seq1;
     ::Test::IntS seq2;
@@ -253,7 +253,7 @@ protected:
 
     Base(const Base&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -272,7 +272,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Derived(::std::shared_ptr<::Test::Base> b, ::std::shared_ptr<::Ice::Value> o, ::Test::Struct1 s, ::Test::ByteS seq1, ::Test::IntS seq2, ::Test::MyEnumS seq3, ::Test::BaseS seq4, ::Test::ByteBoolD d1, ::Test::ShortIntD d2, ::Test::StringMyEnumD d3, ::Test::StringBaseD d4, ::std::optional<::Ice::ObjectPrx> p) :
+    Derived(::Test::BasePtr b, ::Ice::ValuePtr o, ::Test::Struct1 s, ::Test::ByteS seq1, ::Test::IntS seq2, ::Test::MyEnumS seq3, ::Test::BaseS seq4, ::Test::ByteBoolD d1, ::Test::ShortIntD d2, ::Test::StringMyEnumD d3, ::Test::StringBaseD d4, ::std::optional<::Ice::ObjectPrx> p) :
         Base(::std::move(b), ::std::move(o), ::std::move(s), ::std::move(seq1), ::std::move(seq2), ::std::move(seq3), ::std::move(seq4), ::std::move(d1), ::std::move(d2), ::std::move(d3), ::std::move(d4)),
         p(::std::move(p))
     {
@@ -290,7 +290,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::shared_ptr<::Test::Base>&, const ::std::shared_ptr<::Ice::Value>&, const ::Test::Struct1&, const ::Test::ByteS&, const ::Test::IntS&, const ::Test::MyEnumS&, const ::Test::BaseS&, const ::Test::ByteBoolD&, const ::Test::ShortIntD&, const ::Test::StringMyEnumD&, const ::Test::StringBaseD&, const ::std::optional<::Ice::ObjectPrx>&> ice_tuple() const
+    std::tuple<const ::Test::BasePtr&, const ::Ice::ValuePtr&, const ::Test::Struct1&, const ::Test::ByteS&, const ::Test::IntS&, const ::Test::MyEnumS&, const ::Test::BaseS&, const ::Test::ByteBoolD&, const ::Test::ShortIntD&, const ::Test::StringMyEnumD&, const ::Test::StringBaseD&, const ::std::optional<::Ice::ObjectPrx>&> ice_tuple() const
     {
         return std::tie(b, o, s, seq1, seq2, seq3, seq4, d1, d2, d3, d4, p);
     }
@@ -299,7 +299,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<Derived> ice_clone() const { return ::std::static_pointer_cast <Derived>(_iceCloneImpl()); }
+    DerivedPtr ice_clone() const { return ::std::static_pointer_cast <Derived>(_iceCloneImpl()); }
 
     ::std::optional<::Ice::ObjectPrx> p;
 
@@ -307,7 +307,7 @@ protected:
 
     Derived(const Derived&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -321,7 +321,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Ex(Struct1 s, ::std::shared_ptr<Base> b) noexcept :
+    Ex(Struct1 s, BasePtr b) noexcept :
         s(::std::move(s)),
         b(::std::move(b))
     {
@@ -331,7 +331,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::Test::Struct1&, const ::std::shared_ptr<::Test::Base>&> ice_tuple() const
+    std::tuple<const ::Test::Struct1&, const ::Test::BasePtr&> ice_tuple() const
     {
         return std::tie(s, b);
     }
@@ -351,7 +351,7 @@ public:
     /// \endcond
 
     ::Test::Struct1 s;
-    ::std::shared_ptr<::Test::Base> b;
+    ::Test::BasePtr b;
 
 protected:
     void _writeImpl(::Ice::OutputStream*) const override;

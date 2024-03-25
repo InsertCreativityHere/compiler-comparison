@@ -55,7 +55,7 @@ IceMX::SessionMetrics::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 IceMX::SessionMetrics::_iceCloneImpl() const
 {
     return CloneEnabler<SessionMetrics>::clone(*this);

@@ -29,10 +29,9 @@
 
 namespace IceGrid
 {
+    using StringLongDict = ::std::map<::std::string, ::std::int64_t>;
 
-
-using StringLongDict = ::std::map<::std::string, ::std::int64_t>;
-struct AllData;
+    struct AllData;
 
 }
 

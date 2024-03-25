@@ -32,15 +32,13 @@
 namespace Demo
 {
 
+    namespace gx
+    {
+        class CanvasPrx;
 
-namespace gx
-{
+        class SessionPrx;
 
-class CanvasPrx;
-class SessionPrx;
-
-}
-
+    }
 }
 
 namespace Demo
@@ -93,7 +91,7 @@ public:
     {
     }
 
-    CanvasPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    CanvasPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -161,7 +159,7 @@ public:
     {
     }
 
-    SessionPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    SessionPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

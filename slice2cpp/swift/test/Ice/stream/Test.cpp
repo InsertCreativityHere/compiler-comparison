@@ -63,7 +63,7 @@ Test::OptionalClass::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::OptionalClass::_iceCloneImpl() const
 {
     return CloneEnabler<OptionalClass>::clone(*this);
@@ -98,7 +98,7 @@ Test::MyClass::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::MyClass::_iceCloneImpl() const
 {
     return CloneEnabler<MyClass>::clone(*this);

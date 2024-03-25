@@ -40,26 +40,26 @@ namespace
     const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::E> iceC_Test_E_init("::Test::E");
 }
 
-::std::shared_ptr<::Test::ConcreteClass>
+::Test::ConcreteClassPtr
 Test::InitialPrx::getConcreteClass(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<ConcreteClass>>(true, this, &InitialPrx::_iceI_getConcreteClass, context).get();
+    return ::IceInternal::makePromiseOutgoing<ConcreteClassPtr>(true, this, &InitialPrx::_iceI_getConcreteClass, context).get();
 }
 
-::std::future<::std::shared_ptr<::Test::ConcreteClass>>
+::std::future<::Test::ConcreteClassPtr>
 Test::InitialPrx::getConcreteClassAsync(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<ConcreteClass>>(false, this, &InitialPrx::_iceI_getConcreteClass, context);
+    return ::IceInternal::makePromiseOutgoing<ConcreteClassPtr>(false, this, &InitialPrx::_iceI_getConcreteClass, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::getConcreteClassAsync(::std::function<void(::std::shared_ptr<::Test::ConcreteClass>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::InitialPrx::getConcreteClassAsync(::std::function<void(::Test::ConcreteClassPtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<ConcreteClass>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_getConcreteClass, context);
+    return ::IceInternal::makeLambdaOutgoing<ConcreteClassPtr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_getConcreteClass, context);
 }
 
 void
-Test::InitialPrx::_iceI_getConcreteClass(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<ConcreteClass>>>& outAsync, const ::Ice::Context& context) const
+Test::InitialPrx::_iceI_getConcreteClass(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ConcreteClassPtr>>& outAsync, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "getConcreteClass";
 
@@ -69,7 +69,7 @@ Test::InitialPrx::_iceI_getConcreteClass(const ::std::shared_ptr<::IceInternal::
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::shared_ptr<ConcreteClass> ret;
+            ConcreteClassPtr ret;
             istr->readAll(ret);
             istr->readPendingValues();
             return ret;
@@ -166,7 +166,7 @@ Test::ConcreteClass::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::ConcreteClass::_iceCloneImpl() const
 {
     return CloneEnabler<ConcreteClass>::clone(*this);
@@ -247,7 +247,7 @@ Test::Initial::_iceD_getConcreteClass(::Ice::IncomingRequest& request, ::std::fu
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::shared_ptr<ConcreteClass> ret = this->getConcreteClass(request.current());
+    ConcreteClassPtr ret = this->getConcreteClass(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

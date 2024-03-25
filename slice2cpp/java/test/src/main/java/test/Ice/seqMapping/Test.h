@@ -28,26 +28,26 @@
 
 namespace Test
 {
+    using SerialSmall = ::std::vector<std::byte>;
 
+    using SerialLarge = ::std::vector<std::byte>;
 
-using SerialSmall = ::std::vector<std::byte>;
+    using SerialStruct = ::std::vector<std::byte>;
 
-using SerialLarge = ::std::vector<std::byte>;
+    class MyClassPrx;
 
-using SerialStruct = ::std::vector<std::byte>;
-class MyClassPrx;
+    using SLS = ::std::vector<SerialLarge>;
 
-using SLS = ::std::vector<SerialLarge>;
+    using SLSS = ::std::vector<SLS>;
 
-using SLSS = ::std::vector<SLS>;
+    using SLD = ::std::map<::std::int32_t, SerialLarge>;
 
-using SLD = ::std::map<::std::int32_t, SerialLarge>;
+    using SLSD = ::std::map<::std::int32_t, SLS>;
 
-using SLSD = ::std::map<::std::int32_t, SLS>;
-struct Foo;
-class Baz;
+    struct Foo;
 
-using BazPtr = ::std::shared_ptr<Baz>;
+    class Baz;
+    using BazPtr = ::std::shared_ptr<Baz>;
 
 }
 
@@ -120,7 +120,7 @@ public:
     {
     }
 
-    MyClassPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    MyClassPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -252,7 +252,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<Baz> ice_clone() const { return ::std::static_pointer_cast <Baz>(_iceCloneImpl()); }
+    BazPtr ice_clone() const { return ::std::static_pointer_cast <Baz>(_iceCloneImpl()); }
 
     ::Test::SerialLarge SLmem;
     ::Test::SLS SLSmem;
@@ -261,7 +261,7 @@ protected:
 
     Baz(const Baz&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;

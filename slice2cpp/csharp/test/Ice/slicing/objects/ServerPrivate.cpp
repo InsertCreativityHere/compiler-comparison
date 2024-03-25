@@ -60,7 +60,7 @@ Test::SBSUnknownDerived::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::SBSUnknownDerived::_iceCloneImpl() const
 {
     return CloneEnabler<SBSUnknownDerived>::clone(*this);
@@ -97,7 +97,7 @@ Test::SUnknown::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::SUnknown::_iceCloneImpl() const
 {
     return CloneEnabler<SUnknown>::clone(*this);
@@ -132,7 +132,7 @@ Test::D2::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::D2::_iceCloneImpl() const
 {
     return CloneEnabler<D2>::clone(*this);
@@ -169,7 +169,7 @@ Test::D4::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::D4::_iceCloneImpl() const
 {
     return CloneEnabler<D4>::clone(*this);
@@ -243,7 +243,7 @@ Test::MyClass::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::MyClass::_iceCloneImpl() const
 {
     return CloneEnabler<MyClass>::clone(*this);
@@ -278,7 +278,7 @@ Test::PSUnknown::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::PSUnknown::_iceCloneImpl() const
 {
     return CloneEnabler<PSUnknown>::clone(*this);
@@ -315,7 +315,7 @@ Test::PSUnknown2::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::PSUnknown2::_iceCloneImpl() const
 {
     return CloneEnabler<PSUnknown2>::clone(*this);

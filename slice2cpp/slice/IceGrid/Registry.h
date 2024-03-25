@@ -43,29 +43,30 @@
 
 namespace IceGrid
 {
+    /**
+     * Determines which load sampling interval to use.
+     */
+    enum class LoadSample : ::std::uint8_t
+    {
+        /**
+         * Sample every minute.
+         */
+        LoadSample1,
+        /**
+         * Sample every five minutes.
+         */
+        LoadSample5,
+        /**
+         * Sample every fifteen minutes.
+         */
+        LoadSample15
+    };
 
+    class QueryPrx;
 
-/**
- * Determines which load sampling interval to use.
- */
-enum class LoadSample : unsigned char
-{
-    /**
-     * Sample every minute.
-     */
-    LoadSample1,
-    /**
-     * Sample every five minutes.
-     */
-    LoadSample5,
-    /**
-     * Sample every fifteen minutes.
-     */
-    LoadSample15
-};
-class QueryPrx;
-class RegistryPrx;
-class LocatorPrx;
+    class RegistryPrx;
+
+    class LocatorPrx;
 
 }
 
@@ -274,7 +275,7 @@ public:
     {
     }
 
-    QueryPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    QueryPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -537,7 +538,7 @@ public:
     {
     }
 
-    RegistryPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    RegistryPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -658,7 +659,7 @@ public:
     {
     }
 
-    LocatorPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    LocatorPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

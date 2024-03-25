@@ -1427,7 +1427,7 @@ Test::BaseClass::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::BaseClass::_iceCloneImpl() const
 {
     return CloneEnabler<BaseClass>::clone(*this);
@@ -1462,7 +1462,7 @@ Test::PreservedClass::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::PreservedClass::_iceCloneImpl() const
 {
     return CloneEnabler<PreservedClass>::clone(*this);

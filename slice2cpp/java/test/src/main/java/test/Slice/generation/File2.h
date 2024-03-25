@@ -28,8 +28,7 @@
 
 namespace Test
 {
-
-class Interface2Prx;
+    class Interface2Prx;
 
 }
 
@@ -69,7 +68,7 @@ public:
     {
     }
 
-    Interface2Prx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    Interface2Prx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

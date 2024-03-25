@@ -28,9 +28,9 @@
 
 namespace Test
 {
+    class TestIntfPrx;
 
-class TestIntfPrx;
-class CleanerPrx;
+    class CleanerPrx;
 
 }
 
@@ -103,7 +103,7 @@ public:
     {
     }
 
-    TestIntfPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    TestIntfPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -166,7 +166,7 @@ public:
     {
     }
 
-    CleanerPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    CleanerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

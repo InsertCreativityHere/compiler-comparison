@@ -367,25 +367,25 @@ IceGrid::ServerPrx::_iceI_stop(const ::std::shared_ptr<::IceInternal::OutgoingAs
 }
 
 bool
-IceGrid::ServerPrx::checkUpdate(const ::std::shared_ptr<InternalServerDescriptor>& iceP_svr, bool iceP_noRestart, const ::Ice::Context& context) const
+IceGrid::ServerPrx::checkUpdate(const InternalServerDescriptorPtr& iceP_svr, bool iceP_noRestart, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<bool>(true, this, &ServerPrx::_iceI_checkUpdate, iceP_svr, iceP_noRestart, context).get();
 }
 
 ::std::future<bool>
-IceGrid::ServerPrx::checkUpdateAsync(const ::std::shared_ptr<InternalServerDescriptor>& iceP_svr, bool iceP_noRestart, const ::Ice::Context& context) const
+IceGrid::ServerPrx::checkUpdateAsync(const InternalServerDescriptorPtr& iceP_svr, bool iceP_noRestart, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<bool>(false, this, &ServerPrx::_iceI_checkUpdate, iceP_svr, iceP_noRestart, context);
 }
 
 ::std::function<void()>
-IceGrid::ServerPrx::checkUpdateAsync(const ::std::shared_ptr<InternalServerDescriptor>& iceP_svr, bool iceP_noRestart, ::std::function<void(bool)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+IceGrid::ServerPrx::checkUpdateAsync(const InternalServerDescriptorPtr& iceP_svr, bool iceP_noRestart, ::std::function<void(bool)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<bool>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::ServerPrx::_iceI_checkUpdate, iceP_svr, iceP_noRestart, context);
 }
 
 void
-IceGrid::ServerPrx::_iceI_checkUpdate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, const ::std::shared_ptr<InternalServerDescriptor>& iceP_svr, bool iceP_noRestart, const ::Ice::Context& context) const
+IceGrid::ServerPrx::_iceI_checkUpdate(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<bool>>& outAsync, const InternalServerDescriptorPtr& iceP_svr, bool iceP_noRestart, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "checkUpdate";
 
@@ -811,7 +811,7 @@ IceGrid::PatcherFeedbackPrx::ice_staticId() noexcept
 }
 
 ::std::optional<::IceGrid::ServerPrx>
-IceGrid::NodePrx::loadServer(const ::std::shared_ptr<InternalServerDescriptor>& iceP_svr, ::std::string_view iceP_replicaName, AdapterPrxDict& iceP_adapters, ::std::int32_t& iceP_activateTimeout, ::std::int32_t& iceP_deactivateTimeout, const ::Ice::Context& context) const
+IceGrid::NodePrx::loadServer(const InternalServerDescriptorPtr& iceP_svr, ::std::string_view iceP_replicaName, AdapterPrxDict& iceP_adapters, ::std::int32_t& iceP_activateTimeout, ::std::int32_t& iceP_deactivateTimeout, const ::Ice::Context& context) const
 {
     auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, ::std::int32_t, ::std::int32_t>>(true, this, &NodePrx::_iceI_loadServer, iceP_svr, iceP_replicaName, context).get();
     iceP_adapters = ::std::move(::std::get<1>(result));
@@ -821,13 +821,13 @@ IceGrid::NodePrx::loadServer(const ::std::shared_ptr<InternalServerDescriptor>& 
 }
 
 ::std::future<::std::tuple<::std::optional<::IceGrid::ServerPrx>, ::IceGrid::AdapterPrxDict, ::std::int32_t, ::std::int32_t>>
-IceGrid::NodePrx::loadServerAsync(const ::std::shared_ptr<InternalServerDescriptor>& iceP_svr, ::std::string_view iceP_replicaName, const ::Ice::Context& context) const
+IceGrid::NodePrx::loadServerAsync(const InternalServerDescriptorPtr& iceP_svr, ::std::string_view iceP_replicaName, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, ::std::int32_t, ::std::int32_t>>(false, this, &NodePrx::_iceI_loadServer, iceP_svr, iceP_replicaName, context);
 }
 
 ::std::function<void()>
-IceGrid::NodePrx::loadServerAsync(const ::std::shared_ptr<InternalServerDescriptor>& iceP_svr, ::std::string_view iceP_replicaName, ::std::function<void(::std::optional<::IceGrid::ServerPrx>, ::IceGrid::AdapterPrxDict, ::std::int32_t, ::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+IceGrid::NodePrx::loadServerAsync(const InternalServerDescriptorPtr& iceP_svr, ::std::string_view iceP_replicaName, ::std::function<void(::std::optional<::IceGrid::ServerPrx>, ::IceGrid::AdapterPrxDict, ::std::int32_t, ::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, ::std::int32_t, ::std::int32_t>&& result)
     {
@@ -837,7 +837,7 @@ IceGrid::NodePrx::loadServerAsync(const ::std::shared_ptr<InternalServerDescript
 }
 
 void
-IceGrid::NodePrx::_iceI_loadServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, ::std::int32_t, ::std::int32_t>>>& outAsync, const ::std::shared_ptr<InternalServerDescriptor>& iceP_svr, ::std::string_view iceP_replicaName, const ::Ice::Context& context) const
+IceGrid::NodePrx::_iceI_loadServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, ::std::int32_t, ::std::int32_t>>>& outAsync, const InternalServerDescriptorPtr& iceP_svr, ::std::string_view iceP_replicaName, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "loadServer";
 
@@ -871,7 +871,7 @@ IceGrid::NodePrx::_iceI_loadServer(const ::std::shared_ptr<::IceInternal::Outgoi
 }
 
 ::std::optional<::IceGrid::ServerPrx>
-IceGrid::NodePrx::loadServerWithoutRestart(const ::std::shared_ptr<InternalServerDescriptor>& iceP_svr, ::std::string_view iceP_replicaName, AdapterPrxDict& iceP_adapters, ::std::int32_t& iceP_activateTimeout, ::std::int32_t& iceP_deactivateTimeout, const ::Ice::Context& context) const
+IceGrid::NodePrx::loadServerWithoutRestart(const InternalServerDescriptorPtr& iceP_svr, ::std::string_view iceP_replicaName, AdapterPrxDict& iceP_adapters, ::std::int32_t& iceP_activateTimeout, ::std::int32_t& iceP_deactivateTimeout, const ::Ice::Context& context) const
 {
     auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, ::std::int32_t, ::std::int32_t>>(true, this, &NodePrx::_iceI_loadServerWithoutRestart, iceP_svr, iceP_replicaName, context).get();
     iceP_adapters = ::std::move(::std::get<1>(result));
@@ -881,13 +881,13 @@ IceGrid::NodePrx::loadServerWithoutRestart(const ::std::shared_ptr<InternalServe
 }
 
 ::std::future<::std::tuple<::std::optional<::IceGrid::ServerPrx>, ::IceGrid::AdapterPrxDict, ::std::int32_t, ::std::int32_t>>
-IceGrid::NodePrx::loadServerWithoutRestartAsync(const ::std::shared_ptr<InternalServerDescriptor>& iceP_svr, ::std::string_view iceP_replicaName, const ::Ice::Context& context) const
+IceGrid::NodePrx::loadServerWithoutRestartAsync(const InternalServerDescriptorPtr& iceP_svr, ::std::string_view iceP_replicaName, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, ::std::int32_t, ::std::int32_t>>(false, this, &NodePrx::_iceI_loadServerWithoutRestart, iceP_svr, iceP_replicaName, context);
 }
 
 ::std::function<void()>
-IceGrid::NodePrx::loadServerWithoutRestartAsync(const ::std::shared_ptr<InternalServerDescriptor>& iceP_svr, ::std::string_view iceP_replicaName, ::std::function<void(::std::optional<::IceGrid::ServerPrx>, ::IceGrid::AdapterPrxDict, ::std::int32_t, ::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+IceGrid::NodePrx::loadServerWithoutRestartAsync(const InternalServerDescriptorPtr& iceP_svr, ::std::string_view iceP_replicaName, ::std::function<void(::std::optional<::IceGrid::ServerPrx>, ::IceGrid::AdapterPrxDict, ::std::int32_t, ::std::int32_t)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, ::std::int32_t, ::std::int32_t>&& result)
     {
@@ -897,7 +897,7 @@ IceGrid::NodePrx::loadServerWithoutRestartAsync(const ::std::shared_ptr<Internal
 }
 
 void
-IceGrid::NodePrx::_iceI_loadServerWithoutRestart(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, ::std::int32_t, ::std::int32_t>>>& outAsync, const ::std::shared_ptr<InternalServerDescriptor>& iceP_svr, ::std::string_view iceP_replicaName, const ::Ice::Context& context) const
+IceGrid::NodePrx::_iceI_loadServerWithoutRestart(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<ServerPrx>, AdapterPrxDict, ::std::int32_t, ::std::int32_t>>>& outAsync, const InternalServerDescriptorPtr& iceP_svr, ::std::string_view iceP_replicaName, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "loadServerWithoutRestart";
 
@@ -1021,25 +1021,25 @@ IceGrid::NodePrx::_iceI_destroyServerWithoutRestart(const ::std::shared_ptr<::Ic
 }
 
 void
-IceGrid::NodePrx::patch(const ::std::optional<PatcherFeedbackPrx>& iceP_feedback, ::std::string_view iceP_application, ::std::string_view iceP_server, const ::std::shared_ptr<InternalDistributionDescriptor>& iceP_appDistrib, bool iceP_shutdown, const ::Ice::Context& context) const
+IceGrid::NodePrx::patch(const ::std::optional<PatcherFeedbackPrx>& iceP_feedback, ::std::string_view iceP_application, ::std::string_view iceP_server, const InternalDistributionDescriptorPtr& iceP_appDistrib, bool iceP_shutdown, const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &NodePrx::_iceI_patch, iceP_feedback, iceP_application, iceP_server, iceP_appDistrib, iceP_shutdown, context).get();
 }
 
 ::std::future<void>
-IceGrid::NodePrx::patchAsync(const ::std::optional<PatcherFeedbackPrx>& iceP_feedback, ::std::string_view iceP_application, ::std::string_view iceP_server, const ::std::shared_ptr<InternalDistributionDescriptor>& iceP_appDistrib, bool iceP_shutdown, const ::Ice::Context& context) const
+IceGrid::NodePrx::patchAsync(const ::std::optional<PatcherFeedbackPrx>& iceP_feedback, ::std::string_view iceP_application, ::std::string_view iceP_server, const InternalDistributionDescriptorPtr& iceP_appDistrib, bool iceP_shutdown, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &NodePrx::_iceI_patch, iceP_feedback, iceP_application, iceP_server, iceP_appDistrib, iceP_shutdown, context);
 }
 
 ::std::function<void()>
-IceGrid::NodePrx::patchAsync(const ::std::optional<PatcherFeedbackPrx>& iceP_feedback, ::std::string_view iceP_application, ::std::string_view iceP_server, const ::std::shared_ptr<InternalDistributionDescriptor>& iceP_appDistrib, bool iceP_shutdown, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+IceGrid::NodePrx::patchAsync(const ::std::optional<PatcherFeedbackPrx>& iceP_feedback, ::std::string_view iceP_application, ::std::string_view iceP_server, const InternalDistributionDescriptorPtr& iceP_appDistrib, bool iceP_shutdown, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::NodePrx::_iceI_patch, iceP_feedback, iceP_application, iceP_server, iceP_appDistrib, iceP_shutdown, context);
 }
 
 void
-IceGrid::NodePrx::_iceI_patch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<PatcherFeedbackPrx>& iceP_feedback, ::std::string_view iceP_application, ::std::string_view iceP_server, const ::std::shared_ptr<InternalDistributionDescriptor>& iceP_appDistrib, bool iceP_shutdown, const ::Ice::Context& context) const
+IceGrid::NodePrx::_iceI_patch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<PatcherFeedbackPrx>& iceP_feedback, ::std::string_view iceP_application, ::std::string_view iceP_server, const InternalDistributionDescriptorPtr& iceP_appDistrib, bool iceP_shutdown, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "patch";
 
@@ -1769,25 +1769,25 @@ IceGrid::ReplicaSessionPrx::ice_staticId() noexcept
 }
 
 ::std::optional<::IceGrid::NodeSessionPrx>
-IceGrid::InternalRegistryPrx::registerNode(const ::std::shared_ptr<InternalNodeInfo>& iceP_info, const ::std::optional<NodePrx>& iceP_prx, const LoadInfo& iceP_loadInf, const ::Ice::Context& context) const
+IceGrid::InternalRegistryPrx::registerNode(const InternalNodeInfoPtr& iceP_info, const ::std::optional<NodePrx>& iceP_prx, const LoadInfo& iceP_loadInf, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::optional<NodeSessionPrx>>(true, this, &InternalRegistryPrx::_iceI_registerNode, iceP_info, iceP_prx, iceP_loadInf, context).get();
 }
 
 ::std::future<::std::optional<::IceGrid::NodeSessionPrx>>
-IceGrid::InternalRegistryPrx::registerNodeAsync(const ::std::shared_ptr<InternalNodeInfo>& iceP_info, const ::std::optional<NodePrx>& iceP_prx, const LoadInfo& iceP_loadInf, const ::Ice::Context& context) const
+IceGrid::InternalRegistryPrx::registerNodeAsync(const InternalNodeInfoPtr& iceP_info, const ::std::optional<NodePrx>& iceP_prx, const LoadInfo& iceP_loadInf, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::optional<NodeSessionPrx>>(false, this, &InternalRegistryPrx::_iceI_registerNode, iceP_info, iceP_prx, iceP_loadInf, context);
 }
 
 ::std::function<void()>
-IceGrid::InternalRegistryPrx::registerNodeAsync(const ::std::shared_ptr<InternalNodeInfo>& iceP_info, const ::std::optional<NodePrx>& iceP_prx, const LoadInfo& iceP_loadInf, ::std::function<void(::std::optional<::IceGrid::NodeSessionPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+IceGrid::InternalRegistryPrx::registerNodeAsync(const InternalNodeInfoPtr& iceP_info, const ::std::optional<NodePrx>& iceP_prx, const LoadInfo& iceP_loadInf, ::std::function<void(::std::optional<::IceGrid::NodeSessionPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<::std::optional<NodeSessionPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::InternalRegistryPrx::_iceI_registerNode, iceP_info, iceP_prx, iceP_loadInf, context);
 }
 
 void
-IceGrid::InternalRegistryPrx::_iceI_registerNode(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<NodeSessionPrx>>>& outAsync, const ::std::shared_ptr<InternalNodeInfo>& iceP_info, const ::std::optional<NodePrx>& iceP_prx, const LoadInfo& iceP_loadInf, const ::Ice::Context& context) const
+IceGrid::InternalRegistryPrx::_iceI_registerNode(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<NodeSessionPrx>>>& outAsync, const InternalNodeInfoPtr& iceP_info, const ::std::optional<NodePrx>& iceP_prx, const LoadInfo& iceP_loadInf, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "registerNode";
 
@@ -1804,11 +1804,11 @@ IceGrid::InternalRegistryPrx::_iceI_registerNode(const ::std::shared_ptr<::IceIn
             {
                 ex.ice_throw();
             }
-            catch(const NodeActiveException&)
+            catch(const PermissionDeniedException&)
             {
                 throw;
             }
-            catch(const PermissionDeniedException&)
+            catch(const NodeActiveException&)
             {
                 throw;
             }
@@ -1819,25 +1819,25 @@ IceGrid::InternalRegistryPrx::_iceI_registerNode(const ::std::shared_ptr<::IceIn
 }
 
 ::std::optional<::IceGrid::ReplicaSessionPrx>
-IceGrid::InternalRegistryPrx::registerReplica(const ::std::shared_ptr<InternalReplicaInfo>& iceP_info, const ::std::optional<InternalRegistryPrx>& iceP_prx, const ::Ice::Context& context) const
+IceGrid::InternalRegistryPrx::registerReplica(const InternalReplicaInfoPtr& iceP_info, const ::std::optional<InternalRegistryPrx>& iceP_prx, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::optional<ReplicaSessionPrx>>(true, this, &InternalRegistryPrx::_iceI_registerReplica, iceP_info, iceP_prx, context).get();
 }
 
 ::std::future<::std::optional<::IceGrid::ReplicaSessionPrx>>
-IceGrid::InternalRegistryPrx::registerReplicaAsync(const ::std::shared_ptr<InternalReplicaInfo>& iceP_info, const ::std::optional<InternalRegistryPrx>& iceP_prx, const ::Ice::Context& context) const
+IceGrid::InternalRegistryPrx::registerReplicaAsync(const InternalReplicaInfoPtr& iceP_info, const ::std::optional<InternalRegistryPrx>& iceP_prx, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::optional<ReplicaSessionPrx>>(false, this, &InternalRegistryPrx::_iceI_registerReplica, iceP_info, iceP_prx, context);
 }
 
 ::std::function<void()>
-IceGrid::InternalRegistryPrx::registerReplicaAsync(const ::std::shared_ptr<InternalReplicaInfo>& iceP_info, const ::std::optional<InternalRegistryPrx>& iceP_prx, ::std::function<void(::std::optional<::IceGrid::ReplicaSessionPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+IceGrid::InternalRegistryPrx::registerReplicaAsync(const InternalReplicaInfoPtr& iceP_info, const ::std::optional<InternalRegistryPrx>& iceP_prx, ::std::function<void(::std::optional<::IceGrid::ReplicaSessionPrx>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<::std::optional<ReplicaSessionPrx>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::InternalRegistryPrx::_iceI_registerReplica, iceP_info, iceP_prx, context);
 }
 
 void
-IceGrid::InternalRegistryPrx::_iceI_registerReplica(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<ReplicaSessionPrx>>>& outAsync, const ::std::shared_ptr<InternalReplicaInfo>& iceP_info, const ::std::optional<InternalRegistryPrx>& iceP_prx, const ::Ice::Context& context) const
+IceGrid::InternalRegistryPrx::_iceI_registerReplica(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::optional<ReplicaSessionPrx>>>& outAsync, const InternalReplicaInfoPtr& iceP_info, const ::std::optional<InternalRegistryPrx>& iceP_prx, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "registerReplica";
 
@@ -2129,7 +2129,7 @@ IceGrid::InternalDbEnvDescriptor::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 IceGrid::InternalDbEnvDescriptor::_iceCloneImpl() const
 {
     return CloneEnabler<InternalDbEnvDescriptor>::clone(*this);
@@ -2164,7 +2164,7 @@ IceGrid::InternalAdapterDescriptor::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 IceGrid::InternalAdapterDescriptor::_iceCloneImpl() const
 {
     return CloneEnabler<InternalAdapterDescriptor>::clone(*this);
@@ -2199,7 +2199,7 @@ IceGrid::InternalDistributionDescriptor::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 IceGrid::InternalDistributionDescriptor::_iceCloneImpl() const
 {
     return CloneEnabler<InternalDistributionDescriptor>::clone(*this);
@@ -2234,7 +2234,7 @@ IceGrid::InternalServerDescriptor::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 IceGrid::InternalServerDescriptor::_iceCloneImpl() const
 {
     return CloneEnabler<InternalServerDescriptor>::clone(*this);
@@ -2438,7 +2438,7 @@ IceGrid::InternalNodeInfo::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 IceGrid::InternalNodeInfo::_iceCloneImpl() const
 {
     return CloneEnabler<InternalNodeInfo>::clone(*this);
@@ -2473,7 +2473,7 @@ IceGrid::InternalReplicaInfo::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 IceGrid::InternalReplicaInfo::_iceCloneImpl() const
 {
     return CloneEnabler<InternalReplicaInfo>::clone(*this);
@@ -2812,7 +2812,7 @@ IceGrid::Server::_iceD_checkUpdate(::Ice::IncomingRequest& request, ::std::funct
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::shared_ptr<InternalServerDescriptor> iceP_svr;
+    InternalServerDescriptorPtr iceP_svr;
     bool iceP_noRestart;
     istr->readAll(iceP_svr, iceP_noRestart);
     istr->readPendingValues();
@@ -3297,7 +3297,7 @@ IceGrid::Node::_iceD_loadServer(::Ice::IncomingRequest& request, ::std::function
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::shared_ptr<InternalServerDescriptor> iceP_svr;
+    InternalServerDescriptorPtr iceP_svr;
     ::std::string iceP_replicaName;
     istr->readAll(iceP_svr, iceP_replicaName);
     istr->readPendingValues();
@@ -3329,7 +3329,7 @@ IceGrid::Node::_iceD_loadServerWithoutRestart(::Ice::IncomingRequest& request, :
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::shared_ptr<InternalServerDescriptor> iceP_svr;
+    InternalServerDescriptorPtr iceP_svr;
     ::std::string iceP_replicaName;
     istr->readAll(iceP_svr, iceP_replicaName);
     istr->readPendingValues();
@@ -3414,7 +3414,7 @@ IceGrid::Node::_iceD_patch(::Ice::IncomingRequest& request, ::std::function<void
     ::std::optional<PatcherFeedbackPrx> iceP_feedback;
     ::std::string iceP_application;
     ::std::string iceP_server;
-    ::std::shared_ptr<InternalDistributionDescriptor> iceP_appDistrib;
+    InternalDistributionDescriptorPtr iceP_appDistrib;
     bool iceP_shutdown;
     istr->readAll(iceP_feedback, iceP_application, iceP_server, iceP_appDistrib, iceP_shutdown);
     istr->readPendingValues();
@@ -4249,7 +4249,7 @@ IceGrid::InternalRegistry::_iceD_registerNode(::Ice::IncomingRequest& request, :
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::shared_ptr<InternalNodeInfo> iceP_info;
+    InternalNodeInfoPtr iceP_info;
     ::std::optional<NodePrx> iceP_prx;
     LoadInfo iceP_loadInf;
     istr->readAll(iceP_info, iceP_prx, iceP_loadInf);
@@ -4271,7 +4271,7 @@ IceGrid::InternalRegistry::_iceD_registerReplica(::Ice::IncomingRequest& request
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::shared_ptr<InternalReplicaInfo> iceP_info;
+    InternalReplicaInfoPtr iceP_info;
     ::std::optional<InternalRegistryPrx> iceP_prx;
     istr->readAll(iceP_info, iceP_prx);
     istr->readPendingValues();

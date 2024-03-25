@@ -28,31 +28,34 @@
 
 namespace _cpp_and
 {
+    enum class assert : ::std::uint8_t
+    {
+        _cpp_break
+    };
 
+    struct _cpp_continue;
 
-enum class assert : unsigned char
-{
-    _cpp_break
-};
-struct _cpp_continue;
-class delPrx;
-class execPrx;
-class _cpp_for;
+    class delPrx;
 
-using forPtr = ::std::shared_ptr<_cpp_for>;
-class ifPrx;
+    class execPrx;
 
-using import = ::std::vector<assert>;
+    class _cpp_for;
+    using forPtr = ::std::shared_ptr<_cpp_for>;
 
-using in = ::std::map<::std::string, assert>;
-class printPrx;
+    class ifPrx;
 
-constexpr ::std::int32_t lambda = 0;
+    using import = ::std::vector<assert>;
 
-enum class EnumNone : unsigned char
-{
-    None
-};
+    using in = ::std::map<::std::string, assert>;
+
+    class printPrx;
+
+    constexpr ::std::int32_t lambda = 0;
+
+    enum class EnumNone : ::std::uint8_t
+    {
+        None
+    };
 
 }
 
@@ -92,7 +95,7 @@ public:
     {
     }
 
-    delPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    delPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -155,7 +158,7 @@ public:
     {
     }
 
-    execPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    execPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -212,7 +215,7 @@ public:
     {
     }
 
-    ifPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    ifPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -250,15 +253,15 @@ class printPrx : public ::Ice::Proxy<printPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    assert raise(const _cpp_continue& _cpp_else, const ::std::shared_ptr<::and::for>& _cpp_return, const ::std::optional<delPrx>& _cpp_while, const ::std::optional<execPrx>& yield, const ::std::optional<ifPrx>& _cpp_or, ::std::int32_t global, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    assert raise(const _cpp_continue& _cpp_else, const ::and::forPtr& _cpp_return, const ::std::optional<delPrx>& _cpp_while, const ::std::optional<execPrx>& yield, const ::std::optional<ifPrx>& _cpp_or, ::std::int32_t global, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<assert> raiseAsync(const _cpp_continue& _cpp_else, const ::std::shared_ptr<::and::for>& _cpp_return, const ::std::optional<delPrx>& _cpp_while, const ::std::optional<execPrx>& yield, const ::std::optional<ifPrx>& _cpp_or, ::std::int32_t global, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<assert> raiseAsync(const _cpp_continue& _cpp_else, const ::and::forPtr& _cpp_return, const ::std::optional<delPrx>& _cpp_while, const ::std::optional<execPrx>& yield, const ::std::optional<ifPrx>& _cpp_or, ::std::int32_t global, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    raiseAsync(const _cpp_continue& _cpp_else, const ::std::shared_ptr<::and::for>& _cpp_return, const ::std::optional<delPrx>& _cpp_while, const ::std::optional<execPrx>& yield, const ::std::optional<ifPrx>& _cpp_or, ::std::int32_t global, ::std::function<void(::_cpp_and::assert)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    raiseAsync(const _cpp_continue& _cpp_else, const ::and::forPtr& _cpp_return, const ::std::optional<delPrx>& _cpp_while, const ::std::optional<execPrx>& yield, const ::std::optional<ifPrx>& _cpp_or, ::std::int32_t global, ::std::function<void(::_cpp_and::assert)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_raise(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<assert>>&, const _cpp_continue&, const ::std::shared_ptr<::and::for>&, const ::std::optional<delPrx>&, const ::std::optional<execPrx>&, const ::std::optional<ifPrx>&, ::std::int32_t, const ::Ice::Context&) const;
+    void _iceI_raise(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<assert>>&, const _cpp_continue&, const ::and::forPtr&, const ::std::optional<delPrx>&, const ::std::optional<execPrx>&, const ::std::optional<ifPrx>&, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -279,7 +282,7 @@ public:
     {
     }
 
-    printPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    printPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -365,7 +368,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<_cpp_for> ice_clone() const { return ::std::static_pointer_cast <_cpp_for>(_iceCloneImpl()); }
+    forPtr ice_clone() const { return ::std::static_pointer_cast <_cpp_for>(_iceCloneImpl()); }
 
     ::std::int32_t lambda;
     ::std::optional<::_cpp_and::execPrx> from;
@@ -375,7 +378,7 @@ protected:
 
     _cpp_for(const _cpp_for&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -616,7 +619,7 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
-    virtual assert raise(_cpp_continue _cpp_else, ::std::shared_ptr<::and::for> _cpp_return, ::std::optional<delPrx> _cpp_while, ::std::optional<execPrx> yield, ::std::optional<ifPrx> _cpp_or, ::std::int32_t global, const ::Ice::Current& current) = 0;
+    virtual assert raise(_cpp_continue _cpp_else, ::and::forPtr _cpp_return, ::std::optional<delPrx> _cpp_while, ::std::optional<execPrx> yield, ::std::optional<ifPrx> _cpp_or, ::std::int32_t global, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_raise(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond

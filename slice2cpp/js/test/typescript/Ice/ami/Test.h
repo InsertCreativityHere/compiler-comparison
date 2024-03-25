@@ -30,17 +30,18 @@
 
 namespace Test
 {
+    enum class CloseMode : ::std::uint8_t
+    {
+        Forcefully,
+        Gracefully,
+        GracefullyWithWait
+    };
 
+    class PingReplyPrx;
 
-enum class CloseMode : unsigned char
-{
-    Forcefully,
-    Gracefully,
-    GracefullyWithWait
-};
-class PingReplyPrx;
-class TestIntfPrx;
-class TestIntfControllerPrx;
+    class TestIntfPrx;
+
+    class TestIntfControllerPrx;
 
 }
 
@@ -80,7 +81,7 @@ public:
     {
     }
 
-    PingReplyPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    PingReplyPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -297,7 +298,7 @@ public:
     {
     }
 
-    TestIntfPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    TestIntfPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -371,7 +372,7 @@ public:
     {
     }
 
-    TestIntfControllerPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    TestIntfControllerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

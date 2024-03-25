@@ -29,63 +29,63 @@
 
 namespace Test
 {
+    class C;
+    using CPtr = ::std::shared_ptr<C>;
 
-class C;
+    using CSeq = ::std::vector<CPtr>;
 
-using CPtr = ::std::shared_ptr<C>;
+    using CArray = ::std::vector<CPtr>;
 
-using CSeq = ::std::vector<::std::shared_ptr<C>>;
+    using CList = ::std::vector<CPtr>;
 
-using CArray = ::std::vector<::std::shared_ptr<C>>;
+    using BoolSeq = ::std::vector<bool>;
 
-using CList = ::std::vector<::std::shared_ptr<C>>;
+    using ByteSeq = ::std::vector<std::byte>;
 
-using BoolSeq = ::std::vector<bool>;
+    using ShortSeq = ::std::vector<::std::int16_t>;
 
-using ByteSeq = ::std::vector<std::byte>;
+    using IntSeq = ::std::vector<::std::int32_t>;
 
-using ShortSeq = ::std::vector<::std::int16_t>;
+    using LongSeq = ::std::vector<::std::int64_t>;
 
-using IntSeq = ::std::vector<::std::int32_t>;
+    using FloatSeq = ::std::vector<float>;
 
-using LongSeq = ::std::vector<::std::int64_t>;
+    using DoubleSeq = ::std::vector<double>;
 
-using FloatSeq = ::std::vector<float>;
+    using StringSeq = ::std::vector<::std::string>;
 
-using DoubleSeq = ::std::vector<double>;
+    using ByteBuffer = ::std::vector<std::byte>;
 
-using StringSeq = ::std::vector<::std::string>;
+    using ShortBuffer = ::std::vector<::std::int16_t>;
 
-using ByteBuffer = ::std::vector<std::byte>;
+    using IntBuffer = ::std::vector<::std::int32_t>;
 
-using ShortBuffer = ::std::vector<::std::int16_t>;
+    using LongBuffer = ::std::vector<::std::int64_t>;
 
-using IntBuffer = ::std::vector<::std::int32_t>;
+    using FloatBuffer = ::std::vector<float>;
 
-using LongBuffer = ::std::vector<::std::int64_t>;
+    using DoubleBuffer = ::std::vector<double>;
 
-using FloatBuffer = ::std::vector<float>;
+    enum class E : ::std::uint8_t
+    {
+        E1,
+        E2,
+        E3
+    };
 
-using DoubleBuffer = ::std::vector<double>;
+    using ESeq = ::std::vector<E>;
 
-enum class E : unsigned char
-{
-    E1,
-    E2,
-    E3
-};
+    struct S;
 
-using ESeq = ::std::vector<E>;
-struct S;
+    using SSeq = ::std::vector<S>;
 
-using SSeq = ::std::vector<S>;
+    using D = ::std::map<::std::int32_t, ::std::string>;
 
-using D = ::std::map<::std::int32_t, ::std::string>;
+    using DSeq = ::std::vector<D>;
 
-using DSeq = ::std::vector<D>;
+    using StringSeqSeq = ::std::vector<StringSeq>;
 
-using StringSeqSeq = ::std::vector<StringSeq>;
-class TestIntfPrx;
+    class TestIntfPrx;
 
 }
 
@@ -587,7 +587,7 @@ public:
     {
     }
 
-    TestIntfPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    TestIntfPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -640,13 +640,13 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<C> ice_clone() const { return ::std::static_pointer_cast <C>(_iceCloneImpl()); }
+    CPtr ice_clone() const { return ::std::static_pointer_cast <C>(_iceCloneImpl()); }
 
 protected:
 
     C(const C&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;

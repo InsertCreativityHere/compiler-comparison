@@ -29,25 +29,23 @@
 
 namespace Test
 {
+    class D3;
+    using D3Ptr = ::std::shared_ptr<D3>;
 
-class D3;
+    class PCUnknown;
+    using PCUnknownPtr = ::std::shared_ptr<PCUnknown>;
 
-using D3Ptr = ::std::shared_ptr<D3>;
-class PCUnknown;
+    class PCDerived;
+    using PCDerivedPtr = ::std::shared_ptr<PCDerived>;
 
-using PCUnknownPtr = ::std::shared_ptr<PCUnknown>;
-class PCDerived;
+    class PCDerived2;
+    using PCDerived2Ptr = ::std::shared_ptr<PCDerived2>;
 
-using PCDerivedPtr = ::std::shared_ptr<PCDerived>;
-class PCDerived2;
+    class PCDerived3;
+    using PCDerived3Ptr = ::std::shared_ptr<PCDerived3>;
 
-using PCDerived2Ptr = ::std::shared_ptr<PCDerived2>;
-class PCDerived3;
-
-using PCDerived3Ptr = ::std::shared_ptr<PCDerived3>;
-class CompactPCDerived;
-
-using CompactPCDerivedPtr = ::std::shared_ptr<CompactPCDerived>;
+    class CompactPCDerived;
+    using CompactPCDerivedPtr = ::std::shared_ptr<CompactPCDerived>;
 
 }
 
@@ -63,7 +61,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    D3(::std::string sb, ::std::shared_ptr<::Test::B> pb, ::std::string sd3, ::std::shared_ptr<::Test::B> pd3) :
+    D3(::std::string sb, ::Test::BPtr pb, ::std::string sd3, ::Test::BPtr pd3) :
         B(::std::move(sb), ::std::move(pb)),
         sd3(::std::move(sd3)),
         pd3(::std::move(pd3))
@@ -82,7 +80,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::string&, const ::std::shared_ptr<::Test::B>&, const ::std::string&, const ::std::shared_ptr<::Test::B>&> ice_tuple() const
+    std::tuple<const ::std::string&, const ::Test::BPtr&, const ::std::string&, const ::Test::BPtr&> ice_tuple() const
     {
         return std::tie(sb, pb, sd3, pd3);
     }
@@ -91,16 +89,16 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<D3> ice_clone() const { return ::std::static_pointer_cast <D3>(_iceCloneImpl()); }
+    D3Ptr ice_clone() const { return ::std::static_pointer_cast <D3>(_iceCloneImpl()); }
 
     ::std::string sd3;
-    ::std::shared_ptr<::Test::B> pd3;
+    ::Test::BPtr pd3;
 
 protected:
 
     D3(const D3&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -146,7 +144,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<PCUnknown> ice_clone() const { return ::std::static_pointer_cast <PCUnknown>(_iceCloneImpl()); }
+    PCUnknownPtr ice_clone() const { return ::std::static_pointer_cast <PCUnknown>(_iceCloneImpl()); }
 
     ::std::string pu;
 
@@ -154,7 +152,7 @@ protected:
 
     PCUnknown(const PCUnknown&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -169,7 +167,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    PCDerived(::std::int32_t pi, ::std::string ps, ::std::shared_ptr<::Test::PBase> pb, ::Test::PBaseSeq pbs) :
+    PCDerived(::std::int32_t pi, ::std::string ps, ::Test::PBasePtr pb, ::Test::PBaseSeq pbs) :
         PDerived(pi, ::std::move(ps), ::std::move(pb)),
         pbs(::std::move(pbs))
     {
@@ -187,7 +185,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::int32_t&, const ::std::string&, const ::std::shared_ptr<::Test::PBase>&, const ::Test::PBaseSeq&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::string&, const ::Test::PBasePtr&, const ::Test::PBaseSeq&> ice_tuple() const
     {
         return std::tie(pi, ps, pb, pbs);
     }
@@ -196,7 +194,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<PCDerived> ice_clone() const { return ::std::static_pointer_cast <PCDerived>(_iceCloneImpl()); }
+    PCDerivedPtr ice_clone() const { return ::std::static_pointer_cast <PCDerived>(_iceCloneImpl()); }
 
     ::Test::PBaseSeq pbs;
 
@@ -204,7 +202,7 @@ protected:
 
     PCDerived(const PCDerived&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -219,7 +217,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    PCDerived2(::std::int32_t pi, ::std::string ps, ::std::shared_ptr<::Test::PBase> pb, ::Test::PBaseSeq pbs, ::std::int32_t pcd2) :
+    PCDerived2(::std::int32_t pi, ::std::string ps, ::Test::PBasePtr pb, ::Test::PBaseSeq pbs, ::std::int32_t pcd2) :
         PCDerived(pi, ::std::move(ps), ::std::move(pb), ::std::move(pbs)),
         pcd2(pcd2)
     {
@@ -237,7 +235,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::int32_t&, const ::std::string&, const ::std::shared_ptr<::Test::PBase>&, const ::Test::PBaseSeq&, const ::std::int32_t&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::string&, const ::Test::PBasePtr&, const ::Test::PBaseSeq&, const ::std::int32_t&> ice_tuple() const
     {
         return std::tie(pi, ps, pb, pbs, pcd2);
     }
@@ -246,7 +244,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<PCDerived2> ice_clone() const { return ::std::static_pointer_cast <PCDerived2>(_iceCloneImpl()); }
+    PCDerived2Ptr ice_clone() const { return ::std::static_pointer_cast <PCDerived2>(_iceCloneImpl()); }
 
     ::std::int32_t pcd2;
 
@@ -254,7 +252,7 @@ protected:
 
     PCDerived2(const PCDerived2&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -269,7 +267,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    PCDerived3(::std::int32_t pi, ::std::string ps, ::std::shared_ptr<::Test::PBase> pb, ::Test::PBaseSeq pbs, ::std::int32_t pcd2, ::std::shared_ptr<::Ice::Value> pcd3) :
+    PCDerived3(::std::int32_t pi, ::std::string ps, ::Test::PBasePtr pb, ::Test::PBaseSeq pbs, ::std::int32_t pcd2, ::Ice::ValuePtr pcd3) :
         PCDerived2(pi, ::std::move(ps), ::std::move(pb), ::std::move(pbs), pcd2),
         pcd3(::std::move(pcd3))
     {
@@ -287,7 +285,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::int32_t&, const ::std::string&, const ::std::shared_ptr<::Test::PBase>&, const ::Test::PBaseSeq&, const ::std::int32_t&, const ::std::shared_ptr<::Ice::Value>&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::string&, const ::Test::PBasePtr&, const ::Test::PBaseSeq&, const ::std::int32_t&, const ::Ice::ValuePtr&> ice_tuple() const
     {
         return std::tie(pi, ps, pb, pbs, pcd2, pcd3);
     }
@@ -296,15 +294,15 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<PCDerived3> ice_clone() const { return ::std::static_pointer_cast <PCDerived3>(_iceCloneImpl()); }
+    PCDerived3Ptr ice_clone() const { return ::std::static_pointer_cast <PCDerived3>(_iceCloneImpl()); }
 
-    ::std::shared_ptr<::Ice::Value> pcd3;
+    ::Ice::ValuePtr pcd3;
 
 protected:
 
     PCDerived3(const PCDerived3&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -319,7 +317,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    CompactPCDerived(::std::int32_t pi, ::std::string ps, ::std::shared_ptr<::Test::PBase> pb, ::Test::PBaseSeq pbs) :
+    CompactPCDerived(::std::int32_t pi, ::std::string ps, ::Test::PBasePtr pb, ::Test::PBaseSeq pbs) :
         CompactPDerived(pi, ::std::move(ps), ::std::move(pb)),
         pbs(::std::move(pbs))
     {
@@ -337,7 +335,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::int32_t&, const ::std::string&, const ::std::shared_ptr<::Test::PBase>&, const ::Test::PBaseSeq&> ice_tuple() const
+    std::tuple<const ::std::int32_t&, const ::std::string&, const ::Test::PBasePtr&, const ::Test::PBaseSeq&> ice_tuple() const
     {
         return std::tie(pi, ps, pb, pbs);
     }
@@ -346,7 +344,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<CompactPCDerived> ice_clone() const { return ::std::static_pointer_cast <CompactPCDerived>(_iceCloneImpl()); }
+    CompactPCDerivedPtr ice_clone() const { return ::std::static_pointer_cast <CompactPCDerived>(_iceCloneImpl()); }
 
     ::Test::PBaseSeq pbs;
 
@@ -354,7 +352,7 @@ protected:
 
     CompactPCDerived(const CompactPCDerived&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;

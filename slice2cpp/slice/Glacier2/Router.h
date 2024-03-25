@@ -42,8 +42,7 @@
 
 namespace Glacier2
 {
-
-class RouterPrx;
+    class RouterPrx;
 
 }
 
@@ -355,7 +354,7 @@ public:
     {
     }
 
-    RouterPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    RouterPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

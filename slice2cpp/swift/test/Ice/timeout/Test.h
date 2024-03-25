@@ -28,11 +28,11 @@
 
 namespace Test
 {
+    using ByteSeq = ::std::vector<std::byte>;
 
+    class TimeoutPrx;
 
-using ByteSeq = ::std::vector<std::byte>;
-class TimeoutPrx;
-class ControllerPrx;
+    class ControllerPrx;
 
 }
 
@@ -94,7 +94,7 @@ public:
     {
     }
 
-    TimeoutPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    TimeoutPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -179,7 +179,7 @@ public:
     {
     }
 
-    ControllerPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    ControllerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

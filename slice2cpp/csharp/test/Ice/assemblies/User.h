@@ -29,11 +29,10 @@
 
 namespace User
 {
+    class UserInfo;
+    using UserInfoPtr = ::std::shared_ptr<UserInfo>;
 
-class UserInfo;
-
-using UserInfoPtr = ::std::shared_ptr<UserInfo>;
-class RegistryPrx;
+    class RegistryPrx;
 
 }
 
@@ -44,15 +43,15 @@ class RegistryPrx : public ::Ice::Proxy<RegistryPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    ::std::shared_ptr<UserInfo> getUserInfo(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    UserInfoPtr getUserInfo(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<UserInfo>> getUserInfoAsync(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<UserInfoPtr> getUserInfoAsync(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    getUserInfoAsync(::std::string_view id, ::std::function<void(::std::shared_ptr<::User::UserInfo>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    getUserInfoAsync(::std::string_view id, ::std::function<void(::User::UserInfoPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getUserInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<UserInfo>>>&, ::std::string_view, const ::Ice::Context&) const;
+    void _iceI_getUserInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<UserInfoPtr>>&, ::std::string_view, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -73,7 +72,7 @@ public:
     {
     }
 
-    RegistryPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    RegistryPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -126,13 +125,13 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<UserInfo> ice_clone() const { return ::std::static_pointer_cast <UserInfo>(_iceCloneImpl()); }
+    UserInfoPtr ice_clone() const { return ::std::static_pointer_cast <UserInfo>(_iceCloneImpl()); }
 
 protected:
 
     UserInfo(const UserInfo&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -173,7 +172,7 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
-    virtual ::std::shared_ptr<UserInfo> getUserInfo(::std::string id, const ::Ice::Current& current) = 0;
+    virtual UserInfoPtr getUserInfo(::std::string id, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_getUserInfo(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond

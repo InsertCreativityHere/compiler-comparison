@@ -39,8 +39,7 @@
 
 namespace Ice
 {
-
-class PropertiesAdminPrx;
+    class PropertiesAdminPrx;
 
 }
 
@@ -179,7 +178,7 @@ public:
     {
     }
 
-    PropertiesAdminPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    PropertiesAdminPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

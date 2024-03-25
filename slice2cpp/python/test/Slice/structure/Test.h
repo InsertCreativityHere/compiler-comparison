@@ -29,17 +29,18 @@
 
 namespace Test
 {
+    using IntSeq = ::std::vector<::std::int32_t>;
 
+    using StringDict = ::std::map<::std::string, ::std::string>;
 
-using IntSeq = ::std::vector<::std::int32_t>;
+    struct S1;
 
-using StringDict = ::std::map<::std::string, ::std::string>;
-struct S1;
-struct S2;
-class C;
+    struct S2;
 
-using CPtr = ::std::shared_ptr<C>;
-struct S3;
+    class C;
+    using CPtr = ::std::shared_ptr<C>;
+
+    struct S3;
 
 }
 
@@ -116,7 +117,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<C> ice_clone() const { return ::std::static_pointer_cast <C>(_iceCloneImpl()); }
+    CPtr ice_clone() const { return ::std::static_pointer_cast <C>(_iceCloneImpl()); }
 
     ::std::string name;
 
@@ -124,7 +125,7 @@ protected:
 
     C(const C&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -136,7 +137,7 @@ static C _iceS_C_init;
 
 struct S3
 {
-    ::std::shared_ptr<::Test::C> obj;
+    ::Test::CPtr obj;
     ::Test::StringDict sd;
     ::std::optional<::Ice::ObjectPrx> prx;
 
@@ -144,7 +145,7 @@ struct S3
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::shared_ptr<::Test::C>&, const ::Test::StringDict&, const ::std::optional<::Ice::ObjectPrx>&> ice_tuple() const
+    std::tuple<const ::Test::CPtr&, const ::Test::StringDict&, const ::std::optional<::Ice::ObjectPrx>&> ice_tuple() const
     {
         return std::tie(obj, sd, prx);
     }

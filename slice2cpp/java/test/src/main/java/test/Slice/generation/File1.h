@@ -28,17 +28,14 @@
 
 namespace Test
 {
-
-class Interface1Prx;
+    class Interface1Prx;
 
 }
 
 namespace Test2
 {
-
-class Class1;
-
-using Class1Ptr = ::std::shared_ptr<Class1>;
+    class Class1;
+    using Class1Ptr = ::std::shared_ptr<Class1>;
 
 }
 
@@ -78,7 +75,7 @@ public:
     {
     }
 
-    Interface1Prx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    Interface1Prx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -131,13 +128,13 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<Class1> ice_clone() const { return ::std::static_pointer_cast <Class1>(_iceCloneImpl()); }
+    Class1Ptr ice_clone() const { return ::std::static_pointer_cast <Class1>(_iceCloneImpl()); }
 
 protected:
 
     Class1(const Class1&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;

@@ -424,7 +424,7 @@ Clash::Cls::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Clash::Cls::_iceCloneImpl() const
 {
     return CloneEnabler<Cls>::clone(*this);

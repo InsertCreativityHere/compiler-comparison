@@ -28,11 +28,11 @@
 
 namespace Test
 {
+    using ByteSeq = ::std::vector<std::byte>;
 
+    class MetricsPrx;
 
-using ByteSeq = ::std::vector<std::byte>;
-class MetricsPrx;
-class ControllerPrx;
+    class ControllerPrx;
 
 }
 
@@ -160,7 +160,7 @@ public:
     {
     }
 
-    MetricsPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    MetricsPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -234,7 +234,7 @@ public:
     {
     }
 
-    ControllerPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    ControllerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

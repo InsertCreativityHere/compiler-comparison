@@ -29,16 +29,16 @@
 
 namespace Test
 {
+    using StringSeq = ::std::vector<::std::string>;
 
+    using StringDict = ::std::map<::std::string, ::std::string>;
 
-using StringSeq = ::std::vector<::std::string>;
+    class C;
+    using CPtr = ::std::shared_ptr<C>;
 
-using StringDict = ::std::map<::std::string, ::std::string>;
-class C;
+    struct S1;
 
-using CPtr = ::std::shared_ptr<C>;
-struct S1;
-struct S2;
+    struct S2;
 
 }
 
@@ -80,7 +80,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<C> ice_clone() const { return ::std::static_pointer_cast <C>(_iceCloneImpl()); }
+    CPtr ice_clone() const { return ::std::static_pointer_cast <C>(_iceCloneImpl()); }
 
     ::std::int32_t i;
 
@@ -88,7 +88,7 @@ protected:
 
     C(const C&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -125,14 +125,14 @@ struct S2
     ::Test::StringSeq ss;
     ::Test::StringDict sd;
     ::Test::S1 s;
-    ::std::shared_ptr<::Test::C> cls;
+    ::Test::CPtr cls;
     ::std::optional<::Ice::ObjectPrx> prx;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::Test::StringSeq&, const ::Test::StringDict&, const ::Test::S1&, const ::std::shared_ptr<::Test::C>&, const ::std::optional<::Ice::ObjectPrx>&> ice_tuple() const
+    std::tuple<const bool&, const ::std::uint8_t&, const ::std::int16_t&, const ::std::int32_t&, const ::std::int64_t&, const float&, const double&, const ::std::string&, const ::Test::StringSeq&, const ::Test::StringDict&, const ::Test::S1&, const ::Test::CPtr&, const ::std::optional<::Ice::ObjectPrx>&> ice_tuple() const
     {
         return std::tie(bo, by, sh, i, l, f, d, str, ss, sd, s, cls, prx);
     }

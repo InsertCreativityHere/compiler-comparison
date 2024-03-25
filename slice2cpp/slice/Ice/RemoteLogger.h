@@ -40,43 +40,44 @@
 
 namespace Ice
 {
-
-
-/**
- * An enumeration representing the different types of log messages.
- */
-enum class LogMessageType : unsigned char
-{
     /**
-     * The {@link RemoteLogger} received a print message.
+     * An enumeration representing the different types of log messages.
      */
-    PrintMessage,
-    /**
-     * The {@link RemoteLogger} received a trace message.
-     */
-    TraceMessage,
-    /**
-     * The {@link RemoteLogger} received a warning message.
-     */
-    WarningMessage,
-    /**
-     * The {@link RemoteLogger} received an error message.
-     */
-    ErrorMessage
-};
+    enum class LogMessageType : ::std::uint8_t
+    {
+        /**
+         * The {@link RemoteLogger} received a print message.
+         */
+        PrintMessage,
+        /**
+         * The {@link RemoteLogger} received a trace message.
+         */
+        TraceMessage,
+        /**
+         * The {@link RemoteLogger} received a warning message.
+         */
+        WarningMessage,
+        /**
+         * The {@link RemoteLogger} received an error message.
+         */
+        ErrorMessage
+    };
 
-/**
- * A sequence of {@link LogMessageType}
- */
-using LogMessageTypeSeq = ::std::vector<LogMessageType>;
-struct LogMessage;
+    /**
+     * A sequence of {@link LogMessageType}
+     */
+    using LogMessageTypeSeq = ::std::vector<LogMessageType>;
 
-/**
- * A sequence of {@link LogMessage}.
- */
-using LogMessageSeq = std::list<LogMessage>;
-class RemoteLoggerPrx;
-class LoggerAdminPrx;
+    struct LogMessage;
+
+    /**
+     * A sequence of {@link LogMessage}.
+     */
+    using LogMessageSeq = std::list<LogMessage>;
+
+    class RemoteLoggerPrx;
+
+    class LoggerAdminPrx;
 
 }
 
@@ -174,7 +175,7 @@ public:
     {
     }
 
-    RemoteLoggerPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    RemoteLoggerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -370,7 +371,7 @@ public:
     {
     }
 
-    LoggerAdminPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    LoggerAdminPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

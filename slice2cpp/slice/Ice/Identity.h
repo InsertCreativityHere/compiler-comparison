@@ -42,13 +42,12 @@
 
 namespace Ice
 {
+    struct Identity;
 
-struct Identity;
-
-/**
- * A sequence of identities.
- */
-using IdentitySeq = ::std::vector<Identity>;
+    /**
+     * A sequence of identities.
+     */
+    using IdentitySeq = ::std::vector<Identity>;
 
 }
 

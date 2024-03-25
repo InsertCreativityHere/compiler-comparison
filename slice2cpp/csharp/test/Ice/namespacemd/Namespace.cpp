@@ -55,7 +55,7 @@ WithNamespace::C1::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 WithNamespace::C1::_iceCloneImpl() const
 {
     return CloneEnabler<C1>::clone(*this);
@@ -90,7 +90,7 @@ WithNamespace::C2::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 WithNamespace::C2::_iceCloneImpl() const
 {
     return CloneEnabler<C2>::clone(*this);

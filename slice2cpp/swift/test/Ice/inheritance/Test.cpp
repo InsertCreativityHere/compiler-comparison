@@ -382,7 +382,7 @@ Test::MC::A::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::MC::A::_iceCloneImpl() const
 {
     return CloneEnabler<A>::clone(*this);
@@ -417,7 +417,7 @@ Test::MC::B::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::MC::B::_iceCloneImpl() const
 {
     return CloneEnabler<B>::clone(*this);
@@ -454,7 +454,7 @@ Test::MC::C::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::MC::C::_iceCloneImpl() const
 {
     return CloneEnabler<C>::clone(*this);
@@ -491,7 +491,7 @@ Test::MC::D::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::MC::D::_iceCloneImpl() const
 {
     return CloneEnabler<D>::clone(*this);
@@ -528,7 +528,7 @@ Test::MD::A::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::MD::A::_iceCloneImpl() const
 {
     return CloneEnabler<A>::clone(*this);
@@ -563,7 +563,7 @@ Test::MD::B::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::MD::B::_iceCloneImpl() const
 {
     return CloneEnabler<B>::clone(*this);
@@ -600,7 +600,7 @@ Test::MD::C::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::MD::C::_iceCloneImpl() const
 {
     return CloneEnabler<C>::clone(*this);
@@ -637,7 +637,7 @@ Test::MD::D::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::MD::D::_iceCloneImpl() const
 {
     return CloneEnabler<D>::clone(*this);
@@ -674,7 +674,7 @@ Test::ME::A::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::ME::A::_iceCloneImpl() const
 {
     return CloneEnabler<A>::clone(*this);
@@ -709,7 +709,7 @@ Test::ME::B::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::ME::B::_iceCloneImpl() const
 {
     return CloneEnabler<B>::clone(*this);
@@ -746,7 +746,7 @@ Test::ME::C::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::ME::C::_iceCloneImpl() const
 {
     return CloneEnabler<C>::clone(*this);
@@ -783,7 +783,7 @@ Test::ME::D::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::ME::D::_iceCloneImpl() const
 {
     return CloneEnabler<D>::clone(*this);
@@ -820,7 +820,7 @@ Test::MF::A::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::MF::A::_iceCloneImpl() const
 {
     return CloneEnabler<A>::clone(*this);
@@ -855,7 +855,7 @@ Test::MF::B::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::MF::B::_iceCloneImpl() const
 {
     return CloneEnabler<B>::clone(*this);
@@ -892,7 +892,7 @@ Test::MF::C::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::MF::C::_iceCloneImpl() const
 {
     return CloneEnabler<C>::clone(*this);
@@ -929,7 +929,7 @@ Test::MF::D::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::MF::D::_iceCloneImpl() const
 {
     return CloneEnabler<D>::clone(*this);
@@ -966,7 +966,7 @@ Test::MG::A::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::MG::A::_iceCloneImpl() const
 {
     return CloneEnabler<A>::clone(*this);
@@ -1001,7 +1001,7 @@ Test::MG::B::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::MG::B::_iceCloneImpl() const
 {
     return CloneEnabler<B>::clone(*this);
@@ -1038,7 +1038,7 @@ Test::MG::C::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::MG::C::_iceCloneImpl() const
 {
     return CloneEnabler<C>::clone(*this);
@@ -1075,7 +1075,7 @@ Test::MG::D::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::MG::D::_iceCloneImpl() const
 {
     return CloneEnabler<D>::clone(*this);
@@ -1112,7 +1112,7 @@ Test::MH::A::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::MH::A::_iceCloneImpl() const
 {
     return CloneEnabler<A>::clone(*this);
@@ -1147,7 +1147,7 @@ Test::MH::B::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::MH::B::_iceCloneImpl() const
 {
     return CloneEnabler<B>::clone(*this);
@@ -1184,7 +1184,7 @@ Test::MH::C::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::MH::C::_iceCloneImpl() const
 {
     return CloneEnabler<C>::clone(*this);
@@ -1221,7 +1221,7 @@ Test::MH::D::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::MH::D::_iceCloneImpl() const
 {
     return CloneEnabler<D>::clone(*this);

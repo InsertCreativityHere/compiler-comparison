@@ -2855,26 +2855,26 @@ Test::MyDerivedClassPrx::_iceI_opDerived(const ::std::shared_ptr<::IceInternal::
         nullptr);
 }
 
-::std::shared_ptr<::Test::MyClass1>
-Test::MyDerivedClassPrx::opMyClass1(const ::std::shared_ptr<MyClass1>& iceP_opMyClass1, const ::Ice::Context& context) const
+::Test::MyClass1Ptr
+Test::MyDerivedClassPrx::opMyClass1(const MyClass1Ptr& iceP_opMyClass1, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<MyClass1>>(true, this, &MyDerivedClassPrx::_iceI_opMyClass1, iceP_opMyClass1, context).get();
+    return ::IceInternal::makePromiseOutgoing<MyClass1Ptr>(true, this, &MyDerivedClassPrx::_iceI_opMyClass1, iceP_opMyClass1, context).get();
 }
 
-::std::future<::std::shared_ptr<::Test::MyClass1>>
-Test::MyDerivedClassPrx::opMyClass1Async(const ::std::shared_ptr<MyClass1>& iceP_opMyClass1, const ::Ice::Context& context) const
+::std::future<::Test::MyClass1Ptr>
+Test::MyDerivedClassPrx::opMyClass1Async(const MyClass1Ptr& iceP_opMyClass1, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<MyClass1>>(false, this, &MyDerivedClassPrx::_iceI_opMyClass1, iceP_opMyClass1, context);
+    return ::IceInternal::makePromiseOutgoing<MyClass1Ptr>(false, this, &MyDerivedClassPrx::_iceI_opMyClass1, iceP_opMyClass1, context);
 }
 
 ::std::function<void()>
-Test::MyDerivedClassPrx::opMyClass1Async(const ::std::shared_ptr<MyClass1>& iceP_opMyClass1, ::std::function<void(::std::shared_ptr<::Test::MyClass1>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::MyDerivedClassPrx::opMyClass1Async(const MyClass1Ptr& iceP_opMyClass1, ::std::function<void(::Test::MyClass1Ptr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<MyClass1>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MyDerivedClassPrx::_iceI_opMyClass1, iceP_opMyClass1, context);
+    return ::IceInternal::makeLambdaOutgoing<MyClass1Ptr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MyDerivedClassPrx::_iceI_opMyClass1, iceP_opMyClass1, context);
 }
 
 void
-Test::MyDerivedClassPrx::_iceI_opMyClass1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<MyClass1>>>& outAsync, const ::std::shared_ptr<MyClass1>& iceP_opMyClass1, const ::Ice::Context& context) const
+Test::MyDerivedClassPrx::_iceI_opMyClass1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<MyClass1Ptr>>& outAsync, const MyClass1Ptr& iceP_opMyClass1, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "opMyClass1";
 
@@ -2888,7 +2888,7 @@ Test::MyDerivedClassPrx::_iceI_opMyClass1(const ::std::shared_ptr<::IceInternal:
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::shared_ptr<MyClass1> ret;
+            MyClass1Ptr ret;
             istr->readAll(ret);
             istr->readPendingValues();
             return ret;
@@ -2987,7 +2987,7 @@ Test::MyClass1::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::MyClass1::_iceCloneImpl() const
 {
     return CloneEnabler<MyClass1>::clone(*this);
@@ -4864,11 +4864,11 @@ Test::MyDerivedClass::_iceD_opMyClass1(::Ice::IncomingRequest& request, ::std::f
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::shared_ptr<MyClass1> iceP_opMyClass1;
+    MyClass1Ptr iceP_opMyClass1;
     istr->readAll(iceP_opMyClass1);
     istr->readPendingValues();
     istr->endEncapsulation();
-    ::std::shared_ptr<MyClass1> ret = this->opMyClass1(::std::move(iceP_opMyClass1), request.current());
+    MyClass1Ptr ret = this->opMyClass1(::std::move(iceP_opMyClass1), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

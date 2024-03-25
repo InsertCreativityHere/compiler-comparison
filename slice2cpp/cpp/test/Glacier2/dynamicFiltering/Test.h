@@ -29,18 +29,20 @@
 
 namespace Test
 {
+    class BackendPrx;
 
-class BackendPrx;
+    enum class StateCode : ::std::uint8_t
+    {
+        Initial,
+        Running,
+        Finished
+    };
 
-enum class StateCode : unsigned char
-{
-    Initial,
-    Running,
-    Finished
-};
-struct TestToken;
-class TestControllerPrx;
-class TestSessionPrx;
+    struct TestToken;
+
+    class TestControllerPrx;
+
+    class TestSessionPrx;
 
 }
 
@@ -91,7 +93,7 @@ public:
     {
     }
 
-    BackendPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    BackendPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -172,7 +174,7 @@ public:
     {
     }
 
-    TestControllerPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    TestControllerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -240,7 +242,7 @@ public:
     {
     }
 
-    TestSessionPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    TestSessionPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

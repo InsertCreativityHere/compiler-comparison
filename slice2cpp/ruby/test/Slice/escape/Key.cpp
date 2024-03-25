@@ -171,25 +171,25 @@ BEGIN::elsifPrx::ice_staticId() noexcept
 }
 
 ::BEGIN::END
-BEGIN::extendPrx::_cpp_for(const ::std::shared_ptr<display>& iceP_freeze, const ::std::optional<elsifPrx>& iceP_hash, const ::std::optional<breakPrx>& iceP_if, const ::std::shared_ptr<display>& iceP_inspect, const ::std::optional<elsifPrx>& iceP_method, ::std::int32_t iceP_methods, const ::Ice::Context& context) const
+BEGIN::extendPrx::_cpp_for(const displayPtr& iceP_freeze, const ::std::optional<elsifPrx>& iceP_hash, const ::std::optional<breakPrx>& iceP_if, const displayPtr& iceP_inspect, const ::std::optional<elsifPrx>& iceP_method, ::std::int32_t iceP_methods, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<END>(true, this, &extendPrx::_iceI_for, iceP_freeze, iceP_hash, iceP_if, iceP_inspect, iceP_method, iceP_methods, context).get();
 }
 
 ::std::future<::BEGIN::END>
-BEGIN::extendPrx::forAsync(const ::std::shared_ptr<display>& iceP_freeze, const ::std::optional<elsifPrx>& iceP_hash, const ::std::optional<breakPrx>& iceP_if, const ::std::shared_ptr<display>& iceP_inspect, const ::std::optional<elsifPrx>& iceP_method, ::std::int32_t iceP_methods, const ::Ice::Context& context) const
+BEGIN::extendPrx::forAsync(const displayPtr& iceP_freeze, const ::std::optional<elsifPrx>& iceP_hash, const ::std::optional<breakPrx>& iceP_if, const displayPtr& iceP_inspect, const ::std::optional<elsifPrx>& iceP_method, ::std::int32_t iceP_methods, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<END>(false, this, &extendPrx::_iceI_for, iceP_freeze, iceP_hash, iceP_if, iceP_inspect, iceP_method, iceP_methods, context);
 }
 
 ::std::function<void()>
-BEGIN::extendPrx::forAsync(const ::std::shared_ptr<display>& iceP_freeze, const ::std::optional<elsifPrx>& iceP_hash, const ::std::optional<breakPrx>& iceP_if, const ::std::shared_ptr<display>& iceP_inspect, const ::std::optional<elsifPrx>& iceP_method, ::std::int32_t iceP_methods, ::std::function<void(::BEGIN::END)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+BEGIN::extendPrx::forAsync(const displayPtr& iceP_freeze, const ::std::optional<elsifPrx>& iceP_hash, const ::std::optional<breakPrx>& iceP_if, const displayPtr& iceP_inspect, const ::std::optional<elsifPrx>& iceP_method, ::std::int32_t iceP_methods, ::std::function<void(::BEGIN::END)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<END>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &BEGIN::extendPrx::_iceI_for, iceP_freeze, iceP_hash, iceP_if, iceP_inspect, iceP_method, iceP_methods, context);
 }
 
 void
-BEGIN::extendPrx::_iceI_for(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<END>>& outAsync, const ::std::shared_ptr<display>& iceP_freeze, const ::std::optional<elsifPrx>& iceP_hash, const ::std::optional<breakPrx>& iceP_if, const ::std::shared_ptr<display>& iceP_inspect, const ::std::optional<elsifPrx>& iceP_method, ::std::int32_t iceP_methods, const ::Ice::Context& context) const
+BEGIN::extendPrx::_iceI_for(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<END>>& outAsync, const displayPtr& iceP_freeze, const ::std::optional<elsifPrx>& iceP_hash, const ::std::optional<breakPrx>& iceP_if, const displayPtr& iceP_inspect, const ::std::optional<elsifPrx>& iceP_method, ::std::int32_t iceP_methods, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "for";
 
@@ -236,7 +236,7 @@ BEGIN::display::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 BEGIN::display::_iceCloneImpl() const
 {
     return CloneEnabler<display>::clone(*this);
@@ -576,10 +576,10 @@ BEGIN::extend::_iceD_for(::Ice::IncomingRequest& request, ::std::function<void(:
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::shared_ptr<display> iceP_freeze;
+    displayPtr iceP_freeze;
     ::std::optional<elsifPrx> iceP_hash;
     ::std::optional<breakPrx> iceP_if;
-    ::std::shared_ptr<display> iceP_inspect;
+    displayPtr iceP_inspect;
     ::std::optional<elsifPrx> iceP_method;
     ::std::int32_t iceP_methods;
     istr->readAll(iceP_freeze, iceP_hash, iceP_if, iceP_inspect, iceP_method, iceP_methods);

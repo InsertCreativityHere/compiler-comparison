@@ -64,26 +64,26 @@ namespace
     const ::IceInternal::DefaultValueFactoryInit<::Test::Forward> iceC_Test_Forward_init("::Test::Forward");
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::TestIntfPrx::SBaseAsObject(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<::Ice::Value>>(true, this, &TestIntfPrx::_iceI_SBaseAsObject, context).get();
+    return ::IceInternal::makePromiseOutgoing<::Ice::ValuePtr>(true, this, &TestIntfPrx::_iceI_SBaseAsObject, context).get();
 }
 
-::std::future<::std::shared_ptr<::Ice::Value>>
+::std::future<::Ice::ValuePtr>
 Test::TestIntfPrx::SBaseAsObjectAsync(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<::Ice::Value>>(false, this, &TestIntfPrx::_iceI_SBaseAsObject, context);
+    return ::IceInternal::makePromiseOutgoing<::Ice::ValuePtr>(false, this, &TestIntfPrx::_iceI_SBaseAsObject, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::SBaseAsObjectAsync(::std::function<void(::std::shared_ptr<::Ice::Value>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::SBaseAsObjectAsync(::std::function<void(::Ice::ValuePtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<::Ice::Value>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_SBaseAsObject, context);
+    return ::IceInternal::makeLambdaOutgoing<::Ice::ValuePtr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_SBaseAsObject, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_SBaseAsObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::Value>>>& outAsync, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_SBaseAsObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::ValuePtr>>& outAsync, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "SBaseAsObject";
 
@@ -93,33 +93,33 @@ Test::TestIntfPrx::_iceI_SBaseAsObject(const ::std::shared_ptr<::IceInternal::Ou
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::shared_ptr<::Ice::Value> ret;
+            ::Ice::ValuePtr ret;
             istr->readAll(ret);
             istr->readPendingValues();
             return ret;
         });
 }
 
-::std::shared_ptr<::Test::SBase>
+::Test::SBasePtr
 Test::TestIntfPrx::SBaseAsSBase(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<SBase>>(true, this, &TestIntfPrx::_iceI_SBaseAsSBase, context).get();
+    return ::IceInternal::makePromiseOutgoing<SBasePtr>(true, this, &TestIntfPrx::_iceI_SBaseAsSBase, context).get();
 }
 
-::std::future<::std::shared_ptr<::Test::SBase>>
+::std::future<::Test::SBasePtr>
 Test::TestIntfPrx::SBaseAsSBaseAsync(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<SBase>>(false, this, &TestIntfPrx::_iceI_SBaseAsSBase, context);
+    return ::IceInternal::makePromiseOutgoing<SBasePtr>(false, this, &TestIntfPrx::_iceI_SBaseAsSBase, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::SBaseAsSBaseAsync(::std::function<void(::std::shared_ptr<::Test::SBase>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::SBaseAsSBaseAsync(::std::function<void(::Test::SBasePtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<SBase>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_SBaseAsSBase, context);
+    return ::IceInternal::makeLambdaOutgoing<SBasePtr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_SBaseAsSBase, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_SBaseAsSBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<SBase>>>& outAsync, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_SBaseAsSBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<SBasePtr>>& outAsync, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "SBaseAsSBase";
 
@@ -129,33 +129,33 @@ Test::TestIntfPrx::_iceI_SBaseAsSBase(const ::std::shared_ptr<::IceInternal::Out
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::shared_ptr<SBase> ret;
+            SBasePtr ret;
             istr->readAll(ret);
             istr->readPendingValues();
             return ret;
         });
 }
 
-::std::shared_ptr<::Test::SBase>
+::Test::SBasePtr
 Test::TestIntfPrx::SBSKnownDerivedAsSBase(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<SBase>>(true, this, &TestIntfPrx::_iceI_SBSKnownDerivedAsSBase, context).get();
+    return ::IceInternal::makePromiseOutgoing<SBasePtr>(true, this, &TestIntfPrx::_iceI_SBSKnownDerivedAsSBase, context).get();
 }
 
-::std::future<::std::shared_ptr<::Test::SBase>>
+::std::future<::Test::SBasePtr>
 Test::TestIntfPrx::SBSKnownDerivedAsSBaseAsync(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<SBase>>(false, this, &TestIntfPrx::_iceI_SBSKnownDerivedAsSBase, context);
+    return ::IceInternal::makePromiseOutgoing<SBasePtr>(false, this, &TestIntfPrx::_iceI_SBSKnownDerivedAsSBase, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::SBSKnownDerivedAsSBaseAsync(::std::function<void(::std::shared_ptr<::Test::SBase>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::SBSKnownDerivedAsSBaseAsync(::std::function<void(::Test::SBasePtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<SBase>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_SBSKnownDerivedAsSBase, context);
+    return ::IceInternal::makeLambdaOutgoing<SBasePtr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_SBSKnownDerivedAsSBase, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_SBSKnownDerivedAsSBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<SBase>>>& outAsync, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_SBSKnownDerivedAsSBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<SBasePtr>>& outAsync, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "SBSKnownDerivedAsSBase";
 
@@ -165,33 +165,33 @@ Test::TestIntfPrx::_iceI_SBSKnownDerivedAsSBase(const ::std::shared_ptr<::IceInt
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::shared_ptr<SBase> ret;
+            SBasePtr ret;
             istr->readAll(ret);
             istr->readPendingValues();
             return ret;
         });
 }
 
-::std::shared_ptr<::Test::SBSKnownDerived>
+::Test::SBSKnownDerivedPtr
 Test::TestIntfPrx::SBSKnownDerivedAsSBSKnownDerived(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<SBSKnownDerived>>(true, this, &TestIntfPrx::_iceI_SBSKnownDerivedAsSBSKnownDerived, context).get();
+    return ::IceInternal::makePromiseOutgoing<SBSKnownDerivedPtr>(true, this, &TestIntfPrx::_iceI_SBSKnownDerivedAsSBSKnownDerived, context).get();
 }
 
-::std::future<::std::shared_ptr<::Test::SBSKnownDerived>>
+::std::future<::Test::SBSKnownDerivedPtr>
 Test::TestIntfPrx::SBSKnownDerivedAsSBSKnownDerivedAsync(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<SBSKnownDerived>>(false, this, &TestIntfPrx::_iceI_SBSKnownDerivedAsSBSKnownDerived, context);
+    return ::IceInternal::makePromiseOutgoing<SBSKnownDerivedPtr>(false, this, &TestIntfPrx::_iceI_SBSKnownDerivedAsSBSKnownDerived, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::SBSKnownDerivedAsSBSKnownDerivedAsync(::std::function<void(::std::shared_ptr<::Test::SBSKnownDerived>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::SBSKnownDerivedAsSBSKnownDerivedAsync(::std::function<void(::Test::SBSKnownDerivedPtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<SBSKnownDerived>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_SBSKnownDerivedAsSBSKnownDerived, context);
+    return ::IceInternal::makeLambdaOutgoing<SBSKnownDerivedPtr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_SBSKnownDerivedAsSBSKnownDerived, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_SBSKnownDerivedAsSBSKnownDerived(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<SBSKnownDerived>>>& outAsync, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_SBSKnownDerivedAsSBSKnownDerived(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<SBSKnownDerivedPtr>>& outAsync, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "SBSKnownDerivedAsSBSKnownDerived";
 
@@ -201,33 +201,33 @@ Test::TestIntfPrx::_iceI_SBSKnownDerivedAsSBSKnownDerived(const ::std::shared_pt
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::shared_ptr<SBSKnownDerived> ret;
+            SBSKnownDerivedPtr ret;
             istr->readAll(ret);
             istr->readPendingValues();
             return ret;
         });
 }
 
-::std::shared_ptr<::Test::SBase>
+::Test::SBasePtr
 Test::TestIntfPrx::SBSUnknownDerivedAsSBase(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<SBase>>(true, this, &TestIntfPrx::_iceI_SBSUnknownDerivedAsSBase, context).get();
+    return ::IceInternal::makePromiseOutgoing<SBasePtr>(true, this, &TestIntfPrx::_iceI_SBSUnknownDerivedAsSBase, context).get();
 }
 
-::std::future<::std::shared_ptr<::Test::SBase>>
+::std::future<::Test::SBasePtr>
 Test::TestIntfPrx::SBSUnknownDerivedAsSBaseAsync(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<SBase>>(false, this, &TestIntfPrx::_iceI_SBSUnknownDerivedAsSBase, context);
+    return ::IceInternal::makePromiseOutgoing<SBasePtr>(false, this, &TestIntfPrx::_iceI_SBSUnknownDerivedAsSBase, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::SBSUnknownDerivedAsSBaseAsync(::std::function<void(::std::shared_ptr<::Test::SBase>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::SBSUnknownDerivedAsSBaseAsync(::std::function<void(::Test::SBasePtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<SBase>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_SBSUnknownDerivedAsSBase, context);
+    return ::IceInternal::makeLambdaOutgoing<SBasePtr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_SBSUnknownDerivedAsSBase, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_SBSUnknownDerivedAsSBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<SBase>>>& outAsync, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_SBSUnknownDerivedAsSBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<SBasePtr>>& outAsync, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "SBSUnknownDerivedAsSBase";
 
@@ -237,33 +237,33 @@ Test::TestIntfPrx::_iceI_SBSUnknownDerivedAsSBase(const ::std::shared_ptr<::IceI
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::shared_ptr<SBase> ret;
+            SBasePtr ret;
             istr->readAll(ret);
             istr->readPendingValues();
             return ret;
         });
 }
 
-::std::shared_ptr<::Test::SBase>
+::Test::SBasePtr
 Test::TestIntfPrx::SBSUnknownDerivedAsSBaseCompact(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<SBase>>(true, this, &TestIntfPrx::_iceI_SBSUnknownDerivedAsSBaseCompact, context).get();
+    return ::IceInternal::makePromiseOutgoing<SBasePtr>(true, this, &TestIntfPrx::_iceI_SBSUnknownDerivedAsSBaseCompact, context).get();
 }
 
-::std::future<::std::shared_ptr<::Test::SBase>>
+::std::future<::Test::SBasePtr>
 Test::TestIntfPrx::SBSUnknownDerivedAsSBaseCompactAsync(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<SBase>>(false, this, &TestIntfPrx::_iceI_SBSUnknownDerivedAsSBaseCompact, context);
+    return ::IceInternal::makePromiseOutgoing<SBasePtr>(false, this, &TestIntfPrx::_iceI_SBSUnknownDerivedAsSBaseCompact, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::SBSUnknownDerivedAsSBaseCompactAsync(::std::function<void(::std::shared_ptr<::Test::SBase>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::SBSUnknownDerivedAsSBaseCompactAsync(::std::function<void(::Test::SBasePtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<SBase>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_SBSUnknownDerivedAsSBaseCompact, context);
+    return ::IceInternal::makeLambdaOutgoing<SBasePtr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_SBSUnknownDerivedAsSBaseCompact, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_SBSUnknownDerivedAsSBaseCompact(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<SBase>>>& outAsync, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_SBSUnknownDerivedAsSBaseCompact(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<SBasePtr>>& outAsync, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "SBSUnknownDerivedAsSBaseCompact";
 
@@ -273,33 +273,33 @@ Test::TestIntfPrx::_iceI_SBSUnknownDerivedAsSBaseCompact(const ::std::shared_ptr
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::shared_ptr<SBase> ret;
+            SBasePtr ret;
             istr->readAll(ret);
             istr->readPendingValues();
             return ret;
         });
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::TestIntfPrx::SUnknownAsObject(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<::Ice::Value>>(true, this, &TestIntfPrx::_iceI_SUnknownAsObject, context).get();
+    return ::IceInternal::makePromiseOutgoing<::Ice::ValuePtr>(true, this, &TestIntfPrx::_iceI_SUnknownAsObject, context).get();
 }
 
-::std::future<::std::shared_ptr<::Ice::Value>>
+::std::future<::Ice::ValuePtr>
 Test::TestIntfPrx::SUnknownAsObjectAsync(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<::Ice::Value>>(false, this, &TestIntfPrx::_iceI_SUnknownAsObject, context);
+    return ::IceInternal::makePromiseOutgoing<::Ice::ValuePtr>(false, this, &TestIntfPrx::_iceI_SUnknownAsObject, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::SUnknownAsObjectAsync(::std::function<void(::std::shared_ptr<::Ice::Value>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::SUnknownAsObjectAsync(::std::function<void(::Ice::ValuePtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<::Ice::Value>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_SUnknownAsObject, context);
+    return ::IceInternal::makeLambdaOutgoing<::Ice::ValuePtr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_SUnknownAsObject, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_SUnknownAsObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::Ice::Value>>>& outAsync, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_SUnknownAsObject(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::Ice::ValuePtr>>& outAsync, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "SUnknownAsObject";
 
@@ -309,7 +309,7 @@ Test::TestIntfPrx::_iceI_SUnknownAsObject(const ::std::shared_ptr<::IceInternal:
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::shared_ptr<::Ice::Value> ret;
+            ::Ice::ValuePtr ret;
             istr->readAll(ret);
             istr->readPendingValues();
             return ret;
@@ -317,25 +317,25 @@ Test::TestIntfPrx::_iceI_SUnknownAsObject(const ::std::shared_ptr<::IceInternal:
 }
 
 void
-Test::TestIntfPrx::checkSUnknown(const ::std::shared_ptr<::Ice::Value>& iceP_o, const ::Ice::Context& context) const
+Test::TestIntfPrx::checkSUnknown(const ::Ice::ValuePtr& iceP_o, const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_checkSUnknown, iceP_o, context).get();
 }
 
 ::std::future<void>
-Test::TestIntfPrx::checkSUnknownAsync(const ::std::shared_ptr<::Ice::Value>& iceP_o, const ::Ice::Context& context) const
+Test::TestIntfPrx::checkSUnknownAsync(const ::Ice::ValuePtr& iceP_o, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_checkSUnknown, iceP_o, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::checkSUnknownAsync(const ::std::shared_ptr<::Ice::Value>& iceP_o, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::checkSUnknownAsync(const ::Ice::ValuePtr& iceP_o, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_checkSUnknown, iceP_o, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_checkSUnknown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<::Ice::Value>& iceP_o, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_checkSUnknown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::ValuePtr& iceP_o, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "checkSUnknown";
 
@@ -348,26 +348,26 @@ Test::TestIntfPrx::_iceI_checkSUnknown(const ::std::shared_ptr<::IceInternal::Ou
         nullptr);
 }
 
-::std::shared_ptr<::Test::B>
+::Test::BPtr
 Test::TestIntfPrx::oneElementCycle(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<B>>(true, this, &TestIntfPrx::_iceI_oneElementCycle, context).get();
+    return ::IceInternal::makePromiseOutgoing<BPtr>(true, this, &TestIntfPrx::_iceI_oneElementCycle, context).get();
 }
 
-::std::future<::std::shared_ptr<::Test::B>>
+::std::future<::Test::BPtr>
 Test::TestIntfPrx::oneElementCycleAsync(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<B>>(false, this, &TestIntfPrx::_iceI_oneElementCycle, context);
+    return ::IceInternal::makePromiseOutgoing<BPtr>(false, this, &TestIntfPrx::_iceI_oneElementCycle, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::oneElementCycleAsync(::std::function<void(::std::shared_ptr<::Test::B>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::oneElementCycleAsync(::std::function<void(::Test::BPtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<B>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_oneElementCycle, context);
+    return ::IceInternal::makeLambdaOutgoing<BPtr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_oneElementCycle, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_oneElementCycle(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<B>>>& outAsync, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_oneElementCycle(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<BPtr>>& outAsync, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "oneElementCycle";
 
@@ -377,33 +377,33 @@ Test::TestIntfPrx::_iceI_oneElementCycle(const ::std::shared_ptr<::IceInternal::
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::shared_ptr<B> ret;
+            BPtr ret;
             istr->readAll(ret);
             istr->readPendingValues();
             return ret;
         });
 }
 
-::std::shared_ptr<::Test::B>
+::Test::BPtr
 Test::TestIntfPrx::twoElementCycle(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<B>>(true, this, &TestIntfPrx::_iceI_twoElementCycle, context).get();
+    return ::IceInternal::makePromiseOutgoing<BPtr>(true, this, &TestIntfPrx::_iceI_twoElementCycle, context).get();
 }
 
-::std::future<::std::shared_ptr<::Test::B>>
+::std::future<::Test::BPtr>
 Test::TestIntfPrx::twoElementCycleAsync(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<B>>(false, this, &TestIntfPrx::_iceI_twoElementCycle, context);
+    return ::IceInternal::makePromiseOutgoing<BPtr>(false, this, &TestIntfPrx::_iceI_twoElementCycle, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::twoElementCycleAsync(::std::function<void(::std::shared_ptr<::Test::B>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::twoElementCycleAsync(::std::function<void(::Test::BPtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<B>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_twoElementCycle, context);
+    return ::IceInternal::makeLambdaOutgoing<BPtr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_twoElementCycle, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_twoElementCycle(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<B>>>& outAsync, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_twoElementCycle(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<BPtr>>& outAsync, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "twoElementCycle";
 
@@ -413,33 +413,33 @@ Test::TestIntfPrx::_iceI_twoElementCycle(const ::std::shared_ptr<::IceInternal::
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::shared_ptr<B> ret;
+            BPtr ret;
             istr->readAll(ret);
             istr->readPendingValues();
             return ret;
         });
 }
 
-::std::shared_ptr<::Test::B>
+::Test::BPtr
 Test::TestIntfPrx::D1AsB(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<B>>(true, this, &TestIntfPrx::_iceI_D1AsB, context).get();
+    return ::IceInternal::makePromiseOutgoing<BPtr>(true, this, &TestIntfPrx::_iceI_D1AsB, context).get();
 }
 
-::std::future<::std::shared_ptr<::Test::B>>
+::std::future<::Test::BPtr>
 Test::TestIntfPrx::D1AsBAsync(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<B>>(false, this, &TestIntfPrx::_iceI_D1AsB, context);
+    return ::IceInternal::makePromiseOutgoing<BPtr>(false, this, &TestIntfPrx::_iceI_D1AsB, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::D1AsBAsync(::std::function<void(::std::shared_ptr<::Test::B>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::D1AsBAsync(::std::function<void(::Test::BPtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<B>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_D1AsB, context);
+    return ::IceInternal::makeLambdaOutgoing<BPtr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_D1AsB, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_D1AsB(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<B>>>& outAsync, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_D1AsB(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<BPtr>>& outAsync, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "D1AsB";
 
@@ -449,33 +449,33 @@ Test::TestIntfPrx::_iceI_D1AsB(const ::std::shared_ptr<::IceInternal::OutgoingAs
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::shared_ptr<B> ret;
+            BPtr ret;
             istr->readAll(ret);
             istr->readPendingValues();
             return ret;
         });
 }
 
-::std::shared_ptr<::Test::D1>
+::Test::D1Ptr
 Test::TestIntfPrx::D1AsD1(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<D1>>(true, this, &TestIntfPrx::_iceI_D1AsD1, context).get();
+    return ::IceInternal::makePromiseOutgoing<D1Ptr>(true, this, &TestIntfPrx::_iceI_D1AsD1, context).get();
 }
 
-::std::future<::std::shared_ptr<::Test::D1>>
+::std::future<::Test::D1Ptr>
 Test::TestIntfPrx::D1AsD1Async(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<D1>>(false, this, &TestIntfPrx::_iceI_D1AsD1, context);
+    return ::IceInternal::makePromiseOutgoing<D1Ptr>(false, this, &TestIntfPrx::_iceI_D1AsD1, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::D1AsD1Async(::std::function<void(::std::shared_ptr<::Test::D1>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::D1AsD1Async(::std::function<void(::Test::D1Ptr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<D1>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_D1AsD1, context);
+    return ::IceInternal::makeLambdaOutgoing<D1Ptr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_D1AsD1, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_D1AsD1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<D1>>>& outAsync, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_D1AsD1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<D1Ptr>>& outAsync, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "D1AsD1";
 
@@ -485,33 +485,33 @@ Test::TestIntfPrx::_iceI_D1AsD1(const ::std::shared_ptr<::IceInternal::OutgoingA
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::shared_ptr<D1> ret;
+            D1Ptr ret;
             istr->readAll(ret);
             istr->readPendingValues();
             return ret;
         });
 }
 
-::std::shared_ptr<::Test::B>
+::Test::BPtr
 Test::TestIntfPrx::D2AsB(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<B>>(true, this, &TestIntfPrx::_iceI_D2AsB, context).get();
+    return ::IceInternal::makePromiseOutgoing<BPtr>(true, this, &TestIntfPrx::_iceI_D2AsB, context).get();
 }
 
-::std::future<::std::shared_ptr<::Test::B>>
+::std::future<::Test::BPtr>
 Test::TestIntfPrx::D2AsBAsync(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<B>>(false, this, &TestIntfPrx::_iceI_D2AsB, context);
+    return ::IceInternal::makePromiseOutgoing<BPtr>(false, this, &TestIntfPrx::_iceI_D2AsB, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::D2AsBAsync(::std::function<void(::std::shared_ptr<::Test::B>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::D2AsBAsync(::std::function<void(::Test::BPtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<B>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_D2AsB, context);
+    return ::IceInternal::makeLambdaOutgoing<BPtr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_D2AsB, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_D2AsB(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<B>>>& outAsync, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_D2AsB(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<BPtr>>& outAsync, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "D2AsB";
 
@@ -521,7 +521,7 @@ Test::TestIntfPrx::_iceI_D2AsB(const ::std::shared_ptr<::IceInternal::OutgoingAs
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::shared_ptr<B> ret;
+            BPtr ret;
             istr->readAll(ret);
             istr->readPendingValues();
             return ret;
@@ -529,31 +529,31 @@ Test::TestIntfPrx::_iceI_D2AsB(const ::std::shared_ptr<::IceInternal::OutgoingAs
 }
 
 void
-Test::TestIntfPrx::paramTest1(::std::shared_ptr<B>& iceP_p1, ::std::shared_ptr<B>& iceP_p2, const ::Ice::Context& context) const
+Test::TestIntfPrx::paramTest1(BPtr& iceP_p1, BPtr& iceP_p2, const ::Ice::Context& context) const
 {
-    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>>>(true, this, &TestIntfPrx::_iceI_paramTest1, context).get();
+    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<BPtr, BPtr>>(true, this, &TestIntfPrx::_iceI_paramTest1, context).get();
     iceP_p1 = ::std::move(::std::get<0>(result));
     iceP_p2 = ::std::move(::std::get<1>(result));
 }
 
-::std::future<::std::tuple<::std::shared_ptr<::Test::B>, ::std::shared_ptr<::Test::B>>>
+::std::future<::std::tuple<::Test::BPtr, ::Test::BPtr>>
 Test::TestIntfPrx::paramTest1Async(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>>>(false, this, &TestIntfPrx::_iceI_paramTest1, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<BPtr, BPtr>>(false, this, &TestIntfPrx::_iceI_paramTest1, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::paramTest1Async(::std::function<void(::std::shared_ptr<::Test::B>, ::std::shared_ptr<::Test::B>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::paramTest1Async(::std::function<void(::Test::BPtr, ::Test::BPtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<BPtr, BPtr>&& result)
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_paramTest1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<BPtr, BPtr>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_paramTest1, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_paramTest1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>>>>& outAsync, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_paramTest1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<BPtr, BPtr>>>& outAsync, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "paramTest1";
 
@@ -563,7 +563,7 @@ Test::TestIntfPrx::_iceI_paramTest1(const ::std::shared_ptr<::IceInternal::Outgo
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>> v;
+            ::std::tuple<BPtr, BPtr> v;
             istr->readAll(::std::get<0>(v), ::std::get<1>(v));
             istr->readPendingValues();
             return v;
@@ -571,31 +571,31 @@ Test::TestIntfPrx::_iceI_paramTest1(const ::std::shared_ptr<::IceInternal::Outgo
 }
 
 void
-Test::TestIntfPrx::paramTest2(::std::shared_ptr<B>& iceP_p2, ::std::shared_ptr<B>& iceP_p1, const ::Ice::Context& context) const
+Test::TestIntfPrx::paramTest2(BPtr& iceP_p2, BPtr& iceP_p1, const ::Ice::Context& context) const
 {
-    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>>>(true, this, &TestIntfPrx::_iceI_paramTest2, context).get();
+    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<BPtr, BPtr>>(true, this, &TestIntfPrx::_iceI_paramTest2, context).get();
     iceP_p2 = ::std::move(::std::get<0>(result));
     iceP_p1 = ::std::move(::std::get<1>(result));
 }
 
-::std::future<::std::tuple<::std::shared_ptr<::Test::B>, ::std::shared_ptr<::Test::B>>>
+::std::future<::std::tuple<::Test::BPtr, ::Test::BPtr>>
 Test::TestIntfPrx::paramTest2Async(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>>>(false, this, &TestIntfPrx::_iceI_paramTest2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<BPtr, BPtr>>(false, this, &TestIntfPrx::_iceI_paramTest2, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::paramTest2Async(::std::function<void(::std::shared_ptr<::Test::B>, ::std::shared_ptr<::Test::B>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::paramTest2Async(::std::function<void(::Test::BPtr, ::Test::BPtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<BPtr, BPtr>&& result)
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_paramTest2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<BPtr, BPtr>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_paramTest2, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_paramTest2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>>>>& outAsync, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_paramTest2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<BPtr, BPtr>>>& outAsync, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "paramTest2";
 
@@ -605,40 +605,40 @@ Test::TestIntfPrx::_iceI_paramTest2(const ::std::shared_ptr<::IceInternal::Outgo
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>> v;
+            ::std::tuple<BPtr, BPtr> v;
             istr->readAll(::std::get<0>(v), ::std::get<1>(v));
             istr->readPendingValues();
             return v;
         });
 }
 
-::std::shared_ptr<::Test::B>
-Test::TestIntfPrx::paramTest3(::std::shared_ptr<B>& iceP_p1, ::std::shared_ptr<B>& iceP_p2, const ::Ice::Context& context) const
+::Test::BPtr
+Test::TestIntfPrx::paramTest3(BPtr& iceP_p1, BPtr& iceP_p2, const ::Ice::Context& context) const
 {
-    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>, ::std::shared_ptr<B>>>(true, this, &TestIntfPrx::_iceI_paramTest3, context).get();
+    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<BPtr, BPtr, BPtr>>(true, this, &TestIntfPrx::_iceI_paramTest3, context).get();
     iceP_p1 = ::std::move(::std::get<1>(result));
     iceP_p2 = ::std::move(::std::get<2>(result));
     return ::std::move(::std::get<0>(result));
 }
 
-::std::future<::std::tuple<::std::shared_ptr<::Test::B>, ::std::shared_ptr<::Test::B>, ::std::shared_ptr<::Test::B>>>
+::std::future<::std::tuple<::Test::BPtr, ::Test::BPtr, ::Test::BPtr>>
 Test::TestIntfPrx::paramTest3Async(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>, ::std::shared_ptr<B>>>(false, this, &TestIntfPrx::_iceI_paramTest3, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<BPtr, BPtr, BPtr>>(false, this, &TestIntfPrx::_iceI_paramTest3, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::paramTest3Async(::std::function<void(::std::shared_ptr<::Test::B>, ::std::shared_ptr<::Test::B>, ::std::shared_ptr<::Test::B>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::paramTest3Async(::std::function<void(::Test::BPtr, ::Test::BPtr, ::Test::BPtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>, ::std::shared_ptr<B>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<BPtr, BPtr, BPtr>&& result)
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>, ::std::shared_ptr<B>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_paramTest3, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<BPtr, BPtr, BPtr>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_paramTest3, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_paramTest3(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>, ::std::shared_ptr<B>>>>& outAsync, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_paramTest3(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<BPtr, BPtr, BPtr>>>& outAsync, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "paramTest3";
 
@@ -648,39 +648,39 @@ Test::TestIntfPrx::_iceI_paramTest3(const ::std::shared_ptr<::IceInternal::Outgo
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>, ::std::shared_ptr<B>> v;
+            ::std::tuple<BPtr, BPtr, BPtr> v;
             istr->readAll(::std::get<1>(v), ::std::get<2>(v), ::std::get<0>(v));
             istr->readPendingValues();
             return v;
         });
 }
 
-::std::shared_ptr<::Test::B>
-Test::TestIntfPrx::paramTest4(::std::shared_ptr<B>& iceP_p, const ::Ice::Context& context) const
+::Test::BPtr
+Test::TestIntfPrx::paramTest4(BPtr& iceP_p, const ::Ice::Context& context) const
 {
-    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>>>(true, this, &TestIntfPrx::_iceI_paramTest4, context).get();
+    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<BPtr, BPtr>>(true, this, &TestIntfPrx::_iceI_paramTest4, context).get();
     iceP_p = ::std::move(::std::get<1>(result));
     return ::std::move(::std::get<0>(result));
 }
 
-::std::future<::std::tuple<::std::shared_ptr<::Test::B>, ::std::shared_ptr<::Test::B>>>
+::std::future<::std::tuple<::Test::BPtr, ::Test::BPtr>>
 Test::TestIntfPrx::paramTest4Async(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>>>(false, this, &TestIntfPrx::_iceI_paramTest4, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<BPtr, BPtr>>(false, this, &TestIntfPrx::_iceI_paramTest4, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::paramTest4Async(::std::function<void(::std::shared_ptr<::Test::B>, ::std::shared_ptr<::Test::B>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::paramTest4Async(::std::function<void(::Test::BPtr, ::Test::BPtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<BPtr, BPtr>&& result)
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_paramTest4, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<BPtr, BPtr>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_paramTest4, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_paramTest4(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>>>>& outAsync, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_paramTest4(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<BPtr, BPtr>>>& outAsync, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "paramTest4";
 
@@ -690,40 +690,40 @@ Test::TestIntfPrx::_iceI_paramTest4(const ::std::shared_ptr<::IceInternal::Outgo
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>> v;
+            ::std::tuple<BPtr, BPtr> v;
             istr->readAll(::std::get<1>(v), ::std::get<0>(v));
             istr->readPendingValues();
             return v;
         });
 }
 
-::std::shared_ptr<::Test::B>
-Test::TestIntfPrx::returnTest1(::std::shared_ptr<B>& iceP_p1, ::std::shared_ptr<B>& iceP_p2, const ::Ice::Context& context) const
+::Test::BPtr
+Test::TestIntfPrx::returnTest1(BPtr& iceP_p1, BPtr& iceP_p2, const ::Ice::Context& context) const
 {
-    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>, ::std::shared_ptr<B>>>(true, this, &TestIntfPrx::_iceI_returnTest1, context).get();
+    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<BPtr, BPtr, BPtr>>(true, this, &TestIntfPrx::_iceI_returnTest1, context).get();
     iceP_p1 = ::std::move(::std::get<1>(result));
     iceP_p2 = ::std::move(::std::get<2>(result));
     return ::std::move(::std::get<0>(result));
 }
 
-::std::future<::std::tuple<::std::shared_ptr<::Test::B>, ::std::shared_ptr<::Test::B>, ::std::shared_ptr<::Test::B>>>
+::std::future<::std::tuple<::Test::BPtr, ::Test::BPtr, ::Test::BPtr>>
 Test::TestIntfPrx::returnTest1Async(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>, ::std::shared_ptr<B>>>(false, this, &TestIntfPrx::_iceI_returnTest1, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<BPtr, BPtr, BPtr>>(false, this, &TestIntfPrx::_iceI_returnTest1, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::returnTest1Async(::std::function<void(::std::shared_ptr<::Test::B>, ::std::shared_ptr<::Test::B>, ::std::shared_ptr<::Test::B>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::returnTest1Async(::std::function<void(::Test::BPtr, ::Test::BPtr, ::Test::BPtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>, ::std::shared_ptr<B>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<BPtr, BPtr, BPtr>&& result)
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>, ::std::shared_ptr<B>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_returnTest1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<BPtr, BPtr, BPtr>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_returnTest1, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_returnTest1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>, ::std::shared_ptr<B>>>>& outAsync, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_returnTest1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<BPtr, BPtr, BPtr>>>& outAsync, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "returnTest1";
 
@@ -733,40 +733,40 @@ Test::TestIntfPrx::_iceI_returnTest1(const ::std::shared_ptr<::IceInternal::Outg
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>, ::std::shared_ptr<B>> v;
+            ::std::tuple<BPtr, BPtr, BPtr> v;
             istr->readAll(::std::get<1>(v), ::std::get<2>(v), ::std::get<0>(v));
             istr->readPendingValues();
             return v;
         });
 }
 
-::std::shared_ptr<::Test::B>
-Test::TestIntfPrx::returnTest2(::std::shared_ptr<B>& iceP_p2, ::std::shared_ptr<B>& iceP_p1, const ::Ice::Context& context) const
+::Test::BPtr
+Test::TestIntfPrx::returnTest2(BPtr& iceP_p2, BPtr& iceP_p1, const ::Ice::Context& context) const
 {
-    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>, ::std::shared_ptr<B>>>(true, this, &TestIntfPrx::_iceI_returnTest2, context).get();
+    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<BPtr, BPtr, BPtr>>(true, this, &TestIntfPrx::_iceI_returnTest2, context).get();
     iceP_p2 = ::std::move(::std::get<1>(result));
     iceP_p1 = ::std::move(::std::get<2>(result));
     return ::std::move(::std::get<0>(result));
 }
 
-::std::future<::std::tuple<::std::shared_ptr<::Test::B>, ::std::shared_ptr<::Test::B>, ::std::shared_ptr<::Test::B>>>
+::std::future<::std::tuple<::Test::BPtr, ::Test::BPtr, ::Test::BPtr>>
 Test::TestIntfPrx::returnTest2Async(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>, ::std::shared_ptr<B>>>(false, this, &TestIntfPrx::_iceI_returnTest2, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<BPtr, BPtr, BPtr>>(false, this, &TestIntfPrx::_iceI_returnTest2, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::returnTest2Async(::std::function<void(::std::shared_ptr<::Test::B>, ::std::shared_ptr<::Test::B>, ::std::shared_ptr<::Test::B>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::returnTest2Async(::std::function<void(::Test::BPtr, ::Test::BPtr, ::Test::BPtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>, ::std::shared_ptr<B>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<BPtr, BPtr, BPtr>&& result)
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>, ::std::shared_ptr<B>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_returnTest2, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<BPtr, BPtr, BPtr>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_returnTest2, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_returnTest2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>, ::std::shared_ptr<B>>>>& outAsync, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_returnTest2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<BPtr, BPtr, BPtr>>>& outAsync, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "returnTest2";
 
@@ -776,33 +776,33 @@ Test::TestIntfPrx::_iceI_returnTest2(const ::std::shared_ptr<::IceInternal::Outg
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::tuple<::std::shared_ptr<B>, ::std::shared_ptr<B>, ::std::shared_ptr<B>> v;
+            ::std::tuple<BPtr, BPtr, BPtr> v;
             istr->readAll(::std::get<1>(v), ::std::get<2>(v), ::std::get<0>(v));
             istr->readPendingValues();
             return v;
         });
 }
 
-::std::shared_ptr<::Test::B>
-Test::TestIntfPrx::returnTest3(const ::std::shared_ptr<B>& iceP_p1, const ::std::shared_ptr<B>& iceP_p2, const ::Ice::Context& context) const
+::Test::BPtr
+Test::TestIntfPrx::returnTest3(const BPtr& iceP_p1, const BPtr& iceP_p2, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<B>>(true, this, &TestIntfPrx::_iceI_returnTest3, iceP_p1, iceP_p2, context).get();
+    return ::IceInternal::makePromiseOutgoing<BPtr>(true, this, &TestIntfPrx::_iceI_returnTest3, iceP_p1, iceP_p2, context).get();
 }
 
-::std::future<::std::shared_ptr<::Test::B>>
-Test::TestIntfPrx::returnTest3Async(const ::std::shared_ptr<B>& iceP_p1, const ::std::shared_ptr<B>& iceP_p2, const ::Ice::Context& context) const
+::std::future<::Test::BPtr>
+Test::TestIntfPrx::returnTest3Async(const BPtr& iceP_p1, const BPtr& iceP_p2, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<B>>(false, this, &TestIntfPrx::_iceI_returnTest3, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makePromiseOutgoing<BPtr>(false, this, &TestIntfPrx::_iceI_returnTest3, iceP_p1, iceP_p2, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::returnTest3Async(const ::std::shared_ptr<B>& iceP_p1, const ::std::shared_ptr<B>& iceP_p2, ::std::function<void(::std::shared_ptr<::Test::B>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::returnTest3Async(const BPtr& iceP_p1, const BPtr& iceP_p2, ::std::function<void(::Test::BPtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<B>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_returnTest3, iceP_p1, iceP_p2, context);
+    return ::IceInternal::makeLambdaOutgoing<BPtr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_returnTest3, iceP_p1, iceP_p2, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_returnTest3(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<B>>>& outAsync, const ::std::shared_ptr<B>& iceP_p1, const ::std::shared_ptr<B>& iceP_p2, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_returnTest3(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<BPtr>>& outAsync, const BPtr& iceP_p1, const BPtr& iceP_p2, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "returnTest3";
 
@@ -816,7 +816,7 @@ Test::TestIntfPrx::_iceI_returnTest3(const ::std::shared_ptr<::IceInternal::Outg
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::shared_ptr<B> ret;
+            BPtr ret;
             istr->readAll(ret);
             istr->readPendingValues();
             return ret;
@@ -824,25 +824,25 @@ Test::TestIntfPrx::_iceI_returnTest3(const ::std::shared_ptr<::IceInternal::Outg
 }
 
 ::Test::SS3
-Test::TestIntfPrx::sequenceTest(const ::std::shared_ptr<SS1>& iceP_p1, const ::std::shared_ptr<SS2>& iceP_p2, const ::Ice::Context& context) const
+Test::TestIntfPrx::sequenceTest(const SS1Ptr& iceP_p1, const SS2Ptr& iceP_p2, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<SS3>(true, this, &TestIntfPrx::_iceI_sequenceTest, iceP_p1, iceP_p2, context).get();
 }
 
 ::std::future<::Test::SS3>
-Test::TestIntfPrx::sequenceTestAsync(const ::std::shared_ptr<SS1>& iceP_p1, const ::std::shared_ptr<SS2>& iceP_p2, const ::Ice::Context& context) const
+Test::TestIntfPrx::sequenceTestAsync(const SS1Ptr& iceP_p1, const SS2Ptr& iceP_p2, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<SS3>(false, this, &TestIntfPrx::_iceI_sequenceTest, iceP_p1, iceP_p2, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::sequenceTestAsync(const ::std::shared_ptr<SS1>& iceP_p1, const ::std::shared_ptr<SS2>& iceP_p2, ::std::function<void(::Test::SS3)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::sequenceTestAsync(const SS1Ptr& iceP_p1, const SS2Ptr& iceP_p2, ::std::function<void(::Test::SS3)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<SS3>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_sequenceTest, iceP_p1, iceP_p2, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_sequenceTest(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<SS3>>& outAsync, const ::std::shared_ptr<SS1>& iceP_p1, const ::std::shared_ptr<SS2>& iceP_p2, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_sequenceTest(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<SS3>>& outAsync, const SS1Ptr& iceP_p1, const SS2Ptr& iceP_p2, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "sequenceTest";
 
@@ -909,26 +909,26 @@ Test::TestIntfPrx::_iceI_dictionaryTest(const ::std::shared_ptr<::IceInternal::O
         });
 }
 
-::std::shared_ptr<::Test::PBase>
-Test::TestIntfPrx::exchangePBase(const ::std::shared_ptr<PBase>& iceP_pb, const ::Ice::Context& context) const
+::Test::PBasePtr
+Test::TestIntfPrx::exchangePBase(const PBasePtr& iceP_pb, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<PBase>>(true, this, &TestIntfPrx::_iceI_exchangePBase, iceP_pb, context).get();
+    return ::IceInternal::makePromiseOutgoing<PBasePtr>(true, this, &TestIntfPrx::_iceI_exchangePBase, iceP_pb, context).get();
 }
 
-::std::future<::std::shared_ptr<::Test::PBase>>
-Test::TestIntfPrx::exchangePBaseAsync(const ::std::shared_ptr<PBase>& iceP_pb, const ::Ice::Context& context) const
+::std::future<::Test::PBasePtr>
+Test::TestIntfPrx::exchangePBaseAsync(const PBasePtr& iceP_pb, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<PBase>>(false, this, &TestIntfPrx::_iceI_exchangePBase, iceP_pb, context);
+    return ::IceInternal::makePromiseOutgoing<PBasePtr>(false, this, &TestIntfPrx::_iceI_exchangePBase, iceP_pb, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::exchangePBaseAsync(const ::std::shared_ptr<PBase>& iceP_pb, ::std::function<void(::std::shared_ptr<::Test::PBase>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::exchangePBaseAsync(const PBasePtr& iceP_pb, ::std::function<void(::Test::PBasePtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<PBase>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_exchangePBase, iceP_pb, context);
+    return ::IceInternal::makeLambdaOutgoing<PBasePtr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_exchangePBase, iceP_pb, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_exchangePBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<PBase>>>& outAsync, const ::std::shared_ptr<PBase>& iceP_pb, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_exchangePBase(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<PBasePtr>>& outAsync, const PBasePtr& iceP_pb, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "exchangePBase";
 
@@ -942,33 +942,33 @@ Test::TestIntfPrx::_iceI_exchangePBase(const ::std::shared_ptr<::IceInternal::Ou
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::shared_ptr<PBase> ret;
+            PBasePtr ret;
             istr->readAll(ret);
             istr->readPendingValues();
             return ret;
         });
 }
 
-::std::shared_ptr<::Test::Preserved>
+::Test::PreservedPtr
 Test::TestIntfPrx::PBSUnknownAsPreserved(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<Preserved>>(true, this, &TestIntfPrx::_iceI_PBSUnknownAsPreserved, context).get();
+    return ::IceInternal::makePromiseOutgoing<PreservedPtr>(true, this, &TestIntfPrx::_iceI_PBSUnknownAsPreserved, context).get();
 }
 
-::std::future<::std::shared_ptr<::Test::Preserved>>
+::std::future<::Test::PreservedPtr>
 Test::TestIntfPrx::PBSUnknownAsPreservedAsync(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<Preserved>>(false, this, &TestIntfPrx::_iceI_PBSUnknownAsPreserved, context);
+    return ::IceInternal::makePromiseOutgoing<PreservedPtr>(false, this, &TestIntfPrx::_iceI_PBSUnknownAsPreserved, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::PBSUnknownAsPreservedAsync(::std::function<void(::std::shared_ptr<::Test::Preserved>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::PBSUnknownAsPreservedAsync(::std::function<void(::Test::PreservedPtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<Preserved>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_PBSUnknownAsPreserved, context);
+    return ::IceInternal::makeLambdaOutgoing<PreservedPtr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_PBSUnknownAsPreserved, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_PBSUnknownAsPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<Preserved>>>& outAsync, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_PBSUnknownAsPreserved(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<PreservedPtr>>& outAsync, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "PBSUnknownAsPreserved";
 
@@ -978,7 +978,7 @@ Test::TestIntfPrx::_iceI_PBSUnknownAsPreserved(const ::std::shared_ptr<::IceInte
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::shared_ptr<Preserved> ret;
+            PreservedPtr ret;
             istr->readAll(ret);
             istr->readPendingValues();
             return ret;
@@ -986,25 +986,25 @@ Test::TestIntfPrx::_iceI_PBSUnknownAsPreserved(const ::std::shared_ptr<::IceInte
 }
 
 void
-Test::TestIntfPrx::checkPBSUnknown(const ::std::shared_ptr<Preserved>& iceP_p, const ::Ice::Context& context) const
+Test::TestIntfPrx::checkPBSUnknown(const PreservedPtr& iceP_p, const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_checkPBSUnknown, iceP_p, context).get();
 }
 
 ::std::future<void>
-Test::TestIntfPrx::checkPBSUnknownAsync(const ::std::shared_ptr<Preserved>& iceP_p, const ::Ice::Context& context) const
+Test::TestIntfPrx::checkPBSUnknownAsync(const PreservedPtr& iceP_p, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_checkPBSUnknown, iceP_p, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::checkPBSUnknownAsync(const ::std::shared_ptr<Preserved>& iceP_p, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::checkPBSUnknownAsync(const PreservedPtr& iceP_p, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_checkPBSUnknown, iceP_p, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_checkPBSUnknown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<Preserved>& iceP_p, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_checkPBSUnknown(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const PreservedPtr& iceP_p, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "checkPBSUnknown";
 
@@ -1017,26 +1017,26 @@ Test::TestIntfPrx::_iceI_checkPBSUnknown(const ::std::shared_ptr<::IceInternal::
         nullptr);
 }
 
-::std::shared_ptr<::Test::Preserved>
+::Test::PreservedPtr
 Test::TestIntfPrx::PBSUnknownAsPreservedWithGraph(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<Preserved>>(true, this, &TestIntfPrx::_iceI_PBSUnknownAsPreservedWithGraph, context).get();
+    return ::IceInternal::makePromiseOutgoing<PreservedPtr>(true, this, &TestIntfPrx::_iceI_PBSUnknownAsPreservedWithGraph, context).get();
 }
 
-::std::future<::std::shared_ptr<::Test::Preserved>>
+::std::future<::Test::PreservedPtr>
 Test::TestIntfPrx::PBSUnknownAsPreservedWithGraphAsync(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<Preserved>>(false, this, &TestIntfPrx::_iceI_PBSUnknownAsPreservedWithGraph, context);
+    return ::IceInternal::makePromiseOutgoing<PreservedPtr>(false, this, &TestIntfPrx::_iceI_PBSUnknownAsPreservedWithGraph, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::PBSUnknownAsPreservedWithGraphAsync(::std::function<void(::std::shared_ptr<::Test::Preserved>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::PBSUnknownAsPreservedWithGraphAsync(::std::function<void(::Test::PreservedPtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<Preserved>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_PBSUnknownAsPreservedWithGraph, context);
+    return ::IceInternal::makeLambdaOutgoing<PreservedPtr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_PBSUnknownAsPreservedWithGraph, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_PBSUnknownAsPreservedWithGraph(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<Preserved>>>& outAsync, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_PBSUnknownAsPreservedWithGraph(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<PreservedPtr>>& outAsync, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "PBSUnknownAsPreservedWithGraph";
 
@@ -1046,7 +1046,7 @@ Test::TestIntfPrx::_iceI_PBSUnknownAsPreservedWithGraph(const ::std::shared_ptr<
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::shared_ptr<Preserved> ret;
+            PreservedPtr ret;
             istr->readAll(ret);
             istr->readPendingValues();
             return ret;
@@ -1054,25 +1054,25 @@ Test::TestIntfPrx::_iceI_PBSUnknownAsPreservedWithGraph(const ::std::shared_ptr<
 }
 
 void
-Test::TestIntfPrx::checkPBSUnknownWithGraph(const ::std::shared_ptr<Preserved>& iceP_p, const ::Ice::Context& context) const
+Test::TestIntfPrx::checkPBSUnknownWithGraph(const PreservedPtr& iceP_p, const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_checkPBSUnknownWithGraph, iceP_p, context).get();
 }
 
 ::std::future<void>
-Test::TestIntfPrx::checkPBSUnknownWithGraphAsync(const ::std::shared_ptr<Preserved>& iceP_p, const ::Ice::Context& context) const
+Test::TestIntfPrx::checkPBSUnknownWithGraphAsync(const PreservedPtr& iceP_p, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_checkPBSUnknownWithGraph, iceP_p, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::checkPBSUnknownWithGraphAsync(const ::std::shared_ptr<Preserved>& iceP_p, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::checkPBSUnknownWithGraphAsync(const PreservedPtr& iceP_p, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_checkPBSUnknownWithGraph, iceP_p, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_checkPBSUnknownWithGraph(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<Preserved>& iceP_p, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_checkPBSUnknownWithGraph(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const PreservedPtr& iceP_p, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "checkPBSUnknownWithGraph";
 
@@ -1085,26 +1085,26 @@ Test::TestIntfPrx::_iceI_checkPBSUnknownWithGraph(const ::std::shared_ptr<::IceI
         nullptr);
 }
 
-::std::shared_ptr<::Test::Preserved>
+::Test::PreservedPtr
 Test::TestIntfPrx::PBSUnknown2AsPreservedWithGraph(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<Preserved>>(true, this, &TestIntfPrx::_iceI_PBSUnknown2AsPreservedWithGraph, context).get();
+    return ::IceInternal::makePromiseOutgoing<PreservedPtr>(true, this, &TestIntfPrx::_iceI_PBSUnknown2AsPreservedWithGraph, context).get();
 }
 
-::std::future<::std::shared_ptr<::Test::Preserved>>
+::std::future<::Test::PreservedPtr>
 Test::TestIntfPrx::PBSUnknown2AsPreservedWithGraphAsync(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<Preserved>>(false, this, &TestIntfPrx::_iceI_PBSUnknown2AsPreservedWithGraph, context);
+    return ::IceInternal::makePromiseOutgoing<PreservedPtr>(false, this, &TestIntfPrx::_iceI_PBSUnknown2AsPreservedWithGraph, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::PBSUnknown2AsPreservedWithGraphAsync(::std::function<void(::std::shared_ptr<::Test::Preserved>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::PBSUnknown2AsPreservedWithGraphAsync(::std::function<void(::Test::PreservedPtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<Preserved>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_PBSUnknown2AsPreservedWithGraph, context);
+    return ::IceInternal::makeLambdaOutgoing<PreservedPtr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_PBSUnknown2AsPreservedWithGraph, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_PBSUnknown2AsPreservedWithGraph(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<Preserved>>>& outAsync, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_PBSUnknown2AsPreservedWithGraph(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<PreservedPtr>>& outAsync, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "PBSUnknown2AsPreservedWithGraph";
 
@@ -1114,7 +1114,7 @@ Test::TestIntfPrx::_iceI_PBSUnknown2AsPreservedWithGraph(const ::std::shared_ptr
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::shared_ptr<Preserved> ret;
+            PreservedPtr ret;
             istr->readAll(ret);
             istr->readPendingValues();
             return ret;
@@ -1122,25 +1122,25 @@ Test::TestIntfPrx::_iceI_PBSUnknown2AsPreservedWithGraph(const ::std::shared_ptr
 }
 
 void
-Test::TestIntfPrx::checkPBSUnknown2WithGraph(const ::std::shared_ptr<Preserved>& iceP_p, const ::Ice::Context& context) const
+Test::TestIntfPrx::checkPBSUnknown2WithGraph(const PreservedPtr& iceP_p, const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &TestIntfPrx::_iceI_checkPBSUnknown2WithGraph, iceP_p, context).get();
 }
 
 ::std::future<void>
-Test::TestIntfPrx::checkPBSUnknown2WithGraphAsync(const ::std::shared_ptr<Preserved>& iceP_p, const ::Ice::Context& context) const
+Test::TestIntfPrx::checkPBSUnknown2WithGraphAsync(const PreservedPtr& iceP_p, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &TestIntfPrx::_iceI_checkPBSUnknown2WithGraph, iceP_p, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::checkPBSUnknown2WithGraphAsync(const ::std::shared_ptr<Preserved>& iceP_p, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::checkPBSUnknown2WithGraphAsync(const PreservedPtr& iceP_p, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_checkPBSUnknown2WithGraph, iceP_p, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_checkPBSUnknown2WithGraph(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<Preserved>& iceP_p, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_checkPBSUnknown2WithGraph(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const PreservedPtr& iceP_p, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "checkPBSUnknown2WithGraph";
 
@@ -1153,26 +1153,26 @@ Test::TestIntfPrx::_iceI_checkPBSUnknown2WithGraph(const ::std::shared_ptr<::Ice
         nullptr);
 }
 
-::std::shared_ptr<::Test::PNode>
-Test::TestIntfPrx::exchangePNode(const ::std::shared_ptr<PNode>& iceP_pn, const ::Ice::Context& context) const
+::Test::PNodePtr
+Test::TestIntfPrx::exchangePNode(const PNodePtr& iceP_pn, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<PNode>>(true, this, &TestIntfPrx::_iceI_exchangePNode, iceP_pn, context).get();
+    return ::IceInternal::makePromiseOutgoing<PNodePtr>(true, this, &TestIntfPrx::_iceI_exchangePNode, iceP_pn, context).get();
 }
 
-::std::future<::std::shared_ptr<::Test::PNode>>
-Test::TestIntfPrx::exchangePNodeAsync(const ::std::shared_ptr<PNode>& iceP_pn, const ::Ice::Context& context) const
+::std::future<::Test::PNodePtr>
+Test::TestIntfPrx::exchangePNodeAsync(const PNodePtr& iceP_pn, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<PNode>>(false, this, &TestIntfPrx::_iceI_exchangePNode, iceP_pn, context);
+    return ::IceInternal::makePromiseOutgoing<PNodePtr>(false, this, &TestIntfPrx::_iceI_exchangePNode, iceP_pn, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::exchangePNodeAsync(const ::std::shared_ptr<PNode>& iceP_pn, ::std::function<void(::std::shared_ptr<::Test::PNode>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::exchangePNodeAsync(const PNodePtr& iceP_pn, ::std::function<void(::Test::PNodePtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<PNode>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_exchangePNode, iceP_pn, context);
+    return ::IceInternal::makeLambdaOutgoing<PNodePtr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_exchangePNode, iceP_pn, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_exchangePNode(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<PNode>>>& outAsync, const ::std::shared_ptr<PNode>& iceP_pn, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_exchangePNode(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<PNodePtr>>& outAsync, const PNodePtr& iceP_pn, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "exchangePNode";
 
@@ -1186,7 +1186,7 @@ Test::TestIntfPrx::_iceI_exchangePNode(const ::std::shared_ptr<::IceInternal::Ou
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::shared_ptr<PNode> ret;
+            PNodePtr ret;
             istr->readAll(ret);
             istr->readPendingValues();
             return ret;
@@ -1404,25 +1404,25 @@ Test::TestIntfPrx::_iceI_throwPreservedException(const ::std::shared_ptr<::IceIn
 }
 
 void
-Test::TestIntfPrx::useForward(::std::shared_ptr<Forward>& iceP_f, const ::Ice::Context& context) const
+Test::TestIntfPrx::useForward(ForwardPtr& iceP_f, const ::Ice::Context& context) const
 {
-    iceP_f = ::IceInternal::makePromiseOutgoing<::std::shared_ptr<Forward>>(true, this, &TestIntfPrx::_iceI_useForward, context).get();
+    iceP_f = ::IceInternal::makePromiseOutgoing<ForwardPtr>(true, this, &TestIntfPrx::_iceI_useForward, context).get();
 }
 
-::std::future<::std::shared_ptr<::Test::Forward>>
+::std::future<::Test::ForwardPtr>
 Test::TestIntfPrx::useForwardAsync(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<Forward>>(false, this, &TestIntfPrx::_iceI_useForward, context);
+    return ::IceInternal::makePromiseOutgoing<ForwardPtr>(false, this, &TestIntfPrx::_iceI_useForward, context);
 }
 
 ::std::function<void()>
-Test::TestIntfPrx::useForwardAsync(::std::function<void(::std::shared_ptr<::Test::Forward>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::TestIntfPrx::useForwardAsync(::std::function<void(::Test::ForwardPtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<Forward>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_useForward, context);
+    return ::IceInternal::makeLambdaOutgoing<ForwardPtr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::TestIntfPrx::_iceI_useForward, context);
 }
 
 void
-Test::TestIntfPrx::_iceI_useForward(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<Forward>>>& outAsync, const ::Ice::Context& context) const
+Test::TestIntfPrx::_iceI_useForward(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<ForwardPtr>>& outAsync, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "useForward";
 
@@ -1432,7 +1432,7 @@ Test::TestIntfPrx::_iceI_useForward(const ::std::shared_ptr<::IceInternal::Outgo
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::shared_ptr<Forward> iceP_f;
+            ForwardPtr iceP_f;
             istr->readAll(iceP_f);
             istr->readPendingValues();
             return iceP_f;
@@ -1487,7 +1487,7 @@ Test::SBase::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::SBase::_iceCloneImpl() const
 {
     return CloneEnabler<SBase>::clone(*this);
@@ -1522,7 +1522,7 @@ Test::SBSKnownDerived::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::SBSKnownDerived::_iceCloneImpl() const
 {
     return CloneEnabler<SBSKnownDerived>::clone(*this);
@@ -1559,7 +1559,7 @@ Test::B::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::B::_iceCloneImpl() const
 {
     return CloneEnabler<B>::clone(*this);
@@ -1594,7 +1594,7 @@ Test::D1::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::D1::_iceCloneImpl() const
 {
     return CloneEnabler<D1>::clone(*this);
@@ -1631,7 +1631,7 @@ Test::SS1::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::SS1::_iceCloneImpl() const
 {
     return CloneEnabler<SS1>::clone(*this);
@@ -1666,7 +1666,7 @@ Test::SS2::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::SS2::_iceCloneImpl() const
 {
     return CloneEnabler<SS2>::clone(*this);
@@ -1781,7 +1781,7 @@ Test::PBase::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::PBase::_iceCloneImpl() const
 {
     return CloneEnabler<PBase>::clone(*this);
@@ -1816,7 +1816,7 @@ Test::Preserved::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::Preserved::_iceCloneImpl() const
 {
     return CloneEnabler<Preserved>::clone(*this);
@@ -1853,7 +1853,7 @@ Test::PDerived::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::PDerived::_iceCloneImpl() const
 {
     return CloneEnabler<PDerived>::clone(*this);
@@ -1890,7 +1890,7 @@ Test::CompactPDerived::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::CompactPDerived::_iceCloneImpl() const
 {
     return CloneEnabler<CompactPDerived>::clone(*this);
@@ -1927,7 +1927,7 @@ Test::PNode::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::PNode::_iceCloneImpl() const
 {
     return CloneEnabler<PNode>::clone(*this);
@@ -1995,7 +1995,7 @@ Test::SBSUnknownDerived::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::SBSUnknownDerived::_iceCloneImpl() const
 {
     return CloneEnabler<SBSUnknownDerived>::clone(*this);
@@ -2032,7 +2032,7 @@ Test::SUnknown::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::SUnknown::_iceCloneImpl() const
 {
     return CloneEnabler<SUnknown>::clone(*this);
@@ -2067,7 +2067,7 @@ Test::D2::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::D2::_iceCloneImpl() const
 {
     return CloneEnabler<D2>::clone(*this);
@@ -2104,7 +2104,7 @@ Test::D4::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::D4::_iceCloneImpl() const
 {
     return CloneEnabler<D4>::clone(*this);
@@ -2178,7 +2178,7 @@ Test::MyClass::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::MyClass::_iceCloneImpl() const
 {
     return CloneEnabler<MyClass>::clone(*this);
@@ -2213,7 +2213,7 @@ Test::PSUnknown::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::PSUnknown::_iceCloneImpl() const
 {
     return CloneEnabler<PSUnknown>::clone(*this);
@@ -2250,7 +2250,7 @@ Test::PSUnknown2::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::PSUnknown2::_iceCloneImpl() const
 {
     return CloneEnabler<PSUnknown2>::clone(*this);
@@ -2332,7 +2332,7 @@ Test::Hidden::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::Hidden::_iceCloneImpl() const
 {
     return CloneEnabler<Hidden>::clone(*this);
@@ -2367,7 +2367,7 @@ Test::Forward::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::Forward::_iceCloneImpl() const
 {
     return CloneEnabler<Forward>::clone(*this);
@@ -2415,7 +2415,7 @@ Test::TestIntf::_iceD_SBaseAsObject(::Ice::IncomingRequest& request, ::std::func
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::shared_ptr<::Ice::Value> ret = this->SBaseAsObject(request.current());
+    ::Ice::ValuePtr ret = this->SBaseAsObject(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -2432,7 +2432,7 @@ Test::TestIntf::_iceD_SBaseAsSBase(::Ice::IncomingRequest& request, ::std::funct
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::shared_ptr<SBase> ret = this->SBaseAsSBase(request.current());
+    SBasePtr ret = this->SBaseAsSBase(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -2449,7 +2449,7 @@ Test::TestIntf::_iceD_SBSKnownDerivedAsSBase(::Ice::IncomingRequest& request, ::
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::shared_ptr<SBase> ret = this->SBSKnownDerivedAsSBase(request.current());
+    SBasePtr ret = this->SBSKnownDerivedAsSBase(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -2466,7 +2466,7 @@ Test::TestIntf::_iceD_SBSKnownDerivedAsSBSKnownDerived(::Ice::IncomingRequest& r
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::shared_ptr<SBSKnownDerived> ret = this->SBSKnownDerivedAsSBSKnownDerived(request.current());
+    SBSKnownDerivedPtr ret = this->SBSKnownDerivedAsSBSKnownDerived(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -2483,7 +2483,7 @@ Test::TestIntf::_iceD_SBSUnknownDerivedAsSBase(::Ice::IncomingRequest& request, 
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::shared_ptr<SBase> ret = this->SBSUnknownDerivedAsSBase(request.current());
+    SBasePtr ret = this->SBSUnknownDerivedAsSBase(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -2500,7 +2500,7 @@ Test::TestIntf::_iceD_SBSUnknownDerivedAsSBaseCompact(::Ice::IncomingRequest& re
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::shared_ptr<SBase> ret = this->SBSUnknownDerivedAsSBaseCompact(request.current());
+    SBasePtr ret = this->SBSUnknownDerivedAsSBaseCompact(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -2517,7 +2517,7 @@ Test::TestIntf::_iceD_SUnknownAsObject(::Ice::IncomingRequest& request, ::std::f
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::shared_ptr<::Ice::Value> ret = this->SUnknownAsObject(request.current());
+    ::Ice::ValuePtr ret = this->SUnknownAsObject(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -2535,7 +2535,7 @@ Test::TestIntf::_iceD_checkSUnknown(::Ice::IncomingRequest& request, ::std::func
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::shared_ptr<::Ice::Value> iceP_o;
+    ::Ice::ValuePtr iceP_o;
     istr->readAll(iceP_o);
     istr->readPendingValues();
     istr->endEncapsulation();
@@ -2550,7 +2550,7 @@ Test::TestIntf::_iceD_oneElementCycle(::Ice::IncomingRequest& request, ::std::fu
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::shared_ptr<B> ret = this->oneElementCycle(request.current());
+    BPtr ret = this->oneElementCycle(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -2567,7 +2567,7 @@ Test::TestIntf::_iceD_twoElementCycle(::Ice::IncomingRequest& request, ::std::fu
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::shared_ptr<B> ret = this->twoElementCycle(request.current());
+    BPtr ret = this->twoElementCycle(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -2584,7 +2584,7 @@ Test::TestIntf::_iceD_D1AsB(::Ice::IncomingRequest& request, ::std::function<voi
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::shared_ptr<B> ret = this->D1AsB(request.current());
+    BPtr ret = this->D1AsB(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -2601,7 +2601,7 @@ Test::TestIntf::_iceD_D1AsD1(::Ice::IncomingRequest& request, ::std::function<vo
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::shared_ptr<D1> ret = this->D1AsD1(request.current());
+    D1Ptr ret = this->D1AsD1(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -2618,7 +2618,7 @@ Test::TestIntf::_iceD_D2AsB(::Ice::IncomingRequest& request, ::std::function<voi
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::shared_ptr<B> ret = this->D2AsB(request.current());
+    BPtr ret = this->D2AsB(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -2635,8 +2635,8 @@ Test::TestIntf::_iceD_paramTest1(::Ice::IncomingRequest& request, ::std::functio
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::shared_ptr<B> iceP_p1;
-    ::std::shared_ptr<B> iceP_p2;
+    BPtr iceP_p1;
+    BPtr iceP_p2;
     this->paramTest1(iceP_p1, iceP_p2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
@@ -2654,8 +2654,8 @@ Test::TestIntf::_iceD_paramTest2(::Ice::IncomingRequest& request, ::std::functio
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::shared_ptr<B> iceP_p2;
-    ::std::shared_ptr<B> iceP_p1;
+    BPtr iceP_p2;
+    BPtr iceP_p1;
     this->paramTest2(iceP_p2, iceP_p1, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
@@ -2673,9 +2673,9 @@ Test::TestIntf::_iceD_paramTest3(::Ice::IncomingRequest& request, ::std::functio
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::shared_ptr<B> iceP_p1;
-    ::std::shared_ptr<B> iceP_p2;
-    ::std::shared_ptr<B> ret = this->paramTest3(iceP_p1, iceP_p2, request.current());
+    BPtr iceP_p1;
+    BPtr iceP_p2;
+    BPtr ret = this->paramTest3(iceP_p1, iceP_p2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_p1, iceP_p2, ret);
@@ -2692,8 +2692,8 @@ Test::TestIntf::_iceD_paramTest4(::Ice::IncomingRequest& request, ::std::functio
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::shared_ptr<B> iceP_p;
-    ::std::shared_ptr<B> ret = this->paramTest4(iceP_p, request.current());
+    BPtr iceP_p;
+    BPtr ret = this->paramTest4(iceP_p, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_p, ret);
@@ -2710,9 +2710,9 @@ Test::TestIntf::_iceD_returnTest1(::Ice::IncomingRequest& request, ::std::functi
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::shared_ptr<B> iceP_p1;
-    ::std::shared_ptr<B> iceP_p2;
-    ::std::shared_ptr<B> ret = this->returnTest1(iceP_p1, iceP_p2, request.current());
+    BPtr iceP_p1;
+    BPtr iceP_p2;
+    BPtr ret = this->returnTest1(iceP_p1, iceP_p2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_p1, iceP_p2, ret);
@@ -2729,9 +2729,9 @@ Test::TestIntf::_iceD_returnTest2(::Ice::IncomingRequest& request, ::std::functi
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::shared_ptr<B> iceP_p2;
-    ::std::shared_ptr<B> iceP_p1;
-    ::std::shared_ptr<B> ret = this->returnTest2(iceP_p2, iceP_p1, request.current());
+    BPtr iceP_p2;
+    BPtr iceP_p1;
+    BPtr ret = this->returnTest2(iceP_p2, iceP_p1, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_p2, iceP_p1, ret);
@@ -2749,12 +2749,12 @@ Test::TestIntf::_iceD_returnTest3(::Ice::IncomingRequest& request, ::std::functi
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::shared_ptr<B> iceP_p1;
-    ::std::shared_ptr<B> iceP_p2;
+    BPtr iceP_p1;
+    BPtr iceP_p2;
     istr->readAll(iceP_p1, iceP_p2);
     istr->readPendingValues();
     istr->endEncapsulation();
-    ::std::shared_ptr<B> ret = this->returnTest3(::std::move(iceP_p1), ::std::move(iceP_p2), request.current());
+    BPtr ret = this->returnTest3(::std::move(iceP_p1), ::std::move(iceP_p2), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -2772,8 +2772,8 @@ Test::TestIntf::_iceD_sequenceTest(::Ice::IncomingRequest& request, ::std::funct
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::shared_ptr<SS1> iceP_p1;
-    ::std::shared_ptr<SS2> iceP_p2;
+    SS1Ptr iceP_p1;
+    SS2Ptr iceP_p2;
     istr->readAll(iceP_p1, iceP_p2);
     istr->readPendingValues();
     istr->endEncapsulation();
@@ -2818,11 +2818,11 @@ Test::TestIntf::_iceD_exchangePBase(::Ice::IncomingRequest& request, ::std::func
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::shared_ptr<PBase> iceP_pb;
+    PBasePtr iceP_pb;
     istr->readAll(iceP_pb);
     istr->readPendingValues();
     istr->endEncapsulation();
-    ::std::shared_ptr<PBase> ret = this->exchangePBase(::std::move(iceP_pb), request.current());
+    PBasePtr ret = this->exchangePBase(::std::move(iceP_pb), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -2839,7 +2839,7 @@ Test::TestIntf::_iceD_PBSUnknownAsPreserved(::Ice::IncomingRequest& request, ::s
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::shared_ptr<Preserved> ret = this->PBSUnknownAsPreserved(request.current());
+    PreservedPtr ret = this->PBSUnknownAsPreserved(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -2857,7 +2857,7 @@ Test::TestIntf::_iceD_checkPBSUnknown(::Ice::IncomingRequest& request, ::std::fu
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::shared_ptr<Preserved> iceP_p;
+    PreservedPtr iceP_p;
     istr->readAll(iceP_p);
     istr->readPendingValues();
     istr->endEncapsulation();
@@ -2873,7 +2873,7 @@ Test::TestIntf::_iceD_PBSUnknownAsPreservedWithGraph(::Ice::IncomingRequest& req
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
-    auto responseCb = [responseHandler](const ::std::shared_ptr<Preserved>& ret)
+    auto responseCb = [responseHandler](const PreservedPtr& ret)
     {
         responseHandler->sendResponse(
             [&](::Ice::OutputStream* ostr)
@@ -2901,7 +2901,7 @@ Test::TestIntf::_iceD_checkPBSUnknownWithGraph(::Ice::IncomingRequest& request, 
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::shared_ptr<Preserved> iceP_p;
+    PreservedPtr iceP_p;
     istr->readAll(iceP_p);
     istr->readPendingValues();
     istr->endEncapsulation();
@@ -2917,7 +2917,7 @@ Test::TestIntf::_iceD_PBSUnknown2AsPreservedWithGraph(::Ice::IncomingRequest& re
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
     auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
-    auto responseCb = [responseHandler](const ::std::shared_ptr<Preserved>& ret)
+    auto responseCb = [responseHandler](const PreservedPtr& ret)
     {
         responseHandler->sendResponse(
             [&](::Ice::OutputStream* ostr)
@@ -2945,7 +2945,7 @@ Test::TestIntf::_iceD_checkPBSUnknown2WithGraph(::Ice::IncomingRequest& request,
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::shared_ptr<Preserved> iceP_p;
+    PreservedPtr iceP_p;
     istr->readAll(iceP_p);
     istr->readPendingValues();
     istr->endEncapsulation();
@@ -2961,11 +2961,11 @@ Test::TestIntf::_iceD_exchangePNode(::Ice::IncomingRequest& request, ::std::func
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::shared_ptr<PNode> iceP_pn;
+    PNodePtr iceP_pn;
     istr->readAll(iceP_pn);
     istr->readPendingValues();
     istr->endEncapsulation();
-    ::std::shared_ptr<PNode> ret = this->exchangePNode(::std::move(iceP_pn), request.current());
+    PNodePtr ret = this->exchangePNode(::std::move(iceP_pn), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -3044,7 +3044,7 @@ Test::TestIntf::_iceD_useForward(::Ice::IncomingRequest& request, ::std::functio
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::shared_ptr<Forward> iceP_f;
+    ForwardPtr iceP_f;
     this->useForward(iceP_f, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {

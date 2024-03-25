@@ -28,9 +28,9 @@
 
 namespace Test
 {
+    class CallbackReceiverPrx;
 
-class CallbackReceiverPrx;
-class CallbackPrx;
+    class CallbackPrx;
 
 }
 
@@ -81,7 +81,7 @@ public:
     {
     }
 
-    CallbackReceiverPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    CallbackReceiverPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -166,7 +166,7 @@ public:
     {
     }
 
-    CallbackPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    CallbackPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

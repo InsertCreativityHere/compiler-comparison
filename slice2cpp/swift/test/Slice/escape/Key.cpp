@@ -135,7 +135,7 @@ _cpp_and::_cpp_switch::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 _cpp_and::_cpp_switch::_iceCloneImpl() const
 {
     return CloneEnabler<_cpp_switch>::clone(*this);

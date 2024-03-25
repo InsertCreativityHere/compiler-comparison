@@ -39,9 +39,9 @@
 
 namespace Ice
 {
+    class RouterPrx;
 
-class RouterPrx;
-class RouterFinderPrx;
+    class RouterFinderPrx;
 
 }
 
@@ -171,7 +171,7 @@ public:
     {
     }
 
-    RouterPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    RouterPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -260,7 +260,7 @@ public:
     {
     }
 
-    RouterFinderPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    RouterFinderPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

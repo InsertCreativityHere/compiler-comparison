@@ -39,26 +39,26 @@ namespace
     const ::IceInternal::DefaultValueFactoryInit<::User::UserInfo> iceC_User_UserInfo_init("::User::UserInfo");
 }
 
-::std::shared_ptr<::User::UserInfo>
+::User::UserInfoPtr
 User::RegistryPrx::getUserInfo(::std::string_view iceP_id, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<UserInfo>>(true, this, &RegistryPrx::_iceI_getUserInfo, iceP_id, context).get();
+    return ::IceInternal::makePromiseOutgoing<UserInfoPtr>(true, this, &RegistryPrx::_iceI_getUserInfo, iceP_id, context).get();
 }
 
-::std::future<::std::shared_ptr<::User::UserInfo>>
+::std::future<::User::UserInfoPtr>
 User::RegistryPrx::getUserInfoAsync(::std::string_view iceP_id, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<UserInfo>>(false, this, &RegistryPrx::_iceI_getUserInfo, iceP_id, context);
+    return ::IceInternal::makePromiseOutgoing<UserInfoPtr>(false, this, &RegistryPrx::_iceI_getUserInfo, iceP_id, context);
 }
 
 ::std::function<void()>
-User::RegistryPrx::getUserInfoAsync(::std::string_view iceP_id, ::std::function<void(::std::shared_ptr<::User::UserInfo>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+User::RegistryPrx::getUserInfoAsync(::std::string_view iceP_id, ::std::function<void(::User::UserInfoPtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<UserInfo>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &User::RegistryPrx::_iceI_getUserInfo, iceP_id, context);
+    return ::IceInternal::makeLambdaOutgoing<UserInfoPtr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &User::RegistryPrx::_iceI_getUserInfo, iceP_id, context);
 }
 
 void
-User::RegistryPrx::_iceI_getUserInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<UserInfo>>>& outAsync, ::std::string_view iceP_id, const ::Ice::Context& context) const
+User::RegistryPrx::_iceI_getUserInfo(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<UserInfoPtr>>& outAsync, ::std::string_view iceP_id, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "getUserInfo";
 
@@ -84,7 +84,7 @@ User::RegistryPrx::_iceI_getUserInfo(const ::std::shared_ptr<::IceInternal::Outg
         },
         [](::Ice::InputStream* istr)
         {
-            ::std::shared_ptr<UserInfo> ret;
+            UserInfoPtr ret;
             istr->readAll(ret);
             istr->readPendingValues();
             return ret;
@@ -111,7 +111,7 @@ User::UserInfo::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 User::UserInfo::_iceCloneImpl() const
 {
     return CloneEnabler<UserInfo>::clone(*this);
@@ -161,7 +161,7 @@ User::Registry::_iceD_getUserInfo(::Ice::IncomingRequest& request, ::std::functi
     ::std::string iceP_id;
     istr->readAll(iceP_id);
     istr->endEncapsulation();
-    ::std::shared_ptr<UserInfo> ret = this->getUserInfo(::std::move(iceP_id), request.current());
+    UserInfoPtr ret = this->getUserInfo(::std::move(iceP_id), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

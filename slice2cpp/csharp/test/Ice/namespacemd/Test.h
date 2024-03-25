@@ -30,8 +30,7 @@
 
 namespace Test
 {
-
-class InitialPrx;
+    class InitialPrx;
 
 }
 
@@ -42,26 +41,26 @@ class InitialPrx : public ::Ice::Proxy<InitialPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    ::std::shared_ptr<::NoNamespace::C1> getNoNamespaceC2AsC1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::NoNamespace::C1Ptr getNoNamespaceC2AsC1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<::NoNamespace::C1>> getNoNamespaceC2AsC1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::NoNamespace::C1Ptr> getNoNamespaceC2AsC1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    getNoNamespaceC2AsC1Async(::std::function<void(::std::shared_ptr<::NoNamespace::C1>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    getNoNamespaceC2AsC1Async(::std::function<void(::NoNamespace::C1Ptr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getNoNamespaceC2AsC1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::NoNamespace::C1>>>&, const ::Ice::Context&) const;
+    void _iceI_getNoNamespaceC2AsC1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::NoNamespace::C1Ptr>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::shared_ptr<::NoNamespace::C2> getNoNamespaceC2AsC2(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::NoNamespace::C2Ptr getNoNamespaceC2AsC2(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<::NoNamespace::C2>> getNoNamespaceC2AsC2Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::NoNamespace::C2Ptr> getNoNamespaceC2AsC2Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    getNoNamespaceC2AsC2Async(::std::function<void(::std::shared_ptr<::NoNamespace::C2>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    getNoNamespaceC2AsC2Async(::std::function<void(::NoNamespace::C2Ptr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getNoNamespaceC2AsC2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::NoNamespace::C2>>>&, const ::Ice::Context&) const;
+    void _iceI_getNoNamespaceC2AsC2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::NoNamespace::C2Ptr>>&, const ::Ice::Context&) const;
     /// \endcond
 
     void throwNoNamespaceE2AsE1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -97,26 +96,26 @@ public:
     void _iceI_throwNoNamespaceNotify(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::shared_ptr<::WithNamespace::C1> getWithNamespaceC2AsC1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::WithNamespace::C1Ptr getWithNamespaceC2AsC1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<::WithNamespace::C1>> getWithNamespaceC2AsC1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::WithNamespace::C1Ptr> getWithNamespaceC2AsC1Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    getWithNamespaceC2AsC1Async(::std::function<void(::std::shared_ptr<::WithNamespace::C1>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    getWithNamespaceC2AsC1Async(::std::function<void(::WithNamespace::C1Ptr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getWithNamespaceC2AsC1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::WithNamespace::C1>>>&, const ::Ice::Context&) const;
+    void _iceI_getWithNamespaceC2AsC1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::WithNamespace::C1Ptr>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::shared_ptr<::WithNamespace::C2> getWithNamespaceC2AsC2(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::WithNamespace::C2Ptr getWithNamespaceC2AsC2(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<::WithNamespace::C2>> getWithNamespaceC2AsC2Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::WithNamespace::C2Ptr> getWithNamespaceC2AsC2Async(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    getWithNamespaceC2AsC2Async(::std::function<void(::std::shared_ptr<::WithNamespace::C2>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    getWithNamespaceC2AsC2Async(::std::function<void(::WithNamespace::C2Ptr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_getWithNamespaceC2AsC2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::WithNamespace::C2>>>&, const ::Ice::Context&) const;
+    void _iceI_getWithNamespaceC2AsC2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::WithNamespace::C2Ptr>>&, const ::Ice::Context&) const;
     /// \endcond
 
     void throwWithNamespaceE2AsE1(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -170,7 +169,7 @@ public:
     {
     }
 
-    InitialPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    InitialPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -231,12 +230,12 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
-    virtual ::std::shared_ptr<::NoNamespace::C1> getNoNamespaceC2AsC1(const ::Ice::Current& current) = 0;
+    virtual ::NoNamespace::C1Ptr getNoNamespaceC2AsC1(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_getNoNamespaceC2AsC1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual ::std::shared_ptr<::NoNamespace::C2> getNoNamespaceC2AsC2(const ::Ice::Current& current) = 0;
+    virtual ::NoNamespace::C2Ptr getNoNamespaceC2AsC2(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_getNoNamespaceC2AsC2(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
@@ -256,12 +255,12 @@ public:
     void _iceD_throwNoNamespaceNotify(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual ::std::shared_ptr<::WithNamespace::C1> getWithNamespaceC2AsC1(const ::Ice::Current& current) = 0;
+    virtual ::WithNamespace::C1Ptr getWithNamespaceC2AsC1(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_getWithNamespaceC2AsC1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual ::std::shared_ptr<::WithNamespace::C2> getWithNamespaceC2AsC2(const ::Ice::Current& current) = 0;
+    virtual ::WithNamespace::C2Ptr getWithNamespaceC2AsC2(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_getWithNamespaceC2AsC2(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond

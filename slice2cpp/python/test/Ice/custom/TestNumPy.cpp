@@ -611,26 +611,26 @@ Test::NumPy::CustomPrx::_iceI_opBogusNumpyArrayType(const ::std::shared_ptr<::Ic
         nullptr);
 }
 
-::std::shared_ptr<::Test::NumPy::D>
-Test::NumPy::CustomPrx::opD(const ::std::shared_ptr<D>& iceP_d, const ::Ice::Context& context) const
+::Test::NumPy::DPtr
+Test::NumPy::CustomPrx::opD(const DPtr& iceP_d, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<D>>(true, this, &CustomPrx::_iceI_opD, iceP_d, context).get();
+    return ::IceInternal::makePromiseOutgoing<DPtr>(true, this, &CustomPrx::_iceI_opD, iceP_d, context).get();
 }
 
-::std::future<::std::shared_ptr<::Test::NumPy::D>>
-Test::NumPy::CustomPrx::opDAsync(const ::std::shared_ptr<D>& iceP_d, const ::Ice::Context& context) const
+::std::future<::Test::NumPy::DPtr>
+Test::NumPy::CustomPrx::opDAsync(const DPtr& iceP_d, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<D>>(false, this, &CustomPrx::_iceI_opD, iceP_d, context);
+    return ::IceInternal::makePromiseOutgoing<DPtr>(false, this, &CustomPrx::_iceI_opD, iceP_d, context);
 }
 
 ::std::function<void()>
-Test::NumPy::CustomPrx::opDAsync(const ::std::shared_ptr<D>& iceP_d, ::std::function<void(::std::shared_ptr<::Test::NumPy::D>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::NumPy::CustomPrx::opDAsync(const DPtr& iceP_d, ::std::function<void(::Test::NumPy::DPtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<D>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::NumPy::CustomPrx::_iceI_opD, iceP_d, context);
+    return ::IceInternal::makeLambdaOutgoing<DPtr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::NumPy::CustomPrx::_iceI_opD, iceP_d, context);
 }
 
 void
-Test::NumPy::CustomPrx::_iceI_opD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<D>>>& outAsync, const ::std::shared_ptr<D>& iceP_d, const ::Ice::Context& context) const
+Test::NumPy::CustomPrx::_iceI_opD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<DPtr>>& outAsync, const DPtr& iceP_d, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "opD";
 
@@ -644,7 +644,7 @@ Test::NumPy::CustomPrx::_iceI_opD(const ::std::shared_ptr<::IceInternal::Outgoin
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::shared_ptr<D> ret;
+            DPtr ret;
             istr->readAll(ret);
             istr->readPendingValues();
             return ret;
@@ -699,7 +699,7 @@ Test::NumPy::D::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::NumPy::D::_iceCloneImpl() const
 {
     return CloneEnabler<D>::clone(*this);
@@ -1027,11 +1027,11 @@ Test::NumPy::Custom::_iceD_opD(::Ice::IncomingRequest& request, ::std::function<
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::shared_ptr<D> iceP_d;
+    DPtr iceP_d;
     istr->readAll(iceP_d);
     istr->readPendingValues();
     istr->endEncapsulation();
-    ::std::shared_ptr<D> ret = this->opD(::std::move(iceP_d), request.current());
+    DPtr ret = this->opD(::std::move(iceP_d), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

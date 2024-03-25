@@ -58,7 +58,7 @@ Test::D3::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::D3::_iceCloneImpl() const
 {
     return CloneEnabler<D3>::clone(*this);
@@ -95,7 +95,7 @@ Test::PCUnknown::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::PCUnknown::_iceCloneImpl() const
 {
     return CloneEnabler<PCUnknown>::clone(*this);
@@ -132,7 +132,7 @@ Test::PCDerived::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::PCDerived::_iceCloneImpl() const
 {
     return CloneEnabler<PCDerived>::clone(*this);
@@ -169,7 +169,7 @@ Test::PCDerived2::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::PCDerived2::_iceCloneImpl() const
 {
     return CloneEnabler<PCDerived2>::clone(*this);
@@ -206,7 +206,7 @@ Test::PCDerived3::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::PCDerived3::_iceCloneImpl() const
 {
     return CloneEnabler<PCDerived3>::clone(*this);
@@ -243,7 +243,7 @@ Test::CompactPCDerived::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::CompactPCDerived::_iceCloneImpl() const
 {
     return CloneEnabler<CompactPCDerived>::clone(*this);

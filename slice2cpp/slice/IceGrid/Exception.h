@@ -41,8 +41,6 @@
 
 namespace IceGrid
 {
-
-
 }
 
 namespace IceGrid

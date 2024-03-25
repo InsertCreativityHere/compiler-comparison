@@ -65,7 +65,7 @@ IceGrid::CommunicatorDescriptor::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 IceGrid::CommunicatorDescriptor::_iceCloneImpl() const
 {
     return CloneEnabler<CommunicatorDescriptor>::clone(*this);
@@ -100,7 +100,7 @@ IceGrid::ServerDescriptor::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 IceGrid::ServerDescriptor::_iceCloneImpl() const
 {
     return CloneEnabler<ServerDescriptor>::clone(*this);
@@ -137,7 +137,7 @@ IceGrid::ServiceDescriptor::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 IceGrid::ServiceDescriptor::_iceCloneImpl() const
 {
     return CloneEnabler<ServiceDescriptor>::clone(*this);
@@ -174,7 +174,7 @@ IceGrid::IceBoxDescriptor::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 IceGrid::IceBoxDescriptor::_iceCloneImpl() const
 {
     return CloneEnabler<IceBoxDescriptor>::clone(*this);
@@ -211,7 +211,7 @@ IceGrid::LoadBalancingPolicy::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 IceGrid::LoadBalancingPolicy::_iceCloneImpl() const
 {
     return CloneEnabler<LoadBalancingPolicy>::clone(*this);
@@ -246,7 +246,7 @@ IceGrid::RandomLoadBalancingPolicy::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 IceGrid::RandomLoadBalancingPolicy::_iceCloneImpl() const
 {
     return CloneEnabler<RandomLoadBalancingPolicy>::clone(*this);
@@ -281,7 +281,7 @@ IceGrid::OrderedLoadBalancingPolicy::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 IceGrid::OrderedLoadBalancingPolicy::_iceCloneImpl() const
 {
     return CloneEnabler<OrderedLoadBalancingPolicy>::clone(*this);
@@ -316,7 +316,7 @@ IceGrid::RoundRobinLoadBalancingPolicy::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 IceGrid::RoundRobinLoadBalancingPolicy::_iceCloneImpl() const
 {
     return CloneEnabler<RoundRobinLoadBalancingPolicy>::clone(*this);
@@ -351,7 +351,7 @@ IceGrid::AdaptiveLoadBalancingPolicy::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 IceGrid::AdaptiveLoadBalancingPolicy::_iceCloneImpl() const
 {
     return CloneEnabler<AdaptiveLoadBalancingPolicy>::clone(*this);
@@ -388,7 +388,7 @@ IceGrid::BoxedString::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 IceGrid::BoxedString::_iceCloneImpl() const
 {
     return CloneEnabler<BoxedString>::clone(*this);
@@ -423,7 +423,7 @@ IceGrid::BoxedDistributionDescriptor::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 IceGrid::BoxedDistributionDescriptor::_iceCloneImpl() const
 {
     return CloneEnabler<BoxedDistributionDescriptor>::clone(*this);

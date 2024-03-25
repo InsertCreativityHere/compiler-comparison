@@ -29,47 +29,44 @@
 namespace Test
 {
 
+    namespace NumPy
+    {
+        using BoolSeq1 = ::std::vector<bool>;
 
-namespace NumPy
-{
+        using BoolSeq2 = ::std::vector<bool>;
 
+        using ByteSeq1 = ::std::vector<std::byte>;
 
-using BoolSeq1 = ::std::vector<bool>;
+        using ByteSeq2 = ::std::vector<std::byte>;
 
-using BoolSeq2 = ::std::vector<bool>;
+        using ShortSeq1 = ::std::vector<::std::int16_t>;
 
-using ByteSeq1 = ::std::vector<std::byte>;
+        using ShortSeq2 = ::std::vector<::std::int16_t>;
 
-using ByteSeq2 = ::std::vector<std::byte>;
+        using IntSeq1 = ::std::vector<::std::int32_t>;
 
-using ShortSeq1 = ::std::vector<::std::int16_t>;
+        using IntSeq2 = ::std::vector<::std::int32_t>;
 
-using ShortSeq2 = ::std::vector<::std::int16_t>;
+        using LongSeq1 = ::std::vector<::std::int64_t>;
 
-using IntSeq1 = ::std::vector<::std::int32_t>;
+        using LongSeq2 = ::std::vector<::std::int64_t>;
 
-using IntSeq2 = ::std::vector<::std::int32_t>;
+        using FloatSeq1 = ::std::vector<float>;
 
-using LongSeq1 = ::std::vector<::std::int64_t>;
+        using FloatSeq2 = ::std::vector<float>;
 
-using LongSeq2 = ::std::vector<::std::int64_t>;
+        using DoubleSeq1 = ::std::vector<double>;
 
-using FloatSeq1 = ::std::vector<float>;
+        using DoubleSeq2 = ::std::vector<double>;
 
-using FloatSeq2 = ::std::vector<float>;
+        using Complex128Seq = ::std::vector<std::byte>;
 
-using DoubleSeq1 = ::std::vector<double>;
+        class D;
+        using DPtr = ::std::shared_ptr<D>;
 
-using DoubleSeq2 = ::std::vector<double>;
+        class CustomPrx;
 
-using Complex128Seq = ::std::vector<std::byte>;
-class D;
-
-using DPtr = ::std::shared_ptr<D>;
-class CustomPrx;
-
-}
-
+    }
 }
 
 namespace Test
@@ -258,15 +255,15 @@ public:
     void _iceI_opBogusNumpyArrayType(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<BoolSeq1>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::shared_ptr<D> opD(const ::std::shared_ptr<D>& d, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    DPtr opD(const DPtr& d, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<D>> opDAsync(const ::std::shared_ptr<D>& d, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<DPtr> opDAsync(const DPtr& d, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opDAsync(const ::std::shared_ptr<D>& d, ::std::function<void(::std::shared_ptr<::Test::NumPy::D>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opDAsync(const DPtr& d, ::std::function<void(::Test::NumPy::DPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<D>>>&, const ::std::shared_ptr<D>&, const ::Ice::Context&) const;
+    void _iceI_opD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<DPtr>>&, const DPtr&, const ::Ice::Context&) const;
     /// \endcond
 
     void shutdown(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -298,7 +295,7 @@ public:
     {
     }
 
-    CustomPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    CustomPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -379,7 +376,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<D> ice_clone() const { return ::std::static_pointer_cast <D>(_iceCloneImpl()); }
+    DPtr ice_clone() const { return ::std::static_pointer_cast <D>(_iceCloneImpl()); }
 
     ::std::optional<::Test::NumPy::BoolSeq1> boolSeq;
     ::std::optional<::Test::NumPy::ByteSeq1> byteSeq;
@@ -393,7 +390,7 @@ protected:
 
     D(const D&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -519,7 +516,7 @@ public:
     void _iceD_opBogusNumpyArrayType(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual ::std::shared_ptr<D> opD(::std::shared_ptr<D> d, const ::Ice::Current& current) = 0;
+    virtual DPtr opD(DPtr d, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_opD(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond

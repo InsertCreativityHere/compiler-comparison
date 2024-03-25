@@ -175,32 +175,32 @@ Test::IPrx::_iceI_opSMap(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<:
         });
 }
 
-::std::shared_ptr<::Test::C>
-Test::IPrx::opC(const ::std::shared_ptr<C>& iceP_c1, ::std::shared_ptr<C>& iceP_c2, const ::Ice::Context& context) const
+::Test::CPtr
+Test::IPrx::opC(const CPtr& iceP_c1, CPtr& iceP_c2, const ::Ice::Context& context) const
 {
-    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::shared_ptr<C>, ::std::shared_ptr<C>>>(true, this, &IPrx::_iceI_opC, iceP_c1, context).get();
+    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<CPtr, CPtr>>(true, this, &IPrx::_iceI_opC, iceP_c1, context).get();
     iceP_c2 = ::std::move(::std::get<1>(result));
     return ::std::move(::std::get<0>(result));
 }
 
-::std::future<::std::tuple<::std::shared_ptr<::Test::C>, ::std::shared_ptr<::Test::C>>>
-Test::IPrx::opCAsync(const ::std::shared_ptr<C>& iceP_c1, const ::Ice::Context& context) const
+::std::future<::std::tuple<::Test::CPtr, ::Test::CPtr>>
+Test::IPrx::opCAsync(const CPtr& iceP_c1, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::shared_ptr<C>, ::std::shared_ptr<C>>>(false, this, &IPrx::_iceI_opC, iceP_c1, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<CPtr, CPtr>>(false, this, &IPrx::_iceI_opC, iceP_c1, context);
 }
 
 ::std::function<void()>
-Test::IPrx::opCAsync(const ::std::shared_ptr<C>& iceP_c1, ::std::function<void(::std::shared_ptr<::Test::C>, ::std::shared_ptr<::Test::C>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::IPrx::opCAsync(const CPtr& iceP_c1, ::std::function<void(::Test::CPtr, ::Test::CPtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::shared_ptr<C>, ::std::shared_ptr<C>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<CPtr, CPtr>&& result)
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::shared_ptr<C>, ::std::shared_ptr<C>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::IPrx::_iceI_opC, iceP_c1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<CPtr, CPtr>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::IPrx::_iceI_opC, iceP_c1, context);
 }
 
 void
-Test::IPrx::_iceI_opC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::shared_ptr<C>, ::std::shared_ptr<C>>>>& outAsync, const ::std::shared_ptr<C>& iceP_c1, const ::Ice::Context& context) const
+Test::IPrx::_iceI_opC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<CPtr, CPtr>>>& outAsync, const CPtr& iceP_c1, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "opC";
 
@@ -214,7 +214,7 @@ Test::IPrx::_iceI_opC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::st
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::tuple<::std::shared_ptr<C>, ::std::shared_ptr<C>> v;
+            ::std::tuple<CPtr, CPtr> v;
             istr->readAll(::std::get<1>(v), ::std::get<0>(v));
             istr->readPendingValues();
             return v;
@@ -377,26 +377,26 @@ Test::IPrx::_iceI_opS1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<S1>
         nullptr);
 }
 
-::std::shared_ptr<::Test::C1>
-Test::IPrx::opC1(const ::std::shared_ptr<C1>& iceP_C1, const ::Ice::Context& context) const
+::Test::C1Ptr
+Test::IPrx::opC1(const C1Ptr& iceP_C1, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<C1>>(true, this, &IPrx::_iceI_opC1, iceP_C1, context).get();
+    return ::IceInternal::makePromiseOutgoing<C1Ptr>(true, this, &IPrx::_iceI_opC1, iceP_C1, context).get();
 }
 
-::std::future<::std::shared_ptr<::Test::C1>>
-Test::IPrx::opC1Async(const ::std::shared_ptr<C1>& iceP_C1, const ::Ice::Context& context) const
+::std::future<::Test::C1Ptr>
+Test::IPrx::opC1Async(const C1Ptr& iceP_C1, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<C1>>(false, this, &IPrx::_iceI_opC1, iceP_C1, context);
+    return ::IceInternal::makePromiseOutgoing<C1Ptr>(false, this, &IPrx::_iceI_opC1, iceP_C1, context);
 }
 
 ::std::function<void()>
-Test::IPrx::opC1Async(const ::std::shared_ptr<C1>& iceP_C1, ::std::function<void(::std::shared_ptr<::Test::C1>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::IPrx::opC1Async(const C1Ptr& iceP_C1, ::std::function<void(::Test::C1Ptr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<C1>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::IPrx::_iceI_opC1, iceP_C1, context);
+    return ::IceInternal::makeLambdaOutgoing<C1Ptr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::IPrx::_iceI_opC1, iceP_C1, context);
 }
 
 void
-Test::IPrx::_iceI_opC1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<C1>>>& outAsync, const ::std::shared_ptr<C1>& iceP_C1, const ::Ice::Context& context) const
+Test::IPrx::_iceI_opC1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<C1Ptr>>& outAsync, const C1Ptr& iceP_C1, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "opC1";
 
@@ -410,7 +410,7 @@ Test::IPrx::_iceI_opC1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::s
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::shared_ptr<C1> ret;
+            C1Ptr ret;
             istr->readAll(ret);
             istr->readPendingValues();
             return ret;
@@ -584,32 +584,32 @@ Test::Inner::Inner2::IPrx::_iceI_opSMap(const ::std::shared_ptr<::IceInternal::O
         });
 }
 
-::std::shared_ptr<::Test::Inner::Inner2::C>
-Test::Inner::Inner2::IPrx::opC(const ::std::shared_ptr<C>& iceP_c1, ::std::shared_ptr<C>& iceP_c2, const ::Ice::Context& context) const
+::Test::Inner::Inner2::CPtr
+Test::Inner::Inner2::IPrx::opC(const CPtr& iceP_c1, CPtr& iceP_c2, const ::Ice::Context& context) const
 {
-    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::shared_ptr<C>, ::std::shared_ptr<C>>>(true, this, &IPrx::_iceI_opC, iceP_c1, context).get();
+    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<CPtr, CPtr>>(true, this, &IPrx::_iceI_opC, iceP_c1, context).get();
     iceP_c2 = ::std::move(::std::get<1>(result));
     return ::std::move(::std::get<0>(result));
 }
 
-::std::future<::std::tuple<::std::shared_ptr<::Test::Inner::Inner2::C>, ::std::shared_ptr<::Test::Inner::Inner2::C>>>
-Test::Inner::Inner2::IPrx::opCAsync(const ::std::shared_ptr<C>& iceP_c1, const ::Ice::Context& context) const
+::std::future<::std::tuple<::Test::Inner::Inner2::CPtr, ::Test::Inner::Inner2::CPtr>>
+Test::Inner::Inner2::IPrx::opCAsync(const CPtr& iceP_c1, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::shared_ptr<C>, ::std::shared_ptr<C>>>(false, this, &IPrx::_iceI_opC, iceP_c1, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<CPtr, CPtr>>(false, this, &IPrx::_iceI_opC, iceP_c1, context);
 }
 
 ::std::function<void()>
-Test::Inner::Inner2::IPrx::opCAsync(const ::std::shared_ptr<C>& iceP_c1, ::std::function<void(::std::shared_ptr<::Test::Inner::Inner2::C>, ::std::shared_ptr<::Test::Inner::Inner2::C>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::Inner::Inner2::IPrx::opCAsync(const CPtr& iceP_c1, ::std::function<void(::Test::Inner::Inner2::CPtr, ::Test::Inner::Inner2::CPtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::shared_ptr<C>, ::std::shared_ptr<C>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<CPtr, CPtr>&& result)
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::shared_ptr<C>, ::std::shared_ptr<C>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::Inner::Inner2::IPrx::_iceI_opC, iceP_c1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<CPtr, CPtr>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::Inner::Inner2::IPrx::_iceI_opC, iceP_c1, context);
 }
 
 void
-Test::Inner::Inner2::IPrx::_iceI_opC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::shared_ptr<C>, ::std::shared_ptr<C>>>>& outAsync, const ::std::shared_ptr<C>& iceP_c1, const ::Ice::Context& context) const
+Test::Inner::Inner2::IPrx::_iceI_opC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<CPtr, CPtr>>>& outAsync, const CPtr& iceP_c1, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "opC";
 
@@ -623,7 +623,7 @@ Test::Inner::Inner2::IPrx::_iceI_opC(const ::std::shared_ptr<::IceInternal::Outg
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::tuple<::std::shared_ptr<C>, ::std::shared_ptr<C>> v;
+            ::std::tuple<CPtr, CPtr> v;
             istr->readAll(::std::get<1>(v), ::std::get<0>(v));
             istr->readPendingValues();
             return v;
@@ -889,32 +889,32 @@ Test::Inner::IPrx::_iceI_opSMap(const ::std::shared_ptr<::IceInternal::OutgoingA
         });
 }
 
-::std::shared_ptr<::Test::Inner::Inner2::C>
-Test::Inner::IPrx::opC(const ::std::shared_ptr<::Test::Inner::Inner2::C>& iceP_c1, ::std::shared_ptr<::Test::Inner::Inner2::C>& iceP_c2, const ::Ice::Context& context) const
+::Test::Inner::Inner2::CPtr
+Test::Inner::IPrx::opC(const ::Test::Inner::Inner2::CPtr& iceP_c1, ::Test::Inner::Inner2::CPtr& iceP_c2, const ::Ice::Context& context) const
 {
-    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::shared_ptr<::Test::Inner::Inner2::C>, ::std::shared_ptr<::Test::Inner::Inner2::C>>>(true, this, &IPrx::_iceI_opC, iceP_c1, context).get();
+    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::Test::Inner::Inner2::CPtr, ::Test::Inner::Inner2::CPtr>>(true, this, &IPrx::_iceI_opC, iceP_c1, context).get();
     iceP_c2 = ::std::move(::std::get<1>(result));
     return ::std::move(::std::get<0>(result));
 }
 
-::std::future<::std::tuple<::std::shared_ptr<::Test::Inner::Inner2::C>, ::std::shared_ptr<::Test::Inner::Inner2::C>>>
-Test::Inner::IPrx::opCAsync(const ::std::shared_ptr<::Test::Inner::Inner2::C>& iceP_c1, const ::Ice::Context& context) const
+::std::future<::std::tuple<::Test::Inner::Inner2::CPtr, ::Test::Inner::Inner2::CPtr>>
+Test::Inner::IPrx::opCAsync(const ::Test::Inner::Inner2::CPtr& iceP_c1, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::shared_ptr<::Test::Inner::Inner2::C>, ::std::shared_ptr<::Test::Inner::Inner2::C>>>(false, this, &IPrx::_iceI_opC, iceP_c1, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<::Test::Inner::Inner2::CPtr, ::Test::Inner::Inner2::CPtr>>(false, this, &IPrx::_iceI_opC, iceP_c1, context);
 }
 
 ::std::function<void()>
-Test::Inner::IPrx::opCAsync(const ::std::shared_ptr<::Test::Inner::Inner2::C>& iceP_c1, ::std::function<void(::std::shared_ptr<::Test::Inner::Inner2::C>, ::std::shared_ptr<::Test::Inner::Inner2::C>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::Inner::IPrx::opCAsync(const ::Test::Inner::Inner2::CPtr& iceP_c1, ::std::function<void(::Test::Inner::Inner2::CPtr, ::Test::Inner::Inner2::CPtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::shared_ptr<::Test::Inner::Inner2::C>, ::std::shared_ptr<::Test::Inner::Inner2::C>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::Test::Inner::Inner2::CPtr, ::Test::Inner::Inner2::CPtr>&& result)
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::shared_ptr<::Test::Inner::Inner2::C>, ::std::shared_ptr<::Test::Inner::Inner2::C>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::Inner::IPrx::_iceI_opC, iceP_c1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::Test::Inner::Inner2::CPtr, ::Test::Inner::Inner2::CPtr>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::Inner::IPrx::_iceI_opC, iceP_c1, context);
 }
 
 void
-Test::Inner::IPrx::_iceI_opC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::shared_ptr<::Test::Inner::Inner2::C>, ::std::shared_ptr<::Test::Inner::Inner2::C>>>>& outAsync, const ::std::shared_ptr<::Test::Inner::Inner2::C>& iceP_c1, const ::Ice::Context& context) const
+Test::Inner::IPrx::_iceI_opC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::Inner::Inner2::CPtr, ::Test::Inner::Inner2::CPtr>>>& outAsync, const ::Test::Inner::Inner2::CPtr& iceP_c1, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "opC";
 
@@ -928,7 +928,7 @@ Test::Inner::IPrx::_iceI_opC(const ::std::shared_ptr<::IceInternal::OutgoingAsyn
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::tuple<::std::shared_ptr<::Test::Inner::Inner2::C>, ::std::shared_ptr<::Test::Inner::Inner2::C>> v;
+            ::std::tuple<::Test::Inner::Inner2::CPtr, ::Test::Inner::Inner2::CPtr> v;
             istr->readAll(::std::get<1>(v), ::std::get<0>(v));
             istr->readPendingValues();
             return v;
@@ -1194,32 +1194,32 @@ Inner::Test::Inner2::IPrx::_iceI_opSMap(const ::std::shared_ptr<::IceInternal::O
         });
 }
 
-::std::shared_ptr<::Test::C>
-Inner::Test::Inner2::IPrx::opC(const ::std::shared_ptr<::Test::C>& iceP_c1, ::std::shared_ptr<::Test::C>& iceP_c2, const ::Ice::Context& context) const
+::Test::CPtr
+Inner::Test::Inner2::IPrx::opC(const ::Test::CPtr& iceP_c1, ::Test::CPtr& iceP_c2, const ::Ice::Context& context) const
 {
-    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::shared_ptr<::Test::C>, ::std::shared_ptr<::Test::C>>>(true, this, &IPrx::_iceI_opC, iceP_c1, context).get();
+    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::Test::CPtr, ::Test::CPtr>>(true, this, &IPrx::_iceI_opC, iceP_c1, context).get();
     iceP_c2 = ::std::move(::std::get<1>(result));
     return ::std::move(::std::get<0>(result));
 }
 
-::std::future<::std::tuple<::std::shared_ptr<::Test::C>, ::std::shared_ptr<::Test::C>>>
-Inner::Test::Inner2::IPrx::opCAsync(const ::std::shared_ptr<::Test::C>& iceP_c1, const ::Ice::Context& context) const
+::std::future<::std::tuple<::Test::CPtr, ::Test::CPtr>>
+Inner::Test::Inner2::IPrx::opCAsync(const ::Test::CPtr& iceP_c1, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::shared_ptr<::Test::C>, ::std::shared_ptr<::Test::C>>>(false, this, &IPrx::_iceI_opC, iceP_c1, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<::Test::CPtr, ::Test::CPtr>>(false, this, &IPrx::_iceI_opC, iceP_c1, context);
 }
 
 ::std::function<void()>
-Inner::Test::Inner2::IPrx::opCAsync(const ::std::shared_ptr<::Test::C>& iceP_c1, ::std::function<void(::std::shared_ptr<::Test::C>, ::std::shared_ptr<::Test::C>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Inner::Test::Inner2::IPrx::opCAsync(const ::Test::CPtr& iceP_c1, ::std::function<void(::Test::CPtr, ::Test::CPtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::shared_ptr<::Test::C>, ::std::shared_ptr<::Test::C>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::Test::CPtr, ::Test::CPtr>&& result)
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::shared_ptr<::Test::C>, ::std::shared_ptr<::Test::C>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Inner::Test::Inner2::IPrx::_iceI_opC, iceP_c1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::Test::CPtr, ::Test::CPtr>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Inner::Test::Inner2::IPrx::_iceI_opC, iceP_c1, context);
 }
 
 void
-Inner::Test::Inner2::IPrx::_iceI_opC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::shared_ptr<::Test::C>, ::std::shared_ptr<::Test::C>>>>& outAsync, const ::std::shared_ptr<::Test::C>& iceP_c1, const ::Ice::Context& context) const
+Inner::Test::Inner2::IPrx::_iceI_opC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::CPtr, ::Test::CPtr>>>& outAsync, const ::Test::CPtr& iceP_c1, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "opC";
 
@@ -1233,7 +1233,7 @@ Inner::Test::Inner2::IPrx::_iceI_opC(const ::std::shared_ptr<::IceInternal::Outg
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::tuple<::std::shared_ptr<::Test::C>, ::std::shared_ptr<::Test::C>> v;
+            ::std::tuple<::Test::CPtr, ::Test::CPtr> v;
             istr->readAll(::std::get<1>(v), ::std::get<0>(v));
             istr->readPendingValues();
             return v;
@@ -1380,7 +1380,7 @@ Test::C::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::C::_iceCloneImpl() const
 {
     return CloneEnabler<C>::clone(*this);
@@ -1415,7 +1415,7 @@ Test::C1::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::C1::_iceCloneImpl() const
 {
     return CloneEnabler<C1>::clone(*this);
@@ -1450,7 +1450,7 @@ Test::C2::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::C2::_iceCloneImpl() const
 {
     return CloneEnabler<C2>::clone(*this);
@@ -1485,7 +1485,7 @@ Test::Inner::Inner2::C::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::Inner::Inner2::C::_iceCloneImpl() const
 {
     return CloneEnabler<C>::clone(*this);
@@ -1520,7 +1520,7 @@ Test::Inner::C::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::Inner::C::_iceCloneImpl() const
 {
     return CloneEnabler<C>::clone(*this);
@@ -1629,12 +1629,12 @@ Test::I::_iceD_opC(::Ice::IncomingRequest& request, ::std::function<void(::Ice::
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::shared_ptr<C> iceP_c1;
+    CPtr iceP_c1;
     istr->readAll(iceP_c1);
     istr->readPendingValues();
     istr->endEncapsulation();
-    ::std::shared_ptr<C> iceP_c2;
-    ::std::shared_ptr<C> ret = this->opC(::std::move(iceP_c1), iceP_c2, request.current());
+    CPtr iceP_c2;
+    CPtr ret = this->opC(::std::move(iceP_c1), iceP_c2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_c2, ret);
@@ -1733,11 +1733,11 @@ Test::I::_iceD_opC1(::Ice::IncomingRequest& request, ::std::function<void(::Ice:
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::shared_ptr<C1> iceP_C1;
+    C1Ptr iceP_C1;
     istr->readAll(iceP_C1);
     istr->readPendingValues();
     istr->endEncapsulation();
-    ::std::shared_ptr<C1> ret = this->opC1(::std::move(iceP_C1), request.current());
+    C1Ptr ret = this->opC1(::std::move(iceP_C1), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -1940,12 +1940,12 @@ Test::Inner::Inner2::I::_iceD_opC(::Ice::IncomingRequest& request, ::std::functi
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::shared_ptr<C> iceP_c1;
+    CPtr iceP_c1;
     istr->readAll(iceP_c1);
     istr->readPendingValues();
     istr->endEncapsulation();
-    ::std::shared_ptr<C> iceP_c2;
-    ::std::shared_ptr<C> ret = this->opC(::std::move(iceP_c1), iceP_c2, request.current());
+    CPtr iceP_c2;
+    CPtr ret = this->opC(::std::move(iceP_c1), iceP_c2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_c2, ret);
@@ -2177,12 +2177,12 @@ Test::Inner::I::_iceD_opC(::Ice::IncomingRequest& request, ::std::function<void(
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::shared_ptr<::Test::Inner::Inner2::C> iceP_c1;
+    ::Test::Inner::Inner2::CPtr iceP_c1;
     istr->readAll(iceP_c1);
     istr->readPendingValues();
     istr->endEncapsulation();
-    ::std::shared_ptr<::Test::Inner::Inner2::C> iceP_c2;
-    ::std::shared_ptr<::Test::Inner::Inner2::C> ret = this->opC(::std::move(iceP_c1), iceP_c2, request.current());
+    ::Test::Inner::Inner2::CPtr iceP_c2;
+    ::Test::Inner::Inner2::CPtr ret = this->opC(::std::move(iceP_c1), iceP_c2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_c2, ret);
@@ -2414,12 +2414,12 @@ Inner::Test::Inner2::I::_iceD_opC(::Ice::IncomingRequest& request, ::std::functi
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::shared_ptr<::Test::C> iceP_c1;
+    ::Test::CPtr iceP_c1;
     istr->readAll(iceP_c1);
     istr->readPendingValues();
     istr->endEncapsulation();
-    ::std::shared_ptr<::Test::C> iceP_c2;
-    ::std::shared_ptr<::Test::C> ret = this->opC(::std::move(iceP_c1), iceP_c2, request.current());
+    ::Test::CPtr iceP_c2;
+    ::Test::CPtr ret = this->opC(::std::move(iceP_c1), iceP_c2, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(iceP_c2, ret);

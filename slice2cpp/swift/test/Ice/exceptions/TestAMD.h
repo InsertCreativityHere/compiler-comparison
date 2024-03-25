@@ -29,16 +29,15 @@
 
 namespace Test
 {
+    class EmptyPrx;
 
-class EmptyPrx;
-class ThrowerPrx;
-
-namespace Mod
-{
+    class ThrowerPrx;
 
 
-}
-class WrongOperationPrx;
+    namespace Mod
+    {
+    }
+    class WrongOperationPrx;
 
 }
 
@@ -67,7 +66,7 @@ public:
     {
     }
 
-    EmptyPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    EmptyPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -372,7 +371,7 @@ public:
     {
     }
 
-    ThrowerPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    ThrowerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -435,7 +434,7 @@ public:
     {
     }
 
-    WrongOperationPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    WrongOperationPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

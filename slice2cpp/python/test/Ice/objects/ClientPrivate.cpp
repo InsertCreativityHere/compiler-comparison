@@ -44,26 +44,26 @@ namespace
     const ::IceInternal::DefaultUserExceptionFactoryInit<::Test::ETwoMembers> iceC_Test_ETwoMembers_init("::Test::ETwoMembers");
 }
 
-::std::shared_ptr<::Test::Empty>
+::Test::EmptyPtr
 Test::UnexpectedObjectExceptionTestPrx::op(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<Empty>>(true, this, &UnexpectedObjectExceptionTestPrx::_iceI_op, context).get();
+    return ::IceInternal::makePromiseOutgoing<EmptyPtr>(true, this, &UnexpectedObjectExceptionTestPrx::_iceI_op, context).get();
 }
 
-::std::future<::std::shared_ptr<::Test::Empty>>
+::std::future<::Test::EmptyPtr>
 Test::UnexpectedObjectExceptionTestPrx::opAsync(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<Empty>>(false, this, &UnexpectedObjectExceptionTestPrx::_iceI_op, context);
+    return ::IceInternal::makePromiseOutgoing<EmptyPtr>(false, this, &UnexpectedObjectExceptionTestPrx::_iceI_op, context);
 }
 
 ::std::function<void()>
-Test::UnexpectedObjectExceptionTestPrx::opAsync(::std::function<void(::std::shared_ptr<::Test::Empty>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::UnexpectedObjectExceptionTestPrx::opAsync(::std::function<void(::Test::EmptyPtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<Empty>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::UnexpectedObjectExceptionTestPrx::_iceI_op, context);
+    return ::IceInternal::makeLambdaOutgoing<EmptyPtr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::UnexpectedObjectExceptionTestPrx::_iceI_op, context);
 }
 
 void
-Test::UnexpectedObjectExceptionTestPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<Empty>>>& outAsync, const ::Ice::Context& context) const
+Test::UnexpectedObjectExceptionTestPrx::_iceI_op(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<EmptyPtr>>& outAsync, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "op";
 
@@ -73,7 +73,7 @@ Test::UnexpectedObjectExceptionTestPrx::_iceI_op(const ::std::shared_ptr<::IceIn
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::shared_ptr<Empty> ret;
+            EmptyPtr ret;
             istr->readAll(ret);
             istr->readPendingValues();
             return ret;
@@ -100,7 +100,7 @@ Test::Empty::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::Empty::_iceCloneImpl() const
 {
     return CloneEnabler<Empty>::clone(*this);
@@ -133,7 +133,7 @@ Test::AlsoEmpty::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::AlsoEmpty::_iceCloneImpl() const
 {
     return CloneEnabler<AlsoEmpty>::clone(*this);
@@ -166,7 +166,7 @@ Test::COneMember::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::COneMember::_iceCloneImpl() const
 {
     return CloneEnabler<COneMember>::clone(*this);
@@ -201,7 +201,7 @@ Test::CTwoMembers::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::CTwoMembers::_iceCloneImpl() const
 {
     return CloneEnabler<CTwoMembers>::clone(*this);
@@ -335,7 +335,7 @@ Test::UnexpectedObjectExceptionTest::_iceD_op(::Ice::IncomingRequest& request, :
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::shared_ptr<Empty> ret = this->op(request.current());
+    EmptyPtr ret = this->op(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

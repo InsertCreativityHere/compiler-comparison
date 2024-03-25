@@ -28,48 +28,51 @@
 
 namespace _cpp_and
 {
+    enum class _cpp_continue : ::std::uint8_t
+    {
+        let,
+        var
+    };
 
+    struct guard;
 
-enum class _cpp_continue : unsigned char
-{
-    let,
-    var
-};
-struct guard;
-struct defer;
-class breakPrx;
-class funcPrx;
-class _cpp_switch;
+    struct defer;
 
-using switchPtr = ::std::shared_ptr<_cpp_switch>;
-class doPrx;
+    class breakPrx;
 
-using fileprivate = ::std::vector<guard>;
+    class funcPrx;
 
-using _cpp_for = ::std::map<::std::string, guard>;
+    class _cpp_switch;
+    using switchPtr = ::std::shared_ptr<_cpp_switch>;
 
-/**
- * TODO: reenable when #1617 is fixed
- * interface friend
- * {
- * guard goto(continue if, guard d, defer inline, switch private, do mutable, break* namespace,
- * func* new, switch* not, do* operator, int or, int protected, int public, int register)
- * throws return, as;
- * }
- */
-constexpr ::std::int32_t is = 0;
+    class doPrx;
 
-constexpr ::std::int32_t self = 0;
+    using fileprivate = ::std::vector<guard>;
 
-constexpr ::std::int32_t _cpp_throw = 0;
+    using _cpp_for = ::std::map<::std::string, guard>;
 
-constexpr ::std::int32_t typealias = 0;
+    /**
+     * TODO: reenable when #1617 is fixed
+     * interface friend
+     * {
+     * guard goto(continue if, guard d, defer inline, switch private, do mutable, break* namespace,
+     * func* new, switch* not, do* operator, int or, int protected, int public, int register)
+     * throws return, as;
+     * }
+     */
+    constexpr ::std::int32_t is = 0;
 
-constexpr ::std::int32_t internal = 0;
+    constexpr ::std::int32_t self = 0;
 
-constexpr ::std::int32_t _cpp_while = 0;
+    constexpr ::std::int32_t _cpp_throw = 0;
 
-constexpr ::std::int32_t import = 0;
+    constexpr ::std::int32_t typealias = 0;
+
+    constexpr ::std::int32_t internal = 0;
+
+    constexpr ::std::int32_t _cpp_while = 0;
+
+    constexpr ::std::int32_t import = 0;
 
 }
 
@@ -109,7 +112,7 @@ public:
     {
     }
 
-    breakPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    breakPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -172,7 +175,7 @@ public:
     {
     }
 
-    funcPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    funcPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -229,7 +232,7 @@ public:
     {
     }
 
-    doPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    doPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -333,7 +336,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<_cpp_switch> ice_clone() const { return ::std::static_pointer_cast <_cpp_switch>(_iceCloneImpl()); }
+    switchPtr ice_clone() const { return ::std::static_pointer_cast <_cpp_switch>(_iceCloneImpl()); }
 
     ::std::int32_t _cpp_if;
     ::std::optional<::_cpp_and::funcPrx> _cpp_export;
@@ -343,7 +346,7 @@ protected:
 
     _cpp_switch(const _cpp_switch&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;

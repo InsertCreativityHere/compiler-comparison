@@ -28,44 +28,46 @@
 
 namespace await
 {
+    enum class var : ::std::uint8_t
+    {
+        base
+    };
+
+    struct _cpp_break;
+
+    class casePrx;
+
+    class typeofPrx;
+
+    class _cpp_delete;
+    using deletePtr = ::std::shared_ptr<_cpp_delete>;
+
+    class explicitPrx;
+
+    using _cpp_while = ::std::map<::std::string, _cpp_break>;
+
+    class package;
+    using packagePtr = ::std::shared_ptr<package>;
+
+    class optionalParamsPrx;
+
+    class implicitPrx;
+
+    constexpr ::std::int32_t _cpp_protected = 0;
+
+    constexpr ::std::int32_t _cpp_public = 0;
 
 
-enum class var : unsigned char
-{
-    base
-};
-struct _cpp_break;
-class casePrx;
-class typeofPrx;
-class _cpp_delete;
+    namespace System
+    {
+        class TestPrx;
 
-using deletePtr = ::std::shared_ptr<_cpp_delete>;
-class explicitPrx;
-
-using _cpp_while = ::std::map<::std::string, _cpp_break>;
-class package;
-
-using packagePtr = ::std::shared_ptr<package>;
-class optionalParamsPrx;
-class implicitPrx;
-
-constexpr ::std::int32_t _cpp_protected = 0;
-
-constexpr ::std::int32_t _cpp_public = 0;
+    }
+}
 
 namespace System
 {
-
-class TestPrx;
-
-}
-
-}
-
-namespace System
-{
-
-class TestPrx;
+    class TestPrx;
 
 }
 
@@ -105,7 +107,7 @@ public:
     {
     }
 
-    casePrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    casePrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -168,7 +170,7 @@ public:
     {
     }
 
-    typeofPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    typeofPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -225,7 +227,7 @@ public:
     {
     }
 
-    explicitPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    explicitPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -325,7 +327,7 @@ public:
     {
     }
 
-    optionalParamsPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    optionalParamsPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -359,15 +361,15 @@ class implicitPrx : public ::Ice::Proxy<implicitPrx, ::Ice::ObjectPrx>
 {
 public:
 
-    var in(const _cpp_break& internal, const ::std::shared_ptr<delete>& is, const ::std::optional<explicitPrx>& lock, const ::std::optional<casePrx>& _cpp_namespace, const ::std::optional<typeofPrx>& _cpp_new, const ::std::shared_ptr<delete>& null, const ::std::optional<explicitPrx>& _cpp_operator, ::std::int32_t override, ::std::int32_t params, ::std::int32_t _cpp_private, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    var in(const _cpp_break& internal, const deletePtr& is, const ::std::optional<explicitPrx>& lock, const ::std::optional<casePrx>& _cpp_namespace, const ::std::optional<typeofPrx>& _cpp_new, const deletePtr& null, const ::std::optional<explicitPrx>& _cpp_operator, ::std::int32_t override, ::std::int32_t params, ::std::int32_t _cpp_private, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<var> inAsync(const _cpp_break& internal, const ::std::shared_ptr<delete>& is, const ::std::optional<explicitPrx>& lock, const ::std::optional<casePrx>& _cpp_namespace, const ::std::optional<typeofPrx>& _cpp_new, const ::std::shared_ptr<delete>& null, const ::std::optional<explicitPrx>& _cpp_operator, ::std::int32_t override, ::std::int32_t params, ::std::int32_t _cpp_private, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<var> inAsync(const _cpp_break& internal, const deletePtr& is, const ::std::optional<explicitPrx>& lock, const ::std::optional<casePrx>& _cpp_namespace, const ::std::optional<typeofPrx>& _cpp_new, const deletePtr& null, const ::std::optional<explicitPrx>& _cpp_operator, ::std::int32_t override, ::std::int32_t params, ::std::int32_t _cpp_private, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    inAsync(const _cpp_break& internal, const ::std::shared_ptr<delete>& is, const ::std::optional<explicitPrx>& lock, const ::std::optional<casePrx>& _cpp_namespace, const ::std::optional<typeofPrx>& _cpp_new, const ::std::shared_ptr<delete>& null, const ::std::optional<explicitPrx>& _cpp_operator, ::std::int32_t override, ::std::int32_t params, ::std::int32_t _cpp_private, ::std::function<void(::await::var)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    inAsync(const _cpp_break& internal, const deletePtr& is, const ::std::optional<explicitPrx>& lock, const ::std::optional<casePrx>& _cpp_namespace, const ::std::optional<typeofPrx>& _cpp_new, const deletePtr& null, const ::std::optional<explicitPrx>& _cpp_operator, ::std::int32_t override, ::std::int32_t params, ::std::int32_t _cpp_private, ::std::function<void(::await::var)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_in(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<var>>&, const _cpp_break&, const ::std::shared_ptr<delete>&, const ::std::optional<explicitPrx>&, const ::std::optional<casePrx>&, const ::std::optional<typeofPrx>&, const ::std::shared_ptr<delete>&, const ::std::optional<explicitPrx>&, ::std::int32_t, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
+    void _iceI_in(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<var>>&, const _cpp_break&, const deletePtr&, const ::std::optional<explicitPrx>&, const ::std::optional<casePrx>&, const ::std::optional<typeofPrx>&, const deletePtr&, const ::std::optional<explicitPrx>&, ::std::int32_t, ::std::int32_t, ::std::int32_t, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -388,7 +390,7 @@ public:
     {
     }
 
-    implicitPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    implicitPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -454,7 +456,7 @@ public:
     {
     }
 
-    TestPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    TestPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -524,7 +526,7 @@ public:
     {
     }
 
-    TestPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    TestPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -610,7 +612,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<_cpp_delete> ice_clone() const { return ::std::static_pointer_cast <_cpp_delete>(_iceCloneImpl()); }
+    deletePtr ice_clone() const { return ::std::static_pointer_cast <_cpp_delete>(_iceCloneImpl()); }
 
     ::std::int32_t _cpp_if;
     ::std::optional<::await::casePrx> _cpp_else;
@@ -620,7 +622,7 @@ protected:
 
     _cpp_delete(const _cpp_delete&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -670,7 +672,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<package> ice_clone() const { return ::std::static_pointer_cast <package>(_iceCloneImpl()); }
+    packagePtr ice_clone() const { return ::std::static_pointer_cast <package>(_iceCloneImpl()); }
 
     ::std::optional<::await::_cpp_break> _cpp_for;
     ::std::optional<::await::var> _cpp_goto;
@@ -683,7 +685,7 @@ protected:
 
     package(const package&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1041,7 +1043,7 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
-    virtual var in(_cpp_break internal, ::std::shared_ptr<delete> is, ::std::optional<explicitPrx> lock, ::std::optional<casePrx> _cpp_namespace, ::std::optional<typeofPrx> _cpp_new, ::std::shared_ptr<delete> null, ::std::optional<explicitPrx> _cpp_operator, ::std::int32_t override, ::std::int32_t params, ::std::int32_t _cpp_private, const ::Ice::Current& current) = 0;
+    virtual var in(_cpp_break internal, deletePtr is, ::std::optional<explicitPrx> lock, ::std::optional<casePrx> _cpp_namespace, ::std::optional<typeofPrx> _cpp_new, deletePtr null, ::std::optional<explicitPrx> _cpp_operator, ::std::int32_t override, ::std::int32_t params, ::std::int32_t _cpp_private, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_in(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond

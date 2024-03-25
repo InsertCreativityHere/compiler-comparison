@@ -56,7 +56,7 @@ Test1::C1::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test1::C1::_iceCloneImpl() const
 {
     return CloneEnabler<C1>::clone(*this);
@@ -91,7 +91,7 @@ Test1::C2::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test1::C2::_iceCloneImpl() const
 {
     return CloneEnabler<C2>::clone(*this);

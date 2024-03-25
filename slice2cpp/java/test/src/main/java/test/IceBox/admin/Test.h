@@ -29,8 +29,7 @@
 
 namespace Test
 {
-
-class TestFacetPrx;
+    class TestFacetPrx;
 
 }
 
@@ -70,7 +69,7 @@ public:
     {
     }
 
-    TestFacetPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    TestFacetPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

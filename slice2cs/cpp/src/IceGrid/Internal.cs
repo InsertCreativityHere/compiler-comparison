@@ -9982,12 +9982,6 @@ namespace IceGrid
     {
         #region Inherited Slice operations
 
-        public abstract void applicationInit(int serial, ApplicationInfo[] applications, global::Ice.Current current = null);
-
-        public abstract void applicationAdded(int serial, ApplicationInfo desc, global::Ice.Current current = null);
-
-        public abstract void applicationRemoved(int serial, string name, global::Ice.Current current = null);
-
         public abstract void applicationUpdated(int serial, ApplicationUpdateInfo desc, global::Ice.Current current = null);
 
         public abstract void adapterInit(AdapterInfo[] adpts, global::Ice.Current current = null);
@@ -10005,6 +9999,12 @@ namespace IceGrid
         public abstract void objectUpdated(ObjectInfo info, global::Ice.Current current = null);
 
         public abstract void objectRemoved(global::Ice.Identity id, global::Ice.Current current = null);
+
+        public abstract void applicationInit(int serial, ApplicationInfo[] applications, global::Ice.Current current = null);
+
+        public abstract void applicationAdded(int serial, ApplicationInfo desc, global::Ice.Current current = null);
+
+        public abstract void applicationRemoved(int serial, string name, global::Ice.Current current = null);
 
         #endregion
 

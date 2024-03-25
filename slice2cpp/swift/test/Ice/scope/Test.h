@@ -28,109 +28,106 @@
 
 namespace Test
 {
+    struct S;
 
-struct S;
+    using SMap = ::std::map<::std::string, S>;
 
-using SMap = ::std::map<::std::string, S>;
+    using SSeq = ::std::vector<S>;
 
-using SSeq = ::std::vector<S>;
-class C;
+    class C;
+    using CPtr = ::std::shared_ptr<C>;
 
-using CPtr = ::std::shared_ptr<C>;
+    using CMap = ::std::map<::std::string, CPtr>;
 
-using CMap = ::std::map<::std::string, ::std::shared_ptr<C>>;
+    using CSeq = ::std::vector<CPtr>;
 
-using CSeq = ::std::vector<::std::shared_ptr<C>>;
+    enum class E1 : ::std::uint8_t
+    {
+        v1,
+        v2,
+        v3
+    };
 
-enum class E1 : unsigned char
-{
-    v1,
-    v2,
-    v3
-};
-struct S1;
+    struct S1;
 
-using S1Seq = ::std::vector<S1>;
+    using S1Seq = ::std::vector<S1>;
 
-using S1Map = ::std::map<::std::string, S1>;
-class C1;
+    using S1Map = ::std::map<::std::string, S1>;
 
-using C1Ptr = ::std::shared_ptr<C1>;
-struct S2;
-class C2;
+    class C1;
+    using C1Ptr = ::std::shared_ptr<C1>;
 
-using C2Ptr = ::std::shared_ptr<C2>;
-class IPrx;
+    struct S2;
 
-using IMap = ::std::map<::std::string, ::std::optional<IPrx>>;
+    class C2;
+    using C2Ptr = ::std::shared_ptr<C2>;
 
-using ISeq = ::std::vector<::std::optional<IPrx>>;
+    class IPrx;
+
+    using IMap = ::std::map<::std::string, ::std::optional<IPrx>>;
+
+    using ISeq = ::std::vector<::std::optional<IPrx>>;
+
+
+    namespace Inner
+    {
+        struct S;
+
+
+        namespace Inner2
+        {
+            struct S;
+
+            using SMap = ::std::map<::std::string, S>;
+
+            using SSeq = ::std::vector<S>;
+
+            class C;
+            using CPtr = ::std::shared_ptr<C>;
+
+            using CMap = ::std::map<::std::string, CPtr>;
+
+            using CSeq = ::std::vector<CPtr>;
+
+            class IPrx;
+
+            using IMap = ::std::map<::std::string, ::std::optional<IPrx>>;
+
+            using ISeq = ::std::vector<::std::optional<IPrx>>;
+
+        }
+        class C;
+        using CPtr = ::std::shared_ptr<C>;
+
+        using SSeq = ::std::vector<::Test::Inner::Inner2::S>;
+
+        using SMap = ::std::map<::std::string, ::Test::Inner::Inner2::S>;
+
+        using CMap = ::std::map<::std::string, ::Test::Inner::Inner2::CPtr>;
+
+        using CSeq = ::std::vector<::Test::Inner::Inner2::CPtr>;
+
+        class IPrx;
+
+        using IMap = ::std::map<::std::string, ::std::optional<IPrx>>;
+
+        using ISeq = ::std::vector<::std::optional<IPrx>>;
+
+    }
+}
 
 namespace Inner
 {
 
-struct S;
+    namespace Test
+    {
 
-namespace Inner2
-{
+        namespace Inner2
+        {
+            class IPrx;
 
-struct S;
-
-using SMap = ::std::map<::std::string, S>;
-
-using SSeq = ::std::vector<S>;
-class C;
-
-using CPtr = ::std::shared_ptr<C>;
-
-using CMap = ::std::map<::std::string, ::std::shared_ptr<C>>;
-
-using CSeq = ::std::vector<::std::shared_ptr<C>>;
-class IPrx;
-
-using IMap = ::std::map<::std::string, ::std::optional<IPrx>>;
-
-using ISeq = ::std::vector<::std::optional<IPrx>>;
-
-}
-class C;
-
-using CPtr = ::std::shared_ptr<C>;
-
-using SSeq = ::std::vector<::Test::Inner::Inner2::S>;
-
-using SMap = ::std::map<::std::string, ::Test::Inner::Inner2::S>;
-
-using CMap = ::std::map<::std::string, ::std::shared_ptr<::Test::Inner::Inner2::C>>;
-
-using CSeq = ::std::vector<::std::shared_ptr<::Test::Inner::Inner2::C>>;
-class IPrx;
-
-using IMap = ::std::map<::std::string, ::std::optional<IPrx>>;
-
-using ISeq = ::std::vector<::std::optional<IPrx>>;
-
-}
-
-}
-
-namespace Inner
-{
-
-
-namespace Test
-{
-
-
-namespace Inner2
-{
-
-class IPrx;
-
-}
-
-}
-
+        }
+    }
 }
 
 namespace Test
@@ -173,15 +170,15 @@ public:
     void _iceI_opSMap(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SMap, SMap>>>&, const SMap&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::shared_ptr<C> opC(const ::std::shared_ptr<C>& c1, ::std::shared_ptr<C>& c2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    CPtr opC(const CPtr& c1, CPtr& c2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::shared_ptr<C>, ::std::shared_ptr<C>>> opCAsync(const ::std::shared_ptr<C>& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<CPtr, CPtr>> opCAsync(const CPtr& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opCAsync(const ::std::shared_ptr<C>& c1, ::std::function<void(::std::shared_ptr<::Test::C>, ::std::shared_ptr<::Test::C>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opCAsync(const CPtr& c1, ::std::function<void(::Test::CPtr, ::Test::CPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::shared_ptr<C>, ::std::shared_ptr<C>>>>&, const ::std::shared_ptr<C>&, const ::Ice::Context&) const;
+    void _iceI_opC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<CPtr, CPtr>>>&, const CPtr&, const ::Ice::Context&) const;
     /// \endcond
 
     CSeq opCSeq(const CSeq& s1, CSeq& s2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -228,15 +225,15 @@ public:
     void _iceI_opS1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<S1>>&, const S1&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::shared_ptr<C1> opC1(const ::std::shared_ptr<C1>& C1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    C1Ptr opC1(const C1Ptr& C1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::shared_ptr<C1>> opC1Async(const ::std::shared_ptr<C1>& C1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<C1Ptr> opC1Async(const C1Ptr& C1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opC1Async(const ::std::shared_ptr<C1>& C1, ::std::function<void(::std::shared_ptr<::Test::C1>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opC1Async(const C1Ptr& C1, ::std::function<void(::Test::C1Ptr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opC1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<C1>>>&, const ::std::shared_ptr<C1>&, const ::Ice::Context&) const;
+    void _iceI_opC1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<C1Ptr>>&, const C1Ptr&, const ::Ice::Context&) const;
     /// \endcond
 
     S1Seq opS1Seq(const S1Seq& S1Seq, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -290,7 +287,7 @@ public:
     {
     }
 
-    IPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    IPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -363,15 +360,15 @@ public:
     void _iceI_opSMap(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<SMap, SMap>>>&, const SMap&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::shared_ptr<C> opC(const ::std::shared_ptr<C>& c1, ::std::shared_ptr<C>& c2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    CPtr opC(const CPtr& c1, CPtr& c2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::shared_ptr<C>, ::std::shared_ptr<C>>> opCAsync(const ::std::shared_ptr<C>& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<CPtr, CPtr>> opCAsync(const CPtr& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opCAsync(const ::std::shared_ptr<C>& c1, ::std::function<void(::std::shared_ptr<::Test::Inner::Inner2::C>, ::std::shared_ptr<::Test::Inner::Inner2::C>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opCAsync(const CPtr& c1, ::std::function<void(::Test::Inner::Inner2::CPtr, ::Test::Inner::Inner2::CPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::shared_ptr<C>, ::std::shared_ptr<C>>>>&, const ::std::shared_ptr<C>&, const ::Ice::Context&) const;
+    void _iceI_opC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<CPtr, CPtr>>>&, const CPtr&, const ::Ice::Context&) const;
     /// \endcond
 
     CSeq opCSeq(const CSeq& c1, CSeq& c2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -425,7 +422,7 @@ public:
     {
     }
 
-    IPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    IPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -494,15 +491,15 @@ public:
     void _iceI_opSMap(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::Inner::Inner2::SMap, ::Test::Inner::Inner2::SMap>>>&, const ::Test::Inner::Inner2::SMap&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::shared_ptr<::Test::Inner::Inner2::C> opC(const ::std::shared_ptr<::Test::Inner::Inner2::C>& c1, ::std::shared_ptr<::Test::Inner::Inner2::C>& c2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::Test::Inner::Inner2::CPtr opC(const ::Test::Inner::Inner2::CPtr& c1, ::Test::Inner::Inner2::CPtr& c2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::shared_ptr<::Test::Inner::Inner2::C>, ::std::shared_ptr<::Test::Inner::Inner2::C>>> opCAsync(const ::std::shared_ptr<::Test::Inner::Inner2::C>& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<::Test::Inner::Inner2::CPtr, ::Test::Inner::Inner2::CPtr>> opCAsync(const ::Test::Inner::Inner2::CPtr& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opCAsync(const ::std::shared_ptr<::Test::Inner::Inner2::C>& c1, ::std::function<void(::std::shared_ptr<::Test::Inner::Inner2::C>, ::std::shared_ptr<::Test::Inner::Inner2::C>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opCAsync(const ::Test::Inner::Inner2::CPtr& c1, ::std::function<void(::Test::Inner::Inner2::CPtr, ::Test::Inner::Inner2::CPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::shared_ptr<::Test::Inner::Inner2::C>, ::std::shared_ptr<::Test::Inner::Inner2::C>>>>&, const ::std::shared_ptr<::Test::Inner::Inner2::C>&, const ::Ice::Context&) const;
+    void _iceI_opC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::Inner::Inner2::CPtr, ::Test::Inner::Inner2::CPtr>>>&, const ::Test::Inner::Inner2::CPtr&, const ::Ice::Context&) const;
     /// \endcond
 
     ::Test::Inner::Inner2::CSeq opCSeq(const ::Test::Inner::Inner2::CSeq& c1, ::Test::Inner::Inner2::CSeq& c2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -556,7 +553,7 @@ public:
     {
     }
 
-    IPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    IPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -636,15 +633,15 @@ public:
     void _iceI_opSMap(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::SMap, ::Test::SMap>>>&, const ::Test::SMap&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::shared_ptr<::Test::C> opC(const ::std::shared_ptr<::Test::C>& c1, ::std::shared_ptr<::Test::C>& c2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::Test::CPtr opC(const ::Test::CPtr& c1, ::Test::CPtr& c2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::shared_ptr<::Test::C>, ::std::shared_ptr<::Test::C>>> opCAsync(const ::std::shared_ptr<::Test::C>& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<::Test::CPtr, ::Test::CPtr>> opCAsync(const ::Test::CPtr& c1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opCAsync(const ::std::shared_ptr<::Test::C>& c1, ::std::function<void(::std::shared_ptr<::Test::C>, ::std::shared_ptr<::Test::C>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opCAsync(const ::Test::CPtr& c1, ::std::function<void(::Test::CPtr, ::Test::CPtr)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::shared_ptr<::Test::C>, ::std::shared_ptr<::Test::C>>>>&, const ::std::shared_ptr<::Test::C>&, const ::Ice::Context&) const;
+    void _iceI_opC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::Test::CPtr, ::Test::CPtr>>>&, const ::Test::CPtr&, const ::Ice::Context&) const;
     /// \endcond
 
     ::Test::CSeq opCSeq(const ::Test::CSeq& c1, ::Test::CSeq& c2, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -698,7 +695,7 @@ public:
     {
     }
 
-    IPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    IPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -786,7 +783,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<C> ice_clone() const { return ::std::static_pointer_cast <C>(_iceCloneImpl()); }
+    CPtr ice_clone() const { return ::std::static_pointer_cast <C>(_iceCloneImpl()); }
 
     ::Test::S s;
 
@@ -794,7 +791,7 @@ protected:
 
     C(const C&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -853,7 +850,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<C1> ice_clone() const { return ::std::static_pointer_cast <C1>(_iceCloneImpl()); }
+    C1Ptr ice_clone() const { return ::std::static_pointer_cast <C1>(_iceCloneImpl()); }
 
     ::std::string s;
 
@@ -861,7 +858,7 @@ protected:
 
     C1(const C1&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -871,7 +868,7 @@ struct S2
 {
     ::Test::E1 E1;
     ::Test::S1 S1;
-    ::std::shared_ptr<::Test::C1> C1;
+    ::Test::C1Ptr C1;
     ::Test::S1Seq S1Seq;
     ::Test::S1Map S1Map;
 
@@ -879,7 +876,7 @@ struct S2
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::Test::E1&, const ::Test::S1&, const ::std::shared_ptr<::Test::C1>&, const ::Test::S1Seq&, const ::Test::S1Map&> ice_tuple() const
+    std::tuple<const ::Test::E1&, const ::Test::S1&, const ::Test::C1Ptr&, const ::Test::S1Seq&, const ::Test::S1Map&> ice_tuple() const
     {
         return std::tie(E1, S1, C1, S1Seq, S1Map);
     }
@@ -894,7 +891,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    C2(::Test::E1 E1, ::Test::S1 S1, ::std::shared_ptr<::Test::C1> C1, ::Test::S1Seq S1Seq, ::Test::S1Map S1Map) :
+    C2(::Test::E1 E1, ::Test::S1 S1, ::Test::C1Ptr C1, ::Test::S1Seq S1Seq, ::Test::S1Map S1Map) :
         E1(E1),
         S1(::std::move(S1)),
         C1(::std::move(C1)),
@@ -915,7 +912,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::Test::E1&, const ::Test::S1&, const ::std::shared_ptr<::Test::C1>&, const ::Test::S1Seq&, const ::Test::S1Map&> ice_tuple() const
+    std::tuple<const ::Test::E1&, const ::Test::S1&, const ::Test::C1Ptr&, const ::Test::S1Seq&, const ::Test::S1Map&> ice_tuple() const
     {
         return std::tie(E1, S1, C1, S1Seq, S1Map);
     }
@@ -924,11 +921,11 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<C2> ice_clone() const { return ::std::static_pointer_cast <C2>(_iceCloneImpl()); }
+    C2Ptr ice_clone() const { return ::std::static_pointer_cast <C2>(_iceCloneImpl()); }
 
     ::Test::E1 E1;
     ::Test::S1 S1;
-    ::std::shared_ptr<::Test::C1> C1;
+    ::Test::C1Ptr C1;
     ::Test::S1Seq S1Seq;
     ::Test::S1Map S1Map;
 
@@ -936,7 +933,7 @@ protected:
 
     C2(const C2&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1011,7 +1008,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<C> ice_clone() const { return ::std::static_pointer_cast <C>(_iceCloneImpl()); }
+    CPtr ice_clone() const { return ::std::static_pointer_cast <C>(_iceCloneImpl()); }
 
     ::Test::Inner::Inner2::S s;
 
@@ -1019,7 +1016,7 @@ protected:
 
     C(const C&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1069,7 +1066,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<C> ice_clone() const { return ::std::static_pointer_cast <C>(_iceCloneImpl()); }
+    CPtr ice_clone() const { return ::std::static_pointer_cast <C>(_iceCloneImpl()); }
 
     ::Test::Inner::S s;
 
@@ -1077,7 +1074,7 @@ protected:
 
     C(const C&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1145,7 +1142,7 @@ public:
     void _iceD_opSMap(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual ::std::shared_ptr<C> opC(::std::shared_ptr<C> c1, ::std::shared_ptr<C>& c2, const ::Ice::Current& current) = 0;
+    virtual CPtr opC(CPtr c1, CPtr& c2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_opC(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
@@ -1170,7 +1167,7 @@ public:
     void _iceD_opS1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual ::std::shared_ptr<C1> opC1(::std::shared_ptr<C1> C1, const ::Ice::Current& current) = 0;
+    virtual C1Ptr opC1(C1Ptr C1, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_opC1(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
@@ -1244,7 +1241,7 @@ public:
     void _iceD_opSMap(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual ::std::shared_ptr<C> opC(::std::shared_ptr<C> c1, ::std::shared_ptr<C>& c2, const ::Ice::Current& current) = 0;
+    virtual CPtr opC(CPtr c1, CPtr& c2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_opC(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
@@ -1314,7 +1311,7 @@ public:
     void _iceD_opSMap(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual ::std::shared_ptr<::Test::Inner::Inner2::C> opC(::std::shared_ptr<::Test::Inner::Inner2::C> c1, ::std::shared_ptr<::Test::Inner::Inner2::C>& c2, const ::Ice::Current& current) = 0;
+    virtual ::Test::Inner::Inner2::CPtr opC(::Test::Inner::Inner2::CPtr c1, ::Test::Inner::Inner2::CPtr& c2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_opC(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
@@ -1395,7 +1392,7 @@ public:
     void _iceD_opSMap(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual ::std::shared_ptr<::Test::C> opC(::std::shared_ptr<::Test::C> c1, ::std::shared_ptr<::Test::C>& c2, const ::Ice::Current& current) = 0;
+    virtual ::Test::CPtr opC(::Test::CPtr c1, ::Test::CPtr& c2, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_opC(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond

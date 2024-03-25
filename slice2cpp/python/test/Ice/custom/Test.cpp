@@ -424,25 +424,25 @@ Test::CustomPrx::_iceI_sendS(const ::std::shared_ptr<::IceInternal::OutgoingAsyn
 }
 
 void
-Test::CustomPrx::sendC(const ::std::shared_ptr<C>& iceP_val, const ::Ice::Context& context) const
+Test::CustomPrx::sendC(const CPtr& iceP_val, const ::Ice::Context& context) const
 {
     ::IceInternal::makePromiseOutgoing<void>(true, this, &CustomPrx::_iceI_sendC, iceP_val, context).get();
 }
 
 ::std::future<void>
-Test::CustomPrx::sendCAsync(const ::std::shared_ptr<C>& iceP_val, const ::Ice::Context& context) const
+Test::CustomPrx::sendCAsync(const CPtr& iceP_val, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<void>(false, this, &CustomPrx::_iceI_sendC, iceP_val, context);
 }
 
 ::std::function<void()>
-Test::CustomPrx::sendCAsync(const ::std::shared_ptr<C>& iceP_val, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::CustomPrx::sendCAsync(const CPtr& iceP_val, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
     return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::CustomPrx::_iceI_sendC, iceP_val, context);
 }
 
 void
-Test::CustomPrx::_iceI_sendC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::shared_ptr<C>& iceP_val, const ::Ice::Context& context) const
+Test::CustomPrx::_iceI_sendC(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const CPtr& iceP_val, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "sendC";
 
@@ -937,26 +937,26 @@ Test::CustomPrx::_iceI_opBogusArrayNoCallableFactory(const ::std::shared_ptr<::I
         nullptr);
 }
 
-::std::shared_ptr<::Test::D>
-Test::CustomPrx::opD(const ::std::shared_ptr<D>& iceP_d, const ::Ice::Context& context) const
+::Test::DPtr
+Test::CustomPrx::opD(const DPtr& iceP_d, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<D>>(true, this, &CustomPrx::_iceI_opD, iceP_d, context).get();
+    return ::IceInternal::makePromiseOutgoing<DPtr>(true, this, &CustomPrx::_iceI_opD, iceP_d, context).get();
 }
 
-::std::future<::std::shared_ptr<::Test::D>>
-Test::CustomPrx::opDAsync(const ::std::shared_ptr<D>& iceP_d, const ::Ice::Context& context) const
+::std::future<::Test::DPtr>
+Test::CustomPrx::opDAsync(const DPtr& iceP_d, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<D>>(false, this, &CustomPrx::_iceI_opD, iceP_d, context);
+    return ::IceInternal::makePromiseOutgoing<DPtr>(false, this, &CustomPrx::_iceI_opD, iceP_d, context);
 }
 
 ::std::function<void()>
-Test::CustomPrx::opDAsync(const ::std::shared_ptr<D>& iceP_d, ::std::function<void(::std::shared_ptr<::Test::D>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::CustomPrx::opDAsync(const DPtr& iceP_d, ::std::function<void(::Test::DPtr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<D>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::CustomPrx::_iceI_opD, iceP_d, context);
+    return ::IceInternal::makeLambdaOutgoing<DPtr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::CustomPrx::_iceI_opD, iceP_d, context);
 }
 
 void
-Test::CustomPrx::_iceI_opD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<D>>>& outAsync, const ::std::shared_ptr<D>& iceP_d, const ::Ice::Context& context) const
+Test::CustomPrx::_iceI_opD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<DPtr>>& outAsync, const DPtr& iceP_d, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "opD";
 
@@ -970,7 +970,7 @@ Test::CustomPrx::_iceI_opD(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::shared_ptr<D> ret;
+            DPtr ret;
             istr->readAll(ret);
             istr->readPendingValues();
             return ret;
@@ -1025,7 +1025,7 @@ Test::C::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::C::_iceCloneImpl() const
 {
     return CloneEnabler<C>::clone(*this);
@@ -1060,7 +1060,7 @@ Test::D::ice_staticId() noexcept
     return typeId;
 }
 
-::std::shared_ptr<::Ice::Value>
+::Ice::ValuePtr
 Test::D::_iceCloneImpl() const
 {
     return CloneEnabler<D>::clone(*this);
@@ -1284,7 +1284,7 @@ Test::Custom::_iceD_sendC(::Ice::IncomingRequest& request, ::std::function<void(
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::shared_ptr<C> iceP_val;
+    CPtr iceP_val;
     istr->readAll(iceP_val);
     istr->readPendingValues();
     istr->endEncapsulation();
@@ -1530,11 +1530,11 @@ Test::Custom::_iceD_opD(::Ice::IncomingRequest& request, ::std::function<void(::
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::shared_ptr<D> iceP_d;
+    DPtr iceP_d;
     istr->readAll(iceP_d);
     istr->readPendingValues();
     istr->endEncapsulation();
-    ::std::shared_ptr<D> ret = this->opD(::std::move(iceP_d), request.current());
+    DPtr ret = this->opD(::std::move(iceP_d), request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

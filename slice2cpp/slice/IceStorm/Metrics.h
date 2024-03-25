@@ -40,13 +40,11 @@
 
 namespace IceMX
 {
+    class TopicMetrics;
+    using TopicMetricsPtr = ::std::shared_ptr<TopicMetrics>;
 
-class TopicMetrics;
-
-using TopicMetricsPtr = ::std::shared_ptr<TopicMetrics>;
-class SubscriberMetrics;
-
-using SubscriberMetricsPtr = ::std::shared_ptr<SubscriberMetrics>;
+    class SubscriberMetrics;
+    using SubscriberMetricsPtr = ::std::shared_ptr<SubscriberMetrics>;
 
 }
 
@@ -101,7 +99,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<TopicMetrics> ice_clone() const { return ::std::static_pointer_cast <TopicMetrics>(_iceCloneImpl()); }
+    TopicMetricsPtr ice_clone() const { return ::std::static_pointer_cast <TopicMetrics>(_iceCloneImpl()); }
 
     /**
      * Number of events published on the topic by publishers.
@@ -116,7 +114,7 @@ protected:
 
     TopicMetrics(const TopicMetrics&) = default;
 
-    ICE_MEMBER(ICESTORM_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(ICESTORM_API) ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICESTORM_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICESTORM_API) void _iceReadImpl(::Ice::InputStream*) override;
@@ -176,7 +174,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<SubscriberMetrics> ice_clone() const { return ::std::static_pointer_cast <SubscriberMetrics>(_iceCloneImpl()); }
+    SubscriberMetricsPtr ice_clone() const { return ::std::static_pointer_cast <SubscriberMetrics>(_iceCloneImpl()); }
 
     /**
      * Number of queued events.
@@ -195,7 +193,7 @@ protected:
 
     SubscriberMetrics(const SubscriberMetrics&) = default;
 
-    ICE_MEMBER(ICESTORM_API) ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ICE_MEMBER(ICESTORM_API) ::Ice::ValuePtr _iceCloneImpl() const override;
     ICE_MEMBER(ICESTORM_API) void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     ICE_MEMBER(ICESTORM_API) void _iceReadImpl(::Ice::InputStream*) override;

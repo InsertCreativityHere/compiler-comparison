@@ -29,11 +29,13 @@
 
 namespace Test
 {
+    class TestLocatorRegistryPrx;
 
-class TestLocatorRegistryPrx;
-class ServerManagerPrx;
-class HelloPrx;
-class TestIntfPrx;
+    class ServerManagerPrx;
+
+    class HelloPrx;
+
+    class TestIntfPrx;
 
 }
 
@@ -78,7 +80,7 @@ public:
     {
     }
 
-    TestLocatorRegistryPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    TestLocatorRegistryPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -156,7 +158,7 @@ public:
     {
     }
 
-    ServerManagerPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    ServerManagerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -219,7 +221,7 @@ public:
     {
     }
 
-    HelloPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    HelloPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -304,7 +306,7 @@ public:
     {
     }
 
-    TestIntfPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    TestIntfPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

@@ -28,8 +28,7 @@
 
 namespace Test
 {
-
-class SinglePrx;
+    class SinglePrx;
 
 }
 
@@ -69,7 +68,7 @@ public:
     {
     }
 
-    SinglePrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    SinglePrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

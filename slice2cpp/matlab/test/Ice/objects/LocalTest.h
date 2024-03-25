@@ -28,66 +28,73 @@
 
 namespace LocalTest
 {
+    class C1;
+    using C1Ptr = ::std::shared_ptr<C1>;
 
-class C1;
+    struct S1;
 
-using C1Ptr = ::std::shared_ptr<C1>;
-struct S1;
+    using C1Seq = ::std::vector<C1Ptr>;
 
-using C1Seq = ::std::vector<::std::shared_ptr<C1>>;
+    using S1Seq = ::std::vector<S1>;
 
-using S1Seq = ::std::vector<S1>;
+    using C1Dict = ::std::map<::std::int32_t, C1Ptr>;
 
-using C1Dict = ::std::map<::std::int32_t, ::std::shared_ptr<C1>>;
+    using S1Dict = ::std::map<::std::int32_t, S1>;
 
-using S1Dict = ::std::map<::std::int32_t, S1>;
+    using C1SeqSeq = ::std::vector<C1Seq>;
 
-using C1SeqSeq = ::std::vector<C1Seq>;
+    using S1SeqSeq = ::std::vector<S1Seq>;
 
-using S1SeqSeq = ::std::vector<S1Seq>;
-struct S2;
-struct S3;
-struct S4;
-struct S5;
-struct S6;
-struct S7;
-struct S8;
-class CB1;
+    struct S2;
 
-using CB1Ptr = ::std::shared_ptr<CB1>;
-class CB2;
+    struct S3;
 
-using CB2Ptr = ::std::shared_ptr<CB2>;
-class CB3;
+    struct S4;
 
-using CB3Ptr = ::std::shared_ptr<CB3>;
-class CB4;
+    struct S5;
 
-using CB4Ptr = ::std::shared_ptr<CB4>;
-class CB5;
+    struct S6;
 
-using CB5Ptr = ::std::shared_ptr<CB5>;
-class CB6;
+    struct S7;
 
-using CB6Ptr = ::std::shared_ptr<CB6>;
-class CB7;
+    struct S8;
 
-using CB7Ptr = ::std::shared_ptr<CB7>;
-class CB8;
+    class CB1;
+    using CB1Ptr = ::std::shared_ptr<CB1>;
 
-using CB8Ptr = ::std::shared_ptr<CB8>;
-struct StructKey;
+    class CB2;
+    using CB2Ptr = ::std::shared_ptr<CB2>;
 
-using StructDict1 = ::std::map<StructKey, ::std::shared_ptr<C1>>;
+    class CB3;
+    using CB3Ptr = ::std::shared_ptr<CB3>;
 
-using StructDict2 = ::std::map<StructKey, S1>;
+    class CB4;
+    using CB4Ptr = ::std::shared_ptr<CB4>;
 
-using C1DictDict = ::std::map<::std::int32_t, C1Dict>;
+    class CB5;
+    using CB5Ptr = ::std::shared_ptr<CB5>;
 
-using S1DictDict = ::std::map<::std::int32_t, S1Dict>;
-class Opt;
+    class CB6;
+    using CB6Ptr = ::std::shared_ptr<CB6>;
 
-using OptPtr = ::std::shared_ptr<Opt>;
+    class CB7;
+    using CB7Ptr = ::std::shared_ptr<CB7>;
+
+    class CB8;
+    using CB8Ptr = ::std::shared_ptr<CB8>;
+
+    struct StructKey;
+
+    using StructDict1 = ::std::map<StructKey, C1Ptr>;
+
+    using StructDict2 = ::std::map<StructKey, S1>;
+
+    using C1DictDict = ::std::map<::std::int32_t, C1Dict>;
+
+    using S1DictDict = ::std::map<::std::int32_t, S1Dict>;
+
+    class Opt;
+    using OptPtr = ::std::shared_ptr<Opt>;
 
 }
 
@@ -129,7 +136,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<C1> ice_clone() const { return ::std::static_pointer_cast <C1>(_iceCloneImpl()); }
+    C1Ptr ice_clone() const { return ::std::static_pointer_cast <C1>(_iceCloneImpl()); }
 
     ::std::int32_t i;
 
@@ -137,7 +144,7 @@ protected:
 
     C1(const C1&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -149,13 +156,13 @@ static C1 _iceS_C1_init;
 
 struct S1
 {
-    ::std::shared_ptr<::LocalTest::C1> c1;
+    ::LocalTest::C1Ptr c1;
 
     /**
      * Obtains a tuple containing all of the struct's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::shared_ptr<::LocalTest::C1>&> ice_tuple() const
+    std::tuple<const ::LocalTest::C1Ptr&> ice_tuple() const
     {
         return std::tie(c1);
     }
@@ -294,7 +301,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<CB1> ice_clone() const { return ::std::static_pointer_cast <CB1>(_iceCloneImpl()); }
+    CB1Ptr ice_clone() const { return ::std::static_pointer_cast <CB1>(_iceCloneImpl()); }
 
     ::LocalTest::S1 s1;
 
@@ -302,7 +309,7 @@ protected:
 
     CB1(const CB1&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -343,7 +350,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<CB2> ice_clone() const { return ::std::static_pointer_cast <CB2>(_iceCloneImpl()); }
+    CB2Ptr ice_clone() const { return ::std::static_pointer_cast <CB2>(_iceCloneImpl()); }
 
     ::LocalTest::C1Seq c1seq;
 
@@ -351,7 +358,7 @@ protected:
 
     CB2(const CB2&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -392,7 +399,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<CB3> ice_clone() const { return ::std::static_pointer_cast <CB3>(_iceCloneImpl()); }
+    CB3Ptr ice_clone() const { return ::std::static_pointer_cast <CB3>(_iceCloneImpl()); }
 
     ::LocalTest::S1Seq s1seq;
 
@@ -400,7 +407,7 @@ protected:
 
     CB3(const CB3&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -441,7 +448,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<CB4> ice_clone() const { return ::std::static_pointer_cast <CB4>(_iceCloneImpl()); }
+    CB4Ptr ice_clone() const { return ::std::static_pointer_cast <CB4>(_iceCloneImpl()); }
 
     ::LocalTest::C1Dict c1dict;
 
@@ -449,7 +456,7 @@ protected:
 
     CB4(const CB4&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -490,7 +497,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<CB5> ice_clone() const { return ::std::static_pointer_cast <CB5>(_iceCloneImpl()); }
+    CB5Ptr ice_clone() const { return ::std::static_pointer_cast <CB5>(_iceCloneImpl()); }
 
     ::LocalTest::S1Dict s1dict;
 
@@ -498,7 +505,7 @@ protected:
 
     CB5(const CB5&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -539,7 +546,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<CB6> ice_clone() const { return ::std::static_pointer_cast <CB6>(_iceCloneImpl()); }
+    CB6Ptr ice_clone() const { return ::std::static_pointer_cast <CB6>(_iceCloneImpl()); }
 
     ::LocalTest::C1SeqSeq c1seqseq;
 
@@ -547,7 +554,7 @@ protected:
 
     CB6(const CB6&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -588,7 +595,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<CB7> ice_clone() const { return ::std::static_pointer_cast <CB7>(_iceCloneImpl()); }
+    CB7Ptr ice_clone() const { return ::std::static_pointer_cast <CB7>(_iceCloneImpl()); }
 
     ::LocalTest::S1SeqSeq s1seqseq;
 
@@ -596,7 +603,7 @@ protected:
 
     CB7(const CB7&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -639,7 +646,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<CB8> ice_clone() const { return ::std::static_pointer_cast <CB8>(_iceCloneImpl()); }
+    CB8Ptr ice_clone() const { return ::std::static_pointer_cast <CB8>(_iceCloneImpl()); }
 
     ::LocalTest::S1 s1;
     ::LocalTest::C1Seq c1seq;
@@ -649,7 +656,7 @@ protected:
 
     CB8(const CB8&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -707,7 +714,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<Opt> ice_clone() const { return ::std::static_pointer_cast <Opt>(_iceCloneImpl()); }
+    OptPtr ice_clone() const { return ::std::static_pointer_cast <Opt>(_iceCloneImpl()); }
 
     ::std::optional<::LocalTest::S1> s1;
     ::std::optional<::LocalTest::C1Seq> c1seq;
@@ -717,7 +724,7 @@ protected:
 
     Opt(const Opt&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;

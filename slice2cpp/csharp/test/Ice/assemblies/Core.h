@@ -28,8 +28,6 @@
 
 namespace Core
 {
-
-
 }
 
 namespace Core

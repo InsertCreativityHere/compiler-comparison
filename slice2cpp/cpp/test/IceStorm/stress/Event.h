@@ -28,8 +28,7 @@
 
 namespace Test
 {
-
-class EventPrx;
+    class EventPrx;
 
 }
 
@@ -69,7 +68,7 @@ public:
     {
     }
 
-    EventPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    EventPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

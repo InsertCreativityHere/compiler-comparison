@@ -33,16 +33,18 @@
 
 namespace IceStorm
 {
+    struct EventData;
 
-struct EventData;
+    /**
+     * A sequence of EventData.
+     */
+    using EventDataSeq = std::deque<IceStorm::EventData>;
 
-/**
- * A sequence of EventData.
- */
-using EventDataSeq = std::deque<IceStorm::EventData>;
-class TopicLinkPrx;
-class TopicInternalPrx;
-class TopicManagerInternalPrx;
+    class TopicLinkPrx;
+
+    class TopicInternalPrx;
+
+    class TopicManagerInternalPrx;
 
 }
 
@@ -106,7 +108,7 @@ public:
     {
     }
 
-    TopicLinkPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    TopicLinkPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -228,7 +230,7 @@ public:
     {
     }
 
-    TopicInternalPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    TopicInternalPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -322,7 +324,7 @@ public:
     {
     }
 
-    TopicManagerInternalPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    TopicManagerInternalPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

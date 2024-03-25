@@ -37,26 +37,26 @@ namespace
 {
 }
 
-::std::shared_ptr<::NoNamespace::C1>
+::NoNamespace::C1Ptr
 Test::InitialPrx::getNoNamespaceC2AsC1(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<::NoNamespace::C1>>(true, this, &InitialPrx::_iceI_getNoNamespaceC2AsC1, context).get();
+    return ::IceInternal::makePromiseOutgoing<::NoNamespace::C1Ptr>(true, this, &InitialPrx::_iceI_getNoNamespaceC2AsC1, context).get();
 }
 
-::std::future<::std::shared_ptr<::NoNamespace::C1>>
+::std::future<::NoNamespace::C1Ptr>
 Test::InitialPrx::getNoNamespaceC2AsC1Async(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<::NoNamespace::C1>>(false, this, &InitialPrx::_iceI_getNoNamespaceC2AsC1, context);
+    return ::IceInternal::makePromiseOutgoing<::NoNamespace::C1Ptr>(false, this, &InitialPrx::_iceI_getNoNamespaceC2AsC1, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::getNoNamespaceC2AsC1Async(::std::function<void(::std::shared_ptr<::NoNamespace::C1>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::InitialPrx::getNoNamespaceC2AsC1Async(::std::function<void(::NoNamespace::C1Ptr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<::NoNamespace::C1>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_getNoNamespaceC2AsC1, context);
+    return ::IceInternal::makeLambdaOutgoing<::NoNamespace::C1Ptr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_getNoNamespaceC2AsC1, context);
 }
 
 void
-Test::InitialPrx::_iceI_getNoNamespaceC2AsC1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::NoNamespace::C1>>>& outAsync, const ::Ice::Context& context) const
+Test::InitialPrx::_iceI_getNoNamespaceC2AsC1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::NoNamespace::C1Ptr>>& outAsync, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "getNoNamespaceC2AsC1";
 
@@ -66,33 +66,33 @@ Test::InitialPrx::_iceI_getNoNamespaceC2AsC1(const ::std::shared_ptr<::IceIntern
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::shared_ptr<::NoNamespace::C1> ret;
+            ::NoNamespace::C1Ptr ret;
             istr->readAll(ret);
             istr->readPendingValues();
             return ret;
         });
 }
 
-::std::shared_ptr<::NoNamespace::C2>
+::NoNamespace::C2Ptr
 Test::InitialPrx::getNoNamespaceC2AsC2(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<::NoNamespace::C2>>(true, this, &InitialPrx::_iceI_getNoNamespaceC2AsC2, context).get();
+    return ::IceInternal::makePromiseOutgoing<::NoNamespace::C2Ptr>(true, this, &InitialPrx::_iceI_getNoNamespaceC2AsC2, context).get();
 }
 
-::std::future<::std::shared_ptr<::NoNamespace::C2>>
+::std::future<::NoNamespace::C2Ptr>
 Test::InitialPrx::getNoNamespaceC2AsC2Async(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<::NoNamespace::C2>>(false, this, &InitialPrx::_iceI_getNoNamespaceC2AsC2, context);
+    return ::IceInternal::makePromiseOutgoing<::NoNamespace::C2Ptr>(false, this, &InitialPrx::_iceI_getNoNamespaceC2AsC2, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::getNoNamespaceC2AsC2Async(::std::function<void(::std::shared_ptr<::NoNamespace::C2>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::InitialPrx::getNoNamespaceC2AsC2Async(::std::function<void(::NoNamespace::C2Ptr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<::NoNamespace::C2>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_getNoNamespaceC2AsC2, context);
+    return ::IceInternal::makeLambdaOutgoing<::NoNamespace::C2Ptr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_getNoNamespaceC2AsC2, context);
 }
 
 void
-Test::InitialPrx::_iceI_getNoNamespaceC2AsC2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::NoNamespace::C2>>>& outAsync, const ::Ice::Context& context) const
+Test::InitialPrx::_iceI_getNoNamespaceC2AsC2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::NoNamespace::C2Ptr>>& outAsync, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "getNoNamespaceC2AsC2";
 
@@ -102,7 +102,7 @@ Test::InitialPrx::_iceI_getNoNamespaceC2AsC2(const ::std::shared_ptr<::IceIntern
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::shared_ptr<::NoNamespace::C2> ret;
+            ::NoNamespace::C2Ptr ret;
             istr->readAll(ret);
             istr->readPendingValues();
             return ret;
@@ -235,26 +235,26 @@ Test::InitialPrx::_iceI_throwNoNamespaceNotify(const ::std::shared_ptr<::IceInte
         });
 }
 
-::std::shared_ptr<::WithNamespace::C1>
+::WithNamespace::C1Ptr
 Test::InitialPrx::getWithNamespaceC2AsC1(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<::WithNamespace::C1>>(true, this, &InitialPrx::_iceI_getWithNamespaceC2AsC1, context).get();
+    return ::IceInternal::makePromiseOutgoing<::WithNamespace::C1Ptr>(true, this, &InitialPrx::_iceI_getWithNamespaceC2AsC1, context).get();
 }
 
-::std::future<::std::shared_ptr<::WithNamespace::C1>>
+::std::future<::WithNamespace::C1Ptr>
 Test::InitialPrx::getWithNamespaceC2AsC1Async(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<::WithNamespace::C1>>(false, this, &InitialPrx::_iceI_getWithNamespaceC2AsC1, context);
+    return ::IceInternal::makePromiseOutgoing<::WithNamespace::C1Ptr>(false, this, &InitialPrx::_iceI_getWithNamespaceC2AsC1, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::getWithNamespaceC2AsC1Async(::std::function<void(::std::shared_ptr<::WithNamespace::C1>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::InitialPrx::getWithNamespaceC2AsC1Async(::std::function<void(::WithNamespace::C1Ptr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<::WithNamespace::C1>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_getWithNamespaceC2AsC1, context);
+    return ::IceInternal::makeLambdaOutgoing<::WithNamespace::C1Ptr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_getWithNamespaceC2AsC1, context);
 }
 
 void
-Test::InitialPrx::_iceI_getWithNamespaceC2AsC1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::WithNamespace::C1>>>& outAsync, const ::Ice::Context& context) const
+Test::InitialPrx::_iceI_getWithNamespaceC2AsC1(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::WithNamespace::C1Ptr>>& outAsync, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "getWithNamespaceC2AsC1";
 
@@ -264,33 +264,33 @@ Test::InitialPrx::_iceI_getWithNamespaceC2AsC1(const ::std::shared_ptr<::IceInte
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::shared_ptr<::WithNamespace::C1> ret;
+            ::WithNamespace::C1Ptr ret;
             istr->readAll(ret);
             istr->readPendingValues();
             return ret;
         });
 }
 
-::std::shared_ptr<::WithNamespace::C2>
+::WithNamespace::C2Ptr
 Test::InitialPrx::getWithNamespaceC2AsC2(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<::WithNamespace::C2>>(true, this, &InitialPrx::_iceI_getWithNamespaceC2AsC2, context).get();
+    return ::IceInternal::makePromiseOutgoing<::WithNamespace::C2Ptr>(true, this, &InitialPrx::_iceI_getWithNamespaceC2AsC2, context).get();
 }
 
-::std::future<::std::shared_ptr<::WithNamespace::C2>>
+::std::future<::WithNamespace::C2Ptr>
 Test::InitialPrx::getWithNamespaceC2AsC2Async(const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::shared_ptr<::WithNamespace::C2>>(false, this, &InitialPrx::_iceI_getWithNamespaceC2AsC2, context);
+    return ::IceInternal::makePromiseOutgoing<::WithNamespace::C2Ptr>(false, this, &InitialPrx::_iceI_getWithNamespaceC2AsC2, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::getWithNamespaceC2AsC2Async(::std::function<void(::std::shared_ptr<::WithNamespace::C2>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::InitialPrx::getWithNamespaceC2AsC2Async(::std::function<void(::WithNamespace::C2Ptr)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makeLambdaOutgoing<::std::shared_ptr<::WithNamespace::C2>>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_getWithNamespaceC2AsC2, context);
+    return ::IceInternal::makeLambdaOutgoing<::WithNamespace::C2Ptr>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_getWithNamespaceC2AsC2, context);
 }
 
 void
-Test::InitialPrx::_iceI_getWithNamespaceC2AsC2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::shared_ptr<::WithNamespace::C2>>>& outAsync, const ::Ice::Context& context) const
+Test::InitialPrx::_iceI_getWithNamespaceC2AsC2(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::WithNamespace::C2Ptr>>& outAsync, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "getWithNamespaceC2AsC2";
 
@@ -300,7 +300,7 @@ Test::InitialPrx::_iceI_getWithNamespaceC2AsC2(const ::std::shared_ptr<::IceInte
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::shared_ptr<::WithNamespace::C2> ret;
+            ::WithNamespace::C2Ptr ret;
             istr->readAll(ret);
             istr->readPendingValues();
             return ret;
@@ -452,7 +452,7 @@ Test::Initial::_iceD_getNoNamespaceC2AsC1(::Ice::IncomingRequest& request, ::std
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::shared_ptr<::NoNamespace::C1> ret = this->getNoNamespaceC2AsC1(request.current());
+    ::NoNamespace::C1Ptr ret = this->getNoNamespaceC2AsC1(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -468,7 +468,7 @@ Test::Initial::_iceD_getNoNamespaceC2AsC2(::Ice::IncomingRequest& request, ::std
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::shared_ptr<::NoNamespace::C2> ret = this->getNoNamespaceC2AsC2(request.current());
+    ::NoNamespace::C2Ptr ret = this->getNoNamespaceC2AsC2(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -517,7 +517,7 @@ Test::Initial::_iceD_getWithNamespaceC2AsC1(::Ice::IncomingRequest& request, ::s
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::shared_ptr<::WithNamespace::C1> ret = this->getWithNamespaceC2AsC1(request.current());
+    ::WithNamespace::C1Ptr ret = this->getWithNamespaceC2AsC1(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);
@@ -533,7 +533,7 @@ Test::Initial::_iceD_getWithNamespaceC2AsC2(::Ice::IncomingRequest& request, ::s
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
-    ::std::shared_ptr<::WithNamespace::C2> ret = this->getWithNamespaceC2AsC2(request.current());
+    ::WithNamespace::C2Ptr ret = this->getWithNamespaceC2AsC2(request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll(ret);

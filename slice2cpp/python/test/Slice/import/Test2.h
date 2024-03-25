@@ -29,43 +29,31 @@
 namespace Test
 {
 
+    namespace SubA
+    {
 
-namespace SubA
-{
+        namespace SubSubA1
+        {
+            constexpr ::std::int32_t Value2 = 11;
 
+        }
 
-namespace SubSubA1
-{
+        namespace SubSubA2
+        {
+            constexpr ::std::int32_t Value1 = 30;
 
+        }
+    }
 
-constexpr ::std::int32_t Value2 = 11;
+    namespace SubB
+    {
 
-}
+        namespace SubSubB1
+        {
+            constexpr ::std::int32_t Value2 = 21;
 
-namespace SubSubA2
-{
-
-
-constexpr ::std::int32_t Value1 = 30;
-
-}
-
-}
-
-namespace SubB
-{
-
-
-namespace SubSubB1
-{
-
-
-constexpr ::std::int32_t Value2 = 21;
-
-}
-
-}
-
+        }
+    }
 }
 
 #include <IceUtil/PopDisableWarnings.h>

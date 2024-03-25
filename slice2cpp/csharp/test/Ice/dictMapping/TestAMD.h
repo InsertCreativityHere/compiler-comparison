@@ -28,32 +28,31 @@
 
 namespace Test
 {
+    using NV = ::std::map<::std::int32_t, ::std::int32_t>;
 
+    using NR = ::std::map<::std::string, ::std::string>;
 
-using NV = ::std::map<::std::int32_t, ::std::int32_t>;
+    using NDV = ::std::map<::std::string, NV>;
 
-using NR = ::std::map<::std::string, ::std::string>;
+    using NDR = ::std::map<::std::string, NR>;
 
-using NDV = ::std::map<::std::string, NV>;
+    using AIS = ::std::vector<::std::int32_t>;
 
-using NDR = ::std::map<::std::string, NR>;
+    using GIS = ::std::vector<::std::int32_t>;
 
-using AIS = ::std::vector<::std::int32_t>;
+    using ASS = ::std::vector<::std::string>;
 
-using GIS = ::std::vector<::std::int32_t>;
+    using GSS = ::std::vector<::std::string>;
 
-using ASS = ::std::vector<::std::string>;
+    using NDAIS = ::std::map<::std::string, AIS>;
 
-using GSS = ::std::vector<::std::string>;
+    using NDGIS = ::std::map<::std::string, GIS>;
 
-using NDAIS = ::std::map<::std::string, AIS>;
+    using NDASS = ::std::map<::std::string, ASS>;
 
-using NDGIS = ::std::map<::std::string, GIS>;
+    using NDGSS = ::std::map<::std::string, GSS>;
 
-using NDASS = ::std::map<::std::string, ASS>;
-
-using NDGSS = ::std::map<::std::string, GSS>;
-class MyClassPrx;
+    class MyClassPrx;
 
 }
 
@@ -181,7 +180,7 @@ public:
     {
     }
 
-    MyClassPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    MyClassPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

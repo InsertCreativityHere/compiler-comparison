@@ -28,174 +28,176 @@
 
 namespace Test
 {
+    using AByteS = ::std::vector<std::byte>;
 
+    using LByteS = ::std::vector<std::byte>;
 
-using AByteS = ::std::vector<std::byte>;
+    using KByteS = ::std::vector<std::byte>;
 
-using LByteS = ::std::vector<std::byte>;
+    using QByteS = ::std::vector<std::byte>;
 
-using KByteS = ::std::vector<std::byte>;
+    using SByteS = ::std::vector<std::byte>;
 
-using QByteS = ::std::vector<std::byte>;
+    using ABoolS = ::std::vector<bool>;
 
-using SByteS = ::std::vector<std::byte>;
+    using LBoolS = ::std::vector<bool>;
 
-using ABoolS = ::std::vector<bool>;
+    using KBoolS = ::std::vector<bool>;
 
-using LBoolS = ::std::vector<bool>;
+    using QBoolS = ::std::vector<bool>;
 
-using KBoolS = ::std::vector<bool>;
+    using SBoolS = ::std::vector<bool>;
 
-using QBoolS = ::std::vector<bool>;
+    using AShortS = ::std::vector<::std::int16_t>;
 
-using SBoolS = ::std::vector<bool>;
+    using LShortS = ::std::vector<::std::int16_t>;
 
-using AShortS = ::std::vector<::std::int16_t>;
+    using KShortS = ::std::vector<::std::int16_t>;
 
-using LShortS = ::std::vector<::std::int16_t>;
+    using QShortS = ::std::vector<::std::int16_t>;
 
-using KShortS = ::std::vector<::std::int16_t>;
+    using SShortS = ::std::vector<::std::int16_t>;
 
-using QShortS = ::std::vector<::std::int16_t>;
+    using AIntS = ::std::vector<::std::int32_t>;
 
-using SShortS = ::std::vector<::std::int16_t>;
+    using LIntS = ::std::vector<::std::int32_t>;
 
-using AIntS = ::std::vector<::std::int32_t>;
+    using KIntS = ::std::vector<::std::int32_t>;
 
-using LIntS = ::std::vector<::std::int32_t>;
+    using QIntS = ::std::vector<::std::int32_t>;
 
-using KIntS = ::std::vector<::std::int32_t>;
+    using SIntS = ::std::vector<::std::int32_t>;
 
-using QIntS = ::std::vector<::std::int32_t>;
+    using ALongS = ::std::vector<::std::int64_t>;
 
-using SIntS = ::std::vector<::std::int32_t>;
+    using LLongS = ::std::vector<::std::int64_t>;
 
-using ALongS = ::std::vector<::std::int64_t>;
+    using KLongS = ::std::vector<::std::int64_t>;
 
-using LLongS = ::std::vector<::std::int64_t>;
+    using QLongS = ::std::vector<::std::int64_t>;
 
-using KLongS = ::std::vector<::std::int64_t>;
+    using SLongS = ::std::vector<::std::int64_t>;
 
-using QLongS = ::std::vector<::std::int64_t>;
+    using AFloatS = ::std::vector<float>;
 
-using SLongS = ::std::vector<::std::int64_t>;
+    using LFloatS = ::std::vector<float>;
 
-using AFloatS = ::std::vector<float>;
+    using KFloatS = ::std::vector<float>;
 
-using LFloatS = ::std::vector<float>;
+    using QFloatS = ::std::vector<float>;
 
-using KFloatS = ::std::vector<float>;
+    using SFloatS = ::std::vector<float>;
 
-using QFloatS = ::std::vector<float>;
+    using ADoubleS = ::std::vector<double>;
 
-using SFloatS = ::std::vector<float>;
+    using LDoubleS = ::std::vector<double>;
 
-using ADoubleS = ::std::vector<double>;
+    using KDoubleS = ::std::vector<double>;
 
-using LDoubleS = ::std::vector<double>;
+    using QDoubleS = ::std::vector<double>;
 
-using KDoubleS = ::std::vector<double>;
+    using SDoubleS = ::std::vector<double>;
 
-using QDoubleS = ::std::vector<double>;
+    using AStringS = ::std::vector<::std::string>;
 
-using SDoubleS = ::std::vector<double>;
+    using LStringS = ::std::vector<::std::string>;
 
-using AStringS = ::std::vector<::std::string>;
+    using KStringS = ::std::vector<::std::string>;
 
-using LStringS = ::std::vector<::std::string>;
+    using QStringS = ::std::vector<::std::string>;
 
-using KStringS = ::std::vector<::std::string>;
+    using SStringS = ::std::vector<::std::string>;
 
-using QStringS = ::std::vector<::std::string>;
+    using AObjectS = ::std::vector<::Ice::ValuePtr>;
 
-using SStringS = ::std::vector<::std::string>;
+    using LObjectS = ::std::vector<::Ice::ValuePtr>;
 
-using AObjectS = ::std::vector<::std::shared_ptr<::Ice::Value>>;
+    using AObjectPrxS = ::std::vector<::std::optional<::Ice::ObjectPrx>>;
 
-using LObjectS = ::std::vector<::std::shared_ptr<::Ice::Value>>;
+    using LObjectPrxS = ::std::vector<::std::optional<::Ice::ObjectPrx>>;
 
-using AObjectPrxS = ::std::vector<::std::optional<::Ice::ObjectPrx>>;
+    using KObjectPrxS = ::std::vector<::std::optional<::Ice::ObjectPrx>>;
 
-using LObjectPrxS = ::std::vector<::std::optional<::Ice::ObjectPrx>>;
+    using QObjectPrxS = ::std::vector<::std::optional<::Ice::ObjectPrx>>;
 
-using KObjectPrxS = ::std::vector<::std::optional<::Ice::ObjectPrx>>;
+    using SObjectPrxS = ::std::vector<::std::optional<::Ice::ObjectPrx>>;
 
-using QObjectPrxS = ::std::vector<::std::optional<::Ice::ObjectPrx>>;
+    struct S;
 
-using SObjectPrxS = ::std::vector<::std::optional<::Ice::ObjectPrx>>;
-struct S;
+    using AStructS = ::std::vector<S>;
 
-using AStructS = ::std::vector<S>;
+    using LStructS = ::std::vector<S>;
 
-using LStructS = ::std::vector<S>;
+    using KStructS = ::std::vector<S>;
 
-using KStructS = ::std::vector<S>;
+    using QStructS = ::std::vector<S>;
 
-using QStructS = ::std::vector<S>;
+    using SStructS = ::std::vector<S>;
 
-using SStructS = ::std::vector<S>;
-struct SD;
+    struct SD;
 
-using AStructSD = ::std::vector<SD>;
+    using AStructSD = ::std::vector<SD>;
 
-using LStructSD = ::std::vector<SD>;
+    using LStructSD = ::std::vector<SD>;
 
-using KStructSD = ::std::vector<SD>;
+    using KStructSD = ::std::vector<SD>;
 
-using QStructSD = ::std::vector<SD>;
+    using QStructSD = ::std::vector<SD>;
 
-using SStructSD = ::std::vector<SD>;
-class CV;
+    using SStructSD = ::std::vector<SD>;
 
-using CVPtr = ::std::shared_ptr<CV>;
+    class CV;
+    using CVPtr = ::std::shared_ptr<CV>;
 
-using ACVS = ::std::vector<::std::shared_ptr<CV>>;
+    using ACVS = ::std::vector<CVPtr>;
 
-using LCVS = ::std::vector<::std::shared_ptr<CV>>;
-class IPrx;
+    using LCVS = ::std::vector<CVPtr>;
 
-using AIPrxS = ::std::vector<::std::optional<IPrx>>;
+    class IPrx;
 
-using LIPrxS = ::std::vector<::std::optional<IPrx>>;
+    using AIPrxS = ::std::vector<::std::optional<IPrx>>;
 
-using KIPrxS = ::std::vector<::std::optional<IPrx>>;
+    using LIPrxS = ::std::vector<::std::optional<IPrx>>;
 
-using QIPrxS = ::std::vector<::std::optional<IPrx>>;
+    using KIPrxS = ::std::vector<::std::optional<IPrx>>;
 
-using SIPrxS = ::std::vector<::std::optional<IPrx>>;
-class CR;
+    using QIPrxS = ::std::vector<::std::optional<IPrx>>;
 
-using CRPtr = ::std::shared_ptr<CR>;
+    using SIPrxS = ::std::vector<::std::optional<IPrx>>;
 
-using ACRS = ::std::vector<::std::shared_ptr<CR>>;
+    class CR;
+    using CRPtr = ::std::shared_ptr<CR>;
 
-using LCRS = ::std::vector<::std::shared_ptr<CR>>;
+    using ACRS = ::std::vector<CRPtr>;
 
-enum class En : unsigned char
-{
-    A,
-    B,
-    C
-};
+    using LCRS = ::std::vector<CRPtr>;
 
-using AEnS = ::std::vector<En>;
+    enum class En : ::std::uint8_t
+    {
+        A,
+        B,
+        C
+    };
 
-using LEnS = ::std::vector<En>;
+    using AEnS = ::std::vector<En>;
 
-using KEnS = ::std::vector<En>;
+    using LEnS = ::std::vector<En>;
 
-using QEnS = ::std::vector<En>;
+    using KEnS = ::std::vector<En>;
 
-using SEnS = ::std::vector<En>;
+    using QEnS = ::std::vector<En>;
 
-using CustomIntS = ::std::vector<::std::int32_t>;
+    using SEnS = ::std::vector<En>;
 
-using CustomCVS = ::std::vector<::std::shared_ptr<CV>>;
+    using CustomIntS = ::std::vector<::std::int32_t>;
 
-using CustomIntSS = ::std::vector<CustomIntS>;
+    using CustomCVS = ::std::vector<CVPtr>;
 
-using CustomCVSS = ::std::vector<CustomCVS>;
-class MyClassPrx;
+    using CustomIntSS = ::std::vector<CustomIntS>;
+
+    using CustomCVSS = ::std::vector<CustomCVS>;
+
+    class MyClassPrx;
 
 }
 
@@ -224,7 +226,7 @@ public:
     {
     }
 
-    IPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    IPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -1112,7 +1114,7 @@ public:
     {
     }
 
-    MyClassPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    MyClassPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -1210,7 +1212,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<CV> ice_clone() const { return ::std::static_pointer_cast <CV>(_iceCloneImpl()); }
+    CVPtr ice_clone() const { return ::std::static_pointer_cast <CV>(_iceCloneImpl()); }
 
     ::std::int32_t i;
 
@@ -1218,7 +1220,7 @@ protected:
 
     CV(const CV&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -1237,7 +1239,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    explicit CR(::std::shared_ptr<::Test::CV> v) :
+    explicit CR(::Test::CVPtr v) :
         v(::std::move(v))
     {
     }
@@ -1254,7 +1256,7 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::shared_ptr<::Test::CV>&> ice_tuple() const
+    std::tuple<const ::Test::CVPtr&> ice_tuple() const
     {
         return std::tie(v);
     }
@@ -1263,15 +1265,15 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<CR> ice_clone() const { return ::std::static_pointer_cast <CR>(_iceCloneImpl()); }
+    CRPtr ice_clone() const { return ::std::static_pointer_cast <CR>(_iceCloneImpl()); }
 
-    ::std::shared_ptr<::Test::CV> v;
+    ::Test::CVPtr v;
 
 protected:
 
     CR(const CR&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;

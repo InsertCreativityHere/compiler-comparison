@@ -28,14 +28,13 @@
 
 namespace Test
 {
+    using ByteSeq = ::std::vector<std::byte>;
 
+    using ShortSeq = ::std::vector<::std::int16_t>;
 
-using ByteSeq = ::std::vector<std::byte>;
+    using StringSeq = ::std::vector<::std::string>;
 
-using ShortSeq = ::std::vector<::std::int16_t>;
-
-using StringSeq = ::std::vector<::std::string>;
-class TestIntfPrx;
+    class TestIntfPrx;
 
 }
 
@@ -141,7 +140,7 @@ public:
     {
     }
 
-    TestIntfPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    TestIntfPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

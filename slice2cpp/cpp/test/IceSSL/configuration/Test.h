@@ -28,11 +28,11 @@
 
 namespace Test
 {
+    class ServerPrx;
 
-class ServerPrx;
+    using Properties = ::std::map<::std::string, ::std::string>;
 
-using Properties = ::std::map<::std::string, ::std::string>;
-class ServerFactoryPrx;
+    class ServerFactoryPrx;
 
 }
 
@@ -94,7 +94,7 @@ public:
     {
     }
 
-    ServerPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    ServerPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -179,7 +179,7 @@ public:
     {
     }
 
-    ServerFactoryPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    ServerFactoryPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }

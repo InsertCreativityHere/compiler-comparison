@@ -30,8 +30,7 @@
 
 namespace IceStorm
 {
-
-struct LinkRecord;
+    struct LinkRecord;
 
 }
 

@@ -28,15 +28,15 @@
 
 namespace Test
 {
+    class BaseClass;
+    using BaseClassPtr = ::std::shared_ptr<BaseClass>;
 
-class BaseClass;
+    class RelayPrx;
 
-using BaseClassPtr = ::std::shared_ptr<BaseClass>;
-class RelayPrx;
-class TestIntfPrx;
-class PreservedClass;
+    class TestIntfPrx;
 
-using PreservedClassPtr = ::std::shared_ptr<PreservedClass>;
+    class PreservedClass;
+    using PreservedClassPtr = ::std::shared_ptr<PreservedClass>;
 
 }
 
@@ -109,7 +109,7 @@ public:
     {
     }
 
-    RelayPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    RelayPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -414,7 +414,7 @@ public:
     {
     }
 
-    TestIntfPrx(const ::std::shared_ptr<::Ice::Communicator>& communicator, std::string_view proxyString) :
+    TestIntfPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
         ::Ice::ObjectPrx(communicator, proxyString)
     {
     }
@@ -733,7 +733,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<BaseClass> ice_clone() const { return ::std::static_pointer_cast <BaseClass>(_iceCloneImpl()); }
+    BaseClassPtr ice_clone() const { return ::std::static_pointer_cast <BaseClass>(_iceCloneImpl()); }
 
     ::std::string bc;
 
@@ -741,7 +741,7 @@ protected:
 
     BaseClass(const BaseClass&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -783,7 +783,7 @@ public:
      * Creates a shallow polymorphic copy of this instance.
      * @return The cloned value.
      */
-    ::std::shared_ptr<PreservedClass> ice_clone() const { return ::std::static_pointer_cast <PreservedClass>(_iceCloneImpl()); }
+    PreservedClassPtr ice_clone() const { return ::std::static_pointer_cast <PreservedClass>(_iceCloneImpl()); }
 
     ::std::string pc;
 
@@ -791,7 +791,7 @@ protected:
 
     PreservedClass(const PreservedClass&) = default;
 
-    ::std::shared_ptr<::Ice::Value> _iceCloneImpl() const override;
+    ::Ice::ValuePtr _iceCloneImpl() const override;
     void _iceWriteImpl(::Ice::OutputStream*) const override;
 
     void _iceReadImpl(::Ice::InputStream*) override;
@@ -805,7 +805,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Preserved1(::std::string b, ::std::string kp, ::std::string kpd, ::std::shared_ptr<BaseClass> p1) noexcept :
+    Preserved1(::std::string b, ::std::string kp, ::std::string kpd, BaseClassPtr p1) noexcept :
         KnownPreservedDerived(::std::move(b), ::std::move(kp), ::std::move(kpd)),
         p1(::std::move(p1))
     {
@@ -815,7 +815,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::shared_ptr<::Test::BaseClass>&> ice_tuple() const
+    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::Test::BaseClassPtr&> ice_tuple() const
     {
         return std::tie(b, kp, kpd, p1);
     }
@@ -834,7 +834,7 @@ public:
     bool _usesClasses() const override;
     /// \endcond
 
-    ::std::shared_ptr<::Test::BaseClass> p1;
+    ::Test::BaseClassPtr p1;
 
 protected:
     void _writeImpl(::Ice::OutputStream*) const override;
@@ -850,7 +850,7 @@ public:
     /**
      * One-shot constructor to initialize all data members.
      */
-    Preserved2(::std::string b, ::std::string kp, ::std::string kpd, ::std::shared_ptr<BaseClass> p1, ::std::shared_ptr<BaseClass> p2) noexcept :
+    Preserved2(::std::string b, ::std::string kp, ::std::string kpd, BaseClassPtr p1, BaseClassPtr p2) noexcept :
         Preserved1(::std::move(b), ::std::move(kp), ::std::move(kpd), ::std::move(p1)),
         p2(::std::move(p2))
     {
@@ -860,7 +860,7 @@ public:
      * Obtains a tuple containing all of the exception's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::shared_ptr<::Test::BaseClass>&, const ::std::shared_ptr<::Test::BaseClass>&> ice_tuple() const
+    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::Test::BaseClassPtr&, const ::Test::BaseClassPtr&> ice_tuple() const
     {
         return std::tie(b, kp, kpd, p1, p2);
     }
@@ -875,7 +875,7 @@ public:
 
     void ice_throw() const override;
 
-    ::std::shared_ptr<::Test::BaseClass> p2;
+    ::Test::BaseClassPtr p2;
 
 protected:
     void _writeImpl(::Ice::OutputStream*) const override;
