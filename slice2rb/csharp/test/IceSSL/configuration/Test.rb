@@ -93,4 +93,30 @@ module ::Test
         ServerFactoryPrx_mixin::OP_destroyServer = ::Ice::__defineOperation('destroyServer', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Test::T_ServerPrx, false, 0]], [], nil, [])
         ServerFactoryPrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
+
+    if not defined?(::Test::Pingable_Mixin)
+
+        module ::Test::Pingable_Mixin
+        end
+        module PingablePrx_mixin
+
+            def ping(context=nil)
+                PingablePrx_mixin::OP_ping.invoke(self, [], context)
+            end
+        end
+
+        class PingablePrx < ::Ice::ObjectPrx
+            include ::Ice::Proxy_mixin
+            include PingablePrx_mixin
+        end
+
+        if not defined?(::Test::T_PingablePrx)
+            T_Pingable = ::Ice::__declareClass('::Test::Pingable')
+            T_PingablePrx = ::Ice::__declareProxy('::Test::Pingable')
+        end
+
+        T_PingablePrx.defineProxy(PingablePrx, nil, [])
+
+        PingablePrx_mixin::OP_ping = ::Ice::__defineOperation('ping', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
+    end
 end

@@ -65,6 +65,24 @@
         "destroyServer": [, , , , , [["Test.ServerPrx"]], , , , ],
         "shutdown": [, , , , , , , , , ]
     });
+
+    const iceC_Test_Pingable_ids = [
+        "::Ice::Object",
+        "::Test::Pingable"
+    ];
+
+    Test.Pingable = class extends Ice.Object
+    {
+    };
+
+    Test.PingablePrx = class extends Ice.ObjectPrx
+    {
+    };
+
+    Slice.defineOperations(Test.Pingable, Test.PingablePrx, iceC_Test_Pingable_ids, "::Test::Pingable",
+    {
+        "ping": [, , , , , , , , , ]
+    });
     exports.Test = Test;
 }
 (typeof(global) !== "undefined" && typeof(global.process) !== "undefined" ? module : undefined,

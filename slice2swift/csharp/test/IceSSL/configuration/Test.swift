@@ -96,6 +96,12 @@ public struct ServerFactoryTraits: Ice.SliceTraits {
     public static let staticId = "::Test::ServerFactory"
 }
 
+/// Traits for Slice interface`Pingable`.
+public struct PingableTraits: Ice.SliceTraits {
+    public static let staticIds = ["::Ice::Object", "::Test::Pingable"]
+    public static let staticId = "::Test::Pingable"
+}
+
 /// ServerPrx overview.
 ///
 /// ServerPrx Methods:
@@ -540,6 +546,126 @@ public extension ServerFactoryPrx {
     }
 }
 
+/// PingablePrx overview.
+///
+/// PingablePrx Methods:
+///
+///  - ping: 
+///
+///  - pingAsync: 
+public protocol PingablePrx: Ice.ObjectPrx {}
+
+private final class PingablePrxI: Ice.ObjectPrxI, PingablePrx {
+    public override class func ice_staticId() -> Swift.String {
+        return PingableTraits.staticId
+    }
+}
+
+/// Casts a proxy to the requested type. This call contacts the server and verifies that the object
+/// implements this type.
+///
+/// It will throw a local exception if a communication error occurs. You can optionally supply a
+/// facet name and a context map.
+///
+/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
+///
+/// - parameter type: `PingablePrx.Protocol` - The proxy type to cast to.
+///
+/// - parameter facet: `String` - The optional name of the desired facet.
+///
+/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
+///
+/// - returns: `PingablePrx` - A proxy with the requested type or nil if the objet does not
+///   support this type.
+///
+/// - throws: `Ice.LocalException` if a communication error occurs.
+public func checkedCast(prx: Ice.ObjectPrx, type: PingablePrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> PingablePrx? {
+    return try PingablePrxI.checkedCast(prx: prx, facet: facet, context: context) as PingablePrxI?
+}
+
+/// Downcasts the given proxy to this type without contacting the remote server.
+///
+/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
+///
+/// - parameter type: `PingablePrx.Protocol` - The proxy type to cast to.
+///
+/// - parameter facet: `String` - The optional name of the desired facet
+///
+/// - returns: `PingablePrx` - A proxy with the requested type
+public func uncheckedCast(prx: Ice.ObjectPrx, type: PingablePrx.Protocol, facet: Swift.String? = nil) -> PingablePrx {
+    return PingablePrxI.uncheckedCast(prx: prx, facet: facet) as PingablePrxI
+}
+
+/// Returns the Slice type id of the interface or class associated with this proxy type.
+///
+/// parameter type: `PingablePrx.Protocol` -  The proxy type to retrieve the type id.
+///
+/// returns: `String` - The type id of the interface or class associated with this proxy type.
+public func ice_staticId(_ type: PingablePrx.Protocol) -> Swift.String {
+    return PingableTraits.staticId
+}
+
+/// Extension to `Ice.InputStream` class to support reading proxy of type
+/// `PingablePrx`.
+public extension Ice.InputStream {
+    /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
+    ///
+    /// - parameter type: `PingablePrx.Protocol` - The type of the proxy to be extracted.
+    ///
+    /// - returns: `PingablePrx?` - The extracted proxy
+    func read(_ type: PingablePrx.Protocol) throws -> PingablePrx? {
+        return try read() as PingablePrxI?
+    }
+    /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
+    ///
+    /// - parameter tag: `Int32` - The numeric tag associated with the value.
+    ///
+    /// - parameter type: `PingablePrx.Protocol` - The type of the proxy to be extracted.
+    ///
+    /// - returns: `PingablePrx` - The extracted proxy.
+    func read(tag: Swift.Int32, type: PingablePrx.Protocol) throws -> PingablePrx? {
+        return try read(tag: tag) as PingablePrxI?
+    }
+}
+
+/// PingablePrx overview.
+///
+/// PingablePrx Methods:
+///
+///  - ping: 
+///
+///  - pingAsync: 
+public extension PingablePrx {
+    ///
+    /// - parameter context: `Ice.Context` - Optional request context.
+    func ping(context: Ice.Context? = nil) throws {
+        try _impl._invoke(operation: "ping",
+                          mode: .Normal,
+                          context: context)
+    }
+
+    ///
+    /// - parameter context: `Ice.Context` - Optional request context.
+    ///
+    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
+    ///   dispatch the sent callback.
+    ///
+    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
+    ///   to dispatch the sent callback
+    ///
+    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
+    ///
+    /// - returns: `PromiseKit.Promise<>` - The result of the operation
+    func pingAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
+        return _impl._invokeAsync(operation: "ping",
+                                  mode: .Normal,
+                                  context: context,
+                                  sentOn: sentOn,
+                                  sentFlags: sentFlags,
+                                  sent: sent)
+    }
+}
+
 
 /// Dispatcher for `Server` servants.
 public struct ServerDisp: Ice.Disp {
@@ -646,6 +772,41 @@ public protocol ServerFactory {
     func shutdown(current: Ice.Current) throws
 }
 
+
+/// Dispatcher for `Pingable` servants.
+public struct PingableDisp: Ice.Disp {
+    public let servant: Pingable
+    private static let defaultObject = Ice.ObjectI<PingableTraits>()
+
+    public init(_ servant: Pingable) {
+        self.servant = servant
+    }
+
+    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
+        request.startOver()
+        switch current.operation {
+        case "ice_id":
+            return try (servant as? Object ?? PingableDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
+        case "ice_ids":
+            return try (servant as? Object ?? PingableDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
+        case "ice_isA":
+            return try (servant as? Object ?? PingableDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
+        case "ice_ping":
+            return try (servant as? Object ?? PingableDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
+        case "ping":
+            return try servant._iceD_ping(incoming: request, current: current)
+        default:
+            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
+        }
+    }
+}
+
+public protocol Pingable {
+    ///
+    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
+    func ping(current: Ice.Current) throws
+}
+
 /// Server overview.
 ///
 /// Server Methods:
@@ -726,6 +887,21 @@ public extension ServerFactory {
         try inS.readEmptyParams()
 
         try self.shutdown(current: current)
+
+        return inS.setResult()
+    }
+}
+
+/// Pingable overview.
+///
+/// Pingable Methods:
+///
+///  - ping: 
+public extension Pingable {
+    func _iceD_ping(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
+        try inS.readEmptyParams()
+
+        try self.ping(current: current)
 
         return inS.setResult()
     }

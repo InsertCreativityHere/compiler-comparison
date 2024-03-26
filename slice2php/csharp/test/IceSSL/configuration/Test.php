@@ -91,4 +91,33 @@ namespace Test
     IcePHP_defineOperation($Test__t_ServerFactoryPrx, 'destroyServer', 0, 0, 0, array(array($Test__t_ServerPrx)), null, null, null);
     IcePHP_defineOperation($Test__t_ServerFactoryPrx, 'shutdown', 0, 0, 0, null, null, null, null);
 }
+
+namespace Test
+{
+    global $Test__t_Pingable;
+    global $Test__t_PingablePrx;
+
+    class PingablePrxHelper
+    {
+        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
+        {
+            return $proxy->ice_checkedCast('::Test::Pingable', $facetOrContext, $context);
+        }
+
+        public static function uncheckedCast($proxy, $facet=null)
+        {
+            return $proxy->ice_uncheckedCast('::Test::Pingable', $facet);
+        }
+
+        public static function ice_staticId()
+        {
+            return '::Test::Pingable';
+        }
+    }
+
+    global $Ice__t_ObjectPrx;
+    $Test__t_PingablePrx = IcePHP_defineProxy('::Test::Pingable', $Ice__t_ObjectPrx, null);
+
+    IcePHP_defineOperation($Test__t_PingablePrx, 'ping', 0, 0, 0, null, null, null, null);
+}
 ?>

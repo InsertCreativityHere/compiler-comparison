@@ -34,6 +34,8 @@ namespace Test
 
     class ServerFactoryPrx;
 
+    class PingablePrx;
+
 }
 
 namespace Test
@@ -209,6 +211,69 @@ protected:
     /// \endcond
 };
 
+class PingablePrx : public ::Ice::Proxy<PingablePrx, ::Ice::ObjectPrx>
+{
+public:
+
+    void ping(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    ::std::future<void> pingAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    ::std::function<void()>
+    pingAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    /// \cond INTERNAL
+    void _iceI_ping(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
+    /// \endcond
+
+    /**
+     * Obtains the Slice type ID of this interface.
+     * @return The fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    explicit PingablePrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    PingablePrx(const PingablePrx& other) noexcept : ::Ice::ObjectPrx(other)
+    {
+    }
+
+    PingablePrx(PingablePrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
+    {
+    }
+
+    PingablePrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
+        ::Ice::ObjectPrx(communicator, proxyString)
+    {
+    }
+
+    PingablePrx& operator=(const PingablePrx& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(rhs);
+        return *this;
+    }
+
+    PingablePrx& operator=(PingablePrx&& rhs) noexcept
+    {
+        ::Ice::ObjectPrx::operator=(::std::move(rhs));
+        return *this;
+    }
+
+    /// \cond INTERNAL
+    static PingablePrx _fromReference(::IceInternal::ReferencePtr ref) { return PingablePrx(::std::move(ref)); }
+
+protected:
+
+    PingablePrx() = default;
+
+    explicit PingablePrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
+    {
+    }
+    /// \endcond
+};
+
 }
 
 namespace Test
@@ -309,6 +374,44 @@ public:
 };
 
 using ServerFactoryPtr = ::std::shared_ptr<ServerFactory>;
+
+class Pingable : public virtual ::Ice::Object
+{
+public:
+
+    using ProxyType = PingablePrx;
+
+    /**
+     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A list of fully-scoped type IDs.
+     */
+    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains a Slice type ID representing the most-derived interface supported by this object.
+     * @param current The Current object for the invocation.
+     * @return A fully-scoped type ID.
+     */
+    ::std::string ice_id(const ::Ice::Current& current) const override;
+
+    /**
+     * Obtains the Slice type ID corresponding to this interface.
+     * @return A fully-scoped type ID.
+     */
+    static ::std::string_view ice_staticId() noexcept;
+
+    virtual void ping(const ::Ice::Current& current) = 0;
+    /// \cond INTERNAL
+    void _iceD_ping(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
+    /// \endcond
+
+    /// \cond INTERNAL
+    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
+    /// \endcond
+};
+
+using PingablePtr = ::std::shared_ptr<Pingable>;
 
 }
 

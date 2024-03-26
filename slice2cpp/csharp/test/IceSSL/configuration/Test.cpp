@@ -228,6 +228,41 @@ Test::ServerFactoryPrx::ice_staticId() noexcept
     return typeId;
 }
 
+void
+Test::PingablePrx::ping(const ::Ice::Context& context) const
+{
+    ::IceInternal::makePromiseOutgoing<void>(true, this, &PingablePrx::_iceI_ping, context).get();
+}
+
+::std::future<void>
+Test::PingablePrx::pingAsync(const ::Ice::Context& context) const
+{
+    return ::IceInternal::makePromiseOutgoing<void>(false, this, &PingablePrx::_iceI_ping, context);
+}
+
+::std::function<void()>
+Test::PingablePrx::pingAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+{
+    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::PingablePrx::_iceI_ping, context);
+}
+
+void
+Test::PingablePrx::_iceI_ping(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
+{
+    static constexpr ::std::string_view operationName = "ping";
+
+    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
+        nullptr,
+        nullptr);
+}
+
+::std::string_view
+Test::PingablePrx::ice_staticId() noexcept
+{
+    static constexpr ::std::string_view typeId = "::Test::Pingable";
+    return typeId;
+}
+
 ::std::vector<::std::string>
 Test::Server::ice_ids(const ::Ice::Current&) const
 {
@@ -464,6 +499,87 @@ Test::ServerFactory::dispatch(::Ice::IncomingRequest& request, ::std::function<v
         case 6:
         {
             _iceD_shutdown(request, ::std::move(sendResponse));
+            break;
+        }
+        default:
+        {
+            assert(false);
+            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        }
+    }
+}
+/// \endcond
+
+::std::vector<::std::string>
+Test::Pingable::ice_ids(const ::Ice::Current&) const
+{
+    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::Test::Pingable"};
+    return allTypeIds;
+}
+
+::std::string
+Test::Pingable::ice_id(const ::Ice::Current&) const
+{
+    return ::std::string{ice_staticId()};
+}
+
+::std::string_view
+Test::Pingable::ice_staticId() noexcept
+{
+    static constexpr ::std::string_view typeId = "::Test::Pingable";
+    return typeId;
+}
+
+/// \cond INTERNAL
+void
+Test::Pingable::_iceD_ping(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+{
+    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
+    request.inputStream().skipEmptyEncapsulation();
+    this->ping(request.current());
+    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
+}
+/// \endcond
+
+/// \cond INTERNAL
+void
+Test::Pingable::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
+{
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "ping"};
+
+    const ::Ice::Current& current = request.current();
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 5, current.operation);
+    if(r.first == r.second)
+    {
+        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
+        return;
+    }
+
+    switch(r.first - allOperations)
+    {
+        case 0:
+        {
+            _iceD_ice_id(request, ::std::move(sendResponse));
+            break;
+        }
+        case 1:
+        {
+            _iceD_ice_ids(request, ::std::move(sendResponse));
+            break;
+        }
+        case 2:
+        {
+            _iceD_ice_isA(request, ::std::move(sendResponse));
+            break;
+        }
+        case 3:
+        {
+            _iceD_ice_ping(request, ::std::move(sendResponse));
+            break;
+        }
+        case 4:
+        {
+            _iceD_ping(request, ::std::move(sendResponse));
             break;
         }
         default:

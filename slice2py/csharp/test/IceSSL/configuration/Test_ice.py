@@ -177,4 +177,61 @@ if 'ServerFactoryPrx' not in _M_Test.__dict__:
     _M_Test.ServerFactory = ServerFactory
     del ServerFactory
 
+_M_Test._t_Pingable = IcePy.defineValue('::Test::Pingable', Ice.Value, -1, (), True, None, ())
+
+if 'PingablePrx' not in _M_Test.__dict__:
+    _M_Test.PingablePrx = Ice.createTempClass()
+    class PingablePrx(Ice.ObjectPrx):
+
+        def ping(self, context=None):
+            return _M_Test.Pingable._op_ping.invoke(self, ((), context))
+
+        def pingAsync(self, context=None):
+            return _M_Test.Pingable._op_ping.invokeAsync(self, ((), context))
+
+        @staticmethod
+        def checkedCast(proxy, facetOrContext=None, context=None):
+            return _M_Test.PingablePrx.ice_checkedCast(proxy, '::Test::Pingable', facetOrContext, context)
+
+        @staticmethod
+        def uncheckedCast(proxy, facet=None):
+            return _M_Test.PingablePrx.ice_uncheckedCast(proxy, facet)
+
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Pingable'
+    _M_Test._t_PingablePrx = IcePy.defineProxy('::Test::Pingable', PingablePrx)
+
+    _M_Test.PingablePrx = PingablePrx
+    del PingablePrx
+
+    _M_Test.Pingable = Ice.createTempClass()
+    class Pingable(Ice.Object):
+
+        def ice_ids(self, current=None):
+            return ('::Ice::Object', '::Test::Pingable')
+
+        def ice_id(self, current=None):
+            return '::Test::Pingable'
+
+        @staticmethod
+        def ice_staticId():
+            return '::Test::Pingable'
+
+        def ping(self, current=None):
+            raise NotImplementedError("servant method 'ping' not implemented")
+
+        def __str__(self):
+            return IcePy.stringify(self, _M_Test._t_PingableDisp)
+
+        __repr__ = __str__
+
+    _M_Test._t_PingableDisp = IcePy.defineClass('::Test::Pingable', Pingable, (), None, ())
+    Pingable._ice_type = _M_Test._t_PingableDisp
+
+    Pingable._op_ping = IcePy.Operation('ping', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
+
+    _M_Test.Pingable = Pingable
+    del Pingable
+
 # End of module Test
