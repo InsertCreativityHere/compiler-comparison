@@ -44,9 +44,6 @@ namespace IceGrid
 
     using InternalAdapterDescriptorSeq = ::std::vector<InternalAdapterDescriptorPtr>;
 
-    class InternalDistributionDescriptor;
-    using InternalDistributionDescriptorPtr = ::std::shared_ptr<InternalDistributionDescriptor>;
-
     using PropertyDescriptorSeqDict = ::std::map<::std::string, PropertyDescriptorSeq>;
 
     class InternalServerDescriptor;
@@ -65,8 +62,6 @@ namespace IceGrid
     using InternalRegistryPrxSeq = ::std::vector<::std::optional<InternalRegistryPrx>>;
 
     class ReplicaObserverPrx;
-
-    class PatcherFeedbackPrx;
 
     class NodePrx;
 
@@ -845,114 +840,6 @@ protected:
     /// \endcond
 };
 
-class PatcherFeedbackPrx : public ::Ice::Proxy<PatcherFeedbackPrx, ::Ice::ObjectPrx>
-{
-public:
-
-    /**
-     * The patch completed successfully.
-     * @param context The Context map to send with the invocation.
-     */
-    void finished(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /**
-     * The patch completed successfully.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    ::std::future<void> finishedAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /**
-     * The patch completed successfully.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    finishedAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_finished(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
-    /// \endcond
-
-    /**
-     * The patch on the given node failed for the given reason.
-     * @param context The Context map to send with the invocation.
-     */
-    void failed(::std::string_view reason, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /**
-     * The patch on the given node failed for the given reason.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    ::std::future<void> failedAsync(::std::string_view reason, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /**
-     * The patch on the given node failed for the given reason.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    failedAsync(::std::string_view reason, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_failed(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, const ::Ice::Context&) const;
-    /// \endcond
-
-    /**
-     * Obtains the Slice type ID of this interface.
-     * @return The fully-scoped type ID.
-     */
-    static ::std::string_view ice_staticId() noexcept;
-
-    explicit PatcherFeedbackPrx(const ::Ice::ObjectPrx& other) : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    PatcherFeedbackPrx(const PatcherFeedbackPrx& other) noexcept : ::Ice::ObjectPrx(other)
-    {
-    }
-
-    PatcherFeedbackPrx(PatcherFeedbackPrx&& other) noexcept : ::Ice::ObjectPrx(::std::move(other))
-    {
-    }
-
-    PatcherFeedbackPrx(const ::Ice::CommunicatorPtr& communicator, std::string_view proxyString) :
-        ::Ice::ObjectPrx(communicator, proxyString)
-    {
-    }
-
-    PatcherFeedbackPrx& operator=(const PatcherFeedbackPrx& rhs) noexcept
-    {
-        ::Ice::ObjectPrx::operator=(rhs);
-        return *this;
-    }
-
-    PatcherFeedbackPrx& operator=(PatcherFeedbackPrx&& rhs) noexcept
-    {
-        ::Ice::ObjectPrx::operator=(::std::move(rhs));
-        return *this;
-    }
-
-    /// \cond INTERNAL
-    static PatcherFeedbackPrx _fromReference(::IceInternal::ReferencePtr ref) { return PatcherFeedbackPrx(::std::move(ref)); }
-
-protected:
-
-    PatcherFeedbackPrx() = default;
-
-    explicit PatcherFeedbackPrx(::IceInternal::ReferencePtr&& ref) : ::Ice::ObjectPrx(::std::move(ref))
-    {
-    }
-    /// \endcond
-};
-
 class NodePrx : public ::Ice::Proxy<NodePrx, FileReaderPrx, ReplicaObserverPrx>
 {
 public:
@@ -1076,40 +963,6 @@ public:
 
     /// \cond INTERNAL
     void _iceI_destroyServerWithoutRestart(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, ::std::string_view, ::std::int32_t, ::std::string_view, const ::Ice::Context&) const;
-    /// \endcond
-
-    /**
-     * Patch application and server distributions. If some servers using a distribution directory to patch are active,
-     * this method will raise a PatchException unless shutdown is set to true. In which case the servers will be
-     * shutdown.
-     * @param context The Context map to send with the invocation.
-     */
-    void patch(const ::std::optional<PatcherFeedbackPrx>& feedback, ::std::string_view application, ::std::string_view server, const InternalDistributionDescriptorPtr& appDistrib, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /**
-     * Patch application and server distributions. If some servers using a distribution directory to patch are active,
-     * this method will raise a PatchException unless shutdown is set to true. In which case the servers will be
-     * shutdown.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    ::std::future<void> patchAsync(const ::std::optional<PatcherFeedbackPrx>& feedback, ::std::string_view application, ::std::string_view server, const InternalDistributionDescriptorPtr& appDistrib, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /**
-     * Patch application and server distributions. If some servers using a distribution directory to patch are active,
-     * this method will raise a PatchException unless shutdown is set to true. In which case the servers will be
-     * shutdown.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    patchAsync(const ::std::optional<PatcherFeedbackPrx>& feedback, ::std::string_view application, ::std::string_view server, const InternalDistributionDescriptorPtr& appDistrib, bool shutdown, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_patch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::std::optional<PatcherFeedbackPrx>&, ::std::string_view, ::std::string_view, const InternalDistributionDescriptorPtr&, bool, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -2405,65 +2258,6 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-class InternalDistributionDescriptor : public ::Ice::Value
-{
-public:
-
-    InternalDistributionDescriptor() = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     * @param icepatch The proxy of the IcePatch2 server.
-     * @param directories The source directories.
-     */
-    InternalDistributionDescriptor(::std::string icepatch, ::Ice::StringSeq directories) :
-        icepatch(::std::move(icepatch)),
-        directories(::std::move(directories))
-    {
-    }
-
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
-    static ::std::string_view ice_staticId() noexcept;
-
-    ::std::string ice_id() const override;
-
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::string&, const ::Ice::StringSeq&> ice_tuple() const
-    {
-        return std::tie(icepatch, directories);
-    }
-
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
-    InternalDistributionDescriptorPtr ice_clone() const { return ::std::static_pointer_cast <InternalDistributionDescriptor>(_iceCloneImpl()); }
-
-    /**
-     * The proxy of the IcePatch2 server.
-     */
-    ::std::string icepatch;
-    /**
-     * The source directories.
-     */
-    ::Ice::StringSeq directories;
-
-protected:
-
-    InternalDistributionDescriptor(const InternalDistributionDescriptor&) = default;
-
-    ::Ice::ValuePtr _iceCloneImpl() const override;
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
-
-    void _iceReadImpl(::Ice::InputStream*) override;
-};
-
 class InternalServerDescriptor : public ::Ice::Value
 {
 public:
@@ -2483,8 +2277,6 @@ public:
      * @param activation The server activation mode.
      * @param activationTimeout The server activation timeout.
      * @param deactivationTimeout The server deactivation timeout.
-     * @param applicationDistrib Specifies if the server depends on the application distrib.
-     * @param distrib The distribution descriptor of this server.
      * @param processRegistered Specifies if a process object is registered.
      * @param options The server command line options.
      * @param envs The server environment variables.
@@ -2493,7 +2285,7 @@ public:
      * @param properties The configuration files of the server.
      * @param services IceBox service names
      */
-    InternalServerDescriptor(::std::string id, ::std::string application, ::std::string uuid, ::std::int32_t revision, ::std::string sessionId, ::std::string exe, ::std::string pwd, ::std::string user, ::std::string activation, ::std::string activationTimeout, ::std::string deactivationTimeout, bool applicationDistrib, ::IceGrid::InternalDistributionDescriptorPtr distrib, bool processRegistered, ::Ice::StringSeq options, ::Ice::StringSeq envs, ::Ice::StringSeq logs, ::IceGrid::InternalAdapterDescriptorSeq adapters, ::IceGrid::InternalDbEnvDescriptorSeq dbEnvs, ::IceGrid::PropertyDescriptorSeqDict properties, ::std::optional<::Ice::StringSeq> services) :
+    InternalServerDescriptor(::std::string id, ::std::string application, ::std::string uuid, ::std::int32_t revision, ::std::string sessionId, ::std::string exe, ::std::string pwd, ::std::string user, ::std::string activation, ::std::string activationTimeout, ::std::string deactivationTimeout, bool processRegistered, ::Ice::StringSeq options, ::Ice::StringSeq envs, ::Ice::StringSeq logs, ::IceGrid::InternalAdapterDescriptorSeq adapters, ::IceGrid::InternalDbEnvDescriptorSeq dbEnvs, ::IceGrid::PropertyDescriptorSeqDict properties, ::std::optional<::Ice::StringSeq> services) :
         id(::std::move(id)),
         application(::std::move(application)),
         uuid(::std::move(uuid)),
@@ -2505,8 +2297,6 @@ public:
         activation(::std::move(activation)),
         activationTimeout(::std::move(activationTimeout)),
         deactivationTimeout(::std::move(deactivationTimeout)),
-        applicationDistrib(applicationDistrib),
-        distrib(::std::move(distrib)),
         processRegistered(processRegistered),
         options(::std::move(options)),
         envs(::std::move(envs)),
@@ -2530,9 +2320,9 @@ public:
      * Obtains a tuple containing all of the value's data members.
      * @return The data members in a tuple.
      */
-    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::int32_t&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const bool&, const ::IceGrid::InternalDistributionDescriptorPtr&, const bool&, const ::Ice::StringSeq&, const ::Ice::StringSeq&, const ::Ice::StringSeq&, const ::IceGrid::InternalAdapterDescriptorSeq&, const ::IceGrid::InternalDbEnvDescriptorSeq&, const ::IceGrid::PropertyDescriptorSeqDict&, const ::std::optional<::Ice::StringSeq>&> ice_tuple() const
+    std::tuple<const ::std::string&, const ::std::string&, const ::std::string&, const ::std::int32_t&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const ::std::string&, const bool&, const ::Ice::StringSeq&, const ::Ice::StringSeq&, const ::Ice::StringSeq&, const ::IceGrid::InternalAdapterDescriptorSeq&, const ::IceGrid::InternalDbEnvDescriptorSeq&, const ::IceGrid::PropertyDescriptorSeqDict&, const ::std::optional<::Ice::StringSeq>&> ice_tuple() const
     {
-        return std::tie(id, application, uuid, revision, sessionId, exe, pwd, user, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, processRegistered, options, envs, logs, adapters, dbEnvs, properties, services);
+        return std::tie(id, application, uuid, revision, sessionId, exe, pwd, user, activation, activationTimeout, deactivationTimeout, processRegistered, options, envs, logs, adapters, dbEnvs, properties, services);
     }
 
     /**
@@ -2585,14 +2375,6 @@ public:
      * The server deactivation timeout.
      */
     ::std::string deactivationTimeout;
-    /**
-     * Specifies if the server depends on the application distrib.
-     */
-    bool applicationDistrib;
-    /**
-     * The distribution descriptor of this server.
-     */
-    ::IceGrid::InternalDistributionDescriptorPtr distrib;
     /**
      * Specifies if a process object is registered.
      */
@@ -3271,57 +3053,6 @@ public:
 
 using ReplicaObserverPtr = ::std::shared_ptr<ReplicaObserver>;
 
-class PatcherFeedback : public virtual ::Ice::Object
-{
-public:
-
-    using ProxyType = PatcherFeedbackPrx;
-
-    /**
-     * Obtains a list of the Slice type IDs representing the interfaces supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A list of fully-scoped type IDs.
-     */
-    ::std::vector<::std::string> ice_ids(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains a Slice type ID representing the most-derived interface supported by this object.
-     * @param current The Current object for the invocation.
-     * @return A fully-scoped type ID.
-     */
-    ::std::string ice_id(const ::Ice::Current& current) const override;
-
-    /**
-     * Obtains the Slice type ID corresponding to this interface.
-     * @return A fully-scoped type ID.
-     */
-    static ::std::string_view ice_staticId() noexcept;
-
-    /**
-     * The patch completed successfully.
-     * @param current The Current object for the invocation.
-     */
-    virtual void finished(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_finished(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
-    /// \endcond
-
-    /**
-     * The patch on the given node failed for the given reason.
-     * @param current The Current object for the invocation.
-     */
-    virtual void failed(::std::string reason, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_failed(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
-    /// \endcond
-
-    /// \cond INTERNAL
-    void dispatch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) override;
-    /// \endcond
-};
-
-using PatcherFeedbackPtr = ::std::shared_ptr<PatcherFeedback>;
-
 class Node : public virtual FileReader,
              public virtual ReplicaObserver
 {
@@ -3394,19 +3125,6 @@ public:
     virtual void destroyServerWithoutRestartAsync(::std::string name, ::std::string uuid, ::std::int32_t revision, ::std::string replicaName, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_destroyServerWithoutRestart(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
-    /// \endcond
-
-    /**
-     * Patch application and server distributions. If some servers using a distribution directory to patch are active,
-     * this method will raise a PatchException unless shutdown is set to true. In which case the servers will be
-     * shutdown.
-     * @param response The response callback.
-     * @param exception The exception callback.
-     * @param current The Current object for the invocation.
-     */
-    virtual void patchAsync(::std::optional<PatcherFeedbackPrx> feedback, ::std::string application, ::std::string server, InternalDistributionDescriptorPtr appDistrib, bool shutdown, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_patch(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**
@@ -3869,20 +3587,11 @@ struct StreamReader<::IceGrid::InternalAdapterDescriptor>
 };
 
 template<>
-struct StreamReader<::IceGrid::InternalDistributionDescriptor>
-{
-    static void read(InputStream* istr, ::IceGrid::InternalDistributionDescriptor& v)
-    {
-        istr->readAll(v.icepatch, v.directories);
-    }
-};
-
-template<>
 struct StreamWriter<::IceGrid::InternalServerDescriptor>
 {
     static void write(OutputStream* ostr, const ::IceGrid::InternalServerDescriptor& v)
     {
-        ostr->writeAll(v.id, v.application, v.uuid, v.revision, v.sessionId, v.exe, v.pwd, v.user, v.activation, v.activationTimeout, v.deactivationTimeout, v.applicationDistrib, v.distrib, v.processRegistered, v.options, v.envs, v.logs, v.adapters, v.dbEnvs, v.properties);
+        ostr->writeAll(v.id, v.application, v.uuid, v.revision, v.sessionId, v.exe, v.pwd, v.user, v.activation, v.activationTimeout, v.deactivationTimeout, v.processRegistered, v.options, v.envs, v.logs, v.adapters, v.dbEnvs, v.properties);
         ostr->writeAll({1}, v.services);
     }
 };
@@ -3892,7 +3601,7 @@ struct StreamReader<::IceGrid::InternalServerDescriptor>
 {
     static void read(InputStream* istr, ::IceGrid::InternalServerDescriptor& v)
     {
-        istr->readAll(v.id, v.application, v.uuid, v.revision, v.sessionId, v.exe, v.pwd, v.user, v.activation, v.activationTimeout, v.deactivationTimeout, v.applicationDistrib, v.distrib, v.processRegistered, v.options, v.envs, v.logs, v.adapters, v.dbEnvs, v.properties);
+        istr->readAll(v.id, v.application, v.uuid, v.revision, v.sessionId, v.exe, v.pwd, v.user, v.activation, v.activationTimeout, v.deactivationTimeout, v.processRegistered, v.options, v.envs, v.logs, v.adapters, v.dbEnvs, v.properties);
         istr->readAll({1}, v.services);
     }
 };

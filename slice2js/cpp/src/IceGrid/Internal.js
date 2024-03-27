@@ -76,35 +76,11 @@
 
     Slice.defineSequence(IceGrid, "InternalAdapterDescriptorSeqHelper", "Ice.ObjectHelper", false, "IceGrid.InternalAdapterDescriptor");
 
-    IceGrid.InternalDistributionDescriptor = class extends Ice.Value
-    {
-        constructor(icepatch = "", directories = null)
-        {
-            super();
-            this.icepatch = icepatch;
-            this.directories = directories;
-        }
-
-        _iceWriteMemberImpl(ostr)
-        {
-            ostr.writeString(this.icepatch);
-            Ice.StringSeqHelper.write(ostr, this.directories);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.icepatch = istr.readString();
-            this.directories = Ice.StringSeqHelper.read(istr);
-        }
-    };
-
-    Slice.defineValue(IceGrid.InternalDistributionDescriptor, "::IceGrid::InternalDistributionDescriptor");
-
     Slice.defineDictionary(IceGrid, "PropertyDescriptorSeqDict", "PropertyDescriptorSeqDictHelper", "Ice.StringHelper", "IceGrid.PropertyDescriptorSeqHelper", false, undefined, undefined, Ice.ArrayUtil.equals);
 
     IceGrid.InternalServerDescriptor = class extends Ice.Value
     {
-        constructor(id = "", application = "", uuid = "", revision = 0, sessionId = "", exe = "", pwd = "", user = "", activation = "", activationTimeout = "", deactivationTimeout = "", applicationDistrib = false, distrib = null, processRegistered = false, options = null, envs = null, logs = null, adapters = null, dbEnvs = null, properties = null, services = undefined)
+        constructor(id = "", application = "", uuid = "", revision = 0, sessionId = "", exe = "", pwd = "", user = "", activation = "", activationTimeout = "", deactivationTimeout = "", processRegistered = false, options = null, envs = null, logs = null, adapters = null, dbEnvs = null, properties = null, services = undefined)
         {
             super();
             this.id = id;
@@ -118,8 +94,6 @@
             this.activation = activation;
             this.activationTimeout = activationTimeout;
             this.deactivationTimeout = deactivationTimeout;
-            this.applicationDistrib = applicationDistrib;
-            this.distrib = distrib;
             this.processRegistered = processRegistered;
             this.options = options;
             this.envs = envs;
@@ -143,8 +117,6 @@
             ostr.writeString(this.activation);
             ostr.writeString(this.activationTimeout);
             ostr.writeString(this.deactivationTimeout);
-            ostr.writeBool(this.applicationDistrib);
-            ostr.writeValue(this.distrib);
             ostr.writeBool(this.processRegistered);
             Ice.StringSeqHelper.write(ostr, this.options);
             Ice.StringSeqHelper.write(ostr, this.envs);
@@ -168,8 +140,6 @@
             this.activation = istr.readString();
             this.activationTimeout = istr.readString();
             this.deactivationTimeout = istr.readString();
-            this.applicationDistrib = istr.readBool();
-            istr.readValue(obj => this.distrib = obj, IceGrid.InternalDistributionDescriptor);
             this.processRegistered = istr.readBool();
             this.options = Ice.StringSeqHelper.read(istr);
             this.envs = Ice.StringSeqHelper.read(istr);
@@ -406,25 +376,6 @@
         "replicaRemoved": [, , , , , [["IceGrid.InternalRegistryPrx"]], , , , ]
     });
 
-    const iceC_IceGrid_PatcherFeedback_ids = [
-        "::Ice::Object",
-        "::IceGrid::PatcherFeedback"
-    ];
-
-    IceGrid.PatcherFeedback = class extends Ice.Object
-    {
-    };
-
-    IceGrid.PatcherFeedbackPrx = class extends Ice.ObjectPrx
-    {
-    };
-
-    Slice.defineOperations(IceGrid.PatcherFeedback, IceGrid.PatcherFeedbackPrx, iceC_IceGrid_PatcherFeedback_ids, "::IceGrid::PatcherFeedback",
-    {
-        "finished": [, , , , , , , , , ],
-        "failed": [, , , , , [[7]], , , , ]
-    });
-
     const iceC_IceGrid_Node_ids = [
         "::Ice::Object",
         "::IceGrid::FileReader",
@@ -471,7 +422,6 @@
         [
             IceGrid.DeploymentException
         ], , ],
-        "patch": [, 2, 2, , , [["IceGrid.PatcherFeedbackPrx"], [7], [7], ["IceGrid.InternalDistributionDescriptor", true], [1]], , , true, ],
         "registerWithReplica": [, , , , , [["IceGrid.InternalRegistryPrx"]], , , , ],
         "getName": [, 2, 1, , [7], , , , , ],
         "getHostname": [, 2, 1, , [7], , , , , ],
@@ -623,8 +573,8 @@
         "registerWellKnownObjects": [, 2, 2, , , [["IceGrid.ObjectInfoSeqHelper"]], , , , ],
         "setAdapterDirectProxy": [, 2, 2, , , [[7], [7], [9]], ,
         [
-            IceGrid.AdapterExistsException,
-            IceGrid.AdapterNotExistException
+            IceGrid.AdapterNotExistException,
+            IceGrid.AdapterExistsException
         ], , ],
         "receivedUpdate": [, , , , , [[IceGrid.TopicName._helper], [3], [7]], , , , ],
         "destroy": [, , , , , , , , , ]
@@ -731,13 +681,13 @@
     {
         "registerNode": [, , , , ["IceGrid.NodeSessionPrx"], [["IceGrid.InternalNodeInfo", true], ["IceGrid.NodePrx"], [IceGrid.LoadInfo]], ,
         [
-            IceGrid.NodeActiveException,
-            IceGrid.PermissionDeniedException
+            IceGrid.PermissionDeniedException,
+            IceGrid.NodeActiveException
         ], true, ],
         "registerReplica": [, , , , ["IceGrid.ReplicaSessionPrx"], [["IceGrid.InternalReplicaInfo", true], ["IceGrid.InternalRegistryPrx"]], ,
         [
-            IceGrid.ReplicaActiveException,
-            IceGrid.PermissionDeniedException
+            IceGrid.PermissionDeniedException,
+            IceGrid.ReplicaActiveException
         ], true, ],
         "registerWithReplica": [, , , , , [["IceGrid.InternalRegistryPrx"]], , , , ],
         "getNodes": [, 2, 2, , ["IceGrid.NodePrxSeqHelper"], , , , , ],

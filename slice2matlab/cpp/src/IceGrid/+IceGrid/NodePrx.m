@@ -9,8 +9,6 @@
 %   destroyServerAsync - Destroy the given server.
 %   destroyServerWithoutRestart - Destroy the server if it's not active.
 %   destroyServerWithoutRestartAsync - Destroy the server if it's not active.
-%   patch - Patch application and server distributions.
-%   patchAsync - Patch application and server distributions.
 %   registerWithReplica - Establish a session to the given replica, this method only returns once the registration was attempted (unlike replicaAdded below).
 %   registerWithReplicaAsync - Establish a session to the given replica, this method only returns once the registration was attempted (unlike replicaAdded below).
 %   getName - Get the node name.
@@ -224,54 +222,6 @@ classdef NodePrx < IceGrid.FileReaderPrx & IceGrid.ReplicaObserverPrx
             os_.writeString(replicaName);
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('destroyServerWithoutRestart', 2, true, os_, 0, [], IceGrid.NodePrx.destroyServerWithoutRestart_ex_, varargin{:});
-        end
-        function patch(obj, feedback, application, server, appDistrib, shutdown, varargin)
-            % patch   Patch application and server distributions. If some servers using a distribution directory to patch are active,
-            % this method will raise a PatchException unless shutdown is set to true. In which case the servers will be
-            % shutdown.
-            %
-            % Parameters:
-            %   feedback (IceGrid.PatcherFeedbackPrx)
-            %   application (char)
-            %   server (char)
-            %   appDistrib (IceGrid.InternalDistributionDescriptor)
-            %   shutdown (logical)
-            %   context (containers.Map) - Optional request context.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeProxy(feedback);
-            os_.writeString(application);
-            os_.writeString(server);
-            os_.writeValue(appDistrib);
-            os_.writeBool(shutdown);
-            os_.writePendingValues();
-            obj.iceEndWriteParams(os_);
-            obj.iceInvoke('patch', 2, false, os_, false, {}, varargin{:});
-        end
-        function r_ = patchAsync(obj, feedback, application, server, appDistrib, shutdown, varargin)
-            % patchAsync   Patch application and server distributions. If some servers using a distribution directory to patch are active,
-            % this method will raise a PatchException unless shutdown is set to true. In which case the servers will be
-            % shutdown.
-            %
-            % Parameters:
-            %   feedback (IceGrid.PatcherFeedbackPrx)
-            %   application (char)
-            %   server (char)
-            %   appDistrib (IceGrid.InternalDistributionDescriptor)
-            %   shutdown (logical)
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeProxy(feedback);
-            os_.writeString(application);
-            os_.writeString(server);
-            os_.writeValue(appDistrib);
-            os_.writeBool(shutdown);
-            os_.writePendingValues();
-            obj.iceEndWriteParams(os_);
-            r_ = obj.iceInvokeAsync('patch', 2, false, os_, 0, [], {}, varargin{:});
         end
         function registerWithReplica(obj, replica, varargin)
             % registerWithReplica   Establish a session to the given replica, this method only returns once the registration was attempted (unlike

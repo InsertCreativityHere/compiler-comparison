@@ -487,10 +487,6 @@ module ::IceGrid
                 AdminPrx_mixin::OP_instantiateServer.invoke(self, [application, node, desc], context)
             end
 
-            def patchApplication(name, shutdown, context=nil)
-                AdminPrx_mixin::OP_patchApplication.invoke(self, [name, shutdown], context)
-            end
-
             def getApplicationInfo(name, context=nil)
                 AdminPrx_mixin::OP_getApplicationInfo.invoke(self, [name], context)
             end
@@ -537,10 +533,6 @@ module ::IceGrid
 
             def stopServer(id, context=nil)
                 AdminPrx_mixin::OP_stopServer.invoke(self, [id], context)
-            end
-
-            def patchServer(id, shutdown, context=nil)
-                AdminPrx_mixin::OP_patchServer.invoke(self, [id, shutdown], context)
             end
 
             def sendSignal(id, signal, context=nil)
@@ -667,7 +659,6 @@ module ::IceGrid
         AdminPrx_mixin::OP_updateApplicationWithoutRestart = ::Ice::__defineOperation('updateApplicationWithoutRestart', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::T_ApplicationUpdateDescriptor, false, 0]], [], nil, [::IceGrid::T_AccessDeniedException, ::IceGrid::T_DeploymentException, ::IceGrid::T_ApplicationNotExistException])
         AdminPrx_mixin::OP_removeApplication = ::Ice::__defineOperation('removeApplication', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [::IceGrid::T_AccessDeniedException, ::IceGrid::T_DeploymentException, ::IceGrid::T_ApplicationNotExistException])
         AdminPrx_mixin::OP_instantiateServer = ::Ice::__defineOperation('instantiateServer', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::IceGrid::T_ServerInstanceDescriptor, false, 0]], [], nil, [::IceGrid::T_AccessDeniedException, ::IceGrid::T_ApplicationNotExistException, ::IceGrid::T_DeploymentException])
-        AdminPrx_mixin::OP_patchApplication = ::Ice::__defineOperation('patchApplication', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_string, false, 0], [::Ice::T_bool, false, 0]], [], nil, [::IceGrid::T_ApplicationNotExistException, ::IceGrid::T_PatchException])
         AdminPrx_mixin::OP_getApplicationInfo = ::Ice::__defineOperation('getApplicationInfo', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_string, false, 0]], [], [::IceGrid::T_ApplicationInfo, false, 0], [::IceGrid::T_ApplicationNotExistException])
         AdminPrx_mixin::OP_getDefaultApplicationDescriptor = ::Ice::__defineOperation('getDefaultApplicationDescriptor', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::IceGrid::T_ApplicationDescriptor, false, 0], [::IceGrid::T_DeploymentException])
         AdminPrx_mixin::OP_getAllApplicationNames = ::Ice::__defineOperation('getAllApplicationNames', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::Ice::T_StringSeq, false, 0], [])
@@ -680,7 +671,6 @@ module ::IceGrid
         AdminPrx_mixin::OP_isServerEnabled = ::Ice::__defineOperation('isServerEnabled', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_string, false, 0]], [], [::Ice::T_bool, false, 0], [::IceGrid::T_ServerNotExistException, ::IceGrid::T_NodeUnreachableException, ::IceGrid::T_DeploymentException])
         AdminPrx_mixin::OP_startServer = ::Ice::__defineOperation('startServer', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_string, false, 0]], [], nil, [::IceGrid::T_ServerNotExistException, ::IceGrid::T_ServerStartException, ::IceGrid::T_NodeUnreachableException, ::IceGrid::T_DeploymentException])
         AdminPrx_mixin::OP_stopServer = ::Ice::__defineOperation('stopServer', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_string, false, 0]], [], nil, [::IceGrid::T_ServerNotExistException, ::IceGrid::T_ServerStopException, ::IceGrid::T_NodeUnreachableException, ::IceGrid::T_DeploymentException])
-        AdminPrx_mixin::OP_patchServer = ::Ice::__defineOperation('patchServer', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_string, false, 0], [::Ice::T_bool, false, 0]], [], nil, [::IceGrid::T_ServerNotExistException, ::IceGrid::T_NodeUnreachableException, ::IceGrid::T_DeploymentException, ::IceGrid::T_PatchException])
         AdminPrx_mixin::OP_sendSignal = ::Ice::__defineOperation('sendSignal', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0]], [], nil, [::IceGrid::T_ServerNotExistException, ::IceGrid::T_NodeUnreachableException, ::IceGrid::T_DeploymentException, ::IceGrid::T_BadSignalException])
         AdminPrx_mixin::OP_getAllServerIds = ::Ice::__defineOperation('getAllServerIds', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::Ice::T_StringSeq, false, 0], [])
         AdminPrx_mixin::OP_getAdapterInfo = ::Ice::__defineOperation('getAdapterInfo', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [[::Ice::T_string, false, 0]], [], [::IceGrid::T_AdapterInfoSeq, false, 0], [::IceGrid::T_AdapterNotExistException])

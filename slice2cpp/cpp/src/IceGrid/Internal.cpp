@@ -38,7 +38,6 @@ namespace
     const ::IceInternal::FactoryTableInit iceC_factoryTableInit;
     const ::IceInternal::DefaultValueFactoryInit<::IceGrid::InternalDbEnvDescriptor> iceC_IceGrid_InternalDbEnvDescriptor_init("::IceGrid::InternalDbEnvDescriptor");
     const ::IceInternal::DefaultValueFactoryInit<::IceGrid::InternalAdapterDescriptor> iceC_IceGrid_InternalAdapterDescriptor_init("::IceGrid::InternalAdapterDescriptor");
-    const ::IceInternal::DefaultValueFactoryInit<::IceGrid::InternalDistributionDescriptor> iceC_IceGrid_InternalDistributionDescriptor_init("::IceGrid::InternalDistributionDescriptor");
     const ::IceInternal::DefaultValueFactoryInit<::IceGrid::InternalServerDescriptor> iceC_IceGrid_InternalServerDescriptor_init("::IceGrid::InternalServerDescriptor");
     const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::AdapterActiveException> iceC_IceGrid_AdapterActiveException_init("::IceGrid::AdapterActiveException");
     const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::AdapterNotActiveException> iceC_IceGrid_AdapterNotActiveException_init("::IceGrid::AdapterNotActiveException");
@@ -744,72 +743,6 @@ IceGrid::ReplicaObserverPrx::ice_staticId() noexcept
     return typeId;
 }
 
-void
-IceGrid::PatcherFeedbackPrx::finished(const ::Ice::Context& context) const
-{
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &PatcherFeedbackPrx::_iceI_finished, context).get();
-}
-
-::std::future<void>
-IceGrid::PatcherFeedbackPrx::finishedAsync(const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &PatcherFeedbackPrx::_iceI_finished, context);
-}
-
-::std::function<void()>
-IceGrid::PatcherFeedbackPrx::finishedAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::PatcherFeedbackPrx::_iceI_finished, context);
-}
-
-void
-IceGrid::PatcherFeedbackPrx::_iceI_finished(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
-{
-    static constexpr ::std::string_view operationName = "finished";
-
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-
-void
-IceGrid::PatcherFeedbackPrx::failed(::std::string_view iceP_reason, const ::Ice::Context& context) const
-{
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &PatcherFeedbackPrx::_iceI_failed, iceP_reason, context).get();
-}
-
-::std::future<void>
-IceGrid::PatcherFeedbackPrx::failedAsync(::std::string_view iceP_reason, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &PatcherFeedbackPrx::_iceI_failed, iceP_reason, context);
-}
-
-::std::function<void()>
-IceGrid::PatcherFeedbackPrx::failedAsync(::std::string_view iceP_reason, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::PatcherFeedbackPrx::_iceI_failed, iceP_reason, context);
-}
-
-void
-IceGrid::PatcherFeedbackPrx::_iceI_failed(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_reason, const ::Ice::Context& context) const
-{
-    static constexpr ::std::string_view operationName = "failed";
-
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_reason);
-        },
-        nullptr);
-}
-
-::std::string_view
-IceGrid::PatcherFeedbackPrx::ice_staticId() noexcept
-{
-    static constexpr ::std::string_view typeId = "::IceGrid::PatcherFeedback";
-    return typeId;
-}
-
 ::std::optional<::IceGrid::ServerPrx>
 IceGrid::NodePrx::loadServer(const InternalServerDescriptorPtr& iceP_svr, ::std::string_view iceP_replicaName, AdapterPrxDict& iceP_adapters, ::std::int32_t& iceP_activateTimeout, ::std::int32_t& iceP_deactivateTimeout, const ::Ice::Context& context) const
 {
@@ -1018,38 +951,6 @@ IceGrid::NodePrx::_iceI_destroyServerWithoutRestart(const ::std::shared_ptr<::Ic
             {
             }
         });
-}
-
-void
-IceGrid::NodePrx::patch(const ::std::optional<PatcherFeedbackPrx>& iceP_feedback, ::std::string_view iceP_application, ::std::string_view iceP_server, const InternalDistributionDescriptorPtr& iceP_appDistrib, bool iceP_shutdown, const ::Ice::Context& context) const
-{
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &NodePrx::_iceI_patch, iceP_feedback, iceP_application, iceP_server, iceP_appDistrib, iceP_shutdown, context).get();
-}
-
-::std::future<void>
-IceGrid::NodePrx::patchAsync(const ::std::optional<PatcherFeedbackPrx>& iceP_feedback, ::std::string_view iceP_application, ::std::string_view iceP_server, const InternalDistributionDescriptorPtr& iceP_appDistrib, bool iceP_shutdown, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &NodePrx::_iceI_patch, iceP_feedback, iceP_application, iceP_server, iceP_appDistrib, iceP_shutdown, context);
-}
-
-::std::function<void()>
-IceGrid::NodePrx::patchAsync(const ::std::optional<PatcherFeedbackPrx>& iceP_feedback, ::std::string_view iceP_application, ::std::string_view iceP_server, const InternalDistributionDescriptorPtr& iceP_appDistrib, bool iceP_shutdown, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::NodePrx::_iceI_patch, iceP_feedback, iceP_application, iceP_server, iceP_appDistrib, iceP_shutdown, context);
-}
-
-void
-IceGrid::NodePrx::_iceI_patch(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::std::optional<PatcherFeedbackPrx>& iceP_feedback, ::std::string_view iceP_application, ::std::string_view iceP_server, const InternalDistributionDescriptorPtr& iceP_appDistrib, bool iceP_shutdown, const ::Ice::Context& context) const
-{
-    static constexpr ::std::string_view operationName = "patch";
-
-    outAsync->invoke(operationName, ::Ice::OperationMode::Idempotent, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_feedback, iceP_application, iceP_server, iceP_appDistrib, iceP_shutdown);
-            ostr->writePendingValues();
-        },
-        nullptr);
 }
 
 void
@@ -1688,11 +1589,11 @@ IceGrid::ReplicaSessionPrx::_iceI_setAdapterDirectProxy(const ::std::shared_ptr<
             {
                 ex.ice_throw();
             }
-            catch(const AdapterNotExistException&)
+            catch(const AdapterExistsException&)
             {
                 throw;
             }
-            catch(const AdapterExistsException&)
+            catch(const AdapterNotExistException&)
             {
                 throw;
             }
@@ -1804,11 +1705,11 @@ IceGrid::InternalRegistryPrx::_iceI_registerNode(const ::std::shared_ptr<::IceIn
             {
                 ex.ice_throw();
             }
-            catch(const PermissionDeniedException&)
+            catch(const NodeActiveException&)
             {
                 throw;
             }
-            catch(const NodeActiveException&)
+            catch(const PermissionDeniedException&)
             {
                 throw;
             }
@@ -1854,11 +1755,11 @@ IceGrid::InternalRegistryPrx::_iceI_registerReplica(const ::std::shared_ptr<::Ic
             {
                 ex.ice_throw();
             }
-            catch(const PermissionDeniedException&)
+            catch(const ReplicaActiveException&)
             {
                 throw;
             }
-            catch(const ReplicaActiveException&)
+            catch(const PermissionDeniedException&)
             {
                 throw;
             }
@@ -2183,41 +2084,6 @@ IceGrid::InternalAdapterDescriptor::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
     ::Ice::StreamReader<InternalAdapterDescriptor>::read(istr, *this);
-    istr->endSlice();
-}
-
-::std::string
-IceGrid::InternalDistributionDescriptor::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
-IceGrid::InternalDistributionDescriptor::ice_staticId() noexcept
-{
-    static constexpr ::std::string_view typeId = "::IceGrid::InternalDistributionDescriptor";
-    return typeId;
-}
-
-::Ice::ValuePtr
-IceGrid::InternalDistributionDescriptor::_iceCloneImpl() const
-{
-    return CloneEnabler<InternalDistributionDescriptor>::clone(*this);
-}
-
-void
-IceGrid::InternalDistributionDescriptor::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<InternalDistributionDescriptor>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceGrid::InternalDistributionDescriptor::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader<InternalDistributionDescriptor>::read(istr, *this);
     istr->endSlice();
 }
 
@@ -3170,107 +3036,6 @@ IceGrid::ReplicaObserver::dispatch(::Ice::IncomingRequest& request, ::std::funct
 /// \endcond
 
 ::std::vector<::std::string>
-IceGrid::PatcherFeedback::ice_ids(const ::Ice::Current&) const
-{
-    static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::IceGrid::PatcherFeedback"};
-    return allTypeIds;
-}
-
-::std::string
-IceGrid::PatcherFeedback::ice_id(const ::Ice::Current&) const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
-IceGrid::PatcherFeedback::ice_staticId() noexcept
-{
-    static constexpr ::std::string_view typeId = "::IceGrid::PatcherFeedback";
-    return typeId;
-}
-
-/// \cond INTERNAL
-void
-IceGrid::PatcherFeedback::_iceD_finished(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
-    request.inputStream().skipEmptyEncapsulation();
-    this->finished(request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceGrid::PatcherFeedback::_iceD_failed(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
-    auto istr = &request.inputStream();
-    istr->startEncapsulation();
-    ::std::string iceP_reason;
-    istr->readAll(iceP_reason);
-    istr->endEncapsulation();
-    this->failed(::std::move(iceP_reason), request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceGrid::PatcherFeedback::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
-{
-    static constexpr ::std::string_view allOperations[] = {"failed", "finished", "ice_id", "ice_ids", "ice_isA", "ice_ping"};
-
-    const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 6, current.operation);
-    if(r.first == r.second)
-    {
-        sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
-        return;
-    }
-
-    switch(r.first - allOperations)
-    {
-        case 0:
-        {
-            _iceD_failed(request, ::std::move(sendResponse));
-            break;
-        }
-        case 1:
-        {
-            _iceD_finished(request, ::std::move(sendResponse));
-            break;
-        }
-        case 2:
-        {
-            _iceD_ice_id(request, ::std::move(sendResponse));
-            break;
-        }
-        case 3:
-        {
-            _iceD_ice_ids(request, ::std::move(sendResponse));
-            break;
-        }
-        case 4:
-        {
-            _iceD_ice_isA(request, ::std::move(sendResponse));
-            break;
-        }
-        case 5:
-        {
-            _iceD_ice_ping(request, ::std::move(sendResponse));
-            break;
-        }
-        default:
-        {
-            assert(false);
-            sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
-        }
-    }
-}
-/// \endcond
-
-::std::vector<::std::string>
 IceGrid::Node::ice_ids(const ::Ice::Current&) const
 {
     static const ::std::vector<::std::string> allTypeIds = {"::Ice::Object", "::IceGrid::FileReader", "::IceGrid::Node", "::IceGrid::ReplicaObserver"};
@@ -3406,33 +3171,6 @@ IceGrid::Node::_iceD_destroyServerWithoutRestart(::Ice::IncomingRequest& request
 
 /// \cond INTERNAL
 void
-IceGrid::Node::_iceD_patch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
-{
-    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
-    auto istr = &request.inputStream();
-    istr->startEncapsulation();
-    ::std::optional<PatcherFeedbackPrx> iceP_feedback;
-    ::std::string iceP_application;
-    ::std::string iceP_server;
-    InternalDistributionDescriptorPtr iceP_appDistrib;
-    bool iceP_shutdown;
-    istr->readAll(iceP_feedback, iceP_application, iceP_server, iceP_appDistrib, iceP_shutdown);
-    istr->readPendingValues();
-    istr->endEncapsulation();
-    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
-    try
-    {
-        this->patchAsync(::std::move(iceP_feedback), ::std::move(iceP_application), ::std::move(iceP_server), ::std::move(iceP_appDistrib), iceP_shutdown, [responseHandler] { responseHandler->sendEmptyResponse(); }, [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
-    }
-    catch (...)
-    {
-        responseHandler->sendException(::std::current_exception());
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
 IceGrid::Node::_iceD_registerWithReplica(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
@@ -3521,10 +3259,10 @@ IceGrid::Node::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<v
 void
 IceGrid::Node::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"destroyServer", "destroyServerWithoutRestart", "getHostname", "getLoad", "getName", "getOffsetFromEnd", "getProcessorSocketCount", "ice_id", "ice_ids", "ice_isA", "ice_ping", "loadServer", "loadServerWithoutRestart", "patch", "read", "registerWithReplica", "replicaAdded", "replicaInit", "replicaRemoved", "shutdown"};
+    static constexpr ::std::string_view allOperations[] = {"destroyServer", "destroyServerWithoutRestart", "getHostname", "getLoad", "getName", "getOffsetFromEnd", "getProcessorSocketCount", "ice_id", "ice_ids", "ice_isA", "ice_ping", "loadServer", "loadServerWithoutRestart", "read", "registerWithReplica", "replicaAdded", "replicaInit", "replicaRemoved", "shutdown"};
 
     const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 20, current.operation);
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 19, current.operation);
     if(r.first == r.second)
     {
         sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
@@ -3600,35 +3338,30 @@ IceGrid::Node::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::
         }
         case 13:
         {
-            _iceD_patch(request, ::std::move(sendResponse));
+            _iceD_read(request, ::std::move(sendResponse));
             break;
         }
         case 14:
         {
-            _iceD_read(request, ::std::move(sendResponse));
+            _iceD_registerWithReplica(request, ::std::move(sendResponse));
             break;
         }
         case 15:
         {
-            _iceD_registerWithReplica(request, ::std::move(sendResponse));
+            _iceD_replicaAdded(request, ::std::move(sendResponse));
             break;
         }
         case 16:
         {
-            _iceD_replicaAdded(request, ::std::move(sendResponse));
+            _iceD_replicaInit(request, ::std::move(sendResponse));
             break;
         }
         case 17:
         {
-            _iceD_replicaInit(request, ::std::move(sendResponse));
-            break;
-        }
-        case 18:
-        {
             _iceD_replicaRemoved(request, ::std::move(sendResponse));
             break;
         }
-        case 19:
+        case 18:
         {
             _iceD_shutdown(request, ::std::move(sendResponse));
             break;

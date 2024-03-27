@@ -96,41 +96,13 @@ if 'InternalAdapterDescriptor' not in _M_IceGrid.__dict__:
 if '_t_InternalAdapterDescriptorSeq' not in _M_IceGrid.__dict__:
     _M_IceGrid._t_InternalAdapterDescriptorSeq = IcePy.defineSequence('::IceGrid::InternalAdapterDescriptorSeq', (), _M_IceGrid._t_InternalAdapterDescriptor)
 
-if 'InternalDistributionDescriptor' not in _M_IceGrid.__dict__:
-    _M_IceGrid.InternalDistributionDescriptor = Ice.createTempClass()
-    class InternalDistributionDescriptor(Ice.Value):
-        def __init__(self, icepatch='', directories=None):
-            self.icepatch = icepatch
-            self.directories = directories
-
-        def ice_id(self):
-            return '::IceGrid::InternalDistributionDescriptor'
-
-        @staticmethod
-        def ice_staticId():
-            return '::IceGrid::InternalDistributionDescriptor'
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_IceGrid._t_InternalDistributionDescriptor)
-
-        __repr__ = __str__
-
-    _M_IceGrid._t_InternalDistributionDescriptor = IcePy.defineValue('::IceGrid::InternalDistributionDescriptor', InternalDistributionDescriptor, -1, (), False, None, (
-        ('icepatch', (), IcePy._t_string, False, 0),
-        ('directories', (), _M_Ice._t_StringSeq, False, 0)
-    ))
-    InternalDistributionDescriptor._ice_type = _M_IceGrid._t_InternalDistributionDescriptor
-
-    _M_IceGrid.InternalDistributionDescriptor = InternalDistributionDescriptor
-    del InternalDistributionDescriptor
-
 if '_t_PropertyDescriptorSeqDict' not in _M_IceGrid.__dict__:
     _M_IceGrid._t_PropertyDescriptorSeqDict = IcePy.defineDictionary('::IceGrid::PropertyDescriptorSeqDict', (), IcePy._t_string, _M_IceGrid._t_PropertyDescriptorSeq)
 
 if 'InternalServerDescriptor' not in _M_IceGrid.__dict__:
     _M_IceGrid.InternalServerDescriptor = Ice.createTempClass()
     class InternalServerDescriptor(Ice.Value):
-        def __init__(self, id='', application='', uuid='', revision=0, sessionId='', exe='', pwd='', user='', activation='', activationTimeout='', deactivationTimeout='', applicationDistrib=False, distrib=None, processRegistered=False, options=None, envs=None, logs=None, adapters=None, dbEnvs=None, properties=None, services=Ice.Unset):
+        def __init__(self, id='', application='', uuid='', revision=0, sessionId='', exe='', pwd='', user='', activation='', activationTimeout='', deactivationTimeout='', processRegistered=False, options=None, envs=None, logs=None, adapters=None, dbEnvs=None, properties=None, services=Ice.Unset):
             self.id = id
             self.application = application
             self.uuid = uuid
@@ -142,8 +114,6 @@ if 'InternalServerDescriptor' not in _M_IceGrid.__dict__:
             self.activation = activation
             self.activationTimeout = activationTimeout
             self.deactivationTimeout = deactivationTimeout
-            self.applicationDistrib = applicationDistrib
-            self.distrib = distrib
             self.processRegistered = processRegistered
             self.options = options
             self.envs = envs
@@ -179,8 +149,6 @@ if 'InternalServerDescriptor' not in _M_IceGrid.__dict__:
         ('activation', (), IcePy._t_string, False, 0),
         ('activationTimeout', (), IcePy._t_string, False, 0),
         ('deactivationTimeout', (), IcePy._t_string, False, 0),
-        ('applicationDistrib', (), IcePy._t_bool, False, 0),
-        ('distrib', (), _M_IceGrid._t_InternalDistributionDescriptor, False, 0),
         ('processRegistered', (), IcePy._t_bool, False, 0),
         ('options', (), _M_Ice._t_StringSeq, False, 0),
         ('envs', (), _M_Ice._t_StringSeq, False, 0),
@@ -1020,110 +988,6 @@ if 'ReplicaObserverPrx' not in _M_IceGrid.__dict__:
     _M_IceGrid.ReplicaObserver = ReplicaObserver
     del ReplicaObserver
 
-_M_IceGrid._t_PatcherFeedback = IcePy.defineValue('::IceGrid::PatcherFeedback', Ice.Value, -1, (), True, None, ())
-
-if 'PatcherFeedbackPrx' not in _M_IceGrid.__dict__:
-    _M_IceGrid.PatcherFeedbackPrx = Ice.createTempClass()
-    class PatcherFeedbackPrx(Ice.ObjectPrx):
-
-        """
-         The patch completed successfully.
-        Arguments:
-        context -- The request context for the invocation.
-        """
-        def finished(self, context=None):
-            return _M_IceGrid.PatcherFeedback._op_finished.invoke(self, ((), context))
-
-        """
-         The patch completed successfully.
-        Arguments:
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
-        def finishedAsync(self, context=None):
-            return _M_IceGrid.PatcherFeedback._op_finished.invokeAsync(self, ((), context))
-
-        """
-         The patch on the given node failed for the given reason.
-        Arguments:
-        reason -- 
-        context -- The request context for the invocation.
-        """
-        def failed(self, reason, context=None):
-            return _M_IceGrid.PatcherFeedback._op_failed.invoke(self, ((reason, ), context))
-
-        """
-         The patch on the given node failed for the given reason.
-        Arguments:
-        reason -- 
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
-        def failedAsync(self, reason, context=None):
-            return _M_IceGrid.PatcherFeedback._op_failed.invokeAsync(self, ((reason, ), context))
-
-        @staticmethod
-        def checkedCast(proxy, facetOrContext=None, context=None):
-            return _M_IceGrid.PatcherFeedbackPrx.ice_checkedCast(proxy, '::IceGrid::PatcherFeedback', facetOrContext, context)
-
-        @staticmethod
-        def uncheckedCast(proxy, facet=None):
-            return _M_IceGrid.PatcherFeedbackPrx.ice_uncheckedCast(proxy, facet)
-
-        @staticmethod
-        def ice_staticId():
-            return '::IceGrid::PatcherFeedback'
-    _M_IceGrid._t_PatcherFeedbackPrx = IcePy.defineProxy('::IceGrid::PatcherFeedback', PatcherFeedbackPrx)
-
-    _M_IceGrid.PatcherFeedbackPrx = PatcherFeedbackPrx
-    del PatcherFeedbackPrx
-
-    _M_IceGrid.PatcherFeedback = Ice.createTempClass()
-    class PatcherFeedback(Ice.Object):
-
-        def ice_ids(self, current=None):
-            return ('::Ice::Object', '::IceGrid::PatcherFeedback')
-
-        def ice_id(self, current=None):
-            return '::IceGrid::PatcherFeedback'
-
-        @staticmethod
-        def ice_staticId():
-            return '::IceGrid::PatcherFeedback'
-
-        def finished(self, current=None):
-            """
-             The patch completed successfully.
-            Arguments:
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            """
-            raise NotImplementedError("servant method 'finished' not implemented")
-
-        def failed(self, reason, current=None):
-            """
-             The patch on the given node failed for the given reason.
-            Arguments:
-            reason -- 
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            """
-            raise NotImplementedError("servant method 'failed' not implemented")
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_IceGrid._t_PatcherFeedbackDisp)
-
-        __repr__ = __str__
-
-    _M_IceGrid._t_PatcherFeedbackDisp = IcePy.defineClass('::IceGrid::PatcherFeedback', PatcherFeedback, (), None, ())
-    PatcherFeedback._ice_type = _M_IceGrid._t_PatcherFeedbackDisp
-
-    PatcherFeedback._op_finished = IcePy.Operation('finished', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), None, ())
-    PatcherFeedback._op_failed = IcePy.Operation('failed', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, ())
-
-    _M_IceGrid.PatcherFeedback = PatcherFeedback
-    del PatcherFeedback
-
 _M_IceGrid._t_Node = IcePy.defineValue('::IceGrid::Node', Ice.Value, -1, (), True, None, ())
 
 if 'NodePrx' not in _M_IceGrid.__dict__:
@@ -1237,37 +1101,6 @@ if 'NodePrx' not in _M_IceGrid.__dict__:
         """
         def destroyServerWithoutRestartAsync(self, name, uuid, revision, replicaName, context=None):
             return _M_IceGrid.Node._op_destroyServerWithoutRestart.invokeAsync(self, ((name, uuid, revision, replicaName), context))
-
-        """
-         Patch application and server distributions. If some servers using a distribution directory to patch are active,
-         this method will raise a PatchException unless shutdown is set to true. In which case the servers will be
-         shutdown.
-        Arguments:
-        feedback -- 
-        application -- 
-        server -- 
-        appDistrib -- 
-        shutdown -- 
-        context -- The request context for the invocation.
-        """
-        def patch(self, feedback, application, server, appDistrib, shutdown, context=None):
-            return _M_IceGrid.Node._op_patch.invoke(self, ((feedback, application, server, appDistrib, shutdown), context))
-
-        """
-         Patch application and server distributions. If some servers using a distribution directory to patch are active,
-         this method will raise a PatchException unless shutdown is set to true. In which case the servers will be
-         shutdown.
-        Arguments:
-        feedback -- 
-        application -- 
-        server -- 
-        appDistrib -- 
-        shutdown -- 
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
-        def patchAsync(self, feedback, application, server, appDistrib, shutdown, context=None):
-            return _M_IceGrid.Node._op_patch.invokeAsync(self, ((feedback, application, server, appDistrib, shutdown), context))
 
         """
          Establish a session to the given replica, this method only returns once the registration was attempted (unlike
@@ -1455,22 +1288,6 @@ if 'NodePrx' not in _M_IceGrid.__dict__:
             """
             raise NotImplementedError("servant method 'destroyServerWithoutRestart' not implemented")
 
-        def patch(self, feedback, application, server, appDistrib, shutdown, current=None):
-            """
-             Patch application and server distributions. If some servers using a distribution directory to patch are active,
-             this method will raise a PatchException unless shutdown is set to true. In which case the servers will be
-             shutdown.
-            Arguments:
-            feedback -- 
-            application -- 
-            server -- 
-            appDistrib -- 
-            shutdown -- 
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            """
-            raise NotImplementedError("servant method 'patch' not implemented")
-
         def registerWithReplica(self, replica, current=None):
             """
              Establish a session to the given replica, this method only returns once the registration was attempted (unlike
@@ -1539,7 +1356,6 @@ if 'NodePrx' not in _M_IceGrid.__dict__:
     Node._op_loadServerWithoutRestart = IcePy.Operation('loadServerWithoutRestart', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, True, None, (), (((), _M_IceGrid._t_InternalServerDescriptor, False, 0), ((), IcePy._t_string, False, 0)), (((), _M_IceGrid._t_AdapterPrxDict, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_int, False, 0)), ((), _M_IceGrid._t_ServerPrx, False, 0), (_M_IceGrid._t_DeploymentException,))
     Node._op_destroyServer = IcePy.Operation('destroyServer', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, True, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_string, False, 0)), (), None, (_M_IceGrid._t_DeploymentException,))
     Node._op_destroyServerWithoutRestart = IcePy.Operation('destroyServerWithoutRestart', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, True, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_int, False, 0), ((), IcePy._t_string, False, 0)), (), None, (_M_IceGrid._t_DeploymentException,))
-    Node._op_patch = IcePy.Operation('patch', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, True, None, (), (((), _M_IceGrid._t_PatcherFeedbackPrx, False, 0), ((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), _M_IceGrid._t_InternalDistributionDescriptor, False, 0), ((), IcePy._t_bool, False, 0)), (), None, ())
     Node._op_registerWithReplica = IcePy.Operation('registerWithReplica', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_IceGrid._t_InternalRegistryPrx, False, 0),), (), None, ())
     Node._op_getName = IcePy.Operation('getName', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())
     Node._op_getHostname = IcePy.Operation('getHostname', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), IcePy._t_string, False, 0), ())

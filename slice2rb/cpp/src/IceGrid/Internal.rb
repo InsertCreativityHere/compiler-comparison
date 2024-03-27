@@ -80,30 +80,6 @@ module ::IceGrid
         T_InternalAdapterDescriptorSeq = ::Ice::__defineSequence('::IceGrid::InternalAdapterDescriptorSeq', ::IceGrid::T_InternalAdapterDescriptor)
     end
 
-    if not defined?(::IceGrid::InternalDistributionDescriptor_Mixin)
-
-        module ::IceGrid::InternalDistributionDescriptor_Mixin
-        end
-        class InternalDistributionDescriptor < ::Ice::Value
-
-            def initialize(icepatch='', directories=nil)
-                @icepatch = icepatch
-                @directories = directories
-            end
-
-            attr_accessor :icepatch, :directories
-        end
-
-        if not defined?(::IceGrid::T_InternalDistributionDescriptor)
-            T_InternalDistributionDescriptor = ::Ice::__declareClass('::IceGrid::InternalDistributionDescriptor')
-        end
-
-        T_InternalDistributionDescriptor.defineClass(InternalDistributionDescriptor, -1, false, nil, [
-            ['icepatch', ::Ice::T_string, false, 0],
-            ['directories', ::Ice::T_StringSeq, false, 0]
-        ])
-    end
-
     if not defined?(::IceGrid::T_PropertyDescriptorSeqDict)
         T_PropertyDescriptorSeqDict = ::Ice::__defineDictionary('::IceGrid::PropertyDescriptorSeqDict', ::Ice::T_string, ::IceGrid::T_PropertyDescriptorSeq)
     end
@@ -114,7 +90,7 @@ module ::IceGrid
         end
         class InternalServerDescriptor < ::Ice::Value
 
-            def initialize(id='', application='', uuid='', revision=0, sessionId='', exe='', pwd='', user='', activation='', activationTimeout='', deactivationTimeout='', applicationDistrib=false, distrib=nil, processRegistered=false, options=nil, envs=nil, logs=nil, adapters=nil, dbEnvs=nil, properties=nil, services=::Ice::Unset)
+            def initialize(id='', application='', uuid='', revision=0, sessionId='', exe='', pwd='', user='', activation='', activationTimeout='', deactivationTimeout='', processRegistered=false, options=nil, envs=nil, logs=nil, adapters=nil, dbEnvs=nil, properties=nil, services=::Ice::Unset)
                 @id = id
                 @application = application
                 @uuid = uuid
@@ -126,8 +102,6 @@ module ::IceGrid
                 @activation = activation
                 @activationTimeout = activationTimeout
                 @deactivationTimeout = deactivationTimeout
-                @applicationDistrib = applicationDistrib
-                @distrib = distrib
                 @processRegistered = processRegistered
                 @options = options
                 @envs = envs
@@ -138,7 +112,7 @@ module ::IceGrid
                 @services = services
             end
 
-            attr_accessor :id, :application, :uuid, :revision, :sessionId, :exe, :pwd, :user, :activation, :activationTimeout, :deactivationTimeout, :applicationDistrib, :distrib, :processRegistered, :options, :envs, :logs, :adapters, :dbEnvs, :properties, :services
+            attr_accessor :id, :application, :uuid, :revision, :sessionId, :exe, :pwd, :user, :activation, :activationTimeout, :deactivationTimeout, :processRegistered, :options, :envs, :logs, :adapters, :dbEnvs, :properties, :services
         end
 
         if not defined?(::IceGrid::T_InternalServerDescriptor)
@@ -157,8 +131,6 @@ module ::IceGrid
             ['activation', ::Ice::T_string, false, 0],
             ['activationTimeout', ::Ice::T_string, false, 0],
             ['deactivationTimeout', ::Ice::T_string, false, 0],
-            ['applicationDistrib', ::Ice::T_bool, false, 0],
-            ['distrib', ::IceGrid::T_InternalDistributionDescriptor, false, 0],
             ['processRegistered', ::Ice::T_bool, false, 0],
             ['options', ::Ice::T_StringSeq, false, 0],
             ['envs', ::Ice::T_StringSeq, false, 0],
@@ -402,37 +374,6 @@ module ::IceGrid
         ReplicaObserverPrx_mixin::OP_replicaRemoved = ::Ice::__defineOperation('replicaRemoved', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::T_InternalRegistryPrx, false, 0]], [], nil, [])
     end
 
-    if not defined?(::IceGrid::PatcherFeedback_Mixin)
-
-        module ::IceGrid::PatcherFeedback_Mixin
-        end
-        module PatcherFeedbackPrx_mixin
-
-            def finished(context=nil)
-                PatcherFeedbackPrx_mixin::OP_finished.invoke(self, [], context)
-            end
-
-            def failed(reason, context=nil)
-                PatcherFeedbackPrx_mixin::OP_failed.invoke(self, [reason], context)
-            end
-        end
-
-        class PatcherFeedbackPrx < ::Ice::ObjectPrx
-            include ::Ice::Proxy_mixin
-            include PatcherFeedbackPrx_mixin
-        end
-
-        if not defined?(::IceGrid::T_PatcherFeedbackPrx)
-            T_PatcherFeedback = ::Ice::__declareClass('::IceGrid::PatcherFeedback')
-            T_PatcherFeedbackPrx = ::Ice::__declareProxy('::IceGrid::PatcherFeedback')
-        end
-
-        T_PatcherFeedbackPrx.defineProxy(PatcherFeedbackPrx, nil, [])
-
-        PatcherFeedbackPrx_mixin::OP_finished = ::Ice::__defineOperation('finished', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
-        PatcherFeedbackPrx_mixin::OP_failed = ::Ice::__defineOperation('failed', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [])
-    end
-
     if not defined?(::IceGrid::Node_Mixin)
 
         module ::IceGrid::Node_Mixin
@@ -455,10 +396,6 @@ module ::IceGrid
 
             def destroyServerWithoutRestart(name, uuid, revision, replicaName, context=nil)
                 NodePrx_mixin::OP_destroyServerWithoutRestart.invoke(self, [name, uuid, revision, replicaName], context)
-            end
-
-            def patch(feedback, application, server, appDistrib, shutdown, context=nil)
-                NodePrx_mixin::OP_patch.invoke(self, [feedback, application, server, appDistrib, shutdown], context)
             end
 
             def registerWithReplica(replica, context=nil)
@@ -502,7 +439,6 @@ module ::IceGrid
         NodePrx_mixin::OP_loadServerWithoutRestart = ::Ice::__defineOperation('loadServerWithoutRestart', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, true, nil, [[::IceGrid::T_InternalServerDescriptor, false, 0], [::Ice::T_string, false, 0]], [[::IceGrid::T_AdapterPrxDict, false, 0], [::Ice::T_int, false, 0], [::Ice::T_int, false, 0]], [::IceGrid::T_ServerPrx, false, 0], [::IceGrid::T_DeploymentException])
         NodePrx_mixin::OP_destroyServer = ::Ice::__defineOperation('destroyServer', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, true, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_int, false, 0], [::Ice::T_string, false, 0]], [], nil, [::IceGrid::T_DeploymentException])
         NodePrx_mixin::OP_destroyServerWithoutRestart = ::Ice::__defineOperation('destroyServerWithoutRestart', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, true, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_int, false, 0], [::Ice::T_string, false, 0]], [], nil, [::IceGrid::T_DeploymentException])
-        NodePrx_mixin::OP_patch = ::Ice::__defineOperation('patch', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, true, nil, [[::IceGrid::T_PatcherFeedbackPrx, false, 0], [::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::IceGrid::T_InternalDistributionDescriptor, false, 0], [::Ice::T_bool, false, 0]], [], nil, [])
         NodePrx_mixin::OP_registerWithReplica = ::Ice::__defineOperation('registerWithReplica', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::T_InternalRegistryPrx, false, 0]], [], nil, [])
         NodePrx_mixin::OP_getName = ::Ice::__defineOperation('getName', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::Ice::T_string, false, 0], [])
         NodePrx_mixin::OP_getHostname = ::Ice::__defineOperation('getHostname', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::Ice::T_string, false, 0], [])

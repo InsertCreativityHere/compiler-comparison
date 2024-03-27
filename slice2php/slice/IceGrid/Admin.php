@@ -411,13 +411,13 @@ namespace IceGrid
     global $IceGrid__t_ApplicationUpdateDescriptor;
     global $IcePHP__t_string;
     global $IceGrid__t_ServerInstanceDescriptor;
-    global $IcePHP__t_bool;
     global $IceGrid__t_ApplicationInfo;
     global $Ice__t_StringSeq;
     global $IceGrid__t_ServerInfo;
     global $IceGrid__t_ServerState;
     global $IcePHP__t_int;
     global $Ice__t_ObjectPrx;
+    global $IcePHP__t_bool;
     global $IceGrid__t_AdapterInfoSeq;
     global $Ice__t_Identity;
     global $IceGrid__t_ObjectInfo;
@@ -432,7 +432,6 @@ namespace IceGrid
     IcePHP_defineOperation($IceGrid__t_AdminPrx, 'updateApplicationWithoutRestart', 0, 0, 0, array(array($IceGrid__t_ApplicationUpdateDescriptor)), null, null, array($IceGrid__t_AccessDeniedException, $IceGrid__t_DeploymentException, $IceGrid__t_ApplicationNotExistException));
     IcePHP_defineOperation($IceGrid__t_AdminPrx, 'removeApplication', 0, 0, 0, array(array($IcePHP__t_string)), null, null, array($IceGrid__t_AccessDeniedException, $IceGrid__t_DeploymentException, $IceGrid__t_ApplicationNotExistException));
     IcePHP_defineOperation($IceGrid__t_AdminPrx, 'instantiateServer', 0, 0, 0, array(array($IcePHP__t_string), array($IcePHP__t_string), array($IceGrid__t_ServerInstanceDescriptor)), null, null, array($IceGrid__t_AccessDeniedException, $IceGrid__t_ApplicationNotExistException, $IceGrid__t_DeploymentException));
-    IcePHP_defineOperation($IceGrid__t_AdminPrx, 'patchApplication', 0, 0, 0, array(array($IcePHP__t_string), array($IcePHP__t_bool)), null, null, array($IceGrid__t_ApplicationNotExistException, $IceGrid__t_PatchException));
     IcePHP_defineOperation($IceGrid__t_AdminPrx, 'getApplicationInfo', 2, 1, 0, array(array($IcePHP__t_string)), null, array($IceGrid__t_ApplicationInfo), array($IceGrid__t_ApplicationNotExistException));
     IcePHP_defineOperation($IceGrid__t_AdminPrx, 'getDefaultApplicationDescriptor', 2, 1, 0, null, null, array($IceGrid__t_ApplicationDescriptor), array($IceGrid__t_DeploymentException));
     IcePHP_defineOperation($IceGrid__t_AdminPrx, 'getAllApplicationNames', 2, 1, 0, null, null, array($Ice__t_StringSeq), null);
@@ -445,7 +444,6 @@ namespace IceGrid
     IcePHP_defineOperation($IceGrid__t_AdminPrx, 'isServerEnabled', 2, 1, 0, array(array($IcePHP__t_string)), null, array($IcePHP__t_bool), array($IceGrid__t_ServerNotExistException, $IceGrid__t_NodeUnreachableException, $IceGrid__t_DeploymentException));
     IcePHP_defineOperation($IceGrid__t_AdminPrx, 'startServer', 0, 0, 0, array(array($IcePHP__t_string)), null, null, array($IceGrid__t_ServerNotExistException, $IceGrid__t_ServerStartException, $IceGrid__t_NodeUnreachableException, $IceGrid__t_DeploymentException));
     IcePHP_defineOperation($IceGrid__t_AdminPrx, 'stopServer', 0, 0, 0, array(array($IcePHP__t_string)), null, null, array($IceGrid__t_ServerNotExistException, $IceGrid__t_ServerStopException, $IceGrid__t_NodeUnreachableException, $IceGrid__t_DeploymentException));
-    IcePHP_defineOperation($IceGrid__t_AdminPrx, 'patchServer', 0, 0, 0, array(array($IcePHP__t_string), array($IcePHP__t_bool)), null, null, array($IceGrid__t_ServerNotExistException, $IceGrid__t_NodeUnreachableException, $IceGrid__t_DeploymentException, $IceGrid__t_PatchException));
     IcePHP_defineOperation($IceGrid__t_AdminPrx, 'sendSignal', 0, 0, 0, array(array($IcePHP__t_string), array($IcePHP__t_string)), null, null, array($IceGrid__t_ServerNotExistException, $IceGrid__t_NodeUnreachableException, $IceGrid__t_DeploymentException, $IceGrid__t_BadSignalException));
     IcePHP_defineOperation($IceGrid__t_AdminPrx, 'getAllServerIds', 2, 1, 0, null, null, array($Ice__t_StringSeq), null);
     IcePHP_defineOperation($IceGrid__t_AdminPrx, 'getAdapterInfo', 2, 1, 0, array(array($IcePHP__t_string)), null, array($IceGrid__t_AdapterInfoSeq), array($IceGrid__t_AdapterNotExistException));

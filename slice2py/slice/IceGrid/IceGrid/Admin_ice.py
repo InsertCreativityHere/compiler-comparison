@@ -854,30 +854,6 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_instantiateServer.invokeAsync(self, ((application, node, desc), context))
 
         """
-         Patch the given application data.
-        Arguments:
-        name -- The application name.
-        shutdown -- If true, the servers depending on the data to patch will be shut down if necessary.
-        context -- The request context for the invocation.
-        Throws:
-        ApplicationNotExistException -- Raised if the application doesn't exist.
-        PatchException -- Raised if the patch failed.
-        """
-        def patchApplication(self, name, shutdown, context=None):
-            return _M_IceGrid.Admin._op_patchApplication.invoke(self, ((name, shutdown), context))
-
-        """
-         Patch the given application data.
-        Arguments:
-        name -- The application name.
-        shutdown -- If true, the servers depending on the data to patch will be shut down if necessary.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
-        def patchApplicationAsync(self, name, shutdown, context=None):
-            return _M_IceGrid.Admin._op_patchApplication.invokeAsync(self, ((name, shutdown), context))
-
-        """
          Get an application descriptor.
         Arguments:
         name -- The application name.
@@ -1149,32 +1125,6 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
         """
         def stopServerAsync(self, id, context=None):
             return _M_IceGrid.Admin._op_stopServer.invokeAsync(self, ((id, ), context))
-
-        """
-         Patch a server.
-        Arguments:
-        id -- The server id.
-        shutdown -- If true, servers depending on the data to patch will be shut down if necessary.
-        context -- The request context for the invocation.
-        Throws:
-        DeploymentException -- Raised if the server couldn't be deployed on the node.
-        NodeUnreachableException -- Raised if the node could not be reached.
-        PatchException -- Raised if the patch failed.
-        ServerNotExistException -- Raised if the server doesn't exist.
-        """
-        def patchServer(self, id, shutdown, context=None):
-            return _M_IceGrid.Admin._op_patchServer.invoke(self, ((id, shutdown), context))
-
-        """
-         Patch a server.
-        Arguments:
-        id -- The server id.
-        shutdown -- If true, servers depending on the data to patch will be shut down if necessary.
-        context -- The request context for the invocation.
-        Returns: A future object for the invocation.
-        """
-        def patchServerAsync(self, id, shutdown, context=None):
-            return _M_IceGrid.Admin._op_patchServer.invokeAsync(self, ((id, shutdown), context))
 
         """
          Send signal to a server.
@@ -1878,20 +1828,6 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             """
             raise NotImplementedError("servant method 'instantiateServer' not implemented")
 
-        def patchApplication(self, name, shutdown, current=None):
-            """
-             Patch the given application data.
-            Arguments:
-            name -- The application name.
-            shutdown -- If true, the servers depending on the data to patch will be shut down if necessary.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            Throws:
-            ApplicationNotExistException -- Raised if the application doesn't exist.
-            PatchException -- Raised if the patch failed.
-            """
-            raise NotImplementedError("servant method 'patchApplication' not implemented")
-
         def getApplicationInfo(self, name, current=None):
             """
              Get an application descriptor.
@@ -2047,22 +1983,6 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             ServerStopException -- Raised if the server couldn't be stopped.
             """
             raise NotImplementedError("servant method 'stopServer' not implemented")
-
-        def patchServer(self, id, shutdown, current=None):
-            """
-             Patch a server.
-            Arguments:
-            id -- The server id.
-            shutdown -- If true, servers depending on the data to patch will be shut down if necessary.
-            current -- The Current object for the invocation.
-            Returns: A future object for the invocation.
-            Throws:
-            DeploymentException -- Raised if the server couldn't be deployed on the node.
-            NodeUnreachableException -- Raised if the node could not be reached.
-            PatchException -- Raised if the patch failed.
-            ServerNotExistException -- Raised if the server doesn't exist.
-            """
-            raise NotImplementedError("servant method 'patchServer' not implemented")
 
         def sendSignal(self, id, signal, current=None):
             """
@@ -2395,7 +2315,6 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
     Admin._op_updateApplicationWithoutRestart = IcePy.Operation('updateApplicationWithoutRestart', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), _M_IceGrid._t_ApplicationUpdateDescriptor, False, 0),), (), None, (_M_IceGrid._t_AccessDeniedException, _M_IceGrid._t_DeploymentException, _M_IceGrid._t_ApplicationNotExistException))
     Admin._op_removeApplication = IcePy.Operation('removeApplication', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0),), (), None, (_M_IceGrid._t_AccessDeniedException, _M_IceGrid._t_DeploymentException, _M_IceGrid._t_ApplicationNotExistException))
     Admin._op_instantiateServer = IcePy.Operation('instantiateServer', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0), ((), _M_IceGrid._t_ServerInstanceDescriptor, False, 0)), (), None, (_M_IceGrid._t_AccessDeniedException, _M_IceGrid._t_ApplicationNotExistException, _M_IceGrid._t_DeploymentException))
-    Admin._op_patchApplication = IcePy.Operation('patchApplication', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_bool, False, 0)), (), None, (_M_IceGrid._t_ApplicationNotExistException, _M_IceGrid._t_PatchException))
     Admin._op_getApplicationInfo = IcePy.Operation('getApplicationInfo', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), _M_IceGrid._t_ApplicationInfo, False, 0), (_M_IceGrid._t_ApplicationNotExistException,))
     Admin._op_getDefaultApplicationDescriptor = IcePy.Operation('getDefaultApplicationDescriptor', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), _M_IceGrid._t_ApplicationDescriptor, False, 0), (_M_IceGrid._t_DeploymentException,))
     Admin._op_getAllApplicationNames = IcePy.Operation('getAllApplicationNames', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), _M_Ice._t_StringSeq, False, 0), ())
@@ -2408,7 +2327,6 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
     Admin._op_isServerEnabled = IcePy.Operation('isServerEnabled', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), IcePy._t_bool, False, 0), (_M_IceGrid._t_ServerNotExistException, _M_IceGrid._t_NodeUnreachableException, _M_IceGrid._t_DeploymentException))
     Admin._op_startServer = IcePy.Operation('startServer', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_string, False, 0),), (), None, (_M_IceGrid._t_ServerNotExistException, _M_IceGrid._t_ServerStartException, _M_IceGrid._t_NodeUnreachableException, _M_IceGrid._t_DeploymentException))
     Admin._op_stopServer = IcePy.Operation('stopServer', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_string, False, 0),), (), None, (_M_IceGrid._t_ServerNotExistException, _M_IceGrid._t_ServerStopException, _M_IceGrid._t_NodeUnreachableException, _M_IceGrid._t_DeploymentException))
-    Admin._op_patchServer = IcePy.Operation('patchServer', Ice.OperationMode.Normal, Ice.OperationMode.Normal, True, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_bool, False, 0)), (), None, (_M_IceGrid._t_ServerNotExistException, _M_IceGrid._t_NodeUnreachableException, _M_IceGrid._t_DeploymentException, _M_IceGrid._t_PatchException))
     Admin._op_sendSignal = IcePy.Operation('sendSignal', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_string, False, 0), ((), IcePy._t_string, False, 0)), (), None, (_M_IceGrid._t_ServerNotExistException, _M_IceGrid._t_NodeUnreachableException, _M_IceGrid._t_DeploymentException, _M_IceGrid._t_BadSignalException))
     Admin._op_getAllServerIds = IcePy.Operation('getAllServerIds', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), _M_Ice._t_StringSeq, False, 0), ())
     Admin._op_getAdapterInfo = IcePy.Operation('getAdapterInfo', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (((), IcePy._t_string, False, 0),), (), ((), _M_IceGrid._t_AdapterInfoSeq, False, 0), (_M_IceGrid._t_AdapterNotExistException,))

@@ -1553,10 +1553,6 @@ public struct AdminSessionTraits: Ice.SliceTraits {
 ///
 ///  - instantiateServerAsync: Instantiate a server template from an application on the given node.
 ///
-///  - patchApplication: Patch the given application data.
-///
-///  - patchApplicationAsync: Patch the given application data.
-///
 ///  - getApplicationInfo: Get an application descriptor.
 ///
 ///  - getApplicationInfoAsync: Get an application descriptor.
@@ -1604,10 +1600,6 @@ public struct AdminSessionTraits: Ice.SliceTraits {
 ///  - stopServer: Stop a server.
 ///
 ///  - stopServerAsync: Stop a server.
-///
-///  - patchServer: Patch a server.
-///
-///  - patchServerAsync: Patch a server.
 ///
 ///  - sendSignal: Send signal to a server.
 ///
@@ -1820,10 +1812,6 @@ public extension Ice.InputStream {
 ///
 ///  - instantiateServerAsync: Instantiate a server template from an application on the given node.
 ///
-///  - patchApplication: Patch the given application data.
-///
-///  - patchApplicationAsync: Patch the given application data.
-///
 ///  - getApplicationInfo: Get an application descriptor.
 ///
 ///  - getApplicationInfoAsync: Get an application descriptor.
@@ -1871,10 +1859,6 @@ public extension Ice.InputStream {
 ///  - stopServer: Stop a server.
 ///
 ///  - stopServerAsync: Stop a server.
-///
-///  - patchServer: Patch a server.
-///
-///  - patchServerAsync: Patch a server.
 ///
 ///  - sendSignal: Send signal to a server.
 ///
@@ -2501,77 +2485,6 @@ public extension AdminPrx {
                                       } catch let error as DeploymentException {
                                           throw error
                                       } catch let error as AccessDeniedException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    /// Patch the given application data.
-    ///
-    /// - parameter name: `Swift.String` The application name.
-    ///
-    /// - parameter shutdown: `Swift.Bool` If true, the servers depending on the data to patch will be shut down if necessary.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - throws:
-    ///
-    ///   - ApplicationNotExistException - Raised if the application doesn't exist.
-    ///
-    ///   - PatchException - Raised if the patch failed.
-    func patchApplication(name iceP_name: Swift.String, shutdown iceP_shutdown: Swift.Bool, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "patchApplication",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_name)
-                              ostr.write(iceP_shutdown)
-                          },
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as ApplicationNotExistException {
-                                  throw error
-                              } catch let error as PatchException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    /// Patch the given application data.
-    ///
-    /// - parameter name: `Swift.String` The application name.
-    ///
-    /// - parameter shutdown: `Swift.Bool` If true, the servers depending on the data to patch will be shut down if necessary.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func patchApplicationAsync(name iceP_name: Swift.String, shutdown iceP_shutdown: Swift.Bool, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "patchApplication",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_name)
-                                      ostr.write(iceP_shutdown)
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as ApplicationNotExistException {
-                                          throw error
-                                      } catch let error as PatchException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -3416,89 +3329,6 @@ public extension AdminPrx {
                                       } catch let error as DeploymentException {
                                           throw error
                                       } catch let error as NodeUnreachableException {
-                                          throw error
-                                      } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    /// Patch a server.
-    ///
-    /// - parameter id: `Swift.String` The server id.
-    ///
-    /// - parameter shutdown: `Swift.Bool` If true, servers depending on the data to patch will be shut down if necessary.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - throws:
-    ///
-    ///   - DeploymentException - Raised if the server couldn't be deployed on the node.
-    ///
-    ///   - NodeUnreachableException - Raised if the node could not be reached.
-    ///
-    ///   - PatchException - Raised if the patch failed.
-    ///
-    ///   - ServerNotExistException - Raised if the server doesn't exist.
-    func patchServer(id iceP_id: Swift.String, shutdown iceP_shutdown: Swift.Bool, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "patchServer",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_id)
-                              ostr.write(iceP_shutdown)
-                          },
-                          userException:{ ex in
-                              do  {
-                                  throw ex
-                              } catch let error as ServerNotExistException {
-                                  throw error
-                              } catch let error as DeploymentException {
-                                  throw error
-                              } catch let error as NodeUnreachableException {
-                                  throw error
-                              } catch let error as PatchException {
-                                  throw error
-                              } catch is Ice.UserException {}
-                          },
-                          context: context)
-    }
-
-    /// Patch a server.
-    ///
-    /// - parameter id: `Swift.String` The server id.
-    ///
-    /// - parameter shutdown: `Swift.Bool` If true, servers depending on the data to patch will be shut down if necessary.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func patchServerAsync(id iceP_id: Swift.String, shutdown iceP_shutdown: Swift.Bool, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "patchServer",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_id)
-                                      ostr.write(iceP_shutdown)
-                                  },
-                                  userException:{ ex in
-                                      do  {
-                                          throw ex
-                                      } catch let error as ServerNotExistException {
-                                          throw error
-                                      } catch let error as DeploymentException {
-                                          throw error
-                                      } catch let error as NodeUnreachableException {
-                                          throw error
-                                      } catch let error as PatchException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -8200,10 +8030,6 @@ public struct AdminDisp: Ice.Disp {
             return try servant._iceD_instantiateServer(incoming: request, current: current)
         case "isServerEnabled":
             return try servant._iceD_isServerEnabled(incoming: request, current: current)
-        case "patchApplication":
-            return try servant._iceD_patchApplication(incoming: request, current: current)
-        case "patchServer":
-            return try servant._iceD_patchServer(incoming: request, current: current)
         case "pingNode":
             return try servant._iceD_pingNode(incoming: request, current: current)
         case "pingRegistry":
@@ -8364,17 +8190,6 @@ public protocol Admin {
     ///   - DeploymentException - Raised if server instantiation failed.
     func instantiateServer(application: Swift.String, node: Swift.String, desc: ServerInstanceDescriptor, current: Ice.Current) throws
 
-    /// Patch the given application data.
-    ///
-    /// - parameter name: `Swift.String` The application name.
-    ///
-    /// - parameter shutdown: `Swift.Bool` If true, the servers depending on the data to patch will be shut down if necessary.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func patchApplicationAsync(name: Swift.String, shutdown: Swift.Bool, current: Ice.Current) -> PromiseKit.Promise<Swift.Void>
-
     /// Get an application descriptor.
     ///
     /// - parameter name: `Swift.String` The application name.
@@ -8530,17 +8345,6 @@ public protocol Admin {
     ///
     /// - returns: `PromiseKit.Promise<>` - The result of the operation
     func stopServerAsync(id: Swift.String, current: Ice.Current) -> PromiseKit.Promise<Swift.Void>
-
-    /// Patch a server.
-    ///
-    /// - parameter id: `Swift.String` The server id.
-    ///
-    /// - parameter shutdown: `Swift.Bool` If true, servers depending on the data to patch will be shut down if necessary.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func patchServerAsync(id: Swift.String, shutdown: Swift.Bool, current: Ice.Current) -> PromiseKit.Promise<Swift.Void>
 
     /// Send signal to a server.
     ///
@@ -9604,8 +9408,6 @@ public protocol AdminSession: Glacier2.Session {
 ///
 ///  - instantiateServer: Instantiate a server template from an application on the given node.
 ///
-///  - patchApplication: Patch the given application data.
-///
 ///  - getApplicationInfo: Get an application descriptor.
 ///
 ///  - getDefaultApplicationDescriptor: Get the default application descriptor.
@@ -9629,8 +9431,6 @@ public protocol AdminSession: Glacier2.Session {
 ///  - startServer: Start a server and wait for its activation.
 ///
 ///  - stopServer: Stop a server.
-///
-///  - patchServer: Patch a server.
 ///
 ///  - sendSignal: Send signal to a server.
 ///
@@ -9766,16 +9566,6 @@ public extension Admin {
         try self.instantiateServer(application: iceP_application, node: iceP_node, desc: iceP_desc, current: current)
 
         return inS.setResult()
-    }
-
-    func _iceD_patchApplication(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_name, iceP_shutdown): (Swift.String, Swift.Bool) = try inS.read { istr in
-            let iceP_name: Swift.String = try istr.read()
-            let iceP_shutdown: Swift.Bool = try istr.read()
-            return (iceP_name, iceP_shutdown)
-        }
-
-        return inS.setResultPromise(patchApplicationAsync(name: iceP_name, shutdown: iceP_shutdown, current: current))
     }
 
     func _iceD_getApplicationInfo(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
@@ -9917,16 +9707,6 @@ public extension Admin {
         }
 
         return inS.setResultPromise(stopServerAsync(id: iceP_id, current: current))
-    }
-
-    func _iceD_patchServer(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_id, iceP_shutdown): (Swift.String, Swift.Bool) = try inS.read { istr in
-            let iceP_id: Swift.String = try istr.read()
-            let iceP_shutdown: Swift.Bool = try istr.read()
-            return (iceP_id, iceP_shutdown)
-        }
-
-        return inS.setResultPromise(patchServerAsync(id: iceP_id, shutdown: iceP_shutdown, current: current))
     }
 
     func _iceD_sendSignal(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {

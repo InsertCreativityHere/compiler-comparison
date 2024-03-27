@@ -18,8 +18,6 @@
 %   removeApplicationAsync - Remove an application from IceGrid.
 %   instantiateServer - Instantiate a server template from an application on the given node.
 %   instantiateServerAsync - Instantiate a server template from an application on the given node.
-%   patchApplication - Patch the given application data.
-%   patchApplicationAsync - Patch the given application data.
 %   getApplicationInfo - Get an application descriptor.
 %   getApplicationInfoAsync - Get an application descriptor.
 %   getDefaultApplicationDescriptor - Get the default application descriptor.
@@ -44,8 +42,6 @@
 %   startServerAsync - Start a server and wait for its activation.
 %   stopServer - Stop a server.
 %   stopServerAsync - Stop a server.
-%   patchServer - Patch a server.
-%   patchServerAsync - Patch a server.
 %   sendSignal - Send signal to a server.
 %   sendSignalAsync - Send signal to a server.
 %   getAllServerIds - Get all the server ids registered with IceGrid.
@@ -397,44 +393,6 @@ classdef AdminPrx < Ice.ObjectPrx
             IceGrid.ServerInstanceDescriptor.ice_write(os_, desc);
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('instantiateServer', 0, true, os_, 0, [], IceGrid.AdminPrx.instantiateServer_ex_, varargin{:});
-        end
-        function patchApplication(obj, name, shutdown, varargin)
-            % patchApplication   Patch the given application data.
-            %
-            % Parameters:
-            %   name (char) - The application name.
-            %   shutdown (logical) - If true, the servers depending on the data to patch will be shut down if necessary.
-            %   context (containers.Map) - Optional request context.
-            %
-            % Exceptions:
-            %   IceGrid.ApplicationNotExistException - Raised if the application doesn't exist.
-            %   IceGrid.PatchException - Raised if the patch failed.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeString(name);
-            os_.writeBool(shutdown);
-            obj.iceEndWriteParams(os_);
-            obj.iceInvoke('patchApplication', 0, true, os_, false, IceGrid.AdminPrx.patchApplication_ex_, varargin{:});
-        end
-        function r_ = patchApplicationAsync(obj, name, shutdown, varargin)
-            % patchApplicationAsync   Patch the given application data.
-            %
-            % Parameters:
-            %   name (char) - The application name.
-            %   shutdown (logical) - If true, the servers depending on the data to patch will be shut down if necessary.
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            %
-            % Exceptions:
-            %   IceGrid.ApplicationNotExistException - Raised if the application doesn't exist.
-            %   IceGrid.PatchException - Raised if the patch failed.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeString(name);
-            os_.writeBool(shutdown);
-            obj.iceEndWriteParams(os_);
-            r_ = obj.iceInvokeAsync('patchApplication', 0, true, os_, 0, [], IceGrid.AdminPrx.patchApplication_ex_, varargin{:});
         end
         function result = getApplicationInfo(obj, name, varargin)
             % getApplicationInfo   Get an application descriptor.
@@ -931,48 +889,6 @@ classdef AdminPrx < Ice.ObjectPrx
             os_.writeString(id);
             obj.iceEndWriteParams(os_);
             r_ = obj.iceInvokeAsync('stopServer', 0, true, os_, 0, [], IceGrid.AdminPrx.stopServer_ex_, varargin{:});
-        end
-        function patchServer(obj, id, shutdown, varargin)
-            % patchServer   Patch a server.
-            %
-            % Parameters:
-            %   id (char) - The server id.
-            %   shutdown (logical) - If true, servers depending on the data to patch will be shut down if necessary.
-            %   context (containers.Map) - Optional request context.
-            %
-            % Exceptions:
-            %   IceGrid.DeploymentException - Raised if the server couldn't be deployed on the node.
-            %   IceGrid.NodeUnreachableException - Raised if the node could not be reached.
-            %   IceGrid.PatchException - Raised if the patch failed.
-            %   IceGrid.ServerNotExistException - Raised if the server doesn't exist.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeString(id);
-            os_.writeBool(shutdown);
-            obj.iceEndWriteParams(os_);
-            obj.iceInvoke('patchServer', 0, true, os_, false, IceGrid.AdminPrx.patchServer_ex_, varargin{:});
-        end
-        function r_ = patchServerAsync(obj, id, shutdown, varargin)
-            % patchServerAsync   Patch a server.
-            %
-            % Parameters:
-            %   id (char) - The server id.
-            %   shutdown (logical) - If true, servers depending on the data to patch will be shut down if necessary.
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            %
-            % Exceptions:
-            %   IceGrid.DeploymentException - Raised if the server couldn't be deployed on the node.
-            %   IceGrid.NodeUnreachableException - Raised if the node could not be reached.
-            %   IceGrid.PatchException - Raised if the patch failed.
-            %   IceGrid.ServerNotExistException - Raised if the server doesn't exist.
-            
-            os_ = obj.iceStartWriteParams([]);
-            os_.writeString(id);
-            os_.writeBool(shutdown);
-            obj.iceEndWriteParams(os_);
-            r_ = obj.iceInvokeAsync('patchServer', 0, true, os_, 0, [], IceGrid.AdminPrx.patchServer_ex_, varargin{:});
         end
         function sendSignal(obj, id, signal, varargin)
             % sendSignal   Send signal to a server.
@@ -2017,7 +1933,6 @@ classdef AdminPrx < Ice.ObjectPrx
         updateApplicationWithoutRestart_ex_ = { 'IceGrid.ApplicationNotExistException', 'IceGrid.DeploymentException', 'IceGrid.AccessDeniedException' }
         removeApplication_ex_ = { 'IceGrid.ApplicationNotExistException', 'IceGrid.DeploymentException', 'IceGrid.AccessDeniedException' }
         instantiateServer_ex_ = { 'IceGrid.ApplicationNotExistException', 'IceGrid.DeploymentException', 'IceGrid.AccessDeniedException' }
-        patchApplication_ex_ = { 'IceGrid.ApplicationNotExistException', 'IceGrid.PatchException' }
         getApplicationInfo_ex_ = { 'IceGrid.ApplicationNotExistException' }
         getDefaultApplicationDescriptor_ex_ = { 'IceGrid.DeploymentException' }
         getServerInfo_ex_ = { 'IceGrid.ServerNotExistException' }
@@ -2028,7 +1943,6 @@ classdef AdminPrx < Ice.ObjectPrx
         isServerEnabled_ex_ = { 'IceGrid.ServerNotExistException', 'IceGrid.DeploymentException', 'IceGrid.NodeUnreachableException' }
         startServer_ex_ = { 'IceGrid.ServerNotExistException', 'IceGrid.ServerStartException', 'IceGrid.DeploymentException', 'IceGrid.NodeUnreachableException' }
         stopServer_ex_ = { 'IceGrid.ServerNotExistException', 'IceGrid.ServerStopException', 'IceGrid.DeploymentException', 'IceGrid.NodeUnreachableException' }
-        patchServer_ex_ = { 'IceGrid.ServerNotExistException', 'IceGrid.DeploymentException', 'IceGrid.NodeUnreachableException', 'IceGrid.PatchException' }
         sendSignal_ex_ = { 'IceGrid.ServerNotExistException', 'IceGrid.DeploymentException', 'IceGrid.NodeUnreachableException', 'IceGrid.BadSignalException' }
         getAdapterInfo_ex_ = { 'IceGrid.AdapterNotExistException' }
         removeAdapter_ex_ = { 'IceGrid.AdapterNotExistException', 'IceGrid.DeploymentException' }

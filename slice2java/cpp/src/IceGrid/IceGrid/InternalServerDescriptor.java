@@ -31,7 +31,7 @@ public class InternalServerDescriptor extends com.zeroc.Ice.Value
         this.deactivationTimeout = "";
     }
 
-    public InternalServerDescriptor(String id, String application, String uuid, int revision, String sessionId, String exe, String pwd, String user, String activation, String activationTimeout, String deactivationTimeout, boolean applicationDistrib, InternalDistributionDescriptor distrib, boolean processRegistered, String[] options, String[] envs, String[] logs, InternalAdapterDescriptor[] adapters, InternalDbEnvDescriptor[] dbEnvs, java.util.Map<java.lang.String, java.util.List<com.zeroc.IceGrid.PropertyDescriptor>> properties)
+    public InternalServerDescriptor(String id, String application, String uuid, int revision, String sessionId, String exe, String pwd, String user, String activation, String activationTimeout, String deactivationTimeout, boolean processRegistered, String[] options, String[] envs, String[] logs, InternalAdapterDescriptor[] adapters, InternalDbEnvDescriptor[] dbEnvs, java.util.Map<java.lang.String, java.util.List<com.zeroc.IceGrid.PropertyDescriptor>> properties)
     {
         this.id = id;
         this.application = application;
@@ -44,8 +44,6 @@ public class InternalServerDescriptor extends com.zeroc.Ice.Value
         this.activation = activation;
         this.activationTimeout = activationTimeout;
         this.deactivationTimeout = deactivationTimeout;
-        this.applicationDistrib = applicationDistrib;
-        this.distrib = distrib;
         this.processRegistered = processRegistered;
         this.options = options;
         this.envs = envs;
@@ -55,7 +53,7 @@ public class InternalServerDescriptor extends com.zeroc.Ice.Value
         this.properties = properties;
     }
 
-    public InternalServerDescriptor(String id, String application, String uuid, int revision, String sessionId, String exe, String pwd, String user, String activation, String activationTimeout, String deactivationTimeout, boolean applicationDistrib, InternalDistributionDescriptor distrib, boolean processRegistered, String[] options, String[] envs, String[] logs, InternalAdapterDescriptor[] adapters, InternalDbEnvDescriptor[] dbEnvs, java.util.Map<java.lang.String, java.util.List<com.zeroc.IceGrid.PropertyDescriptor>> properties, String[] services)
+    public InternalServerDescriptor(String id, String application, String uuid, int revision, String sessionId, String exe, String pwd, String user, String activation, String activationTimeout, String deactivationTimeout, boolean processRegistered, String[] options, String[] envs, String[] logs, InternalAdapterDescriptor[] adapters, InternalDbEnvDescriptor[] dbEnvs, java.util.Map<java.lang.String, java.util.List<com.zeroc.IceGrid.PropertyDescriptor>> properties, String[] services)
     {
         this.id = id;
         this.application = application;
@@ -68,8 +66,6 @@ public class InternalServerDescriptor extends com.zeroc.Ice.Value
         this.activation = activation;
         this.activationTimeout = activationTimeout;
         this.deactivationTimeout = deactivationTimeout;
-        this.applicationDistrib = applicationDistrib;
-        this.distrib = distrib;
         this.processRegistered = processRegistered;
         this.options = options;
         this.envs = envs;
@@ -134,16 +130,6 @@ public class InternalServerDescriptor extends com.zeroc.Ice.Value
      * The server deactivation timeout.
      **/
     public String deactivationTimeout;
-
-    /**
-     * Specifies if the server depends on the application distrib.
-     **/
-    public boolean applicationDistrib;
-
-    /**
-     * The distribution descriptor of this server.
-     **/
-    public InternalDistributionDescriptor distrib;
 
     /**
      * Specifies if a process object is registered.
@@ -286,7 +272,7 @@ public class InternalServerDescriptor extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -6671662190048614068L;
+    public static final long serialVersionUID = -3931962433029225739L;
 
     /** @hidden */
     @Override
@@ -304,8 +290,6 @@ public class InternalServerDescriptor extends com.zeroc.Ice.Value
         ostr_.writeString(activation);
         ostr_.writeString(activationTimeout);
         ostr_.writeString(deactivationTimeout);
-        ostr_.writeBool(applicationDistrib);
-        ostr_.writeValue(distrib);
         ostr_.writeBool(processRegistered);
         ostr_.writeStringSeq(options);
         ostr_.writeStringSeq(envs);
@@ -336,8 +320,6 @@ public class InternalServerDescriptor extends com.zeroc.Ice.Value
         activation = istr_.readString();
         activationTimeout = istr_.readString();
         deactivationTimeout = istr_.readString();
-        applicationDistrib = istr_.readBool();
-        istr_.readValue(v -> distrib = v, InternalDistributionDescriptor.class);
         processRegistered = istr_.readBool();
         options = istr_.readStringSeq();
         envs = istr_.readStringSeq();

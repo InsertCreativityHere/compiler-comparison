@@ -1966,12 +1966,6 @@ namespace IceStorm
 
         #region Inherited Slice operations
 
-        public abstract LinkInfo[] getLinkInfoSeq(global::Ice.Current current = null);
-
-        public abstract global::Ice.Identity[] getSubscribers(global::Ice.Current current = null);
-
-        public abstract void destroy(global::Ice.Current current = null);
-
         public abstract string getName(global::Ice.Current current = null);
 
         public abstract global::Ice.ObjectPrx getPublisher(global::Ice.Current current = null);
@@ -1985,6 +1979,12 @@ namespace IceStorm
         public abstract void link(TopicPrx linkTo, int cost, global::Ice.Current current = null);
 
         public abstract void unlink(TopicPrx linkTo, global::Ice.Current current = null);
+
+        public abstract LinkInfo[] getLinkInfoSeq(global::Ice.Current current = null);
+
+        public abstract global::Ice.Identity[] getSubscribers(global::Ice.Current current = null);
+
+        public abstract void destroy(global::Ice.Current current = null);
 
         #endregion
 

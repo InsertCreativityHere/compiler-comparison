@@ -437,42 +437,6 @@ public:
     /// \endcond
 
     /**
-     * Patch the given application data.
-     * @param name The application name.
-     * @param shutdown If true, the servers depending on the data to patch will be shut down if necessary.
-     * @param context The Context map to send with the invocation.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
-     * @throws IceGrid::PatchException Raised if the patch failed.
-     */
-    void patchApplication(::std::string_view name, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /**
-     * Patch the given application data.
-     * @param name The application name.
-     * @param shutdown If true, the servers depending on the data to patch will be shut down if necessary.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    ::std::future<void> patchApplicationAsync(::std::string_view name, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /**
-     * Patch the given application data.
-     * @param name The application name.
-     * @param shutdown If true, the servers depending on the data to patch will be shut down if necessary.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    patchApplicationAsync(::std::string_view name, bool shutdown, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_patchApplication(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, bool, const ::Ice::Context&) const;
-    /// \endcond
-
-    /**
      * Get an application descriptor.
      * @param name The application name.
      * @param context The Context map to send with the invocation.
@@ -877,44 +841,6 @@ public:
 
     /// \cond INTERNAL
     void _iceI_stopServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, const ::Ice::Context&) const;
-    /// \endcond
-
-    /**
-     * Patch a server.
-     * @param id The server id.
-     * @param shutdown If true, servers depending on the data to patch will be shut down if necessary.
-     * @param context The Context map to send with the invocation.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
-     * @throws IceGrid::PatchException Raised if the patch failed.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
-     */
-    void patchServer(::std::string_view id, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /**
-     * Patch a server.
-     * @param id The server id.
-     * @param shutdown If true, servers depending on the data to patch will be shut down if necessary.
-     * @param context The Context map to send with the invocation.
-     * @return The future object for the invocation.
-     */
-    ::std::future<void> patchServerAsync(::std::string_view id, bool shutdown, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /**
-     * Patch a server.
-     * @param id The server id.
-     * @param shutdown If true, servers depending on the data to patch will be shut down if necessary.
-     * @param response The response callback.
-     * @param ex The exception callback.
-     * @param sent The sent callback.
-     * @param context The Context map to send with the invocation.
-     * @return A function that can be called to cancel the invocation locally.
-     */
-    ::std::function<void()>
-    patchServerAsync(::std::string_view id, bool shutdown, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_patchServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, ::std::string_view, bool, const ::Ice::Context&) const;
     /// \endcond
 
     /**
@@ -4055,21 +3981,6 @@ public:
     /// \endcond
 
     /**
-     * Patch the given application data.
-     * @param name The application name.
-     * @param shutdown If true, the servers depending on the data to patch will be shut down if necessary.
-     * @param response The response callback.
-     * @param exception The exception callback.
-     * @param current The Current object for the invocation.
-     * @throws IceGrid::ApplicationNotExistException Raised if the application doesn't exist.
-     * @throws IceGrid::PatchException Raised if the patch failed.
-     */
-    virtual void patchApplicationAsync(::std::string name, bool shutdown, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_patchApplication(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
-    /// \endcond
-
-    /**
      * Get an application descriptor.
      * @param name The application name.
      * @param current The Current object for the invocation.
@@ -4226,23 +4137,6 @@ public:
     virtual void stopServerAsync(::std::string id, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_stopServer(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
-    /// \endcond
-
-    /**
-     * Patch a server.
-     * @param id The server id.
-     * @param shutdown If true, servers depending on the data to patch will be shut down if necessary.
-     * @param response The response callback.
-     * @param exception The exception callback.
-     * @param current The Current object for the invocation.
-     * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
-     * @throws IceGrid::NodeUnreachableException Raised if the node could not be reached.
-     * @throws IceGrid::PatchException Raised if the patch failed.
-     * @throws IceGrid::ServerNotExistException Raised if the server doesn't exist.
-     */
-    virtual void patchServerAsync(::std::string id, bool shutdown, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_patchServer(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /**

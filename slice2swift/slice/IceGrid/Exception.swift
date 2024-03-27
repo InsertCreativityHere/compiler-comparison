@@ -658,50 +658,6 @@ open class BadSignalException: Ice.UserException {
 }
 
 /// :nodoc:
-public class PatchException_TypeResolver: Ice.UserExceptionTypeResolver {
-    public override func type() -> Ice.UserException.Type {
-        return PatchException.self
-    }
-}
-
-public extension Ice.ClassResolver {
-    @objc static func IceGrid_PatchException() -> Ice.UserExceptionTypeResolver {
-        return PatchException_TypeResolver()
-    }
-}
-
-/// This exception is raised if a patch failed.
-open class PatchException: Ice.UserException {
-    /// The reasons why the patch failed.
-    public var reasons: Ice.StringSeq = Ice.StringSeq()
-
-    public required init() {}
-
-    public init(reasons: Ice.StringSeq) {
-        self.reasons = reasons
-    }
-
-    /// Returns the Slice type ID of this exception.
-    ///
-    /// - returns: `Swift.String` - the Slice type ID of this exception.
-    open override class func ice_staticId() -> Swift.String {
-        return "::IceGrid::PatchException"
-    }
-
-    open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: PatchException.ice_staticId(), compactId: -1, last: true)
-        ostr.write(self.reasons)
-        ostr.endSlice()
-    }
-
-    open override func _iceReadImpl(from istr: Ice.InputStream) throws {
-        _ = try istr.startSlice()
-        self.reasons = try istr.read()
-        try istr.endSlice()
-    }
-}
-
-/// :nodoc:
 public class AccessDeniedException_TypeResolver: Ice.UserExceptionTypeResolver {
     public override func type() -> Ice.UserException.Type {
         return AccessDeniedException.self

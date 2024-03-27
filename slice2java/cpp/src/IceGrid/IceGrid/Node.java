@@ -144,15 +144,6 @@ public interface Node extends FileReader,
         throws com.zeroc.IceGrid.DeploymentException;
 
     /**
-     * Patch application and server distributions. If some servers using a distribution directory to patch are active,
-     * this method will raise a PatchException unless shutdown is set to true. In which case the servers will be
-     * shutdown.
-     * @param current The Current object for the invocation.
-     * @return A completion stage that the servant will complete when the invocation completes.
-     **/
-    java.util.concurrent.CompletionStage<Void> patchAsync(PatcherFeedbackPrx feedback, String application, String server, InternalDistributionDescriptor appDistrib, boolean shutdown, com.zeroc.Ice.Current current);
-
-    /**
      * Establish a session to the given replica, this method only returns once the registration was attempted (unlike
      * replicaAdded below).
      * @param current The Current object for the invocation.
@@ -324,33 +315,6 @@ public interface Node extends FileReader,
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_patch(Node obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        PatcherFeedbackPrx iceP_feedback;
-        String iceP_application;
-        String iceP_server;
-        final com.zeroc.IceInternal.Holder<InternalDistributionDescriptor> icePP_appDistrib = new com.zeroc.IceInternal.Holder<>();
-        boolean iceP_shutdown;
-        iceP_feedback = PatcherFeedbackPrx.uncheckedCast(istr.readProxy());
-        iceP_application = istr.readString();
-        iceP_server = istr.readString();
-        istr.readValue(v -> icePP_appDistrib.value = v, InternalDistributionDescriptor.class);
-        iceP_shutdown = istr.readBool();
-        istr.readPendingValues();
-        inS.endReadParams();
-        InternalDistributionDescriptor iceP_appDistrib = icePP_appDistrib.value;
-        return inS.setResultFuture(obj.patchAsync(iceP_feedback, iceP_application, iceP_server, iceP_appDistrib, iceP_shutdown, current));
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_registerWithReplica(Node obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
@@ -465,7 +429,6 @@ public interface Node extends FileReader,
         "ice_ping",
         "loadServer",
         "loadServerWithoutRestart",
-        "patch",
         "read",
         "registerWithReplica",
         "replicaAdded",
@@ -541,29 +504,25 @@ public interface Node extends FileReader,
             }
             case 13:
             {
-                return _iceD_patch(this, in, current);
+                return FileReader._iceD_read(this, in, current);
             }
             case 14:
             {
-                return FileReader._iceD_read(this, in, current);
+                return _iceD_registerWithReplica(this, in, current);
             }
             case 15:
             {
-                return _iceD_registerWithReplica(this, in, current);
+                return ReplicaObserver._iceD_replicaAdded(this, in, current);
             }
             case 16:
             {
-                return ReplicaObserver._iceD_replicaAdded(this, in, current);
+                return ReplicaObserver._iceD_replicaInit(this, in, current);
             }
             case 17:
             {
-                return ReplicaObserver._iceD_replicaInit(this, in, current);
-            }
-            case 18:
-            {
                 return ReplicaObserver._iceD_replicaRemoved(this, in, current);
             }
-            case 19:
+            case 18:
             {
                 return _iceD_shutdown(this, in, current);
             }

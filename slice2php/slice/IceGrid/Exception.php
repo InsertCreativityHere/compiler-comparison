@@ -444,35 +444,6 @@ namespace IceGrid
 
 namespace IceGrid
 {
-    global $IceGrid__t_PatchException;
-    class PatchException extends \Ice\UserException
-    {
-        public function __construct($reasons=null)
-        {
-            $this->reasons = $reasons;
-        }
-
-        public function ice_id()
-        {
-            return '::IceGrid::PatchException';
-        }
-
-        public function __toString(): string
-        {
-            global $IceGrid__t_PatchException;
-            return IcePHP_stringifyException($this, $IceGrid__t_PatchException);
-        }
-
-        public $reasons;
-    }
-    global $Ice__t_StringSeq;
-
-    $IceGrid__t_PatchException = IcePHP_defineException('::IceGrid::PatchException', '\\IceGrid\\PatchException', null, array(
-        array('reasons', $Ice__t_StringSeq, false, 0)));
-}
-
-namespace IceGrid
-{
     global $IceGrid__t_AccessDeniedException;
     class AccessDeniedException extends \Ice\UserException
     {

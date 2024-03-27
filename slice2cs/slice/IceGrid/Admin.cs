@@ -2432,9 +2432,6 @@ namespace IceGrid
     public delegate void Callback_Admin_instantiateServer();
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Admin_patchApplication();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public delegate void Callback_Admin_getApplicationInfo(ApplicationInfo ret);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -2469,9 +2466,6 @@ namespace IceGrid
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public delegate void Callback_Admin_stopServer();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Admin_patchServer();
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public delegate void Callback_Admin_sendSignal();
@@ -2890,33 +2884,6 @@ namespace IceGrid
         global::System.Threading.Tasks.Task instantiateServerAsync(string application, string node, ServerInstanceDescriptor desc, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// Patch the given application data.
-        /// </summary>
-        /// <param name="name">The application name.
-        ///  </param>
-        /// <param name="shutdown">If true, the servers depending on the data to patch will be shut down if necessary.
-        ///  </param>
-        /// <exception name="ApplicationNotExistException">Raised if the application doesn't exist.
-        ///  </exception>
-        /// <exception name="PatchException">Raised if the patch failed.</exception>
-        /// <param name="context">The Context map to send with the invocation.</param>
-
-        void patchApplication(string name, bool shutdown, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Patch the given application data.
-        /// </summary>
-        /// <param name="name">The application name.
-        ///  </param>
-        /// <param name="shutdown">If true, the servers depending on the data to patch will be shut down if necessary.
-        ///  </param>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task patchApplicationAsync(string name, bool shutdown, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
         /// Get an application descriptor.
         /// </summary>
         /// <param name="name">The application name.
@@ -3213,37 +3180,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task stopServerAsync(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Patch a server.
-        /// </summary>
-        /// <param name="id">The server id.
-        ///  </param>
-        /// <param name="shutdown">If true, servers depending on the data to patch will be shut down if necessary.
-        ///  </param>
-        /// <exception name="ServerNotExistException">Raised if the server doesn't exist.
-        ///  </exception>
-        /// <exception name="NodeUnreachableException">Raised if the node could not be reached.
-        ///  </exception>
-        /// <exception name="DeploymentException">Raised if the server couldn't be deployed on the node.
-        ///  </exception>
-        /// <exception name="PatchException">Raised if the patch failed.</exception>
-        /// <param name="context">The Context map to send with the invocation.</param>
-
-        void patchServer(string id, bool shutdown, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Patch a server.
-        /// </summary>
-        /// <param name="id">The server id.
-        ///  </param>
-        /// <param name="shutdown">If true, servers depending on the data to patch will be shut down if necessary.
-        ///  </param>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task patchServerAsync(string id, bool shutdown, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
         /// Send signal to a server.
@@ -4944,18 +4880,6 @@ namespace IceGrid
         void instantiateServer(string application, string node, ServerInstanceDescriptor desc, global::Ice.Current current = null);
 
         /// <summary>
-        /// Patch the given application data.
-        /// </summary>
-        /// <param name="name">The application name.
-        ///  </param>
-        /// <param name="shutdown">If true, the servers depending on the data to patch will be shut down if necessary.
-        ///  </param>
-        /// <param name="current">The Current object for the invocation.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task patchApplicationAsync(string name, bool shutdown, global::Ice.Current current = null);
-
-        /// <summary>
         /// Get an application descriptor.
         /// </summary>
         /// <param name="name">The application name.
@@ -5119,18 +5043,6 @@ namespace IceGrid
         /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         global::System.Threading.Tasks.Task stopServerAsync(string id, global::Ice.Current current = null);
-
-        /// <summary>
-        /// Patch a server.
-        /// </summary>
-        /// <param name="id">The server id.
-        ///  </param>
-        /// <param name="shutdown">If true, servers depending on the data to patch will be shut down if necessary.
-        ///  </param>
-        /// <param name="current">The Current object for the invocation.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task patchServerAsync(string id, bool shutdown, global::Ice.Current current = null);
 
         /// <summary>
         /// Send signal to a server.
@@ -6302,18 +6214,6 @@ namespace IceGrid
             }
         }
 
-        public void patchApplication(string name, bool shutdown, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            try
-            {
-                _iceI_patchApplicationAsync(name, shutdown, context, null, global::System.Threading.CancellationToken.None, true).Wait();
-            }
-            catch(global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException;
-            }
-        }
-
         public ApplicationInfo getApplicationInfo(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
             try
@@ -6451,18 +6351,6 @@ namespace IceGrid
             try
             {
                 _iceI_stopServerAsync(id, context, null, global::System.Threading.CancellationToken.None, true).Wait();
-            }
-            catch(global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException;
-            }
-        }
-
-        public void patchServer(string id, bool shutdown, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            try
-            {
-                _iceI_patchServerAsync(id, shutdown, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch(global::System.AggregateException ex_)
             {
@@ -7153,55 +7041,6 @@ namespace IceGrid
                 });
         }
 
-        public global::System.Threading.Tasks.Task patchApplicationAsync(string name, bool shutdown, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-        {
-            return _iceI_patchApplicationAsync(name, shutdown, context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task _iceI_patchApplicationAsync(string iceP_name, bool iceP_shutdown, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            iceCheckTwowayOnly(_patchApplication_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_patchApplication(iceP_name, iceP_shutdown, context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _patchApplication_name = "patchApplication";
-
-        private void _iceI_patchApplication(string iceP_name, bool iceP_shutdown, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<object>(completed);
-            outAsync.invoke(
-                _patchApplication_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
-                context,
-                synchronous,
-                write: (global::Ice.OutputStream ostr) =>
-                {
-                    ostr.writeString(iceP_name);
-                    ostr.writeBool(iceP_shutdown);
-                },
-                userException: (global::Ice.UserException ex) =>
-                {
-                    try
-                    {
-                        throw ex;
-                    }
-                    catch(ApplicationNotExistException)
-                    {
-                        throw;
-                    }
-                    catch(PatchException)
-                    {
-                        throw;
-                    }
-                    catch(global::Ice.UserException)
-                    {
-                    }
-                });
-        }
-
         public global::System.Threading.Tasks.Task<ApplicationInfo> getApplicationInfoAsync(string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
         {
             return _iceI_getApplicationInfoAsync(name, context, progress, cancel, false);
@@ -7803,63 +7642,6 @@ namespace IceGrid
                         throw;
                     }
                     catch(NodeUnreachableException)
-                    {
-                        throw;
-                    }
-                    catch(global::Ice.UserException)
-                    {
-                    }
-                });
-        }
-
-        public global::System.Threading.Tasks.Task patchServerAsync(string id, bool shutdown, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-        {
-            return _iceI_patchServerAsync(id, shutdown, context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task _iceI_patchServerAsync(string iceP_id, bool iceP_shutdown, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            iceCheckTwowayOnly(_patchServer_name);
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_patchServer(iceP_id, iceP_shutdown, context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _patchServer_name = "patchServer";
-
-        private void _iceI_patchServer(string iceP_id, bool iceP_shutdown, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<object>(completed);
-            outAsync.invoke(
-                _patchServer_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
-                context,
-                synchronous,
-                write: (global::Ice.OutputStream ostr) =>
-                {
-                    ostr.writeString(iceP_id);
-                    ostr.writeBool(iceP_shutdown);
-                },
-                userException: (global::Ice.UserException ex) =>
-                {
-                    try
-                    {
-                        throw ex;
-                    }
-                    catch(ServerNotExistException)
-                    {
-                        throw;
-                    }
-                    catch(DeploymentException)
-                    {
-                        throw;
-                    }
-                    catch(NodeUnreachableException)
-                    {
-                        throw;
-                    }
-                    catch(PatchException)
                     {
                         throw;
                     }
@@ -12286,8 +12068,6 @@ namespace IceGrid
 
         public abstract void instantiateServer(string application, string node, ServerInstanceDescriptor desc, global::Ice.Current current = null);
 
-        public abstract global::System.Threading.Tasks.Task patchApplicationAsync(string name, bool shutdown, global::Ice.Current current = null);
-
         public abstract ApplicationInfo getApplicationInfo(string name, global::Ice.Current current = null);
 
         public abstract ApplicationDescriptor getDefaultApplicationDescriptor(global::Ice.Current current = null);
@@ -12311,8 +12091,6 @@ namespace IceGrid
         public abstract global::System.Threading.Tasks.Task startServerAsync(string id, global::Ice.Current current = null);
 
         public abstract global::System.Threading.Tasks.Task stopServerAsync(string id, global::Ice.Current current = null);
-
-        public abstract global::System.Threading.Tasks.Task patchServerAsync(string id, bool shutdown, global::Ice.Current current = null);
 
         public abstract void sendSignal(string id, string signal, global::Ice.Current current = null);
 
@@ -12508,20 +12286,6 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_patchApplication(Admin obj, global::IceInternal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            string iceP_name;
-            bool iceP_shutdown;
-            iceP_name = istr.readString();
-            iceP_shutdown = istr.readBool();
-            inS.endReadParams();
-            return inS.setResultTask(obj.patchApplicationAsync(iceP_name, iceP_shutdown, current));
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
         iceD_getApplicationInfo(Admin obj, global::IceInternal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
@@ -12695,20 +12459,6 @@ namespace IceGrid
             iceP_id = istr.readString();
             inS.endReadParams();
             return inS.setResultTask(obj.stopServerAsync(iceP_id, current));
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_patchServer(Admin obj, global::IceInternal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            string iceP_id;
-            bool iceP_shutdown;
-            iceP_id = istr.readString();
-            iceP_shutdown = istr.readBool();
-            inS.endReadParams();
-            return inS.setResultTask(obj.patchServerAsync(iceP_id, iceP_shutdown, current));
         }
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
@@ -13126,8 +12876,6 @@ namespace IceGrid
             "ice_ping",
             "instantiateServer",
             "isServerEnabled",
-            "patchApplication",
-            "patchServer",
             "pingNode",
             "pingRegistry",
             "removeAdapter",
@@ -13291,73 +13039,65 @@ namespace IceGrid
                 }
                 case 33:
                 {
-                    return iceD_patchApplication(this, inS, current);
+                    return iceD_pingNode(this, inS, current);
                 }
                 case 34:
                 {
-                    return iceD_patchServer(this, inS, current);
+                    return iceD_pingRegistry(this, inS, current);
                 }
                 case 35:
                 {
-                    return iceD_pingNode(this, inS, current);
+                    return iceD_removeAdapter(this, inS, current);
                 }
                 case 36:
                 {
-                    return iceD_pingRegistry(this, inS, current);
+                    return iceD_removeApplication(this, inS, current);
                 }
                 case 37:
                 {
-                    return iceD_removeAdapter(this, inS, current);
+                    return iceD_removeObject(this, inS, current);
                 }
                 case 38:
                 {
-                    return iceD_removeApplication(this, inS, current);
+                    return iceD_sendSignal(this, inS, current);
                 }
                 case 39:
                 {
-                    return iceD_removeObject(this, inS, current);
+                    return iceD_shutdown(this, inS, current);
                 }
                 case 40:
                 {
-                    return iceD_sendSignal(this, inS, current);
+                    return iceD_shutdownNode(this, inS, current);
                 }
                 case 41:
                 {
-                    return iceD_shutdown(this, inS, current);
+                    return iceD_shutdownRegistry(this, inS, current);
                 }
                 case 42:
                 {
-                    return iceD_shutdownNode(this, inS, current);
+                    return iceD_startServer(this, inS, current);
                 }
                 case 43:
                 {
-                    return iceD_shutdownRegistry(this, inS, current);
+                    return iceD_stopServer(this, inS, current);
                 }
                 case 44:
                 {
-                    return iceD_startServer(this, inS, current);
+                    return iceD_syncApplication(this, inS, current);
                 }
                 case 45:
                 {
-                    return iceD_stopServer(this, inS, current);
+                    return iceD_syncApplicationWithoutRestart(this, inS, current);
                 }
                 case 46:
                 {
-                    return iceD_syncApplication(this, inS, current);
+                    return iceD_updateApplication(this, inS, current);
                 }
                 case 47:
                 {
-                    return iceD_syncApplicationWithoutRestart(this, inS, current);
-                }
-                case 48:
-                {
-                    return iceD_updateApplication(this, inS, current);
-                }
-                case 49:
-                {
                     return iceD_updateApplicationWithoutRestart(this, inS, current);
                 }
-                case 50:
+                case 48:
                 {
                     return iceD_updateObject(this, inS, current);
                 }

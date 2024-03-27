@@ -127,45 +127,6 @@ namespace IceGrid
 
 namespace IceGrid
 {
-    global $IceGrid__t_InternalDistributionDescriptor;
-    class InternalDistributionDescriptor extends \Ice\Value
-    {
-        public function __construct($icepatch='', $directories=null)
-        {
-            $this->icepatch = $icepatch;
-            $this->directories = $directories;
-        }
-
-        public function ice_id()
-        {
-            return '::IceGrid::InternalDistributionDescriptor';
-        }
-
-        public static function ice_staticId()
-        {
-            return '::IceGrid::InternalDistributionDescriptor';
-        }
-
-        public function __toString(): string
-        {
-            global $IceGrid__t_InternalDistributionDescriptor;
-            return IcePHP_stringify($this, $IceGrid__t_InternalDistributionDescriptor);
-        }
-
-        public $icepatch;
-        public $directories;
-    }
-
-    global $Ice__t_Value;
-    global $IcePHP__t_string;
-    global $Ice__t_StringSeq;
-    $IceGrid__t_InternalDistributionDescriptor = IcePHP_defineClass('::IceGrid::InternalDistributionDescriptor', '\\IceGrid\\InternalDistributionDescriptor', -1, false, $Ice__t_Value, array(
-        array('icepatch', $IcePHP__t_string, false, 0),
-        array('directories', $Ice__t_StringSeq, false, 0)));
-}
-
-namespace IceGrid
-{
     global $IceGrid__t_PropertyDescriptorSeqDict;
 
     if(!isset($IceGrid__t_PropertyDescriptorSeqDict))
@@ -181,7 +142,7 @@ namespace IceGrid
     global $IceGrid__t_InternalServerDescriptor;
     class InternalServerDescriptor extends \Ice\Value
     {
-        public function __construct($id='', $application='', $uuid='', $revision=0, $sessionId='', $exe='', $pwd='', $user='', $activation='', $activationTimeout='', $deactivationTimeout='', $applicationDistrib=false, $distrib=null, $processRegistered=false, $options=null, $envs=null, $logs=null, $adapters=null, $dbEnvs=null, $properties=null, $services=\Ice\None)
+        public function __construct($id='', $application='', $uuid='', $revision=0, $sessionId='', $exe='', $pwd='', $user='', $activation='', $activationTimeout='', $deactivationTimeout='', $processRegistered=false, $options=null, $envs=null, $logs=null, $adapters=null, $dbEnvs=null, $properties=null, $services=\Ice\None)
         {
             $this->id = $id;
             $this->application = $application;
@@ -194,8 +155,6 @@ namespace IceGrid
             $this->activation = $activation;
             $this->activationTimeout = $activationTimeout;
             $this->deactivationTimeout = $deactivationTimeout;
-            $this->applicationDistrib = $applicationDistrib;
-            $this->distrib = $distrib;
             $this->processRegistered = $processRegistered;
             $this->options = $options;
             $this->envs = $envs;
@@ -233,8 +192,6 @@ namespace IceGrid
         public $activation;
         public $activationTimeout;
         public $deactivationTimeout;
-        public $applicationDistrib;
-        public $distrib;
         public $processRegistered;
         public $options;
         public $envs;
@@ -251,7 +208,6 @@ namespace IceGrid
     global $IcePHP__t_string;
     global $IcePHP__t_int;
     global $IcePHP__t_bool;
-    global $IceGrid__t_InternalDistributionDescriptor;
     global $Ice__t_StringSeq;
     global $IceGrid__t_InternalAdapterDescriptorSeq;
     global $IceGrid__t_InternalDbEnvDescriptorSeq;
@@ -268,8 +224,6 @@ namespace IceGrid
         array('activation', $IcePHP__t_string, false, 0),
         array('activationTimeout', $IcePHP__t_string, false, 0),
         array('deactivationTimeout', $IcePHP__t_string, false, 0),
-        array('applicationDistrib', $IcePHP__t_bool, false, 0),
-        array('distrib', $IceGrid__t_InternalDistributionDescriptor, false, 0),
         array('processRegistered', $IcePHP__t_bool, false, 0),
         array('options', $Ice__t_StringSeq, false, 0),
         array('envs', $Ice__t_StringSeq, false, 0),
@@ -542,37 +496,6 @@ namespace IceGrid
 
 namespace IceGrid
 {
-    global $IceGrid__t_PatcherFeedback;
-    global $IceGrid__t_PatcherFeedbackPrx;
-
-    class PatcherFeedbackPrxHelper
-    {
-        public static function checkedCast($proxy, $facetOrContext=null, $context=null)
-        {
-            return $proxy->ice_checkedCast('::IceGrid::PatcherFeedback', $facetOrContext, $context);
-        }
-
-        public static function uncheckedCast($proxy, $facet=null)
-        {
-            return $proxy->ice_uncheckedCast('::IceGrid::PatcherFeedback', $facet);
-        }
-
-        public static function ice_staticId()
-        {
-            return '::IceGrid::PatcherFeedback';
-        }
-    }
-
-    global $Ice__t_ObjectPrx;
-    $IceGrid__t_PatcherFeedbackPrx = IcePHP_defineProxy('::IceGrid::PatcherFeedback', $Ice__t_ObjectPrx, null);
-
-    global $IcePHP__t_string;
-    IcePHP_defineOperation($IceGrid__t_PatcherFeedbackPrx, 'finished', 0, 0, 0, null, null, null, null);
-    IcePHP_defineOperation($IceGrid__t_PatcherFeedbackPrx, 'failed', 0, 0, 0, array(array($IcePHP__t_string)), null, null, null);
-}
-
-namespace IceGrid
-{
     global $IceGrid__t_Node;
     global $IceGrid__t_NodePrx;
 
@@ -602,16 +525,12 @@ namespace IceGrid
     global $IceGrid__t_AdapterPrxDict;
     global $IcePHP__t_int;
     global $IceGrid__t_ServerPrx;
-    global $IceGrid__t_PatcherFeedbackPrx;
-    global $IceGrid__t_InternalDistributionDescriptor;
-    global $IcePHP__t_bool;
     global $IceGrid__t_InternalRegistryPrx;
     global $IceGrid__t_LoadInfo;
     IcePHP_defineOperation($IceGrid__t_NodePrx, 'loadServer', 2, 2, 0, array(array($IceGrid__t_InternalServerDescriptor), array($IcePHP__t_string)), array(array($IceGrid__t_AdapterPrxDict), array($IcePHP__t_int), array($IcePHP__t_int)), array($IceGrid__t_ServerPrx), array($IceGrid__t_DeploymentException));
     IcePHP_defineOperation($IceGrid__t_NodePrx, 'loadServerWithoutRestart', 2, 2, 0, array(array($IceGrid__t_InternalServerDescriptor), array($IcePHP__t_string)), array(array($IceGrid__t_AdapterPrxDict), array($IcePHP__t_int), array($IcePHP__t_int)), array($IceGrid__t_ServerPrx), array($IceGrid__t_DeploymentException));
     IcePHP_defineOperation($IceGrid__t_NodePrx, 'destroyServer', 2, 2, 0, array(array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_int), array($IcePHP__t_string)), null, null, array($IceGrid__t_DeploymentException));
     IcePHP_defineOperation($IceGrid__t_NodePrx, 'destroyServerWithoutRestart', 2, 2, 0, array(array($IcePHP__t_string), array($IcePHP__t_string), array($IcePHP__t_int), array($IcePHP__t_string)), null, null, array($IceGrid__t_DeploymentException));
-    IcePHP_defineOperation($IceGrid__t_NodePrx, 'patch', 2, 2, 0, array(array($IceGrid__t_PatcherFeedbackPrx), array($IcePHP__t_string), array($IcePHP__t_string), array($IceGrid__t_InternalDistributionDescriptor), array($IcePHP__t_bool)), null, null, null);
     IcePHP_defineOperation($IceGrid__t_NodePrx, 'registerWithReplica', 0, 0, 0, array(array($IceGrid__t_InternalRegistryPrx)), null, null, null);
     IcePHP_defineOperation($IceGrid__t_NodePrx, 'getName', 2, 1, 0, null, null, array($IcePHP__t_string), null);
     IcePHP_defineOperation($IceGrid__t_NodePrx, 'getHostname', 2, 1, 0, null, null, array($IcePHP__t_string), null);

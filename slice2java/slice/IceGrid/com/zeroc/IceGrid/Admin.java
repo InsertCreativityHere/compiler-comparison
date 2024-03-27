@@ -125,19 +125,6 @@ public interface Admin extends com.zeroc.Ice.Object
                AccessDeniedException;
 
     /**
-     * Patch the given application data.
-     * @param name The application name.
-     * @param shutdown If true, the servers depending on the data to patch will be shut down if necessary.
-     * @param current The Current object for the invocation.
-     * @return A completion stage that the servant will complete when the invocation completes.
-     * @throws ApplicationNotExistException Raised if the application doesn't exist.
-     * @throws PatchException Raised if the patch failed.
-     **/
-    java.util.concurrent.CompletionStage<Void> patchApplicationAsync(String name, boolean shutdown, com.zeroc.Ice.Current current)
-        throws ApplicationNotExistException,
-               PatchException;
-
-    /**
      * Get an application descriptor.
      * @param name The application name.
      * @param current The Current object for the invocation.
@@ -283,23 +270,6 @@ public interface Admin extends com.zeroc.Ice.Object
                ServerStopException,
                DeploymentException,
                NodeUnreachableException;
-
-    /**
-     * Patch a server.
-     * @param id The server id.
-     * @param shutdown If true, servers depending on the data to patch will be shut down if necessary.
-     * @param current The Current object for the invocation.
-     * @return A completion stage that the servant will complete when the invocation completes.
-     * @throws DeploymentException Raised if the server couldn't be deployed on the node.
-     * @throws NodeUnreachableException Raised if the node could not be reached.
-     * @throws PatchException Raised if the patch failed.
-     * @throws ServerNotExistException Raised if the server doesn't exist.
-     **/
-    java.util.concurrent.CompletionStage<Void> patchServerAsync(String id, boolean shutdown, com.zeroc.Ice.Current current)
-        throws ServerNotExistException,
-               DeploymentException,
-               NodeUnreachableException,
-               PatchException;
 
     /**
      * Send signal to a server.
@@ -759,27 +729,6 @@ public interface Admin extends com.zeroc.Ice.Object
      * @return -
      * @throws com.zeroc.Ice.UserException -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_patchApplication(Admin obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-        throws com.zeroc.Ice.UserException
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        String iceP_name;
-        boolean iceP_shutdown;
-        iceP_name = istr.readString();
-        iceP_shutdown = istr.readBool();
-        inS.endReadParams();
-        return inS.setResultFuture(obj.patchApplicationAsync(iceP_name, iceP_shutdown, current));
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws com.zeroc.Ice.UserException -
-    **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_getApplicationInfo(Admin obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
         throws com.zeroc.Ice.UserException
     {
@@ -1027,27 +976,6 @@ public interface Admin extends com.zeroc.Ice.Object
         iceP_id = istr.readString();
         inS.endReadParams();
         return inS.setResultFuture(obj.stopServerAsync(iceP_id, current));
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-     * @throws com.zeroc.Ice.UserException -
-    **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_patchServer(Admin obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-        throws com.zeroc.Ice.UserException
-    {
-        com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
-        com.zeroc.Ice.InputStream istr = inS.startReadParams();
-        String iceP_id;
-        boolean iceP_shutdown;
-        iceP_id = istr.readString();
-        iceP_shutdown = istr.readBool();
-        inS.endReadParams();
-        return inS.setResultFuture(obj.patchServerAsync(iceP_id, iceP_shutdown, current));
     }
 
     /**
@@ -1632,8 +1560,6 @@ public interface Admin extends com.zeroc.Ice.Object
         "ice_ping",
         "instantiateServer",
         "isServerEnabled",
-        "patchApplication",
-        "patchServer",
         "pingNode",
         "pingRegistry",
         "removeAdapter",
@@ -1799,73 +1725,65 @@ public interface Admin extends com.zeroc.Ice.Object
             }
             case 33:
             {
-                return _iceD_patchApplication(this, in, current);
+                return _iceD_pingNode(this, in, current);
             }
             case 34:
             {
-                return _iceD_patchServer(this, in, current);
+                return _iceD_pingRegistry(this, in, current);
             }
             case 35:
             {
-                return _iceD_pingNode(this, in, current);
+                return _iceD_removeAdapter(this, in, current);
             }
             case 36:
             {
-                return _iceD_pingRegistry(this, in, current);
+                return _iceD_removeApplication(this, in, current);
             }
             case 37:
             {
-                return _iceD_removeAdapter(this, in, current);
+                return _iceD_removeObject(this, in, current);
             }
             case 38:
             {
-                return _iceD_removeApplication(this, in, current);
+                return _iceD_sendSignal(this, in, current);
             }
             case 39:
             {
-                return _iceD_removeObject(this, in, current);
+                return _iceD_shutdown(this, in, current);
             }
             case 40:
             {
-                return _iceD_sendSignal(this, in, current);
+                return _iceD_shutdownNode(this, in, current);
             }
             case 41:
             {
-                return _iceD_shutdown(this, in, current);
+                return _iceD_shutdownRegistry(this, in, current);
             }
             case 42:
             {
-                return _iceD_shutdownNode(this, in, current);
+                return _iceD_startServer(this, in, current);
             }
             case 43:
             {
-                return _iceD_shutdownRegistry(this, in, current);
+                return _iceD_stopServer(this, in, current);
             }
             case 44:
             {
-                return _iceD_startServer(this, in, current);
+                return _iceD_syncApplication(this, in, current);
             }
             case 45:
             {
-                return _iceD_stopServer(this, in, current);
+                return _iceD_syncApplicationWithoutRestart(this, in, current);
             }
             case 46:
             {
-                return _iceD_syncApplication(this, in, current);
+                return _iceD_updateApplication(this, in, current);
             }
             case 47:
             {
-                return _iceD_syncApplicationWithoutRestart(this, in, current);
-            }
-            case 48:
-            {
-                return _iceD_updateApplication(this, in, current);
-            }
-            case 49:
-            {
                 return _iceD_updateApplicationWithoutRestart(this, in, current);
             }
-            case 50:
+            case 48:
             {
                 return _iceD_updateObject(this, in, current);
             }

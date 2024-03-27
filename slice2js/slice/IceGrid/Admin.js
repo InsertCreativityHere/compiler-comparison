@@ -423,11 +423,6 @@ Slice.defineOperations(IceGrid.Admin, IceGrid.AdminPrx, iceC_IceGrid_Admin_ids, 
         IceGrid.DeploymentException,
         IceGrid.AccessDeniedException
     ], , ],
-    "patchApplication": [, , , , , [[7], [1]], ,
-    [
-        IceGrid.ApplicationNotExistException,
-        IceGrid.PatchException
-    ], , ],
     "getApplicationInfo": [, 2, 1, , [IceGrid.ApplicationInfo], [[7]], ,
     [
         IceGrid.ApplicationNotExistException
@@ -485,13 +480,6 @@ Slice.defineOperations(IceGrid.Admin, IceGrid.AdminPrx, iceC_IceGrid_Admin_ids, 
         IceGrid.ServerStopException,
         IceGrid.DeploymentException,
         IceGrid.NodeUnreachableException
-    ], , ],
-    "patchServer": [, , , , , [[7], [1]], ,
-    [
-        IceGrid.ServerNotExistException,
-        IceGrid.DeploymentException,
-        IceGrid.NodeUnreachableException,
-        IceGrid.PatchException
     ], , ],
     "sendSignal": [, , , , , [[7], [7]], ,
     [

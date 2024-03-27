@@ -12,8 +12,6 @@
 %   activation - The server activation mode.
 %   activationTimeout - The server activation timeout.
 %   deactivationTimeout - The server deactivation timeout.
-%   applicationDistrib - Specifies if the server depends on the application distrib.
-%   distrib - The distribution descriptor of this server.
 %   processRegistered - Specifies if a process object is registered.
 %   options - The server command line options.
 %   envs - The server environment variables.
@@ -50,10 +48,6 @@ classdef InternalServerDescriptor < Ice.Value
         activationTimeout char
         % deactivationTimeout - The server deactivation timeout.
         deactivationTimeout char
-        % applicationDistrib - Specifies if the server depends on the application distrib.
-        applicationDistrib logical
-        % distrib - The distribution descriptor of this server.
-        distrib
         % processRegistered - Specifies if a process object is registered.
         processRegistered logical
         % options - The server command line options.
@@ -71,7 +65,7 @@ classdef InternalServerDescriptor < Ice.Value
         services
     end
     methods
-        function obj = InternalServerDescriptor(id, application, uuid, revision, sessionId, exe, pwd, user, activation, activationTimeout, deactivationTimeout, applicationDistrib, distrib, processRegistered, options, envs, logs, adapters, dbEnvs, properties_, services)
+        function obj = InternalServerDescriptor(id, application, uuid, revision, sessionId, exe, pwd, user, activation, activationTimeout, deactivationTimeout, processRegistered, options, envs, logs, adapters, dbEnvs, properties_, services)
             if nargin == 0
                 obj.id = '';
                 obj.application = '';
@@ -84,8 +78,6 @@ classdef InternalServerDescriptor < Ice.Value
                 obj.activation = '';
                 obj.activationTimeout = '';
                 obj.deactivationTimeout = '';
-                obj.applicationDistrib = false;
-                obj.distrib = [];
                 obj.processRegistered = false;
                 obj.options = [];
                 obj.envs = [];
@@ -106,8 +98,6 @@ classdef InternalServerDescriptor < Ice.Value
                 obj.activation = activation;
                 obj.activationTimeout = activationTimeout;
                 obj.deactivationTimeout = deactivationTimeout;
-                obj.applicationDistrib = applicationDistrib;
-                obj.distrib = distrib;
                 obj.processRegistered = processRegistered;
                 obj.options = options;
                 obj.envs = envs;
@@ -145,8 +135,6 @@ classdef InternalServerDescriptor < Ice.Value
             os.writeString(obj.activation);
             os.writeString(obj.activationTimeout);
             os.writeString(obj.deactivationTimeout);
-            os.writeBool(obj.applicationDistrib);
-            os.writeValue(obj.distrib);
             os.writeBool(obj.processRegistered);
             os.writeStringSeq(obj.options);
             os.writeStringSeq(obj.envs);
@@ -170,8 +158,6 @@ classdef InternalServerDescriptor < Ice.Value
             obj.activation = is.readString();
             obj.activationTimeout = is.readString();
             obj.deactivationTimeout = is.readString();
-            obj.applicationDistrib = is.readBool();
-            is.readValue(@obj.iceSetMember_distrib, 'IceGrid.InternalDistributionDescriptor');
             obj.processRegistered = is.readBool();
             obj.options = is.readStringSeq();
             obj.envs = is.readStringSeq();
@@ -181,9 +167,6 @@ classdef InternalServerDescriptor < Ice.Value
             obj.properties_ = IceGrid.PropertyDescriptorSeqDict.read(is);
             obj.services = is.readStringSeqOpt(1);
             is.endSlice();
-        end
-        function iceSetMember_distrib(obj, v)
-            obj.distrib = v;
         end
     end
     methods(Static)

@@ -76,11 +76,11 @@ IceGrid::AdminPrx::_iceI_addApplication(const ::std::shared_ptr<::IceInternal::O
             {
                 ex.ice_throw();
             }
-            catch(const AccessDeniedException&)
+            catch(const DeploymentException&)
             {
                 throw;
             }
-            catch(const DeploymentException&)
+            catch(const AccessDeniedException&)
             {
                 throw;
             }
@@ -126,15 +126,15 @@ IceGrid::AdminPrx::_iceI_syncApplication(const ::std::shared_ptr<::IceInternal::
             {
                 ex.ice_throw();
             }
-            catch(const AccessDeniedException&)
-            {
-                throw;
-            }
             catch(const ApplicationNotExistException&)
             {
                 throw;
             }
             catch(const DeploymentException&)
+            {
+                throw;
+            }
+            catch(const AccessDeniedException&)
             {
                 throw;
             }
@@ -180,15 +180,15 @@ IceGrid::AdminPrx::_iceI_updateApplication(const ::std::shared_ptr<::IceInternal
             {
                 ex.ice_throw();
             }
-            catch(const AccessDeniedException&)
-            {
-                throw;
-            }
             catch(const ApplicationNotExistException&)
             {
                 throw;
             }
             catch(const DeploymentException&)
+            {
+                throw;
+            }
+            catch(const AccessDeniedException&)
             {
                 throw;
             }
@@ -234,15 +234,15 @@ IceGrid::AdminPrx::_iceI_syncApplicationWithoutRestart(const ::std::shared_ptr<:
             {
                 ex.ice_throw();
             }
-            catch(const AccessDeniedException&)
-            {
-                throw;
-            }
             catch(const ApplicationNotExistException&)
             {
                 throw;
             }
             catch(const DeploymentException&)
+            {
+                throw;
+            }
+            catch(const AccessDeniedException&)
             {
                 throw;
             }
@@ -288,15 +288,15 @@ IceGrid::AdminPrx::_iceI_updateApplicationWithoutRestart(const ::std::shared_ptr
             {
                 ex.ice_throw();
             }
-            catch(const AccessDeniedException&)
-            {
-                throw;
-            }
             catch(const ApplicationNotExistException&)
             {
                 throw;
             }
             catch(const DeploymentException&)
+            {
+                throw;
+            }
+            catch(const AccessDeniedException&)
             {
                 throw;
             }
@@ -341,15 +341,15 @@ IceGrid::AdminPrx::_iceI_removeApplication(const ::std::shared_ptr<::IceInternal
             {
                 ex.ice_throw();
             }
-            catch(const AccessDeniedException&)
-            {
-                throw;
-            }
             catch(const ApplicationNotExistException&)
             {
                 throw;
             }
             catch(const DeploymentException&)
+            {
+                throw;
+            }
+            catch(const AccessDeniedException&)
             {
                 throw;
             }
@@ -394,10 +394,6 @@ IceGrid::AdminPrx::_iceI_instantiateServer(const ::std::shared_ptr<::IceInternal
             {
                 ex.ice_throw();
             }
-            catch(const AccessDeniedException&)
-            {
-                throw;
-            }
             catch(const ApplicationNotExistException&)
             {
                 throw;
@@ -406,52 +402,7 @@ IceGrid::AdminPrx::_iceI_instantiateServer(const ::std::shared_ptr<::IceInternal
             {
                 throw;
             }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-
-void
-IceGrid::AdminPrx::patchApplication(::std::string_view iceP_name, bool iceP_shutdown, const ::Ice::Context& context) const
-{
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &AdminPrx::_iceI_patchApplication, iceP_name, iceP_shutdown, context).get();
-}
-
-::std::future<void>
-IceGrid::AdminPrx::patchApplicationAsync(::std::string_view iceP_name, bool iceP_shutdown, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &AdminPrx::_iceI_patchApplication, iceP_name, iceP_shutdown, context);
-}
-
-::std::function<void()>
-IceGrid::AdminPrx::patchApplicationAsync(::std::string_view iceP_name, bool iceP_shutdown, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_patchApplication, iceP_name, iceP_shutdown, context);
-}
-
-void
-IceGrid::AdminPrx::_iceI_patchApplication(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_name, bool iceP_shutdown, const ::Ice::Context& context) const
-{
-    static constexpr ::std::string_view operationName = "patchApplication";
-
-    _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_name, iceP_shutdown);
-        },
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const ApplicationNotExistException&)
-            {
-                throw;
-            }
-            catch(const PatchException&)
+            catch(const AccessDeniedException&)
             {
                 throw;
             }
@@ -1042,63 +993,6 @@ IceGrid::AdminPrx::_iceI_stopServer(const ::std::shared_ptr<::IceInternal::Outgo
                 throw;
             }
             catch(const NodeUnreachableException&)
-            {
-                throw;
-            }
-            catch(const ::Ice::UserException&)
-            {
-            }
-        });
-}
-
-void
-IceGrid::AdminPrx::patchServer(::std::string_view iceP_id, bool iceP_shutdown, const ::Ice::Context& context) const
-{
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &AdminPrx::_iceI_patchServer, iceP_id, iceP_shutdown, context).get();
-}
-
-::std::future<void>
-IceGrid::AdminPrx::patchServerAsync(::std::string_view iceP_id, bool iceP_shutdown, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &AdminPrx::_iceI_patchServer, iceP_id, iceP_shutdown, context);
-}
-
-::std::function<void()>
-IceGrid::AdminPrx::patchServerAsync(::std::string_view iceP_id, bool iceP_shutdown, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &IceGrid::AdminPrx::_iceI_patchServer, iceP_id, iceP_shutdown, context);
-}
-
-void
-IceGrid::AdminPrx::_iceI_patchServer(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, ::std::string_view iceP_id, bool iceP_shutdown, const ::Ice::Context& context) const
-{
-    static constexpr ::std::string_view operationName = "patchServer";
-
-    _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll(iceP_id, iceP_shutdown);
-        },
-        [](const ::Ice::UserException& ex)
-        {
-            try
-            {
-                ex.ice_throw();
-            }
-            catch(const ServerNotExistException&)
-            {
-                throw;
-            }
-            catch(const DeploymentException&)
-            {
-                throw;
-            }
-            catch(const NodeUnreachableException&)
-            {
-                throw;
-            }
-            catch(const PatchException&)
             {
                 throw;
             }
@@ -3316,10 +3210,6 @@ IceGrid::AdminSessionPrx::_iceI_openServerLog(const ::std::shared_ptr<::IceInter
             {
                 ex.ice_throw();
             }
-            catch(const FileNotAvailableException&)
-            {
-                throw;
-            }
             catch(const ServerNotExistException&)
             {
                 throw;
@@ -3329,6 +3219,10 @@ IceGrid::AdminSessionPrx::_iceI_openServerLog(const ::std::shared_ptr<::IceInter
                 throw;
             }
             catch(const NodeUnreachableException&)
+            {
+                throw;
+            }
+            catch(const FileNotAvailableException&)
             {
                 throw;
             }
@@ -3373,10 +3267,6 @@ IceGrid::AdminSessionPrx::_iceI_openServerStdErr(const ::std::shared_ptr<::IceIn
             {
                 ex.ice_throw();
             }
-            catch(const FileNotAvailableException&)
-            {
-                throw;
-            }
             catch(const ServerNotExistException&)
             {
                 throw;
@@ -3386,6 +3276,10 @@ IceGrid::AdminSessionPrx::_iceI_openServerStdErr(const ::std::shared_ptr<::IceIn
                 throw;
             }
             catch(const NodeUnreachableException&)
+            {
+                throw;
+            }
+            catch(const FileNotAvailableException&)
             {
                 throw;
             }
@@ -3430,10 +3324,6 @@ IceGrid::AdminSessionPrx::_iceI_openServerStdOut(const ::std::shared_ptr<::IceIn
             {
                 ex.ice_throw();
             }
-            catch(const FileNotAvailableException&)
-            {
-                throw;
-            }
             catch(const ServerNotExistException&)
             {
                 throw;
@@ -3443,6 +3333,10 @@ IceGrid::AdminSessionPrx::_iceI_openServerStdOut(const ::std::shared_ptr<::IceIn
                 throw;
             }
             catch(const NodeUnreachableException&)
+            {
+                throw;
+            }
+            catch(const FileNotAvailableException&)
             {
                 throw;
             }
@@ -3487,15 +3381,15 @@ IceGrid::AdminSessionPrx::_iceI_openNodeStdErr(const ::std::shared_ptr<::IceInte
             {
                 ex.ice_throw();
             }
-            catch(const FileNotAvailableException&)
-            {
-                throw;
-            }
             catch(const NodeNotExistException&)
             {
                 throw;
             }
             catch(const NodeUnreachableException&)
+            {
+                throw;
+            }
+            catch(const FileNotAvailableException&)
             {
                 throw;
             }
@@ -3540,15 +3434,15 @@ IceGrid::AdminSessionPrx::_iceI_openNodeStdOut(const ::std::shared_ptr<::IceInte
             {
                 ex.ice_throw();
             }
-            catch(const FileNotAvailableException&)
-            {
-                throw;
-            }
             catch(const NodeNotExistException&)
             {
                 throw;
             }
             catch(const NodeUnreachableException&)
+            {
+                throw;
+            }
+            catch(const FileNotAvailableException&)
             {
                 throw;
             }
@@ -3593,15 +3487,15 @@ IceGrid::AdminSessionPrx::_iceI_openRegistryStdErr(const ::std::shared_ptr<::Ice
             {
                 ex.ice_throw();
             }
-            catch(const FileNotAvailableException&)
-            {
-                throw;
-            }
             catch(const RegistryNotExistException&)
             {
                 throw;
             }
             catch(const RegistryUnreachableException&)
+            {
+                throw;
+            }
+            catch(const FileNotAvailableException&)
             {
                 throw;
             }
@@ -3646,15 +3540,15 @@ IceGrid::AdminSessionPrx::_iceI_openRegistryStdOut(const ::std::shared_ptr<::Ice
             {
                 ex.ice_throw();
             }
-            catch(const FileNotAvailableException&)
-            {
-                throw;
-            }
             catch(const RegistryNotExistException&)
             {
                 throw;
             }
             catch(const RegistryUnreachableException&)
+            {
+                throw;
+            }
+            catch(const FileNotAvailableException&)
             {
                 throw;
             }
@@ -3800,29 +3694,6 @@ IceGrid::Admin::_iceD_instantiateServer(::Ice::IncomingRequest& request, ::std::
     istr->endEncapsulation();
     this->instantiateServer(::std::move(iceP_application), ::std::move(iceP_node), ::std::move(iceP_desc), request.current());
     sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceGrid::Admin::_iceD_patchApplication(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
-    auto istr = &request.inputStream();
-    istr->startEncapsulation();
-    ::std::string iceP_name;
-    bool iceP_shutdown;
-    istr->readAll(iceP_name, iceP_shutdown);
-    istr->endEncapsulation();
-    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
-    try
-    {
-        this->patchApplicationAsync(::std::move(iceP_name), iceP_shutdown, [responseHandler] { responseHandler->sendEmptyResponse(); }, [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
-    }
-    catch (...)
-    {
-        responseHandler->sendException(::std::current_exception());
-    }
 }
 /// \endcond
 
@@ -4040,29 +3911,6 @@ IceGrid::Admin::_iceD_stopServer(::Ice::IncomingRequest& request, ::std::functio
     try
     {
         this->stopServerAsync(::std::move(iceP_id), [responseHandler] { responseHandler->sendEmptyResponse(); }, [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
-    }
-    catch (...)
-    {
-        responseHandler->sendException(::std::current_exception());
-    }
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
-IceGrid::Admin::_iceD_patchServer(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
-{
-    _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
-    auto istr = &request.inputStream();
-    istr->startEncapsulation();
-    ::std::string iceP_id;
-    bool iceP_shutdown;
-    istr->readAll(iceP_id, iceP_shutdown);
-    istr->endEncapsulation();
-    auto responseHandler = ::std::make_shared<::IceInternal::AsyncResponseHandler>(::std::move(sendResponse), request.current());
-    try
-    {
-        this->patchServerAsync(::std::move(iceP_id), iceP_shutdown, [responseHandler] { responseHandler->sendEmptyResponse(); }, [responseHandler](std::exception_ptr ex) { responseHandler->sendException(ex); }, responseHandler->current());
     }
     catch (...)
     {
@@ -4515,10 +4363,10 @@ IceGrid::Admin::_iceD_shutdown(::Ice::IncomingRequest& request, ::std::function<
 void
 IceGrid::Admin::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"addApplication", "addObject", "addObjectWithType", "enableServer", "getAdapterInfo", "getAllAdapterIds", "getAllApplicationNames", "getAllNodeNames", "getAllObjectInfos", "getAllRegistryNames", "getAllServerIds", "getApplicationInfo", "getDefaultApplicationDescriptor", "getNodeAdmin", "getNodeHostname", "getNodeInfo", "getNodeLoad", "getNodeProcessorSocketCount", "getObjectInfo", "getObjectInfosByType", "getRegistryAdmin", "getRegistryInfo", "getServerAdmin", "getServerAdminCategory", "getServerInfo", "getServerPid", "getServerState", "ice_id", "ice_ids", "ice_isA", "ice_ping", "instantiateServer", "isServerEnabled", "patchApplication", "patchServer", "pingNode", "pingRegistry", "removeAdapter", "removeApplication", "removeObject", "sendSignal", "shutdown", "shutdownNode", "shutdownRegistry", "startServer", "stopServer", "syncApplication", "syncApplicationWithoutRestart", "updateApplication", "updateApplicationWithoutRestart", "updateObject"};
+    static constexpr ::std::string_view allOperations[] = {"addApplication", "addObject", "addObjectWithType", "enableServer", "getAdapterInfo", "getAllAdapterIds", "getAllApplicationNames", "getAllNodeNames", "getAllObjectInfos", "getAllRegistryNames", "getAllServerIds", "getApplicationInfo", "getDefaultApplicationDescriptor", "getNodeAdmin", "getNodeHostname", "getNodeInfo", "getNodeLoad", "getNodeProcessorSocketCount", "getObjectInfo", "getObjectInfosByType", "getRegistryAdmin", "getRegistryInfo", "getServerAdmin", "getServerAdminCategory", "getServerInfo", "getServerPid", "getServerState", "ice_id", "ice_ids", "ice_isA", "ice_ping", "instantiateServer", "isServerEnabled", "pingNode", "pingRegistry", "removeAdapter", "removeApplication", "removeObject", "sendSignal", "shutdown", "shutdownNode", "shutdownRegistry", "startServer", "stopServer", "syncApplication", "syncApplicationWithoutRestart", "updateApplication", "updateApplicationWithoutRestart", "updateObject"};
 
     const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 51, current.operation);
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 49, current.operation);
     if(r.first == r.second)
     {
         sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
@@ -4694,90 +4542,80 @@ IceGrid::Admin::dispatch(::Ice::IncomingRequest& request, ::std::function<void(:
         }
         case 33:
         {
-            _iceD_patchApplication(request, ::std::move(sendResponse));
+            _iceD_pingNode(request, ::std::move(sendResponse));
             break;
         }
         case 34:
         {
-            _iceD_patchServer(request, ::std::move(sendResponse));
+            _iceD_pingRegistry(request, ::std::move(sendResponse));
             break;
         }
         case 35:
         {
-            _iceD_pingNode(request, ::std::move(sendResponse));
+            _iceD_removeAdapter(request, ::std::move(sendResponse));
             break;
         }
         case 36:
         {
-            _iceD_pingRegistry(request, ::std::move(sendResponse));
+            _iceD_removeApplication(request, ::std::move(sendResponse));
             break;
         }
         case 37:
         {
-            _iceD_removeAdapter(request, ::std::move(sendResponse));
+            _iceD_removeObject(request, ::std::move(sendResponse));
             break;
         }
         case 38:
         {
-            _iceD_removeApplication(request, ::std::move(sendResponse));
+            _iceD_sendSignal(request, ::std::move(sendResponse));
             break;
         }
         case 39:
         {
-            _iceD_removeObject(request, ::std::move(sendResponse));
+            _iceD_shutdown(request, ::std::move(sendResponse));
             break;
         }
         case 40:
         {
-            _iceD_sendSignal(request, ::std::move(sendResponse));
+            _iceD_shutdownNode(request, ::std::move(sendResponse));
             break;
         }
         case 41:
         {
-            _iceD_shutdown(request, ::std::move(sendResponse));
+            _iceD_shutdownRegistry(request, ::std::move(sendResponse));
             break;
         }
         case 42:
         {
-            _iceD_shutdownNode(request, ::std::move(sendResponse));
+            _iceD_startServer(request, ::std::move(sendResponse));
             break;
         }
         case 43:
         {
-            _iceD_shutdownRegistry(request, ::std::move(sendResponse));
+            _iceD_stopServer(request, ::std::move(sendResponse));
             break;
         }
         case 44:
         {
-            _iceD_startServer(request, ::std::move(sendResponse));
+            _iceD_syncApplication(request, ::std::move(sendResponse));
             break;
         }
         case 45:
         {
-            _iceD_stopServer(request, ::std::move(sendResponse));
+            _iceD_syncApplicationWithoutRestart(request, ::std::move(sendResponse));
             break;
         }
         case 46:
         {
-            _iceD_syncApplication(request, ::std::move(sendResponse));
+            _iceD_updateApplication(request, ::std::move(sendResponse));
             break;
         }
         case 47:
         {
-            _iceD_syncApplicationWithoutRestart(request, ::std::move(sendResponse));
-            break;
-        }
-        case 48:
-        {
-            _iceD_updateApplication(request, ::std::move(sendResponse));
-            break;
-        }
-        case 49:
-        {
             _iceD_updateApplicationWithoutRestart(request, ::std::move(sendResponse));
             break;
         }
-        case 50:
+        case 48:
         {
             _iceD_updateObject(request, ::std::move(sendResponse));
             break;

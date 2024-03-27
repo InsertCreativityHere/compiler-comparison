@@ -191,86 +191,6 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial class InternalDistributionDescriptor : global::Ice.Value
-    {
-        #region Slice data members
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string icepatch;
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public string[] directories;
-
-        #endregion
-
-        partial void ice_initialize();
-
-        #region Constructors
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public InternalDistributionDescriptor()
-        {
-            this.icepatch = "";
-            ice_initialize();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public InternalDistributionDescriptor(string icepatch, string[] directories)
-        {
-            this.icepatch = icepatch;
-            this.directories = directories;
-            ice_initialize();
-        }
-
-        #endregion
-
-        private const string _id = "::IceGrid::InternalDistributionDescriptor";
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public static new string ice_staticId()
-        {
-            return _id;
-        }
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public override string ice_id()
-        {
-            return _id;
-        }
-
-        #region Marshaling support
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
-        {
-            ostr_.startSlice(ice_staticId(), -1, true);
-            ostr_.writeString(icepatch);
-            global::Ice.StringSeqHelper.write(ostr_, directories);
-            ostr_.endSlice();
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        protected override void iceReadImpl(global::Ice.InputStream istr_)
-        {
-            istr_.startSlice();
-            icepatch = istr_.readString();
-            directories = global::Ice.StringSeqHelper.read(istr_);
-            istr_.endSlice();
-        }
-
-        #endregion
-    }
-
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     public partial class InternalServerDescriptor : global::Ice.Value
     {
         #region Slice data members
@@ -307,12 +227,6 @@ namespace IceGrid
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public string deactivationTimeout;
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public bool applicationDistrib;
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public InternalDistributionDescriptor distrib;
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public bool processRegistered;
@@ -362,7 +276,7 @@ namespace IceGrid
         }
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public InternalServerDescriptor(string id, string application, string uuid, int revision, string sessionId, string exe, string pwd, string user, string activation, string activationTimeout, string deactivationTimeout, bool applicationDistrib, InternalDistributionDescriptor distrib, bool processRegistered, string[] options, string[] envs, string[] logs, InternalAdapterDescriptor[] adapters, InternalDbEnvDescriptor[] dbEnvs, global::System.Collections.Generic.Dictionary<string, PropertyDescriptor[]> properties, global::Ice.Optional<string[]> services)
+        public InternalServerDescriptor(string id, string application, string uuid, int revision, string sessionId, string exe, string pwd, string user, string activation, string activationTimeout, string deactivationTimeout, bool processRegistered, string[] options, string[] envs, string[] logs, InternalAdapterDescriptor[] adapters, InternalDbEnvDescriptor[] dbEnvs, global::System.Collections.Generic.Dictionary<string, PropertyDescriptor[]> properties, global::Ice.Optional<string[]> services)
         {
             this.id = id;
             this.application = application;
@@ -375,8 +289,6 @@ namespace IceGrid
             this.activation = activation;
             this.activationTimeout = activationTimeout;
             this.deactivationTimeout = deactivationTimeout;
-            this.applicationDistrib = applicationDistrib;
-            this.distrib = distrib;
             this.processRegistered = processRegistered;
             this.options = options;
             this.envs = envs;
@@ -420,8 +332,6 @@ namespace IceGrid
             ostr_.writeString(activation);
             ostr_.writeString(activationTimeout);
             ostr_.writeString(deactivationTimeout);
-            ostr_.writeBool(applicationDistrib);
-            ostr_.writeValue(distrib);
             ostr_.writeBool(processRegistered);
             global::Ice.StringSeqHelper.write(ostr_, options);
             global::Ice.StringSeqHelper.write(ostr_, envs);
@@ -448,8 +358,6 @@ namespace IceGrid
             activation = istr_.readString();
             activationTimeout = istr_.readString();
             deactivationTimeout = istr_.readString();
-            applicationDistrib = istr_.readBool();
-            istr_.readValue((InternalDistributionDescriptor v) => { this.distrib = v; });
             processRegistered = istr_.readBool();
             options = global::Ice.StringSeqHelper.read(istr_);
             envs = global::Ice.StringSeqHelper.read(istr_);
@@ -767,21 +675,6 @@ namespace IceGrid
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
     [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
     public partial interface ReplicaObserver : global::Ice.Object, ReplicaObserverOperations_
-    {
-    }
-
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-    [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-    public partial interface PatcherFeedback : global::Ice.Object, PatcherFeedbackOperations_
     {
     }
 
@@ -1262,12 +1155,6 @@ namespace IceGrid
     public delegate void Callback_ReplicaObserver_replicaRemoved();
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_PatcherFeedback_finished();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_PatcherFeedback_failed();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public delegate void Callback_Node_loadServer(ServerPrx ret, global::System.Collections.Generic.Dictionary<string, AdapterPrx> adapters, int activateTimeout, int deactivateTimeout);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1278,9 +1165,6 @@ namespace IceGrid
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public delegate void Callback_Node_destroyServerWithoutRestart();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_Node_patch();
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public delegate void Callback_Node_registerWithReplica();
@@ -1796,42 +1680,6 @@ namespace IceGrid
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface PatcherFeedbackPrx : global::Ice.ObjectPrx
-    {
-        /// <summary>
-        /// The patch completed successfully.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-
-        void finished(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// The patch completed successfully.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task finishedAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// The patch on the given node failed for the given reason.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-
-        void failed(string reason, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// The patch on the given node failed for the given reason.
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task failedAsync(string reason, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface NodePrx : FileReaderPrx, ReplicaObserverPrx
     {
         /// <summary>
@@ -1904,26 +1752,6 @@ namespace IceGrid
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
         global::System.Threading.Tasks.Task destroyServerWithoutRestartAsync(string name, string uuid, int revision, string replicaName, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
-        /// <summary>
-        /// Patch application and server distributions.
-        /// If some servers using a distribution directory to patch are active,
-        ///  this method will raise a PatchException unless shutdown is set to true. In which case the servers will be
-        ///  shutdown.
-        /// </summary>
-        /// <param name="context">The Context map to send with the invocation.</param>
-
-        void patch(PatcherFeedbackPrx feedback, string application, string server, InternalDistributionDescriptor appDistrib, bool shutdown, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        /// <summary>
-        /// Patch application and server distributions.
-        /// If some servers using a distribution directory to patch are active,
-        /// </summary>
-        /// <param name="context">Context map to send with the invocation.</param>
-        /// <param name="progress">Sent progress provider.</param>
-        /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
-        global::System.Threading.Tasks.Task patchAsync(PatcherFeedbackPrx feedback, string application, string server, InternalDistributionDescriptor appDistrib, bool shutdown, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
         /// Establish a session to the given replica, this method only returns once the registration was attempted (unlike
@@ -2654,26 +2482,6 @@ namespace IceGrid
     }
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public interface PatcherFeedbackOperations_
-    {
-        /// <summary>
-        /// The patch completed successfully.
-        /// </summary>
-        /// <param name="current">The Current object for the invocation.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void finished(global::Ice.Current current = null);
-
-        /// <summary>
-        /// The patch on the given node failed for the given reason.
-        /// </summary>
-        /// <param name="current">The Current object for the invocation.</param>
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void failed(string reason, global::Ice.Current current = null);
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public interface NodeOperations_ : FileReaderOperations_, ReplicaObserverOperations_
     {
         /// <summary>
@@ -2709,15 +2517,6 @@ namespace IceGrid
         /// <returns>The task object representing the asynchronous operation.</returns>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         global::System.Threading.Tasks.Task destroyServerWithoutRestartAsync(string name, string uuid, int revision, string replicaName, global::Ice.Current current = null);
-
-        /// <summary>
-        /// Patch application and server distributions.
-        /// If some servers using a distribution directory to patch are active,
-        /// </summary>
-        /// <param name="current">The Current object for the invocation.</param>
-        /// <returns>The task object representing the asynchronous operation.</returns>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        global::System.Threading.Tasks.Task patchAsync(PatcherFeedbackPrx feedback, string application, string server, InternalDistributionDescriptor appDistrib, bool shutdown, global::Ice.Current current = null);
 
         /// <summary>
         /// Establish a session to the given replica, this method only returns once the registration was attempted (unlike
@@ -4832,238 +4631,6 @@ namespace IceGrid
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public sealed class PatcherFeedbackPrxHelper : global::Ice.ObjectPrxHelperBase, PatcherFeedbackPrx
-    {
-        public PatcherFeedbackPrxHelper()
-        {
-        }
-
-        #region Synchronous operations
-
-        public void finished(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            try
-            {
-                _iceI_finishedAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
-            }
-            catch(global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException;
-            }
-        }
-
-        public void failed(string reason, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            try
-            {
-                _iceI_failedAsync(reason, context, null, global::System.Threading.CancellationToken.None, true).Wait();
-            }
-            catch(global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException;
-            }
-        }
-
-        #endregion
-
-        #region Async Task operations
-
-        public global::System.Threading.Tasks.Task finishedAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-        {
-            return _iceI_finishedAsync(context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task _iceI_finishedAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_finished(context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _finished_name = "finished";
-
-        private void _iceI_finished(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<object>(completed);
-            outAsync.invoke(
-                _finished_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
-                context,
-                synchronous);
-        }
-
-        public global::System.Threading.Tasks.Task failedAsync(string reason, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-        {
-            return _iceI_failedAsync(reason, context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task _iceI_failedAsync(string iceP_reason, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_failed(iceP_reason, context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _failed_name = "failed";
-
-        private void _iceI_failed(string iceP_reason, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<object>(completed);
-            outAsync.invoke(
-                _failed_name,
-                global::Ice.OperationMode.Normal,
-                global::Ice.FormatType.DefaultFormat,
-                context,
-                synchronous,
-                write: (global::Ice.OutputStream ostr) =>
-                {
-                    ostr.writeString(iceP_reason);
-                });
-        }
-
-        #endregion
-
-        #region Checked and unchecked cast operations
-
-        public static PatcherFeedbackPrx checkedCast(global::Ice.ObjectPrx b)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            PatcherFeedbackPrx r = b as PatcherFeedbackPrx;
-            if((r == null) && b.ice_isA(ice_staticId()))
-            {
-                PatcherFeedbackPrxHelper h = new PatcherFeedbackPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static PatcherFeedbackPrx checkedCast(global::Ice.ObjectPrx b, global::System.Collections.Generic.Dictionary<string, string> ctx)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            PatcherFeedbackPrx r = b as PatcherFeedbackPrx;
-            if((r == null) && b.ice_isA(ice_staticId(), ctx))
-            {
-                PatcherFeedbackPrxHelper h = new PatcherFeedbackPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static PatcherFeedbackPrx checkedCast(global::Ice.ObjectPrx b, string f)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            try
-            {
-                if(bb.ice_isA(ice_staticId()))
-                {
-                    PatcherFeedbackPrxHelper h = new PatcherFeedbackPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
-                }
-            }
-            catch(global::Ice.FacetNotExistException)
-            {
-            }
-            return null;
-        }
-
-        public static PatcherFeedbackPrx checkedCast(global::Ice.ObjectPrx b, string f, global::System.Collections.Generic.Dictionary<string, string> ctx)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            try
-            {
-                if(bb.ice_isA(ice_staticId(), ctx))
-                {
-                    PatcherFeedbackPrxHelper h = new PatcherFeedbackPrxHelper();
-                    h.iceCopyFrom(bb);
-                    return h;
-                }
-            }
-            catch(global::Ice.FacetNotExistException)
-            {
-            }
-            return null;
-        }
-
-        public static PatcherFeedbackPrx uncheckedCast(global::Ice.ObjectPrx b)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            PatcherFeedbackPrx r = b as PatcherFeedbackPrx;
-            if(r == null)
-            {
-                PatcherFeedbackPrxHelper h = new PatcherFeedbackPrxHelper();
-                h.iceCopyFrom(b);
-                r = h;
-            }
-            return r;
-        }
-
-        public static PatcherFeedbackPrx uncheckedCast(global::Ice.ObjectPrx b, string f)
-        {
-            if(b == null)
-            {
-                return null;
-            }
-            global::Ice.ObjectPrx bb = b.ice_facet(f);
-            PatcherFeedbackPrxHelper h = new PatcherFeedbackPrxHelper();
-            h.iceCopyFrom(bb);
-            return h;
-        }
-
-        private static readonly string[] _ids =
-        {
-            "::Ice::Object",
-            "::IceGrid::PatcherFeedback"
-        };
-
-        public static string ice_staticId() => "::IceGrid::PatcherFeedback";
-
-        #endregion
-
-        #region Marshaling support
-
-        public static void write(global::Ice.OutputStream ostr, PatcherFeedbackPrx v)
-        {
-            ostr.writeProxy(v);
-        }
-
-        public static PatcherFeedbackPrx read(global::Ice.InputStream istr)
-        {
-            global::Ice.ObjectPrx proxy = istr.readProxy();
-            if(proxy != null)
-            {
-                PatcherFeedbackPrxHelper result = new PatcherFeedbackPrxHelper();
-                result.iceCopyFrom(proxy);
-                return result;
-            }
-            return null;
-        }
-
-        #endregion
-    }
-
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public sealed class NodePrxHelper : global::Ice.ObjectPrxHelperBase, NodePrx
     {
         public NodePrxHelper()
@@ -5184,18 +4751,6 @@ namespace IceGrid
             try
             {
                 _iceI_destroyServerWithoutRestartAsync(name, uuid, revision, replicaName, context, null, global::System.Threading.CancellationToken.None, true).Wait();
-            }
-            catch(global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException;
-            }
-        }
-
-        public void patch(PatcherFeedbackPrx feedback, string application, string server, InternalDistributionDescriptor appDistrib, bool shutdown, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            try
-            {
-                _iceI_patchAsync(feedback, application, server, appDistrib, shutdown, context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch(global::System.AggregateException ex_)
             {
@@ -5672,40 +5227,6 @@ namespace IceGrid
                     catch(global::Ice.UserException)
                     {
                     }
-                });
-        }
-
-        public global::System.Threading.Tasks.Task patchAsync(PatcherFeedbackPrx feedback, string application, string server, InternalDistributionDescriptor appDistrib, bool shutdown, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-        {
-            return _iceI_patchAsync(feedback, application, server, appDistrib, shutdown, context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task _iceI_patchAsync(PatcherFeedbackPrx iceP_feedback, string iceP_application, string iceP_server, InternalDistributionDescriptor iceP_appDistrib, bool iceP_shutdown, global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_patch(iceP_feedback, iceP_application, iceP_server, iceP_appDistrib, iceP_shutdown, context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _patch_name = "patch";
-
-        private void _iceI_patch(PatcherFeedbackPrx iceP_feedback, string iceP_application, string iceP_server, InternalDistributionDescriptor iceP_appDistrib, bool iceP_shutdown, global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<object>(completed);
-            outAsync.invoke(
-                _patch_name,
-                global::Ice.OperationMode.Idempotent,
-                global::Ice.FormatType.DefaultFormat,
-                context,
-                synchronous,
-                write: (global::Ice.OutputStream ostr) =>
-                {
-                    PatcherFeedbackPrxHelper.write(ostr, iceP_feedback);
-                    ostr.writeString(iceP_application);
-                    ostr.writeString(iceP_server);
-                    ostr.writeValue(iceP_appDistrib);
-                    ostr.writeBool(iceP_shutdown);
-                    ostr.writePendingValues();
                 });
         }
 
@@ -8066,11 +7587,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(PermissionDeniedException)
+                    catch(NodeActiveException)
                     {
                         throw;
                     }
-                    catch(NodeActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
@@ -8122,11 +7643,11 @@ namespace IceGrid
                     {
                         throw ex;
                     }
-                    catch(PermissionDeniedException)
+                    catch(ReplicaActiveException)
                     {
                         throw;
                     }
-                    catch(ReplicaActiveException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
@@ -9237,127 +8758,6 @@ namespace IceGrid
 
     [global::System.Runtime.InteropServices.ComVisible(false)]
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class PatcherFeedbackDisp_ : global::Ice.ObjectImpl, PatcherFeedback
-    {
-        #region Slice operations
-
-        public abstract void finished(global::Ice.Current current = null);
-
-        public abstract void failed(string reason, global::Ice.Current current = null);
-
-        #endregion
-
-        #region Slice type-related members
-
-        private static readonly string[] _ids =
-        {
-            "::Ice::Object",
-            "::IceGrid::PatcherFeedback"
-        };
-
-        public override bool ice_isA(string s, global::Ice.Current current = null)
-        {
-            return global::System.Array.BinarySearch(_ids, s, IceUtilInternal.StringUtil.OrdinalStringComparer) >= 0;
-        }
-
-        public override string[] ice_ids(global::Ice.Current current = null)
-        {
-            return _ids;
-        }
-
-        public override string ice_id(global::Ice.Current current = null)
-        {
-            return ice_staticId();
-        }
-
-        public static new string ice_staticId()
-        {
-            return "::IceGrid::PatcherFeedback";
-        }
-
-        #endregion
-
-        #region Operation dispatch
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_finished(PatcherFeedback obj, global::IceInternal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            inS.readEmptyParams();
-            obj.finished(current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_failed(PatcherFeedback obj, global::IceInternal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
-            var istr = inS.startReadParams();
-            string iceP_reason;
-            iceP_reason = istr.readString();
-            inS.endReadParams();
-            obj.failed(iceP_reason, current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        private static readonly string[] _all =
-        {
-            "failed",
-            "finished",
-            "ice_id",
-            "ice_ids",
-            "ice_isA",
-            "ice_ping"
-        };
-
-        public override global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceDispatch(global::IceInternal.Incoming inS, global::Ice.Current current)
-        {
-            int pos = global::System.Array.BinarySearch(_all, current.operation, global::IceUtilInternal.StringUtil.OrdinalStringComparer);
-            if(pos < 0)
-            {
-                throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-            }
-
-            switch(pos)
-            {
-                case 0:
-                {
-                    return iceD_failed(this, inS, current);
-                }
-                case 1:
-                {
-                    return iceD_finished(this, inS, current);
-                }
-                case 2:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_id(this, inS, current);
-                }
-                case 3:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_ids(this, inS, current);
-                }
-                case 4:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_isA(this, inS, current);
-                }
-                case 5:
-                {
-                    return global::Ice.ObjectImpl.iceD_ice_ping(this, inS, current);
-                }
-            }
-
-            global::System.Diagnostics.Debug.Assert(false);
-            throw new global::Ice.OperationNotExistException(current.id, current.facet, current.operation);
-        }
-
-        #endregion
-    }
-
-    [global::System.Runtime.InteropServices.ComVisible(false)]
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public abstract class NodeDisp_ : global::Ice.ObjectImpl, Node
     {
         #region Slice operations
@@ -9369,8 +8769,6 @@ namespace IceGrid
         public abstract global::System.Threading.Tasks.Task destroyServerAsync(string name, string uuid, int revision, string replicaName, global::Ice.Current current = null);
 
         public abstract global::System.Threading.Tasks.Task destroyServerWithoutRestartAsync(string name, string uuid, int revision, string replicaName, global::Ice.Current current = null);
-
-        public abstract global::System.Threading.Tasks.Task patchAsync(PatcherFeedbackPrx feedback, string application, string server, InternalDistributionDescriptor appDistrib, bool shutdown, global::Ice.Current current = null);
 
         public abstract void registerWithReplica(InternalRegistryPrx replica, global::Ice.Current current = null);
 
@@ -9388,15 +8786,15 @@ namespace IceGrid
 
         #region Inherited Slice operations
 
-        public abstract long getOffsetFromEnd(string filename, int lines, global::Ice.Current current = null);
-
-        public abstract bool read(string filename, long pos, int size, out long newPos, out string[] lines, global::Ice.Current current = null);
-
         public abstract void replicaInit(InternalRegistryPrx[] replicas, global::Ice.Current current = null);
 
         public abstract void replicaAdded(InternalRegistryPrx replica, global::Ice.Current current = null);
 
         public abstract void replicaRemoved(InternalRegistryPrx replica, global::Ice.Current current = null);
+
+        public abstract long getOffsetFromEnd(string filename, int lines, global::Ice.Current current = null);
+
+        public abstract bool read(string filename, long pos, int size, out long newPos, out string[] lines, global::Ice.Current current = null);
 
         #endregion
 
@@ -9518,28 +8916,6 @@ namespace IceGrid
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_patch(Node obj, global::IceInternal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
-            var istr = inS.startReadParams();
-            PatcherFeedbackPrx iceP_feedback;
-            string iceP_application;
-            string iceP_server;
-            InternalDistributionDescriptor iceP_appDistrib;
-            iceP_appDistrib = null;
-            bool iceP_shutdown;
-            iceP_feedback = PatcherFeedbackPrxHelper.read(istr);
-            iceP_application = istr.readString();
-            iceP_server = istr.readString();
-            istr.readValue((InternalDistributionDescriptor v) => {iceP_appDistrib = v; });
-            iceP_shutdown = istr.readBool();
-            istr.readPendingValues();
-            inS.endReadParams();
-            return inS.setResultTask(obj.patchAsync(iceP_feedback, iceP_application, iceP_server, iceP_appDistrib, iceP_shutdown, current));
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
         iceD_registerWithReplica(Node obj, global::IceInternal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
@@ -9628,7 +9004,6 @@ namespace IceGrid
             "ice_ping",
             "loadServer",
             "loadServerWithoutRestart",
-            "patch",
             "read",
             "registerWithReplica",
             "replicaAdded",
@@ -9702,29 +9077,25 @@ namespace IceGrid
                 }
                 case 13:
                 {
-                    return iceD_patch(this, inS, current);
+                    return FileReaderDisp_.iceD_read(this, inS, current);
                 }
                 case 14:
                 {
-                    return FileReaderDisp_.iceD_read(this, inS, current);
+                    return iceD_registerWithReplica(this, inS, current);
                 }
                 case 15:
                 {
-                    return iceD_registerWithReplica(this, inS, current);
+                    return ReplicaObserverDisp_.iceD_replicaAdded(this, inS, current);
                 }
                 case 16:
                 {
-                    return ReplicaObserverDisp_.iceD_replicaAdded(this, inS, current);
+                    return ReplicaObserverDisp_.iceD_replicaInit(this, inS, current);
                 }
                 case 17:
                 {
-                    return ReplicaObserverDisp_.iceD_replicaInit(this, inS, current);
-                }
-                case 18:
-                {
                     return ReplicaObserverDisp_.iceD_replicaRemoved(this, inS, current);
                 }
-                case 19:
+                case 18:
                 {
                     return iceD_shutdown(this, inS, current);
                 }

@@ -264,22 +264,6 @@ module ::IceGrid
         T_BadSignalException = ::Ice::__defineException('::IceGrid::BadSignalException', BadSignalException, nil, [["reason", ::Ice::T_string, false, 0]])
     end
 
-    if not defined?(::IceGrid::PatchException)
-        class PatchException < Ice::UserException
-            def initialize(reasons=nil)
-                @reasons = reasons
-            end
-
-            def to_s
-                '::IceGrid::PatchException'
-            end
-
-            attr_accessor :reasons
-        end
-
-        T_PatchException = ::Ice::__defineException('::IceGrid::PatchException', PatchException, nil, [["reasons", ::Ice::T_StringSeq, false, 0]])
-    end
-
     if not defined?(::IceGrid::AccessDeniedException)
         class AccessDeniedException < Ice::UserException
             def initialize(lockUserId='')

@@ -161,12 +161,6 @@ public struct InternalAdapterDescriptorSeqHelper {
     }
 }
 
-/// Traits for Slice class`InternalDistributionDescriptor`.
-public struct InternalDistributionDescriptorTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::IceGrid::InternalDistributionDescriptor"]
-    public static let staticId = "::IceGrid::InternalDistributionDescriptor"
-}
-
 public typealias PropertyDescriptorSeqDict = [Swift.String: PropertyDescriptorSeq]
 
 /// Helper class to read and write `PropertyDescriptorSeqDict` dictionary values from
@@ -516,12 +510,6 @@ public struct InternalRegistryPrxSeqHelper {
 public struct ReplicaObserverTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::IceGrid::ReplicaObserver"]
     public static let staticId = "::IceGrid::ReplicaObserver"
-}
-
-/// Traits for Slice interface`PatcherFeedback`.
-public struct PatcherFeedbackTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::IceGrid::PatcherFeedback"]
-    public static let staticId = "::IceGrid::PatcherFeedback"
 }
 
 /// Traits for Slice interface`Node`.
@@ -2230,177 +2218,6 @@ public extension ReplicaObserverPrx {
     }
 }
 
-/// PatcherFeedbackPrx overview.
-///
-/// PatcherFeedbackPrx Methods:
-///
-///  - finished: The patch completed successfully.
-///
-///  - finishedAsync: The patch completed successfully.
-///
-///  - failed: The patch on the given node failed for the given reason.
-///
-///  - failedAsync: The patch on the given node failed for the given reason.
-public protocol PatcherFeedbackPrx: Ice.ObjectPrx {}
-
-private final class PatcherFeedbackPrxI: Ice.ObjectPrxI, PatcherFeedbackPrx {
-    public override class func ice_staticId() -> Swift.String {
-        return PatcherFeedbackTraits.staticId
-    }
-}
-
-/// Casts a proxy to the requested type. This call contacts the server and verifies that the object
-/// implements this type.
-///
-/// It will throw a local exception if a communication error occurs. You can optionally supply a
-/// facet name and a context map.
-///
-/// - parameter prx: `Ice.ObjectPrx` - The proxy to be cast.
-///
-/// - parameter type: `PatcherFeedbackPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet.
-///
-/// - parameter context: `Ice.Context` The optional context dictionary for the remote invocation.
-///
-/// - returns: `PatcherFeedbackPrx` - A proxy with the requested type or nil if the objet does not
-///   support this type.
-///
-/// - throws: `Ice.LocalException` if a communication error occurs.
-public func checkedCast(prx: Ice.ObjectPrx, type: PatcherFeedbackPrx.Protocol, facet: Swift.String? = nil, context: Ice.Context? = nil) throws -> PatcherFeedbackPrx? {
-    return try PatcherFeedbackPrxI.checkedCast(prx: prx, facet: facet, context: context) as PatcherFeedbackPrxI?
-}
-
-/// Downcasts the given proxy to this type without contacting the remote server.
-///
-/// - parameter prx: `Ice.ObjectPrx` The proxy to be cast.
-///
-/// - parameter type: `PatcherFeedbackPrx.Protocol` - The proxy type to cast to.
-///
-/// - parameter facet: `String` - The optional name of the desired facet
-///
-/// - returns: `PatcherFeedbackPrx` - A proxy with the requested type
-public func uncheckedCast(prx: Ice.ObjectPrx, type: PatcherFeedbackPrx.Protocol, facet: Swift.String? = nil) -> PatcherFeedbackPrx {
-    return PatcherFeedbackPrxI.uncheckedCast(prx: prx, facet: facet) as PatcherFeedbackPrxI
-}
-
-/// Returns the Slice type id of the interface or class associated with this proxy type.
-///
-/// parameter type: `PatcherFeedbackPrx.Protocol` -  The proxy type to retrieve the type id.
-///
-/// returns: `String` - The type id of the interface or class associated with this proxy type.
-public func ice_staticId(_ type: PatcherFeedbackPrx.Protocol) -> Swift.String {
-    return PatcherFeedbackTraits.staticId
-}
-
-/// Extension to `Ice.InputStream` class to support reading proxy of type
-/// `PatcherFeedbackPrx`.
-public extension Ice.InputStream {
-    /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
-    ///
-    /// - parameter type: `PatcherFeedbackPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `PatcherFeedbackPrx?` - The extracted proxy
-    func read(_ type: PatcherFeedbackPrx.Protocol) throws -> PatcherFeedbackPrx? {
-        return try read() as PatcherFeedbackPrxI?
-    }
-    /// Extracts a proxy from the stream. The stream must have been initialized with a communicator.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter type: `PatcherFeedbackPrx.Protocol` - The type of the proxy to be extracted.
-    ///
-    /// - returns: `PatcherFeedbackPrx` - The extracted proxy.
-    func read(tag: Swift.Int32, type: PatcherFeedbackPrx.Protocol) throws -> PatcherFeedbackPrx? {
-        return try read(tag: tag) as PatcherFeedbackPrxI?
-    }
-}
-
-/// PatcherFeedbackPrx overview.
-///
-/// PatcherFeedbackPrx Methods:
-///
-///  - finished: The patch completed successfully.
-///
-///  - finishedAsync: The patch completed successfully.
-///
-///  - failed: The patch on the given node failed for the given reason.
-///
-///  - failedAsync: The patch on the given node failed for the given reason.
-public extension PatcherFeedbackPrx {
-    /// The patch completed successfully.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func finished(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "finished",
-                          mode: .Normal,
-                          context: context)
-    }
-
-    /// The patch completed successfully.
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func finishedAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "finished",
-                                  mode: .Normal,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    /// The patch on the given node failed for the given reason.
-    ///
-    /// - parameter _: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func failed(_ iceP_reason: Swift.String, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "failed",
-                          mode: .Normal,
-                          write: { ostr in
-                              ostr.write(iceP_reason)
-                          },
-                          context: context)
-    }
-
-    /// The patch on the given node failed for the given reason.
-    ///
-    /// - parameter _: `Swift.String`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func failedAsync(_ iceP_reason: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "failed",
-                                  mode: .Normal,
-                                  write: { ostr in
-                                      ostr.write(iceP_reason)
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-}
-
 /// NodePrx overview.
 ///
 /// NodePrx Methods:
@@ -2420,10 +2237,6 @@ public extension PatcherFeedbackPrx {
 ///  - destroyServerWithoutRestart: Destroy the server if it's not active.
 ///
 ///  - destroyServerWithoutRestartAsync: Destroy the server if it's not active.
-///
-///  - patch: Patch application and server distributions.
-///
-///  - patchAsync: Patch application and server distributions.
 ///
 ///  - registerWithReplica: Establish a session to the given replica, this method only returns once the registration was attempted (unlike replicaAdded below).
 ///
@@ -2542,10 +2355,6 @@ public extension Ice.InputStream {
 ///  - destroyServerWithoutRestart: Destroy the server if it's not active.
 ///
 ///  - destroyServerWithoutRestartAsync: Destroy the server if it's not active.
-///
-///  - patch: Patch application and server distributions.
-///
-///  - patchAsync: Patch application and server distributions.
 ///
 ///  - registerWithReplica: Establish a session to the given replica, this method only returns once the registration was attempted (unlike replicaAdded below).
 ///
@@ -2890,77 +2699,6 @@ public extension NodePrx {
                                       } catch let error as DeploymentException {
                                           throw error
                                       } catch is Ice.UserException {}
-                                  },
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    /// Patch application and server distributions. If some servers using a distribution directory to patch are active,
-    /// this method will raise a PatchException unless shutdown is set to true. In which case the servers will be
-    /// shutdown.
-    ///
-    /// - parameter feedback: `PatcherFeedbackPrx?`
-    ///
-    /// - parameter application: `Swift.String`
-    ///
-    /// - parameter server: `Swift.String`
-    ///
-    /// - parameter appDistrib: `InternalDistributionDescriptor?`
-    ///
-    /// - parameter shutdown: `Swift.Bool`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func patch(feedback iceP_feedback: PatcherFeedbackPrx?, application iceP_application: Swift.String, server iceP_server: Swift.String, appDistrib iceP_appDistrib: InternalDistributionDescriptor?, shutdown iceP_shutdown: Swift.Bool, context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "patch",
-                          mode: .Idempotent,
-                          write: { ostr in
-                              ostr.write(iceP_feedback)
-                              ostr.write(iceP_application)
-                              ostr.write(iceP_server)
-                              ostr.write(iceP_appDistrib)
-                              ostr.write(iceP_shutdown)
-                              ostr.writePendingValues()
-                          },
-                          context: context)
-    }
-
-    /// Patch application and server distributions. If some servers using a distribution directory to patch are active,
-    /// this method will raise a PatchException unless shutdown is set to true. In which case the servers will be
-    /// shutdown.
-    ///
-    /// - parameter feedback: `PatcherFeedbackPrx?`
-    ///
-    /// - parameter application: `Swift.String`
-    ///
-    /// - parameter server: `Swift.String`
-    ///
-    /// - parameter appDistrib: `InternalDistributionDescriptor?`
-    ///
-    /// - parameter shutdown: `Swift.Bool`
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func patchAsync(feedback iceP_feedback: PatcherFeedbackPrx?, application iceP_application: Swift.String, server iceP_server: Swift.String, appDistrib iceP_appDistrib: InternalDistributionDescriptor?, shutdown iceP_shutdown: Swift.Bool, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "patch",
-                                  mode: .Idempotent,
-                                  write: { ostr in
-                                      ostr.write(iceP_feedback)
-                                      ostr.write(iceP_application)
-                                      ostr.write(iceP_server)
-                                      ostr.write(iceP_appDistrib)
-                                      ostr.write(iceP_shutdown)
-                                      ostr.writePendingValues()
                                   },
                                   context: context,
                                   sentOn: sentOn,
@@ -5013,61 +4751,6 @@ open class InternalAdapterDescriptor: Ice.Value {
 }
 
 /// :nodoc:
-public class InternalDistributionDescriptor_TypeResolver: Ice.ValueTypeResolver {
-    public override func type() -> Ice.Value.Type {
-        return InternalDistributionDescriptor.self
-    }
-}
-
-public extension Ice.ClassResolver {
-    @objc static func IceGrid_InternalDistributionDescriptor() -> Ice.ValueTypeResolver {
-        return InternalDistributionDescriptor_TypeResolver()
-    }
-}
-
-open class InternalDistributionDescriptor: Ice.Value {
-    /// The proxy of the IcePatch2 server.
-    public var icepatch: Swift.String = ""
-    /// The source directories.
-    public var directories: Ice.StringSeq = Ice.StringSeq()
-
-    public required init() {}
-
-    public init(icepatch: Swift.String, directories: Ice.StringSeq) {
-        self.icepatch = icepatch
-        self.directories = directories
-    }
-
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return InternalDistributionDescriptorTraits.staticId
-    }
-
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return InternalDistributionDescriptorTraits.staticId
-    }
-
-    open override func _iceReadImpl(from istr: Ice.InputStream) throws {
-        _ = try istr.startSlice()
-        self.icepatch = try istr.read()
-        self.directories = try istr.read()
-        try istr.endSlice()
-    }
-
-    open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: InternalDistributionDescriptorTraits.staticId, compactId: -1, last: true)
-        ostr.write(self.icepatch)
-        ostr.write(self.directories)
-        ostr.endSlice()
-    }
-}
-
-/// :nodoc:
 public class InternalServerDescriptor_TypeResolver: Ice.ValueTypeResolver {
     public override func type() -> Ice.Value.Type {
         return InternalServerDescriptor.self
@@ -5103,10 +4786,6 @@ open class InternalServerDescriptor: Ice.Value {
     public var activationTimeout: Swift.String = ""
     /// The server deactivation timeout.
     public var deactivationTimeout: Swift.String = ""
-    /// Specifies if the server depends on the application distrib.
-    public var applicationDistrib: Swift.Bool = false
-    /// The distribution descriptor of this server.
-    public var distrib: InternalDistributionDescriptor? = nil
     /// Specifies if a process object is registered.
     public var processRegistered: Swift.Bool = false
     /// The server command line options.
@@ -5125,7 +4804,7 @@ open class InternalServerDescriptor: Ice.Value {
 
     public required init() {}
 
-    public init(id: Swift.String, application: Swift.String, uuid: Swift.String, revision: Swift.Int32, sessionId: Swift.String, exe: Swift.String, pwd: Swift.String, user: Swift.String, activation: Swift.String, activationTimeout: Swift.String, deactivationTimeout: Swift.String, applicationDistrib: Swift.Bool, distrib: InternalDistributionDescriptor?, processRegistered: Swift.Bool, options: Ice.StringSeq, envs: Ice.StringSeq, logs: Ice.StringSeq, adapters: InternalAdapterDescriptorSeq, dbEnvs: InternalDbEnvDescriptorSeq, properties: PropertyDescriptorSeqDict, services: Ice.StringSeq?) {
+    public init(id: Swift.String, application: Swift.String, uuid: Swift.String, revision: Swift.Int32, sessionId: Swift.String, exe: Swift.String, pwd: Swift.String, user: Swift.String, activation: Swift.String, activationTimeout: Swift.String, deactivationTimeout: Swift.String, processRegistered: Swift.Bool, options: Ice.StringSeq, envs: Ice.StringSeq, logs: Ice.StringSeq, adapters: InternalAdapterDescriptorSeq, dbEnvs: InternalDbEnvDescriptorSeq, properties: PropertyDescriptorSeqDict, services: Ice.StringSeq?) {
         self.id = id
         self.application = application
         self.uuid = uuid
@@ -5137,8 +4816,6 @@ open class InternalServerDescriptor: Ice.Value {
         self.activation = activation
         self.activationTimeout = activationTimeout
         self.deactivationTimeout = deactivationTimeout
-        self.applicationDistrib = applicationDistrib
-        self.distrib = distrib
         self.processRegistered = processRegistered
         self.options = options
         self.envs = envs
@@ -5176,8 +4853,6 @@ open class InternalServerDescriptor: Ice.Value {
         self.activation = try istr.read()
         self.activationTimeout = try istr.read()
         self.deactivationTimeout = try istr.read()
-        self.applicationDistrib = try istr.read()
-        try istr.read(InternalDistributionDescriptor.self) { self.distrib = $0 }
         self.processRegistered = try istr.read()
         self.options = try istr.read()
         self.envs = try istr.read()
@@ -5202,8 +4877,6 @@ open class InternalServerDescriptor: Ice.Value {
         ostr.write(self.activation)
         ostr.write(self.activationTimeout)
         ostr.write(self.deactivationTimeout)
-        ostr.write(self.applicationDistrib)
-        ostr.write(self.distrib)
         ostr.write(self.processRegistered)
         ostr.write(self.options)
         ostr.write(self.envs)
@@ -5679,51 +5352,6 @@ public protocol ReplicaObserver {
 }
 
 
-/// Dispatcher for `PatcherFeedback` servants.
-public struct PatcherFeedbackDisp: Ice.Disp {
-    public let servant: PatcherFeedback
-    private static let defaultObject = Ice.ObjectI<PatcherFeedbackTraits>()
-
-    public init(_ servant: PatcherFeedback) {
-        self.servant = servant
-    }
-
-    public func dispatch(request: Ice.Request, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        request.startOver()
-        switch current.operation {
-        case "failed":
-            return try servant._iceD_failed(incoming: request, current: current)
-        case "finished":
-            return try servant._iceD_finished(incoming: request, current: current)
-        case "ice_id":
-            return try (servant as? Object ?? PatcherFeedbackDisp.defaultObject)._iceD_ice_id(incoming: request, current: current)
-        case "ice_ids":
-            return try (servant as? Object ?? PatcherFeedbackDisp.defaultObject)._iceD_ice_ids(incoming: request, current: current)
-        case "ice_isA":
-            return try (servant as? Object ?? PatcherFeedbackDisp.defaultObject)._iceD_ice_isA(incoming: request, current: current)
-        case "ice_ping":
-            return try (servant as? Object ?? PatcherFeedbackDisp.defaultObject)._iceD_ice_ping(incoming: request, current: current)
-        default:
-            throw Ice.OperationNotExistException(id: current.id, facet: current.facet, operation: current.operation)
-        }
-    }
-}
-
-public protocol PatcherFeedback {
-    /// The patch completed successfully.
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func finished(current: Ice.Current) throws
-
-    /// The patch on the given node failed for the given reason.
-    ///
-    /// - parameter reason: `Swift.String`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    func failed(reason: Swift.String, current: Ice.Current) throws
-}
-
-
 /// Dispatcher for `Node` servants.
 public struct NodeDisp: Ice.Disp {
     public let servant: Node
@@ -5762,8 +5390,6 @@ public struct NodeDisp: Ice.Disp {
             return try servant._iceD_loadServer(incoming: request, current: current)
         case "loadServerWithoutRestart":
             return try servant._iceD_loadServerWithoutRestart(incoming: request, current: current)
-        case "patch":
-            return try servant._iceD_patch(incoming: request, current: current)
         case "read":
             return try servant._iceD_read(incoming: request, current: current)
         case "registerWithReplica":
@@ -5837,25 +5463,6 @@ public protocol Node: FileReader, ReplicaObserver {
     ///
     /// - returns: `PromiseKit.Promise<>` - The result of the operation
     func destroyServerWithoutRestartAsync(name: Swift.String, uuid: Swift.String, revision: Swift.Int32, replicaName: Swift.String, current: Ice.Current) -> PromiseKit.Promise<Swift.Void>
-
-    /// Patch application and server distributions. If some servers using a distribution directory to patch are active,
-    /// this method will raise a PatchException unless shutdown is set to true. In which case the servers will be
-    /// shutdown.
-    ///
-    /// - parameter feedback: `PatcherFeedbackPrx?`
-    ///
-    /// - parameter application: `Swift.String`
-    ///
-    /// - parameter server: `Swift.String`
-    ///
-    /// - parameter appDistrib: `InternalDistributionDescriptor?`
-    ///
-    /// - parameter shutdown: `Swift.Bool`
-    ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func patchAsync(feedback: PatcherFeedbackPrx?, application: Swift.String, server: Swift.String, appDistrib: InternalDistributionDescriptor?, shutdown: Swift.Bool, current: Ice.Current) -> PromiseKit.Promise<Swift.Void>
 
     /// Establish a session to the given replica, this method only returns once the registration was attempted (unlike
     /// replicaAdded below).
@@ -6562,34 +6169,6 @@ public extension ReplicaObserver {
     }
 }
 
-/// PatcherFeedback overview.
-///
-/// PatcherFeedback Methods:
-///
-///  - finished: The patch completed successfully.
-///
-///  - failed: The patch on the given node failed for the given reason.
-public extension PatcherFeedback {
-    func _iceD_finished(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        try self.finished(current: current)
-
-        return inS.setResult()
-    }
-
-    func _iceD_failed(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let iceP_reason: Swift.String = try inS.read { istr in
-            let iceP_reason: Swift.String = try istr.read()
-            return iceP_reason
-        }
-
-        try self.failed(reason: iceP_reason, current: current)
-
-        return inS.setResult()
-    }
-}
-
 /// Node overview.
 ///
 /// Node Methods:
@@ -6601,8 +6180,6 @@ public extension PatcherFeedback {
 ///  - destroyServer: Destroy the given server.
 ///
 ///  - destroyServerWithoutRestart: Destroy the server if it's not active.
-///
-///  - patch: Patch application and server distributions.
 ///
 ///  - registerWithReplica: Establish a session to the given replica, this method only returns once the registration was attempted (unlike replicaAdded below).
 ///
@@ -6674,21 +6251,6 @@ public extension Node {
         }
 
         return inS.setResultPromise(destroyServerWithoutRestartAsync(name: iceP_name, uuid: iceP_uuid, revision: iceP_revision, replicaName: iceP_replicaName, current: current))
-    }
-
-    func _iceD_patch(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        let (iceP_feedback, iceP_application, iceP_server, iceP_appDistrib, iceP_shutdown): (PatcherFeedbackPrx?, Swift.String, Swift.String, InternalDistributionDescriptor?, Swift.Bool) = try inS.read { istr in
-            let iceP_feedback: PatcherFeedbackPrx? = try istr.read(PatcherFeedbackPrx.self)
-            let iceP_application: Swift.String = try istr.read()
-            let iceP_server: Swift.String = try istr.read()
-            var iceP_appDistrib: InternalDistributionDescriptor?
-            try istr.read(InternalDistributionDescriptor.self) { iceP_appDistrib = $0 }
-            let iceP_shutdown: Swift.Bool = try istr.read()
-            try istr.readPendingValues()
-            return (iceP_feedback, iceP_application, iceP_server, iceP_appDistrib, iceP_shutdown)
-        }
-
-        return inS.setResultPromise(patchAsync(feedback: iceP_feedback, application: iceP_application, server: iceP_server, appDistrib: iceP_appDistrib, shutdown: iceP_shutdown, current: current))
     }
 
     func _iceD_registerWithReplica(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {

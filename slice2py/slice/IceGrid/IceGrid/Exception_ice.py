@@ -392,30 +392,6 @@ if 'BadSignalException' not in _M_IceGrid.__dict__:
     _M_IceGrid.BadSignalException = BadSignalException
     del BadSignalException
 
-if 'PatchException' not in _M_IceGrid.__dict__:
-    _M_IceGrid.PatchException = Ice.createTempClass()
-    class PatchException(Ice.UserException):
-        """
-         This exception is raised if a patch failed.
-        Members:
-        reasons --  The reasons why the patch failed.
-        """
-        def __init__(self, reasons=None):
-            self.reasons = reasons
-
-        def __str__(self):
-            return IcePy.stringifyException(self)
-
-        __repr__ = __str__
-
-        _ice_id = '::IceGrid::PatchException'
-
-    _M_IceGrid._t_PatchException = IcePy.defineException('::IceGrid::PatchException', PatchException, (), None, (('reasons', (), _M_Ice._t_StringSeq, False, 0),))
-    PatchException._ice_type = _M_IceGrid._t_PatchException
-
-    _M_IceGrid.PatchException = PatchException
-    del PatchException
-
 if 'AccessDeniedException' not in _M_IceGrid.__dict__:
     _M_IceGrid.AccessDeniedException = Ice.createTempClass()
     class AccessDeniedException(Ice.UserException):

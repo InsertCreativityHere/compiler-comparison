@@ -53,7 +53,6 @@ namespace
     const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::ServerUnreachableException> iceC_IceGrid_ServerUnreachableException_init("::IceGrid::ServerUnreachableException");
     const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::RegistryUnreachableException> iceC_IceGrid_RegistryUnreachableException_init("::IceGrid::RegistryUnreachableException");
     const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::BadSignalException> iceC_IceGrid_BadSignalException_init("::IceGrid::BadSignalException");
-    const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::PatchException> iceC_IceGrid_PatchException_init("::IceGrid::PatchException");
     const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::AccessDeniedException> iceC_IceGrid_AccessDeniedException_init("::IceGrid::AccessDeniedException");
     const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::AllocationException> iceC_IceGrid_AllocationException_init("::IceGrid::AllocationException");
     const ::IceInternal::DefaultUserExceptionFactoryInit<::IceGrid::AllocationTimeoutException> iceC_IceGrid_AllocationTimeoutException_init("::IceGrid::AllocationTimeoutException");
@@ -549,41 +548,6 @@ IceGrid::BadSignalException::_readImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
     ::Ice::StreamReader<BadSignalException>::read(istr, *this);
-    istr->endSlice();
-}
-
-::std::string_view
-IceGrid::PatchException::ice_staticId() noexcept
-{
-    static constexpr ::std::string_view typeId = "::IceGrid::PatchException";
-    return typeId;
-}
-
-::std::string
-IceGrid::PatchException::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-void
-IceGrid::PatchException::ice_throw() const
-{
-    throw *this;
-}
-
-void
-IceGrid::PatchException::_writeImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<PatchException>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-IceGrid::PatchException::_readImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader<PatchException>::read(istr, *this);
     istr->endSlice();
 }
 

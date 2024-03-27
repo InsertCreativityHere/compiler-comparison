@@ -569,43 +569,6 @@ IceGrid.BadSignalException = class extends Ice.UserException
 };
 
 /**
- *  This exception is raised if a patch failed.
- **/
-IceGrid.PatchException = class extends Ice.UserException
-{
-    constructor(reasons = null, _cause = "")
-    {
-        super(_cause);
-        this.reasons = reasons;
-    }
-
-    static get _parent()
-    {
-        return Ice.UserException;
-    }
-
-    static get _id()
-    {
-        return "::IceGrid::PatchException";
-    }
-
-    _mostDerivedType()
-    {
-        return IceGrid.PatchException;
-    }
-
-    _writeMemberImpl(ostr)
-    {
-        Ice.StringSeqHelper.write(ostr, this.reasons);
-    }
-
-    _readMemberImpl(istr)
-    {
-        this.reasons = Ice.StringSeqHelper.read(istr);
-    }
-};
-
-/**
  *  his exception is raised if a registry lock wasn't acquired or is already held by a session.
  **/
 IceGrid.AccessDeniedException = class extends Ice.UserException
