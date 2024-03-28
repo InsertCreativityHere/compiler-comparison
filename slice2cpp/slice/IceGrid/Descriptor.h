@@ -392,6 +392,7 @@ static CommunicatorDescriptor _iceS_CommunicatorDescriptor_init;
 
 /**
  * A distribution descriptor defines an IcePatch2 server and the directories to retrieve from the patch server.
+ * This descriptor is no longer used. It's provided only for schema compatibility with Ice 3.7 and earlier releases.
  * \headerfile IceGrid/IceGrid.h
  */
 struct DistributionDescriptor

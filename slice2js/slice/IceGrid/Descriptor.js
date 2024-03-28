@@ -230,6 +230,7 @@ Slice.defineValue(IceGrid.CommunicatorDescriptor, "::IceGrid::CommunicatorDescri
 
 /**
  *  A distribution descriptor defines an IcePatch2 server and the directories to retrieve from the patch server.
+ *  This descriptor is no longer used. It's provided only for schema compatibility with Ice 3.7 and earlier releases.
  **/
 IceGrid.DistributionDescriptor = class
 {

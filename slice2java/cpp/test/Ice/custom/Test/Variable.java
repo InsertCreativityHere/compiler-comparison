@@ -163,5 +163,5 @@ public class Variable implements java.lang.Cloneable,
     private static final Variable _nullMarshalValue = new Variable();
 
     /** @hidden */
-    public static final long serialVersionUID = 1212369042519714398L;
+    public static final long serialVersionUID = 6535299520843761252L;
 }

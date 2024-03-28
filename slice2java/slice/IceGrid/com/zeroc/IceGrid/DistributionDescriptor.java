@@ -17,6 +17,7 @@ package com.zeroc.IceGrid;
 
 /**
  * A distribution descriptor defines an IcePatch2 server and the directories to retrieve from the patch server.
+ * This descriptor is no longer used. It's provided only for schema compatibility with Ice 3.7 and earlier releases.
  **/
 public class DistributionDescriptor implements java.lang.Cloneable,
                                                java.io.Serializable
@@ -183,5 +184,5 @@ public class DistributionDescriptor implements java.lang.Cloneable,
     private static final DistributionDescriptor _nullMarshalValue = new DistributionDescriptor();
 
     /** @hidden */
-    public static final long serialVersionUID = 8953252570041788082L;
+    public static final long serialVersionUID = -5507898928911752430L;
 }

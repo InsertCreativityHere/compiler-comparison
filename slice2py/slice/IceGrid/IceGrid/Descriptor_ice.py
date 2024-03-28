@@ -591,6 +591,7 @@ if 'DistributionDescriptor' not in _M_IceGrid.__dict__:
     class DistributionDescriptor(object):
         """
          A distribution descriptor defines an IcePatch2 server and the directories to retrieve from the patch server.
+         This descriptor is no longer used. It's provided only for schema compatibility with Ice 3.7 and earlier releases.
         Members:
         icepatch --  The proxy of the IcePatch2 server.
         directories --  The source directories.
