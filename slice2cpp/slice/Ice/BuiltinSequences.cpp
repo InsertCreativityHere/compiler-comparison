@@ -17,7 +17,7 @@
 #   define ICE_API_EXPORTS
 #endif
 #define ICE_BUILDING_GENERATED_CODE
-#include <BuiltinSequences.h>
+#include "BuiltinSequences.h"
 
 #if defined(_MSC_VER)
 #   pragma warning(disable:4458) // declaration of ... hides class member

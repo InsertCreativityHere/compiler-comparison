@@ -17,7 +17,7 @@
 #   define ICEGRID_API_EXPORTS
 #endif
 #define ICE_BUILDING_GENERATED_CODE
-#include <Session.h>
+#include "Session.h"
 #include <Ice/AsyncResponseHandler.h>
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>
@@ -103,11 +103,11 @@ IceGrid::SessionPrx::_iceI_allocateObjectById(const ::std::shared_ptr<::IceInter
             {
                 ex.ice_throw();
             }
-            catch(const AllocationException&)
+            catch(const ObjectNotRegisteredException&)
             {
                 throw;
             }
-            catch(const ObjectNotRegisteredException&)
+            catch(const AllocationException&)
             {
                 throw;
             }
@@ -197,11 +197,11 @@ IceGrid::SessionPrx::_iceI_releaseObject(const ::std::shared_ptr<::IceInternal::
             {
                 ex.ice_throw();
             }
-            catch(const AllocationException&)
+            catch(const ObjectNotRegisteredException&)
             {
                 throw;
             }
-            catch(const ObjectNotRegisteredException&)
+            catch(const AllocationException&)
             {
                 throw;
             }

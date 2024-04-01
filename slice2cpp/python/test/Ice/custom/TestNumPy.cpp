@@ -14,7 +14,7 @@
 //
 
 #define ICE_BUILDING_GENERATED_CODE
-#include <TestNumPy.h>
+#include "TestNumPy.h"
 #include <Ice/AsyncResponseHandler.h>
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>

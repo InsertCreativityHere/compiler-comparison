@@ -14,7 +14,7 @@
 //
 
 #define ICE_BUILDING_GENERATED_CODE
-#include <LLURecord.h>
+#include "LLURecord.h"
 #include <Ice/AsyncResponseHandler.h>
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>

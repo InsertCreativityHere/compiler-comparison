@@ -17,7 +17,7 @@
 #   define ICESTORM_API_EXPORTS
 #endif
 #define ICE_BUILDING_GENERATED_CODE
-#include <IceStorm.h>
+#include "IceStorm.h"
 #include <Ice/AsyncResponseHandler.h>
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>

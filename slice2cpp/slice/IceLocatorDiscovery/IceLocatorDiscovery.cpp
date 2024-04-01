@@ -14,7 +14,7 @@
 //
 
 #define ICE_BUILDING_GENERATED_CODE
-#include <IceLocatorDiscovery.h>
+#include "IceLocatorDiscovery.h"
 #include <Ice/AsyncResponseHandler.h>
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>

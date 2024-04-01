@@ -14,7 +14,7 @@
 //
 
 #define ICE_BUILDING_GENERATED_CODE
-#include <Wstring.h>
+#include "Wstring.h"
 #include <Ice/AsyncResponseHandler.h>
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>

@@ -17,7 +17,7 @@
 #   define ICE_API_EXPORTS
 #endif
 #define ICE_BUILDING_GENERATED_CODE
-#include <Locator.h>
+#include "Locator.h"
 #include <Ice/Process.h>
 #include <Ice/AsyncResponseHandler.h>
 #include <Ice/FactoryTable.h>

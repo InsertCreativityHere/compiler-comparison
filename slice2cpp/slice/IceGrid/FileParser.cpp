@@ -17,7 +17,7 @@
 #   define ICEGRID_API_EXPORTS
 #endif
 #define ICE_BUILDING_GENERATED_CODE
-#include <FileParser.h>
+#include "FileParser.h"
 #include <Ice/AsyncResponseHandler.h>
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>

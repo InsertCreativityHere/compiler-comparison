@@ -17,7 +17,7 @@
 #   define ICEBOX_API_EXPORTS
 #endif
 #define ICE_BUILDING_GENERATED_CODE
-#include <ServiceManager.h>
+#include "ServiceManager.h"
 #include <Ice/AsyncResponseHandler.h>
 #include <Ice/FactoryTable.h>
 #include <Ice/OutgoingAsync.h>
