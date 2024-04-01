@@ -1855,7 +1855,7 @@ public class MultiOptional extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -6208190783566770183L;
+    public static final long serialVersionUID = 2570870094961703417L;
 
     /** @hidden */
     @Override

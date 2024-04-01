@@ -17262,14 +17262,6 @@ namespace Test
 
         public abstract global::System.Collections.Generic.Dictionary<short, short[]> opShortShortSD(global::System.Collections.Generic.Dictionary<short, short[]> p1, global::System.Collections.Generic.Dictionary<short, short[]> p2, out global::System.Collections.Generic.Dictionary<short, short[]> p3, global::Ice.Current current = null);
 
-        public abstract MyClass_OpMSeq1MarshaledResult opMSeq1(global::Ice.Current current = null);
-
-        public abstract MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, global::Ice.Current current = null);
-
-        public abstract MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current = null);
-
-        public abstract MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
-
         public abstract global::System.Collections.Generic.Dictionary<int, int[]> opIntIntSD(global::System.Collections.Generic.Dictionary<int, int[]> p1, global::System.Collections.Generic.Dictionary<int, int[]> p2, out global::System.Collections.Generic.Dictionary<int, int[]> p3, global::Ice.Current current = null);
 
         public abstract global::System.Collections.Generic.Dictionary<long, long[]> opLongLongSD(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, out global::System.Collections.Generic.Dictionary<long, long[]> p3, global::Ice.Current current = null);
@@ -17325,6 +17317,14 @@ namespace Test
         public abstract MyClass_OpMStruct1MarshaledResult opMStruct1(global::Ice.Current current = null);
 
         public abstract MyClass_OpMStruct2MarshaledResult opMStruct2(Structure p1, global::Ice.Current current = null);
+
+        public abstract MyClass_OpMSeq1MarshaledResult opMSeq1(global::Ice.Current current = null);
+
+        public abstract MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, global::Ice.Current current = null);
+
+        public abstract MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current = null);
+
+        public abstract MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
 
         #endregion
 
@@ -17908,14 +17908,6 @@ namespace Test2
 
         public abstract global::System.Collections.Generic.Dictionary<short, short[]> opShortShortSD(global::System.Collections.Generic.Dictionary<short, short[]> p1, global::System.Collections.Generic.Dictionary<short, short[]> p2, out global::System.Collections.Generic.Dictionary<short, short[]> p3, global::Ice.Current current = null);
 
-        public abstract global::Test.MyClass_OpMSeq1MarshaledResult opMSeq1(global::Ice.Current current = null);
-
-        public abstract global::Test.MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, global::Ice.Current current = null);
-
-        public abstract global::Test.MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current = null);
-
-        public abstract global::Test.MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
-
         public abstract global::System.Collections.Generic.Dictionary<int, int[]> opIntIntSD(global::System.Collections.Generic.Dictionary<int, int[]> p1, global::System.Collections.Generic.Dictionary<int, int[]> p2, out global::System.Collections.Generic.Dictionary<int, int[]> p3, global::Ice.Current current = null);
 
         public abstract global::System.Collections.Generic.Dictionary<long, long[]> opLongLongSD(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, out global::System.Collections.Generic.Dictionary<long, long[]> p3, global::Ice.Current current = null);
@@ -17971,6 +17963,14 @@ namespace Test2
         public abstract global::Test.MyClass_OpMStruct1MarshaledResult opMStruct1(global::Ice.Current current = null);
 
         public abstract global::Test.MyClass_OpMStruct2MarshaledResult opMStruct2(global::Test.Structure p1, global::Ice.Current current = null);
+
+        public abstract global::Test.MyClass_OpMSeq1MarshaledResult opMSeq1(global::Ice.Current current = null);
+
+        public abstract global::Test.MyClass_OpMSeq2MarshaledResult opMSeq2(string[] p1, global::Ice.Current current = null);
+
+        public abstract global::Test.MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current = null);
+
+        public abstract global::Test.MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
 
         #endregion
 
