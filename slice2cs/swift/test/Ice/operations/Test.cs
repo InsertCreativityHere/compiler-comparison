@@ -17184,10 +17184,6 @@ namespace Test
 
         #region Inherited Slice operations
 
-        public abstract global::System.Collections.Generic.Dictionary<string, string[]> opStringStringSD(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, out global::System.Collections.Generic.Dictionary<string, string[]> p3, global::Ice.Current current = null);
-
-        public abstract MyClass_OpMStruct2MarshaledResult opMStruct2(Structure p1, global::Ice.Current current = null);
-
         public abstract void shutdown(global::Ice.Current current = null);
 
         public abstract bool supportsCompress(global::Ice.Current current = null);
@@ -17274,6 +17270,8 @@ namespace Test
 
         public abstract global::System.Collections.Generic.Dictionary<string, double[]> opStringDoubleSD(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, out global::System.Collections.Generic.Dictionary<string, double[]> p3, global::Ice.Current current = null);
 
+        public abstract global::System.Collections.Generic.Dictionary<string, string[]> opStringStringSD(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, out global::System.Collections.Generic.Dictionary<string, string[]> p3, global::Ice.Current current = null);
+
         public abstract global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> opMyEnumMyEnumSD(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p2, out global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p3, global::Ice.Current current = null);
 
         public abstract int[] opIntS(int[] s, global::Ice.Current current = null);
@@ -17317,6 +17315,8 @@ namespace Test
         public abstract string[] opWStringLiterals(global::Ice.Current current = null);
 
         public abstract MyClass_OpMStruct1MarshaledResult opMStruct1(global::Ice.Current current = null);
+
+        public abstract MyClass_OpMStruct2MarshaledResult opMStruct2(Structure p1, global::Ice.Current current = null);
 
         public abstract MyClass_OpMSeq1MarshaledResult opMSeq1(global::Ice.Current current = null);
 
@@ -17830,10 +17830,6 @@ namespace Test2
     {
         #region Inherited Slice operations
 
-        public abstract global::System.Collections.Generic.Dictionary<string, string[]> opStringStringSD(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, out global::System.Collections.Generic.Dictionary<string, string[]> p3, global::Ice.Current current = null);
-
-        public abstract global::Test.MyClass_OpMStruct2MarshaledResult opMStruct2(global::Test.Structure p1, global::Ice.Current current = null);
-
         public abstract void shutdown(global::Ice.Current current = null);
 
         public abstract bool supportsCompress(global::Ice.Current current = null);
@@ -17920,6 +17916,8 @@ namespace Test2
 
         public abstract global::System.Collections.Generic.Dictionary<string, double[]> opStringDoubleSD(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, out global::System.Collections.Generic.Dictionary<string, double[]> p3, global::Ice.Current current = null);
 
+        public abstract global::System.Collections.Generic.Dictionary<string, string[]> opStringStringSD(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, out global::System.Collections.Generic.Dictionary<string, string[]> p3, global::Ice.Current current = null);
+
         public abstract global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> opMyEnumMyEnumSD(global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> p1, global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> p2, out global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> p3, global::Ice.Current current = null);
 
         public abstract int[] opIntS(int[] s, global::Ice.Current current = null);
@@ -17963,6 +17961,8 @@ namespace Test2
         public abstract string[] opWStringLiterals(global::Ice.Current current = null);
 
         public abstract global::Test.MyClass_OpMStruct1MarshaledResult opMStruct1(global::Ice.Current current = null);
+
+        public abstract global::Test.MyClass_OpMStruct2MarshaledResult opMStruct2(global::Test.Structure p1, global::Ice.Current current = null);
 
         public abstract global::Test.MyClass_OpMSeq1MarshaledResult opMSeq1(global::Ice.Current current = null);
 
