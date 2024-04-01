@@ -20,7 +20,6 @@
 #include <Ice/Ice.h>
 #include <SubscriberRecord.h>
 #include <LLURecord.h>
-#include <IceUtil/UndefSysMacros.h>
 
 #ifndef ICE_IGNORE_VERSION
 #   if ICE_INT_VERSION  != 30850

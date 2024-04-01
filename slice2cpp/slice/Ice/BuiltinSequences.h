@@ -17,7 +17,6 @@
 #define __BuiltinSequences_h__
 
 #include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/UndefSysMacros.h>
 #include <Ice/Config.h>
 #include <Ice/ObjectF.h>
 #include <Ice/ProxyF.h>

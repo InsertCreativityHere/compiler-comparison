@@ -18,7 +18,6 @@
 
 #include <IceUtil/PushDisableWarnings.h>
 #include <Ice/Ice.h>
-#include <IceUtil/UndefSysMacros.h>
 
 #ifndef ICE_IGNORE_VERSION
 #   if ICE_INT_VERSION  != 30850

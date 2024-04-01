@@ -21,7 +21,6 @@
 #include <Square.h>
 #include <Circle.h>
 #include <Glacier2/Session.h>
-#include <IceUtil/UndefSysMacros.h>
 
 #ifndef ICE_IGNORE_VERSION
 #   if ICE_INT_VERSION  != 30850

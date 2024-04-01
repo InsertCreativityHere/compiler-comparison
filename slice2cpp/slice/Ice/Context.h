@@ -17,7 +17,6 @@
 #define __Context_h__
 
 #include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/UndefSysMacros.h>
 #include <Ice/Config.h>
 #include <map>
 #include <string>

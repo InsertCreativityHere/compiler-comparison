@@ -18,7 +18,6 @@
 
 #include <IceUtil/PushDisableWarnings.h>
 #include <Ice/Ice.h>
-#include <IceUtil/UndefSysMacros.h>
 #include <list>
 #include <CustomMap.h>
 

@@ -22,7 +22,6 @@
 #include <Election.h>
 #include <Ice/Context.h>
 #include <Ice/OperationMode.h>
-#include <IceUtil/UndefSysMacros.h>
 #include <deque>
 
 #ifndef ICE_IGNORE_VERSION

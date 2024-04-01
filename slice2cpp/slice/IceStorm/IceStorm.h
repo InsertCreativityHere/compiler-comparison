@@ -20,7 +20,6 @@
 #include <Ice/Ice.h>
 #include <Ice/Identity.h>
 #include <Metrics.h>
-#include <IceUtil/UndefSysMacros.h>
 #include <IceStorm/Config.h>
 
 #ifndef ICE_IGNORE_VERSION

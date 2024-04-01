@@ -20,7 +20,6 @@
 #include <Ice/Ice.h>
 #include <Glacier2/Session.h>
 #include <Exception.h>
-#include <IceUtil/UndefSysMacros.h>
 #include <IceGrid/Config.h>
 
 #ifndef ICE_IGNORE_VERSION

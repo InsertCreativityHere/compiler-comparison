@@ -21,7 +21,6 @@
 #include <Ice/Router.h>
 #include <Session.h>
 #include <PermissionsVerifier.h>
-#include <IceUtil/UndefSysMacros.h>
 #include <Glacier2/Config.h>
 
 #ifndef ICE_IGNORE_VERSION

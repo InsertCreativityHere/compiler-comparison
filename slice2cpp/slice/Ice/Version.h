@@ -17,7 +17,6 @@
 #define __Version_h__
 
 #include <IceUtil/PushDisableWarnings.h>
-#include <IceUtil/UndefSysMacros.h>
 #include <Ice/Config.h>
 #include <Ice/Comparable.h>
 #include <cstdint>

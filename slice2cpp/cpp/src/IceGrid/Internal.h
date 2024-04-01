@@ -24,7 +24,6 @@
 #include <Glacier2/Session.h>
 #include <IceGrid/Admin.h>
 #include <IceGrid/Registry.h>
-#include <IceUtil/UndefSysMacros.h>
 
 #ifndef ICE_IGNORE_VERSION
 #   if ICE_INT_VERSION  != 30850

@@ -45,7 +45,7 @@ public class Forward extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -7655919070958593932L;
+    public static final long serialVersionUID = -7655931288149760843L;
 
     /** @hidden */
     @Override
