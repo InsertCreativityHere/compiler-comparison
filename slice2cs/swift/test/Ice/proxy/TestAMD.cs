@@ -762,9 +762,9 @@ namespace Test
 
         #region Inherited Slice operations
 
-        public abstract global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> getContextAsync(global::Ice.Current current = null);
-
         public abstract global::System.Threading.Tasks.Task shutdownAsync(global::Ice.Current current = null);
+
+        public abstract global::System.Threading.Tasks.Task<global::System.Collections.Generic.Dictionary<string, string>> getContextAsync(global::Ice.Current current = null);
 
         #endregion
 
