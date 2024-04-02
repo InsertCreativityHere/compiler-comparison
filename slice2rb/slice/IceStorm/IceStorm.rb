@@ -15,7 +15,7 @@
 #
 
 require 'Ice'
-require 'Ice/Identity.rb'
+require '../Ice/Identity.rb'
 require 'Metrics.rb'
 
 module ::IceStorm

@@ -31,9 +31,9 @@ require("../Ice/StreamHelpers");
 require("../Ice/Locator");
 const Ice = _ModuleRegistry.module("Ice");
 
-require("../Exception");
-require("../Session");
-require("../Admin");
+require("./Exception");
+require("./Session");
+require("./Admin");
 const IceGrid = _ModuleRegistry.module("IceGrid");
 
 const Slice = Ice.Slice;

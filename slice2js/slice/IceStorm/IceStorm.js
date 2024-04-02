@@ -32,7 +32,7 @@ require("../Ice/StreamHelpers");
 require("../Ice/Identity");
 const Ice = _ModuleRegistry.module("Ice");
 
-const IceMX = require("../Metrics").IceMX;
+const IceMX = require("./Metrics").IceMX;
 const Slice = Ice.Slice;
 /* slice2js browser-bundle-skip-end */
 /* slice2js browser-bundle-skip */

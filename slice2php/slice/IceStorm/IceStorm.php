@@ -17,7 +17,7 @@
 
 namespace
 {
-    require_once 'Ice/Identity.php';
+    require_once '../Ice/Identity.php';
     require_once 'Metrics.php';
 }
 

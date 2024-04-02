@@ -19,7 +19,7 @@
 #include <IceUtil/PushDisableWarnings.h>
 #include <Ice/Ice.h>
 #include <Ice/Identity.h>
-#include <IceStormInternal.h>
+#include "IceStormInternal.h"
 
 #ifndef ICE_IGNORE_VERSION
 #   if ICE_INT_VERSION  != 30850

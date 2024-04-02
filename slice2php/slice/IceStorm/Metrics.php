@@ -17,7 +17,7 @@
 
 namespace
 {
-    require_once 'Ice/Metrics.php';
+    require_once '../Ice/Metrics.php';
 }
 
 namespace IceMX

@@ -18,8 +18,8 @@
 
 #include <IceUtil/PushDisableWarnings.h>
 #include <Ice/Ice.h>
-#include <Ice/Identity.h>
-#include <Metrics.h>
+#include "../Ice/Identity.h"
+#include "Metrics.h"
 #include <IceStorm/Config.h>
 
 #ifndef ICE_IGNORE_VERSION

@@ -19,7 +19,7 @@
 #include <IceUtil/PushDisableWarnings.h>
 #include <Ice/Ice.h>
 #include <IceStorm/IceStorm.h>
-#include <Election.h>
+#include "Election.h"
 #include <Ice/Context.h>
 #include <Ice/OperationMode.h>
 #include <deque>

@@ -29,7 +29,7 @@ require("../Ice/HashMap");
 require("../Ice/HashUtil");
 require("../Ice/ArrayUtil");
 require("../Ice/StreamHelpers");
-require("../BuiltinSequences");
+require("./BuiltinSequences");
 const Ice = _ModuleRegistry.module("Ice");
 
 const Slice = Ice.Slice;

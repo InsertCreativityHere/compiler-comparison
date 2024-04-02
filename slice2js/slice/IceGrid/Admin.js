@@ -34,8 +34,8 @@ require("../Ice/Identity");
 require("../Ice/BuiltinSequences");
 const Ice = _ModuleRegistry.module("Ice");
 
-require("../Exception");
-require("../Descriptor");
+require("./Exception");
+require("./Descriptor");
 const IceGrid = _ModuleRegistry.module("IceGrid");
 
 const Slice = Ice.Slice;

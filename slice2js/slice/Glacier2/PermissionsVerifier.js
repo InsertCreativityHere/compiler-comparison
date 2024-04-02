@@ -18,7 +18,7 @@
 
 /* slice2js browser-bundle-skip */
 const _ModuleRegistry = require("../Ice/ModuleRegistry").Ice._ModuleRegistry;
-const Glacier2 = require("../SSLInfo").Glacier2;
+const Glacier2 = require("./SSLInfo").Glacier2;
 require("../Ice/Object");
 require("../Ice/Value");
 require("../Ice/ObjectPrx");

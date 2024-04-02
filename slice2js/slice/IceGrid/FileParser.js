@@ -30,7 +30,7 @@ require("../Ice/ArrayUtil");
 require("../Ice/StreamHelpers");
 const Ice = _ModuleRegistry.module("Ice");
 
-const IceGrid = require("../Admin").IceGrid;
+const IceGrid = require("./Admin").IceGrid;
 const Slice = Ice.Slice;
 /* slice2js browser-bundle-skip-end */
 

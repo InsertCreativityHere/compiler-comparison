@@ -28,7 +28,7 @@ require("../Ice/HashMap");
 require("../Ice/HashUtil");
 require("../Ice/ArrayUtil");
 require("../Ice/StreamHelpers");
-require("../Identity");
+require("./Identity");
 const Ice = _ModuleRegistry.module("Ice");
 
 const Slice = Ice.Slice;

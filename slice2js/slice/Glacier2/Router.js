@@ -18,8 +18,8 @@
 
 /* slice2js browser-bundle-skip */
 const _ModuleRegistry = require("../Ice/ModuleRegistry").Ice._ModuleRegistry;
-require("../Session");
-require("../PermissionsVerifier");
+require("./Session");
+require("./PermissionsVerifier");
 const Glacier2 = _ModuleRegistry.module("Glacier2");
 
 require("../Ice/Object");
