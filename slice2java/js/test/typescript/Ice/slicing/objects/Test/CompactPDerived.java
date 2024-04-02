@@ -47,7 +47,7 @@ public class CompactPDerived extends Preserved
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -9066881158984955016L;
+    public static final long serialVersionUID = -9066888038523173080L;
 
     /** @hidden */
     @Override
