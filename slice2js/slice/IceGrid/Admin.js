@@ -926,14 +926,14 @@ Slice.defineOperations(IceGrid.AdminSession, IceGrid.AdminSessionPrx, iceC_IceGr
     "openRegistryStdErr": [, , , , ["IceGrid.FileIteratorPrx"], [[7], [3]], ,
     [
         IceGrid.RegistryNotExistException,
-        IceGrid.FileNotAvailableException,
-        IceGrid.RegistryUnreachableException
+        IceGrid.RegistryUnreachableException,
+        IceGrid.FileNotAvailableException
     ], , ],
     "openRegistryStdOut": [, , , , ["IceGrid.FileIteratorPrx"], [[7], [3]], ,
     [
         IceGrid.RegistryNotExistException,
-        IceGrid.FileNotAvailableException,
-        IceGrid.RegistryUnreachableException
+        IceGrid.RegistryUnreachableException,
+        IceGrid.FileNotAvailableException
     ], , ]
 });
 /* slice2js browser-bundle-skip */
