@@ -712,34 +712,6 @@ module ::Test
         ])
     end
 
-    if not defined?(::Test::T_Recursive)
-        T_Recursive = ::Ice::__declareClass('::Test::Recursive')
-    end
-
-    if not defined?(::Test::T_RecursiveSeq)
-        T_RecursiveSeq = ::Ice::__defineSequence('::Test::RecursiveSeq', ::Test::T_Recursive)
-    end
-
-    if not defined?(::Test::Recursive_Mixin)
-
-        module ::Test::Recursive_Mixin
-        end
-        class Recursive < ::Ice::Value
-
-            def initialize(value=::Ice::Unset)
-                @value = value
-            end
-
-            attr_accessor :value
-        end
-
-        if not defined?(::Test::T_Recursive)
-            T_Recursive = ::Ice::__declareClass('::Test::Recursive')
-        end
-
-        T_Recursive.defineClass(Recursive, -1, false, nil, [['value', ::Test::T_RecursiveSeq, true, 0]])
-    end
-
     if not defined?(::Test::Initial_Mixin)
 
         module ::Test::Initial_Mixin

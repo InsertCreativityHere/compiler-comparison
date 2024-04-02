@@ -1134,61 +1134,6 @@ namespace Test
 
 namespace Test
 {
-    global $Test__t_Recursive;
-    if(!isset($Test__t_Recursive))
-    {
-        $Test__t_Recursive = IcePHP_declareClass('::Test::Recursive');
-    }
-}
-
-namespace Test
-{
-    global $Test__t_RecursiveSeq;
-
-    if(!isset($Test__t_RecursiveSeq))
-    {
-        global $Test__t_Recursive;
-        $Test__t_RecursiveSeq = IcePHP_defineSequence('::Test::RecursiveSeq', $Test__t_Recursive);
-    }
-}
-
-namespace Test
-{
-    global $Test__t_Recursive;
-    class Recursive extends \Ice\Value
-    {
-        public function __construct($value=\Ice\None)
-        {
-            $this->value = $value;
-        }
-
-        public function ice_id()
-        {
-            return '::Test::Recursive';
-        }
-
-        public static function ice_staticId()
-        {
-            return '::Test::Recursive';
-        }
-
-        public function __toString(): string
-        {
-            global $Test__t_Recursive;
-            return IcePHP_stringify($this, $Test__t_Recursive);
-        }
-
-        public $value;
-    }
-
-    global $Ice__t_Value;
-    global $Test__t_RecursiveSeq;
-    $Test__t_Recursive = IcePHP_defineClass('::Test::Recursive', '\\Test\\Recursive', -1, false, $Ice__t_Value, array(
-        array('value', $Test__t_RecursiveSeq, true, 0)));
-}
-
-namespace Test
-{
     global $Test__t_Initial;
     global $Test__t_InitialPrx;
 

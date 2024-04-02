@@ -1566,78 +1566,6 @@ public struct GTraits: Ice.SliceTraits {
     public static let staticId = "::Test::G"
 }
 
-public typealias RecursiveSeq = [Recursive?]
-
-/// Helper class to read and write `RecursiveSeq` sequence values from
-/// `Ice.InputStream` and `Ice.OutputStream`.
-public struct RecursiveSeqHelper {
-    /// Read a `RecursiveSeq` sequence from the stream.
-    ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
-    ///
-    /// - returns: `RecursiveSeq` - The sequence read from the stream.
-    public static func read(from istr: Ice.InputStream) throws -> RecursiveSeq {
-        let sz = try istr.readAndCheckSeqSize(minSize: 1)
-        var v = RecursiveSeq(repeating: nil, count: sz)
-        for i in 0 ..< sz {
-            try Swift.withUnsafeMutablePointer(to: &v[i]) { p in
-                try istr.read(Recursive.self) { p.pointee = $0 }
-            }
-        }
-        return v
-    }
-    /// Read an optional `RecursiveSeq?` sequence from the stream.
-    ///
-    /// - parameter istr: `Ice.InputStream` - The stream to read from.
-    ///
-    /// - parameter tag: `Swift.Int32` - The numeric tag associated with the value.
-    ///
-    /// - returns: `RecursiveSeq` - The sequence read from the stream.
-    public static func read(from istr: Ice.InputStream, tag: Swift.Int32) throws -> RecursiveSeq? {
-        guard try istr.readOptional(tag: tag, expectedFormat: .FSize) else {
-            return nil
-        }
-        try istr.skip(4)
-        return try read(from: istr)
-    }
-
-    /// Wite a `RecursiveSeq` sequence to the stream.
-    ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter value: `RecursiveSeq` - The sequence value to write to the stream.
-    public static func write(to ostr: Ice.OutputStream, value v: RecursiveSeq) {
-        ostr.write(size: v.count)
-        for item in v {
-            ostr.write(item)
-        }
-    }
-
-    /// Wite an optional `RecursiveSeq?` sequence to the stream.
-    ///
-    /// - parameter ostr: `Ice.OuputStream` - The stream to write to.
-    ///
-    /// - parameter tag: `Int32` - The numeric tag associated with the value.
-    ///
-    /// - parameter value: `RecursiveSeq` The sequence value to write to the stream.
-    public static func write(to ostr: Ice.OutputStream,  tag: Swift.Int32, value v: RecursiveSeq?) {
-        guard let val = v else {
-            return
-        }
-        if ostr.writeOptional(tag: tag, format: .FSize) {
-            let pos = ostr.startSize()
-            write(to: ostr, value: val)
-            ostr.endSize(position: pos)
-        }
-    }
-}
-
-/// Traits for Slice class`Recursive`.
-public struct RecursiveTraits: Ice.SliceTraits {
-    public static let staticIds = ["::Ice::Object", "::Test::Recursive"]
-    public static let staticId = "::Test::Recursive"
-}
-
 /// Traits for Slice interface`Initial`.
 public struct InitialTraits: Ice.SliceTraits {
     public static let staticIds = ["::Ice::Object", "::Test::Initial"]
@@ -6014,55 +5942,6 @@ open class G: Ice.Value {
         ostr.write(self.gg1)
         ostr.write(tag: 0, value: self.gg2Opt)
         ostr.write(tag: 1, value: self.gg1Opt)
-        ostr.endSlice()
-    }
-}
-
-/// :nodoc:
-public class Recursive_TypeResolver: Ice.ValueTypeResolver {
-    public override func type() -> Ice.Value.Type {
-        return Recursive.self
-    }
-}
-
-public extension Ice.ClassResolver {
-    @objc static func Test_Recursive() -> Ice.ValueTypeResolver {
-        return Recursive_TypeResolver()
-    }
-}
-
-open class Recursive: Ice.Value {
-    public var value: RecursiveSeq? = nil
-
-    public required init() {}
-
-    public init(value: RecursiveSeq?) {
-        self.value = value
-    }
-
-    /// Returns the Slice type ID of the most-derived interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the most-derived interface supported by this object
-    open override func ice_id() -> Swift.String {
-        return RecursiveTraits.staticId
-    }
-
-    /// Returns the Slice type ID of the interface supported by this object.
-    ///
-    /// - returns: `String` - The Slice type ID of the interface supported by this object.
-    open override class func ice_staticId() -> Swift.String {
-        return RecursiveTraits.staticId
-    }
-
-    open override func _iceReadImpl(from istr: Ice.InputStream) throws {
-        _ = try istr.startSlice()
-        self.value = try RecursiveSeqHelper.read(from: istr, tag: 0)
-        try istr.endSlice()
-    }
-
-    open override func _iceWriteImpl(to ostr: Ice.OutputStream) {
-        ostr.startSlice(typeId: RecursiveTraits.staticId, compactId: -1, last: true)
-        RecursiveSeqHelper.write(to: ostr, tag: 0, value: self.value)
         ostr.endSlice()
     }
 }

@@ -961,36 +961,6 @@ if 'G' not in _M_Test.__dict__:
     _M_Test.G = G
     del G
 
-if 'Recursive' not in _M_Test.__dict__:
-    _M_Test._t_Recursive = IcePy.declareValue('::Test::Recursive')
-
-if '_t_RecursiveSeq' not in _M_Test.__dict__:
-    _M_Test._t_RecursiveSeq = IcePy.defineSequence('::Test::RecursiveSeq', (), _M_Test._t_Recursive)
-
-if 'Recursive' not in _M_Test.__dict__:
-    _M_Test.Recursive = Ice.createTempClass()
-    class Recursive(Ice.Value):
-        def __init__(self, value=Ice.Unset):
-            self.value = value
-
-        def ice_id(self):
-            return '::Test::Recursive'
-
-        @staticmethod
-        def ice_staticId():
-            return '::Test::Recursive'
-
-        def __str__(self):
-            return IcePy.stringify(self, _M_Test._t_Recursive)
-
-        __repr__ = __str__
-
-    _M_Test._t_Recursive = IcePy.defineValue('::Test::Recursive', Recursive, -1, (), False, None, (('value', (), _M_Test._t_RecursiveSeq, True, 0),))
-    Recursive._ice_type = _M_Test._t_Recursive
-
-    _M_Test.Recursive = Recursive
-    del Recursive
-
 _M_Test._t_Initial = IcePy.defineValue('::Test::Initial', Ice.Value, -1, (), True, None, ())
 
 if 'InitialPrx' not in _M_Test.__dict__:

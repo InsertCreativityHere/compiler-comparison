@@ -128,11 +128,6 @@ namespace Test
     class G;
     using GPtr = ::std::shared_ptr<G>;
 
-    class Recursive;
-    using RecursivePtr = ::std::shared_ptr<Recursive>;
-
-    using RecursiveSeq = ::std::vector<RecursivePtr>;
-
     class InitialPrx;
 
 }
@@ -1791,55 +1786,6 @@ protected:
     void _iceReadImpl(::Ice::InputStream*) override;
 };
 
-class Recursive : public ::Ice::Value
-{
-public:
-
-    Recursive() = default;
-
-    /**
-     * One-shot constructor to initialize all data members.
-     */
-    explicit Recursive(::std::optional<::Test::RecursiveSeq> value) :
-        value(::std::move(value))
-    {
-    }
-
-    /**
-     * Obtains the Slice type ID of this value.
-     * @return The fully-scoped type ID.
-     */
-    static ::std::string_view ice_staticId() noexcept;
-
-    ::std::string ice_id() const override;
-
-    /**
-     * Obtains a tuple containing all of the value's data members.
-     * @return The data members in a tuple.
-     */
-    std::tuple<const ::std::optional<::Test::RecursiveSeq>&> ice_tuple() const
-    {
-        return std::tie(value);
-    }
-
-    /**
-     * Creates a shallow polymorphic copy of this instance.
-     * @return The cloned value.
-     */
-    RecursivePtr ice_clone() const { return ::std::static_pointer_cast <Recursive>(_iceCloneImpl()); }
-
-    ::std::optional<::Test::RecursiveSeq> value;
-
-protected:
-
-    Recursive(const Recursive&) = default;
-
-    ::Ice::ValuePtr _iceCloneImpl() const override;
-    void _iceWriteImpl(::Ice::OutputStream*) const override;
-
-    void _iceReadImpl(::Ice::InputStream*) override;
-};
-
 using Ice::operator<;
 using Ice::operator<=;
 using Ice::operator>;
@@ -2651,24 +2597,6 @@ struct StreamReader<::Test::G>
     {
         istr->readAll(v.gg2, v.gg1);
         istr->readAll({0, 1}, v.gg2Opt, v.gg1Opt);
-    }
-};
-
-template<>
-struct StreamWriter<::Test::Recursive>
-{
-    static void write(OutputStream* ostr, const ::Test::Recursive& v)
-    {
-        ostr->writeAll({0}, v.value);
-    }
-};
-
-template<>
-struct StreamReader<::Test::Recursive>
-{
-    static void read(InputStream* istr, ::Test::Recursive& v)
-    {
-        istr->readAll({0}, v.value);
     }
 };
 

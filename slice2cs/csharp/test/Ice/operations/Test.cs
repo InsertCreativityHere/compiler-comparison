@@ -17035,8 +17035,6 @@ namespace Ice.operations
 
             public abstract double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, global::Ice.Current current = null);
 
-            public abstract string[] opStringS(string[] p1, string[] p2, out string[] p3, global::Ice.Current current = null);
-
             public abstract byte[][] opByteSS(byte[][] p1, byte[][] p2, out byte[][] p3, global::Ice.Current current = null);
 
             public abstract bool[][] opBoolSS(bool[][] p1, bool[][] p2, out bool[][] p3, global::Ice.Current current = null);
@@ -17146,6 +17144,8 @@ namespace Ice.operations
             public abstract MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current = null);
 
             public abstract MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
+
+            public abstract string[] opStringS(string[] p1, string[] p2, out string[] p3, global::Ice.Current current = null);
 
             #endregion
 
@@ -18100,8 +18100,6 @@ namespace Test2
 
         public abstract double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, global::Ice.Current current = null);
 
-        public abstract string[] opStringS(string[] p1, string[] p2, out string[] p3, global::Ice.Current current = null);
-
         public abstract byte[][] opByteSS(byte[][] p1, byte[][] p2, out byte[][] p3, global::Ice.Current current = null);
 
         public abstract bool[][] opBoolSS(bool[][] p1, bool[][] p2, out bool[][] p3, global::Ice.Current current = null);
@@ -18211,6 +18209,8 @@ namespace Test2
         public abstract global::Ice.operations.Test.MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current = null);
 
         public abstract global::Ice.operations.Test.MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
+
+        public abstract string[] opStringS(string[] p1, string[] p2, out string[] p3, global::Ice.Current current = null);
 
         #endregion
 

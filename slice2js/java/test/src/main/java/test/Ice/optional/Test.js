@@ -693,29 +693,6 @@
 
     Slice.defineValue(Test.G, "::Test::G");
 
-    Slice.defineSequence(Test, "RecursiveSeqHelper", "Ice.ObjectHelper", false, "Test.Recursive");
-
-    Test.Recursive = class extends Ice.Value
-    {
-        constructor(value = undefined)
-        {
-            super();
-            this.value = value;
-        }
-
-        _iceWriteMemberImpl(ostr)
-        {
-            Test.RecursiveSeqHelper.writeOptional(ostr, 0, this.value);
-        }
-
-        _iceReadMemberImpl(istr)
-        {
-            this.value = Test.RecursiveSeqHelper.readOptional(istr, 0);
-        }
-    };
-
-    Slice.defineValue(Test.Recursive, "::Test::Recursive");
-
     const iceC_Test_Initial_ids = [
         "::Ice::Object",
         "::Test::Initial"

@@ -51,7 +51,6 @@ namespace
     const ::IceInternal::DefaultValueFactoryInit<::Test::G1> iceC_Test_G1_init("::Test::G1");
     const ::IceInternal::DefaultValueFactoryInit<::Test::G2> iceC_Test_G2_init("::Test::G2");
     const ::IceInternal::DefaultValueFactoryInit<::Test::G> iceC_Test_G_init("::Test::G");
-    const ::IceInternal::DefaultValueFactoryInit<::Test::Recursive> iceC_Test_Recursive_init("::Test::Recursive");
 }
 
 void
@@ -2924,41 +2923,6 @@ Test::G::_iceReadImpl(::Ice::InputStream* istr)
 {
     istr->startSlice();
     ::Ice::StreamReader<G>::read(istr, *this);
-    istr->endSlice();
-}
-
-::std::string
-Test::Recursive::ice_id() const
-{
-    return ::std::string{ice_staticId()};
-}
-
-::std::string_view
-Test::Recursive::ice_staticId() noexcept
-{
-    static constexpr ::std::string_view typeId = "::Test::Recursive";
-    return typeId;
-}
-
-::Ice::ValuePtr
-Test::Recursive::_iceCloneImpl() const
-{
-    return CloneEnabler<Recursive>::clone(*this);
-}
-
-void
-Test::Recursive::_iceWriteImpl(::Ice::OutputStream* ostr) const
-{
-    ostr->startSlice(ice_staticId(), -1, true);
-    ::Ice::StreamWriter<Recursive>::write(ostr, *this);
-    ostr->endSlice();
-}
-
-void
-Test::Recursive::_iceReadImpl(::Ice::InputStream* istr)
-{
-    istr->startSlice();
-    ::Ice::StreamReader<Recursive>::read(istr, *this);
     istr->endSlice();
 }
 

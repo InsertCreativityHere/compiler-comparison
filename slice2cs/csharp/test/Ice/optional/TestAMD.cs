@@ -2368,95 +2368,6 @@ namespace Ice.optional.AMD
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
-        public partial class Recursive : global::Ice.Value
-        {
-            #region Slice data members
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public global::Ice.Optional<Recursive[]> value;
-
-            #endregion
-
-            partial void ice_initialize();
-
-            #region Constructors
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public Recursive()
-            {
-                this.value = new global::Ice.Optional<Recursive[]>();
-                ice_initialize();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public Recursive(global::Ice.Optional<Recursive[]> value)
-            {
-                this.value = value;
-                ice_initialize();
-            }
-
-            #endregion
-
-            private const string _id = "::Test::Recursive";
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public static new string ice_staticId()
-            {
-                return _id;
-            }
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            public override string ice_id()
-            {
-                return _id;
-            }
-
-            #region Marshaling support
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceWriteImpl(global::Ice.OutputStream ostr_)
-            {
-                ostr_.startSlice(ice_staticId(), -1, true);
-                if(value.HasValue && ostr_.writeOptional(0, global::Ice.OptionalFormat.FSize))
-                {
-                    int pos = ostr_.startSize();
-                    RecursiveSeqHelper.write(ostr_, value.Value);
-                    ostr_.endSize(pos);
-                }
-                ostr_.endSlice();
-            }
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            protected override void iceReadImpl(global::Ice.InputStream istr_)
-            {
-                istr_.startSlice();
-                if(istr_.readOptional(0, global::Ice.OptionalFormat.FSize))
-                {
-                    istr_.skip(4);
-                    Recursive[] tmpVal;
-                    tmpVal = RecursiveSeqHelper.read(istr_);
-                    value = new global::Ice.Optional<Recursive[]>(tmpVal);
-                }
-                else
-                {
-                    value = new global::Ice.Optional<Recursive[]>();
-                }
-                istr_.endSlice();
-            }
-
-            #endregion
-        }
-
-        [global::System.Runtime.InteropServices.ComVisible(false)]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1704")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1707")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1709")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1710")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1711")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1715")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1716")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1720")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1722")]
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Naming", "CA1724")]
         public partial interface Initial : global::Ice.Object, InitialOperations_
         {
         }
@@ -2553,12 +2464,6 @@ namespace Ice.optional.AMD.TypeId.Test
     public abstract class G
     {
         public abstract global::Ice.optional.AMD.Test.G targetClass { get; }
-    }
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public abstract class Recursive
-    {
-        public abstract global::Ice.optional.AMD.Test.Recursive targetClass { get; }
     }
 }
 
@@ -4602,40 +4507,6 @@ namespace Ice.optional.AMD
                     r[k] = v;
                 }
                 return r;
-            }
-        }
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public sealed class RecursiveSeqHelper
-        {
-            public static void write(global::Ice.OutputStream ostr, Recursive[] v)
-            {
-                if(v == null)
-                {
-                    ostr.writeSize(0);
-                }
-                else
-                {
-                    ostr.writeSize(v.Length);
-                    for(int ix = 0; ix < v.Length; ++ix)
-                    {
-                        ostr.writeValue(v[ix]);
-                    }
-                }
-            }
-
-            public static Recursive[] read(global::Ice.InputStream istr)
-            {
-                Recursive[] v;
-                {
-                    int szx = istr.readAndCheckSeqSize(1);
-                    v = new Recursive[szx];
-                    for(int ix = 0; ix < szx; ++ix)
-                    {
-                        istr.readValue(global::IceInternal.Patcher.arrayReadValue<Recursive>(v, ix));
-                    }
-                }
-                return v;
             }
         }
 
