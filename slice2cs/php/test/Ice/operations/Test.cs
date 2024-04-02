@@ -15495,8 +15495,6 @@ namespace Test
 
         public abstract global::System.Collections.Generic.Dictionary<string, MyEnum> opStringMyEnumD(global::System.Collections.Generic.Dictionary<string, MyEnum> p1, global::System.Collections.Generic.Dictionary<string, MyEnum> p2, out global::System.Collections.Generic.Dictionary<string, MyEnum> p3, global::Ice.Current current = null);
 
-        public abstract MyClass_OpMStruct2MarshaledResult opMStruct2(Structure p1, global::Ice.Current current = null);
-
         public abstract global::System.Collections.Generic.Dictionary<MyEnum, string> opMyEnumStringD(global::System.Collections.Generic.Dictionary<MyEnum, string> p1, global::System.Collections.Generic.Dictionary<MyEnum, string> p2, out global::System.Collections.Generic.Dictionary<MyEnum, string> p3, global::Ice.Current current = null);
 
         public abstract global::System.Collections.Generic.Dictionary<byte, bool>[] opByteBoolDS(global::System.Collections.Generic.Dictionary<byte, bool>[] p1, global::System.Collections.Generic.Dictionary<byte, bool>[] p2, out global::System.Collections.Generic.Dictionary<byte, bool>[] p3, global::Ice.Current current = null);
@@ -15562,6 +15560,8 @@ namespace Test
         public abstract string[] opStringLiterals(global::Ice.Current current = null);
 
         public abstract MyClass_OpMStruct1MarshaledResult opMStruct1(global::Ice.Current current = null);
+
+        public abstract MyClass_OpMStruct2MarshaledResult opMStruct2(Structure p1, global::Ice.Current current = null);
 
         public abstract MyClass_OpMSeq1MarshaledResult opMSeq1(global::Ice.Current current = null);
 
@@ -16092,8 +16092,6 @@ namespace Test2
 
         public abstract global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum> opStringMyEnumD(global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum> p1, global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum> p2, out global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum> p3, global::Ice.Current current = null);
 
-        public abstract global::Test.MyClass_OpMStruct2MarshaledResult opMStruct2(global::Test.Structure p1, global::Ice.Current current = null);
-
         public abstract global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string> opMyEnumStringD(global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string> p1, global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string> p2, out global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string> p3, global::Ice.Current current = null);
 
         public abstract global::System.Collections.Generic.Dictionary<byte, bool>[] opByteBoolDS(global::System.Collections.Generic.Dictionary<byte, bool>[] p1, global::System.Collections.Generic.Dictionary<byte, bool>[] p2, out global::System.Collections.Generic.Dictionary<byte, bool>[] p3, global::Ice.Current current = null);
@@ -16159,6 +16157,8 @@ namespace Test2
         public abstract string[] opStringLiterals(global::Ice.Current current = null);
 
         public abstract global::Test.MyClass_OpMStruct1MarshaledResult opMStruct1(global::Ice.Current current = null);
+
+        public abstract global::Test.MyClass_OpMStruct2MarshaledResult opMStruct2(global::Test.Structure p1, global::Ice.Current current = null);
 
         public abstract global::Test.MyClass_OpMSeq1MarshaledResult opMSeq1(global::Ice.Current current = null);
 
