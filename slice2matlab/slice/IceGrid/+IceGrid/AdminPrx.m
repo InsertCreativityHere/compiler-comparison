@@ -1926,13 +1926,13 @@ classdef AdminPrx < Ice.ObjectPrx
         end
     end
     properties(Constant,Access=private)
-        addApplication_ex_ = { 'IceGrid.AccessDeniedException', 'IceGrid.DeploymentException' }
-        syncApplication_ex_ = { 'IceGrid.AccessDeniedException', 'IceGrid.ApplicationNotExistException', 'IceGrid.DeploymentException' }
-        updateApplication_ex_ = { 'IceGrid.AccessDeniedException', 'IceGrid.ApplicationNotExistException', 'IceGrid.DeploymentException' }
-        syncApplicationWithoutRestart_ex_ = { 'IceGrid.AccessDeniedException', 'IceGrid.ApplicationNotExistException', 'IceGrid.DeploymentException' }
-        updateApplicationWithoutRestart_ex_ = { 'IceGrid.AccessDeniedException', 'IceGrid.ApplicationNotExistException', 'IceGrid.DeploymentException' }
-        removeApplication_ex_ = { 'IceGrid.AccessDeniedException', 'IceGrid.ApplicationNotExistException', 'IceGrid.DeploymentException' }
-        instantiateServer_ex_ = { 'IceGrid.AccessDeniedException', 'IceGrid.ApplicationNotExistException', 'IceGrid.DeploymentException' }
+        addApplication_ex_ = { 'IceGrid.DeploymentException', 'IceGrid.AccessDeniedException' }
+        syncApplication_ex_ = { 'IceGrid.ApplicationNotExistException', 'IceGrid.DeploymentException', 'IceGrid.AccessDeniedException' }
+        updateApplication_ex_ = { 'IceGrid.ApplicationNotExistException', 'IceGrid.DeploymentException', 'IceGrid.AccessDeniedException' }
+        syncApplicationWithoutRestart_ex_ = { 'IceGrid.ApplicationNotExistException', 'IceGrid.DeploymentException', 'IceGrid.AccessDeniedException' }
+        updateApplicationWithoutRestart_ex_ = { 'IceGrid.ApplicationNotExistException', 'IceGrid.DeploymentException', 'IceGrid.AccessDeniedException' }
+        removeApplication_ex_ = { 'IceGrid.ApplicationNotExistException', 'IceGrid.DeploymentException', 'IceGrid.AccessDeniedException' }
+        instantiateServer_ex_ = { 'IceGrid.ApplicationNotExistException', 'IceGrid.DeploymentException', 'IceGrid.AccessDeniedException' }
         getApplicationInfo_ex_ = { 'IceGrid.ApplicationNotExistException' }
         getDefaultApplicationDescriptor_ex_ = { 'IceGrid.DeploymentException' }
         getServerInfo_ex_ = { 'IceGrid.ServerNotExistException' }
@@ -1943,7 +1943,7 @@ classdef AdminPrx < Ice.ObjectPrx
         isServerEnabled_ex_ = { 'IceGrid.ServerNotExistException', 'IceGrid.DeploymentException', 'IceGrid.NodeUnreachableException' }
         startServer_ex_ = { 'IceGrid.ServerNotExistException', 'IceGrid.ServerStartException', 'IceGrid.DeploymentException', 'IceGrid.NodeUnreachableException' }
         stopServer_ex_ = { 'IceGrid.ServerNotExistException', 'IceGrid.ServerStopException', 'IceGrid.DeploymentException', 'IceGrid.NodeUnreachableException' }
-        sendSignal_ex_ = { 'IceGrid.BadSignalException', 'IceGrid.ServerNotExistException', 'IceGrid.DeploymentException', 'IceGrid.NodeUnreachableException' }
+        sendSignal_ex_ = { 'IceGrid.ServerNotExistException', 'IceGrid.DeploymentException', 'IceGrid.NodeUnreachableException', 'IceGrid.BadSignalException' }
         getAdapterInfo_ex_ = { 'IceGrid.AdapterNotExistException' }
         removeAdapter_ex_ = { 'IceGrid.AdapterNotExistException', 'IceGrid.DeploymentException' }
         addObject_ex_ = { 'IceGrid.ObjectExistsException', 'IceGrid.DeploymentException' }
