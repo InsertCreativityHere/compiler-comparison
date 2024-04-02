@@ -66,5 +66,5 @@ public class AdapterNotActiveException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 7872703001001944552L;
+    public static final long serialVersionUID = 7872707665792393605L;
 }
