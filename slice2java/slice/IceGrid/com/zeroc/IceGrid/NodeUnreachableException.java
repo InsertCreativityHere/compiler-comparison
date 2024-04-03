@@ -82,5 +82,5 @@ public class NodeUnreachableException extends com.zeroc.Ice.UserException
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 856671175531201444L;
+    public static final long serialVersionUID = 5890685847480808228L;
 }
