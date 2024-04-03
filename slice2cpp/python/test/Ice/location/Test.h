@@ -489,9 +489,9 @@ public:
      */
     static ::std::string_view ice_staticId() noexcept;
 
-    virtual ::std::int32_t getRequestCount(const ::Ice::Current& current) const = 0;
+    virtual ::std::int32_t getRequestCount(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
-    void _iceD_getRequestCount(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>) const;
+    void _iceD_getRequestCount(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     /// \cond INTERNAL

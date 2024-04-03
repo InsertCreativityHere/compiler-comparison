@@ -57,7 +57,7 @@ namespace Test
 
     using StringS = ::std::vector<::std::string>;
 
-    using WStringS = ::std::vector<::std::wstring>;
+    using WStringS = ::std::vector<::std::string>;
 
     using MyEnumS = ::std::vector<MyEnum>;
 
@@ -228,49 +228,49 @@ namespace Test
 
     const ::std::string su2 = "\304\250\305\270\303\277\304\200\341\274\200\360\220\206\224\360\220\205\252\360\220\206\230\360\237\215\200\360\237\215\201\360\237\215\202\360\237\215\203";
 
-    const ::std::wstring ws0 = L"\\";
+    const ::std::string ws0 = "\\";
 
-    const ::std::wstring ws1 = L"A";
+    const ::std::string ws1 = "A";
 
-    const ::std::wstring ws2 = L"Ice";
+    const ::std::string ws2 = "Ice";
 
-    const ::std::wstring ws3 = L"A21";
+    const ::std::string ws3 = "A21";
 
-    const ::std::wstring ws4 = L"\\u0041 \\U00000041";
+    const ::std::string ws4 = "\\u0041 \\U00000041";
 
-    const ::std::wstring ws5 = L"\u00FF";
+    const ::std::string ws5 = "\303\277";
 
-    const ::std::wstring ws6 = L"\u03FF";
+    const ::std::string ws6 = "\317\277";
 
-    const ::std::wstring ws7 = L"\u05F0";
+    const ::std::string ws7 = "\327\260";
 
-    const ::std::wstring ws8 = L"\U00010000";
+    const ::std::string ws8 = "\360\220\200\200";
 
-    const ::std::wstring ws9 = L"\U0001F34C";
+    const ::std::string ws9 = "\360\237\215\214";
 
-    const ::std::wstring ws10 = L"\u0DA7";
+    const ::std::string ws10 = "\340\266\247";
 
-    const ::std::wstring wsw0 = L"\\";
+    const ::std::string wsw0 = "\\";
 
-    const ::std::wstring wsw1 = L"A";
+    const ::std::string wsw1 = "A";
 
-    const ::std::wstring wsw2 = L"Ice";
+    const ::std::string wsw2 = "Ice";
 
-    const ::std::wstring wsw3 = L"A21";
+    const ::std::string wsw3 = "A21";
 
-    const ::std::wstring wsw4 = L"\\u0041 \\U00000041";
+    const ::std::string wsw4 = "\\u0041 \\U00000041";
 
-    const ::std::wstring wsw5 = L"\U000000FF";
+    const ::std::string wsw5 = "\303\277";
 
-    const ::std::wstring wsw6 = L"\U000003FF";
+    const ::std::string wsw6 = "\317\277";
 
-    const ::std::wstring wsw7 = L"\U000005F0";
+    const ::std::string wsw7 = "\327\260";
 
-    const ::std::wstring wsw8 = L"\U00010000";
+    const ::std::string wsw8 = "\360\220\200\200";
 
-    const ::std::wstring wsw9 = L"\U0001F34C";
+    const ::std::string wsw9 = "\360\237\215\214";
 
-    const ::std::wstring wsw10 = L"\U00000DA7";
+    const ::std::string wsw10 = "\340\266\247";
 
     /**
      * \'      single quote    byte 0x27 in ASCII encoding
@@ -285,32 +285,32 @@ namespace Test
      * \t      horizontal tab  byte 0x09 in ASCII encoding
      * \v      vertical tab    byte 0x0b in ASCII encoding
      */
-    const ::std::wstring wss0 = L"'\"\?\\\a\b\f\n\r\t\v\u0006";
+    const ::std::string wss0 = "'\"\?\\\a\b\f\n\r\t\v\006";
 
-    const ::std::wstring wss1 = L"'\"\?\\\a\b\f\n\r\t\v\u0006";
+    const ::std::string wss1 = "'\"\?\\\a\b\f\n\r\t\v\006";
 
-    const ::std::wstring wss2 = L"'\"\?\\\a\b\f\n\r\t\v\u0006";
+    const ::std::string wss2 = "'\"\?\\\a\b\f\n\r\t\v\006";
 
     /**
      * \\U\u\
      */
-    const ::std::wstring wss3 = L"\\\\U\\u\\";
+    const ::std::string wss3 = "\\\\U\\u\\";
 
     /**
      * \A\
      */
-    const ::std::wstring wss4 = L"\\A\\";
+    const ::std::string wss4 = "\\A\\";
 
     /**
      * \u0041\
      */
-    const ::std::wstring wss5 = L"\\u0041\\";
+    const ::std::string wss5 = "\\u0041\\";
 
-    const ::std::wstring wsu0 = L"\u0128\u0178\u00ff\u0100\u1f00\U00010194\U0001016a\U00010198\U0001f340\U0001f341\U0001f342\U0001f343";
+    const ::std::string wsu0 = "\304\250\305\270\303\277\304\200\341\274\200\360\220\206\224\360\220\205\252\360\220\206\230\360\237\215\200\360\237\215\201\360\237\215\202\360\237\215\203";
 
-    const ::std::wstring wsu1 = L"\u0128\u0178\u00FF\u0100\u1F00\U00010194\U0001016A\U00010198\U0001F340\U0001F341\U0001F342\U0001F343";
+    const ::std::string wsu1 = "\304\250\305\270\303\277\304\200\341\274\200\360\220\206\224\360\220\205\252\360\220\206\230\360\237\215\200\360\237\215\201\360\237\215\202\360\237\215\203";
 
-    const ::std::wstring wsu2 = L"\U00000128\U00000178\U000000FF\U00000100\U00001F00\U00010194\U0001016A\U00010198\U0001F340\U0001F341\U0001F342\U0001F343";
+    const ::std::string wsu2 = "\304\250\305\270\303\277\304\200\341\274\200\360\220\206\224\360\220\205\252\360\220\206\230\360\237\215\200\360\237\215\201\360\237\215\202\360\237\215\203";
 
 }
 

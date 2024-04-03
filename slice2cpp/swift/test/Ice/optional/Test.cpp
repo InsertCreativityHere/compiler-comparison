@@ -952,7 +952,7 @@ Test::InitialPrx::_iceI_opMyInterfaceProxy(const ::std::shared_ptr<::IceInternal
 }
 
 ::std::optional<::Test::ByteSeq>
-Test::InitialPrx::opByteSeq(::std::optional<::std::pair<const std::byte*, const std::byte*>> iceP_p1, ::std::optional<ByteSeq>& iceP_p3, const ::Ice::Context& context) const
+Test::InitialPrx::opByteSeq(const ::std::optional<ByteSeq>& iceP_p1, ::std::optional<ByteSeq>& iceP_p3, const ::Ice::Context& context) const
 {
     auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<ByteSeq>, ::std::optional<ByteSeq>>>(true, this, &InitialPrx::_iceI_opByteSeq, iceP_p1, context).get();
     iceP_p3 = ::std::move(::std::get<1>(result));
@@ -960,23 +960,23 @@ Test::InitialPrx::opByteSeq(::std::optional<::std::pair<const std::byte*, const 
 }
 
 ::std::future<::std::tuple<::std::optional<::Test::ByteSeq>, ::std::optional<::Test::ByteSeq>>>
-Test::InitialPrx::opByteSeqAsync(::std::optional<::std::pair<const std::byte*, const std::byte*>> iceP_p1, const ::Ice::Context& context) const
+Test::InitialPrx::opByteSeqAsync(const ::std::optional<ByteSeq>& iceP_p1, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<ByteSeq>, ::std::optional<ByteSeq>>>(false, this, &InitialPrx::_iceI_opByteSeq, iceP_p1, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::opByteSeqAsync(::std::optional<::std::pair<const std::byte*, const std::byte*>> iceP_p1, ::std::function<void(::std::optional<::std::pair<const std::byte*, const std::byte*>>, ::std::optional<::std::pair<const std::byte*, const std::byte*>>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::InitialPrx::opByteSeqAsync(const ::std::optional<ByteSeq>& iceP_p1, ::std::function<void(::std::optional<::Test::ByteSeq>, ::std::optional<::Test::ByteSeq>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<::std::pair<const std::byte*, const std::byte*>>, ::std::optional<::std::pair<const std::byte*, const std::byte*>>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<ByteSeq>, ::std::optional<ByteSeq>>&& result)
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<::std::pair<const std::byte*, const std::byte*>>, ::std::optional<::std::pair<const std::byte*, const std::byte*>>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceIL_opByteSeq, iceP_p1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<ByteSeq>, ::std::optional<ByteSeq>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_opByteSeq, iceP_p1, context);
 }
 
 void
-Test::InitialPrx::_iceI_opByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<ByteSeq>, ::std::optional<ByteSeq>>>>& outAsync, ::std::optional<::std::pair<const std::byte*, const std::byte*>> iceP_p1, const ::Ice::Context& context) const
+Test::InitialPrx::_iceI_opByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<ByteSeq>, ::std::optional<ByteSeq>>>>& outAsync, const ::std::optional<ByteSeq>& iceP_p1, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "opByteSeq";
 
@@ -995,28 +995,8 @@ Test::InitialPrx::_iceI_opByteSeq(const ::std::shared_ptr<::IceInternal::Outgoin
         });
 }
 
-void
-Test::InitialPrx::_iceIL_opByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::pair<const std::byte*, const std::byte*>>, ::std::optional<::std::pair<const std::byte*, const std::byte*>>>>>& outAsync, ::std::optional<::std::pair<const std::byte*, const std::byte*>> iceP_p1, const ::Ice::Context& context) const
-{
-    static constexpr ::std::string_view operationName = "opByteSeq";
-
-    _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll({2}, iceP_p1);
-        },
-        nullptr,
-        [](::Ice::InputStream* istr)
-        {
-            ::std::tuple<::std::optional<::std::pair<const std::byte*, const std::byte*>>, ::std::optional<::std::pair<const std::byte*, const std::byte*>>> v;
-            istr->readAll({1, 3}, ::std::get<0>(v), ::std::get<1>(v));
-            return v;
-        });
-}
-
 ::std::optional<::Test::BoolSeq>
-Test::InitialPrx::opBoolSeq(::std::optional<::std::pair<const bool*, const bool*>> iceP_p1, ::std::optional<BoolSeq>& iceP_p3, const ::Ice::Context& context) const
+Test::InitialPrx::opBoolSeq(const ::std::optional<BoolSeq>& iceP_p1, ::std::optional<BoolSeq>& iceP_p3, const ::Ice::Context& context) const
 {
     auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<BoolSeq>, ::std::optional<BoolSeq>>>(true, this, &InitialPrx::_iceI_opBoolSeq, iceP_p1, context).get();
     iceP_p3 = ::std::move(::std::get<1>(result));
@@ -1024,23 +1004,23 @@ Test::InitialPrx::opBoolSeq(::std::optional<::std::pair<const bool*, const bool*
 }
 
 ::std::future<::std::tuple<::std::optional<::Test::BoolSeq>, ::std::optional<::Test::BoolSeq>>>
-Test::InitialPrx::opBoolSeqAsync(::std::optional<::std::pair<const bool*, const bool*>> iceP_p1, const ::Ice::Context& context) const
+Test::InitialPrx::opBoolSeqAsync(const ::std::optional<BoolSeq>& iceP_p1, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<BoolSeq>, ::std::optional<BoolSeq>>>(false, this, &InitialPrx::_iceI_opBoolSeq, iceP_p1, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::opBoolSeqAsync(::std::optional<::std::pair<const bool*, const bool*>> iceP_p1, ::std::function<void(::std::optional<::std::pair<const bool*, const bool*>>, ::std::optional<::std::pair<const bool*, const bool*>>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::InitialPrx::opBoolSeqAsync(const ::std::optional<BoolSeq>& iceP_p1, ::std::function<void(::std::optional<::Test::BoolSeq>, ::std::optional<::Test::BoolSeq>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<::std::pair<const bool*, const bool*>>, ::std::optional<::std::pair<const bool*, const bool*>>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<BoolSeq>, ::std::optional<BoolSeq>>&& result)
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<::std::pair<const bool*, const bool*>>, ::std::optional<::std::pair<const bool*, const bool*>>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceIL_opBoolSeq, iceP_p1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<BoolSeq>, ::std::optional<BoolSeq>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_opBoolSeq, iceP_p1, context);
 }
 
 void
-Test::InitialPrx::_iceI_opBoolSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<BoolSeq>, ::std::optional<BoolSeq>>>>& outAsync, ::std::optional<::std::pair<const bool*, const bool*>> iceP_p1, const ::Ice::Context& context) const
+Test::InitialPrx::_iceI_opBoolSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<BoolSeq>, ::std::optional<BoolSeq>>>>& outAsync, const ::std::optional<BoolSeq>& iceP_p1, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "opBoolSeq";
 
@@ -1059,28 +1039,8 @@ Test::InitialPrx::_iceI_opBoolSeq(const ::std::shared_ptr<::IceInternal::Outgoin
         });
 }
 
-void
-Test::InitialPrx::_iceIL_opBoolSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::pair<const bool*, const bool*>>, ::std::optional<::std::pair<const bool*, const bool*>>>>>& outAsync, ::std::optional<::std::pair<const bool*, const bool*>> iceP_p1, const ::Ice::Context& context) const
-{
-    static constexpr ::std::string_view operationName = "opBoolSeq";
-
-    _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll({2}, iceP_p1);
-        },
-        nullptr,
-        [](::Ice::InputStream* istr)
-        {
-            ::std::tuple<::std::optional<::std::pair<const bool*, const bool*>>, ::std::optional<::std::pair<const bool*, const bool*>>> v;
-            istr->readAll({1, 3}, ::std::get<0>(v), ::std::get<1>(v));
-            return v;
-        });
-}
-
 ::std::optional<::Test::ShortSeq>
-Test::InitialPrx::opShortSeq(::std::optional<::std::pair<const ::std::int16_t*, const ::std::int16_t*>> iceP_p1, ::std::optional<ShortSeq>& iceP_p3, const ::Ice::Context& context) const
+Test::InitialPrx::opShortSeq(const ::std::optional<ShortSeq>& iceP_p1, ::std::optional<ShortSeq>& iceP_p3, const ::Ice::Context& context) const
 {
     auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<ShortSeq>, ::std::optional<ShortSeq>>>(true, this, &InitialPrx::_iceI_opShortSeq, iceP_p1, context).get();
     iceP_p3 = ::std::move(::std::get<1>(result));
@@ -1088,23 +1048,23 @@ Test::InitialPrx::opShortSeq(::std::optional<::std::pair<const ::std::int16_t*, 
 }
 
 ::std::future<::std::tuple<::std::optional<::Test::ShortSeq>, ::std::optional<::Test::ShortSeq>>>
-Test::InitialPrx::opShortSeqAsync(::std::optional<::std::pair<const ::std::int16_t*, const ::std::int16_t*>> iceP_p1, const ::Ice::Context& context) const
+Test::InitialPrx::opShortSeqAsync(const ::std::optional<ShortSeq>& iceP_p1, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<ShortSeq>, ::std::optional<ShortSeq>>>(false, this, &InitialPrx::_iceI_opShortSeq, iceP_p1, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::opShortSeqAsync(::std::optional<::std::pair<const ::std::int16_t*, const ::std::int16_t*>> iceP_p1, ::std::function<void(::std::optional<::std::pair<const ::std::int16_t*, const ::std::int16_t*>>, ::std::optional<::std::pair<const ::std::int16_t*, const ::std::int16_t*>>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::InitialPrx::opShortSeqAsync(const ::std::optional<ShortSeq>& iceP_p1, ::std::function<void(::std::optional<::Test::ShortSeq>, ::std::optional<::Test::ShortSeq>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<::std::pair<const ::std::int16_t*, const ::std::int16_t*>>, ::std::optional<::std::pair<const ::std::int16_t*, const ::std::int16_t*>>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<ShortSeq>, ::std::optional<ShortSeq>>&& result)
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<::std::pair<const ::std::int16_t*, const ::std::int16_t*>>, ::std::optional<::std::pair<const ::std::int16_t*, const ::std::int16_t*>>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceIL_opShortSeq, iceP_p1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<ShortSeq>, ::std::optional<ShortSeq>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_opShortSeq, iceP_p1, context);
 }
 
 void
-Test::InitialPrx::_iceI_opShortSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<ShortSeq>, ::std::optional<ShortSeq>>>>& outAsync, ::std::optional<::std::pair<const ::std::int16_t*, const ::std::int16_t*>> iceP_p1, const ::Ice::Context& context) const
+Test::InitialPrx::_iceI_opShortSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<ShortSeq>, ::std::optional<ShortSeq>>>>& outAsync, const ::std::optional<ShortSeq>& iceP_p1, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "opShortSeq";
 
@@ -1123,28 +1083,8 @@ Test::InitialPrx::_iceI_opShortSeq(const ::std::shared_ptr<::IceInternal::Outgoi
         });
 }
 
-void
-Test::InitialPrx::_iceIL_opShortSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::pair<const ::std::int16_t*, const ::std::int16_t*>>, ::std::optional<::std::pair<const ::std::int16_t*, const ::std::int16_t*>>>>>& outAsync, ::std::optional<::std::pair<const ::std::int16_t*, const ::std::int16_t*>> iceP_p1, const ::Ice::Context& context) const
-{
-    static constexpr ::std::string_view operationName = "opShortSeq";
-
-    _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll({2}, iceP_p1);
-        },
-        nullptr,
-        [](::Ice::InputStream* istr)
-        {
-            ::std::tuple<::std::optional<::std::pair<const ::std::int16_t*, const ::std::int16_t*>>, ::std::optional<::std::pair<const ::std::int16_t*, const ::std::int16_t*>>> v;
-            istr->readAll({1, 3}, ::std::get<0>(v), ::std::get<1>(v));
-            return v;
-        });
-}
-
 ::std::optional<::Test::IntSeq>
-Test::InitialPrx::opIntSeq(::std::optional<::std::pair<const ::std::int32_t*, const ::std::int32_t*>> iceP_p1, ::std::optional<IntSeq>& iceP_p3, const ::Ice::Context& context) const
+Test::InitialPrx::opIntSeq(const ::std::optional<IntSeq>& iceP_p1, ::std::optional<IntSeq>& iceP_p3, const ::Ice::Context& context) const
 {
     auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<IntSeq>, ::std::optional<IntSeq>>>(true, this, &InitialPrx::_iceI_opIntSeq, iceP_p1, context).get();
     iceP_p3 = ::std::move(::std::get<1>(result));
@@ -1152,23 +1092,23 @@ Test::InitialPrx::opIntSeq(::std::optional<::std::pair<const ::std::int32_t*, co
 }
 
 ::std::future<::std::tuple<::std::optional<::Test::IntSeq>, ::std::optional<::Test::IntSeq>>>
-Test::InitialPrx::opIntSeqAsync(::std::optional<::std::pair<const ::std::int32_t*, const ::std::int32_t*>> iceP_p1, const ::Ice::Context& context) const
+Test::InitialPrx::opIntSeqAsync(const ::std::optional<IntSeq>& iceP_p1, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<IntSeq>, ::std::optional<IntSeq>>>(false, this, &InitialPrx::_iceI_opIntSeq, iceP_p1, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::opIntSeqAsync(::std::optional<::std::pair<const ::std::int32_t*, const ::std::int32_t*>> iceP_p1, ::std::function<void(::std::optional<::std::pair<const ::std::int32_t*, const ::std::int32_t*>>, ::std::optional<::std::pair<const ::std::int32_t*, const ::std::int32_t*>>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::InitialPrx::opIntSeqAsync(const ::std::optional<IntSeq>& iceP_p1, ::std::function<void(::std::optional<::Test::IntSeq>, ::std::optional<::Test::IntSeq>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<::std::pair<const ::std::int32_t*, const ::std::int32_t*>>, ::std::optional<::std::pair<const ::std::int32_t*, const ::std::int32_t*>>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<IntSeq>, ::std::optional<IntSeq>>&& result)
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<::std::pair<const ::std::int32_t*, const ::std::int32_t*>>, ::std::optional<::std::pair<const ::std::int32_t*, const ::std::int32_t*>>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceIL_opIntSeq, iceP_p1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<IntSeq>, ::std::optional<IntSeq>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_opIntSeq, iceP_p1, context);
 }
 
 void
-Test::InitialPrx::_iceI_opIntSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<IntSeq>, ::std::optional<IntSeq>>>>& outAsync, ::std::optional<::std::pair<const ::std::int32_t*, const ::std::int32_t*>> iceP_p1, const ::Ice::Context& context) const
+Test::InitialPrx::_iceI_opIntSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<IntSeq>, ::std::optional<IntSeq>>>>& outAsync, const ::std::optional<IntSeq>& iceP_p1, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "opIntSeq";
 
@@ -1187,28 +1127,8 @@ Test::InitialPrx::_iceI_opIntSeq(const ::std::shared_ptr<::IceInternal::Outgoing
         });
 }
 
-void
-Test::InitialPrx::_iceIL_opIntSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::pair<const ::std::int32_t*, const ::std::int32_t*>>, ::std::optional<::std::pair<const ::std::int32_t*, const ::std::int32_t*>>>>>& outAsync, ::std::optional<::std::pair<const ::std::int32_t*, const ::std::int32_t*>> iceP_p1, const ::Ice::Context& context) const
-{
-    static constexpr ::std::string_view operationName = "opIntSeq";
-
-    _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll({2}, iceP_p1);
-        },
-        nullptr,
-        [](::Ice::InputStream* istr)
-        {
-            ::std::tuple<::std::optional<::std::pair<const ::std::int32_t*, const ::std::int32_t*>>, ::std::optional<::std::pair<const ::std::int32_t*, const ::std::int32_t*>>> v;
-            istr->readAll({1, 3}, ::std::get<0>(v), ::std::get<1>(v));
-            return v;
-        });
-}
-
 ::std::optional<::Test::LongSeq>
-Test::InitialPrx::opLongSeq(::std::optional<::std::pair<const ::std::int64_t*, const ::std::int64_t*>> iceP_p1, ::std::optional<LongSeq>& iceP_p3, const ::Ice::Context& context) const
+Test::InitialPrx::opLongSeq(const ::std::optional<LongSeq>& iceP_p1, ::std::optional<LongSeq>& iceP_p3, const ::Ice::Context& context) const
 {
     auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<LongSeq>, ::std::optional<LongSeq>>>(true, this, &InitialPrx::_iceI_opLongSeq, iceP_p1, context).get();
     iceP_p3 = ::std::move(::std::get<1>(result));
@@ -1216,23 +1136,23 @@ Test::InitialPrx::opLongSeq(::std::optional<::std::pair<const ::std::int64_t*, c
 }
 
 ::std::future<::std::tuple<::std::optional<::Test::LongSeq>, ::std::optional<::Test::LongSeq>>>
-Test::InitialPrx::opLongSeqAsync(::std::optional<::std::pair<const ::std::int64_t*, const ::std::int64_t*>> iceP_p1, const ::Ice::Context& context) const
+Test::InitialPrx::opLongSeqAsync(const ::std::optional<LongSeq>& iceP_p1, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<LongSeq>, ::std::optional<LongSeq>>>(false, this, &InitialPrx::_iceI_opLongSeq, iceP_p1, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::opLongSeqAsync(::std::optional<::std::pair<const ::std::int64_t*, const ::std::int64_t*>> iceP_p1, ::std::function<void(::std::optional<::std::pair<const ::std::int64_t*, const ::std::int64_t*>>, ::std::optional<::std::pair<const ::std::int64_t*, const ::std::int64_t*>>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::InitialPrx::opLongSeqAsync(const ::std::optional<LongSeq>& iceP_p1, ::std::function<void(::std::optional<::Test::LongSeq>, ::std::optional<::Test::LongSeq>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<::std::pair<const ::std::int64_t*, const ::std::int64_t*>>, ::std::optional<::std::pair<const ::std::int64_t*, const ::std::int64_t*>>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<LongSeq>, ::std::optional<LongSeq>>&& result)
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<::std::pair<const ::std::int64_t*, const ::std::int64_t*>>, ::std::optional<::std::pair<const ::std::int64_t*, const ::std::int64_t*>>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceIL_opLongSeq, iceP_p1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<LongSeq>, ::std::optional<LongSeq>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_opLongSeq, iceP_p1, context);
 }
 
 void
-Test::InitialPrx::_iceI_opLongSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<LongSeq>, ::std::optional<LongSeq>>>>& outAsync, ::std::optional<::std::pair<const ::std::int64_t*, const ::std::int64_t*>> iceP_p1, const ::Ice::Context& context) const
+Test::InitialPrx::_iceI_opLongSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<LongSeq>, ::std::optional<LongSeq>>>>& outAsync, const ::std::optional<LongSeq>& iceP_p1, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "opLongSeq";
 
@@ -1251,28 +1171,8 @@ Test::InitialPrx::_iceI_opLongSeq(const ::std::shared_ptr<::IceInternal::Outgoin
         });
 }
 
-void
-Test::InitialPrx::_iceIL_opLongSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::pair<const ::std::int64_t*, const ::std::int64_t*>>, ::std::optional<::std::pair<const ::std::int64_t*, const ::std::int64_t*>>>>>& outAsync, ::std::optional<::std::pair<const ::std::int64_t*, const ::std::int64_t*>> iceP_p1, const ::Ice::Context& context) const
-{
-    static constexpr ::std::string_view operationName = "opLongSeq";
-
-    _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll({2}, iceP_p1);
-        },
-        nullptr,
-        [](::Ice::InputStream* istr)
-        {
-            ::std::tuple<::std::optional<::std::pair<const ::std::int64_t*, const ::std::int64_t*>>, ::std::optional<::std::pair<const ::std::int64_t*, const ::std::int64_t*>>> v;
-            istr->readAll({1, 3}, ::std::get<0>(v), ::std::get<1>(v));
-            return v;
-        });
-}
-
 ::std::optional<::Test::FloatSeq>
-Test::InitialPrx::opFloatSeq(::std::optional<::std::pair<const float*, const float*>> iceP_p1, ::std::optional<FloatSeq>& iceP_p3, const ::Ice::Context& context) const
+Test::InitialPrx::opFloatSeq(const ::std::optional<FloatSeq>& iceP_p1, ::std::optional<FloatSeq>& iceP_p3, const ::Ice::Context& context) const
 {
     auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<FloatSeq>, ::std::optional<FloatSeq>>>(true, this, &InitialPrx::_iceI_opFloatSeq, iceP_p1, context).get();
     iceP_p3 = ::std::move(::std::get<1>(result));
@@ -1280,23 +1180,23 @@ Test::InitialPrx::opFloatSeq(::std::optional<::std::pair<const float*, const flo
 }
 
 ::std::future<::std::tuple<::std::optional<::Test::FloatSeq>, ::std::optional<::Test::FloatSeq>>>
-Test::InitialPrx::opFloatSeqAsync(::std::optional<::std::pair<const float*, const float*>> iceP_p1, const ::Ice::Context& context) const
+Test::InitialPrx::opFloatSeqAsync(const ::std::optional<FloatSeq>& iceP_p1, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<FloatSeq>, ::std::optional<FloatSeq>>>(false, this, &InitialPrx::_iceI_opFloatSeq, iceP_p1, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::opFloatSeqAsync(::std::optional<::std::pair<const float*, const float*>> iceP_p1, ::std::function<void(::std::optional<::std::pair<const float*, const float*>>, ::std::optional<::std::pair<const float*, const float*>>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::InitialPrx::opFloatSeqAsync(const ::std::optional<FloatSeq>& iceP_p1, ::std::function<void(::std::optional<::Test::FloatSeq>, ::std::optional<::Test::FloatSeq>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<::std::pair<const float*, const float*>>, ::std::optional<::std::pair<const float*, const float*>>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<FloatSeq>, ::std::optional<FloatSeq>>&& result)
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<::std::pair<const float*, const float*>>, ::std::optional<::std::pair<const float*, const float*>>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceIL_opFloatSeq, iceP_p1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<FloatSeq>, ::std::optional<FloatSeq>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_opFloatSeq, iceP_p1, context);
 }
 
 void
-Test::InitialPrx::_iceI_opFloatSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<FloatSeq>, ::std::optional<FloatSeq>>>>& outAsync, ::std::optional<::std::pair<const float*, const float*>> iceP_p1, const ::Ice::Context& context) const
+Test::InitialPrx::_iceI_opFloatSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<FloatSeq>, ::std::optional<FloatSeq>>>>& outAsync, const ::std::optional<FloatSeq>& iceP_p1, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "opFloatSeq";
 
@@ -1315,28 +1215,8 @@ Test::InitialPrx::_iceI_opFloatSeq(const ::std::shared_ptr<::IceInternal::Outgoi
         });
 }
 
-void
-Test::InitialPrx::_iceIL_opFloatSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::pair<const float*, const float*>>, ::std::optional<::std::pair<const float*, const float*>>>>>& outAsync, ::std::optional<::std::pair<const float*, const float*>> iceP_p1, const ::Ice::Context& context) const
-{
-    static constexpr ::std::string_view operationName = "opFloatSeq";
-
-    _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll({2}, iceP_p1);
-        },
-        nullptr,
-        [](::Ice::InputStream* istr)
-        {
-            ::std::tuple<::std::optional<::std::pair<const float*, const float*>>, ::std::optional<::std::pair<const float*, const float*>>> v;
-            istr->readAll({1, 3}, ::std::get<0>(v), ::std::get<1>(v));
-            return v;
-        });
-}
-
 ::std::optional<::Test::DoubleSeq>
-Test::InitialPrx::opDoubleSeq(::std::optional<::std::pair<const double*, const double*>> iceP_p1, ::std::optional<DoubleSeq>& iceP_p3, const ::Ice::Context& context) const
+Test::InitialPrx::opDoubleSeq(const ::std::optional<DoubleSeq>& iceP_p1, ::std::optional<DoubleSeq>& iceP_p3, const ::Ice::Context& context) const
 {
     auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<DoubleSeq>, ::std::optional<DoubleSeq>>>(true, this, &InitialPrx::_iceI_opDoubleSeq, iceP_p1, context).get();
     iceP_p3 = ::std::move(::std::get<1>(result));
@@ -1344,23 +1224,23 @@ Test::InitialPrx::opDoubleSeq(::std::optional<::std::pair<const double*, const d
 }
 
 ::std::future<::std::tuple<::std::optional<::Test::DoubleSeq>, ::std::optional<::Test::DoubleSeq>>>
-Test::InitialPrx::opDoubleSeqAsync(::std::optional<::std::pair<const double*, const double*>> iceP_p1, const ::Ice::Context& context) const
+Test::InitialPrx::opDoubleSeqAsync(const ::std::optional<DoubleSeq>& iceP_p1, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<DoubleSeq>, ::std::optional<DoubleSeq>>>(false, this, &InitialPrx::_iceI_opDoubleSeq, iceP_p1, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::opDoubleSeqAsync(::std::optional<::std::pair<const double*, const double*>> iceP_p1, ::std::function<void(::std::optional<::std::pair<const double*, const double*>>, ::std::optional<::std::pair<const double*, const double*>>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::InitialPrx::opDoubleSeqAsync(const ::std::optional<DoubleSeq>& iceP_p1, ::std::function<void(::std::optional<::Test::DoubleSeq>, ::std::optional<::Test::DoubleSeq>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<::std::pair<const double*, const double*>>, ::std::optional<::std::pair<const double*, const double*>>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<DoubleSeq>, ::std::optional<DoubleSeq>>&& result)
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<::std::pair<const double*, const double*>>, ::std::optional<::std::pair<const double*, const double*>>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceIL_opDoubleSeq, iceP_p1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<DoubleSeq>, ::std::optional<DoubleSeq>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_opDoubleSeq, iceP_p1, context);
 }
 
 void
-Test::InitialPrx::_iceI_opDoubleSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<DoubleSeq>, ::std::optional<DoubleSeq>>>>& outAsync, ::std::optional<::std::pair<const double*, const double*>> iceP_p1, const ::Ice::Context& context) const
+Test::InitialPrx::_iceI_opDoubleSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<DoubleSeq>, ::std::optional<DoubleSeq>>>>& outAsync, const ::std::optional<DoubleSeq>& iceP_p1, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "opDoubleSeq";
 
@@ -1374,26 +1254,6 @@ Test::InitialPrx::_iceI_opDoubleSeq(const ::std::shared_ptr<::IceInternal::Outgo
         [](::Ice::InputStream* istr)
         {
             ::std::tuple<::std::optional<DoubleSeq>, ::std::optional<DoubleSeq>> v;
-            istr->readAll({1, 3}, ::std::get<0>(v), ::std::get<1>(v));
-            return v;
-        });
-}
-
-void
-Test::InitialPrx::_iceIL_opDoubleSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::pair<const double*, const double*>>, ::std::optional<::std::pair<const double*, const double*>>>>>& outAsync, ::std::optional<::std::pair<const double*, const double*>> iceP_p1, const ::Ice::Context& context) const
-{
-    static constexpr ::std::string_view operationName = "opDoubleSeq";
-
-    _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll({2}, iceP_p1);
-        },
-        nullptr,
-        [](::Ice::InputStream* istr)
-        {
-            ::std::tuple<::std::optional<::std::pair<const double*, const double*>>, ::std::optional<::std::pair<const double*, const double*>>> v;
             istr->readAll({1, 3}, ::std::get<0>(v), ::std::get<1>(v));
             return v;
         });
@@ -1444,7 +1304,7 @@ Test::InitialPrx::_iceI_opStringSeq(const ::std::shared_ptr<::IceInternal::Outgo
 }
 
 ::std::optional<::Test::SmallStructSeq>
-Test::InitialPrx::opSmallStructSeq(::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>> iceP_p1, ::std::optional<SmallStructSeq>& iceP_p3, const ::Ice::Context& context) const
+Test::InitialPrx::opSmallStructSeq(const ::std::optional<SmallStructSeq>& iceP_p1, ::std::optional<SmallStructSeq>& iceP_p3, const ::Ice::Context& context) const
 {
     auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<SmallStructSeq>, ::std::optional<SmallStructSeq>>>(true, this, &InitialPrx::_iceI_opSmallStructSeq, iceP_p1, context).get();
     iceP_p3 = ::std::move(::std::get<1>(result));
@@ -1452,23 +1312,23 @@ Test::InitialPrx::opSmallStructSeq(::std::optional<::std::pair<const SmallStruct
 }
 
 ::std::future<::std::tuple<::std::optional<::Test::SmallStructSeq>, ::std::optional<::Test::SmallStructSeq>>>
-Test::InitialPrx::opSmallStructSeqAsync(::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>> iceP_p1, const ::Ice::Context& context) const
+Test::InitialPrx::opSmallStructSeqAsync(const ::std::optional<SmallStructSeq>& iceP_p1, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<SmallStructSeq>, ::std::optional<SmallStructSeq>>>(false, this, &InitialPrx::_iceI_opSmallStructSeq, iceP_p1, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::opSmallStructSeqAsync(::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>> iceP_p1, ::std::function<void(::std::optional<::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*>>, ::std::optional<::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*>>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::InitialPrx::opSmallStructSeqAsync(const ::std::optional<SmallStructSeq>& iceP_p1, ::std::function<void(::std::optional<::Test::SmallStructSeq>, ::std::optional<::Test::SmallStructSeq>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>>, ::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<SmallStructSeq>, ::std::optional<SmallStructSeq>>&& result)
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>>, ::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceIL_opSmallStructSeq, iceP_p1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<SmallStructSeq>, ::std::optional<SmallStructSeq>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_opSmallStructSeq, iceP_p1, context);
 }
 
 void
-Test::InitialPrx::_iceI_opSmallStructSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<SmallStructSeq>, ::std::optional<SmallStructSeq>>>>& outAsync, ::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>> iceP_p1, const ::Ice::Context& context) const
+Test::InitialPrx::_iceI_opSmallStructSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<SmallStructSeq>, ::std::optional<SmallStructSeq>>>>& outAsync, const ::std::optional<SmallStructSeq>& iceP_p1, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "opSmallStructSeq";
 
@@ -1487,28 +1347,8 @@ Test::InitialPrx::_iceI_opSmallStructSeq(const ::std::shared_ptr<::IceInternal::
         });
 }
 
-void
-Test::InitialPrx::_iceIL_opSmallStructSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>>, ::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>>>>>& outAsync, ::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>> iceP_p1, const ::Ice::Context& context) const
-{
-    static constexpr ::std::string_view operationName = "opSmallStructSeq";
-
-    _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll({2}, iceP_p1);
-        },
-        nullptr,
-        [](::Ice::InputStream* istr)
-        {
-            ::std::tuple<::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>>, ::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>>> v;
-            istr->readAll({1, 3}, ::std::get<0>(v), ::std::get<1>(v));
-            return v;
-        });
-}
-
 ::std::optional<::Test::SmallStructList>
-Test::InitialPrx::opSmallStructList(::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>> iceP_p1, ::std::optional<SmallStructList>& iceP_p3, const ::Ice::Context& context) const
+Test::InitialPrx::opSmallStructList(const ::std::optional<SmallStructList>& iceP_p1, ::std::optional<SmallStructList>& iceP_p3, const ::Ice::Context& context) const
 {
     auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<SmallStructList>, ::std::optional<SmallStructList>>>(true, this, &InitialPrx::_iceI_opSmallStructList, iceP_p1, context).get();
     iceP_p3 = ::std::move(::std::get<1>(result));
@@ -1516,23 +1356,23 @@ Test::InitialPrx::opSmallStructList(::std::optional<::std::pair<const SmallStruc
 }
 
 ::std::future<::std::tuple<::std::optional<::Test::SmallStructList>, ::std::optional<::Test::SmallStructList>>>
-Test::InitialPrx::opSmallStructListAsync(::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>> iceP_p1, const ::Ice::Context& context) const
+Test::InitialPrx::opSmallStructListAsync(const ::std::optional<SmallStructList>& iceP_p1, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<SmallStructList>, ::std::optional<SmallStructList>>>(false, this, &InitialPrx::_iceI_opSmallStructList, iceP_p1, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::opSmallStructListAsync(::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>> iceP_p1, ::std::function<void(::std::optional<::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*>>, ::std::optional<::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*>>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::InitialPrx::opSmallStructListAsync(const ::std::optional<SmallStructList>& iceP_p1, ::std::function<void(::std::optional<::Test::SmallStructList>, ::std::optional<::Test::SmallStructList>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>>, ::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<SmallStructList>, ::std::optional<SmallStructList>>&& result)
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>>, ::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceIL_opSmallStructList, iceP_p1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<SmallStructList>, ::std::optional<SmallStructList>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_opSmallStructList, iceP_p1, context);
 }
 
 void
-Test::InitialPrx::_iceI_opSmallStructList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<SmallStructList>, ::std::optional<SmallStructList>>>>& outAsync, ::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>> iceP_p1, const ::Ice::Context& context) const
+Test::InitialPrx::_iceI_opSmallStructList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<SmallStructList>, ::std::optional<SmallStructList>>>>& outAsync, const ::std::optional<SmallStructList>& iceP_p1, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "opSmallStructList";
 
@@ -1551,28 +1391,8 @@ Test::InitialPrx::_iceI_opSmallStructList(const ::std::shared_ptr<::IceInternal:
         });
 }
 
-void
-Test::InitialPrx::_iceIL_opSmallStructList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>>, ::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>>>>>& outAsync, ::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>> iceP_p1, const ::Ice::Context& context) const
-{
-    static constexpr ::std::string_view operationName = "opSmallStructList";
-
-    _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll({2}, iceP_p1);
-        },
-        nullptr,
-        [](::Ice::InputStream* istr)
-        {
-            ::std::tuple<::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>>, ::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>>> v;
-            istr->readAll({1, 3}, ::std::get<0>(v), ::std::get<1>(v));
-            return v;
-        });
-}
-
 ::std::optional<::Test::FixedStructSeq>
-Test::InitialPrx::opFixedStructSeq(::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>> iceP_p1, ::std::optional<FixedStructSeq>& iceP_p3, const ::Ice::Context& context) const
+Test::InitialPrx::opFixedStructSeq(const ::std::optional<FixedStructSeq>& iceP_p1, ::std::optional<FixedStructSeq>& iceP_p3, const ::Ice::Context& context) const
 {
     auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<FixedStructSeq>, ::std::optional<FixedStructSeq>>>(true, this, &InitialPrx::_iceI_opFixedStructSeq, iceP_p1, context).get();
     iceP_p3 = ::std::move(::std::get<1>(result));
@@ -1580,23 +1400,23 @@ Test::InitialPrx::opFixedStructSeq(::std::optional<::std::pair<const FixedStruct
 }
 
 ::std::future<::std::tuple<::std::optional<::Test::FixedStructSeq>, ::std::optional<::Test::FixedStructSeq>>>
-Test::InitialPrx::opFixedStructSeqAsync(::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>> iceP_p1, const ::Ice::Context& context) const
+Test::InitialPrx::opFixedStructSeqAsync(const ::std::optional<FixedStructSeq>& iceP_p1, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<FixedStructSeq>, ::std::optional<FixedStructSeq>>>(false, this, &InitialPrx::_iceI_opFixedStructSeq, iceP_p1, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::opFixedStructSeqAsync(::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>> iceP_p1, ::std::function<void(::std::optional<::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*>>, ::std::optional<::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*>>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::InitialPrx::opFixedStructSeqAsync(const ::std::optional<FixedStructSeq>& iceP_p1, ::std::function<void(::std::optional<::Test::FixedStructSeq>, ::std::optional<::Test::FixedStructSeq>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>>, ::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<FixedStructSeq>, ::std::optional<FixedStructSeq>>&& result)
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>>, ::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceIL_opFixedStructSeq, iceP_p1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<FixedStructSeq>, ::std::optional<FixedStructSeq>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_opFixedStructSeq, iceP_p1, context);
 }
 
 void
-Test::InitialPrx::_iceI_opFixedStructSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<FixedStructSeq>, ::std::optional<FixedStructSeq>>>>& outAsync, ::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>> iceP_p1, const ::Ice::Context& context) const
+Test::InitialPrx::_iceI_opFixedStructSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<FixedStructSeq>, ::std::optional<FixedStructSeq>>>>& outAsync, const ::std::optional<FixedStructSeq>& iceP_p1, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "opFixedStructSeq";
 
@@ -1615,28 +1435,8 @@ Test::InitialPrx::_iceI_opFixedStructSeq(const ::std::shared_ptr<::IceInternal::
         });
 }
 
-void
-Test::InitialPrx::_iceIL_opFixedStructSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>>, ::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>>>>>& outAsync, ::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>> iceP_p1, const ::Ice::Context& context) const
-{
-    static constexpr ::std::string_view operationName = "opFixedStructSeq";
-
-    _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll({2}, iceP_p1);
-        },
-        nullptr,
-        [](::Ice::InputStream* istr)
-        {
-            ::std::tuple<::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>>, ::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>>> v;
-            istr->readAll({1, 3}, ::std::get<0>(v), ::std::get<1>(v));
-            return v;
-        });
-}
-
 ::std::optional<::Test::FixedStructList>
-Test::InitialPrx::opFixedStructList(::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>> iceP_p1, ::std::optional<FixedStructList>& iceP_p3, const ::Ice::Context& context) const
+Test::InitialPrx::opFixedStructList(const ::std::optional<FixedStructList>& iceP_p1, ::std::optional<FixedStructList>& iceP_p3, const ::Ice::Context& context) const
 {
     auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<FixedStructList>, ::std::optional<FixedStructList>>>(true, this, &InitialPrx::_iceI_opFixedStructList, iceP_p1, context).get();
     iceP_p3 = ::std::move(::std::get<1>(result));
@@ -1644,23 +1444,23 @@ Test::InitialPrx::opFixedStructList(::std::optional<::std::pair<const FixedStruc
 }
 
 ::std::future<::std::tuple<::std::optional<::Test::FixedStructList>, ::std::optional<::Test::FixedStructList>>>
-Test::InitialPrx::opFixedStructListAsync(::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>> iceP_p1, const ::Ice::Context& context) const
+Test::InitialPrx::opFixedStructListAsync(const ::std::optional<FixedStructList>& iceP_p1, const ::Ice::Context& context) const
 {
     return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<FixedStructList>, ::std::optional<FixedStructList>>>(false, this, &InitialPrx::_iceI_opFixedStructList, iceP_p1, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::opFixedStructListAsync(::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>> iceP_p1, ::std::function<void(::std::optional<::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*>>, ::std::optional<::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*>>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::InitialPrx::opFixedStructListAsync(const ::std::optional<FixedStructList>& iceP_p1, ::std::function<void(::std::optional<::Test::FixedStructList>, ::std::optional<::Test::FixedStructList>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>>, ::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<FixedStructList>, ::std::optional<FixedStructList>>&& result)
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>>, ::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceIL_opFixedStructList, iceP_p1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<FixedStructList>, ::std::optional<FixedStructList>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_opFixedStructList, iceP_p1, context);
 }
 
 void
-Test::InitialPrx::_iceI_opFixedStructList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<FixedStructList>, ::std::optional<FixedStructList>>>>& outAsync, ::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>> iceP_p1, const ::Ice::Context& context) const
+Test::InitialPrx::_iceI_opFixedStructList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<FixedStructList>, ::std::optional<FixedStructList>>>>& outAsync, const ::std::optional<FixedStructList>& iceP_p1, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "opFixedStructList";
 
@@ -1674,26 +1474,6 @@ Test::InitialPrx::_iceI_opFixedStructList(const ::std::shared_ptr<::IceInternal:
         [](::Ice::InputStream* istr)
         {
             ::std::tuple<::std::optional<FixedStructList>, ::std::optional<FixedStructList>> v;
-            istr->readAll({1, 3}, ::std::get<0>(v), ::std::get<1>(v));
-            return v;
-        });
-}
-
-void
-Test::InitialPrx::_iceIL_opFixedStructList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>>, ::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>>>>>& outAsync, ::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>> iceP_p1, const ::Ice::Context& context) const
-{
-    static constexpr ::std::string_view operationName = "opFixedStructList";
-
-    _checkTwowayOnly(operationName);
-    outAsync->invoke(operationName, ::Ice::OperationMode::Normal, ::Ice::FormatType::DefaultFormat, context,
-        [&](::Ice::OutputStream* ostr)
-        {
-            ostr->writeAll({2}, iceP_p1);
-        },
-        nullptr,
-        [](::Ice::InputStream* istr)
-        {
-            ::std::tuple<::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>>, ::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>>> v;
             istr->readAll({1, 3}, ::std::get<0>(v), ::std::get<1>(v));
             return v;
         });
@@ -1875,32 +1655,32 @@ Test::InitialPrx::_iceI_opStringIntDict(const ::std::shared_ptr<::IceInternal::O
         });
 }
 
-::std::optional<::Test::CustomMap< ::Ice::Int, std::string>>
-Test::InitialPrx::opCustomIntStringDict(::std::optional<::std::map< ::Ice::Int, ::Util::string_view>> iceP_p1, ::std::optional<::Test::CustomMap< ::Ice::Int, std::string>>& iceP_p3, const ::Ice::Context& context) const
+::std::optional<::Test::IntStringDict>
+Test::InitialPrx::opCustomIntStringDict(const ::std::optional<IntStringDict>& iceP_p1, ::std::optional<IntStringDict>& iceP_p3, const ::Ice::Context& context) const
 {
-    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<::Test::CustomMap< ::Ice::Int, std::string>>, ::std::optional<::Test::CustomMap< ::Ice::Int, std::string>>>>(true, this, &InitialPrx::_iceI_opCustomIntStringDict, iceP_p1, context).get();
+    auto result = ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<IntStringDict>, ::std::optional<IntStringDict>>>(true, this, &InitialPrx::_iceI_opCustomIntStringDict, iceP_p1, context).get();
     iceP_p3 = ::std::move(::std::get<1>(result));
     return ::std::move(::std::get<0>(result));
 }
 
-::std::future<::std::tuple<::std::optional<::Test::CustomMap< ::Ice::Int, std::string>>, ::std::optional<::Test::CustomMap< ::Ice::Int, std::string>>>>
-Test::InitialPrx::opCustomIntStringDictAsync(::std::optional<::std::map< ::Ice::Int, ::Util::string_view>> iceP_p1, const ::Ice::Context& context) const
+::std::future<::std::tuple<::std::optional<::Test::IntStringDict>, ::std::optional<::Test::IntStringDict>>>
+Test::InitialPrx::opCustomIntStringDictAsync(const ::std::optional<IntStringDict>& iceP_p1, const ::Ice::Context& context) const
 {
-    return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<::Test::CustomMap< ::Ice::Int, std::string>>, ::std::optional<::Test::CustomMap< ::Ice::Int, std::string>>>>(false, this, &InitialPrx::_iceI_opCustomIntStringDict, iceP_p1, context);
+    return ::IceInternal::makePromiseOutgoing<::std::tuple<::std::optional<IntStringDict>, ::std::optional<IntStringDict>>>(false, this, &InitialPrx::_iceI_opCustomIntStringDict, iceP_p1, context);
 }
 
 ::std::function<void()>
-Test::InitialPrx::opCustomIntStringDictAsync(::std::optional<::std::map< ::Ice::Int, ::Util::string_view>> iceP_p1, ::std::function<void(::std::optional<::Test::CustomMap< ::Ice::Int, std::string>>, ::std::optional<::Test::CustomMap< ::Ice::Int, std::string>>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
+Test::InitialPrx::opCustomIntStringDictAsync(const ::std::optional<IntStringDict>& iceP_p1, ::std::function<void(::std::optional<::Test::IntStringDict>, ::std::optional<::Test::IntStringDict>)> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
 {
-    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<::Test::CustomMap< ::Ice::Int, std::string>>, ::std::optional<::Test::CustomMap< ::Ice::Int, std::string>>>&& result)
+    auto responseCb = [response = ::std::move(response)](::std::tuple<::std::optional<IntStringDict>, ::std::optional<IntStringDict>>&& result)
     {
         ::std::apply(::std::move(response), ::std::move(result));
     };
-    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<::Test::CustomMap< ::Ice::Int, std::string>>, ::std::optional<::Test::CustomMap< ::Ice::Int, std::string>>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_opCustomIntStringDict, iceP_p1, context);
+    return ::IceInternal::makeLambdaOutgoing<::std::tuple<::std::optional<IntStringDict>, ::std::optional<IntStringDict>>>(::std::move(responseCb), ::std::move(ex), ::std::move(sent), this, &Test::InitialPrx::_iceI_opCustomIntStringDict, iceP_p1, context);
 }
 
 void
-Test::InitialPrx::_iceI_opCustomIntStringDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::Test::CustomMap< ::Ice::Int, std::string>>, ::std::optional<::Test::CustomMap< ::Ice::Int, std::string>>>>>& outAsync, ::std::optional<::std::map< ::Ice::Int, ::Util::string_view>> iceP_p1, const ::Ice::Context& context) const
+Test::InitialPrx::_iceI_opCustomIntStringDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<IntStringDict>, ::std::optional<IntStringDict>>>>& outAsync, const ::std::optional<IntStringDict>& iceP_p1, const ::Ice::Context& context) const
 {
     static constexpr ::std::string_view operationName = "opCustomIntStringDict";
 
@@ -1913,7 +1693,7 @@ Test::InitialPrx::_iceI_opCustomIntStringDict(const ::std::shared_ptr<::IceInter
         nullptr,
         [](::Ice::InputStream* istr)
         {
-            ::std::tuple<::std::optional<::Test::CustomMap< ::Ice::Int, std::string>>, ::std::optional<::Test::CustomMap< ::Ice::Int, std::string>>> v;
+            ::std::tuple<::std::optional<IntStringDict>, ::std::optional<IntStringDict>> v;
             istr->readAll({1, 3}, ::std::get<0>(v), ::std::get<1>(v));
             return v;
         });
@@ -3610,7 +3390,7 @@ Test::Initial::_iceD_opByteSeq(::Ice::IncomingRequest& request, ::std::function<
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::optional<::std::pair<const std::byte*, const std::byte*>> iceP_p1;
+    ::std::optional<ByteSeq> iceP_p1;
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<ByteSeq> iceP_p3;
@@ -3630,7 +3410,7 @@ Test::Initial::_iceD_opBoolSeq(::Ice::IncomingRequest& request, ::std::function<
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::optional<::std::pair<const bool*, const bool*>> iceP_p1;
+    ::std::optional<BoolSeq> iceP_p1;
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<BoolSeq> iceP_p3;
@@ -3650,7 +3430,7 @@ Test::Initial::_iceD_opShortSeq(::Ice::IncomingRequest& request, ::std::function
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::optional<::std::pair<const ::std::int16_t*, const ::std::int16_t*>> iceP_p1;
+    ::std::optional<ShortSeq> iceP_p1;
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<ShortSeq> iceP_p3;
@@ -3670,7 +3450,7 @@ Test::Initial::_iceD_opIntSeq(::Ice::IncomingRequest& request, ::std::function<v
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::optional<::std::pair<const ::std::int32_t*, const ::std::int32_t*>> iceP_p1;
+    ::std::optional<IntSeq> iceP_p1;
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<IntSeq> iceP_p3;
@@ -3690,7 +3470,7 @@ Test::Initial::_iceD_opLongSeq(::Ice::IncomingRequest& request, ::std::function<
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::optional<::std::pair<const ::std::int64_t*, const ::std::int64_t*>> iceP_p1;
+    ::std::optional<LongSeq> iceP_p1;
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<LongSeq> iceP_p3;
@@ -3710,7 +3490,7 @@ Test::Initial::_iceD_opFloatSeq(::Ice::IncomingRequest& request, ::std::function
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::optional<::std::pair<const float*, const float*>> iceP_p1;
+    ::std::optional<FloatSeq> iceP_p1;
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<FloatSeq> iceP_p3;
@@ -3730,7 +3510,7 @@ Test::Initial::_iceD_opDoubleSeq(::Ice::IncomingRequest& request, ::std::functio
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::optional<::std::pair<const double*, const double*>> iceP_p1;
+    ::std::optional<DoubleSeq> iceP_p1;
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<DoubleSeq> iceP_p3;
@@ -3770,7 +3550,7 @@ Test::Initial::_iceD_opSmallStructSeq(::Ice::IncomingRequest& request, ::std::fu
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>> iceP_p1;
+    ::std::optional<SmallStructSeq> iceP_p1;
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<SmallStructSeq> iceP_p3;
@@ -3790,7 +3570,7 @@ Test::Initial::_iceD_opSmallStructList(::Ice::IncomingRequest& request, ::std::f
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>> iceP_p1;
+    ::std::optional<SmallStructList> iceP_p1;
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<SmallStructList> iceP_p3;
@@ -3810,7 +3590,7 @@ Test::Initial::_iceD_opFixedStructSeq(::Ice::IncomingRequest& request, ::std::fu
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>> iceP_p1;
+    ::std::optional<FixedStructSeq> iceP_p1;
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<FixedStructSeq> iceP_p3;
@@ -3830,7 +3610,7 @@ Test::Initial::_iceD_opFixedStructList(::Ice::IncomingRequest& request, ::std::f
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>> iceP_p1;
+    ::std::optional<FixedStructList> iceP_p1;
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
     ::std::optional<FixedStructList> iceP_p3;
@@ -3930,11 +3710,11 @@ Test::Initial::_iceD_opCustomIntStringDict(::Ice::IncomingRequest& request, ::st
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
     auto istr = &request.inputStream();
     istr->startEncapsulation();
-    ::std::optional<::Test::CustomMap< ::Ice::Int, std::string>> iceP_p1;
+    ::std::optional<IntStringDict> iceP_p1;
     istr->readAll({2}, iceP_p1);
     istr->endEncapsulation();
-    ::std::optional<::Test::CustomMap< ::Ice::Int, std::string>> iceP_p3;
-    ::std::optional<::Test::CustomMap< ::Ice::Int, std::string>> ret = this->opCustomIntStringDict(::std::move(iceP_p1), iceP_p3, request.current());
+    ::std::optional<IntStringDict> iceP_p3;
+    ::std::optional<IntStringDict> ret = this->opCustomIntStringDict(::std::move(iceP_p1), iceP_p3, request.current());
     sendResponse(::Ice::makeOutgoingResponse([&](::Ice::OutputStream* ostr)
         {
             ostr->writeAll({1, 3}, ret, iceP_p3);

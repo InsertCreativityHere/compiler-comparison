@@ -1,17 +1,3 @@
-/Users/austin/Code/zeroc/ice/swift/test/Ice/optional/Test.ice:229: warning: ignoring invalid metadata `cpp:view-type:Util::string_view'
-/Users/austin/Code/zeroc/ice/swift/test/Ice/optional/Test.ice:229: warning: ignoring invalid metadata `cpp:view-type:Util::string_view'
-/Users/austin/Code/zeroc/ice/swift/test/Ice/optional/Test.ice:230: warning: ignoring invalid metadata `cpp:view-type:Util::string_view'
-/Users/austin/Code/zeroc/ice/swift/test/Ice/inheritance/Test.ice:74: warning: ignoring invalid metadata `cpp:virtual'
-/Users/austin/Code/zeroc/ice/swift/test/Ice/inheritance/Test.ice:85: warning: ignoring invalid metadata `cpp:virtual'
-/Users/austin/Code/zeroc/ice/swift/test/Ice/inheritance/Test.ice:89: warning: ignoring invalid metadata `cpp:virtual'
-/Users/austin/Code/zeroc/ice/swift/test/Ice/inheritance/Test.ice:94: warning: ignoring invalid metadata `cpp:virtual'
-/Users/austin/Code/zeroc/ice/swift/test/Ice/inheritance/Test.ice:99: warning: ignoring invalid metadata `cpp:virtual'
-/Users/austin/Code/zeroc/ice/swift/test/Ice/inheritance/Test.ice:119: warning: ignoring invalid metadata `cpp:virtual'
-/Users/austin/Code/zeroc/ice/swift/test/Ice/inheritance/Test.ice:124: warning: ignoring invalid metadata `cpp:virtual'
-/Users/austin/Code/zeroc/ice/swift/test/Ice/inheritance/Test.ice:139: warning: ignoring invalid metadata `cpp:virtual'
-/Users/austin/Code/zeroc/ice/swift/test/Ice/inheritance/Test.ice:149: warning: ignoring invalid metadata `cpp:virtual'
-/Users/austin/Code/zeroc/ice/swift/test/Ice/inheritance/Test.ice:164: warning: ignoring invalid metadata `cpp:virtual'
-/Users/austin/Code/zeroc/ice/swift/test/Ice/inheritance/Test.ice:169: warning: ignoring invalid metadata `cpp:virtual'
 /Users/austin/Code/zeroc/ice/swift/test/Ice/optional/TestAMD.ice:66: warning: ignoring invalid metadata `cs:serializable:Ice.optional.Test.SerializableClass'
 /Users/austin/Code/zeroc/ice/python/test/Ice/objects/Test.ice:178: warning: dictionary key type not supported in PHP
 /Users/austin/Code/zeroc/ice/python/test/Ice/operations/Test.ice:68: warning: dictionary key type not supported in PHP

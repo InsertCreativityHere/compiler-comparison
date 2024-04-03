@@ -57,7 +57,7 @@ namespace Test
 
     using StringS = ::std::vector<::std::string>;
 
-    using WStringS = ::std::vector<::std::wstring>;
+    using WStringS = ::std::vector<::std::string>;
 
     using MyEnumS = ::std::vector<MyEnum>;
 

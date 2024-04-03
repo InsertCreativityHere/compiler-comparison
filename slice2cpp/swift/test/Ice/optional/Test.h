@@ -422,109 +422,81 @@ public:
     void _iceI_opMyInterfaceProxy(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<MyInterfacePrx>, ::std::optional<MyInterfacePrx>>>>&, const ::std::optional<MyInterfacePrx>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::optional<ByteSeq> opByteSeq(::std::optional<::std::pair<const std::byte*, const std::byte*>> p1, ::std::optional<ByteSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<ByteSeq> opByteSeq(const ::std::optional<ByteSeq>& p1, ::std::optional<ByteSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<ByteSeq>, ::std::optional<ByteSeq>>> opByteSeqAsync(::std::optional<::std::pair<const std::byte*, const std::byte*>> p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::function<void()>
-    opByteSeqAsync(::std::optional<::std::pair<const std::byte*, const std::byte*>> p1, ::std::function<void(::std::optional<::std::pair<const std::byte*, const std::byte*>>, ::std::optional<::std::pair<const std::byte*, const std::byte*>>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<ByteSeq>, ::std::optional<ByteSeq>>>>&, ::std::optional<::std::pair<const std::byte*, const std::byte*>>, const ::Ice::Context&) const;
-    /// \endcond
-
-    /// \cond INTERNAL
-    void _iceIL_opByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::pair<const std::byte*, const std::byte*>>, ::std::optional<::std::pair<const std::byte*, const std::byte*>>>>>&, ::std::optional<::std::pair<const std::byte*, const std::byte*>>, const ::Ice::Context&) const;
-    /// \endcond
-
-    ::std::optional<BoolSeq> opBoolSeq(::std::optional<::std::pair<const bool*, const bool*>> p1, ::std::optional<BoolSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::future<::std::tuple<::std::optional<BoolSeq>, ::std::optional<BoolSeq>>> opBoolSeqAsync(::std::optional<::std::pair<const bool*, const bool*>> p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<::std::optional<ByteSeq>, ::std::optional<ByteSeq>>> opByteSeqAsync(const ::std::optional<ByteSeq>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opBoolSeqAsync(::std::optional<::std::pair<const bool*, const bool*>> p1, ::std::function<void(::std::optional<::std::pair<const bool*, const bool*>>, ::std::optional<::std::pair<const bool*, const bool*>>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opByteSeqAsync(const ::std::optional<ByteSeq>& p1, ::std::function<void(::std::optional<::Test::ByteSeq>, ::std::optional<::Test::ByteSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opBoolSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<BoolSeq>, ::std::optional<BoolSeq>>>>&, ::std::optional<::std::pair<const bool*, const bool*>>, const ::Ice::Context&) const;
+    void _iceI_opByteSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<ByteSeq>, ::std::optional<ByteSeq>>>>&, const ::std::optional<ByteSeq>&, const ::Ice::Context&) const;
     /// \endcond
 
-    /// \cond INTERNAL
-    void _iceIL_opBoolSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::pair<const bool*, const bool*>>, ::std::optional<::std::pair<const bool*, const bool*>>>>>&, ::std::optional<::std::pair<const bool*, const bool*>>, const ::Ice::Context&) const;
-    /// \endcond
+    ::std::optional<BoolSeq> opBoolSeq(const ::std::optional<BoolSeq>& p1, ::std::optional<BoolSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::optional<ShortSeq> opShortSeq(::std::optional<::std::pair<const ::std::int16_t*, const ::std::int16_t*>> p1, ::std::optional<ShortSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::future<::std::tuple<::std::optional<ShortSeq>, ::std::optional<ShortSeq>>> opShortSeqAsync(::std::optional<::std::pair<const ::std::int16_t*, const ::std::int16_t*>> p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<::std::optional<BoolSeq>, ::std::optional<BoolSeq>>> opBoolSeqAsync(const ::std::optional<BoolSeq>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opShortSeqAsync(::std::optional<::std::pair<const ::std::int16_t*, const ::std::int16_t*>> p1, ::std::function<void(::std::optional<::std::pair<const ::std::int16_t*, const ::std::int16_t*>>, ::std::optional<::std::pair<const ::std::int16_t*, const ::std::int16_t*>>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opBoolSeqAsync(const ::std::optional<BoolSeq>& p1, ::std::function<void(::std::optional<::Test::BoolSeq>, ::std::optional<::Test::BoolSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opShortSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<ShortSeq>, ::std::optional<ShortSeq>>>>&, ::std::optional<::std::pair<const ::std::int16_t*, const ::std::int16_t*>>, const ::Ice::Context&) const;
+    void _iceI_opBoolSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<BoolSeq>, ::std::optional<BoolSeq>>>>&, const ::std::optional<BoolSeq>&, const ::Ice::Context&) const;
     /// \endcond
 
-    /// \cond INTERNAL
-    void _iceIL_opShortSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::pair<const ::std::int16_t*, const ::std::int16_t*>>, ::std::optional<::std::pair<const ::std::int16_t*, const ::std::int16_t*>>>>>&, ::std::optional<::std::pair<const ::std::int16_t*, const ::std::int16_t*>>, const ::Ice::Context&) const;
-    /// \endcond
+    ::std::optional<ShortSeq> opShortSeq(const ::std::optional<ShortSeq>& p1, ::std::optional<ShortSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::optional<IntSeq> opIntSeq(::std::optional<::std::pair<const ::std::int32_t*, const ::std::int32_t*>> p1, ::std::optional<IntSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::future<::std::tuple<::std::optional<IntSeq>, ::std::optional<IntSeq>>> opIntSeqAsync(::std::optional<::std::pair<const ::std::int32_t*, const ::std::int32_t*>> p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<::std::optional<ShortSeq>, ::std::optional<ShortSeq>>> opShortSeqAsync(const ::std::optional<ShortSeq>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opIntSeqAsync(::std::optional<::std::pair<const ::std::int32_t*, const ::std::int32_t*>> p1, ::std::function<void(::std::optional<::std::pair<const ::std::int32_t*, const ::std::int32_t*>>, ::std::optional<::std::pair<const ::std::int32_t*, const ::std::int32_t*>>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opShortSeqAsync(const ::std::optional<ShortSeq>& p1, ::std::function<void(::std::optional<::Test::ShortSeq>, ::std::optional<::Test::ShortSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opIntSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<IntSeq>, ::std::optional<IntSeq>>>>&, ::std::optional<::std::pair<const ::std::int32_t*, const ::std::int32_t*>>, const ::Ice::Context&) const;
+    void _iceI_opShortSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<ShortSeq>, ::std::optional<ShortSeq>>>>&, const ::std::optional<ShortSeq>&, const ::Ice::Context&) const;
     /// \endcond
 
-    /// \cond INTERNAL
-    void _iceIL_opIntSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::pair<const ::std::int32_t*, const ::std::int32_t*>>, ::std::optional<::std::pair<const ::std::int32_t*, const ::std::int32_t*>>>>>&, ::std::optional<::std::pair<const ::std::int32_t*, const ::std::int32_t*>>, const ::Ice::Context&) const;
-    /// \endcond
+    ::std::optional<IntSeq> opIntSeq(const ::std::optional<IntSeq>& p1, ::std::optional<IntSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::optional<LongSeq> opLongSeq(::std::optional<::std::pair<const ::std::int64_t*, const ::std::int64_t*>> p1, ::std::optional<LongSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::future<::std::tuple<::std::optional<LongSeq>, ::std::optional<LongSeq>>> opLongSeqAsync(::std::optional<::std::pair<const ::std::int64_t*, const ::std::int64_t*>> p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<::std::optional<IntSeq>, ::std::optional<IntSeq>>> opIntSeqAsync(const ::std::optional<IntSeq>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opLongSeqAsync(::std::optional<::std::pair<const ::std::int64_t*, const ::std::int64_t*>> p1, ::std::function<void(::std::optional<::std::pair<const ::std::int64_t*, const ::std::int64_t*>>, ::std::optional<::std::pair<const ::std::int64_t*, const ::std::int64_t*>>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opIntSeqAsync(const ::std::optional<IntSeq>& p1, ::std::function<void(::std::optional<::Test::IntSeq>, ::std::optional<::Test::IntSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opLongSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<LongSeq>, ::std::optional<LongSeq>>>>&, ::std::optional<::std::pair<const ::std::int64_t*, const ::std::int64_t*>>, const ::Ice::Context&) const;
+    void _iceI_opIntSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<IntSeq>, ::std::optional<IntSeq>>>>&, const ::std::optional<IntSeq>&, const ::Ice::Context&) const;
     /// \endcond
 
-    /// \cond INTERNAL
-    void _iceIL_opLongSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::pair<const ::std::int64_t*, const ::std::int64_t*>>, ::std::optional<::std::pair<const ::std::int64_t*, const ::std::int64_t*>>>>>&, ::std::optional<::std::pair<const ::std::int64_t*, const ::std::int64_t*>>, const ::Ice::Context&) const;
-    /// \endcond
+    ::std::optional<LongSeq> opLongSeq(const ::std::optional<LongSeq>& p1, ::std::optional<LongSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::optional<FloatSeq> opFloatSeq(::std::optional<::std::pair<const float*, const float*>> p1, ::std::optional<FloatSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::future<::std::tuple<::std::optional<FloatSeq>, ::std::optional<FloatSeq>>> opFloatSeqAsync(::std::optional<::std::pair<const float*, const float*>> p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<::std::optional<LongSeq>, ::std::optional<LongSeq>>> opLongSeqAsync(const ::std::optional<LongSeq>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opFloatSeqAsync(::std::optional<::std::pair<const float*, const float*>> p1, ::std::function<void(::std::optional<::std::pair<const float*, const float*>>, ::std::optional<::std::pair<const float*, const float*>>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opLongSeqAsync(const ::std::optional<LongSeq>& p1, ::std::function<void(::std::optional<::Test::LongSeq>, ::std::optional<::Test::LongSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opFloatSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<FloatSeq>, ::std::optional<FloatSeq>>>>&, ::std::optional<::std::pair<const float*, const float*>>, const ::Ice::Context&) const;
+    void _iceI_opLongSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<LongSeq>, ::std::optional<LongSeq>>>>&, const ::std::optional<LongSeq>&, const ::Ice::Context&) const;
     /// \endcond
 
-    /// \cond INTERNAL
-    void _iceIL_opFloatSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::pair<const float*, const float*>>, ::std::optional<::std::pair<const float*, const float*>>>>>&, ::std::optional<::std::pair<const float*, const float*>>, const ::Ice::Context&) const;
-    /// \endcond
+    ::std::optional<FloatSeq> opFloatSeq(const ::std::optional<FloatSeq>& p1, ::std::optional<FloatSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::optional<DoubleSeq> opDoubleSeq(::std::optional<::std::pair<const double*, const double*>> p1, ::std::optional<DoubleSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::future<::std::tuple<::std::optional<DoubleSeq>, ::std::optional<DoubleSeq>>> opDoubleSeqAsync(::std::optional<::std::pair<const double*, const double*>> p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<::std::optional<FloatSeq>, ::std::optional<FloatSeq>>> opFloatSeqAsync(const ::std::optional<FloatSeq>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opDoubleSeqAsync(::std::optional<::std::pair<const double*, const double*>> p1, ::std::function<void(::std::optional<::std::pair<const double*, const double*>>, ::std::optional<::std::pair<const double*, const double*>>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opFloatSeqAsync(const ::std::optional<FloatSeq>& p1, ::std::function<void(::std::optional<::Test::FloatSeq>, ::std::optional<::Test::FloatSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opDoubleSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<DoubleSeq>, ::std::optional<DoubleSeq>>>>&, ::std::optional<::std::pair<const double*, const double*>>, const ::Ice::Context&) const;
+    void _iceI_opFloatSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<FloatSeq>, ::std::optional<FloatSeq>>>>&, const ::std::optional<FloatSeq>&, const ::Ice::Context&) const;
     /// \endcond
 
+    ::std::optional<DoubleSeq> opDoubleSeq(const ::std::optional<DoubleSeq>& p1, ::std::optional<DoubleSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    ::std::future<::std::tuple<::std::optional<DoubleSeq>, ::std::optional<DoubleSeq>>> opDoubleSeqAsync(const ::std::optional<DoubleSeq>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    ::std::function<void()>
+    opDoubleSeqAsync(const ::std::optional<DoubleSeq>& p1, ::std::function<void(::std::optional<::Test::DoubleSeq>, ::std::optional<::Test::DoubleSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
     /// \cond INTERNAL
-    void _iceIL_opDoubleSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::pair<const double*, const double*>>, ::std::optional<::std::pair<const double*, const double*>>>>>&, ::std::optional<::std::pair<const double*, const double*>>, const ::Ice::Context&) const;
+    void _iceI_opDoubleSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<DoubleSeq>, ::std::optional<DoubleSeq>>>>&, const ::std::optional<DoubleSeq>&, const ::Ice::Context&) const;
     /// \endcond
 
     ::std::optional<StringSeq> opStringSeq(const ::std::optional<StringSeq>& p1, ::std::optional<StringSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -538,64 +510,48 @@ public:
     void _iceI_opStringSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<StringSeq>, ::std::optional<StringSeq>>>>&, const ::std::optional<StringSeq>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::optional<SmallStructSeq> opSmallStructSeq(::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>> p1, ::std::optional<SmallStructSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<SmallStructSeq> opSmallStructSeq(const ::std::optional<SmallStructSeq>& p1, ::std::optional<SmallStructSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<SmallStructSeq>, ::std::optional<SmallStructSeq>>> opSmallStructSeqAsync(::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>> p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::function<void()>
-    opSmallStructSeqAsync(::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>> p1, ::std::function<void(::std::optional<::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*>>, ::std::optional<::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*>>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opSmallStructSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<SmallStructSeq>, ::std::optional<SmallStructSeq>>>>&, ::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>>, const ::Ice::Context&) const;
-    /// \endcond
-
-    /// \cond INTERNAL
-    void _iceIL_opSmallStructSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>>, ::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>>>>>&, ::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>>, const ::Ice::Context&) const;
-    /// \endcond
-
-    ::std::optional<SmallStructList> opSmallStructList(::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>> p1, ::std::optional<SmallStructList>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::future<::std::tuple<::std::optional<SmallStructList>, ::std::optional<SmallStructList>>> opSmallStructListAsync(::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>> p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<::std::optional<SmallStructSeq>, ::std::optional<SmallStructSeq>>> opSmallStructSeqAsync(const ::std::optional<SmallStructSeq>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opSmallStructListAsync(::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>> p1, ::std::function<void(::std::optional<::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*>>, ::std::optional<::std::pair<const ::Test::SmallStruct*, const ::Test::SmallStruct*>>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opSmallStructSeqAsync(const ::std::optional<SmallStructSeq>& p1, ::std::function<void(::std::optional<::Test::SmallStructSeq>, ::std::optional<::Test::SmallStructSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opSmallStructList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<SmallStructList>, ::std::optional<SmallStructList>>>>&, ::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>>, const ::Ice::Context&) const;
+    void _iceI_opSmallStructSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<SmallStructSeq>, ::std::optional<SmallStructSeq>>>>&, const ::std::optional<SmallStructSeq>&, const ::Ice::Context&) const;
     /// \endcond
 
-    /// \cond INTERNAL
-    void _iceIL_opSmallStructList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>>, ::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>>>>>&, ::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>>, const ::Ice::Context&) const;
-    /// \endcond
+    ::std::optional<SmallStructList> opSmallStructList(const ::std::optional<SmallStructList>& p1, ::std::optional<SmallStructList>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::optional<FixedStructSeq> opFixedStructSeq(::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>> p1, ::std::optional<FixedStructSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::future<::std::tuple<::std::optional<FixedStructSeq>, ::std::optional<FixedStructSeq>>> opFixedStructSeqAsync(::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>> p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<::std::optional<SmallStructList>, ::std::optional<SmallStructList>>> opSmallStructListAsync(const ::std::optional<SmallStructList>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opFixedStructSeqAsync(::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>> p1, ::std::function<void(::std::optional<::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*>>, ::std::optional<::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*>>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opSmallStructListAsync(const ::std::optional<SmallStructList>& p1, ::std::function<void(::std::optional<::Test::SmallStructList>, ::std::optional<::Test::SmallStructList>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opFixedStructSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<FixedStructSeq>, ::std::optional<FixedStructSeq>>>>&, ::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>>, const ::Ice::Context&) const;
+    void _iceI_opSmallStructList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<SmallStructList>, ::std::optional<SmallStructList>>>>&, const ::std::optional<SmallStructList>&, const ::Ice::Context&) const;
     /// \endcond
 
-    /// \cond INTERNAL
-    void _iceIL_opFixedStructSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>>, ::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>>>>>&, ::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>>, const ::Ice::Context&) const;
-    /// \endcond
+    ::std::optional<FixedStructSeq> opFixedStructSeq(const ::std::optional<FixedStructSeq>& p1, ::std::optional<FixedStructSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::optional<FixedStructList> opFixedStructList(::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>> p1, ::std::optional<FixedStructList>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::future<::std::tuple<::std::optional<FixedStructList>, ::std::optional<FixedStructList>>> opFixedStructListAsync(::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>> p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<::std::optional<FixedStructSeq>, ::std::optional<FixedStructSeq>>> opFixedStructSeqAsync(const ::std::optional<FixedStructSeq>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opFixedStructListAsync(::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>> p1, ::std::function<void(::std::optional<::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*>>, ::std::optional<::std::pair<const ::Test::FixedStruct*, const ::Test::FixedStruct*>>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opFixedStructSeqAsync(const ::std::optional<FixedStructSeq>& p1, ::std::function<void(::std::optional<::Test::FixedStructSeq>, ::std::optional<::Test::FixedStructSeq>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opFixedStructList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<FixedStructList>, ::std::optional<FixedStructList>>>>&, ::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>>, const ::Ice::Context&) const;
+    void _iceI_opFixedStructSeq(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<FixedStructSeq>, ::std::optional<FixedStructSeq>>>>&, const ::std::optional<FixedStructSeq>&, const ::Ice::Context&) const;
     /// \endcond
 
+    ::std::optional<FixedStructList> opFixedStructList(const ::std::optional<FixedStructList>& p1, ::std::optional<FixedStructList>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    ::std::future<::std::tuple<::std::optional<FixedStructList>, ::std::optional<FixedStructList>>> opFixedStructListAsync(const ::std::optional<FixedStructList>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
+    ::std::function<void()>
+    opFixedStructListAsync(const ::std::optional<FixedStructList>& p1, ::std::function<void(::std::optional<::Test::FixedStructList>, ::std::optional<::Test::FixedStructList>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+
     /// \cond INTERNAL
-    void _iceIL_opFixedStructList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>>, ::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>>>>>&, ::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>>, const ::Ice::Context&) const;
+    void _iceI_opFixedStructList(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<FixedStructList>, ::std::optional<FixedStructList>>>>&, const ::std::optional<FixedStructList>&, const ::Ice::Context&) const;
     /// \endcond
 
     ::std::optional<VarStructSeq> opVarStructSeq(const ::std::optional<VarStructSeq>& p1, ::std::optional<VarStructSeq>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -642,15 +598,15 @@ public:
     void _iceI_opStringIntDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<StringIntDict>, ::std::optional<StringIntDict>>>>&, const ::std::optional<StringIntDict>&, const ::Ice::Context&) const;
     /// \endcond
 
-    ::std::optional<::Test::CustomMap< ::Ice::Int, std::string>> opCustomIntStringDict(::std::optional<::std::map< ::Ice::Int, ::Util::string_view>> p1, ::std::optional<::Test::CustomMap< ::Ice::Int, std::string>>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::optional<IntStringDict> opCustomIntStringDict(const ::std::optional<IntStringDict>& p1, ::std::optional<IntStringDict>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
-    ::std::future<::std::tuple<::std::optional<::Test::CustomMap< ::Ice::Int, std::string>>, ::std::optional<::Test::CustomMap< ::Ice::Int, std::string>>>> opCustomIntStringDictAsync(::std::optional<::std::map< ::Ice::Int, ::Util::string_view>> p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    ::std::future<::std::tuple<::std::optional<IntStringDict>, ::std::optional<IntStringDict>>> opCustomIntStringDictAsync(const ::std::optional<IntStringDict>& p1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::function<void()>
-    opCustomIntStringDictAsync(::std::optional<::std::map< ::Ice::Int, ::Util::string_view>> p1, ::std::function<void(::std::optional<::Test::CustomMap< ::Ice::Int, std::string>>, ::std::optional<::Test::CustomMap< ::Ice::Int, std::string>>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
+    opCustomIntStringDictAsync(const ::std::optional<IntStringDict>& p1, ::std::function<void(::std::optional<::Test::IntStringDict>, ::std::optional<::Test::IntStringDict>)> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /// \cond INTERNAL
-    void _iceI_opCustomIntStringDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<::Test::CustomMap< ::Ice::Int, std::string>>, ::std::optional<::Test::CustomMap< ::Ice::Int, std::string>>>>>&, ::std::optional<::std::map< ::Ice::Int, ::Util::string_view>>, const ::Ice::Context&) const;
+    void _iceI_opCustomIntStringDict(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<::std::tuple<::std::optional<IntStringDict>, ::std::optional<IntStringDict>>>>&, const ::std::optional<IntStringDict>&, const ::Ice::Context&) const;
     /// \endcond
 
     ::std::optional<IntOneOptionalDict> opIntOneOptionalDict(const ::std::optional<IntOneOptionalDict>& p1, ::std::optional<IntOneOptionalDict>& p3, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -1975,37 +1931,37 @@ public:
     void _iceD_opMyInterfaceProxy(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual ::std::optional<ByteSeq> opByteSeq(::std::optional<::std::pair<const std::byte*, const std::byte*>> p1, ::std::optional<ByteSeq>& p3, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<ByteSeq> opByteSeq(::std::optional<ByteSeq> p1, ::std::optional<ByteSeq>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_opByteSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual ::std::optional<BoolSeq> opBoolSeq(::std::optional<::std::pair<const bool*, const bool*>> p1, ::std::optional<BoolSeq>& p3, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<BoolSeq> opBoolSeq(::std::optional<BoolSeq> p1, ::std::optional<BoolSeq>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_opBoolSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual ::std::optional<ShortSeq> opShortSeq(::std::optional<::std::pair<const ::std::int16_t*, const ::std::int16_t*>> p1, ::std::optional<ShortSeq>& p3, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<ShortSeq> opShortSeq(::std::optional<ShortSeq> p1, ::std::optional<ShortSeq>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_opShortSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual ::std::optional<IntSeq> opIntSeq(::std::optional<::std::pair<const ::std::int32_t*, const ::std::int32_t*>> p1, ::std::optional<IntSeq>& p3, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<IntSeq> opIntSeq(::std::optional<IntSeq> p1, ::std::optional<IntSeq>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_opIntSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual ::std::optional<LongSeq> opLongSeq(::std::optional<::std::pair<const ::std::int64_t*, const ::std::int64_t*>> p1, ::std::optional<LongSeq>& p3, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<LongSeq> opLongSeq(::std::optional<LongSeq> p1, ::std::optional<LongSeq>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_opLongSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual ::std::optional<FloatSeq> opFloatSeq(::std::optional<::std::pair<const float*, const float*>> p1, ::std::optional<FloatSeq>& p3, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<FloatSeq> opFloatSeq(::std::optional<FloatSeq> p1, ::std::optional<FloatSeq>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_opFloatSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual ::std::optional<DoubleSeq> opDoubleSeq(::std::optional<::std::pair<const double*, const double*>> p1, ::std::optional<DoubleSeq>& p3, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<DoubleSeq> opDoubleSeq(::std::optional<DoubleSeq> p1, ::std::optional<DoubleSeq>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_opDoubleSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
@@ -2015,22 +1971,22 @@ public:
     void _iceD_opStringSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual ::std::optional<SmallStructSeq> opSmallStructSeq(::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>> p1, ::std::optional<SmallStructSeq>& p3, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<SmallStructSeq> opSmallStructSeq(::std::optional<SmallStructSeq> p1, ::std::optional<SmallStructSeq>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_opSmallStructSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual ::std::optional<SmallStructList> opSmallStructList(::std::optional<::std::pair<const SmallStruct*, const SmallStruct*>> p1, ::std::optional<SmallStructList>& p3, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<SmallStructList> opSmallStructList(::std::optional<SmallStructList> p1, ::std::optional<SmallStructList>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_opSmallStructList(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual ::std::optional<FixedStructSeq> opFixedStructSeq(::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>> p1, ::std::optional<FixedStructSeq>& p3, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<FixedStructSeq> opFixedStructSeq(::std::optional<FixedStructSeq> p1, ::std::optional<FixedStructSeq>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_opFixedStructSeq(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual ::std::optional<FixedStructList> opFixedStructList(::std::optional<::std::pair<const FixedStruct*, const FixedStruct*>> p1, ::std::optional<FixedStructList>& p3, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<FixedStructList> opFixedStructList(::std::optional<FixedStructList> p1, ::std::optional<FixedStructList>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_opFixedStructList(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
@@ -2055,7 +2011,7 @@ public:
     void _iceD_opStringIntDict(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
-    virtual ::std::optional<::Test::CustomMap< ::Ice::Int, std::string>> opCustomIntStringDict(::std::optional<::Test::CustomMap< ::Ice::Int, std::string>> p1, ::std::optional<::Test::CustomMap< ::Ice::Int, std::string>>& p3, const ::Ice::Current& current) = 0;
+    virtual ::std::optional<IntStringDict> opCustomIntStringDict(::std::optional<IntStringDict> p1, ::std::optional<IntStringDict>& p3, const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_opCustomIntStringDict(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond

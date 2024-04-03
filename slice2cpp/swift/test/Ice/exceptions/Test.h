@@ -679,11 +679,6 @@ public:
      * @return The fully-scoped type ID.
      */
     static ::std::string_view ice_staticId() noexcept;
-    /**
-     * Prints this exception to the given stream.
-     * @param stream The target stream.
-     */
-    void ice_print(::std::ostream& stream) const override;
 
     ::std::string ice_id() const override;
 

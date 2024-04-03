@@ -452,7 +452,7 @@ Test::TestLocator::ice_staticId() noexcept
 
 /// \cond INTERNAL
 void
-Test::TestLocator::_iceD_getRequestCount(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse) const
+Test::TestLocator::_iceD_getRequestCount(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
     request.inputStream().skipEmptyEncapsulation();
