@@ -18,7 +18,8 @@ package com.zeroc.Ice;
 /**
  * The Ice locator registry interface. This interface is used by servers to register adapter endpoints with the
  * locator. <p class="Note"> The {@link LocatorRegistry} interface is intended to be used by Ice internals and by
- * locator implementations. Regular user code should not attempt to use any functionality of this interface directly.
+ * locator implementations. Regular user code should not attempt to use any functionality of this interface
+ * directly.
  **/
 public interface LocatorRegistry extends Object
 {
@@ -41,15 +42,15 @@ public interface LocatorRegistry extends Object
      * Set the adapter endpoints with the locator registry.
      * @param adapterId The adapter id.
      * @param replicaGroupId The replica group id.
-     * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-     * endpoints. The proxy can be null, typically during adapter deactivation.
+     * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+     * adapter endpoints. The proxy can be null, typically during adapter deactivation.
      * @param current The Current object for the invocation.
      * @return A completion stage that the servant will complete when the invocation completes.
      * @throws AdapterAlreadyActiveException Raised if an adapter with the same id is already active.
      * @throws AdapterNotFoundException Raised if the adapter cannot be found, or if the locator only allows
      * registered adapters to set their active proxy and the adapter is not registered with the locator.
-     * @throws InvalidReplicaGroupIdException Raised if the given replica group doesn't match the one registered with
-     * the locator registry for this object adapter.
+     * @throws InvalidReplicaGroupIdException Raised if the given replica group doesn't match the one registered
+     * with the locator registry for this object adapter.
      **/
     java.util.concurrent.CompletionStage<Void> setReplicatedAdapterDirectProxyAsync(String adapterId, String replicaGroupId, ObjectPrx proxy, Current current)
         throws AdapterNotFoundException,

@@ -2766,7 +2766,8 @@ namespace IceGrid
         /// Synchronize a deployed application with the given application descriptor.
         /// This operation will replace the
         ///  current descriptor with this new descriptor only if no server restarts are necessary for the update of the
-        ///  application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
+        ///  application. If some servers need to be restarted, the synchronization is rejected with a
+        ///  DeploymentException.
         /// </summary>
         ///  <param name="descriptor">The application descriptor.
         ///  </param>
@@ -3070,8 +3071,9 @@ namespace IceGrid
 
         /// <summary>
         /// Enable or disable a server.
-        /// A disabled server can't be started on demand or administratively. The enable state
-        ///  of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
+        /// A disabled server can't be started on demand or administratively. The enable
+        ///  state of the server is not persistent: if the node is shut down and restarted, the server will be enabled by
+        ///  default.
         /// </summary>
         ///  <param name="id">The server id.
         ///  </param>
@@ -3088,7 +3090,7 @@ namespace IceGrid
 
         /// <summary>
         /// Enable or disable a server.
-        /// A disabled server can't be started on demand or administratively. The enable state
+        /// A disabled server can't be started on demand or administratively. The enable
         /// </summary>
         ///  <param name="id">The server id.
         ///  </param>
@@ -3234,9 +3236,9 @@ namespace IceGrid
         /// </summary>
         /// <param name="id">The adapter id.
         ///  </param>
-        /// <returns>A sequence of adapter information structures. If the given id refers to an adapter, this sequence will
-        ///  contain only one element. If the given id refers to a replica group, the sequence will contain the adapter
-        ///  information of each member of the replica group.
+        /// <returns>A sequence of adapter information structures. If the given id refers to an adapter, this sequence
+        ///  will contain only one element. If the given id refers to a replica group, the sequence will contain the
+        ///  adapter information of each member of the replica group.
         ///  </returns>
         /// <exception name="AdapterNotExistException">Raised if the adapter or replica group doesn't exist.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -3303,8 +3305,8 @@ namespace IceGrid
         ///  </param>
         /// <exception name="ObjectExistsException">Raised if the object is already registered.
         ///  </exception>
-        /// <exception name="DeploymentException">Raised if the object can't be added. This might be raised if the invocation on the
-        ///  proxy to get the object type failed.</exception>
+        /// <exception name="DeploymentException">Raised if the object can't be added. This might be raised if the invocation on
+        ///  the proxy to get the object type failed.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void addObject(global::Ice.ObjectPrx obj, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -3569,8 +3571,8 @@ namespace IceGrid
 
         /// <summary>
         /// Get the number of physical processor sockets for the machine running the node with the given name.
-        /// Note that this method will return 1 on operating systems where this can't be automatically determined and where
-        ///  the IceGrid.Node.ProcessorSocketCount property for the node is not set.
+        /// Note that this method will return 1 on operating systems where this can't be automatically determined and
+        ///  where the IceGrid.Node.ProcessorSocketCount property for the node is not set.
         /// </summary>
         ///  <param name="name">The node name.
         ///  </param>
@@ -3585,7 +3587,7 @@ namespace IceGrid
 
         /// <summary>
         /// Get the number of physical processor sockets for the machine running the node with the given name.
-        /// Note that this method will return 1 on operating systems where this can't be automatically determined and where
+        /// Note that this method will return 1 on operating systems where this can't be automatically determined and
         /// </summary>
         ///  <param name="name">The node name.
         ///  </param>
@@ -3802,8 +3804,8 @@ namespace IceGrid
         ///  message doesn't exceed the given size.
         ///  </param>
         /// <param name="lines">The lines read from the file. If there was nothing to read from the file since the last call to
-        ///  read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no '\n'
-        ///  should be added when writing the last line to the to the output device).
+        ///  read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no
+        ///  '\n' should be added when writing the last line to the to the output device).
         ///  </param>
         /// <returns>True if EOF is encountered.
         ///  </returns>
@@ -3916,8 +3918,8 @@ namespace IceGrid
     {
         /// <summary>
         /// The nodeInit operation indicates the current state of nodes.
-        /// It is called after the registration
-        ///  of an observer.
+        /// It is called after the
+        ///  registration of an observer.
         /// </summary>
         ///  <param name="nodes">The current state of the nodes.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -3926,7 +3928,7 @@ namespace IceGrid
 
         /// <summary>
         /// The nodeInit operation indicates the current state of nodes.
-        /// It is called after the registration
+        /// It is called after the
         /// </summary>
         ///  <param name="nodes">The current state of the nodes.</param>
         /// <param name="context">Context map to send with the invocation.</param>
@@ -3994,7 +3996,8 @@ namespace IceGrid
         global::System.Threading.Tasks.Task updateServerAsync(string node, ServerDynamicInfo updatedInfo, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// The updateAdapter operation is called to notify an observer that the state of an adapter changed.
+        /// The updateAdapter operation is called to notify an observer that the state of an adapter
+        ///  changed.
         /// </summary>
         /// <param name="node">The node hosting the adapter.
         ///  </param>
@@ -4004,7 +4007,8 @@ namespace IceGrid
         void updateAdapter(string node, AdapterDynamicInfo updatedInfo, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// The updateAdapter operation is called to notify an observer that the state of an adapter changed.
+        /// The updateAdapter operation is called to notify an observer that the state of an adapter
+        ///  changed.
         /// </summary>
         /// <param name="node">The node hosting the adapter.
         ///  </param>
@@ -4018,8 +4022,8 @@ namespace IceGrid
 
     /// <summary>
     /// The database observer interface.
-    /// Observers should implement this interface to receive information about the state
-    ///  of the IceGrid registry database.
+    /// Observers should implement this interface to receive information about the
+    ///  state of the IceGrid registry database.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -4029,8 +4033,8 @@ namespace IceGrid
         /// applicationInit is called after the registration of an observer to indicate the state of the
         ///  registry.
         /// </summary>
-        /// <param name="serial">The current serial number of the registry database. This serial number allows observers to make
-        ///  sure that their internal state is synchronized with the registry.
+        /// <param name="serial">The current serial number of the registry database. This serial number allows observers to
+        ///  make sure that their internal state is synchronized with the registry.
         ///  </param>
         /// <param name="applications">The applications currently registered with the registry.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -4041,8 +4045,8 @@ namespace IceGrid
         /// applicationInit is called after the registration of an observer to indicate the state of the
         ///  registry.
         /// </summary>
-        /// <param name="serial">The current serial number of the registry database. This serial number allows observers to make
-        ///  sure that their internal state is synchronized with the registry.
+        /// <param name="serial">The current serial number of the registry database. This serial number allows observers to
+        ///  make sure that their internal state is synchronized with the registry.
         ///  </param>
         /// <param name="applications">The applications currently registered with the registry.</param>
         /// <param name="context">Context map to send with the invocation.</param>
@@ -4074,7 +4078,8 @@ namespace IceGrid
         global::System.Threading.Tasks.Task applicationAddedAsync(int serial, ApplicationInfo desc, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// The applicationRemoved operation is called to notify an observer that an application was removed.
+        /// The applicationRemoved operation is called to notify an observer that an application was
+        ///  removed.
         /// </summary>
         /// <param name="serial">The new serial number of the registry database.
         ///  </param>
@@ -4084,7 +4089,8 @@ namespace IceGrid
         void applicationRemoved(int serial, string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// The applicationRemoved operation is called to notify an observer that an application was removed.
+        /// The applicationRemoved operation is called to notify an observer that an application was
+        ///  removed.
         /// </summary>
         /// <param name="serial">The new serial number of the registry database.
         ///  </param>
@@ -4096,7 +4102,8 @@ namespace IceGrid
         global::System.Threading.Tasks.Task applicationRemovedAsync(int serial, string name, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// The applicationUpdated operation is called to notify an observer that an application was updated.
+        /// The applicationUpdated operation is called to notify an observer that an application was
+        ///  updated.
         /// </summary>
         /// <param name="serial">The new serial number of the registry database.
         ///  </param>
@@ -4106,7 +4113,8 @@ namespace IceGrid
         void applicationUpdated(int serial, ApplicationUpdateInfo desc, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// The applicationUpdated operation is called to notify an observer that an application was updated.
+        /// The applicationUpdated operation is called to notify an observer that an application was
+        ///  updated.
         /// </summary>
         /// <param name="serial">The new serial number of the registry database.
         ///  </param>
@@ -4146,8 +4154,8 @@ namespace IceGrid
         global::System.Threading.Tasks.Task adapterInitAsync(AdapterInfo[] adpts, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// The adapterAdded operation is called to notify an observer when a dynamically-registered adapter
-        ///  was added.
+        /// The adapterAdded operation is called to notify an observer when a dynamically-registered
+        ///  adapter was added.
         /// </summary>
         /// <param name="info">The details of the new adapter.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -4155,8 +4163,8 @@ namespace IceGrid
         void adapterAdded(AdapterInfo info, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// The adapterAdded operation is called to notify an observer when a dynamically-registered adapter
-        ///  was added.
+        /// The adapterAdded operation is called to notify an observer when a dynamically-registered
+        ///  adapter was added.
         /// </summary>
         /// <param name="info">The details of the new adapter.</param>
         /// <param name="context">Context map to send with the invocation.</param>
@@ -4166,7 +4174,8 @@ namespace IceGrid
         global::System.Threading.Tasks.Task adapterAddedAsync(AdapterInfo info, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
+        /// The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was
+        ///  updated.
         /// </summary>
         /// <param name="info">The details of the updated adapter.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -4174,7 +4183,8 @@ namespace IceGrid
         void adapterUpdated(AdapterInfo info, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
+        /// The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was
+        ///  updated.
         /// </summary>
         /// <param name="info">The details of the updated adapter.</param>
         /// <param name="context">Context map to send with the invocation.</param>
@@ -4184,7 +4194,8 @@ namespace IceGrid
         global::System.Threading.Tasks.Task adapterUpdatedAsync(AdapterInfo info, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
         /// <summary>
-        /// The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
+        /// The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was
+        ///  removed.
         /// </summary>
         /// <param name="id">The ID of the removed adapter.</param>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -4192,7 +4203,8 @@ namespace IceGrid
         void adapterRemoved(string id, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
+        /// The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was
+        ///  removed.
         /// </summary>
         /// <param name="id">The ID of the removed adapter.</param>
         /// <param name="context">Context map to send with the invocation.</param>
@@ -4210,17 +4222,21 @@ namespace IceGrid
     public interface ObjectObserverPrx : global::Ice.ObjectPrx
     {
         /// <summary>
-        /// objectInit is called after the registration of an observer to indicate the state of the registry.
+        /// objectInit is called after the registration of an observer to indicate the state of the
+        ///  registry.
         /// </summary>
-        /// <param name="objects">The objects registered with the Admin interface (not through the deployment mechanism).</param>
+        /// <param name="objects">The objects registered with the Admin interface (not through the deployment
+        ///  mechanism).</param>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void objectInit(ObjectInfo[] objects, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         /// <summary>
-        /// objectInit is called after the registration of an observer to indicate the state of the registry.
+        /// objectInit is called after the registration of an observer to indicate the state of the
+        ///  registry.
         /// </summary>
-        /// <param name="objects">The objects registered with the Admin interface (not through the deployment mechanism).</param>
+        /// <param name="objects">The objects registered with the Admin interface (not through the deployment
+        ///  mechanism).</param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
         /// <param name="cancel">A cancellation token that receives the cancellation requests.</param>
@@ -4291,8 +4307,8 @@ namespace IceGrid
     /// <summary>
     /// Used by administrative clients to view, update, and receive observer updates from the IceGrid registry.
     /// Admin
-    ///  sessions are created either via the Registry object or via the registry admin SessionManager
-    ///  object.
+    ///  sessions are created either via the Registry object or via the registry admin
+    ///  SessionManager object.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -4338,8 +4354,8 @@ namespace IceGrid
 
         /// <summary>
         /// Get a "template" proxy for admin callback objects.
-        /// An Admin client uses this proxy to set the category of its
-        ///  callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
+        /// An Admin client uses this proxy to set the category of
+        ///  its callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
         /// </summary>
         ///  <returns>A template proxy. The returned proxy is null when the Admin session was established using Glacier2.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -4348,7 +4364,7 @@ namespace IceGrid
 
         /// <summary>
         /// Get a "template" proxy for admin callback objects.
-        /// An Admin client uses this proxy to set the category of its
+        /// An Admin client uses this proxy to set the category of
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -4396,7 +4412,8 @@ namespace IceGrid
         /// <summary>
         /// Set the observer identities that receive notifications the state of the registry or nodes changes.
         /// This
-        ///  operation should be used by clients that are using a bidirectional connection to communicate with the session.
+        ///  operation should be used by clients that are using a bidirectional connection to communicate with the
+        ///  session.
         /// </summary>
         ///  <param name="registryObs">The registry observer identity.
         ///  </param>
@@ -4438,8 +4455,8 @@ namespace IceGrid
         /// </summary>
         /// <returns>The current serial.
         ///  </returns>
-        /// <exception name="AccessDeniedException">Raised if the exclusive lock can't be acquired. This might happen if the lock is
-        ///  currently acquired by another session.</exception>
+        /// <exception name="AccessDeniedException">Raised if the exclusive lock can't be acquired. This might happen if the lock
+        ///  is currently acquired by another session.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         int startUpdate(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
@@ -4493,11 +4510,11 @@ namespace IceGrid
         /// </summary>
         ///  <param name="id">The server id.
         ///  </param>
-        /// <param name="path">The path of the log file. A log file can be opened only if it's declared in the server or service
-        ///  deployment descriptor.
+        /// <param name="path">The path of the log file. A log file can be opened only if it's declared in the server or
+        ///  service deployment descriptor.
         ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-        ///  or positive, the file is read from the last count lines.
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If
+        ///  0 or positive, the file is read from the last count lines.
         ///  </param>
         /// <returns>An iterator to read the file. The returned proxy is never null.
         ///  </returns>
@@ -4518,11 +4535,11 @@ namespace IceGrid
         /// </summary>
         ///  <param name="id">The server id.
         ///  </param>
-        /// <param name="path">The path of the log file. A log file can be opened only if it's declared in the server or service
-        ///  deployment descriptor.
+        /// <param name="path">The path of the log file. A log file can be opened only if it's declared in the server or
+        ///  service deployment descriptor.
         ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-        ///  or positive, the file is read from the last count lines.
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If
+        ///  0 or positive, the file is read from the last count lines.
         ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -4536,8 +4553,8 @@ namespace IceGrid
         /// </summary>
         ///  <param name="id">The server id.
         ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-        ///  or positive, the file is read from the last count lines.
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If
+        ///  0 or positive, the file is read from the last count lines.
         ///  </param>
         /// <returns>An iterator to read the file. The returned proxy is never null.
         ///  </returns>
@@ -4558,8 +4575,8 @@ namespace IceGrid
         /// </summary>
         ///  <param name="id">The server id.
         ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-        ///  or positive, the file is read from the last count lines.
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If
+        ///  0 or positive, the file is read from the last count lines.
         ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -4610,8 +4627,8 @@ namespace IceGrid
         /// </summary>
         ///  <param name="name">The node name.
         ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-        ///  or positive, the file is read from the last count lines.
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If
+        ///  0 or positive, the file is read from the last count lines.
         ///  </param>
         /// <returns>An iterator to read the file. The returned proxy is never null.
         ///  </returns>
@@ -4630,8 +4647,8 @@ namespace IceGrid
         /// </summary>
         ///  <param name="name">The node name.
         ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-        ///  or positive, the file is read from the last count lines.
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If
+        ///  0 or positive, the file is read from the last count lines.
         ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -4645,8 +4662,8 @@ namespace IceGrid
         /// </summary>
         ///  <param name="name">The node name.
         ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-        ///  or positive, the file is read from the last count lines.
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If
+        ///  0 or positive, the file is read from the last count lines.
         ///  </param>
         /// <returns>An iterator to read the file. The returned proxy is never null.
         ///  </returns>
@@ -4665,8 +4682,8 @@ namespace IceGrid
         /// </summary>
         ///  <param name="name">The node name.
         ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-        ///  or positive, the file is read from the last count lines.
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If
+        ///  0 or positive, the file is read from the last count lines.
         ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -4680,8 +4697,8 @@ namespace IceGrid
         /// </summary>
         ///  <param name="name">The registry name.
         ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-        ///  or positive, the file is read from the last count lines.
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If
+        ///  0 or positive, the file is read from the last count lines.
         ///  </param>
         /// <returns>An iterator to read the file. The returned proxy is never null.
         ///  </returns>
@@ -4700,8 +4717,8 @@ namespace IceGrid
         /// </summary>
         ///  <param name="name">The registry name.
         ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-        ///  or positive, the file is read from the last count lines.
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If
+        ///  0 or positive, the file is read from the last count lines.
         ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -4715,8 +4732,8 @@ namespace IceGrid
         /// </summary>
         ///  <param name="name">The registry name.
         ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-        ///  or positive, the file is read from the last count lines.
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If
+        ///  0 or positive, the file is read from the last count lines.
         ///  </param>
         /// <returns>An iterator to read the file. The returned proxy is never null.
         ///  </returns>
@@ -4735,8 +4752,8 @@ namespace IceGrid
         /// </summary>
         ///  <param name="name">The registry name.
         ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-        ///  or positive, the file is read from the last count lines.
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If
+        ///  0 or positive, the file is read from the last count lines.
         ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -4809,7 +4826,8 @@ namespace IceGrid
         /// Synchronize a deployed application with the given application descriptor.
         /// This operation will replace the
         ///  current descriptor with this new descriptor only if no server restarts are necessary for the update of the
-        ///  application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
+        ///  application. If some servers need to be restarted, the synchronization is rejected with a
+        ///  DeploymentException.
         /// </summary>
         ///  <param name="descriptor">The application descriptor.
         ///  </param>
@@ -4990,8 +5008,9 @@ namespace IceGrid
 
         /// <summary>
         /// Enable or disable a server.
-        /// A disabled server can't be started on demand or administratively. The enable state
-        ///  of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
+        /// A disabled server can't be started on demand or administratively. The enable
+        ///  state of the server is not persistent: if the node is shut down and restarted, the server will be enabled by
+        ///  default.
         /// </summary>
         ///  <param name="id">The server id.
         ///  </param>
@@ -5077,9 +5096,9 @@ namespace IceGrid
         /// </summary>
         /// <param name="id">The adapter id.
         ///  </param>
-        /// <returns>A sequence of adapter information structures. If the given id refers to an adapter, this sequence will
-        ///  contain only one element. If the given id refers to a replica group, the sequence will contain the adapter
-        ///  information of each member of the replica group.
+        /// <returns>A sequence of adapter information structures. If the given id refers to an adapter, this sequence
+        ///  will contain only one element. If the given id refers to a replica group, the sequence will contain the
+        ///  adapter information of each member of the replica group.
         ///  </returns>
         /// <exception name="AdapterNotExistException">Raised if the adapter or replica group doesn't exist.</exception>
         /// <param name="current">The Current object for the invocation.</param>
@@ -5118,8 +5137,8 @@ namespace IceGrid
         ///  </param>
         /// <exception name="ObjectExistsException">Raised if the object is already registered.
         ///  </exception>
-        /// <exception name="DeploymentException">Raised if the object can't be added. This might be raised if the invocation on the
-        ///  proxy to get the object type failed.</exception>
+        /// <exception name="DeploymentException">Raised if the object can't be added. This might be raised if the invocation on
+        ///  the proxy to get the object type failed.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -5268,8 +5287,8 @@ namespace IceGrid
 
         /// <summary>
         /// Get the number of physical processor sockets for the machine running the node with the given name.
-        /// Note that this method will return 1 on operating systems where this can't be automatically determined and where
-        ///  the IceGrid.Node.ProcessorSocketCount property for the node is not set.
+        /// Note that this method will return 1 on operating systems where this can't be automatically determined and
+        ///  where the IceGrid.Node.ProcessorSocketCount property for the node is not set.
         /// </summary>
         ///  <param name="name">The node name.
         ///  </param>
@@ -5406,8 +5425,8 @@ namespace IceGrid
         ///  message doesn't exceed the given size.
         ///  </param>
         /// <param name="lines">The lines read from the file. If there was nothing to read from the file since the last call to
-        ///  read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no '\n'
-        ///  should be added when writing the last line to the to the output device).
+        ///  read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no
+        ///  '\n' should be added when writing the last line to the to the output device).
         ///  </param>
         /// <returns>True if EOF is encountered.
         ///  </returns>
@@ -5473,8 +5492,8 @@ namespace IceGrid
     {
         /// <summary>
         /// The nodeInit operation indicates the current state of nodes.
-        /// It is called after the registration
-        ///  of an observer.
+        /// It is called after the
+        ///  registration of an observer.
         /// </summary>
         ///  <param name="nodes">The current state of the nodes.</param>
         /// <param name="current">The Current object for the invocation.</param>
@@ -5512,7 +5531,8 @@ namespace IceGrid
         void updateServer(string node, ServerDynamicInfo updatedInfo, global::Ice.Current current = null);
 
         /// <summary>
-        /// The updateAdapter operation is called to notify an observer that the state of an adapter changed.
+        /// The updateAdapter operation is called to notify an observer that the state of an adapter
+        ///  changed.
         /// </summary>
         /// <param name="node">The node hosting the adapter.
         ///  </param>
@@ -5525,8 +5545,8 @@ namespace IceGrid
 
     /// <summary>
     /// The database observer interface.
-    /// Observers should implement this interface to receive information about the state
-    ///  of the IceGrid registry database.
+    /// Observers should implement this interface to receive information about the
+    ///  state of the IceGrid registry database.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -5536,8 +5556,8 @@ namespace IceGrid
         /// applicationInit is called after the registration of an observer to indicate the state of the
         ///  registry.
         /// </summary>
-        /// <param name="serial">The current serial number of the registry database. This serial number allows observers to make
-        ///  sure that their internal state is synchronized with the registry.
+        /// <param name="serial">The current serial number of the registry database. This serial number allows observers to
+        ///  make sure that their internal state is synchronized with the registry.
         ///  </param>
         /// <param name="applications">The applications currently registered with the registry.</param>
         /// <param name="current">The Current object for the invocation.</param>
@@ -5557,7 +5577,8 @@ namespace IceGrid
         void applicationAdded(int serial, ApplicationInfo desc, global::Ice.Current current = null);
 
         /// <summary>
-        /// The applicationRemoved operation is called to notify an observer that an application was removed.
+        /// The applicationRemoved operation is called to notify an observer that an application was
+        ///  removed.
         /// </summary>
         /// <param name="serial">The new serial number of the registry database.
         ///  </param>
@@ -5568,7 +5589,8 @@ namespace IceGrid
         void applicationRemoved(int serial, string name, global::Ice.Current current = null);
 
         /// <summary>
-        /// The applicationUpdated operation is called to notify an observer that an application was updated.
+        /// The applicationUpdated operation is called to notify an observer that an application was
+        ///  updated.
         /// </summary>
         /// <param name="serial">The new serial number of the registry database.
         ///  </param>
@@ -5597,8 +5619,8 @@ namespace IceGrid
         void adapterInit(AdapterInfo[] adpts, global::Ice.Current current = null);
 
         /// <summary>
-        /// The adapterAdded operation is called to notify an observer when a dynamically-registered adapter
-        ///  was added.
+        /// The adapterAdded operation is called to notify an observer when a dynamically-registered
+        ///  adapter was added.
         /// </summary>
         /// <param name="info">The details of the new adapter.</param>
         /// <param name="current">The Current object for the invocation.</param>
@@ -5607,7 +5629,8 @@ namespace IceGrid
         void adapterAdded(AdapterInfo info, global::Ice.Current current = null);
 
         /// <summary>
-        /// The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
+        /// The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was
+        ///  updated.
         /// </summary>
         /// <param name="info">The details of the updated adapter.</param>
         /// <param name="current">The Current object for the invocation.</param>
@@ -5616,7 +5639,8 @@ namespace IceGrid
         void adapterUpdated(AdapterInfo info, global::Ice.Current current = null);
 
         /// <summary>
-        /// The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
+        /// The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was
+        ///  removed.
         /// </summary>
         /// <param name="id">The ID of the removed adapter.</param>
         /// <param name="current">The Current object for the invocation.</param>
@@ -5633,9 +5657,11 @@ namespace IceGrid
     public interface ObjectObserverOperations_
     {
         /// <summary>
-        /// objectInit is called after the registration of an observer to indicate the state of the registry.
+        /// objectInit is called after the registration of an observer to indicate the state of the
+        ///  registry.
         /// </summary>
-        /// <param name="objects">The objects registered with the Admin interface (not through the deployment mechanism).</param>
+        /// <param name="objects">The objects registered with the Admin interface (not through the deployment
+        ///  mechanism).</param>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -5675,8 +5701,8 @@ namespace IceGrid
     /// <summary>
     /// Used by administrative clients to view, update, and receive observer updates from the IceGrid registry.
     /// Admin
-    ///  sessions are created either via the Registry object or via the registry admin SessionManager
-    ///  object.
+    ///  sessions are created either via the Registry object or via the registry admin
+    ///  SessionManager object.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -5704,8 +5730,8 @@ namespace IceGrid
 
         /// <summary>
         /// Get a "template" proxy for admin callback objects.
-        /// An Admin client uses this proxy to set the category of its
-        ///  callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
+        /// An Admin client uses this proxy to set the category of
+        ///  its callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
         /// </summary>
         ///  <returns>A template proxy. The returned proxy is null when the Admin session was established using Glacier2.</returns>
         /// <param name="current">The Current object for the invocation.</param>
@@ -5735,7 +5761,8 @@ namespace IceGrid
         /// <summary>
         /// Set the observer identities that receive notifications the state of the registry or nodes changes.
         /// This
-        ///  operation should be used by clients that are using a bidirectional connection to communicate with the session.
+        ///  operation should be used by clients that are using a bidirectional connection to communicate with the
+        ///  session.
         /// </summary>
         ///  <param name="registryObs">The registry observer identity.
         ///  </param>
@@ -5758,8 +5785,8 @@ namespace IceGrid
         /// </summary>
         /// <returns>The current serial.
         ///  </returns>
-        /// <exception name="AccessDeniedException">Raised if the exclusive lock can't be acquired. This might happen if the lock is
-        ///  currently acquired by another session.</exception>
+        /// <exception name="AccessDeniedException">Raised if the exclusive lock can't be acquired. This might happen if the lock
+        ///  is currently acquired by another session.</exception>
         /// <param name="current">The Current object for the invocation.</param>
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -5789,11 +5816,11 @@ namespace IceGrid
         /// </summary>
         ///  <param name="id">The server id.
         ///  </param>
-        /// <param name="path">The path of the log file. A log file can be opened only if it's declared in the server or service
-        ///  deployment descriptor.
+        /// <param name="path">The path of the log file. A log file can be opened only if it's declared in the server or
+        ///  service deployment descriptor.
         ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-        ///  or positive, the file is read from the last count lines.
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If
+        ///  0 or positive, the file is read from the last count lines.
         ///  </param>
         /// <returns>An iterator to read the file. The returned proxy is never null.
         ///  </returns>
@@ -5815,8 +5842,8 @@ namespace IceGrid
         /// </summary>
         ///  <param name="id">The server id.
         ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-        ///  or positive, the file is read from the last count lines.
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If
+        ///  0 or positive, the file is read from the last count lines.
         ///  </param>
         /// <returns>An iterator to read the file. The returned proxy is never null.
         ///  </returns>
@@ -5861,8 +5888,8 @@ namespace IceGrid
         /// </summary>
         ///  <param name="name">The node name.
         ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-        ///  or positive, the file is read from the last count lines.
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If
+        ///  0 or positive, the file is read from the last count lines.
         ///  </param>
         /// <returns>An iterator to read the file. The returned proxy is never null.
         ///  </returns>
@@ -5882,8 +5909,8 @@ namespace IceGrid
         /// </summary>
         ///  <param name="name">The node name.
         ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-        ///  or positive, the file is read from the last count lines.
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If
+        ///  0 or positive, the file is read from the last count lines.
         ///  </param>
         /// <returns>An iterator to read the file. The returned proxy is never null.
         ///  </returns>
@@ -5903,8 +5930,8 @@ namespace IceGrid
         /// </summary>
         ///  <param name="name">The registry name.
         ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-        ///  or positive, the file is read from the last count lines.
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If
+        ///  0 or positive, the file is read from the last count lines.
         ///  </param>
         /// <returns>An iterator to read the file. The returned proxy is never null.
         ///  </returns>
@@ -5924,8 +5951,8 @@ namespace IceGrid
         /// </summary>
         ///  <param name="name">The registry name.
         ///  </param>
-        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-        ///  or positive, the file is read from the last count lines.
+        /// <param name="count">Specifies where to start reading the file. If negative, the file is read from the begining. If
+        ///  0 or positive, the file is read from the last count lines.
         ///  </param>
         /// <returns>An iterator to read the file. The returned proxy is never null.
         ///  </returns>

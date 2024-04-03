@@ -17,9 +17,9 @@ package com.zeroc.Ice;
 
 /**
  * The Ice locator interface. This interface is used by clients to lookup adapters and objects. It is also used by
- * servers to get the locator registry proxy. <p class="Note">The {@link Locator} interface is intended to be used by
- * Ice internals and by locator implementations. Regular user code should not attempt to use any functionality of this
- * interface directly.
+ * servers to get the locator registry proxy. <p class="Note">The {@link Locator} interface is intended to be used
+ * by Ice internals and by locator implementations. Regular user code should not attempt to use any functionality
+ * of this interface directly.
  **/
 public interface Locator extends Object
 {

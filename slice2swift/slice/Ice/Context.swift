@@ -15,9 +15,9 @@
 
 import Foundation
 
-/// A request context. Context is used to transmit metadata about a request from the server to the client,
-/// such as Quality-of-Service (QoS) parameters. Each operation on the client has a Context as its
-/// implicit final parameter.
+/// A request context. Context is used to transmit metadata about a request from the server to the
+/// client, such as Quality-of-Service (QoS) parameters. Each operation on the client has a Context as
+/// its implicit final parameter.
 public typealias Context = [Swift.String: Swift.String]
 
 /// Helper class to read and write `Context` dictionary values from

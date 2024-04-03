@@ -242,8 +242,8 @@ if 'ObjectDescriptor' not in _M_IceGrid.__dict__:
         Members:
         id --  The identity of the object.
         type --  The object type.
-        proxyOptions --  Proxy options to use with the proxy created for this Ice object. If empty, the proxy will be created with the
-         proxy options specified on the object adapter or replica group.
+        proxyOptions --  Proxy options to use with the proxy created for this Ice object. If empty, the proxy will be created with
+         the proxy options specified on the object adapter or replica group.
         """
         def __init__(self, id=Ice._struct_marker, type='', proxyOptions=''):
             if id is Ice._struct_marker:
@@ -361,12 +361,12 @@ if 'AdapterDescriptor' not in _M_IceGrid.__dict__:
         description --  The description of this object adapter.
         id --  The object adapter id.
         replicaGroupId --  The replica id of this adapter.
-        priority --  The adapter priority. This is eventually used when the adapter is member of a replica group to sort the adapter
-         endpoints by priority.
+        priority --  The adapter priority. This is eventually used when the adapter is member of a replica group to sort the
+         adapter endpoints by priority.
         registerProcess --  Flag to specify if the object adapter will register a process object.
-        serverLifetime --  If true the lifetime of this object adapter is the same of the server lifetime. This information is used by the
-         IceGrid node to figure out the server state: the server is active only if all its "server lifetime" adapters
-         are active.
+        serverLifetime --  If true the lifetime of this object adapter is the same of the server lifetime. This information is used by
+         the IceGrid node to figure out the server state: the server is active only if all its "server lifetime"
+         adapters are active.
         objects --  The well-known object descriptors associated with this object adapter.
         allocatables --  The allocatable object descriptors associated with this object adapter.
         """
@@ -591,7 +591,8 @@ if 'DistributionDescriptor' not in _M_IceGrid.__dict__:
     class DistributionDescriptor(object):
         """
          A distribution descriptor defines an IcePatch2 server and the directories to retrieve from the patch server.
-         This descriptor is no longer used. It's provided only for schema compatibility with Ice 3.7 and earlier releases.
+         This descriptor is no longer used. It's provided only for schema compatibility with Ice 3.7 and earlier
+         releases.
         Members:
         icepatch --  The proxy of the IcePatch2 server.
         directories --  The source directories.

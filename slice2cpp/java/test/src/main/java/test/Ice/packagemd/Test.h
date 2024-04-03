@@ -18,8 +18,8 @@
 
 #include <IceUtil/PushDisableWarnings.h>
 #include <Ice/Ice.h>
-#include <Package.h>
-#include <NoPackage.h>
+#include "Package.h"
+#include "NoPackage.h"
 
 #ifndef ICE_IGNORE_VERSION
 #   if ICE_INT_VERSION  != 30850

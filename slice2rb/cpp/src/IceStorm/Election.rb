@@ -17,8 +17,8 @@
 require 'Ice'
 require 'Ice/Identity.rb'
 require 'Ice/BuiltinSequences.rb'
-require 'SubscriberRecord.rb'
-require 'LLURecord.rb'
+require_relative 'SubscriberRecord.rb'
+require_relative 'LLURecord.rb'
 
 module ::IceStormElection
 

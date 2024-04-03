@@ -359,8 +359,8 @@ public struct ObjectDescriptor: Swift.Hashable {
     public var id: Ice.Identity = Ice.Identity()
     /// The object type.
     public var `type`: Swift.String = ""
-    /// Proxy options to use with the proxy created for this Ice object. If empty, the proxy will be created with the
-    /// proxy options specified on the object adapter or replica group.
+    /// Proxy options to use with the proxy created for this Ice object. If empty, the proxy will be created with
+    /// the proxy options specified on the object adapter or replica group.
     public var proxyOptions: Swift.String = ""
 
     public init() {}
@@ -503,14 +503,14 @@ public struct AdapterDescriptor: Swift.Hashable {
     public var id: Swift.String = ""
     /// The replica id of this adapter.
     public var replicaGroupId: Swift.String = ""
-    /// The adapter priority. This is eventually used when the adapter is member of a replica group to sort the adapter
-    /// endpoints by priority.
+    /// The adapter priority. This is eventually used when the adapter is member of a replica group to sort the
+    /// adapter endpoints by priority.
     public var priority: Swift.String = ""
     /// Flag to specify if the object adapter will register a process object.
     public var registerProcess: Swift.Bool = false
-    /// If true the lifetime of this object adapter is the same of the server lifetime. This information is used by the
-    /// IceGrid node to figure out the server state: the server is active only if all its "server lifetime" adapters
-    /// are active.
+    /// If true the lifetime of this object adapter is the same of the server lifetime. This information is used by
+    /// the IceGrid node to figure out the server state: the server is active only if all its "server lifetime"
+    /// adapters are active.
     public var serverLifetime: Swift.Bool = false
     /// The well-known object descriptors associated with this object adapter.
     public var objects: ObjectDescriptorSeq = ObjectDescriptorSeq()
@@ -672,7 +672,8 @@ public struct CommunicatorDescriptorTraits: Ice.SliceTraits {
 }
 
 /// A distribution descriptor defines an IcePatch2 server and the directories to retrieve from the patch server.
-/// This descriptor is no longer used. It's provided only for schema compatibility with Ice 3.7 and earlier releases.
+/// This descriptor is no longer used. It's provided only for schema compatibility with Ice 3.7 and earlier
+/// releases.
 public struct DistributionDescriptor: Swift.Hashable {
     /// The proxy of the IcePatch2 server.
     public var icepatch: Swift.String = ""

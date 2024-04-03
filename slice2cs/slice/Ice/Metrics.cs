@@ -990,8 +990,8 @@ namespace IceMX
 {
     /// <summary>
     /// The metrics administrative facet interface.
-    /// This interface allows remote administrative clients to access metrics
-    ///  of an application that enabled the Ice administrative facility and configured some metrics views.
+    /// This interface allows remote administrative clients to access
+    ///  metrics of an application that enabled the Ice administrative facility and configured some metrics views.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1060,9 +1060,9 @@ namespace IceMX
 
         /// <summary>
         /// Get the metrics objects for the given metrics view.
-        /// This returns a dictionary of metric maps for each metrics
-        ///  class configured with the view. The timestamp allows the client to compute averages which are not dependent of
-        ///  the invocation latency for this operation.
+        /// This returns a dictionary of metric maps for each
+        ///  metrics class configured with the view. The timestamp allows the client to compute averages which are not
+        ///  dependent of the invocation latency for this operation.
         /// </summary>
         ///  <param name="view">The name of the metrics view.
         ///  </param>
@@ -1077,7 +1077,7 @@ namespace IceMX
 
         /// <summary>
         /// Get the metrics objects for the given metrics view.
-        /// This returns a dictionary of metric maps for each metrics
+        /// This returns a dictionary of metric maps for each
         /// </summary>
         ///  <param name="view">The name of the metrics view.
         ///  </param>
@@ -1151,8 +1151,8 @@ namespace IceMX
 {
     /// <summary>
     /// The metrics administrative facet interface.
-    /// This interface allows remote administrative clients to access metrics
-    ///  of an application that enabled the Ice administrative facility and configured some metrics views.
+    /// This interface allows remote administrative clients to access
+    ///  metrics of an application that enabled the Ice administrative facility and configured some metrics views.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -1193,9 +1193,9 @@ namespace IceMX
 
         /// <summary>
         /// Get the metrics objects for the given metrics view.
-        /// This returns a dictionary of metric maps for each metrics
-        ///  class configured with the view. The timestamp allows the client to compute averages which are not dependent of
-        ///  the invocation latency for this operation.
+        /// This returns a dictionary of metric maps for each
+        ///  metrics class configured with the view. The timestamp allows the client to compute averages which are not
+        ///  dependent of the invocation latency for this operation.
         /// </summary>
         ///  <param name="view">The name of the metrics view.
         ///  </param>

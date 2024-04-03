@@ -770,8 +770,8 @@ const iceC_IceGrid_ApplicationObserver_ids = [
 ];
 
 /**
- *  The database observer interface. Observers should implement this interface to receive information about the state
- *  of the IceGrid registry database.
+ *  The database observer interface. Observers should implement this interface to receive information about the
+ *  state of the IceGrid registry database.
  **/
 IceGrid.ApplicationObserver = class extends Ice.Object
 {
@@ -845,8 +845,8 @@ const iceC_IceGrid_AdminSession_ids = [
 
 /**
  *  Used by administrative clients to view, update, and receive observer updates from the IceGrid registry. Admin
- *  sessions are created either via the {@link Registry} object or via the registry admin <code>SessionManager</code>
- *  object.
+ *  sessions are created either via the {@link Registry} object or via the registry admin
+ *  <code>SessionManager</code> object.
  *  @see Registry
  **/
 IceGrid.AdminSession = class extends Ice.Object

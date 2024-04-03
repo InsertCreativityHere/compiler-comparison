@@ -154,8 +154,8 @@ namespace Glacier2
         ///  Session object is returned to the client. Otherwise, null is returned and only an internal session
         ///  (i.e., not visible to the client) is created.
         ///  If a session proxy is returned, it must be configured to route through the router that created it. This will
-        ///  happen automatically if the router is configured as the client's default router at the time the session proxy
-        ///  is created in the client process, otherwise the client must configure the session proxy explicitly.
+        ///  happen automatically if the router is configured as the client's default router at the time the session
+        ///  proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
         /// </summary>
         ///  <param name="userId">The user id for which to check the password.
         ///  </param>
@@ -163,8 +163,8 @@ namespace Glacier2
         ///  </param>
         /// <returns>A proxy for the newly created session, or null if no SessionManager has been installed.
         ///  </returns>
-        /// <exception name="PermissionDeniedException">Raised if the password for the given user id is not correct, or if the user
-        ///  is not allowed access.
+        /// <exception name="PermissionDeniedException">Raised if the password for the given user id is not correct, or if the
+        ///  user is not allowed access.
         ///  </exception>
         /// <exception name="CannotCreateSessionException">Raised if the session cannot be created.
         ///  </exception>
@@ -188,13 +188,13 @@ namespace Glacier2
 
         /// <summary>
         /// Create a per-client session with the router.
-        /// The user is authenticated through the SSL certificates that have
-        ///  been associated with the connection. If a SessionManager has been installed, a proxy to a
+        /// The user is authenticated through the SSL certificates that
+        ///  have been associated with the connection. If a SessionManager has been installed, a proxy to a
         ///  Session object is returned to the client. Otherwise, null is returned and only an internal session
         ///  (i.e., not visible to the client) is created.
         ///  If a session proxy is returned, it must be configured to route through the router that created it. This will
-        ///  happen automatically if the router is configured as the client's default router at the time the session proxy
-        ///  is created in the client process, otherwise the client must configure the session proxy explicitly.
+        ///  happen automatically if the router is configured as the client's default router at the time the session
+        ///  proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
         /// </summary>
         ///  <returns>A proxy for the newly created session, or null if no SessionManager has been installed.
         ///  </returns>
@@ -208,7 +208,7 @@ namespace Glacier2
 
         /// <summary>
         /// Create a per-client session with the router.
-        /// The user is authenticated through the SSL certificates that have
+        /// The user is authenticated through the SSL certificates that
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -252,7 +252,8 @@ namespace Glacier2
 
         /// <summary>
         /// Get the value of the session timeout.
-        /// Sessions are destroyed if they see no activity for this period of time.
+        /// Sessions are destroyed if they see no activity for this period of
+        ///  time.
         /// </summary>
         ///  <returns>The timeout (in seconds).</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -261,7 +262,7 @@ namespace Glacier2
 
         /// <summary>
         /// Get the value of the session timeout.
-        /// Sessions are destroyed if they see no activity for this period of time.
+        /// Sessions are destroyed if they see no activity for this period of
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -327,7 +328,7 @@ namespace Glacier2
 
         /// <summary>
         /// Create a per-client session with the router.
-        /// The user is authenticated through the SSL certificates that have
+        /// The user is authenticated through the SSL certificates that
         /// </summary>
         /// <param name="current">The Current object for the invocation.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
@@ -353,7 +354,8 @@ namespace Glacier2
 
         /// <summary>
         /// Get the value of the session timeout.
-        /// Sessions are destroyed if they see no activity for this period of time.
+        /// Sessions are destroyed if they see no activity for this period of
+        ///  time.
         /// </summary>
         ///  <returns>The timeout (in seconds).</returns>
         /// <param name="current">The Current object for the invocation.</param>

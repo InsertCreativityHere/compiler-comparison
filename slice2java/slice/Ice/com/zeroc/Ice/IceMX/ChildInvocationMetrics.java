@@ -42,7 +42,8 @@ public class ChildInvocationMetrics extends Metrics
     public long size;
 
     /**
-     * The size of the invocation reply. This corresponds to the size of the marshalled output and return parameters.
+     * The size of the invocation reply. This corresponds to the size of the marshalled output and return
+     * parameters.
      **/
     public long replySize;
 
@@ -63,7 +64,7 @@ public class ChildInvocationMetrics extends Metrics
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -4239306294640532070L;
+    public static final long serialVersionUID = -2275606119818986246L;
 
     /** @hidden */
     @Override

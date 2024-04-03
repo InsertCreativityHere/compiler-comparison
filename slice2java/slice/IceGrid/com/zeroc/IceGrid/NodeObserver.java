@@ -22,8 +22,8 @@ package com.zeroc.IceGrid;
 public interface NodeObserver extends com.zeroc.Ice.Object
 {
     /**
-     * The <code>nodeInit</code> operation indicates the current state of nodes. It is called after the registration
-     * of an observer.
+     * The <code>nodeInit</code> operation indicates the current state of nodes. It is called after the
+     * registration of an observer.
      * @param nodes The current state of the nodes.
      * @param current The Current object for the invocation.
      **/
@@ -52,7 +52,8 @@ public interface NodeObserver extends com.zeroc.Ice.Object
     void updateServer(String node, ServerDynamicInfo updatedInfo, com.zeroc.Ice.Current current);
 
     /**
-     * The <code>updateAdapter</code> operation is called to notify an observer that the state of an adapter changed.
+     * The <code>updateAdapter</code> operation is called to notify an observer that the state of an adapter
+     * changed.
      * @param node The node hosting the adapter.
      * @param updatedInfo The new adapter state.
      * @param current The Current object for the invocation.

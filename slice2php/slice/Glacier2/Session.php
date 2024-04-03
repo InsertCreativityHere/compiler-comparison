@@ -17,8 +17,8 @@
 
 namespace
 {
-    require_once 'Ice/BuiltinSequences.php';
-    require_once 'Ice/Identity.php';
+    require_once '../Ice/BuiltinSequences.php';
+    require_once '../Ice/Identity.php';
     require_once 'SSLInfo.php';
 }
 

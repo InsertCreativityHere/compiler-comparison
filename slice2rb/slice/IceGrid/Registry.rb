@@ -15,10 +15,10 @@
 #
 
 require 'Ice'
-require 'Exception.rb'
-require 'Session.rb'
-require 'Admin.rb'
-require 'Ice/Locator.rb'
+require_relative 'Exception.rb'
+require_relative 'Session.rb'
+require_relative 'Admin.rb'
+require_relative '../Ice/Locator.rb'
 
 module ::IceGrid
 

@@ -32,8 +32,8 @@ public class ObjectDescriptor implements java.lang.Cloneable,
     public String type;
 
     /**
-     * Proxy options to use with the proxy created for this Ice object. If empty, the proxy will be created with the
-     * proxy options specified on the object adapter or replica group.
+     * Proxy options to use with the proxy created for this Ice object. If empty, the proxy will be created with
+     * the proxy options specified on the object adapter or replica group.
      **/
     public String proxyOptions;
 
@@ -184,5 +184,5 @@ public class ObjectDescriptor implements java.lang.Cloneable,
     private static final ObjectDescriptor _nullMarshalValue = new ObjectDescriptor();
 
     /** @hidden */
-    public static final long serialVersionUID = -7170469770783650507L;
+    public static final long serialVersionUID = -7701231824085595808L;
 }

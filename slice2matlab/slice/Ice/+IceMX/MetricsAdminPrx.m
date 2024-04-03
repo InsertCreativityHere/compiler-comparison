@@ -1,7 +1,7 @@
 % MetricsAdminPrx   Summary of MetricsAdminPrx
 %
-% The metrics administrative facet interface. This interface allows remote administrative clients to access metrics
-% of an application that enabled the Ice administrative facility and configured some metrics views.
+% The metrics administrative facet interface. This interface allows remote administrative clients to access
+% metrics of an application that enabled the Ice administrative facility and configured some metrics views.
 %
 % MetricsAdminPrx Methods:
 %   getMetricsViewNames - Get the names of enabled and disabled metrics.
@@ -123,9 +123,9 @@ classdef MetricsAdminPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('disableMetricsView', 0, true, os_, 0, [], IceMX.MetricsAdminPrx.disableMetricsView_ex_, varargin{:});
         end
         function [result, timestamp] = getMetricsView(obj, view, varargin)
-            % getMetricsView   Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
-            % class configured with the view. The timestamp allows the client to compute averages which are not dependent of
-            % the invocation latency for this operation.
+            % getMetricsView   Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
+            % metrics class configured with the view. The timestamp allows the client to compute averages which are not
+            % dependent of the invocation latency for this operation.
             %
             % Parameters:
             %   view (char) - The name of the metrics view.
@@ -150,9 +150,9 @@ classdef MetricsAdminPrx < Ice.ObjectPrx
             result = IceMX.MetricsView.convert(result);
         end
         function r_ = getMetricsViewAsync(obj, view, varargin)
-            % getMetricsViewAsync   Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
-            % class configured with the view. The timestamp allows the client to compute averages which are not dependent of
-            % the invocation latency for this operation.
+            % getMetricsViewAsync   Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
+            % metrics class configured with the view. The timestamp allows the client to compute averages which are not
+            % dependent of the invocation latency for this operation.
             %
             % Parameters:
             %   view (char) - The name of the metrics view.

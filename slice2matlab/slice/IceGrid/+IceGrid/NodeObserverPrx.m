@@ -23,8 +23,8 @@
 classdef NodeObserverPrx < Ice.ObjectPrx
     methods
         function nodeInit(obj, nodes, varargin)
-            % nodeInit   The nodeInit operation indicates the current state of nodes. It is called after the registration
-            % of an observer.
+            % nodeInit   The nodeInit operation indicates the current state of nodes. It is called after the
+            % registration of an observer.
             %
             % Parameters:
             %   nodes (IceGrid.NodeDynamicInfoSeq) - The current state of the nodes.
@@ -36,8 +36,8 @@ classdef NodeObserverPrx < Ice.ObjectPrx
             obj.iceInvoke('nodeInit', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = nodeInitAsync(obj, nodes, varargin)
-            % nodeInitAsync   The nodeInit operation indicates the current state of nodes. It is called after the registration
-            % of an observer.
+            % nodeInitAsync   The nodeInit operation indicates the current state of nodes. It is called after the
+            % registration of an observer.
             %
             % Parameters:
             %   nodes (IceGrid.NodeDynamicInfoSeq) - The current state of the nodes.
@@ -133,7 +133,8 @@ classdef NodeObserverPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('updateServer', 0, false, os_, 0, [], {}, varargin{:});
         end
         function updateAdapter(obj, node, updatedInfo, varargin)
-            % updateAdapter   The updateAdapter operation is called to notify an observer that the state of an adapter changed.
+            % updateAdapter   The updateAdapter operation is called to notify an observer that the state of an adapter
+            % changed.
             %
             % Parameters:
             %   node (char) - The node hosting the adapter.
@@ -147,7 +148,8 @@ classdef NodeObserverPrx < Ice.ObjectPrx
             obj.iceInvoke('updateAdapter', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = updateAdapterAsync(obj, node, updatedInfo, varargin)
-            % updateAdapterAsync   The updateAdapter operation is called to notify an observer that the state of an adapter changed.
+            % updateAdapterAsync   The updateAdapter operation is called to notify an observer that the state of an adapter
+            % changed.
             %
             % Parameters:
             %   node (char) - The node hosting the adapter.

@@ -18,7 +18,7 @@
 
 #include <IceUtil/PushDisableWarnings.h>
 #include <Ice/Ice.h>
-#include <BuiltinSequences.h>
+#include "BuiltinSequences.h"
 
 #ifndef ICE_IGNORE_VERSION
 #   if ICE_INT_VERSION  != 30850
@@ -94,8 +94,8 @@ namespace IceMX
 {
 
 /**
- * The metrics administrative facet interface. This interface allows remote administrative clients to access metrics
- * of an application that enabled the Ice administrative facility and configured some metrics views.
+ * The metrics administrative facet interface. This interface allows remote administrative clients to access
+ * metrics of an application that enabled the Ice administrative facility and configured some metrics views.
  */
 class ICE_API MetricsAdminPrx : public ::Ice::Proxy<MetricsAdminPrx, ::Ice::ObjectPrx>
 {
@@ -196,9 +196,9 @@ public:
     /// \endcond
 
     /**
-     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
-     * class configured with the view. The timestamp allows the client to compute averages which are not dependent of
-     * the invocation latency for this operation.
+     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
+     * metrics class configured with the view. The timestamp allows the client to compute averages which are not
+     * dependent of the invocation latency for this operation.
      * @param view The name of the metrics view.
      * @param timestamp The local time of the process when the metrics object were retrieved.
      * @param context The Context map to send with the invocation.
@@ -208,9 +208,9 @@ public:
     MetricsView getMetricsView(::std::string_view view, ::std::int64_t& timestamp, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
-     * class configured with the view. The timestamp allows the client to compute averages which are not dependent of
-     * the invocation latency for this operation.
+     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
+     * metrics class configured with the view. The timestamp allows the client to compute averages which are not
+     * dependent of the invocation latency for this operation.
      * @param view The name of the metrics view.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -218,9 +218,9 @@ public:
     ::std::future<::std::tuple<MetricsView, ::std::int64_t>> getMetricsViewAsync(::std::string_view view, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
-     * class configured with the view. The timestamp allows the client to compute averages which are not dependent of
-     * the invocation latency for this operation.
+     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
+     * metrics class configured with the view. The timestamp allows the client to compute averages which are not
+     * dependent of the invocation latency for this operation.
      * @param view The name of the metrics view.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -364,7 +364,8 @@ namespace IceMX
 {
 
 /**
- * The base class for metrics. A metrics object represents a collection of measurements associated to a given a system.
+ * The base class for metrics. A metrics object represents a collection of measurements associated to a given a
+ * system.
  * \headerfile Ice/Ice.h
  */
 class ICE_CLASS(ICE_API) Metrics : public ::Ice::Value
@@ -561,8 +562,8 @@ public:
      */
     ::std::int32_t inUseForUser = 0;
     /**
-     * The number of threads which are currently performing other activities. These are all other that are not counted
-     * with {@link #inUseForUser} or {@link #inUseForIO}, such as DNS lookups, garbage collection).
+     * The number of threads which are currently performing other activities. These are all other that are not
+     * counted with {@link #inUseForUser} or {@link #inUseForIO}, such as DNS lookups, garbage collection).
      */
     ::std::int32_t inUseForOther = 0;
 
@@ -708,7 +709,8 @@ public:
      */
     ::std::int64_t size = INT64_C(0);
     /**
-     * The size of the invocation reply. This corresponds to the size of the marshalled output and return parameters.
+     * The size of the invocation reply. This corresponds to the size of the marshalled output and return
+     * parameters.
      */
     ::std::int64_t replySize = INT64_C(0);
 
@@ -987,8 +989,8 @@ namespace IceMX
 {
 
 /**
- * The metrics administrative facet interface. This interface allows remote administrative clients to access metrics
- * of an application that enabled the Ice administrative facility and configured some metrics views.
+ * The metrics administrative facet interface. This interface allows remote administrative clients to access
+ * metrics of an application that enabled the Ice administrative facility and configured some metrics views.
  */
 class ICE_API MetricsAdmin : public virtual ::Ice::Object
 {
@@ -1050,9 +1052,9 @@ public:
     /// \endcond
 
     /**
-     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
-     * class configured with the view. The timestamp allows the client to compute averages which are not dependent of
-     * the invocation latency for this operation.
+     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
+     * metrics class configured with the view. The timestamp allows the client to compute averages which are not
+     * dependent of the invocation latency for this operation.
      * @param view The name of the metrics view.
      * @param timestamp The local time of the process when the metrics object were retrieved.
      * @param current The Current object for the invocation.

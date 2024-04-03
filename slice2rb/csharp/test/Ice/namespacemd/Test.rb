@@ -15,8 +15,8 @@
 #
 
 require 'Ice'
-require 'Namespace.rb'
-require 'NoNamespace.rb'
+require_relative 'Namespace.rb'
+require_relative 'NoNamespace.rb'
 
 module ::Test
 

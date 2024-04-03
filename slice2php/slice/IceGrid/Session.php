@@ -17,7 +17,7 @@
 
 namespace
 {
-    require_once 'Glacier2/Session.php';
+    require_once '../Glacier2/Session.php';
     require_once 'Exception.php';
 }
 

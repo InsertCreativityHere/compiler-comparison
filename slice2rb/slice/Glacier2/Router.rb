@@ -15,9 +15,9 @@
 #
 
 require 'Ice'
-require 'Ice/Router.rb'
-require 'Session.rb'
-require 'PermissionsVerifier.rb'
+require_relative '../Ice/Router.rb'
+require_relative 'Session.rb'
+require_relative 'PermissionsVerifier.rb'
 
 module ::Glacier2
 

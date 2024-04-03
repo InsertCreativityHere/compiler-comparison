@@ -246,8 +246,8 @@ public extension RouterPrx {
     /// Session object is returned to the client. Otherwise, null is returned and only an internal session
     /// (i.e., not visible to the client) is created.
     /// If a session proxy is returned, it must be configured to route through the router that created it. This will
-    /// happen automatically if the router is configured as the client's default router at the time the session proxy
-    /// is created in the client process, otherwise the client must configure the session proxy explicitly.
+    /// happen automatically if the router is configured as the client's default router at the time the session
+    /// proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
     ///
     /// - parameter userId: `Swift.String` The user id for which to check the password.
     ///
@@ -261,8 +261,8 @@ public extension RouterPrx {
     ///
     ///   - CannotCreateSessionException - Raised if the session cannot be created.
     ///
-    ///   - PermissionDeniedException - Raised if the password for the given user id is not correct, or if the user
-    ///     is not allowed access.
+    ///   - PermissionDeniedException - Raised if the password for the given user id is not correct, or if the
+    ///     user is not allowed access.
     func createSession(userId iceP_userId: Swift.String, password iceP_password: Swift.String, context: Ice.Context? = nil) throws -> SessionPrx? {
         return try _impl._invoke(operation: "createSession",
                                  mode: .Normal,
@@ -291,8 +291,8 @@ public extension RouterPrx {
     /// Session object is returned to the client. Otherwise, null is returned and only an internal session
     /// (i.e., not visible to the client) is created.
     /// If a session proxy is returned, it must be configured to route through the router that created it. This will
-    /// happen automatically if the router is configured as the client's default router at the time the session proxy
-    /// is created in the client process, otherwise the client must configure the session proxy explicitly.
+    /// happen automatically if the router is configured as the client's default router at the time the session
+    /// proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
     ///
     /// - parameter userId: `Swift.String` The user id for which to check the password.
     ///
@@ -336,13 +336,13 @@ public extension RouterPrx {
                                   sent: sent)
     }
 
-    /// Create a per-client session with the router. The user is authenticated through the SSL certificates that have
-    /// been associated with the connection. If a SessionManager has been installed, a proxy to a
+    /// Create a per-client session with the router. The user is authenticated through the SSL certificates that
+    /// have been associated with the connection. If a SessionManager has been installed, a proxy to a
     /// Session object is returned to the client. Otherwise, null is returned and only an internal session
     /// (i.e., not visible to the client) is created.
     /// If a session proxy is returned, it must be configured to route through the router that created it. This will
-    /// happen automatically if the router is configured as the client's default router at the time the session proxy
-    /// is created in the client process, otherwise the client must configure the session proxy explicitly.
+    /// happen automatically if the router is configured as the client's default router at the time the session
+    /// proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -374,13 +374,13 @@ public extension RouterPrx {
                                  context: context)
     }
 
-    /// Create a per-client session with the router. The user is authenticated through the SSL certificates that have
-    /// been associated with the connection. If a SessionManager has been installed, a proxy to a
+    /// Create a per-client session with the router. The user is authenticated through the SSL certificates that
+    /// have been associated with the connection. If a SessionManager has been installed, a proxy to a
     /// Session object is returned to the client. Otherwise, null is returned and only an internal session
     /// (i.e., not visible to the client) is created.
     /// If a session proxy is returned, it must be configured to route through the router that created it. This will
-    /// happen automatically if the router is configured as the client's default router at the time the session proxy
-    /// is created in the client process, otherwise the client must configure the session proxy explicitly.
+    /// happen automatically if the router is configured as the client's default router at the time the session
+    /// proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -514,7 +514,8 @@ public extension RouterPrx {
                                   sent: sent)
     }
 
-    /// Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of time.
+    /// Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of
+    /// time.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -529,7 +530,8 @@ public extension RouterPrx {
                                  context: context)
     }
 
-    /// Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of time.
+    /// Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of
+    /// time.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -661,8 +663,8 @@ public protocol Router: Ice.Router {
     /// Session object is returned to the client. Otherwise, null is returned and only an internal session
     /// (i.e., not visible to the client) is created.
     /// If a session proxy is returned, it must be configured to route through the router that created it. This will
-    /// happen automatically if the router is configured as the client's default router at the time the session proxy
-    /// is created in the client process, otherwise the client must configure the session proxy explicitly.
+    /// happen automatically if the router is configured as the client's default router at the time the session
+    /// proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
     ///
     /// - parameter userId: `Swift.String` The user id for which to check the password.
     ///
@@ -673,13 +675,13 @@ public protocol Router: Ice.Router {
     /// - returns: `PromiseKit.Promise<SessionPrx?>` - The result of the operation
     func createSessionAsync(userId: Swift.String, password: Swift.String, current: Ice.Current) -> PromiseKit.Promise<SessionPrx?>
 
-    /// Create a per-client session with the router. The user is authenticated through the SSL certificates that have
-    /// been associated with the connection. If a SessionManager has been installed, a proxy to a
+    /// Create a per-client session with the router. The user is authenticated through the SSL certificates that
+    /// have been associated with the connection. If a SessionManager has been installed, a proxy to a
     /// Session object is returned to the client. Otherwise, null is returned and only an internal session
     /// (i.e., not visible to the client) is created.
     /// If a session proxy is returned, it must be configured to route through the router that created it. This will
-    /// happen automatically if the router is configured as the client's default router at the time the session proxy
-    /// is created in the client process, otherwise the client must configure the session proxy explicitly.
+    /// happen automatically if the router is configured as the client's default router at the time the session
+    /// proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
@@ -702,7 +704,8 @@ public protocol Router: Ice.Router {
     ///   - SessionNotExistException - Raised if no session exists for the calling client.
     func destroySession(current: Ice.Current) throws
 
-    /// Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of time.
+    /// Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of
+    /// time.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///

@@ -15,7 +15,7 @@
 #
 
 require 'Ice'
-require 'Test.rb'
+require_relative 'Test.rb'
 
 module ::Test
 

@@ -1,6 +1,7 @@
 % Metrics   Summary of Metrics
 %
-% The base class for metrics. A metrics object represents a collection of measurements associated to a given a system.
+% The base class for metrics. A metrics object represents a collection of measurements associated to a given a
+% system.
 %
 % Metrics Properties:
 %   id - The metrics identifier.

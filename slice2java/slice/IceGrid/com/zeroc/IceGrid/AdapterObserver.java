@@ -29,22 +29,24 @@ public interface AdapterObserver extends com.zeroc.Ice.Object
     void adapterInit(AdapterInfo[] adpts, com.zeroc.Ice.Current current);
 
     /**
-     * The <code>adapterAdded</code> operation is called to notify an observer when a dynamically-registered adapter
-     * was added.
+     * The <code>adapterAdded</code> operation is called to notify an observer when a dynamically-registered
+     * adapter was added.
      * @param info The details of the new adapter.
      * @param current The Current object for the invocation.
      **/
     void adapterAdded(AdapterInfo info, com.zeroc.Ice.Current current);
 
     /**
-     * The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
+     * The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was
+     * updated.
      * @param info The details of the updated adapter.
      * @param current The Current object for the invocation.
      **/
     void adapterUpdated(AdapterInfo info, com.zeroc.Ice.Current current);
 
     /**
-     * The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
+     * The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was
+     * removed.
      * @param id The ID of the removed adapter.
      * @param current The Current object for the invocation.
      **/

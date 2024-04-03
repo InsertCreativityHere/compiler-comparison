@@ -15,7 +15,7 @@
 #
 
 require 'Ice'
-require 'TestAMD.rb'
+require_relative 'TestAMD.rb'
 
 module ::Test
 

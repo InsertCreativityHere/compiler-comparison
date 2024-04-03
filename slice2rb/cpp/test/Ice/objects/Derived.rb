@@ -15,8 +15,8 @@
 #
 
 require 'Ice'
-require 'Test.rb'
-require 'Forward.rb'
+require_relative 'Test.rb'
+require_relative 'Forward.rb'
 
 module ::Test
 

@@ -21,8 +21,10 @@ package com.zeroc.IceGrid;
 public interface ObjectObserverPrx extends com.zeroc.Ice.ObjectPrx
 {
     /**
-     * <code>objectInit</code> is called after the registration of an observer to indicate the state of the registry.
-     * @param objects The objects registered with the {@link Admin} interface (not through the deployment mechanism).
+     * <code>objectInit</code> is called after the registration of an observer to indicate the state of the
+     * registry.
+     * @param objects The objects registered with the {@link Admin} interface (not through the deployment
+     * mechanism).
      **/
     default void objectInit(ObjectInfo[] objects)
     {
@@ -30,8 +32,10 @@ public interface ObjectObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * <code>objectInit</code> is called after the registration of an observer to indicate the state of the registry.
-     * @param objects The objects registered with the {@link Admin} interface (not through the deployment mechanism).
+     * <code>objectInit</code> is called after the registration of an observer to indicate the state of the
+     * registry.
+     * @param objects The objects registered with the {@link Admin} interface (not through the deployment
+     * mechanism).
      * @param context The Context map to send with the invocation.
      **/
     default void objectInit(ObjectInfo[] objects, java.util.Map<String, String> context)
@@ -40,8 +44,10 @@ public interface ObjectObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * <code>objectInit</code> is called after the registration of an observer to indicate the state of the registry.
-     * @param objects The objects registered with the {@link Admin} interface (not through the deployment mechanism).
+     * <code>objectInit</code> is called after the registration of an observer to indicate the state of the
+     * registry.
+     * @param objects The objects registered with the {@link Admin} interface (not through the deployment
+     * mechanism).
      * @return A future that will be completed when the invocation completes.
      **/
     default java.util.concurrent.CompletableFuture<Void> objectInitAsync(ObjectInfo[] objects)
@@ -50,8 +56,10 @@ public interface ObjectObserverPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * <code>objectInit</code> is called after the registration of an observer to indicate the state of the registry.
-     * @param objects The objects registered with the {@link Admin} interface (not through the deployment mechanism).
+     * <code>objectInit</code> is called after the registration of an observer to indicate the state of the
+     * registry.
+     * @param objects The objects registered with the {@link Admin} interface (not through the deployment
+     * mechanism).
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
      **/

@@ -380,9 +380,9 @@ namespace Ice
     /// <summary>
     /// The Ice locator interface.
     /// This interface is used by clients to lookup adapters and objects. It is also used by
-    ///  servers to get the locator registry proxy. &lt;p class="Note"&gt;The Locator interface is intended to be used by
-    ///  Ice internals and by locator implementations. Regular user code should not attempt to use any functionality of this
-    ///  interface directly.
+    ///  servers to get the locator registry proxy. &lt;p class="Note"&gt;The Locator interface is intended to be used
+    ///  by Ice internals and by locator implementations. Regular user code should not attempt to use any functionality
+    ///  of this interface directly.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -458,7 +458,8 @@ namespace Ice
     /// The Ice locator registry interface.
     /// This interface is used by servers to register adapter endpoints with the
     ///  locator. &lt;p class="Note"&gt; The LocatorRegistry interface is intended to be used by Ice internals and by
-    ///  locator implementations. Regular user code should not attempt to use any functionality of this interface directly.
+    ///  locator implementations. Regular user code should not attempt to use any functionality of this interface
+    ///  directly.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -501,16 +502,16 @@ namespace Ice
         ///  </param>
         /// <param name="replicaGroupId">The replica group id.
         ///  </param>
-        /// <param name="proxy">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-        ///  endpoints. The proxy can be null, typically during adapter deactivation.
+        /// <param name="proxy">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+        ///  adapter endpoints. The proxy can be null, typically during adapter deactivation.
         ///  </param>
         /// <exception name="AdapterNotFoundException">Raised if the adapter cannot be found, or if the locator only allows
         ///  registered adapters to set their active proxy and the adapter is not registered with the locator.
         ///  </exception>
         /// <exception name="AdapterAlreadyActiveException">Raised if an adapter with the same id is already active.
         ///  </exception>
-        /// <exception name="InvalidReplicaGroupIdException">Raised if the given replica group doesn't match the one registered with
-        ///  the locator registry for this object adapter.</exception>
+        /// <exception name="InvalidReplicaGroupIdException">Raised if the given replica group doesn't match the one registered
+        ///  with the locator registry for this object adapter.</exception>
         /// <param name="context">The Context map to send with the invocation.</param>
 
         void setReplicatedAdapterDirectProxy(string adapterId, string replicaGroupId, ObjectPrx proxy, OptionalContext context = new OptionalContext());
@@ -522,8 +523,8 @@ namespace Ice
         ///  </param>
         /// <param name="replicaGroupId">The replica group id.
         ///  </param>
-        /// <param name="proxy">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-        ///  endpoints. The proxy can be null, typically during adapter deactivation.
+        /// <param name="proxy">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+        ///  adapter endpoints. The proxy can be null, typically during adapter deactivation.
         ///  </param>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -559,8 +560,8 @@ namespace Ice
 
     /// <summary>
     /// This interface should be implemented by services implementing the Ice::Locator interface.
-    /// It should be
-    ///  advertised through an Ice object with the identity `Ice/LocatorFinder'. This allows clients to
+    /// It should
+    ///  be advertised through an Ice object with the identity `Ice/LocatorFinder'. This allows clients to
     ///  retrieve the locator proxy with just the endpoint information of the service.
     /// </summary>
 
@@ -569,8 +570,8 @@ namespace Ice
     {
         /// <summary>
         /// Get the locator proxy implemented by the process hosting this finder object.
-        /// The proxy might point to several
-        ///  replicas. This proxy is never null.
+        /// The proxy might point to
+        ///  several replicas. This proxy is never null.
         /// </summary>
         ///  <returns>The locator proxy.</returns>
         /// <param name="context">The Context map to send with the invocation.</param>
@@ -579,7 +580,7 @@ namespace Ice
 
         /// <summary>
         /// Get the locator proxy implemented by the process hosting this finder object.
-        /// The proxy might point to several
+        /// The proxy might point to
         /// </summary>
         /// <param name="context">Context map to send with the invocation.</param>
         /// <param name="progress">Sent progress provider.</param>
@@ -594,9 +595,9 @@ namespace Ice
     /// <summary>
     /// The Ice locator interface.
     /// This interface is used by clients to lookup adapters and objects. It is also used by
-    ///  servers to get the locator registry proxy. &lt;p class="Note"&gt;The Locator interface is intended to be used by
-    ///  Ice internals and by locator implementations. Regular user code should not attempt to use any functionality of this
-    ///  interface directly.
+    ///  servers to get the locator registry proxy. &lt;p class="Note"&gt;The Locator interface is intended to be used
+    ///  by Ice internals and by locator implementations. Regular user code should not attempt to use any functionality
+    ///  of this interface directly.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -637,7 +638,8 @@ namespace Ice
     /// The Ice locator registry interface.
     /// This interface is used by servers to register adapter endpoints with the
     ///  locator. &lt;p class="Note"&gt; The LocatorRegistry interface is intended to be used by Ice internals and by
-    ///  locator implementations. Regular user code should not attempt to use any functionality of this interface directly.
+    ///  locator implementations. Regular user code should not attempt to use any functionality of this interface
+    ///  directly.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -663,8 +665,8 @@ namespace Ice
         ///  </param>
         /// <param name="replicaGroupId">The replica group id.
         ///  </param>
-        /// <param name="proxy">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-        ///  endpoints. The proxy can be null, typically during adapter deactivation.
+        /// <param name="proxy">The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+        ///  adapter endpoints. The proxy can be null, typically during adapter deactivation.
         ///  </param>
         /// <param name="current">The Current object for the invocation.</param>
         /// <returns>The task object representing the asynchronous operation.</returns>
@@ -686,8 +688,8 @@ namespace Ice
 
     /// <summary>
     /// This interface should be implemented by services implementing the Ice::Locator interface.
-    /// It should be
-    ///  advertised through an Ice object with the identity `Ice/LocatorFinder'. This allows clients to
+    /// It should
+    ///  be advertised through an Ice object with the identity `Ice/LocatorFinder'. This allows clients to
     ///  retrieve the locator proxy with just the endpoint information of the service.
     /// </summary>
 
@@ -696,8 +698,8 @@ namespace Ice
     {
         /// <summary>
         /// Get the locator proxy implemented by the process hosting this finder object.
-        /// The proxy might point to several
-        ///  replicas. This proxy is never null.
+        /// The proxy might point to
+        ///  several replicas. This proxy is never null.
         /// </summary>
         ///  <returns>The locator proxy.</returns>
         /// <param name="current">The Current object for the invocation.</param>

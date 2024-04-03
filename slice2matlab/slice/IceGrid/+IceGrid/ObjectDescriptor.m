@@ -16,8 +16,8 @@ classdef ObjectDescriptor
         id Ice.Identity
         % type - The object type.
         type char
-        % proxyOptions - Proxy options to use with the proxy created for this Ice object. If empty, the proxy will be created with the
-        % proxy options specified on the object adapter or replica group.
+        % proxyOptions - Proxy options to use with the proxy created for this Ice object. If empty, the proxy will be created with
+        % the proxy options specified on the object adapter or replica group.
         proxyOptions char
     end
     methods

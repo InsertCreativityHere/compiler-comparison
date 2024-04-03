@@ -16,7 +16,7 @@
 
 require 'Ice'
 require 'IceStorm/IceStorm.rb'
-require 'Election.rb'
+require_relative 'Election.rb'
 require 'Ice/Context.rb'
 require 'Ice/OperationMode.rb'
 

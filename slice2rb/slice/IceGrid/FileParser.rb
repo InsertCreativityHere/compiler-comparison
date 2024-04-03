@@ -15,7 +15,7 @@
 #
 
 require 'Ice'
-require 'Admin.rb'
+require_relative 'Admin.rb'
 
 module ::IceGrid
 

@@ -63,8 +63,8 @@ classdef RouterPrx < Ice.RouterPrx
             % Session object is returned to the client. Otherwise, null is returned and only an internal session
             % (i.e., not visible to the client) is created.
             % If a session proxy is returned, it must be configured to route through the router that created it. This will
-            % happen automatically if the router is configured as the client's default router at the time the session proxy
-            % is created in the client process, otherwise the client must configure the session proxy explicitly.
+            % happen automatically if the router is configured as the client's default router at the time the session
+            % proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
             %
             % Parameters:
             %   userId (char) - The user id for which to check the password.
@@ -75,8 +75,8 @@ classdef RouterPrx < Ice.RouterPrx
             %
             % Exceptions:
             %   Glacier2.CannotCreateSessionException - Raised if the session cannot be created.
-            %   Glacier2.PermissionDeniedException - Raised if the password for the given user id is not correct, or if the user
-            %     is not allowed access.
+            %   Glacier2.PermissionDeniedException - Raised if the password for the given user id is not correct, or if the
+            %     user is not allowed access.
             %
             % See also Glacier2.Session, Glacier2.SessionManager, Glacier2.PermissionsVerifier
             
@@ -94,8 +94,8 @@ classdef RouterPrx < Ice.RouterPrx
             % Session object is returned to the client. Otherwise, null is returned and only an internal session
             % (i.e., not visible to the client) is created.
             % If a session proxy is returned, it must be configured to route through the router that created it. This will
-            % happen automatically if the router is configured as the client's default router at the time the session proxy
-            % is created in the client process, otherwise the client must configure the session proxy explicitly.
+            % happen automatically if the router is configured as the client's default router at the time the session
+            % proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
             %
             % Parameters:
             %   userId (char) - The user id for which to check the password.
@@ -106,8 +106,8 @@ classdef RouterPrx < Ice.RouterPrx
             %
             % Exceptions:
             %   Glacier2.CannotCreateSessionException - Raised if the session cannot be created.
-            %   Glacier2.PermissionDeniedException - Raised if the password for the given user id is not correct, or if the user
-            %     is not allowed access.
+            %   Glacier2.PermissionDeniedException - Raised if the password for the given user id is not correct, or if the
+            %     user is not allowed access.
             %
             % See also Glacier2.Session, Glacier2.SessionManager, Glacier2.PermissionsVerifier
             
@@ -124,13 +124,13 @@ classdef RouterPrx < Ice.RouterPrx
             r_ = obj.iceInvokeAsync('createSession', 0, true, os_, 1, @unmarshal, Glacier2.RouterPrx.createSession_ex_, varargin{:});
         end
         function result = createSessionFromSecureConnection(obj, varargin)
-            % createSessionFromSecureConnection   Create a per-client session with the router. The user is authenticated through the SSL certificates that have
-            % been associated with the connection. If a SessionManager has been installed, a proxy to a
+            % createSessionFromSecureConnection   Create a per-client session with the router. The user is authenticated through the SSL certificates that
+            % have been associated with the connection. If a SessionManager has been installed, a proxy to a
             % Session object is returned to the client. Otherwise, null is returned and only an internal session
             % (i.e., not visible to the client) is created.
             % If a session proxy is returned, it must be configured to route through the router that created it. This will
-            % happen automatically if the router is configured as the client's default router at the time the session proxy
-            % is created in the client process, otherwise the client must configure the session proxy explicitly.
+            % happen automatically if the router is configured as the client's default router at the time the session
+            % proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -150,13 +150,13 @@ classdef RouterPrx < Ice.RouterPrx
             is_.endEncapsulation();
         end
         function r_ = createSessionFromSecureConnectionAsync(obj, varargin)
-            % createSessionFromSecureConnectionAsync   Create a per-client session with the router. The user is authenticated through the SSL certificates that have
-            % been associated with the connection. If a SessionManager has been installed, a proxy to a
+            % createSessionFromSecureConnectionAsync   Create a per-client session with the router. The user is authenticated through the SSL certificates that
+            % have been associated with the connection. If a SessionManager has been installed, a proxy to a
             % Session object is returned to the client. Otherwise, null is returned and only an internal session
             % (i.e., not visible to the client) is created.
             % If a session proxy is returned, it must be configured to route through the router that created it. This will
-            % happen automatically if the router is configured as the client's default router at the time the session proxy
-            % is created in the client process, otherwise the client must configure the session proxy explicitly.
+            % happen automatically if the router is configured as the client's default router at the time the session
+            % proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -227,7 +227,8 @@ classdef RouterPrx < Ice.RouterPrx
             r_ = obj.iceInvokeAsync('destroySession', 0, true, [], 0, [], Glacier2.RouterPrx.destroySession_ex_, varargin{:});
         end
         function result = getSessionTimeout(obj, varargin)
-            % getSessionTimeout   Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of time.
+            % getSessionTimeout   Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of
+            % time.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -240,7 +241,8 @@ classdef RouterPrx < Ice.RouterPrx
             is_.endEncapsulation();
         end
         function r_ = getSessionTimeoutAsync(obj, varargin)
-            % getSessionTimeoutAsync   Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of time.
+            % getSessionTimeoutAsync   Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of
+            % time.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.

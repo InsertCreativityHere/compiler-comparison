@@ -15,8 +15,8 @@
 #
 
 require 'Ice'
-require 'SubscriberRecord.rb'
-require 'LLURecord.rb'
+require_relative 'SubscriberRecord.rb'
+require_relative 'LLURecord.rb'
 
 module ::IceStormElection
 

@@ -18,7 +18,7 @@
 
 #include <IceUtil/PushDisableWarnings.h>
 #include <Ice/Ice.h>
-#include <Identity.h>
+#include "Identity.h"
 
 #ifndef ICE_IGNORE_VERSION
 #   if ICE_INT_VERSION  != 30850
@@ -53,9 +53,9 @@ namespace Ice
 
 /**
  * The Ice locator interface. This interface is used by clients to lookup adapters and objects. It is also used by
- * servers to get the locator registry proxy. <p class="Note">The {@link Locator} interface is intended to be used by
- * Ice internals and by locator implementations. Regular user code should not attempt to use any functionality of this
- * interface directly.
+ * servers to get the locator registry proxy. <p class="Note">The {@link Locator} interface is intended to be used
+ * by Ice internals and by locator implementations. Regular user code should not attempt to use any functionality
+ * of this interface directly.
  */
 class ICE_API LocatorPrx : public Proxy<LocatorPrx, ObjectPrx>
 {
@@ -210,7 +210,8 @@ protected:
 /**
  * The Ice locator registry interface. This interface is used by servers to register adapter endpoints with the
  * locator. <p class="Note"> The {@link LocatorRegistry} interface is intended to be used by Ice internals and by
- * locator implementations. Regular user code should not attempt to use any functionality of this interface directly.
+ * locator implementations. Regular user code should not attempt to use any functionality of this interface
+ * directly.
  */
 class ICE_API LocatorRegistryPrx : public Proxy<LocatorRegistryPrx, ObjectPrx>
 {
@@ -260,14 +261,14 @@ public:
      * Set the adapter endpoints with the locator registry.
      * @param adapterId The adapter id.
      * @param replicaGroupId The replica group id.
-     * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-     * endpoints. The proxy can be null, typically during adapter deactivation.
+     * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+     * adapter endpoints. The proxy can be null, typically during adapter deactivation.
      * @param context The Context map to send with the invocation.
      * @throws Ice::AdapterAlreadyActiveException Raised if an adapter with the same id is already active.
      * @throws Ice::AdapterNotFoundException Raised if the adapter cannot be found, or if the locator only allows
      * registered adapters to set their active proxy and the adapter is not registered with the locator.
-     * @throws Ice::InvalidReplicaGroupIdException Raised if the given replica group doesn't match the one registered with
-     * the locator registry for this object adapter.
+     * @throws Ice::InvalidReplicaGroupIdException Raised if the given replica group doesn't match the one registered
+     * with the locator registry for this object adapter.
      */
     void setReplicatedAdapterDirectProxy(::std::string_view adapterId, ::std::string_view replicaGroupId, const ::std::optional<::Ice::ObjectPrx>& proxy, const Context& context = noExplicitContext) const;
 
@@ -275,8 +276,8 @@ public:
      * Set the adapter endpoints with the locator registry.
      * @param adapterId The adapter id.
      * @param replicaGroupId The replica group id.
-     * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-     * endpoints. The proxy can be null, typically during adapter deactivation.
+     * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+     * adapter endpoints. The proxy can be null, typically during adapter deactivation.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -286,8 +287,8 @@ public:
      * Set the adapter endpoints with the locator registry.
      * @param adapterId The adapter id.
      * @param replicaGroupId The replica group id.
-     * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-     * endpoints. The proxy can be null, typically during adapter deactivation.
+     * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+     * adapter endpoints. The proxy can be null, typically during adapter deactivation.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -385,8 +386,8 @@ protected:
 };
 
 /**
- * This interface should be implemented by services implementing the <code>Ice::Locator interface</code>. It should be
- * advertised through an Ice object with the identity <code>`Ice/LocatorFinder'</code>. This allows clients to
+ * This interface should be implemented by services implementing the <code>Ice::Locator interface</code>. It should
+ * be advertised through an Ice object with the identity <code>`Ice/LocatorFinder'</code>. This allows clients to
  * retrieve the locator proxy with just the endpoint information of the service.
  */
 class ICE_API LocatorFinderPrx : public Proxy<LocatorFinderPrx, ObjectPrx>
@@ -394,24 +395,24 @@ class ICE_API LocatorFinderPrx : public Proxy<LocatorFinderPrx, ObjectPrx>
 public:
 
     /**
-     * Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
-     * replicas. This proxy is never null.
+     * Get the locator proxy implemented by the process hosting this finder object. The proxy might point to
+     * several replicas. This proxy is never null.
      * @param context The Context map to send with the invocation.
      * @return The locator proxy.
      */
     ::std::optional<LocatorPrx> getLocator(const Context& context = noExplicitContext) const;
 
     /**
-     * Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
-     * replicas. This proxy is never null.
+     * Get the locator proxy implemented by the process hosting this finder object. The proxy might point to
+     * several replicas. This proxy is never null.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
     ::std::future<::std::optional<LocatorPrx>> getLocatorAsync(const Context& context = noExplicitContext) const;
 
     /**
-     * Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
-     * replicas. This proxy is never null.
+     * Get the locator proxy implemented by the process hosting this finder object. The proxy might point to
+     * several replicas. This proxy is never null.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -614,9 +615,9 @@ namespace Ice
 
 /**
  * The Ice locator interface. This interface is used by clients to lookup adapters and objects. It is also used by
- * servers to get the locator registry proxy. <p class="Note">The {@link Locator} interface is intended to be used by
- * Ice internals and by locator implementations. Regular user code should not attempt to use any functionality of this
- * interface directly.
+ * servers to get the locator registry proxy. <p class="Note">The {@link Locator} interface is intended to be used
+ * by Ice internals and by locator implementations. Regular user code should not attempt to use any functionality
+ * of this interface directly.
  */
 class ICE_API Locator : public virtual Object
 {
@@ -691,7 +692,8 @@ using LocatorPtr = ::std::shared_ptr<Locator>;
 /**
  * The Ice locator registry interface. This interface is used by servers to register adapter endpoints with the
  * locator. <p class="Note"> The {@link LocatorRegistry} interface is intended to be used by Ice internals and by
- * locator implementations. Regular user code should not attempt to use any functionality of this interface directly.
+ * locator implementations. Regular user code should not attempt to use any functionality of this interface
+ * directly.
  */
 class ICE_API LocatorRegistry : public virtual Object
 {
@@ -740,16 +742,16 @@ public:
      * Set the adapter endpoints with the locator registry.
      * @param adapterId The adapter id.
      * @param replicaGroupId The replica group id.
-     * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-     * endpoints. The proxy can be null, typically during adapter deactivation.
+     * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+     * adapter endpoints. The proxy can be null, typically during adapter deactivation.
      * @param response The response callback.
      * @param exception The exception callback.
      * @param current The Current object for the invocation.
      * @throws Ice::AdapterAlreadyActiveException Raised if an adapter with the same id is already active.
      * @throws Ice::AdapterNotFoundException Raised if the adapter cannot be found, or if the locator only allows
      * registered adapters to set their active proxy and the adapter is not registered with the locator.
-     * @throws Ice::InvalidReplicaGroupIdException Raised if the given replica group doesn't match the one registered with
-     * the locator registry for this object adapter.
+     * @throws Ice::InvalidReplicaGroupIdException Raised if the given replica group doesn't match the one registered
+     * with the locator registry for this object adapter.
      */
     virtual void setReplicatedAdapterDirectProxyAsync(::std::string adapterId, ::std::string replicaGroupId, ::std::optional<::Ice::ObjectPrx> proxy, ::std::function<void()> response, ::std::function<void(::std::exception_ptr)> exception, const Current& current) = 0;
     /// \cond INTERNAL
@@ -778,8 +780,8 @@ public:
 using LocatorRegistryPtr = ::std::shared_ptr<LocatorRegistry>;
 
 /**
- * This interface should be implemented by services implementing the <code>Ice::Locator interface</code>. It should be
- * advertised through an Ice object with the identity <code>`Ice/LocatorFinder'</code>. This allows clients to
+ * This interface should be implemented by services implementing the <code>Ice::Locator interface</code>. It should
+ * be advertised through an Ice object with the identity <code>`Ice/LocatorFinder'</code>. This allows clients to
  * retrieve the locator proxy with just the endpoint information of the service.
  */
 class ICE_API LocatorFinder : public virtual Object
@@ -809,8 +811,8 @@ public:
     static ::std::string_view ice_staticId() noexcept;
 
     /**
-     * Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
-     * replicas. This proxy is never null.
+     * Get the locator proxy implemented by the process hosting this finder object. The proxy might point to
+     * several replicas. This proxy is never null.
      * @param current The Current object for the invocation.
      * @return The locator proxy.
      */

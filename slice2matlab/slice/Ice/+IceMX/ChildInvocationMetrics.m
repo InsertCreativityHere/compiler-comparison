@@ -15,7 +15,8 @@ classdef ChildInvocationMetrics < IceMX.Metrics
     properties
         % size - The size of the invocation. This corresponds to the size of the marshalled input parameters.
         size int64
-        % replySize - The size of the invocation reply. This corresponds to the size of the marshalled output and return parameters.
+        % replySize - The size of the invocation reply. This corresponds to the size of the marshalled output and return
+        % parameters.
         replySize int64
     end
     methods

@@ -42,7 +42,8 @@ let IceMX = _ModuleRegistry.module("IceMX");
 Slice.defineDictionary(IceMX, "StringIntDict", "StringIntDictHelper", "Ice.StringHelper", "Ice.IntHelper", false, undefined, undefined);
 
 /**
- *  The base class for metrics. A metrics object represents a collection of measurements associated to a given a system.
+ *  The base class for metrics. A metrics object represents a collection of measurements associated to a given a
+ *  system.
  **/
 IceMX.Metrics = class extends Ice.Value
 {
@@ -146,8 +147,8 @@ const iceC_IceMX_MetricsAdmin_ids = [
 ];
 
 /**
- *  The metrics administrative facet interface. This interface allows remote administrative clients to access metrics
- *  of an application that enabled the Ice administrative facility and configured some metrics views.
+ *  The metrics administrative facet interface. This interface allows remote administrative clients to access
+ *  metrics of an application that enabled the Ice administrative facility and configured some metrics views.
  **/
 IceMX.MetricsAdmin = class extends Ice.Object
 {

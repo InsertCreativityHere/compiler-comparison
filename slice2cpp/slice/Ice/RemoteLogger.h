@@ -18,7 +18,7 @@
 
 #include <IceUtil/PushDisableWarnings.h>
 #include <Ice/Ice.h>
-#include <BuiltinSequences.h>
+#include "BuiltinSequences.h"
 #include <list>
 
 #ifndef ICE_IGNORE_VERSION

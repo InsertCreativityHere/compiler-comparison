@@ -20,10 +20,12 @@
 classdef ObjectObserverPrx < Ice.ObjectPrx
     methods
         function objectInit(obj, objects, varargin)
-            % objectInit   objectInit is called after the registration of an observer to indicate the state of the registry.
+            % objectInit   objectInit is called after the registration of an observer to indicate the state of the
+            % registry.
             %
             % Parameters:
-            %   objects (IceGrid.ObjectInfoSeq) - The objects registered with the Admin interface (not through the deployment mechanism).
+            %   objects (IceGrid.ObjectInfoSeq) - The objects registered with the Admin interface (not through the deployment
+            %     mechanism).
             %   context (containers.Map) - Optional request context.
             
             os_ = obj.iceStartWriteParams([]);
@@ -32,10 +34,12 @@ classdef ObjectObserverPrx < Ice.ObjectPrx
             obj.iceInvoke('objectInit', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = objectInitAsync(obj, objects, varargin)
-            % objectInitAsync   objectInit is called after the registration of an observer to indicate the state of the registry.
+            % objectInitAsync   objectInit is called after the registration of an observer to indicate the state of the
+            % registry.
             %
             % Parameters:
-            %   objects (IceGrid.ObjectInfoSeq) - The objects registered with the Admin interface (not through the deployment mechanism).
+            %   objects (IceGrid.ObjectInfoSeq) - The objects registered with the Admin interface (not through the deployment
+            %     mechanism).
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.

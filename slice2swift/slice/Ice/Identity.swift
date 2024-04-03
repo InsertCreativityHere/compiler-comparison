@@ -15,9 +15,9 @@
 
 import Foundation
 
-/// The identity of an Ice object. In a proxy, an empty Identity.name denotes a nil proxy. An identity with an
-/// empty Identity.name and a non-empty Identity.category is illegal. You cannot add a servant with an
-/// empty name to the Active Servant Map.
+/// The identity of an Ice object. In a proxy, an empty Identity.name denotes a nil proxy. An identity with
+/// an empty Identity.name and a non-empty Identity.category is illegal. You cannot add a servant
+/// with an empty name to the Active Servant Map.
 public struct Identity: Swift.Hashable {
     /// The name of the Ice object.
     public var name: Swift.String = ""

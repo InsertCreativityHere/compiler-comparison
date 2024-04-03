@@ -37,8 +37,8 @@ public interface Router extends Object
          * This constructor makes shallow copies of the results for operation GetClientProxy.
          * @param returnValue The router's client proxy.
          * @param hasRoutingTable Indicates whether or not the router supports a routing table. If it is supported, the
-         * Ice runtime will call addProxies to populate the routing table. This out parameter is only supported starting
-         * with Ice 3.7.
+         * Ice runtime will call addProxies to populate the routing table. This out parameter is only supported
+         * starting with Ice 3.7.
          * The Ice runtime assumes the router has a routing table if the <code>hasRoutingTable</code> is not set.
          **/
         public GetClientProxyResult(ObjectPrx returnValue, java.util.Optional<java.lang.Boolean> hasRoutingTable)
@@ -51,8 +51,8 @@ public interface Router extends Object
          * This constructor makes shallow copies of the results for operation GetClientProxy (overload without Optional parameters).
          * @param returnValue The router's client proxy.
          * @param hasRoutingTable Indicates whether or not the router supports a routing table. If it is supported, the
-         * Ice runtime will call addProxies to populate the routing table. This out parameter is only supported starting
-         * with Ice 3.7.
+         * Ice runtime will call addProxies to populate the routing table. This out parameter is only supported
+         * starting with Ice 3.7.
          * The Ice runtime assumes the router has a routing table if the <code>hasRoutingTable</code> is not set.
          **/
         public GetClientProxyResult(ObjectPrx returnValue, boolean hasRoutingTable)
@@ -67,8 +67,8 @@ public interface Router extends Object
         public ObjectPrx returnValue;
         /**
          * Indicates whether or not the router supports a routing table. If it is supported, the
-         * Ice runtime will call addProxies to populate the routing table. This out parameter is only supported starting
-         * with Ice 3.7.
+         * Ice runtime will call addProxies to populate the routing table. This out parameter is only supported
+         * starting with Ice 3.7.
          * The Ice runtime assumes the router has a routing table if the <code>hasRoutingTable</code> is not set.
          **/
         public java.util.Optional<java.lang.Boolean> hasRoutingTable;

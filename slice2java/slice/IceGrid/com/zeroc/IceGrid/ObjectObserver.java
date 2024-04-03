@@ -21,8 +21,10 @@ package com.zeroc.IceGrid;
 public interface ObjectObserver extends com.zeroc.Ice.Object
 {
     /**
-     * <code>objectInit</code> is called after the registration of an observer to indicate the state of the registry.
-     * @param objects The objects registered with the {@link Admin} interface (not through the deployment mechanism).
+     * <code>objectInit</code> is called after the registration of an observer to indicate the state of the
+     * registry.
+     * @param objects The objects registered with the {@link Admin} interface (not through the deployment
+     * mechanism).
      * @param current The Current object for the invocation.
      **/
     void objectInit(ObjectInfo[] objects, com.zeroc.Ice.Current current);

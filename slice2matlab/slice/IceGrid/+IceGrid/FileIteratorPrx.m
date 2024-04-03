@@ -26,8 +26,8 @@ classdef FileIteratorPrx < Ice.ObjectPrx
             % Returns:
             %   result (logical) - True if EOF is encountered.
             %   lines (Ice.StringSeq) - The lines read from the file. If there was nothing to read from the file since the last call to
-            %     read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no '\n'
-            %     should be added when writing the last line to the to the output device).
+            %     read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no
+            %     '\n' should be added when writing the last line to the to the output device).
             %
             % Exceptions:
             %   IceGrid.FileNotAvailableException - Raised if there was a problem to read lines from the file.

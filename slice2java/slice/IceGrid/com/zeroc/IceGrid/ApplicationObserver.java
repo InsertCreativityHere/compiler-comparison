@@ -16,16 +16,16 @@
 package com.zeroc.IceGrid;
 
 /**
- * The database observer interface. Observers should implement this interface to receive information about the state
- * of the IceGrid registry database.
+ * The database observer interface. Observers should implement this interface to receive information about the
+ * state of the IceGrid registry database.
  **/
 public interface ApplicationObserver extends com.zeroc.Ice.Object
 {
     /**
      * <code>applicationInit</code> is called after the registration of an observer to indicate the state of the
      * registry.
-     * @param serial The current serial number of the registry database. This serial number allows observers to make
-     * sure that their internal state is synchronized with the registry.
+     * @param serial The current serial number of the registry database. This serial number allows observers to
+     * make sure that their internal state is synchronized with the registry.
      * @param applications The applications currently registered with the registry.
      * @param current The Current object for the invocation.
      **/
@@ -40,7 +40,8 @@ public interface ApplicationObserver extends com.zeroc.Ice.Object
     void applicationAdded(int serial, ApplicationInfo desc, com.zeroc.Ice.Current current);
 
     /**
-     * The <code>applicationRemoved</code> operation is called to notify an observer that an application was removed.
+     * The <code>applicationRemoved</code> operation is called to notify an observer that an application was
+     * removed.
      * @param serial The new serial number of the registry database.
      * @param name The name of the application that was removed.
      * @param current The Current object for the invocation.
@@ -48,7 +49,8 @@ public interface ApplicationObserver extends com.zeroc.Ice.Object
     void applicationRemoved(int serial, String name, com.zeroc.Ice.Current current);
 
     /**
-     * The <code>applicationUpdated</code> operation is called to notify an observer that an application was updated.
+     * The <code>applicationUpdated</code> operation is called to notify an observer that an application was
+     * updated.
      * @param serial The new serial number of the registry database.
      * @param desc The descriptor of the update.
      * @param current The Current object for the invocation.

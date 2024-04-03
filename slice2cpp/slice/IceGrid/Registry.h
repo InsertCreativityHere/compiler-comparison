@@ -18,10 +18,10 @@
 
 #include <IceUtil/PushDisableWarnings.h>
 #include <Ice/Ice.h>
-#include <Exception.h>
-#include <Session.h>
-#include <Admin.h>
-#include <Ice/Locator.h>
+#include "Exception.h"
+#include "Session.h"
+#include "Admin.h"
+#include "../Ice/Locator.h"
 #include <IceGrid/Config.h>
 
 #ifndef ICE_IGNORE_VERSION

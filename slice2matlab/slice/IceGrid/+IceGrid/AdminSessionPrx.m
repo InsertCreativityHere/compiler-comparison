@@ -1,8 +1,8 @@
 % AdminSessionPrx   Summary of AdminSessionPrx
 %
 % Used by administrative clients to view, update, and receive observer updates from the IceGrid registry. Admin
-% sessions are created either via the Registry object or via the registry admin SessionManager
-% object.
+% sessions are created either via the Registry object or via the registry admin
+% SessionManager object.
 %
 % AdminSessionPrx Methods:
 %   keepAlive - Keep the session alive.
@@ -99,8 +99,8 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             r_ = obj.iceInvokeAsync('getAdmin', 1, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = getAdminCallbackTemplate(obj, varargin)
-            % getAdminCallbackTemplate   Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
-            % callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
+            % getAdminCallbackTemplate   Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of
+            % its callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -113,8 +113,8 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             is_.endEncapsulation();
         end
         function r_ = getAdminCallbackTemplateAsync(obj, varargin)
-            % getAdminCallbackTemplateAsync   Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
-            % callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
+            % getAdminCallbackTemplateAsync   Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of
+            % its callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
             %
             % Parameters:
             %   context (containers.Map) - Optional request context.
@@ -179,7 +179,8 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
         end
         function setObserversByIdentity(obj, registryObs, nodeObs, appObs, adptObs, objObs, varargin)
             % setObserversByIdentity   Set the observer identities that receive notifications the state of the registry or nodes changes. This
-            % operation should be used by clients that are using a bidirectional connection to communicate with the session.
+            % operation should be used by clients that are using a bidirectional connection to communicate with the
+            % session.
             %
             % Parameters:
             %   registryObs (Ice.Identity) - The registry observer identity.
@@ -203,7 +204,8 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
         end
         function r_ = setObserversByIdentityAsync(obj, registryObs, nodeObs, appObs, adptObs, objObs, varargin)
             % setObserversByIdentityAsync   Set the observer identities that receive notifications the state of the registry or nodes changes. This
-            % operation should be used by clients that are using a bidirectional connection to communicate with the session.
+            % operation should be used by clients that are using a bidirectional connection to communicate with the
+            % session.
             %
             % Parameters:
             %   registryObs (Ice.Identity) - The registry observer identity.
@@ -236,8 +238,8 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             % Returns (int32) - The current serial.
             %
             % Exceptions:
-            %   IceGrid.AccessDeniedException - Raised if the exclusive lock can't be acquired. This might happen if the lock is
-            %     currently acquired by another session.
+            %   IceGrid.AccessDeniedException - Raised if the exclusive lock can't be acquired. This might happen if the lock
+            %     is currently acquired by another session.
             
             is_ = obj.iceInvoke('startUpdate', 0, true, [], true, IceGrid.AdminSessionPrx.startUpdate_ex_, varargin{:});
             is_.startEncapsulation();
@@ -253,8 +255,8 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   IceGrid.AccessDeniedException - Raised if the exclusive lock can't be acquired. This might happen if the lock is
-            %     currently acquired by another session.
+            %   IceGrid.AccessDeniedException - Raised if the exclusive lock can't be acquired. This might happen if the lock
+            %     is currently acquired by another session.
             
             function varargout = unmarshal(is_)
                 is_.startEncapsulation();
@@ -322,10 +324,10 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %
             % Parameters:
             %   id (char) - The server id.
-            %   path (char) - The path of the log file. A log file can be opened only if it's declared in the server or service
-            %     deployment descriptor.
-            %   count (int32) - Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-            %     or positive, the file is read from the last count lines.
+            %   path (char) - The path of the log file. A log file can be opened only if it's declared in the server or
+            %     service deployment descriptor.
+            %   count (int32) - Specifies where to start reading the file. If negative, the file is read from the begining. If
+            %     0 or positive, the file is read from the last count lines.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (IceGrid.FileIteratorPrx) - An iterator to read the file. The returned proxy is never null.
@@ -351,10 +353,10 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %
             % Parameters:
             %   id (char) - The server id.
-            %   path (char) - The path of the log file. A log file can be opened only if it's declared in the server or service
-            %     deployment descriptor.
-            %   count (int32) - Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-            %     or positive, the file is read from the last count lines.
+            %   path (char) - The path of the log file. A log file can be opened only if it's declared in the server or
+            %     service deployment descriptor.
+            %   count (int32) - Specifies where to start reading the file. If negative, the file is read from the begining. If
+            %     0 or positive, the file is read from the last count lines.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
@@ -383,8 +385,8 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %
             % Parameters:
             %   id (char) - The server id.
-            %   count (int32) - Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-            %     or positive, the file is read from the last count lines.
+            %   count (int32) - Specifies where to start reading the file. If negative, the file is read from the begining. If
+            %     0 or positive, the file is read from the last count lines.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (IceGrid.FileIteratorPrx) - An iterator to read the file. The returned proxy is never null.
@@ -409,8 +411,8 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %
             % Parameters:
             %   id (char) - The server id.
-            %   count (int32) - Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-            %     or positive, the file is read from the last count lines.
+            %   count (int32) - Specifies where to start reading the file. If negative, the file is read from the begining. If
+            %     0 or positive, the file is read from the last count lines.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
@@ -493,8 +495,8 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %
             % Parameters:
             %   name (char) - The node name.
-            %   count (int32) - Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-            %     or positive, the file is read from the last count lines.
+            %   count (int32) - Specifies where to start reading the file. If negative, the file is read from the begining. If
+            %     0 or positive, the file is read from the last count lines.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (IceGrid.FileIteratorPrx) - An iterator to read the file. The returned proxy is never null.
@@ -518,8 +520,8 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %
             % Parameters:
             %   name (char) - The node name.
-            %   count (int32) - Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-            %     or positive, the file is read from the last count lines.
+            %   count (int32) - Specifies where to start reading the file. If negative, the file is read from the begining. If
+            %     0 or positive, the file is read from the last count lines.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
@@ -546,8 +548,8 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %
             % Parameters:
             %   name (char) - The node name.
-            %   count (int32) - Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-            %     or positive, the file is read from the last count lines.
+            %   count (int32) - Specifies where to start reading the file. If negative, the file is read from the begining. If
+            %     0 or positive, the file is read from the last count lines.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (IceGrid.FileIteratorPrx) - An iterator to read the file. The returned proxy is never null.
@@ -571,8 +573,8 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %
             % Parameters:
             %   name (char) - The node name.
-            %   count (int32) - Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-            %     or positive, the file is read from the last count lines.
+            %   count (int32) - Specifies where to start reading the file. If negative, the file is read from the begining. If
+            %     0 or positive, the file is read from the last count lines.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
@@ -599,8 +601,8 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %
             % Parameters:
             %   name (char) - The registry name.
-            %   count (int32) - Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-            %     or positive, the file is read from the last count lines.
+            %   count (int32) - Specifies where to start reading the file. If negative, the file is read from the begining. If
+            %     0 or positive, the file is read from the last count lines.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (IceGrid.FileIteratorPrx) - An iterator to read the file. The returned proxy is never null.
@@ -624,8 +626,8 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %
             % Parameters:
             %   name (char) - The registry name.
-            %   count (int32) - Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-            %     or positive, the file is read from the last count lines.
+            %   count (int32) - Specifies where to start reading the file. If negative, the file is read from the begining. If
+            %     0 or positive, the file is read from the last count lines.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
@@ -652,8 +654,8 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %
             % Parameters:
             %   name (char) - The registry name.
-            %   count (int32) - Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-            %     or positive, the file is read from the last count lines.
+            %   count (int32) - Specifies where to start reading the file. If negative, the file is read from the begining. If
+            %     0 or positive, the file is read from the last count lines.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (IceGrid.FileIteratorPrx) - An iterator to read the file. The returned proxy is never null.
@@ -677,8 +679,8 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %
             % Parameters:
             %   name (char) - The registry name.
-            %   count (int32) - Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-            %     or positive, the file is read from the last count lines.
+            %   count (int32) - Specifies where to start reading the file. If negative, the file is read from the begining. If
+            %     0 or positive, the file is read from the last count lines.
             %   context (containers.Map) - Optional request context.
             %
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.

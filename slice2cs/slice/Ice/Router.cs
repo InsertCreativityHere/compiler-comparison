@@ -97,8 +97,8 @@ namespace Ice
         /// If a null proxy is returned, the client will forward requests to the router's endpoints.
         /// </summary>
         ///  <param name="hasRoutingTable">Indicates whether or not the router supports a routing table. If it is supported, the
-        ///  Ice runtime will call addProxies to populate the routing table. This out parameter is only supported starting
-        ///  with Ice 3.7.
+        ///  Ice runtime will call addProxies to populate the routing table. This out parameter is only supported
+        ///  starting with Ice 3.7.
         ///  The Ice runtime assumes the router has a routing table if the hasRoutingTable is not set.
         ///  </param>
         /// <returns>The router's client proxy.</returns>
@@ -158,8 +158,8 @@ namespace Ice
     /// <summary>
     /// This interface should be implemented by services implementing the Ice::Router interface.
     /// It should be advertised
-    ///  through an Ice object with the identity `Ice/RouterFinder'. This allows clients to retrieve the router proxy with
-    ///  just the endpoint information of the service.
+    ///  through an Ice object with the identity `Ice/RouterFinder'. This allows clients to retrieve the router proxy
+    ///  with just the endpoint information of the service.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -203,8 +203,8 @@ namespace Ice
         /// If a null proxy is returned, the client will forward requests to the router's endpoints.
         /// </summary>
         ///  <param name="hasRoutingTable">Indicates whether or not the router supports a routing table. If it is supported, the
-        ///  Ice runtime will call addProxies to populate the routing table. This out parameter is only supported starting
-        ///  with Ice 3.7.
+        ///  Ice runtime will call addProxies to populate the routing table. This out parameter is only supported
+        ///  starting with Ice 3.7.
         ///  The Ice runtime assumes the router has a routing table if the hasRoutingTable is not set.
         ///  </param>
         /// <returns>The router's client proxy.</returns>
@@ -237,8 +237,8 @@ namespace Ice
     /// <summary>
     /// This interface should be implemented by services implementing the Ice::Router interface.
     /// It should be advertised
-    ///  through an Ice object with the identity `Ice/RouterFinder'. This allows clients to retrieve the router proxy with
-    ///  just the endpoint information of the service.
+    ///  through an Ice object with the identity `Ice/RouterFinder'. This allows clients to retrieve the router proxy
+    ///  with just the endpoint information of the service.
     /// </summary>
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]

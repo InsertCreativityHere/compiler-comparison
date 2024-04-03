@@ -752,7 +752,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
         """
          Synchronize a deployed application with the given application descriptor. This operation will replace the
          current descriptor with this new descriptor only if no server restarts are necessary for the update of the
-         application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
+         application. If some servers need to be restarted, the synchronization is rejected with a
+         DeploymentException.
         Arguments:
         descriptor -- The application descriptor.
         context -- The request context for the invocation.
@@ -767,7 +768,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
         """
          Synchronize a deployed application with the given application descriptor. This operation will replace the
          current descriptor with this new descriptor only if no server restarts are necessary for the update of the
-         application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
+         application. If some servers need to be restarted, the synchronization is rejected with a
+         DeploymentException.
         Arguments:
         descriptor -- The application descriptor.
         context -- The request context for the invocation.
@@ -1028,8 +1030,9 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_getServerAdmin.invokeAsync(self, ((id, ), context))
 
         """
-         Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
-         of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
+         Enable or disable a server. A disabled server can't be started on demand or administratively. The enable
+         state of the server is not persistent: if the node is shut down and restarted, the server will be enabled by
+         default.
         Arguments:
         id -- The server id.
         enabled -- True to enable the server, false to disable it.
@@ -1043,8 +1046,9 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.Admin._op_enableServer.invoke(self, ((id, enabled), context))
 
         """
-         Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
-         of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
+         Enable or disable a server. A disabled server can't be started on demand or administratively. The enable
+         state of the server is not persistent: if the node is shut down and restarted, the server will be enabled by
+         default.
         Arguments:
         id -- The server id.
         enabled -- True to enable the server, false to disable it.
@@ -1483,8 +1487,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         """
          Get the number of physical processor sockets for the machine running the node with the given name.
-         Note that this method will return 1 on operating systems where this can't be automatically determined and where
-         the IceGrid.Node.ProcessorSocketCount property for the node is not set.
+         Note that this method will return 1 on operating systems where this can't be automatically determined and
+         where the IceGrid.Node.ProcessorSocketCount property for the node is not set.
         Arguments:
         name -- The node name.
         context -- The request context for the invocation.
@@ -1498,8 +1502,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         """
          Get the number of physical processor sockets for the machine running the node with the given name.
-         Note that this method will return 1 on operating systems where this can't be automatically determined and where
-         the IceGrid.Node.ProcessorSocketCount property for the node is not set.
+         Note that this method will return 1 on operating systems where this can't be automatically determined and
+         where the IceGrid.Node.ProcessorSocketCount property for the node is not set.
         Arguments:
         name -- The node name.
         context -- The request context for the invocation.
@@ -1770,7 +1774,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
             """
              Synchronize a deployed application with the given application descriptor. This operation will replace the
              current descriptor with this new descriptor only if no server restarts are necessary for the update of the
-             application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
+             application. If some servers need to be restarted, the synchronization is rejected with a
+             DeploymentException.
             Arguments:
             descriptor -- The application descriptor.
             current -- The Current object for the invocation.
@@ -1926,8 +1931,9 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
 
         def enableServer(self, id, enabled, current=None):
             """
-             Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
-             of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
+             Enable or disable a server. A disabled server can't be started on demand or administratively. The enable
+             state of the server is not persistent: if the node is shut down and restarted, the server will be enabled by
+             default.
             Arguments:
             id -- The server id.
             enabled -- True to enable the server, false to disable it.
@@ -2185,8 +2191,8 @@ if 'AdminPrx' not in _M_IceGrid.__dict__:
         def getNodeProcessorSocketCount(self, name, current=None):
             """
              Get the number of physical processor sockets for the machine running the node with the given name.
-             Note that this method will return 1 on operating systems where this can't be automatically determined and where
-             the IceGrid.Node.ProcessorSocketCount property for the node is not set.
+             Note that this method will return 1 on operating systems where this can't be automatically determined and
+             where the IceGrid.Node.ProcessorSocketCount property for the node is not set.
             Arguments:
             name -- The node name.
             current -- The Current object for the invocation.
@@ -2836,8 +2842,8 @@ if 'NodeObserverPrx' not in _M_IceGrid.__dict__:
     class NodeObserverPrx(Ice.ObjectPrx):
 
         """
-         The nodeInit operation indicates the current state of nodes. It is called after the registration
-         of an observer.
+         The nodeInit operation indicates the current state of nodes. It is called after the
+         registration of an observer.
         Arguments:
         nodes -- The current state of the nodes.
         context -- The request context for the invocation.
@@ -2846,8 +2852,8 @@ if 'NodeObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.NodeObserver._op_nodeInit.invoke(self, ((nodes, ), context))
 
         """
-         The nodeInit operation indicates the current state of nodes. It is called after the registration
-         of an observer.
+         The nodeInit operation indicates the current state of nodes. It is called after the
+         registration of an observer.
         Arguments:
         nodes -- The current state of the nodes.
         context -- The request context for the invocation.
@@ -2916,7 +2922,8 @@ if 'NodeObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.NodeObserver._op_updateServer.invokeAsync(self, ((node, updatedInfo), context))
 
         """
-         The updateAdapter operation is called to notify an observer that the state of an adapter changed.
+         The updateAdapter operation is called to notify an observer that the state of an adapter
+         changed.
         Arguments:
         node -- The node hosting the adapter.
         updatedInfo -- The new adapter state.
@@ -2926,7 +2933,8 @@ if 'NodeObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.NodeObserver._op_updateAdapter.invoke(self, ((node, updatedInfo), context))
 
         """
-         The updateAdapter operation is called to notify an observer that the state of an adapter changed.
+         The updateAdapter operation is called to notify an observer that the state of an adapter
+         changed.
         Arguments:
         node -- The node hosting the adapter.
         updatedInfo -- The new adapter state.
@@ -2967,8 +2975,8 @@ if 'NodeObserverPrx' not in _M_IceGrid.__dict__:
 
         def nodeInit(self, nodes, current=None):
             """
-             The nodeInit operation indicates the current state of nodes. It is called after the registration
-             of an observer.
+             The nodeInit operation indicates the current state of nodes. It is called after the
+             registration of an observer.
             Arguments:
             nodes -- The current state of the nodes.
             current -- The Current object for the invocation.
@@ -3009,7 +3017,8 @@ if 'NodeObserverPrx' not in _M_IceGrid.__dict__:
 
         def updateAdapter(self, node, updatedInfo, current=None):
             """
-             The updateAdapter operation is called to notify an observer that the state of an adapter changed.
+             The updateAdapter operation is called to notify an observer that the state of an adapter
+             changed.
             Arguments:
             node -- The node hosting the adapter.
             updatedInfo -- The new adapter state.
@@ -3086,7 +3095,8 @@ if 'ApplicationObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.ApplicationObserver._op_applicationAdded.invokeAsync(self, ((serial, desc), context))
 
         """
-         The applicationRemoved operation is called to notify an observer that an application was removed.
+         The applicationRemoved operation is called to notify an observer that an application was
+         removed.
         Arguments:
         serial -- The new serial number of the registry database.
         name -- The name of the application that was removed.
@@ -3096,7 +3106,8 @@ if 'ApplicationObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.ApplicationObserver._op_applicationRemoved.invoke(self, ((serial, name), context))
 
         """
-         The applicationRemoved operation is called to notify an observer that an application was removed.
+         The applicationRemoved operation is called to notify an observer that an application was
+         removed.
         Arguments:
         serial -- The new serial number of the registry database.
         name -- The name of the application that was removed.
@@ -3107,7 +3118,8 @@ if 'ApplicationObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.ApplicationObserver._op_applicationRemoved.invokeAsync(self, ((serial, name), context))
 
         """
-         The applicationUpdated operation is called to notify an observer that an application was updated.
+         The applicationUpdated operation is called to notify an observer that an application was
+         updated.
         Arguments:
         serial -- The new serial number of the registry database.
         desc -- The descriptor of the update.
@@ -3117,7 +3129,8 @@ if 'ApplicationObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.ApplicationObserver._op_applicationUpdated.invoke(self, ((serial, desc), context))
 
         """
-         The applicationUpdated operation is called to notify an observer that an application was updated.
+         The applicationUpdated operation is called to notify an observer that an application was
+         updated.
         Arguments:
         serial -- The new serial number of the registry database.
         desc -- The descriptor of the update.
@@ -3181,7 +3194,8 @@ if 'ApplicationObserverPrx' not in _M_IceGrid.__dict__:
 
         def applicationRemoved(self, serial, name, current=None):
             """
-             The applicationRemoved operation is called to notify an observer that an application was removed.
+             The applicationRemoved operation is called to notify an observer that an application was
+             removed.
             Arguments:
             serial -- The new serial number of the registry database.
             name -- The name of the application that was removed.
@@ -3192,7 +3206,8 @@ if 'ApplicationObserverPrx' not in _M_IceGrid.__dict__:
 
         def applicationUpdated(self, serial, desc, current=None):
             """
-             The applicationUpdated operation is called to notify an observer that an application was updated.
+             The applicationUpdated operation is called to notify an observer that an application was
+             updated.
             Arguments:
             serial -- The new serial number of the registry database.
             desc -- The descriptor of the update.
@@ -3243,8 +3258,8 @@ if 'AdapterObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdapterObserver._op_adapterInit.invokeAsync(self, ((adpts, ), context))
 
         """
-         The adapterAdded operation is called to notify an observer when a dynamically-registered adapter
-         was added.
+         The adapterAdded operation is called to notify an observer when a dynamically-registered
+         adapter was added.
         Arguments:
         info -- The details of the new adapter.
         context -- The request context for the invocation.
@@ -3253,8 +3268,8 @@ if 'AdapterObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdapterObserver._op_adapterAdded.invoke(self, ((info, ), context))
 
         """
-         The adapterAdded operation is called to notify an observer when a dynamically-registered adapter
-         was added.
+         The adapterAdded operation is called to notify an observer when a dynamically-registered
+         adapter was added.
         Arguments:
         info -- The details of the new adapter.
         context -- The request context for the invocation.
@@ -3264,7 +3279,8 @@ if 'AdapterObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdapterObserver._op_adapterAdded.invokeAsync(self, ((info, ), context))
 
         """
-         The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
+         The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was
+         updated.
         Arguments:
         info -- The details of the updated adapter.
         context -- The request context for the invocation.
@@ -3273,7 +3289,8 @@ if 'AdapterObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdapterObserver._op_adapterUpdated.invoke(self, ((info, ), context))
 
         """
-         The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
+         The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was
+         updated.
         Arguments:
         info -- The details of the updated adapter.
         context -- The request context for the invocation.
@@ -3283,7 +3300,8 @@ if 'AdapterObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdapterObserver._op_adapterUpdated.invokeAsync(self, ((info, ), context))
 
         """
-         The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
+         The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was
+         removed.
         Arguments:
         id -- The ID of the removed adapter.
         context -- The request context for the invocation.
@@ -3292,7 +3310,8 @@ if 'AdapterObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdapterObserver._op_adapterRemoved.invoke(self, ((id, ), context))
 
         """
-         The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
+         The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was
+         removed.
         Arguments:
         id -- The ID of the removed adapter.
         context -- The request context for the invocation.
@@ -3342,8 +3361,8 @@ if 'AdapterObserverPrx' not in _M_IceGrid.__dict__:
 
         def adapterAdded(self, info, current=None):
             """
-             The adapterAdded operation is called to notify an observer when a dynamically-registered adapter
-             was added.
+             The adapterAdded operation is called to notify an observer when a dynamically-registered
+             adapter was added.
             Arguments:
             info -- The details of the new adapter.
             current -- The Current object for the invocation.
@@ -3353,7 +3372,8 @@ if 'AdapterObserverPrx' not in _M_IceGrid.__dict__:
 
         def adapterUpdated(self, info, current=None):
             """
-             The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
+             The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was
+             updated.
             Arguments:
             info -- The details of the updated adapter.
             current -- The Current object for the invocation.
@@ -3363,7 +3383,8 @@ if 'AdapterObserverPrx' not in _M_IceGrid.__dict__:
 
         def adapterRemoved(self, id, current=None):
             """
-             The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
+             The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was
+             removed.
             Arguments:
             id -- The ID of the removed adapter.
             current -- The Current object for the invocation.
@@ -3394,7 +3415,8 @@ if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
     class ObjectObserverPrx(Ice.ObjectPrx):
 
         """
-         objectInit is called after the registration of an observer to indicate the state of the registry.
+         objectInit is called after the registration of an observer to indicate the state of the
+         registry.
         Arguments:
         objects -- The objects registered with the Admin interface (not through the deployment mechanism).
         context -- The request context for the invocation.
@@ -3403,7 +3425,8 @@ if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.ObjectObserver._op_objectInit.invoke(self, ((objects, ), context))
 
         """
-         objectInit is called after the registration of an observer to indicate the state of the registry.
+         objectInit is called after the registration of an observer to indicate the state of the
+         registry.
         Arguments:
         objects -- The objects registered with the Admin interface (not through the deployment mechanism).
         context -- The request context for the invocation.
@@ -3506,7 +3529,8 @@ if 'ObjectObserverPrx' not in _M_IceGrid.__dict__:
 
         def objectInit(self, objects, current=None):
             """
-             objectInit is called after the registration of an observer to indicate the state of the registry.
+             objectInit is called after the registration of an observer to indicate the state of the
+             registry.
             Arguments:
             objects -- The objects registered with the Admin interface (not through the deployment mechanism).
             current -- The Current object for the invocation.
@@ -3607,8 +3631,8 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_getAdmin.invokeAsync(self, ((), context))
 
         """
-         Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
-         callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
+         Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of
+         its callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
         Arguments:
         context -- The request context for the invocation.
         Returns: A template proxy. The returned proxy is null when the Admin session was established using Glacier2.
@@ -3617,8 +3641,8 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
             return _M_IceGrid.AdminSession._op_getAdminCallbackTemplate.invoke(self, ((), context))
 
         """
-         Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
-         callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
+         Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of
+         its callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -3657,7 +3681,8 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
 
         """
          Set the observer identities that receive notifications the state of the registry or nodes changes. This
-         operation should be used by clients that are using a bidirectional connection to communicate with the session.
+         operation should be used by clients that are using a bidirectional connection to communicate with the
+         session.
         Arguments:
         registryObs -- The registry observer identity.
         nodeObs -- The node observer identity.
@@ -3673,7 +3698,8 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
 
         """
          Set the observer identities that receive notifications the state of the registry or nodes changes. This
-         operation should be used by clients that are using a bidirectional connection to communicate with the session.
+         operation should be used by clients that are using a bidirectional connection to communicate with the
+         session.
         Arguments:
         registryObs -- The registry observer identity.
         nodeObs -- The node observer identity.
@@ -3980,8 +4006,8 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
 
         def getAdminCallbackTemplate(self, current=None):
             """
-             Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
-             callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
+             Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of
+             its callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.
@@ -4007,7 +4033,8 @@ if 'AdminSessionPrx' not in _M_IceGrid.__dict__:
         def setObserversByIdentity(self, registryObs, nodeObs, appObs, adptObs, objObs, current=None):
             """
              Set the observer identities that receive notifications the state of the registry or nodes changes. This
-             operation should be used by clients that are using a bidirectional connection to communicate with the session.
+             operation should be used by clients that are using a bidirectional connection to communicate with the
+             session.
             Arguments:
             registryObs -- The registry observer identity.
             nodeObs -- The node observer identity.

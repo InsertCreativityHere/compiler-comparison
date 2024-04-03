@@ -15,7 +15,7 @@
 #
 
 require 'Ice'
-require 'PropertyDict.rb'
+require_relative 'PropertyDict.rb'
 
 module ::Ice
 

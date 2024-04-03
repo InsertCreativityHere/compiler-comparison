@@ -65,7 +65,8 @@ public interface Admin extends com.zeroc.Ice.Object
     /**
      * Synchronize a deployed application with the given application descriptor. This operation will replace the
      * current descriptor with this new descriptor only if no server restarts are necessary for the update of the
-     * application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
+     * application. If some servers need to be restarted, the synchronization is rejected with a
+     * DeploymentException.
      * @param descriptor The application descriptor.
      * @param current The Current object for the invocation.
      * @throws AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
@@ -211,8 +212,9 @@ public interface Admin extends com.zeroc.Ice.Object
                NodeUnreachableException;
 
     /**
-     * Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
-     * of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
+     * Enable or disable a server. A disabled server can't be started on demand or administratively. The enable
+     * state of the server is not persistent: if the node is shut down and restarted, the server will be enabled by
+     * default.
      * @param id The server id.
      * @param enabled True to enable the server, false to disable it.
      * @param current The Current object for the invocation.
@@ -298,9 +300,9 @@ public interface Admin extends com.zeroc.Ice.Object
      * Get the adapter information for the replica group or adapter with the given id.
      * @param id The adapter id.
      * @param current The Current object for the invocation.
-     * @return A sequence of adapter information structures. If the given id refers to an adapter, this sequence will
-     * contain only one element. If the given id refers to a replica group, the sequence will contain the adapter
-     * information of each member of the replica group.
+     * @return A sequence of adapter information structures. If the given id refers to an adapter, this sequence
+     * will contain only one element. If the given id refers to a replica group, the sequence will contain the
+     * adapter information of each member of the replica group.
      * @throws AdapterNotExistException Raised if the adapter or replica group doesn't exist.
      **/
     AdapterInfo[] getAdapterInfo(String id, com.zeroc.Ice.Current current)
@@ -329,8 +331,8 @@ public interface Admin extends com.zeroc.Ice.Object
      * given proxy. The object must be reachable.
      * @param obj The object to be added to the registry.
      * @param current The Current object for the invocation.
-     * @throws DeploymentException Raised if the object can't be added. This might be raised if the invocation on the
-     * proxy to get the object type failed.
+     * @throws DeploymentException Raised if the object can't be added. This might be raised if the invocation on
+     * the proxy to get the object type failed.
      * @throws ObjectExistsException Raised if the object is already registered.
      **/
     void addObject(com.zeroc.Ice.ObjectPrx obj, com.zeroc.Ice.Current current)
@@ -450,8 +452,8 @@ public interface Admin extends com.zeroc.Ice.Object
 
     /**
      * Get the number of physical processor sockets for the machine running the node with the given name.
-     * Note that this method will return 1 on operating systems where this can't be automatically determined and where
-     * the IceGrid.Node.ProcessorSocketCount property for the node is not set.
+     * Note that this method will return 1 on operating systems where this can't be automatically determined and
+     * where the IceGrid.Node.ProcessorSocketCount property for the node is not set.
      * @param name The node name.
      * @param current The Current object for the invocation.
      * @return The number of processor sockets or 1 if the number of sockets can't determined.

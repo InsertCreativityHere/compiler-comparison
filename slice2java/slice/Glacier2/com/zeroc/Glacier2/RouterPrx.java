@@ -88,14 +88,14 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
      * {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
      * (i.e., not visible to the client) is created.
      * If a session proxy is returned, it must be configured to route through the router that created it. This will
-     * happen automatically if the router is configured as the client's default router at the time the session proxy
-     * is created in the client process, otherwise the client must configure the session proxy explicitly.
+     * happen automatically if the router is configured as the client's default router at the time the session
+     * proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
      * @param userId The user id for which to check the password.
      * @param password The password for the given user id.
      * @return A proxy for the newly created session, or null if no {@link SessionManager} has been installed.
      * @throws CannotCreateSessionException Raised if the session cannot be created.
-     * @throws PermissionDeniedException Raised if the password for the given user id is not correct, or if the user
-     * is not allowed access.
+     * @throws PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+     * user is not allowed access.
      *
      * @see Session
      * @see SessionManager
@@ -113,15 +113,15 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
      * {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
      * (i.e., not visible to the client) is created.
      * If a session proxy is returned, it must be configured to route through the router that created it. This will
-     * happen automatically if the router is configured as the client's default router at the time the session proxy
-     * is created in the client process, otherwise the client must configure the session proxy explicitly.
+     * happen automatically if the router is configured as the client's default router at the time the session
+     * proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
      * @param userId The user id for which to check the password.
      * @param password The password for the given user id.
      * @param context The Context map to send with the invocation.
      * @return A proxy for the newly created session, or null if no {@link SessionManager} has been installed.
      * @throws CannotCreateSessionException Raised if the session cannot be created.
-     * @throws PermissionDeniedException Raised if the password for the given user id is not correct, or if the user
-     * is not allowed access.
+     * @throws PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+     * user is not allowed access.
      *
      * @see Session
      * @see SessionManager
@@ -154,8 +154,8 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
      * {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
      * (i.e., not visible to the client) is created.
      * If a session proxy is returned, it must be configured to route through the router that created it. This will
-     * happen automatically if the router is configured as the client's default router at the time the session proxy
-     * is created in the client process, otherwise the client must configure the session proxy explicitly.
+     * happen automatically if the router is configured as the client's default router at the time the session
+     * proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
      * @param userId The user id for which to check the password.
      * @param password The password for the given user id.
      * @return A proxy for the newly created session, or null if no {@link SessionManager} has been installed.
@@ -174,8 +174,8 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
      * {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
      * (i.e., not visible to the client) is created.
      * If a session proxy is returned, it must be configured to route through the router that created it. This will
-     * happen automatically if the router is configured as the client's default router at the time the session proxy
-     * is created in the client process, otherwise the client must configure the session proxy explicitly.
+     * happen automatically if the router is configured as the client's default router at the time the session
+     * proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
      * @param userId The user id for which to check the password.
      * @param password The password for the given user id.
      * @param context The Context map to send with the invocation.
@@ -220,13 +220,13 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
     };
 
     /**
-     * Create a per-client session with the router. The user is authenticated through the SSL certificates that have
-     * been associated with the connection. If a {@link SessionManager} has been installed, a proxy to a
+     * Create a per-client session with the router. The user is authenticated through the SSL certificates that
+     * have been associated with the connection. If a {@link SessionManager} has been installed, a proxy to a
      * {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
      * (i.e., not visible to the client) is created.
      * If a session proxy is returned, it must be configured to route through the router that created it. This will
-     * happen automatically if the router is configured as the client's default router at the time the session proxy
-     * is created in the client process, otherwise the client must configure the session proxy explicitly.
+     * happen automatically if the router is configured as the client's default router at the time the session
+     * proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
      * @return A proxy for the newly created session, or null if no {@link SessionManager} has been installed.
      * @throws CannotCreateSessionException Raised if the session cannot be created.
      * @throws PermissionDeniedException Raised if the user cannot be authenticated or if the user is not allowed
@@ -244,13 +244,13 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
     }
 
     /**
-     * Create a per-client session with the router. The user is authenticated through the SSL certificates that have
-     * been associated with the connection. If a {@link SessionManager} has been installed, a proxy to a
+     * Create a per-client session with the router. The user is authenticated through the SSL certificates that
+     * have been associated with the connection. If a {@link SessionManager} has been installed, a proxy to a
      * {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
      * (i.e., not visible to the client) is created.
      * If a session proxy is returned, it must be configured to route through the router that created it. This will
-     * happen automatically if the router is configured as the client's default router at the time the session proxy
-     * is created in the client process, otherwise the client must configure the session proxy explicitly.
+     * happen automatically if the router is configured as the client's default router at the time the session
+     * proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
      * @param context The Context map to send with the invocation.
      * @return A proxy for the newly created session, or null if no {@link SessionManager} has been installed.
      * @throws CannotCreateSessionException Raised if the session cannot be created.
@@ -284,13 +284,13 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
     }
 
     /**
-     * Create a per-client session with the router. The user is authenticated through the SSL certificates that have
-     * been associated with the connection. If a {@link SessionManager} has been installed, a proxy to a
+     * Create a per-client session with the router. The user is authenticated through the SSL certificates that
+     * have been associated with the connection. If a {@link SessionManager} has been installed, a proxy to a
      * {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
      * (i.e., not visible to the client) is created.
      * If a session proxy is returned, it must be configured to route through the router that created it. This will
-     * happen automatically if the router is configured as the client's default router at the time the session proxy
-     * is created in the client process, otherwise the client must configure the session proxy explicitly.
+     * happen automatically if the router is configured as the client's default router at the time the session
+     * proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
      * @return A proxy for the newly created session, or null if no {@link SessionManager} has been installed.
      *
      * @see Session
@@ -303,13 +303,13 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
     }
 
     /**
-     * Create a per-client session with the router. The user is authenticated through the SSL certificates that have
-     * been associated with the connection. If a {@link SessionManager} has been installed, a proxy to a
+     * Create a per-client session with the router. The user is authenticated through the SSL certificates that
+     * have been associated with the connection. If a {@link SessionManager} has been installed, a proxy to a
      * {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
      * (i.e., not visible to the client) is created.
      * If a session proxy is returned, it must be configured to route through the router that created it. This will
-     * happen automatically if the router is configured as the client's default router at the time the session proxy
-     * is created in the client process, otherwise the client must configure the session proxy explicitly.
+     * happen automatically if the router is configured as the client's default router at the time the session
+     * proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
      * @param context The Context map to send with the invocation.
      * @return A proxy for the newly created session, or null if no {@link SessionManager} has been installed.
      *
@@ -487,7 +487,8 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
     };
 
     /**
-     * Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of time.
+     * Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of
+     * time.
      * @return The timeout (in seconds).
      **/
     default long getSessionTimeout()
@@ -496,7 +497,8 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
     }
 
     /**
-     * Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of time.
+     * Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of
+     * time.
      * @param context The Context map to send with the invocation.
      * @return The timeout (in seconds).
      **/
@@ -506,7 +508,8 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
     }
 
     /**
-     * Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of time.
+     * Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of
+     * time.
      * @return The timeout (in seconds).
      **/
     default java.util.concurrent.CompletableFuture<java.lang.Long> getSessionTimeoutAsync()
@@ -515,7 +518,8 @@ public interface RouterPrx extends com.zeroc.Ice.RouterPrx
     }
 
     /**
-     * Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of time.
+     * Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of
+     * time.
      * @param context The Context map to send with the invocation.
      * @return The timeout (in seconds).
      **/

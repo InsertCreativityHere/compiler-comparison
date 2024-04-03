@@ -15,8 +15,8 @@
 #
 
 require 'Ice'
-require 'Package.rb'
-require 'NoPackage.rb'
+require_relative 'Package.rb'
+require_relative 'NoPackage.rb'
 
 module ::Test
 

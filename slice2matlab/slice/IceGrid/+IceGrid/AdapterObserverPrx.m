@@ -48,8 +48,8 @@ classdef AdapterObserverPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('adapterInit', 0, false, os_, 0, [], {}, varargin{:});
         end
         function adapterAdded(obj, info, varargin)
-            % adapterAdded   The adapterAdded operation is called to notify an observer when a dynamically-registered adapter
-            % was added.
+            % adapterAdded   The adapterAdded operation is called to notify an observer when a dynamically-registered
+            % adapter was added.
             %
             % Parameters:
             %   info (IceGrid.AdapterInfo) - The details of the new adapter.
@@ -61,8 +61,8 @@ classdef AdapterObserverPrx < Ice.ObjectPrx
             obj.iceInvoke('adapterAdded', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = adapterAddedAsync(obj, info, varargin)
-            % adapterAddedAsync   The adapterAdded operation is called to notify an observer when a dynamically-registered adapter
-            % was added.
+            % adapterAddedAsync   The adapterAdded operation is called to notify an observer when a dynamically-registered
+            % adapter was added.
             %
             % Parameters:
             %   info (IceGrid.AdapterInfo) - The details of the new adapter.
@@ -76,7 +76,8 @@ classdef AdapterObserverPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('adapterAdded', 0, false, os_, 0, [], {}, varargin{:});
         end
         function adapterUpdated(obj, info, varargin)
-            % adapterUpdated   The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
+            % adapterUpdated   The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was
+            % updated.
             %
             % Parameters:
             %   info (IceGrid.AdapterInfo) - The details of the updated adapter.
@@ -88,7 +89,8 @@ classdef AdapterObserverPrx < Ice.ObjectPrx
             obj.iceInvoke('adapterUpdated', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = adapterUpdatedAsync(obj, info, varargin)
-            % adapterUpdatedAsync   The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
+            % adapterUpdatedAsync   The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was
+            % updated.
             %
             % Parameters:
             %   info (IceGrid.AdapterInfo) - The details of the updated adapter.
@@ -102,7 +104,8 @@ classdef AdapterObserverPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('adapterUpdated', 0, false, os_, 0, [], {}, varargin{:});
         end
         function adapterRemoved(obj, id, varargin)
-            % adapterRemoved   The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
+            % adapterRemoved   The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was
+            % removed.
             %
             % Parameters:
             %   id (char) - The ID of the removed adapter.
@@ -114,7 +117,8 @@ classdef AdapterObserverPrx < Ice.ObjectPrx
             obj.iceInvoke('adapterRemoved', 0, false, os_, false, {}, varargin{:});
         end
         function r_ = adapterRemovedAsync(obj, id, varargin)
-            % adapterRemovedAsync   The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
+            % adapterRemovedAsync   The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was
+            % removed.
             %
             % Parameters:
             %   id (char) - The ID of the removed adapter.

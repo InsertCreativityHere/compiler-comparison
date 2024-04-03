@@ -18,11 +18,11 @@
 
 #include <IceUtil/PushDisableWarnings.h>
 #include <Ice/Ice.h>
-#include <Ice/Identity.h>
-#include <Ice/BuiltinSequences.h>
-#include <Glacier2/Session.h>
-#include <Exception.h>
-#include <Descriptor.h>
+#include "../Ice/Identity.h"
+#include "../Ice/BuiltinSequences.h"
+#include "../Glacier2/Session.h"
+#include "Exception.h"
+#include "Descriptor.h"
 #include <IceGrid/Config.h>
 
 #ifndef ICE_IGNORE_VERSION
@@ -280,7 +280,8 @@ public:
     /**
      * Synchronize a deployed application with the given application descriptor. This operation will replace the
      * current descriptor with this new descriptor only if no server restarts are necessary for the update of the
-     * application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
+     * application. If some servers need to be restarted, the synchronization is rejected with a
+     * DeploymentException.
      * @param descriptor The application descriptor.
      * @param context The Context map to send with the invocation.
      * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
@@ -293,7 +294,8 @@ public:
     /**
      * Synchronize a deployed application with the given application descriptor. This operation will replace the
      * current descriptor with this new descriptor only if no server restarts are necessary for the update of the
-     * application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
+     * application. If some servers need to be restarted, the synchronization is rejected with a
+     * DeploymentException.
      * @param descriptor The application descriptor.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -303,7 +305,8 @@ public:
     /**
      * Synchronize a deployed application with the given application descriptor. This operation will replace the
      * current descriptor with this new descriptor only if no server restarts are necessary for the update of the
-     * application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
+     * application. If some servers need to be restarted, the synchronization is rejected with a
+     * DeploymentException.
      * @param descriptor The application descriptor.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -698,8 +701,9 @@ public:
     /// \endcond
 
     /**
-     * Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
-     * of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
+     * Enable or disable a server. A disabled server can't be started on demand or administratively. The enable
+     * state of the server is not persistent: if the node is shut down and restarted, the server will be enabled by
+     * default.
      * @param id The server id.
      * @param enabled True to enable the server, false to disable it.
      * @param context The Context map to send with the invocation.
@@ -710,8 +714,9 @@ public:
     void enableServer(::std::string_view id, bool enabled, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
-     * of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
+     * Enable or disable a server. A disabled server can't be started on demand or administratively. The enable
+     * state of the server is not persistent: if the node is shut down and restarted, the server will be enabled by
+     * default.
      * @param id The server id.
      * @param enabled True to enable the server, false to disable it.
      * @param context The Context map to send with the invocation.
@@ -720,8 +725,9 @@ public:
     ::std::future<void> enableServerAsync(::std::string_view id, bool enabled, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
-     * of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
+     * Enable or disable a server. A disabled server can't be started on demand or administratively. The enable
+     * state of the server is not persistent: if the node is shut down and restarted, the server will be enabled by
+     * default.
      * @param id The server id.
      * @param enabled True to enable the server, false to disable it.
      * @param response The response callback.
@@ -913,9 +919,9 @@ public:
      * Get the adapter information for the replica group or adapter with the given id.
      * @param id The adapter id.
      * @param context The Context map to send with the invocation.
-     * @return A sequence of adapter information structures. If the given id refers to an adapter, this sequence will
-     * contain only one element. If the given id refers to a replica group, the sequence will contain the adapter
-     * information of each member of the replica group.
+     * @return A sequence of adapter information structures. If the given id refers to an adapter, this sequence
+     * will contain only one element. If the given id refers to a replica group, the sequence will contain the
+     * adapter information of each member of the replica group.
      * @throws IceGrid::AdapterNotExistException Raised if the adapter or replica group doesn't exist.
      */
     AdapterInfoSeq getAdapterInfo(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -1011,8 +1017,8 @@ public:
      * given proxy. The object must be reachable.
      * @param obj The object to be added to the registry.
      * @param context The Context map to send with the invocation.
-     * @throws IceGrid::DeploymentException Raised if the object can't be added. This might be raised if the invocation on the
-     * proxy to get the object type failed.
+     * @throws IceGrid::DeploymentException Raised if the object can't be added. This might be raised if the invocation on
+     * the proxy to get the object type failed.
      * @throws IceGrid::ObjectExistsException Raised if the object is already registered.
      */
     void addObject(const ::std::optional<::Ice::ObjectPrx>& obj, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -1390,8 +1396,8 @@ public:
 
     /**
      * Get the number of physical processor sockets for the machine running the node with the given name.
-     * Note that this method will return 1 on operating systems where this can't be automatically determined and where
-     * the IceGrid.Node.ProcessorSocketCount property for the node is not set.
+     * Note that this method will return 1 on operating systems where this can't be automatically determined and
+     * where the IceGrid.Node.ProcessorSocketCount property for the node is not set.
      * @param name The node name.
      * @param context The Context map to send with the invocation.
      * @return The number of processor sockets or 1 if the number of sockets can't determined.
@@ -1402,8 +1408,8 @@ public:
 
     /**
      * Get the number of physical processor sockets for the machine running the node with the given name.
-     * Note that this method will return 1 on operating systems where this can't be automatically determined and where
-     * the IceGrid.Node.ProcessorSocketCount property for the node is not set.
+     * Note that this method will return 1 on operating systems where this can't be automatically determined and
+     * where the IceGrid.Node.ProcessorSocketCount property for the node is not set.
      * @param name The node name.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -1412,8 +1418,8 @@ public:
 
     /**
      * Get the number of physical processor sockets for the machine running the node with the given name.
-     * Note that this method will return 1 on operating systems where this can't be automatically determined and where
-     * the IceGrid.Node.ProcessorSocketCount property for the node is not set.
+     * Note that this method will return 1 on operating systems where this can't be automatically determined and
+     * where the IceGrid.Node.ProcessorSocketCount property for the node is not set.
      * @param name The node name.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -1774,8 +1780,8 @@ public:
      * @param size Specifies the maximum number of bytes to be received. The server will ensure that the returned
      * message doesn't exceed the given size.
      * @param lines The lines read from the file. If there was nothing to read from the file since the last call to
-     * read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no '\n'
-     * should be added when writing the last line to the to the output device).
+     * read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no
+     * '\n' should be added when writing the last line to the to the output device).
      * @param context The Context map to send with the invocation.
      * @return True if EOF is encountered.
      * @throws IceGrid::FileNotAvailableException Raised if there was a problem to read lines from the file.
@@ -2044,16 +2050,16 @@ class ICEGRID_API NodeObserverPrx : public ::Ice::Proxy<NodeObserverPrx, ::Ice::
 public:
 
     /**
-     * The <code>nodeInit</code> operation indicates the current state of nodes. It is called after the registration
-     * of an observer.
+     * The <code>nodeInit</code> operation indicates the current state of nodes. It is called after the
+     * registration of an observer.
      * @param nodes The current state of the nodes.
      * @param context The Context map to send with the invocation.
      */
     void nodeInit(const NodeDynamicInfoSeq& nodes, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * The <code>nodeInit</code> operation indicates the current state of nodes. It is called after the registration
-     * of an observer.
+     * The <code>nodeInit</code> operation indicates the current state of nodes. It is called after the
+     * registration of an observer.
      * @param nodes The current state of the nodes.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -2061,8 +2067,8 @@ public:
     ::std::future<void> nodeInitAsync(const NodeDynamicInfoSeq& nodes, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * The <code>nodeInit</code> operation indicates the current state of nodes. It is called after the registration
-     * of an observer.
+     * The <code>nodeInit</code> operation indicates the current state of nodes. It is called after the
+     * registration of an observer.
      * @param nodes The current state of the nodes.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -2174,7 +2180,8 @@ public:
     /// \endcond
 
     /**
-     * The <code>updateAdapter</code> operation is called to notify an observer that the state of an adapter changed.
+     * The <code>updateAdapter</code> operation is called to notify an observer that the state of an adapter
+     * changed.
      * @param node The node hosting the adapter.
      * @param updatedInfo The new adapter state.
      * @param context The Context map to send with the invocation.
@@ -2182,7 +2189,8 @@ public:
     void updateAdapter(::std::string_view node, const AdapterDynamicInfo& updatedInfo, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * The <code>updateAdapter</code> operation is called to notify an observer that the state of an adapter changed.
+     * The <code>updateAdapter</code> operation is called to notify an observer that the state of an adapter
+     * changed.
      * @param node The node hosting the adapter.
      * @param updatedInfo The new adapter state.
      * @param context The Context map to send with the invocation.
@@ -2191,7 +2199,8 @@ public:
     ::std::future<void> updateAdapterAsync(::std::string_view node, const AdapterDynamicInfo& updatedInfo, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * The <code>updateAdapter</code> operation is called to notify an observer that the state of an adapter changed.
+     * The <code>updateAdapter</code> operation is called to notify an observer that the state of an adapter
+     * changed.
      * @param node The node hosting the adapter.
      * @param updatedInfo The new adapter state.
      * @param response The response callback.
@@ -2256,8 +2265,8 @@ protected:
 };
 
 /**
- * The database observer interface. Observers should implement this interface to receive information about the state
- * of the IceGrid registry database.
+ * The database observer interface. Observers should implement this interface to receive information about the
+ * state of the IceGrid registry database.
  */
 class ICEGRID_API ApplicationObserverPrx : public ::Ice::Proxy<ApplicationObserverPrx, ::Ice::ObjectPrx>
 {
@@ -2266,8 +2275,8 @@ public:
     /**
      * <code>applicationInit</code> is called after the registration of an observer to indicate the state of the
      * registry.
-     * @param serial The current serial number of the registry database. This serial number allows observers to make
-     * sure that their internal state is synchronized with the registry.
+     * @param serial The current serial number of the registry database. This serial number allows observers to
+     * make sure that their internal state is synchronized with the registry.
      * @param applications The applications currently registered with the registry.
      * @param context The Context map to send with the invocation.
      */
@@ -2276,8 +2285,8 @@ public:
     /**
      * <code>applicationInit</code> is called after the registration of an observer to indicate the state of the
      * registry.
-     * @param serial The current serial number of the registry database. This serial number allows observers to make
-     * sure that their internal state is synchronized with the registry.
+     * @param serial The current serial number of the registry database. This serial number allows observers to
+     * make sure that their internal state is synchronized with the registry.
      * @param applications The applications currently registered with the registry.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -2287,8 +2296,8 @@ public:
     /**
      * <code>applicationInit</code> is called after the registration of an observer to indicate the state of the
      * registry.
-     * @param serial The current serial number of the registry database. This serial number allows observers to make
-     * sure that their internal state is synchronized with the registry.
+     * @param serial The current serial number of the registry database. This serial number allows observers to
+     * make sure that their internal state is synchronized with the registry.
      * @param applications The applications currently registered with the registry.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -2338,7 +2347,8 @@ public:
     /// \endcond
 
     /**
-     * The <code>applicationRemoved</code> operation is called to notify an observer that an application was removed.
+     * The <code>applicationRemoved</code> operation is called to notify an observer that an application was
+     * removed.
      * @param serial The new serial number of the registry database.
      * @param name The name of the application that was removed.
      * @param context The Context map to send with the invocation.
@@ -2346,7 +2356,8 @@ public:
     void applicationRemoved(::std::int32_t serial, ::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * The <code>applicationRemoved</code> operation is called to notify an observer that an application was removed.
+     * The <code>applicationRemoved</code> operation is called to notify an observer that an application was
+     * removed.
      * @param serial The new serial number of the registry database.
      * @param name The name of the application that was removed.
      * @param context The Context map to send with the invocation.
@@ -2355,7 +2366,8 @@ public:
     ::std::future<void> applicationRemovedAsync(::std::int32_t serial, ::std::string_view name, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * The <code>applicationRemoved</code> operation is called to notify an observer that an application was removed.
+     * The <code>applicationRemoved</code> operation is called to notify an observer that an application was
+     * removed.
      * @param serial The new serial number of the registry database.
      * @param name The name of the application that was removed.
      * @param response The response callback.
@@ -2372,7 +2384,8 @@ public:
     /// \endcond
 
     /**
-     * The <code>applicationUpdated</code> operation is called to notify an observer that an application was updated.
+     * The <code>applicationUpdated</code> operation is called to notify an observer that an application was
+     * updated.
      * @param serial The new serial number of the registry database.
      * @param desc The descriptor of the update.
      * @param context The Context map to send with the invocation.
@@ -2380,7 +2393,8 @@ public:
     void applicationUpdated(::std::int32_t serial, const ApplicationUpdateInfo& desc, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * The <code>applicationUpdated</code> operation is called to notify an observer that an application was updated.
+     * The <code>applicationUpdated</code> operation is called to notify an observer that an application was
+     * updated.
      * @param serial The new serial number of the registry database.
      * @param desc The descriptor of the update.
      * @param context The Context map to send with the invocation.
@@ -2389,7 +2403,8 @@ public:
     ::std::future<void> applicationUpdatedAsync(::std::int32_t serial, const ApplicationUpdateInfo& desc, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * The <code>applicationUpdated</code> operation is called to notify an observer that an application was updated.
+     * The <code>applicationUpdated</code> operation is called to notify an observer that an application was
+     * updated.
      * @param serial The new serial number of the registry database.
      * @param desc The descriptor of the update.
      * @param response The response callback.
@@ -2495,16 +2510,16 @@ public:
     /// \endcond
 
     /**
-     * The <code>adapterAdded</code> operation is called to notify an observer when a dynamically-registered adapter
-     * was added.
+     * The <code>adapterAdded</code> operation is called to notify an observer when a dynamically-registered
+     * adapter was added.
      * @param info The details of the new adapter.
      * @param context The Context map to send with the invocation.
      */
     void adapterAdded(const AdapterInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * The <code>adapterAdded</code> operation is called to notify an observer when a dynamically-registered adapter
-     * was added.
+     * The <code>adapterAdded</code> operation is called to notify an observer when a dynamically-registered
+     * adapter was added.
      * @param info The details of the new adapter.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -2512,8 +2527,8 @@ public:
     ::std::future<void> adapterAddedAsync(const AdapterInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * The <code>adapterAdded</code> operation is called to notify an observer when a dynamically-registered adapter
-     * was added.
+     * The <code>adapterAdded</code> operation is called to notify an observer when a dynamically-registered
+     * adapter was added.
      * @param info The details of the new adapter.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -2529,14 +2544,16 @@ public:
     /// \endcond
 
     /**
-     * The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
+     * The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was
+     * updated.
      * @param info The details of the updated adapter.
      * @param context The Context map to send with the invocation.
      */
     void adapterUpdated(const AdapterInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
+     * The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was
+     * updated.
      * @param info The details of the updated adapter.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -2544,7 +2561,8 @@ public:
     ::std::future<void> adapterUpdatedAsync(const AdapterInfo& info, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
+     * The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was
+     * updated.
      * @param info The details of the updated adapter.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -2560,14 +2578,16 @@ public:
     /// \endcond
 
     /**
-     * The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
+     * The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was
+     * removed.
      * @param id The ID of the removed adapter.
      * @param context The Context map to send with the invocation.
      */
     void adapterRemoved(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
+     * The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was
+     * removed.
      * @param id The ID of the removed adapter.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
@@ -2575,7 +2595,8 @@ public:
     ::std::future<void> adapterRemovedAsync(::std::string_view id, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
+     * The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was
+     * removed.
      * @param id The ID of the removed adapter.
      * @param response The response callback.
      * @param ex The exception callback.
@@ -2646,23 +2667,29 @@ class ICEGRID_API ObjectObserverPrx : public ::Ice::Proxy<ObjectObserverPrx, ::I
 public:
 
     /**
-     * <code>objectInit</code> is called after the registration of an observer to indicate the state of the registry.
-     * @param objects The objects registered with the {@link Admin} interface (not through the deployment mechanism).
+     * <code>objectInit</code> is called after the registration of an observer to indicate the state of the
+     * registry.
+     * @param objects The objects registered with the {@link Admin} interface (not through the deployment
+     * mechanism).
      * @param context The Context map to send with the invocation.
      */
     void objectInit(const ObjectInfoSeq& objects, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * <code>objectInit</code> is called after the registration of an observer to indicate the state of the registry.
-     * @param objects The objects registered with the {@link Admin} interface (not through the deployment mechanism).
+     * <code>objectInit</code> is called after the registration of an observer to indicate the state of the
+     * registry.
+     * @param objects The objects registered with the {@link Admin} interface (not through the deployment
+     * mechanism).
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
     ::std::future<void> objectInitAsync(const ObjectInfoSeq& objects, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * <code>objectInit</code> is called after the registration of an observer to indicate the state of the registry.
-     * @param objects The objects registered with the {@link Admin} interface (not through the deployment mechanism).
+     * <code>objectInit</code> is called after the registration of an observer to indicate the state of the
+     * registry.
+     * @param objects The objects registered with the {@link Admin} interface (not through the deployment
+     * mechanism).
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -2828,8 +2855,8 @@ protected:
 
 /**
  * Used by administrative clients to view, update, and receive observer updates from the IceGrid registry. Admin
- * sessions are created either via the {@link Registry} object or via the registry admin <code>SessionManager</code>
- * object.
+ * sessions are created either via the {@link Registry} object or via the registry admin
+ * <code>SessionManager</code> object.
  * @see Registry
  */
 class ICEGRID_API AdminSessionPrx : public ::Ice::Proxy<AdminSessionPrx, ::Glacier2::SessionPrx>
@@ -2900,24 +2927,24 @@ public:
     /// \endcond
 
     /**
-     * Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
-     * callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
+     * Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of
+     * its callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
      * @param context The Context map to send with the invocation.
      * @return A template proxy. The returned proxy is null when the Admin session was established using Glacier2.
      */
     ::std::optional<::Ice::ObjectPrx> getAdminCallbackTemplate(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
-     * callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
+     * Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of
+     * its callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
     ::std::future<::std::optional<::Ice::ObjectPrx>> getAdminCallbackTemplateAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
-     * callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
+     * Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of
+     * its callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -2977,7 +3004,8 @@ public:
 
     /**
      * Set the observer identities that receive notifications the state of the registry or nodes changes. This
-     * operation should be used by clients that are using a bidirectional connection to communicate with the session.
+     * operation should be used by clients that are using a bidirectional connection to communicate with the
+     * session.
      * @param registryObs The registry observer identity.
      * @param nodeObs The node observer identity.
      * @param appObs The application observer.
@@ -2990,7 +3018,8 @@ public:
 
     /**
      * Set the observer identities that receive notifications the state of the registry or nodes changes. This
-     * operation should be used by clients that are using a bidirectional connection to communicate with the session.
+     * operation should be used by clients that are using a bidirectional connection to communicate with the
+     * session.
      * @param registryObs The registry observer identity.
      * @param nodeObs The node observer identity.
      * @param appObs The application observer.
@@ -3003,7 +3032,8 @@ public:
 
     /**
      * Set the observer identities that receive notifications the state of the registry or nodes changes. This
-     * operation should be used by clients that are using a bidirectional connection to communicate with the session.
+     * operation should be used by clients that are using a bidirectional connection to communicate with the
+     * session.
      * @param registryObs The registry observer identity.
      * @param nodeObs The node observer identity.
      * @param appObs The application observer.
@@ -3026,8 +3056,8 @@ public:
      * Acquires an exclusive lock to start updating the registry applications.
      * @param context The Context map to send with the invocation.
      * @return The current serial.
-     * @throws IceGrid::AccessDeniedException Raised if the exclusive lock can't be acquired. This might happen if the lock is
-     * currently acquired by another session.
+     * @throws IceGrid::AccessDeniedException Raised if the exclusive lock can't be acquired. This might happen if the lock
+     * is currently acquired by another session.
      */
     ::std::int32_t startUpdate(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
@@ -3114,10 +3144,10 @@ public:
     /**
      * Open the given server log file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param path The path of the log file. A log file can be opened only if it's declared in the server or service
-     * deployment descriptor.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
+     * @param path The path of the log file. A log file can be opened only if it's declared in the server or
+     * service deployment descriptor.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If
+     * 0 or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return An iterator to read the file. The returned proxy is never null.
      * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
@@ -3130,10 +3160,10 @@ public:
     /**
      * Open the given server log file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param path The path of the log file. A log file can be opened only if it's declared in the server or service
-     * deployment descriptor.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
+     * @param path The path of the log file. A log file can be opened only if it's declared in the server or
+     * service deployment descriptor.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If
+     * 0 or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -3142,10 +3172,10 @@ public:
     /**
      * Open the given server log file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param path The path of the log file. A log file can be opened only if it's declared in the server or service
-     * deployment descriptor.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
+     * @param path The path of the log file. A log file can be opened only if it's declared in the server or
+     * service deployment descriptor.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If
+     * 0 or positive, the file is read from the last <code>count</code> lines.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -3162,8 +3192,8 @@ public:
     /**
      * Open the given server stderr file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If
+     * 0 or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return An iterator to read the file. The returned proxy is never null.
      * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
@@ -3176,8 +3206,8 @@ public:
     /**
      * Open the given server stderr file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If
+     * 0 or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -3186,8 +3216,8 @@ public:
     /**
      * Open the given server stderr file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If
+     * 0 or positive, the file is read from the last <code>count</code> lines.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -3246,8 +3276,8 @@ public:
     /**
      * Open the given node stderr file for reading. The file can be read with the returned file iterator.
      * @param name The node name.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If
+     * 0 or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return An iterator to read the file. The returned proxy is never null.
      * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
@@ -3259,8 +3289,8 @@ public:
     /**
      * Open the given node stderr file for reading. The file can be read with the returned file iterator.
      * @param name The node name.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If
+     * 0 or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -3269,8 +3299,8 @@ public:
     /**
      * Open the given node stderr file for reading. The file can be read with the returned file iterator.
      * @param name The node name.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If
+     * 0 or positive, the file is read from the last <code>count</code> lines.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -3287,8 +3317,8 @@ public:
     /**
      * Open the given node stdout file for reading. The file can be read with the returned file iterator.
      * @param name The node name.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If
+     * 0 or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return An iterator to read the file. The returned proxy is never null.
      * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
@@ -3300,8 +3330,8 @@ public:
     /**
      * Open the given node stdout file for reading. The file can be read with the returned file iterator.
      * @param name The node name.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If
+     * 0 or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -3310,8 +3340,8 @@ public:
     /**
      * Open the given node stdout file for reading. The file can be read with the returned file iterator.
      * @param name The node name.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If
+     * 0 or positive, the file is read from the last <code>count</code> lines.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -3328,8 +3358,8 @@ public:
     /**
      * Open the given registry stderr file for reading. The file can be read with the returned file iterator.
      * @param name The registry name.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If
+     * 0 or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return An iterator to read the file. The returned proxy is never null.
      * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
@@ -3341,8 +3371,8 @@ public:
     /**
      * Open the given registry stderr file for reading. The file can be read with the returned file iterator.
      * @param name The registry name.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If
+     * 0 or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -3351,8 +3381,8 @@ public:
     /**
      * Open the given registry stderr file for reading. The file can be read with the returned file iterator.
      * @param name The registry name.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If
+     * 0 or positive, the file is read from the last <code>count</code> lines.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -3369,8 +3399,8 @@ public:
     /**
      * Open the given registry stdout file for reading. The file can be read with the returned file iterator.
      * @param name The registry name.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If
+     * 0 or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return An iterator to read the file. The returned proxy is never null.
      * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
@@ -3382,8 +3412,8 @@ public:
     /**
      * Open the given registry stdout file for reading. The file can be read with the returned file iterator.
      * @param name The registry name.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If
+     * 0 or positive, the file is read from the last <code>count</code> lines.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
@@ -3392,8 +3422,8 @@ public:
     /**
      * Open the given registry stdout file for reading. The file can be read with the returned file iterator.
      * @param name The registry name.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If
+     * 0 or positive, the file is read from the last <code>count</code> lines.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -3920,7 +3950,8 @@ public:
     /**
      * Synchronize a deployed application with the given application descriptor. This operation will replace the
      * current descriptor with this new descriptor only if no server restarts are necessary for the update of the
-     * application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
+     * application. If some servers need to be restarted, the synchronization is rejected with a
+     * DeploymentException.
      * @param descriptor The application descriptor.
      * @param current The Current object for the invocation.
      * @throws IceGrid::AccessDeniedException Raised if the session doesn't hold the exclusive lock or if another session is
@@ -4078,8 +4109,9 @@ public:
     /// \endcond
 
     /**
-     * Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
-     * of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
+     * Enable or disable a server. A disabled server can't be started on demand or administratively. The enable
+     * state of the server is not persistent: if the node is shut down and restarted, the server will be enabled by
+     * default.
      * @param id The server id.
      * @param enabled True to enable the server, false to disable it.
      * @param current The Current object for the invocation.
@@ -4167,9 +4199,9 @@ public:
      * Get the adapter information for the replica group or adapter with the given id.
      * @param id The adapter id.
      * @param current The Current object for the invocation.
-     * @return A sequence of adapter information structures. If the given id refers to an adapter, this sequence will
-     * contain only one element. If the given id refers to a replica group, the sequence will contain the adapter
-     * information of each member of the replica group.
+     * @return A sequence of adapter information structures. If the given id refers to an adapter, this sequence
+     * will contain only one element. If the given id refers to a replica group, the sequence will contain the
+     * adapter information of each member of the replica group.
      * @throws IceGrid::AdapterNotExistException Raised if the adapter or replica group doesn't exist.
      */
     virtual AdapterInfoSeq getAdapterInfo(::std::string id, const ::Ice::Current& current) const = 0;
@@ -4204,8 +4236,8 @@ public:
      * given proxy. The object must be reachable.
      * @param obj The object to be added to the registry.
      * @param current The Current object for the invocation.
-     * @throws IceGrid::DeploymentException Raised if the object can't be added. This might be raised if the invocation on the
-     * proxy to get the object type failed.
+     * @throws IceGrid::DeploymentException Raised if the object can't be added. This might be raised if the invocation on
+     * the proxy to get the object type failed.
      * @throws IceGrid::ObjectExistsException Raised if the object is already registered.
      */
     virtual void addObject(::std::optional<::Ice::ObjectPrx> obj, const ::Ice::Current& current) = 0;
@@ -4342,8 +4374,8 @@ public:
 
     /**
      * Get the number of physical processor sockets for the machine running the node with the given name.
-     * Note that this method will return 1 on operating systems where this can't be automatically determined and where
-     * the IceGrid.Node.ProcessorSocketCount property for the node is not set.
+     * Note that this method will return 1 on operating systems where this can't be automatically determined and
+     * where the IceGrid.Node.ProcessorSocketCount property for the node is not set.
      * @param name The node name.
      * @param current The Current object for the invocation.
      * @return The number of processor sockets or 1 if the number of sockets can't determined.
@@ -4499,8 +4531,8 @@ public:
      * @param size Specifies the maximum number of bytes to be received. The server will ensure that the returned
      * message doesn't exceed the given size.
      * @param lines The lines read from the file. If there was nothing to read from the file since the last call to
-     * read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no '\n'
-     * should be added when writing the last line to the to the output device).
+     * read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no
+     * '\n' should be added when writing the last line to the to the output device).
      * @param current The Current object for the invocation.
      * @return True if EOF is encountered.
      * @throws IceGrid::FileNotAvailableException Raised if there was a problem to read lines from the file.
@@ -4624,8 +4656,8 @@ public:
     static ::std::string_view ice_staticId() noexcept;
 
     /**
-     * The <code>nodeInit</code> operation indicates the current state of nodes. It is called after the registration
-     * of an observer.
+     * The <code>nodeInit</code> operation indicates the current state of nodes. It is called after the
+     * registration of an observer.
      * @param nodes The current state of the nodes.
      * @param current The Current object for the invocation.
      */
@@ -4666,7 +4698,8 @@ public:
     /// \endcond
 
     /**
-     * The <code>updateAdapter</code> operation is called to notify an observer that the state of an adapter changed.
+     * The <code>updateAdapter</code> operation is called to notify an observer that the state of an adapter
+     * changed.
      * @param node The node hosting the adapter.
      * @param updatedInfo The new adapter state.
      * @param current The Current object for the invocation.
@@ -4684,8 +4717,8 @@ public:
 using NodeObserverPtr = ::std::shared_ptr<NodeObserver>;
 
 /**
- * The database observer interface. Observers should implement this interface to receive information about the state
- * of the IceGrid registry database.
+ * The database observer interface. Observers should implement this interface to receive information about the
+ * state of the IceGrid registry database.
  */
 class ICEGRID_API ApplicationObserver : public virtual ::Ice::Object
 {
@@ -4716,8 +4749,8 @@ public:
     /**
      * <code>applicationInit</code> is called after the registration of an observer to indicate the state of the
      * registry.
-     * @param serial The current serial number of the registry database. This serial number allows observers to make
-     * sure that their internal state is synchronized with the registry.
+     * @param serial The current serial number of the registry database. This serial number allows observers to
+     * make sure that their internal state is synchronized with the registry.
      * @param applications The applications currently registered with the registry.
      * @param current The Current object for the invocation.
      */
@@ -4738,7 +4771,8 @@ public:
     /// \endcond
 
     /**
-     * The <code>applicationRemoved</code> operation is called to notify an observer that an application was removed.
+     * The <code>applicationRemoved</code> operation is called to notify an observer that an application was
+     * removed.
      * @param serial The new serial number of the registry database.
      * @param name The name of the application that was removed.
      * @param current The Current object for the invocation.
@@ -4749,7 +4783,8 @@ public:
     /// \endcond
 
     /**
-     * The <code>applicationUpdated</code> operation is called to notify an observer that an application was updated.
+     * The <code>applicationUpdated</code> operation is called to notify an observer that an application was
+     * updated.
      * @param serial The new serial number of the registry database.
      * @param desc The descriptor of the update.
      * @param current The Current object for the invocation.
@@ -4807,8 +4842,8 @@ public:
     /// \endcond
 
     /**
-     * The <code>adapterAdded</code> operation is called to notify an observer when a dynamically-registered adapter
-     * was added.
+     * The <code>adapterAdded</code> operation is called to notify an observer when a dynamically-registered
+     * adapter was added.
      * @param info The details of the new adapter.
      * @param current The Current object for the invocation.
      */
@@ -4818,7 +4853,8 @@ public:
     /// \endcond
 
     /**
-     * The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
+     * The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was
+     * updated.
      * @param info The details of the updated adapter.
      * @param current The Current object for the invocation.
      */
@@ -4828,7 +4864,8 @@ public:
     /// \endcond
 
     /**
-     * The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
+     * The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was
+     * removed.
      * @param id The ID of the removed adapter.
      * @param current The Current object for the invocation.
      */
@@ -4874,8 +4911,10 @@ public:
     static ::std::string_view ice_staticId() noexcept;
 
     /**
-     * <code>objectInit</code> is called after the registration of an observer to indicate the state of the registry.
-     * @param objects The objects registered with the {@link Admin} interface (not through the deployment mechanism).
+     * <code>objectInit</code> is called after the registration of an observer to indicate the state of the
+     * registry.
+     * @param objects The objects registered with the {@link Admin} interface (not through the deployment
+     * mechanism).
      * @param current The Current object for the invocation.
      */
     virtual void objectInit(ObjectInfoSeq objects, const ::Ice::Current& current) = 0;
@@ -4925,8 +4964,8 @@ using ObjectObserverPtr = ::std::shared_ptr<ObjectObserver>;
 
 /**
  * Used by administrative clients to view, update, and receive observer updates from the IceGrid registry. Admin
- * sessions are created either via the {@link Registry} object or via the registry admin <code>SessionManager</code>
- * object.
+ * sessions are created either via the {@link Registry} object or via the registry admin
+ * <code>SessionManager</code> object.
  * @see Registry
  */
 class ICEGRID_API AdminSession : public virtual ::Glacier2::Session
@@ -4977,8 +5016,8 @@ public:
     /// \endcond
 
     /**
-     * Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
-     * callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
+     * Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of
+     * its callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
      * @param current The Current object for the invocation.
      * @return A template proxy. The returned proxy is null when the Admin session was established using Glacier2.
      */
@@ -5004,7 +5043,8 @@ public:
 
     /**
      * Set the observer identities that receive notifications the state of the registry or nodes changes. This
-     * operation should be used by clients that are using a bidirectional connection to communicate with the session.
+     * operation should be used by clients that are using a bidirectional connection to communicate with the
+     * session.
      * @param registryObs The registry observer identity.
      * @param nodeObs The node observer identity.
      * @param appObs The application observer.
@@ -5022,8 +5062,8 @@ public:
      * Acquires an exclusive lock to start updating the registry applications.
      * @param current The Current object for the invocation.
      * @return The current serial.
-     * @throws IceGrid::AccessDeniedException Raised if the exclusive lock can't be acquired. This might happen if the lock is
-     * currently acquired by another session.
+     * @throws IceGrid::AccessDeniedException Raised if the exclusive lock can't be acquired. This might happen if the lock
+     * is currently acquired by another session.
      */
     virtual ::std::int32_t startUpdate(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
@@ -5053,10 +5093,10 @@ public:
     /**
      * Open the given server log file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param path The path of the log file. A log file can be opened only if it's declared in the server or service
-     * deployment descriptor.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
+     * @param path The path of the log file. A log file can be opened only if it's declared in the server or
+     * service deployment descriptor.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If
+     * 0 or positive, the file is read from the last <code>count</code> lines.
      * @param current The Current object for the invocation.
      * @return An iterator to read the file. The returned proxy is never null.
      * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
@@ -5072,8 +5112,8 @@ public:
     /**
      * Open the given server stderr file for reading. The file can be read with the returned file iterator.
      * @param id The server id.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If
+     * 0 or positive, the file is read from the last <code>count</code> lines.
      * @param current The Current object for the invocation.
      * @return An iterator to read the file. The returned proxy is never null.
      * @throws IceGrid::DeploymentException Raised if the server couldn't be deployed on the node.
@@ -5106,8 +5146,8 @@ public:
     /**
      * Open the given node stderr file for reading. The file can be read with the returned file iterator.
      * @param name The node name.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If
+     * 0 or positive, the file is read from the last <code>count</code> lines.
      * @param current The Current object for the invocation.
      * @return An iterator to read the file. The returned proxy is never null.
      * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
@@ -5122,8 +5162,8 @@ public:
     /**
      * Open the given node stdout file for reading. The file can be read with the returned file iterator.
      * @param name The node name.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If
+     * 0 or positive, the file is read from the last <code>count</code> lines.
      * @param current The Current object for the invocation.
      * @return An iterator to read the file. The returned proxy is never null.
      * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
@@ -5138,8 +5178,8 @@ public:
     /**
      * Open the given registry stderr file for reading. The file can be read with the returned file iterator.
      * @param name The registry name.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If
+     * 0 or positive, the file is read from the last <code>count</code> lines.
      * @param current The Current object for the invocation.
      * @return An iterator to read the file. The returned proxy is never null.
      * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.
@@ -5154,8 +5194,8 @@ public:
     /**
      * Open the given registry stdout file for reading. The file can be read with the returned file iterator.
      * @param name The registry name.
-     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-     * or positive, the file is read from the last <code>count</code> lines.
+     * @param count Specifies where to start reading the file. If negative, the file is read from the begining. If
+     * 0 or positive, the file is read from the last <code>count</code> lines.
      * @param current The Current object for the invocation.
      * @return An iterator to read the file. The returned proxy is never null.
      * @throws IceGrid::FileNotAvailableException Raised if the file can't be read.

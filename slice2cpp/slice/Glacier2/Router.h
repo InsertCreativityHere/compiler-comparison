@@ -18,9 +18,9 @@
 
 #include <IceUtil/PushDisableWarnings.h>
 #include <Ice/Ice.h>
-#include <Ice/Router.h>
-#include <Session.h>
-#include <PermissionsVerifier.h>
+#include "../Ice/Router.h"
+#include "Session.h"
+#include "PermissionsVerifier.h"
 #include <Glacier2/Config.h>
 
 #ifndef ICE_IGNORE_VERSION
@@ -95,15 +95,15 @@ public:
      * {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
      * (i.e., not visible to the client) is created.
      * If a session proxy is returned, it must be configured to route through the router that created it. This will
-     * happen automatically if the router is configured as the client's default router at the time the session proxy
-     * is created in the client process, otherwise the client must configure the session proxy explicitly.
+     * happen automatically if the router is configured as the client's default router at the time the session
+     * proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
      * @param userId The user id for which to check the password.
      * @param password The password for the given user id.
      * @param context The Context map to send with the invocation.
      * @return A proxy for the newly created session, or null if no {@link SessionManager} has been installed.
      * @throws Glacier2::CannotCreateSessionException Raised if the session cannot be created.
-     * @throws Glacier2::PermissionDeniedException Raised if the password for the given user id is not correct, or if the user
-     * is not allowed access.
+     * @throws Glacier2::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+     * user is not allowed access.
      * @see Session
      * @see SessionManager
      * @see PermissionsVerifier
@@ -115,8 +115,8 @@ public:
      * {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
      * (i.e., not visible to the client) is created.
      * If a session proxy is returned, it must be configured to route through the router that created it. This will
-     * happen automatically if the router is configured as the client's default router at the time the session proxy
-     * is created in the client process, otherwise the client must configure the session proxy explicitly.
+     * happen automatically if the router is configured as the client's default router at the time the session
+     * proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
      * @param userId The user id for which to check the password.
      * @param password The password for the given user id.
      * @param context The Context map to send with the invocation.
@@ -132,8 +132,8 @@ public:
      * {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
      * (i.e., not visible to the client) is created.
      * If a session proxy is returned, it must be configured to route through the router that created it. This will
-     * happen automatically if the router is configured as the client's default router at the time the session proxy
-     * is created in the client process, otherwise the client must configure the session proxy explicitly.
+     * happen automatically if the router is configured as the client's default router at the time the session
+     * proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
      * @param userId The user id for which to check the password.
      * @param password The password for the given user id.
      * @param response The response callback.
@@ -153,13 +153,13 @@ public:
     /// \endcond
 
     /**
-     * Create a per-client session with the router. The user is authenticated through the SSL certificates that have
-     * been associated with the connection. If a {@link SessionManager} has been installed, a proxy to a
+     * Create a per-client session with the router. The user is authenticated through the SSL certificates that
+     * have been associated with the connection. If a {@link SessionManager} has been installed, a proxy to a
      * {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
      * (i.e., not visible to the client) is created.
      * If a session proxy is returned, it must be configured to route through the router that created it. This will
-     * happen automatically if the router is configured as the client's default router at the time the session proxy
-     * is created in the client process, otherwise the client must configure the session proxy explicitly.
+     * happen automatically if the router is configured as the client's default router at the time the session
+     * proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
      * @param context The Context map to send with the invocation.
      * @return A proxy for the newly created session, or null if no {@link SessionManager} has been installed.
      * @throws Glacier2::CannotCreateSessionException Raised if the session cannot be created.
@@ -172,13 +172,13 @@ public:
     ::std::optional<SessionPrx> createSessionFromSecureConnection(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * Create a per-client session with the router. The user is authenticated through the SSL certificates that have
-     * been associated with the connection. If a {@link SessionManager} has been installed, a proxy to a
+     * Create a per-client session with the router. The user is authenticated through the SSL certificates that
+     * have been associated with the connection. If a {@link SessionManager} has been installed, a proxy to a
      * {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
      * (i.e., not visible to the client) is created.
      * If a session proxy is returned, it must be configured to route through the router that created it. This will
-     * happen automatically if the router is configured as the client's default router at the time the session proxy
-     * is created in the client process, otherwise the client must configure the session proxy explicitly.
+     * happen automatically if the router is configured as the client's default router at the time the session
+     * proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      * @see Session
@@ -188,13 +188,13 @@ public:
     ::std::future<::std::optional<SessionPrx>> createSessionFromSecureConnectionAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * Create a per-client session with the router. The user is authenticated through the SSL certificates that have
-     * been associated with the connection. If a {@link SessionManager} has been installed, a proxy to a
+     * Create a per-client session with the router. The user is authenticated through the SSL certificates that
+     * have been associated with the connection. If a {@link SessionManager} has been installed, a proxy to a
      * {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
      * (i.e., not visible to the client) is created.
      * If a session proxy is returned, it must be configured to route through the router that created it. This will
-     * happen automatically if the router is configured as the client's default router at the time the session proxy
-     * is created in the client process, otherwise the client must configure the session proxy explicitly.
+     * happen automatically if the router is configured as the client's default router at the time the session
+     * proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -270,21 +270,24 @@ public:
     /// \endcond
 
     /**
-     * Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of time.
+     * Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of
+     * time.
      * @param context The Context map to send with the invocation.
      * @return The timeout (in seconds).
      */
     ::std::int64_t getSessionTimeout(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of time.
+     * Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of
+     * time.
      * @param context The Context map to send with the invocation.
      * @return The future object for the invocation.
      */
     ::std::future<::std::int64_t> getSessionTimeoutAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     /**
-     * Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of time.
+     * Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of
+     * time.
      * @param response The response callback.
      * @param ex The exception callback.
      * @param sent The sent callback.
@@ -474,16 +477,16 @@ public:
      * {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
      * (i.e., not visible to the client) is created.
      * If a session proxy is returned, it must be configured to route through the router that created it. This will
-     * happen automatically if the router is configured as the client's default router at the time the session proxy
-     * is created in the client process, otherwise the client must configure the session proxy explicitly.
+     * happen automatically if the router is configured as the client's default router at the time the session
+     * proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
      * @param userId The user id for which to check the password.
      * @param password The password for the given user id.
      * @param response The response callback.
      * @param exception The exception callback.
      * @param current The Current object for the invocation.
      * @throws Glacier2::CannotCreateSessionException Raised if the session cannot be created.
-     * @throws Glacier2::PermissionDeniedException Raised if the password for the given user id is not correct, or if the user
-     * is not allowed access.
+     * @throws Glacier2::PermissionDeniedException Raised if the password for the given user id is not correct, or if the
+     * user is not allowed access.
      * @see Session
      * @see SessionManager
      * @see PermissionsVerifier
@@ -494,13 +497,13 @@ public:
     /// \endcond
 
     /**
-     * Create a per-client session with the router. The user is authenticated through the SSL certificates that have
-     * been associated with the connection. If a {@link SessionManager} has been installed, a proxy to a
+     * Create a per-client session with the router. The user is authenticated through the SSL certificates that
+     * have been associated with the connection. If a {@link SessionManager} has been installed, a proxy to a
      * {@link Session} object is returned to the client. Otherwise, null is returned and only an internal session
      * (i.e., not visible to the client) is created.
      * If a session proxy is returned, it must be configured to route through the router that created it. This will
-     * happen automatically if the router is configured as the client's default router at the time the session proxy
-     * is created in the client process, otherwise the client must configure the session proxy explicitly.
+     * happen automatically if the router is configured as the client's default router at the time the session
+     * proxy is created in the client process, otherwise the client must configure the session proxy explicitly.
      * @param response The response callback.
      * @param exception The exception callback.
      * @param current The Current object for the invocation.
@@ -539,7 +542,8 @@ public:
     /// \endcond
 
     /**
-     * Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of time.
+     * Get the value of the session timeout. Sessions are destroyed if they see no activity for this period of
+     * time.
      * @param current The Current object for the invocation.
      * @return The timeout (in seconds).
      */

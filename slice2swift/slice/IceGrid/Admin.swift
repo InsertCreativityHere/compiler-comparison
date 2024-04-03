@@ -2184,7 +2184,8 @@ public extension AdminPrx {
 
     /// Synchronize a deployed application with the given application descriptor. This operation will replace the
     /// current descriptor with this new descriptor only if no server restarts are necessary for the update of the
-    /// application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
+    /// application. If some servers need to be restarted, the synchronization is rejected with a
+    /// DeploymentException.
     ///
     /// - parameter _: `ApplicationDescriptor` The application descriptor.
     ///
@@ -2221,7 +2222,8 @@ public extension AdminPrx {
 
     /// Synchronize a deployed application with the given application descriptor. This operation will replace the
     /// current descriptor with this new descriptor only if no server restarts are necessary for the update of the
-    /// application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
+    /// application. If some servers need to be restarted, the synchronization is rejected with a
+    /// DeploymentException.
     ///
     /// - parameter _: `ApplicationDescriptor` The application descriptor.
     ///
@@ -3024,8 +3026,9 @@ public extension AdminPrx {
                                   sent: sent)
     }
 
-    /// Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
-    /// of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
+    /// Enable or disable a server. A disabled server can't be started on demand or administratively. The enable
+    /// state of the server is not persistent: if the node is shut down and restarted, the server will be enabled by
+    /// default.
     ///
     /// - parameter id: `Swift.String` The server id.
     ///
@@ -3061,8 +3064,9 @@ public extension AdminPrx {
                           context: context)
     }
 
-    /// Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
-    /// of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
+    /// Enable or disable a server. A disabled server can't be started on demand or administratively. The enable
+    /// state of the server is not persistent: if the node is shut down and restarted, the server will be enabled by
+    /// default.
     ///
     /// - parameter id: `Swift.String` The server id.
     ///
@@ -3468,9 +3472,9 @@ public extension AdminPrx {
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
-    /// - returns: `AdapterInfoSeq` - A sequence of adapter information structures. If the given id refers to an adapter, this sequence will
-    /// contain only one element. If the given id refers to a replica group, the sequence will contain the adapter
-    /// information of each member of the replica group.
+    /// - returns: `AdapterInfoSeq` - A sequence of adapter information structures. If the given id refers to an adapter, this sequence
+    /// will contain only one element. If the given id refers to a replica group, the sequence will contain the
+    /// adapter information of each member of the replica group.
     ///
     /// - throws:
     ///
@@ -3648,8 +3652,8 @@ public extension AdminPrx {
     ///
     /// - throws:
     ///
-    ///   - DeploymentException - Raised if the object can't be added. This might be raised if the invocation on the
-    ///     proxy to get the object type failed.
+    ///   - DeploymentException - Raised if the object can't be added. This might be raised if the invocation on
+    ///     the proxy to get the object type failed.
     ///
     ///   - ObjectExistsException - Raised if the object is already registered.
     func addObject(_ iceP_obj: Ice.ObjectPrx?, context: Ice.Context? = nil) throws {
@@ -4382,8 +4386,8 @@ public extension AdminPrx {
     }
 
     /// Get the number of physical processor sockets for the machine running the node with the given name.
-    /// Note that this method will return 1 on operating systems where this can't be automatically determined and where
-    /// the IceGrid.Node.ProcessorSocketCount property for the node is not set.
+    /// Note that this method will return 1 on operating systems where this can't be automatically determined and
+    /// where the IceGrid.Node.ProcessorSocketCount property for the node is not set.
     ///
     /// - parameter _: `Swift.String` The node name.
     ///
@@ -4419,8 +4423,8 @@ public extension AdminPrx {
     }
 
     /// Get the number of physical processor sockets for the machine running the node with the given name.
-    /// Note that this method will return 1 on operating systems where this can't be automatically determined and where
-    /// the IceGrid.Node.ProcessorSocketCount property for the node is not set.
+    /// Note that this method will return 1 on operating systems where this can't be automatically determined and
+    /// where the IceGrid.Node.ProcessorSocketCount property for the node is not set.
     ///
     /// - parameter _: `Swift.String` The node name.
     ///
@@ -5102,8 +5106,8 @@ public extension FileIteratorPrx {
     ///   - returnValue: `Swift.Bool` - True if EOF is encountered.
     ///
     ///   - lines: `Ice.StringSeq` - The lines read from the file. If there was nothing to read from the file since the last call to
-    /// read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no '\n'
-    /// should be added when writing the last line to the to the output device).
+    /// read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no
+    /// '\n' should be added when writing the last line to the to the output device).
     ///
     /// - throws:
     ///
@@ -5557,8 +5561,8 @@ public extension Ice.InputStream {
 ///
 ///  - updateAdapterAsync: The updateAdapter operation is called to notify an observer that the state of an adapter changed.
 public extension NodeObserverPrx {
-    /// The nodeInit operation indicates the current state of nodes. It is called after the registration
-    /// of an observer.
+    /// The nodeInit operation indicates the current state of nodes. It is called after the
+    /// registration of an observer.
     ///
     /// - parameter _: `NodeDynamicInfoSeq` The current state of the nodes.
     ///
@@ -5572,8 +5576,8 @@ public extension NodeObserverPrx {
                           context: context)
     }
 
-    /// The nodeInit operation indicates the current state of nodes. It is called after the registration
-    /// of an observer.
+    /// The nodeInit operation indicates the current state of nodes. It is called after the
+    /// registration of an observer.
     ///
     /// - parameter _: `NodeDynamicInfoSeq` The current state of the nodes.
     ///
@@ -5729,7 +5733,8 @@ public extension NodeObserverPrx {
                                   sent: sent)
     }
 
-    /// The updateAdapter operation is called to notify an observer that the state of an adapter changed.
+    /// The updateAdapter operation is called to notify an observer that the state of an adapter
+    /// changed.
     ///
     /// - parameter node: `Swift.String` The node hosting the adapter.
     ///
@@ -5746,7 +5751,8 @@ public extension NodeObserverPrx {
                           context: context)
     }
 
-    /// The updateAdapter operation is called to notify an observer that the state of an adapter changed.
+    /// The updateAdapter operation is called to notify an observer that the state of an adapter
+    /// changed.
     ///
     /// - parameter node: `Swift.String` The node hosting the adapter.
     ///
@@ -5777,8 +5783,8 @@ public extension NodeObserverPrx {
     }
 }
 
-/// The database observer interface. Observers should implement this interface to receive information about the state
-/// of the IceGrid registry database.
+/// The database observer interface. Observers should implement this interface to receive information about the
+/// state of the IceGrid registry database.
 ///
 /// ApplicationObserverPrx Methods:
 ///
@@ -5872,8 +5878,8 @@ public extension Ice.InputStream {
     }
 }
 
-/// The database observer interface. Observers should implement this interface to receive information about the state
-/// of the IceGrid registry database.
+/// The database observer interface. Observers should implement this interface to receive information about the
+/// state of the IceGrid registry database.
 ///
 /// ApplicationObserverPrx Methods:
 ///
@@ -5896,8 +5902,8 @@ public extension ApplicationObserverPrx {
     /// applicationInit is called after the registration of an observer to indicate the state of the
     /// registry.
     ///
-    /// - parameter serial: `Swift.Int32` The current serial number of the registry database. This serial number allows observers to make
-    /// sure that their internal state is synchronized with the registry.
+    /// - parameter serial: `Swift.Int32` The current serial number of the registry database. This serial number allows observers to
+    /// make sure that their internal state is synchronized with the registry.
     ///
     /// - parameter applications: `ApplicationInfoSeq` The applications currently registered with the registry.
     ///
@@ -5916,8 +5922,8 @@ public extension ApplicationObserverPrx {
     /// applicationInit is called after the registration of an observer to indicate the state of the
     /// registry.
     ///
-    /// - parameter serial: `Swift.Int32` The current serial number of the registry database. This serial number allows observers to make
-    /// sure that their internal state is synchronized with the registry.
+    /// - parameter serial: `Swift.Int32` The current serial number of the registry database. This serial number allows observers to
+    /// make sure that their internal state is synchronized with the registry.
     ///
     /// - parameter applications: `ApplicationInfoSeq` The applications currently registered with the registry.
     ///
@@ -5995,7 +6001,8 @@ public extension ApplicationObserverPrx {
                                   sent: sent)
     }
 
-    /// The applicationRemoved operation is called to notify an observer that an application was removed.
+    /// The applicationRemoved operation is called to notify an observer that an application was
+    /// removed.
     ///
     /// - parameter serial: `Swift.Int32` The new serial number of the registry database.
     ///
@@ -6012,7 +6019,8 @@ public extension ApplicationObserverPrx {
                           context: context)
     }
 
-    /// The applicationRemoved operation is called to notify an observer that an application was removed.
+    /// The applicationRemoved operation is called to notify an observer that an application was
+    /// removed.
     ///
     /// - parameter serial: `Swift.Int32` The new serial number of the registry database.
     ///
@@ -6042,7 +6050,8 @@ public extension ApplicationObserverPrx {
                                   sent: sent)
     }
 
-    /// The applicationUpdated operation is called to notify an observer that an application was updated.
+    /// The applicationUpdated operation is called to notify an observer that an application was
+    /// updated.
     ///
     /// - parameter serial: `Swift.Int32` The new serial number of the registry database.
     ///
@@ -6060,7 +6069,8 @@ public extension ApplicationObserverPrx {
                           context: context)
     }
 
-    /// The applicationUpdated operation is called to notify an observer that an application was updated.
+    /// The applicationUpdated operation is called to notify an observer that an application was
+    /// updated.
     ///
     /// - parameter serial: `Swift.Int32` The new serial number of the registry database.
     ///
@@ -6249,8 +6259,8 @@ public extension AdapterObserverPrx {
                                   sent: sent)
     }
 
-    /// The adapterAdded operation is called to notify an observer when a dynamically-registered adapter
-    /// was added.
+    /// The adapterAdded operation is called to notify an observer when a dynamically-registered
+    /// adapter was added.
     ///
     /// - parameter _: `AdapterInfo` The details of the new adapter.
     ///
@@ -6264,8 +6274,8 @@ public extension AdapterObserverPrx {
                           context: context)
     }
 
-    /// The adapterAdded operation is called to notify an observer when a dynamically-registered adapter
-    /// was added.
+    /// The adapterAdded operation is called to notify an observer when a dynamically-registered
+    /// adapter was added.
     ///
     /// - parameter _: `AdapterInfo` The details of the new adapter.
     ///
@@ -6292,7 +6302,8 @@ public extension AdapterObserverPrx {
                                   sent: sent)
     }
 
-    /// The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
+    /// The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was
+    /// updated.
     ///
     /// - parameter _: `AdapterInfo` The details of the updated adapter.
     ///
@@ -6306,7 +6317,8 @@ public extension AdapterObserverPrx {
                           context: context)
     }
 
-    /// The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
+    /// The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was
+    /// updated.
     ///
     /// - parameter _: `AdapterInfo` The details of the updated adapter.
     ///
@@ -6333,7 +6345,8 @@ public extension AdapterObserverPrx {
                                   sent: sent)
     }
 
-    /// The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
+    /// The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was
+    /// removed.
     ///
     /// - parameter _: `Swift.String` The ID of the removed adapter.
     ///
@@ -6347,7 +6360,8 @@ public extension AdapterObserverPrx {
                           context: context)
     }
 
-    /// The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
+    /// The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was
+    /// removed.
     ///
     /// - parameter _: `Swift.String` The ID of the removed adapter.
     ///
@@ -6489,9 +6503,11 @@ public extension Ice.InputStream {
 ///
 ///  - objectRemovedAsync: objectRemoved is called to notify an observer when an object registered with the Admin interface was removed.
 public extension ObjectObserverPrx {
-    /// objectInit is called after the registration of an observer to indicate the state of the registry.
+    /// objectInit is called after the registration of an observer to indicate the state of the
+    /// registry.
     ///
-    /// - parameter _: `ObjectInfoSeq` The objects registered with the Admin interface (not through the deployment mechanism).
+    /// - parameter _: `ObjectInfoSeq` The objects registered with the Admin interface (not through the deployment
+    /// mechanism).
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     func objectInit(_ iceP_objects: ObjectInfoSeq, context: Ice.Context? = nil) throws {
@@ -6503,9 +6519,11 @@ public extension ObjectObserverPrx {
                           context: context)
     }
 
-    /// objectInit is called after the registration of an observer to indicate the state of the registry.
+    /// objectInit is called after the registration of an observer to indicate the state of the
+    /// registry.
     ///
-    /// - parameter _: `ObjectInfoSeq` The objects registered with the Admin interface (not through the deployment mechanism).
+    /// - parameter _: `ObjectInfoSeq` The objects registered with the Admin interface (not through the deployment
+    /// mechanism).
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -6661,8 +6679,8 @@ public extension ObjectObserverPrx {
 }
 
 /// Used by administrative clients to view, update, and receive observer updates from the IceGrid registry. Admin
-/// sessions are created either via the Registry object or via the registry admin SessionManager
-/// object.
+/// sessions are created either via the Registry object or via the registry admin
+/// SessionManager object.
 ///
 /// AdminSessionPrx Methods:
 ///
@@ -6801,8 +6819,8 @@ public extension Ice.InputStream {
 }
 
 /// Used by administrative clients to view, update, and receive observer updates from the IceGrid registry. Admin
-/// sessions are created either via the Registry object or via the registry admin SessionManager
-/// object.
+/// sessions are created either via the Registry object or via the registry admin
+/// SessionManager object.
 ///
 /// AdminSessionPrx Methods:
 ///
@@ -6940,8 +6958,8 @@ public extension AdminSessionPrx {
                                   sent: sent)
     }
 
-    /// Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
-    /// callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
+    /// Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of
+    /// its callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -6956,8 +6974,8 @@ public extension AdminSessionPrx {
                                  context: context)
     }
 
-    /// Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
-    /// callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
+    /// Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of
+    /// its callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -7067,7 +7085,8 @@ public extension AdminSessionPrx {
     }
 
     /// Set the observer identities that receive notifications the state of the registry or nodes changes. This
-    /// operation should be used by clients that are using a bidirectional connection to communicate with the session.
+    /// operation should be used by clients that are using a bidirectional connection to communicate with the
+    /// session.
     ///
     /// - parameter registryObs: `Ice.Identity` The registry observer identity.
     ///
@@ -7105,7 +7124,8 @@ public extension AdminSessionPrx {
     }
 
     /// Set the observer identities that receive notifications the state of the registry or nodes changes. This
-    /// operation should be used by clients that are using a bidirectional connection to communicate with the session.
+    /// operation should be used by clients that are using a bidirectional connection to communicate with the
+    /// session.
     ///
     /// - parameter registryObs: `Ice.Identity` The registry observer identity.
     ///
@@ -7159,8 +7179,8 @@ public extension AdminSessionPrx {
     ///
     /// - throws:
     ///
-    ///   - AccessDeniedException - Raised if the exclusive lock can't be acquired. This might happen if the lock is
-    ///     currently acquired by another session.
+    ///   - AccessDeniedException - Raised if the exclusive lock can't be acquired. This might happen if the lock
+    ///     is currently acquired by another session.
     func startUpdate(context: Ice.Context? = nil) throws -> Swift.Int32 {
         return try _impl._invoke(operation: "startUpdate",
                                  mode: .Normal,
@@ -7305,11 +7325,11 @@ public extension AdminSessionPrx {
     ///
     /// - parameter id: `Swift.String` The server id.
     ///
-    /// - parameter path: `Swift.String` The path of the log file. A log file can be opened only if it's declared in the server or service
-    /// deployment descriptor.
+    /// - parameter path: `Swift.String` The path of the log file. A log file can be opened only if it's declared in the server or
+    /// service deployment descriptor.
     ///
-    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-    /// or positive, the file is read from the last count lines.
+    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If
+    /// 0 or positive, the file is read from the last count lines.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -7356,11 +7376,11 @@ public extension AdminSessionPrx {
     ///
     /// - parameter id: `Swift.String` The server id.
     ///
-    /// - parameter path: `Swift.String` The path of the log file. A log file can be opened only if it's declared in the server or service
-    /// deployment descriptor.
+    /// - parameter path: `Swift.String` The path of the log file. A log file can be opened only if it's declared in the server or
+    /// service deployment descriptor.
     ///
-    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-    /// or positive, the file is read from the last count lines.
+    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If
+    /// 0 or positive, the file is read from the last count lines.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -7408,8 +7428,8 @@ public extension AdminSessionPrx {
     ///
     /// - parameter id: `Swift.String` The server id.
     ///
-    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-    /// or positive, the file is read from the last count lines.
+    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If
+    /// 0 or positive, the file is read from the last count lines.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -7455,8 +7475,8 @@ public extension AdminSessionPrx {
     ///
     /// - parameter id: `Swift.String` The server id.
     ///
-    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-    /// or positive, the file is read from the last count lines.
+    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If
+    /// 0 or positive, the file is read from the last count lines.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -7598,8 +7618,8 @@ public extension AdminSessionPrx {
     ///
     /// - parameter name: `Swift.String` The node name.
     ///
-    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-    /// or positive, the file is read from the last count lines.
+    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If
+    /// 0 or positive, the file is read from the last count lines.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -7641,8 +7661,8 @@ public extension AdminSessionPrx {
     ///
     /// - parameter name: `Swift.String` The node name.
     ///
-    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-    /// or positive, the file is read from the last count lines.
+    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If
+    /// 0 or positive, the file is read from the last count lines.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -7687,8 +7707,8 @@ public extension AdminSessionPrx {
     ///
     /// - parameter name: `Swift.String` The node name.
     ///
-    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-    /// or positive, the file is read from the last count lines.
+    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If
+    /// 0 or positive, the file is read from the last count lines.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -7730,8 +7750,8 @@ public extension AdminSessionPrx {
     ///
     /// - parameter name: `Swift.String` The node name.
     ///
-    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-    /// or positive, the file is read from the last count lines.
+    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If
+    /// 0 or positive, the file is read from the last count lines.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -7776,8 +7796,8 @@ public extension AdminSessionPrx {
     ///
     /// - parameter name: `Swift.String` The registry name.
     ///
-    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-    /// or positive, the file is read from the last count lines.
+    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If
+    /// 0 or positive, the file is read from the last count lines.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -7819,8 +7839,8 @@ public extension AdminSessionPrx {
     ///
     /// - parameter name: `Swift.String` The registry name.
     ///
-    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-    /// or positive, the file is read from the last count lines.
+    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If
+    /// 0 or positive, the file is read from the last count lines.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -7865,8 +7885,8 @@ public extension AdminSessionPrx {
     ///
     /// - parameter name: `Swift.String` The registry name.
     ///
-    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-    /// or positive, the file is read from the last count lines.
+    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If
+    /// 0 or positive, the file is read from the last count lines.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -7908,8 +7928,8 @@ public extension AdminSessionPrx {
     ///
     /// - parameter name: `Swift.String` The registry name.
     ///
-    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-    /// or positive, the file is read from the last count lines.
+    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If
+    /// 0 or positive, the file is read from the last count lines.
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
     ///
@@ -8120,7 +8140,8 @@ public protocol Admin {
 
     /// Synchronize a deployed application with the given application descriptor. This operation will replace the
     /// current descriptor with this new descriptor only if no server restarts are necessary for the update of the
-    /// application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
+    /// application. If some servers need to be restarted, the synchronization is rejected with a
+    /// DeploymentException.
     ///
     /// - parameter descriptor: `ApplicationDescriptor` The application descriptor.
     ///
@@ -8293,8 +8314,9 @@ public protocol Admin {
     ///   - ServerNotExistException - Raised if the server doesn't exist.
     func getServerAdmin(id: Swift.String, current: Ice.Current) throws -> Ice.ObjectPrx?
 
-    /// Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
-    /// of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
+    /// Enable or disable a server. A disabled server can't be started on demand or administratively. The enable
+    /// state of the server is not persistent: if the node is shut down and restarted, the server will be enabled by
+    /// default.
     ///
     /// - parameter id: `Swift.String` The server id.
     ///
@@ -8378,9 +8400,9 @@ public protocol Admin {
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
-    /// - returns: `AdapterInfoSeq` - A sequence of adapter information structures. If the given id refers to an adapter, this sequence will
-    /// contain only one element. If the given id refers to a replica group, the sequence will contain the adapter
-    /// information of each member of the replica group.
+    /// - returns: `AdapterInfoSeq` - A sequence of adapter information structures. If the given id refers to an adapter, this sequence
+    /// will contain only one element. If the given id refers to a replica group, the sequence will contain the
+    /// adapter information of each member of the replica group.
     ///
     /// - throws:
     ///
@@ -8416,8 +8438,8 @@ public protocol Admin {
     ///
     /// - throws:
     ///
-    ///   - DeploymentException - Raised if the object can't be added. This might be raised if the invocation on the
-    ///     proxy to get the object type failed.
+    ///   - DeploymentException - Raised if the object can't be added. This might be raised if the invocation on
+    ///     the proxy to get the object type failed.
     ///
     ///   - ObjectExistsException - Raised if the object is already registered.
     func addObject(obj: Ice.ObjectPrx?, current: Ice.Current) throws
@@ -8558,8 +8580,8 @@ public protocol Admin {
     func getNodeAdmin(name: Swift.String, current: Ice.Current) throws -> Ice.ObjectPrx?
 
     /// Get the number of physical processor sockets for the machine running the node with the given name.
-    /// Note that this method will return 1 on operating systems where this can't be automatically determined and where
-    /// the IceGrid.Node.ProcessorSocketCount property for the node is not set.
+    /// Note that this method will return 1 on operating systems where this can't be automatically determined and
+    /// where the IceGrid.Node.ProcessorSocketCount property for the node is not set.
     ///
     /// - parameter name: `Swift.String` The node name.
     ///
@@ -8721,8 +8743,8 @@ public protocol FileIterator {
     ///   - returnValue: `Swift.Bool` - True if EOF is encountered.
     ///
     ///   - lines: `Ice.StringSeq` - The lines read from the file. If there was nothing to read from the file since the last call to
-    /// read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no '\n'
-    /// should be added when writing the last line to the to the output device).
+    /// read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no
+    /// '\n' should be added when writing the last line to the to the output device).
     ///
     /// - throws:
     ///
@@ -8833,8 +8855,8 @@ public struct NodeObserverDisp: Ice.Disp {
 /// The node observer interface. Observers should implement this interface to receive information about the state of
 /// the IceGrid nodes.
 public protocol NodeObserver {
-    /// The nodeInit operation indicates the current state of nodes. It is called after the registration
-    /// of an observer.
+    /// The nodeInit operation indicates the current state of nodes. It is called after the
+    /// registration of an observer.
     ///
     /// - parameter nodes: `NodeDynamicInfoSeq` The current state of the nodes.
     ///
@@ -8864,7 +8886,8 @@ public protocol NodeObserver {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func updateServer(node: Swift.String, updatedInfo: ServerDynamicInfo, current: Ice.Current) throws
 
-    /// The updateAdapter operation is called to notify an observer that the state of an adapter changed.
+    /// The updateAdapter operation is called to notify an observer that the state of an adapter
+    /// changed.
     ///
     /// - parameter node: `Swift.String` The node hosting the adapter.
     ///
@@ -8909,14 +8932,14 @@ public struct ApplicationObserverDisp: Ice.Disp {
     }
 }
 
-/// The database observer interface. Observers should implement this interface to receive information about the state
-/// of the IceGrid registry database.
+/// The database observer interface. Observers should implement this interface to receive information about the
+/// state of the IceGrid registry database.
 public protocol ApplicationObserver {
     /// applicationInit is called after the registration of an observer to indicate the state of the
     /// registry.
     ///
-    /// - parameter serial: `Swift.Int32` The current serial number of the registry database. This serial number allows observers to make
-    /// sure that their internal state is synchronized with the registry.
+    /// - parameter serial: `Swift.Int32` The current serial number of the registry database. This serial number allows observers to
+    /// make sure that their internal state is synchronized with the registry.
     ///
     /// - parameter applications: `ApplicationInfoSeq` The applications currently registered with the registry.
     ///
@@ -8932,7 +8955,8 @@ public protocol ApplicationObserver {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func applicationAdded(serial: Swift.Int32, desc: ApplicationInfo, current: Ice.Current) throws
 
-    /// The applicationRemoved operation is called to notify an observer that an application was removed.
+    /// The applicationRemoved operation is called to notify an observer that an application was
+    /// removed.
     ///
     /// - parameter serial: `Swift.Int32` The new serial number of the registry database.
     ///
@@ -8941,7 +8965,8 @@ public protocol ApplicationObserver {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func applicationRemoved(serial: Swift.Int32, name: Swift.String, current: Ice.Current) throws
 
-    /// The applicationUpdated operation is called to notify an observer that an application was updated.
+    /// The applicationUpdated operation is called to notify an observer that an application was
+    /// updated.
     ///
     /// - parameter serial: `Swift.Int32` The new serial number of the registry database.
     ///
@@ -8996,22 +9021,24 @@ public protocol AdapterObserver {
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func adapterInit(adpts: AdapterInfoSeq, current: Ice.Current) throws
 
-    /// The adapterAdded operation is called to notify an observer when a dynamically-registered adapter
-    /// was added.
+    /// The adapterAdded operation is called to notify an observer when a dynamically-registered
+    /// adapter was added.
     ///
     /// - parameter info: `AdapterInfo` The details of the new adapter.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func adapterAdded(info: AdapterInfo, current: Ice.Current) throws
 
-    /// The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was updated.
+    /// The adapterUpdated operation is called to notify an observer when a dynamically-registered adapter was
+    /// updated.
     ///
     /// - parameter info: `AdapterInfo` The details of the updated adapter.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func adapterUpdated(info: AdapterInfo, current: Ice.Current) throws
 
-    /// The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was removed.
+    /// The adapterRemoved operation is called to notify an observer when a dynamically-registered adapter was
+    /// removed.
     ///
     /// - parameter id: `Swift.String` The ID of the removed adapter.
     ///
@@ -9056,9 +9083,11 @@ public struct ObjectObserverDisp: Ice.Disp {
 
 /// This interface allows applications to monitor IceGrid well-known objects.
 public protocol ObjectObserver {
-    /// objectInit is called after the registration of an observer to indicate the state of the registry.
+    /// objectInit is called after the registration of an observer to indicate the state of the
+    /// registry.
     ///
-    /// - parameter objects: `ObjectInfoSeq` The objects registered with the Admin interface (not through the deployment mechanism).
+    /// - parameter objects: `ObjectInfoSeq` The objects registered with the Admin interface (not through the deployment
+    /// mechanism).
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     func objectInit(objects: ObjectInfoSeq, current: Ice.Current) throws
@@ -9148,8 +9177,8 @@ public struct AdminSessionDisp: Ice.Disp {
 }
 
 /// Used by administrative clients to view, update, and receive observer updates from the IceGrid registry. Admin
-/// sessions are created either via the Registry object or via the registry admin SessionManager
-/// object.
+/// sessions are created either via the Registry object or via the registry admin
+/// SessionManager object.
 public protocol AdminSession: Glacier2.Session {
     /// Keep the session alive. Clients should call this operation regularly to prevent the server from reaping the
     /// session.
@@ -9164,8 +9193,8 @@ public protocol AdminSession: Glacier2.Session {
     /// - returns: `AdminPrx?` - The admin interface proxy. The returned proxy is never null.
     func getAdmin(current: Ice.Current) throws -> AdminPrx?
 
-    /// Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of its
-    /// callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
+    /// Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of
+    /// its callback objects, and the published endpoints of the object adapter hosting the admin callback objects.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
@@ -9192,7 +9221,8 @@ public protocol AdminSession: Glacier2.Session {
     func setObservers(registryObs: RegistryObserverPrx?, nodeObs: NodeObserverPrx?, appObs: ApplicationObserverPrx?, adptObs: AdapterObserverPrx?, objObs: ObjectObserverPrx?, current: Ice.Current) throws
 
     /// Set the observer identities that receive notifications the state of the registry or nodes changes. This
-    /// operation should be used by clients that are using a bidirectional connection to communicate with the session.
+    /// operation should be used by clients that are using a bidirectional connection to communicate with the
+    /// session.
     ///
     /// - parameter registryObs: `Ice.Identity` The registry observer identity.
     ///
@@ -9219,8 +9249,8 @@ public protocol AdminSession: Glacier2.Session {
     ///
     /// - throws:
     ///
-    ///   - AccessDeniedException - Raised if the exclusive lock can't be acquired. This might happen if the lock is
-    ///     currently acquired by another session.
+    ///   - AccessDeniedException - Raised if the exclusive lock can't be acquired. This might happen if the lock
+    ///     is currently acquired by another session.
     func startUpdate(current: Ice.Current) throws -> Swift.Int32
 
     /// Finish updating the registry and release the exclusive lock.
@@ -9243,11 +9273,11 @@ public protocol AdminSession: Glacier2.Session {
     ///
     /// - parameter id: `Swift.String` The server id.
     ///
-    /// - parameter path: `Swift.String` The path of the log file. A log file can be opened only if it's declared in the server or service
-    /// deployment descriptor.
+    /// - parameter path: `Swift.String` The path of the log file. A log file can be opened only if it's declared in the server or
+    /// service deployment descriptor.
     ///
-    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-    /// or positive, the file is read from the last count lines.
+    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If
+    /// 0 or positive, the file is read from the last count lines.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
@@ -9268,8 +9298,8 @@ public protocol AdminSession: Glacier2.Session {
     ///
     /// - parameter id: `Swift.String` The server id.
     ///
-    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-    /// or positive, the file is read from the last count lines.
+    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If
+    /// 0 or positive, the file is read from the last count lines.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
@@ -9312,8 +9342,8 @@ public protocol AdminSession: Glacier2.Session {
     ///
     /// - parameter name: `Swift.String` The node name.
     ///
-    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-    /// or positive, the file is read from the last count lines.
+    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If
+    /// 0 or positive, the file is read from the last count lines.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
@@ -9332,8 +9362,8 @@ public protocol AdminSession: Glacier2.Session {
     ///
     /// - parameter name: `Swift.String` The node name.
     ///
-    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-    /// or positive, the file is read from the last count lines.
+    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If
+    /// 0 or positive, the file is read from the last count lines.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
@@ -9352,8 +9382,8 @@ public protocol AdminSession: Glacier2.Session {
     ///
     /// - parameter name: `Swift.String` The registry name.
     ///
-    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-    /// or positive, the file is read from the last count lines.
+    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If
+    /// 0 or positive, the file is read from the last count lines.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
@@ -9372,8 +9402,8 @@ public protocol AdminSession: Glacier2.Session {
     ///
     /// - parameter name: `Swift.String` The registry name.
     ///
-    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If 0
-    /// or positive, the file is read from the last count lines.
+    /// - parameter count: `Swift.Int32` Specifies where to start reading the file. If negative, the file is read from the begining. If
+    /// 0 or positive, the file is read from the last count lines.
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
     ///
@@ -10165,8 +10195,8 @@ public extension NodeObserver {
     }
 }
 
-/// The database observer interface. Observers should implement this interface to receive information about the state
-/// of the IceGrid registry database.
+/// The database observer interface. Observers should implement this interface to receive information about the
+/// state of the IceGrid registry database.
 ///
 /// ApplicationObserver Methods:
 ///
@@ -10345,8 +10375,8 @@ public extension ObjectObserver {
 }
 
 /// Used by administrative clients to view, update, and receive observer updates from the IceGrid registry. Admin
-/// sessions are created either via the Registry object or via the registry admin SessionManager
-/// object.
+/// sessions are created either via the Registry object or via the registry admin
+/// SessionManager object.
 ///
 /// AdminSession Methods:
 ///

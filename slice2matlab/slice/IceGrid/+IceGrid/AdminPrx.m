@@ -225,7 +225,8 @@ classdef AdminPrx < Ice.ObjectPrx
         function syncApplicationWithoutRestart(obj, descriptor, varargin)
             % syncApplicationWithoutRestart   Synchronize a deployed application with the given application descriptor. This operation will replace the
             % current descriptor with this new descriptor only if no server restarts are necessary for the update of the
-            % application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
+            % application. If some servers need to be restarted, the synchronization is rejected with a
+            % DeploymentException.
             %
             % Parameters:
             %   descriptor (IceGrid.ApplicationDescriptor) - The application descriptor.
@@ -246,7 +247,8 @@ classdef AdminPrx < Ice.ObjectPrx
         function r_ = syncApplicationWithoutRestartAsync(obj, descriptor, varargin)
             % syncApplicationWithoutRestartAsync   Synchronize a deployed application with the given application descriptor. This operation will replace the
             % current descriptor with this new descriptor only if no server restarts are necessary for the update of the
-            % application. If some servers need to be restarted, the synchronization is rejected with a DeploymentException.
+            % application. If some servers need to be restarted, the synchronization is rejected with a
+            % DeploymentException.
             %
             % Parameters:
             %   descriptor (IceGrid.ApplicationDescriptor) - The application descriptor.
@@ -726,8 +728,9 @@ classdef AdminPrx < Ice.ObjectPrx
             r_ = obj.iceInvokeAsync('getServerAdmin', 2, true, os_, 1, @unmarshal, IceGrid.AdminPrx.getServerAdmin_ex_, varargin{:});
         end
         function enableServer(obj, id, enabled, varargin)
-            % enableServer   Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
-            % of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
+            % enableServer   Enable or disable a server. A disabled server can't be started on demand or administratively. The enable
+            % state of the server is not persistent: if the node is shut down and restarted, the server will be enabled by
+            % default.
             %
             % Parameters:
             %   id (char) - The server id.
@@ -746,8 +749,9 @@ classdef AdminPrx < Ice.ObjectPrx
             obj.iceInvoke('enableServer', 2, true, os_, false, IceGrid.AdminPrx.enableServer_ex_, varargin{:});
         end
         function r_ = enableServerAsync(obj, id, enabled, varargin)
-            % enableServerAsync   Enable or disable a server. A disabled server can't be started on demand or administratively. The enable state
-            % of the server is not persistent: if the node is shut down and restarted, the server will be enabled by default.
+            % enableServerAsync   Enable or disable a server. A disabled server can't be started on demand or administratively. The enable
+            % state of the server is not persistent: if the node is shut down and restarted, the server will be enabled by
+            % default.
             %
             % Parameters:
             %   id (char) - The server id.
@@ -968,9 +972,9 @@ classdef AdminPrx < Ice.ObjectPrx
             %   id (char) - The adapter id.
             %   context (containers.Map) - Optional request context.
             %
-            % Returns (IceGrid.AdapterInfoSeq) - A sequence of adapter information structures. If the given id refers to an adapter, this sequence will
-            % contain only one element. If the given id refers to a replica group, the sequence will contain the adapter
-            % information of each member of the replica group.
+            % Returns (IceGrid.AdapterInfoSeq) - A sequence of adapter information structures. If the given id refers to an adapter, this sequence
+            % will contain only one element. If the given id refers to a replica group, the sequence will contain the
+            % adapter information of each member of the replica group.
             %
             % Exceptions:
             %   IceGrid.AdapterNotExistException - Raised if the adapter or replica group doesn't exist.
@@ -1078,8 +1082,8 @@ classdef AdminPrx < Ice.ObjectPrx
             %   context (containers.Map) - Optional request context.
             %
             % Exceptions:
-            %   IceGrid.DeploymentException - Raised if the object can't be added. This might be raised if the invocation on the
-            %     proxy to get the object type failed.
+            %   IceGrid.DeploymentException - Raised if the object can't be added. This might be raised if the invocation on
+            %     the proxy to get the object type failed.
             %   IceGrid.ObjectExistsException - Raised if the object is already registered.
             
             os_ = obj_.iceStartWriteParams([]);
@@ -1098,8 +1102,8 @@ classdef AdminPrx < Ice.ObjectPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             %
             % Exceptions:
-            %   IceGrid.DeploymentException - Raised if the object can't be added. This might be raised if the invocation on the
-            %     proxy to get the object type failed.
+            %   IceGrid.DeploymentException - Raised if the object can't be added. This might be raised if the invocation on
+            %     the proxy to get the object type failed.
             %   IceGrid.ObjectExistsException - Raised if the object is already registered.
             
             os_ = obj_.iceStartWriteParams([]);
@@ -1520,8 +1524,8 @@ classdef AdminPrx < Ice.ObjectPrx
         end
         function result = getNodeProcessorSocketCount(obj, name, varargin)
             % getNodeProcessorSocketCount   Get the number of physical processor sockets for the machine running the node with the given name.
-            % Note that this method will return 1 on operating systems where this can't be automatically determined and where
-            % the IceGrid.Node.ProcessorSocketCount property for the node is not set.
+            % Note that this method will return 1 on operating systems where this can't be automatically determined and
+            % where the IceGrid.Node.ProcessorSocketCount property for the node is not set.
             %
             % Parameters:
             %   name (char) - The node name.
@@ -1543,8 +1547,8 @@ classdef AdminPrx < Ice.ObjectPrx
         end
         function r_ = getNodeProcessorSocketCountAsync(obj, name, varargin)
             % getNodeProcessorSocketCountAsync   Get the number of physical processor sockets for the machine running the node with the given name.
-            % Note that this method will return 1 on operating systems where this can't be automatically determined and where
-            % the IceGrid.Node.ProcessorSocketCount property for the node is not set.
+            % Note that this method will return 1 on operating systems where this can't be automatically determined and
+            % where the IceGrid.Node.ProcessorSocketCount property for the node is not set.
             %
             % Parameters:
             %   name (char) - The node name.

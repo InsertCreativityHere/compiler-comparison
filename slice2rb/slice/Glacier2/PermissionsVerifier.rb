@@ -15,7 +15,7 @@
 #
 
 require 'Ice'
-require 'SSLInfo.rb'
+require_relative 'SSLInfo.rb'
 
 module ::Glacier2
 

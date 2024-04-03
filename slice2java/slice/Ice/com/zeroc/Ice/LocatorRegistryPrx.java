@@ -18,7 +18,8 @@ package com.zeroc.Ice;
 /**
  * The Ice locator registry interface. This interface is used by servers to register adapter endpoints with the
  * locator. <p class="Note"> The {@link LocatorRegistry} interface is intended to be used by Ice internals and by
- * locator implementations. Regular user code should not attempt to use any functionality of this interface directly.
+ * locator implementations. Regular user code should not attempt to use any functionality of this interface
+ * directly.
  **/
 public interface LocatorRegistryPrx extends ObjectPrx
 {
@@ -124,13 +125,13 @@ public interface LocatorRegistryPrx extends ObjectPrx
      * Set the adapter endpoints with the locator registry.
      * @param adapterId The adapter id.
      * @param replicaGroupId The replica group id.
-     * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-     * endpoints. The proxy can be null, typically during adapter deactivation.
+     * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+     * adapter endpoints. The proxy can be null, typically during adapter deactivation.
      * @throws AdapterAlreadyActiveException Raised if an adapter with the same id is already active.
      * @throws AdapterNotFoundException Raised if the adapter cannot be found, or if the locator only allows
      * registered adapters to set their active proxy and the adapter is not registered with the locator.
-     * @throws InvalidReplicaGroupIdException Raised if the given replica group doesn't match the one registered with
-     * the locator registry for this object adapter.
+     * @throws InvalidReplicaGroupIdException Raised if the given replica group doesn't match the one registered
+     * with the locator registry for this object adapter.
      **/
     default void setReplicatedAdapterDirectProxy(String adapterId, String replicaGroupId, ObjectPrx proxy)
         throws AdapterNotFoundException,
@@ -144,14 +145,14 @@ public interface LocatorRegistryPrx extends ObjectPrx
      * Set the adapter endpoints with the locator registry.
      * @param adapterId The adapter id.
      * @param replicaGroupId The replica group id.
-     * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-     * endpoints. The proxy can be null, typically during adapter deactivation.
+     * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+     * adapter endpoints. The proxy can be null, typically during adapter deactivation.
      * @param context The Context map to send with the invocation.
      * @throws AdapterAlreadyActiveException Raised if an adapter with the same id is already active.
      * @throws AdapterNotFoundException Raised if the adapter cannot be found, or if the locator only allows
      * registered adapters to set their active proxy and the adapter is not registered with the locator.
-     * @throws InvalidReplicaGroupIdException Raised if the given replica group doesn't match the one registered with
-     * the locator registry for this object adapter.
+     * @throws InvalidReplicaGroupIdException Raised if the given replica group doesn't match the one registered
+     * with the locator registry for this object adapter.
      **/
     default void setReplicatedAdapterDirectProxy(String adapterId, String replicaGroupId, ObjectPrx proxy, java.util.Map<String, String> context)
         throws AdapterNotFoundException,
@@ -184,8 +185,8 @@ public interface LocatorRegistryPrx extends ObjectPrx
      * Set the adapter endpoints with the locator registry.
      * @param adapterId The adapter id.
      * @param replicaGroupId The replica group id.
-     * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-     * endpoints. The proxy can be null, typically during adapter deactivation.
+     * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+     * adapter endpoints. The proxy can be null, typically during adapter deactivation.
      * @return A future that will be completed when the invocation completes.
      **/
     default java.util.concurrent.CompletableFuture<Void> setReplicatedAdapterDirectProxyAsync(String adapterId, String replicaGroupId, ObjectPrx proxy)
@@ -197,8 +198,8 @@ public interface LocatorRegistryPrx extends ObjectPrx
      * Set the adapter endpoints with the locator registry.
      * @param adapterId The adapter id.
      * @param replicaGroupId The replica group id.
-     * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the adapter
-     * endpoints. The proxy can be null, typically during adapter deactivation.
+     * @param proxy The adapter proxy (a dummy direct proxy created by the adapter). The direct proxy contains the
+     * adapter endpoints. The proxy can be null, typically during adapter deactivation.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed when the invocation completes.
      **/

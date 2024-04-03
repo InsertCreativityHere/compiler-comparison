@@ -36,8 +36,8 @@ public interface FileIterator extends com.zeroc.Ice.Object
          * This constructor makes shallow copies of the results for operation Read.
          * @param returnValue True if EOF is encountered.
          * @param lines The lines read from the file. If there was nothing to read from the file since the last call to
-         * read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no '\n'
-         * should be added when writing the last line to the to the output device).
+         * read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no
+         * '\n' should be added when writing the last line to the to the output device).
          **/
         public ReadResult(boolean returnValue, String[] lines)
         {
@@ -51,8 +51,8 @@ public interface FileIterator extends com.zeroc.Ice.Object
         public boolean returnValue;
         /**
          * The lines read from the file. If there was nothing to read from the file since the last call to
-         * read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no '\n'
-         * should be added when writing the last line to the to the output device).
+         * read, an empty sequence is returned. The last line of the sequence is always incomplete (and therefore no
+         * '\n' should be added when writing the last line to the to the output device).
          **/
         public String[] lines;
 

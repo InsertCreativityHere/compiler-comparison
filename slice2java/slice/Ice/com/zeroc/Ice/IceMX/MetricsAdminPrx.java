@@ -16,8 +16,8 @@
 package com.zeroc.Ice.IceMX;
 
 /**
- * The metrics administrative facet interface. This interface allows remote administrative clients to access metrics
- * of an application that enabled the Ice administrative facility and configured some metrics views.
+ * The metrics administrative facet interface. This interface allows remote administrative clients to access
+ * metrics of an application that enabled the Ice administrative facility and configured some metrics views.
  **/
 public interface MetricsAdminPrx extends com.zeroc.Ice.ObjectPrx
 {
@@ -231,9 +231,9 @@ public interface MetricsAdminPrx extends com.zeroc.Ice.ObjectPrx
     };
 
     /**
-     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
-     * class configured with the view. The timestamp allows the client to compute averages which are not dependent of
-     * the invocation latency for this operation.
+     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
+     * metrics class configured with the view. The timestamp allows the client to compute averages which are not
+     * dependent of the invocation latency for this operation.
      * @param view The name of the metrics view.
      * @return An instance of MetricsAdmin.GetMetricsViewResult.
      * @throws UnknownMetricsView Raised if the metrics view cannot be found.
@@ -245,9 +245,9 @@ public interface MetricsAdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
-     * class configured with the view. The timestamp allows the client to compute averages which are not dependent of
-     * the invocation latency for this operation.
+     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
+     * metrics class configured with the view. The timestamp allows the client to compute averages which are not
+     * dependent of the invocation latency for this operation.
      * @param view The name of the metrics view.
      * @param context The Context map to send with the invocation.
      * @return An instance of MetricsAdmin.GetMetricsViewResult.
@@ -271,9 +271,9 @@ public interface MetricsAdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
-     * class configured with the view. The timestamp allows the client to compute averages which are not dependent of
-     * the invocation latency for this operation.
+     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
+     * metrics class configured with the view. The timestamp allows the client to compute averages which are not
+     * dependent of the invocation latency for this operation.
      * @param view The name of the metrics view.
      * @return A future that will be completed with an instance of MetricsAdmin.GetMetricsViewResult.
      **/
@@ -283,9 +283,9 @@ public interface MetricsAdminPrx extends com.zeroc.Ice.ObjectPrx
     }
 
     /**
-     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
-     * class configured with the view. The timestamp allows the client to compute averages which are not dependent of
-     * the invocation latency for this operation.
+     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
+     * metrics class configured with the view. The timestamp allows the client to compute averages which are not
+     * dependent of the invocation latency for this operation.
      * @param view The name of the metrics view.
      * @param context The Context map to send with the invocation.
      * @return A future that will be completed with an instance of MetricsAdmin.GetMetricsViewResult.

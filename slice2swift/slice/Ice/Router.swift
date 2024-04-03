@@ -146,8 +146,8 @@ public extension RouterPrx {
     ///   - returnValue: `ObjectPrx?` - The router's client proxy.
     ///
     ///   - hasRoutingTable: `Swift.Bool?` - Indicates whether or not the router supports a routing table. If it is supported, the
-    /// Ice runtime will call addProxies to populate the routing table. This out parameter is only supported starting
-    /// with Ice 3.7.
+    /// Ice runtime will call addProxies to populate the routing table. This out parameter is only supported
+    /// starting with Ice 3.7.
     /// The Ice runtime assumes the router has a routing table if the hasRoutingTable is not set.
     func getClientProxy(context: Context? = nil) throws -> (returnValue: ObjectPrx?, hasRoutingTable: Swift.Bool?) {
         return try _impl._invoke(operation: "getClientProxy",
@@ -282,8 +282,8 @@ public extension RouterPrx {
 }
 
 /// This interface should be implemented by services implementing the Ice::Router interface. It should be advertised
-/// through an Ice object with the identity `Ice/RouterFinder'. This allows clients to retrieve the router proxy with
-/// just the endpoint information of the service.
+/// through an Ice object with the identity `Ice/RouterFinder'. This allows clients to retrieve the router proxy
+/// with just the endpoint information of the service.
 ///
 /// RouterFinderPrx Methods:
 ///
@@ -366,8 +366,8 @@ public extension InputStream {
 }
 
 /// This interface should be implemented by services implementing the Ice::Router interface. It should be advertised
-/// through an Ice object with the identity `Ice/RouterFinder'. This allows clients to retrieve the router proxy with
-/// just the endpoint information of the service.
+/// through an Ice object with the identity `Ice/RouterFinder'. This allows clients to retrieve the router proxy
+/// with just the endpoint information of the service.
 ///
 /// RouterFinderPrx Methods:
 ///
@@ -465,8 +465,8 @@ public protocol Router {
     ///   - returnValue: `ObjectPrx?` - The router's client proxy.
     ///
     ///   - hasRoutingTable: `Swift.Bool?` - Indicates whether or not the router supports a routing table. If it is supported, the
-    /// Ice runtime will call addProxies to populate the routing table. This out parameter is only supported starting
-    /// with Ice 3.7.
+    /// Ice runtime will call addProxies to populate the routing table. This out parameter is only supported
+    /// starting with Ice 3.7.
     /// The Ice runtime assumes the router has a routing table if the hasRoutingTable is not set.
     func getClientProxy(current: Current) throws -> (returnValue: ObjectPrx?, hasRoutingTable: Swift.Bool?)
 
@@ -517,8 +517,8 @@ public struct RouterFinderDisp: Disp {
 }
 
 /// This interface should be implemented by services implementing the Ice::Router interface. It should be advertised
-/// through an Ice object with the identity `Ice/RouterFinder'. This allows clients to retrieve the router proxy with
-/// just the endpoint information of the service.
+/// through an Ice object with the identity `Ice/RouterFinder'. This allows clients to retrieve the router proxy
+/// with just the endpoint information of the service.
 public protocol RouterFinder {
     /// Get the router proxy implemented by the process hosting this finder object. The proxy might point to several
     /// replicas. This proxy is never null.
@@ -576,8 +576,8 @@ public extension Router {
 }
 
 /// This interface should be implemented by services implementing the Ice::Router interface. It should be advertised
-/// through an Ice object with the identity `Ice/RouterFinder'. This allows clients to retrieve the router proxy with
-/// just the endpoint information of the service.
+/// through an Ice object with the identity `Ice/RouterFinder'. This allows clients to retrieve the router proxy
+/// with just the endpoint information of the service.
 ///
 /// RouterFinder Methods:
 ///

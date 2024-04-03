@@ -15,9 +15,9 @@
 #
 
 require 'Ice'
-require 'Ice/BuiltinSequences.rb'
-require 'Ice/Identity.rb'
-require 'SSLInfo.rb'
+require_relative '../Ice/BuiltinSequences.rb'
+require_relative '../Ice/Identity.rb'
+require_relative 'SSLInfo.rb'
 
 module ::Glacier2
 

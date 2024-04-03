@@ -52,9 +52,10 @@ namespace Ice
         /**
          * Operations that use the Slice <code>nonmutating</code> keyword must not modify object state. For C++,
          * nonmutating operations generate <code>const</code> member functions in the skeleton. In addition, the Ice
-         * run time will attempt to transparently recover from certain run-time errors by re-issuing a failed request and
-         * propagate the failure to the application only if the second attempt fails.
-         * <p class="Deprecated"><code>Nonmutating</code> is deprecated; Use the <code>idempotent</code> keyword instead.
+         * run time will attempt to transparently recover from certain run-time errors by re-issuing a failed request
+         * and propagate the failure to the application only if the second attempt fails.
+         * <p class="Deprecated"><code>Nonmutating</code> is deprecated; Use the <code>idempotent</code> keyword
+         * instead.
          * For C++, to retain the mapping of <code>nonmutating</code> operations to C++ <code>const</code> member
          * functions, use the <code>["cpp:const"]</code> metadata directive.
          */
@@ -62,9 +63,9 @@ namespace Ice
         /**
          * Operations that use the Slice <code>idempotent</code> keyword can modify object state, but invoking an
          * operation twice in a row must result in the same object state as invoking it once. For example,
-         * <code>x = 1</code> is an idempotent statement, whereas <code>x += 1</code> is not. For idempotent operations,
-         * the Ice run-time uses the same retry behavior as for nonmutating operations in case of a potentially
-         * recoverable error.
+         * <code>x = 1</code> is an idempotent statement, whereas <code>x += 1</code> is not. For idempotent
+         * operations, the Ice run-time uses the same retry behavior as for nonmutating operations in case of a
+         * potentially recoverable error.
          */
         Idempotent
     };

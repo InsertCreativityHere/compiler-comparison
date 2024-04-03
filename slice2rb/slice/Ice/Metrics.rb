@@ -15,7 +15,7 @@
 #
 
 require 'Ice'
-require 'BuiltinSequences.rb'
+require_relative 'BuiltinSequences.rb'
 
 module ::IceMX
 

@@ -18,8 +18,8 @@
 
 #include <IceUtil/PushDisableWarnings.h>
 #include <Ice/Ice.h>
-#include <Ice/Identity.h>
-#include <Ice/BuiltinSequences.h>
+#include "../Ice/Identity.h"
+#include "../Ice/BuiltinSequences.h"
 #include <IceGrid/Config.h>
 
 #ifndef ICE_IGNORE_VERSION
@@ -239,8 +239,8 @@ struct ObjectDescriptor
      */
     ::std::string type;
     /**
-     * Proxy options to use with the proxy created for this Ice object. If empty, the proxy will be created with the
-     * proxy options specified on the object adapter or replica group.
+     * Proxy options to use with the proxy created for this Ice object. If empty, the proxy will be created with
+     * the proxy options specified on the object adapter or replica group.
      */
     ::std::string proxyOptions;
 
@@ -277,8 +277,8 @@ struct AdapterDescriptor
      */
     ::std::string replicaGroupId;
     /**
-     * The adapter priority. This is eventually used when the adapter is member of a replica group to sort the adapter
-     * endpoints by priority.
+     * The adapter priority. This is eventually used when the adapter is member of a replica group to sort the
+     * adapter endpoints by priority.
      */
     ::std::string priority;
     /**
@@ -286,9 +286,9 @@ struct AdapterDescriptor
      */
     bool registerProcess;
     /**
-     * If true the lifetime of this object adapter is the same of the server lifetime. This information is used by the
-     * IceGrid node to figure out the server state: the server is active only if all its "server lifetime" adapters
-     * are active.
+     * If true the lifetime of this object adapter is the same of the server lifetime. This information is used by
+     * the IceGrid node to figure out the server state: the server is active only if all its "server lifetime"
+     * adapters are active.
      */
     bool serverLifetime;
     /**
@@ -391,7 +391,8 @@ static CommunicatorDescriptor _iceS_CommunicatorDescriptor_init;
 
 /**
  * A distribution descriptor defines an IcePatch2 server and the directories to retrieve from the patch server.
- * This descriptor is no longer used. It's provided only for schema compatibility with Ice 3.7 and earlier releases.
+ * This descriptor is no longer used. It's provided only for schema compatibility with Ice 3.7 and earlier
+ * releases.
  * \headerfile IceGrid/IceGrid.h
  */
 struct DistributionDescriptor

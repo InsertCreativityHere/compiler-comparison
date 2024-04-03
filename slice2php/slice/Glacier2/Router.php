@@ -17,7 +17,7 @@
 
 namespace
 {
-    require_once 'Ice/Router.php';
+    require_once '../Ice/Router.php';
     require_once 'Session.php';
     require_once 'PermissionsVerifier.php';
 }

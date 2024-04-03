@@ -16,7 +16,7 @@
 
 require 'Ice'
 require 'Ice/Identity.rb'
-require 'IceStormInternal.rb'
+require_relative 'IceStormInternal.rb'
 
 module ::IceStorm
 

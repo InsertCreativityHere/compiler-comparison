@@ -16,8 +16,8 @@
 package com.zeroc.Ice.IceMX;
 
 /**
- * The metrics administrative facet interface. This interface allows remote administrative clients to access metrics
- * of an application that enabled the Ice administrative facility and configured some metrics views.
+ * The metrics administrative facet interface. This interface allows remote administrative clients to access
+ * metrics of an application that enabled the Ice administrative facility and configured some metrics views.
  **/
 public interface MetricsAdmin extends com.zeroc.Ice.Object
 {
@@ -137,9 +137,9 @@ public interface MetricsAdmin extends com.zeroc.Ice.Object
         throws UnknownMetricsView;
 
     /**
-     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
-     * class configured with the view. The timestamp allows the client to compute averages which are not dependent of
-     * the invocation latency for this operation.
+     * Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
+     * metrics class configured with the view. The timestamp allows the client to compute averages which are not
+     * dependent of the invocation latency for this operation.
      * @param view The name of the metrics view.
      * @param current The Current object for the invocation.
      * @return An instance of MetricsAdmin.GetMetricsViewResult.

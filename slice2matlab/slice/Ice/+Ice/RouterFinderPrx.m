@@ -1,8 +1,8 @@
 % RouterFinderPrx   Summary of RouterFinderPrx
 %
 % This interface should be implemented by services implementing the Ice::Router interface. It should be advertised
-% through an Ice object with the identity `Ice/RouterFinder'. This allows clients to retrieve the router proxy with
-% just the endpoint information of the service.
+% through an Ice object with the identity `Ice/RouterFinder'. This allows clients to retrieve the router proxy
+% with just the endpoint information of the service.
 %
 % RouterFinderPrx Methods:
 %   getRouter - Get the router proxy implemented by the process hosting this finder object.

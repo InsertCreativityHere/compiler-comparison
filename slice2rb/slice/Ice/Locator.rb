@@ -15,7 +15,7 @@
 #
 
 require 'Ice'
-require 'Identity.rb'
+require_relative 'Identity.rb'
 
 module ::Ice
 

@@ -16,15 +16,15 @@
 package com.zeroc.Ice;
 
 /**
- * This interface should be implemented by services implementing the <code>Ice::Locator interface</code>. It should be
- * advertised through an Ice object with the identity <code>`Ice/LocatorFinder'</code>. This allows clients to
+ * This interface should be implemented by services implementing the <code>Ice::Locator interface</code>. It should
+ * be advertised through an Ice object with the identity <code>`Ice/LocatorFinder'</code>. This allows clients to
  * retrieve the locator proxy with just the endpoint information of the service.
  **/
 public interface LocatorFinder extends Object
 {
     /**
-     * Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
-     * replicas. This proxy is never null.
+     * Get the locator proxy implemented by the process hosting this finder object. The proxy might point to
+     * several replicas. This proxy is never null.
      * @param current The Current object for the invocation.
      * @return The locator proxy.
      **/

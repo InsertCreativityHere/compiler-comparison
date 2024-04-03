@@ -15,7 +15,7 @@
 #
 
 require 'Ice'
-require 'Core.rb'
+require_relative 'Core.rb'
 
 module ::User
 

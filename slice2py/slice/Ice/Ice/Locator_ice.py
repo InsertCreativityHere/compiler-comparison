@@ -463,8 +463,8 @@ if 'LocatorFinderPrx' not in _M_Ice.__dict__:
     class LocatorFinderPrx(Ice.ObjectPrx):
 
         """
-         Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
-         replicas. This proxy is never null.
+         Get the locator proxy implemented by the process hosting this finder object. The proxy might point to
+         several replicas. This proxy is never null.
         Arguments:
         context -- The request context for the invocation.
         Returns: The locator proxy.
@@ -473,8 +473,8 @@ if 'LocatorFinderPrx' not in _M_Ice.__dict__:
             return _M_Ice.LocatorFinder._op_getLocator.invoke(self, ((), context))
 
         """
-         Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
-         replicas. This proxy is never null.
+         Get the locator proxy implemented by the process hosting this finder object. The proxy might point to
+         several replicas. This proxy is never null.
         Arguments:
         context -- The request context for the invocation.
         Returns: A future object for the invocation.
@@ -513,8 +513,8 @@ if 'LocatorFinderPrx' not in _M_Ice.__dict__:
 
         def getLocator(self, current=None):
             """
-             Get the locator proxy implemented by the process hosting this finder object. The proxy might point to several
-             replicas. This proxy is never null.
+             Get the locator proxy implemented by the process hosting this finder object. The proxy might point to
+             several replicas. This proxy is never null.
             Arguments:
             current -- The Current object for the invocation.
             Returns: A future object for the invocation.

@@ -40,7 +40,7 @@
 /Users/austin/Code/zeroc/ice/ruby/test/Ice/operations/Test.ice:67: warning: dictionary key type not supported in PHP
 /Users/austin/Code/zeroc/ice/python/test/Ice/packagemd/Package.ice:32: invalid module mapping:
  Slice module `::Test3' should be map to Swift module `Test2'
-/Users/austin/Code/zeroc/ice/python/test/Ice/packagemd/Package.ice:32: invalid module mapping:
+Package.ice:32: invalid module mapping:
  Slice module `::Test3' should be map to Swift module `Test2'
 /Users/austin/Code/zeroc/ice/python/test/Ice/scope/Test.ice:147: invalid module mapping:
  Slice module `::Inner' should be map to Swift module `Test'
@@ -60,7 +60,7 @@
  Slice module `::Test2' should be map to Swift module `Test'
 /Users/austin/Code/zeroc/ice/java/test/src/main/java/test/Ice/packagemd/Package.ice:33: invalid module mapping:
  Slice module `::Test3' should be map to Swift module `Test2'
-/Users/austin/Code/zeroc/ice/java/test/src/main/java/test/Ice/packagemd/Package.ice:33: invalid module mapping:
+Package.ice:33: invalid module mapping:
  Slice module `::Test3' should be map to Swift module `Test2'
 /Users/austin/Code/zeroc/ice/java/test/src/main/java/test/Ice/scope/Test.ice:148: invalid module mapping:
  Slice module `::Inner' should be map to Swift module `Test'

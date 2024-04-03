@@ -444,8 +444,8 @@ public struct MXConnectionMetricsTraits: SliceTraits {
     public static let staticId = "::IceMX::ConnectionMetrics"
 }
 
-/// The metrics administrative facet interface. This interface allows remote administrative clients to access metrics
-/// of an application that enabled the Ice administrative facility and configured some metrics views.
+/// The metrics administrative facet interface. This interface allows remote administrative clients to access
+/// metrics of an application that enabled the Ice administrative facility and configured some metrics views.
 ///
 /// MXMetricsAdminPrx Methods:
 ///
@@ -547,8 +547,8 @@ public extension InputStream {
     }
 }
 
-/// The metrics administrative facet interface. This interface allows remote administrative clients to access metrics
-/// of an application that enabled the Ice administrative facility and configured some metrics views.
+/// The metrics administrative facet interface. This interface allows remote administrative clients to access
+/// metrics of an application that enabled the Ice administrative facility and configured some metrics views.
 ///
 /// MXMetricsAdminPrx Methods:
 ///
@@ -747,9 +747,9 @@ public extension MXMetricsAdminPrx {
                                   sent: sent)
     }
 
-    /// Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
-    /// class configured with the view. The timestamp allows the client to compute averages which are not dependent of
-    /// the invocation latency for this operation.
+    /// Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
+    /// metrics class configured with the view. The timestamp allows the client to compute averages which are not
+    /// dependent of the invocation latency for this operation.
     ///
     /// - parameter _: `Swift.String` The name of the metrics view.
     ///
@@ -787,9 +787,9 @@ public extension MXMetricsAdminPrx {
                                  context: context)
     }
 
-    /// Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
-    /// class configured with the view. The timestamp allows the client to compute averages which are not dependent of
-    /// the invocation latency for this operation.
+    /// Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
+    /// metrics class configured with the view. The timestamp allows the client to compute averages which are not
+    /// dependent of the invocation latency for this operation.
     ///
     /// - parameter _: `Swift.String` The name of the metrics view.
     ///
@@ -1004,7 +1004,8 @@ public extension ClassResolver {
     }
 }
 
-/// The base class for metrics. A metrics object represents a collection of measurements associated to a given a system.
+/// The base class for metrics. A metrics object represents a collection of measurements associated to a given a
+/// system.
 open class MXMetrics: Value {
     /// The metrics identifier.
     public var id: Swift.String = ""
@@ -1083,8 +1084,8 @@ open class MXThreadMetrics: MXMetrics {
     public var inUseForIO: Swift.Int32 = 0
     /// The number of threads which are currently calling user code (servant dispatch, AMI callbacks, etc).
     public var inUseForUser: Swift.Int32 = 0
-    /// The number of threads which are currently performing other activities. These are all other that are not counted
-    /// with inUseForUser or inUseForIO, such as DNS lookups, garbage collection).
+    /// The number of threads which are currently performing other activities. These are all other that are not
+    /// counted with inUseForUser or inUseForIO, such as DNS lookups, garbage collection).
     public var inUseForOther: Swift.Int32 = 0
 
     public required init() {
@@ -1216,7 +1217,8 @@ public extension ClassResolver {
 open class MXChildInvocationMetrics: MXMetrics {
     /// The size of the invocation. This corresponds to the size of the marshalled input parameters.
     public var size: Swift.Int64 = 0
-    /// The size of the invocation reply. This corresponds to the size of the marshalled output and return parameters.
+    /// The size of the invocation reply. This corresponds to the size of the marshalled output and return
+    /// parameters.
     public var replySize: Swift.Int64 = 0
 
     public required init() {
@@ -1517,8 +1519,8 @@ public struct MXMetricsAdminDisp: Disp {
     }
 }
 
-/// The metrics administrative facet interface. This interface allows remote administrative clients to access metrics
-/// of an application that enabled the Ice administrative facility and configured some metrics views.
+/// The metrics administrative facet interface. This interface allows remote administrative clients to access
+/// metrics of an application that enabled the Ice administrative facility and configured some metrics views.
 public protocol MXMetricsAdmin {
     /// Get the names of enabled and disabled metrics.
     ///
@@ -1553,9 +1555,9 @@ public protocol MXMetricsAdmin {
     ///   - UnknownMetricsView - Raised if the metrics view cannot be found.
     func disableMetricsView(name: Swift.String, current: Current) throws
 
-    /// Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each metrics
-    /// class configured with the view. The timestamp allows the client to compute averages which are not dependent of
-    /// the invocation latency for this operation.
+    /// Get the metrics objects for the given metrics view. This returns a dictionary of metric maps for each
+    /// metrics class configured with the view. The timestamp allows the client to compute averages which are not
+    /// dependent of the invocation latency for this operation.
     ///
     /// - parameter view: `Swift.String` The name of the metrics view.
     ///
@@ -1605,8 +1607,8 @@ public protocol MXMetricsAdmin {
     func getMetricsFailures(view: Swift.String, map: Swift.String, id: Swift.String, current: Current) throws -> MXMetricsFailures
 }
 
-/// The metrics administrative facet interface. This interface allows remote administrative clients to access metrics
-/// of an application that enabled the Ice administrative facility and configured some metrics views.
+/// The metrics administrative facet interface. This interface allows remote administrative clients to access
+/// metrics of an application that enabled the Ice administrative facility and configured some metrics views.
 ///
 /// MXMetricsAdmin Methods:
 ///

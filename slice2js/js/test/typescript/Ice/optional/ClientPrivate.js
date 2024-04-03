@@ -18,7 +18,7 @@
 
 import { Ice } from "ice";
 const _ModuleRegistry = Ice._ModuleRegistry;
-import { Test } from "./Test";
+import { Test } from "Test";
 const Slice = Ice.Slice;
 
 const iceC_Test_Initial2_ids = [

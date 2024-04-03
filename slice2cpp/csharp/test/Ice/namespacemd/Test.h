@@ -18,8 +18,8 @@
 
 #include <IceUtil/PushDisableWarnings.h>
 #include <Ice/Ice.h>
-#include <Namespace.h>
-#include <NoNamespace.h>
+#include "Namespace.h"
+#include "NoNamespace.h"
 
 #ifndef ICE_IGNORE_VERSION
 #   if ICE_INT_VERSION  != 30850
