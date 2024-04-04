@@ -223,7 +223,7 @@ public class Opt extends com.zeroc.Ice.Value
     }
 
     /** @hidden */
-    public static final long serialVersionUID = -5247499698345305870L;
+    public static final long serialVersionUID = -5509021990341492484L;
 
     /** @hidden */
     @Override
