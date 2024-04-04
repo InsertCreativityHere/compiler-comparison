@@ -566,8 +566,8 @@ Slice.defineOperations(IceGrid.Admin, IceGrid.AdminPrx, iceC_IceGrid_Admin_ids, 
     ], , ],
     "getRegistryInfo": [, 2, 2, , [IceGrid.RegistryInfo], [[7]], ,
     [
-        IceGrid.RegistryNotExistException,
-        IceGrid.RegistryUnreachableException
+        IceGrid.RegistryUnreachableException,
+        IceGrid.RegistryNotExistException
     ], , ],
     "getRegistryAdmin": [, 2, 2, , [9], [[7]], ,
     [
@@ -575,8 +575,8 @@ Slice.defineOperations(IceGrid.Admin, IceGrid.AdminPrx, iceC_IceGrid_Admin_ids, 
     ], , ],
     "shutdownRegistry": [, 2, 2, , , [[7]], ,
     [
-        IceGrid.RegistryNotExistException,
-        IceGrid.RegistryUnreachableException
+        IceGrid.RegistryUnreachableException,
+        IceGrid.RegistryNotExistException
     ], , ],
     "getAllRegistryNames": [, 2, 2, , ["Ice.StringSeqHelper"], , , , , ],
     "shutdown": [, , , , , , , , , ]
@@ -925,14 +925,14 @@ Slice.defineOperations(IceGrid.AdminSession, IceGrid.AdminSessionPrx, iceC_IceGr
     ], , ],
     "openRegistryStdErr": [, , , , ["IceGrid.FileIteratorPrx"], [[7], [3]], ,
     [
-        IceGrid.RegistryNotExistException,
         IceGrid.RegistryUnreachableException,
+        IceGrid.RegistryNotExistException,
         IceGrid.FileNotAvailableException
     ], , ],
     "openRegistryStdOut": [, , , , ["IceGrid.FileIteratorPrx"], [[7], [3]], ,
     [
-        IceGrid.RegistryNotExistException,
         IceGrid.RegistryUnreachableException,
+        IceGrid.RegistryNotExistException,
         IceGrid.FileNotAvailableException
     ], , ]
 });
