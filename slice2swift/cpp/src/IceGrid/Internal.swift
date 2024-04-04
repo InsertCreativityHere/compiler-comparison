@@ -980,7 +980,7 @@ public extension AdapterPrx {
     /// - returns: `Ice.ObjectPrx?` - A direct proxy containing the last known adapter endpoints if the adapter is already active.
     func getDirectProxy(context: Ice.Context? = nil) throws -> Ice.ObjectPrx? {
         return try _impl._invoke(operation: "getDirectProxy",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  read: { istr in
                                      let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
                                      return iceP_returnValue
@@ -1011,7 +1011,7 @@ public extension AdapterPrx {
     /// - returns: `PromiseKit.Promise<Ice.ObjectPrx?>` - The result of the operation
     func getDirectProxyAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Ice.ObjectPrx?> {
         return _impl._invokeAsync(operation: "getDirectProxy",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   read: { istr in
                                       let iceP_returnValue: Ice.ObjectPrx? = try istr.read(Ice.ObjectPrx.self)
                                       return iceP_returnValue
@@ -1726,7 +1726,7 @@ public extension ServerPrx {
     /// - returns: `Swift.Bool`
     func isEnabled(context: Ice.Context? = nil) throws -> Swift.Bool {
         return try _impl._invoke(operation: "isEnabled",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  read: { istr in
                                      let iceP_returnValue: Swift.Bool = try istr.read()
                                      return iceP_returnValue
@@ -1749,7 +1749,7 @@ public extension ServerPrx {
     /// - returns: `PromiseKit.Promise<Swift.Bool>` - The result of the operation
     func isEnabledAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Bool> {
         return _impl._invokeAsync(operation: "isEnabled",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   read: { istr in
                                       let iceP_returnValue: Swift.Bool = try istr.read()
                                       return iceP_returnValue
@@ -1869,7 +1869,7 @@ public extension ServerPrx {
     /// - returns: `ServerState` - The server state.
     func getState(context: Ice.Context? = nil) throws -> ServerState {
         return try _impl._invoke(operation: "getState",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  read: { istr in
                                      let iceP_returnValue: ServerState = try istr.read()
                                      return iceP_returnValue
@@ -1892,7 +1892,7 @@ public extension ServerPrx {
     /// - returns: `PromiseKit.Promise<ServerState>` - The result of the operation
     func getStateAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<ServerState> {
         return _impl._invokeAsync(operation: "getState",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   read: { istr in
                                       let iceP_returnValue: ServerState = try istr.read()
                                       return iceP_returnValue
@@ -1911,7 +1911,7 @@ public extension ServerPrx {
     /// - returns: `Swift.Int32`
     func getPid(context: Ice.Context? = nil) throws -> Swift.Int32 {
         return try _impl._invoke(operation: "getPid",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  read: { istr in
                                      let iceP_returnValue: Swift.Int32 = try istr.read()
                                      return iceP_returnValue
@@ -1935,7 +1935,7 @@ public extension ServerPrx {
     /// - returns: `PromiseKit.Promise<Swift.Int32>` - The result of the operation
     func getPidAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Int32> {
         return _impl._invokeAsync(operation: "getPid",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   read: { istr in
                                       let iceP_returnValue: Swift.Int32 = try istr.read()
                                       return iceP_returnValue
@@ -2756,7 +2756,7 @@ public extension NodePrx {
     /// - returns: `Swift.String`
     func getName(context: Ice.Context? = nil) throws -> Swift.String {
         return try _impl._invoke(operation: "getName",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  read: { istr in
                                      let iceP_returnValue: Swift.String = try istr.read()
                                      return iceP_returnValue
@@ -2779,7 +2779,7 @@ public extension NodePrx {
     /// - returns: `PromiseKit.Promise<Swift.String>` - The result of the operation
     func getNameAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.String> {
         return _impl._invokeAsync(operation: "getName",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   read: { istr in
                                       let iceP_returnValue: Swift.String = try istr.read()
                                       return iceP_returnValue
@@ -2797,7 +2797,7 @@ public extension NodePrx {
     /// - returns: `Swift.String`
     func getHostname(context: Ice.Context? = nil) throws -> Swift.String {
         return try _impl._invoke(operation: "getHostname",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  read: { istr in
                                      let iceP_returnValue: Swift.String = try istr.read()
                                      return iceP_returnValue
@@ -2820,7 +2820,7 @@ public extension NodePrx {
     /// - returns: `PromiseKit.Promise<Swift.String>` - The result of the operation
     func getHostnameAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.String> {
         return _impl._invokeAsync(operation: "getHostname",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   read: { istr in
                                       let iceP_returnValue: Swift.String = try istr.read()
                                       return iceP_returnValue
@@ -2838,7 +2838,7 @@ public extension NodePrx {
     /// - returns: `LoadInfo`
     func getLoad(context: Ice.Context? = nil) throws -> LoadInfo {
         return try _impl._invoke(operation: "getLoad",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  read: { istr in
                                      let iceP_returnValue: LoadInfo = try istr.read()
                                      return iceP_returnValue
@@ -2861,7 +2861,7 @@ public extension NodePrx {
     /// - returns: `PromiseKit.Promise<LoadInfo>` - The result of the operation
     func getLoadAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<LoadInfo> {
         return _impl._invokeAsync(operation: "getLoad",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   read: { istr in
                                       let iceP_returnValue: LoadInfo = try istr.read()
                                       return iceP_returnValue
@@ -2879,7 +2879,7 @@ public extension NodePrx {
     /// - returns: `Swift.Int32`
     func getProcessorSocketCount(context: Ice.Context? = nil) throws -> Swift.Int32 {
         return try _impl._invoke(operation: "getProcessorSocketCount",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  read: { istr in
                                      let iceP_returnValue: Swift.Int32 = try istr.read()
                                      return iceP_returnValue
@@ -2902,7 +2902,7 @@ public extension NodePrx {
     /// - returns: `PromiseKit.Promise<Swift.Int32>` - The result of the operation
     func getProcessorSocketCountAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Int32> {
         return _impl._invokeAsync(operation: "getProcessorSocketCount",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   read: { istr in
                                       let iceP_returnValue: Swift.Int32 = try istr.read()
                                       return iceP_returnValue
@@ -2918,7 +2918,7 @@ public extension NodePrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     func shutdown(context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "shutdown",
-                          mode: .Nonmutating,
+                          mode: .Idempotent,
                           context: context)
     }
 
@@ -2937,7 +2937,7 @@ public extension NodePrx {
     /// - returns: `PromiseKit.Promise<>` - The result of the operation
     func shutdownAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "shutdown",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   context: context,
                                   sentOn: sentOn,
                                   sentFlags: sentFlags,
@@ -3182,7 +3182,7 @@ public extension NodeSessionPrx {
     /// - returns: `Swift.Int32`
     func getTimeout(context: Ice.Context? = nil) throws -> Swift.Int32 {
         return try _impl._invoke(operation: "getTimeout",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  read: { istr in
                                      let iceP_returnValue: Swift.Int32 = try istr.read()
                                      return iceP_returnValue
@@ -3205,7 +3205,7 @@ public extension NodeSessionPrx {
     /// - returns: `PromiseKit.Promise<Swift.Int32>` - The result of the operation
     func getTimeoutAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Int32> {
         return _impl._invokeAsync(operation: "getTimeout",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   read: { istr in
                                       let iceP_returnValue: Swift.Int32 = try istr.read()
                                       return iceP_returnValue
@@ -3223,7 +3223,7 @@ public extension NodeSessionPrx {
     /// - returns: `NodeObserverPrx?`
     func getObserver(context: Ice.Context? = nil) throws -> NodeObserverPrx? {
         return try _impl._invoke(operation: "getObserver",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  read: { istr in
                                      let iceP_returnValue: NodeObserverPrx? = try istr.read(NodeObserverPrx.self)
                                      return iceP_returnValue
@@ -3246,7 +3246,7 @@ public extension NodeSessionPrx {
     /// - returns: `PromiseKit.Promise<NodeObserverPrx?>` - The result of the operation
     func getObserverAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<NodeObserverPrx?> {
         return _impl._invokeAsync(operation: "getObserver",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   read: { istr in
                                       let iceP_returnValue: NodeObserverPrx? = try istr.read(NodeObserverPrx.self)
                                       return iceP_returnValue
@@ -3262,7 +3262,7 @@ public extension NodeSessionPrx {
     /// - parameter context: `Ice.Context` - Optional request context.
     func loadServers(context: Ice.Context? = nil) throws {
         try _impl._invoke(operation: "loadServers",
-                          mode: .Nonmutating,
+                          mode: .Idempotent,
                           context: context)
     }
 
@@ -3281,7 +3281,7 @@ public extension NodeSessionPrx {
     /// - returns: `PromiseKit.Promise<>` - The result of the operation
     func loadServersAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
         return _impl._invokeAsync(operation: "loadServers",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   context: context,
                                   sentOn: sentOn,
                                   sentFlags: sentFlags,
@@ -3295,7 +3295,7 @@ public extension NodeSessionPrx {
     /// - returns: `Ice.StringSeq`
     func getServers(context: Ice.Context? = nil) throws -> Ice.StringSeq {
         return try _impl._invoke(operation: "getServers",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  read: { istr in
                                      let iceP_returnValue: Ice.StringSeq = try istr.read()
                                      return iceP_returnValue
@@ -3318,7 +3318,7 @@ public extension NodeSessionPrx {
     /// - returns: `PromiseKit.Promise<Ice.StringSeq>` - The result of the operation
     func getServersAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Ice.StringSeq> {
         return _impl._invokeAsync(operation: "getServers",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   read: { istr in
                                       let iceP_returnValue: Ice.StringSeq = try istr.read()
                                       return iceP_returnValue

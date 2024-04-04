@@ -1870,39 +1870,6 @@ public interface MyClassPrx extends com.zeroc.Ice.ObjectPrx
         return f;
     }
 
-    default void opNonmutating()
-    {
-        opNonmutating(com.zeroc.Ice.ObjectPrx.noExplicitContext);
-    }
-
-    default void opNonmutating(java.util.Map<String, String> context)
-    {
-        _iceI_opNonmutatingAsync(context, true).waitForResponse();
-    }
-
-    default java.util.concurrent.CompletableFuture<Void> opNonmutatingAsync()
-    {
-        return _iceI_opNonmutatingAsync(com.zeroc.Ice.ObjectPrx.noExplicitContext, false);
-    }
-
-    default java.util.concurrent.CompletableFuture<Void> opNonmutatingAsync(java.util.Map<String, String> context)
-    {
-        return _iceI_opNonmutatingAsync(context, false);
-    }
-
-    /**
-     * @hidden
-     * @param context -
-     * @param sync -
-     * @return -
-     **/
-    default com.zeroc.IceInternal.OutgoingAsync<Void> _iceI_opNonmutatingAsync(java.util.Map<String, String> context, boolean sync)
-    {
-        com.zeroc.IceInternal.OutgoingAsync<Void> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "opNonmutating", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
-        f.invoke(false, context, null, null, null);
-        return f;
-    }
-
     default byte opByte1(byte opByte1)
     {
         return opByte1(opByte1, com.zeroc.Ice.ObjectPrx.noExplicitContext);

@@ -71,7 +71,7 @@ public interface RouterPrx extends ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<Router.GetClientProxyResult> _iceI_getClientProxyAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<Router.GetClientProxyResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getClientProxy", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<Router.GetClientProxyResult> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getClientProxy", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      Router.GetClientProxyResult ret = new Router.GetClientProxyResult();
                      ret.read(istr);
@@ -126,7 +126,7 @@ public interface RouterPrx extends ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> _iceI_getServerProxyAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getServerProxy", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<com.zeroc.Ice.ObjectPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getServerProxy", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      ObjectPrx ret;
                      ret = istr.readProxy();

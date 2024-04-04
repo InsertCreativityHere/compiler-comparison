@@ -64,10 +64,10 @@ IceGrid.QueryPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(IceGrid.Query, IceGrid.QueryPrx, iceC_IceGrid_Query_ids, "::IceGrid::Query",
 {
-    "findObjectById": [, 2, 1, , [9], [[Ice.Identity]], , , , ],
-    "findObjectByType": [, 2, 1, , [9], [[7]], , , , ],
-    "findObjectByTypeOnLeastLoadedNode": [, 2, 1, , [9], [[7], [IceGrid.LoadSample._helper]], , , , ],
-    "findAllObjectsByType": [, 2, 1, , ["Ice.ObjectProxySeqHelper"], [[7]], , , , ],
+    "findObjectById": [, 2, 2, , [9], [[Ice.Identity]], , , , ],
+    "findObjectByType": [, 2, 2, , [9], [[7]], , , , ],
+    "findObjectByTypeOnLeastLoadedNode": [, 2, 2, , [9], [[7], [IceGrid.LoadSample._helper]], , , , ],
+    "findAllObjectsByType": [, 2, 2, , ["Ice.ObjectProxySeqHelper"], [[7]], , , , ],
     "findAllReplicas": [, 2, 2, , ["Ice.ObjectProxySeqHelper"], [[9]], , , , ]
 });
 
@@ -107,8 +107,8 @@ Slice.defineOperations(IceGrid.Registry, IceGrid.RegistryPrx, iceC_IceGrid_Regis
     [
         IceGrid.PermissionDeniedException
     ], , ],
-    "getSessionTimeout": [, 2, 1, , [3], , , , , ],
-    "getACMTimeout": [, 2, 1, , [3], , , , , ]
+    "getSessionTimeout": [, 2, 2, , [3], , , , , ],
+    "getACMTimeout": [, 2, 2, , [3], , , , , ]
 });
 
 const iceC_IceGrid_Locator_ids = [

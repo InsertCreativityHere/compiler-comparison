@@ -781,7 +781,7 @@ namespace Ice
             var outAsync = getOutgoingAsync<ObjectPrx>(completed);
             outAsync.invoke(
                 _findObjectById_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -831,7 +831,7 @@ namespace Ice
             var outAsync = getOutgoingAsync<ObjectPrx>(completed);
             outAsync.invoke(
                 _findAdapterById_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -881,7 +881,7 @@ namespace Ice
             var outAsync = getOutgoingAsync<LocatorRegistryPrx>(completed);
             outAsync.invoke(
                 _getRegistry_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,

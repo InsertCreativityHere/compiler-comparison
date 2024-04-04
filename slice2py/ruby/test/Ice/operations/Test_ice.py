@@ -696,12 +696,6 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opIdempotentAsync(self, context=None):
             return _M_Test.MyClass._op_opIdempotent.invokeAsync(self, ((), context))
 
-        def opNonmutating(self, context=None):
-            return _M_Test.MyClass._op_opNonmutating.invoke(self, ((), context))
-
-        def opNonmutatingAsync(self, context=None):
-            return _M_Test.MyClass._op_opNonmutating.invokeAsync(self, ((), context))
-
         def opByte1(self, opByte1, context=None):
             return _M_Test.MyClass._op_opByte1.invoke(self, ((opByte1, ), context))
 
@@ -989,9 +983,6 @@ if 'MyClassPrx' not in _M_Test.__dict__:
         def opIdempotent(self, current=None):
             raise NotImplementedError("servant method 'opIdempotent' not implemented")
 
-        def opNonmutating(self, current=None):
-            raise NotImplementedError("servant method 'opNonmutating' not implemented")
-
         def opByte1(self, opByte1, current=None):
             raise NotImplementedError("servant method 'opByte1' not implemented")
 
@@ -1182,7 +1173,6 @@ if 'MyClassPrx' not in _M_Test.__dict__:
     MyClass._op_opByteSOnewayCallCount = IcePy.Operation('opByteSOnewayCallCount', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), IcePy._t_int, False, 0), ())
     MyClass._op_opContext = IcePy.Operation('opContext', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (), (), ((), _M_Ice._t_Context, False, 0), ())
     MyClass._op_opIdempotent = IcePy.Operation('opIdempotent', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), None, ())
-    MyClass._op_opNonmutating = IcePy.Operation('opNonmutating', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), None, ())
     MyClass._op_opByte1 = IcePy.Operation('opByte1', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_byte, False, 0),), (), ((), IcePy._t_byte, False, 0), ())
     MyClass._op_opShort1 = IcePy.Operation('opShort1', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_short, False, 0),), (), ((), IcePy._t_short, False, 0), ())
     MyClass._op_opInt1 = IcePy.Operation('opInt1', Ice.OperationMode.Normal, Ice.OperationMode.Normal, False, None, (), (((), IcePy._t_int, False, 0),), (), ((), IcePy._t_int, False, 0), ())

@@ -206,7 +206,7 @@ public extension RouterPrx {
     /// - returns: `Swift.String` - The category.
     func getCategoryForClient(context: Ice.Context? = nil) throws -> Swift.String {
         return try _impl._invoke(operation: "getCategoryForClient",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  read: { istr in
                                      let iceP_returnValue: Swift.String = try istr.read()
                                      return iceP_returnValue
@@ -231,7 +231,7 @@ public extension RouterPrx {
     /// - returns: `PromiseKit.Promise<Swift.String>` - The result of the operation
     func getCategoryForClientAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.String> {
         return _impl._invokeAsync(operation: "getCategoryForClient",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   read: { istr in
                                       let iceP_returnValue: Swift.String = try istr.read()
                                       return iceP_returnValue
@@ -278,9 +278,9 @@ public extension RouterPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
-                                     } catch let error as CannotCreateSessionException {
-                                         throw error
                                      } catch let error as PermissionDeniedException {
+                                         throw error
+                                     } catch let error as CannotCreateSessionException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -324,9 +324,9 @@ public extension RouterPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as CannotCreateSessionException {
-                                          throw error
                                       } catch let error as PermissionDeniedException {
+                                          throw error
+                                      } catch let error as CannotCreateSessionException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -365,9 +365,9 @@ public extension RouterPrx {
                                  userException:{ ex in
                                      do  {
                                          throw ex
-                                     } catch let error as CannotCreateSessionException {
-                                         throw error
                                      } catch let error as PermissionDeniedException {
+                                         throw error
+                                     } catch let error as CannotCreateSessionException {
                                          throw error
                                      } catch is Ice.UserException {}
                                  },
@@ -404,9 +404,9 @@ public extension RouterPrx {
                                   userException:{ ex in
                                       do  {
                                           throw ex
-                                      } catch let error as CannotCreateSessionException {
-                                          throw error
                                       } catch let error as PermissionDeniedException {
+                                          throw error
+                                      } catch let error as CannotCreateSessionException {
                                           throw error
                                       } catch is Ice.UserException {}
                                   },
@@ -522,7 +522,7 @@ public extension RouterPrx {
     /// - returns: `Swift.Int64` - The timeout (in seconds).
     func getSessionTimeout(context: Ice.Context? = nil) throws -> Swift.Int64 {
         return try _impl._invoke(operation: "getSessionTimeout",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  read: { istr in
                                      let iceP_returnValue: Swift.Int64 = try istr.read()
                                      return iceP_returnValue
@@ -546,7 +546,7 @@ public extension RouterPrx {
     /// - returns: `PromiseKit.Promise<Swift.Int64>` - The result of the operation
     func getSessionTimeoutAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Int64> {
         return _impl._invokeAsync(operation: "getSessionTimeout",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   read: { istr in
                                       let iceP_returnValue: Swift.Int64 = try istr.read()
                                       return iceP_returnValue
@@ -565,7 +565,7 @@ public extension RouterPrx {
     /// - returns: `Swift.Int32` - The timeout (in seconds).
     func getACMTimeout(context: Ice.Context? = nil) throws -> Swift.Int32 {
         return try _impl._invoke(operation: "getACMTimeout",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  read: { istr in
                                      let iceP_returnValue: Swift.Int32 = try istr.read()
                                      return iceP_returnValue
@@ -589,7 +589,7 @@ public extension RouterPrx {
     /// - returns: `PromiseKit.Promise<Swift.Int32>` - The result of the operation
     func getACMTimeoutAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Int32> {
         return _impl._invokeAsync(operation: "getACMTimeout",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   read: { istr in
                                       let iceP_returnValue: Swift.Int32 = try istr.read()
                                       return iceP_returnValue

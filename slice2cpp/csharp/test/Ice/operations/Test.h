@@ -798,17 +798,6 @@ public:
     void _iceI_opIdempotent(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
     /// \endcond
 
-    void opNonmutating(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::future<void> opNonmutatingAsync(const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    ::std::function<void()>
-    opNonmutatingAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex = nullptr, ::std::function<void(bool)> sent = nullptr, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
-
-    /// \cond INTERNAL
-    void _iceI_opNonmutating(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>&, const ::Ice::Context&) const;
-    /// \endcond
-
     ::std::uint8_t opByte1(::std::uint8_t opByte1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
 
     ::std::future<::std::uint8_t> opByte1Async(::std::uint8_t opByte1, const ::Ice::Context& context = ::Ice::noExplicitContext) const;
@@ -1665,11 +1654,6 @@ public:
     virtual void opIdempotent(const ::Ice::Current& current) = 0;
     /// \cond INTERNAL
     void _iceD_opIdempotent(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
-    /// \endcond
-
-    virtual void opNonmutating(const ::Ice::Current& current) = 0;
-    /// \cond INTERNAL
-    void _iceD_opNonmutating(::Ice::IncomingRequest&, ::std::function<void(::Ice::OutgoingResponse)>);
     /// \endcond
 
     virtual ::std::uint8_t opByte1(::std::uint8_t opByte1, const ::Ice::Current& current) = 0;

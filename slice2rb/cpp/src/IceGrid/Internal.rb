@@ -203,7 +203,7 @@ module ::IceGrid
         T_AdapterPrx.defineProxy(AdapterPrx, nil, [])
 
         AdapterPrx_mixin::OP_activate = ::Ice::__defineOperation('activate', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], [::Ice::T_ObjectPrx, false, 0], [])
-        AdapterPrx_mixin::OP_getDirectProxy = ::Ice::__defineOperation('getDirectProxy', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::Ice::T_ObjectPrx, false, 0], [::IceGrid::T_AdapterNotActiveException])
+        AdapterPrx_mixin::OP_getDirectProxy = ::Ice::__defineOperation('getDirectProxy', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::T_ObjectPrx, false, 0], [::IceGrid::T_AdapterNotActiveException])
         AdapterPrx_mixin::OP_setDirectProxy = ::Ice::__defineOperation('setDirectProxy', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_ObjectPrx, false, 0]], [], nil, [::IceGrid::T_AdapterActiveException])
     end
 
@@ -322,11 +322,11 @@ module ::IceGrid
         ServerPrx_mixin::OP_stop = ::Ice::__defineOperation('stop', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [], [], nil, [::IceGrid::T_ServerStopException])
         ServerPrx_mixin::OP_checkUpdate = ::Ice::__defineOperation('checkUpdate', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::T_InternalServerDescriptor, false, 0], [::Ice::T_bool, false, 0]], [], [::Ice::T_bool, false, 0], [::IceGrid::T_DeploymentException])
         ServerPrx_mixin::OP_setEnabled = ::Ice::__defineOperation('setEnabled', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_bool, false, 0]], [], nil, [])
-        ServerPrx_mixin::OP_isEnabled = ::Ice::__defineOperation('isEnabled', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::Ice::T_bool, false, 0], [])
+        ServerPrx_mixin::OP_isEnabled = ::Ice::__defineOperation('isEnabled', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::T_bool, false, 0], [])
         ServerPrx_mixin::OP_sendSignal = ::Ice::__defineOperation('sendSignal', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0]], [], nil, [::IceGrid::T_BadSignalException])
         ServerPrx_mixin::OP_writeMessage = ::Ice::__defineOperation('writeMessage', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_string, false, 0], [::Ice::T_int, false, 0]], [], nil, [])
-        ServerPrx_mixin::OP_getState = ::Ice::__defineOperation('getState', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::IceGrid::T_ServerState, false, 0], [])
-        ServerPrx_mixin::OP_getPid = ::Ice::__defineOperation('getPid', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::Ice::T_int, false, 0], [])
+        ServerPrx_mixin::OP_getState = ::Ice::__defineOperation('getState', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::IceGrid::T_ServerState, false, 0], [])
+        ServerPrx_mixin::OP_getPid = ::Ice::__defineOperation('getPid', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::T_int, false, 0], [])
         ServerPrx_mixin::OP_setProcess = ::Ice::__defineOperation('setProcess', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_ProcessPrx, false, 0]], [], nil, [])
     end
 
@@ -440,11 +440,11 @@ module ::IceGrid
         NodePrx_mixin::OP_destroyServer = ::Ice::__defineOperation('destroyServer', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, true, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_int, false, 0], [::Ice::T_string, false, 0]], [], nil, [::IceGrid::T_DeploymentException])
         NodePrx_mixin::OP_destroyServerWithoutRestart = ::Ice::__defineOperation('destroyServerWithoutRestart', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, true, nil, [[::Ice::T_string, false, 0], [::Ice::T_string, false, 0], [::Ice::T_int, false, 0], [::Ice::T_string, false, 0]], [], nil, [::IceGrid::T_DeploymentException])
         NodePrx_mixin::OP_registerWithReplica = ::Ice::__defineOperation('registerWithReplica', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::T_InternalRegistryPrx, false, 0]], [], nil, [])
-        NodePrx_mixin::OP_getName = ::Ice::__defineOperation('getName', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::Ice::T_string, false, 0], [])
-        NodePrx_mixin::OP_getHostname = ::Ice::__defineOperation('getHostname', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::Ice::T_string, false, 0], [])
-        NodePrx_mixin::OP_getLoad = ::Ice::__defineOperation('getLoad', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::IceGrid::T_LoadInfo, false, 0], [])
-        NodePrx_mixin::OP_getProcessorSocketCount = ::Ice::__defineOperation('getProcessorSocketCount', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::Ice::T_int, false, 0], [])
-        NodePrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], nil, [])
+        NodePrx_mixin::OP_getName = ::Ice::__defineOperation('getName', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::T_string, false, 0], [])
+        NodePrx_mixin::OP_getHostname = ::Ice::__defineOperation('getHostname', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::T_string, false, 0], [])
+        NodePrx_mixin::OP_getLoad = ::Ice::__defineOperation('getLoad', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::IceGrid::T_LoadInfo, false, 0], [])
+        NodePrx_mixin::OP_getProcessorSocketCount = ::Ice::__defineOperation('getProcessorSocketCount', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::T_int, false, 0], [])
+        NodePrx_mixin::OP_shutdown = ::Ice::__defineOperation('shutdown', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], nil, [])
     end
 
     if not defined?(::IceGrid::T_NodePrxSeq)
@@ -517,10 +517,10 @@ module ::IceGrid
 
         NodeSessionPrx_mixin::OP_keepAlive = ::Ice::__defineOperation('keepAlive', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::T_LoadInfo, false, 0]], [], nil, [])
         NodeSessionPrx_mixin::OP_setReplicaObserver = ::Ice::__defineOperation('setReplicaObserver', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceGrid::T_ReplicaObserverPrx, false, 0]], [], nil, [])
-        NodeSessionPrx_mixin::OP_getTimeout = ::Ice::__defineOperation('getTimeout', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::Ice::T_int, false, 0], [])
-        NodeSessionPrx_mixin::OP_getObserver = ::Ice::__defineOperation('getObserver', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::IceGrid::T_NodeObserverPrx, false, 0], [])
-        NodeSessionPrx_mixin::OP_loadServers = ::Ice::__defineOperation('loadServers', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, true, nil, [], [], nil, [])
-        NodeSessionPrx_mixin::OP_getServers = ::Ice::__defineOperation('getServers', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::Ice::T_StringSeq, false, 0], [])
+        NodeSessionPrx_mixin::OP_getTimeout = ::Ice::__defineOperation('getTimeout', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::T_int, false, 0], [])
+        NodeSessionPrx_mixin::OP_getObserver = ::Ice::__defineOperation('getObserver', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::IceGrid::T_NodeObserverPrx, false, 0], [])
+        NodeSessionPrx_mixin::OP_loadServers = ::Ice::__defineOperation('loadServers', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, true, nil, [], [], nil, [])
+        NodeSessionPrx_mixin::OP_getServers = ::Ice::__defineOperation('getServers', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::T_StringSeq, false, 0], [])
         NodeSessionPrx_mixin::OP_waitForApplicationUpdate = ::Ice::__defineOperation('waitForApplicationUpdate', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, true, nil, [[::Ice::T_string, false, 0], [::Ice::T_int, false, 0]], [], nil, [])
         NodeSessionPrx_mixin::OP_destroy = ::Ice::__defineOperation('destroy', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end

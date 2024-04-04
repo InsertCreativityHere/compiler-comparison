@@ -229,7 +229,7 @@
     Slice.defineOperations(IceGrid.Adapter, IceGrid.AdapterPrx, iceC_IceGrid_Adapter_ids, "::IceGrid::Adapter",
     {
         "activate": [, , , , [9], , , , , ],
-        "getDirectProxy": [, 2, 1, , [9], , ,
+        "getDirectProxy": [, 2, 2, , [9], , ,
         [
             IceGrid.AdapterNotActiveException
         ], , ],
@@ -343,14 +343,14 @@
             IceGrid.DeploymentException
         ], true, ],
         "setEnabled": [, , , , , [[1]], , , , ],
-        "isEnabled": [, 2, 1, , [1], , , , , ],
+        "isEnabled": [, 2, 2, , [1], , , , , ],
         "sendSignal": [, , , , , [[7]], ,
         [
             IceGrid.BadSignalException
         ], , ],
         "writeMessage": [, , , , , [[7], [3]], , , , ],
-        "getState": [, 2, 1, , [IceGrid.ServerState._helper], , , , , ],
-        "getPid": [, 2, 1, , [3], , , , , ],
+        "getState": [, 2, 2, , [IceGrid.ServerState._helper], , , , , ],
+        "getPid": [, 2, 2, , [3], , , , , ],
         "setProcess": [, , , , , [["Ice.ProcessPrx"]], , , , ]
     });
 
@@ -423,11 +423,11 @@
             IceGrid.DeploymentException
         ], , ],
         "registerWithReplica": [, , , , , [["IceGrid.InternalRegistryPrx"]], , , , ],
-        "getName": [, 2, 1, , [7], , , , , ],
-        "getHostname": [, 2, 1, , [7], , , , , ],
-        "getLoad": [, 2, 1, , [IceGrid.LoadInfo], , , , , ],
-        "getProcessorSocketCount": [, 2, 1, , [3], , , , , ],
-        "shutdown": [, 2, 1, , , , , , , ]
+        "getName": [, 2, 2, , [7], , , , , ],
+        "getHostname": [, 2, 2, , [7], , , , , ],
+        "getLoad": [, 2, 2, , [IceGrid.LoadInfo], , , , , ],
+        "getProcessorSocketCount": [, 2, 2, , [3], , , , , ],
+        "shutdown": [, 2, 2, , , , , , , ]
     });
 
     Slice.defineSequence(IceGrid, "NodePrxSeqHelper", "IceGrid.NodePrx", false);
@@ -475,10 +475,10 @@
     {
         "keepAlive": [, , , , , [[IceGrid.LoadInfo]], , , , ],
         "setReplicaObserver": [, , , , , [["IceGrid.ReplicaObserverPrx"]], , , , ],
-        "getTimeout": [, 2, 1, , [3], , , , , ],
-        "getObserver": [, 2, 1, , ["IceGrid.NodeObserverPrx"], , , , , ],
-        "loadServers": [, 2, 1, , , , , , , ],
-        "getServers": [, 2, 1, , ["Ice.StringSeqHelper"], , , , , ],
+        "getTimeout": [, 2, 2, , [3], , , , , ],
+        "getObserver": [, 2, 2, , ["IceGrid.NodeObserverPrx"], , , , , ],
+        "loadServers": [, 2, 2, , , , , , , ],
+        "getServers": [, 2, 2, , ["Ice.StringSeqHelper"], , , , , ],
         "waitForApplicationUpdate": [, , , , , [[7], [3]], , , , ],
         "destroy": [, , , , , , , , , ]
     });

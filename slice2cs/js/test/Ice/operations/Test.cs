@@ -1184,9 +1184,6 @@ namespace Test
     public delegate void Callback_MyClass_opIdempotent();
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-    public delegate void Callback_MyClass_opNonmutating();
-
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
     public delegate void Callback_MyClass_opByte1(byte ret);
 
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -2181,10 +2178,6 @@ namespace Test
 
         global::System.Threading.Tasks.Task opIdempotentAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-        void opNonmutating(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-        global::System.Threading.Tasks.Task opNonmutatingAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
         byte opByte1(byte opByte1, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
         global::System.Threading.Tasks.Task<byte> opByte1Async(byte opByte1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
@@ -2473,9 +2466,6 @@ namespace Test
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         void opIdempotent(global::Ice.Current current = null);
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        void opNonmutating(global::Ice.Current current = null);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         byte opByte1(byte opByte1, global::Ice.Current current = null);
@@ -4716,18 +4706,6 @@ namespace Test
             }
         }
 
-        public void opNonmutating(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            try
-            {
-                _iceI_opNonmutatingAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
-            }
-            catch(global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException;
-            }
-        }
-
         public byte opByte1(byte opByte1, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
         {
             try
@@ -6839,31 +6817,6 @@ namespace Test
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task opNonmutatingAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-        {
-            return _iceI_opNonmutatingAsync(context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task _iceI_opNonmutatingAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_opNonmutating(context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _opNonmutating_name = "opNonmutating";
-
-        private void _iceI_opNonmutating(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<object>(completed);
-            outAsync.invoke(
-                _opNonmutating_name,
-                global::Ice.OperationMode.Nonmutating,
-                global::Ice.FormatType.DefaultFormat,
-                context,
-                synchronous);
-        }
-
         public global::System.Threading.Tasks.Task<byte> opByte1Async(byte opByte1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
         {
             return _iceI_opByte1Async(opByte1, context, progress, cancel, false);
@@ -8380,18 +8333,6 @@ namespace Test
             try
             {
                 _iceI_opIdempotentAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
-            }
-            catch(global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException;
-            }
-        }
-
-        public void opNonmutating(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            try
-            {
-                _iceI_opNonmutatingAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch(global::System.AggregateException ex_)
             {
@@ -10546,31 +10487,6 @@ namespace Test
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task opNonmutatingAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-        {
-            return _iceI_opNonmutatingAsync(context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task _iceI_opNonmutatingAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_opNonmutating(context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _opNonmutating_name = "opNonmutating";
-
-        private void _iceI_opNonmutating(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<object>(completed);
-            outAsync.invoke(
-                _opNonmutating_name,
-                global::Ice.OperationMode.Nonmutating,
-                global::Ice.FormatType.DefaultFormat,
-                context,
-                synchronous);
-        }
-
         public global::System.Threading.Tasks.Task<byte> opByte1Async(byte opByte1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
         {
             return _iceI_opByte1Async(opByte1, context, progress, cancel, false);
@@ -12536,18 +12452,6 @@ namespace Test2
             try
             {
                 _iceI_opIdempotentAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
-            }
-            catch(global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException;
-            }
-        }
-
-        public void opNonmutating(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            try
-            {
-                _iceI_opNonmutatingAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch(global::System.AggregateException ex_)
             {
@@ -14666,31 +14570,6 @@ namespace Test2
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task opNonmutatingAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-        {
-            return _iceI_opNonmutatingAsync(context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task _iceI_opNonmutatingAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_opNonmutating(context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _opNonmutating_name = "opNonmutating";
-
-        private void _iceI_opNonmutating(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<object>(completed);
-            outAsync.invoke(
-                _opNonmutating_name,
-                global::Ice.OperationMode.Nonmutating,
-                global::Ice.FormatType.DefaultFormat,
-                context,
-                synchronous);
-        }
-
         public global::System.Threading.Tasks.Task<byte> opByte1Async(byte opByte1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
         {
             return _iceI_opByte1Async(opByte1, context, progress, cancel, false);
@@ -15609,8 +15488,6 @@ namespace Test
         public abstract void opDoubleMarshaling(double p1, double[] p2, global::Ice.Current current = null);
 
         public abstract void opIdempotent(global::Ice.Current current = null);
-
-        public abstract void opNonmutating(global::Ice.Current current = null);
 
         public abstract byte opByte1(byte opByte1, global::Ice.Current current = null);
 
@@ -16663,16 +16540,6 @@ namespace Test
 
         [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
         public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-        iceD_opNonmutating(MyClass obj, global::IceInternal.Incoming inS, global::Ice.Current current)
-        {
-            global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
-            inS.readEmptyParams();
-            obj.opNonmutating(current);
-            return inS.setResult(inS.writeEmptyParams());
-        }
-
-        [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-        public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
         iceD_opByte1(MyClass obj, global::IceInternal.Incoming inS, global::Ice.Current current)
         {
             global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
@@ -16986,7 +16853,6 @@ namespace Test
             "opMyEnumStringDS",
             "opMyStructMyEnumD",
             "opMyStructMyEnumDS",
-            "opNonmutating",
             "opShort1",
             "opShortIntD",
             "opShortIntDS",
@@ -17217,113 +17083,109 @@ namespace Test
                 }
                 case 47:
                 {
-                    return iceD_opNonmutating(this, inS, current);
+                    return iceD_opShort1(this, inS, current);
                 }
                 case 48:
                 {
-                    return iceD_opShort1(this, inS, current);
+                    return iceD_opShortIntD(this, inS, current);
                 }
                 case 49:
                 {
-                    return iceD_opShortIntD(this, inS, current);
+                    return iceD_opShortIntDS(this, inS, current);
                 }
                 case 50:
                 {
-                    return iceD_opShortIntDS(this, inS, current);
+                    return iceD_opShortIntLong(this, inS, current);
                 }
                 case 51:
                 {
-                    return iceD_opShortIntLong(this, inS, current);
+                    return iceD_opShortIntLongS(this, inS, current);
                 }
                 case 52:
                 {
-                    return iceD_opShortIntLongS(this, inS, current);
+                    return iceD_opShortIntLongSS(this, inS, current);
                 }
                 case 53:
                 {
-                    return iceD_opShortIntLongSS(this, inS, current);
+                    return iceD_opShortShortSD(this, inS, current);
                 }
                 case 54:
                 {
-                    return iceD_opShortShortSD(this, inS, current);
+                    return iceD_opString(this, inS, current);
                 }
                 case 55:
                 {
-                    return iceD_opString(this, inS, current);
+                    return iceD_opString1(this, inS, current);
                 }
                 case 56:
                 {
-                    return iceD_opString1(this, inS, current);
+                    return iceD_opStringDoubleSD(this, inS, current);
                 }
                 case 57:
                 {
-                    return iceD_opStringDoubleSD(this, inS, current);
+                    return iceD_opStringFloatSD(this, inS, current);
                 }
                 case 58:
                 {
-                    return iceD_opStringFloatSD(this, inS, current);
+                    return iceD_opStringLiterals(this, inS, current);
                 }
                 case 59:
                 {
-                    return iceD_opStringLiterals(this, inS, current);
+                    return iceD_opStringMyEnumD(this, inS, current);
                 }
                 case 60:
                 {
-                    return iceD_opStringMyEnumD(this, inS, current);
+                    return iceD_opStringMyEnumDS(this, inS, current);
                 }
                 case 61:
                 {
-                    return iceD_opStringMyEnumDS(this, inS, current);
+                    return iceD_opStringS(this, inS, current);
                 }
                 case 62:
                 {
-                    return iceD_opStringS(this, inS, current);
+                    return iceD_opStringS1(this, inS, current);
                 }
                 case 63:
                 {
-                    return iceD_opStringS1(this, inS, current);
+                    return iceD_opStringS2(this, inS, current);
                 }
                 case 64:
                 {
-                    return iceD_opStringS2(this, inS, current);
+                    return iceD_opStringSS(this, inS, current);
                 }
                 case 65:
                 {
-                    return iceD_opStringSS(this, inS, current);
+                    return iceD_opStringSSS(this, inS, current);
                 }
                 case 66:
                 {
-                    return iceD_opStringSSS(this, inS, current);
+                    return iceD_opStringStringD(this, inS, current);
                 }
                 case 67:
                 {
-                    return iceD_opStringStringD(this, inS, current);
+                    return iceD_opStringStringDS(this, inS, current);
                 }
                 case 68:
                 {
-                    return iceD_opStringStringDS(this, inS, current);
+                    return iceD_opStringStringSD(this, inS, current);
                 }
                 case 69:
                 {
-                    return iceD_opStringStringSD(this, inS, current);
+                    return iceD_opStruct(this, inS, current);
                 }
                 case 70:
                 {
-                    return iceD_opStruct(this, inS, current);
+                    return iceD_opVoid(this, inS, current);
                 }
                 case 71:
                 {
-                    return iceD_opVoid(this, inS, current);
+                    return iceD_opWStringLiterals(this, inS, current);
                 }
                 case 72:
                 {
-                    return iceD_opWStringLiterals(this, inS, current);
-                }
-                case 73:
-                {
                     return iceD_shutdown(this, inS, current);
                 }
-                case 74:
+                case 73:
                 {
                     return iceD_supportsCompress(this, inS, current);
                 }
@@ -17352,22 +17214,6 @@ namespace Test
 
         #region Inherited Slice operations
 
-        public abstract void shutdown(global::Ice.Current current = null);
-
-        public abstract bool supportsCompress(global::Ice.Current current = null);
-
-        public abstract void opVoid(global::Ice.Current current = null);
-
-        public abstract byte opByte(byte p1, byte p2, out byte p3, global::Ice.Current current = null);
-
-        public abstract bool opBool(bool p1, bool p2, out bool p3, global::Ice.Current current = null);
-
-        public abstract long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, global::Ice.Current current = null);
-
-        public abstract double opFloatDouble(float p1, double p2, out float p3, out double p4, global::Ice.Current current = null);
-
-        public abstract string opString(string p1, string p2, out string p3, global::Ice.Current current = null);
-
         public abstract MyEnum opMyEnum(MyEnum p1, out MyEnum p2, global::Ice.Current current = null);
 
         public abstract MyClassPrx opMyClass(MyClassPrx p1, out MyClassPrx p2, out MyClassPrx p3, global::Ice.Current current = null);
@@ -17380,56 +17226,6 @@ namespace Test
 
         public abstract long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, global::Ice.Current current = null);
 
-        public abstract double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, global::Ice.Current current = null);
-
-        public abstract string[] opStringS(string[] p1, string[] p2, out string[] p3, global::Ice.Current current = null);
-
-        public abstract byte[][] opByteSS(byte[][] p1, byte[][] p2, out byte[][] p3, global::Ice.Current current = null);
-
-        public abstract bool[][] opBoolSS(bool[][] p1, bool[][] p2, out bool[][] p3, global::Ice.Current current = null);
-
-        public abstract long[][] opShortIntLongSS(short[][] p1, int[][] p2, long[][] p3, out short[][] p4, out int[][] p5, out long[][] p6, global::Ice.Current current = null);
-
-        public abstract double[][] opFloatDoubleSS(float[][] p1, double[][] p2, out float[][] p3, out double[][] p4, global::Ice.Current current = null);
-
-        public abstract string[][] opStringSS(string[][] p1, string[][] p2, out string[][] p3, global::Ice.Current current = null);
-
-        public abstract string[][][] opStringSSS(string[][][] p1, string[][][] p2, out string[][][] p3, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD(global::System.Collections.Generic.Dictionary<byte, bool> p1, global::System.Collections.Generic.Dictionary<byte, bool> p2, out global::System.Collections.Generic.Dictionary<byte, bool> p3, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<short, int> opShortIntD(global::System.Collections.Generic.Dictionary<short, int> p1, global::System.Collections.Generic.Dictionary<short, int> p2, out global::System.Collections.Generic.Dictionary<short, int> p3, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<long, float> opLongFloatD(global::System.Collections.Generic.Dictionary<long, float> p1, global::System.Collections.Generic.Dictionary<long, float> p2, out global::System.Collections.Generic.Dictionary<long, float> p3, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<string, string> opStringStringD(global::System.Collections.Generic.Dictionary<string, string> p1, global::System.Collections.Generic.Dictionary<string, string> p2, out global::System.Collections.Generic.Dictionary<string, string> p3, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<string, MyEnum> opStringMyEnumD(global::System.Collections.Generic.Dictionary<string, MyEnum> p1, global::System.Collections.Generic.Dictionary<string, MyEnum> p2, out global::System.Collections.Generic.Dictionary<string, MyEnum> p3, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<MyEnum, string> opMyEnumStringD(global::System.Collections.Generic.Dictionary<MyEnum, string> p1, global::System.Collections.Generic.Dictionary<MyEnum, string> p2, out global::System.Collections.Generic.Dictionary<MyEnum, string> p3, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> opMyStructMyEnumD(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p2, out global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p3, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<byte, bool>[] opByteBoolDS(global::System.Collections.Generic.Dictionary<byte, bool>[] p1, global::System.Collections.Generic.Dictionary<byte, bool>[] p2, out global::System.Collections.Generic.Dictionary<byte, bool>[] p3, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<short, int>[] opShortIntDS(global::System.Collections.Generic.Dictionary<short, int>[] p1, global::System.Collections.Generic.Dictionary<short, int>[] p2, out global::System.Collections.Generic.Dictionary<short, int>[] p3, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<long, float>[] opLongFloatDS(global::System.Collections.Generic.Dictionary<long, float>[] p1, global::System.Collections.Generic.Dictionary<long, float>[] p2, out global::System.Collections.Generic.Dictionary<long, float>[] p3, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<long, long[]> opLongLongSD(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, out global::System.Collections.Generic.Dictionary<long, long[]> p3, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<string, float[]> opStringFloatSD(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, out global::System.Collections.Generic.Dictionary<string, float[]> p3, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<string, double[]> opStringDoubleSD(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, out global::System.Collections.Generic.Dictionary<string, double[]> p3, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<string, string[]> opStringStringSD(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, out global::System.Collections.Generic.Dictionary<string, string[]> p3, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> opMyEnumMyEnumSD(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p2, out global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p3, global::Ice.Current current = null);
-
-        public abstract int[] opIntS(int[] s, global::Ice.Current current = null);
-
-        public abstract void opByteSOneway(byte[] s, global::Ice.Current current = null);
-
         public abstract int opByteSOnewayCallCount(global::Ice.Current current = null);
 
         public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(global::Ice.Current current = null);
@@ -17437,8 +17233,6 @@ namespace Test
         public abstract void opDoubleMarshaling(double p1, double[] p2, global::Ice.Current current = null);
 
         public abstract void opIdempotent(global::Ice.Current current = null);
-
-        public abstract void opNonmutating(global::Ice.Current current = null);
 
         public abstract byte opByte1(byte opByte1, global::Ice.Current current = null);
 
@@ -17478,6 +17272,58 @@ namespace Test
 
         public abstract MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
 
+        public abstract double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, global::Ice.Current current = null);
+
+        public abstract string[] opStringS(string[] p1, string[] p2, out string[] p3, global::Ice.Current current = null);
+
+        public abstract byte[][] opByteSS(byte[][] p1, byte[][] p2, out byte[][] p3, global::Ice.Current current = null);
+
+        public abstract bool[][] opBoolSS(bool[][] p1, bool[][] p2, out bool[][] p3, global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<short, int> opShortIntD(global::System.Collections.Generic.Dictionary<short, int> p1, global::System.Collections.Generic.Dictionary<short, int> p2, out global::System.Collections.Generic.Dictionary<short, int> p3, global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<long, float> opLongFloatD(global::System.Collections.Generic.Dictionary<long, float> p1, global::System.Collections.Generic.Dictionary<long, float> p2, out global::System.Collections.Generic.Dictionary<long, float> p3, global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<string, string> opStringStringD(global::System.Collections.Generic.Dictionary<string, string> p1, global::System.Collections.Generic.Dictionary<string, string> p2, out global::System.Collections.Generic.Dictionary<string, string> p3, global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<string, MyEnum> opStringMyEnumD(global::System.Collections.Generic.Dictionary<string, MyEnum> p1, global::System.Collections.Generic.Dictionary<string, MyEnum> p2, out global::System.Collections.Generic.Dictionary<string, MyEnum> p3, global::Ice.Current current = null);
+
+        public abstract long[][] opShortIntLongSS(short[][] p1, int[][] p2, long[][] p3, out short[][] p4, out int[][] p5, out long[][] p6, global::Ice.Current current = null);
+
+        public abstract double[][] opFloatDoubleSS(float[][] p1, double[][] p2, out float[][] p3, out double[][] p4, global::Ice.Current current = null);
+
+        public abstract string[][] opStringSS(string[][] p1, string[][] p2, out string[][] p3, global::Ice.Current current = null);
+
+        public abstract string[][][] opStringSSS(string[][][] p1, string[][][] p2, out string[][][] p3, global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD(global::System.Collections.Generic.Dictionary<byte, bool> p1, global::System.Collections.Generic.Dictionary<byte, bool> p2, out global::System.Collections.Generic.Dictionary<byte, bool> p3, global::Ice.Current current = null);
+
+        public abstract void shutdown(global::Ice.Current current = null);
+
+        public abstract bool supportsCompress(global::Ice.Current current = null);
+
+        public abstract void opVoid(global::Ice.Current current = null);
+
+        public abstract byte opByte(byte p1, byte p2, out byte p3, global::Ice.Current current = null);
+
+        public abstract bool opBool(bool p1, bool p2, out bool p3, global::Ice.Current current = null);
+
+        public abstract long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, global::Ice.Current current = null);
+
+        public abstract double opFloatDouble(float p1, double p2, out float p3, out double p4, global::Ice.Current current = null);
+
+        public abstract string opString(string p1, string p2, out string p3, global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<MyEnum, string> opMyEnumStringD(global::System.Collections.Generic.Dictionary<MyEnum, string> p1, global::System.Collections.Generic.Dictionary<MyEnum, string> p2, out global::System.Collections.Generic.Dictionary<MyEnum, string> p3, global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> opMyStructMyEnumD(global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p1, global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p2, out global::System.Collections.Generic.Dictionary<MyStruct, MyEnum> p3, global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<byte, bool>[] opByteBoolDS(global::System.Collections.Generic.Dictionary<byte, bool>[] p1, global::System.Collections.Generic.Dictionary<byte, bool>[] p2, out global::System.Collections.Generic.Dictionary<byte, bool>[] p3, global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<short, int>[] opShortIntDS(global::System.Collections.Generic.Dictionary<short, int>[] p1, global::System.Collections.Generic.Dictionary<short, int>[] p2, out global::System.Collections.Generic.Dictionary<short, int>[] p3, global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<long, float>[] opLongFloatDS(global::System.Collections.Generic.Dictionary<long, float>[] p1, global::System.Collections.Generic.Dictionary<long, float>[] p2, out global::System.Collections.Generic.Dictionary<long, float>[] p3, global::Ice.Current current = null);
+
         public abstract global::System.Collections.Generic.Dictionary<string, string>[] opStringStringDS(global::System.Collections.Generic.Dictionary<string, string>[] p1, global::System.Collections.Generic.Dictionary<string, string>[] p2, out global::System.Collections.Generic.Dictionary<string, string>[] p3, global::Ice.Current current = null);
 
         public abstract global::System.Collections.Generic.Dictionary<string, MyEnum>[] opStringMyEnumDS(global::System.Collections.Generic.Dictionary<string, MyEnum>[] p1, global::System.Collections.Generic.Dictionary<string, MyEnum>[] p2, out global::System.Collections.Generic.Dictionary<string, MyEnum>[] p3, global::Ice.Current current = null);
@@ -17493,6 +17339,20 @@ namespace Test
         public abstract global::System.Collections.Generic.Dictionary<short, short[]> opShortShortSD(global::System.Collections.Generic.Dictionary<short, short[]> p1, global::System.Collections.Generic.Dictionary<short, short[]> p2, out global::System.Collections.Generic.Dictionary<short, short[]> p3, global::Ice.Current current = null);
 
         public abstract global::System.Collections.Generic.Dictionary<int, int[]> opIntIntSD(global::System.Collections.Generic.Dictionary<int, int[]> p1, global::System.Collections.Generic.Dictionary<int, int[]> p2, out global::System.Collections.Generic.Dictionary<int, int[]> p3, global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<long, long[]> opLongLongSD(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, out global::System.Collections.Generic.Dictionary<long, long[]> p3, global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<string, float[]> opStringFloatSD(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, out global::System.Collections.Generic.Dictionary<string, float[]> p3, global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<string, double[]> opStringDoubleSD(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, out global::System.Collections.Generic.Dictionary<string, double[]> p3, global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<string, string[]> opStringStringSD(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, out global::System.Collections.Generic.Dictionary<string, string[]> p3, global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> opMyEnumMyEnumSD(global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p1, global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p2, out global::System.Collections.Generic.Dictionary<MyEnum, MyEnum[]> p3, global::Ice.Current current = null);
+
+        public abstract int[] opIntS(int[] s, global::Ice.Current current = null);
+
+        public abstract void opByteSOneway(byte[] s, global::Ice.Current current = null);
 
         #endregion
 
@@ -17627,7 +17487,6 @@ namespace Test
             "opMyStruct1",
             "opMyStructMyEnumD",
             "opMyStructMyEnumDS",
-            "opNonmutating",
             "opShort1",
             "opShortIntD",
             "opShortIntDS",
@@ -17870,113 +17729,109 @@ namespace Test
                 }
                 case 50:
                 {
-                    return MyClassDisp_.iceD_opNonmutating(this, inS, current);
+                    return MyClassDisp_.iceD_opShort1(this, inS, current);
                 }
                 case 51:
                 {
-                    return MyClassDisp_.iceD_opShort1(this, inS, current);
+                    return MyClassDisp_.iceD_opShortIntD(this, inS, current);
                 }
                 case 52:
                 {
-                    return MyClassDisp_.iceD_opShortIntD(this, inS, current);
+                    return MyClassDisp_.iceD_opShortIntDS(this, inS, current);
                 }
                 case 53:
                 {
-                    return MyClassDisp_.iceD_opShortIntDS(this, inS, current);
+                    return MyClassDisp_.iceD_opShortIntLong(this, inS, current);
                 }
                 case 54:
                 {
-                    return MyClassDisp_.iceD_opShortIntLong(this, inS, current);
+                    return MyClassDisp_.iceD_opShortIntLongS(this, inS, current);
                 }
                 case 55:
                 {
-                    return MyClassDisp_.iceD_opShortIntLongS(this, inS, current);
+                    return MyClassDisp_.iceD_opShortIntLongSS(this, inS, current);
                 }
                 case 56:
                 {
-                    return MyClassDisp_.iceD_opShortIntLongSS(this, inS, current);
+                    return MyClassDisp_.iceD_opShortShortSD(this, inS, current);
                 }
                 case 57:
                 {
-                    return MyClassDisp_.iceD_opShortShortSD(this, inS, current);
+                    return MyClassDisp_.iceD_opString(this, inS, current);
                 }
                 case 58:
                 {
-                    return MyClassDisp_.iceD_opString(this, inS, current);
+                    return MyClassDisp_.iceD_opString1(this, inS, current);
                 }
                 case 59:
                 {
-                    return MyClassDisp_.iceD_opString1(this, inS, current);
+                    return MyClassDisp_.iceD_opStringDoubleSD(this, inS, current);
                 }
                 case 60:
                 {
-                    return MyClassDisp_.iceD_opStringDoubleSD(this, inS, current);
+                    return MyClassDisp_.iceD_opStringFloatSD(this, inS, current);
                 }
                 case 61:
                 {
-                    return MyClassDisp_.iceD_opStringFloatSD(this, inS, current);
+                    return MyClassDisp_.iceD_opStringLiterals(this, inS, current);
                 }
                 case 62:
                 {
-                    return MyClassDisp_.iceD_opStringLiterals(this, inS, current);
+                    return MyClassDisp_.iceD_opStringMyEnumD(this, inS, current);
                 }
                 case 63:
                 {
-                    return MyClassDisp_.iceD_opStringMyEnumD(this, inS, current);
+                    return MyClassDisp_.iceD_opStringMyEnumDS(this, inS, current);
                 }
                 case 64:
                 {
-                    return MyClassDisp_.iceD_opStringMyEnumDS(this, inS, current);
+                    return MyClassDisp_.iceD_opStringS(this, inS, current);
                 }
                 case 65:
                 {
-                    return MyClassDisp_.iceD_opStringS(this, inS, current);
+                    return MyClassDisp_.iceD_opStringS1(this, inS, current);
                 }
                 case 66:
                 {
-                    return MyClassDisp_.iceD_opStringS1(this, inS, current);
+                    return MyClassDisp_.iceD_opStringS2(this, inS, current);
                 }
                 case 67:
                 {
-                    return MyClassDisp_.iceD_opStringS2(this, inS, current);
+                    return MyClassDisp_.iceD_opStringSS(this, inS, current);
                 }
                 case 68:
                 {
-                    return MyClassDisp_.iceD_opStringSS(this, inS, current);
+                    return MyClassDisp_.iceD_opStringSSS(this, inS, current);
                 }
                 case 69:
                 {
-                    return MyClassDisp_.iceD_opStringSSS(this, inS, current);
+                    return MyClassDisp_.iceD_opStringStringD(this, inS, current);
                 }
                 case 70:
                 {
-                    return MyClassDisp_.iceD_opStringStringD(this, inS, current);
+                    return MyClassDisp_.iceD_opStringStringDS(this, inS, current);
                 }
                 case 71:
                 {
-                    return MyClassDisp_.iceD_opStringStringDS(this, inS, current);
+                    return MyClassDisp_.iceD_opStringStringSD(this, inS, current);
                 }
                 case 72:
                 {
-                    return MyClassDisp_.iceD_opStringStringSD(this, inS, current);
+                    return MyClassDisp_.iceD_opStruct(this, inS, current);
                 }
                 case 73:
                 {
-                    return MyClassDisp_.iceD_opStruct(this, inS, current);
+                    return MyClassDisp_.iceD_opVoid(this, inS, current);
                 }
                 case 74:
                 {
-                    return MyClassDisp_.iceD_opVoid(this, inS, current);
+                    return MyClassDisp_.iceD_opWStringLiterals(this, inS, current);
                 }
                 case 75:
                 {
-                    return MyClassDisp_.iceD_opWStringLiterals(this, inS, current);
-                }
-                case 76:
-                {
                     return MyClassDisp_.iceD_shutdown(this, inS, current);
                 }
-                case 77:
+                case 76:
                 {
                     return MyClassDisp_.iceD_supportsCompress(this, inS, current);
                 }
@@ -18170,22 +18025,6 @@ namespace Test2
     {
         #region Inherited Slice operations
 
-        public abstract void shutdown(global::Ice.Current current = null);
-
-        public abstract bool supportsCompress(global::Ice.Current current = null);
-
-        public abstract void opVoid(global::Ice.Current current = null);
-
-        public abstract byte opByte(byte p1, byte p2, out byte p3, global::Ice.Current current = null);
-
-        public abstract bool opBool(bool p1, bool p2, out bool p3, global::Ice.Current current = null);
-
-        public abstract long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, global::Ice.Current current = null);
-
-        public abstract double opFloatDouble(float p1, double p2, out float p3, out double p4, global::Ice.Current current = null);
-
-        public abstract string opString(string p1, string p2, out string p3, global::Ice.Current current = null);
-
         public abstract global::Test.MyEnum opMyEnum(global::Test.MyEnum p1, out global::Test.MyEnum p2, global::Ice.Current current = null);
 
         public abstract global::Test.MyClassPrx opMyClass(global::Test.MyClassPrx p1, out global::Test.MyClassPrx p2, out global::Test.MyClassPrx p3, global::Ice.Current current = null);
@@ -18198,56 +18037,6 @@ namespace Test2
 
         public abstract long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, global::Ice.Current current = null);
 
-        public abstract double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, global::Ice.Current current = null);
-
-        public abstract string[] opStringS(string[] p1, string[] p2, out string[] p3, global::Ice.Current current = null);
-
-        public abstract byte[][] opByteSS(byte[][] p1, byte[][] p2, out byte[][] p3, global::Ice.Current current = null);
-
-        public abstract bool[][] opBoolSS(bool[][] p1, bool[][] p2, out bool[][] p3, global::Ice.Current current = null);
-
-        public abstract long[][] opShortIntLongSS(short[][] p1, int[][] p2, long[][] p3, out short[][] p4, out int[][] p5, out long[][] p6, global::Ice.Current current = null);
-
-        public abstract double[][] opFloatDoubleSS(float[][] p1, double[][] p2, out float[][] p3, out double[][] p4, global::Ice.Current current = null);
-
-        public abstract string[][] opStringSS(string[][] p1, string[][] p2, out string[][] p3, global::Ice.Current current = null);
-
-        public abstract string[][][] opStringSSS(string[][][] p1, string[][][] p2, out string[][][] p3, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD(global::System.Collections.Generic.Dictionary<byte, bool> p1, global::System.Collections.Generic.Dictionary<byte, bool> p2, out global::System.Collections.Generic.Dictionary<byte, bool> p3, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<short, int> opShortIntD(global::System.Collections.Generic.Dictionary<short, int> p1, global::System.Collections.Generic.Dictionary<short, int> p2, out global::System.Collections.Generic.Dictionary<short, int> p3, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<long, float> opLongFloatD(global::System.Collections.Generic.Dictionary<long, float> p1, global::System.Collections.Generic.Dictionary<long, float> p2, out global::System.Collections.Generic.Dictionary<long, float> p3, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<string, string> opStringStringD(global::System.Collections.Generic.Dictionary<string, string> p1, global::System.Collections.Generic.Dictionary<string, string> p2, out global::System.Collections.Generic.Dictionary<string, string> p3, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum> opStringMyEnumD(global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum> p1, global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum> p2, out global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum> p3, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string> opMyEnumStringD(global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string> p1, global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string> p2, out global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string> p3, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum> opMyStructMyEnumD(global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum> p1, global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum> p2, out global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum> p3, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<byte, bool>[] opByteBoolDS(global::System.Collections.Generic.Dictionary<byte, bool>[] p1, global::System.Collections.Generic.Dictionary<byte, bool>[] p2, out global::System.Collections.Generic.Dictionary<byte, bool>[] p3, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<short, int>[] opShortIntDS(global::System.Collections.Generic.Dictionary<short, int>[] p1, global::System.Collections.Generic.Dictionary<short, int>[] p2, out global::System.Collections.Generic.Dictionary<short, int>[] p3, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<long, float>[] opLongFloatDS(global::System.Collections.Generic.Dictionary<long, float>[] p1, global::System.Collections.Generic.Dictionary<long, float>[] p2, out global::System.Collections.Generic.Dictionary<long, float>[] p3, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<long, long[]> opLongLongSD(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, out global::System.Collections.Generic.Dictionary<long, long[]> p3, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<string, float[]> opStringFloatSD(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, out global::System.Collections.Generic.Dictionary<string, float[]> p3, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<string, double[]> opStringDoubleSD(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, out global::System.Collections.Generic.Dictionary<string, double[]> p3, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<string, string[]> opStringStringSD(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, out global::System.Collections.Generic.Dictionary<string, string[]> p3, global::Ice.Current current = null);
-
-        public abstract global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> opMyEnumMyEnumSD(global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> p1, global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> p2, out global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> p3, global::Ice.Current current = null);
-
-        public abstract int[] opIntS(int[] s, global::Ice.Current current = null);
-
-        public abstract void opByteSOneway(byte[] s, global::Ice.Current current = null);
-
         public abstract int opByteSOnewayCallCount(global::Ice.Current current = null);
 
         public abstract global::System.Collections.Generic.Dictionary<string, string> opContext(global::Ice.Current current = null);
@@ -18255,8 +18044,6 @@ namespace Test2
         public abstract void opDoubleMarshaling(double p1, double[] p2, global::Ice.Current current = null);
 
         public abstract void opIdempotent(global::Ice.Current current = null);
-
-        public abstract void opNonmutating(global::Ice.Current current = null);
 
         public abstract byte opByte1(byte opByte1, global::Ice.Current current = null);
 
@@ -18296,6 +18083,58 @@ namespace Test2
 
         public abstract global::Test.MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
 
+        public abstract double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, global::Ice.Current current = null);
+
+        public abstract string[] opStringS(string[] p1, string[] p2, out string[] p3, global::Ice.Current current = null);
+
+        public abstract byte[][] opByteSS(byte[][] p1, byte[][] p2, out byte[][] p3, global::Ice.Current current = null);
+
+        public abstract bool[][] opBoolSS(bool[][] p1, bool[][] p2, out bool[][] p3, global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<short, int> opShortIntD(global::System.Collections.Generic.Dictionary<short, int> p1, global::System.Collections.Generic.Dictionary<short, int> p2, out global::System.Collections.Generic.Dictionary<short, int> p3, global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<long, float> opLongFloatD(global::System.Collections.Generic.Dictionary<long, float> p1, global::System.Collections.Generic.Dictionary<long, float> p2, out global::System.Collections.Generic.Dictionary<long, float> p3, global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<string, string> opStringStringD(global::System.Collections.Generic.Dictionary<string, string> p1, global::System.Collections.Generic.Dictionary<string, string> p2, out global::System.Collections.Generic.Dictionary<string, string> p3, global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum> opStringMyEnumD(global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum> p1, global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum> p2, out global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum> p3, global::Ice.Current current = null);
+
+        public abstract long[][] opShortIntLongSS(short[][] p1, int[][] p2, long[][] p3, out short[][] p4, out int[][] p5, out long[][] p6, global::Ice.Current current = null);
+
+        public abstract double[][] opFloatDoubleSS(float[][] p1, double[][] p2, out float[][] p3, out double[][] p4, global::Ice.Current current = null);
+
+        public abstract string[][] opStringSS(string[][] p1, string[][] p2, out string[][] p3, global::Ice.Current current = null);
+
+        public abstract string[][][] opStringSSS(string[][][] p1, string[][][] p2, out string[][][] p3, global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<byte, bool> opByteBoolD(global::System.Collections.Generic.Dictionary<byte, bool> p1, global::System.Collections.Generic.Dictionary<byte, bool> p2, out global::System.Collections.Generic.Dictionary<byte, bool> p3, global::Ice.Current current = null);
+
+        public abstract void shutdown(global::Ice.Current current = null);
+
+        public abstract bool supportsCompress(global::Ice.Current current = null);
+
+        public abstract void opVoid(global::Ice.Current current = null);
+
+        public abstract byte opByte(byte p1, byte p2, out byte p3, global::Ice.Current current = null);
+
+        public abstract bool opBool(bool p1, bool p2, out bool p3, global::Ice.Current current = null);
+
+        public abstract long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, global::Ice.Current current = null);
+
+        public abstract double opFloatDouble(float p1, double p2, out float p3, out double p4, global::Ice.Current current = null);
+
+        public abstract string opString(string p1, string p2, out string p3, global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string> opMyEnumStringD(global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string> p1, global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string> p2, out global::System.Collections.Generic.Dictionary<global::Test.MyEnum, string> p3, global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum> opMyStructMyEnumD(global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum> p1, global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum> p2, out global::System.Collections.Generic.Dictionary<global::Test.MyStruct, global::Test.MyEnum> p3, global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<byte, bool>[] opByteBoolDS(global::System.Collections.Generic.Dictionary<byte, bool>[] p1, global::System.Collections.Generic.Dictionary<byte, bool>[] p2, out global::System.Collections.Generic.Dictionary<byte, bool>[] p3, global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<short, int>[] opShortIntDS(global::System.Collections.Generic.Dictionary<short, int>[] p1, global::System.Collections.Generic.Dictionary<short, int>[] p2, out global::System.Collections.Generic.Dictionary<short, int>[] p3, global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<long, float>[] opLongFloatDS(global::System.Collections.Generic.Dictionary<long, float>[] p1, global::System.Collections.Generic.Dictionary<long, float>[] p2, out global::System.Collections.Generic.Dictionary<long, float>[] p3, global::Ice.Current current = null);
+
         public abstract global::System.Collections.Generic.Dictionary<string, string>[] opStringStringDS(global::System.Collections.Generic.Dictionary<string, string>[] p1, global::System.Collections.Generic.Dictionary<string, string>[] p2, out global::System.Collections.Generic.Dictionary<string, string>[] p3, global::Ice.Current current = null);
 
         public abstract global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum>[] opStringMyEnumDS(global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum>[] p1, global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum>[] p2, out global::System.Collections.Generic.Dictionary<string, global::Test.MyEnum>[] p3, global::Ice.Current current = null);
@@ -18311,6 +18150,20 @@ namespace Test2
         public abstract global::System.Collections.Generic.Dictionary<short, short[]> opShortShortSD(global::System.Collections.Generic.Dictionary<short, short[]> p1, global::System.Collections.Generic.Dictionary<short, short[]> p2, out global::System.Collections.Generic.Dictionary<short, short[]> p3, global::Ice.Current current = null);
 
         public abstract global::System.Collections.Generic.Dictionary<int, int[]> opIntIntSD(global::System.Collections.Generic.Dictionary<int, int[]> p1, global::System.Collections.Generic.Dictionary<int, int[]> p2, out global::System.Collections.Generic.Dictionary<int, int[]> p3, global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<long, long[]> opLongLongSD(global::System.Collections.Generic.Dictionary<long, long[]> p1, global::System.Collections.Generic.Dictionary<long, long[]> p2, out global::System.Collections.Generic.Dictionary<long, long[]> p3, global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<string, float[]> opStringFloatSD(global::System.Collections.Generic.Dictionary<string, float[]> p1, global::System.Collections.Generic.Dictionary<string, float[]> p2, out global::System.Collections.Generic.Dictionary<string, float[]> p3, global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<string, double[]> opStringDoubleSD(global::System.Collections.Generic.Dictionary<string, double[]> p1, global::System.Collections.Generic.Dictionary<string, double[]> p2, out global::System.Collections.Generic.Dictionary<string, double[]> p3, global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<string, string[]> opStringStringSD(global::System.Collections.Generic.Dictionary<string, string[]> p1, global::System.Collections.Generic.Dictionary<string, string[]> p2, out global::System.Collections.Generic.Dictionary<string, string[]> p3, global::Ice.Current current = null);
+
+        public abstract global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> opMyEnumMyEnumSD(global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> p1, global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> p2, out global::System.Collections.Generic.Dictionary<global::Test.MyEnum, global::Test.MyEnum[]> p3, global::Ice.Current current = null);
+
+        public abstract int[] opIntS(int[] s, global::Ice.Current current = null);
+
+        public abstract void opByteSOneway(byte[] s, global::Ice.Current current = null);
 
         #endregion
 
@@ -18394,7 +18247,6 @@ namespace Test2
             "opMyEnumStringDS",
             "opMyStructMyEnumD",
             "opMyStructMyEnumDS",
-            "opNonmutating",
             "opShort1",
             "opShortIntD",
             "opShortIntDS",
@@ -18625,113 +18477,109 @@ namespace Test2
                 }
                 case 47:
                 {
-                    return global::Test.MyClassDisp_.iceD_opNonmutating(this, inS, current);
+                    return global::Test.MyClassDisp_.iceD_opShort1(this, inS, current);
                 }
                 case 48:
                 {
-                    return global::Test.MyClassDisp_.iceD_opShort1(this, inS, current);
+                    return global::Test.MyClassDisp_.iceD_opShortIntD(this, inS, current);
                 }
                 case 49:
                 {
-                    return global::Test.MyClassDisp_.iceD_opShortIntD(this, inS, current);
+                    return global::Test.MyClassDisp_.iceD_opShortIntDS(this, inS, current);
                 }
                 case 50:
                 {
-                    return global::Test.MyClassDisp_.iceD_opShortIntDS(this, inS, current);
+                    return global::Test.MyClassDisp_.iceD_opShortIntLong(this, inS, current);
                 }
                 case 51:
                 {
-                    return global::Test.MyClassDisp_.iceD_opShortIntLong(this, inS, current);
+                    return global::Test.MyClassDisp_.iceD_opShortIntLongS(this, inS, current);
                 }
                 case 52:
                 {
-                    return global::Test.MyClassDisp_.iceD_opShortIntLongS(this, inS, current);
+                    return global::Test.MyClassDisp_.iceD_opShortIntLongSS(this, inS, current);
                 }
                 case 53:
                 {
-                    return global::Test.MyClassDisp_.iceD_opShortIntLongSS(this, inS, current);
+                    return global::Test.MyClassDisp_.iceD_opShortShortSD(this, inS, current);
                 }
                 case 54:
                 {
-                    return global::Test.MyClassDisp_.iceD_opShortShortSD(this, inS, current);
+                    return global::Test.MyClassDisp_.iceD_opString(this, inS, current);
                 }
                 case 55:
                 {
-                    return global::Test.MyClassDisp_.iceD_opString(this, inS, current);
+                    return global::Test.MyClassDisp_.iceD_opString1(this, inS, current);
                 }
                 case 56:
                 {
-                    return global::Test.MyClassDisp_.iceD_opString1(this, inS, current);
+                    return global::Test.MyClassDisp_.iceD_opStringDoubleSD(this, inS, current);
                 }
                 case 57:
                 {
-                    return global::Test.MyClassDisp_.iceD_opStringDoubleSD(this, inS, current);
+                    return global::Test.MyClassDisp_.iceD_opStringFloatSD(this, inS, current);
                 }
                 case 58:
                 {
-                    return global::Test.MyClassDisp_.iceD_opStringFloatSD(this, inS, current);
+                    return global::Test.MyClassDisp_.iceD_opStringLiterals(this, inS, current);
                 }
                 case 59:
                 {
-                    return global::Test.MyClassDisp_.iceD_opStringLiterals(this, inS, current);
+                    return global::Test.MyClassDisp_.iceD_opStringMyEnumD(this, inS, current);
                 }
                 case 60:
                 {
-                    return global::Test.MyClassDisp_.iceD_opStringMyEnumD(this, inS, current);
+                    return global::Test.MyClassDisp_.iceD_opStringMyEnumDS(this, inS, current);
                 }
                 case 61:
                 {
-                    return global::Test.MyClassDisp_.iceD_opStringMyEnumDS(this, inS, current);
+                    return global::Test.MyClassDisp_.iceD_opStringS(this, inS, current);
                 }
                 case 62:
                 {
-                    return global::Test.MyClassDisp_.iceD_opStringS(this, inS, current);
+                    return global::Test.MyClassDisp_.iceD_opStringS1(this, inS, current);
                 }
                 case 63:
                 {
-                    return global::Test.MyClassDisp_.iceD_opStringS1(this, inS, current);
+                    return global::Test.MyClassDisp_.iceD_opStringS2(this, inS, current);
                 }
                 case 64:
                 {
-                    return global::Test.MyClassDisp_.iceD_opStringS2(this, inS, current);
+                    return global::Test.MyClassDisp_.iceD_opStringSS(this, inS, current);
                 }
                 case 65:
                 {
-                    return global::Test.MyClassDisp_.iceD_opStringSS(this, inS, current);
+                    return global::Test.MyClassDisp_.iceD_opStringSSS(this, inS, current);
                 }
                 case 66:
                 {
-                    return global::Test.MyClassDisp_.iceD_opStringSSS(this, inS, current);
+                    return global::Test.MyClassDisp_.iceD_opStringStringD(this, inS, current);
                 }
                 case 67:
                 {
-                    return global::Test.MyClassDisp_.iceD_opStringStringD(this, inS, current);
+                    return global::Test.MyClassDisp_.iceD_opStringStringDS(this, inS, current);
                 }
                 case 68:
                 {
-                    return global::Test.MyClassDisp_.iceD_opStringStringDS(this, inS, current);
+                    return global::Test.MyClassDisp_.iceD_opStringStringSD(this, inS, current);
                 }
                 case 69:
                 {
-                    return global::Test.MyClassDisp_.iceD_opStringStringSD(this, inS, current);
+                    return global::Test.MyClassDisp_.iceD_opStruct(this, inS, current);
                 }
                 case 70:
                 {
-                    return global::Test.MyClassDisp_.iceD_opStruct(this, inS, current);
+                    return global::Test.MyClassDisp_.iceD_opVoid(this, inS, current);
                 }
                 case 71:
                 {
-                    return global::Test.MyClassDisp_.iceD_opVoid(this, inS, current);
+                    return global::Test.MyClassDisp_.iceD_opWStringLiterals(this, inS, current);
                 }
                 case 72:
                 {
-                    return global::Test.MyClassDisp_.iceD_opWStringLiterals(this, inS, current);
-                }
-                case 73:
-                {
                     return global::Test.MyClassDisp_.iceD_shutdown(this, inS, current);
                 }
-                case 74:
+                case 73:
                 {
                     return global::Test.MyClassDisp_.iceD_supportsCompress(this, inS, current);
                 }

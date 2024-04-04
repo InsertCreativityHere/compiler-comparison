@@ -271,9 +271,9 @@ IceStorm.TopicPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(IceStorm.Topic, IceStorm.TopicPrx, iceC_IceStorm_Topic_ids, "::IceStorm::Topic",
 {
-    "getName": [, 2, 1, , [7], , , , , ],
-    "getPublisher": [, 2, 1, , [9], , , , , ],
-    "getNonReplicatedPublisher": [, 2, 1, , [9], , , , , ],
+    "getName": [, 2, 2, , [7], , , , , ],
+    "getPublisher": [, 2, 2, , [9], , , , , ],
+    "getNonReplicatedPublisher": [, 2, 2, , [9], , , , , ],
     "subscribeAndGetPublisher": [, , , , [9], [["IceStorm.QoSHelper"], [9]], ,
     [
         IceStorm.AlreadySubscribed,
@@ -289,7 +289,7 @@ Slice.defineOperations(IceStorm.Topic, IceStorm.TopicPrx, iceC_IceStorm_Topic_id
     [
         IceStorm.NoSuchLink
     ], , ],
-    "getLinkInfoSeq": [, 2, 1, , ["IceStorm.LinkInfoSeqHelper"], , , , , ],
+    "getLinkInfoSeq": [, 2, 2, , ["IceStorm.LinkInfoSeqHelper"], , , , , ],
     "getSubscribers": [, , , , ["Ice.IdentitySeqHelper"], , , , , ],
     "destroy": [, , , , , , , , , ]
 });

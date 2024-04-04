@@ -131,7 +131,7 @@ public interface AdminSessionPrx extends com.zeroc.Glacier2.SessionPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<AdminPrx> _iceI_getAdminAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<AdminPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getAdmin", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<AdminPrx> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getAdmin", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      AdminPrx ret;
                      ret = AdminPrx.uncheckedCast(istr.readProxy());

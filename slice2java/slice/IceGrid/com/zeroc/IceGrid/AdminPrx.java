@@ -798,7 +798,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<ApplicationInfo> _iceI_getApplicationInfoAsync(String iceP_name, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<ApplicationInfo> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getApplicationInfo", com.zeroc.Ice.OperationMode.Nonmutating, sync, _iceE_getApplicationInfo);
+        com.zeroc.IceInternal.OutgoingAsync<ApplicationInfo> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getApplicationInfo", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_getApplicationInfo);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_name);
                  }, istr -> {
@@ -877,7 +877,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<ApplicationDescriptor> _iceI_getDefaultApplicationDescriptorAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<ApplicationDescriptor> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getDefaultApplicationDescriptor", com.zeroc.Ice.OperationMode.Nonmutating, sync, _iceE_getDefaultApplicationDescriptor);
+        com.zeroc.IceInternal.OutgoingAsync<ApplicationDescriptor> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getDefaultApplicationDescriptor", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_getDefaultApplicationDescriptor);
         f.invoke(true, context, null, null, istr -> {
                      ApplicationDescriptor ret;
                      ret = ApplicationDescriptor.ice_read(istr);
@@ -939,7 +939,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<String[]> _iceI_getAllApplicationNamesAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<String[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getAllApplicationNames", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<String[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getAllApplicationNames", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      String[] ret;
                      ret = istr.readStringSeq();
@@ -1014,7 +1014,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<ServerInfo> _iceI_getServerInfoAsync(String iceP_id, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<ServerInfo> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getServerInfo", com.zeroc.Ice.OperationMode.Nonmutating, sync, _iceE_getServerInfo);
+        com.zeroc.IceInternal.OutgoingAsync<ServerInfo> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getServerInfo", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_getServerInfo);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_id);
                  }, istr -> {
@@ -1114,7 +1114,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<ServerState> _iceI_getServerStateAsync(String iceP_id, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<ServerState> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getServerState", com.zeroc.Ice.OperationMode.Nonmutating, sync, _iceE_getServerState);
+        com.zeroc.IceInternal.OutgoingAsync<ServerState> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getServerState", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_getServerState);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_id);
                  }, istr -> {
@@ -1215,7 +1215,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> _iceI_getServerPidAsync(String iceP_id, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getServerPid", com.zeroc.Ice.OperationMode.Nonmutating, sync, _iceE_getServerPid);
+        com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getServerPid", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_getServerPid);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_id);
                  }, istr -> {
@@ -1585,7 +1585,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> _iceI_isServerEnabledAsync(String iceP_id, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "isServerEnabled", com.zeroc.Ice.OperationMode.Nonmutating, sync, _iceE_isServerEnabled);
+        com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "isServerEnabled", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_isServerEnabled);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_id);
                  }, istr -> {
@@ -1968,7 +1968,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<String[]> _iceI_getAllServerIdsAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<String[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getAllServerIds", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<String[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getAllServerIds", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      String[] ret;
                      ret = istr.readStringSeq();
@@ -2051,7 +2051,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<AdapterInfo[]> _iceI_getAdapterInfoAsync(String iceP_id, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<AdapterInfo[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getAdapterInfo", com.zeroc.Ice.OperationMode.Nonmutating, sync, _iceE_getAdapterInfo);
+        com.zeroc.IceInternal.OutgoingAsync<AdapterInfo[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getAdapterInfo", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_getAdapterInfo);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_id);
                  }, istr -> {
@@ -2200,7 +2200,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<String[]> _iceI_getAllAdapterIdsAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<String[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getAllAdapterIds", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<String[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getAllAdapterIds", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      String[] ret;
                      ret = istr.readStringSeq();
@@ -2643,7 +2643,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<ObjectInfo> _iceI_getObjectInfoAsync(com.zeroc.Ice.Identity iceP_id, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<ObjectInfo> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getObjectInfo", com.zeroc.Ice.OperationMode.Nonmutating, sync, _iceE_getObjectInfo);
+        com.zeroc.IceInternal.OutgoingAsync<ObjectInfo> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getObjectInfo", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_getObjectInfo);
         f.invoke(true, context, null, ostr -> {
                      com.zeroc.Ice.Identity.ice_write(ostr, iceP_id);
                  }, istr -> {
@@ -2711,7 +2711,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<ObjectInfo[]> _iceI_getObjectInfosByTypeAsync(String iceP_type, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<ObjectInfo[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getObjectInfosByType", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<ObjectInfo[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getObjectInfosByType", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_type);
                  }, istr -> {
@@ -2777,7 +2777,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<ObjectInfo[]> _iceI_getAllObjectInfosAsync(String iceP_expr, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<ObjectInfo[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getAllObjectInfos", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<ObjectInfo[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getAllObjectInfos", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_expr);
                  }, istr -> {
@@ -2854,7 +2854,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> _iceI_pingNodeAsync(String iceP_name, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "pingNode", com.zeroc.Ice.OperationMode.Nonmutating, sync, _iceE_pingNode);
+        com.zeroc.IceInternal.OutgoingAsync<java.lang.Boolean> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "pingNode", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_pingNode);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_name);
                  }, istr -> {
@@ -2945,7 +2945,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<LoadInfo> _iceI_getNodeLoadAsync(String iceP_name, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<LoadInfo> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getNodeLoad", com.zeroc.Ice.OperationMode.Nonmutating, sync, _iceE_getNodeLoad);
+        com.zeroc.IceInternal.OutgoingAsync<LoadInfo> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getNodeLoad", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_getNodeLoad);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_name);
                  }, istr -> {
@@ -3037,7 +3037,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<NodeInfo> _iceI_getNodeInfoAsync(String iceP_name, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<NodeInfo> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getNodeInfo", com.zeroc.Ice.OperationMode.Nonmutating, sync, _iceE_getNodeInfo);
+        com.zeroc.IceInternal.OutgoingAsync<NodeInfo> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getNodeInfo", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_getNodeInfo);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_name);
                  }, istr -> {
@@ -3229,7 +3229,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> _iceI_getNodeProcessorSocketCountAsync(String iceP_name, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getNodeProcessorSocketCount", com.zeroc.Ice.OperationMode.Nonmutating, sync, _iceE_getNodeProcessorSocketCount);
+        com.zeroc.IceInternal.OutgoingAsync<java.lang.Integer> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getNodeProcessorSocketCount", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_getNodeProcessorSocketCount);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_name);
                  }, istr -> {
@@ -3407,7 +3407,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<java.lang.String> _iceI_getNodeHostnameAsync(String iceP_name, java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<java.lang.String> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getNodeHostname", com.zeroc.Ice.OperationMode.Nonmutating, sync, _iceE_getNodeHostname);
+        com.zeroc.IceInternal.OutgoingAsync<java.lang.String> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getNodeHostname", com.zeroc.Ice.OperationMode.Idempotent, sync, _iceE_getNodeHostname);
         f.invoke(true, context, null, ostr -> {
                      ostr.writeString(iceP_name);
                  }, istr -> {
@@ -3471,7 +3471,7 @@ public interface AdminPrx extends com.zeroc.Ice.ObjectPrx
      **/
     default com.zeroc.IceInternal.OutgoingAsync<String[]> _iceI_getAllNodeNamesAsync(java.util.Map<String, String> context, boolean sync)
     {
-        com.zeroc.IceInternal.OutgoingAsync<String[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getAllNodeNames", com.zeroc.Ice.OperationMode.Nonmutating, sync, null);
+        com.zeroc.IceInternal.OutgoingAsync<String[]> f = new com.zeroc.IceInternal.OutgoingAsync<>(this, "getAllNodeNames", com.zeroc.Ice.OperationMode.Idempotent, sync, null);
         f.invoke(true, context, null, null, istr -> {
                      String[] ret;
                      ret = istr.readStringSeq();

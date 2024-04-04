@@ -156,7 +156,6 @@ public interface MyDerivedClass extends MyClass
         "opMyEnumStringD",
         "opMyEnumStringDS",
         "opMyStruct1",
-        "opNonmutating",
         "opShort1",
         "opShortIntD",
         "opShortIntDS",
@@ -379,105 +378,101 @@ public interface MyDerivedClass extends MyClass
             }
             case 45:
             {
-                return MyClass._iceD_opNonmutating(this, in, current);
+                return MyClass._iceD_opShort1(this, in, current);
             }
             case 46:
             {
-                return MyClass._iceD_opShort1(this, in, current);
+                return MyClass._iceD_opShortIntD(this, in, current);
             }
             case 47:
             {
-                return MyClass._iceD_opShortIntD(this, in, current);
+                return MyClass._iceD_opShortIntDS(this, in, current);
             }
             case 48:
             {
-                return MyClass._iceD_opShortIntDS(this, in, current);
+                return MyClass._iceD_opShortIntLong(this, in, current);
             }
             case 49:
             {
-                return MyClass._iceD_opShortIntLong(this, in, current);
+                return MyClass._iceD_opShortIntLongS(this, in, current);
             }
             case 50:
             {
-                return MyClass._iceD_opShortIntLongS(this, in, current);
+                return MyClass._iceD_opShortIntLongSS(this, in, current);
             }
             case 51:
             {
-                return MyClass._iceD_opShortIntLongSS(this, in, current);
+                return MyClass._iceD_opShortShortSD(this, in, current);
             }
             case 52:
             {
-                return MyClass._iceD_opShortShortSD(this, in, current);
+                return MyClass._iceD_opString(this, in, current);
             }
             case 53:
             {
-                return MyClass._iceD_opString(this, in, current);
+                return MyClass._iceD_opString1(this, in, current);
             }
             case 54:
             {
-                return MyClass._iceD_opString1(this, in, current);
+                return MyClass._iceD_opStringDoubleSD(this, in, current);
             }
             case 55:
             {
-                return MyClass._iceD_opStringDoubleSD(this, in, current);
+                return MyClass._iceD_opStringFloatSD(this, in, current);
             }
             case 56:
             {
-                return MyClass._iceD_opStringFloatSD(this, in, current);
+                return MyClass._iceD_opStringLiterals(this, in, current);
             }
             case 57:
             {
-                return MyClass._iceD_opStringLiterals(this, in, current);
+                return MyClass._iceD_opStringMyEnumD(this, in, current);
             }
             case 58:
             {
-                return MyClass._iceD_opStringMyEnumD(this, in, current);
+                return MyClass._iceD_opStringMyEnumDS(this, in, current);
             }
             case 59:
             {
-                return MyClass._iceD_opStringMyEnumDS(this, in, current);
+                return MyClass._iceD_opStringS(this, in, current);
             }
             case 60:
             {
-                return MyClass._iceD_opStringS(this, in, current);
+                return MyClass._iceD_opStringS1(this, in, current);
             }
             case 61:
             {
-                return MyClass._iceD_opStringS1(this, in, current);
+                return MyClass._iceD_opStringS2(this, in, current);
             }
             case 62:
             {
-                return MyClass._iceD_opStringS2(this, in, current);
+                return MyClass._iceD_opStringSS(this, in, current);
             }
             case 63:
             {
-                return MyClass._iceD_opStringSS(this, in, current);
+                return MyClass._iceD_opStringStringD(this, in, current);
             }
             case 64:
             {
-                return MyClass._iceD_opStringStringD(this, in, current);
+                return MyClass._iceD_opStringStringDS(this, in, current);
             }
             case 65:
             {
-                return MyClass._iceD_opStringStringDS(this, in, current);
+                return MyClass._iceD_opStringStringSD(this, in, current);
             }
             case 66:
             {
-                return MyClass._iceD_opStringStringSD(this, in, current);
+                return MyClass._iceD_opStruct(this, in, current);
             }
             case 67:
             {
-                return MyClass._iceD_opStruct(this, in, current);
+                return MyClass._iceD_opVoid(this, in, current);
             }
             case 68:
             {
-                return MyClass._iceD_opVoid(this, in, current);
-            }
-            case 69:
-            {
                 return MyClass._iceD_shutdown(this, in, current);
             }
-            case 70:
+            case 69:
             {
                 return MyClass._iceD_supportsCompress(this, in, current);
             }

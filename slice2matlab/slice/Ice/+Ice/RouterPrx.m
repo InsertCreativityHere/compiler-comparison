@@ -32,7 +32,7 @@ classdef RouterPrx < Ice.ObjectPrx
             %     starting with Ice 3.7.
             %     The Ice runtime assumes the router has a routing table if the hasRoutingTable is not set.
             
-            is_ = obj.iceInvoke('getClientProxy', 1, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getClientProxy', 2, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readProxy();
             hasRoutingTable = is_.readBoolOpt(1);
@@ -55,7 +55,7 @@ classdef RouterPrx < Ice.ObjectPrx
                 varargout{1} = result;
                 varargout{2} = hasRoutingTable;
             end
-            r_ = obj.iceInvokeAsync('getClientProxy', 1, true, [], 2, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getClientProxy', 2, true, [], 2, @unmarshal, {}, varargin{:});
         end
         function result = getServerProxy(obj, varargin)
             % getServerProxy   Get the router's server proxy, i.e., the proxy to use for forwarding requests from the server to the router.
@@ -65,7 +65,7 @@ classdef RouterPrx < Ice.ObjectPrx
             %
             % Returns (Ice.ObjectPrx) - The router's server proxy.
             
-            is_ = obj.iceInvoke('getServerProxy', 1, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getServerProxy', 2, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readProxy();
             is_.endEncapsulation();
@@ -84,7 +84,7 @@ classdef RouterPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getServerProxy', 1, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getServerProxy', 2, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = addProxies(obj, proxies, varargin)
             % addProxies   Add new proxy information to the router's routing table.

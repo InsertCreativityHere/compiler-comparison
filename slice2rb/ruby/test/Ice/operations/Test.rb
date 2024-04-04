@@ -550,10 +550,6 @@ module ::Test
                 MyClassPrx_mixin::OP_opIdempotent.invoke(self, [], context)
             end
 
-            def opNonmutating(context=nil)
-                MyClassPrx_mixin::OP_opNonmutating.invoke(self, [], context)
-            end
-
             def opByte1(opByte1, context=nil)
                 MyClassPrx_mixin::OP_opByte1.invoke(self, [opByte1], context)
             end
@@ -689,7 +685,6 @@ module ::Test
         MyClassPrx_mixin::OP_opByteSOnewayCallCount = ::Ice::__defineOperation('opByteSOnewayCallCount', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_int, false, 0], [])
         MyClassPrx_mixin::OP_opContext = ::Ice::__defineOperation('opContext', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_Context, false, 0], [])
         MyClassPrx_mixin::OP_opIdempotent = ::Ice::__defineOperation('opIdempotent', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], nil, [])
-        MyClassPrx_mixin::OP_opNonmutating = ::Ice::__defineOperation('opNonmutating', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], nil, [])
         MyClassPrx_mixin::OP_opByte1 = ::Ice::__defineOperation('opByte1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_byte, false, 0]], [], [::Ice::T_byte, false, 0], [])
         MyClassPrx_mixin::OP_opShort1 = ::Ice::__defineOperation('opShort1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_short, false, 0]], [], [::Ice::T_short, false, 0], [])
         MyClassPrx_mixin::OP_opInt1 = ::Ice::__defineOperation('opInt1', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::Ice::T_int, false, 0]], [], [::Ice::T_int, false, 0], [])

@@ -192,9 +192,9 @@ namespace Ice
     global $Ice__t_ObjectPrx;
     global $IcePHP__t_string;
     global $Ice__t_LocatorRegistryPrx;
-    IcePHP_defineOperation($Ice__t_LocatorPrx, 'findObjectById', 2, 1, 0, array(array($Ice__t_Identity)), null, array($Ice__t_ObjectPrx), array($Ice__t_ObjectNotFoundException));
-    IcePHP_defineOperation($Ice__t_LocatorPrx, 'findAdapterById', 2, 1, 0, array(array($IcePHP__t_string)), null, array($Ice__t_ObjectPrx), array($Ice__t_AdapterNotFoundException));
-    IcePHP_defineOperation($Ice__t_LocatorPrx, 'getRegistry', 2, 1, 0, null, null, array($Ice__t_LocatorRegistryPrx), null);
+    IcePHP_defineOperation($Ice__t_LocatorPrx, 'findObjectById', 2, 2, 0, array(array($Ice__t_Identity)), null, array($Ice__t_ObjectPrx), array($Ice__t_ObjectNotFoundException));
+    IcePHP_defineOperation($Ice__t_LocatorPrx, 'findAdapterById', 2, 2, 0, array(array($IcePHP__t_string)), null, array($Ice__t_ObjectPrx), array($Ice__t_AdapterNotFoundException));
+    IcePHP_defineOperation($Ice__t_LocatorPrx, 'getRegistry', 2, 2, 0, null, null, array($Ice__t_LocatorRegistryPrx), null);
 }
 
 namespace Ice

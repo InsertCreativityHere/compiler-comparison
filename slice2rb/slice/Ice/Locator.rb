@@ -123,9 +123,9 @@ module ::Ice
 
         T_LocatorPrx.defineProxy(LocatorPrx, nil, [])
 
-        LocatorPrx_mixin::OP_findObjectById = ::Ice::__defineOperation('findObjectById', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, true, nil, [[::Ice::T_Identity, false, 0]], [], [::Ice::T_ObjectPrx, false, 0], [::Ice::T_ObjectNotFoundException])
-        LocatorPrx_mixin::OP_findAdapterById = ::Ice::__defineOperation('findAdapterById', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, true, nil, [[::Ice::T_string, false, 0]], [], [::Ice::T_ObjectPrx, false, 0], [::Ice::T_AdapterNotFoundException])
-        LocatorPrx_mixin::OP_getRegistry = ::Ice::__defineOperation('getRegistry', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::Ice::T_LocatorRegistryPrx, false, 0], [])
+        LocatorPrx_mixin::OP_findObjectById = ::Ice::__defineOperation('findObjectById', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, true, nil, [[::Ice::T_Identity, false, 0]], [], [::Ice::T_ObjectPrx, false, 0], [::Ice::T_ObjectNotFoundException])
+        LocatorPrx_mixin::OP_findAdapterById = ::Ice::__defineOperation('findAdapterById', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, true, nil, [[::Ice::T_string, false, 0]], [], [::Ice::T_ObjectPrx, false, 0], [::Ice::T_AdapterNotFoundException])
+        LocatorPrx_mixin::OP_getRegistry = ::Ice::__defineOperation('getRegistry', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::T_LocatorRegistryPrx, false, 0], [])
     end
 
     if not defined?(::Ice::LocatorRegistry_Mixin)

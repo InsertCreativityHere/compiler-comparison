@@ -1822,8 +1822,6 @@ public interface MyClass extends com.zeroc.Ice.Object
 
     void opIdempotent(com.zeroc.Ice.Current current);
 
-    void opNonmutating(com.zeroc.Ice.Current current);
-
     byte opByte1(byte opByte1, com.zeroc.Ice.Current current);
 
     short opShort1(short opShort1, com.zeroc.Ice.Current current);
@@ -2997,21 +2995,6 @@ public interface MyClass extends com.zeroc.Ice.Object
      * @param current -
      * @return -
     **/
-    static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opNonmutating(MyClass obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
-    {
-        com.zeroc.Ice.Object._iceCheckMode(com.zeroc.Ice.OperationMode.Idempotent, current.mode);
-        inS.readEmptyParams();
-        obj.opNonmutating(current);
-        return inS.setResult(inS.writeEmptyParams());
-    }
-
-    /**
-     * @hidden
-     * @param obj -
-     * @param inS -
-     * @param current -
-     * @return -
-    **/
     static java.util.concurrent.CompletionStage<com.zeroc.Ice.OutputStream> _iceD_opByte1(MyClass obj, final com.zeroc.IceInternal.Incoming inS, com.zeroc.Ice.Current current)
     {
         com.zeroc.Ice.Object._iceCheckMode(null, current.mode);
@@ -3402,7 +3385,6 @@ public interface MyClass extends com.zeroc.Ice.Object
         "opMyEnumStringDS",
         "opMyStructMyEnumD",
         "opMyStructMyEnumDS",
-        "opNonmutating",
         "opShort1",
         "opShortIntD",
         "opShortIntDS",
@@ -3630,109 +3612,105 @@ public interface MyClass extends com.zeroc.Ice.Object
             }
             case 46:
             {
-                return _iceD_opNonmutating(this, in, current);
+                return _iceD_opShort1(this, in, current);
             }
             case 47:
             {
-                return _iceD_opShort1(this, in, current);
+                return _iceD_opShortIntD(this, in, current);
             }
             case 48:
             {
-                return _iceD_opShortIntD(this, in, current);
+                return _iceD_opShortIntDS(this, in, current);
             }
             case 49:
             {
-                return _iceD_opShortIntDS(this, in, current);
+                return _iceD_opShortIntLong(this, in, current);
             }
             case 50:
             {
-                return _iceD_opShortIntLong(this, in, current);
+                return _iceD_opShortIntLongS(this, in, current);
             }
             case 51:
             {
-                return _iceD_opShortIntLongS(this, in, current);
+                return _iceD_opShortIntLongSS(this, in, current);
             }
             case 52:
             {
-                return _iceD_opShortIntLongSS(this, in, current);
+                return _iceD_opShortShortSD(this, in, current);
             }
             case 53:
             {
-                return _iceD_opShortShortSD(this, in, current);
+                return _iceD_opString(this, in, current);
             }
             case 54:
             {
-                return _iceD_opString(this, in, current);
+                return _iceD_opString1(this, in, current);
             }
             case 55:
             {
-                return _iceD_opString1(this, in, current);
+                return _iceD_opStringDoubleSD(this, in, current);
             }
             case 56:
             {
-                return _iceD_opStringDoubleSD(this, in, current);
+                return _iceD_opStringFloatSD(this, in, current);
             }
             case 57:
             {
-                return _iceD_opStringFloatSD(this, in, current);
+                return _iceD_opStringLiterals(this, in, current);
             }
             case 58:
             {
-                return _iceD_opStringLiterals(this, in, current);
+                return _iceD_opStringMyEnumD(this, in, current);
             }
             case 59:
             {
-                return _iceD_opStringMyEnumD(this, in, current);
+                return _iceD_opStringMyEnumDS(this, in, current);
             }
             case 60:
             {
-                return _iceD_opStringMyEnumDS(this, in, current);
+                return _iceD_opStringS(this, in, current);
             }
             case 61:
             {
-                return _iceD_opStringS(this, in, current);
+                return _iceD_opStringS1(this, in, current);
             }
             case 62:
             {
-                return _iceD_opStringS1(this, in, current);
+                return _iceD_opStringS2(this, in, current);
             }
             case 63:
             {
-                return _iceD_opStringS2(this, in, current);
+                return _iceD_opStringSS(this, in, current);
             }
             case 64:
             {
-                return _iceD_opStringSS(this, in, current);
+                return _iceD_opStringSSS(this, in, current);
             }
             case 65:
             {
-                return _iceD_opStringSSS(this, in, current);
+                return _iceD_opStringStringD(this, in, current);
             }
             case 66:
             {
-                return _iceD_opStringStringD(this, in, current);
+                return _iceD_opStringStringDS(this, in, current);
             }
             case 67:
             {
-                return _iceD_opStringStringDS(this, in, current);
+                return _iceD_opStringStringSD(this, in, current);
             }
             case 68:
             {
-                return _iceD_opStringStringSD(this, in, current);
+                return _iceD_opStruct(this, in, current);
             }
             case 69:
             {
-                return _iceD_opStruct(this, in, current);
+                return _iceD_opVoid(this, in, current);
             }
             case 70:
             {
-                return _iceD_opVoid(this, in, current);
-            }
-            case 71:
-            {
                 return _iceD_shutdown(this, in, current);
             }
-            case 72:
+            case 71:
             {
                 return _iceD_supportsCompress(this, in, current);
             }

@@ -77,7 +77,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
             %
             % Returns (IceGrid.AdminPrx) - The admin interface proxy. The returned proxy is never null.
             
-            is_ = obj.iceInvoke('getAdmin', 1, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getAdmin', 2, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = IceGrid.AdminPrx.ice_read(is_);
             is_.endEncapsulation();
@@ -96,7 +96,7 @@ classdef AdminSessionPrx < Glacier2.SessionPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getAdmin', 1, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getAdmin', 2, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = getAdminCallbackTemplate(obj, varargin)
             % getAdminCallbackTemplate   Get a "template" proxy for admin callback objects. An Admin client uses this proxy to set the category of

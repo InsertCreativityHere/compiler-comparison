@@ -713,7 +713,7 @@ namespace Ice.location
                 var outAsync = getOutgoingAsync<global::Ice.ObjectPrx>(completed);
                 outAsync.invoke(
                     _findObjectById_name,
-                    global::Ice.OperationMode.Nonmutating,
+                    global::Ice.OperationMode.Idempotent,
                     global::Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
@@ -763,7 +763,7 @@ namespace Ice.location
                 var outAsync = getOutgoingAsync<global::Ice.ObjectPrx>(completed);
                 outAsync.invoke(
                     _findAdapterById_name,
-                    global::Ice.OperationMode.Nonmutating,
+                    global::Ice.OperationMode.Idempotent,
                     global::Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
@@ -813,7 +813,7 @@ namespace Ice.location
                 var outAsync = getOutgoingAsync<global::Ice.LocatorRegistryPrx>(completed);
                 outAsync.invoke(
                     _getRegistry_name,
-                    global::Ice.OperationMode.Nonmutating,
+                    global::Ice.OperationMode.Idempotent,
                     global::Ice.FormatType.DefaultFormat,
                     context,
                     synchronous,
@@ -1881,11 +1881,11 @@ namespace Ice.location
 
             #region Inherited Slice operations
 
-            public abstract global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> findObjectByIdAsync(global::Ice.Identity id, global::Ice.Current current = null);
-
             public abstract global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> findAdapterByIdAsync(string id, global::Ice.Current current = null);
 
             public abstract global::Ice.LocatorRegistryPrx getRegistry(global::Ice.Current current = null);
+
+            public abstract global::System.Threading.Tasks.Task<global::Ice.ObjectPrx> findObjectByIdAsync(global::Ice.Identity id, global::Ice.Current current = null);
 
             #endregion
 

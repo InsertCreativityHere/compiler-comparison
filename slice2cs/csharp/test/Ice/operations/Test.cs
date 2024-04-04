@@ -1242,9 +1242,6 @@ namespace Ice.operations
         public delegate void Callback_MyClass_opIdempotent();
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-        public delegate void Callback_MyClass_opNonmutating();
-
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
         public delegate void Callback_MyClass_opByte1(byte ret);
 
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
@@ -2230,10 +2227,6 @@ namespace Ice.operations
 
             global::System.Threading.Tasks.Task opIdempotentAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
 
-            void opNonmutating(global::Ice.OptionalContext context = new global::Ice.OptionalContext());
-
-            global::System.Threading.Tasks.Task opNonmutatingAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
-
             byte opByte1(byte opByte1, global::Ice.OptionalContext context = new global::Ice.OptionalContext());
 
             global::System.Threading.Tasks.Task<byte> opByte1Async(byte opByte1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken());
@@ -2501,9 +2494,6 @@ namespace Ice.operations
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             void opIdempotent(global::Ice.Current current = null);
-
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
-            void opNonmutating(global::Ice.Current current = null);
 
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("slice2cs", "3.8.0-alpha.0")]
             byte opByte1(byte opByte1, global::Ice.Current current = null);
@@ -4712,18 +4702,6 @@ namespace Ice.operations
                 }
             }
 
-            public void opNonmutating(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-            {
-                try
-                {
-                    _iceI_opNonmutatingAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
-                }
-                catch(global::System.AggregateException ex_)
-                {
-                    throw ex_.InnerException;
-                }
-            }
-
             public byte opByte1(byte opByte1, global::Ice.OptionalContext context = new global::Ice.OptionalContext())
             {
                 try
@@ -6835,31 +6813,6 @@ namespace Ice.operations
                     synchronous);
             }
 
-            public global::System.Threading.Tasks.Task opNonmutatingAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-            {
-                return _iceI_opNonmutatingAsync(context, progress, cancel, false);
-            }
-
-            private global::System.Threading.Tasks.Task _iceI_opNonmutatingAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-            {
-                var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
-                _iceI_opNonmutating(context, synchronous, completed);
-                return completed.Task;
-            }
-
-            private const string _opNonmutating_name = "opNonmutating";
-
-            private void _iceI_opNonmutating(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
-            {
-                var outAsync = getOutgoingAsync<object>(completed);
-                outAsync.invoke(
-                    _opNonmutating_name,
-                    global::Ice.OperationMode.Nonmutating,
-                    global::Ice.FormatType.DefaultFormat,
-                    context,
-                    synchronous);
-            }
-
             public global::System.Threading.Tasks.Task<byte> opByte1Async(byte opByte1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
             {
                 return _iceI_opByte1Async(opByte1, context, progress, cancel, false);
@@ -8376,18 +8329,6 @@ namespace Ice.operations
                 try
                 {
                     _iceI_opIdempotentAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
-                }
-                catch(global::System.AggregateException ex_)
-                {
-                    throw ex_.InnerException;
-                }
-            }
-
-            public void opNonmutating(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-            {
-                try
-                {
-                    _iceI_opNonmutatingAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
                 }
                 catch(global::System.AggregateException ex_)
                 {
@@ -10542,31 +10483,6 @@ namespace Ice.operations
                     synchronous);
             }
 
-            public global::System.Threading.Tasks.Task opNonmutatingAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-            {
-                return _iceI_opNonmutatingAsync(context, progress, cancel, false);
-            }
-
-            private global::System.Threading.Tasks.Task _iceI_opNonmutatingAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-            {
-                var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
-                _iceI_opNonmutating(context, synchronous, completed);
-                return completed.Task;
-            }
-
-            private const string _opNonmutating_name = "opNonmutating";
-
-            private void _iceI_opNonmutating(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
-            {
-                var outAsync = getOutgoingAsync<object>(completed);
-                outAsync.invoke(
-                    _opNonmutating_name,
-                    global::Ice.OperationMode.Nonmutating,
-                    global::Ice.FormatType.DefaultFormat,
-                    context,
-                    synchronous);
-            }
-
             public global::System.Threading.Tasks.Task<byte> opByte1Async(byte opByte1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
             {
                 return _iceI_opByte1Async(opByte1, context, progress, cancel, false);
@@ -12187,18 +12103,6 @@ namespace Test2
             try
             {
                 _iceI_opIdempotentAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
-            }
-            catch(global::System.AggregateException ex_)
-            {
-                throw ex_.InnerException;
-            }
-        }
-
-        public void opNonmutating(global::Ice.OptionalContext context = new global::Ice.OptionalContext())
-        {
-            try
-            {
-                _iceI_opNonmutatingAsync(context, null, global::System.Threading.CancellationToken.None, true).Wait();
             }
             catch(global::System.AggregateException ex_)
             {
@@ -14317,31 +14221,6 @@ namespace Test2
                 synchronous);
         }
 
-        public global::System.Threading.Tasks.Task opNonmutatingAsync(global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
-        {
-            return _iceI_opNonmutatingAsync(context, progress, cancel, false);
-        }
-
-        private global::System.Threading.Tasks.Task _iceI_opNonmutatingAsync(global::Ice.OptionalContext context, global::System.IProgress<bool> progress, global::System.Threading.CancellationToken cancel, bool synchronous)
-        {
-            var completed = new global::IceInternal.OperationTaskCompletionCallback<object>(progress, cancel);
-            _iceI_opNonmutating(context, synchronous, completed);
-            return completed.Task;
-        }
-
-        private const string _opNonmutating_name = "opNonmutating";
-
-        private void _iceI_opNonmutating(global::System.Collections.Generic.Dictionary<string, string> context, bool synchronous, global::IceInternal.OutgoingAsyncCompletionCallback completed)
-        {
-            var outAsync = getOutgoingAsync<object>(completed);
-            outAsync.invoke(
-                _opNonmutating_name,
-                global::Ice.OperationMode.Nonmutating,
-                global::Ice.FormatType.DefaultFormat,
-                context,
-                synchronous);
-        }
-
         public global::System.Threading.Tasks.Task<byte> opByte1Async(byte opByte1, global::Ice.OptionalContext context = new global::Ice.OptionalContext(), global::System.IProgress<bool> progress = null, global::System.Threading.CancellationToken cancel = new global::System.Threading.CancellationToken())
         {
             return _iceI_opByte1Async(opByte1, context, progress, cancel, false);
@@ -15262,8 +15141,6 @@ namespace Ice.operations
             public abstract void opDoubleMarshaling(double p1, double[] p2, global::Ice.Current current = null);
 
             public abstract void opIdempotent(global::Ice.Current current = null);
-
-            public abstract void opNonmutating(global::Ice.Current current = null);
 
             public abstract byte opByte1(byte opByte1, global::Ice.Current current = null);
 
@@ -16316,16 +16193,6 @@ namespace Ice.operations
 
             [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
             public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
-            iceD_opNonmutating(MyClass obj, global::IceInternal.Incoming inS, global::Ice.Current current)
-            {
-                global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Idempotent, current.mode);
-                inS.readEmptyParams();
-                obj.opNonmutating(current);
-                return inS.setResult(inS.writeEmptyParams());
-            }
-
-            [global::System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1011")]
-            public static global::System.Threading.Tasks.Task<global::Ice.OutputStream>
             iceD_opByte1(MyClass obj, global::IceInternal.Incoming inS, global::Ice.Current current)
             {
                 global::Ice.ObjectImpl.iceCheckMode(global::Ice.OperationMode.Normal, current.mode);
@@ -16639,7 +16506,6 @@ namespace Ice.operations
                 "opMyEnumStringDS",
                 "opMyStructMyEnumD",
                 "opMyStructMyEnumDS",
-                "opNonmutating",
                 "opShort1",
                 "opShortIntD",
                 "opShortIntDS",
@@ -16870,113 +16736,109 @@ namespace Ice.operations
                     }
                     case 47:
                     {
-                        return iceD_opNonmutating(this, inS, current);
+                        return iceD_opShort1(this, inS, current);
                     }
                     case 48:
                     {
-                        return iceD_opShort1(this, inS, current);
+                        return iceD_opShortIntD(this, inS, current);
                     }
                     case 49:
                     {
-                        return iceD_opShortIntD(this, inS, current);
+                        return iceD_opShortIntDS(this, inS, current);
                     }
                     case 50:
                     {
-                        return iceD_opShortIntDS(this, inS, current);
+                        return iceD_opShortIntLong(this, inS, current);
                     }
                     case 51:
                     {
-                        return iceD_opShortIntLong(this, inS, current);
+                        return iceD_opShortIntLongS(this, inS, current);
                     }
                     case 52:
                     {
-                        return iceD_opShortIntLongS(this, inS, current);
+                        return iceD_opShortIntLongSS(this, inS, current);
                     }
                     case 53:
                     {
-                        return iceD_opShortIntLongSS(this, inS, current);
+                        return iceD_opShortShortSD(this, inS, current);
                     }
                     case 54:
                     {
-                        return iceD_opShortShortSD(this, inS, current);
+                        return iceD_opString(this, inS, current);
                     }
                     case 55:
                     {
-                        return iceD_opString(this, inS, current);
+                        return iceD_opString1(this, inS, current);
                     }
                     case 56:
                     {
-                        return iceD_opString1(this, inS, current);
+                        return iceD_opStringDoubleSD(this, inS, current);
                     }
                     case 57:
                     {
-                        return iceD_opStringDoubleSD(this, inS, current);
+                        return iceD_opStringFloatSD(this, inS, current);
                     }
                     case 58:
                     {
-                        return iceD_opStringFloatSD(this, inS, current);
+                        return iceD_opStringLiterals(this, inS, current);
                     }
                     case 59:
                     {
-                        return iceD_opStringLiterals(this, inS, current);
+                        return iceD_opStringMyEnumD(this, inS, current);
                     }
                     case 60:
                     {
-                        return iceD_opStringMyEnumD(this, inS, current);
+                        return iceD_opStringMyEnumDS(this, inS, current);
                     }
                     case 61:
                     {
-                        return iceD_opStringMyEnumDS(this, inS, current);
+                        return iceD_opStringS(this, inS, current);
                     }
                     case 62:
                     {
-                        return iceD_opStringS(this, inS, current);
+                        return iceD_opStringS1(this, inS, current);
                     }
                     case 63:
                     {
-                        return iceD_opStringS1(this, inS, current);
+                        return iceD_opStringS2(this, inS, current);
                     }
                     case 64:
                     {
-                        return iceD_opStringS2(this, inS, current);
+                        return iceD_opStringSS(this, inS, current);
                     }
                     case 65:
                     {
-                        return iceD_opStringSS(this, inS, current);
+                        return iceD_opStringSSS(this, inS, current);
                     }
                     case 66:
                     {
-                        return iceD_opStringSSS(this, inS, current);
+                        return iceD_opStringStringD(this, inS, current);
                     }
                     case 67:
                     {
-                        return iceD_opStringStringD(this, inS, current);
+                        return iceD_opStringStringDS(this, inS, current);
                     }
                     case 68:
                     {
-                        return iceD_opStringStringDS(this, inS, current);
+                        return iceD_opStringStringSD(this, inS, current);
                     }
                     case 69:
                     {
-                        return iceD_opStringStringSD(this, inS, current);
+                        return iceD_opStruct(this, inS, current);
                     }
                     case 70:
                     {
-                        return iceD_opStruct(this, inS, current);
+                        return iceD_opVoid(this, inS, current);
                     }
                     case 71:
                     {
-                        return iceD_opVoid(this, inS, current);
+                        return iceD_opWStringLiterals(this, inS, current);
                     }
                     case 72:
                     {
-                        return iceD_opWStringLiterals(this, inS, current);
-                    }
-                    case 73:
-                    {
                         return iceD_shutdown(this, inS, current);
                     }
-                    case 74:
+                    case 73:
                     {
                         return iceD_supportsCompress(this, inS, current);
                     }
@@ -17014,6 +16876,22 @@ namespace Ice.operations
             public abstract byte opByte(byte p1, byte p2, out byte p3, global::Ice.Current current = null);
 
             public abstract bool opBool(bool p1, bool p2, out bool p3, global::Ice.Current current = null);
+
+            public abstract long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, global::Ice.Current current = null);
+
+            public abstract double opFloatDouble(float p1, double p2, out float p3, out double p4, global::Ice.Current current = null);
+
+            public abstract string opString(string p1, string p2, out string p3, global::Ice.Current current = null);
+
+            public abstract MyEnum opMyEnum(MyEnum p1, out MyEnum p2, global::Ice.Current current = null);
+
+            public abstract MyClassPrx opMyClass(MyClassPrx p1, out MyClassPrx p2, out MyClassPrx p3, global::Ice.Current current = null);
+
+            public abstract Structure opStruct(Structure p1, Structure p2, out Structure p3, global::Ice.Current current = null);
+
+            public abstract byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, global::Ice.Current current = null);
+
+            public abstract bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, global::Ice.Current current = null);
 
             public abstract long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, global::Ice.Current current = null);
 
@@ -17091,8 +16969,6 @@ namespace Ice.operations
 
             public abstract void opIdempotent(global::Ice.Current current = null);
 
-            public abstract void opNonmutating(global::Ice.Current current = null);
-
             public abstract byte opByte1(byte opByte1, global::Ice.Current current = null);
 
             public abstract short opShort1(short opShort1, global::Ice.Current current = null);
@@ -17130,22 +17006,6 @@ namespace Ice.operations
             public abstract MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current = null);
 
             public abstract MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
-
-            public abstract long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, global::Ice.Current current = null);
-
-            public abstract double opFloatDouble(float p1, double p2, out float p3, out double p4, global::Ice.Current current = null);
-
-            public abstract string opString(string p1, string p2, out string p3, global::Ice.Current current = null);
-
-            public abstract MyEnum opMyEnum(MyEnum p1, out MyEnum p2, global::Ice.Current current = null);
-
-            public abstract MyClassPrx opMyClass(MyClassPrx p1, out MyClassPrx p2, out MyClassPrx p3, global::Ice.Current current = null);
-
-            public abstract Structure opStruct(Structure p1, Structure p2, out Structure p3, global::Ice.Current current = null);
-
-            public abstract byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, global::Ice.Current current = null);
-
-            public abstract bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, global::Ice.Current current = null);
 
             #endregion
 
@@ -17280,7 +17140,6 @@ namespace Ice.operations
                 "opMyStruct1",
                 "opMyStructMyEnumD",
                 "opMyStructMyEnumDS",
-                "opNonmutating",
                 "opShort1",
                 "opShortIntD",
                 "opShortIntDS",
@@ -17523,113 +17382,109 @@ namespace Ice.operations
                     }
                     case 50:
                     {
-                        return MyClassDisp_.iceD_opNonmutating(this, inS, current);
+                        return MyClassDisp_.iceD_opShort1(this, inS, current);
                     }
                     case 51:
                     {
-                        return MyClassDisp_.iceD_opShort1(this, inS, current);
+                        return MyClassDisp_.iceD_opShortIntD(this, inS, current);
                     }
                     case 52:
                     {
-                        return MyClassDisp_.iceD_opShortIntD(this, inS, current);
+                        return MyClassDisp_.iceD_opShortIntDS(this, inS, current);
                     }
                     case 53:
                     {
-                        return MyClassDisp_.iceD_opShortIntDS(this, inS, current);
+                        return MyClassDisp_.iceD_opShortIntLong(this, inS, current);
                     }
                     case 54:
                     {
-                        return MyClassDisp_.iceD_opShortIntLong(this, inS, current);
+                        return MyClassDisp_.iceD_opShortIntLongS(this, inS, current);
                     }
                     case 55:
                     {
-                        return MyClassDisp_.iceD_opShortIntLongS(this, inS, current);
+                        return MyClassDisp_.iceD_opShortIntLongSS(this, inS, current);
                     }
                     case 56:
                     {
-                        return MyClassDisp_.iceD_opShortIntLongSS(this, inS, current);
+                        return MyClassDisp_.iceD_opShortShortSD(this, inS, current);
                     }
                     case 57:
                     {
-                        return MyClassDisp_.iceD_opShortShortSD(this, inS, current);
+                        return MyClassDisp_.iceD_opString(this, inS, current);
                     }
                     case 58:
                     {
-                        return MyClassDisp_.iceD_opString(this, inS, current);
+                        return MyClassDisp_.iceD_opString1(this, inS, current);
                     }
                     case 59:
                     {
-                        return MyClassDisp_.iceD_opString1(this, inS, current);
+                        return MyClassDisp_.iceD_opStringDoubleSD(this, inS, current);
                     }
                     case 60:
                     {
-                        return MyClassDisp_.iceD_opStringDoubleSD(this, inS, current);
+                        return MyClassDisp_.iceD_opStringFloatSD(this, inS, current);
                     }
                     case 61:
                     {
-                        return MyClassDisp_.iceD_opStringFloatSD(this, inS, current);
+                        return MyClassDisp_.iceD_opStringLiterals(this, inS, current);
                     }
                     case 62:
                     {
-                        return MyClassDisp_.iceD_opStringLiterals(this, inS, current);
+                        return MyClassDisp_.iceD_opStringMyEnumD(this, inS, current);
                     }
                     case 63:
                     {
-                        return MyClassDisp_.iceD_opStringMyEnumD(this, inS, current);
+                        return MyClassDisp_.iceD_opStringMyEnumDS(this, inS, current);
                     }
                     case 64:
                     {
-                        return MyClassDisp_.iceD_opStringMyEnumDS(this, inS, current);
+                        return MyClassDisp_.iceD_opStringS(this, inS, current);
                     }
                     case 65:
                     {
-                        return MyClassDisp_.iceD_opStringS(this, inS, current);
+                        return MyClassDisp_.iceD_opStringS1(this, inS, current);
                     }
                     case 66:
                     {
-                        return MyClassDisp_.iceD_opStringS1(this, inS, current);
+                        return MyClassDisp_.iceD_opStringS2(this, inS, current);
                     }
                     case 67:
                     {
-                        return MyClassDisp_.iceD_opStringS2(this, inS, current);
+                        return MyClassDisp_.iceD_opStringSS(this, inS, current);
                     }
                     case 68:
                     {
-                        return MyClassDisp_.iceD_opStringSS(this, inS, current);
+                        return MyClassDisp_.iceD_opStringSSS(this, inS, current);
                     }
                     case 69:
                     {
-                        return MyClassDisp_.iceD_opStringSSS(this, inS, current);
+                        return MyClassDisp_.iceD_opStringStringD(this, inS, current);
                     }
                     case 70:
                     {
-                        return MyClassDisp_.iceD_opStringStringD(this, inS, current);
+                        return MyClassDisp_.iceD_opStringStringDS(this, inS, current);
                     }
                     case 71:
                     {
-                        return MyClassDisp_.iceD_opStringStringDS(this, inS, current);
+                        return MyClassDisp_.iceD_opStringStringSD(this, inS, current);
                     }
                     case 72:
                     {
-                        return MyClassDisp_.iceD_opStringStringSD(this, inS, current);
+                        return MyClassDisp_.iceD_opStruct(this, inS, current);
                     }
                     case 73:
                     {
-                        return MyClassDisp_.iceD_opStruct(this, inS, current);
+                        return MyClassDisp_.iceD_opVoid(this, inS, current);
                     }
                     case 74:
                     {
-                        return MyClassDisp_.iceD_opVoid(this, inS, current);
+                        return MyClassDisp_.iceD_opWStringLiterals(this, inS, current);
                     }
                     case 75:
                     {
-                        return MyClassDisp_.iceD_opWStringLiterals(this, inS, current);
-                    }
-                    case 76:
-                    {
                         return MyClassDisp_.iceD_shutdown(this, inS, current);
                     }
-                    case 77:
+                    case 76:
                     {
                         return MyClassDisp_.iceD_supportsCompress(this, inS, current);
                     }
@@ -17957,11 +17812,6 @@ namespace Ice.operations
                 _ice_delegate.opIdempotent(current);
             }
 
-            public override void opNonmutating(global::Ice.Current current = null)
-            {
-                _ice_delegate.opNonmutating(current);
-            }
-
             public override byte opByte1(byte opByte1, global::Ice.Current current = null)
             {
                 return _ice_delegate.opByte1(opByte1, current);
@@ -18080,6 +17930,22 @@ namespace Test2
 
         public abstract bool opBool(bool p1, bool p2, out bool p3, global::Ice.Current current = null);
 
+        public abstract long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, global::Ice.Current current = null);
+
+        public abstract double opFloatDouble(float p1, double p2, out float p3, out double p4, global::Ice.Current current = null);
+
+        public abstract string opString(string p1, string p2, out string p3, global::Ice.Current current = null);
+
+        public abstract global::Ice.operations.Test.MyEnum opMyEnum(global::Ice.operations.Test.MyEnum p1, out global::Ice.operations.Test.MyEnum p2, global::Ice.Current current = null);
+
+        public abstract global::Ice.operations.Test.MyClassPrx opMyClass(global::Ice.operations.Test.MyClassPrx p1, out global::Ice.operations.Test.MyClassPrx p2, out global::Ice.operations.Test.MyClassPrx p3, global::Ice.Current current = null);
+
+        public abstract global::Ice.operations.Test.Structure opStruct(global::Ice.operations.Test.Structure p1, global::Ice.operations.Test.Structure p2, out global::Ice.operations.Test.Structure p3, global::Ice.Current current = null);
+
+        public abstract byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, global::Ice.Current current = null);
+
+        public abstract bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, global::Ice.Current current = null);
+
         public abstract long[] opShortIntLongS(short[] p1, int[] p2, long[] p3, out short[] p4, out int[] p5, out long[] p6, global::Ice.Current current = null);
 
         public abstract double[] opFloatDoubleS(float[] p1, double[] p2, out float[] p3, out double[] p4, global::Ice.Current current = null);
@@ -18156,8 +18022,6 @@ namespace Test2
 
         public abstract void opIdempotent(global::Ice.Current current = null);
 
-        public abstract void opNonmutating(global::Ice.Current current = null);
-
         public abstract byte opByte1(byte opByte1, global::Ice.Current current = null);
 
         public abstract short opShort1(short opShort1, global::Ice.Current current = null);
@@ -18195,22 +18059,6 @@ namespace Test2
         public abstract global::Ice.operations.Test.MyClass_OpMDict1MarshaledResult opMDict1(global::Ice.Current current = null);
 
         public abstract global::Ice.operations.Test.MyClass_OpMDict2MarshaledResult opMDict2(global::System.Collections.Generic.Dictionary<string, string> p1, global::Ice.Current current = null);
-
-        public abstract long opShortIntLong(short p1, int p2, long p3, out short p4, out int p5, out long p6, global::Ice.Current current = null);
-
-        public abstract double opFloatDouble(float p1, double p2, out float p3, out double p4, global::Ice.Current current = null);
-
-        public abstract string opString(string p1, string p2, out string p3, global::Ice.Current current = null);
-
-        public abstract global::Ice.operations.Test.MyEnum opMyEnum(global::Ice.operations.Test.MyEnum p1, out global::Ice.operations.Test.MyEnum p2, global::Ice.Current current = null);
-
-        public abstract global::Ice.operations.Test.MyClassPrx opMyClass(global::Ice.operations.Test.MyClassPrx p1, out global::Ice.operations.Test.MyClassPrx p2, out global::Ice.operations.Test.MyClassPrx p3, global::Ice.Current current = null);
-
-        public abstract global::Ice.operations.Test.Structure opStruct(global::Ice.operations.Test.Structure p1, global::Ice.operations.Test.Structure p2, out global::Ice.operations.Test.Structure p3, global::Ice.Current current = null);
-
-        public abstract byte[] opByteS(byte[] p1, byte[] p2, out byte[] p3, global::Ice.Current current = null);
-
-        public abstract bool[] opBoolS(bool[] p1, bool[] p2, out bool[] p3, global::Ice.Current current = null);
 
         #endregion
 
@@ -18294,7 +18142,6 @@ namespace Test2
             "opMyEnumStringDS",
             "opMyStructMyEnumD",
             "opMyStructMyEnumDS",
-            "opNonmutating",
             "opShort1",
             "opShortIntD",
             "opShortIntDS",
@@ -18525,113 +18372,109 @@ namespace Test2
                 }
                 case 47:
                 {
-                    return global::Ice.operations.Test.MyClassDisp_.iceD_opNonmutating(this, inS, current);
+                    return global::Ice.operations.Test.MyClassDisp_.iceD_opShort1(this, inS, current);
                 }
                 case 48:
                 {
-                    return global::Ice.operations.Test.MyClassDisp_.iceD_opShort1(this, inS, current);
+                    return global::Ice.operations.Test.MyClassDisp_.iceD_opShortIntD(this, inS, current);
                 }
                 case 49:
                 {
-                    return global::Ice.operations.Test.MyClassDisp_.iceD_opShortIntD(this, inS, current);
+                    return global::Ice.operations.Test.MyClassDisp_.iceD_opShortIntDS(this, inS, current);
                 }
                 case 50:
                 {
-                    return global::Ice.operations.Test.MyClassDisp_.iceD_opShortIntDS(this, inS, current);
+                    return global::Ice.operations.Test.MyClassDisp_.iceD_opShortIntLong(this, inS, current);
                 }
                 case 51:
                 {
-                    return global::Ice.operations.Test.MyClassDisp_.iceD_opShortIntLong(this, inS, current);
+                    return global::Ice.operations.Test.MyClassDisp_.iceD_opShortIntLongS(this, inS, current);
                 }
                 case 52:
                 {
-                    return global::Ice.operations.Test.MyClassDisp_.iceD_opShortIntLongS(this, inS, current);
+                    return global::Ice.operations.Test.MyClassDisp_.iceD_opShortIntLongSS(this, inS, current);
                 }
                 case 53:
                 {
-                    return global::Ice.operations.Test.MyClassDisp_.iceD_opShortIntLongSS(this, inS, current);
+                    return global::Ice.operations.Test.MyClassDisp_.iceD_opShortShortSD(this, inS, current);
                 }
                 case 54:
                 {
-                    return global::Ice.operations.Test.MyClassDisp_.iceD_opShortShortSD(this, inS, current);
+                    return global::Ice.operations.Test.MyClassDisp_.iceD_opString(this, inS, current);
                 }
                 case 55:
                 {
-                    return global::Ice.operations.Test.MyClassDisp_.iceD_opString(this, inS, current);
+                    return global::Ice.operations.Test.MyClassDisp_.iceD_opString1(this, inS, current);
                 }
                 case 56:
                 {
-                    return global::Ice.operations.Test.MyClassDisp_.iceD_opString1(this, inS, current);
+                    return global::Ice.operations.Test.MyClassDisp_.iceD_opStringDoubleSD(this, inS, current);
                 }
                 case 57:
                 {
-                    return global::Ice.operations.Test.MyClassDisp_.iceD_opStringDoubleSD(this, inS, current);
+                    return global::Ice.operations.Test.MyClassDisp_.iceD_opStringFloatSD(this, inS, current);
                 }
                 case 58:
                 {
-                    return global::Ice.operations.Test.MyClassDisp_.iceD_opStringFloatSD(this, inS, current);
+                    return global::Ice.operations.Test.MyClassDisp_.iceD_opStringLiterals(this, inS, current);
                 }
                 case 59:
                 {
-                    return global::Ice.operations.Test.MyClassDisp_.iceD_opStringLiterals(this, inS, current);
+                    return global::Ice.operations.Test.MyClassDisp_.iceD_opStringMyEnumD(this, inS, current);
                 }
                 case 60:
                 {
-                    return global::Ice.operations.Test.MyClassDisp_.iceD_opStringMyEnumD(this, inS, current);
+                    return global::Ice.operations.Test.MyClassDisp_.iceD_opStringMyEnumDS(this, inS, current);
                 }
                 case 61:
                 {
-                    return global::Ice.operations.Test.MyClassDisp_.iceD_opStringMyEnumDS(this, inS, current);
+                    return global::Ice.operations.Test.MyClassDisp_.iceD_opStringS(this, inS, current);
                 }
                 case 62:
                 {
-                    return global::Ice.operations.Test.MyClassDisp_.iceD_opStringS(this, inS, current);
+                    return global::Ice.operations.Test.MyClassDisp_.iceD_opStringS1(this, inS, current);
                 }
                 case 63:
                 {
-                    return global::Ice.operations.Test.MyClassDisp_.iceD_opStringS1(this, inS, current);
+                    return global::Ice.operations.Test.MyClassDisp_.iceD_opStringS2(this, inS, current);
                 }
                 case 64:
                 {
-                    return global::Ice.operations.Test.MyClassDisp_.iceD_opStringS2(this, inS, current);
+                    return global::Ice.operations.Test.MyClassDisp_.iceD_opStringSS(this, inS, current);
                 }
                 case 65:
                 {
-                    return global::Ice.operations.Test.MyClassDisp_.iceD_opStringSS(this, inS, current);
+                    return global::Ice.operations.Test.MyClassDisp_.iceD_opStringSSS(this, inS, current);
                 }
                 case 66:
                 {
-                    return global::Ice.operations.Test.MyClassDisp_.iceD_opStringSSS(this, inS, current);
+                    return global::Ice.operations.Test.MyClassDisp_.iceD_opStringStringD(this, inS, current);
                 }
                 case 67:
                 {
-                    return global::Ice.operations.Test.MyClassDisp_.iceD_opStringStringD(this, inS, current);
+                    return global::Ice.operations.Test.MyClassDisp_.iceD_opStringStringDS(this, inS, current);
                 }
                 case 68:
                 {
-                    return global::Ice.operations.Test.MyClassDisp_.iceD_opStringStringDS(this, inS, current);
+                    return global::Ice.operations.Test.MyClassDisp_.iceD_opStringStringSD(this, inS, current);
                 }
                 case 69:
                 {
-                    return global::Ice.operations.Test.MyClassDisp_.iceD_opStringStringSD(this, inS, current);
+                    return global::Ice.operations.Test.MyClassDisp_.iceD_opStruct(this, inS, current);
                 }
                 case 70:
                 {
-                    return global::Ice.operations.Test.MyClassDisp_.iceD_opStruct(this, inS, current);
+                    return global::Ice.operations.Test.MyClassDisp_.iceD_opVoid(this, inS, current);
                 }
                 case 71:
                 {
-                    return global::Ice.operations.Test.MyClassDisp_.iceD_opVoid(this, inS, current);
+                    return global::Ice.operations.Test.MyClassDisp_.iceD_opWStringLiterals(this, inS, current);
                 }
                 case 72:
                 {
-                    return global::Ice.operations.Test.MyClassDisp_.iceD_opWStringLiterals(this, inS, current);
-                }
-                case 73:
-                {
                     return global::Ice.operations.Test.MyClassDisp_.iceD_shutdown(this, inS, current);
                 }
-                case 74:
+                case 73:
                 {
                     return global::Ice.operations.Test.MyClassDisp_.iceD_supportsCompress(this, inS, current);
                 }

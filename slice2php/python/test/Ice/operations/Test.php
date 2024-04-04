@@ -745,7 +745,6 @@ namespace Test
     IcePHP_defineOperation($Test__t_MyClassPrx, 'opContext', 0, 0, 0, null, null, array($Ice__t_Context), null);
     IcePHP_defineOperation($Test__t_MyClassPrx, 'opDoubleMarshaling', 0, 0, 0, array(array($IcePHP__t_double), array($Test__t_DoubleS)), null, null, null);
     IcePHP_defineOperation($Test__t_MyClassPrx, 'opIdempotent', 2, 2, 0, null, null, null, null);
-    IcePHP_defineOperation($Test__t_MyClassPrx, 'opNonmutating', 2, 1, 0, null, null, null, null);
     IcePHP_defineOperation($Test__t_MyClassPrx, 'opByte1', 0, 0, 0, array(array($IcePHP__t_byte)), null, array($IcePHP__t_byte), null);
     IcePHP_defineOperation($Test__t_MyClassPrx, 'opShort1', 0, 0, 0, array(array($IcePHP__t_short)), null, array($IcePHP__t_short), null);
     IcePHP_defineOperation($Test__t_MyClassPrx, 'opInt1', 0, 0, 0, array(array($IcePHP__t_int)), null, array($IcePHP__t_int), null);

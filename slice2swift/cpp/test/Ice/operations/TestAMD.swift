@@ -3118,10 +3118,6 @@ public let wsu2: Swift.String = "\u{128}\u{178}\u{ff}\u{100}\u{1f00}\u{10194}\u{
 ///
 ///  - opIdempotentAsync: 
 ///
-///  - opNonmutating: 
-///
-///  - opNonmutatingAsync: 
-///
 ///  - opByte1: 
 ///
 ///  - opByte1Async: 
@@ -3479,10 +3475,6 @@ public extension Ice.InputStream {
 ///  - opIdempotent: 
 ///
 ///  - opIdempotentAsync: 
-///
-///  - opNonmutating: 
-///
-///  - opNonmutatingAsync: 
 ///
 ///  - opByte1: 
 ///
@@ -6506,35 +6498,6 @@ public extension MyClassPrx {
     }
 
     ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    func opNonmutating(context: Ice.Context? = nil) throws {
-        try _impl._invoke(operation: "opNonmutating",
-                          mode: .Nonmutating,
-                          context: context)
-    }
-
-    ///
-    /// - parameter context: `Ice.Context` - Optional request context.
-    ///
-    /// - parameter sentOn: `Dispatch.DispatchQueue?` - Optional dispatch queue used to
-    ///   dispatch the sent callback.
-    ///
-    /// - parameter sentFlags: `Dispatch.DispatchWorkItemFlags?` - Optional dispatch flags used
-    ///   to dispatch the sent callback
-    ///
-    /// - parameter sent: `((Swift.Bool) -> Swift.Void)` - Optional sent callback.
-    ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func opNonmutatingAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Void> {
-        return _impl._invokeAsync(operation: "opNonmutating",
-                                  mode: .Nonmutating,
-                                  context: context,
-                                  sentOn: sentOn,
-                                  sentFlags: sentFlags,
-                                  sent: sent)
-    }
-
-    ///
     /// - parameter _: `Swift.UInt8`
     ///
     /// - parameter context: `Ice.Context` - Optional request context.
@@ -7838,8 +7801,6 @@ public struct MyClassDisp: Ice.Disp {
             return try servant._iceD_opMyStructMyEnumD(incoming: request, current: current)
         case "opMyStructMyEnumDS":
             return try servant._iceD_opMyStructMyEnumDS(incoming: request, current: current)
-        case "opNonmutating":
-            return try servant._iceD_opNonmutating(incoming: request, current: current)
         case "opShort1":
             return try servant._iceD_opShort1(incoming: request, current: current)
         case "opShortIntD":
@@ -8386,12 +8347,6 @@ public protocol MyClass {
     func opIdempotentAsync(current: Ice.Current) -> PromiseKit.Promise<Swift.Void>
 
     ///
-    /// - parameter current: `Ice.Current` - The Current object for the dispatch.
-    ///
-    /// - returns: `PromiseKit.Promise<>` - The result of the operation
-    func opNonmutatingAsync(current: Ice.Current) -> PromiseKit.Promise<Swift.Void>
-
-    ///
     /// - parameter opByte1: `Swift.UInt8`
     ///
     /// - parameter current: `Ice.Current` - The Current object for the dispatch.
@@ -8647,8 +8602,6 @@ public struct MyDerivedClassDisp: Ice.Disp {
             return try servant._iceD_opMyStructMyEnumD(incoming: request, current: current)
         case "opMyStructMyEnumDS":
             return try servant._iceD_opMyStructMyEnumDS(incoming: request, current: current)
-        case "opNonmutating":
-            return try servant._iceD_opNonmutating(incoming: request, current: current)
         case "opShort1":
             return try servant._iceD_opShort1(incoming: request, current: current)
         case "opShortIntD":
@@ -8838,8 +8791,6 @@ public protocol MyDerivedClass: MyClass {
 ///  - opDoubleMarshaling: 
 ///
 ///  - opIdempotent: 
-///
-///  - opNonmutating: 
 ///
 ///  - opByte1: 
 ///
@@ -9552,12 +9503,6 @@ public extension MyClass {
         try inS.readEmptyParams()
 
         return inS.setResultPromise(opIdempotentAsync(current: current))
-    }
-
-    func _iceD_opNonmutating(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {
-        try inS.readEmptyParams()
-
-        return inS.setResultPromise(opNonmutatingAsync(current: current))
     }
 
     func _iceD_opByte1(incoming inS: Ice.Incoming, current: Ice.Current) throws -> PromiseKit.Promise<Ice.OutputStream>? {

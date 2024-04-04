@@ -52,8 +52,8 @@ Ice.RouterPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(Ice.Router, Ice.RouterPrx, iceC_Ice_Router_ids, "::Ice::Router",
 {
-    "getClientProxy": [, 2, 1, , [9], , [[1, , 1]], , , ],
-    "getServerProxy": [, 2, 1, , [9], , , , , ],
+    "getClientProxy": [, 2, 2, , [9], , [[1, , 1]], , , ],
+    "getServerProxy": [, 2, 2, , [9], , , , , ],
     "addProxies": [, 2, 2, , ["Ice.ObjectProxySeqHelper"], [["Ice.ObjectProxySeqHelper"]], , , , ]
 });
 

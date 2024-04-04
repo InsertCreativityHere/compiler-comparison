@@ -2131,34 +2131,6 @@ Test::MyClassPrx::_iceI_opIdempotent(const ::std::shared_ptr<::IceInternal::Outg
         nullptr);
 }
 
-void
-Test::MyClassPrx::opNonmutating(const ::Ice::Context& context) const
-{
-    ::IceInternal::makePromiseOutgoing<void>(true, this, &MyClassPrx::_iceI_opNonmutating, context).get();
-}
-
-::std::future<void>
-Test::MyClassPrx::opNonmutatingAsync(const ::Ice::Context& context) const
-{
-    return ::IceInternal::makePromiseOutgoing<void>(false, this, &MyClassPrx::_iceI_opNonmutating, context);
-}
-
-::std::function<void()>
-Test::MyClassPrx::opNonmutatingAsync(::std::function<void()> response, ::std::function<void(::std::exception_ptr)> ex, ::std::function<void(bool)> sent, const ::Ice::Context& context) const
-{
-    return ::IceInternal::makeLambdaOutgoing<void>(::std::move(response), ::std::move(ex), ::std::move(sent), this, &Test::MyClassPrx::_iceI_opNonmutating, context);
-}
-
-void
-Test::MyClassPrx::_iceI_opNonmutating(const ::std::shared_ptr<::IceInternal::OutgoingAsyncT<void>>& outAsync, const ::Ice::Context& context) const
-{
-    static constexpr ::std::string_view operationName = "opNonmutating";
-
-    outAsync->invoke(operationName, ::Ice::OperationMode::Nonmutating, ::Ice::FormatType::DefaultFormat, context,
-        nullptr,
-        nullptr);
-}
-
 ::std::uint8_t
 Test::MyClassPrx::opByte1(::std::uint8_t iceP_opByte1, const ::Ice::Context& context) const
 {
@@ -3942,17 +3914,6 @@ Test::MyClass::_iceD_opIdempotent(::Ice::IncomingRequest& request, ::std::functi
 
 /// \cond INTERNAL
 void
-Test::MyClass::_iceD_opNonmutating(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
-{
-    _iceCheckMode(::Ice::OperationMode::Idempotent, request.current().mode);
-    request.inputStream().skipEmptyEncapsulation();
-    this->opNonmutating(request.current());
-    sendResponse(::Ice::makeEmptyOutgoingResponse(request.current()));
-}
-/// \endcond
-
-/// \cond INTERNAL
-void
 Test::MyClass::_iceD_opByte1(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
     _iceCheckMode(::Ice::OperationMode::Normal, request.current().mode);
@@ -4305,10 +4266,10 @@ Test::MyClass::_iceD_opMDict2(::Ice::IncomingRequest& request, ::std::function<v
 void
 Test::MyClass::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "opBool", "opBoolBoolSD", "opBoolS", "opBoolSS", "opByte", "opByte1", "opByteBoolD", "opByteBoolD1", "opByteBoolD2", "opByteBoolDS", "opByteByteSD", "opByteS", "opByteSOneway", "opByteSOnewayCallCount", "opByteSS", "opContext", "opDouble1", "opFloat1", "opFloatDouble", "opFloatDoubleS", "opFloatDoubleSS", "opIdempotent", "opInt1", "opIntIntSD", "opIntS", "opLong1", "opLongFloatD", "opLongFloatDS", "opLongLongSD", "opMDict1", "opMDict2", "opMSeq1", "opMSeq2", "opMStruct1", "opMStruct2", "opMyClass", "opMyEnum", "opMyEnumMyEnumSD", "opMyEnumStringD", "opMyEnumStringDS", "opMyStructMyEnumD", "opMyStructMyEnumDS", "opNonmutating", "opShort1", "opShortIntD", "opShortIntDS", "opShortIntLong", "opShortIntLongS", "opShortIntLongSS", "opShortShortSD", "opString", "opString1", "opStringDoubleSD", "opStringFloatSD", "opStringLiterals", "opStringMyEnumD", "opStringMyEnumDS", "opStringS", "opStringS1", "opStringS2", "opStringSS", "opStringSSS", "opStringStringD", "opStringStringDS", "opStringStringSD", "opStruct", "opVoid", "shutdown", "supportsCompress"};
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "opBool", "opBoolBoolSD", "opBoolS", "opBoolSS", "opByte", "opByte1", "opByteBoolD", "opByteBoolD1", "opByteBoolD2", "opByteBoolDS", "opByteByteSD", "opByteS", "opByteSOneway", "opByteSOnewayCallCount", "opByteSS", "opContext", "opDouble1", "opFloat1", "opFloatDouble", "opFloatDoubleS", "opFloatDoubleSS", "opIdempotent", "opInt1", "opIntIntSD", "opIntS", "opLong1", "opLongFloatD", "opLongFloatDS", "opLongLongSD", "opMDict1", "opMDict2", "opMSeq1", "opMSeq2", "opMStruct1", "opMStruct2", "opMyClass", "opMyEnum", "opMyEnumMyEnumSD", "opMyEnumStringD", "opMyEnumStringDS", "opMyStructMyEnumD", "opMyStructMyEnumDS", "opShort1", "opShortIntD", "opShortIntDS", "opShortIntLong", "opShortIntLongS", "opShortIntLongSS", "opShortShortSD", "opString", "opString1", "opStringDoubleSD", "opStringFloatSD", "opStringLiterals", "opStringMyEnumD", "opStringMyEnumDS", "opStringS", "opStringS1", "opStringS2", "opStringSS", "opStringSSS", "opStringStringD", "opStringStringDS", "opStringStringSD", "opStruct", "opVoid", "shutdown", "supportsCompress"};
 
     const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 73, current.operation);
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 72, current.operation);
     if(r.first == r.second)
     {
         sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
@@ -4549,135 +4510,130 @@ Test::MyClass::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::
         }
         case 46:
         {
-            _iceD_opNonmutating(request, ::std::move(sendResponse));
+            _iceD_opShort1(request, ::std::move(sendResponse));
             break;
         }
         case 47:
         {
-            _iceD_opShort1(request, ::std::move(sendResponse));
+            _iceD_opShortIntD(request, ::std::move(sendResponse));
             break;
         }
         case 48:
         {
-            _iceD_opShortIntD(request, ::std::move(sendResponse));
+            _iceD_opShortIntDS(request, ::std::move(sendResponse));
             break;
         }
         case 49:
         {
-            _iceD_opShortIntDS(request, ::std::move(sendResponse));
+            _iceD_opShortIntLong(request, ::std::move(sendResponse));
             break;
         }
         case 50:
         {
-            _iceD_opShortIntLong(request, ::std::move(sendResponse));
+            _iceD_opShortIntLongS(request, ::std::move(sendResponse));
             break;
         }
         case 51:
         {
-            _iceD_opShortIntLongS(request, ::std::move(sendResponse));
+            _iceD_opShortIntLongSS(request, ::std::move(sendResponse));
             break;
         }
         case 52:
         {
-            _iceD_opShortIntLongSS(request, ::std::move(sendResponse));
+            _iceD_opShortShortSD(request, ::std::move(sendResponse));
             break;
         }
         case 53:
         {
-            _iceD_opShortShortSD(request, ::std::move(sendResponse));
+            _iceD_opString(request, ::std::move(sendResponse));
             break;
         }
         case 54:
         {
-            _iceD_opString(request, ::std::move(sendResponse));
+            _iceD_opString1(request, ::std::move(sendResponse));
             break;
         }
         case 55:
         {
-            _iceD_opString1(request, ::std::move(sendResponse));
+            _iceD_opStringDoubleSD(request, ::std::move(sendResponse));
             break;
         }
         case 56:
         {
-            _iceD_opStringDoubleSD(request, ::std::move(sendResponse));
+            _iceD_opStringFloatSD(request, ::std::move(sendResponse));
             break;
         }
         case 57:
         {
-            _iceD_opStringFloatSD(request, ::std::move(sendResponse));
+            _iceD_opStringLiterals(request, ::std::move(sendResponse));
             break;
         }
         case 58:
         {
-            _iceD_opStringLiterals(request, ::std::move(sendResponse));
+            _iceD_opStringMyEnumD(request, ::std::move(sendResponse));
             break;
         }
         case 59:
         {
-            _iceD_opStringMyEnumD(request, ::std::move(sendResponse));
+            _iceD_opStringMyEnumDS(request, ::std::move(sendResponse));
             break;
         }
         case 60:
         {
-            _iceD_opStringMyEnumDS(request, ::std::move(sendResponse));
+            _iceD_opStringS(request, ::std::move(sendResponse));
             break;
         }
         case 61:
         {
-            _iceD_opStringS(request, ::std::move(sendResponse));
+            _iceD_opStringS1(request, ::std::move(sendResponse));
             break;
         }
         case 62:
         {
-            _iceD_opStringS1(request, ::std::move(sendResponse));
+            _iceD_opStringS2(request, ::std::move(sendResponse));
             break;
         }
         case 63:
         {
-            _iceD_opStringS2(request, ::std::move(sendResponse));
+            _iceD_opStringSS(request, ::std::move(sendResponse));
             break;
         }
         case 64:
         {
-            _iceD_opStringSS(request, ::std::move(sendResponse));
+            _iceD_opStringSSS(request, ::std::move(sendResponse));
             break;
         }
         case 65:
         {
-            _iceD_opStringSSS(request, ::std::move(sendResponse));
+            _iceD_opStringStringD(request, ::std::move(sendResponse));
             break;
         }
         case 66:
         {
-            _iceD_opStringStringD(request, ::std::move(sendResponse));
+            _iceD_opStringStringDS(request, ::std::move(sendResponse));
             break;
         }
         case 67:
         {
-            _iceD_opStringStringDS(request, ::std::move(sendResponse));
+            _iceD_opStringStringSD(request, ::std::move(sendResponse));
             break;
         }
         case 68:
         {
-            _iceD_opStringStringSD(request, ::std::move(sendResponse));
+            _iceD_opStruct(request, ::std::move(sendResponse));
             break;
         }
         case 69:
         {
-            _iceD_opStruct(request, ::std::move(sendResponse));
+            _iceD_opVoid(request, ::std::move(sendResponse));
             break;
         }
         case 70:
         {
-            _iceD_opVoid(request, ::std::move(sendResponse));
-            break;
-        }
-        case 71:
-        {
             _iceD_shutdown(request, ::std::move(sendResponse));
             break;
         }
-        case 72:
+        case 71:
         {
             _iceD_supportsCompress(request, ::std::move(sendResponse));
             break;
@@ -4766,10 +4722,10 @@ Test::MyDerivedClass::_iceD_opMyStruct1(::Ice::IncomingRequest& request, ::std::
 void
 Test::MyDerivedClass::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "opBool", "opBoolBoolSD", "opBoolS", "opBoolSS", "opByte", "opByte1", "opByteBoolD", "opByteBoolD1", "opByteBoolD2", "opByteBoolDS", "opByteByteSD", "opByteS", "opByteSOneway", "opByteSOnewayCallCount", "opByteSS", "opContext", "opDerived", "opDouble1", "opFloat1", "opFloatDouble", "opFloatDoubleS", "opFloatDoubleSS", "opIdempotent", "opInt1", "opIntIntSD", "opIntS", "opLong1", "opLongFloatD", "opLongFloatDS", "opLongLongSD", "opMDict1", "opMDict2", "opMSeq1", "opMSeq2", "opMStruct1", "opMStruct2", "opMyClass", "opMyClass1", "opMyEnum", "opMyEnumMyEnumSD", "opMyEnumStringD", "opMyEnumStringDS", "opMyStruct1", "opMyStructMyEnumD", "opMyStructMyEnumDS", "opNonmutating", "opShort1", "opShortIntD", "opShortIntDS", "opShortIntLong", "opShortIntLongS", "opShortIntLongSS", "opShortShortSD", "opString", "opString1", "opStringDoubleSD", "opStringFloatSD", "opStringLiterals", "opStringMyEnumD", "opStringMyEnumDS", "opStringS", "opStringS1", "opStringS2", "opStringSS", "opStringSSS", "opStringStringD", "opStringStringDS", "opStringStringSD", "opStruct", "opVoid", "shutdown", "supportsCompress"};
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "opBool", "opBoolBoolSD", "opBoolS", "opBoolSS", "opByte", "opByte1", "opByteBoolD", "opByteBoolD1", "opByteBoolD2", "opByteBoolDS", "opByteByteSD", "opByteS", "opByteSOneway", "opByteSOnewayCallCount", "opByteSS", "opContext", "opDerived", "opDouble1", "opFloat1", "opFloatDouble", "opFloatDoubleS", "opFloatDoubleSS", "opIdempotent", "opInt1", "opIntIntSD", "opIntS", "opLong1", "opLongFloatD", "opLongFloatDS", "opLongLongSD", "opMDict1", "opMDict2", "opMSeq1", "opMSeq2", "opMStruct1", "opMStruct2", "opMyClass", "opMyClass1", "opMyEnum", "opMyEnumMyEnumSD", "opMyEnumStringD", "opMyEnumStringDS", "opMyStruct1", "opMyStructMyEnumD", "opMyStructMyEnumDS", "opShort1", "opShortIntD", "opShortIntDS", "opShortIntLong", "opShortIntLongS", "opShortIntLongSS", "opShortShortSD", "opString", "opString1", "opStringDoubleSD", "opStringFloatSD", "opStringLiterals", "opStringMyEnumD", "opStringMyEnumDS", "opStringS", "opStringS1", "opStringS2", "opStringSS", "opStringSSS", "opStringStringD", "opStringStringDS", "opStringStringSD", "opStruct", "opVoid", "shutdown", "supportsCompress"};
 
     const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 76, current.operation);
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 75, current.operation);
     if(r.first == r.second)
     {
         sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
@@ -5025,135 +4981,130 @@ Test::MyDerivedClass::dispatch(::Ice::IncomingRequest& request, ::std::function<
         }
         case 49:
         {
-            _iceD_opNonmutating(request, ::std::move(sendResponse));
+            _iceD_opShort1(request, ::std::move(sendResponse));
             break;
         }
         case 50:
         {
-            _iceD_opShort1(request, ::std::move(sendResponse));
+            _iceD_opShortIntD(request, ::std::move(sendResponse));
             break;
         }
         case 51:
         {
-            _iceD_opShortIntD(request, ::std::move(sendResponse));
+            _iceD_opShortIntDS(request, ::std::move(sendResponse));
             break;
         }
         case 52:
         {
-            _iceD_opShortIntDS(request, ::std::move(sendResponse));
+            _iceD_opShortIntLong(request, ::std::move(sendResponse));
             break;
         }
         case 53:
         {
-            _iceD_opShortIntLong(request, ::std::move(sendResponse));
+            _iceD_opShortIntLongS(request, ::std::move(sendResponse));
             break;
         }
         case 54:
         {
-            _iceD_opShortIntLongS(request, ::std::move(sendResponse));
+            _iceD_opShortIntLongSS(request, ::std::move(sendResponse));
             break;
         }
         case 55:
         {
-            _iceD_opShortIntLongSS(request, ::std::move(sendResponse));
+            _iceD_opShortShortSD(request, ::std::move(sendResponse));
             break;
         }
         case 56:
         {
-            _iceD_opShortShortSD(request, ::std::move(sendResponse));
+            _iceD_opString(request, ::std::move(sendResponse));
             break;
         }
         case 57:
         {
-            _iceD_opString(request, ::std::move(sendResponse));
+            _iceD_opString1(request, ::std::move(sendResponse));
             break;
         }
         case 58:
         {
-            _iceD_opString1(request, ::std::move(sendResponse));
+            _iceD_opStringDoubleSD(request, ::std::move(sendResponse));
             break;
         }
         case 59:
         {
-            _iceD_opStringDoubleSD(request, ::std::move(sendResponse));
+            _iceD_opStringFloatSD(request, ::std::move(sendResponse));
             break;
         }
         case 60:
         {
-            _iceD_opStringFloatSD(request, ::std::move(sendResponse));
+            _iceD_opStringLiterals(request, ::std::move(sendResponse));
             break;
         }
         case 61:
         {
-            _iceD_opStringLiterals(request, ::std::move(sendResponse));
+            _iceD_opStringMyEnumD(request, ::std::move(sendResponse));
             break;
         }
         case 62:
         {
-            _iceD_opStringMyEnumD(request, ::std::move(sendResponse));
+            _iceD_opStringMyEnumDS(request, ::std::move(sendResponse));
             break;
         }
         case 63:
         {
-            _iceD_opStringMyEnumDS(request, ::std::move(sendResponse));
+            _iceD_opStringS(request, ::std::move(sendResponse));
             break;
         }
         case 64:
         {
-            _iceD_opStringS(request, ::std::move(sendResponse));
+            _iceD_opStringS1(request, ::std::move(sendResponse));
             break;
         }
         case 65:
         {
-            _iceD_opStringS1(request, ::std::move(sendResponse));
+            _iceD_opStringS2(request, ::std::move(sendResponse));
             break;
         }
         case 66:
         {
-            _iceD_opStringS2(request, ::std::move(sendResponse));
+            _iceD_opStringSS(request, ::std::move(sendResponse));
             break;
         }
         case 67:
         {
-            _iceD_opStringSS(request, ::std::move(sendResponse));
+            _iceD_opStringSSS(request, ::std::move(sendResponse));
             break;
         }
         case 68:
         {
-            _iceD_opStringSSS(request, ::std::move(sendResponse));
+            _iceD_opStringStringD(request, ::std::move(sendResponse));
             break;
         }
         case 69:
         {
-            _iceD_opStringStringD(request, ::std::move(sendResponse));
+            _iceD_opStringStringDS(request, ::std::move(sendResponse));
             break;
         }
         case 70:
         {
-            _iceD_opStringStringDS(request, ::std::move(sendResponse));
+            _iceD_opStringStringSD(request, ::std::move(sendResponse));
             break;
         }
         case 71:
         {
-            _iceD_opStringStringSD(request, ::std::move(sendResponse));
+            _iceD_opStruct(request, ::std::move(sendResponse));
             break;
         }
         case 72:
         {
-            _iceD_opStruct(request, ::std::move(sendResponse));
+            _iceD_opVoid(request, ::std::move(sendResponse));
             break;
         }
         case 73:
         {
-            _iceD_opVoid(request, ::std::move(sendResponse));
-            break;
-        }
-        case 74:
-        {
             _iceD_shutdown(request, ::std::move(sendResponse));
             break;
         }
-        case 75:
+        case 74:
         {
             _iceD_supportsCompress(request, ::std::move(sendResponse));
             break;
@@ -5191,10 +5142,10 @@ Test2::MyDerivedClass::ice_staticId() noexcept
 void
 Test2::MyDerivedClass::dispatch(::Ice::IncomingRequest& request, ::std::function<void(::Ice::OutgoingResponse)> sendResponse)
 {
-    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "opBool", "opBoolBoolSD", "opBoolS", "opBoolSS", "opByte", "opByte1", "opByteBoolD", "opByteBoolD1", "opByteBoolD2", "opByteBoolDS", "opByteByteSD", "opByteS", "opByteSOneway", "opByteSOnewayCallCount", "opByteSS", "opContext", "opDouble1", "opFloat1", "opFloatDouble", "opFloatDoubleS", "opFloatDoubleSS", "opIdempotent", "opInt1", "opIntIntSD", "opIntS", "opLong1", "opLongFloatD", "opLongFloatDS", "opLongLongSD", "opMDict1", "opMDict2", "opMSeq1", "opMSeq2", "opMStruct1", "opMStruct2", "opMyClass", "opMyEnum", "opMyEnumMyEnumSD", "opMyEnumStringD", "opMyEnumStringDS", "opMyStructMyEnumD", "opMyStructMyEnumDS", "opNonmutating", "opShort1", "opShortIntD", "opShortIntDS", "opShortIntLong", "opShortIntLongS", "opShortIntLongSS", "opShortShortSD", "opString", "opString1", "opStringDoubleSD", "opStringFloatSD", "opStringLiterals", "opStringMyEnumD", "opStringMyEnumDS", "opStringS", "opStringS1", "opStringS2", "opStringSS", "opStringSSS", "opStringStringD", "opStringStringDS", "opStringStringSD", "opStruct", "opVoid", "shutdown", "supportsCompress"};
+    static constexpr ::std::string_view allOperations[] = {"ice_id", "ice_ids", "ice_isA", "ice_ping", "opBool", "opBoolBoolSD", "opBoolS", "opBoolSS", "opByte", "opByte1", "opByteBoolD", "opByteBoolD1", "opByteBoolD2", "opByteBoolDS", "opByteByteSD", "opByteS", "opByteSOneway", "opByteSOnewayCallCount", "opByteSS", "opContext", "opDouble1", "opFloat1", "opFloatDouble", "opFloatDoubleS", "opFloatDoubleSS", "opIdempotent", "opInt1", "opIntIntSD", "opIntS", "opLong1", "opLongFloatD", "opLongFloatDS", "opLongLongSD", "opMDict1", "opMDict2", "opMSeq1", "opMSeq2", "opMStruct1", "opMStruct2", "opMyClass", "opMyEnum", "opMyEnumMyEnumSD", "opMyEnumStringD", "opMyEnumStringDS", "opMyStructMyEnumD", "opMyStructMyEnumDS", "opShort1", "opShortIntD", "opShortIntDS", "opShortIntLong", "opShortIntLongS", "opShortIntLongSS", "opShortShortSD", "opString", "opString1", "opStringDoubleSD", "opStringFloatSD", "opStringLiterals", "opStringMyEnumD", "opStringMyEnumDS", "opStringS", "opStringS1", "opStringS2", "opStringSS", "opStringSSS", "opStringStringD", "opStringStringDS", "opStringStringSD", "opStruct", "opVoid", "shutdown", "supportsCompress"};
 
     const ::Ice::Current& current = request.current();
-    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 73, current.operation);
+    ::std::pair<const ::std::string_view*, const ::std::string_view*> r = ::std::equal_range(allOperations, allOperations + 72, current.operation);
     if(r.first == r.second)
     {
         sendResponse(::Ice::makeOutgoingResponse(::std::make_exception_ptr(::Ice::OperationNotExistException(__FILE__, __LINE__)), current));
@@ -5435,135 +5386,130 @@ Test2::MyDerivedClass::dispatch(::Ice::IncomingRequest& request, ::std::function
         }
         case 46:
         {
-            _iceD_opNonmutating(request, ::std::move(sendResponse));
+            _iceD_opShort1(request, ::std::move(sendResponse));
             break;
         }
         case 47:
         {
-            _iceD_opShort1(request, ::std::move(sendResponse));
+            _iceD_opShortIntD(request, ::std::move(sendResponse));
             break;
         }
         case 48:
         {
-            _iceD_opShortIntD(request, ::std::move(sendResponse));
+            _iceD_opShortIntDS(request, ::std::move(sendResponse));
             break;
         }
         case 49:
         {
-            _iceD_opShortIntDS(request, ::std::move(sendResponse));
+            _iceD_opShortIntLong(request, ::std::move(sendResponse));
             break;
         }
         case 50:
         {
-            _iceD_opShortIntLong(request, ::std::move(sendResponse));
+            _iceD_opShortIntLongS(request, ::std::move(sendResponse));
             break;
         }
         case 51:
         {
-            _iceD_opShortIntLongS(request, ::std::move(sendResponse));
+            _iceD_opShortIntLongSS(request, ::std::move(sendResponse));
             break;
         }
         case 52:
         {
-            _iceD_opShortIntLongSS(request, ::std::move(sendResponse));
+            _iceD_opShortShortSD(request, ::std::move(sendResponse));
             break;
         }
         case 53:
         {
-            _iceD_opShortShortSD(request, ::std::move(sendResponse));
+            _iceD_opString(request, ::std::move(sendResponse));
             break;
         }
         case 54:
         {
-            _iceD_opString(request, ::std::move(sendResponse));
+            _iceD_opString1(request, ::std::move(sendResponse));
             break;
         }
         case 55:
         {
-            _iceD_opString1(request, ::std::move(sendResponse));
+            _iceD_opStringDoubleSD(request, ::std::move(sendResponse));
             break;
         }
         case 56:
         {
-            _iceD_opStringDoubleSD(request, ::std::move(sendResponse));
+            _iceD_opStringFloatSD(request, ::std::move(sendResponse));
             break;
         }
         case 57:
         {
-            _iceD_opStringFloatSD(request, ::std::move(sendResponse));
+            _iceD_opStringLiterals(request, ::std::move(sendResponse));
             break;
         }
         case 58:
         {
-            _iceD_opStringLiterals(request, ::std::move(sendResponse));
+            _iceD_opStringMyEnumD(request, ::std::move(sendResponse));
             break;
         }
         case 59:
         {
-            _iceD_opStringMyEnumD(request, ::std::move(sendResponse));
+            _iceD_opStringMyEnumDS(request, ::std::move(sendResponse));
             break;
         }
         case 60:
         {
-            _iceD_opStringMyEnumDS(request, ::std::move(sendResponse));
+            _iceD_opStringS(request, ::std::move(sendResponse));
             break;
         }
         case 61:
         {
-            _iceD_opStringS(request, ::std::move(sendResponse));
+            _iceD_opStringS1(request, ::std::move(sendResponse));
             break;
         }
         case 62:
         {
-            _iceD_opStringS1(request, ::std::move(sendResponse));
+            _iceD_opStringS2(request, ::std::move(sendResponse));
             break;
         }
         case 63:
         {
-            _iceD_opStringS2(request, ::std::move(sendResponse));
+            _iceD_opStringSS(request, ::std::move(sendResponse));
             break;
         }
         case 64:
         {
-            _iceD_opStringSS(request, ::std::move(sendResponse));
+            _iceD_opStringSSS(request, ::std::move(sendResponse));
             break;
         }
         case 65:
         {
-            _iceD_opStringSSS(request, ::std::move(sendResponse));
+            _iceD_opStringStringD(request, ::std::move(sendResponse));
             break;
         }
         case 66:
         {
-            _iceD_opStringStringD(request, ::std::move(sendResponse));
+            _iceD_opStringStringDS(request, ::std::move(sendResponse));
             break;
         }
         case 67:
         {
-            _iceD_opStringStringDS(request, ::std::move(sendResponse));
+            _iceD_opStringStringSD(request, ::std::move(sendResponse));
             break;
         }
         case 68:
         {
-            _iceD_opStringStringSD(request, ::std::move(sendResponse));
+            _iceD_opStruct(request, ::std::move(sendResponse));
             break;
         }
         case 69:
         {
-            _iceD_opStruct(request, ::std::move(sendResponse));
+            _iceD_opVoid(request, ::std::move(sendResponse));
             break;
         }
         case 70:
         {
-            _iceD_opVoid(request, ::std::move(sendResponse));
-            break;
-        }
-        case 71:
-        {
             _iceD_shutdown(request, ::std::move(sendResponse));
             break;
         }
-        case 72:
+        case 71:
         {
             _iceD_supportsCompress(request, ::std::move(sendResponse));
             break;

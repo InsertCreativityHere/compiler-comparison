@@ -534,7 +534,7 @@ namespace Glacier2
             var outAsync = getOutgoingAsync<global::Ice.Router_GetClientProxyResult>(completed);
             outAsync.invoke(
                 _getClientProxy_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -570,7 +570,7 @@ namespace Glacier2
             var outAsync = getOutgoingAsync<global::Ice.ObjectPrx>(completed);
             outAsync.invoke(
                 _getServerProxy_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -638,7 +638,7 @@ namespace Glacier2
             var outAsync = getOutgoingAsync<string>(completed);
             outAsync.invoke(
                 _getCategoryForClient_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -685,11 +685,11 @@ namespace Glacier2
                     {
                         throw ex;
                     }
-                    catch(CannotCreateSessionException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
-                    catch(PermissionDeniedException)
+                    catch(CannotCreateSessionException)
                     {
                         throw;
                     }
@@ -735,11 +735,11 @@ namespace Glacier2
                     {
                         throw ex;
                     }
-                    catch(CannotCreateSessionException)
+                    catch(PermissionDeniedException)
                     {
                         throw;
                     }
-                    catch(PermissionDeniedException)
+                    catch(CannotCreateSessionException)
                     {
                         throw;
                     }
@@ -855,7 +855,7 @@ namespace Glacier2
             var outAsync = getOutgoingAsync<long>(completed);
             outAsync.invoke(
                 _getSessionTimeout_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,
@@ -887,7 +887,7 @@ namespace Glacier2
             var outAsync = getOutgoingAsync<int>(completed);
             outAsync.invoke(
                 _getACMTimeout_name,
-                global::Ice.OperationMode.Nonmutating,
+                global::Ice.OperationMode.Idempotent,
                 global::Ice.FormatType.DefaultFormat,
                 context,
                 synchronous,

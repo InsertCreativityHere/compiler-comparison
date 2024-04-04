@@ -335,7 +335,7 @@ public extension LocatorPrx {
     ///   - ObjectNotFoundException - Raised if the object cannot be found.
     func findObjectById(_ iceP_id: Identity, context: Context? = nil) throws -> ObjectPrx? {
         return try _impl._invoke(operation: "findObjectById",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  write: { ostr in
                                      ostr.write(iceP_id)
                                  },
@@ -371,7 +371,7 @@ public extension LocatorPrx {
     /// - returns: `PromiseKit.Promise<ObjectPrx?>` - The result of the operation
     func findObjectByIdAsync(_ iceP_id: Identity, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<ObjectPrx?> {
         return _impl._invokeAsync(operation: "findObjectById",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   write: { ostr in
                                       ostr.write(iceP_id)
                                   },
@@ -405,7 +405,7 @@ public extension LocatorPrx {
     ///   - AdapterNotFoundException - Raised if the adapter cannot be found.
     func findAdapterById(_ iceP_id: Swift.String, context: Context? = nil) throws -> ObjectPrx? {
         return try _impl._invoke(operation: "findAdapterById",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  write: { ostr in
                                      ostr.write(iceP_id)
                                  },
@@ -440,7 +440,7 @@ public extension LocatorPrx {
     /// - returns: `PromiseKit.Promise<ObjectPrx?>` - The result of the operation
     func findAdapterByIdAsync(_ iceP_id: Swift.String, context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<ObjectPrx?> {
         return _impl._invokeAsync(operation: "findAdapterById",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   write: { ostr in
                                       ostr.write(iceP_id)
                                   },
@@ -468,7 +468,7 @@ public extension LocatorPrx {
     /// - returns: `LocatorRegistryPrx?` - The locator registry.
     func getRegistry(context: Context? = nil) throws -> LocatorRegistryPrx? {
         return try _impl._invoke(operation: "getRegistry",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  read: { istr in
                                      let iceP_returnValue: LocatorRegistryPrx? = try istr.read(LocatorRegistryPrx.self)
                                      return iceP_returnValue
@@ -491,7 +491,7 @@ public extension LocatorPrx {
     /// - returns: `PromiseKit.Promise<LocatorRegistryPrx?>` - The result of the operation
     func getRegistryAsync(context: Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<LocatorRegistryPrx?> {
         return _impl._invokeAsync(operation: "getRegistry",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   read: { istr in
                                       let iceP_returnValue: LocatorRegistryPrx? = try istr.read(LocatorRegistryPrx.self)
                                       return iceP_returnValue

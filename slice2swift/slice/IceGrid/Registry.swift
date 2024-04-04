@@ -229,7 +229,7 @@ public extension QueryPrx {
     /// - returns: `Ice.ObjectPrx?` - The proxy or null if no such object has been found.
     func findObjectById(_ iceP_id: Ice.Identity, context: Ice.Context? = nil) throws -> Ice.ObjectPrx? {
         return try _impl._invoke(operation: "findObjectById",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  write: { ostr in
                                      ostr.write(iceP_id)
                                  },
@@ -257,7 +257,7 @@ public extension QueryPrx {
     /// - returns: `PromiseKit.Promise<Ice.ObjectPrx?>` - The result of the operation
     func findObjectByIdAsync(_ iceP_id: Ice.Identity, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Ice.ObjectPrx?> {
         return _impl._invokeAsync(operation: "findObjectById",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   write: { ostr in
                                       ostr.write(iceP_id)
                                   },
@@ -281,7 +281,7 @@ public extension QueryPrx {
     /// - returns: `Ice.ObjectPrx?` - The proxy or null, if no such object has been found.
     func findObjectByType(_ iceP_type: Swift.String, context: Ice.Context? = nil) throws -> Ice.ObjectPrx? {
         return try _impl._invoke(operation: "findObjectByType",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  write: { ostr in
                                      ostr.write(iceP_type)
                                  },
@@ -310,7 +310,7 @@ public extension QueryPrx {
     /// - returns: `PromiseKit.Promise<Ice.ObjectPrx?>` - The result of the operation
     func findObjectByTypeAsync(_ iceP_type: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Ice.ObjectPrx?> {
         return _impl._invokeAsync(operation: "findObjectByType",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   write: { ostr in
                                       ostr.write(iceP_type)
                                   },
@@ -337,7 +337,7 @@ public extension QueryPrx {
     /// - returns: `Ice.ObjectPrx?` - The proxy or null, if no such object has been found.
     func findObjectByTypeOnLeastLoadedNode(type iceP_type: Swift.String, sample iceP_sample: LoadSample, context: Ice.Context? = nil) throws -> Ice.ObjectPrx? {
         return try _impl._invoke(operation: "findObjectByTypeOnLeastLoadedNode",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  write: { ostr in
                                      ostr.write(iceP_type)
                                      ostr.write(iceP_sample)
@@ -370,7 +370,7 @@ public extension QueryPrx {
     /// - returns: `PromiseKit.Promise<Ice.ObjectPrx?>` - The result of the operation
     func findObjectByTypeOnLeastLoadedNodeAsync(type iceP_type: Swift.String, sample iceP_sample: LoadSample, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Ice.ObjectPrx?> {
         return _impl._invokeAsync(operation: "findObjectByTypeOnLeastLoadedNode",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   write: { ostr in
                                       ostr.write(iceP_type)
                                       ostr.write(iceP_sample)
@@ -394,7 +394,7 @@ public extension QueryPrx {
     /// - returns: `Ice.ObjectProxySeq` - The proxies or an empty sequence, if no such objects have been found.
     func findAllObjectsByType(_ iceP_type: Swift.String, context: Ice.Context? = nil) throws -> Ice.ObjectProxySeq {
         return try _impl._invoke(operation: "findAllObjectsByType",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  write: { ostr in
                                      ostr.write(iceP_type)
                                  },
@@ -422,7 +422,7 @@ public extension QueryPrx {
     /// - returns: `PromiseKit.Promise<Ice.ObjectProxySeq>` - The result of the operation
     func findAllObjectsByTypeAsync(_ iceP_type: Swift.String, context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Ice.ObjectProxySeq> {
         return _impl._invokeAsync(operation: "findAllObjectsByType",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   write: { ostr in
                                       ostr.write(iceP_type)
                                   },
@@ -901,7 +901,7 @@ public extension RegistryPrx {
     /// - returns: `Swift.Int32` - The timeout (in seconds).
     func getSessionTimeout(context: Ice.Context? = nil) throws -> Swift.Int32 {
         return try _impl._invoke(operation: "getSessionTimeout",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  read: { istr in
                                      let iceP_returnValue: Swift.Int32 = try istr.read()
                                      return iceP_returnValue
@@ -925,7 +925,7 @@ public extension RegistryPrx {
     /// - returns: `PromiseKit.Promise<Swift.Int32>` - The result of the operation
     func getSessionTimeoutAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Int32> {
         return _impl._invokeAsync(operation: "getSessionTimeout",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   read: { istr in
                                       let iceP_returnValue: Swift.Int32 = try istr.read()
                                       return iceP_returnValue
@@ -944,7 +944,7 @@ public extension RegistryPrx {
     /// - returns: `Swift.Int32` - The timeout (in seconds).
     func getACMTimeout(context: Ice.Context? = nil) throws -> Swift.Int32 {
         return try _impl._invoke(operation: "getACMTimeout",
-                                 mode: .Nonmutating,
+                                 mode: .Idempotent,
                                  read: { istr in
                                      let iceP_returnValue: Swift.Int32 = try istr.read()
                                      return iceP_returnValue
@@ -968,7 +968,7 @@ public extension RegistryPrx {
     /// - returns: `PromiseKit.Promise<Swift.Int32>` - The result of the operation
     func getACMTimeoutAsync(context: Ice.Context? = nil, sentOn: Dispatch.DispatchQueue? = nil, sentFlags: Dispatch.DispatchWorkItemFlags? = nil, sent: ((Swift.Bool) -> Swift.Void)? = nil) -> PromiseKit.Promise<Swift.Int32> {
         return _impl._invokeAsync(operation: "getACMTimeout",
-                                  mode: .Nonmutating,
+                                  mode: .Idempotent,
                                   read: { istr in
                                       let iceP_returnValue: Swift.Int32 = try istr.read()
                                       return iceP_returnValue

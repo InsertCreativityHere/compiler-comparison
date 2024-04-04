@@ -101,8 +101,6 @@
 %   opContextAsync
 %   opIdempotent
 %   opIdempotentAsync
-%   opNonmutating
-%   opNonmutatingAsync
 %   opByte1
 %   opByte1Async
 %   opShort1
@@ -2326,24 +2324,6 @@ classdef MyClassPrx < Ice.ObjectPrx
             % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
             
             r_ = obj.iceInvokeAsync('opIdempotent', 2, false, [], 0, [], {}, varargin{:});
-        end
-        function opNonmutating(obj, varargin)
-            % opNonmutating
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            
-            obj.iceInvoke('opNonmutating', 1, false, [], false, {}, varargin{:});
-        end
-        function r_ = opNonmutatingAsync(obj, varargin)
-            % opNonmutatingAsync
-            %
-            % Parameters:
-            %   context (containers.Map) - Optional request context.
-            %
-            % Returns (Ice.Future) - A future that will be completed with the results of the invocation.
-            
-            r_ = obj.iceInvokeAsync('opNonmutating', 1, false, [], 0, [], {}, varargin{:});
         end
         function result = opByte1(obj, opByte1, varargin)
             % opByte1

@@ -91,7 +91,6 @@ public interface MyDerivedClass extends Test.MyClass
         "opMyEnumMyEnumSD",
         "opMyEnumStringD",
         "opMyEnumStringDS",
-        "opNonmutating",
         "opShort1",
         "opShortIntD",
         "opShortIntDS",
@@ -302,105 +301,101 @@ public interface MyDerivedClass extends Test.MyClass
             }
             case 42:
             {
-                return Test.MyClass._iceD_opNonmutating(this, in, current);
+                return Test.MyClass._iceD_opShort1(this, in, current);
             }
             case 43:
             {
-                return Test.MyClass._iceD_opShort1(this, in, current);
+                return Test.MyClass._iceD_opShortIntD(this, in, current);
             }
             case 44:
             {
-                return Test.MyClass._iceD_opShortIntD(this, in, current);
+                return Test.MyClass._iceD_opShortIntDS(this, in, current);
             }
             case 45:
             {
-                return Test.MyClass._iceD_opShortIntDS(this, in, current);
+                return Test.MyClass._iceD_opShortIntLong(this, in, current);
             }
             case 46:
             {
-                return Test.MyClass._iceD_opShortIntLong(this, in, current);
+                return Test.MyClass._iceD_opShortIntLongS(this, in, current);
             }
             case 47:
             {
-                return Test.MyClass._iceD_opShortIntLongS(this, in, current);
+                return Test.MyClass._iceD_opShortIntLongSS(this, in, current);
             }
             case 48:
             {
-                return Test.MyClass._iceD_opShortIntLongSS(this, in, current);
+                return Test.MyClass._iceD_opShortShortSD(this, in, current);
             }
             case 49:
             {
-                return Test.MyClass._iceD_opShortShortSD(this, in, current);
+                return Test.MyClass._iceD_opString(this, in, current);
             }
             case 50:
             {
-                return Test.MyClass._iceD_opString(this, in, current);
+                return Test.MyClass._iceD_opString1(this, in, current);
             }
             case 51:
             {
-                return Test.MyClass._iceD_opString1(this, in, current);
+                return Test.MyClass._iceD_opStringDoubleSD(this, in, current);
             }
             case 52:
             {
-                return Test.MyClass._iceD_opStringDoubleSD(this, in, current);
+                return Test.MyClass._iceD_opStringFloatSD(this, in, current);
             }
             case 53:
             {
-                return Test.MyClass._iceD_opStringFloatSD(this, in, current);
+                return Test.MyClass._iceD_opStringLiterals(this, in, current);
             }
             case 54:
             {
-                return Test.MyClass._iceD_opStringLiterals(this, in, current);
+                return Test.MyClass._iceD_opStringMyEnumD(this, in, current);
             }
             case 55:
             {
-                return Test.MyClass._iceD_opStringMyEnumD(this, in, current);
+                return Test.MyClass._iceD_opStringMyEnumDS(this, in, current);
             }
             case 56:
             {
-                return Test.MyClass._iceD_opStringMyEnumDS(this, in, current);
+                return Test.MyClass._iceD_opStringS(this, in, current);
             }
             case 57:
             {
-                return Test.MyClass._iceD_opStringS(this, in, current);
+                return Test.MyClass._iceD_opStringS1(this, in, current);
             }
             case 58:
             {
-                return Test.MyClass._iceD_opStringS1(this, in, current);
+                return Test.MyClass._iceD_opStringS2(this, in, current);
             }
             case 59:
             {
-                return Test.MyClass._iceD_opStringS2(this, in, current);
+                return Test.MyClass._iceD_opStringSS(this, in, current);
             }
             case 60:
             {
-                return Test.MyClass._iceD_opStringSS(this, in, current);
+                return Test.MyClass._iceD_opStringStringD(this, in, current);
             }
             case 61:
             {
-                return Test.MyClass._iceD_opStringStringD(this, in, current);
+                return Test.MyClass._iceD_opStringStringDS(this, in, current);
             }
             case 62:
             {
-                return Test.MyClass._iceD_opStringStringDS(this, in, current);
+                return Test.MyClass._iceD_opStringStringSD(this, in, current);
             }
             case 63:
             {
-                return Test.MyClass._iceD_opStringStringSD(this, in, current);
+                return Test.MyClass._iceD_opStruct(this, in, current);
             }
             case 64:
             {
-                return Test.MyClass._iceD_opStruct(this, in, current);
+                return Test.MyClass._iceD_opVoid(this, in, current);
             }
             case 65:
             {
-                return Test.MyClass._iceD_opVoid(this, in, current);
-            }
-            case 66:
-            {
                 return Test.MyClass._iceD_shutdown(this, in, current);
             }
-            case 67:
+            case 66:
             {
                 return Test.MyClass._iceD_supportsCompress(this, in, current);
             }

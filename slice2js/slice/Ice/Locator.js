@@ -185,15 +185,15 @@ Ice.LocatorPrx = class extends Ice.ObjectPrx
 
 Slice.defineOperations(Ice.Locator, Ice.LocatorPrx, iceC_Ice_Locator_ids, "::Ice::Locator",
 {
-    "findObjectById": [, 2, 1, , [9], [[Ice.Identity]], ,
+    "findObjectById": [, 2, 2, , [9], [[Ice.Identity]], ,
     [
         Ice.ObjectNotFoundException
     ], , ],
-    "findAdapterById": [, 2, 1, , [9], [[7]], ,
+    "findAdapterById": [, 2, 2, , [9], [[7]], ,
     [
         Ice.AdapterNotFoundException
     ], , ],
-    "getRegistry": [, 2, 1, , ["Ice.LocatorRegistryPrx"], , , , , ]
+    "getRegistry": [, 2, 2, , ["Ice.LocatorRegistryPrx"], , , , , ]
 });
 
 const iceC_Ice_LocatorRegistry_ids = [

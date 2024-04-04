@@ -282,9 +282,9 @@ if 'LocatorPrx' not in _M_Ice.__dict__:
     _M_Ice._t_LocatorDisp = IcePy.defineClass('::Ice::Locator', Locator, (), None, ())
     Locator._ice_type = _M_Ice._t_LocatorDisp
 
-    Locator._op_findObjectById = IcePy.Operation('findObjectById', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, True, None, (), (((), _M_Ice._t_Identity, False, 0),), (), ((), IcePy._t_ObjectPrx, False, 0), (_M_Ice._t_ObjectNotFoundException,))
-    Locator._op_findAdapterById = IcePy.Operation('findAdapterById', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, True, None, (), (((), IcePy._t_string, False, 0),), (), ((), IcePy._t_ObjectPrx, False, 0), (_M_Ice._t_AdapterNotFoundException,))
-    Locator._op_getRegistry = IcePy.Operation('getRegistry', Ice.OperationMode.Idempotent, Ice.OperationMode.Nonmutating, False, None, (), (), (), ((), _M_Ice._t_LocatorRegistryPrx, False, 0), ())
+    Locator._op_findObjectById = IcePy.Operation('findObjectById', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, True, None, (), (((), _M_Ice._t_Identity, False, 0),), (), ((), IcePy._t_ObjectPrx, False, 0), (_M_Ice._t_ObjectNotFoundException,))
+    Locator._op_findAdapterById = IcePy.Operation('findAdapterById', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, True, None, (), (((), IcePy._t_string, False, 0),), (), ((), IcePy._t_ObjectPrx, False, 0), (_M_Ice._t_AdapterNotFoundException,))
+    Locator._op_getRegistry = IcePy.Operation('getRegistry', Ice.OperationMode.Idempotent, Ice.OperationMode.Idempotent, False, None, (), (), (), ((), _M_Ice._t_LocatorRegistryPrx, False, 0), ())
 
     _M_Ice.Locator = Locator
     del Locator

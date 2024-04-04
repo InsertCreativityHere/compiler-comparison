@@ -208,7 +208,7 @@ classdef RegistryPrx < Ice.ObjectPrx
             %
             % See also IceGrid.Session.keepAlive, IceGrid.AdminSession.keepAlive
             
-            is_ = obj.iceInvoke('getSessionTimeout', 1, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getSessionTimeout', 2, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readInt();
             is_.endEncapsulation();
@@ -230,7 +230,7 @@ classdef RegistryPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getSessionTimeout', 1, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getSessionTimeout', 2, true, [], 1, @unmarshal, {}, varargin{:});
         end
         function result = getACMTimeout(obj, varargin)
             % getACMTimeout   Get the value of the ACM timeout. Clients supporting ACM connection heartbeats can enable them instead of
@@ -241,7 +241,7 @@ classdef RegistryPrx < Ice.ObjectPrx
             %
             % Returns (int32) - The timeout (in seconds).
             
-            is_ = obj.iceInvoke('getACMTimeout', 1, true, [], true, {}, varargin{:});
+            is_ = obj.iceInvoke('getACMTimeout', 2, true, [], true, {}, varargin{:});
             is_.startEncapsulation();
             result = is_.readInt();
             is_.endEncapsulation();
@@ -261,7 +261,7 @@ classdef RegistryPrx < Ice.ObjectPrx
                 is_.endEncapsulation();
                 varargout{1} = result;
             end
-            r_ = obj.iceInvokeAsync('getACMTimeout', 1, true, [], 1, @unmarshal, {}, varargin{:});
+            r_ = obj.iceInvokeAsync('getACMTimeout', 2, true, [], 1, @unmarshal, {}, varargin{:});
         end
     end
     methods(Static)

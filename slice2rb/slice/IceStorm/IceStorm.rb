@@ -207,14 +207,14 @@ module ::IceStorm
 
         T_TopicPrx.defineProxy(TopicPrx, nil, [])
 
-        TopicPrx_mixin::OP_getName = ::Ice::__defineOperation('getName', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::Ice::T_string, false, 0], [])
-        TopicPrx_mixin::OP_getPublisher = ::Ice::__defineOperation('getPublisher', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::Ice::T_ObjectPrx, false, 0], [])
-        TopicPrx_mixin::OP_getNonReplicatedPublisher = ::Ice::__defineOperation('getNonReplicatedPublisher', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::Ice::T_ObjectPrx, false, 0], [])
+        TopicPrx_mixin::OP_getName = ::Ice::__defineOperation('getName', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::T_string, false, 0], [])
+        TopicPrx_mixin::OP_getPublisher = ::Ice::__defineOperation('getPublisher', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::T_ObjectPrx, false, 0], [])
+        TopicPrx_mixin::OP_getNonReplicatedPublisher = ::Ice::__defineOperation('getNonReplicatedPublisher', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::Ice::T_ObjectPrx, false, 0], [])
         TopicPrx_mixin::OP_subscribeAndGetPublisher = ::Ice::__defineOperation('subscribeAndGetPublisher', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceStorm::T_QoS, false, 0], [::Ice::T_ObjectPrx, false, 0]], [], [::Ice::T_ObjectPrx, false, 0], [::IceStorm::T_AlreadySubscribed, ::IceStorm::T_InvalidSubscriber, ::IceStorm::T_BadQoS])
         TopicPrx_mixin::OP_unsubscribe = ::Ice::__defineOperation('unsubscribe', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [[::Ice::T_ObjectPrx, false, 0]], [], nil, [])
         TopicPrx_mixin::OP_link = ::Ice::__defineOperation('link', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceStorm::T_TopicPrx, false, 0], [::Ice::T_int, false, 0]], [], nil, [::IceStorm::T_LinkExists])
         TopicPrx_mixin::OP_unlink = ::Ice::__defineOperation('unlink', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [[::IceStorm::T_TopicPrx, false, 0]], [], nil, [::IceStorm::T_NoSuchLink])
-        TopicPrx_mixin::OP_getLinkInfoSeq = ::Ice::__defineOperation('getLinkInfoSeq', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Nonmutating, false, nil, [], [], [::IceStorm::T_LinkInfoSeq, false, 0], [])
+        TopicPrx_mixin::OP_getLinkInfoSeq = ::Ice::__defineOperation('getLinkInfoSeq', ::Ice::OperationMode::Idempotent, ::Ice::OperationMode::Idempotent, false, nil, [], [], [::IceStorm::T_LinkInfoSeq, false, 0], [])
         TopicPrx_mixin::OP_getSubscribers = ::Ice::__defineOperation('getSubscribers', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], [::Ice::T_IdentitySeq, false, 0], [])
         TopicPrx_mixin::OP_destroy = ::Ice::__defineOperation('destroy', ::Ice::OperationMode::Normal, ::Ice::OperationMode::Normal, false, nil, [], [], nil, [])
     end
