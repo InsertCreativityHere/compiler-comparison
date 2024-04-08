@@ -42,12 +42,12 @@ public class DispatchMetrics extends Metrics
     public int userException;
 
     /**
-     * The size of the dispatch. This corresponds to the size of the marshalled input parameters.
+     * The size of the dispatch. This corresponds to the size of the marshaled input parameters.
      **/
     public long size;
 
     /**
-     * The size of the dispatch reply. This corresponds to the size of the marshalled output and return parameters.
+     * The size of the dispatch reply. This corresponds to the size of the marshaled output and return parameters.
      **/
     public long replySize;
 
@@ -68,7 +68,7 @@ public class DispatchMetrics extends Metrics
     }
 
     /** @hidden */
-    public static final long serialVersionUID = 3229990010190511621L;
+    public static final long serialVersionUID = 9028236296649277146L;
 
     /** @hidden */
     @Override

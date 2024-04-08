@@ -634,11 +634,11 @@ public:
      */
     ::std::int32_t userException = 0;
     /**
-     * The size of the dispatch. This corresponds to the size of the marshalled input parameters.
+     * The size of the dispatch. This corresponds to the size of the marshaled input parameters.
      */
     ::std::int64_t size = INT64_C(0);
     /**
-     * The size of the dispatch reply. This corresponds to the size of the marshalled output and return parameters.
+     * The size of the dispatch reply. This corresponds to the size of the marshaled output and return parameters.
      */
     ::std::int64_t replySize = INT64_C(0);
 
@@ -705,11 +705,11 @@ public:
     ChildInvocationMetricsPtr ice_clone() const { return ::std::static_pointer_cast <ChildInvocationMetrics>(_iceCloneImpl()); }
 
     /**
-     * The size of the invocation. This corresponds to the size of the marshalled input parameters.
+     * The size of the invocation. This corresponds to the size of the marshaled input parameters.
      */
     ::std::int64_t size = INT64_C(0);
     /**
-     * The size of the invocation reply. This corresponds to the size of the marshalled output and return
+     * The size of the invocation reply. This corresponds to the size of the marshaled output and return
      * parameters.
      */
     ::std::int64_t replySize = INT64_C(0);

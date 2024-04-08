@@ -1149,9 +1149,9 @@ public extension ClassResolver {
 open class MXDispatchMetrics: MXMetrics {
     /// The number of dispatch that failed with a user exception.
     public var userException: Swift.Int32 = 0
-    /// The size of the dispatch. This corresponds to the size of the marshalled input parameters.
+    /// The size of the dispatch. This corresponds to the size of the marshaled input parameters.
     public var size: Swift.Int64 = 0
-    /// The size of the dispatch reply. This corresponds to the size of the marshalled output and return parameters.
+    /// The size of the dispatch reply. This corresponds to the size of the marshaled output and return parameters.
     public var replySize: Swift.Int64 = 0
 
     public required init() {
@@ -1215,9 +1215,9 @@ public extension ClassResolver {
 /// collocated. An invocation can have multiple child invocation if it is retried. Child invocation metrics are
 /// embedded within InvocationMetrics.
 open class MXChildInvocationMetrics: MXMetrics {
-    /// The size of the invocation. This corresponds to the size of the marshalled input parameters.
+    /// The size of the invocation. This corresponds to the size of the marshaled input parameters.
     public var size: Swift.Int64 = 0
-    /// The size of the invocation reply. This corresponds to the size of the marshalled output and return
+    /// The size of the invocation reply. This corresponds to the size of the marshaled output and return
     /// parameters.
     public var replySize: Swift.Int64 = 0
 

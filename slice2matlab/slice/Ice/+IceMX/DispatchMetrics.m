@@ -14,9 +14,9 @@ classdef DispatchMetrics < IceMX.Metrics
     properties
         % userException - The number of dispatch that failed with a user exception.
         userException int32
-        % size - The size of the dispatch. This corresponds to the size of the marshalled input parameters.
+        % size - The size of the dispatch. This corresponds to the size of the marshaled input parameters.
         size int64
-        % replySize - The size of the dispatch reply. This corresponds to the size of the marshalled output and return parameters.
+        % replySize - The size of the dispatch reply. This corresponds to the size of the marshaled output and return parameters.
         replySize int64
     end
     methods

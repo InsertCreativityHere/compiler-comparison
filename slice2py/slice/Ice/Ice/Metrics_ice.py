@@ -462,8 +462,8 @@ if 'DispatchMetrics' not in _M_IceMX.__dict__:
          Provides information on servant dispatch.
         Members:
         userException --  The number of dispatch that failed with a user exception.
-        size --  The size of the dispatch. This corresponds to the size of the marshalled input parameters.
-        replySize --  The size of the dispatch reply. This corresponds to the size of the marshalled output and return parameters.
+        size --  The size of the dispatch. This corresponds to the size of the marshaled input parameters.
+        replySize --  The size of the dispatch reply. This corresponds to the size of the marshaled output and return parameters.
         """
         def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0, userException=0, size=0, replySize=0):
             _M_IceMX.Metrics.__init__(self, id, total, current, totalLifetime, failures)
@@ -501,8 +501,8 @@ if 'ChildInvocationMetrics' not in _M_IceMX.__dict__:
          collocated. An invocation can have multiple child invocation if it is retried. Child invocation metrics are
          embedded within InvocationMetrics.
         Members:
-        size --  The size of the invocation. This corresponds to the size of the marshalled input parameters.
-        replySize --  The size of the invocation reply. This corresponds to the size of the marshalled output and return
+        size --  The size of the invocation. This corresponds to the size of the marshaled input parameters.
+        replySize --  The size of the invocation reply. This corresponds to the size of the marshaled output and return
          parameters.
         """
         def __init__(self, id='', total=0, current=0, totalLifetime=0, failures=0, size=0, replySize=0):
